@@ -7,4 +7,4 @@
 
 import J2Lib
 
-Main.run()
+Main.run(arguments: CommandLine.arguments)
