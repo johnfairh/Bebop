@@ -1,0 +1,659 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		02C2401C239A6F0700518764 /* J2Lib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C24012239A6F0700518764 /* J2Lib.framework */; };
+		02C24021239A6F0700518764 /* J2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C24020239A6F0700518764 /* J2Tests.swift */; };
+		02C2402D239A6FD700518764 /* Wrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C2402C239A6FD700518764 /* Wrapper.swift */; };
+		02C2403F239A784600518764 /* RubyGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C2403E239A784600518764 /* RubyGateway.framework */; };
+		02C24041239A7ABC00518764 /* RubyGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C2403E239A784600518764 /* RubyGateway.framework */; };
+		02F2B3AF239A7CD400397BC6 /* RubyGateway.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 02C2403E239A784600518764 /* RubyGateway.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		02F2B3C4239A7E2A00397BC6 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C24034239A732200518764 /* main.swift */; };
+		02F2B3C8239A804100397BC6 /* J2Lib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C24012239A6F0700518764 /* J2Lib.framework */; };
+		02F2B3C9239A804100397BC6 /* J2Lib.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02C24012239A6F0700518764 /* J2Lib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		02F2B3CD239A806100397BC6 /* RubyGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C2403E239A784600518764 /* RubyGateway.framework */; };
+		02F2B3CE239A806100397BC6 /* RubyGateway.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02C2403E239A784600518764 /* RubyGateway.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		02C2403B239A740900518764 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02C24009239A6F0700518764 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 02C24011239A6F0700518764;
+			remoteInfo = J2Lib;
+		};
+		02F2B3CA239A804100397BC6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02C24009239A6F0700518764 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 02C24011239A6F0700518764;
+			remoteInfo = J2Lib;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		02F2B3AE239A7CA400397BC6 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				02F2B3AF239A7CD400397BC6 /* RubyGateway.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		02F2B3CC239A804200397BC6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				02F2B3C9239A804100397BC6 /* J2Lib.framework in Embed Frameworks */,
+				02F2B3CE239A806100397BC6 /* RubyGateway.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		02C24012239A6F0700518764 /* J2Lib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = J2Lib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		02C24016239A6F0700518764 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02C2401B239A6F0700518764 /* J2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = J2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		02C24020239A6F0700518764 /* J2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = J2Tests.swift; sourceTree = "<group>"; };
+		02C24022239A6F0700518764 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02C2402C239A6FD700518764 /* Wrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wrapper.swift; sourceTree = "<group>"; };
+		02C24034239A732200518764 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		02C2403E239A784600518764 /* RubyGateway.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RubyGateway.framework; path = Carthage/Build/Mac/RubyGateway.framework; sourceTree = "<group>"; };
+		02F2B3B4239A7E0C00397BC6 /* J2CLI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = J2CLI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		02F2B3D0239A89D700397BC6 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		02C2400F239A6F0700518764 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02C2403F239A784600518764 /* RubyGateway.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		02C24018239A6F0700518764 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02C2401C239A6F0700518764 /* J2Lib.framework in Frameworks */,
+				02C24041239A7ABC00518764 /* RubyGateway.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		02F2B3B1239A7E0C00397BC6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02F2B3C8239A804100397BC6 /* J2Lib.framework in Frameworks */,
+				02F2B3CD239A806100397BC6 /* RubyGateway.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		02C24008239A6F0700518764 = {
+			isa = PBXGroup;
+			children = (
+				02F2B3D0239A89D700397BC6 /* Package.swift */,
+				02C24014239A6F0700518764 /* J2Lib */,
+				02C2401F239A6F0700518764 /* J2Tests */,
+				02C24033239A732200518764 /* J2CLI */,
+				02C24013239A6F0700518764 /* Products */,
+				02F2B3C7239A804100397BC6 /* Frameworks */,
+				02C2403E239A784600518764 /* RubyGateway.framework */,
+			);
+			sourceTree = "<group>";
+		};
+		02C24013239A6F0700518764 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				02C24012239A6F0700518764 /* J2Lib.framework */,
+				02C2401B239A6F0700518764 /* J2Tests.xctest */,
+				02F2B3B4239A7E0C00397BC6 /* J2CLI.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		02C24014239A6F0700518764 /* J2Lib */ = {
+			isa = PBXGroup;
+			children = (
+				02C24016239A6F0700518764 /* Info.plist */,
+				02C2402C239A6FD700518764 /* Wrapper.swift */,
+			);
+			name = J2Lib;
+			path = Sources/J2Lib;
+			sourceTree = "<group>";
+		};
+		02C2401F239A6F0700518764 /* J2Tests */ = {
+			isa = PBXGroup;
+			children = (
+				02C24020239A6F0700518764 /* J2Tests.swift */,
+				02C24022239A6F0700518764 /* Info.plist */,
+			);
+			name = J2Tests;
+			path = Tests/J2Tests;
+			sourceTree = "<group>";
+		};
+		02C24033239A732200518764 /* J2CLI */ = {
+			isa = PBXGroup;
+			children = (
+				02C24034239A732200518764 /* main.swift */,
+			);
+			name = J2CLI;
+			path = Sources/J2CLI;
+			sourceTree = "<group>";
+		};
+		02F2B3C7239A804100397BC6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		02C2400D239A6F0700518764 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		02C24011239A6F0700518764 /* J2Lib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 02C24026239A6F0700518764 /* Build configuration list for PBXNativeTarget "J2Lib" */;
+			buildPhases = (
+				02C2400D239A6F0700518764 /* Headers */,
+				02C2400E239A6F0700518764 /* Sources */,
+				02C2400F239A6F0700518764 /* Frameworks */,
+				02C24010239A6F0700518764 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = J2Lib;
+			productName = J2;
+			productReference = 02C24012239A6F0700518764 /* J2Lib.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		02C2401A239A6F0700518764 /* J2Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 02C24029239A6F0700518764 /* Build configuration list for PBXNativeTarget "J2Tests" */;
+			buildPhases = (
+				02C24017239A6F0700518764 /* Sources */,
+				02C24018239A6F0700518764 /* Frameworks */,
+				02C24019239A6F0700518764 /* Resources */,
+				02F2B3AE239A7CA400397BC6 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				02C2403C239A740900518764 /* PBXTargetDependency */,
+			);
+			name = J2Tests;
+			productName = J2Tests;
+			productReference = 02C2401B239A6F0700518764 /* J2Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		02F2B3B3239A7E0C00397BC6 /* J2CLI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 02F2B3C1239A7E0D00397BC6 /* Build configuration list for PBXNativeTarget "J2CLI" */;
+			buildPhases = (
+				02F2B3B0239A7E0C00397BC6 /* Sources */,
+				02F2B3B1239A7E0C00397BC6 /* Frameworks */,
+				02F2B3B2239A7E0C00397BC6 /* Resources */,
+				02F2B3CC239A804200397BC6 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				02F2B3CB239A804100397BC6 /* PBXTargetDependency */,
+			);
+			name = J2CLI;
+			productName = J2CLI;
+			productReference = 02F2B3B4239A7E0C00397BC6 /* J2CLI.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		02C24009239A6F0700518764 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1120;
+				LastUpgradeCheck = 1120;
+				ORGANIZATIONNAME = "Too Many Ladybirds";
+				TargetAttributes = {
+					02C24011239A6F0700518764 = {
+						CreatedOnToolsVersion = 11.2.1;
+						LastSwiftMigration = 1120;
+					};
+					02C2401A239A6F0700518764 = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+					02F2B3B3239A7E0C00397BC6 = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 02C2400C239A6F0700518764 /* Build configuration list for PBXProject "J2" */;
+			compatibilityVersion = "Xcode 11.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 02C24008239A6F0700518764;
+			productRefGroup = 02C24013239A6F0700518764 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				02C24011239A6F0700518764 /* J2Lib */,
+				02C2401A239A6F0700518764 /* J2Tests */,
+				02F2B3B3239A7E0C00397BC6 /* J2CLI */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		02C24010239A6F0700518764 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		02C24019239A6F0700518764 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		02F2B3B2239A7E0C00397BC6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		02C2400E239A6F0700518764 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02C2402D239A6FD700518764 /* Wrapper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		02C24017239A6F0700518764 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02C24021239A6F0700518764 /* J2Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		02F2B3B0239A7E0C00397BC6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02F2B3C4239A7E2A00397BC6 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		02C2403C239A740900518764 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 02C24011239A6F0700518764 /* J2Lib */;
+			targetProxy = 02C2403B239A740900518764 /* PBXContainerItemProxy */;
+		};
+		02F2B3CB239A804100397BC6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 02C24011239A6F0700518764 /* J2Lib */;
+			targetProxy = 02F2B3CA239A804100397BC6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		02C24024239A6F0700518764 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		02C24025239A6F0700518764 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		02C24027239A6F0700518764 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = D243YH28Y6;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				INFOPLIST_FILE = Sources/J2Lib/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = tml.J2;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		02C24028239A6F0700518764 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = D243YH28Y6;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				INFOPLIST_FILE = Sources/J2Lib/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = tml.J2;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		02C2402A239A6F0700518764 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = D243YH28Y6;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				INFOPLIST_FILE = Tests/J2Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = tml.J2Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		02C2402B239A6F0700518764 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = D243YH28Y6;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				INFOPLIST_FILE = Tests/J2Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = tml.J2Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		02F2B3C2239A7E0D00397BC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				INFOPLIST_FILE = Sources/J2Lib/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = tml.J2CLI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		02F2B3C3239A7E0D00397BC6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				INFOPLIST_FILE = Sources/J2Lib/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = tml.J2CLI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		02C2400C239A6F0700518764 /* Build configuration list for PBXProject "J2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				02C24024239A6F0700518764 /* Debug */,
+				02C24025239A6F0700518764 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		02C24026239A6F0700518764 /* Build configuration list for PBXNativeTarget "J2Lib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				02C24027239A6F0700518764 /* Debug */,
+				02C24028239A6F0700518764 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		02C24029239A6F0700518764 /* Build configuration list for PBXNativeTarget "J2Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				02C2402A239A6F0700518764 /* Debug */,
+				02C2402B239A6F0700518764 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		02F2B3C1239A7E0D00397BC6 /* Build configuration list for PBXNativeTarget "J2CLI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				02F2B3C2239A7E0D00397BC6 /* Debug */,
+				02F2B3C3239A7E0D00397BC6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 02C24009239A6F0700518764 /* Project object */;
+}
