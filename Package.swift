@@ -9,7 +9,7 @@ let package = Package(
         .executable(name: "j2", targets: ["J2Lib", "J2CLI"])
     ],
     dependencies: [
-        .package(url: "https://github.com/johnfairh/RubyGateway", from: "3.1.0")
+        .package(url: "https://github.com/johnfairh/RubyGateway", from: "3.2.0")
     ],
     targets: [
         .target(

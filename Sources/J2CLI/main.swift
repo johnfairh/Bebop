@@ -6,5 +6,7 @@
 //
 
 import J2Lib
+import Foundation
 
-Main.run(arguments: CommandLine.arguments)
+let exitStatus = CLIEntry.run(arguments: CommandLine.arguments)
+exit(exitStatus)

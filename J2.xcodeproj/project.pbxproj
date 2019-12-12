@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		02C2401C239A6F0700518764 /* J2Lib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C24012239A6F0700518764 /* J2Lib.framework */; };
-		02C24021239A6F0700518764 /* J2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C24020239A6F0700518764 /* J2Tests.swift */; };
-		02C2402D239A6FD700518764 /* Wrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C2402C239A6FD700518764 /* Wrapper.swift */; };
+		02C2402D239A6FD700518764 /* RubyJazzy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C2402C239A6FD700518764 /* RubyJazzy.swift */; };
 		02C2403F239A784600518764 /* RubyGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C2403E239A784600518764 /* RubyGateway.framework */; };
 		02C24041239A7ABC00518764 /* RubyGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C2403E239A784600518764 /* RubyGateway.framework */; };
+		02D4B26323A24F2E0094FC62 /* CLIEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D4B26223A24F2E0094FC62 /* CLIEntry.swift */; };
+		02D4B26523A251840094FC62 /* RubyJazzyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D4B26423A251840094FC62 /* RubyJazzyTests.swift */; };
 		02F2B3AF239A7CD400397BC6 /* RubyGateway.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 02C2403E239A784600518764 /* RubyGateway.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		02F2B3C4239A7E2A00397BC6 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C24034239A732200518764 /* main.swift */; };
 		02F2B3C8239A804100397BC6 /* J2Lib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C24012239A6F0700518764 /* J2Lib.framework */; };
@@ -66,11 +67,12 @@
 		02C24012239A6F0700518764 /* J2Lib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = J2Lib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		02C24016239A6F0700518764 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02C2401B239A6F0700518764 /* J2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = J2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		02C24020239A6F0700518764 /* J2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = J2Tests.swift; sourceTree = "<group>"; };
 		02C24022239A6F0700518764 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		02C2402C239A6FD700518764 /* Wrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wrapper.swift; sourceTree = "<group>"; };
+		02C2402C239A6FD700518764 /* RubyJazzy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubyJazzy.swift; sourceTree = "<group>"; };
 		02C24034239A732200518764 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		02C2403E239A784600518764 /* RubyGateway.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RubyGateway.framework; path = Carthage/Build/Mac/RubyGateway.framework; sourceTree = "<group>"; };
+		02D4B26223A24F2E0094FC62 /* CLIEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLIEntry.swift; sourceTree = "<group>"; };
+		02D4B26423A251840094FC62 /* RubyJazzyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubyJazzyTests.swift; sourceTree = "<group>"; };
 		02F2B3B4239A7E0C00397BC6 /* J2CLI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = J2CLI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02F2B3D0239A89D700397BC6 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -131,8 +133,9 @@
 		02C24014239A6F0700518764 /* J2Lib */ = {
 			isa = PBXGroup;
 			children = (
+				02D4B26223A24F2E0094FC62 /* CLIEntry.swift */,
+				02C2402C239A6FD700518764 /* RubyJazzy.swift */,
 				02C24016239A6F0700518764 /* Info.plist */,
-				02C2402C239A6FD700518764 /* Wrapper.swift */,
 			);
 			name = J2Lib;
 			path = Sources/J2Lib;
@@ -141,7 +144,7 @@
 		02C2401F239A6F0700518764 /* J2Tests */ = {
 			isa = PBXGroup;
 			children = (
-				02C24020239A6F0700518764 /* J2Tests.swift */,
+				02D4B26423A251840094FC62 /* RubyJazzyTests.swift */,
 				02C24022239A6F0700518764 /* Info.plist */,
 			);
 			name = J2Tests;
@@ -240,7 +243,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1120;
-				LastUpgradeCheck = 1120;
+				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Too Many Ladybirds";
 				TargetAttributes = {
 					02C24011239A6F0700518764 = {
@@ -304,7 +307,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02C2402D239A6FD700518764 /* Wrapper.swift in Sources */,
+				02C2402D239A6FD700518764 /* RubyJazzy.swift in Sources */,
+				02D4B26323A24F2E0094FC62 /* CLIEntry.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,7 +316,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02C24021239A6F0700518764 /* J2Tests.swift in Sources */,
+				02D4B26523A251840094FC62 /* RubyJazzyTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -568,7 +572,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
@@ -593,7 +597,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
