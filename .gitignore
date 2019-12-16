@@ -22,3 +22,5 @@ xcuserdata
 Carthage
 *.swp
 Package.resolved
+node_modules
+.stylelintcache

@@ -1,0 +1,118 @@
+// J2 FW2020 theme
+//
+// Distributed under the MIT license, https://github.com/johnfairh/J2/blob/master/LICENSE
+
+.j2-details {
+  background-color: var(--green);
+}
+
+.j2-index {
+  background-color: var(--blue);
+}
+
+.j2-abstract {
+  background-color: var(--orange);
+}
+
+.j2-title {
+  background-color: var(--pink);
+}
+
+.j2-breadcrumb {
+  background-color: var(--yellow);
+}
+
+.j2-nav {
+  min-width: 140px;
+  overflow-x: scroll;
+  background-color: var(--cyan);
+}
+
+.j2-footer {
+  background-color: var(--indigo);
+}
+
+.j2-titlebar {
+  background-color: var(--indigo);
+}
+
+/* Nav width refinements */
+
+@include media-breakpoint-up(lg) {
+  .j2-nav {
+    max-width: 250px;
+    @supports (position: sticky) {
+      position: sticky;
+      top: 75px;
+      max-height: subtract(100vh, 75px); /* XXX breadcrumbs + header */
+      overflow-y: auto;
+    }
+  }
+
+  .j2-titlebar {
+    @supports (position: sticky) {
+      position: sticky;
+      top: 0;
+      z-index: 1020;
+    }
+  }
+
+  .j2-breadcrumb-nav {
+    @supports (position: sticky) {
+      position: sticky;
+      top: 40px;
+      z-index: 1010; /* Must be less than titlebar for dropdown to work! */
+    }
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  .j2-nav {
+    max-width: 300px;
+  }
+}
+
+/* Adjust for smalltext (XXX rems) */
+
+.breadcrumb {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin: 0;
+}
+
+/* ??? */
+
+.navbar {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* Searchbar */
+
+.form-control::placeholder {
+  color: var(--gray);
+}
+
+.navbar-nav form:focus-within {
+  width: 60%;
+}
+
+/* Language-switcher menu, positioning and UI */
+
+.j2-langmenu {
+  padding: .75rem 1rem .25rem;
+}
+
+.dropdown-toggle:focus {
+  outline: none;
+}
+
+.dropdown-menu {
+  top: 0;
+  min-width: 0;
+}
+
+/* For footer: linespacing doesn't decrease when 'small' */
+.small p {
+  margin-bottom: .8rem;
+}
