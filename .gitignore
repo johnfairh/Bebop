@@ -24,3 +24,4 @@ Carthage
 Package.resolved
 node_modules
 .stylelintcache
+dist

@@ -3,19 +3,19 @@
 
 # Stuff to publish to the theme
 THEMEFILES=fw2020.min.css \
-		   fw2020.js \
-		   jquery.slim.min.js \
-		   bs-util.js \
-		   bs-dropdown.js
+	fw2020.js \
+	jquery.slim.min.js \
+	bs-util.js \
+	bs-dropdown.js
 
 THEMEPATHS=$(addprefix dist/, ${THEMEFILES})
 
 # Stuff for testing
 DISTFILES=${THEMEFILES} \
-		  fw2020.min.css.map \
-		  jquery.slim.min.map \
-		  bs-util.js.map \
-		  bs-dropdown.js.map
+	fw2020.min.css.map \
+	jquery.slim.min.map \
+	bs-util.js.map \
+	bs-dropdown.js.map
 
 DISTPATHS=$(addprefix dist/, ${DISTFILES})
 
