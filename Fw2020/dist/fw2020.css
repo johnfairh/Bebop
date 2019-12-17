@@ -9718,7 +9718,7 @@ a.text-dark:hover, a.text-dark:focus {
 .j2-nav {
   min-width: 140px;
   overflow-x: scroll;
-  background-color: #fbfbfb;
+  background-color: #f8f9fa;
   border-right: 1px solid #ced4da;
 }
 
@@ -9817,47 +9817,44 @@ a.text-dark:hover, a.text-dark:focus {
   margin-bottom: .8rem;
 }
 
-/* Navigation */
-.j2-nav-list-outer {
+/* Left navigation */
+.j2-nav-list {
   padding-left: 0;
   line-height: 1.7;
   list-style-type: none;
 }
 
-.j2-nav-list-outer > li {
+.j2-nav-list > li {
   padding-top: .5rem;
   padding-bottom: .5rem;
 }
 
-.j2-nav-list-outer ul {
+.j2-nav-list ul {
   padding-left: .5rem;
+  font-size: .95rem;
   list-style-type: none;
 }
 
-.j2-nav-list-outer ul li {
-  font-size: .95rem;
-}
-
-.j2-nav-list-outer a {
+.j2-nav-topic, .j2-nav-item {
   display: block;
   color: #212529;
+}
+
+.j2-nav-topic:hover, .j2-nav-item:hover {
+  color: #000;
   text-decoration: none;
 }
 
-.j2-nav-list-outer a:hover {
-  color: #000;
-}
-
-.j2-nav-list-outer .active {
+.j2-nav-topic.active, .active.j2-nav-item {
   font-weight: 600;
   color: #212529;
 }
 
-.j2-nav-item-inner a {
+.j2-nav-item {
   color: #6c757d;
 }
 
-.j2-nav-item-inner a:hover {
+.j2-nav-item:hover {
   color: #343a40;
 }
 /*# sourceMappingURL=fw2020.css.map */

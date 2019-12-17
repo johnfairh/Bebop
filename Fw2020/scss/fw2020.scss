@@ -25,7 +25,7 @@
 .j2-nav {
   min-width: 140px;
   overflow-x: scroll;
-  background-color: #fbfbfb;
+  background-color: $gray-100;
   border-right: 1px solid $gray-400;
 }
 
@@ -112,8 +112,8 @@
   margin-bottom: .8rem;
 }
 
-/* Navigation */
-.j2-nav-list-outer {
+/* Left navigation */
+.j2-nav-list {
   padding-left: 0;
   line-height: 1.7;
   list-style-type: none;
@@ -125,31 +125,31 @@
 
   ul {
     padding-left: .5rem;
+    font-size: .95rem;
     list-style-type: none;
-
-    li {
-      font-size: .95rem;
-    }
   }
+}
 
-  a {
-    display: block;
-    color: $body-color;
+.j2-nav-topic {
+  display: block;
+  color: $body-color;
+
+  &:hover {
+    color: $black;
     text-decoration: none;
-
-    &:hover {
-      color: $black;
-    }
   }
 
-  .active {
+  &.active {
     font-weight: 600;
     color: $body-color;
   }
 }
 
-.j2-nav-item-inner a {
+.j2-nav-item {
+  @extend .j2-nav-topic;
+
   color: $gray-600;
+
   &:hover {
     color: $gray-800;
   }
