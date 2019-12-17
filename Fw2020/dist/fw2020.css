@@ -4674,7 +4674,7 @@ input[type="button"].btn-block {
   margin-bottom: 1rem;
   list-style: none;
   background-color: #e9ecef;
-  border-radius: 0.25rem;
+  border-radius: 0;
 }
 
 .breadcrumb-item + .breadcrumb-item {
@@ -9718,7 +9718,8 @@ a.text-dark:hover, a.text-dark:focus {
 .j2-nav {
   min-width: 140px;
   overflow-x: scroll;
-  background-color: var(--cyan);
+  background-color: #fbfbfb;
+  border-right: 1px solid #ced4da;
 }
 
 .j2-footer {
@@ -9732,7 +9733,7 @@ a.text-dark:hover, a.text-dark:focus {
 /* Nav width refinements */
 @media (min-width: 992px) {
   .j2-nav {
-    max-width: 250px;
+    max-width: 300px;
   }
   @supports ((position: -webkit-sticky) or (position: sticky)) {
     .j2-nav {
@@ -9763,12 +9764,6 @@ a.text-dark:hover, a.text-dark:focus {
   }
 }
 
-@media (min-width: 1200px) {
-  .j2-nav {
-    max-width: 300px;
-  }
-}
-
 /* Adjust for smalltext (XXX rems) */
 .breadcrumb {
   padding-top: 8px;
@@ -9784,19 +9779,19 @@ a.text-dark:hover, a.text-dark:focus {
 
 /* Searchbar */
 .form-control::-webkit-input-placeholder {
-  color: var(--gray);
+  color: #ced4da;
 }
 .form-control::-moz-placeholder {
-  color: var(--gray);
+  color: #ced4da;
 }
 .form-control:-ms-input-placeholder {
-  color: var(--gray);
+  color: #ced4da;
 }
 .form-control::-ms-input-placeholder {
-  color: var(--gray);
+  color: #ced4da;
 }
 .form-control::placeholder {
-  color: var(--gray);
+  color: #ced4da;
 }
 
 .navbar-nav form:focus-within {
@@ -9820,5 +9815,49 @@ a.text-dark:hover, a.text-dark:focus {
 /* For footer: linespacing doesn't decrease when 'small' */
 .small p {
   margin-bottom: .8rem;
+}
+
+/* Navigation */
+.j2-nav-list-outer {
+  padding-left: 0;
+  line-height: 1.7;
+  list-style-type: none;
+}
+
+.j2-nav-list-outer > li {
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+}
+
+.j2-nav-list-outer ul {
+  padding-left: .5rem;
+  list-style-type: none;
+}
+
+.j2-nav-list-outer ul li {
+  font-size: .95rem;
+}
+
+.j2-nav-list-outer a {
+  display: block;
+  color: #212529;
+  text-decoration: none;
+}
+
+.j2-nav-list-outer a:hover {
+  color: #000;
+}
+
+.j2-nav-list-outer .active {
+  font-weight: 600;
+  color: #212529;
+}
+
+.j2-nav-item-inner a {
+  color: #6c757d;
+}
+
+.j2-nav-item-inner a:hover {
+  color: #343a40;
 }
 /*# sourceMappingURL=fw2020.css.map */
