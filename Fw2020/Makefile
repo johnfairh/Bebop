@@ -13,7 +13,9 @@ THEMEPATHS=$(addprefix dist/, ${THEMEFILES})
 # Stuff for testing
 DISTFILES=${THEMEFILES} \
 		  fw2020.min.css.map \
-		  jquery.slim.min.map
+		  jquery.slim.min.map \
+		  bs-util.js.map \
+		  bs-dropdown.js.map
 
 DISTPATHS=$(addprefix dist/, ${DISTFILES})
 
