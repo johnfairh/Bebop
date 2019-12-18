@@ -79,7 +79,7 @@
 
         <!-- left nav -->
 
-        <div class="col d-none d-lg-flex col-auto j2-nav" id="navColumn">
+        <div class="col d-none d-lg-flex flex-column col-auto j2-nav" id="navColumn">
 
                 <nav>
                 <ul class="j2-nav-list">
@@ -122,6 +122,15 @@
                     </li>
                 </ul>
                 </nav>
+
+           <!-- size-class debug -->
+           <div class="d-flex">
+             <div class="d-sm-none">XS</div>
+             <div class="d-none d-sm-inline d-md-none">SM</div>
+             <div class="d-none d-md-inline d-lg-none">MD</div>
+             <div class="d-none d-lg-inline d-xl-none">LG</div>
+             <div class="d-none d-xl-inline">XL</div>
+           </div>
         </div>
 
         <!-- article body -->
@@ -176,14 +185,6 @@
     </div>
 
 </div> <!-- /container -->
-
-<!-- size-class debug -->
-
-<div class="d-sm-none">XS</div>
-<div class="d-none d-sm-inline d-md-none">SM</div>
-<div class="d-none d-md-inline d-lg-none">MD</div>
-<div class="d-none d-lg-inline d-xl-none">LG</div>
-<div class="d-none d-xl-inline">XL</div>
  
     <script src="../dist/jquery.slim.min.js"></script>
     <script src="../dist/bs-util.js"></script>
