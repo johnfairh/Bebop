@@ -11,6 +11,8 @@
 @import "../node_modules/bootstrap/scss/mixins";
 
 $navbar-dark-brand-color: $gray-200;
+$navbar-dark-color: $gray-200;
+$navbar-dark-brand-hover-color: $gray-200;
 
 // 'Optional' per bootstrap
 @import "../node_modules/bootstrap/scss/root";

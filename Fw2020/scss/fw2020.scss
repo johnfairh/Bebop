@@ -7,9 +7,12 @@
 $col-header-footer-bg: $gray-800;
 $col-header-footer-fg: $gray-200;
 $col-navigation-bg:    $gray-100;
-$col-navigation-fg:    $body-color;
-$col-body-fg:          $body-color;
-$col-body-bg:          $body-bg;
+$col-navigation-fg:    $gray-900;
+$col-navigation-fg2:   $gray-600;
+$col-body-fg:          $gray-900;
+$col-body-bg:          $white;
+
+$body-link-color: #4183c4;
 
 $navigation-border-color: $gray-400;
 $navigation-border: 1px solid $navigation-border-color;
@@ -17,38 +20,42 @@ $navigation-border: 1px solid $navigation-border-color;
 @mixin header-footer-cols {
   color: $col-header-footer-fg;
   background-color: $col-header-footer-bg;
+  a {
+    color: $col-header-footer-fg;
+  }
+}
+
+@mixin navigation-base-cols {
+  color: $col-navigation-fg;
+  background-color: $col-navigation-bg;
 }
 
 @mixin navigation-cols {
-  color: $col-navigation-fg;
-  background-color: $col-navigation-bg;
+  @include navigation-base-cols();
+  a {
+    color: $col-navigation-fg;
+  }
 }
 
 @mixin body-cols {
   color: $col-body-fg;
   background-color: $col-body-bg;
+  a {
+    color: $body-link-color;
+  }
+}
+
+a:hover {
+  opacity: .75;
 }
 
 body {
+  @include navigation-base-cols();
+}
+
+.j2-article {
   @include body-cols();
 }
-
-/*
-.j2-details {
-  background-color: var(--green);
-}
-
-.j2-index {
-  background-color: var(--blue);
-}
-
-.j2-abstract {
-  background-color: var(--orange);
-}
-
-.j2-title {
-}
-*/
 
 .j2-breadcrumb {
   @include navigation-cols();
@@ -56,19 +63,26 @@ body {
 }
 
 .j2-nav {
-  @include navigation-cols();
+  @include navigation-base-cols();
   min-width: 140px;
   overflow-x: scroll;
   border-right: $navigation-border;
 }
 
 .j2-footer {
-  @include header-footer-cols();
+  @include navigation-cols();
+  border-top: $navigation-border;
+  border-bottom: $navigation-border;
 }
 
 .j2-titlebar {
   @include header-footer-cols();
   @extend .navbar-dark;
+}
+
+.j2-coverage {
+  @extend .small;
+  opacity: .5;
 }
 
 /* Nav width refinements */
@@ -160,27 +174,25 @@ body {
   }
 }
 
-.j2-nav-topic {
-  display: block;
-  color: $body-color;
-
+@mixin colored-link($color) {
+  color: $color;
   &:hover {
-    color: $black;
-    text-decoration: none;
+    color: $color;
+    opacity: .75;
   }
+}
+
+.j2-nav-topic {
+  @include colored-link($col-navigation-fg);
+
+  display: block; // fill to right for hover
 
   &.active {
     font-weight: 600;
-    color: $body-color;
   }
 }
 
 .j2-nav-item {
   @extend .j2-nav-topic;
-
-  color: $gray-600;
-
-  &:hover {
-    color: $gray-800;
-  }
+  @include colored-link($col-navigation-fg2);
 }

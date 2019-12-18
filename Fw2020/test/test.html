@@ -23,9 +23,9 @@
       </a>
 
       <div style="align-items-baseline">
-      <a class="navbar-brand mr-1">J2 Project 0.5.12 docs</a>
+      <div class="navbar-brand mr-1">J2 Project 0.5.12 docs</div>
 
-      <span class="navbar-text small d-none d-md-inline-block">(100% documented)</span>
+      <span class="navbar-text j2-coverage d-none d-md-inline-block">(100% documented)</span>
       </div>
 
       <div class="navbar-nav ml-auto justify-content-end flex-fill">
@@ -135,7 +135,7 @@
 
         <!-- article body -->
 
-        <div class="col">
+        <div class="col d-flex flex-column j2-article">
 
         <!-- fullwidth header -->
 
@@ -148,13 +148,13 @@
         <!-- Summary + Index -->
         <div class="row">
 
-            <div class="col order-sm-first order-last j2-abstract">
+            <div class="col order-sm-first order-last">
                 <p>The main heading matter.</p>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex</p>
 
             </div>
 
-            <div class="col-sm-auto j2-index">
+            <div class="col-sm-auto">
                 <p>Index</p>
                 <ul>
                     <li>One</li>
@@ -166,10 +166,10 @@
 
         <!-- Details -->
 
-        <div class="row j2-details">
+        <div class="row flex-fill">
             <div class="col col-xl-10 offset-xl-1">
                 <h2>Detailed content</h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>Lorem ipsum dolor sit amet, <a href="#">consectetur adipiscing elit</a>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
             </div>
         </div>
@@ -180,7 +180,7 @@
     <div class="row">
         <div class="col j2-footer small pt-2">
             <p>I am the copyright statement</p>
-            <p>I am the attribution</p>
+            <p>I am the attribution: <a href="#">go here</a>.</p>
         </div>
     </div>
 
