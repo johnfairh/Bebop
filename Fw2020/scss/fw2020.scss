@@ -77,7 +77,6 @@ body {
 
 .j2-titlebar {
   @include header-footer-cols();
-  @extend .navbar-dark;
 }
 
 .j2-coverage {
@@ -174,25 +173,24 @@ body {
   }
 }
 
-@mixin colored-link($color) {
+@mixin j2-nav-thing($color) {
+  display: block; // fill to right for hover
   color: $color;
+
   &:hover {
     color: $color;
     opacity: .75;
   }
-}
-
-.j2-nav-topic {
-  @include colored-link($col-navigation-fg);
-
-  display: block; // fill to right for hover
 
   &.active {
     font-weight: 600;
   }
 }
 
+.j2-nav-topic {
+  @include j2-nav-thing($col-navigation-fg);
+}
+
 .j2-nav-item {
-  @extend .j2-nav-topic;
-  @include colored-link($col-navigation-fg2);
+  @include j2-nav-thing($col-navigation-fg2);
 }
