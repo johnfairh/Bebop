@@ -3,13 +3,21 @@
   "version": "0.0.1",
   "description": "J2 theme",
   "main": "index.js",
+  "watch": {
+    "css": {
+      "patterns": [
+        "scss"
+      ],
+      "extensions": "scss"
+    }
+  },
   "scripts": {
     "css:lint": "stylelint --config build/.stylelintrc --syntax scss \"scss/**/*.scss\" --cache --cache-location \"build/.stylelintcache/\"",
     "css:prefix": "postcss --config build/postcss.config.js --replace \"dist/*.css\" \"!dist/*.min.css\"",
     "css:compile": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 scss/main.scss dist/fw2020.css",
     "css:minify": "cleancss --level 1 --source-map --source-map-inline-sources --output dist/fw2020.min.css dist/fw2020.css",
     "css": "npm run css:lint && npm run css:compile && npm run css:prefix && npm run css:minify",
-    "css:watch": "watch 'npm run css' scss"
+    "watch": "npm-watch"
   },
   "author": "John Fairhurst",
   "license": "MIT",
@@ -29,6 +37,7 @@
   "dependencies": {
     "bootstrap": "^4.4.1",
     "jquery": "^3.4.1",
+    "npm-watch": "^0.6.0",
     "popper.js": "^1.16.0"
   }
 }
