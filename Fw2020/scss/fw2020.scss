@@ -2,6 +2,38 @@
 //
 // Distributed under the MIT license, https://github.com/johnfairh/J2/blob/master/LICENSE
 
+// Colours
+
+$col-header-footer-bg: $gray-800;
+$col-header-footer-fg: $gray-200;
+$col-navigation-bg:    $gray-100;
+$col-navigation-fg:    $body-color;
+$col-body-fg:          $body-color;
+$col-body-bg:          $body-bg;
+
+$navigation-border-color: $gray-400;
+$navigation-border: 1px solid $navigation-border-color;
+
+@mixin header-footer-cols {
+  color: $col-header-footer-fg;
+  background-color: $col-header-footer-bg;
+}
+
+@mixin navigation-cols {
+  color: $col-navigation-fg;
+  background-color: $col-navigation-bg;
+}
+
+@mixin body-cols {
+  color: $col-body-fg;
+  background-color: $col-body-bg;
+}
+
+body {
+  @include body-cols();
+}
+
+/*
 .j2-details {
   background-color: var(--green);
 }
@@ -15,26 +47,28 @@
 }
 
 .j2-title {
-  background-color: var(--pink);
 }
+*/
 
 .j2-breadcrumb {
-  background-color: var(--yellow);
+  @include navigation-cols();
+  border-bottom: $navigation-border;
 }
 
 .j2-nav {
+  @include navigation-cols();
   min-width: 140px;
   overflow-x: scroll;
-  background-color: $gray-100;
-  border-right: 1px solid $gray-400;
+  border-right: $navigation-border;
 }
 
 .j2-footer {
-  background-color: var(--indigo);
+  @include header-footer-cols();
 }
 
 .j2-titlebar {
-  background-color: var(--indigo);
+  @include header-footer-cols();
+  @extend .navbar-dark;
 }
 
 /* Nav width refinements */
@@ -44,8 +78,8 @@
     max-width: 300px;
     @supports (position: sticky) {
       position: sticky;
-      top: 75px;
-      max-height: subtract(100vh, 75px); /* XXX breadcrumbs + header */
+      top: 92px;
+      max-height: subtract(100vh, 92px); /* XXX breadcrumbs + header */
       overflow-y: auto;
     }
   }
@@ -61,7 +95,7 @@
   .j2-breadcrumb-nav {
     @supports (position: sticky) {
       position: sticky;
-      top: 40px;
+      top: 56px;
       z-index: 1010; /* Must be less than titlebar for dropdown to work! */
     }
   }
@@ -76,11 +110,6 @@
 }
 
 /* ??? */
-
-.navbar {
-  padding-top: 0;
-  padding-bottom: 0;
-}
 
 /* Searchbar */
 
@@ -103,6 +132,7 @@
 }
 
 .dropdown-menu {
+  @include navigation-cols();
   top: 0;
   min-width: 0;
 }

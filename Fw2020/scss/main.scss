@@ -10,6 +10,8 @@
 @import "../node_modules/bootstrap/scss/variables";
 @import "../node_modules/bootstrap/scss/mixins";
 
+$navbar-dark-brand-color: $gray-200;
+
 // 'Optional' per bootstrap
 @import "../node_modules/bootstrap/scss/root";
 @import "../node_modules/bootstrap/scss/reboot";
