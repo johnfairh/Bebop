@@ -1,0 +1,89 @@
+// J2 FW2020 theme
+//
+// Distributed under the MIT license, https://github.com/johnfairh/J2/blob/master/LICENSE
+
+// This is imported from `main.scss` after the bootstrap variables
+// are defined so we can use them in our color scheme, but before
+// the bootstrap components are defined so that they will take note
+// of our color scheme.
+
+$gray-10: #fefeff;
+
+// Light-mode / Dark-mode via CSS variables, idea is to not
+// expose these variables outside of this file.
+
+:root {
+  color-scheme: light dark;
+
+  --titlebar-color: #{$gray-200};
+  --titlebar-bg: #{$gray-800};
+  --navigation-color: #{$gray-900};
+  --navigation-secondary-color: #{$gray-600}; // child items
+  --navigation-bg: #{$gray-100};
+  --navigation-highlight-bg: #{$gray-400}; // dropdown menu focus
+  --navigation-border-color: #{$gray-400};
+  --body-color: #{$gray-900};
+  --body-link-color: #4183c4;
+  --body-bg: #{$gray-10};
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --titlebar-color: #{$gray-200};
+    --titlebar-bg: #{$gray-800};
+    --navigation-color: #{$gray-900};
+    --navigation-secondary-color: #{$gray-600};
+    --navigation-bg: #{$gray-100};
+    --navigation-highlight-bg: #{$gray-400};
+    --navigation-border-color: #{$gray-400};
+    --body-color: #e9ecef;
+    --body-link-color: #4183c4;
+    --body-bg: #212529;
+  }
+}
+
+// Utilities defined in terms of the CSS variables for use
+// outside of this file.
+
+@mixin titlebar-colors {
+  color: var(--titlebar-color);
+  background-color: var(--titlebar-bg);
+  a {
+    color: var(--titlebar-color);
+  }
+}
+
+$navigation-border: 1px solid var(--navigation-border-color);
+$navigation-color: var(--navigation-color);
+$navigation-secondary-color: var(--navigation-secondary-color);
+
+@mixin navigation-base-colors {
+  color: var(--navigation-color);
+  background-color: var(--navigation-bg);
+}
+
+@mixin navigation-colors {
+  @include navigation-base-colors();
+  a {
+    color: var(--navigation-color);
+  }
+}
+
+@mixin body-colors {
+  color: var(--body-color);
+  background-color: var(--body-bg);
+  a {
+    color: var(--body-link-color);
+  }
+}
+
+// Bootstrap overrides to make it respect dark mode/light mode.
+
+$navbar-dark-brand-color: var(--titlebar-color);
+$navbar-dark-color: var(--titlebar-color);
+$navbar-dark-brand-hover-color: var(--titlebar-color);
+$dropdown-link-hover-bg: var(--navigation-highlight-bg);
+
+// Misc fixed things
+
+$input_placeholder_color: $gray-400;

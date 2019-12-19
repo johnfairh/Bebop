@@ -5,16 +5,15 @@
 // Set bootstrap overrides before importing it
 @import "variables";
 
-// 'Required' per bootstrap
+// Bootstrap required modules
 @import "../node_modules/bootstrap/scss/functions";
 @import "../node_modules/bootstrap/scss/variables";
 @import "../node_modules/bootstrap/scss/mixins";
 
-$navbar-dark-brand-color: $gray-200;
-$navbar-dark-color: $gray-200;
-$navbar-dark-brand-hover-color: $gray-200;
+// Theme color settings
+@import "colors";
 
-// 'Optional' per bootstrap
+// Bootstrap optional modules
 @import "../node_modules/bootstrap/scss/root";
 @import "../node_modules/bootstrap/scss/reboot";
 @import "../node_modules/bootstrap/scss/type";

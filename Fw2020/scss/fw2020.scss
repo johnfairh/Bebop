@@ -2,81 +2,43 @@
 //
 // Distributed under the MIT license, https://github.com/johnfairh/J2/blob/master/LICENSE
 
-// Colours
-
-$col-header-footer-bg: $gray-800;
-$col-header-footer-fg: $gray-200;
-$col-navigation-bg:    $gray-100;
-$col-navigation-fg:    $gray-900;
-$col-navigation-fg2:   $gray-600;
-$col-body-fg:          $gray-900;
-$col-body-bg:          $white;
-
-$body-link-color: #4183c4;
-
-$navigation-border-color: $gray-400;
-$navigation-border: 1px solid $navigation-border-color;
-
-@mixin header-footer-cols {
-  color: $col-header-footer-fg;
-  background-color: $col-header-footer-bg;
-  a {
-    color: $col-header-footer-fg;
-  }
-}
-
-@mixin navigation-base-cols {
-  color: $col-navigation-fg;
-  background-color: $col-navigation-bg;
-}
-
-@mixin navigation-cols {
-  @include navigation-base-cols();
-  a {
-    color: $col-navigation-fg;
-  }
-}
-
-@mixin body-cols {
-  color: $col-body-fg;
-  background-color: $col-body-bg;
-  a {
-    color: $body-link-color;
-  }
-}
-
 a:hover {
   opacity: .75;
 }
 
+.font-weight-slightly-bold {
+  font-weight: 500;
+}
+
 body {
-  @include navigation-base-cols();
+  @include navigation-base-colors();
+  -webkit-font-smoothing: antialiased;
 }
 
 .j2-article {
-  @include body-cols();
+  @include body-colors();
 }
 
 .j2-breadcrumb {
-  @include navigation-cols();
+  @include navigation-colors();
   border-bottom: $navigation-border;
 }
 
 .j2-nav {
-  @include navigation-base-cols();
+  @include navigation-base-colors();
   min-width: 140px;
   overflow-x: scroll;
   border-right: $navigation-border;
 }
 
 .j2-footer {
-  @include navigation-cols();
+  @include navigation-colors();
   border-top: $navigation-border;
   border-bottom: $navigation-border;
 }
 
 .j2-titlebar {
-  @include header-footer-cols();
+  @include titlebar-colors();
 }
 
 .j2-coverage {
@@ -109,7 +71,7 @@ body {
     @supports (position: sticky) {
       position: sticky;
       top: 56px;
-      z-index: 1010; /* Must be less than titlebar for dropdown to work! */
+      z-index: 1010; // Must be less than titlebar for dropdown to work!
     }
   }
 }
@@ -126,10 +88,6 @@ body {
 
 /* Searchbar */
 
-.form-control::placeholder {
-  color: $gray-400;
-}
-
 .navbar-nav form:focus-within {
   width: 60%;
 }
@@ -145,7 +103,7 @@ body {
 }
 
 .dropdown-menu {
-  @include navigation-cols();
+  @include navigation-colors();
   top: 0;
   min-width: 0;
 }
@@ -188,9 +146,9 @@ body {
 }
 
 .j2-nav-topic {
-  @include j2-nav-thing($col-navigation-fg);
+  @include j2-nav-thing($navigation-color);
 }
 
 .j2-nav-item {
-  @include j2-nav-thing($col-navigation-fg2);
+  @include j2-nav-thing($navigation-secondary-color);
 }
