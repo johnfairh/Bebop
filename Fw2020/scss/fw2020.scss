@@ -21,6 +21,7 @@ body {
 
 .j2-breadcrumb {
   @include navigation-colors();
+  border-top: $navigation-border;
   border-bottom: $navigation-border;
 }
 
