@@ -16,7 +16,7 @@ body {
 }
 
 .j2-article {
-  @include body-colors();
+  @include article-colors();
 }
 
 .j2-breadcrumb {
@@ -141,7 +141,6 @@ body {
 
   &:hover {
     color: $color;
-    opacity: .6;
   }
 
   &.active {
