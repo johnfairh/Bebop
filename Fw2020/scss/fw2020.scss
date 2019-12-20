@@ -3,7 +3,7 @@
 // Distributed under the MIT license, https://github.com/johnfairh/J2/blob/master/LICENSE
 
 a:hover {
-  opacity: .75;
+  opacity: .6;
 }
 
 .font-weight-slightly-bold {
@@ -43,8 +43,7 @@ body {
 }
 
 .j2-coverage {
-  @extend .small;
-  opacity: .5;
+  opacity: .6;
 }
 
 /* Nav width refinements */
@@ -107,6 +106,10 @@ body {
   @include navigation-colors();
   top: 0;
   min-width: 0;
+}
+
+.dropdown-item:hover {
+  opacity: 1;
 }
 
 /* For footer: linespacing doesn't decrease when 'small' */

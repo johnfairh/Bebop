@@ -9,43 +9,54 @@
 
 $gray-10: #fefeff;
 
+@function blue-lum($lum) {
+  @return hsl(220, 100%, $lum);
+}
+
+@function white-alpha($alpha) {
+  @return rgba($white, $alpha);
+}
+
 // Light-mode / Dark-mode via CSS variables, idea is to not
 // expose these variables outside of this file (and variables.scss...)
 
 :root {
   color-scheme: light dark;
 
+  // top bar
   --titlebar-color: #{$gray-200};
-  --titlebar-bg: #{$gray-800};
-  --navigation-color: #{$gray-900};
-  --navigation-secondary-color: #{$gray-600}; // child items
-  --navigation-bg: #{$gray-100};
-  --navigation-highlight-bg: #{$gray-400}; // dropdown menu focus
-  --navigation-border-color: #{$gray-400};
-  --body-color: #{$gray-900};
-  --body-link-color: #0070c9;
-  --body-bg: #{$gray-10};
+  --titlebar-bg: #{blue-lum(10%)};
+  // search fields
   --input-placeholder-color: #{$gray-400};
   --input-color: #{$gray-700};
   --input-bg: #{$gray-10};
-  --font-weight-normal: 400;
+  // nav, breadcrumbs, menu
+  --navigation-color: #{$gray-900};
+  --navigation-secondary-color: #{$gray-600};
+  --navigation-bg: #{$gray-100};
+  --navigation-border-color: #{$gray-400};
+  // article (XXX rename)
+  --body-color: #{$gray-900};
+  --body-link-color: #0070c9;
+  --body-bg: #{$gray-10};
+  // entire page
+  --font-weight-normal: #{$font-weight-normal};
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --titlebar-color: #{rgba($white, .87)};
-    --titlebar-bg: #303030;
-    --navigation-color: #{rgba($white, .87)};
-    --navigation-secondary-color: #{rgba($white, .6)};
-    --navigation-bg: #303030;
-    --navigation-highlight-bg: #{$gray-400};
-    --navigation-border-color: #606060;
-    --body-color: #{rgba($white, .92)};
+    --titlebar-color: #{white-alpha(.87)};
+    --titlebar-bg: #{blue-lum(5%)};
+    --navigation-color: #{white-alpha(.87)};
+    --navigation-secondary-color: #{white-alpha(.6)};
+    --navigation-bg: #{blue-lum(5%)};
+    --navigation-border-color: #484c50;
+    --body-color: #{white-alpha(.92)};
     --body-link-color: #1095ef;
-    --body-bg: #202020;
-    --input-placeholder-color: #{rgba($white, .3)};
-    --input-color: #{rgba($white, .87)};
-    --input-bg: #202020;
+    --body-bg: blue-lum(2%);
+    --input-placeholder-color: #{white-alpha(.3)};
+    --input-color: #{white-alpha(.92)};
+    --input-bg: #181818;
     --font-weight-normal: 500;
   }
 }
@@ -90,5 +101,7 @@ $navigation-secondary-color: var(--navigation-secondary-color);
 $navbar-dark-brand-color: var(--titlebar-color);
 $navbar-dark-color: var(--titlebar-color);
 $navbar-dark-brand-hover-color: var(--titlebar-color);
-$dropdown-link-hover-bg: var(--navigation-highlight-bg);
 $input-placeholder-color: var(--input-placeholder-color);
+$dropdown-link-hover-bg: var(--navigation-border-color);
+$dropdown-link-hover-color: var(--navigation-color);
+$dropdown-border-color: var(--navigation-border-color);
