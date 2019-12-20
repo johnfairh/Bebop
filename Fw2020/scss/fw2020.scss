@@ -10,6 +10,14 @@ a:hover {
   font-weight: 500;
 }
 
+@media (min-width: 400px) {
+  @each $value in $displays {
+    /* stylelint-disable declaration-no-important */
+    .d-smphone-#{$value} { display: $value !important; }
+    /* stylelint-enable declaration-no-important */
+  }
+}
+
 body {
   @include navigation-base-colors();
   -webkit-font-smoothing: antialiased;
