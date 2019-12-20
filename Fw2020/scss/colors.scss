@@ -9,11 +9,7 @@
 
 $gray-10: #fefeff;
 
-@function blue-lum($lum) {
-  @return hsl(220, 100%, $lum);
-}
-
-@function white-alpha($alpha) {
+@function white($alpha) {
   @return rgba($white, $alpha);
 }
 
@@ -25,9 +21,9 @@ $gray-10: #fefeff;
 
   // top bar
   --titlebar-color: #{$gray-200};
-  --titlebar-bg: #{blue-lum(10%)};
+  --titlebar-bg: #000f29;
   // search fields
-  --input-placeholder-color: #{$gray-400};
+  --input-placeholder-color: #{$gray-600};
   --input-color: #{$gray-700};
   --input-bg: #{$gray-10};
   // nav, breadcrumbs, menu
@@ -45,18 +41,18 @@ $gray-10: #fefeff;
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --titlebar-color: #{white-alpha(.87)};
-    --titlebar-bg: #{blue-lum(5%)};
-    --navigation-color: #{white-alpha(.87)};
-    --navigation-secondary-color: #{white-alpha(.6)};
-    --navigation-bg: #{blue-lum(5%)};
+    --titlebar-color: #{white(.82)};
+    --titlebar-bg: #1e2028;
+    --navigation-color: #{white(.82)};
+    --navigation-secondary-color: #{white(.6)};
+    --navigation-bg: #202428;
     --navigation-border-color: #484c50;
-    --body-color: #{white-alpha(.92)};
+    --body-color: #{white(.87)};
     --body-link-color: #1095ef;
-    --body-bg: blue-lum(2%);
-    --input-placeholder-color: #{white-alpha(.3)};
-    --input-color: #{white-alpha(.92)};
-    --input-bg: #181818;
+    --body-bg: #1c2024;
+    --input-placeholder-color: #{white(.3)};
+    --input-color: #{white(.87)};
+    --input-bg: #34383f;
     --font-weight-normal: 500;
   }
 }

@@ -141,11 +141,11 @@ body {
 
   &:hover {
     color: $color;
-    opacity: .75;
+    opacity: .6;
   }
 
   &.active {
-    font-weight: 600;
+    font-weight: bolder;
   }
 }
 
