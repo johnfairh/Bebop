@@ -48,9 +48,9 @@ body {
 
 /* Nav width refinements */
 
-@include media-breakpoint-up(lg) {
+@include media-breakpoint-up(md) {
   .j2-nav {
-    max-width: 300px;
+    max-width: 250px;
     @supports (position: sticky) {
       position: sticky;
       top: 92px;
@@ -73,6 +73,13 @@ body {
       top: 56px;
       z-index: 1010; // Must be less than titlebar for dropdown to work!
     }
+  }
+}
+
+/* Maybe delete when resizer is in. */
+@include media-breakpoint-up(lg) {
+  .j2-nav {
+    max-width: 300px;
   }
 }
 
