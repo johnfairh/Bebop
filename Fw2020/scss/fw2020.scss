@@ -25,6 +25,7 @@ body {
 
 .j2-article {
   @include article-colors();
+  border-bottom: $navigation-border;
 }
 
 .j2-breadcrumb {
@@ -35,14 +36,18 @@ body {
 
 .j2-nav {
   @include navigation-base-colors();
-  min-width: 140px;
+  @include media-breakpoint-down(sm) {
+    width: 100%;
+  }
   overflow-x: scroll;
-  border-right: $navigation-border;
+  @include media-breakpoint-up(md) {
+    border-right: $navigation-border;
+  }
+  border-bottom: $navigation-border;
 }
 
 .j2-footer {
   @include navigation-colors();
-  border-top: $navigation-border;
   border-bottom: $navigation-border;
 }
 
@@ -58,6 +63,7 @@ body {
 
 @include media-breakpoint-up(md) {
   .j2-nav {
+    min-width: 140px;
     max-width: 250px;
     @supports (position: sticky) {
       position: sticky;
