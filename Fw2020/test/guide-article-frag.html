@@ -1,0 +1,93 @@
+<!--
+    Testbed for FW2020 theme development
+    Distributed under the MIT license, see https://github.com/johnfairh/J2/blob/master/LICENSE
+-->
+<!-- no header for guide -->
+<!-- no weird middle bit for guide -->
+
+        <!-- Details -->
+
+<div class="row flex-fill">
+  <div class="col col-xl-10 offset-xl-1">
+
+<h1 id='using-rubygateway'>Using RubyGateway</h1>
+
+<p>This document contains notes on using RubyGateway.  For installation tips
+see <a href="index.html">the README</a>.</p>
+
+<ul>
+<li><a href="#general-usage">How to use the framework</a></li>
+<li><a href="#how-to">How to do various Ruby tasks</a></li>
+<li><a href="#error-handling">Error handling approach</a></li>
+<li><a href="#concurrency">Concurrency and multi-threading</a></li>
+<li><a href="#caveats-and-gotchas">Health warning</a></li>
+<li><a href="#using-the-cruby-api">Using the libruby API</a></li>
+<li><a href="#garbage-collection">Garbage collection notes</a></li>
+</ul>
+<h2 id='general-usage'>General Usage</h2>
+
+<p>The Ruby VM is initialized when you first try to use it and shut down when the
+process ends.  Load Ruby code using <code><a href="Classes/RbGateway.html#/s:11RubyGateway02RbB0C4load8filename4wrapySS_SbtKF">RbGateway.load(filename:wrap:)</a></code> or
+<code><a href="Classes/RbGateway.html#/s:11RubyGateway02RbB0C7require8filenameSbSS_tKF">RbGateway.require(filename:)</a></code>.  Or just run some Ruby code and get the result
+using <code><a href="Classes/RbGateway.html#/s:11RubyGateway02RbB0C4eval4rubyAA0C6ObjectCSS_tKF">RbGateway.eval(ruby:)</a></code>.  There already is a global instance of <code><a href="Classes/RbGateway.html">RbGateway</a></code>
+called <code>Ruby</code> so the code looks like:</p>
+<pre class="highlight swift">
+<code>import RubyGateway
+
+do {
+    let result = try Ruby.eval(ruby: "'a' * 4")
+    print(result)
+} catch {
+}
+</code></pre>
+
+<p>Create objects using <code><a href="Classes/RbObject.html#/s:11RubyGateway8RbObjectC7ofClass4args6kwArgsACSgSS_SayAA0cD11Convertible_pSgGs13KeyValuePairsVySSAIGtcfc">RbObject.init(ofClass:args:kwArgs:)</a></code>.  Pass Swift types
+or <code><a href="Classes/RbObject.html">RbObject</a></code>s to the <code>args</code> parameter.</p>
+
+<p>Use <code><a href="Classes/RbObjectAccess.html#/s:11RubyGateway14RbObjectAccessC4call_4args6kwArgsAA0cD0CSS_SayAA0cD11Convertible_pSgGs13KeyValuePairsVySSAJGtKF">RbObjectAccess.call(_:args:kwArgs:)</a></code> to call methods on the object.  See
+<code><a href="Classes/RbObjectAccess.html">RbObjectAccess</a></code> for more object operations and variations on <code>call</code> including
+passing Swift code as a block.  Again pass Swift types or <code><a href="Classes/RbObject.html">RbObject</a></code>s in the
+<code>args</code> parameter.</p>
+
+<pre class="highlight ruby">
+<code>cell = Cell.new(width: 200, height: 100)
+cell.content { |c| prettyprint(c) }
+</code></pre>
+
+<h2 id='how-to' >How to &hellip;</h2>
+
+<p>A few Ruby-ish tasks.  Lots of these are more long-winded in Swift.  The idea
+here though is not to let you write Ruby using Swift: use Ruby to do that!  But
+rather to provide a layer that lets you bridge between Ruby and Swift code,
+which will sometimes require driving the Ruby code in these ways.</p>
+<h3 id='exchange-swift-types' >Exchange Swift types</h3>
+
+<p>RubyBridge provides extensions to most Swift types so you can initialize
+<code><a href="Classes/RbObject.html">RbObject</a></code>s with them and vice versa, or use them directly as arguments to
+<code><a href="Classes/RbObjectAccess.html#/s:11RubyGateway14RbObjectAccessC4call_4args6kwArgsAA0cD0CSS_SayAA0cD11Convertible_pSgGs13KeyValuePairsVySSAJGtKF">RbObjectAccess.call(...)</a></code> and friends.  Supported types are:</p>
+
+<ul>
+<li><code><a href="https://developer.apple.com/documentation/swift/bool/">Bool</a></code></li>
+<li><code><a href="https://developer.apple.com/documentation/swift/string/">String</a></code></li>
+<li>Floating point - <code><a href="https://developer.apple.com/documentation/swift/float/">Float</a></code> and <code><a href="https://developer.apple.com/documentation/swift/double/">Double</a></code></li>
+<li>Unsigned integer - <code><a href="https://developer.apple.com/documentation/swift/uint/">UInt</a></code>, <code><a href="https://developer.apple.com/documentation/swift/uint64/">UInt64</a></code>, <code><a href="https://developer.apple.com/documentation/swift/uint32/">UInt32</a></code>, <code><a href="https://developer.apple.com/documentation/swift/uint16/">UInt16</a></code>, <code><a href="https://developer.apple.com/documentation/swift/uint8/">UInt8</a></code></li>
+<li>Signed integer - <code><a href="https://developer.apple.com/documentation/swift/int/">Int</a></code>, <code><a href="https://developer.apple.com/documentation/swift/int64/">Int64</a></code>, <code><a href="https://developer.apple.com/documentation/swift/int32/">Int32</a></code>, <code><a href="https://developer.apple.com/documentation/swift/int16/">Int16</a></code>, <code><a href="https://developer.apple.com/documentation/swift/int8/">Int8</a></code></li>
+<li><code><a href="https://developer.apple.com/documentation/swift/array/">Array</a></code> or <code><a href="https://developer.apple.com/documentation/swift/arrayslice/">ArraySlice</a></code> with supported element type</li>
+<li><code><a href="https://developer.apple.com/documentation/swift/dictionary/">Dictionary</a></code> with supported key and value types</li>
+<li><code><a href="https://developer.apple.com/documentation/swift/set/">Set</a></code> with supported element type</li>
+<li>Range types with supported bound types - <code><a href="https://developer.apple.com/documentation/swift/range/">Range</a></code>, <code><a href="https://developer.apple.com/documentation/swift/closedrange/">ClosedRange</a></code></li>
+</ul>
+
+<h2 id='gotchas'>Gotchas</h2>
+
+<h3 id='ruby-code-safety' >Ruby code safety</h3>
+
+<p>RubyGateway puts no restriction on what Ruby code can do: it can access the
+filesystem, exit the process, and has complete access to the process&rsquo;s memory.</p>
+
+<p>Ruby has historically had a <code>$SAFE</code> feature that did some amount of sandboxing.
+This has been slowly removed over the years and what remains is a debugging
+feature that can be enabled via <code><a href="Classes/RbGateway.html#/s:11RubyGateway02RbB0C11taintChecksSbvp">RbGateway.taintChecks</a></code>.</p>
+
+  </div>
+</div>

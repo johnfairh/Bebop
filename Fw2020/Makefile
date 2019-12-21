@@ -14,13 +14,18 @@ THEMEPATHS=$(addprefix dist/, ${THEMEFILES})
 DISTFILES=${THEMEFILES} \
 	fw2020.min.css.map \
 	jquery.slim.min.map \
-	bs-util.js.map \
-	bs-dropdown.js.map
+	util.js.map \
+	dropdown.js.map \
+	guide.html \
+	class.html \
+	gh.png \
+	dash.png \
 
 DISTPATHS=$(addprefix dist/, ${DISTFILES})
 
 vpath %.scss scss
 vpath %.js js
+vpath %.html test
 
 # Build css
 
@@ -44,11 +49,22 @@ BOOTSTRAP_JS_DIST=node_modules/bootstrap/js/dist
 dist/bs-%: ${BOOTSTRAP_JS_DIST}/%
 	cp -f $^ $@
 
+dist/%: ${BOOTSTRAP_JS_DIST}/%
+	cp -f $^ $@
+
+# Build htmls
+dist/%.html: %-article-frag.html template.html
+	sed -e '/<!-- ARTICLE -->/r $<' test/template.html > $@
+
+# misc test files
+dist/%: test/%
+	cp -f $^ $@
+
 # Targets
+#
+all: dist
 
 dist: ${DISTPATHS}
-
-all: dist
 
 .PHONY: update_bootstrap
 update_bootstrap:
