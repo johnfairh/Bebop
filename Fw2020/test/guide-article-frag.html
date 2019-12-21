@@ -76,7 +76,9 @@ cell.content { |c| prettyprint(c) }
 
 <h2>Typography</h2>
 <p>Here is a paragraph with <strong>strong</strong> <i>italics</i> <u>underlines</u> <s>strikethrough</s>.</p>
-<p>Here comes a table!</p>
+
+<p>Here comes a regular table:</p>
+
 <table class="table table-striped table-responsive j2-table">
     <thead>
         <tr>
@@ -120,23 +122,63 @@ cell.content { |c| prettyprint(c) }
 </table>
 <p>After the table.</p>
 
+<p>Here comes a parameters table!</p>
+<table class="table table-striped table-responsive j2-table j2-param-table">
+    <tbody>
+    <tr>
+        <td>
+            <code><em>Param 1</em></code>
+        </td>
+        <td>
+            <div>
+                The first parameter.
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <code><em>secondParameterLongerName</em></code>
+        </td>
+        <td>
+            <div>
+                <p>The second parameter, a medium-length description that has just
+                the one paragraph.</p>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <code><em>thirdParameter</em></code>
+        </td>
+        <td>
+            <div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            </div>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
 <h2>Callouts</h2>
 
 <p>Here come some callouts.</p>
 
-<div class="aside aside-note">
-<p class="aside-title">Note</p>
+<div class="j2-callout j2-callout-note">
+<p class="j2-callout-title">Note</p>
 <p>'Twas brillig, and the slithy toves did gyre and gimble in the wabe &hellip;</p>
 </div>
+<p>After the callout</p>
 
-<div class="aside aside-warning">
-<p class="aside-title">Warning</p>
-<p>Beware the jabberwock, my son.</p>
+<div class="j2-callout j2-callout-warning">
+<p class="j2-callout-title">Warning</p>
+<p>Beware the jabberwock, my son!</p>
+<p>The jaws that <code>bite</code>, the claws that catch!</p>
 </div>
 
-<div class="aside aside-deprecated">
-<p class="aside-title">Deprecated</p>
+<div class="j2-callout j2-callout-deprecated">
+<p class="j2-callout-title">Deprecated</p>
 <p>The vorpal blade went snicker-snack!</p>
 </div>
+<p>After the final callout</p>
 
 </div></div>

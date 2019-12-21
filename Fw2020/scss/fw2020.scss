@@ -23,12 +23,27 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-// Suppress the built-in borders because they seem to
-// go double-width in unexpected places.
+// Suppress the built-in borders, too wide in
+// unexpected places.
 .j2-table {
   th,
   td {
     border: $navigation-border;
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Parameters table - bit more compaact and
+// right-align the parameter names.
+.j2-param-table {
+  td {
+    padding: .5 * $spacer;
+
+    &:first-of-type {
+      text-align: right;
+    }
   }
 }
 
@@ -185,4 +200,38 @@ body {
 
 .j2-nav-item {
   @include j2-nav-thing($navigation-secondary-color);
+}
+
+/* Callouts */
+@mixin j2-callout-colors($color) {
+  border-left: 5px solid $color;
+  .j2-callout-title {
+    color: $color;
+  }
+}
+
+.j2-callout {
+  @include j2-callout-colors($callout-color);
+  padding: 6px 12px;
+  margin-bottom: $spacer;
+
+  .j2-callout-title {
+    padding-bottom: 0;
+    margin: 0;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    user-select: none;
+  }
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.j2-callout-warning {
+  @include j2-callout-colors($callout-warning-color);
+}
+
+.j2-callout-deprecated {
+  @include j2-callout-colors($callout-deprecated-color);
 }

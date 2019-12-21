@@ -57,6 +57,11 @@ $gray-10: #fefeff;
   }
 }
 
+// Fixed colors
+$callout-color: var(--info);
+$callout-warning-color: var(--danger);
+$callout-deprecated-color: #e90;
+
 // Utilities defined in terms of the CSS variables for use
 // outside of this file.
 
@@ -104,3 +109,4 @@ $dropdown-border-color: var(--navigation-border-color);
 $table-color: var(--article-color);
 $table-border-color: var(--navigation-border-color);
 $table-accent-bg: var(--navigation-bg);
+$code-color: var(--article-color);
