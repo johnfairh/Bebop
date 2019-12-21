@@ -23,6 +23,12 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Make code blocks scroll */
+pre code {
+  display: inline-block;
+  overflow-x: auto;
+}
+
 // Suppress the built-in borders, too wide in
 // unexpected places.
 .j2-table {
@@ -49,8 +55,20 @@ body {
 
 .j2-article {
   @include article-colors();
+
+  /* This width: 0 is flexbox black magic.  Without it,
+   * if the article column has a very wide element (eg.
+   * a `pre` then as the browser shrinks, flexbox prioritizes
+   * the article width over shrinking the `pre` and stacks
+   * the `col` _under_ the left nav `col`.  Which is bad.
+   */
+  width: 0;
   padding-top: $spacer * 2;
   border-bottom: $navigation-border;
+}
+
+.j2-article-wrapper {
+  max-width: 800px;
 }
 
 .j2-breadcrumb {
@@ -102,7 +120,7 @@ body {
     @supports (position: sticky) {
       position: sticky;
       top: 0;
-      z-index: 1020;
+      z-index: $zindex-sticky;
     }
   }
 
@@ -110,7 +128,7 @@ body {
     @supports (position: sticky) {
       position: sticky;
       top: 56px;
-      z-index: 1010; // Must be less than titlebar for dropdown to work!
+      z-index: subtract($zindex-sticky, 10); // Must be less than titlebar for dropdown to work!
     }
   }
 }
