@@ -56,17 +56,13 @@ cell.content { |c| prettyprint(c) }
 
 <h2 id='how-to' >How to &hellip;</h2>
 
-<p>A few Ruby-ish tasks.  Lots of these are more long-winded in Swift.  The idea
-here though is not to let you write Ruby using Swift: use Ruby to do that!  But
-rather to provide a layer that lets you bridge between Ruby and Swift code,
-which will sometimes require driving the Ruby code in these ways.</p>
-<h3 id='exchange-swift-types' >Exchange Swift types</h3>
+<p>A few Ruby-ish tasks.  Lots of these are more long-winded in Swift.</p>
 
 <p>RubyBridge provides extensions to most Swift types so you can initialize
 <code><a href="Classes/RbObject.html">RbObject</a></code>s with them and vice versa, or use them directly as arguments to
 <code><a href="Classes/RbObjectAccess.html#/s:11RubyGateway14RbObjectAccessC4call_4args6kwArgsAA0cD0CSS_SayAA0cD11Convertible_pSgGs13KeyValuePairsVySSAJGtKF">RbObjectAccess.call(...)</a></code> and friends.  Supported types are:</p>
 
-<ul>
+<ol>
 <li><code><a href="https://developer.apple.com/documentation/swift/bool/">Bool</a></code></li>
 <li><code><a href="https://developer.apple.com/documentation/swift/string/">String</a></code></li>
 <li>Floating point - <code><a href="https://developer.apple.com/documentation/swift/float/">Float</a></code> and <code><a href="https://developer.apple.com/documentation/swift/double/">Double</a></code></li>
@@ -76,18 +72,60 @@ which will sometimes require driving the Ruby code in these ways.</p>
 <li><code><a href="https://developer.apple.com/documentation/swift/dictionary/">Dictionary</a></code> with supported key and value types</li>
 <li><code><a href="https://developer.apple.com/documentation/swift/set/">Set</a></code> with supported element type</li>
 <li>Range types with supported bound types - <code><a href="https://developer.apple.com/documentation/swift/range/">Range</a></code>, <code><a href="https://developer.apple.com/documentation/swift/closedrange/">ClosedRange</a></code></li>
-</ul>
+</ol>
 
-<h2 id='gotchas'>Gotchas</h2>
+<h2>Typography</h2>
+<p>Here is a paragraph with <strong>strong</strong> <i>italics</i> <u>underlines</u> <s>strikethrough</s>.</p>
+<p>Here comes a table!</p>
+<table>
+    <thead>
+        <tr>
+            <th>Tables</th>
+            <th style="text-align: center">Are</th>
+            <th style="text-align: right">Cool</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>col 3 is</td>
+            <td style="text-align: center">right-aligned</td>
+            <td style="text-align: right">$1600</td>
+        </tr>
+        <tr>
+            <td>col 2 is</td>
+            <td style="text-align: center">centered</td>
+            <td style="text-align: right">$12</td>
+        </tr>
+        <tr>
+            <td><p>More detailed row content</p></td>
+            <td style="text-align: left"><p>The boy stood on the burning deck<br>
+                Whence all but he had fled;</br>
+                The flame that lit the battle's wreck<br>
+                Shone round him o'er the dead.</p></td>
+            <td style="text-align: right">How sensitive to para tags
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+        </tr>
+    </tbody>
+</table>
 
-<h3 id='ruby-code-safety' >Ruby code safety</h3>
+<h2>Callouts</h2>
 
-<p>RubyGateway puts no restriction on what Ruby code can do: it can access the
-filesystem, exit the process, and has complete access to the process&rsquo;s memory.</p>
+<p>Here come some callouts.</p>
 
-<p>Ruby has historically had a <code>$SAFE</code> feature that did some amount of sandboxing.
-This has been slowly removed over the years and what remains is a debugging
-feature that can be enabled via <code><a href="Classes/RbGateway.html#/s:11RubyGateway02RbB0C11taintChecksSbvp">RbGateway.taintChecks</a></code>.</p>
-
-  </div>
+<div class="aside aside-note">
+<p class="aside-title">Note</p>
+<p>'Twas brillig, and the slithy toves did gyre and gimble in the wabe &hellip;</p>
 </div>
+
+<div class="aside aside-warning">
+<p class="aside-title">Warning</p>
+<p>Beware the jabberwock, my son.</p>
+</div>
+
+<div class="aside aside-deprecated">
+<p class="aside-title">Deprecated</p>
+<p>The vorpal blade went snicker-snack!</p>
+</div>
+
+</div></div>
