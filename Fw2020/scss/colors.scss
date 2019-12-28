@@ -36,7 +36,7 @@ $gray-10: #fefeff;
   --article-link-color: #0070c9;
   --article-bg: #{$gray-10};
   // entire page
-  --font-weight-normal: #{$font-weight-normal};
+  --font-weight-normal: 400;
 }
 
 @media (prefers-color-scheme: dark) {

@@ -36,7 +36,7 @@ public protocol NavigationService : <a href="#">CLLocationManagerDelegate</a>,
     EventsManagerDataSource, RouterDataSource {
 }
 
-internal struct Woobie<Thing, Other> where Thing: OtherThing {
+internal struct Woobie&lt;Thing, Other&gt; where Thing: OtherThing {
     @objc
     func f1&lt;A&gt;(arby: A) -&gt; any Other {
     }
@@ -44,10 +44,12 @@ internal struct Woobie<Thing, Other> where Thing: OtherThing {
 </code></pre>
 
 <pre><code class="language-java">class IamJava {
-int javaMethod() {
-}
+  int javaMethod() {
+  }
 }</code></pre>
 <h2 id='general-usage'>General Usage</h2>
+
+Here is some <code class="language-swift">var inline: Int { get set }</code> inline formatted code.
 
 <p>The Ruby VM is initialized when you first try to use it and shut down when the
 process ends.  Load Ruby code using <code><a href="Classes/RbGateway.html#/s:11RubyGateway02RbB0C4load8filename4wrapySS_SbtKF">RbGateway.load(filename:wrap:)</a></code> or

@@ -23,10 +23,31 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Make code blocks scroll */
-pre code {
-  display: inline-block;
-  overflow-x: auto;
+/* Code and Pre
+ * See code-themes.scss for the colors.
+ */
+
+code {
+  hyphens: none;
+  text-align: left;
+  word-spacing: normal;
+  word-wrap: normal;
+  tab-size: 4;
+  white-space: pre;
+}
+
+// Inline code
+:not(pre) > code {
+  @include border-radius(.2em);
+  padding: .1em;
+  white-space: normal;
+}
+
+pre {
+  position: relative;
+  padding: 1.25rem 1rem;
+  margin-bottom: .5rem;
+  overflow: auto;
 }
 
 // Suppress the built-in borders, too wide in
