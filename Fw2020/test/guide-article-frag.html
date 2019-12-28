@@ -25,15 +25,28 @@ see <a href="index.html">the README</a>.</p>
 <li><a href="#garbage-collection">Garbage collection notes</a></li>
 </ul>
 
-<pre><code>Fixed-font width check.
+<pre><code class="language-none">Fixed-font width check.
 1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890
          10        20        30        40        50        60        70        80
 </code></pre>
 
-<pre><code>Declaration
-@objc(MBNavigationService)
-public protocol NavigationService : CLLocationManagerDelegate, EventsManagerDataSource, RouterDataSource
+<h3>Declaration</h3>
+<pre><code class="language-swift">@objc(MBNavigationService)
+public protocol NavigationService : <a href="#">CLLocationManagerDelegate</a>,
+    EventsManagerDataSource, RouterDataSource {
+}
+
+internal struct Woobie<Thing, Other> where Thing: OtherThing {
+    @objc
+    func f1&lt;A&gt;(arby: A) -&gt; any Other {
+    }
+}
 </code></pre>
+
+<pre><code class="language-java">class IamJava {
+int javaMethod() {
+}
+}</code></pre>
 <h2 id='general-usage'>General Usage</h2>
 
 <p>The Ruby VM is initialized when you first try to use it and shut down when the
@@ -41,8 +54,7 @@ process ends.  Load Ruby code using <code><a href="Classes/RbGateway.html#/s:11R
 <code><a href="Classes/RbGateway.html#/s:11RubyGateway02RbB0C7require8filenameSbSS_tKF">RbGateway.require(filename:)</a></code>.  Or just run some Ruby code and get the result
 using <code><a href="Classes/RbGateway.html#/s:11RubyGateway02RbB0C4eval4rubyAA0C6ObjectCSS_tKF">RbGateway.eval(ruby:)</a></code>.  There already is a global instance of <code><a href="Classes/RbGateway.html">RbGateway</a></code>
 called <code>Ruby</code> so the code looks like:</p>
-<pre class="highlight swift">
-<code>import RubyGateway
+<pre><code class="language-swift">import RubyGateway
 
 do {
     let result = try Ruby.eval(ruby: "'a' * 4")
@@ -59,8 +71,8 @@ or <code><a href="Classes/RbObject.html">RbObject</a></code>s to the <code>args<
 passing Swift code as a block.  Again pass Swift types or <code><a href="Classes/RbObject.html">RbObject</a></code>s in the
 <code>args</code> parameter.</p>
 
-<pre class="highlight ruby">
-<code>cell = Cell.new(width: 200, height: 100)
+<pre>
+<code class="language-ruby">cell = Cell.new(width: 200, height: 100)
 cell.content { |c| prettyprint(c) }
 </code></pre>
 

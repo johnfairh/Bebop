@@ -6,7 +6,9 @@ THEMEFILES=fw2020.min.css \
 	fw2020.js \
 	jquery.slim.min.js \
 	bs-util.js \
-	bs-dropdown.js
+	bs-dropdown.js \
+	prism.min.js \
+	prism.css \
 
 THEMEPATHS=$(addprefix dist/, ${THEMEFILES})
 
@@ -25,6 +27,7 @@ DISTPATHS=$(addprefix dist/, ${DISTFILES})
 
 vpath %.scss scss
 vpath %.js js
+vpath %.js prism
 vpath %.html test
 
 # Build css
@@ -33,6 +36,9 @@ SCSSFILES=$(addsuffix .scss, main variables fw2020)
 
 dist/%.css: ${SCSSFILES}
 	npm run css
+
+dist/prism.css: prism/prism.css
+	cp -f $^ $@
 
 # Assemble js
 
