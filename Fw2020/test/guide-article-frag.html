@@ -31,12 +31,13 @@ see <a href="index.html">the README</a>.</p>
 </code></pre>
 
 <h3>Declaration</h3>
+<div class="j2-callout j2-callout-declaration">
 <pre><code class="language-swift">@objc(MBNavigationService)
 public protocol NavigationService : <a href="#">CLLocationManagerDelegate</a>,
-    EventsManagerDataSource, RouterDataSource {
-}
+    EventsManagerDataSource, RouterDataSource
+</code></pre></div>
 
-internal struct Woobie&lt;Thing, Other&gt; where Thing: OtherThing {
+<pre><code class="language-swift">internal struct Woobie&lt;Thing, Other&gt; where Thing: OtherThing {
     @objc
     func f1&lt;A&gt;(arby: A) -&gt; any Other {
     }
@@ -202,6 +203,10 @@ cell.content { |c| prettyprint(c) }
 <div class="j2-callout j2-callout-deprecated">
 <p class="j2-callout-title">Deprecated</p>
 <p>The vorpal blade went snicker-snack!</p>
+</div>
+
+<div class="j2-callout j2-callout-declaration">
+<pre><code class="language-swift">public struct MyStruct</code></pre>
 </div>
 <p>After the final callout</p>
 

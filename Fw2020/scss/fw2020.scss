@@ -34,6 +34,16 @@ code {
   word-wrap: normal;
   tab-size: 4;
   white-space: pre;
+
+  .token a {
+    color: inherit;
+  }
+}
+
+// Less whitespace between p and pre because of the pre
+// padding.
+p + pre {
+  margin-top: -.5rem;
 }
 
 // Inline code
@@ -45,7 +55,7 @@ code {
 
 pre {
   position: relative;
-  padding: 1.25rem 1rem;
+  padding: .5rem 1rem;
   margin-bottom: .5rem;
   overflow: auto;
 }
@@ -273,4 +283,15 @@ pre {
 
 .j2-callout-deprecated {
   @include j2-callout-colors($callout-deprecated-color);
+}
+
+.j2-callout-declaration {
+  @include j2-callout-colors($callout-declaration-color);
+  pre,
+  code {
+    padding-right: 0;
+    padding-left: 0;
+    margin: 0;
+    background: inherit;
+  }
 }

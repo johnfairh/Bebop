@@ -37,6 +37,8 @@ $gray-10: #fefeff;
   --article-bg: #{$gray-10};
   // entire page
   --font-weight-normal: 400;
+  // declaration
+  --declaration-flash-color: #80bfff;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -54,13 +56,15 @@ $gray-10: #fefeff;
     --input-color: #{white(.87)};
     --input-bg: #34383f;
     --font-weight-normal: 500;
+    --declaration-flash-color: #4080bf;
   }
 }
 
 // Fixed colors
-$callout-color: var(--info);
-$callout-warning-color: var(--danger);
+$callout-color: #17a2b8;
+$callout-warning-color: #dc3545;
 $callout-deprecated-color: #e90;
+$callout-declaration-color: var(--declaration-flash-color);
 
 // Utilities defined in terms of the CSS variables for use
 // outside of this file.
