@@ -17,7 +17,7 @@
       "extensions": "html"
     },
     "js": {
-      "patterns:": [
+      "patterns": [
           "js"
       ],
       "extensions": "js"

@@ -48,6 +48,12 @@ public protocol NavigationService : <a href="#">CLLocationManagerDelegate</a>,
   int javaMethod() {
   }
 }</code></pre>
+
+<pre><code class="language-css">.something {
+  attr: value;
+  attr2: value2;
+}
+</code></pre>
 <h2 id='general-usage'>General Usage</h2>
 
 Here is some <code class="language-swift">var inline: Int { get set }</code> inline formatted code.
@@ -59,11 +65,72 @@ using <code><a href="Classes/RbGateway.html#/s:11RubyGateway02RbB0C4eval4rubyAA0
 called <code>Ruby</code> so the code looks like:</p>
 <pre><code class="language-swift">import RubyGateway
 
+#warning("Ruby lives inside this source file")
+
 do {
+    // Have Ruby do the evaluation
     let result = try Ruby.eval(ruby: "'a' * 4")
     print(result)
 } catch {
 }
+
+private class 名词说明 {
+}
+
+public class MyClass {
+    var aVar: Int
+
+    var `let`: String
+
+    var 😉 = 3.0
+
+    var 简介 = "名词说明 and chips"
+
+    deinit {
+    }
+
+    @available(macOS 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *)
+    public subscript(index: Int) -&gt; any MyProtocol {
+       get {
+         something
+       }
+       set(newValue) {
+         intrnal.call(newValue)
+       }
+    }
+
+    func printSomething() {
+        print("something \(MyClass.aVar) \(aVar)")
+    }
+
+    func g() -&gt; (Int, String) {
+
+      let aKeyPath = \MyClass.aVar
+      let anotherKeyPath = \.aVar
+    }
+
+    func h(a b: Float = 1, c: Bool = true, d: Thing? = nil) {}
+
+    func `func`() {}
+
+    let revised4 = sorted(names) { $0 &gt; $1 }
+}
+
+</code></pre>
+
+<pre><code class="language-objectivec">int fred;
+
+#include &lt;something.h&gt;
+#include "something-else.h"
+@interface MyObject : NSObject
+
+/// A property
+@property (nonatomic, readonly) int routeRequestInterval;
+
+/// A method
+-(int)setRouteRequestInterval:(int)interval;
+
+@end
 </code></pre>
 
 <p>Create objects using <code><a href="Classes/RbObject.html#/s:11RubyGateway8RbObjectC7ofClass4args6kwArgsACSgSS_SayAA0cD11Convertible_pSgGs13KeyValuePairsVySSAIGtcfc">RbObject.init(ofClass:args:kwArgs:)</a></code>.  Pass Swift types
