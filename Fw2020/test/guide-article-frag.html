@@ -39,7 +39,7 @@ public protocol NavigationService : <a href="#">CLLocationManagerDelegate</a>,
 
 <pre><code class="language-swift">internal struct Woobie&lt;Thing, Other&gt; where Thing: OtherThing {
     @objc
-    func f1&lt;A&gt;(arby: A) -&gt; any Other {
+    func f1&lt;A&gt;(arby: A) -&gt; some Other {
     }
 }
 </code></pre>
@@ -70,14 +70,16 @@ called <code>Ruby</code> so the code looks like:</p>
 do {
     // Have Ruby do the evaluation
     let result = try Ruby.eval(ruby: "'a' * 4")
-    print(result)
+    if result &lt;= 4 {
+        print(result)
+    }
 } catch {
 }
 
-private class 名词说明 {
+private struct 名词说明 {
 }
 
-public class MyClass {
+open public class MyClass {
     var aVar: Int
 
     var `let`: String
@@ -90,7 +92,7 @@ public class MyClass {
     }
 
     @available(macOS 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *)
-    public subscript(index: Int) -&gt; any MyProtocol {
+    public subscript(index: Int) -&gt; some MyProtocol {
        get {
          something
        }
@@ -107,6 +109,7 @@ public class MyClass {
 
       let aKeyPath = \MyClass.aVar
       let anotherKeyPath = \.aVar
+      let color = #imageLiteral("100")
     }
 
     func h(a b: Float = 1, c: Bool = true, d: Thing? = nil) {}

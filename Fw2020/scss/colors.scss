@@ -93,8 +93,10 @@ $navigation-secondary-color: var(--navigation-secondary-color);
   }
 }
 
+$article-color: var(--article-color);
+
 @mixin article-colors {
-  color: var(--article-color);
+  color: $article-color;
   background-color: var(--article-bg);
   a {
     color: var(--article-link-color);
