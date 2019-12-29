@@ -4,8 +4,19 @@
 //
 // This file holds the syntax highlighting color scheme for light and dark
 // modes.  Originally derived from the `Material Dark` and `Material Light`
-// themes from the `prism-themes` project, https://github.com/PrismJS/prism-themes.
+// themes from the `prism-themes` project, https://github.com/PrismJS/prism-themes,
+// but then uglified (especially Light) by me.
 //
+
+.pr-interpolation {
+  color: $article-color;
+}
+
+.pr-operator,
+.pr-punctuation {
+  color: inherit;
+}
+
 @media (prefers-color-scheme: light) {
   code,
   pre {
@@ -39,7 +50,7 @@
   }
 
   .pr-builtin {
-    color: #0f68a0;//#1c464a;//#3900a0;
+    color: #4d629f;
   }
 
   .pr-cdata {
@@ -55,7 +66,7 @@
   }
 
   .pr-class-name {
-    color: #0b4f79;
+    color: #076ace;
   }
 
   .pr-comment {
@@ -79,7 +90,7 @@
   }
 
   .pr-function {
-    color: #7c4dff;
+    color: #008080;
   }
 
   .pr-hexcode {
@@ -100,20 +111,12 @@
     color: #39adb5;
   }
 
-  .pr-interpolation {
-    color: $article-color;
-  }
-
   .pr-keyword {
     color: #9b2393;
   }
 
   .pr-number {
     color: #1c00cf;
-  }
-
-  .pr-operator {
-    color: inherit;
   }
 
   .pr-prolog {
@@ -130,10 +133,6 @@
 
   .pr-pseudo-element {
     color: #f6a434;
-  }
-
-  .pr-punctuation {
-    color: inherit;
   }
 
   .pr-regex {
@@ -222,7 +221,7 @@
   }
 
   .pr-comment {
-    color: #616161;
+    color: #45bb3e;
   }
 
   .pr-constant {
@@ -263,20 +262,12 @@
     color: #80cbc4;
   }
 
-  .pr-interpolation {
-    color: $article-color;
-  }
-
   .pr-keyword {
     color: #c792ea;
   }
 
   .pr-number {
     color: #fd9170;
-  }
-
-  .pr-operator {
-    color: #89ddff;
   }
 
   .pr-prolog {
@@ -293,10 +284,6 @@
 
   .pr-pseudo-element {
     color: #a5e844;
-  }
-
-  .pr-punctuation {
-    color: #89ddff;
   }
 
   .pr-regex {
