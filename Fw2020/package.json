@@ -18,7 +18,7 @@
     },
     "js": {
       "patterns": [
-          "js"
+        "js"
       ],
       "extensions": "js"
     }
@@ -30,7 +30,9 @@
     "css:minify": "cleancss --level 1 --source-map --source-map-inline-sources --output dist/fw2020.min.css dist/fw2020.css",
     "css": "npm run css:lint && npm run css:compile && npm run css:prefix && npm run css:minify",
     "html": "make dist",
-    "js": "make dist",
+    "js:lint": "standard js/*js",
+    "js:dist": "make dist",
+    "js": "npm run js:lint && npm run js:dist",
     "watch": "npm-watch"
   },
   "author": "John Fairhurst",
@@ -52,6 +54,7 @@
     "bootstrap": "^4.4.1",
     "jquery": "^3.4.1",
     "npm-watch": "^0.6.0",
-    "popper.js": "^1.16.0"
+    "popper.js": "^1.16.0",
+    "standard": "^14.3.1"
   }
 }
