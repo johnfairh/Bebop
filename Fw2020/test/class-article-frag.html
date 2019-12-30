@@ -2,20 +2,24 @@
     Testbed for FW2020 theme development
     Distributed under the MIT license, see https://github.com/johnfairh/J2/blob/master/LICENSE
 -->
-<!-- fullwidth header -->
 
-<div class="row">
-  <div class="col">
     <h1>RbGateway</h1>
-  </div>
-</div>
-
-<!-- Summary + Index -->
-<div class="row">
-  <div class="col order-sm-first order-last">
 
     <div class="j2-callout j2-callout-declaration">
-      <pre><code class="language-swift">public final class RbGateway : RbObjectAccess</code></pre>
+      <pre><code class="language-swift">public final class RbGateway : RbObjectAccess, Encodable, Decodable, DebugPlaygroundPrintable</code></pre>
+    </div>
+
+    <div class="clearfix">
+
+    <div class="j2-availability mt-n3">
+      <ul>
+        <li><b>Availability</b></li>
+        <li>iOS 7+</li>
+        <li>macOS 12-14</li>
+        <li>tvOS 4+</li>
+        <li>Swift 3+</li>
+        <li>Android</li>
+      </ul>
     </div>
 
     <p>Provides top-level <a href="#item1">Ruby services</a>: information about
@@ -31,22 +35,10 @@
     down before process exit by calling <code>RbGateway.cleanup()</code> but
     once this has been done the VM cannot be restarted and subsequent calls to
     RubyGateway services will fail.</p>
-  </div>
 
-  <div class="col-sm-auto">
-    <p>Index</p>
-    <ul>
-      <li>One</li>
-      <li>Two</li>
-      <li>Three</li>
-    </ul>
-  </div>
-</div>
+    </div>
 
 <!-- Details -->
-
-<div class="row flex-fill">
-  <div class="col">
 
     <ul class="j2-item-list">
 
@@ -56,7 +48,19 @@
     <div class="collapse j2-item-popopen-wrapper" id="item1">
       <div class="j2-item-popopen">
       <div class="j2-item-popopen-pointer"></div>
-      <div class="j2-item-popopen-body">
+      <div class="j2-item-popopen-body clearfix">
+
+    <div class="j2-availability">
+      <ul>
+        <li><b>Availability</b></li>
+        <li>iOS 7+</li>
+        <li>macOS 12-14</li>
+        <li>tvOS 4+</li>
+        <li>Swift 3+</li>
+        <li>Android</li>
+      </ul>
+    </div>
+
         <p>Explicitly shut down Ruby and release resources. This includes
         calling END{} code and procs registered by <code>Kernel.#at_exit</code>.
         </p>
@@ -119,6 +123,3 @@
     </li>
 
     </ul> <!-- itemlist -->
-
-  </div>
-</div>

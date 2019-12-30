@@ -300,6 +300,19 @@ pre {
   }
 }
 
+/* Availability */
+.j2-availability {
+  float: right;
+  font-size: smaller;
+  ul {
+    padding-left: .75rem;
+    margin-bottom: 0;
+    list-style-type: none;
+  }
+}
+
+/* Topics and Items */
+
 .j2-item-list {
   padding-left: 0;
   list-style-type: none;
