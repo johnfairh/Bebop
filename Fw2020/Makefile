@@ -1,12 +1,15 @@
 # Copyright
 #
 
+all: dist
+
 # Stuff to publish to the theme
 THEMEFILES=fw2020.min.css \
 	fw2020.js \
 	jquery.slim.min.js \
 	bs-util.js \
 	bs-dropdown.js \
+	bs-collapse.js \
 	prism.min.js \
 	prism.css \
 
@@ -18,6 +21,7 @@ DISTFILES=${THEMEFILES} \
 	jquery.slim.min.map \
 	util.js.map \
 	dropdown.js.map \
+	collapse.js.map \
 	guide.html \
 	class.html \
 	gh.png \
@@ -68,7 +72,6 @@ dist/%: test/%
 
 # Targets
 #
-all: dist
 
 dist: ${DISTPATHS}
 

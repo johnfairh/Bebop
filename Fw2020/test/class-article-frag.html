@@ -2,42 +2,123 @@
     Testbed for FW2020 theme development
     Distributed under the MIT license, see https://github.com/johnfairh/J2/blob/master/LICENSE
 -->
-        <!-- fullwidth header -->
+<!-- fullwidth header -->
 
-        <div class="row">
-            <div class="col j2-title">
-                <h1>Title of the page</h1>
-            </div>
+<div class="row">
+  <div class="col">
+    <h1>RbGateway</h1>
+  </div>
+</div>
+
+<!-- Summary + Index -->
+<div class="row">
+  <div class="col order-sm-first order-last">
+
+    <div class="j2-callout j2-callout-declaration">
+      <pre><code class="language-swift">public final class RbGateway : RbObjectAccess</code></pre>
+    </div>
+
+    <p>Provides top-level <a href="#item1">Ruby services</a>: information about
+    the Ruby VM, evaluate expressions, access various kinds of Ruby objects,
+    and define new Ruby classes, modules, and functions.</p>
+
+    <p>You cannot instantiate this type. Instead RubyGateway exports a public
+    instance <code>Ruby</code>. Among other things this permits a dynamic
+    member lookup programming style.</p>
+
+    <p>The Ruby VM is initialized when the object is first accessed and is
+    automatically stopped when the process ends. The VM can be manually shut
+    down before process exit by calling <code>RbGateway.cleanup()</code> but
+    once this has been done the VM cannot be restarted and subsequent calls to
+    RubyGateway services will fail.</p>
+  </div>
+
+  <div class="col-sm-auto">
+    <p>Index</p>
+    <ul>
+      <li>One</li>
+      <li>Two</li>
+      <li>Three</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Details -->
+
+<div class="row flex-fill">
+  <div class="col">
+
+    <ul class="j2-item-list">
+
+    <!-- First item -->
+    <li>
+    <a class="j2-item-title" data-toggle="collapse" href="#item1" role="button" aria-expanded="false" aria-controls="item1"><code>cleanup()</code></a>
+    <div class="collapse j2-item-popopen-wrapper" id="item1">
+      <div class="j2-item-popopen">
+      <div class="j2-item-popopen-pointer"></div>
+      <div class="j2-item-popopen-body">
+        <p>Explicitly shut down Ruby and release resources. This includes
+        calling END{} code and procs registered by <code>Kernel.#at_exit</code>.
+        </p>
+        <p>You generally don’t need to call this: it happens automatically as
+        part of process exit.</p>
+        <p>Once called you cannot continue to use Ruby in this process: the VM
+        cannot be re-setup.</p>
+        <h5>Declaration</h5>
+        <div class="j2-callout j2-callout-declaration">
+          <pre><code class="language-swift">public func cleanup() -&gt; Int32</code></pre>
         </div>
+        <h5>Return Value</h5>
+        <p>0 if the cleanup went fine, otherwise some error code from Ruby.</p>
+      </div>
+      </div>
+    </div>
+    </li>
 
-        <!-- Summary + Index -->
-        <div class="row">
-
-            <div class="col order-sm-first order-last">
-                <p>The main heading matter.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex</p>
-
-            </div>
-
-            <div class="col-sm-auto">
-                <p>Index</p>
-                <ul>
-                    <li>One</li>
-                    <li>Two</li>
-                    <li>Three</li>
-                </ul>
-            </div>
+    <!-- Second item -->
+    <li>
+    <a class="j2-item-title" data-toggle="collapse" href="#item2" role="button" aria-expanded="false" aria-controls="item2"><code>getID(for:)</code></a>
+    <div class="collapse j2-item-popopen-wrapper" id="item2">
+      <div class="j2-item-popopen">
+      <div class="j2-item-popopen-pointer"></div>
+      <div class="j2-item-popopen-body">
+        <p>Get an <code>ID</code> ready to call a method, for example.</p>
+        <p>This is public to permit interop with <code>CRuby</code>.  It is not
+        needed for regular RubyGateway use.</p>
+        <div class="j2-callout j2-callout-throws">
+          <p class="j2-callout-title">Throws</p>
+          <p><code>RbError.rubyException(_:)</code> if Ruby raises an exception.
+          This probably means the <code>ID</code> space is full which is fairly
+          unlikely.</p>
         </div>
-
-        <!-- Details -->
-
-        <div class="row flex-fill">
-            <div class="col">
-                <h2>Detailed content</h2>
-                <h2>Declaration</h2>
-                <h2>Overview</h2>
-                <p>Lorem ipsum dolor sit amet, <a href="#">consectetur adipiscing elit</a>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>iOS devices have a main screen and zero or more attached screens. A tvOS device has a main screen for the television connected to the device. Use this class to obtain screen objects for each display attached to the device. Each screen object defines the bounds rectangle for the associated display and other interesting properties such as its brightness.In iOS 8 and later, a screen’s bounds property takes the interface orientation of the screen into account. This behavior means that the bounds for a device in a portrait orientation may not be the same as the bounds for the device in a landscape orientation. Apps that rely on the screen dimensions can use the object in the fixedCoordinateSpace property as a fixed point of reference for any calculations they must make. (Prior to iOS 8, a screen’s bounds rectangle always reflected the screen dimensions relative to a portrait-up orientation. Rotating the device to a landscape or upside-down orientation did not change the bounds.)</p>
-                <p>Lorem ipsum dolor sit amet, <a href="#">consectetur adipiscing elit</a>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
+        <h5>Declaration</h5>
+        <div class="j2-callout j2-callout-declaration">
+          <pre><code class="language-swift">public func getID(for name: String) throws -&gt; ID</code></pre>
         </div>
+        <h5>Parameters</h5>
+
+        <table class="table table-striped table-responsive j2-table j2-param-table">
+          <tbody>
+            <tr>
+              <td>
+                <code><em>name</em></code>
+              </td>
+              <td>
+                <div>
+                  Name to look up, typically constant or method name.
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <h5>Return Value</h5>
+        <p>The corresponding ID.</p>
+      </div>
+      </div>
+    </div>
+    </li>
+
+    </ul> <!-- itemlist -->
+
+  </div>
+</div>

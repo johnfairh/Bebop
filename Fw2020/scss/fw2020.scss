@@ -10,6 +10,10 @@ a:hover {
   font-weight: 500;
 }
 
+h1 {
+  margin-bottom: 1rem;
+}
+
 /* stylelint-disable declaration-no-important */
 @media (min-width: 400px) {
   @each $value in $displays {
@@ -293,5 +297,50 @@ pre {
     padding-left: 0;
     margin: 0;
     background: inherit;
+  }
+}
+
+.j2-item-list {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.j2-item-title {
+  code {
+    padding: 0;
+    background: inherit;
+  }
+}
+
+// The outer thing that gets collapsed.
+// Padding not permitted because bootstrap glitches.
+.j2-item-popopen-wrapper {
+  // Middle collapsed thing, adds vertical spacing outside the border.
+  .j2-item-popopen {
+    padding-bottom: $spacer / 2;
+
+    // Notch on the popopen.  Somewhat egregious, jazzy inheritance.
+    // Replace with SVG?
+    .j2-item-popopen-pointer {
+      position: relative;
+      top: 6px;
+      left: 19px;
+      width: 12px;
+      height: 12px;
+      background: $article-bg;
+      border-top: $navigation-border;
+      border-left: $navigation-border;
+      transform: rotate(45deg);
+    }
+
+    // Inner collapsed thing, has the border and content within
+    .j2-item-popopen-body {
+      padding: ($spacer / 2) $spacer 0 $spacer;
+      border: $navigation-border;
+
+      p:last-child {
+        margin-bottom: $spacer / 2;
+      }
+    }
   }
 }

@@ -4,6 +4,9 @@
 //
 
 /* global $ Prism */
+
+'use strict'
+
 $(function () {
   $('#navToggleButton').click(function () {
     const $nav = $('#navColumn')

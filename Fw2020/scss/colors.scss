@@ -94,10 +94,11 @@ $navigation-secondary-color: var(--navigation-secondary-color);
 }
 
 $article-color: var(--article-color);
+$article-bg: var(--article-bg);
 
 @mixin article-colors {
   color: $article-color;
-  background-color: var(--article-bg);
+  background-color: $article-bg;
   a {
     color: var(--article-link-color);
   }
