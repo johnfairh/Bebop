@@ -254,8 +254,8 @@
         <a id="item7" class="j2-item-anchor j2-article-target"/>
         <a class="j2-item-title" href="#item7"><code>
           <span class="j2-item-secondary">func </span>
-          calculateRange<span class="j2-item-secondary">(</span>to:
-          <span class="j2-item-secondary"> Target)</span>
+          calculateRange<span class="j2-item-secondary">(</span>to<span class="j2-item-secondary">:
+          Target)</span>
         </code></a>
         <div class="j2-item-overview">
           <p>This is the style to link child definitions when the child
@@ -266,11 +266,73 @@
         <a id="item8" class="j2-item-anchor j2-article-target"/>
         <a class="j2-item-title" href="#item8"><code>
           <span class="j2-item-secondary">func </span>
-          calculateRange<span class="j2-item-secondary">(</span>to:
-          <span class="j2-item-secondary"> Target)</span>
+          calculateRange<span class="j2-item-secondary">(</span>to<span class="j2-item-secondary">
+          :Target)</span>
         </code></a>
         <div class="j2-item-overview">
           <p>Here's another.</p>
+        </div>
+      </li>
+
+    <!-- Ninth item -->
+    <li>
+    <a id="item9" class="j2-item-anchor j2-article-target"/>
+      <a class="j2-item-title" data-toggle="collapse" href="#_item9" role="button" aria-expanded="false" aria-controls="_item9"><code>authAcquireTokenPost(acceptLanguage:<wbr>xAppVersion:<wbr>xDeliveryChannel:<wbr>acquireTokenRequestModel:<wbr>xGeoLocation:<wbr>xApiVersion:<wbr>completion:<wbr>)</code></a>
+    <div class="collapse j2-item-popopen-wrapper" id="_item9">
+      <div class="j2-item-popopen">
+      <div class="j2-item-popopen-pointer"></div>
+      <div class="j2-item-popopen-body">
+        <p>Get an <code>ID</code> ready to call a method, for example.</p>
+        <p>This is public to permit interop with <code>CRuby</code>.  It is not
+        needed for regular RubyGateway use.</p>
+        <div class="j2-callout j2-callout-throws">
+          <p class="j2-callout-title">Throws</p>
+          <p><code>RbError.rubyException(_:)</code> if Ruby raises an exception.
+          This probably means the <code>ID</code> space is full which is fairly
+          unlikely.</p>
+        </div>
+        <h5>Declaration</h5>
+        <div class="j2-callout j2-callout-declaration">
+          <pre><code class="language-swift">public func getID(for name: String) throws -&gt; ID</code></pre>
+        </div>
+        <h5>Parameters</h5>
+
+        <table class="table table-striped table-responsive j2-table j2-param-table">
+          <tbody>
+            <tr>
+              <td>
+                <code><em>name</em></code>
+              </td>
+              <td>
+                <div>
+                  Name to look up, typically constant or method name.
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <h5>Return Value</h5>
+        <p>The corresponding ID.</p>
+      </div>
+      </div>
+    </div>
+
+    </li>
+      <li>
+        <a id="item10" class="j2-item-anchor j2-article-target"/>
+        <a class="j2-item-title" href="#item10"><code>
+          <span class="j2-item-secondary">func</span>
+          authAcquireTokenPost<span class="j2-item-secondary">(</span>acceptLanguage<span class="j2-item-secondary">:
+          String,</span> xAppVersion<span class="j2-item-secondary">:
+          String,</span> xDeliveryChannel<span class="j2-item-secondary">:
+          String,</span> acquireTokenRequestModel<span class="j2-item-secondary">:
+          AcquireTokenRequestModel?,</span> xGeoLocation<span class="j2-item-secondary">:
+          String?,</span> xApiVersion<span class="j2-item-secondary">:
+          String?,</span> completion<span class="j2-item-secondary">:
+          ((AcquireTokenResponseModel?, Error?) -> Void))</span>
+        </code></a>
+        <div class="j2-item-overview">
+          <p>Multiline formatting for the unexploded-declarations style.</p>
         </div>
       </li>
     </ul>

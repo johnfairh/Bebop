@@ -339,13 +339,15 @@ $fixed-header-height: add($titlebar-height, $breadcrumbs-height);
   }
 }
 
+$item-overview-indent: 2rem;
+
 .j2-item-list {
   padding-left: 0;
   margin-bottom: 1.2rem;
   list-style-type: none;
 
   .j2-item-overview {
-    margin-left: 2rem;
+    margin-left: $item-overview-indent;
   }
 
   li {
@@ -367,6 +369,11 @@ $fixed-header-height: add($titlebar-height, $breadcrumbs-height);
   .j2-item-secondary {
     color: $article-secondary-color;
   }
+
+  // These add an indent to the 2nd+ lines
+  display: inline-block;
+  margin-left: $item-overview-indent;
+  text-indent: -$item-overview-indent;
 }
 
 // The outer thing that gets collapsed.
