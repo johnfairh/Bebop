@@ -111,6 +111,9 @@
           This probably means the <code>ID</code> space is full which is fairly
           unlikely.</p>
         </div>
+        <h5>Default Implementation</h5>
+        <p>This lucky method has a default implementation, and this graf
+        describes what it does.</p>
         <h5>Declaration</h5>
         <div class="j2-callout j2-callout-declaration">
           <pre><code class="language-swift">public func getID(for name: String) throws -&gt; ID</code></pre>
@@ -133,6 +136,10 @@
         </table>
         <h5>Return Value</h5>
         <p>The corresponding ID.</p>
+        <p>
+        <a class="" href="#">Show members</a> |
+        <a class="" href="#">Show on GitHub</a>
+        </p>
       </div>
       </div>
     </div>
@@ -154,7 +161,7 @@
 
     <ul class="j2-item-list">
 
-    <!-- Third item -->
+    <!-- Third item: item title note -->
     <li>
     <a id="item3" class="j2-item-anchor j2-article-target"/>
     <a class="j2-item-title" data-toggle="collapse" href="#_item3" role="button" aria-expanded="false" aria-controls="_item1"><code>cleanup()</code></a>
@@ -164,16 +171,21 @@
       <div class="j2-item-popopen-body">
         <div class="clearfix">
 
-    <div class="j2-availability mb-n4">
-      <ul>
-        <li><b>Availability</b></li>
-        <li>iOS 7+</li>
-        <li>macOS 12-14</li>
-        <li>tvOS 4+</li>
-        <li>Swift 3+</li>
-        <li>Android</li>
-      </ul>
-    </div>
+        <div class="j2-availability mb-n4">
+          <ul>
+            <li><b>Availability</b></li>
+            <li>iOS 7+</li>
+            <li>macOS 12-14</li>
+            <li>tvOS 4+</li>
+            <li>Swift 3+</li>
+            <li>Android</li>
+          </ul>
+        </div>
+
+        <div class="j2-callout j2-callout-note">
+          <p class="j2-callout-title">Note</p>
+          <p>Extension method from Utils.</p>
+        </div>
 
         <p>Explicitly shut down Ruby and release resources. This includes
         calling END{} code and procs registered by <code>Kernel.#at_exit</code>.
@@ -194,14 +206,19 @@
     </div>
     </li>
 
-    <!-- Fourth item -->
+    <!-- Fourth item: Deprecated -->
     <li>
     <a id="item4" class="j2-item-anchor j2-article-target"/>
-    <a class="j2-item-title" data-toggle="collapse" href="#_item4" role="button" aria-expanded="false" aria-controls="_item4"><code>getID(for:)</code></a>
+    <a class="j2-item-title discouraged" data-toggle="collapse" href="#_item4" role="button" aria-expanded="false" aria-controls="_item4"><code>getID(for:)</code></a>
     <div class="collapse j2-item-popopen-wrapper" id="_item4">
       <div class="j2-item-popopen">
       <div class="j2-item-popopen-pointer"></div>
       <div class="j2-item-popopen-body">
+
+        <div class="j2-callout j2-callout-deprecated">
+          <p class="j2-callout-title">Deprecated</p>
+          <p>This has been deprecated.</p>
+        </div>
         <p>Get an <code>ID</code> ready to call a method, for example.</p>
         <p>This is public to permit interop with <code>CRuby</code>.  It is not
         needed for regular RubyGateway use.</p>
@@ -274,10 +291,10 @@
         </div>
       </li>
 
-    <!-- Ninth item -->
-    <li>
+    <!-- Ninth item, insanely long -->
+  <li>
     <a id="item9" class="j2-item-anchor j2-article-target"/>
-      <a class="j2-item-title" data-toggle="collapse" href="#_item9" role="button" aria-expanded="false" aria-controls="_item9"><code>authAcquireTokenPost(acceptLanguage:<wbr>xAppVersion:<wbr>xDeliveryChannel:<wbr>acquireTokenRequestModel:<wbr>xGeoLocation:<wbr>xApiVersion:<wbr>completion:<wbr>)</code></a>
+    <a class="j2-item-title" data-toggle="collapse" href="#_item9" role="button" aria-expanded="false" aria-controls="_item9"><code>authAcquireTokenPost(acceptLanguage:<wbr>xAppVersion:<wbr>xDeliveryChannel:<wbr>acquireTokenRequestModel:<wbr>xGeoLocation:<wbr>xApiVersion:<wbr>completion:<wbr>)</code></a>
     <div class="collapse j2-item-popopen-wrapper" id="_item9">
       <div class="j2-item-popopen">
       <div class="j2-item-popopen-pointer"></div>
@@ -316,6 +333,8 @@
       </div>
       </div>
     </div>
+
+    <!-- Tenth item, even longer -->
 
     </li>
       <li>

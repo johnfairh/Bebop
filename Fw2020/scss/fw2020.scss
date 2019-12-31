@@ -361,6 +361,10 @@ $item-overview-indent: 2rem;
   &:focus {
     outline: none;
   }
+  &.discouraged {
+    text-decoration: line-through;
+  }
+
   code {
     padding: 0;
     background: inherit;
@@ -402,7 +406,7 @@ $item-overview-indent: 2rem;
       padding: ($spacer / 2) $spacer 0 $spacer;
       border: $navigation-border;
 
-      p:last-child {
+      > p:last-child {
         margin-bottom: $spacer / 2;
       }
     }
