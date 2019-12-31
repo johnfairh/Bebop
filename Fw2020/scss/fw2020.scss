@@ -333,8 +333,19 @@ $fixed-header-height: add($titlebar-height, $breadcrumbs-height);
 
 /* Topics and Items */
 
+.j2-item-discussion {
+  p:last-child {
+    margin-bottom: .25rem;
+  }
+}
+
+li .j2-item-discussion {
+  margin-left: 2rem;
+}
+
 .j2-item-list {
   padding-left: 0;
+  margin-bottom: 1.2rem;
   list-style-type: none;
 }
 
