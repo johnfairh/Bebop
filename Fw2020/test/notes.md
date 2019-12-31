@@ -103,6 +103,18 @@ System settings seems more reliable than Safari tools??
 * Collapse opens on link if NO hash change
 * Page load with location hash scrolls and opens
 
+# Item variations
+
+* Title is just a link
+* Title is apple-style mixed-color
+* Title is jazzy-style but multi-line
+* Title is apple-style and multi-line
+* Item is deprecated
+* Item has github link
+* Item has members link
+* Item has note for import/extension method
+* Item has default implementation
+
 # Misc
 
 * Link to discussion / topic heading adjust for fixed heading
