@@ -137,7 +137,11 @@ pre {
   opacity: .6;
 }
 
-/* Nav width refinements */
+/* Sticky header and nav components when wide */
+
+$titlebar-height: 56px;
+$breadcrumbs-height: 36px;
+$fixed-header-height: add($titlebar-height, $breadcrumbs-height);
 
 @include media-breakpoint-up(md) {
   .j2-nav {
@@ -145,8 +149,8 @@ pre {
     max-width: 250px;
     @supports (position: sticky) {
       position: sticky;
-      top: 92px;
-      max-height: subtract(100vh, 92px); /* XXX breadcrumbs + header */
+      top: $fixed-header-height;
+      max-height: subtract(100vh, $fixed-header-height);
       overflow-y: auto;
     }
   }
@@ -162,8 +166,22 @@ pre {
   .j2-breadcrumb-nav {
     @supports (position: sticky) {
       position: sticky;
-      top: 56px;
-      z-index: subtract($zindex-sticky, 10); // Must be less than titlebar for dropdown to work!
+      top: $titlebar-height;
+
+      // Must be less than titlebar for dropdown to work
+      z-index: subtract($zindex-sticky, 10);
+    }
+  }
+
+  // Hashlink vpos adjustment
+  .j2-article-target::before {
+    @supports (position: sticky) {
+      display: block;
+      height: $fixed-header-height;
+      margin-top: -$fixed-header-height;
+      pointer-events: none;
+      visibility: hidden;
+      content: "";
     }
   }
 }
@@ -256,6 +274,7 @@ pre {
 }
 
 /* Callouts */
+
 @mixin j2-callout-colors($color) {
   border-left: 5px solid $color;
   .j2-callout-title {
@@ -300,7 +319,8 @@ pre {
   }
 }
 
-/* Availability */
+/* Availability list */
+
 .j2-availability {
   float: right;
   font-size: smaller;
