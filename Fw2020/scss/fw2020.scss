@@ -338,7 +338,12 @@ $fixed-header-height: add($titlebar-height, $breadcrumbs-height);
   list-style-type: none;
 }
 
+/* .j2-item-anchor {} marker class for JS */
+
 .j2-item-title {
+  &:focus {
+    outline: none;
+  }
   code {
     padding: 0;
     background: inherit;

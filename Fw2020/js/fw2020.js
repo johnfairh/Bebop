@@ -8,10 +8,41 @@
 'use strict'
 
 $(function () {
+  // Narrow size nav toggle
   $('#navToggleButton').click(function () {
     const $nav = $('#navColumn')
     $nav.toggleClass('d-none')
   })
+
+  // Page load to an item title that need to trigger uncollapse
+  $(window).trigger('hashchange')
+})
+
+// When we follow a link to the title of a collapsed item,
+// uncollapse it.
+$(window).on('hashchange', function (e) {
+  const $el = $(window.location.hash)
+  if ($el.hasClass('j2-item-anchor')) {
+    const $collapse = $('#_' + $el.attr('id'))
+    $collapse.collapse('show')
+  }
+})
+
+// If the browser URL has an item's hash, but the user
+// collapses that item and then follows a link to that _same_
+// item, then poke it so we uncollapse it again.
+$("a:not('.j2-item-title')").on('click', function () {
+  if (window.location.href === this.href) {
+    $(window).trigger('hashchange')
+  }
+})
+
+// When a collapsed item opens, update the browser URL
+// to point at the item's title _without_ creating a
+// new history entry.
+$('.j2-item-popopen-wrapper').on('show.bs.collapse', function () {
+  const title = $(this).attr('id')
+  window.history.replaceState({}, document.title, '#' + title.substr(1))
 })
 
 /*
