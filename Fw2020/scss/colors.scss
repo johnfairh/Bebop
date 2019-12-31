@@ -34,6 +34,7 @@ $gray-10: #fefeff;
   // article
   --article-color: #{$gray-900};
   --article-link-color: #0070c9;
+  --article-secondary-color: #{$gray-600};
   --article-bg: #{$gray-10};
   // entire page
   --font-weight-normal: 400;
@@ -51,6 +52,7 @@ $gray-10: #fefeff;
     --navigation-border-color: #484c50;
     --article-color: #{white(.87)};
     --article-link-color: #1095ef;
+    --article-secondary-color: #{white(.6)};
     --article-bg: #1c2024;
     --input-placeholder-color: #{white(.3)};
     --input-color: #{white(.87)};
@@ -94,6 +96,7 @@ $navigation-secondary-color: var(--navigation-secondary-color);
 }
 
 $article-color: var(--article-color);
+$article-secondary-color: var(--article-secondary-color);
 $article-bg: var(--article-bg);
 
 @mixin article-colors {

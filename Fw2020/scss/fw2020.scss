@@ -333,20 +333,24 @@ $fixed-header-height: add($titlebar-height, $breadcrumbs-height);
 
 /* Topics and Items */
 
-.j2-item-discussion {
+.j2-item-overview {
   p:last-child {
     margin-bottom: .25rem;
   }
-}
-
-li .j2-item-discussion {
-  margin-left: 2rem;
 }
 
 .j2-item-list {
   padding-left: 0;
   margin-bottom: 1.2rem;
   list-style-type: none;
+
+  .j2-item-overview {
+    margin-left: 2rem;
+  }
+
+  li {
+    margin-bottom: .5rem;
+  }
 }
 
 /* .j2-item-anchor {} marker class for JS */
@@ -358,6 +362,10 @@ li .j2-item-discussion {
   code {
     padding: 0;
     background: inherit;
+  }
+
+  .j2-item-secondary {
+    color: $article-secondary-color;
   }
 }
 
