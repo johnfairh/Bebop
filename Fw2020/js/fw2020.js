@@ -62,7 +62,7 @@ Prism.languages.insertBefore('swift', 'function', {
 
 // Color type declarations.  The id regexps are barely approximate.
 Prism.languages.swift['class-name'] = {
-  pattern: /(\b(?:associatedtype|class|enum|extension|func|let|operator|protocol|precedencegroup|struct|typealias|var)\s+)`?\p{L}[\p{L}_\p{N}.]*`?/u,
+  pattern: /(\b(?:associatedtype|class|enum|extension|func|let|operator|protocol|precedencegroup|struct|typealias|var)\s+)`?[_\p{L}][\p{L}_\p{N}.]*`?/u,
   lookbehind: true
 }
 

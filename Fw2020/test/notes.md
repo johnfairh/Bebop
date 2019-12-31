@@ -75,6 +75,7 @@ Tiny (iPhone SE/8)
 * Swift and ObjC picks out CapitalProbableTypes
 * Swift picks out declaration terms -- backticks count
 * Missing grammars autoloaded (java)
+* Selected text legible
 
 # Dark mode
 
@@ -85,3 +86,25 @@ System settings seems more reliable than Safari tools??
   * Dropdown highlighting
   * Syntax highlighting
 * Drop shadow on searchbar input focus
+
+# Available
+
+* Main, slightly into declaration callout
+* Cleared - if no discussion does not extend into topics
+* Item, aligns with discussion.
+* Cleared - protrudes a little into declaration
+
+# Collapse
+
+* Click to open updates location hash but not history.
+* Link to anchor adjusts for fixed heading
+* Link to anchor has zero-adjust if heading not fixed
+* Collapse opens on link as part of hash-change -- updates history
+* Collapse opens on link if NO hash change
+* Page load with location hash scrolls and opens
+
+# Misc
+
+* Link to discussion / topic heading adjust for fixed heading
+* Link to discussion / topic heading has zero-adjust if heading not fixed
+
