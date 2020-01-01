@@ -172,7 +172,7 @@ $fixed-header-height: add($titlebar-height, $breadcrumbs-height);
   }
 
   // Anchor link vpos adjustment
-  .j2-anchor::before {
+  :target::before {
     @supports (position: sticky) {
       display: block;
       height: $fixed-header-height;
@@ -183,6 +183,8 @@ $fixed-header-height: add($titlebar-height, $breadcrumbs-height);
     }
   }
 }
+
+/* .j2-anchor {} marker class for anchor.js */
 
 /* Adjust pos and color of anchor icons */
 .anchorjs-link {
