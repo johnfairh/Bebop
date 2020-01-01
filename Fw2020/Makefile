@@ -77,12 +77,6 @@ dist/%: test/%
 
 dist: ${DISTPATHS}
 
-.PHONY: update_bootstrap
-update_bootstrap:
-	cp -f bootstrap/.browserslistrc .
-	cp -f bootstrap/build/.stylelintrc build/
-	cp -f bootstrap/build/postcss.config.js build/
-
 publish: ${THEMEPATHS}
 	@echo cp -f $^ Somewhere....
 	@echo need to figure out where these go
