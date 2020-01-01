@@ -11,7 +11,6 @@ THEMEFILES=fw2020.min.css \
 	bs-dropdown.js \
 	bs-collapse.js \
 	prism.min.js \
-	prism.css \
 	anchor.js
 
 THEMEPATHS=$(addprefix dist/, ${THEMEFILES})
@@ -42,9 +41,6 @@ SCSSFILES=$(addsuffix .scss, main variables fw2020)
 
 dist/%.css: ${SCSSFILES}
 	npm run css
-
-dist/prism.css: prism/prism.css
-	cp -f $^ $@
 
 # Assemble js
 
