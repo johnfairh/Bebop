@@ -12,6 +12,7 @@ THEMEFILES=fw2020.min.css \
 	bs-collapse.js \
 	prism.min.js \
 	prism.css \
+	anchor.js
 
 THEMEPATHS=$(addprefix dist/, ${THEMEFILES})
 
@@ -32,6 +33,7 @@ DISTPATHS=$(addprefix dist/, ${DISTFILES})
 vpath %.scss scss
 vpath %.js js
 vpath %.js prism
+vpath %.js node_modules/anchor-js
 vpath %.html test
 
 # Build css

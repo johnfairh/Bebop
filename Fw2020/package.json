@@ -51,6 +51,7 @@
     "watch": "^1.0.2"
   },
   "dependencies": {
+    "anchor-js": "^4.2.2",
     "bootstrap": "^4.4.1",
     "jquery": "^3.4.1",
     "npm-watch": "^0.6.0",

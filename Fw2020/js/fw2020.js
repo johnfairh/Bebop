@@ -3,7 +3,7 @@
 // Distributed under the MIT license, https://github.com/johnfairh/J2/blob/master/LICENSE
 //
 
-/* global $ Prism */
+/* global $ Prism anchors */
 
 'use strict'
 
@@ -13,6 +13,12 @@ $(function () {
     const $nav = $('#navColumn')
     $nav.toggleClass('d-none')
   })
+
+  // Auto-add anchors to headings
+  // wbn to make pos depend on size class
+  // anchors.options.placement = 'left'
+  anchors.options.visible = 'touch'
+  anchors.add('.j2-anchor span')
 
   // Page load to an item title that need to trigger uncollapse
   $(window).trigger('hashchange')

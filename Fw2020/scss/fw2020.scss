@@ -14,13 +14,11 @@ h1 {
   margin-bottom: 1rem;
 }
 
-/* stylelint-disable declaration-no-important */
 @media (min-width: 400px) {
   @each $value in $displays {
     .d-smphone-#{$value} { display: $value !important; }
   }
 }
-/* stylelint-enable declaration-no-important */
 
 body {
   @include navigation-base-colors();
@@ -173,8 +171,8 @@ $fixed-header-height: add($titlebar-height, $breadcrumbs-height);
     }
   }
 
-  // Hashlink vpos adjustment
-  .j2-article-target::before {
+  // Anchor link vpos adjustment
+  .j2-anchor::before {
     @supports (position: sticky) {
       display: block;
       height: $fixed-header-height;
@@ -184,6 +182,13 @@ $fixed-header-height: add($titlebar-height, $breadcrumbs-height);
       content: "";
     }
   }
+}
+
+.anchorjs-link {
+  position: absolute;
+  padding-top: .1em;
+  padding-right: 1em;
+  padding-left: .2em !important;
 }
 
 /* Maybe delete when resizer is in. */
