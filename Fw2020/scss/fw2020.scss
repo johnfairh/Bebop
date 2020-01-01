@@ -184,11 +184,13 @@ $fixed-header-height: add($titlebar-height, $breadcrumbs-height);
   }
 }
 
+/* Adjust pos and color of anchor icons */
 .anchorjs-link {
   position: absolute;
   padding-top: .1em;
   padding-right: 1em;
   padding-left: .2em !important;
+  color: $article-color !important;
 }
 
 /* Maybe delete when resizer is in. */
