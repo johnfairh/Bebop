@@ -350,7 +350,7 @@ $item-overview-indent: 2rem;
     margin-left: $item-overview-indent;
   }
 
-  li {
+  > li {
     margin-bottom: .5rem;
   }
 }
