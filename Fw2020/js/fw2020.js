@@ -9,6 +9,67 @@
 
 let allCollapsed = false
 
+const $body = $('body')
+
+// Language-switching stuff
+const langControl = {
+
+  // Sync body style from URL for initial layout
+  setup () {
+    if (window.location.search !== '') {
+      $body.removeClass('j2-swift j2-objc')
+      $body.addClass('j2-' + window.location.search.substr(1))
+    }
+  },
+
+  // Initial chrome and event handlers when ready
+  documentLoaded () {
+    this.langMenu = $('#languageMenu')
+    this.langSwift = $('#language-swift')
+    this.langObjC = $('#language-objc')
+
+    this.updateChrome()
+
+    this.langSwift.click(function () {
+      langControl.set('j2-swift')
+    })
+    this.langObjC.click(function () {
+      langControl.set('j2-objc')
+    })
+  },
+
+  // Sync chrome from body
+  updateChrome () {
+    if ($body.hasClass('j2-swift')) {
+      this.langMenu.text('Swift')
+      this.langSwift.addClass('font-weight-bolder')
+      this.langObjC.removeClass('font-weight-bolder')
+      return 'swift'
+    } else {
+      this.langMenu.text('ObjC')
+      this.langSwift.removeClass('font-weight-bolder')
+      this.langObjC.addClass('font-weight-bolder')
+      return 'objc'
+    }
+  },
+
+  // Update for a menu click
+  set (className) {
+    if (!$body.hasClass(className)) {
+      this.toggle()
+    }
+  },
+
+  // Flip current on keypress/click
+  toggle () {
+    $body.toggleClass('j2-swift j2-objc')
+    const lang = this.updateChrome()
+    window.history.replaceState({}, document.title, '?' + lang)
+  }
+}
+
+langControl.setup()
+
 $(function () {
   // Narrow size nav toggle
   $('#navToggleButton').click(function () {
@@ -20,8 +81,10 @@ $(function () {
   anchors.options.visible = 'touch'
   anchors.add('.j2-anchor span')
 
-  // Default
+  // Default collapse toggle state
   allCollapsed = $('.collapse.show').length === 0
+
+  langControl.documentLoaded()
 
   // Page load to an item title that need to trigger uncollapse
   $(window).trigger('hashchange')
@@ -42,6 +105,7 @@ $(function () {
         $searchField.focus()
         break
       }
+
       case 'a':
         if (allCollapsed) {
           $('.collapse').collapse('show')
@@ -49,6 +113,10 @@ $(function () {
           $('.collapse').collapse('hide')
         }
         allCollapsed = !allCollapsed
+        break
+
+      case 'l':
+        langControl.toggle()
         break
     }
   })

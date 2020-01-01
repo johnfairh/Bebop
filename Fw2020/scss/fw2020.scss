@@ -14,6 +14,14 @@ h1 {
   margin-bottom: 1rem;
 }
 
+.j2-swift .j2-objc {
+  display: none;
+}
+
+.j2-objc .j2-swift {
+  display: none;
+}
+
 @media (min-width: 400px) {
   @each $value in $displays {
     .d-smphone-#{$value} { display: $value !important; }

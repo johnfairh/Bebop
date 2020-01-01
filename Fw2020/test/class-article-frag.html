@@ -6,7 +6,12 @@
     <h1>RbGateway</h1>
 
     <div class="j2-callout j2-callout-declaration">
+      <div class="j2-swift">
       <pre><code class="language-swift">public final class RbGateway : RbObjectAccess, Encodable, Decodable, DebugPlaygroundPrintable</code></pre>
+      </div>
+      <div class="j2-objc">
+      <pre><code class="language-objectivec">@interface RbGateway : RbObjectAccess</code></pre>
+      </div>
     </div>
 
     <div class="clearfix">
@@ -27,7 +32,7 @@
     various kinds of Ruby objects, and define new Ruby classes, modules, and
     functions.</p>
 
-    <p>You 🔗 cannot instantiate this type. Instead RubyGateway exports a public
+    <p><a href="guide.html">Guide link</a>. Instead RubyGateway exports a public
     instance <code>Ruby</code>. Among other things this permits a dynamic
     member lookup programming style.</p>
 
@@ -348,6 +353,7 @@
       <li>
         <a id="item10" class="j2-item-anchor"/>
         <a class="j2-item-title" href="#item10"><code>
+          <span class="j2-swift">
           <span class="j2-item-secondary">func</span>
           authAcquireTokenPost<span class="j2-item-secondary">(</span>acceptLanguage<span class="j2-item-secondary">:
           String,</span> xAppVersion<span class="j2-item-secondary">:
@@ -356,7 +362,8 @@
           AcquireTokenRequestModel?,</span> xGeoLocation<span class="j2-item-secondary">:
           String?,</span> xApiVersion<span class="j2-item-secondary">:
           String?,</span> completion<span class="j2-item-secondary">:
-          ((AcquireTokenResponseModel?, Error?) -> Void))</span>
+          ((AcquireTokenResponseModel?, Error?) -> Void))</span></span>
+          <span class="j2-objc">+ Look I've no idea what this should look like:</span>
         </code></a>
         <div class="j2-item-overview">
           <p>Multiline formatting for the unexploded-declarations style.</p>
