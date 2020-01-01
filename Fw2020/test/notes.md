@@ -62,7 +62,7 @@ Tiny (iPhone SE/8)
   * In pre/code blocks, natural color with reactive
 * Four types of callout - no title on the declaration
 * Tables
-  * Free tables single bordered, stripey rows
+  * Free tables single bordered, stripy rows
   * Param tables same, param name right/top-aligned
 * Pre blocks scroll horizontally, no wrap
 
@@ -115,8 +115,18 @@ System settings seems more reliable than Safari tools??
 * Item has note for import/extension method
 * Item has default implementation
 
-# Misc
+# Headings
 
 * Link to discussion / topic heading adjust for fixed heading
 * Link to discussion / topic heading has zero-adjust if heading not fixed
+* On desktop, hover headings outside of items shows link icon
+* On mobile, link icon always there, links to pos
+* Location hash set to an anchor, no invisible activation area above
 
+# Keys
+
+* '/' focusses searchbar - right searchbar when narrow - without putting
+  anything in the searchbar
+* '/' while searchbar focus inputs '/'
+* 'a' toggles global expand/collapse if searchbar not focus
+* With focus, searchbar works normally

@@ -7,6 +7,8 @@
 
 'use strict'
 
+let allCollapsed = false
+
 $(function () {
   // Narrow size nav toggle
   $('#navToggleButton').click(function () {
@@ -15,13 +17,41 @@ $(function () {
   })
 
   // Auto-add anchors to headings
-  // wbn to make pos depend on size class
-  // anchors.options.placement = 'left'
   anchors.options.visible = 'touch'
   anchors.add('.j2-anchor span')
 
+  // Default
+  allCollapsed = $('.collapse.show').length === 0
+
   // Page load to an item title that need to trigger uncollapse
   $(window).trigger('hashchange')
+})
+
+// Keypress handler
+
+$(function () {
+  $(document).keypress(function (e) {
+    const $searchField = $('input:visible')
+    if ($searchField.is(':focus')) {
+      return
+    }
+
+    switch (e.key) {
+      case '/': {
+        e.preventDefault()
+        $searchField.focus()
+        break
+      }
+      case 'a':
+        if (allCollapsed) {
+          $('.collapse').collapse('show')
+        } else {
+          $('.collapse').collapse('hide')
+        }
+        allCollapsed = !allCollapsed
+        break
+    }
+  })
 })
 
 // When we follow a link to the title of a collapsed item,
