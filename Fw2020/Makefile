@@ -11,7 +11,9 @@ THEMEFILES=fw2020.min.css \
 	bs-dropdown.js \
 	bs-collapse.js \
 	prism.min.js \
-	anchor.js
+	anchor.js \
+	lunr.min.js \
+	typeahead.jquery.min.js \
 
 THEMEPATHS=$(addprefix dist/, ${THEMEFILES})
 
@@ -33,6 +35,8 @@ vpath %.scss scss
 vpath %.js js
 vpath %.js prism
 vpath %.js node_modules/anchor-js
+vpath %.js node_modules/lunr
+vpath %.js node_modules/corejs-typeahead/dist
 vpath %.html test
 
 # Build css
