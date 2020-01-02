@@ -30,20 +30,16 @@ const langControl = {
 
     this.updateChrome()
 
-    this.langSwift.click(function () {
-      langControl.set('j2-swift')
-    })
-    this.langObjC.click(function () {
-      langControl.set('j2-objc')
-    })
+    this.langSwift.click(() => this.menuItemClicked('j2-swift'))
+    this.langObjC.click(() => this.menuItemClicked('j2-objc'))
   },
 
   // Sync chrome from body
   updateChrome () {
     if ($body.hasClass('j2-swift')) {
       this.langMenu.text('Swift')
-      this.langSwift.addClass('font-weight-bolder')
       this.langObjC.removeClass('font-weight-bolder')
+      this.langSwift.addClass('font-weight-bolder')
       return 'swift'
     } else {
       this.langMenu.text('ObjC')
@@ -54,10 +50,12 @@ const langControl = {
   },
 
   // Update for a menu click
-  set (className) {
+  menuItemClicked (className) {
+    this.langMenu.dropdown('toggle')
     if (!$body.hasClass(className)) {
       this.toggle()
     }
+    return false
   },
 
   // Flip current on keypress/click
@@ -84,6 +82,7 @@ $(function () {
   // Default collapse toggle state
   allCollapsed = $('.collapse.show').length === 0
 
+  // Sync content mode from URL
   langControl.documentLoaded()
 
   // Page load to an item title that need to trigger uncollapse
@@ -102,6 +101,7 @@ $(function () {
     switch (e.key) {
       case '/': {
         e.preventDefault()
+        e.stopPropagation()
         $searchField.focus()
         break
       }
@@ -132,21 +132,23 @@ $(window).on('hashchange', function (e) {
   }
 })
 
-// If the browser URL has an item's hash, but the user
-// collapses that item and then follows a link to that _same_
-// item, then poke it so we uncollapse it again.
-$("a:not('.j2-item-title')").on('click', function () {
-  if (window.location.href === this.href) {
-    $(window).trigger('hashchange')
-  }
-})
+$(function () {
+  // If the browser URL has an item's hash, but the user
+  // collapses that item and then follows a link to that _same_
+  // item, then poke it so we uncollapse it again.
+  $("a:not('.j2-item-title')").on('click', function () {
+    if (window.location.href === this.href) {
+      $(window).trigger('hashchange')
+    }
+  })
 
-// When a collapsed item opens, update the browser URL
-// to point at the item's title _without_ creating a
-// new history entry.
-$('.j2-item-popopen-wrapper').on('show.bs.collapse', function () {
-  const title = $(this).attr('id')
-  window.history.replaceState({}, document.title, '#' + title.substr(1))
+  // When a collapsed item opens, update the browser URL
+  // to point at the item's title _without_ creating a
+  // new history entry.
+  $('.j2-item-popopen-wrapper').on('show.bs.collapse', function () {
+    const title = $(this).attr('id')
+    window.history.replaceState({}, document.title, '#' + title.substr(1))
+  })
 })
 
 /*
