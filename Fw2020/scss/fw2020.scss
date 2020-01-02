@@ -105,11 +105,14 @@ pre {
    */
   width: 0;
   padding-top: $spacer * 2;
-  border-bottom: $navigation-border;
 }
 
 .j2-article-wrapper {
   max-width: 800px;
+  @media (min-width: 1400px) {
+    max-width: 56vw;
+  }
+  margin: auto;
 }
 
 .j2-breadcrumb {
@@ -119,19 +122,20 @@ pre {
 }
 
 .j2-nav {
-  @include navigation-base-colors();
+  @include navigation-colors();
   @include media-breakpoint-down(sm) {
     width: 100%;
   }
+  padding-top: $spacer;
   overflow-x: scroll;
   @include media-breakpoint-up(md) {
     border-right: $navigation-border;
   }
-  border-bottom: $navigation-border;
 }
 
 .j2-footer {
   @include navigation-colors();
+  border-top: $navigation-border;
   border-bottom: $navigation-border;
 }
 
@@ -143,11 +147,53 @@ pre {
   opacity: .6;
 }
 
+.j2-aux-nav {
+  @include article-colors();
+  padding-top: $spacer * 2;
+  font-size: .9rem;
+
+  .j2-aux-nav-wrapper {
+    border-left: $navigation-border;
+  }
+
+  a {
+    display: inline-block;
+    margin-left: .6rem;
+    text-indent: -.6rem;
+    word-break: break-all;
+    word-wrap: break-word;
+  }
+
+  ul {
+    padding-left: $spacer / 2;
+    list-style-type: none;
+  }
+
+  .j2-aux-heading {
+    font-weight: 600;
+  }
+
+  .j2-aux-action {
+    color: $article-color;
+  }
+}
+
 /* Sticky header and nav components when wide */
 
 $titlebar-height: 56px;
 $breadcrumbs-height: 36px;
 $fixed-header-height: add($titlebar-height, $breadcrumbs-height);
+
+@include media-breakpoint-up(xl) {
+  .j2-aux-nav {
+    @supports (position: sticky) {
+      position: sticky;
+      top: $fixed-header-height;
+      max-height: subtract(100vh, $fixed-header-height);
+      overflow-y: auto;
+    }
+  }
+}
 
 @include media-breakpoint-up(md) {
   .j2-nav {
