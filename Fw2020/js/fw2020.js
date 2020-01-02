@@ -27,11 +27,13 @@ const langControl = {
     this.langMenu = $('#languageMenu')
     this.langSwift = $('#language-swift')
     this.langObjC = $('#language-objc')
+    this.actionLang = $('#action-language')
 
     this.updateChrome()
 
     this.langSwift.click(() => this.menuItemClicked('j2-swift'))
     this.langObjC.click(() => this.menuItemClicked('j2-objc'))
+    this.actionLang.click(() => { this.toggle(); return false })
   },
 
   // Sync chrome from body
@@ -40,11 +42,13 @@ const langControl = {
       this.langMenu.text('Swift')
       this.langObjC.removeClass('font-weight-bolder')
       this.langSwift.addClass('font-weight-bolder')
+      this.actionLang.text('Objective-C (l)')
       return 'swift'
     } else {
       this.langMenu.text('ObjC')
       this.langSwift.removeClass('font-weight-bolder')
       this.langObjC.addClass('font-weight-bolder')
+      this.actionLang.text('Swift (l)')
       return 'objc'
     }
   },
@@ -72,7 +76,7 @@ const langControl = {
 //
 const collapseControl = {
 
-  // Distinguish user-toggle from automatic
+  // Distinguish user-uncollapse from global
   toggling: false,
 
   setup () {
@@ -90,9 +94,15 @@ const collapseControl = {
     }
   },
 
+  updateChrome () {
+    this.actionCollapse.text(this.allCollapsed ? 'Expand (a)' : 'Collapse (a)')
+  },
+
   ready () {
     // Default collapse toggle state
+    this.actionCollapse = $('#action-collapse')
     this.allCollapsed = $('.collapse.show').length === 0
+    this.updateChrome()
 
     // If the browser URL has an item's hash, but the user
     // collapses that item and then follows a link to that _same_
@@ -113,6 +123,8 @@ const collapseControl = {
       window.history.replaceState({}, document.title, '#' + title.substr(1))
     })
 
+    this.actionCollapse.click(() => { this.toggle(); return false })
+
     // If we loaded the page with a link to a collapse anchor, uncollapse it.
     this.ensureUncollapsed()
   },
@@ -127,6 +139,7 @@ const collapseControl = {
     }
     this.toggling = false
     this.allCollapsed = !this.allCollapsed
+    this.updateChrome()
   }
 }
 
@@ -149,6 +162,9 @@ $(function () {
 
   // Initialise collapse-anchor link
   collapseControl.ready()
+
+  // Searchbar action
+  $('#action-search').click(() => { $('input:visible').focus(); return false })
 })
 
 // Keypress handler
