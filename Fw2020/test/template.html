@@ -30,8 +30,8 @@
 
       <div class="navbar-nav ml-auto justify-content-end flex-fill">
 
-          <form class="form-inline d-none d-md-flex">
-            <input class="form-control form-control-sm w-100" type="search" placeHolder="Search documentation" aria-label="Search">
+          <form class="form-inline d-none d-md-flex" role="search" action="search.json">
+            <input class="form-control form-control-sm w-100" type="search" placeHolder="Search documentation" aria-label="Search" data-typeahead>
           </form>
 
           <div class="nav-item dropdown small">
@@ -213,12 +213,14 @@
 
 </div> <!-- /container -->
  
-    <script src="jquery.slim.min.js"></script>
+    <script src="jquery.min.js"></script>
     <script src="bs-util.js"></script>
     <script src="bs-dropdown.js"></script>
     <script src="bs-collapse.js"></script>
     <script src="prism.min.js"></script>
     <script src="anchor.js"></script>
+    <script src="lunr.min.js"></script>
+    <script src="typeahead.jquery.min.js"></script>
     <script src="fw2020.js"></script>
   </body>
 </html>

@@ -6,7 +6,7 @@ all: dist
 # Stuff to publish to the theme
 THEMEFILES=fw2020.min.css \
 	fw2020.js \
-	jquery.slim.min.js \
+	jquery.min.js \
 	bs-util.js \
 	bs-dropdown.js \
 	bs-collapse.js \
@@ -20,7 +20,7 @@ THEMEPATHS=$(addprefix dist/, ${THEMEFILES})
 # Stuff for testing
 DISTFILES=${THEMEFILES} \
 	fw2020.min.css.map \
-	jquery.slim.min.map \
+	jquery.min.map \
 	util.js.map \
 	dropdown.js.map \
 	collapse.js.map \
@@ -28,6 +28,7 @@ DISTFILES=${THEMEFILES} \
 	class.html \
 	gh.png \
 	dash.png \
+	search.json \
 
 DISTPATHS=$(addprefix dist/, ${DISTFILES})
 
@@ -37,7 +38,10 @@ vpath %.js prism
 vpath %.js node_modules/anchor-js
 vpath %.js node_modules/lunr
 vpath %.js node_modules/corejs-typeahead/dist
+vpath %.js node_modules/jquery/dist
 vpath %.html test
+
+vpath %.map node_modules/jquery/dist
 
 # Build css
 
@@ -51,9 +55,7 @@ dist/%.css: ${SCSSFILES}
 dist/%.js: %.js
 	cp -f $^ $@
 
-JQUERY_DIST=node_modules/jquery/dist
-
-dist/%: ${JQUERY_DIST}/%
+dist/%.map: %.map
 	cp -f $^ $@
 
 BOOTSTRAP_JS_DIST=node_modules/bootstrap/js/dist

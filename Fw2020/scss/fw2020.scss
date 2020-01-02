@@ -475,3 +475,52 @@ $item-overview-indent: 2rem;
     }
   }
 }
+
+// Typeahead search
+//
+.twitter-typeahead {
+  width: 100% !important;
+}
+
+.tt-menu {
+  @include navigation-colors();
+  max-width: 50vw;
+  margin: 0;
+  border: $navigation-border;
+}
+
+// Underneath entryfield
+.tt-hint {
+  color: $input-color;
+  background-color: $input-bg !important;
+}
+
+// Overlaying entryfield, transparent bg
+.tt-input {
+  color: $input-color;
+}
+
+// Affects entryfield and suggestion
+.tt-highlight {
+  font-weight: 700;
+}
+
+.tt-suggestion {
+  padding: 0 1rem;
+  overflow-x: hidden;
+  span {
+    display: table-cell;
+    white-space: nowrap;
+  }
+  .doc-parent-name {
+    width: 100%;
+    font-size: .9em;
+    text-align: right;
+  }
+
+  &:hover,
+  &.tt-cursor {
+    cursor: pointer;
+    background-color: $dropdown-link-hover-bg;
+  }
+}

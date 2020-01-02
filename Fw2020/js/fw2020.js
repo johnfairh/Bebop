@@ -3,7 +3,7 @@
 // Distributed under the MIT license, https://github.com/johnfairh/J2/blob/master/LICENSE
 //
 
-/* global $ Prism anchors */
+/* global $ Prism anchors lunr */
 
 'use strict'
 
@@ -234,3 +234,74 @@ Prism.plugins.customClass.map((className, language) => {
  * Prism customization for autoloading missing languages.
  */
 Prism.plugins.autoloader.languages_path = 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/components/'
+
+/*
+ * Lunr/Typeahead/Search
+ */
+$(function () {
+  const $typeahead = $('[data-typeahead]')
+  const $form = $typeahead.parents('form')
+  const searchURL = $form.attr('action')
+
+  function displayTemplate (result) {
+    return result.name
+  }
+
+  function suggestionTemplate (result) {
+    let t = '<div>'
+    t += '<span class="doc-name">' + result.name + '</span>'
+    if (result.parent_name) {
+      t += '<span class="doc-parent-name label">' + result.parent_name + '</span>'
+    }
+    t += '</div>'
+    return t
+  }
+
+  $typeahead.one('focus', function () {
+    $.getJSON(searchURL).then(function (searchData) {
+      const searchIndex = lunr(function () {
+        this.ref('url')
+        this.field('name')
+        this.field('abstract')
+        for (const [url, doc] of Object.entries(searchData)) {
+          this.add({ url: url, name: doc.name, abstract: doc.abstract })
+        }
+      })
+
+      $typeahead.typeahead(
+        {
+          highlight: true,
+          minLength: 3,
+          autoselect: true
+        },
+        {
+          limit: 10,
+          display: displayTemplate,
+          templates: { suggestion: suggestionTemplate },
+          source: function (query, sync) {
+            const lcSearch = query.toLowerCase()
+            const results = searchIndex.query(function (q) {
+              q.term(lcSearch, { boost: 100 })
+              q.term(lcSearch, {
+                boost: 10,
+                wildcard: lunr.Query.wildcard.TRAILING
+              })
+            }).map(function (result) {
+              const doc = searchData[result.ref]
+              doc.url = result.ref
+              return doc
+            })
+            sync(results)
+          }
+        }
+      )
+      $typeahead.trigger('focus')
+    })
+  })
+
+  const baseURL = searchURL.slice(0, -'search.json'.length)
+
+  $typeahead.on('typeahead:select', function (e, result) {
+    window.location = baseURL + result.url
+  })
+})
