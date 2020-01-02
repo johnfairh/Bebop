@@ -7,11 +7,11 @@
 
 'use strict'
 
-let allCollapsed = false
-
 const $body = $('body')
 
-// Language-switching stuff
+//
+// Language-switching controls
+//
 const langControl = {
 
   // Sync body style from URL for initial layout
@@ -23,7 +23,7 @@ const langControl = {
   },
 
   // Initial chrome and event handlers when ready
-  documentLoaded () {
+  ready () {
     this.langMenu = $('#languageMenu')
     this.langSwift = $('#language-swift')
     this.langObjC = $('#language-objc')
@@ -62,11 +62,76 @@ const langControl = {
   toggle () {
     $body.toggleClass('j2-swift j2-objc')
     const lang = this.updateChrome()
-    window.history.replaceState({}, document.title, '?' + lang)
+    const currentHash = window.location.hash
+    window.history.replaceState({}, document.title, '?' + lang + currentHash)
+  }
+}
+
+//
+// Collapse management
+//
+const collapseControl = {
+
+  // Distinguish user-toggle from automatic
+  toggling: false,
+
+  setup () {
+    // When we follow a link to the title of a collapsed item,
+    // uncollapse it.
+    $(window).on('hashchange', () => this.ensureUncollapsed())
+  },
+
+  // Helper to uncollapse at the current anchor
+  ensureUncollapsed () {
+    const $el = $(window.location.hash)
+    if ($el.hasClass('j2-item-anchor')) {
+      const $collapse = $('#_' + $el.attr('id'))
+      $collapse.collapse('show')
+    }
+  },
+
+  ready () {
+    // Default collapse toggle state
+    this.allCollapsed = $('.collapse.show').length === 0
+
+    // If the browser URL has an item's hash, but the user
+    // collapses that item and then follows a link to that _same_
+    // item, then poke it so we uncollapse it again (there's no
+    // `hashchange` event here)
+    $("a:not('.j2-item-title')").click((e) => {
+      if (window.location.href === e.target.href) {
+        this.ensureUncollapsed()
+      }
+    })
+
+    // When a collapsed item opens, update the browser URL
+    // to point at the item's title _without_ creating a
+    // new history entry.
+    $('.j2-item-popopen-wrapper').on('show.bs.collapse', (e) => {
+      if (this.toggling) return
+      const title = $(e.target).attr('id')
+      window.history.replaceState({}, document.title, '#' + title.substr(1))
+    })
+
+    // If we loaded the page with a link to a collapse anchor, uncollapse it.
+    this.ensureUncollapsed()
+  },
+
+  // Collapse/Uncollapse all on keypress/link
+  toggle () {
+    this.toggling = true
+    if (this.allCollapsed) {
+      $('.collapse').collapse('show')
+    } else {
+      $('.collapse').collapse('hide')
+    }
+    this.toggling = false
+    this.allCollapsed = !this.allCollapsed
   }
 }
 
 langControl.setup()
+collapseControl.setup()
 
 $(function () {
   // Narrow size nav toggle
@@ -79,76 +144,26 @@ $(function () {
   anchors.options.visible = 'touch'
   anchors.add('.j2-anchor span')
 
-  // Default collapse toggle state
-  allCollapsed = $('.collapse.show').length === 0
-
   // Sync content mode from URL
-  langControl.documentLoaded()
+  langControl.ready()
 
-  // Page load to an item title that need to trigger uncollapse
-  $(window).trigger('hashchange')
+  // Initialise collapse-anchor link
+  collapseControl.ready()
 })
 
 // Keypress handler
 
-$(function () {
-  $(document).keypress(function (e) {
-    const $searchField = $('input:visible')
-    if ($searchField.is(':focus')) {
-      return
-    }
-
-    switch (e.key) {
-      case '/': {
-        e.preventDefault()
-        e.stopPropagation()
-        $searchField.focus()
-        break
-      }
-
-      case 'a':
-        if (allCollapsed) {
-          $('.collapse').collapse('show')
-        } else {
-          $('.collapse').collapse('hide')
-        }
-        allCollapsed = !allCollapsed
-        break
-
-      case 'l':
-        langControl.toggle()
-        break
-    }
-  })
-})
-
-// When we follow a link to the title of a collapsed item,
-// uncollapse it.
-$(window).on('hashchange', function (e) {
-  const $el = $(window.location.hash)
-  if ($el.hasClass('j2-item-anchor')) {
-    const $collapse = $('#_' + $el.attr('id'))
-    $collapse.collapse('show')
+$(document).keypress(function (e) {
+  const $searchField = $('input:visible')
+  if ($searchField.is(':focus')) {
+    return
   }
-})
 
-$(function () {
-  // If the browser URL has an item's hash, but the user
-  // collapses that item and then follows a link to that _same_
-  // item, then poke it so we uncollapse it again.
-  $("a:not('.j2-item-title')").on('click', function () {
-    if (window.location.href === this.href) {
-      $(window).trigger('hashchange')
-    }
-  })
-
-  // When a collapsed item opens, update the browser URL
-  // to point at the item's title _without_ creating a
-  // new history entry.
-  $('.j2-item-popopen-wrapper').on('show.bs.collapse', function () {
-    const title = $(this).attr('id')
-    window.history.replaceState({}, document.title, '#' + title.substr(1))
-  })
+  switch (e.key) {
+    case '/': $searchField.focus(); return false
+    case 'a': collapseControl.toggle(); break
+    case 'l': langControl.toggle(); break
+  }
 })
 
 /*

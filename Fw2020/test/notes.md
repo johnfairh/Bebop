@@ -102,6 +102,7 @@ System settings seems more reliable than Safari tools??
 * Collapse opens on link as part of hash-change -- updates history
 * Collapse opens on link if NO hash change
 * Page load with location hash scrolls and opens
+* Manually opened collapse updates browser hash, preserves language
 
 # Item variations
 
@@ -129,4 +130,14 @@ System settings seems more reliable than Safari tools??
   anything in the searchbar
 * '/' while searchbar focus inputs '/'
 * 'a' toggles global expand/collapse if searchbar not focus
+  * Does not change location hash
 * With focus, searchbar works normally
+* 'l' toggles Swift/ObjC language: chrome, content, URL; preserves hash
+
+# Language
+
+* Page-load responds to ?swift or ?objc and updates chrome: titlebar,
+  dropdown hilight
+* Conditional content updates depending on language
+* Rechoosing active language from dropdown has no effect
+* Choosing inactive language updates chrome, URL, content
