@@ -143,6 +143,9 @@ const collapseControl = {
   }
 }
 
+//
+// Search - load json, index with lunr, UI with typeahead.
+//
 const searchControl = {
   // relative path to docroot
   rootPath: '',
@@ -197,7 +200,7 @@ const searchControl = {
   search (query, sync) {
     if (this.lunrIndex === null) {
       // Bail if lunr is not ready yet
-      return []
+      return
     }
 
     const lcSearch = query.toLowerCase()
