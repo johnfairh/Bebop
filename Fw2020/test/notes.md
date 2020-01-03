@@ -1,12 +1,16 @@
 # Size classes
 
-XL,LG
+XL
 * Titlebar with coverage/search/lang/icons
 * Breadcrumbs
 * Nav max 300px
-* Article sticks left, content max 800px
-* Titlebar, breadcrumbs, nav all sticky
+* Article centers, content max 800px at XL then proportionally
+* Aux nav on right, topics and actions
+* Titlebar, breadcrumbs, nav, aux nav all sticky
 * Footer
+
+* LG
+* As XL, no aux nav
 
 MD
 * As LG, max 250px iwdth
@@ -26,15 +30,14 @@ Tiny (iPhone SE/8)
 * Brand unreactive mouseover unless customized
 * Coverage unobtrusive
 * Searchbar
-  * Light placeholder text
-  * Snaps wide with focus
-  * (XXX function, hotkey)
+  * Low-contrast placeholder text
+  * Snaps wide with focus on wide mode
+  * See [search](#search)
 * Lang
   * React on mouseover
   * Menu opens on top, is sticky when titlebar is (scroll article)
   * No macOS blue border on use
   * Current lang bold, highlight on hover
-  * (XXX function)
 * Icons
   * React on mouseover
 
@@ -133,6 +136,7 @@ System settings seems more reliable than Safari tools??
   * Does not change location hash
 * With focus, searchbar works normally
 * 'l' toggles Swift/ObjC language: chrome, content, URL; preserves hash
+* Escape key in searchbar clears content and focusses body
 
 # Language
 
@@ -141,3 +145,20 @@ System settings seems more reliable than Safari tools??
 * Conditional content updates depending on language
 * Rechoosing active language from dropdown has no effect
 * Choosing inactive language updates chrome, URL, content
+
+# Search
+
+* Can't load index => error message in dropdown
+* As-type search on first char typed, max 10 items
+* Wide mode, menu:
+  * Item/parent horizontal, no borders
+  * Constant width of searchbar
+  * Just mashes up if you squeeze a wide one, no wrap
+* Narrow mode, menu:
+  * Item and parent on separate lines, border between entries
+  * Width max searchbar, but sized to widest entry
+* Matching prefix highlighted, hint slightly fainter
+* Mouseover menu, keys, Enter selects top choice
+* 'No matches' feedback when no matches
+* 'Loading' feedback while json loads, dunno how to test that
+* Not gonna try and specify lunr's algorithm
