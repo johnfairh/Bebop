@@ -29,7 +29,7 @@ h1 {
 }
 
 body {
-  @include navigation-base-colors();
+  @include navigation-colors();
   -webkit-font-smoothing: antialiased;
 }
 
@@ -116,13 +116,11 @@ pre {
 }
 
 .j2-breadcrumb {
-  @include navigation-colors();
   border-top: $navigation-border;
   border-bottom: $navigation-border;
 }
 
 .j2-nav {
-  @include navigation-colors();
   @include media-breakpoint-down(sm) {
     width: 100%;
   }
@@ -134,7 +132,6 @@ pre {
 }
 
 .j2-footer {
-  @include navigation-colors();
   border-top: $navigation-border;
   border-bottom: $navigation-border;
 }
@@ -311,27 +308,19 @@ $fixed-header-height: add($titlebar-height, $breadcrumbs-height);
     font-size: .95rem;
     list-style-type: none;
   }
-}
 
-@mixin j2-nav-thing($color) {
-  display: block; // fill to right for hover
-  color: $color;
+  .j2-nav-topic,
+  .j2-nav-item {
+    display: block; // fill to right for hover
 
-  &:hover {
-    color: $color;
+    &.active {
+      font-weight: bolder;
+    }
   }
 
-  &.active {
-    font-weight: bolder;
+  .j2-nav-item {
+    color: $navigation-secondary-color;
   }
-}
-
-.j2-nav-topic {
-  @include j2-nav-thing($navigation-color);
-}
-
-.j2-nav-item {
-  @include j2-nav-thing($navigation-secondary-color);
 }
 
 /* Callouts */

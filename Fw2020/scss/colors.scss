@@ -75,7 +75,7 @@ $callout-declaration-color: var(--declaration-flash-color);
   color: var(--titlebar-color);
   background-color: var(--titlebar-bg);
   a {
-    color: var(--titlebar-color);
+    color: inherit;
   }
 }
 
@@ -83,15 +83,11 @@ $navigation-border: 1px solid var(--navigation-border-color);
 $navigation-color: var(--navigation-color);
 $navigation-secondary-color: var(--navigation-secondary-color);
 
-@mixin navigation-base-colors {
-  color: var(--navigation-color);
-  background-color: var(--navigation-bg);
-}
-
 @mixin navigation-colors {
-  @include navigation-base-colors();
+  color: $navigation-color;
+  background-color: var(--navigation-bg);
   a {
-    color: var(--navigation-color);
+    color: inherit;
   }
 }
 
@@ -122,3 +118,4 @@ $table-accent-bg: var(--navigation-bg);
 $code-color: var(--article-color);
 $pre-color: $code-color;
 $hr-border-color: var(--navigation-border-color);
+$breadcrumb-bg: var(--navigation-bg);
