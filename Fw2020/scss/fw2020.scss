@@ -264,12 +264,10 @@ $fixed-header-height: add($titlebar-height, $breadcrumbs-height);
   margin: 0;
 }
 
-/* ??? */
-
 /* Searchbar */
 
 .navbar-nav form:focus-within {
-  width: 60%;
+  width: 100%;
 }
 
 /* Language-switcher menu, positioning and UI */
@@ -482,20 +480,13 @@ $item-overview-indent: 2rem;
   width: 100% !important;
 }
 
-.tt-menu {
-  @include navigation-colors();
-  max-width: 50vw;
-  margin: 0;
-  border: $navigation-border;
-}
-
-// Underneath entryfield
+// Lower entryfield
 .tt-hint {
   color: $input-color;
   background-color: $input-bg !important;
 }
 
-// Overlaying entryfield, transparent bg
+// Upper entryfield, transparent bg
 .tt-input {
   color: $input-color;
 }
@@ -505,19 +496,35 @@ $item-overview-indent: 2rem;
   font-weight: 700;
 }
 
-.tt-suggestion {
+.tt-menu {
+  @include navigation-colors();
+  @include border-radius($border-radius);
+  max-width: 100%;
+  margin: 0;
+  border: $navigation-border;
+}
+
+.tt-droprow {
   padding: 0 1rem;
   overflow-x: hidden;
+  white-space: nowrap;
   span {
     display: table-cell;
-    white-space: nowrap;
   }
-  .doc-parent-name {
-    width: 100%;
-    font-size: .9em;
+  @include media-breakpoint-down(sm) {
+    border-bottom: $navigation-border;
+  }
+}
+
+.tt-sug-parent-name {
+  width: 100%;
+  font-size: .9em;
+  @include media-breakpoint-up(md) {
     text-align: right;
   }
+}
 
+.tt-suggestion {
   &:hover,
   &.tt-cursor {
     cursor: pointer;

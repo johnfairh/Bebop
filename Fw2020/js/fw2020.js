@@ -240,25 +240,25 @@ Prism.plugins.autoloader.languages_path = 'https://cdnjs.cloudflare.com/ajax/lib
  */
 $(function () {
   const $typeahead = $('[data-typeahead]')
-  const $form = $typeahead.parents('form')
-  const searchURL = $form.attr('action')
+  const rootPath = $body.data('root-path')
 
-  function displayTemplate (result) {
-    return result.name
+  function dropdownHtml (suggestion, secondary, el) {
+    return `<div class="tt-droprow">\
+            <${el} class="tt-sug-name">${suggestion}</${el}>\
+            <${el} class="tt-sug-parent-name">${secondary}</${el}>\
+            </div>`
   }
 
-  function suggestionTemplate (result) {
-    let t = '<div>'
-    t += '<span class="doc-name">' + result.name + '</span>'
-    if (result.parent_name) {
-      t += '<span class="doc-parent-name label">' + result.parent_name + '</span>'
-    }
-    t += '</div>'
-    return t
+  function suggestionHtml (result, el) {
+    return dropdownHtml(result.name, result.parent_name || '', el)
   }
 
-  $typeahead.one('focus', function () {
-    $.getJSON(searchURL).then(function (searchData) {
+  function notFoundTemplate () {
+    return dropdownHtml('<i>No matches</i>', '', 'span')
+  }
+
+  $typeahead.one('focus', function (e) {
+    $.getJSON(rootPath + '/search.json').then(function (searchData) {
       const searchIndex = lunr(function () {
         this.ref('url')
         this.field('name')
@@ -268,7 +268,10 @@ $(function () {
         }
       })
 
-      $typeahead.typeahead(
+      const $searchEntry = $(e.target)
+      const searchEntryFormat = $searchEntry.data('search-format')
+
+      $searchEntry.typeahead(
         {
           highlight: true,
           minLength: 3,
@@ -276,8 +279,11 @@ $(function () {
         },
         {
           limit: 10,
-          display: displayTemplate,
-          templates: { suggestion: suggestionTemplate },
+          displayKey: 'name',
+          templates: {
+            suggestion: (r) => suggestionHtml(r, searchEntryFormat),
+            notFound: notFoundTemplate
+          },
           source: function (query, sync) {
             const lcSearch = query.toLowerCase()
             const results = searchIndex.query(function (q) {
@@ -295,13 +301,11 @@ $(function () {
           }
         }
       )
-      $typeahead.trigger('focus')
+      $searchEntry.trigger('focus')
     })
   })
 
-  const baseURL = searchURL.slice(0, -'search.json'.length)
-
   $typeahead.on('typeahead:select', function (e, result) {
-    window.location = baseURL + result.url
+    window.location = rootPath + '/' + result.url
   })
 })
