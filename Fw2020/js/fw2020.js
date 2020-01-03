@@ -265,7 +265,7 @@ searchControl.setup()
 
 $(function () {
   // Narrow size nav toggle
-  $('#navToggleButton').click(function () {
+  $('#navToggleButton').click(() => {
     const $nav = $('#navColumn')
     $nav.toggleClass('d-none')
   })

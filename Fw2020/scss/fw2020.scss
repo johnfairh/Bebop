@@ -120,7 +120,6 @@ pre {
   @include media-breakpoint-down(sm) {
     width: 100%;
   }
-  padding-top: $spacer;
   overflow-x: scroll;
   @include media-breakpoint-up(md) {
     border-right: $navigation-border;
