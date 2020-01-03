@@ -451,6 +451,22 @@ $item-overview-indent: 2rem;
         margin-bottom: $spacer / 2;
       }
     }
+
+    // Show members/Github links
+    .nav-link {
+      padding: .5rem 0;
+      + .nav-link::before {
+        padding: 0 .5rem;
+        color: $article-color;
+        content: "|";
+        user-select: none;
+      }
+    }
+
+    // Why is bs's para spacing so often my enemy!?
+    p + nav {
+      margin-top: -$spacer;
+    }
   }
 }
 
