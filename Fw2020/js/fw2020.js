@@ -143,8 +143,111 @@ const collapseControl = {
   }
 }
 
+const searchControl = {
+  // relative path to docroot
+  rootPath: '',
+  // what to tell the user if nothing found
+  notFoundMessage: 'Loading index...',
+  // json from search data
+  searchData: null,
+  // lunr index object
+  lunrIndex: null,
+
+  // HTML generation
+
+  dropdownHtml (suggestion, secondary, el) {
+    return `<div class="tt-droprow">\
+            <${el} class="tt-sug-name">${suggestion}</${el}>\
+            <${el} class="tt-sug-parent-name">${secondary}</${el}>\
+            </div>`
+  },
+
+  suggestionHtml (result, element) {
+    return this.dropdownHtml(result.name, result.parent_name || '', element)
+  },
+
+  notFoundTemplate () {
+    return this.dropdownHtml(`<i>${this.notFoundMessage}</i>`, '', 'span')
+  },
+
+  // Start Lunr setup asap
+  setup () {
+    this.rootPath = $body.data('root-path')
+
+    $.getJSON(this.rootPath + '/search.json').then((searchData) => {
+      this.searchData = searchData
+
+      this.notFoundMessage = 'No matches'
+
+      // setting this enables search
+      this.lunrIndex = lunr((builder) => {
+        builder.ref('url')
+        builder.field('name')
+        builder.field('abstract')
+        for (const [url, doc] of Object.entries(searchData)) {
+          builder.add({ url: url, name: doc.name, abstract: doc.abstract })
+        }
+      })
+    }, () => {
+      this.notFoundMessage = 'Failed to load index'
+    })
+  },
+
+  // Do a search when prompted by typeahead.
+  search (query, sync) {
+    if (this.lunrIndex === null) {
+      // Bail if lunr is not ready yet
+      return []
+    }
+
+    const lcSearch = query.toLowerCase()
+    const results = this.lunrIndex.query((q) => {
+      q.term(lcSearch, { boost: 100 })
+      q.term(lcSearch, {
+        boost: 10,
+        wildcard: lunr.Query.wildcard.TRAILING
+      })
+    }).map((result) => {
+      const doc = this.searchData[result.ref]
+      doc.url = result.ref
+      return doc
+    })
+
+    sync(results)
+  },
+
+  // Configure typeahead when dom ready
+  ready () {
+    const $typeaheads = $('input')
+
+    $typeaheads.each((_, entry) => {
+      const searchEntryFormat = entry.dataset.searchFormat
+
+      $(entry).typeahead({
+        highlight: true,
+        minLength: 1,
+        autoselect: true
+      },
+      {
+        limit: 10,
+        displayKey: 'name',
+        templates: {
+          suggestion: (r) => this.suggestionHtml(r, searchEntryFormat),
+          notFound: this.notFoundTemplate.bind(this)
+        },
+        source: this.search.bind(this)
+      })
+    })
+
+    $typeaheads.on('typeahead:select', (e, result) => {
+      window.location = this.rootPath + '/' + result.url
+    })
+  }
+}
+
 langControl.setup()
 collapseControl.setup()
+searchControl.setup()
 
 $(function () {
   // Narrow size nav toggle
@@ -165,6 +268,9 @@ $(function () {
 
   // Searchbar action
   $('#action-search').click(() => { $('input:visible').focus(); return false })
+
+  // Typeahead
+  searchControl.ready()
 })
 
 // Keypress handler
@@ -234,78 +340,3 @@ Prism.plugins.customClass.map((className, language) => {
  * Prism customization for autoloading missing languages.
  */
 Prism.plugins.autoloader.languages_path = 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/components/'
-
-/*
- * Lunr/Typeahead/Search
- */
-$(function () {
-  const $typeahead = $('[data-typeahead]')
-  const rootPath = $body.data('root-path')
-
-  function dropdownHtml (suggestion, secondary, el) {
-    return `<div class="tt-droprow">\
-            <${el} class="tt-sug-name">${suggestion}</${el}>\
-            <${el} class="tt-sug-parent-name">${secondary}</${el}>\
-            </div>`
-  }
-
-  function suggestionHtml (result, el) {
-    return dropdownHtml(result.name, result.parent_name || '', el)
-  }
-
-  function notFoundTemplate () {
-    return dropdownHtml('<i>No matches</i>', '', 'span')
-  }
-
-  $typeahead.one('focus', function (e) {
-    $.getJSON(rootPath + '/search.json').then(function (searchData) {
-      const searchIndex = lunr(function () {
-        this.ref('url')
-        this.field('name')
-        this.field('abstract')
-        for (const [url, doc] of Object.entries(searchData)) {
-          this.add({ url: url, name: doc.name, abstract: doc.abstract })
-        }
-      })
-
-      const $searchEntry = $(e.target)
-      const searchEntryFormat = $searchEntry.data('search-format')
-
-      $searchEntry.typeahead(
-        {
-          highlight: true,
-          minLength: 3,
-          autoselect: true
-        },
-        {
-          limit: 10,
-          displayKey: 'name',
-          templates: {
-            suggestion: (r) => suggestionHtml(r, searchEntryFormat),
-            notFound: notFoundTemplate
-          },
-          source: function (query, sync) {
-            const lcSearch = query.toLowerCase()
-            const results = searchIndex.query(function (q) {
-              q.term(lcSearch, { boost: 100 })
-              q.term(lcSearch, {
-                boost: 10,
-                wildcard: lunr.Query.wildcard.TRAILING
-              })
-            }).map(function (result) {
-              const doc = searchData[result.ref]
-              doc.url = result.ref
-              return doc
-            })
-            sync(results)
-          }
-        }
-      )
-      $searchEntry.trigger('focus')
-    })
-  })
-
-  $typeahead.on('typeahead:select', function (e, result) {
-    window.location = rootPath + '/' + result.url
-  })
-})
