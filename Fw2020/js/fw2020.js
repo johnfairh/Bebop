@@ -274,17 +274,21 @@ $(function () {
 })
 
 // Keypress handler
-
-$(document).keypress(function (e) {
+//
+$(document).keydown(function (e) {
   const $searchField = $('input:visible')
-  if ($searchField.is(':focus')) {
-    return
-  }
 
-  switch (e.key) {
-    case '/': $searchField.focus(); return false
-    case 'a': collapseControl.toggle(); break
-    case 'l': langControl.toggle(); break
+  if ($searchField.is(':focus')) {
+    if (e.key === 'Escape') {
+      $searchField.blur()
+      $searchField.typeahead('val', '')
+    }
+  } else {
+    switch (e.key) {
+      case '/': $searchField.focus(); return false
+      case 'a': collapseControl.toggle(); break
+      case 'l': langControl.toggle(); break
+    }
   }
 })
 
