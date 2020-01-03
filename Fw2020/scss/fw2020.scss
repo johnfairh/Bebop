@@ -2,10 +2,6 @@
 //
 // Distributed under the MIT license, https://github.com/johnfairh/J2/blob/master/LICENSE
 
-a:hover {
-  opacity: .6;
-}
-
 .font-weight-slightly-bold {
   font-weight: 500;
 }
@@ -157,7 +153,7 @@ pre {
     display: inline-block;
     margin-left: .6rem;
     text-indent: -.6rem;
-    word-break: break-all;
+    word-break: break-word;
     word-wrap: break-word;
   }
 
@@ -171,6 +167,7 @@ pre {
   }
 
   .j2-aux-action {
+    @include article-glow-links();
     color: $article-color;
   }
 }
@@ -239,6 +236,7 @@ $fixed-header-height: add($titlebar-height, $breadcrumbs-height);
 
 /* Adjust pos and color of anchor icons */
 .anchorjs-link {
+  @include article-glow-links();
   position: absolute;
   padding-top: .1em;
   padding-right: 1em;
@@ -269,22 +267,21 @@ $fixed-header-height: add($titlebar-height, $breadcrumbs-height);
 
 /* Language-switcher menu, positioning and UI */
 
-.j2-langmenu {
+.dropdown-toggle {
   padding: .75rem 1rem .25rem;
-}
-
-.dropdown-toggle:focus {
-  outline: none;
+  &:focus {
+    outline: none;
+  }
 }
 
 .dropdown-menu {
   @include navigation-colors();
   top: 0;
   min-width: 0;
-}
 
-.dropdown-item:hover {
-  opacity: 1;
+  .dropdown-item:hover {
+    opacity: 1;
+  }
 }
 
 /* For footer: linespacing doesn't decrease when 'small' */
