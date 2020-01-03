@@ -302,6 +302,7 @@ $(document).keydown(function (e) {
       case '/': $searchField.focus(); return false
       case 'a': collapseControl.toggle(); break
       case 'l': langControl.toggle(); break
+      case 'd': $('#size-debug').toggleClass('d-flex d-none'); break
     }
   }
 })
