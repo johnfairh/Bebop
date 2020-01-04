@@ -268,6 +268,7 @@ $(function () {
   $('#navToggleButton').click(() => {
     const $nav = $('#navColumn')
     $nav.toggleClass('d-none')
+    return false
   })
 
   // Auto-add anchors to headings

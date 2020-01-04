@@ -156,7 +156,7 @@ pre {
     word-wrap: break-word;
   }
 
-  ul {
+  .j2-aux-group {
     padding-left: .6 * $spacer;
     list-style-type: none;
   }
@@ -187,6 +187,12 @@ $fixed-header-height: add($titlebar-height, $breadcrumbs-height);
 }
 
 @include media-breakpoint-up(md) {
+  .j2-header {
+    position: sticky;
+    top: 0;
+    z-index: $zindex-sticky;
+  }
+
   .j2-nav {
     position: sticky;
     top: $fixed-header-height;
@@ -196,19 +202,6 @@ $fixed-header-height: add($titlebar-height, $breadcrumbs-height);
     overflow-y: auto;
   }
 
-  .j2-titlebar {
-    position: sticky;
-    top: 0;
-    z-index: $zindex-sticky;
-  }
-
-  .j2-breadcrumb-nav {
-    position: sticky;
-    top: $titlebar-height;
-
-    // Must be less than titlebar for dropdown to work
-    z-index: subtract($zindex-sticky, 10);
-  }
 
   // Anchor link vpos adjustment
   :target::before {
@@ -227,6 +220,7 @@ $fixed-header-height: add($titlebar-height, $breadcrumbs-height);
     max-width: 300px;
   }
 }
+
 @include media-breakpoint-up(xl) {
   .j2-nav {
     min-width: 250px;
@@ -263,9 +257,6 @@ $fixed-header-height: add($titlebar-height, $breadcrumbs-height);
 
 .dropdown-toggle {
   padding: .75rem 1rem .25rem;
-  &:focus {
-    outline: none;
-  }
 }
 
 .dropdown-menu {
@@ -399,9 +390,6 @@ $item-overview-indent: 2rem;
 /* .j2-item-anchor {} marker class for JS */
 
 .j2-item-title {
-  &:focus {
-    outline: none;
-  }
   &.discouraged {
     text-decoration: line-through;
   }
