@@ -196,7 +196,6 @@ $fixed-header-height: add($titlebar-height, $breadcrumbs-height);
   .j2-nav {
     position: sticky;
     top: $fixed-header-height;
-    min-width: 140px;
     max-width: 250px;
     max-height: subtract(100vh, $fixed-header-height);
     overflow-y: auto;
@@ -216,14 +215,7 @@ $fixed-header-height: add($titlebar-height, $breadcrumbs-height);
 
 @include media-breakpoint-up(lg) {
   .j2-nav {
-    min-width: 200px;
     max-width: 300px;
-  }
-}
-
-@include media-breakpoint-up(xl) {
-  .j2-nav {
-    min-width: 250px;
   }
 }
 
@@ -275,33 +267,49 @@ $fixed-header-height: add($titlebar-height, $breadcrumbs-height);
 }
 
 /* Left navigation */
+@mixin j2-nav-item-border() {
+  @include border-radius(.4rem);
+  background: $navigation-highlight-bg;
+  border: $navigation-highlight-border;
+}
+
 .j2-nav-list {
-  padding-left: 0;
-  line-height: 1.7;
+  padding-top: .3rem;
+  padding-left: .5rem;
   list-style-type: none;
 
-  > li {
+  .j2-nav-group {
     padding-top: .5rem;
     padding-bottom: .5rem;
+    > .j2-nav-item {
+      font-weight: 500;
+    }
   }
 
-  ul {
-    padding-left: .5rem;
-    font-size: .95rem;
+  .j2-nav-sublist {
+    padding-left: 0;
+    font-size: .9rem;
     list-style-type: none;
-  }
-
-  .j2-nav-topic,
-  .j2-nav-item {
-    display: block; // fill to right for hover
-
-    &.active {
-      font-weight: bolder;
+    .j2-nav-sublist {
+      padding-left: .5rem;
     }
   }
 
   .j2-nav-item {
-    color: $navigation-secondary-color;
+    display: block; // fill to right for hover
+
+    &:not(.active):hover {
+      @include j2-nav-item-border();
+      padding-left: 4px;
+      margin: -1px -1px -1px -5px;
+      opacity: 1;
+    }
+
+    &.active {
+      @include j2-nav-item-border();
+      padding: 2px 4px;
+      margin-left: -5px;
+    }
   }
 }
 
