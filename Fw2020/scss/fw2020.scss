@@ -120,6 +120,8 @@ pre {
   @include media-breakpoint-down(sm) {
     width: 100%;
   }
+  justify-content: space-between;
+  padding-right: 0;
   overflow-x: scroll;
   @include media-breakpoint-up(md) {
     border-right: $navigation-border;
@@ -522,4 +524,18 @@ $item-overview-indent: 2rem;
     cursor: pointer;
     background-color: $dropdown-link-hover-bg;
   }
+}
+
+.j2-nav-wrapper {
+  padding-right: 10px;
+}
+
+.j2-spacer {
+  flex-grow: 1;
+}
+
+.j2-splitter {
+  width: 5px;
+  cursor: ew-resize;
+  background: $gray-300;
 }
