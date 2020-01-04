@@ -27,6 +27,7 @@ Tiny (iPhone SE/8)
 
 # Header
 
+* Screenreader skip link far NW
 * Brand unreactive mouseover unless customized
 * Coverage unobtrusive
 * Searchbar
@@ -36,8 +37,8 @@ Tiny (iPhone SE/8)
 * Lang
   * React on mouseover
   * Menu opens on top, is sticky when titlebar is (scroll article)
-  * No macOS blue border on use
   * Current lang bold, highlight on hover
+  * Tab navigation
 * Icons
   * React on mouseover
 
@@ -49,10 +50,11 @@ Tiny (iPhone SE/8)
 # Nav
 
 * Vertical and horizontal scroll when sticky
-* Six styles in search of better names:
-  * Top-level, top-level active
-  * Nested module, nested module active
-  * Nested item, nested item active
+* Top level darker, larger
+* Second level no indent, lighter, smaller
+* Nth level as second but with an indent
+* Active item has pretty background
+* Hover inactive shows pretty background
 * Link hitbox extends full column
 * Size-class debug
 
@@ -60,14 +62,23 @@ Tiny (iPhone SE/8)
 
 * Background color all the way to the end
 * Links
-  * In text, blue and reactive without decoration
+  * In text, blue and underlined on hover
   * In inline code, same
-  * In pre/code blocks, natural color with reactive
+  * In pre/code blocks, natural color with underline on hover
 * Four types of callout - no title on the declaration
 * Tables
   * Free tables single bordered, stripy rows
   * Param tables same, param name right/top-aligned
 * Pre blocks scroll horizontally, no wrap
+
+# Aux nav
+
+* Vertical subordinate to article title
+* Topics links are blue, underline on hover,
+  word-wrap with indent
+* Actions links are body and glow on hover.
+* 'expand' and 'swift' buttons switch to their
+  inverse on use.
 
 # Footer
 
