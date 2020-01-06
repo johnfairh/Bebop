@@ -3,12 +3,31 @@
 // Distributed under the MIT license, https://github.com/johnfairh/J2/blob/master/LICENSE
 
 .font-weight-slightly-bold {
-  font-weight: 500;
+  font-weight: $font-weight-demi-bold;
 }
+
+@media (min-width: 400px) {
+  .d-xxs-inline {
+    display: inline !important;
+  }
+}
+
+//
+// General overrides
+//
 
 h1 {
   margin-bottom: 1rem;
 }
+
+body {
+  @include navigation-colors();
+  -webkit-font-smoothing: antialiased;
+}
+
+//
+// Language-switching
+//
 
 .j2-swift .j2-objc {
   display: none;
@@ -18,20 +37,11 @@ h1 {
   display: none;
 }
 
-@media (min-width: 400px) {
-  @each $value in $displays {
-    .d-smphone-#{$value} { display: $value !important; }
-  }
-}
 
-body {
-  @include navigation-colors();
-  -webkit-font-smoothing: antialiased;
-}
-
-/* Code and Pre
- * See code-themes.scss for the colors.
- */
+//
+// Code and Pre
+// See `code-themes.scss` for the text colors.
+//
 
 code {
   hyphens: none;
@@ -46,13 +56,6 @@ code {
   }
 }
 
-// Less whitespace between p and pre because of the pre
-// padding.
-p + pre {
-  margin-top: -.5rem;
-}
-
-// Inline code
 :not(pre) > code {
   @include border-radius(.2em);
   padding: .1em;
@@ -66,8 +69,14 @@ pre {
   overflow: auto;
 }
 
-// Suppress the built-in borders, too wide in
-// unexpected places.
+p + pre {
+  margin-top: -.5rem;
+}
+
+//
+// Tables
+//
+
 .j2-table {
   th,
   td {
@@ -78,11 +87,9 @@ pre {
   }
 }
 
-// Parameters table - bit more compaact and
-// right-align the parameter names.
 .j2-param-table {
   td {
-    padding: .5 * $spacer;
+    padding: .5rem;
 
     &:first-of-type {
       text-align: right;
@@ -90,183 +97,74 @@ pre {
   }
 }
 
-.j2-article {
-  @include article-colors();
+//
+// Titlebar
+//
 
-  /* This width: 0 is flexbox black magic.  Without it,
-   * if the article column has a very wide element (eg.
-   * a `pre` then as the browser shrinks, flexbox prioritizes
-   * the article width over shrinking the `pre` and stacks
-   * the `col` _under_ the left nav `col`.  Which is bad.
-   */
-  width: 0;
-  padding-top: 3rem;
-}
+.j2-titlebar {
+  @include titlebar-colors();
 
-.j2-article-wrapper {
-  max-width: 800px;
-  @media (min-width: 1400px) {
-    max-width: 56vw;
+  .j2-coverage {
+    opacity: .6;
   }
-  margin: auto;
+
+  // Searchbar - typeahead styles at bottom of this file
+  .navbar-nav form:focus-within {
+    width: 100%;
+  }
+
+  // Language switcher
+  .dropdown-toggle {
+    padding: .75rem 1rem .25rem;
+  }
+
+  .dropdown-menu {
+    @include navigation-colors();
+    min-width: 0;
+
+    .dropdown-item:hover {
+      opacity: 1;
+    }
+  }
 }
+
+$j2-titlebar-height: 56px;
+
+//
+// Breadcrumbs
+//
 
 .j2-breadcrumb {
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  margin: 0;
   border-top: $navigation-border;
   border-bottom: $navigation-border;
 }
+
+$j2-breadcrumbs-height: 36px;
+
+//
+// Main nav
+//
 
 .j2-nav {
   @include media-breakpoint-down(sm) {
     width: 100%;
   }
+
   overflow-x: scroll;
+
   @include media-breakpoint-up(md) {
+    max-width: 250px;
     border-right: $navigation-border;
   }
-}
 
-.j2-footer {
-  border-top: $navigation-border;
-  border-bottom: $navigation-border;
-}
-
-.j2-titlebar {
-  @include titlebar-colors();
-}
-
-.j2-coverage {
-  opacity: .6;
-}
-
-.j2-aux-nav {
-  @include article-colors();
-  padding-top: 6rem;
-  font-size: .9rem;
-
-  .j2-aux-nav-wrapper {
-    padding-top: 1rem;
-  }
-
-  a {
-    display: inline-block;
-    margin-left: .6rem;
-    text-indent: -.6rem;
-    word-break: break-word;
-    word-wrap: break-word;
-  }
-
-  .j2-aux-group {
-    padding-left: .6 * $spacer;
-    list-style-type: none;
-  }
-
-  .j2-aux-heading {
-    font-weight: 600;
-  }
-
-  .j2-aux-action {
-    @include article-glow-links();
-    color: $article-color;
-  }
-}
-
-/* Sticky header and nav components when wide */
-
-$titlebar-height: 56px;
-$breadcrumbs-height: 36px;
-$fixed-header-height: add($titlebar-height, $breadcrumbs-height);
-
-@include media-breakpoint-up(xl) {
-  .j2-aux-nav-wrapper {
-    position: sticky;
-    top: $fixed-header-height;
-    max-height: subtract(100vh, $fixed-header-height);
-    overflow-y: auto;
-  }
-}
-
-@include media-breakpoint-up(md) {
-  .j2-header {
-    position: sticky;
-    top: 0;
-    z-index: $zindex-sticky;
-  }
-
-  .j2-nav {
-    position: sticky;
-    top: $fixed-header-height;
-    max-width: 250px;
-    max-height: subtract(100vh, $fixed-header-height);
-    overflow-y: auto;
-  }
-
-
-  // Anchor link vpos adjustment
-  :target::before {
-    display: block;
-    height: $fixed-header-height;
-    margin-top: -$fixed-header-height;
-    pointer-events: none;
-    visibility: hidden;
-    content: "";
-  }
-}
-
-@include media-breakpoint-up(lg) {
-  .j2-nav {
+  @include media-breakpoint-up(lg) {
     max-width: 300px;
   }
 }
 
-/* .j2-anchor {} marker class for anchor.js */
-
-/* Adjust pos and color of anchor icons */
-.anchorjs-link {
-  @include article-glow-links();
-  position: absolute;
-  padding-top: .1em;
-  padding-right: 1em;
-  padding-left: .2em !important;
-  color: $article-color !important;
-}
-
-/* Adjust for smalltext (XXX rems) */
-
-.breadcrumb {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  margin: 0;
-}
-
-/* Searchbar */
-
-.navbar-nav form:focus-within {
-  width: 100%;
-}
-
-/* Language-switcher menu, positioning and UI */
-
-.dropdown-toggle {
-  padding: .75rem 1rem .25rem;
-}
-
-.dropdown-menu {
-  @include navigation-colors();
-  top: 0;
-  min-width: 0;
-
-  .dropdown-item:hover {
-    opacity: 1;
-  }
-}
-
-/* For footer: linespacing doesn't decrease when 'small' */
-.small p {
-  margin-bottom: .8rem;
-}
-
-/* Left navigation */
 @mixin j2-nav-item-border() {
   @include border-radius(.4rem);
   background: $navigation-highlight-bg;
@@ -314,7 +212,44 @@ $fixed-header-height: add($titlebar-height, $breadcrumbs-height);
   }
 }
 
-/* Callouts */
+//
+// Article
+//
+
+.j2-article {
+  @include article-colors();
+
+  /* This width: 0 is flexbox black magic.  Without it,
+   * if the article column has a very wide element (eg.
+   * a `pre` then as the browser shrinks, flexbox prioritizes
+   * the article width over shrinking the `pre` and stacks
+   * the `col` _under_ the left nav `col`.  Which is bad.
+   */
+  width: 0;
+  padding-top: 3rem;
+}
+
+.j2-article-wrapper {
+  max-width: 800px;
+  @media (min-width: 1400px) {
+    max-width: 56vw;
+  }
+  margin: auto;
+}
+
+// .j2-anchor {} marker class for anchor.js
+
+// Adjust pos and color of anchor icons
+.anchorjs-link {
+  @include article-glow-links();
+  position: absolute;
+  padding-top: .1em;
+  padding-right: 1em;
+  padding-left: .2em !important;
+  color: $article-color !important;
+}
+
+// Callouts
 
 @mixin j2-callout-colors($color) {
   border-left: 5px solid $color;
@@ -360,7 +295,7 @@ $fixed-header-height: add($titlebar-height, $breadcrumbs-height);
   }
 }
 
-/* Availability list */
+// Availability float list
 
 .j2-availability {
   float: right;
@@ -372,7 +307,7 @@ $fixed-header-height: add($titlebar-height, $breadcrumbs-height);
   }
 }
 
-/* Topics and Items */
+// Topics and Items
 
 .j2-item-overview {
   p:last-child {
@@ -467,6 +402,95 @@ $item-overview-indent: 2rem;
   }
 }
 
+//
+// Aux nav
+//
+
+.j2-aux-nav {
+  @include article-colors();
+  padding-top: 6rem;
+  font-size: .9rem;
+
+  .j2-aux-nav-wrapper {
+    padding-top: 1rem;
+  }
+
+  a {
+    display: inline-block;
+    margin-left: .6rem;
+    text-indent: -.6rem;
+    word-break: break-word;
+    word-wrap: break-word;
+  }
+
+  .j2-aux-group {
+    padding-left: .6rem;
+    list-style-type: none;
+  }
+
+  .j2-aux-heading {
+    font-weight: 600;
+  }
+
+  .j2-aux-action {
+    @include article-glow-links();
+    color: $article-color;
+  }
+}
+
+//
+// Footer
+//
+
+.j2-footer {
+  border-top: $navigation-border;
+  border-bottom: $navigation-border;
+  p {
+    margin-bottom: .8rem;
+  }
+}
+
+//
+// Responsive sticky rules
+//
+
+$j2-header-height: add($j2-titlebar-height, $j2-breadcrumbs-height);
+
+@mixin j2-sticky-sidebar() {
+  position: sticky;
+  top: $j2-header-height;
+  max-height: subtract(100vh, $j2-header-height);
+  overflow-y: auto;
+}
+
+@include media-breakpoint-up(md) {
+  .j2-header {
+    position: sticky;
+    top: 0;
+    // sticky sidebars go under
+    z-index: $zindex-sticky;
+  }
+
+  .j2-nav {
+    @include j2-sticky-sidebar();
+  }
+
+  // #-anchor link vpos adjustment
+  :target::before {
+    display: block;
+    height: $j2-header-height;
+    margin-top: -$j2-header-height;
+    pointer-events: none;
+    visibility: hidden;
+    content: "";
+  }
+}
+
+.j2-aux-nav-wrapper {
+  @include j2-sticky-sidebar();
+}
+
+//
 // Typeahead search
 //
 .twitter-typeahead {

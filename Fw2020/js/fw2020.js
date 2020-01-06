@@ -36,17 +36,19 @@ const langControl = {
     $('#action-language').click(() => { this.toggle(); return false })
   },
 
+  menuItemSelectedClass: 'font-weight-bold',
+
   // Sync chrome from body
   updateChrome () {
     if ($body.hasClass('j2-swift')) {
       this.langMenu.text('Swift')
-      this.langObjC.removeClass('font-weight-bolder')
-      this.langSwift.addClass('font-weight-bolder')
+      this.langObjC.removeClass(this.menuItemSelectedClass)
+      this.langSwift.addClass(this.menuItemSelectedClass)
       return 'swift'
     } else {
       this.langMenu.text('ObjC')
-      this.langSwift.removeClass('font-weight-bolder')
-      this.langObjC.addClass('font-weight-bolder')
+      this.langSwift.removeClass(this.menuItemSelectedClass)
+      this.langObjC.addClass(this.menuItemSelectedClass)
       return 'objc'
     }
   },

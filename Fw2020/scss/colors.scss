@@ -40,7 +40,8 @@ $gray-10: #fefeff;
   --article-bg: #{$gray-10};
   // entire page
   --font-weight-normal: 400;
-  // declaration
+  --font-weight-demi-bold: 500;
+  // declaration callout
   --declaration-flash-color: #80bfff;
 }
 
@@ -62,11 +63,13 @@ $gray-10: #fefeff;
     --input-color: #{white(.87)};
     --input-bg: #34383f;
     --font-weight-normal: 500;
+    --font-weight-demi-bold: 600;
     --declaration-flash-color: #6073cb;
   }
 }
 
-// Fixed colors
+// Misc color exports
+
 $callout-color: #17a2b8;
 $callout-warning-color: #dc3545;
 $callout-deprecated-color: #e90;
@@ -109,7 +112,7 @@ $article-bg: var(--article-bg);
   background-color: $article-bg;
   a {
     color: var(--article-link-color);
-    &:hover, {
+    &:hover {
       text-decoration: underline;
       opacity: inherit;
     }
