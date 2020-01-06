@@ -21,7 +21,7 @@ h1 {
 }
 
 body {
-  @include navigation-colors();
+  @include j2-navigation-colors();
   -webkit-font-smoothing: antialiased;
 }
 
@@ -80,7 +80,7 @@ p + pre {
 .j2-table {
   th,
   td {
-    border: $navigation-border;
+    border: $j2-navigation-border;
     p:last-child {
       margin-bottom: 0;
     }
@@ -102,7 +102,7 @@ p + pre {
 //
 
 .j2-titlebar {
-  @include titlebar-colors();
+  @include j2-titlebar-colors();
 
   .j2-coverage {
     opacity: .6;
@@ -119,7 +119,7 @@ p + pre {
   }
 
   .dropdown-menu {
-    @include navigation-colors();
+    @include j2-navigation-colors();
     min-width: 0;
 
     .dropdown-item:hover {
@@ -138,8 +138,8 @@ $j2-titlebar-height: 56px;
   padding-top: .5rem;
   padding-bottom: .5rem;
   margin: 0;
-  border-top: $navigation-border;
-  border-bottom: $navigation-border;
+  border-top: $j2-navigation-border;
+  border-bottom: $j2-navigation-border;
 }
 
 $j2-breadcrumbs-height: 36px;
@@ -157,7 +157,7 @@ $j2-breadcrumbs-height: 36px;
 
   @include media-breakpoint-up(md) {
     max-width: 250px;
-    border-right: $navigation-border;
+    border-right: $j2-navigation-border;
   }
 
   @include media-breakpoint-up(lg) {
@@ -167,8 +167,8 @@ $j2-breadcrumbs-height: 36px;
 
 @mixin j2-nav-item-border() {
   @include border-radius(.4rem);
-  background: $navigation-highlight-bg;
-  border: $navigation-highlight-border;
+  background: $j2-navigation-highlight-bg;
+  border: $j2-navigation-highlight-border;
 }
 
 .j2-nav-list {
@@ -195,7 +195,7 @@ $j2-breadcrumbs-height: 36px;
 
   .j2-nav-item {
     display: block; // fill to right for hover
-    color: $navigation-secondary-color;
+    color: $j2-navigation-secondary-color;
 
     &:not(.active):hover {
       @include j2-nav-item-border();
@@ -217,7 +217,7 @@ $j2-breadcrumbs-height: 36px;
 //
 
 .j2-article {
-  @include article-colors();
+  @include j2-article-colors();
 
   /* This width: 0 is flexbox black magic.  Without it,
    * if the article column has a very wide element (eg.
@@ -241,12 +241,11 @@ $j2-breadcrumbs-height: 36px;
 
 // Adjust pos and color of anchor icons
 .anchorjs-link {
-  @include article-glow-links();
+  @include j2-article-dim-links();
   position: absolute;
   padding-top: .1em;
   padding-right: 1em;
   padding-left: .2em !important;
-  color: $article-color !important;
 }
 
 // Callouts
@@ -259,9 +258,9 @@ $j2-breadcrumbs-height: 36px;
 }
 
 .j2-callout {
-  @include j2-callout-colors($callout-color);
+  @include j2-callout-colors($j2-callout-color);
   padding: 6px 12px;
-  margin-bottom: $spacer;
+  margin-bottom: 1rem;
 
   .j2-callout-title {
     padding-bottom: 0;
@@ -277,15 +276,15 @@ $j2-breadcrumbs-height: 36px;
 }
 
 .j2-callout-warning {
-  @include j2-callout-colors($callout-warning-color);
+  @include j2-callout-colors($j2-callout-warning-color);
 }
 
 .j2-callout-deprecated {
-  @include j2-callout-colors($callout-deprecated-color);
+  @include j2-callout-colors($j2-callout-deprecated-color);
 }
 
 .j2-callout-declaration {
-  @include j2-callout-colors($callout-declaration-color);
+  @include j2-callout-colors($j2-callout-declaration-color);
   pre,
   code {
     padding-right: 0;
@@ -344,7 +343,7 @@ $item-overview-indent: 2rem;
   }
 
   .j2-item-secondary {
-    color: $article-secondary-color;
+    color: $j2-article-secondary-color;
   }
 
   // These add an indent to the 2nd+ lines
@@ -368,16 +367,16 @@ $item-overview-indent: 2rem;
       left: 19px;
       width: 12px;
       height: 12px;
-      background: $article-bg;
-      border-top: $navigation-border;
-      border-left: $navigation-border;
+      background: $j2-article-bg;
+      border-top: $j2-navigation-border;
+      border-left: $j2-navigation-border;
       transform: rotate(45deg);
     }
 
     // Inner collapsed thing, has the border and content within
     .j2-item-popopen-body {
       padding: ($spacer / 2) $spacer 0 $spacer;
-      border: $navigation-border;
+      border: $j2-navigation-border;
 
       > p:last-child {
         margin-bottom: $spacer / 2;
@@ -389,7 +388,7 @@ $item-overview-indent: 2rem;
       padding: .5rem 0;
       + .nav-link::before {
         padding: 0 .5rem;
-        color: $article-color;
+        color: $j2-article-color;
         content: "|";
         user-select: none;
       }
@@ -407,7 +406,7 @@ $item-overview-indent: 2rem;
 //
 
 .j2-aux-nav {
-  @include article-colors();
+  @include j2-article-colors();
   padding-top: 6rem;
   font-size: .9rem;
 
@@ -433,8 +432,7 @@ $item-overview-indent: 2rem;
   }
 
   .j2-aux-action {
-    @include article-glow-links();
-    color: $article-color;
+    @include j2-article-dim-links();
   }
 }
 
@@ -443,8 +441,8 @@ $item-overview-indent: 2rem;
 //
 
 .j2-footer {
-  border-top: $navigation-border;
-  border-bottom: $navigation-border;
+  border-top: $j2-navigation-border;
+  border-bottom: $j2-navigation-border;
   p {
     margin-bottom: .8rem;
   }
@@ -514,11 +512,11 @@ $j2-header-height: add($j2-titlebar-height, $j2-breadcrumbs-height);
 }
 
 .tt-menu {
-  @include navigation-colors();
+  @include j2-navigation-colors();
   @include border-radius($border-radius);
   max-width: 100%;
   margin: 0;
-  border: $navigation-border;
+  border: $j2-navigation-border;
 }
 
 .tt-droprow {
@@ -529,7 +527,7 @@ $j2-header-height: add($j2-titlebar-height, $j2-breadcrumbs-height);
     display: table-cell;
   }
   @include media-breakpoint-down(sm) {
-    border-bottom: $navigation-border;
+    border-bottom: $j2-navigation-border;
   }
 }
 

@@ -70,15 +70,15 @@ $gray-10: #fefeff;
 
 // Misc color exports
 
-$callout-color: #17a2b8;
-$callout-warning-color: #dc3545;
-$callout-deprecated-color: #e90;
-$callout-declaration-color: var(--declaration-flash-color);
+$j2-callout-color: #17a2b8;
+$j2-callout-warning-color: #dc3545;
+$j2-callout-deprecated-color: #e90;
+$j2-callout-declaration-color: var(--declaration-flash-color);
 
 // Utilities defined in terms of the CSS variables for use
 // outside of this file.
 
-@mixin titlebar-colors {
+@mixin j2-titlebar-colors {
   color: var(--titlebar-color);
   background-color: var(--titlebar-bg);
   a {
@@ -86,14 +86,14 @@ $callout-declaration-color: var(--declaration-flash-color);
   }
 }
 
-$navigation-border: 1px solid var(--navigation-border-color);
-$navigation-color: var(--navigation-color);
-$navigation-secondary-color: var(--navigation-secondary-color);
-$navigation-highlight-bg: var(--navigation-highlight-bg);
-$navigation-highlight-border: 1px solid var(--navigation-highlight-border);
+$j2-navigation-border: 1px solid var(--navigation-border-color);
+$j2-navigation-color: var(--navigation-color);
+$j2-navigation-secondary-color: var(--navigation-secondary-color);
+$j2-navigation-highlight-bg: var(--navigation-highlight-bg);
+$j2-navigation-highlight-border: 1px solid var(--navigation-highlight-border);
 
-@mixin navigation-colors {
-  color: $navigation-color;
+@mixin j2-navigation-colors {
+  color: $j2-navigation-color;
   background-color: var(--navigation-bg);
   a {
     color: inherit;
@@ -103,13 +103,13 @@ $navigation-highlight-border: 1px solid var(--navigation-highlight-border);
   }
 }
 
-$article-color: var(--article-color);
-$article-secondary-color: var(--article-secondary-color);
-$article-bg: var(--article-bg);
+$j2-article-color: var(--article-color);
+$j2-article-secondary-color: var(--article-secondary-color);
+$j2-article-bg: var(--article-bg);
 
-@mixin article-colors {
-  color: $article-color;
-  background-color: $article-bg;
+@mixin j2-article-colors {
+  color: $j2-article-color;
+  background-color: $j2-article-bg;
   a {
     color: var(--article-link-color);
     &:hover {
@@ -119,7 +119,8 @@ $article-bg: var(--article-bg);
   }
 }
 
-@mixin article-glow-links() {
+@mixin j2-article-dim-links() {
+  color: $j2-article-color !important;
   &:hover {
     text-decoration: none !important;
     opacity: .6 !important;
