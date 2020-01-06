@@ -1,12 +1,14 @@
 // J2 FW2020 theme
 //
-// Distributed under the MIT license, https://github.com/johnfairh/J2/blob/master/LICENSE
+// Distributed under the MIT license
+// https://github.com/johnfairh/J2/blob/master/LICENSE
 //
-// This file holds the syntax highlighting color scheme for light and dark
+
+// This file holds the Prism syntax highlighting color scheme for light and dark
 // modes.  Originally derived from the `Material Dark` and `Material Light`
-// themes from the `prism-themes` project, https://github.com/PrismJS/prism-themes,
-// but then uglified (especially Light) by me.
-//
+// themes from the `prism-themes` project at
+// https://github.com/PrismJS/prism-themes, but then uglified (especially Light)
+// by me.
 
 .pr-interpolation {
   color: $j2-article-color;

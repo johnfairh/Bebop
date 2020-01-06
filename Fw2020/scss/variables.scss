@@ -1,9 +1,14 @@
 // J2 FW2020 theme
 //
-// Distributed under the MIT license, https://github.com/johnfairh/J2/blob/master/LICENSE
+// Distributed under the MIT license
+// https://github.com/johnfairh/J2/blob/master/LICENSE
+//
 
-// Dark mode abstractions that need to be propagated through
-// Bootstrap's _variables.scss.
+// This file is included before anything else including Bootstrap.
+// To make colors work properly we have to override some stuff here
+// to variables that aren't actually set until later (colors.scss)
+// so that they propagate properly through Bootstrap's defaults.
+
 $input-bg: var(--input-bg);
 $input-color: var(--input-color);
 $font-weight-normal: var(--font-weight-normal);

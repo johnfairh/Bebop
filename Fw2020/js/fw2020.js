@@ -1,6 +1,7 @@
 // J2 FW2020 theme.
 //
-// Distributed under the MIT license, https://github.com/johnfairh/J2/blob/master/LICENSE
+// Distributed under the MIT license
+// https://github.com/johnfairh/J2/blob/master/LICENSE
 //
 
 /* global $ Prism anchors lunr */

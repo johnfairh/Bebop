@@ -1,5 +1,5 @@
-# Copyright
-#
+# Distributed under the MIT license
+# https://github.com/johnfairh/J2/blob/master/LICENSE
 
 all: dist
 
