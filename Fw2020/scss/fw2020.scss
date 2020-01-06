@@ -100,7 +100,7 @@ pre {
    * the `col` _under_ the left nav `col`.  Which is bad.
    */
   width: 0;
-  padding-top: $spacer * 2;
+  padding-top: 3rem;
 }
 
 .j2-article-wrapper {
@@ -141,7 +141,7 @@ pre {
 
 .j2-aux-nav {
   @include article-colors();
-  padding-top: 5rem;
+  padding-top: 6rem;
   font-size: .9rem;
 
   .j2-aux-nav-wrapper {
@@ -274,7 +274,7 @@ $fixed-header-height: add($titlebar-height, $breadcrumbs-height);
 }
 
 .j2-nav-list {
-  padding-top: .3rem;
+  padding-top: .5rem;
   padding-left: .5rem;
   list-style-type: none;
 
@@ -282,7 +282,7 @@ $fixed-header-height: add($titlebar-height, $breadcrumbs-height);
     padding-top: .5rem;
     padding-bottom: .5rem;
     > .j2-nav-item {
-      font-weight: 500;
+      color: inherit;
     }
   }
 
@@ -297,6 +297,7 @@ $fixed-header-height: add($titlebar-height, $breadcrumbs-height);
 
   .j2-nav-item {
     display: block; // fill to right for hover
+    color: $navigation-secondary-color;
 
     &:not(.active):hover {
       @include j2-nav-item-border();

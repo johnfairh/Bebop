@@ -28,6 +28,7 @@ $gray-10: #fefeff;
   --input-bg: #{$gray-10};
   // nav, breadcrumbs, menu
   --navigation-color: #{$gray-900};
+  --navigation-secondary-color: #{$gray-700};
   --navigation-bg: #{$gray-100};
   --navigation-highlight-bg: #{$gray-200};
   --navigation-highlight-border: #{$gray-200};
@@ -48,6 +49,7 @@ $gray-10: #fefeff;
     --titlebar-color: #{white(.82)};
     --titlebar-bg: #262628;
     --navigation-color: #{white(.82)};
+    --navigation-secondary-color: #{white(.7)};
     --navigation-bg: #202428;
     --navigation-highlight-bg: #303438;
     --navigation-highlight-border: #484c50;
@@ -83,6 +85,7 @@ $callout-declaration-color: var(--declaration-flash-color);
 
 $navigation-border: 1px solid var(--navigation-border-color);
 $navigation-color: var(--navigation-color);
+$navigation-secondary-color: var(--navigation-secondary-color);
 $navigation-highlight-bg: var(--navigation-highlight-bg);
 $navigation-highlight-border: 1px solid var(--navigation-highlight-border);
 
