@@ -25,9 +25,9 @@ const langControl = {
 
   // Initial chrome and event handlers when ready
   ready () {
-    this.langMenu = $('#languageMenu')
-    this.langSwift = $('#language-swift')
-    this.langObjC = $('#language-objc')
+    this.langMenu = $('#language-menu')
+    this.langSwift = $('#language-menu-swift')
+    this.langObjC = $('#language-menu-objc')
 
     this.updateChrome()
 
@@ -268,8 +268,8 @@ searchControl.setup()
 
 $(function () {
   // Narrow size nav toggle
-  $('#navToggleButton').click(() => {
-    const $nav = $('#navColumn')
+  $('#nav-toggle-button').click(() => {
+    const $nav = $('#nav-column')
     $nav.toggleClass('d-none')
     return false
   })

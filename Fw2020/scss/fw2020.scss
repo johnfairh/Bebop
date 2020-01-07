@@ -82,6 +82,13 @@ p + pre {
 //
 
 .j2-table {
+  @extend .table;
+  @extend .table-bordered;
+  @extend .table-striped;
+  @extend .table-responsive;
+}
+
+.j2-param-table {
   th,
   td {
     border: $j2-navigation-border;
@@ -89,9 +96,7 @@ p + pre {
       margin-bottom: 0;
     }
   }
-}
 
-.j2-param-table {
   td {
     padding: .5rem;
 
@@ -155,6 +160,7 @@ $j2-breadcrumbs-height: 36px;
 .j2-nav {
   @include media-breakpoint-down(sm) {
     width: 100%;
+    border-bottom: $j2-navigation-border;
   }
 
   overflow-x: scroll;

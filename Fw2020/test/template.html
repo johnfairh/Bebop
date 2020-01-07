@@ -22,7 +22,7 @@
 
   <nav class="navbar navbar-expand navbar-dark j2-titlebar">
     <a class="sr-only-focusable sr-only font-weight-slightly-bold pr-2" href="#main-content">Skip to main content</a>
-      <a class="nav-item nav-link pl-0 pt-1 pr-2 d-md-none" id="navToggleButton" href="#">
+      <a class="nav-item nav-link pl-0 pt-1 pr-2 d-md-none" id="nav-toggle-button" href="#">
         <span class="navbar-toggler-icon"></span>
       </a>
 
@@ -39,10 +39,10 @@
         </form>
 
           <div class="nav-item dropdown small">
-            <a class="nav-link dropdown-toggle font-weight-slightly-bold" href="#" id="languageMenu" role="button" data-toggle="dropdown" data-offset="100,0" aria-haspopup="true" aria-expanded="false">Swift</a>
+            <a class="nav-link dropdown-toggle font-weight-slightly-bold" href="#" id="language-menu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Swift</a>
             <div class="dropdown-menu dropdown-menu-right dropdown-menu-md-left" role="menu" aria-labelledby="languageMenu">
-              <a class="dropdown-item small" href="" id="language-swift">Swift</a>
-              <a class="dropdown-item small" href="" id="language-objc">ObjC</a>
+              <a class="dropdown-item small" href="" id="language-menu-swift">Swift</a>
+              <a class="dropdown-item small" href="" id="language-menu-objc">ObjC</a>
             </div>
           </div>
 
@@ -58,7 +58,7 @@
     <div class="row">
       <div class="col">
         <form class="pb-2">
-          <input class="form-control form-control-sm" type="search" placeHolder="Search" aria-label="Search" id="small-search" data-search-format="div">
+          <input class="form-control form-control-sm" type="search" placeHolder="Search" aria-label="Search" data-search-format="div">
         </form>
       </div>
     </div>
@@ -84,7 +84,7 @@
 
       <!-- left nav -->
 
-      <div class="col-auto d-none d-md-flex flex-column j2-nav" id="navColumn">
+      <div class="col-auto d-none d-md-flex flex-column j2-nav" id="nav-column">
 
         <nav class="j2-swift">
           <ul class="j2-nav-list">
@@ -199,7 +199,7 @@
           </nav>
           <menu class="j2-aux-group">
             <li class="j2-aux-heading">Actions</li>
-            <li><a class="j2-aux-action" tabindex="0" id="action-search" href="#">Search (/)</a></li>
+            <li><a class="j2-aux-action" id="action-search" href="#">Search (/)</a></li>
             <li><a class="j2-aux-action" id="action-collapse" href="#">
                 <span id="action-collapse-expand">Expand (a)</span>
                 <span id="action-collapse-collapse" class="d-none">Collapse (a)</span>
