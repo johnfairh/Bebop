@@ -20,37 +20,41 @@
 
   <!-- titlebar -->
 
-  <nav class="navbar navbar-expand navbar-dark j2-titlebar">
+  <div class="navbar navbar-expand navbar-dark j2-titlebar">
     <a class="sr-only-focusable sr-only font-weight-slightly-bold pr-2" href="#main-content">Skip to main content</a>
-      <a class="nav-item nav-link pl-0 pt-1 pr-2 d-md-none" id="nav-toggle-button" href="#">
-        <span class="navbar-toggler-icon"></span>
-      </a>
+    <a class="nav-item nav-link pl-0 pt-1 pr-2 d-md-none" id="nav-toggle-button" role="button" aria-controls="nav-column" aria-expanded="false" aria-label="Toggle navigation" href="#">
+      <span class="navbar-toggler-icon"></span>
+    </a>
 
-      <div style="align-items-baseline">
+    <div style="align-items-baseline">
       <div class="navbar-brand mr-1 font-weight-slightly-bold">J2 Project 0.5.12 docs</div>
 
       <span class="navbar-text j2-coverage font-weight-slightly-bold small d-none d-md-inline-block mr-2">(100% documented)</span>
+    </div>
+
+    <div class="navbar-nav ml-auto justify-content-end flex-fill">
+
+      <form class="form-inline d-none d-md-flex" role="search">
+        <input class="form-control form-control-sm w-100" type="search" placeHolder="Search" aria-label="Search" aria-keyshortcuts="/" data-search-format="span">
+      </form>
+
+      <div class="nav-item dropdown small">
+        <a class="nav-link dropdown-toggle font-weight-slightly-bold" href="#" id="language-menu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Swift</a>
+        <div class="dropdown-menu dropdown-menu-right dropdown-menu-md-left" role="menu" aria-labelledby="language-menu">
+          <a class="dropdown-item small" href="" id="language-menu-swift" role="menuitem">Swift</a>
+          <a class="dropdown-item small" href="" id="language-menu-objc" role="menuitem">ObjC</a>
+        </div>
       </div>
 
-      <div class="navbar-nav ml-auto justify-content-end flex-fill">
+      <a class="nav-item nav-link d-none d-xxs-inline" rel="external" href="#">
+        <img src="gh.png" alt="View on GitHub" width="20" height="20">
+      </a>
+      <a class="nav-item nav-link d-none d-xxs-inline" rel="alternate" href="#">
+        <img src="dash.png" alt="Open in Dash" width="20" height="20">
+      </a>
+    </div>
 
-        <form class="form-inline d-none d-md-flex" role="search">
-          <input class="form-control form-control-sm w-100" type="search" placeHolder="Search" aria-label="Search" data-search-format="span">
-        </form>
-
-          <div class="nav-item dropdown small">
-            <a class="nav-link dropdown-toggle font-weight-slightly-bold" href="#" id="language-menu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Swift</a>
-            <div class="dropdown-menu dropdown-menu-right dropdown-menu-md-left" role="menu" aria-labelledby="languageMenu">
-              <a class="dropdown-item small" href="" id="language-menu-swift">Swift</a>
-              <a class="dropdown-item small" href="" id="language-menu-objc">ObjC</a>
-            </div>
-          </div>
-
-          <a class="nav-item nav-link d-none d-xxs-inline" rel="external" href="#"><img src="gh.png" width="20" height="20"></a>
-          <a class="nav-item nav-link d-none d-xxs-inline" rel="alternate" href="#"><img src="dash.png" width="20" height="20"></a>
-      </div>
-
-  </nav>
+  </div>
 
   <!-- narrow-style searchbar -->
 
@@ -58,7 +62,7 @@
     <div class="row">
       <div class="col">
         <form class="pb-2">
-          <input class="form-control form-control-sm" type="search" placeHolder="Search" aria-label="Search" data-search-format="div">
+          <input class="form-control form-control-sm" type="search" placeHolder="Search" aria-label="Search" aria-keyshortcuts="/" data-search-format="div">
         </form>
       </div>
     </div>
@@ -86,14 +90,14 @@
 
       <div class="col-auto d-none d-md-flex flex-column j2-nav" id="nav-column">
 
-        <nav class="j2-swift">
+        <nav aria-label="Swift" class="j2-swift">
           <ul class="j2-nav-list">
             <li class="j2-nav-group"><a class="j2-nav-item" href="#">Junk food</a>
               <ul class="j2-nav-sublist">
                 <li><a class="j2-nav-item" href="#">CarPlayManager</a></li>
                 <li><a class="j2-nav-item" href="#">RbBoundMethod</a></li>
                 <li><a class="j2-nav-item" href="#">CarPlayNavigation</a></li>
-                <li><span class="j2-nav-item active" >CarPlayNavigation</span></li>
+                <li><span class="j2-nav-item active" aria-current="page">CarPlayNavigation</span></li>
                 <li><a class="j2-nav-item" href="#">CarPlayActivity</a></li>
               </ul>
             </li>
@@ -124,7 +128,7 @@
           </ul>
         </nav>
 
-        <nav class="j2-objc">
+        <nav aria-label="Objective-C" class="j2-objc">
           <ul class="j2-nav-list">
             <li class="j2-nav-group"><span class="j2-nav-item" href="#">Jank food</span>
               <ul class="j2-nav-sublist">
@@ -188,7 +192,7 @@
 
       <div class="col-xl d-none d-xl-block j2-aux-nav">
         <div class="j2-aux-nav-wrapper">
-          <nav>
+          <nav aria-label="Page">
           <ul class="j2-aux-group">
             <li class="j2-aux-heading">Topics</li>
             <li><a href="#">Declaration</a></li>
@@ -197,18 +201,18 @@
             <li><a href="#topic-with-interesting-items">Topic with interesting items</a></li>
           </ul>
           </nav>
-          <menu class="j2-aux-group">
+          <ul class="j2-aux-group">
             <li class="j2-aux-heading">Actions</li>
-            <li><a class="j2-aux-action" id="action-search" href="#">Search (/)</a></li>
-            <li><a class="j2-aux-action" id="action-collapse" href="#">
+            <li><a class="j2-aux-action" id="action-search" href="#" role="button" aria-keyshortcuts="/">Search (/)</a></li>
+            <li><a class="j2-aux-action" id="action-collapse" href="#" role="button" aria-keyshortcuts="a">
                 <span id="action-collapse-expand">Expand (a)</span>
                 <span id="action-collapse-collapse" class="d-none">Collapse (a)</span>
             </a></li>
-            <li><a class="j2-aux-action" id="action-language" href="#">
+            <li><a class="j2-aux-action" id="action-language" href="#" role="button" aria-keyshortcuts="l">
               <span class="j2-swift">Objective-C (l)</span>
-              <span class='j2-objc'>Swift (l)</span>
+              <span class="j2-objc">Swift (l)</span>
             </a></li>
-          </menu>
+          </ul>
        </div>
     </div>
 

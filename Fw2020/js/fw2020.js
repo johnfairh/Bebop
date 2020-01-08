@@ -44,12 +44,16 @@ const langControl = {
     if ($body.hasClass('j2-swift')) {
       this.langMenu.text('Swift')
       this.langObjC.removeClass(this.menuItemSelectedClass)
+      this.langObjC.attr('aria-current', 'false')
       this.langSwift.addClass(this.menuItemSelectedClass)
+      this.langSwift.attr('aria-current', 'true')
       return 'swift'
     } else {
       this.langMenu.text('ObjC')
       this.langSwift.removeClass(this.menuItemSelectedClass)
+      this.langSwift.attr('aria-current', 'false')
       this.langObjC.addClass(this.menuItemSelectedClass)
+      this.langObjC.attr('aria-current', 'true')
       return 'objc'
     }
   },
@@ -268,9 +272,16 @@ searchControl.setup()
 
 $(function () {
   // Narrow size nav toggle
-  $('#nav-toggle-button').click(() => {
-    const $nav = $('#nav-column')
-    $nav.toggleClass('d-none')
+  const $nav = $('#nav-column')
+  const $navToggle = $('#nav-toggle-button')
+  $navToggle.click(() => {
+    if ($nav.hasClass('d-none')) {
+      $nav.removeClass('d-none')
+      $navToggle.attr('aria-expanded', 'true')
+    } else {
+      $nav.addClass('d-none')
+      $navToggle.attr('aria-expanded', 'false')
+    }
     return false
   })
 
