@@ -24,6 +24,12 @@ h1 {
   margin-bottom: 1rem;
 }
 
+h6 {
+  margin-bottom: 0;
+  font-size: inherit;
+  font-weight: 700;
+}
+
 body {
   @include j2-navigation-colors();
   -webkit-font-smoothing: antialiased;
@@ -308,9 +314,10 @@ $j2-breadcrumbs-height: 36px;
 
 .j2-availability {
   float: right;
+  padding-left: .75rem;
   font-size: smaller;
   ul {
-    padding-left: .75rem;
+    padding-left: 0;
     margin-bottom: 0;
     list-style-type: none;
   }
@@ -418,6 +425,7 @@ $item-overview-indent: 2rem;
 .j2-aux-nav {
   @include j2-article-colors();
   padding-top: 6rem;
+  padding-left: .6rem;
   font-size: .9rem;
 
   .j2-aux-nav-wrapper {
@@ -433,12 +441,8 @@ $item-overview-indent: 2rem;
   }
 
   .j2-aux-group {
-    padding-left: .6rem;
+    padding-left: 0;
     list-style-type: none;
-  }
-
-  .j2-aux-heading {
-    font-weight: 600;
   }
 
   .j2-aux-action {
