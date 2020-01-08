@@ -275,13 +275,13 @@ $j2-breadcrumbs-height: 36px;
 
 .j2-callout {
   @include j2-callout-colors($j2-callout-color);
-  padding: 6px 12px;
+  padding: .38rem .75rem;
   margin-bottom: 1rem;
 
   .j2-callout-title {
     padding-bottom: 0;
     margin: 0;
-    font-size: 12px;
+    font-size: .75rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     user-select: none;
