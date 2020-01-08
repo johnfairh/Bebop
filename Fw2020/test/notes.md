@@ -22,7 +22,7 @@ SM, XS
 * Fullwidth Nav when popped up
 * Nothing sticky
 
-Tiny (iPhone SE/8)
+XXS (iPhone SE/8)
 * As SM, icons gone from header
 
 # Header
@@ -41,6 +41,7 @@ Tiny (iPhone SE/8)
   * Tab navigation
 * Icons
   * React on mouseover
+  * Alt text
 
 # Breadcrumbs
 
@@ -67,7 +68,8 @@ Tiny (iPhone SE/8)
   * In pre/code blocks, natural color with underline on hover
 * Four types of callout - no title on the declaration
 * Tables
-  * Free tables single bordered, stripy rows
+  * Free tables double-bordered outside and around headings, otherwise
+    single bordered, striped rows
   * Param tables same, param name right/top-aligned
 * Pre blocks scroll horizontally, no wrap
 
@@ -105,8 +107,8 @@ System settings seems more reliable than Safari tools??
 
 * Main, slightly into declaration callout
 * Cleared - if no discussion does not extend into topics
-* Item, aligns with discussion.
-* Cleared - protrudes a little into declaration
+* Item, aligns with discussion
+* Cleared - no overlap below
 
 # Collapse
 
@@ -173,3 +175,23 @@ System settings seems more reliable than Safari tools??
 * 'No matches' feedback when no matches
 * 'Loading' feedback while json loads, dunno how to test that
 * Not gonna try and specify lunr's algorithm
+
+# Accessibility
+
+_subject to more screenreader testing_
+* header -> main -> article[header] -> sections -> footer
+* Screenreader-only first-prio link
+* Nav toggler marked up as button
+* Search fields all controlled by the plugin - keystroke marked
+* Dropdown menu works as a menu, 'collapsed' live
+* XSite links marked up
+* Breadcrumbs as a nav, current marked
+* Swift and ObjC left-navs marked as such, current marked
+* Aux nav nav-part marked as such, actions marked as buttons with keystrokes
+* Availability as aside/note
+* Section per topic
+* Collapse things marked up, 'collapsed' live
+  * _check - can we put the keyshortcut here_
+* Strikethrough decls have screenreader-only explanations
+* Line art div 'presentation' and ignored
+* Callouts as straight divs with role=heading titles

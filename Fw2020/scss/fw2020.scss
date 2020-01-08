@@ -24,6 +24,7 @@ h1 {
   margin-bottom: 1rem;
 }
 
+// For 'inline' headings
 h6 {
   margin-bottom: 0;
   font-size: inherit;
@@ -350,10 +351,6 @@ $item-overview-indent: 2rem;
 /* .j2-item-anchor {} marker class for JS */
 
 .j2-item-title {
-  &.discouraged {
-    text-decoration: line-through;
-  }
-
   code {
     padding: 0;
     background: inherit;
@@ -367,6 +364,14 @@ $item-overview-indent: 2rem;
   display: inline-block;
   margin-left: $item-overview-indent;
   text-indent: -$item-overview-indent;
+}
+
+.j2-item-title-discouraged {
+  @extend .j2-item-title;
+  text-decoration: line-through;
+  &:hover {
+    text-decoration: line-through underline !important;
+  }
 }
 
 // The outer thing that gets collapsed.
