@@ -60,20 +60,19 @@ const langControl = {
 
   // Sync chrome from body
   updateChrome () {
+    const doUpdate = (langName, fromEl, toEl) => {
+      this.langMenu.text(langName)
+      fromEl.removeClass(this.menuItemSelectedClass)
+      fromEl.attr('aria-current', false)
+      toEl.addClass(this.menuItemSelectedClass)
+      toEl.attr('aria-current', true)
+      return langName.toLowerCase()
+    }
+
     if ($body.hasClass('j2-swift')) {
-      this.langMenu.text('Swift')
-      this.langObjC.removeClass(this.menuItemSelectedClass)
-      this.langObjC.attr('aria-current', 'false')
-      this.langSwift.addClass(this.menuItemSelectedClass)
-      this.langSwift.attr('aria-current', 'true')
-      return 'swift'
+      return doUpdate('Swift', this.langObjC, this.langSwift)
     } else {
-      this.langMenu.text('ObjC')
-      this.langSwift.removeClass(this.menuItemSelectedClass)
-      this.langSwift.attr('aria-current', 'false')
-      this.langObjC.addClass(this.menuItemSelectedClass)
-      this.langObjC.attr('aria-current', 'true')
-      return 'objc'
+      return doUpdate('ObjC', this.langSwift, this.langObjC)
     }
   },
 
@@ -182,6 +181,10 @@ const collapseControl = {
 //
 // Search - load json, index with lunr, UI with typeahead.
 // XXX user-visible text
+//
+// Loading index...
+// No matches
+// Failed to load index
 //
 const searchControl = {
   // relative path to docroot
