@@ -11,6 +11,25 @@
 const $body = $('body')
 
 //
+// Narrow-mode nav collapse
+//
+const navControl = {
+  setup () {
+  },
+
+  ready () {
+    const $nav = $('#nav-column')
+    const $navToggle = $('#nav-toggle-button')
+
+    $navToggle.click(() => {
+      $nav.toggleClass('d-none')
+      $navToggle.attr('aria-expanded', !$nav.hasClass('d-none'))
+      return false
+    })
+  }
+}
+
+//
 // Language-switching controls
 //
 const langControl = {
@@ -263,27 +282,23 @@ const searchControl = {
     $typeaheads.on('typeahead:select', (e, result) => {
       window.location = this.rootPath + '/' + result.url
     })
+
+    // Searchbar action in aux nav
+    $('#action-search').click(() => {
+      $('input:visible').focus()
+      return false
+    })
   }
 }
 
+navControl.setup()
 langControl.setup()
 collapseControl.setup()
 searchControl.setup()
 
 $(function () {
   // Narrow size nav toggle
-  const $nav = $('#nav-column')
-  const $navToggle = $('#nav-toggle-button')
-  $navToggle.click(() => {
-    if ($nav.hasClass('d-none')) {
-      $nav.removeClass('d-none')
-      $navToggle.attr('aria-expanded', 'true')
-    } else {
-      $nav.addClass('d-none')
-      $navToggle.attr('aria-expanded', 'false')
-    }
-    return false
-  })
+  navControl.ready()
 
   // Auto-add anchors to headings
   anchors.options.visible = 'touch'
@@ -294,9 +309,6 @@ $(function () {
 
   // Initialise collapse-anchor link
   collapseControl.ready()
-
-  // Searchbar action
-  $('#action-search').click(() => { $('input:visible').focus(); return false })
 
   // Typeahead
   searchControl.ready()
