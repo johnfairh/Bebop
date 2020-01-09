@@ -56,15 +56,11 @@ const langControl = {
     $('#action-language').click(() => { this.toggle(); return false })
   },
 
-  menuItemSelectedClass: 'font-weight-bold',
-
   // Sync chrome from body
   updateChrome () {
     const doUpdate = (langName, fromEl, toEl) => {
       this.langMenu.text(langName)
-      fromEl.removeClass(this.menuItemSelectedClass)
       fromEl.attr('aria-current', false)
-      toEl.addClass(this.menuItemSelectedClass)
       toEl.attr('aria-current', true)
       return langName.toLowerCase()
     }

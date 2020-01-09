@@ -14,6 +14,9 @@
   .d-xxs-inline {
     display: inline !important;
   }
+  .d-xxs-block {
+    display: block !important;
+  }
 }
 
 //
@@ -129,10 +132,7 @@ p + pre {
     width: 100%;
   }
 
-  // Language switcher
-  .dropdown-toggle {
-    padding: .75rem 1rem .25rem;
-  }
+  // Language & translation switchers
 
   .dropdown-menu {
     @include j2-navigation-colors();
@@ -141,6 +141,13 @@ p + pre {
     .dropdown-item:hover {
       opacity: 1;
     }
+  }
+
+  .dropdown-item[aria-current="true"]::before {
+    position: absolute;
+    display: inline-block;
+    margin-left: -1em;
+    content: "✓";
   }
 }
 
