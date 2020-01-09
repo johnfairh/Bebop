@@ -333,6 +333,13 @@ $(document).keydown(function (e) {
       case 'a': collapseControl.toggle(); break
       case 'l': langControl.toggle(); break
       case 'd': $('#size-debug').toggleClass('d-flex d-none'); break
+      /*
+      case 'r': {
+        $('#nav-column').toggleClass('d-md-flex')
+        $('#article-column').toggleClass('col-xl-8')
+        $('#aux-nav-column').toggleClass('d-xl-block')
+      }
+      */
     }
   }
 })
