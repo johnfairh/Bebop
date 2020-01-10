@@ -26,7 +26,6 @@ DISTFILES=${THEMEFILES} \
 	collapse.js.map \
 	guide.html \
 	class.html \
-	gh.png \
 	dash.png \
 	search.json \
 

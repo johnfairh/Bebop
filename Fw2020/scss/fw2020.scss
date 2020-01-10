@@ -149,6 +149,11 @@ p + pre {
     margin-left: -1em;
     content: "✓";
   }
+
+  // Not proud...
+  .j2-title-svg {
+    margin-top: -.187rem;
+  }
 }
 
 $j2-titlebar-height: 56px;
