@@ -185,9 +185,12 @@ const collapseControl = {
 const searchControl = {
   // relative path to docroot
   rootPath: '',
-  // what to tell the user if nothing found
-  notFoundMessage: 'Loading index...',
-  // json from search data
+  // translated messages
+  loadingMessage: null,
+  failedMessage: null,
+  notFoundMessage: null,
+  // state of json search data
+  jsonFetchFailed: false,
   searchData: null,
   // lunr index object
   lunrIndex: null,
@@ -206,7 +209,9 @@ const searchControl = {
   },
 
   notFoundTemplate () {
-    return this.dropdownHtml(`<i>${this.notFoundMessage}</i>`, '', 'span')
+    const msg = this.jsonFetchFailed ? this.failedMessage
+      : (this.searchData ? this.notFoundMessage : this.loadingMessage)
+    return this.dropdownHtml(`<i>${msg || 'Not found'}</i>`, '', 'span')
   },
 
   // Start Lunr setup asap
@@ -215,8 +220,6 @@ const searchControl = {
 
     $.getJSON(this.rootPath + '/search.json').then((searchData) => {
       this.searchData = searchData
-
-      this.notFoundMessage = 'No matches'
 
       // setting this enables search
       this.lunrIndex = lunr((builder) => {
@@ -228,7 +231,7 @@ const searchControl = {
         }
       })
     }, () => {
-      this.notFoundMessage = 'Failed to load index'
+      this.jsonFetchFailed = true
     })
   },
 
@@ -257,6 +260,11 @@ const searchControl = {
 
   // Configure typeahead when dom ready
   ready () {
+    // Load text
+    this.loadingMessage = $('#text-loading').text()
+    this.failedMessage = $('#text-failed').text()
+    this.notFoundMessage = $('#text-notfound').text()
+
     const $typeaheads = $('input')
 
     $typeaheads.each((_, entry) => {
