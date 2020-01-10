@@ -176,11 +176,6 @@ const collapseControl = {
 
 //
 // Search - load json, index with lunr, UI with typeahead.
-// XXX user-visible text
-//
-// Loading index...
-// No matches
-// Failed to load index
 //
 const searchControl = {
   // relative path to docroot

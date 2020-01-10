@@ -51,7 +51,6 @@ body {
   display: none;
 }
 
-
 //
 // Code and Pre
 // See `code-themes.scss` for the text colors.
@@ -575,5 +574,33 @@ $j2-header-height: add($j2-titlebar-height, $j2-breadcrumbs-height);
   &.tt-cursor {
     cursor: pointer;
     background-color: $dropdown-link-hover-bg;
+  }
+}
+
+//
+// Dash overrides. Javascript throws this class onto
+// the html element before the user sees the page.
+//
+.dash {
+  .j2-titlebar,
+  .j2-breadcrumb,
+  .j2-nav,
+  .j2-aux-nav,
+  .j2-footer {
+    display: none !important;
+  }
+
+  .j2-article {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .collapse:not(.show) {
+    display: block;
+  }
+
+  .j2-objc .j2-swift,
+  .j2-swift .j2-objc {
+    display: unset;
   }
 }
