@@ -26,7 +26,6 @@ DISTFILES=${THEMEFILES} \
 	collapse.js.map \
 	guide.html \
 	class.html \
-	dash.png \
 	search.json \
 
 DISTPATHS=$(addprefix dist/, ${DISTFILES})
