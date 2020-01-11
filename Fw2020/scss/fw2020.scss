@@ -427,14 +427,14 @@ $item-overview-indent: 2rem;
     }
 
     // Show members/Github links
-    .nav-link {
+    .j2-item-nav {
       padding: .5rem 0;
-      + .nav-link::before {
-        padding: 0 .5rem;
-        color: $j2-article-color;
-        content: "|";
-        user-select: none;
-      }
+    }
+    .j2-item-nav-item + .j2-item-nav-item::before {
+      padding: 0 .5rem 0 .25rem;
+      color: $j2-article-color;
+      content: "|";
+      user-select: none;
     }
 
     // Why is bs's para spacing so often my enemy!?
