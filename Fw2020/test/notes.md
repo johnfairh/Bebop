@@ -1,7 +1,7 @@
 # Size classes
 
 XL
-* Titlebar with coverage/search/lang/icons
+* Titlebar with coverage/search/lang/icons/locale
 * Breadcrumbs
 * Nav max 300px
 * Article centers, content max 800px at XL then proportionally
@@ -15,15 +15,18 @@ XL
 MD
 * As LG, max 250px iwdth
 
-SM, XS
-* Titlebar with hamburger, no coverage, lang/icons
+SM
+* Titlebar with hamburger, no coverage, lang/icons/locale
 * Separate searchbar
 * Breadcrumbs, Article, Footer
 * Fullwidth Nav when popped up
 * Nothing sticky
 
-XXS (iPhone SE/8)
+XS,
 * As SM, icons gone from header
+
+XXS (iPhone SE/8)
+* As XS, locale gone from header
 
 # Header
 
@@ -37,11 +40,17 @@ XXS (iPhone SE/8)
 * Lang
   * React on mouseover
   * Menu opens on top, is sticky when titlebar is (scroll article)
-  * Current lang bold, highlight on hover
+  * Menu aligns left from XL down to MD, then right
+  * Current lang has tickmark; all highlight on hover
   * Tab navigation
 * Icons
   * React on mouseover
   * Alt text
+* Locale
+  * React on mouseover
+  * Menu opens on top, mouseover
+  * Current locale has tickmark; all highlight on hover
+  * Menu aligns right, expands left into page
 
 # Breadcrumbs
 
@@ -61,12 +70,12 @@ XXS (iPhone SE/8)
 
 # Article
 
-* Background color all the way to the end
+* Background color all the way to the bottom
 * Links
   * In text, blue and underlined on hover
   * In inline code, same
   * In pre/code blocks, natural color with underline on hover
-* Four types of callout - no title on the declaration
+* Four types of callout - no title on the declaration (except dash mode)
 * Tables
   * Free tables double-bordered outside and around headings, otherwise
     single bordered, striped rows
@@ -103,7 +112,7 @@ System settings seems more reliable than Safari tools??
   * Syntax highlighting
 * Drop shadow on searchbar input focus
 
-# Available
+# Availability
 
 * Main, slightly into declaration callout
 * Cleared - if no discussion does not extend into topics
@@ -179,7 +188,8 @@ System settings seems more reliable than Safari tools??
 # Accessibility
 
 _subject to more screenreader testing_
-* header -> main -> article[header] -> sections -> footer
+* header -> main -> article -> section/overview[header] -> section/topics[header] -> section/item[header]s -> footer
+* Screenreader-only headings for 'tasks' and item-sections
 * Screenreader-only first-prio link
 * Nav toggler marked up as button
 * Search fields all controlled by the plugin - keystroke marked
@@ -189,9 +199,11 @@ _subject to more screenreader testing_
 * Swift and ObjC left-navs marked as such, current marked
 * Aux nav nav-part marked as such, actions marked as buttons with keystrokes
 * Availability as aside/note
-* Section per topic
+* Section per topic, section per non-'just link' item
 * Collapse things marked up, 'collapsed' live
   * _check - can we put the keyshortcut here_
 * Strikethrough decls have screenreader-only explanations
 * Line art div 'presentation' and ignored
 * Callouts as straight divs with role=heading titles
+* Heading hierarchy in SR is sensible, everything covered - page 1, topic 2, item 4, callouts 5, mini-menu 6
+* Links list in SR is sensible (the 'Anchor' is from anchor.js and seems legit)

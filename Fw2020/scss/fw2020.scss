@@ -159,6 +159,14 @@ p + pre {
   .j2-title-svg {
     margin-top: -.187rem;
   }
+
+  // Flag emoji don't follow 'color'
+  .j2-trans-dropdown {
+    opacity: .9;
+    &:hover {
+      opacity: .75;
+    }
+  }
 }
 
 $j2-titlebar-height: 56px;
