@@ -6,25 +6,24 @@ all: dist
 # Stuff to publish to the theme
 THEMEFILES=fw2020.min.css \
 	fw2020.js \
-	prism-extras.js \
-	jquery.min.js \
-	bs-util.js \
-	bs-dropdown.js \
-	bs-collapse.js \
-	prism.min.js \
-	anchor.js \
-	lunr.min.js \
-	typeahead.jquery.min.js \
+	dependencies.min.js
+
+JS_DEPENDENCIES= \
+	node_modules/jquery/dist/jquery.min.js \
+	node_modules/bootstrap/js/dist/util.js \
+	node_modules/bootstrap/js/dist/dropdown.js \
+	node_modules/bootstrap/js/dist/collapse.js \
+	prism/prism.min.js \
+	js/prism-extras.js \
+	node_modules/anchor-js/anchor.min.js \
+	node_modules/lunr/lunr.min.js \
+	node_modules/corejs-typeahead/dist/typeahead.jquery.min.js
 
 THEMEPATHS=$(addprefix dist/, ${THEMEFILES})
 
 # Stuff for testing
 DISTFILES=${THEMEFILES} \
 	fw2020.min.css.map \
-	jquery.min.map \
-	util.js.map \
-	dropdown.js.map \
-	collapse.js.map \
 	guide.html \
 	class.html \
 	search.json \
@@ -33,14 +32,7 @@ DISTPATHS=$(addprefix dist/, ${DISTFILES})
 
 vpath %.scss scss
 vpath %.js js
-vpath %.js prism
-vpath %.js node_modules/anchor-js
-vpath %.js node_modules/lunr
-vpath %.js node_modules/corejs-typeahead/dist
-vpath %.js node_modules/jquery/dist
 vpath %.html test
-
-vpath %.map node_modules/jquery/dist
 
 # Build css
 
@@ -54,16 +46,9 @@ dist/%.css: ${SCSSFILES}
 dist/%.js: %.js
 	cp -f $^ $@
 
-dist/%.map: %.map
-	cp -f $^ $@
-
-BOOTSTRAP_JS_DIST=node_modules/bootstrap/js/dist
-
-dist/bs-%: ${BOOTSTRAP_JS_DIST}/%
-	cp -f $^ $@
-
-dist/%: ${BOOTSTRAP_JS_DIST}/%
-	cp -f $^ $@
+dist/dependencies.min.js: ${JS_DEPENDENCIES}
+	node_modules/uglify-js/bin/uglifyjs $^ -o $@ \
+		--comments '/@license|^!/'
 
 # Build htmls
 dist/%.html: %-article-frag.html template.html

@@ -1,8 +1,8 @@
-// J2 FW2020 theme.
-//
-// Distributed under the MIT license
-// https://github.com/johnfairh/J2/blob/master/LICENSE
-//
+/*!
+ * J2 FW2020 theme
+ * Copyright 2020 J2 Authors
+ * Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
+ */
 
 /* global Prism */
 

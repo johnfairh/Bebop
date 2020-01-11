@@ -1,8 +1,8 @@
-// J2 FW2020 theme.
-//
-// Distributed under the MIT license
-// https://github.com/johnfairh/J2/blob/master/LICENSE
-//
+/*!
+ * J2 FW2020 theme
+ * Copyright 2020 J2 Authors
+ * Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
+ */
 
 /* global $ Prism anchors lunr */
 
@@ -13,9 +13,6 @@ const $body = $('body')
 // Figure out Dash mode early on so we can avoid
 // running lots of code.  All of the style stuff happens
 // through CSS dependent on our setting the 'dash' class.
-//
-// Refactor all this when we move the Prism lexer
-// customizations upstream or to a separate file.
 //
 const isDashMode =
   new URLSearchParams(window.location.search).has('dash') ||

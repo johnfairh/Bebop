@@ -33,6 +33,7 @@
     "js:lint": "standard js/*js",
     "js:dist": "make dist",
     "js": "npm run js:lint && npm run js:dist",
+    "boop": "uglifyjs",
     "watch": "npm-watch"
   },
   "author": "John Fairhurst",
@@ -56,6 +57,7 @@
     "stylelint-config-twbs-bootstrap": "^1.0.0",
     "stylelint-order": "^3.1.1",
     "stylelint-scss": "^3.13.0",
+    "uglify-js": "^3.7.4",
     "watch": "^1.0.2"
   },
   "dependencies": {}
