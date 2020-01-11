@@ -136,9 +136,14 @@ p + pre {
   .dropdown-menu {
     @include j2-navigation-colors();
     min-width: 0;
+    padding: .25rem 0;
+    font-size: .9rem;
 
-    .dropdown-item:hover {
-      opacity: 1;
+    .dropdown-item {
+      padding: 0 1.5rem;
+      &:hover {
+        opacity: 1;
+      }
     }
   }
 
@@ -146,6 +151,7 @@ p + pre {
     position: absolute;
     display: inline-block;
     margin-left: -1em;
+    font-weight: bolder;
     content: "✓";
   }
 
