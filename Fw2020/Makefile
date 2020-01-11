@@ -6,6 +6,7 @@ all: dist
 # Stuff to publish to the theme
 THEMEFILES=fw2020.min.css \
 	fw2020.js \
+	prism-extras.js \
 	jquery.min.js \
 	bs-util.js \
 	bs-dropdown.js \
