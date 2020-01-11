@@ -320,6 +320,10 @@ $j2-breadcrumbs-height: 37px;
     margin: 0;
     background: inherit;
   }
+
+  .j2-callout-title {
+    display: none;
+  }
 }
 
 // Availability float list
@@ -595,12 +599,24 @@ $j2-header-height: add($j2-titlebar-height, $j2-breadcrumbs-height);
     max-width: 100%;
   }
 
+  // Uncollapse everything.  More in js.
   .collapse:not(.show) {
     display: block;
   }
 
+  // Show both languages in declarations...
   .j2-objc .j2-swift,
   .j2-swift .j2-objc {
+    display: unset;
+
+    // But not in autolinks
+    &.j2-secondary {
+      display: none;
+    }
+  }
+
+  // Show declaration language name
+  .j2-callout-declaration .j2-callout-title {
     display: unset;
   }
 }
