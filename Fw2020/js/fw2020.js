@@ -10,6 +10,21 @@
 
 const $body = $('body')
 
+// Figure out Dash mode early on so we can avoid
+// running lots of code.  All of the style stuff happens
+// through CSS dependent on our setting the 'dash' class.
+//
+// Refactor all this when we move the Prism lexer
+// customizations upstream or to a separate file.
+//
+const isDashMode =
+  new URLSearchParams(window.location.search).has('dash') ||
+  typeof window.dash !== 'undefined'
+
+if (isDashMode) {
+  $('html').addClass('dash')
+}
+
 //
 // Narrow-mode nav collapse
 //
@@ -36,9 +51,13 @@ const langControl = {
 
   // Sync body style from URL for initial layout
   setup () {
-    if (window.location.search !== '') {
-      $body.removeClass('j2-swift j2-objc')
-      $body.addClass('j2-' + window.location.search.substr(1))
+    const params = new URLSearchParams(window.location.search)
+    for (const lang of ['swift', 'objc']) {
+      if (params.has(lang)) {
+        $body.removeClass('j2-swift j2-objc')
+        $body.addClass(`j2-${lang}`)
+        break
+      }
     }
   },
 
@@ -158,6 +177,10 @@ const collapseControl = {
 
     // If we loaded the page with a link to a collapse anchor, uncollapse it.
     this.ensureUncollapsed()
+  },
+
+  readyDashMode () {
+    $('.j2-item-title, .j2-item-title-discouraged').removeAttr('data-toggle')
   },
 
   // Collapse/Uncollapse all on keypress/link
@@ -293,12 +316,19 @@ const searchControl = {
   }
 }
 
-navControl.setup()
-langControl.setup()
-collapseControl.setup()
-searchControl.setup()
+if (!isDashMode) {
+  navControl.setup()
+  langControl.setup()
+  collapseControl.setup()
+  searchControl.setup()
+}
 
 $(function () {
+  if (isDashMode) {
+    collapseControl.readyDashMode()
+    return
+  }
+
   // Narrow size nav toggle
   navControl.ready()
 
@@ -319,6 +349,8 @@ $(function () {
 // Keypress handler
 //
 $(document).keydown(function (e) {
+  if (isDashMode) return
+
   const $searchField = $('input:visible')
 
   if ($searchField.is(':focus')) {
@@ -332,13 +364,6 @@ $(document).keydown(function (e) {
       case 'a': collapseControl.toggle(); break
       case 'l': langControl.toggle(); break
       case 'd': $('#size-debug').toggleClass('d-flex d-none'); break
-      /*
-      case 'r': {
-        $('#nav-column').toggleClass('d-md-flex')
-        $('#article-column').toggleClass('col-xl-8')
-        $('#aux-nav-column').toggleClass('d-xl-block')
-      }
-      */
     }
   }
 })
