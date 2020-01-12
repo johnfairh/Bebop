@@ -1,7 +1,7 @@
 # Size classes
 
 XL
-* Titlebar with coverage/search/lang/icons/locale
+* Titlebar with brand/coverage/search/lang/icons/locale
 * Breadcrumbs
 * Nav max 300px
 * Article centers, content max 800px at XL then proportionally
@@ -26,7 +26,7 @@ XS,
 * As SM, icons gone from header
 
 XXS (iPhone SE/8)
-* As XS, locale gone from header
+* As XS, locale and brand icon gone from header
 
 # Header
 
@@ -201,7 +201,6 @@ _subject to more screenreader testing_
 * Availability as aside/note
 * Section per topic, section per non-'just link' item
 * Collapse things marked up, 'collapsed' live
-  * _check - can we put the keyshortcut here_
 * Strikethrough decls have screenreader-only explanations
 * Line art div 'presentation' and ignored
 * Callouts as straight divs with role=heading titles
