@@ -27,6 +27,7 @@ DISTFILES=${THEMEFILES} \
 	guide.html \
 	class.html \
 	search.json \
+	brand.jpg \
 
 DISTPATHS=$(addprefix dist/, ${DISTFILES})
 
