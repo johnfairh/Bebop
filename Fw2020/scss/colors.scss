@@ -33,7 +33,7 @@ $gray-10: #fefeff;
   --navigation-secondary-color: #{$gray-700};
   --navigation-bg: #{$gray-100};
   --navigation-highlight-bg: #{$gray-200};
-  --navigation-highlight-border: #{$gray-200};
+  --navigation-highlight-border: #{$gray-100};
   --navigation-border-color: #{$gray-400};
   // article
   --article-color: #{$gray-900};
@@ -50,20 +50,20 @@ $gray-10: #fefeff;
 @media (prefers-color-scheme: dark) {
   :root {
     --titlebar-color: #{white(.82)};
-    --titlebar-bg: #262628;
+    --titlebar-bg: #282a2e;
     --navigation-color: #{white(.82)};
     --navigation-secondary-color: #{white(.7)};
-    --navigation-bg: #202428;
-    --navigation-highlight-bg: #303438;
-    --navigation-highlight-border: #484c50;
-    --navigation-border-color: #484c50;
+    --navigation-bg: #282a2e;
+    --navigation-highlight-bg: #343841;
+    --navigation-highlight-border: #282a2e;
+    --navigation-border-color: #343841;
     --article-color: #{white(.87)};
     --article-link-color: #1095ef;
     --article-secondary-color: #{white(.6)};
     --article-bg: #1c2024;
     --input-placeholder-color: #{white(.3)};
     --input-color: #{white(.87)};
-    --input-bg: #34383f;
+    --input-bg: #1c2024;
     --font-weight-normal: 500;
     --font-weight-demi-bold: 600;
     --declaration-flash-color: #6073cb;

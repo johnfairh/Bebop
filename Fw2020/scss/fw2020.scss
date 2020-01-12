@@ -214,6 +214,7 @@ $j2-breadcrumbs-height: 37px;
 }
 
 .j2-nav-list {
+  width: max-content;
   padding-top: .5rem;
   padding-left: .5rem;
   list-style-type: none;
@@ -237,6 +238,7 @@ $j2-breadcrumbs-height: 37px;
 
   .j2-nav-item {
     display: block; // fill to right for hover
+    padding-right: 4px;
     color: $j2-navigation-secondary-color;
 
     &:not(.active):hover {
