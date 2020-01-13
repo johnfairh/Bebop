@@ -451,6 +451,13 @@ $item-overview-indent: 2rem;
   }
 }
 
+// For collapse-never and Dash modes.  More in js.
+.j2-never-collapse {
+  .collapse:not(.show) {
+    display: block;
+  }
+}
+
 //
 // Aux nav
 //
@@ -596,8 +603,10 @@ $j2-header-height: add($j2-titlebar-height, $j2-breadcrumbs-height);
 
 //
 // Dash overrides. Javascript throws this class onto
-// the html element before the user sees the page.
+// the html element along with 'j2-never-collapse' before
+// the user sees the page.
 //
+
 .dash {
   .j2-titlebar,
   .j2-breadcrumb,
@@ -610,11 +619,6 @@ $j2-header-height: add($j2-titlebar-height, $j2-breadcrumbs-height);
   .j2-article {
     flex: 0 0 100%;
     max-width: 100%;
-  }
-
-  // Uncollapse everything.  More in js.
-  .collapse:not(.show) {
-    display: block;
   }
 
   // Show both languages in declarations...

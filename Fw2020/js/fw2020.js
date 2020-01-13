@@ -19,7 +19,7 @@ const isDashMode =
   typeof window.dash !== 'undefined'
 
 if (isDashMode) {
-  $('html').addClass('dash')
+  $('html').addClass('dash j2-never-collapse')
 }
 
 /*
@@ -122,6 +122,8 @@ const langControl = {
 // Collapse management
 //
 const collapseControl = {
+  // Global disable
+  alwaysDisabled: false,
   // State of global collapse
   allCollapsed: false,
   // Distinguish user-uncollapse from global
@@ -131,9 +133,13 @@ const collapseControl = {
   $actionExpandSpan: null,
 
   setup () {
-    // When we follow a link to the title of a collapsed item,
-    // uncollapse it.
-    $(window).on('hashchange', () => this.ensureUncollapsed())
+    this.alwaysDisabled = $body.hasClass('j2-never-collapse')
+
+    if (!this.alwaysDisabled) {
+      // When we follow a link to the title of a collapsed item,
+      // uncollapse it.
+      $(window).on('hashchange', () => this.ensureUncollapsed())
+    }
   },
 
   // Helper to uncollapse at the current anchor
@@ -156,6 +162,11 @@ const collapseControl = {
   },
 
   ready () {
+    if (this.alwaysDisabled) {
+      $('.j2-item-title, .j2-item-title-discouraged').removeAttr('data-toggle')
+      return
+    }
+
     // Default collapse toggle state (from a body style?)
     this.allCollapsed = $('.collapse.show').length === 0
 
@@ -188,12 +199,10 @@ const collapseControl = {
     this.ensureUncollapsed()
   },
 
-  readyDashMode () {
-    $('.j2-item-title, .j2-item-title-discouraged').removeAttr('data-toggle')
-  },
-
   // Collapse/Uncollapse all on keypress/link
   toggle () {
+    if (this.alwaysDisabled) { return }
+
     this.toggling = true
     if (this.allCollapsed) {
       $('.collapse').collapse('show')
@@ -352,19 +361,20 @@ const keysControl = {
   }
 }
 
+collapseControl.setup()
+
 if (!isDashMode) {
   navControl.setup()
   langControl.setup()
-  collapseControl.setup()
   searchControl.setup()
   keysControl.setup()
 }
 
 $(function () {
-  if (isDashMode) {
-    collapseControl.readyDashMode()
-    return
-  }
+  // Initialise collapse-anchor link
+  collapseControl.ready()
+
+  if (isDashMode) { return }
 
   // Narrow size nav toggle
   navControl.ready()
@@ -375,9 +385,6 @@ $(function () {
 
   // Sync content mode from URL
   langControl.ready()
-
-  // Initialise collapse-anchor link
-  collapseControl.ready()
 
   // Typeahead
   searchControl.ready()

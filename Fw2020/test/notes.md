@@ -128,6 +128,9 @@ System settings seems more reliable than Safari tools??
 * Collapse opens on link if NO hash change
 * Page load with location hash scrolls and opens
 * Manually opened collapse updates browser hash, preserves language
+* --collapse-open mode shows all open, link text says 'open'
+* --collapse-never mode shows all open, link absent, key does nothing,
+  clicking does nothing.
 
 # Item variations
 
