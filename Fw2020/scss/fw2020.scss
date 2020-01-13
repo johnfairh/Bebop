@@ -129,9 +129,18 @@ p + pre {
     opacity: .6;
   }
 
+  &.navbar {
+    padding: .5rem .5rem .5rem 1rem;
+  }
+
   // Searchbar - typeahead styles at bottom of this file
-  .navbar-nav form:focus-within {
-    width: 100%;
+  .navbar-nav {
+    form:focus-within {
+      width: 100%;
+    }
+    .form-inline {
+      padding: 0 .5rem;
+    }
   }
 
   // Language & translation switchers
