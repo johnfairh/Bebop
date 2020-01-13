@@ -206,3 +206,19 @@ _subject to more screenreader testing_
 * Callouts as straight divs with role=heading titles
 * Heading hierarchy in SR is sensible, everything covered - page 1, topic 2, item 4, callouts 5, mini-menu 6
 * Links list in SR is sensible (the 'Anchor' is from anchor.js and seems legit)
+
+# Dash mode
+
+* Enabled in Real Dash or by `?dash` on URL
+* Syntax highlighting still works
+* Declarations show with language title
+* All languages show in declarations, stacked
+* Inline multi-language links only show the first one
+* Titlebar, breadcrumbs, left nav, aux nav, footer all missing at all widths
+* Shortcut keys do nothing (l a /)
+* Collapse sections open and stay open when title clicked
+* Anchor links (hover link icons) missing
+* Item title links link to themselves, height adjustment remains
+* In Real Dash:
+  * Dark mode switch works OK
+  * Page ToC shows items and topics, no show article main decl
