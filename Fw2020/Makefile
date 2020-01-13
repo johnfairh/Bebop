@@ -5,7 +5,7 @@
 all: dist
 
 # Stuff to publish to the theme
-THEMEFILES=fw2020.min.css \
+THEMEFILES=fw2020.css \
 	fw2020.js \
 	dependencies.min.js
 
@@ -65,6 +65,15 @@ dist/%: test/%
 #
 
 dist: ${DISTPATHS}
+
+jazzy: dist
+	mkdir -p dist/jazzy/templates
+	mkdir -p dist/jazzy/assets/js
+	mkdir -p dist/jazzy/assets/css
+	cp -f templates/jazzy/* dist/jazzy/templates/
+	cp -f dist/*.js dist/jazzy/assets/js/
+	cp -f dist/*.css dist/jazzy/assets/css/
+	@echo "Jazzy theme dir: ${PWD}/dist/jazzy"
 
 publish: ${THEMEPATHS}
 	@echo cp -f $^ Somewhere....

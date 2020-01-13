@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ 
+    <link rel="stylesheet" href="{{path_to_root}}css/fw2020.css">
+    
+    <title>{{name}} {{kind}} Reference</title>
+    {{{custom_head}}}
+  </head>
+  <body data-root-path="./{{path_to_root}}">
+
+  <header class="j2-header">
+  {{> header}}
+
+  <!-- breadcrumb bar, jazzy doesn't really support -->
+
+  <nav aria-label="breadcrumb" class="small">
+    <ol class="breadcrumb j2-breadcrumb">
+      <li class="breadcrumb-item"><a href="{{path_to_root}}index.html">{{module_name}} Reference</a></li>
+      <li class="breadcrumb-item" aria-current="page">{{name}} {{kind}} Reference</li>
+    </ol>
+  </nav>
+
+  </header>
+
+  <div class="container-fluid">
+    <div class="row">
+      {{> nav}}
+      <main class="col col-xl-8 j2-article px-lg-4 px-xl-5" id="article-column">
+        <article class="j2-article-wrapper" id="main-content">
+
+        <!-- todo top of article.... -->
+
+        <section>
+          {{^hide_name}}
+          <header>
+            <h1 class="j2-anchor" id="rbgateway">
+              <span data-anchor-id="rbgateway">{{name}}</span>
+            </h1>
+          </header>
+          {{/hide_name}}
+          {{> deprecation}}
+          {{#declaration}}
+          <div class="j2-callout j2-callout-declaration">
+            <div class="j2-callout-title" role="heading" aria-level="5">Swift?</div>
+            {{{declaration}}}
+          </div>
+          {{/declaration}}
+
+          <div class="clearfix">
+            {{{overview}}}
+          </div>
+        </section>
+
+        {{> tasks}}
+
+        </article>
+      </main>
+
+      <!-- aux nav -->
+
+      <div class="col-xl d-none d-xl-block j2-aux-nav" id="aux-nav-column">
+        <div class="j2-aux-nav-wrapper">
+          <h6>Topics</h6>
+          <nav aria-label="page">
+            <ul class="j2-aux-group">
+              <li><a href="#">Declaration</a></li>
+            </ul>
+          </nav>
+          <h6>Actions</h6>
+          <ul class="j2-aux-group">
+            {{^disable_search}}
+            <li><a class="j2-aux-action" id="action-search" href="#" role="button" aria-keyshortcuts="/">Search (/)</a></li>
+            {{/disable_search}}
+            <li><a class="j2-aux-action" id="action-collapse" href="#" role="button" aria-keyshortcuts="a">
+              <span id="action-collapse-expand">Open all (a)</span>
+              <span id="action-collapse-collapse" class="d-none">Close all (a)</span>
+            </a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div> <!-- end row -->
+
+    {{> footer}}
+  </div> <!-- container -->
+
+  <script src="{{path_to_root}}js/dependencies.min.js"></script>
+  <script src="{{path_to_root}}js/fw2020.js"></script>
+  </body>
+
+</html>
