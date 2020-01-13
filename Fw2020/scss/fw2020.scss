@@ -302,16 +302,20 @@ $j2-breadcrumbs-height: 37px;
 
 @mixin j2-callout-colors($color) {
   border-left: 5px solid $color;
+
+  .aside-title,
   .j2-callout-title {
     color: $color;
   }
 }
 
+.aside,
 .j2-callout {
   @include j2-callout-colors($j2-callout-color);
   padding: .38rem .75rem;
   margin-bottom: 1rem;
 
+  .aside-title,
   .j2-callout-title {
     padding-bottom: 0;
     margin: 0;
@@ -444,18 +448,13 @@ $item-overview-indent: 2rem;
 
     // Show members/Github links
     .j2-item-nav {
-      padding: .5rem 0;
+      padding-bottom: .5rem;
     }
     .j2-item-nav-item + .j2-item-nav-item::before {
       padding: 0 .5rem 0 .25rem;
       color: $j2-article-color;
       content: "|";
       user-select: none;
-    }
-
-    // Why is bs's para spacing so often my enemy!?
-    p + nav {
-      margin-top: -$spacer;
     }
   }
 }
