@@ -60,6 +60,7 @@ XXS (iPhone SE/8)
 # Nav
 
 * Vertical and horizontal scroll when sticky
+* With --unlimited-nav-width, no constraint, no h-scroll
 * Top level darker, larger
 * Second level no indent, lighter, smaller
 * Nth level as second but with an indent

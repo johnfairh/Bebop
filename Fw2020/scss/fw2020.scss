@@ -205,6 +205,10 @@ $j2-breadcrumbs-height: 37px;
   }
 }
 
+.j2-unlimited-nav-width .j2-nav {
+  max-width: none;
+}
+
 @mixin j2-nav-item-border() {
   @include border-radius(.4rem);
   background: $j2-navigation-highlight-bg;
