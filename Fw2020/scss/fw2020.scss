@@ -49,6 +49,11 @@ body {
   display: none;
 }
 
+.j2-language-missing {
+  font-size: 80%;
+  font-style: italic;
+}
+
 //
 // Code and Pre
 // See `code-themes.scss` for the text colors.
@@ -632,6 +637,11 @@ $j2-header-height: add($j2-titlebar-height, $j2-breadcrumbs-height);
 
     // But not in autolinks
     &.j2-secondary {
+      display: none;
+    }
+
+    // And not if it's actually an apology
+    &.j2-language-missing {
       display: none;
     }
   }

@@ -138,6 +138,7 @@ System settings seems more reliable than Safari tools??
 * Title is just a link
 * Title is apple-style mixed-color
 * Title is jazzy-style but multi-line
+  * *Err why are we keeping this?  Surely it's never better....*
 * Title is apple-style and multi-line
 * Item is deprecated
 * Item has github link
@@ -171,6 +172,8 @@ System settings seems more reliable than Safari tools??
 * Conditional content updates depending on language
 * Rechoosing active language from dropdown has no effect
 * Choosing inactive language updates chrome, URL, content
+* Monolingual page in bilingual docset shows apology messages on lang-switch,
+  still switches nav and actionbutton
 
 # Search
 
@@ -224,5 +227,6 @@ _subject to more screenreader testing_
 * Anchor links (hover link icons) missing
 * Item title links link to themselves, height adjustment remains
 * In Real Dash:
+  * *Validateme*
   * Dark mode switch works OK
   * Page ToC shows items and topics, no show article main decl

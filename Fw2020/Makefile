@@ -16,6 +16,7 @@ DISTFILES=${THEMEFILES} \
 	fw2020.min.css.map \
 	guide.html \
 	class.html \
+	swift-only.html \
 	search.json \
 	brand.jpg \
 
