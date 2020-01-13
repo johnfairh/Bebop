@@ -2,7 +2,8 @@
 //  RubyTests.swift
 //  J2Tests
 //
-//  Distributed under the MIT license, see LICENSE
+//  Copyright 2019 J2 Authors
+//  Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
 //
 
 import XCTest

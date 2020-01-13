@@ -1,8 +1,9 @@
 //
 //  RubyJazzy.swift
-//  J2
+//  J2Lib
 //
-//  Distributed under the MIT license, see LICENSE
+//  Copyright 2019 J2 Authors
+//  Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
 //
 
 import Foundation

@@ -1,6 +1,6 @@
 /*!
  * J2 FW2020 theme
- * Copyright 2020 J2 Authors
+ * Copyright 2019-2020 J2 Authors
  * Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
  */
 

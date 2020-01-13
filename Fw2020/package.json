@@ -33,7 +33,6 @@
     "js:lint": "standard js/*js",
     "js:dist": "make dist",
     "js": "npm run js:lint && npm run js:dist",
-    "boop": "uglifyjs",
     "watch": "npm-watch"
   },
   "author": "John Fairhurst",

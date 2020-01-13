@@ -1,8 +1,6 @@
 // J2 FW2020 theme
-//
-// Distributed under the MIT license
-// https://github.com/johnfairh/J2/blob/master/LICENSE
-//
+// Copyright 2019-2020 J2 Authors
+// Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
 
 // This is the main SCSS file for the site included after all of Bootstrap.
 
@@ -263,12 +261,11 @@ $j2-breadcrumbs-height: 37px;
 .j2-article {
   @include j2-article-colors();
 
-  /* This width: 0 is flexbox black magic.  Without it,
-   * if the article column has a very wide element (eg.
-   * a `pre` then as the browser shrinks, flexbox prioritizes
-   * the article width over shrinking the `pre` and stacks
-   * the `col` _under_ the left nav `col`.  Which is bad.
-   */
+  // This width: 0 is flexbox black magic.  Without it,
+  // if the article column has a very wide element (eg.
+  // a `pre` then as the browser shrinks, flexbox prioritizes
+  // the article width over shrinking the `pre` and stacks
+  // the `col` _under_ the left nav `col`.  Which is bad.
   width: 0;
   padding-top: 3rem;
 }
@@ -379,7 +376,7 @@ $item-overview-indent: 2rem;
   }
 }
 
-/* .j2-item-anchor {} marker class for JS */
+// .j2-item-anchor {} marker class for JS
 
 .j2-item-title {
   code {
