@@ -152,12 +152,26 @@ extension Some.Nested.Class {
 /// A property
 @property (nonatomic, readonly) int routeRequestInterval;
 
+@property (nonatomic, readonly, getter=isAttached) BOOL attached;
+
 /// Some methods
 - (void)doSomething;
 
 -(int)setRouteRequestInterval:(int)interval;
 
 + (int) setRouteRequestInterval:(int)interval withExtra:(MyType *) val2;
+
+[tv beginUpdates];
+[tv deleteRowsAtIndexPaths:[changes deletionsInSection:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+[tv insertRowsAtIndexPaths:[changes insertionsInSection:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+[tv reloadRowsAtIndexPaths:[changes modificationsInSection:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+[tv endUpdates];
+
+[realm transactionWithBlock:^{
+    Dog *dog = [[Dog alloc] init];
+    dog.name = @"Rex";
+    [realm addObject:dog];
+}];
 
 @end
 </code></pre>

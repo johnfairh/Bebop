@@ -23,8 +23,16 @@ Prism.languages.swift.keyword = [
 ]
 
 // Use initial case to filter out type initializers from function calls....
-// And guess horribly at param lables too
-Prism.languages.swift.function = /`?\b\p{Ll}[\p{L}_\p{N}]*`?(?=[(:])/u
+// And guess horribly at param labels too
+// - fix up \ws with interp
+// - avoid tuple confusion with functions, require lower-case start?
+Prism.languages.swift.function = [
+  {
+    pattern: /([,(]\s*)\p{Ll}[\p{L}_\p{N}]*(?=\s+\w)/u,
+    lookbehind: true
+  },
+  /`?\b\p{Ll}[\p{L}_\p{N}]*`?(?=[(:])/u
+]
 
 // _ is not a number ... this isn't perfect but a slight improvement
 Prism.languages.swift.number = /\b(?:\d[\d_]*(?:\.[\de_]+)?|0x[a-f0-9_]+(?:\.[a-f0-9p_]+)?|0b[01_]+|0o[0-7_]+)\b/i
@@ -48,45 +56,63 @@ delete Prism.languages.swift.atrule
 
 /*
  * Prism customization for Objective-C highlighting.
- * This adds property attributes and nullability
+ * Add property attributes and nullability to keywords.
+ * Add a load of tenuous regexps to prettify declarations.
  */
 Prism.languages.objectivec.keyword = [
-  /\b(?:asm|typeof|inline|auto|break|case|char|const|continue|default|do|double|else|enum|extern|float|for|goto|if|int|long|register|return|short|signed|sizeof|static|struct|switch|typedef|union|unsigned|void|volatile|while|in|self|super)\b|(?:@interface|@end|@implementation|@protocol|@class|@public|@protected|@private|@property|@try|@catch|@finally|@throw|@synthesize|@dynamic|@selector)\b/,
+  /\b(?:asm|typeof|inline|auto|break|case|char|const|continue|default|do|double|else|enum|extern|float|for|goto|if|int|long|register|return|short|signed|sizeof|static|struct|switch|typedef|union|unsigned|void|volatile|while|id|in|instancetype|self|super)\b|(?:@interface|@end|@implementation|@protocol|@class|@public|@protected|@private|@property|@try|@catch|@finally|@throw|@synthesize|@dynamic|@selector)\b/,
   /\b(?:(non)?atomic|readonly|readwrite|strong|weak|assign|copy)\b/,
-  /\b(?:nonnull|nullable)\b/,
+  /\b(?:nonnull|nullable|_Nullable|_Nonnull)\b/,
   /\b(?:getter=|setter=)/
 ]
 
 delete Prism.languages.objectivec.function
 
-// const id = '\\w[\\w\\d_]*'
+{
+  const id = '[A-Za-z]\\w*'
 
-Prism.languages.insertBefore('objectivec', 'keyword', {
-  // Declarations of things
-  'class-name': [
-    {
-      pattern: /([+-]\s*[(].*?[)]\s*)\w+/,
-      lookbehind: true
-    },
-    /\b\w+(?=:)/,
-    {
-      pattern: /(@property.*?)\b\w+(?=;)/,
-      lookbehind: true
-    },
-    {
-      pattern: /((?:@interface|@protocol|@implementation|@class)\s+)\w+/,
-      lookbehind: true
-    }
-  ],
-  // Things that are probably types
-  builtin: /\b[A-Z]\S*/,
-  // Function arguments
-  function: [
-    // new RegExp(`\\b${id}(?=;)`),
-    /\b\w+(?=;)/,
-    {
-      pattern: /(:\s*[(].*?[)]\s*)\w+/,
-      lookbehind: true
-    }
-  ]
-})
+  Prism.languages.insertBefore('objectivec', 'keyword', {
+    // Declarations of things
+    'class-name': [
+      {
+        // First part of message name
+        pattern: new RegExp(`([+-]\\s*[(].*?[)]\\s*)${id}`),
+        lookbehind: true
+      },
+      // Later parts of message name
+      new RegExp(`\\b${id}(?=:\\s*[(])`),
+      {
+        // Property declarations
+        pattern: new RegExp(`(@property.*?)\\b${id}(?=;)`),
+        lookbehind: true
+      },
+      {
+        // Simple declarations
+        pattern: new RegExp(`((?:struct|typedef|enum|union|@interface|@protocol|@implementation|@class)\\s+)${id}`),
+        lookbehind: true
+      }
+    ],
+    // Function args in declaration & name-parts in usage
+    function: [
+      // In message-send, sending arg
+      new RegExp(`\\b${id}(?=\\s*:)`),
+      {
+        // 0-args message send
+        pattern: new RegExp(`([^:])\\b${id}(?=\\s*])`),
+        lookbehind: true
+      },
+      {
+        // In message declaration
+        pattern: new RegExp(`(:\\s*[(].*?[)]\\s*)${id}`),
+        lookbehind: true
+      },
+      {
+        // In property decls
+        pattern: new RegExp(`([sg]etter=\\s*)${id}`),
+        lookbehind: true
+      }
+    ],
+    // Things that are probably types
+    builtin: /\b[A-Z]\w*/
+  })
+}
