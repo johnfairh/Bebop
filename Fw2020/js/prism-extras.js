@@ -48,13 +48,45 @@ delete Prism.languages.swift.atrule
 
 /*
  * Prism customization for Objective-C highlighting.
- * This is only to add property attributes.
+ * This adds property attributes and nullability
  */
 Prism.languages.objectivec.keyword = [
   /\b(?:asm|typeof|inline|auto|break|case|char|const|continue|default|do|double|else|enum|extern|float|for|goto|if|int|long|register|return|short|signed|sizeof|static|struct|switch|typedef|union|unsigned|void|volatile|while|in|self|super)\b|(?:@interface|@end|@implementation|@protocol|@class|@public|@protected|@private|@property|@try|@catch|@finally|@throw|@synthesize|@dynamic|@selector)\b/,
   /\b(?:(non)?atomic|readonly|readwrite|strong|weak|assign|copy)\b/,
+  /\b(?:nonnull|nullable)\b/,
   /\b(?:getter=|setter=)/
 ]
 
-// Add a bit more color
-Prism.languages.objectivec.builtin = /\b[A-Z][\w0-9_]*/
+delete Prism.languages.objectivec.function
+
+// const id = '\\w[\\w\\d_]*'
+
+Prism.languages.insertBefore('objectivec', 'keyword', {
+  // Declarations of things
+  'class-name': [
+    {
+      pattern: /([+-]\s*[(].*?[)]\s*)\w+/,
+      lookbehind: true
+    },
+    /\b\w+(?=:)/,
+    {
+      pattern: /(@property.*?)\b\w+(?=;)/,
+      lookbehind: true
+    },
+    {
+      pattern: /((?:@interface|@protocol|@implementation|@class)\s+)\w+/,
+      lookbehind: true
+    }
+  ],
+  // Things that are probably types
+  builtin: /\b[A-Z]\S*/,
+  // Function arguments
+  function: [
+    // new RegExp(`\\b${id}(?=;)`),
+    /\b\w+(?=;)/,
+    {
+      pattern: /(:\s*[(].*?[)]\s*)\w+/,
+      lookbehind: true
+    }
+  ]
+})

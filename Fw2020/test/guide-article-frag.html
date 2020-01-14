@@ -41,6 +41,8 @@ public protocol NavigationService : <a href="#">CLLocationManagerDelegate</a>,
     }
 
     public func call(_ name: String, second: Int)
+
+    public func call(with value: Int)
 }
 </code></pre>
 
@@ -150,8 +152,12 @@ extension Some.Nested.Class {
 /// A property
 @property (nonatomic, readonly) int routeRequestInterval;
 
-/// A method
+/// Some methods
+- (void)doSomething;
+
 -(int)setRouteRequestInterval:(int)interval;
+
++ (int) setRouteRequestInterval:(int)interval withExtra:(MyType *) val2;
 
 @end
 </code></pre>
