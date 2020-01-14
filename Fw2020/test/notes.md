@@ -79,8 +79,8 @@ XXS (iPhone SE/8)
 * Four types of callout - no title on the declaration (except dash mode)
 * Tables
   * Free tables double-bordered outside and around headings, otherwise
-    single bordered, striped rows
-  * Param tables same, param name right/top-aligned
+    single bordered, striped rows - first row unstriped
+  * Param tables same, param name right/top-aligned, fullwidth
 * Pre blocks scroll horizontally, no wrap
 
 # Aux nav

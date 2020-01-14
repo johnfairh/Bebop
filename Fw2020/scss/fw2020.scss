@@ -115,6 +115,10 @@ p + pre {
     &:first-of-type {
       text-align: right;
     }
+
+    &:last-of-type {
+      width: 100%;
+    }
   }
 }
 
