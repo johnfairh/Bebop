@@ -397,51 +397,50 @@ $j2-breadcrumbs-height: 37px;
 
 // Topics and Items
 
-.j2-item-overview {
+.j2-topic-overview {
   p:last-child {
-    margin-bottom: .25rem;
-  }
-}
-
-$item-overview-indent: 2rem;
-
-.j2-item-list {
-  padding-left: 0;
-  margin-bottom: 1.2rem;
-  list-style-type: none;
-
-  .j2-item-overview {
-    margin-left: $item-overview-indent;
-  }
-
-  > li {
     margin-bottom: .5rem;
   }
 }
 
-// .j2-item-anchor {} marker class for JS
+.j2-item {
+  margin-bottom: .5rem;
 
-.j2-item-title {
-  code {
-    padding: 0;
-    background: inherit;
+  &:last-child {
+    margin-bottom: 1rem;
   }
 
-  .j2-item-secondary {
-    color: $j2-article-secondary-color;
+  $item-overview-indent: 2rem;
+
+  .j2-item-title {
+    // These add an indent to the 2nd+ lines
+    display: inline-block;
+    margin-left: $item-overview-indent;
+    text-indent: -$item-overview-indent;
+
+    code {
+      padding: 0;
+      background: inherit;
+    }
+
+    .j2-item-secondary {
+      color: $j2-article-secondary-color;
+    }
   }
 
-  // These add an indent to the 2nd+ lines
-  display: inline-block;
-  margin-left: $item-overview-indent;
-  text-indent: -$item-overview-indent;
-}
+  .j2-item-title-discouraged {
+    @extend .j2-item-title;
+    text-decoration: line-through;
+    &:hover {
+      text-decoration: line-through underline !important;
+    }
+  }
 
-.j2-item-title-discouraged {
-  @extend .j2-item-title;
-  text-decoration: line-through;
-  &:hover {
-    text-decoration: line-through underline !important;
+  .j2-item-overview {
+    margin-left: $item-overview-indent;
+    p:last-child {
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -479,6 +478,7 @@ $item-overview-indent: 2rem;
     // Show members/Github links
     .j2-item-nav {
       padding-bottom: .5rem;
+      font-size: .9rem;
     }
     .j2-item-nav-item + .j2-item-nav-item::before {
       padding: 0 .5rem 0 .25rem;

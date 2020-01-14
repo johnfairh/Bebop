@@ -82,55 +82,54 @@
       <span data-anchor-id="properties">Properties</span>
     </h3>
 
-    <ul class="j2-item-list">
-
     <!-- First item -->
-    <li id="item1" class="j2-item-anchor">
-    <section>
+    <section id="item1" class="j2-item">
       <a name="//apple_ref/cpp/Function/cleanup" class="dashAnchor"></a>
       <h4 class="sr-only">cleanup()</h4>
       <a class="j2-item-title" data-toggle="collapse" href="#_item1" role="button" aria-expanded="false" aria-controls="_item1"><code>cleanup()</code></a>
       <div class="collapse j2-item-popopen-wrapper" id="_item1">
-      <div class="j2-item-popopen">
-      <div class="j2-item-popopen-pointer" role="none"></div>
-      <div class="j2-item-popopen-body">
-        <div class="clearfix">
+        <div class="j2-item-popopen">
+        <div class="j2-item-popopen-pointer" role="none"></div>
+        <div class="j2-item-popopen-body">
+          <div class="clearfix">
 
-          <aside class="j2-availability mb-n1" role="note">
-            <h6>Availability</h6>
+            <aside class="j2-availability mb-n1" role="note">
+              <h6>Availability</h6>
+              <ul>
+                <li>iOS 7+</li>
+                <li>macOS 12-14</li>
+                <li>tvOS 4+</li>
+                <li>Swift 3+</li>
+                <li>Android</li>
+              </ul>
+            </aside>
+
+            <p>Explicitly shut down Ruby and release resources. This includes
+            calling END{} code and procs registered by <code>Kernel.#at_exit</code>.
+            </p>
+            <p>You generally don’t need to call this: it happens automatically as
+            part of process exit.</p>
             <ul>
-              <li>iOS 7+</li>
-              <li>macOS 12-14</li>
-              <li>tvOS 4+</li>
-              <li>Swift 3+</li>
-              <li>Android</li>
+              <li> One
+                <li> Two
             </ul>
-          </aside>
-
-        <p>Explicitly shut down Ruby and release resources. This includes
-        calling END{} code and procs registered by <code>Kernel.#at_exit</code>.
-        </p>
-        <p>You generally don’t need to call this: it happens automatically as
-        part of process exit.</p>
-        <p>Once called you cannot continue to use Ruby in this process: the VM
-        cannot be re-setup.  This text continues and keeps going.</p>
-        </div>
-        <h5>Declaration</h5>
-        <div class="j2-callout j2-callout-declaration">
-          <div class="j2-callout-title" role="heading" aria-level="5">Swift</div>
-          <pre><code class="language-swift">public func cleanup() -&gt; Int32</code></pre>
-        </div>
-        <h5>Return Value</h5>
-        <p>0 if the cleanup went fine, otherwise some error code from Ruby.</p>
-      </div>
-      </div>
-    </div>
-    </section>
-    </li>
+            <p>Once called you cannot continue to use Ruby in this process: the VM
+            cannot be re-setup.  This text continues and keeps going.</p>
+          </div> <!-- clearfix -->
+          <h5>Declaration</h5>
+          <div class="j2-callout j2-callout-declaration">
+            <div class="j2-callout-title" role="heading" aria-level="5">Swift</div>
+            <pre><code class="language-swift">public func cleanup() -&gt; Int32</code></pre>
+          </div>
+          <h5>Return Value</h5>
+          <p>0 if the cleanup went fine, otherwise some error code from Ruby.</p>
+        </div> <!-- popopen-body -->
+        </div> <!-- popopen -->
+      </div> <!-- popen-wrapper -->
+    </section> <!-- item -->
 
     <!-- Second item -->
-    <li id="item2" class="j2-item-anchor">
-    <section>
+    <section id="item2" class="j2-item">
       <a href="//apple_ref/cpp/Function/cleanup" class="dashAnchor"></a>
     <h4 class="sr-only">getID(for:)</h4>
     <a class="j2-item-title" data-toggle="collapse" href="#_item2" role="button" aria-expanded="false" aria-controls="_item2"><code>getID(for:)</code></a>
@@ -181,9 +180,6 @@
       </div>
     </div>
     </section>
-    </li>
-
-    </ul> <!-- itemlist -->
     </section>
 
     <section>
@@ -191,9 +187,8 @@
     <h3 class="j2-anchor" id="methods">
       <span data-anchor-id="methods">Methods</span>
     </h3>
-    <div class="j2-item-overview">
-      <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    <div class="j2-topic-overview">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
       veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex</p>
 
@@ -201,11 +196,8 @@
       voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
     </div>
 
-    <ul class="j2-item-list">
-
     <!-- Third item: item title note -->
-    <li id="item3" class="j2-item-anchor">
-    <section>
+    <section id="item3" class="j2-item">
       <a href="//apple_ref/cpp/Function/cleanup" class="dashAnchor"></a>
     <h4 class="sr-only">cleanup()</h4>
     <a class="j2-item-title-discouraged" data-toggle="collapse" href="#_item3" role="button" aria-expanded="false" aria-controls="_item3"><span class="sr-only">(Use is discouraged) </span><code>cleanup()</code></a>
@@ -255,11 +247,9 @@
       </div>
     </div>
     </section>
-    </li>
 
     <!-- Fourth item: Deprecated -->
-    <li id="item4" class="j2-item-anchor">
-      <section>
+    <section id="item4" class="j2-item">
       <a href="//apple_ref/cpp/Function/cleanup" class="dashAnchor"></a>
       <h4 class="sr-only">getID(for:)</h4>
       <a class="j2-item-title-discouraged" data-toggle="collapse" href="#_item4" role="button" aria-expanded="false" aria-controls="_item4"><span class="sr-only">(Use is discouraged) </span><code>getID(for:)</code></a>
@@ -308,9 +298,7 @@
       </div>
     </div>
     </section>
-    </li>
 
-    </ul> <!-- itemlist -->
     </section>
 
     <section>
@@ -318,15 +306,14 @@
     <h3 class="j2-anchor" id="topic-with-interesting-items">
       <span data-anchor-id="topic-with-interesting-items">Topic <code>with</code> interesting <code><a href="#">items</a></code></span>
     </h3>
-    <ul class="j2-item-list">
-      <li id="item5" class="j2-item-anchor">
+
+      <div id="item5" class="j2-item">
         <a class="j2-item-title" href="#item5"><code>This item is just a link</code></a>
-      </li>
-      <li id="item6" class="j2-item-anchor">
+      </div>
+      <div id="item6" class="j2-item">
         <a class="j2-item-title" href="#item6">This item is just a link, and isn't even in monospace</a>
-      </li>
-      <li id="item7" class="j2-item-anchor">
-        <section>
+      </div>
+      <section id="item7" class="j2-item">
           <a href="//apple_ref/cpp/Function/cleanup" class="dashAnchor"></a>
         <h4 class="sr-only">calculateRange(to:)</h4>
         <a class="j2-item-title" href="#item7"><code>
@@ -338,10 +325,8 @@
           <p>This is the style to link child definitions when the child
           is not presented in-line here, in the parent.</p>
         </div>
-        </section>
-      </li>
-      <li id="item8" class="j2-item-anchor">
-        <section>
+      </section>
+      <section id="item8" class="j2-item">
       <a href="//apple_ref/cpp/Function/cleanup" class="dashAnchor"></a>
         <h4 class="sr-only">calculateRange(to:)</h4>
         <a class="j2-item-title" href="#item8"><code>
@@ -352,12 +337,10 @@
         <div class="j2-item-overview">
           <p>Here's another.</p>
         </div>
-        </section>
-      </li>
+      </section>
 
     <!-- Ninth item, insanely long -->
-  <li id="item9" class="j2-item-anchor">
-    <section>
+  <section id="item9" class="j2-item">
       <a href="//apple_ref/cpp/Function/cleanup" class="dashAnchor"></a>
     <h4 class="sr-only">authAcquireTokenPost(acceptLanguage:xAppVersion:etcetcetc</h4>
     <a class="j2-item-title" data-toggle="collapse" href="#_item9" role="button" aria-expanded="false" aria-controls="_item9"><code>authAcquireTokenPost(acceptLanguage:<wbr>xAppVersion:<wbr>xDeliveryChannel:<wbr>acquireTokenRequestModel:<wbr>xGeoLocation:<wbr>xApiVersion:<wbr>completion:<wbr>)</code></a>
@@ -401,12 +384,10 @@
       </div>
     </div>
     </section>
-    </li>
 
     <!-- Tenth item, even longer -->
 
-      <li id="item10" class="j2-item-anchor">
-        <section>
+      <section id="item10" class="j2-item">
         <a href="//apple_ref/cpp/Function/cleanup" class="dashAnchor"></a>
         <h4 class="sr-only">authAcquireTokenPost(acceptLanguage:etcetcetc)</h4>
         <a class="j2-item-title" href="#item10"><code>
@@ -425,9 +406,7 @@
         <div class="j2-item-overview">
           <p>Multiline formatting for the unexploded-declarations style.</p>
         </div>
-        </section>
-      </li>
-    </ul>
+      </section>
     </section> <!-- end last topic -->
 
     </section> <!-- end topics -->
