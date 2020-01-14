@@ -145,6 +145,11 @@ p + pre {
 
   // Language & translation switchers
 
+  .dropdown-toggle {
+    // Slight boost for light-mode only
+    font-weight: 500;
+  }
+
   .dropdown-menu {
     @include j2-navigation-colors();
     min-width: 0;

@@ -1,7 +1,7 @@
 # Size classes
 
 XL
-* Titlebar with brand/coverage/search/lang/icons/locale
+* Titlebar with brand/coverage/search/lang/icons/trans
 * Breadcrumbs
 * Nav max 300px
 * Article centers, content max 800px at XL then proportionally
@@ -13,10 +13,10 @@ XL
 * As XL, no aux nav
 
 MD
-* As LG, max 250px iwdth
+* As LG, max 250px iwdth, no coverage
 
 SM
-* Titlebar with hamburger, no coverage, lang/icons/locale
+* Titlebar with hamburger, no coverage, lang/icons/trans
 * Separate searchbar
 * Breadcrumbs, Article, Footer
 * Fullwidth Nav when popped up
@@ -26,7 +26,7 @@ XS,
 * As SM, icons gone from header
 
 XXS (iPhone SE/8)
-* As XS, locale and brand icon gone from header
+* As XS, trans and brand icon gone from header
 
 # Header
 
@@ -49,7 +49,7 @@ XXS (iPhone SE/8)
 * Locale
   * React on mouseover
   * Menu opens on top, mouseover
-  * Current locale has tickmark; all highlight on hover
+  * Current trans has tickmark; all highlight on hover
   * Menu aligns right, expands left into page
 
 # Breadcrumbs
