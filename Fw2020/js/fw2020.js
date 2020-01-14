@@ -133,7 +133,9 @@ const collapseControl = {
   $actionExpandSpan: null,
 
   setup () {
-    this.alwaysDisabled = $body.hasClass('j2-never-collapse')
+    this.alwaysDisabled =
+      $body.hasClass('j2-never-collapse') ||
+      $('html').hasClass('j2-never-collapse')
 
     if (!this.alwaysDisabled) {
       // When we follow a link to the title of a collapsed item,
@@ -219,6 +221,8 @@ const collapseControl = {
 // Search - load json, index with lunr, UI with typeahead.
 //
 const searchControl = {
+  // global disable
+  disabled: false,
   // relative path to docroot
   rootPath: '',
   // translated messages
@@ -252,6 +256,9 @@ const searchControl = {
 
   // Start Lunr setup asap
   setup () {
+    this.disabled = $body.hasClass('j2-disable-search')
+    if (this.disabled) { return }
+
     this.rootPath = $body.data('root-path')
 
     $.getJSON(this.rootPath + '/search.json').then((searchData) => {
@@ -296,6 +303,8 @@ const searchControl = {
 
   // Configure typeahead when dom ready
   ready () {
+    if (this.disabled) { return }
+
     // Load text
     this.loadingMessage = $('#text-loading').text()
     this.failedMessage = $('#text-failed').text()
@@ -344,6 +353,7 @@ const keysControl = {
 
   keydown (e) {
     const $searchField = $('input:visible')
+    if (!$searchField) { return }
 
     if ($searchField.is(':focus')) {
       if (e.key === 'Escape') {
