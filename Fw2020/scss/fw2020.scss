@@ -78,6 +78,17 @@ code {
   white-space: normal;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  code {
+    background: inherit;
+  }
+}
+
 pre {
   position: relative;
   padding: .5rem 1rem;
