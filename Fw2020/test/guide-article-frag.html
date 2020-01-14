@@ -39,6 +39,8 @@ public protocol NavigationService : <a href="#">CLLocationManagerDelegate</a>,
     @objc
     func f1&lt;A&gt;(arby: A) -&gt; some Other {
     }
+
+    public func call(_ name: String, second: Int)
 }
 </code></pre>
 
@@ -99,6 +101,7 @@ open public class MyClass {
        }
        set(newValue) {
          intrnal.call(newValue)
+         TypeInit(newValue)
        }
     }
 
@@ -115,7 +118,17 @@ open public class MyClass {
 
     func h(a b: Float = 1, c: Bool = true, d: Thing? = nil) {}
 
-    func `func`() {}
+    func `func`() {
+      `func`(arg: 22)
+    }
+
+    func functional() {
+        functional()
+    }
+
+    func get() {
+       a.get()
+    }
 
     let revised4 = sorted(names) { $0 &gt; $1 }
 }

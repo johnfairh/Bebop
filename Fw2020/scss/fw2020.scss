@@ -37,11 +37,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-p + ul,
-p + ol {
-  margin-top: -1rem;
-}
-
 p + pre {
   margin-top: -.5rem;
 }
@@ -104,7 +99,6 @@ pre {
   margin-bottom: .5rem;
   overflow: auto;
 }
-
 
 //
 // Tables
