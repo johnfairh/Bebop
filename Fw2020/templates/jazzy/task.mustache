@@ -7,7 +7,7 @@
   {{/name}}
   <ul class="j2-item-list">
   {{#items}}
-  <li id="/{{usr}}" class="j2-item-anchor">
+  <li id="{{usr}}" class="j2-item-anchor">
     {{#direct_link}}
     <a class="j2-item-title" href="{{url}}">{{name}}</a>
     {{/direct_link}}
@@ -15,10 +15,8 @@
     <section>
     <a name="//apple_ref/cpp/{{dash_type}}/{{name}}" class="dashAnchor"></a>
     <h4 class="sr-only">{{name}}</h4>
-
-    <a class="j2-item-title{{#usage_discouraged}}-discouraged{{/usage_discouraged}}" data-toggle="collapse" href="#_/{{usr}}" role="button" aria-expanded="false" aria-controls="_/{{usr}}"><code>{{name}}</code></a>
-
-    <div class="collapse j2-item-popopen-wrapper" id="_/{{usr}}">
+    <a class="j2-item-title{{#usage_discouraged}}-discouraged{{/usage_discouraged}}" data-toggle="collapse" href="#_{{usr}}" role="button" aria-expanded="false" aria-controls="_{{usr}}"><code>{{name}}</code></a>
+    <div class="collapse j2-item-popopen-wrapper" id="_{{usr}}">
       <div class="j2-item-popopen">
         <div class="j2-item-popopen-pointer" role="none"></div>
         <div class="j2-item-popopen-body">

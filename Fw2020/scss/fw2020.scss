@@ -338,7 +338,8 @@ $j2-breadcrumbs-height: 37px;
   }
 }
 
-.j2-callout-warning {
+.j2-callout-warning,
+.j2-callout-unavailable {
   @include j2-callout-colors($j2-callout-warning-color);
 }
 
