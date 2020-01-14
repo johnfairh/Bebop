@@ -5,14 +5,14 @@
     <span>{{{name_html}}}</span>
   </h3>
   {{/name}}
-  <ul class="j2-item-list">
   {{#items}}
-  <li id="{{usr}}" class="j2-item-anchor">
-    {{#direct_link}}
+  {{#direct_link}}
+  <div class="j2-item" id="{{usr}}">
     <a class="j2-item-title" href="{{url}}">{{name}}</a>
-    {{/direct_link}}
-    {{^direct_link}}
-    <section>
+  </div>
+  {{/direct_link}}
+  {{^direct_link}}
+  <section id="{{usr}}" class="j2-item">
     <a name="//apple_ref/cpp/{{dash_type}}/{{name}}" class="dashAnchor"></a>
     <h4 class="sr-only">{{name}}</h4>
     <a class="j2-item-title{{#usage_discouraged}}-discouraged{{/usage_discouraged}}" data-toggle="collapse" href="#_{{usr}}" role="button" aria-expanded="false" aria-controls="_{{usr}}"><code>{{name}}</code></a>
@@ -78,9 +78,7 @@
         </div>
       <div>
     </div>
-    </section>
-    {{/direct_link}}
-  </li>
+  </section>
+  {{/direct_link}}
   {{/items}}
-  </ul>
 </section>
