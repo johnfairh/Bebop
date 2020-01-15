@@ -101,14 +101,14 @@ pre {
 .j2-table {
   @extend .table;
   @extend .table-bordered;
-  @extend .table-striped;
   @extend .table-responsive;
 }
 
 .j2-param-table {
+  @extend .table;
+  @extend .table-responsive;
   th,
   td {
-    border: $j2-navigation-border;
     p:last-child {
       margin-bottom: 0;
     }
@@ -116,6 +116,7 @@ pre {
 
   td {
     padding: .5rem;
+    border-top: none;
 
     &:first-of-type {
       text-align: right;
@@ -328,14 +329,20 @@ $j2-breadcrumbs-height: 37px;
 }
 
 // Callouts
-
-@mixin j2-callout-colors($color) {
+@mixin j2-callout-border($color) {
   border-left: 5px solid $color;
+}
 
+@mixin j2-callout-title-color($color) {
   .aside-title,
   .j2-callout-title {
     color: $color;
   }
+}
+
+@mixin j2-callout-colors($color) {
+  @include j2-callout-border($color);
+  @include j2-callout-title-color($color);
 }
 
 .aside,
@@ -370,7 +377,9 @@ $j2-breadcrumbs-height: 37px;
 }
 
 .j2-callout-declaration {
-  @include j2-callout-colors($j2-callout-declaration-color);
+  @include j2-callout-title-color($j2-callout-declaration-color);
+  @include j2-callout-border($j2-callout-declaration-color);
+
   pre,
   code {
     padding-right: 0;
@@ -471,8 +480,11 @@ $j2-breadcrumbs-height: 37px;
       padding: ($spacer / 2) $spacer 0 $spacer;
       border: $j2-navigation-border;
 
-      > p:last-child {
-        margin-bottom: $spacer / 2;
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-size: $h5-font-size;
       }
     }
 
