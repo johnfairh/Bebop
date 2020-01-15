@@ -240,7 +240,6 @@ $j2-breadcrumbs-height: 37px;
 @mixin j2-nav-item-border() {
   @include border-radius(.4rem);
   background: $j2-navigation-highlight-bg;
-  border: $j2-navigation-highlight-border;
 }
 
 .j2-nav-list {
@@ -274,14 +273,14 @@ $j2-breadcrumbs-height: 37px;
     &:not(.active):hover {
       @include j2-nav-item-border();
       padding-left: 4px;
-      margin: -1px -1px -1px -5px;
+      margin-left: -4px;
       opacity: 1;
     }
 
     &.active {
       @include j2-nav-item-border();
       padding: 2px 4px;
-      margin-left: -5px;
+      margin: 1px 0 1px -4px;
     }
   }
 }

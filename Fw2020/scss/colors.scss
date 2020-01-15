@@ -31,7 +31,6 @@ $gray-10: #fefeff;
   --navigation-secondary-color: #{$gray-700};
   --navigation-bg: #{$gray-100};
   --navigation-highlight-bg: #{$gray-200};
-  --navigation-highlight-border: #{$gray-100};
   --navigation-border-color: #{$gray-400};
   // article
   --article-color: #{$gray-900};
@@ -53,7 +52,6 @@ $gray-10: #fefeff;
     --navigation-secondary-color: #{white(.7)};
     --navigation-bg: #282a2e;
     --navigation-highlight-bg: #343841;
-    --navigation-highlight-border: #282a2e;
     --navigation-border-color: #343841;
     --article-color: #{white(.87)};
     --article-link-color: #1095ef;
@@ -90,7 +88,6 @@ $j2-navigation-border: 1px solid var(--navigation-border-color);
 $j2-navigation-color: var(--navigation-color);
 $j2-navigation-secondary-color: var(--navigation-secondary-color);
 $j2-navigation-highlight-bg: var(--navigation-highlight-bg);
-$j2-navigation-highlight-border: 1px solid var(--navigation-highlight-border);
 
 @mixin j2-navigation-colors {
   color: $j2-navigation-color;
