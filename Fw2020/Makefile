@@ -50,7 +50,7 @@ JS_DEPENDENCIES= \
 	node_modules/corejs-typeahead/dist/typeahead.jquery.min.js
 
 dist/dependencies.min.js: ${JS_DEPENDENCIES}
-	node_modules/uglify-js/bin/uglifyjs $^ -o $@ \
+	node_modules/terser/bin/terser $^ -o $@ \
 		--comments '/@license|^!/'
 
 # Build htmls
