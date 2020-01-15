@@ -25,6 +25,10 @@ h1 {
   margin-bottom: 1rem;
 }
 
+.j2-heading + .j2-heading {
+  margin-top: 1rem;
+}
+
 // Availability, aux nav
 .j2-inline-heading {
   margin-bottom: 0;
@@ -32,13 +36,13 @@ h1 {
   font-weight: 700;
 }
 
+p + pre {
+  margin-top: -.5rem;
+}
+
 body {
   @include j2-navigation-colors();
   -webkit-font-smoothing: antialiased;
-}
-
-p + pre {
-  margin-top: -.5rem;
 }
 
 //
@@ -77,7 +81,7 @@ code {
 }
 
 :not(pre) > code {
-  padding: .1em;
+  padding: 0 .1em;
   white-space: normal;
   background: inherit;
 }
@@ -85,7 +89,6 @@ code {
 pre {
   position: relative;
   padding: .5rem 1rem;
-  margin-bottom: .5rem;
   overflow: auto;
   font-size: 90%;
   line-height: 1.4;
@@ -305,6 +308,13 @@ $j2-breadcrumbs-height: 37px;
     max-width: 56vw;
   }
   margin: auto;
+  @include media-breakpoint-up(md) {
+    h1:first-child {
+      font-size: $display4-size;
+      font-weight: $display4-weight;
+      line-height: $display-line-height;
+    }
+  }
 }
 
 // .j2-anchor {} marker class for anchor.js
