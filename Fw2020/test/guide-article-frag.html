@@ -130,6 +130,10 @@ open public class MyClass {
 
     func get() {
        a.get()
+       try fish()
+       try! fish()
+       try? fish()
+       foo3.aa()
     }
 
     let revised4 = sorted(names) { $0 &gt; $1 }

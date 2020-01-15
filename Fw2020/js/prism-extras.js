@@ -10,45 +10,67 @@
 
 /*
  * Prism customization for Swift highlighting.
- * Some of this should go upstream.
+ * Some of this should go upstream but lots is v. hacky
+ * and optimized for declarations >> actual code.
  */
 Prism.languages.swift.keyword = [
+  {
+    // must be first
+    pattern: /([^.]|^)\btry[!?]/,
+    lookbehind: true
+  },
   {
     pattern: /([^.]|^)\b(?:as|Any|assignment|associatedtype|associativity|break|case|catch|class|continue|convenience|default|defer|deinit|didSet|do|dynamic|else|enum|extension|fallthrough|false|fileprivate|final|for|func|get|guard|higherThan|if|import|in|indirect|infix|init|inout|internal|is|lazy|left|let|lowerThan|mutating|nil|none|nonmutating|open|operator|optional|override|postfix|precedencegroup|prefix|private|protocol|public|repeat|required|rethrows|return|right|safe|self|Self|set|some|static|struct|subscript|super|switch|throws?|true|try|Type|typealias|unowned|unsafe|var|weak|where|while|willSet)(?!`)\b/,
     lookbehind: true
   },
   /#(?:available|colorLiteral|column|fileLiteral|function|imageLiteral|line|selector|sourceLocation)/,
-  /@\w+/,
-  /\$\d+/
+  /@\w+/
 ]
 
-// Use initial case to filter out type initializers from function calls....
-// And guess horribly at param labels too
-// - fix up \ws with interp
-// - avoid tuple confusion with functions, require lower-case start?
-Prism.languages.swift.function = [
-  {
-    pattern: /([,(]\s*)\p{Ll}[\p{L}_\p{N}]*(?=\s+\w)/u,
-    lookbehind: true
-  },
-  /`?\b\p{Ll}[\p{L}_\p{N}]*`?(?=[(:])/u
-]
+// Stop $0 etc from being numbers
+Prism.languages.insertBefore('swift', 'number', {
+  workaround: {
+    pattern: /\$\w+/,
+    alias: 'punctuation'
+  }
+})
 
-// _ is not a number ... this isn't perfect but a slight improvement
-Prism.languages.swift.number = /\b(?:\d[\d_]*(?:\.[\de_]+)?|0x[a-f0-9_]+(?:\.[a-f0-9p_]+)?|0b[01_]+|0o[0-7_]+)\b/i
+// _ is not a number; exp valid without decimal point
+Prism.languages.swift.number = [
+  /-?\b\d[\d_]*(?:\.?[\de_]+)?\b/i,
+  /-?\b0x[a-f0-9_]+(?:\.?[a-f0-9p_]+)?\b/i,
+  /-?\b0b[01_]+|0o[0-7_]+\b/i
+]
 
 Prism.languages.insertBefore('swift', 'function', {
   tag: /#(?:else|elseif|endif|error|if|warning)/
 })
 
-// Color type declarations.  The id regexps are barely approximate.
-Prism.languages.swift['class-name'] = {
-  pattern: /(\b(?:associatedtype|class|enum|extension|func|let|operator|protocol|precedencegroup|struct|typealias|var)\s+)`?[_\p{L}][\p{L}_\p{N}.]*`?/u,
-  lookbehind: true
-}
+{
+  // Barely approximate...
+  const id = '`?[\\p{L}_][\\p{L}_\\p{N}]*`?'
+  const idl = '`?[\\p{Ll}_][\\p{L}_\\p{N}]*`?'
+  const idu = '`?[\\p{Lu}][\\p{L}_\\p{N}]*`?'
 
-// Color (probable) type refs
-Prism.languages.swift.builtin = /\b\p{Lu}[\p{L}_\p{N}]*/u
+  Prism.languages.swift.function = [
+    {
+      // param labels
+      pattern: new RegExp(`([,(]\\s*)${idl}(?=\\s+${idl})`, 'u'),
+      lookbehind: true
+    },
+    // params and calls
+    new RegExp(`\\b${idl}(?=[(:])`, 'u')
+  ]
+
+  // Declarations.
+  Prism.languages.swift['class-name'] = {
+    pattern: new RegExp(`(\\b(?:associatedtype|class|enum|extension|func|let|operator|protocol|precedencegroup|struct|typealias|var)\\s+)${id}`, 'u'),
+    lookbehind: true
+  }
+
+  // Color (probable) type refs
+  Prism.languages.swift.builtin = new RegExp(`\\b${idu}`, 'u')
+}
 
 delete Prism.languages.swift.boolean
 delete Prism.languages.swift.constant
