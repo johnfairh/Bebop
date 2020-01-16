@@ -107,6 +107,9 @@ pre {
 .j2-param-table {
   @extend .table;
   @extend .table-responsive;
+  margin-top: -.5rem;
+  margin-bottom: .5rem;
+
   th,
   td {
     p:last-child {
