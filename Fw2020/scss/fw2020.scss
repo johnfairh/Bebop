@@ -532,6 +532,11 @@ $j2-breadcrumbs-height: 37px;
   padding-left: .6rem;
   font-size: .9rem;
 
+  .j2-inline-heading {
+    font-weight: 600;
+    opacity: .9;
+  }
+
   .j2-aux-nav-wrapper {
     padding-top: 1rem;
   }
@@ -551,6 +556,7 @@ $j2-breadcrumbs-height: 37px;
 
   .j2-aux-action {
     @include j2-article-dim-links();
+    opacity: .8;
   }
 }
 
