@@ -9,7 +9,7 @@ XL
 * Titlebar, breadcrumbs, nav, aux nav all sticky
 * Footer
 
-* LG
+LG
 * As XL, no aux nav
 
 MD
@@ -68,6 +68,7 @@ XXS (iPhone SE/8)
 * Hover inactive shows pretty background
 * Link hitbox extends full column
 * Size-class debug
+* Load page or switch language scrolls to the current place
 
 # Article
 
@@ -80,16 +81,19 @@ XXS (iPhone SE/8)
 * Tables
   * Free tables double-bordered outside and around headings, otherwise
     single bordered, striped rows - first row unstriped
-  * Param tables same, param name right/top-aligned, fullwidth
-* Pre blocks scroll horizontally, no wrap
+  * Param tables no border, no stripe. Param name right/top-aligned, fullwidth
+* Pre blocks scroll horizontally, no wrap, low-contrast background, slightly
+  smaller text
+* Inline code have no special background
 
 # Aux nav
 
 * Vertical subordinate to article title
+* Titles dimmer than body text
 * Topics links are blue, underline on hover,
   word-wrap with indent
 * Actions links are body and glow on hover.
-* 'expand' and 'swift' buttons switch to their
+* 'open' and 'Swift' buttons switch to their
   inverse on use.
 
 # Footer
@@ -140,14 +144,19 @@ System settings seems more reliable than Safari tools??
 * Title is jazzy-style but multi-line
   * *Err why are we keeping this?  Surely it's never better....*
 * Title is apple-style and multi-line
-* Item is deprecated
+* Item is deprecated / unavailable
 * Item has github link
 * Item has members link
 * Item has note for import/extension method
 * Item has default implementation
+* Language modes:
+  * Item has two decls
+  * Item has one decl, page has multiple -> item hidden on switch
+  * Page is monolang -> apology message on switch
 
 # Headings
 
+* First big heading is display style
 * Link to discussion / topic heading adjust for fixed heading
 * Link to discussion / topic heading has zero-adjust if heading not fixed
 * On desktop, hover headings outside of items shows link icon
