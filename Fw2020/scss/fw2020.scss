@@ -43,6 +43,7 @@ p + pre {
 body {
   @include j2-navigation-colors();
   -webkit-font-smoothing: antialiased;
+  word-break: break-word;
 }
 
 //
@@ -123,6 +124,7 @@ pre {
 
     &:first-of-type {
       text-align: right;
+      word-break: normal;
     }
 
     &:last-of-type {
@@ -545,8 +547,6 @@ $j2-breadcrumbs-height: 37px;
     display: inline-block;
     margin-left: .6rem;
     text-indent: -.6rem;
-    word-break: break-word;
-    word-wrap: break-word;
   }
 
   .j2-aux-group {
