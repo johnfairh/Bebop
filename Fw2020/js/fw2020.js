@@ -50,6 +50,17 @@ const navControl = {
       $navToggle.attr('aria-expanded', !$nav.hasClass('d-none'))
       return false
     })
+
+    this.scrollToCurrent()
+  },
+
+  scrollToCurrent () {
+    const activeNavItem = $('.j2-nav-item.active')
+      .filter((_, e) => e.offsetParent)[0]
+
+    if (activeNavItem) {
+      activeNavItem.scrollIntoViewIfNeeded()
+    }
   }
 }
 
@@ -115,6 +126,7 @@ const langControl = {
     const lang = this.updateChrome()
     const currentHash = window.location.hash
     window.history.replaceState({}, document.title, '?' + lang + currentHash)
+    navControl.scrollToCurrent()
   }
 }
 
