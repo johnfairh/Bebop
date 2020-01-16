@@ -349,17 +349,18 @@ $j2-breadcrumbs-height: 37px;
   padding: .38rem .75rem;
   margin-bottom: 1rem;
 
-  .j2-callout-title {
-    padding-bottom: 0;
-    margin: 0;
-    font-size: .75rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    user-select: none;
-  }
   p:last-child {
     margin-bottom: 0;
   }
+}
+
+.j2-callout-title {
+  padding-bottom: 0;
+  margin: 0;
+  font-size: .75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  user-select: none;
 }
 
 .j2-callout-warning,
@@ -372,19 +373,33 @@ $j2-breadcrumbs-height: 37px;
 }
 
 .j2-callout-declaration {
-  @include j2-callout-title-color($j2-callout-declaration-color);
   @include j2-callout-border($j2-callout-declaration-color);
+}
+
+.j2-item-declaration,
+.j2-callout-declaration {
+  @include j2-callout-title-color($j2-callout-declaration-color);
 
   pre,
   code {
     padding-right: 0;
     padding-left: 0;
     margin: 0;
+    font-size: $code-font-size;
     background: inherit;
   }
 
   .j2-callout-title {
     display: none;
+  }
+}
+
+// For the inline declarations inside items
+.j2-item-declaration {
+  padding-left: .5rem;
+  margin: 1rem 0;
+  pre {
+    padding: 0;
   }
 }
 
@@ -684,7 +699,14 @@ $j2-header-height: add($j2-titlebar-height, $j2-breadcrumbs-height);
   }
 
   // Show declaration language name
-  .j2-callout-declaration .j2-callout-title {
-    display: unset;
+  .j2-callout-declaration,
+  .j2-item-declaration {
+    .j2-callout-title {
+      display: unset;
+    }
+  }
+
+  .j2-item-declaration {
+    margin-top: .5rem;
   }
 }
