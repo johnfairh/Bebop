@@ -334,7 +334,6 @@ $j2-breadcrumbs-height: 37px;
 }
 
 @mixin j2-callout-title-color($color) {
-  .aside-title,
   .j2-callout-title {
     color: $color;
   }
@@ -345,13 +344,11 @@ $j2-breadcrumbs-height: 37px;
   @include j2-callout-title-color($color);
 }
 
-.aside,
 .j2-callout {
   @include j2-callout-colors($j2-callout-color);
   padding: .38rem .75rem;
   margin-bottom: 1rem;
 
-  .aside-title,
   .j2-callout-title {
     padding-bottom: 0;
     margin: 0;
@@ -365,8 +362,6 @@ $j2-breadcrumbs-height: 37px;
   }
 }
 
-.aside-warning,
-.aside-unavailable,
 .j2-callout-warning,
 .j2-callout-unavailable {
   @include j2-callout-colors($j2-callout-warning-color);
