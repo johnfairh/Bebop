@@ -6,6 +6,8 @@
 //  Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
 //
 
+import Foundation
+
 // Disappointing to write this all but need
 // - distributed options
 // - config/response file -> CLI overwrite
@@ -38,7 +40,9 @@ enum OptType {
 /// visitors for simplicity, at the expense of some ugly abstract-base-type methods here.
 ///
 class Opt {
+    /// Single-character flag.  Does not include leading hyphen.
     let shortFlag: String?
+    /// Multiple-character flag.  Does not include leading hyphens.
     let longFlag: String?
     let yamlKey: String?
 
@@ -57,9 +61,10 @@ class Opt {
     /// At least one of `longFlag` and `yamlKey` must be set.
     init(s shortFlag: String? = nil, l longFlag: String? = nil, y yamlKey: String? = nil, help: String) {
         precondition(longFlag != nil || yamlKey != nil, "Opt must have a long name somewhere")
-        // police flag length/prefix when we decide that
-        self.shortFlag = shortFlag
-        self.longFlag = longFlag
+        shortFlag.flatMap { precondition(!$0.hasPrefix("-"), "Option names don't include the hyphen") }
+        longFlag.flatMap { precondition(!$0.hasPrefix("--"), "Option names don't include the hyphen") }
+        self.shortFlag = shortFlag.flatMap { "-\($0)" }
+        self.longFlag = longFlag.flatMap { "--\($0)" }
         self.yamlKey = yamlKey
         self.help = help
     }
@@ -67,6 +72,17 @@ class Opt {
     /// Debug/UI helper to refer to the Opt
     var name: String {
         [shortFlag, longFlag, yamlKey].compactMap({$0}).joined()
+    }
+
+    var invertedLongFlag: String? {
+        guard let longFlag = longFlag else {
+            return nil
+        }
+        if longFlag.hasPrefix("--no-") {
+            return longFlag.replacingOccurrences(of: "^--no-", with: "--", options: .regularExpression)
+        } else {
+            return longFlag.replacingOccurrences(of: "^--", with: "--no-", options: .regularExpression)
+        }
     }
 
     /// To be overridden

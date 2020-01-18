@@ -20,9 +20,9 @@ struct Client {
     let c: EnumOpt<Color>
 
     init(optsParser: OptsParser) {
-        a = BoolOpt(s: "-a", l: "--aaa", help: "a help")
-        b = StringOpt(s: "-b", l: "--bbb", help: "b help")
-        c = EnumOpt(l: "--color", help: "c help")
+        a = BoolOpt(s: "a", l: "aaa", help: "a help")
+        b = StringOpt(s: "b", l: "bbb", help: "b help")
+        c = EnumOpt(l: "color", help: "c help")
         optsParser.addOpts(from: self)
     }
 }
@@ -117,32 +117,32 @@ class OptionsTests: XCTestCase {
 
     // Lists
     func testLists() throws {
-        let opt = StringListOpt(s: "-s", l: "--s", help: "help")
+        let opt = StringListOpt(s: "s", l: "s", help: "help")
         try SimpleSystem(opt).parse("-s one -s two --s three".components(separatedBy: " "))
         XCTAssertEqual(opt.value, ["one", "two", "three"])
     }
 
     // Enum lists
     func testEnumLists() throws {
-        let opt = EnumListOpt<Color>(s: "-e", l: "--e", help: "help")
+        let opt = EnumListOpt<Color>(s: "e", l: "e", help: "help")
         try SimpleSystem(opt).parse("-e red -e red".components(separatedBy: " "))
         XCTAssertEqual(opt.value, [.red, .red])
     }
 
     // Inline lists
     func NO_testInlineList() throws {
-        let opt = StringListOpt(s: "-s", l: "--s", help: "help")
+        let opt = StringListOpt(s: "s", l: "s", help: "help")
         try SimpleSystem(opt).parse("-s one,two -s three\\,four".components(separatedBy: " "))
         XCTAssertEqual(opt.value, ["one", "two", "three\\,four"])
     }
 
     // Paths
     func NO_testPath() throws {
-        let opt = PathOpt(s: "-p", l: "--p", help: "path")
+        let opt = PathOpt(s: "p", l: "p", help: "path")
         try SimpleSystem(opt).parse(["-p", "foo/bar"])
         XCTAssertEqual(opt.value, "\(FileManager.default.currentDirectoryPath)/foo/bar")
 
-        let opt2 = PathListOpt(s: "-p", l: "--p", help: "path")
+        let opt2 = PathListOpt(s: "p", l: "p", help: "path")
         try SimpleSystem(opt2).parse("--p /foo/bar,../foo/bar/baz".components(separatedBy: " "))
         XCTAssertEqual(opt2.value[0], "/foo/bar")
         XCTAssertTrue(opt2.value[1].hasSuffix("foo/bar/baz"))
@@ -151,11 +151,11 @@ class OptionsTests: XCTestCase {
 
     // Globs
     func NO_testGlob() throws {
-        let opt = GlobOpt(s: "-g", l: "--g", help: "glob")
+        let opt = GlobOpt(s: "g", l: "g", help: "glob")
         try SimpleSystem(opt).parse(["--g", "foo*/bar"])
         XCTAssertEqual(opt.value, "\(FileManager.default.currentDirectoryPath)/foo*/bar")
 
-        let opt2 = GlobListOpt(s: "-g", l: "--g", help: "glob")
+        let opt2 = GlobListOpt(s: "g", l: "g", help: "glob")
         try SimpleSystem(opt2).parse("--p /*/bar,../foo/*/baz".components(separatedBy: " "))
         XCTAssertEqual(opt2.value[0], "/*/bar")
         XCTAssertTrue(opt2.value[1].hasSuffix("foo/*/baz"))
