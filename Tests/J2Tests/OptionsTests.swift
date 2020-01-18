@@ -115,6 +115,19 @@ class OptionsTests: XCTestCase {
         system.verify(Spec(false, true, false, "Default", false, .blue))
     }
 
+    // Auto-inverse
+    func testAutoInverse() throws {
+        let system = System()
+        try system.apply(["--no-aaa"])
+        system.verify(Spec(true, false, false, nil, false, nil))
+
+        let opt = BoolOpt(l: "no-bananas", help: "bananas")
+        try SimpleSystem(opt).parse(["--no-bananas"])
+        XCTAssertTrue(opt.value)
+        try SimpleSystem(opt).parse(["--bananas"])
+        XCTAssertFalse(opt.value)
+    }
+
     // Lists
     func testLists() throws {
         let opt = StringListOpt(s: "s", l: "s", help: "help")
@@ -172,6 +185,10 @@ class OptionsTests: XCTestCase {
         try system.applyOptionsError(["--hello"])
 
         try system.applyOptionsError("-b one --bbb two".components(separatedBy: " "))
+
+        try system.applyOptionsError("--aaa --no-aaa".components(separatedBy: " "))
+
+        try system.applyOptionsError("--no-bbb foo".components(separatedBy: " "))
 
         try system.applyOptionsError(["--color"])
     }

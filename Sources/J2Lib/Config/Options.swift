@@ -237,21 +237,43 @@ final class EnumListOpt<EnumType>: TypedOpt<[EnumType]> where
 /// Apply CLI arguments and a config file to declared client options.
 final class OptsParser {
     /// Keep track of which options have already been used to detect repeats.
+    /// Rather OTT scaffolding of automatic '--no-foo-bar' longopts....
     final class OptTracker {
         let opt: Opt
         var cliSeen: Bool = false
-        init(_ opt: Opt) {
+        // Are we an inverted bool (ie. flag present -> set FALSE) flag?
+        let invertedBoolOpt: Bool
+        // Our inverted bool peer, bidirectional
+        weak var partnerOptTracker: OptTracker?
+
+        init(_ opt: Opt, invertedOptTracker: OptTracker? = nil) {
             self.opt = opt
+            if let invertedOptTracker = invertedOptTracker {
+                self.invertedBoolOpt = true
+                self.partnerOptTracker = invertedOptTracker
+                invertedOptTracker.partnerOptTracker = self
+            } else {
+                self.invertedBoolOpt = false
+            }
         }
     }
     var optsDict: Dictionary<String, OptTracker> = [:]
 
     private func add(opt: Opt) {
-        let reqs = OptTracker(opt)
-        // auto --[no-]-long
+        let tracker = OptTracker(opt)
         [opt.shortFlag, opt.longFlag, opt.yamlKey].forEach { name in
-            // dup check
-            name.flatMap { self.optsDict[$0] = reqs }
+            name.flatMap {
+                precondition(self.optsDict[$0] == nil,
+                    "Duplicate definition of opt name '\($0)'")
+                self.optsDict[$0] = tracker
+            }
+        }
+        // Auto-generate --no-foo from --foo and vice-versa
+        if opt.type == .bool,
+            let invertedName = opt.invertedLongFlag {
+            precondition(optsDict[invertedName] == nil,
+                "Duplicate (implicit?) definition of opt name '\(invertedName)'")
+            optsDict[invertedName] = OptTracker(opt, invertedOptTracker: tracker)
         }
     }
 
@@ -278,13 +300,13 @@ final class OptsParser {
             guard let tracker = optsDict[next] else {
                 throw Error.options("Unknown option \(next)")
             }
-            // XXX if bool and long consider invert, raise if both set
             guard !tracker.cliSeen || tracker.opt.repeats else {
                 throw Error.options("Unexpected repeated option \(next)")
             }
             tracker.cliSeen = true
+            tracker.partnerOptTracker?.cliSeen = true
             if tracker.opt.type == .bool {
-                tracker.opt.set(bool: true)
+                tracker.opt.set(bool: !tracker.invertedBoolOpt)
                 continue
             }
             guard let data = iter.next() else {
