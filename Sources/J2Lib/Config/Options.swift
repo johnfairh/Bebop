@@ -79,9 +79,9 @@ class Opt {
             return nil
         }
         if longFlag.hasPrefix("--no-") {
-            return longFlag.replacingOccurrences(of: "^--no-", with: "--", options: .regularExpression)
+            return longFlag.re_sub("^--no-", with: "--")
         }
-        return longFlag.replacingOccurrences(of: "^--", with: "--no-", options: .regularExpression)
+        return longFlag.re_sub("^--", with: "--no-")
     }
 
     /// To be overridden
@@ -318,15 +318,21 @@ final class OptsParser {
             guard let data = iter.next() else {
                 throw Error.options("No argument found for option \(next)")
             }
-            guard !tracker.opt.repeats || !data.contains(",") else {
-                throw Error.notImplemented("OptArg Arrayification")
+            let allData: [String]
+            if tracker.opt.repeats {
+                // Split on non-escaped commas, then remove any escapes.
+                allData = data.re_split(#"(?<!\\),"#).map { String($0).re_sub(#"\\,"#, with: ",") }
+            } else {
+                allData = [data]
             }
-            switch tracker.opt.type {
-            case .glob: throw Error.notImplemented("Glob validation")
-            case .path: throw Error.notImplemented("Path validation")
-            default: break;
+            try allData.forEach { datum in
+                switch tracker.opt.type {
+                case .glob: throw Error.notImplemented("Glob validation")
+                case .path: throw Error.notImplemented("Path validation")
+                default: break;
+                }
+                try tracker.opt.set(string: datum)
             }
-            try tracker.opt.set(string: data)
         }
     }
 

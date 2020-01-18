@@ -147,10 +147,10 @@ class OptionsTests: XCTestCase {
     }
 
     // Inline lists
-    func NO_testInlineList() throws {
+    func testInlineList() throws {
         let opt = StringListOpt(s: "s", l: "s", help: "help")
         try SimpleSystem(opt).parse("-s one,two -s three\\,four".components(separatedBy: " "))
-        XCTAssertEqual(opt.value, ["one", "two", "three\\,four"])
+        XCTAssertEqual(opt.value, ["one", "two", "three,four"])
     }
 
     // Paths
