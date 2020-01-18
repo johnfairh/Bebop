@@ -115,6 +115,15 @@ class TypedOpt<OptType>: Opt {
     }
 }
 
+/// Further intermediate for array options -- replaces optionals with empty arrays
+class ArrayOpt<OptElemType>: TypedOpt<[OptElemType]> {
+    private var defaultValue = [OptElemType]()
+
+    override var value: [OptElemType] {
+        super.value!
+    }
+}
+
 // MARK: Concrete Opts
 
 /// Type for clients to describe a boolean option.
@@ -175,7 +184,7 @@ final class EnumOpt<EnumType>: TypedOpt<EnumType> where
 }
 
 /// Type for clients to describe a repeating string option.
-class StringListOpt: TypedOpt<[String]> {
+class StringListOpt: ArrayOpt<String> {
     override func set(string: String) throws { add(string) }
     override var type: OptType { .string }
     override var repeats: Bool { true }
@@ -234,7 +243,6 @@ final class OptsParser {
     func addOpts(from: Any) {
         let m = Mirror(reflecting: from)
         m.children.compactMap({ $0.value as? Opt}).forEach {
-            /// XXX dup
             self.add(opt: $0)
         }
     }

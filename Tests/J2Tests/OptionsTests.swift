@@ -144,9 +144,9 @@ class OptionsTests: XCTestCase {
 
         let opt2 = PathListOpt(s: "-p", l: "--p", help: "path")
         try SimpleSystem(opt2).parse("--p /foo/bar,../foo/bar/baz".components(separatedBy: " "))
-        XCTAssertEqual(opt2.value![0], "/foo/bar")
-        XCTAssertTrue(opt2.value![1].hasSuffix("foo/bar/baz"))
-        XCTAssertTrue(!opt2.value![1].contains(".."))
+        XCTAssertEqual(opt2.value[0], "/foo/bar")
+        XCTAssertTrue(opt2.value[1].hasSuffix("foo/bar/baz"))
+        XCTAssertTrue(!opt2.value[1].contains(".."))
     }
 
     // Globs
@@ -157,9 +157,9 @@ class OptionsTests: XCTestCase {
 
         let opt2 = GlobListOpt(s: "-g", l: "--g", help: "glob")
         try SimpleSystem(opt2).parse("--p /*/bar,../foo/*/baz".components(separatedBy: " "))
-        XCTAssertEqual(opt2.value![0], "/*/bar")
-        XCTAssertTrue(opt2.value![1].hasSuffix("foo/*/baz"))
-        XCTAssertTrue(!opt2.value![1].contains(".."))
+        XCTAssertEqual(opt2.value[0], "/*/bar")
+        XCTAssertTrue(opt2.value[1].hasSuffix("foo/*/baz"))
+        XCTAssertTrue(!opt2.value[1].contains(".."))
     }
 
     // Syntax errors
