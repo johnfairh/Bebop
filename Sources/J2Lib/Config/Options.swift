@@ -80,9 +80,8 @@ class Opt {
         }
         if longFlag.hasPrefix("--no-") {
             return longFlag.replacingOccurrences(of: "^--no-", with: "--", options: .regularExpression)
-        } else {
-            return longFlag.replacingOccurrences(of: "^--", with: "--no-", options: .regularExpression)
         }
+        return longFlag.replacingOccurrences(of: "^--", with: "--no-", options: .regularExpression)
     }
 
     /// To be overridden
@@ -185,18 +184,10 @@ final class YamlOpt: TypedOpt<Yaml> {
     override var type: OptType { .yaml }
 }
 
-/// Type for clients to describe a non-repeating closed enum option,
-final class EnumOpt<EnumType>: TypedOpt<EnumType> where
-    EnumType: RawRepresentable, EnumType.RawValue == String,
-    EnumType: CaseIterable {
-    override func set(string: String) throws {
-        guard let eVal = EnumType.init(rawValue: string) else {
-            // XXX writeme
-            throw Error.options("Bad value '\(string)' for \(name), valid values: hmm")
-        }
-        configValue = eVal
+extension CaseIterable where Self: RawRepresentable, RawValue == String {
+    static var caseList: String {
+        allCases.map({$0.rawValue}).joined(separator: ", ")
     }
-    override var type: OptType { .string }
 }
 
 /// Type for clients to describe a repeating string option.
@@ -216,20 +207,35 @@ final class GlobListOpt: StringListOpt {
     override var type: OptType { .glob }
 }
 
+/// Helper for enum conversion
+extension Opt {
+    func toEnum<E>(_ e: E.Type, from: String) throws -> E where E: RawRepresentable & CaseIterable, E.RawValue == String {
+        guard let eVal = E(rawValue: from) else {
+            throw Error.options("Bad value '\(from)' for \(name), valid values: \(E.caseList)")
+        }
+        return eVal
+    }
+}
+
 /// Type for clients to describe a repeating closed enum option,
-final class EnumListOpt<EnumType>: TypedOpt<[EnumType]> where
+final class EnumListOpt<EnumType>: ArrayOpt<EnumType> where
     EnumType: RawRepresentable, EnumType.RawValue == String,
     EnumType: CaseIterable {
     override func set(string: String) throws {
-        guard let eVal = EnumType.init(rawValue: string) else {
-            // XXX writeme
-            throw Error.options("Bad value '\(string)' for \(name), valid values: hmm")
-        }
-        // validate
-        add(eVal)
+        add(try toEnum(EnumType.self, from: string))
     }
     override var type: OptType { .string }
     override var repeats: Bool { true }
+}
+
+/// Type for clients to describe a non-repeating closed enum option,
+final class EnumOpt<EnumType>: TypedOpt<EnumType> where
+    EnumType: RawRepresentable, EnumType.RawValue == String,
+    EnumType: CaseIterable {
+    override func set(string: String) throws {
+        configValue = try toEnum(EnumType.self, from: string)
+    }
+    override var type: OptType { .string }
 }
 
 // MARK: OptsParser

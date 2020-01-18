@@ -126,6 +126,10 @@ class OptionsTests: XCTestCase {
         XCTAssertTrue(opt.value)
         try SimpleSystem(opt).parse(["--bananas"])
         XCTAssertFalse(opt.value)
+
+        let opt2 = BoolOpt(s: "b", y: "yaml_bananas", help: "bananas")
+        try SimpleSystem(opt2).parse(["-b"])
+        XCTAssertTrue(opt2.value)
     }
 
     // Lists
