@@ -13,7 +13,12 @@ import Foundation
 // - config/response file -> CLI overwrite
 // - don't touch my stderr/communicate in English/crash the program
 //
-// All very custom for what we need.
+// All very custom for what we need.  Provides:
+// - bool / string / enum / path / glob decode and validate
+// - lists via repeated opts or inline
+// - short/long/yaml opts
+// - auto-gen of --[no-] -style longopts
+// - auto unique-prefix expansion for longopts
 
 /// Placeholder pending yaml framework
 typealias Yaml = Dictionary<String,Any>
@@ -263,10 +268,16 @@ final class OptsParser {
             }
         }
     }
+    // Hash of all the CLI opts (including - or '--' prefix) to their tracker.
+    // Includes fabricated '--no-foo' opts
     var optsDict: Dictionary<String, OptTracker> = [:]
+
+    // Tracker for long opts, without their '--' prefix
+    var longOptsMatcher = PrefixMatcher()
 
     private func add(opt: Opt) {
         let tracker = OptTracker(opt)
+
         [opt.shortFlag, opt.longFlag, opt.yamlKey].forEach { name in
             name.flatMap {
                 precondition(self.optsDict[$0] == nil,
@@ -274,12 +285,19 @@ final class OptsParser {
                 self.optsDict[$0] = tracker
             }
         }
+
         // Auto-generate --no-foo from --foo and vice-versa
         if opt.type == .bool,
             let invertedName = opt.invertedLongFlag {
             precondition(optsDict[invertedName] == nil,
                 "Duplicate (implicit?) definition of opt name '\(invertedName)'")
             optsDict[invertedName] = OptTracker(opt, invertedOptTracker: tracker)
+        }
+
+        // Store away the long opt name for partial matching
+        if let longOpt = opt.longFlag {
+            precondition(longOpt.hasPrefix("--"))
+            longOptsMatcher.insert(String(longOpt.dropFirst(2)))
         }
     }
 
@@ -289,6 +307,19 @@ final class OptsParser {
         m.children.compactMap({ $0.value as? Opt}).forEach {
             self.add(opt: $0)
         }
+    }
+
+    private func match(option: String) -> OptTracker? {
+        if let tracker = optsDict[option] {
+            return tracker
+        }
+        guard option.hasPrefix("--") else {
+            return nil
+        }
+        guard let expandedOpt = longOptsMatcher.match(String(option.dropFirst(2))) else {
+            return nil
+        }
+        return match(option: "--\(expandedOpt)")
     }
 
     /// Parse CLI arguments and apply them to options declared via `addOpts()`.
@@ -302,8 +333,7 @@ final class OptsParser {
             guard next.hasPrefix("-") else {
                 throw Error.options("Unexpected text '\(next)'")
             }
-            // XXX prefix-match
-            guard let tracker = optsDict[next] else {
+            guard let tracker = match(option: next) else {
                 throw Error.options("Unknown option \(next)")
             }
             guard !tracker.cliSeen || tracker.opt.repeats else {

@@ -115,6 +115,13 @@ class OptionsTests: XCTestCase {
         system.verify(Spec(false, true, false, "Default", false, .blue))
     }
 
+    // LongOpts prefix completion
+    func testLongOptsCompletion() throws {
+        let system = System()
+        try system.apply(["--col", "blue"])
+        system.verify(Spec(false, false, false, nil, true, .blue))
+    }
+
     // Auto-inverse
     func testAutoInverse() throws {
         let system = System()
@@ -187,6 +194,7 @@ class OptionsTests: XCTestCase {
         try system.applyOptionsError(["hello"])
 
         try system.applyOptionsError(["--hello"])
+        try system.applyOptionsError(["-h"])
 
         try system.applyOptionsError("-b one --bbb two".components(separatedBy: " "))
 
