@@ -12,45 +12,30 @@ import Foundation
 // A concise wrapper of regular expression string operators based on perl etc.
 //
 
-/// A concise version of the usual regular expression flags
-public enum RegexpOptions {
-    /// case insensitive
-    case i
-    /// comments
-    case x
-    /// dot matches line-endings
-    case s
-    /// ^$ match lines not text
-    case m
+/// Provide concise aliases for regexp options
+public extension NSRegularExpression.Options {
+    /// Case insensitive
+    static let i = Self.caseInsensitive
+    /// Comments
+    static let x = Self.allowCommentsAndWhitespace
+    /// Dot matches line endings
+    static let s = Self.dotMatchesLineSeparators
+    /// ^ $ match lines not text
+    static let m = Self.anchorsMatchLines
     /// unicode-correct \b -- maybe this should always be on?
-    case w
-
-    var toFoundation: NSRegularExpression.Options {
-        switch self {
-        case .i: return .caseInsensitive
-        case .x: return .allowCommentsAndWhitespace
-        case .s: return .dotMatchesLineSeparators
-        case .m: return .anchorsMatchLines
-        case .w: return .useUnicodeWordBoundaries
-        }
-    }
+    static let w = Self.useUnicodeWordBoundaries
 }
 
-extension Array where Element == RegexpOptions {
-    var toFoundation: NSRegularExpression.Options {
-        reduce([], { opts, opt in opts.union(opt.toFoundation) })
-    }
-}
-
-extension String {
+public extension String {
     /// Split using a regular expression.
     ///
     /// Returns the pieces of the string, not including separators.  Zero-length pieces are not returned.
     ///
     /// - Parameter on: regexp to split on
     /// - Parameter options: regexp options
-    func re_split(_ separator: String, options: [RegexpOptions] = []) -> [Substring] {
-        let re = try! NSRegularExpression(pattern: separator, options: options.toFoundation)
+    func re_split(_ separator: String,
+                  options: NSRegularExpression.Options = []) -> [Substring] {
+        let re = try! NSRegularExpression(pattern: separator, options: options)
 
         // Find separator spans
         let sepRanges = re.matches(in: self, range: nsRange).map { Range($0.range, in: self)! }
@@ -74,8 +59,10 @@ extension String {
     /// - Parameter searchPattern: pattern to search for
     /// - Parameter template: template to replace with ($n for capture groups)
     /// - Parameter options: regex options
-    func re_sub(_ searchPattern: String, with template: String, options: [RegexpOptions] = []) -> String {
-        let re = try! NSRegularExpression(pattern: searchPattern, options: options.toFoundation)
+    func re_sub(_ searchPattern: String,
+                with template: String,
+                options: NSRegularExpression.Options = []) -> String {
+        let re = try! NSRegularExpression(pattern: searchPattern, options: options)
         return re.stringByReplacingMatches(in: self, range: nsRange, withTemplate: template)
     }
 
@@ -85,14 +72,14 @@ extension String {
     /// 
     /// - Parameter pattern: pattern to match against
     /// - Parameter options: regex options
-    func re_isMatch(_ pattern: String, options: [RegexpOptions] = []) -> Bool {
+    func re_isMatch(_ pattern: String, options: NSRegularExpression.Options = []) -> Bool {
         re_match(pattern, options: options) != nil
     }
 
     /// Regex match result data
     ///
     /// This is more than an array of strings because of named capture groups
-    public struct ReMatchResult {
+    struct ReMatchResult {
         private let string: String
         private let textCheckingResult: NSTextCheckingResult
 
@@ -119,8 +106,9 @@ extension String {
     /// - parameter pattern: pattern to match against
     /// - parameter options: regex options
     /// - returns: `ReMatchResult` object that can be queried for capture groups, or `nil` if there is no match
-    func re_match(_ pattern: String, options: [RegexpOptions] = []) -> ReMatchResult? {
-        let re = try! NSRegularExpression(pattern: pattern, options: options.toFoundation)
+    func re_match(_ pattern: String,
+                  options: NSRegularExpression.Options = []) -> ReMatchResult? {
+        let re = try! NSRegularExpression(pattern: pattern, options: options)
         guard let match = re.firstMatch(in: self, range: nsRange) else {
             return nil
         }

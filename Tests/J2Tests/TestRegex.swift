@@ -46,7 +46,7 @@ class TestRegex: XCTestCase {
     func testSplitOptions() {
         let str = "foobarFOObar"
         XCTAssertEqual(["barFOObar"], str.re_split("foo"))
-        XCTAssertEqual(["bar", "bar"], str.re_split("foo", options: [.i]))
+        XCTAssertEqual(["bar", "bar"], str.re_split("foo", options: .i))
     }
 
     func testSub() {
@@ -62,7 +62,7 @@ class TestRegex: XCTestCase {
         XCTAssertTrue(str.re_isMatch("ook"))
         XCTAssertTrue(str.re_isMatch("ie$"))
         XCTAssertTrue(!str.re_isMatch("COOK"))
-        XCTAssertTrue(str.re_isMatch("COOK", options: [.i]))
+        XCTAssertTrue(str.re_isMatch("COOK", options: .i))
     }
 
     func testMatchGroups() {
