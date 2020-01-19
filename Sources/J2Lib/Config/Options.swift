@@ -29,9 +29,10 @@ enum OptType {
     case bool
     /// some text, following option name/keyed in the file.  May repeat/be an array.
     case string
-    /// special type of text - interpreted relative to cwd/config
+    /// filesystem path that may point to a file/directory, made absolute if necessary
+    /// relative to current directory or the location of the config file.
     case path
-    /// like a path but with wildcards, for matching
+    /// a string with an absolute path as `path` containing * ?, for matching.
     case glob
     /// an arbitrary yaml structure, not on the CLI
     case yaml
@@ -92,6 +93,7 @@ class Opt {
     /// To be overridden
     func set(bool: Bool) { fatalError() }
     func set(string: String) throws { fatalError() }
+    func set(path: URL) throws { fatalError() }
     func set(yaml: Yaml) throws { fatalError() }
     var  type: OptType { fatalError() }
 }
@@ -142,6 +144,8 @@ class ArrayOpt<OptElemType>: TypedOpt<[OptElemType]> {
     override var value: [OptElemType] {
         super.value!
     }
+
+    override var repeats: Bool { true }
 }
 
 // MARK: Concrete Opts
@@ -171,10 +175,60 @@ class StringOpt: TypedOpt<String> {
     override var  type: OptType { .string }
 }
 
+extension URL {
+    private func checkExistsTestDir() throws -> Bool {
+        let fm = FileManager.default
+        var isDir = ObjCBool(false) // !!
+        let exists = fm.fileExists(atPath: path, isDirectory: &isDir)
+        if !exists {
+            throw Error.options("Path doesn't exist or is inaccessible: \(path)")
+        }
+        return isDir.boolValue
+    }
+
+    /// Helper: does a path exist as a regular file?  Throw if not.
+    func checkIsFile() throws {
+        if try checkExistsTestDir() {
+            throw Error.options("Path is for a directory not a regular file: \(path)")
+        }
+    }
+
+    /// Helper: does a path exist as a directory?  Throw if not.
+    func checkIsDirectory() throws {
+        if !(try checkExistsTestDir()) {
+            throw Error.options("Path is for a regular file not a directory: \(path)")
+        }
+    }
+}
+
 /// Type for clients to describe a non-repeating pathname option,
-final class PathOpt: StringOpt {
-    // XXX should be URL
+final class PathOpt: TypedOpt<URL> {
+    override func set(path: URL) { configValue = path }
     override var type: OptType { .path }
+
+    /// Validation helper, throw unless it's a file
+    func checkIsFile() throws {
+        try value?.checkIsFile()
+    }
+    /// Validation helper, throw unless it's a directory
+    func checkIsDirectory() throws {
+        try value?.checkIsDirectory()
+    }
+}
+
+/// Type for clients to describe a repeating pathname option.
+final class PathListOpt: ArrayOpt<URL> {
+    override func set(path: URL) throws { add(path) }
+    override var type: OptType { .path }
+
+    /// Validation helper, throw unless all given are existing files
+    func checkAreFiles() throws {
+        try value.forEach { try $0.checkIsFile() }
+    }
+    /// Validation helper, throw unless all given are existing directories
+    func checkAreDirectories() throws {
+        try value.forEach { try $0.checkIsDirectory() }
+    }
 }
 
 /// Type for clients to describe a non-repeating glob option,
@@ -189,36 +243,31 @@ final class YamlOpt: TypedOpt<Yaml> {
     override var type: OptType { .yaml }
 }
 
-extension CaseIterable where Self: RawRepresentable, RawValue == String {
-    static var caseList: String {
-        allCases.map({$0.rawValue}).joined(separator: ", ")
-    }
-}
-
 /// Type for clients to describe a repeating string option.
 class StringListOpt: ArrayOpt<String> {
     override func set(string: String) throws { add(string) }
     override var type: OptType { .string }
-    override var repeats: Bool { true }
 }
 
-/// Type for clients to describe a repeating pathname option.
-final class PathListOpt: StringListOpt {
-    override var type: OptType { .path }
-}
 
 /// Type for clients to describe a repeating glob option.
 final class GlobListOpt: StringListOpt {
     override var type: OptType { .glob }
 }
 
-/// Helper for enum conversion
+/// Helper sfor enum conversion
 extension Opt {
-    func toEnum<E>(_ e: E.Type, from: String) throws -> E where E: RawRepresentable & CaseIterable, E.RawValue == String {
+    fileprivate func toEnum<E>(_ e: E.Type, from: String) throws -> E where E: RawRepresentable & CaseIterable, E.RawValue == String {
         guard let eVal = E(rawValue: from) else {
             throw Error.options("Bad value '\(from)' for \(name), valid values: \(E.caseList)")
         }
         return eVal
+    }
+}
+
+extension CaseIterable where Self: RawRepresentable, RawValue == String {
+    static var caseList: String {
+        allCases.map({$0.rawValue}).joined(separator: ", ")
     }
 }
 
@@ -268,6 +317,7 @@ final class OptsParser {
             }
         }
     }
+
     // Hash of all the CLI opts (including - or '--' prefix) to their tracker.
     // Includes fabricated '--no-foo' opts
     var optsDict: Dictionary<String, OptTracker> = [:]
@@ -322,6 +372,9 @@ final class OptsParser {
         return match(option: "--\(expandedOpt)")
     }
 
+    /// The base path for interpreting relative paths in options.
+    var relativePathBase = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
+
     /// Parse CLI arguments and apply them to options declared via `addOpts()`.
     ///
     /// - throws: if anything is wrong, including: weird text, unrecognized options,
@@ -345,23 +398,24 @@ final class OptsParser {
                 tracker.opt.set(bool: !tracker.invertedBoolOpt)
                 continue
             }
+
             guard let data = iter.next() else {
                 throw Error.options("No argument found for option \(next)")
             }
-            let allData: [String]
-            if tracker.opt.repeats {
+            let allData = tracker.opt.repeats
                 // Split on non-escaped commas, then remove any escapes.
-                allData = data.re_split(#"(?<!\\),"#).map { String($0).re_sub(#"\\,"#, with: ",") }
-            } else {
-                allData = [data]
-            }
+                ? data.re_split(#"(?<!\\),"#).map { String($0).re_sub(#"\\,"#, with: ",") }
+                : [data]
+
             try allData.forEach { datum in
                 switch tracker.opt.type {
                 case .glob: throw Error.notImplemented("Glob validation")
-                case .path: throw Error.notImplemented("Path validation")
-                default: break;
+                case .path:
+                    let url = URL(fileURLWithPath: datum, relativeTo: relativePathBase)
+                    try tracker.opt.set(path: url.standardized)
+                default:
+                    try tracker.opt.set(string: datum)
                 }
-                try tracker.opt.set(string: datum)
             }
         }
     }

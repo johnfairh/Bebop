@@ -9,6 +9,21 @@
 import XCTest
 @testable import J2Lib
 
+public func AssertThrows<T>(_ expression: @autoclosure () throws -> T,
+                            _ expectedError: Error,
+                            _ message: String = "",
+                            file: StaticString = #file,
+                            line: UInt = #line) {
+    XCTAssertThrowsError(try expression(), message, file: file, line: line, { actualError in
+        guard let j2Error = actualError as? Error else {
+            XCTFail("\(actualError) is not Error", file: file, line: line)
+            return
+        }
+        XCTAssertTrue(j2Error.sameCategory(other: expectedError), file: file, line: line)
+        print(j2Error.debugDescription)
+    })
+}
+
 enum Color: String, CaseIterable {
     case red
     case blue
@@ -65,12 +80,7 @@ final class System {
 
     func applyOptionsError(_ cliOpts: [String]) throws {
         reset()
-        do {
-            try apply(cliOpts)
-            XCTFail("Ought to have thrown")
-        } catch Error.options(let msg) {
-            print(msg)
-        }
+        AssertThrows(try apply(cliOpts), Error.options(""))
     }
 
     func verify(_ spec: Spec) {
@@ -161,16 +171,42 @@ class OptionsTests: XCTestCase {
     }
 
     // Paths
-    func NO_testPath() throws {
+    func testPath() throws {
         let opt = PathOpt(s: "p", l: "p", help: "path")
         try SimpleSystem(opt).parse(["-p", "foo/bar"])
-        XCTAssertEqual(opt.value, "\(FileManager.default.currentDirectoryPath)/foo/bar")
+        XCTAssertEqual(opt.value?.path, "\(FileManager.default.currentDirectoryPath)/foo/bar")
 
         let opt2 = PathListOpt(s: "p", l: "p", help: "path")
         try SimpleSystem(opt2).parse("--p /foo/bar,../foo/bar/baz".components(separatedBy: " "))
-        XCTAssertEqual(opt2.value[0], "/foo/bar")
-        XCTAssertTrue(opt2.value[1].hasSuffix("foo/bar/baz"))
-        XCTAssertTrue(!opt2.value[1].contains(".."))
+        XCTAssertEqual(opt2.value[0].path, "/foo/bar")
+        XCTAssertTrue(opt2.value[1].path.hasSuffix("foo/bar/baz"))
+        XCTAssertTrue(!opt2.value[1].path.contains(".."))
+    }
+
+    // Path validation 1
+    func testPathValidations() throws {
+        let opt = PathOpt(s: "p", y: "p", help: "path")
+        let ss = SimpleSystem(opt)
+        try ss.parse(["-p", "\(#file)"])
+        try opt.checkIsFile()
+        AssertThrows(try opt.checkIsDirectory(), Error.options(""))
+
+        let directory = URL(fileURLWithPath: #file).deletingLastPathComponent()
+        try ss.parse(["-p", "\(directory.path)"])
+        try opt.checkIsDirectory()
+        AssertThrows(try opt.checkIsFile(), Error.options(""))
+
+        try ss.parse(["-p", "blargle"])
+        AssertThrows(try opt.checkIsFile(), Error.options(""))
+    }
+
+    // Path validation 2
+    func testPathListValidations() throws {
+        let opt = PathListOpt(s: "p", y: "p", help: "path")
+        let ss = SimpleSystem(opt)
+        try ss.parse(["-p", "\(#file)", "-p", "\(#file)"])
+        try opt.checkAreFiles()
+        AssertThrows(try opt.checkAreDirectories(), Error.options(""))
     }
 
     // Globs
