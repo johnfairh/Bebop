@@ -1,5 +1,5 @@
 //
-//  RubyTests.swift
+//  TestRubyJazzy.swift
 //  J2Tests
 //
 //  Copyright 2019 J2 Authors
@@ -16,7 +16,7 @@ func tempFilePath() -> String {
 
 // Check that the Ruby-jazzy-gem-wrapping stuff is working.
 
-class RubyJazzyTests: XCTestCase {
+class TestRubyJazzy: XCTestCase {
     func testGem() throws {
         let jazzy = try RubyJazzy.create(scriptName: "J2Tests", cliArguments: ["--help"])
 

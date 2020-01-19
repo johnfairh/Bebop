@@ -1,5 +1,5 @@
 //
-//  RegexTests.swift
+//  TestRegex.swift
 //  J2Tests
 //
 //  Copyright 2020 J2 Authors
@@ -9,7 +9,7 @@
 import XCTest
 @testable import J2Lib
 
-class RegexTests: XCTestCase {
+class TestRegex: XCTestCase {
 
     func testSplitNone() {
         let str = "123"

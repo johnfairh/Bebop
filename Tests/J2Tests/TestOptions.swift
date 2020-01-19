@@ -1,5 +1,5 @@
 //
-//  OptionsTests.swift
+//  TestOptions.swift
 //  J2Lib
 //
 //  Copyright 2020 J2 Authors
@@ -8,21 +8,6 @@
 
 import XCTest
 @testable import J2Lib
-
-public func AssertThrows<T>(_ expression: @autoclosure () throws -> T,
-                            _ expectedError: Error,
-                            _ message: String = "",
-                            file: StaticString = #file,
-                            line: UInt = #line) {
-    XCTAssertThrowsError(try expression(), message, file: file, line: line, { actualError in
-        guard let j2Error = actualError as? Error else {
-            XCTFail("\(actualError) is not Error", file: file, line: line)
-            return
-        }
-        XCTAssertTrue(j2Error.sameCategory(other: expectedError), file: file, line: line)
-        print(j2Error.debugDescription)
-    })
-}
 
 enum Color: String, CaseIterable {
     case red
@@ -105,7 +90,7 @@ final class SimpleSystem {
     }
 }
 
-class OptionsTests: XCTestCase {
+class TestOptions: XCTestCase {
     /// No args, simple args
     func testBasic() throws {
         let system = System()
