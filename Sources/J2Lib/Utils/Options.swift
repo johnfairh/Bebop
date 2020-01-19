@@ -23,6 +23,8 @@ import Foundation
 /// Placeholder pending yaml framework
 typealias Yaml = Dictionary<String,Any>
 
+// MARK: Abstract Option Types
+
 /// Base type of an option
 enum OptType {
     /// yes/no, implied by option name alone
@@ -93,7 +95,7 @@ class Opt {
     /// To be overridden
     func set(bool: Bool) { fatalError() }
     func set(string: String) throws { fatalError() }
-    func set(path: URL) throws { fatalError() }
+    func set(path: URL) { fatalError() }
     func set(yaml: Yaml) throws { fatalError() }
     var  type: OptType { fatalError() }
 }
@@ -127,14 +129,6 @@ class TypedOpt<OptType>: Opt {
         configValue != nil
     }
 
-    /// Add an item to a repeating option
-    func add<Element>(_ newValue: Element) where OptType == Array<Element> {
-        if (!configured) {
-            configValue = [newValue]
-        } else {
-            configValue?.append(newValue)
-        }
-    }
 }
 
 /// Further intermediate for array options -- replaces optionals with empty arrays
@@ -146,9 +140,18 @@ class ArrayOpt<OptElemType>: TypedOpt<[OptElemType]> {
     }
 
     override var repeats: Bool { true }
+
+    /// Add an item to a repeating option
+    func add(_ newValue: OptElemType) {
+        if (!configured) {
+            configValue = [newValue]
+        } else {
+            configValue?.append(newValue)
+        }
+    }
 }
 
-// MARK: Concrete Opts
+// MARK: Basic Concrete Option Types
 
 /// Type for clients to describe a boolean option.
 /// Boolean options always have a default value: the default default value is `false`.
@@ -174,6 +177,14 @@ class StringOpt: TypedOpt<String> {
     override func set(string: String) { configValue = string }
     override var  type: OptType { .string }
 }
+
+/// Type for clients to describe a repeating string option.
+class StringListOpt: ArrayOpt<String> {
+    override func set(string: String) { add(string) }
+    override var type: OptType { .string }
+}
+
+// MARK: URLs and Path Options
 
 extension URL {
     private func checkExistsTestDir() throws -> Bool {
@@ -218,7 +229,7 @@ final class PathOpt: TypedOpt<URL> {
 
 /// Type for clients to describe a repeating pathname option.
 final class PathListOpt: ArrayOpt<URL> {
-    override func set(path: URL) throws { add(path) }
+    override func set(path: URL) { add(path) }
     override var type: OptType { .path }
 
     /// Validation helper, throw unless all given are existing files
@@ -231,9 +242,17 @@ final class PathListOpt: ArrayOpt<URL> {
     }
 }
 
+// MARK: Glob Pattern Options
+
 /// Type for clients to describe a non-repeating glob option,
-final class GlobOpt: StringOpt {
-    // XXX should be insane glob type
+final class GlobOpt: TypedOpt<Glob.Pattern> {
+    override func set(string: String) { configValue = Glob.Pattern(string) }
+    override var type: OptType { .glob }
+}
+
+/// Type for clients to describe a repeating glob option.
+final class GlobListOpt: ArrayOpt<Glob.Pattern> {
+    override func set(string: String) { add(Glob.Pattern(string)) }
     override var type: OptType { .glob }
 }
 
@@ -243,19 +262,9 @@ final class YamlOpt: TypedOpt<Yaml> {
     override var type: OptType { .yaml }
 }
 
-/// Type for clients to describe a repeating string option.
-class StringListOpt: ArrayOpt<String> {
-    override func set(string: String) throws { add(string) }
-    override var type: OptType { .string }
-}
+// MARK: Enum Options
 
-
-/// Type for clients to describe a repeating glob option.
-final class GlobListOpt: StringListOpt {
-    override var type: OptType { .glob }
-}
-
-/// Helper sfor enum conversion
+/// Helpers for enum conversion
 extension Opt {
     fileprivate func toEnum<E>(_ e: E.Type, from: String) throws -> E where E: RawRepresentable & CaseIterable, E.RawValue == String {
         guard let eVal = E(rawValue: from) else {
@@ -409,10 +418,12 @@ final class OptsParser {
 
             try allData.forEach { datum in
                 switch tracker.opt.type {
-                case .glob: throw Error.notImplemented("Glob validation")
+                case .glob:
+                    let url = URL(fileURLWithPath: datum, relativeTo: relativePathBase)
+                    try tracker.opt.set(string: url.standardized.path)
                 case .path:
                     let url = URL(fileURLWithPath: datum, relativeTo: relativePathBase)
-                    try tracker.opt.set(path: url.standardized)
+                    tracker.opt.set(path: url.standardized)
                 default:
                     try tracker.opt.set(string: datum)
                 }

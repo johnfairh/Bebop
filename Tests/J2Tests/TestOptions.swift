@@ -195,16 +195,16 @@ class TestOptions: XCTestCase {
     }
 
     // Globs
-    func NO_testGlob() throws {
+    func testGlob() {
         let opt = GlobOpt(s: "g", l: "g", help: "glob")
-        try SimpleSystem(opt).parse(["--g", "foo*/bar"])
-        XCTAssertEqual(opt.value, "\(FileManager.default.currentDirectoryPath)/foo*/bar")
+        XCTAssertNoThrow(try SimpleSystem(opt).parse(["--g", "foo*/bar"]))
+        XCTAssertEqual(opt.value?.value, "\(FileManager.default.currentDirectoryPath)/foo*/bar")
 
         let opt2 = GlobListOpt(s: "g", l: "g", help: "glob")
-        try SimpleSystem(opt2).parse("--p /*/bar,../foo/*/baz".components(separatedBy: " "))
+        XCTAssertNoThrow(try SimpleSystem(opt2).parse("--g /*/bar,../foo/*/baz".components(separatedBy: " ")))
         XCTAssertEqual(opt2.value[0], "/*/bar")
-        XCTAssertTrue(opt2.value[1].hasSuffix("foo/*/baz"))
-        XCTAssertTrue(!opt2.value[1].contains(".."))
+        XCTAssertTrue(opt2.value[1].value.hasSuffix("foo/*/baz"))
+        XCTAssertTrue(!opt2.value[1].value.contains(".."))
     }
 
     // Syntax errors

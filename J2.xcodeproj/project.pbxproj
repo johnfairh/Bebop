@@ -15,6 +15,8 @@
 		022818CA23D38A0A0016B0D5 /* PrefixMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022818C823D38A040016B0D5 /* PrefixMatcher.swift */; };
 		022818CC23D39B270016B0D5 /* TestPrefixMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022818CB23D39B270016B0D5 /* TestPrefixMatcher.swift */; };
 		022818CE23D4E89D0016B0D5 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022818CD23D4E89D0016B0D5 /* TestHelpers.swift */; };
+		022818D123D4F2AE0016B0D5 /* Glob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022818CF23D4EB0E0016B0D5 /* Glob.swift */; };
+		022818D323D4F7CB0016B0D5 /* TestGlob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022818D223D4F7CB0016B0D5 /* TestGlob.swift */; };
 		02C2401C239A6F0700518764 /* J2Lib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C24012239A6F0700518764 /* J2Lib.framework */; };
 		02C2402D239A6FD700518764 /* RubyJazzy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C2402C239A6FD700518764 /* RubyJazzy.swift */; };
 		02C2403F239A784600518764 /* RubyGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C2403E239A784600518764 /* RubyGateway.framework */; };
@@ -80,6 +82,8 @@
 		022818C823D38A040016B0D5 /* PrefixMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefixMatcher.swift; sourceTree = "<group>"; };
 		022818CB23D39B270016B0D5 /* TestPrefixMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPrefixMatcher.swift; sourceTree = "<group>"; };
 		022818CD23D4E89D0016B0D5 /* TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
+		022818CF23D4EB0E0016B0D5 /* Glob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Glob.swift; sourceTree = "<group>"; };
+		022818D223D4F7CB0016B0D5 /* TestGlob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGlob.swift; sourceTree = "<group>"; };
 		02C24012239A6F0700518764 /* J2Lib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = J2Lib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		02C24016239A6F0700518764 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02C2401B239A6F0700518764 /* J2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = J2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,6 +133,7 @@
 				022818B723D1C2E00016B0D5 /* Options.swift */,
 				022818C423D33C2B0016B0D5 /* Regex.swift */,
 				022818C823D38A040016B0D5 /* PrefixMatcher.swift */,
+				022818CF23D4EB0E0016B0D5 /* Glob.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -176,6 +181,7 @@
 				022818C623D342D50016B0D5 /* TestRegex.swift */,
 				022818C023D23DFE0016B0D5 /* TestOptions.swift */,
 				022818CB23D39B270016B0D5 /* TestPrefixMatcher.swift */,
+				022818D223D4F7CB0016B0D5 /* TestGlob.swift */,
 				022818CD23D4E89D0016B0D5 /* TestHelpers.swift */,
 				02C24022239A6F0700518764 /* Info.plist */,
 			);
@@ -340,6 +346,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				022818D123D4F2AE0016B0D5 /* Glob.swift in Sources */,
 				022818C523D33C2B0016B0D5 /* Regex.swift in Sources */,
 				022818BF23D238F30016B0D5 /* Errors.swift in Sources */,
 				022818CA23D38A0A0016B0D5 /* PrefixMatcher.swift in Sources */,
@@ -358,6 +365,7 @@
 				022818C723D342D50016B0D5 /* TestRegex.swift in Sources */,
 				022818CE23D4E89D0016B0D5 /* TestHelpers.swift in Sources */,
 				02D4B26523A251840094FC62 /* TestRubyJazzy.swift in Sources */,
+				022818D323D4F7CB0016B0D5 /* TestGlob.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
