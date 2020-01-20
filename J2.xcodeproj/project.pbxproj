@@ -21,6 +21,7 @@
 		022818DA23D61FD00016B0D5 /* Yams.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 022818D623D61E740016B0D5 /* Yams.framework */; };
 		022818DB23D61FD10016B0D5 /* Yams.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 022818D623D61E740016B0D5 /* Yams.framework */; };
 		022818DC23D620390016B0D5 /* Yams.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 022818D623D61E740016B0D5 /* Yams.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		029A6F1723D6375E00D66069 /* Yams.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 022818D623D61E740016B0D5 /* Yams.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		02C2401C239A6F0700518764 /* J2Lib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C24012239A6F0700518764 /* J2Lib.framework */; };
 		02C2402D239A6FD700518764 /* RubyJazzy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C2402C239A6FD700518764 /* RubyJazzy.swift */; };
 		02C2403F239A784600518764 /* RubyGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C2403E239A784600518764 /* RubyGateway.framework */; };
@@ -59,6 +60,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				029A6F1723D6375E00D66069 /* Yams.framework in CopyFiles */,
 				02F2B3AF239A7CD400397BC6 /* RubyGateway.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

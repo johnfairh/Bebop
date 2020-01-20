@@ -6,7 +6,7 @@
 //  Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
 //
 
-import Foundation
+import Yams
 
 // Disappointing to write this all but need
 // - distributed options
@@ -19,9 +19,6 @@ import Foundation
 // - short/long/yaml opts
 // - auto-gen of --[no-] -style longopts
 // - auto unique-prefix expansion for longopts
-
-/// Placeholder pending yaml framework
-typealias Yaml = Dictionary<String,Any>
 
 // MARK: Flag string manipulation
 
@@ -116,7 +113,7 @@ class Opt {
     func set(bool: Bool) { fatalError() }
     func set(string: String) throws { fatalError() }
     func set(path: URL) { fatalError() }
-    func set(yaml: Yaml) { fatalError() }
+    func set(yaml: Yams.Node) { fatalError() }
     var  type: OptType { fatalError() }
 }
 
@@ -283,8 +280,8 @@ final class GlobListOpt: ArrayOpt<Glob.Pattern> {
 }
 
 /// Type for clients to describe a yaml-only option,
-final class YamlOpt: TypedOpt<Yaml> {
-    override func set(yaml: Yaml) { configValue = yaml }
+final class YamlOpt: TypedOpt<Yams.Node> {
+    override func set(yaml: Yams.Node) { configValue = yaml }
     override var type: OptType { .yaml }
 }
 
@@ -409,6 +406,22 @@ final class OptsParser {
     /// The base path for interpreting relative paths in options.
     var relativePathBase = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
 
+    /// Validate and send string data to a particular option.
+    private func apply(stringData: [String], to opt: Opt) throws {
+        try stringData.forEach { datum in
+            switch opt.type {
+            case .glob:
+                let url = URL(fileURLWithPath: datum, relativeTo: relativePathBase)
+                try opt.set(string: url.standardized.path)
+            case .path:
+                let url = URL(fileURLWithPath: datum, relativeTo: relativePathBase)
+                opt.set(path: url.standardized)
+            default:
+                try opt.set(string: datum)
+            }
+        }
+    }
+
     /// Parse CLI arguments and apply them to options declared via `addOpts()`.
     ///
     /// - throws: if anything is wrong, including: weird text, unrecognized options,
@@ -427,6 +440,7 @@ final class OptsParser {
                 throw OptionsError("Unexpected repeated option \(next)")
             }
             tracker.cliSeen = true
+
             if tracker.opt.type == .bool {
                 tracker.opt.set(bool: !tracker.invertedBoolOpt)
                 continue
@@ -435,35 +449,75 @@ final class OptsParser {
             guard let data = iter.next() else {
                 throw OptionsError("No argument found for option \(next)")
             }
+
             let allData = tracker.opt.repeats
                 // Split on non-escaped commas, then remove any escapes.
                 ? data.re_split(#"(?<!\\),"#).map { String($0).re_sub(#"\\,"#, with: ",") }
                 : [data]
 
-            try allData.forEach { datum in
-                switch tracker.opt.type {
-                case .glob:
-                    let url = URL(fileURLWithPath: datum, relativeTo: relativePathBase)
-                    try tracker.opt.set(string: url.standardized.path)
-                case .path:
-                    let url = URL(fileURLWithPath: datum, relativeTo: relativePathBase)
-                    tracker.opt.set(path: url.standardized)
-                default:
-                    try tracker.opt.set(string: datum)
-                }
-            }
+            try apply(stringData: allData, to: tracker.opt)
         }
     }
 
-    func apply(yaml: Yaml) throws {
-        // each root key
-        //  lookup as yaml or raise
-        //  warning and next if seen on cli
-        //  if yaml then set and next
-        //  allow 1-elem array for !repeats else raise
-        //  no grandchildren else raise
-        //  if bool then set and next
-        //  if path or glob then validate each
-        //  set each and next
+    /// Parse config file and apply contents to options declared via `addOpts()`.
+    ///
+    /// Assumed to be running *after* `apply(cliOpts:)` and ignores options that
+    /// have already been set from the CLI.
+    ///
+    /// - throws: if the yaml doesn't look exactly as expected or some item validation fails.
+    func apply(yaml: String) throws {
+        guard let yamlNode = try Yams.compose(yaml: yaml) else {
+            throw OptionsError("Could not interpret config file as yaml")
+        }
+
+        guard let rootMapping = yamlNode.mapping else {
+            throw OptionsError("Unexpected config file shape, expected mapping at root")
+        }
+
+        for (key, value) in zip(rootMapping.keys, rootMapping.values) {
+            guard let yamlOptName = key.scalar?.string else {
+                throw OptionsError("Unexpected config file shape, expected scalar key: \(key)")
+            }
+            guard let tracker = flagsDict[yamlOptName] else {
+                throw OptionsError("Unrecognized config file key '\(yamlOptName)'")
+            }
+            guard !tracker.cliSeen && !tracker.partnerCliSeen else {
+                // XXX WARN OVERRIDDEN BY CLI
+                continue
+            }
+            // Easy life if opt just wants yaml
+            if tracker.opt.type == .yaml {
+                tracker.opt.set(yaml: value)
+                continue
+            }
+
+            // Coerce value into Opt required type
+            switch value {
+            case .mapping(_):
+                throw OptionsError("Unexpected config file shape, found mapping for key '\(yamlOptName)'")
+
+            case .scalar(let scalar):
+                if tracker.opt.type == .bool {
+                    guard let yamlBool = Bool.construct(from: scalar) else {
+                        throw OptionsError("Unexpected text '\(scalar)' for config-file key '\(yamlOptName)', expected boolean")
+                    }
+                    tracker.opt.set(bool: yamlBool)
+                } else {
+                    try apply(stringData: [scalar.string], to: tracker.opt)
+                }
+
+            case .sequence(let sequence):
+                guard sequence.count == 1 || tracker.opt.repeats else {
+                    throw OptionsError("Unexpected multiple values '\(sequence)' for config-file key '\(yamlOptName)', expecting just one")
+                }
+                let data = try sequence.map { node -> String in
+                    guard let scalar = node.scalar else {
+                        throw OptionsError("Unexpected mapping/sequence '\(node)' for config-file key '\(yamlOptName)', expected string")
+                    }
+                    return scalar.string
+                }
+                try apply(stringData: data, to: tracker.opt)
+            }
+        }
     }
 }

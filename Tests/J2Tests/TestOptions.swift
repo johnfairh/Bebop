@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Yams
 @testable import J2Lib
 
 enum Color: String, CaseIterable {
@@ -20,9 +21,9 @@ struct Client {
     let c: EnumOpt<Color>
 
     init(optsParser: OptsParser) {
-        a = BoolOpt(s: "a", l: "aaa", help: "a help")
-        b = StringOpt(s: "b", l: "bbb", help: "b help")
-        c = EnumOpt(l: "color", help: "c help")
+        a = BoolOpt(s: "a", l: "aaa", y: "aaa", help: "a help")
+        b = StringOpt(s: "b", l: "bbb", y: "bbb", help: "b help")
+        c = EnumOpt(l: "color", y: "ccc", help: "c help")
         optsParser.addOpts(from: self)
     }
 }
@@ -63,6 +64,10 @@ final class System {
         try optsParser.apply(cliOpts: cliOpts)
     }
 
+    func apply(_ yaml: String) throws {
+        try optsParser.apply(yaml: yaml)
+    }
+
     func applyOptionsError(_ cliOpts: [String]) throws {
         reset()
         AssertThrows(try apply(cliOpts), OptionsError.self)
@@ -83,10 +88,15 @@ final class SimpleSystem {
 
     init(_ opt: Opt) { self.opt = opt }
 
-    func parse(_ cliOpts: [String]) throws {
+    func parse(_ cliOpts: [String] = [], yaml: String? = nil) throws {
         let optsParser = OptsParser()
         optsParser.addOpts(from: self)
-        try optsParser.apply(cliOpts: cliOpts)
+        if !cliOpts.isEmpty {
+            try optsParser.apply(cliOpts: cliOpts)
+        }
+        if let yaml = yaml {
+            try optsParser.apply(yaml: yaml)
+        }
     }
 }
 
@@ -265,6 +275,100 @@ class TestOptions: XCTestCase {
         Do {
             let system = System()
             try system.applyOptionsError(["--color", "pink"])
+        }
+    }
+
+    // Basic yaml function
+    func testYamlBasic() {
+        Do {
+            let system = System()
+            try system.apply("""
+                             aaa: true
+                             bbb:
+                               - Fish
+                             ccc: red
+                             """)
+            system.verify(Spec(true, true, true, "Fish", true, .red))
+        }
+    }
+
+    // Actual lists
+    func testYamlSequence() {
+        Do {
+            let opt = StringListOpt(y: "yamlonly", help: "")
+            let ss = SimpleSystem(opt)
+            try ss.parse(yaml: """
+                         yamlonly:
+                           - one
+                           - two
+                           - three
+                         """)
+            XCTAssertEqual(opt.value, ["one", "two", "three"])
+        }
+    }
+
+    // Yaml option
+    func testYamlOpt() {
+        Do {
+            let opt = YamlOpt(y: "custom_categories", help: "")
+            let ss = SimpleSystem(opt)
+            try ss.parse(yaml: """
+                         custom_categories:
+                            - name: Foo
+                              children:
+                                - Bar
+                         """)
+            XCTAssertTrue(opt.configured)
+            let actual = try Yams.serialize(node: opt.configValue!)
+            XCTAssertEqual("""
+                           - name: Foo
+                             children:
+                             - Bar
+
+                           """, actual)
+        }
+    }
+
+    // Yaml vs. CLI
+    func testYamlVsCli() {
+        Do {
+            let opt = StringOpt(s: "c", y: "ccc", help: "")
+            let system = SimpleSystem(opt)
+            try system.parse(["-c", "foo"], yaml: "ccc: bar")
+            XCTAssertEqual(opt.value, "foo")
+        }
+    }
+
+    // Yaml errors
+    func testYamlErrors() {
+
+        let badYamls = [
+            "", // not yaml
+            "scalar", // not a mapping
+            "[1] : value", // mapping with a weird key
+            "notAKey: true", // unexpected key
+            """
+            bbb:
+              key: value
+            """, // value is a mapping
+            "aaa: fish", // undecodable bool
+            """
+            bbb:
+              - key: value
+            """, // thing in sequence isn't scalar
+            """
+            bbb:
+             - one
+             - two
+            """, // non-singular sequence
+        ]
+
+        let system = System()
+
+        Do {
+            try badYamls.forEach { yaml in
+                AssertThrows(try system.apply(yaml), OptionsError.self, "Yaml should be bad: \(yaml)")
+            }
         }
     }
 }
