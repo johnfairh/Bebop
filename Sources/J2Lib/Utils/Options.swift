@@ -23,6 +23,35 @@ import Foundation
 /// Placeholder pending yaml framework
 typealias Yaml = Dictionary<String,Any>
 
+// MARK: Flag string manipulation
+
+private extension String {
+    var isFlag: Bool {
+        hasPrefix("-")
+    }
+
+    var isLongFlag: Bool {
+        hasPrefix("--")
+    }
+
+    var asLongFlag: String {
+        "--\(self)"
+    }
+
+    var asShortFlag: String {
+        "-\(self)"
+    }
+
+    var invertedLongFlag: String {
+        hasPrefix("--no-") ? re_sub("^--no-", with: "--")
+                          : re_sub("^--", with: "--no-")
+    }
+
+    var withoutFlagPrefix: String {
+        re_sub("^-*", with: "")
+    }
+}
+
 // MARK: Abstract Option Types
 
 /// Base type of an option
@@ -66,13 +95,14 @@ class Opt {
     /// file that contains more than one value.
     var  repeats: Bool { false }
 
-    /// At least one of `longFlag` and `yamlKey` must be set.
-    init(s shortFlag: String? = nil, l longFlag: String? = nil, y yamlKey: String? = nil, help: String) {
-        precondition(longFlag != nil || yamlKey != nil, "Opt must have a long name somewhere")
-        shortFlag.flatMap { precondition(!$0.hasPrefix("-"), "Option names don't include the hyphen") }
-        longFlag.flatMap { precondition(!$0.hasPrefix("--"), "Option names don't include the hyphen") }
-        self.shortFlag = shortFlag.flatMap { "-\($0)" }
-        self.longFlag = longFlag.flatMap { "--\($0)" }
+    /// At least one of `longFlagName` and `yamlKey` must be set.
+    /// Don't include "-" at the start of flag names.
+    init(s shortFlagName: String? = nil, l longFlagName: String? = nil, y yamlKey: String? = nil, help: String) {
+        precondition(longFlagName != nil || yamlKey != nil, "Opt must have a long name somewhere")
+        shortFlagName.flatMap { precondition(!$0.isFlag, "Option names don't include the hyphen") }
+        longFlagName.flatMap { precondition(!$0.isFlag, "Option names don't include the hyphen") }
+        self.shortFlag = shortFlagName.flatMap { $0.asShortFlag }
+        self.longFlag = longFlagName.flatMap { $0.asLongFlag }
         self.yamlKey = yamlKey
         self.help = help
     }
@@ -82,21 +112,11 @@ class Opt {
         [shortFlag, longFlag, yamlKey].compactMap({$0}).joined()
     }
 
-    var invertedLongFlag: String? {
-        guard let longFlag = longFlag else {
-            return nil
-        }
-        if longFlag.hasPrefix("--no-") {
-            return longFlag.re_sub("^--no-", with: "--")
-        }
-        return longFlag.re_sub("^--", with: "--no-")
-    }
-
     /// To be overridden
     func set(bool: Bool) { fatalError() }
     func set(string: String) throws { fatalError() }
     func set(path: URL) { fatalError() }
-    func set(yaml: Yaml) throws { fatalError() }
+    func set(yaml: Yaml) { fatalError() }
     var  type: OptType { fatalError() }
 }
 
@@ -128,7 +148,6 @@ class TypedOpt<OptType>: Opt {
     var configured: Bool {
         configValue != nil
     }
-
 }
 
 /// Further intermediate for array options -- replaces optionals with empty arrays
@@ -217,10 +236,17 @@ final class PathOpt: TypedOpt<URL> {
     override func set(path: URL) { configValue = path }
     override var type: OptType { .path }
 
+    /// Smarter default - interpreted as relative to the current directory
+    @discardableResult
+    func def(_ defaultValue: String) -> Self {
+        def(URL(fileURLWithPath: defaultValue).standardized)
+    }
+
     /// Validation helper, throw unless it's a file
     func checkIsFile() throws {
         try value?.checkIsFile()
     }
+
     /// Validation helper, throw unless it's a directory
     func checkIsDirectory() throws {
         try value?.checkIsDirectory()
@@ -268,15 +294,10 @@ final class YamlOpt: TypedOpt<Yaml> {
 extension Opt {
     fileprivate func toEnum<E>(_ e: E.Type, from: String) throws -> E where E: RawRepresentable & CaseIterable, E.RawValue == String {
         guard let eVal = E(rawValue: from) else {
-            throw Error.options("Bad value '\(from)' for \(name), valid values: \(E.caseList)")
+            let caseList = E.allCases.map({$0.rawValue}).joined(separator: ", ")
+            throw Error.options("Bad value '\(from)' for \(name), valid values: \(caseList)")
         }
         return eVal
-    }
-}
-
-extension CaseIterable where Self: RawRepresentable, RawValue == String {
-    static var caseList: String {
-        allCases.map({$0.rawValue}).joined(separator: ", ")
     }
 }
 
@@ -307,56 +328,73 @@ final class EnumOpt<EnumType>: TypedOpt<EnumType> where
 final class OptsParser {
     /// Keep track of which options have already been used to detect repeats.
     /// Rather OTT scaffolding of automatic '--no-foo-bar' longopts....
-    final class OptTracker {
+    final class Tracker {
         let opt: Opt
         var cliSeen: Bool = false
         // Are we an inverted bool (ie. flag present -> set FALSE) flag?
         let invertedBoolOpt: Bool
         // Our inverted bool peer, bidirectional
-        weak var partnerOptTracker: OptTracker?
+        weak var partnerTracker: Tracker?
 
-        init(_ opt: Opt, invertedOptTracker: OptTracker? = nil) {
+        var partnerCliSeen: Bool {
+            partnerTracker.flatMap { $0.cliSeen } ?? false
+        }
+
+        init(_ opt: Opt, invertedTracker: Tracker? = nil) {
             self.opt = opt
-            if let invertedOptTracker = invertedOptTracker {
+            if let invertedTracker = invertedTracker {
                 self.invertedBoolOpt = true
-                self.partnerOptTracker = invertedOptTracker
-                invertedOptTracker.partnerOptTracker = self
+                self.partnerTracker = invertedTracker
+                invertedTracker.partnerTracker = self
             } else {
                 self.invertedBoolOpt = false
             }
         }
     }
 
-    // Hash of all the CLI opts (including - or '--' prefix) to their tracker.
-    // Includes fabricated '--no-foo' opts
-    var optsDict: Dictionary<String, OptTracker> = [:]
+    /// Hash of all the CLI opts (including - or '--' prefix) to their tracker.
+    /// Includes fabricated '--no-foo' opts
+    var flagsDict: Dictionary<String, Tracker> = [:]
 
-    // Tracker for long opts, without their '--' prefix
-    var longOptsMatcher = PrefixMatcher()
+    /// Index  for long flags, without their '--' prefix
+    var longFlagsMatcher = PrefixMatcher()
 
+    /// Add a `Tracker` to the data structures
+    private func add(flag: String, tracker: Tracker) {
+        precondition(flagsDict[flag] == nil,
+                     "Duplicate definition of opt name '\(flag)'")
+        flagsDict[flag] = tracker
+        if flag.isLongFlag {
+            longFlagsMatcher.insert(flag.withoutFlagPrefix)
+        }
+    }
+
+    /// Try to get a `Tracker` from a flag
+    private func matchTracker(flag: String) -> Tracker? {
+        if let tracker = flagsDict[flag] {
+            return tracker
+        }
+        guard flag.isLongFlag else {
+            return nil
+        }
+        guard let expandedFlag = longFlagsMatcher.match(flag.withoutFlagPrefix) else {
+            return nil
+        }
+        return flagsDict[expandedFlag.asLongFlag]
+    }
+
+    /// Add all an `Opt`'s flags to the trackers
     private func add(opt: Opt) {
-        let tracker = OptTracker(opt)
+        let tracker = Tracker(opt)
 
         [opt.shortFlag, opt.longFlag, opt.yamlKey].forEach { name in
-            name.flatMap {
-                precondition(self.optsDict[$0] == nil,
-                    "Duplicate definition of opt name '\($0)'")
-                self.optsDict[$0] = tracker
-            }
+            name.flatMap { self.add(flag: $0, tracker: tracker) }
         }
 
         // Auto-generate --no-foo from --foo and vice-versa
         if opt.type == .bool,
-            let invertedName = opt.invertedLongFlag {
-            precondition(optsDict[invertedName] == nil,
-                "Duplicate (implicit?) definition of opt name '\(invertedName)'")
-            optsDict[invertedName] = OptTracker(opt, invertedOptTracker: tracker)
-        }
-
-        // Store away the long opt name for partial matching
-        if let longOpt = opt.longFlag {
-            precondition(longOpt.hasPrefix("--"))
-            longOptsMatcher.insert(String(longOpt.dropFirst(2)))
+            let invertedFlag = opt.longFlag?.invertedLongFlag {
+            add(flag: invertedFlag, tracker: Tracker(opt, invertedTracker: tracker))
         }
     }
 
@@ -366,19 +404,6 @@ final class OptsParser {
         m.children.compactMap({ $0.value as? Opt}).forEach {
             self.add(opt: $0)
         }
-    }
-
-    private func match(option: String) -> OptTracker? {
-        if let tracker = optsDict[option] {
-            return tracker
-        }
-        guard option.hasPrefix("--") else {
-            return nil
-        }
-        guard let expandedOpt = longOptsMatcher.match(String(option.dropFirst(2))) else {
-            return nil
-        }
-        return match(option: "--\(expandedOpt)")
     }
 
     /// The base path for interpreting relative paths in options.
@@ -392,17 +417,16 @@ final class OptsParser {
     func apply(cliOpts: [String]) throws {
         var iter = cliOpts.makeIterator()
         while let next = iter.next() {
-            guard next.hasPrefix("-") else {
+            guard next.isFlag else {
                 throw Error.options("Unexpected text '\(next)'")
             }
-            guard let tracker = match(option: next) else {
+            guard let tracker = matchTracker(flag: next) else {
                 throw Error.options("Unknown option \(next)")
             }
-            guard !tracker.cliSeen || tracker.opt.repeats else {
+            guard (!tracker.cliSeen && !tracker.partnerCliSeen) || tracker.opt.repeats else {
                 throw Error.options("Unexpected repeated option \(next)")
             }
             tracker.cliSeen = true
-            tracker.partnerOptTracker?.cliSeen = true
             if tracker.opt.type == .bool {
                 tracker.opt.set(bool: !tracker.invertedBoolOpt)
                 continue

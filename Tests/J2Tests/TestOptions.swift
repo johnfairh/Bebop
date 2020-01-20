@@ -181,8 +181,16 @@ class TestOptions: XCTestCase {
         try opt.checkIsDirectory()
         AssertThrows(try opt.checkIsFile(), Error.options(""))
 
-        try ss.parse(["-p", "blargle"])
+        XCTAssertNoThrow(try ss.parse(["-p", "blargle"]))
         AssertThrows(try opt.checkIsFile(), Error.options(""))
+    }
+
+    func testPathDefault() {
+        let opt = PathOpt(s: "p", y: "p", help: "path").def("defaultPath")
+        let ss = SimpleSystem(opt)
+        XCTAssertNoThrow(try ss.parse([]))
+        XCTAssertFalse(opt.configured)
+        XCTAssertEqual(FileManager.default.currentDirectoryPath + "/defaultPath", opt.value?.path)
     }
 
     // Path validation 2
