@@ -65,7 +65,7 @@ final class System {
 
     func applyOptionsError(_ cliOpts: [String]) throws {
         reset()
-        AssertThrows(try apply(cliOpts), Error.options(""))
+        AssertThrows(try apply(cliOpts), OptionsError.self)
     }
 
     func verify(_ spec: Spec) {
@@ -191,15 +191,15 @@ class TestOptions: XCTestCase {
             let ss = SimpleSystem(opt)
             try ss.parse(["-p", "\(#file)"])
             try opt.checkIsFile()
-            AssertThrows(try opt.checkIsDirectory(), Error.options(""))
+            AssertThrows(try opt.checkIsDirectory(), OptionsError.self)
 
             let directory = URL(fileURLWithPath: #file).deletingLastPathComponent()
             try ss.parse(["-p", "\(directory.path)"])
             try opt.checkIsDirectory()
-            AssertThrows(try opt.checkIsFile(), Error.options(""))
+            AssertThrows(try opt.checkIsFile(), OptionsError.self)
 
             try ss.parse(["-p", "blargle"])
-            AssertThrows(try opt.checkIsFile(), Error.options(""))
+            AssertThrows(try opt.checkIsFile(), OptionsError.self)
         }
     }
 
@@ -220,7 +220,7 @@ class TestOptions: XCTestCase {
             let ss = SimpleSystem(opt)
             try ss.parse(["-p", "\(#file)", "-p", "\(#file)"])
             try opt.checkAreFiles()
-            AssertThrows(try opt.checkAreDirectories(), Error.options(""))
+            AssertThrows(try opt.checkAreDirectories(), OptionsError.self)
         }
     }
 

@@ -211,7 +211,7 @@ extension URL {
         var isDir = ObjCBool(false) // !!
         let exists = fm.fileExists(atPath: path, isDirectory: &isDir)
         if !exists {
-            throw Error.options("Path doesn't exist or is inaccessible: \(path)")
+            throw OptionsError("Path doesn't exist or is inaccessible: \(path)")
         }
         return isDir.boolValue
     }
@@ -219,14 +219,14 @@ extension URL {
     /// Helper: does a path exist as a regular file?  Throw if not.
     func checkIsFile() throws {
         if try checkExistsTestDir() {
-            throw Error.options("Path is for a directory not a regular file: \(path)")
+            throw OptionsError("Path is for a directory not a regular file: \(path)")
         }
     }
 
     /// Helper: does a path exist as a directory?  Throw if not.
     func checkIsDirectory() throws {
         if !(try checkExistsTestDir()) {
-            throw Error.options("Path is for a regular file not a directory: \(path)")
+            throw OptionsError("Path is for a regular file not a directory: \(path)")
         }
     }
 }
@@ -295,7 +295,7 @@ extension Opt {
     fileprivate func toEnum<E>(_ e: E.Type, from: String) throws -> E where E: RawRepresentable & CaseIterable, E.RawValue == String {
         guard let eVal = E(rawValue: from) else {
             let caseList = E.allCases.map({$0.rawValue}).joined(separator: ", ")
-            throw Error.options("Bad value '\(from)' for \(name), valid values: \(caseList)")
+            throw OptionsError("Bad value '\(from)' for \(name), valid values: \(caseList)")
         }
         return eVal
     }
@@ -418,13 +418,13 @@ final class OptsParser {
         var iter = cliOpts.makeIterator()
         while let next = iter.next() {
             guard next.isFlag else {
-                throw Error.options("Unexpected text '\(next)'")
+                throw OptionsError("Unexpected text '\(next)'")
             }
             guard let tracker = matchTracker(flag: next) else {
-                throw Error.options("Unknown option \(next)")
+                throw OptionsError("Unknown option \(next)")
             }
             guard (!tracker.cliSeen && !tracker.partnerCliSeen) || tracker.opt.repeats else {
-                throw Error.options("Unexpected repeated option \(next)")
+                throw OptionsError("Unexpected repeated option \(next)")
             }
             tracker.cliSeen = true
             if tracker.opt.type == .bool {
@@ -433,7 +433,7 @@ final class OptsParser {
             }
 
             guard let data = iter.next() else {
-                throw Error.options("No argument found for option \(next)")
+                throw OptionsError("No argument found for option \(next)")
             }
             let allData = tracker.opt.repeats
                 // Split on non-escaped commas, then remove any escapes.

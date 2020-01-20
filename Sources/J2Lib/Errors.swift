@@ -6,23 +6,56 @@
 //  Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
 //
 
-import Foundation
+/// Type thrown by J2 when there is a problem meaning execution must stop.
+public class Error: CustomStringConvertible, CustomDebugStringConvertible, Swift.Error {
+    public let file: String
+    public let line: Int
 
-public enum Error: CustomStringConvertible, CustomDebugStringConvertible, Swift.Error {
-    case options(String)
-    case notImplemented(String)
-
-    public var description: String {
-        switch self {
-        case .options(let message): return message
-        case .notImplemented(let feature): return "Not implemented: \(feature)"
-        }
+    public var errorSource: String {
+        "\(file) line \(line)"
     }
 
-    public var debugDescription: String {
-        switch self {
-        case .options(let message): return "[options parsing] \(message)"
-        case .notImplemented: return description
-        }
+    fileprivate init(file: String, line: Int) {
+        self.file = file
+        self.line = line
+    }
+
+    public var description: String { "" }
+    public var debugDescription: String { "" }
+}
+
+/// A problem with parsing options.
+public final class OptionsError: Error {
+    public let message: String
+
+    public init(_ message: String = "", file: String = #file, line: Int = #line) {
+        self.message = message
+        super.init(file: file, line: line)
+    }
+
+    public override var description: String {
+        message
+    }
+
+    public override var debugDescription: String {
+        "[options parsing] \(description) (\(errorSource))]"
+    }
+}
+
+/// Some reachable code isn't implemented
+public final class NotImplementedError: Error {
+    public let function: String
+
+    public init(_ function: String = "", file: String = #file, line: Int = #line) {
+        self.function = function
+        super.init(file: file, line: line)
+    }
+
+    public override var description: String {
+        "Not implemented: \(function)"
+    }
+
+    public override var debugDescription: String {
+        "\(description) (\(errorSource))]"
     }
 }
