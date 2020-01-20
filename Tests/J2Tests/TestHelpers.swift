@@ -29,3 +29,20 @@ public func AssertThrows<T>(_ expression: @autoclosure () throws -> T,
         print(j2Error.debugDescription)
     })
 }
+
+extension J2Lib.Error {
+    func sameCategory(other: Error) -> Bool {
+        if case .options(_) = self, case .options(_) = other { return true }
+        if case .notImplemented(_) = self, case .notImplemented(_) = other { return true }
+        return false
+    }
+}
+
+/// `XCTAssertNoThrow` is ugly, `throws` on the method loses the error details, so ...
+func Do(code: () throws -> Void) {
+    do {
+        try code()
+    } catch {
+        XCTFail("Unexpected error thrown: \(error)")
+    }
+}

@@ -25,11 +25,4 @@ public enum Error: CustomStringConvertible, CustomDebugStringConvertible, Swift.
         case .notImplemented: return description
         }
     }
-
-    /// For unit testing.  Not too convinced.
-    public func sameCategory(other: Error) -> Bool {
-        if case .options(_) = self, case .options(_) = other { return true }
-        if case .notImplemented(_) = self, case .notImplemented(_) = other { return true }
-        return false
-    }
 }
