@@ -422,6 +422,8 @@ final class OptsParser {
         }
     }
 
+    // MARK: CLI
+
     /// Parse CLI arguments and apply them to options declared via `addOpts()`.
     ///
     /// - throws: if anything is wrong, including: weird text, unrecognized options,
@@ -459,6 +461,8 @@ final class OptsParser {
         }
     }
 
+    // MARK: YAML
+
     /// Parse config file and apply contents to options declared via `addOpts()`.
     ///
     /// Assumed to be running *after* `apply(cliOpts:)` and ignores options that
@@ -470,14 +474,10 @@ final class OptsParser {
             throw OptionsError("Could not interpret config file as yaml")
         }
 
-        guard let rootMapping = yamlNode.mapping else {
-            throw OptionsError("Unexpected config file shape, expected mapping at root")
-        }
+        let rootMapping = try yamlNode.checkMapping(context: "(root)")
 
         for (key, value) in zip(rootMapping.keys, rootMapping.values) {
-            guard let yamlOptName = key.scalar?.string else {
-                throw OptionsError("Unexpected config file shape, expected scalar key: \(key)")
-            }
+            let yamlOptName = try key.checkScalarKey().string
             guard let tracker = flagsDict[yamlOptName] else {
                 throw OptionsError("Unrecognized config file key '\(yamlOptName)'")
             }
@@ -511,13 +511,35 @@ final class OptsParser {
                     throw OptionsError("Unexpected multiple values '\(sequence)' for config-file key '\(yamlOptName)', expecting just one")
                 }
                 let data = try sequence.map { node -> String in
-                    guard let scalar = node.scalar else {
-                        throw OptionsError("Unexpected mapping/sequence '\(node)' for config-file key '\(yamlOptName)', expected string")
-                    }
-                    return scalar.string
+                    try node.checkScalar(context: yamlOptName).string
                 }
                 try apply(stringData: data, to: tracker.opt)
             }
         }
+    }
+}
+
+// MARK: Yaml checking helpers
+
+extension Yams.Node {
+    func checkScalarKey() throws -> Yams.Node.Scalar {
+        guard let scalar = scalar else {
+            throw OptionsError("Unexpected yaml data, mapping key is '\(self)', expected scalar.")
+        }
+        return scalar
+    }
+
+    func checkScalar(context: String) throws -> Yams.Node.Scalar {
+        guard let scalar = scalar else {
+            throw OptionsError("Unexpected yaml data '\(self)' for key '\(context)', expected scalar.")
+        }
+        return scalar
+    }
+
+    func checkMapping(context: String) throws -> Yams.Node.Mapping {
+        guard let mapping = mapping else {
+            throw OptionsError("Unexpected yaml data '\(self)' for key '\(context)', expected mapping.")
+        }
+        return mapping
     }
 }

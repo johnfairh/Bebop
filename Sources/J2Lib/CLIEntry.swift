@@ -15,12 +15,9 @@ public enum CLIEntry {
             let dictionary: [String: Any] = ["key": "value"]
             let mapYAML: String = try Yams.dump(object: dictionary)
             print(mapYAML)
-
-            let jazzy = try RubyJazzy.create(scriptName: "J2", cliArguments: arguments)
-            try jazzy.run()
             return 0
         } catch {
-            print("Ruby failure: \(error)")
+            print("Failure: \(error)")
             return 1
         }
     }
