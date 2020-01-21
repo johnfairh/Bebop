@@ -4,22 +4,25 @@
 import PackageDescription
 
 let package = Package(
-    name: "J2",
-    products: [
-        .executable(name: "j2", targets: ["J2Lib", "J2CLI"])
-    ],
-    dependencies: [
-        .package(url: "https://github.com/johnfairh/RubyGateway", from: "3.2.0")
-    ],
-    targets: [
-        .target(
-            name: "J2Lib",
-            dependencies: ["RubyGateway"]),
-        .target(
-            name: "J2CLI",
-            dependencies: ["J2Lib"]),
-        .testTarget(
-            name: "J2Tests",
-            dependencies: ["J2Lib"]),
-    ]
+  name: "J2",
+  platforms: [
+    .macOS(.v10_13)
+  ],
+  products: [
+    .executable(name: "j2", targets: ["J2Lib", "J2CLI"])
+  ],
+  dependencies: [
+    .package(url: "https://github.com/jpsim/Yams.git", from: "2.0.0")
+  ],
+  targets: [
+    .target(
+      name: "J2Lib",
+      dependencies: ["Yams"]),
+    .target(
+      name: "J2CLI",
+      dependencies: ["J2Lib"]),
+    .testTarget(
+      name: "J2Tests",
+      dependencies: ["J2Lib"]),
+  ]
 )

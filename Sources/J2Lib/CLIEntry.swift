@@ -7,15 +7,17 @@
 //
 
 import Foundation
+import Yams
 
 public enum CLIEntry {
     public static func run(arguments: [String]) -> Int32 {
         do {
-            let jazzy = try RubyJazzy.create(scriptName: "J2", cliArguments: arguments)
-            try jazzy.run()
+            let dictionary: [String: Any] = ["key": "value"]
+            let mapYAML: String = try Yams.dump(object: dictionary)
+            print(mapYAML)
             return 0
         } catch {
-            print("Ruby failure: \(error)")
+            print("Failure: \(error)")
             return 1
         }
     }
