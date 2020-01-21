@@ -90,7 +90,10 @@ class Opt {
     ///
     /// It's a user error to repeat a non-repeating option, or to ref an array in the config
     /// file that contains more than one value.
-    var  repeats: Bool { false }
+    var repeats: Bool { false }
+
+    /// Boolean options with long flag names are invertable by default
+    var isInvertable: Bool { type == .bool }
 
     /// At least one of `longFlagName` and `yamlKey` must be set.
     /// Don't include "-" at the start of flag names.
@@ -171,7 +174,7 @@ class ArrayOpt<OptElemType>: TypedOpt<[OptElemType]> {
 
 /// Type for clients to describe a boolean option.
 /// Boolean options always have a default value: the default default value is `false`.
-final class BoolOpt: Opt {
+class BoolOpt: Opt {
     private(set) var value: Bool = false
     private(set) var configured: Bool = false
 
@@ -186,6 +189,11 @@ final class BoolOpt: Opt {
         configured = true
     }
     override var type: OptType { .bool }
+}
+
+/// Special for something like `--version` where we don't want a `--no-version` generated too.
+final class CmdOpt: BoolOpt {
+    override var isInvertable: Bool { false }
 }
 
 /// Type for clients to describe a non-repeating string option,
@@ -380,7 +388,7 @@ final class OptsParser {
         return flagsDict[expandedFlag.asLongFlag]
     }
 
-    /// Add all an `Opt`'s flags to the trackers
+    /// Add all an `Opt`'s flags and variants to the trackers
     private func add(opt: Opt) {
         let tracker = Tracker(opt)
 
@@ -389,7 +397,7 @@ final class OptsParser {
         }
 
         // Auto-generate --no-foo from --foo and vice-versa
-        if opt.type == .bool,
+        if opt.isInvertable,
             let invertedFlag = opt.longFlag?.invertedLongFlag {
             add(flag: invertedFlag, tracker: Tracker(opt, invertedTracker: tracker))
         }

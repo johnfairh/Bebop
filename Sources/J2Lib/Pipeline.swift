@@ -20,6 +20,10 @@ public struct Pipeline {
     /// Build, configure, and execute a pipeline
     public func run(argv: [String]) throws {
         try config.processOptions(cliOpts: argv)
+
+        guard !config.performConfigCommand() else {
+            return
+        }
     }
 }
 

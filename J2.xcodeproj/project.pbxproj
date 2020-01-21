@@ -24,6 +24,7 @@
 		029A6F1723D6375E00D66069 /* Yams.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 022818D623D61E740016B0D5 /* Yams.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		029A6F1923D77F7C00D66069 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029A6F1823D77F7C00D66069 /* Config.swift */; };
 		029A6F1B23D7838700D66069 /* Pipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029A6F1A23D7838700D66069 /* Pipeline.swift */; };
+		029A6F1D23D79AB000D66069 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029A6F1C23D79AB000D66069 /* Version.swift */; };
 		02C2401C239A6F0700518764 /* J2Lib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C24012239A6F0700518764 /* J2Lib.framework */; };
 		02F2B3C4239A7E2A00397BC6 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C24034239A732200518764 /* main.swift */; };
 		02F2B3C8239A804100397BC6 /* J2Lib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C24012239A6F0700518764 /* J2Lib.framework */; };
@@ -86,6 +87,7 @@
 		022818D623D61E740016B0D5 /* Yams.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Yams.framework; path = Carthage/Build/Mac/Yams.framework; sourceTree = "<group>"; };
 		029A6F1823D77F7C00D66069 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		029A6F1A23D7838700D66069 /* Pipeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pipeline.swift; sourceTree = "<group>"; };
+		029A6F1C23D79AB000D66069 /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		02C24012239A6F0700518764 /* J2Lib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = J2Lib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		02C24016239A6F0700518764 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02C2401B239A6F0700518764 /* J2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = J2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,6 +166,7 @@
 			children = (
 				029A6F1A23D7838700D66069 /* Pipeline.swift */,
 				029A6F1823D77F7C00D66069 /* Config.swift */,
+				029A6F1C23D79AB000D66069 /* Version.swift */,
 				022818C323D33C120016B0D5 /* Utils */,
 				02C24016239A6F0700518764 /* Info.plist */,
 			);
@@ -348,6 +351,7 @@
 				029A6F1923D77F7C00D66069 /* Config.swift in Sources */,
 				022818CA23D38A0A0016B0D5 /* PrefixMatcher.swift in Sources */,
 				022818B823D1C2E00016B0D5 /* Options.swift in Sources */,
+				029A6F1D23D79AB000D66069 /* Version.swift in Sources */,
 				029A6F1B23D7838700D66069 /* Pipeline.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -33,12 +33,19 @@ extension Configurable {
 ///   Again halt on the first error.
 /// 4. XXX somebody XXX does cross-component validation.  Need to figure out what this means, beyond
 ///   a "warn if an option has been given that will be ignored because irrelevant"
+///
+/// We also look after --version and --help -- these are parsed out as normal and executed after all the
+/// validation on request.
 public final class Config {
-    /// Our option -- where is the config file!
-    internal let configFileOpt = PathOpt(l: "config", help: """
+    /// Real option: where is the config file?
+    private let configFileOpt = PathOpt(l: "config", help: """
         Configuration file, YAML or JSON.
         Default: .j2.yaml, .j2.json, .jazzy.yaml, .jazzy.json in current directory or ancestor.
         """)
+
+    /// Pseudo-options for help & version
+    private let helpOpt = CmdOpt(l: "help", help: "Show this help.")
+    private let versionOpt = CmdOpt(l: "version", help: "Show the library version.")
 
     private let optsParser: OptsParser
 
@@ -103,5 +110,19 @@ public final class Config {
         }
 
         return nil
+    }
+
+    /// Handle --version / --help
+    /// - returns: `true` if we executed a config command.
+    /// XXX need to parameterize the output stuff
+    public func performConfigCommand() -> Bool {
+        if versionOpt.value {
+            print(Version.j2libVersion)
+            return true
+        }
+
+        if helpOpt.value {
+        }
+        return versionOpt.value || helpOpt.value
     }
 }
