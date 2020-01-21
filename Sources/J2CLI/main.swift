@@ -9,5 +9,5 @@
 import J2Lib
 import Foundation
 
-let exitStatus = CLIEntry.run(arguments: CommandLine.arguments)
+let exitStatus = Pipeline.main(argv: [String](CommandLine.arguments.dropFirst()))
 exit(exitStatus)

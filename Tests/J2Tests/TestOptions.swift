@@ -292,6 +292,21 @@ class TestOptions: XCTestCase {
         }
     }
 
+    // Sanity-check that we can read json too...
+    func testJsonBasic() {
+        Do {
+            let system = System()
+            try system.apply("""
+                             {
+                               "aaa": "true",
+                               "bbb": [ "Fish" ],
+                               "ccc": "red"
+                             }
+                             """)
+            system.verify(Spec(true, true, true, "Fish", true, .red))
+        }
+    }
+
     // Actual lists
     func testYamlSequence() {
         Do {

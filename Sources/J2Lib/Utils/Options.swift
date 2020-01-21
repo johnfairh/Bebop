@@ -222,7 +222,7 @@ extension URL {
 
     /// Helper: does a path exist as a directory?  Throw if not.
     func checkIsDirectory() throws {
-        if !(try checkExistsTestDir()) {
+        if try !checkExistsTestDir() {
             throw OptionsError("Path is for a regular file not a directory: \(path)")
         }
     }
