@@ -6,6 +6,7 @@
 //  Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
 //
 
+import Foundation
 import Yams
 
 // Disappointing to write this all but need
@@ -490,7 +491,7 @@ final class OptsParser {
                 throw OptionsError("Unrecognized config file key '\(yamlOptName)'")
             }
             guard !tracker.cliSeen && !tracker.partnerCliSeen else {
-                // XXX WARN OVERRIDDEN BY CLI
+                logWarning("Config file key \(yamlOptName) ignored, already set on command-line")
                 continue
             }
             // Easy life if opt just wants yaml

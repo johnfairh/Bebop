@@ -13,7 +13,14 @@ public struct Pipeline {
     /// Options parsing and validation orchestration
     public let config: Config
 
-    public init() {
+    /// Set up a new pipeline.
+    /// - parameter logger: Optional `Logger` to use for logging messages.
+    ///   Some settings in it will be overwritten if `--quiet` or `--debug` are passed
+    ///   to `run(argv:)`.
+    public init(logger: Logger? = nil) {
+        if let logger = logger {
+            Logger.shared = logger
+        }
         config = Config()
     }
 
@@ -32,11 +39,22 @@ public struct Pipeline {
 public extension Pipeline {
     /// Build and run a pipeline using CLI args and status reported to stdout/stderr
     static func main(argv: [String]) -> Int32 {
+        Logger.shared.messagePrefix = { level in
+            switch level {
+            case .debug: return "j2: debug: "
+            case .info: return ""
+            case .warning: return "j2: warning: "
+            case .error: return "j2: error: "
+            }
+        }
         do {
             try Pipeline().run(argv: argv)
             return 0
+        } catch let error as Error {
+            logError(error.description)
+            return 1
         } catch {
-            print("Error: \(error)")
+            logError(error.localizedDescription)
             return 1
         }
     }

@@ -25,6 +25,7 @@
 		029A6F1923D77F7C00D66069 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029A6F1823D77F7C00D66069 /* Config.swift */; };
 		029A6F1B23D7838700D66069 /* Pipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029A6F1A23D7838700D66069 /* Pipeline.swift */; };
 		029A6F1D23D79AB000D66069 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029A6F1C23D79AB000D66069 /* Version.swift */; };
+		029A6F1F23D880F700D66069 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029A6F1E23D880F700D66069 /* Logger.swift */; };
 		02C2401C239A6F0700518764 /* J2Lib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C24012239A6F0700518764 /* J2Lib.framework */; };
 		02F2B3C4239A7E2A00397BC6 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C24034239A732200518764 /* main.swift */; };
 		02F2B3C8239A804100397BC6 /* J2Lib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C24012239A6F0700518764 /* J2Lib.framework */; };
@@ -88,6 +89,7 @@
 		029A6F1823D77F7C00D66069 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		029A6F1A23D7838700D66069 /* Pipeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pipeline.swift; sourceTree = "<group>"; };
 		029A6F1C23D79AB000D66069 /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
+		029A6F1E23D880F700D66069 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		02C24012239A6F0700518764 /* J2Lib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = J2Lib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		02C24016239A6F0700518764 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02C2401B239A6F0700518764 /* J2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = J2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,6 +137,7 @@
 				022818B723D1C2E00016B0D5 /* Options.swift */,
 				022818BE23D238F30016B0D5 /* Errors.swift */,
 				022818C823D38A040016B0D5 /* PrefixMatcher.swift */,
+				029A6F1E23D880F700D66069 /* Logger.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				022818C523D33C2B0016B0D5 /* Regex.swift in Sources */,
 				022818BF23D238F30016B0D5 /* Errors.swift in Sources */,
 				029A6F1923D77F7C00D66069 /* Config.swift in Sources */,
+				029A6F1F23D880F700D66069 /* Logger.swift in Sources */,
 				022818CA23D38A0A0016B0D5 /* PrefixMatcher.swift in Sources */,
 				022818B823D1C2E00016B0D5 /* Options.swift in Sources */,
 				029A6F1D23D79AB000D66069 /* Version.swift in Sources */,

@@ -43,9 +43,11 @@ public final class Config {
         Default: .j2.yaml, .j2.json, .jazzy.yaml, .jazzy.json in current directory or ancestor.
         """)
 
-    /// Pseudo-options for help & version
+    /// Command options for help / version / log-control
     private let helpOpt = CmdOpt(l: "help", help: "Show this help.")
     private let versionOpt = CmdOpt(l: "version", help: "Show the library version.")
+    private let debugOpt = CmdOpt(l: "debug", y: "debug", help: "Report lots of information as the program runs.")
+    private let quietOpt = CmdOpt(s: "q", l: "quiet", y: "quiet", help: "Report only serious problems.")
 
     private let optsParser: OptsParser
 
@@ -69,11 +71,12 @@ public final class Config {
     public func processOptions(cliOpts: [String]) throws {
         try optsParser.apply(cliOpts: cliOpts)
 
+        configureLogger(report: false)
+
         if let configFileURL = try findConfigFile() {
             try configFileURL.checkIsFile()
 
-            // XXX log 'using config file...'
-            print("Using config file \(configFileURL.path)")
+            logInfo("Using config file \(configFileURL.path)")
 
             let configFile = try String(contentsOf: configFileURL)
 
@@ -81,6 +84,8 @@ public final class Config {
 
             try optsParser.apply(yaml: configFile)
         }
+
+        configureLogger(report: true)
 
         try configurables.forEach { try $0.checkOptions() }
     }
@@ -117,12 +122,47 @@ public final class Config {
     /// XXX need to parameterize the output stuff
     public func performConfigCommand() -> Bool {
         if versionOpt.value {
-            print(Version.j2libVersion)
+            logInfo(Version.j2libVersion)
             return true
         }
 
         if helpOpt.value {
         }
         return versionOpt.value || helpOpt.value
+    }
+
+    /// Configure the logger per options, reducing or increasing the verbosity.
+    /// This is called twice because of the two-phase option-parsing so that
+    /// the settings can be applied as early as possible: the `report` parameter
+    /// says whether this is the second call.
+    private func configureLogger(report: Bool) {
+        if debugOpt.value {
+            Logger.shared.activeLevels = Logger.verboseLevels
+
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "HH:mm:SS"
+            Logger.shared.messagePrefix = { level in
+                let timestamp = dateFormatter.string(from: Date())
+                let levelStr: String
+                switch level {
+                case .debug: levelStr = "dbug"
+                case .info: levelStr = "info"
+                case .warning: levelStr = "warn"
+                case .error: levelStr = "err "
+                }
+                return "[\(timestamp) \(levelStr)] "
+            }
+            // Everything to stdout
+            Logger.shared.diagnosticStream = Logger.stdout
+
+            if report {
+                logDebug("Debug enabled, version \(Version.j2libVersion)")
+                if quietOpt.value {
+                    logWarning("--quiet and --debug both set, ignoring --quiet")
+                }
+            }
+        } else if quietOpt.value {
+            Logger.shared.activeLevels = Logger.quietLevels
+        }
     }
 }
