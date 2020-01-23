@@ -1,0 +1,44 @@
+name: Test
+
+on:
+  push:
+    paths-ignore:
+      - 'Fw2020/**'
+  pull_request:
+
+jobs:
+  macos:
+    name: macOS build and test
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Run tests
+        run: swift test --enable-code-coverage
+  
+  xcode:
+    name: Xcode build test coverage
+    runs-on: macos-latest
+    
+    steps:
+      - uses: actions/checkout@v1
+      - name: Xcodebuild
+        run: |
+          carthage bootstrap --no-use-binaries --platform macOS --cache-builds
+          touch Package.resolved
+          xcodebuild -scheme J2 build test
+      - name: Coverage upload
+        run: bash <(curl -s https://codecov.io/bash) -J 'J2Lib$' -X gcov -X coveragepy -t 35729115-01be-4d17-8b1f-063fa0892b79
+  
+  linux:
+    name: linux build and test
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v1
+      - uses: fwal/setup-swift@master
+        with:
+          swift-version: 5.1
+      - name: Run tests
+        run: swift test --enable-test-discovery
+        

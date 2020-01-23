@@ -1,3 +1,4 @@
+#
 TEST_COMMAND=swift test --parallel
 
 all:
