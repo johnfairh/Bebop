@@ -101,6 +101,11 @@ final class SimpleSystem {
 }
 
 class TestOptions: XCTestCase {
+
+    override class func setUp() {
+        TestLogger.uninstall()
+    }
+
     /// No args, simple args
     func testBasic() {
         Do {

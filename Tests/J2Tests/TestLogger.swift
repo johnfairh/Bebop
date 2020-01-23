@@ -16,8 +16,8 @@ class TestLogging: XCTestCase {
         system.logger.log(.info, "i")
         system.logger.log(.warning, "w")
         system.logger.log(.error, "e")
-        XCTAssertEqual("i\n", system.messageBuf)
-        XCTAssertEqual("w\ne\n", system.diagsBuf)
+        XCTAssertEqual(["i"], system.messageBuf)
+        XCTAssertEqual(["w", "e"], system.diagsBuf)
     }
 
     func testDiags() {
@@ -28,14 +28,14 @@ class TestLogging: XCTestCase {
         system.logger.log(.info, "i")
         system.logger.log(.warning, "w")
         system.logger.log(.error, "e")
-        XCTAssertEqual("", system.messageBuf)
-        XCTAssertEqual("d\ni\nw\ne\n", system.diagsBuf)
+        XCTAssertEqual([], system.messageBuf)
+        XCTAssertEqual(["d", "i", "w", "e"], system.diagsBuf)
     }
 
     func testPrefix() {
         let system = TestLogger()
         system.logger.messagePrefix = { level in "\(level): "}
         system.logger.log(.info, "test")
-        XCTAssertEqual("info: test\n", system.messageBuf)
+        XCTAssertEqual(["info: test"], system.messageBuf)
     }
 }

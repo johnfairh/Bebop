@@ -42,18 +42,22 @@ func Do(code: () throws -> Void) {
 // Logger drop-in to log to string buffers
 //
 final class TestLogger {
-    var messageBuf = ""
-    var diagsBuf = ""
+    var messageBuf = [String]()
+    var diagsBuf = [String]()
     var logger = Logger()
     var expectNothing = false
+    var expectNoDiags = false
+    var expectNoMessages = false
 
     init() {
         logger.logHandler = { m, d in
             XCTAssertFalse(self.expectNothing)
             if d {
-                print(m, to: &self.diagsBuf)
+                XCTAssertFalse(self.expectNoDiags)
+                self.diagsBuf.append(m)
             } else {
-                print(m, to: &self.messageBuf)
+                XCTAssertFalse(self.expectNoMessages)
+                self.messageBuf.append(m)
             }
         }
     }
