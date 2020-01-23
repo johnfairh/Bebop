@@ -9,7 +9,7 @@
 /// Logging abstraction
 ///
 /// Should switch to swift-log when we let Xcode manage the Package.swift.
-public struct Logger {
+public final class Logger {
     /// Categories of log messages
     public enum Level {
         /// Messages about the internal running of the program that may be of interest when debugging
@@ -25,35 +25,25 @@ public struct Logger {
         case warning
         /// Messages about abnormal conditions that make the program unable to continue.
         case error
-
-        /// Is this message a diagnostic (typically, should it go to stderr?)
-        var isDiagnostic: Bool {
-            self != .info
-        }
     }
 
     /// A set of log levels
     public typealias Levels = Set<Level>
 
+    public static let allLevels = Levels([.debug, .info, .warning, .error])
+
     /// Quiet logging - just error diagnostics
-    public static var quietLevels = Levels([.error])
+    public static let quietLevels = Levels([.error])
     /// Regular logging - user info and diagnostics
-    public static var normalLevels = Levels([.info, .warning, .error])
+    public static let normalLevels = Levels([.info, .warning, .error])
     /// Verbose logging - debug info, user info, diagnostics
-    public static var verboseLevels = Levels([.debug, .info, .warning, .error])
+    public static let verboseLevels = allLevels
 
     /// The log levels that this logger will propagate
     public var activeLevels: Levels = normalLevels
 
-    /// A version of `stdout` that can be used to direct a logger's output
-    public static let stdout: TextOutputStream = StdStream.stdout
-    /// A version of `stderr` that can be used to direct a logger's output
-    public static let stderr: TextOutputStream = StdStream.stderr
-
-    /// Stream for the logger's `info` messages
-    public var normalStream: TextOutputStream = stdout
-    /// Stream for the logger's `debug`, `warning`, `error` messages
-    public var diagnosticStream: TextOutputStream = stderr
+    /// Diagnostic classification
+    public var diagnosticLevels = Levels([.debug, .warning, .error])
 
     /// Prefix for this logger's  messages
     public var messagePrefix: (Level) -> String = { _ in "" }
@@ -63,9 +53,21 @@ public struct Logger {
         guard activeLevels.contains(level) else {
             return
         }
-        var stream = level.isDiagnostic ? diagnosticStream : normalStream
-        stream.write("\(messagePrefix(level))\(message())\n")
+
+        logHandler(messagePrefix(level) + message(), diagnosticLevels.contains(level))
     }
+
+    /// Logger back-end, actually do something with a message.
+    public var logHandler: (String, _ isDiagnostic: Bool) -> Void = { m, d in
+        if d {
+            print(m, to: &StdStream.stderr)
+        } else {
+            print(m, to: &StdStream.stdout)
+        }
+    }
+
+    /// Initialize a new `Logger` with default settings
+    public init() {}
 }
 
 // MARK: Globals
@@ -103,11 +105,11 @@ import Foundation
 
 fileprivate struct StdStream: TextOutputStream {
     let fh: FileHandle
-    // This may not even be right, who is flushing what when?  Good grief.
+    // This may not even be right, who is flushing or locking what when??
     mutating func write(_ string: String) {
         fh.write(string.data(using: .utf8)!)
     }
 
-    static let stdout = StdStream(fh: .standardOutput)
-    static let stderr = StdStream(fh: .standardError)
+    static var stdout = StdStream(fh: .standardOutput)
+    static var stderr = StdStream(fh: .standardError)
 }

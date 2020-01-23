@@ -22,7 +22,6 @@ extension Configurable {
     }
 }
 
-///
 /// Configuration (CLI options, config file)
 ///
 /// 1. Components declare their options to `Config.register` during initialization.
@@ -34,8 +33,10 @@ extension Configurable {
 /// 4. XXX somebody XXX does cross-component validation.  Need to figure out what this means, beyond
 ///   a "warn if an option has been given that will be ignored because irrelevant"
 ///
-/// We also look after --version and --help -- these are parsed out as normal and executed after all the
-/// validation on request.
+/// Config is also responsible for some miscellaneous non-mission tasks:
+/// * --version command
+/// * --help command
+/// * --debug and --quiet modes
 public final class Config {
     /// Real option: where is the config file?
     private let configFileOpt = PathOpt(l: "config", help: """
@@ -148,12 +149,12 @@ public final class Config {
                 case .debug: levelStr = "dbug"
                 case .info: levelStr = "info"
                 case .warning: levelStr = "warn"
-                case .error: levelStr = "err "
+                case .error: levelStr = "err " // 4-col align
                 }
                 return "[\(timestamp) \(levelStr)] "
             }
             // Everything to stdout
-            Logger.shared.diagnosticStream = Logger.stdout
+            Logger.shared.diagnosticLevels = []
 
             if report {
                 logDebug("Debug enabled, version \(Version.j2libVersion)")

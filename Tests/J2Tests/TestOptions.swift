@@ -15,7 +15,7 @@ enum Color: String, CaseIterable {
     case blue
 }
 
-struct Client {
+fileprivate struct Client {
     let a: BoolOpt
     let b: StringOpt
     let c: EnumOpt<Color>
@@ -28,7 +28,7 @@ struct Client {
     }
 }
 
-struct Spec {
+fileprivate struct Spec {
     let aSet: Bool
     let aValue: Bool
     let bSet: Bool
@@ -47,7 +47,7 @@ struct Spec {
     }
 }
 
-final class System {
+fileprivate final class System {
     var optsParser: OptsParser!
     var client: Client!
 
