@@ -114,6 +114,9 @@ class TestOptions: XCTestCase {
             system.verify(Spec(false, false, false, nil, false, nil))
             try system.apply(["-a", "--bbb", "fred", "--color", "red"])
             system.verify(Spec(true, true, true, "fred", true, .red))
+            system.reset()
+            try system.apply(["-a", "--bbb=fr=d", "--color=red"])
+            system.verify(Spec(true, true, true, "fr=d", true, .red))
         }
     }
 
@@ -272,6 +275,8 @@ class TestOptions: XCTestCase {
             try system.applyOptionsError("--no-bbb foo".components(separatedBy: " "))
 
             try system.applyOptionsError(["--color"])
+
+            try system.applyOptionsError(["--aaa=true"])
         }
     }
 

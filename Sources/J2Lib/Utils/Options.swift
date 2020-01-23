@@ -464,12 +464,24 @@ final class OptsParser {
     ///   indirectly if enums don't validate.
     func apply(cliOpts: [String]) throws {
         var iter = cliOpts.makeIterator()
-        while let next = iter.next() {
+        while var next = iter.next() {
             guard next.isFlag else {
                 throw OptionsError("Unexpected text '\(next)'")
             }
+
+            var nextArg: String? = nil
+
+            if next.isLongFlag && next.contains("=") {
+                let words = next.split(separator: "=")
+                next = String(words.first!)
+                nextArg = words[1...].joined(separator: "=")
+            }
+
             guard let tracker = matchTracker(flag: next) else {
                 throw OptionsError("Unknown option '\(next)'")
+            }
+            if let nextArg = nextArg, tracker.opt.type == .bool {
+                throw OptionsError("Unknown option '\(next)=\(nextArg)'")
             }
             guard (!tracker.cliSeen && !tracker.partnerCliSeen) || tracker.opt.repeats else {
                 throw OptionsError("Unexpected repeated option '\(next)'")
@@ -481,7 +493,7 @@ final class OptsParser {
                 continue
             }
 
-            guard let data = iter.next() else {
+            guard let data = nextArg ?? iter.next() else {
                 throw OptionsError("No argument found for option '\(next)'")
             }
 
