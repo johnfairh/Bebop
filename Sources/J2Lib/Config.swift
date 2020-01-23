@@ -63,7 +63,7 @@ public final class Config {
 
     /// Register a configurable component and its options.
     /// All the `Opt` fields from `configurable` are found and added.
-    public func register(configurable: Configurable) {
+    public func register(_ configurable: Configurable) {
         configurables.append(configurable)
         optsParser.addOpts(from: configurable)
     }
@@ -120,7 +120,6 @@ public final class Config {
 
     /// Handle --version / --help
     /// - returns: `true` if we executed a config command.
-    /// XXX need to parameterize the output stuff
     public func performConfigCommand() -> Bool {
         if versionOpt.value {
             logInfo(Version.j2libVersion)

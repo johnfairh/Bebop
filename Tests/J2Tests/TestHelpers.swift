@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import J2Lib
+@testable import J2Lib
 
 /// Execute some code and check it throws a particular category of error.
 /// 
@@ -30,10 +30,43 @@ public func AssertThrows<Err, Ret>(_ expression: @autoclosure () throws -> Ret,
 }
 
 /// `XCTAssertNoThrow` is ugly, `throws` on the method loses the error details, so ...
+/// (that would be because you haven't understood the localizedErrorDescription thing....)
 func Do(code: () throws -> Void) {
     do {
         try code()
     } catch {
         XCTFail("Unexpected error thrown: \(error)")
+    }
+}
+
+// Logger drop-in to log to string buffers
+//
+final class TestLogger {
+    var messageBuf = ""
+    var diagsBuf = ""
+    var logger = Logger()
+    var expectNothing = false
+
+    init() {
+        logger.logHandler = { m, d in
+            XCTAssertFalse(self.expectNothing)
+            if d {
+                print(m, to: &self.diagsBuf)
+            } else {
+                print(m, to: &self.messageBuf)
+            }
+        }
+    }
+
+    static var shared = TestLogger()
+
+    static func install() {
+        let testLogger = TestLogger()
+        shared = testLogger
+        Logger.shared = testLogger.logger
+    }
+
+    static func uninstall() {
+        Logger.shared = Logger()
     }
 }

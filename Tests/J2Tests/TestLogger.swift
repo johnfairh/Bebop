@@ -9,25 +9,9 @@
 import XCTest
 import J2Lib
 
-fileprivate final class System {
-    var messageBuf = ""
-    var diagsBuf = ""
-    var logger = Logger()
-
-    init() {
-        logger.logHandler = { m, d in
-            if d {
-                print(m, to: &self.diagsBuf)
-            } else {
-                print(m, to: &self.messageBuf)
-            }
-        }
-    }
-}
-
-class TestLogger: XCTestCase {
+class TestLogging: XCTestCase {
     func testBasic() {
-        let system = System()
+        let system = TestLogger()
         system.logger.log(.debug, "d") // swallowed
         system.logger.log(.info, "i")
         system.logger.log(.warning, "w")
@@ -37,7 +21,7 @@ class TestLogger: XCTestCase {
     }
 
     func testDiags() {
-        let system = System()
+        let system = TestLogger()
         system.logger.activeLevels = Logger.allLevels
         system.logger.diagnosticLevels = Logger.allLevels
         system.logger.log(.debug, "d")
@@ -49,7 +33,7 @@ class TestLogger: XCTestCase {
     }
 
     func testPrefix() {
-        let system = System()
+        let system = TestLogger()
         system.logger.messagePrefix = { level in "\(level): "}
         system.logger.log(.info, "test")
         XCTAssertEqual("info: test\n", system.messageBuf)
