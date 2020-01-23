@@ -122,7 +122,7 @@ class TestConfig: XCTestCase {
             TestLogger.install()
             TestLogger.shared.expectNoDiags = true
             let system = System()
-            try system.configure(cliOpts: "--version")
+            try system.configure(cliOpts: "--version", "--unreal")
             XCTAssertTrue(system.config.performConfigCommand())
             XCTAssertEqual([Version.j2libVersion], TestLogger.shared.messageBuf)
         }
@@ -142,6 +142,7 @@ class TestConfig: XCTestCase {
 
     // 5. quiet & debug update shared logger settings
     //    a. dbg prefix right shape
+    //    b. debug beats quiet
     func testQuiet() {
         Do {
             TestLogger.install()
@@ -182,5 +183,11 @@ class TestConfig: XCTestCase {
             XCTAssertFalse(system.config.performConfigCommand())
             XCTAssertEqual(Logger.allLevels, TestLogger.shared.logger.activeLevels)
         }
+    }
+
+    // 6. Opts error actually thrown
+    func testOptsError() {
+        let system = System()
+        AssertThrows(try system.configure(cliOpts: "--bad"), OptionsError.self)
     }
 }

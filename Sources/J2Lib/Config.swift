@@ -40,7 +40,7 @@ extension Configurable {
 public final class Config {
     /// Real option: where is the config file?
     private let configFileOpt = PathOpt(l: "config", help: """
-        Configuration file, YAML or JSON.
+        Path to configuration file, YAML or JSON.
         Default: .j2.yaml, .j2.json, .jazzy.yaml, .jazzy.json in current directory
         or ancestor.
         """)
@@ -71,7 +71,21 @@ public final class Config {
 
     /// Perform the configuration process: parse and validate the CLI arguments and config file.
     public func processOptions(cliOpts: [String]) throws {
-        try optsParser.apply(cliOpts: cliOpts)
+        var optsError: Swift.Error? = nil
+
+        do {
+            try optsParser.apply(cliOpts: cliOpts)
+        } catch {
+            optsError = error
+        }
+
+        if versionOpt.value || helpOpt.value {
+            return
+        }
+
+        if let optsError = optsError {
+            throw optsError
+        }
 
         configureLogger(report: false)
 
@@ -134,7 +148,6 @@ public final class Config {
     public func performConfigCommand() -> Bool {
         if versionOpt.value {
             logInfo(Version.j2libVersion)
-            return true
         }
 
         if helpOpt.value {
