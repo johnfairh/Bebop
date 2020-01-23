@@ -129,7 +129,7 @@ class TestConfig: XCTestCase {
     }
 
     // 4. help cmd (something)
-    func FAIL_testHelp() {
+    func testHelp() {
         Do {
             TestLogger.install()
             TestLogger.shared.expectNoDiags = true

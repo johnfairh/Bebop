@@ -75,9 +75,9 @@ enum OptType {
 /// visitors for simplicity, at the expense of some ugly abstract-base-type methods here.
 ///
 class Opt {
-    /// Single-character flag.  Does not include leading hyphen.
+    /// Single-character flag.  Includes leading hyphen.
     let shortFlag: String?
-    /// Multiple-character flag.  Does not include leading hyphens.
+    /// Multiple-character flag.  Includes leading hyphens.
     let longFlag: String?
     let yamlKey: String?
 
@@ -110,7 +110,16 @@ class Opt {
 
     /// Debug/UI helper to refer to the Opt
     var name: String {
-        [shortFlag, longFlag, yamlKey].compactMap({$0}).joined()
+        let flags = [longFlag,
+                     shortFlag,
+                     yamlKey.flatMap { "config=\($0)" }]
+        return flags.compactMap { $0 }
+            .joined(separator: ", ")
+    }
+
+    /// A user-sensible string to sort by
+    var sortKey: String {
+        longFlag?.withoutFlagPrefix ?? yamlKey!
     }
 
     /// To be overridden
@@ -360,10 +369,13 @@ final class OptsParser {
 
     /// Hash of all the CLI opts (including - or '--' prefix) to their tracker.
     /// Includes fabricated '--no-foo' opts
-    var flagsDict: Dictionary<String, Tracker> = [:]
+    private var flagsDict: Dictionary<String, Tracker> = [:]
 
     /// Index  for long flags, without their '--' prefix
-    var longFlagsMatcher = PrefixMatcher()
+    private var longFlagsMatcher = PrefixMatcher()
+
+    /// Collection of all the `Opt`s
+    private(set) var allOpts = [Opt]()
 
     /// Add a `Tracker` to the data structures
     private func add(flag: String, tracker: Tracker) {
@@ -391,6 +403,7 @@ final class OptsParser {
 
     /// Add all an `Opt`'s flags and variants to the trackers
     private func add(opt: Opt) {
+        allOpts.append(opt)
         let tracker = Tracker(opt)
 
         [opt.shortFlag, opt.longFlag, opt.yamlKey].forEach { name in
@@ -445,10 +458,10 @@ final class OptsParser {
                 throw OptionsError("Unexpected text '\(next)'")
             }
             guard let tracker = matchTracker(flag: next) else {
-                throw OptionsError("Unknown option \(next)")
+                throw OptionsError("Unknown option '\(next)'")
             }
             guard (!tracker.cliSeen && !tracker.partnerCliSeen) || tracker.opt.repeats else {
-                throw OptionsError("Unexpected repeated option \(next)")
+                throw OptionsError("Unexpected repeated option '\(next)'")
             }
             tracker.cliSeen = true
 
@@ -458,7 +471,7 @@ final class OptsParser {
             }
 
             guard let data = iter.next() else {
-                throw OptionsError("No argument found for option \(next)")
+                throw OptionsError("No argument found for option '\(next)'")
             }
 
             let allData = tracker.opt.repeats

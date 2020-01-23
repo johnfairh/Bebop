@@ -41,7 +41,8 @@ public final class Config {
     /// Real option: where is the config file?
     private let configFileOpt = PathOpt(l: "config", help: """
         Configuration file, YAML or JSON.
-        Default: .j2.yaml, .j2.json, .jazzy.yaml, .jazzy.json in current directory or ancestor.
+        Default: .j2.yaml, .j2.json, .jazzy.yaml, .jazzy.json in current directory
+        or ancestor.
         """)
 
     /// Command options for help / version / log-control
@@ -127,6 +128,30 @@ public final class Config {
         }
 
         if helpOpt.value {
+            logInfo("""
+                    j2: Generate API documentation for Swift or Objective-C code.
+
+                    Usage: j2 [options]
+
+                    Options:
+                    """)
+
+            var first = true
+            optsParser.allOpts
+                .sorted { $0.sortKey < $1.sortKey }
+                .forEach { opt in
+                if first {
+                    first = false
+                } else {
+                    logInfo("")
+                }
+
+                logInfo(" " + opt.name)
+
+                opt.help.split(separator: "\n")
+                    .map { "   " + $0 }
+                    .forEach { logInfo($0) }
+            }
         }
         return versionOpt.value || helpOpt.value
     }
