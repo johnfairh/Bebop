@@ -102,14 +102,24 @@ public final class Config {
 
         let fm = FileManager.default
 
+        // CoreFoundation vs. RealFoundation bug.
+        //
+        // In RF, "/".deleteLastPathComponent.standardize() => ""
+        // In CF, "/".deleteLastPathComponent.standardize() => "/"  DOH
+        //
+        // ...so don't rely on the path going down to nothing.
         for prefix in [".j2", ".jazzy"] {
             var pathURL = URL(fileURLWithPath: fm.currentDirectoryPath)
-            while !pathURL.path.isEmpty {
+            while true {
                 for suffix in [".yaml", ".json"] {
                     let fileURL = pathURL.appendingPathComponent(prefix + suffix)
                     if fm.fileExists(atPath: fileURL.path) {
                         return fileURL
                     }
+                }
+
+                if pathURL.path == "/" {
+                    break
                 }
                 pathURL.deleteLastPathComponent()
                 pathURL.standardize()

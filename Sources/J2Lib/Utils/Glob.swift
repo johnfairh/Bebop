@@ -12,6 +12,10 @@ import Glibc
 import Darwin
 #endif
 
+//
+// Careful here with Darwin/Linux differences
+//
+
 /// Namespace for a set of utilities to deal with matching files and directories in a shell-globbish way.
 /// These are implemented using libc primitives.
 public enum Glob {
@@ -45,7 +49,7 @@ public enum Glob {
 
         var paths = [String]()
 
-        for i in 0..<Int(globData.gl_matchc) {
+        for i in 0..<Int(globData.gl_pathc) {
             let charStar = globData.gl_pathv![i]
             if let cStr = charStar {
                 paths.append(String(cString: cStr))
