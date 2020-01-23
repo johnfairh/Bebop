@@ -391,4 +391,24 @@ class TestOptions: XCTestCase {
             }
         }
     }
+
+    // Misc option ui
+    func testInvertableSyntax() {
+        let opt1 = BoolOpt(l: "foo", help: "")
+        XCTAssertTrue(opt1.isInvertable)
+        XCTAssertTrue(opt1.name.contains("--[no-]foo"))
+
+        let opt2 = BoolOpt(l: "no-foo", help: "")
+        XCTAssertTrue(opt2.isInvertable)
+        XCTAssertTrue(opt2.name.contains("--[no-]foo"))
+    }
+
+    // More misc option ui
+    func testSortKey() {
+        let opt1 = BoolOpt(l: "aaa", y: "zzz", help: "")
+        let opt2 = BoolOpt(y: "bbb", help: "")
+
+        XCTAssertEqual("aaa", opt1.sortKey)
+        XCTAssertEqual("bbb", opt2.sortKey)
+    }
 }

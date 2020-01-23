@@ -42,7 +42,11 @@ private extension String {
 
     var invertedLongFlag: String {
         hasPrefix("--no-") ? re_sub("^--no-", with: "--")
-                          : re_sub("^--", with: "--no-")
+                           : re_sub("^--", with: "--no-")
+    }
+
+    var invertableLongFlagSyntax: String {
+        re_sub("^--(no-)?", with: "--[no-]")
     }
 
     var withoutFlagPrefix: String {
@@ -110,7 +114,14 @@ class Opt {
 
     /// Debug/UI helper to refer to the Opt
     var name: String {
-        let flags = [longFlag,
+        let extendedLongFlag: String?
+        if isInvertable, let longFlag = longFlag {
+            extendedLongFlag = longFlag.invertableLongFlagSyntax
+        } else {
+            extendedLongFlag = longFlag
+        }
+
+        let flags = [extendedLongFlag,
                      shortFlag,
                      yamlKey.flatMap { "config=\($0)" }]
         return flags.compactMap { $0 }
