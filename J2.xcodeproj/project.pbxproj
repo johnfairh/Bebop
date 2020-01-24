@@ -25,6 +25,7 @@
 		0257280523DB503C0001F510 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0257280223DB503C0001F510 /* Localizable.strings */; };
 		0257280723DB50B40001F510 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0257280623DB50B40001F510 /* Resources.swift */; };
 		0257280C23DB540C0001F510 /* J2Resources.bundle in Embed PlugIns */ = {isa = PBXBuildFile; fileRef = 029A718423DB04F300D66069 /* J2Resources.bundle */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0257281123DB7E5E0001F510 /* TestPipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0257281023DB7E5E0001F510 /* TestPipeline.swift */; };
 		029A6F1723D6375E00D66069 /* Yams.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 022818D623D61E740016B0D5 /* Yams.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		029A6F1923D77F7C00D66069 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029A6F1823D77F7C00D66069 /* Config.swift */; };
 		029A6F1B23D7838700D66069 /* Pipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029A6F1A23D7838700D66069 /* Pipeline.swift */; };
@@ -114,6 +115,7 @@
 		025727FF23DB50270001F510 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		0257280323DB503C0001F510 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = Localizable.strings; sourceTree = "<group>"; };
 		0257280623DB50B40001F510 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
+		0257281023DB7E5E0001F510 /* TestPipeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPipeline.swift; sourceTree = "<group>"; };
 		029A6F1823D77F7C00D66069 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		029A6F1A23D7838700D66069 /* Pipeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pipeline.swift; sourceTree = "<group>"; };
 		029A6F1C23D79AB000D66069 /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 				022818D223D4F7CB0016B0D5 /* TestGlob.swift */,
 				029A717823D9A46300D66069 /* TestLogger.swift */,
 				029A717A23D9B2AC00D66069 /* TestConfig.swift */,
+				0257281023DB7E5E0001F510 /* TestPipeline.swift */,
 				022818CD23D4E89D0016B0D5 /* TestHelpers.swift */,
 				02C24022239A6F0700518764 /* Info.plist */,
 			);
@@ -482,6 +485,7 @@
 				022818CC23D39B270016B0D5 /* TestPrefixMatcher.swift in Sources */,
 				022818C223D23E050016B0D5 /* TestOptions.swift in Sources */,
 				022818C723D342D50016B0D5 /* TestRegex.swift in Sources */,
+				0257281123DB7E5E0001F510 /* TestPipeline.swift in Sources */,
 				029A717923D9A46300D66069 /* TestLogger.swift in Sources */,
 				022818CE23D4E89D0016B0D5 /* TestHelpers.swift in Sources */,
 				022818D323D4F7CB0016B0D5 /* TestGlob.swift in Sources */,

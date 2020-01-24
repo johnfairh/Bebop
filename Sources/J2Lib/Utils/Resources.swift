@@ -6,24 +6,76 @@
 //  Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
 //
 
+//
+// This stuff is about accessing the resources associated with the program.
+// These resources are made up of static files used to generate the docs,
+// and static files used during runtime -- primarily localized strings files.
+//
+// This code is a huge mess because SwiftPM can't do bundles and resources,
+// and the open-source Foundation/CF that Linux etc. use has crucial gaps
+// around localization and bundles.
+//
+// The good news is this will >95% go away in a couple of years when Swift PM
+// and CF do have these features and the bugs have been ironed out.
+//
+// Quick summary of the things being worked around:
+// 1) Raw executables don't have a proper `Bundle.main` -- that bundle has a
+//    path matching the executable, but no other useful properties.
+//
+// 1a) FHS bundles might work in some sense but don't work in the sense of
+//     providing a proper `Bundle.main` from a ${prefix}/bin/foo / ${prefix}/share/foo.resources
+//     set.
+//
+// 1b) So in the raw executable case (SPM) we have to manually hunt down the
+//     resource bundle.
+//
+// 2) CF's preferred localization algorithm is: "get the bundle's available languages,
+//    intersect those with the main bundle's languages, then smart-match against the
+//    user's preferred languages".  In reality:
+//
+// 2a) Raw executables don't have a real main bundle, their languages come out as [],
+//     and knock out all the available languages.
+//
+// 2b) The smart-match algorithm, even the version that promises to be
+//     a pure function of its input lists, is broken/missing in !Darwin.
+//
+// 2c) CF disdains $LANG & co. so there are in fact no preferred languages on
+//     !Darwin.  It disdains $LANG on Darwin too but the userdefaults etc. all works.
+//
+// 2d) There is no `Bundle` API to get a string from a specific locale, you have to
+//     use the adorable preferred localization algorithm.
+//
+// 2e) This all means the hundreds of lines of 1990s-style CF code amount to 'return "en"'.
+//
+// 2f) And so we have to manually pick the localization to use, on !Darwin this means
+//     parsing $LANG, and create a sub-bundle wrapping the .lproj that we want to use
+//     in order to access the strings API.
+//
+// 3) Oh and `Bundle(for:)` just crashes on !Darwin.  And can't be used with a struct!
+//
+// It's been a day.
+
 import Foundation
 
 public final class Resources {
-
+    /// The bundle for accessing non-localized resources
     let bundle: Bundle
+    /// The bundle for accessing localized resources
     let localizationBundle: Bundle
 
-    init(bundle: Bundle, localizationBundle: Bundle) {
+    private init(bundle: Bundle, localizationBundle: Bundle) {
         self.bundle = bundle
         self.localizationBundle = localizationBundle
     }
 
+    /// Read a localized string
     func string(_ key: String, value: String? = nil) -> String {
-        return localizationBundle.localizedString(forKey: key, value: nil, table: nil)
+        return localizationBundle.localizedString(forKey: key, value: value ?? "This is not text", table: nil)
     }
 
     private(set) static var shared: Resources!
 
+    /// Read a locallized string
     public static func string(_ key: String, value: String? = nil) -> String {
         shared.string(key, value: value)
     }
@@ -44,12 +96,22 @@ public final class Resources {
         debugLog.forEach { logDebug($0) }
     }
 
+    // Hook for xctest - can't figure out how to make it work everywhere or even autodetect
+    static var injectedMainBundleUrl: URL?
+
+    /// Initialise the resource and localization bundles.
+    /// Works or halts the process.
     public static func initialize() {
-        #if SWIFT_PACKAGE
-        let mainBundle = spmFindMainBundle()
-        #else
-        let mainBundle = xcodeFindMainBundle()
-        #endif
+        let mainBundle: Bundle
+        if let injectedMainBundleUrl = injectedMainBundleUrl {
+            mainBundle = Bundle(url: injectedMainBundleUrl)!
+        } else {
+            #if SWIFT_PACKAGE
+            mainBundle = spmFindMainBundle()
+            #else
+            mainBundle = xcodeFindMainBundle()
+            #endif
+        }
 
         log("Resource bundle path: \(mainBundle.bundlePath)")
 
