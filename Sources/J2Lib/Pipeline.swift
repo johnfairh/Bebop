@@ -26,7 +26,12 @@ public struct Pipeline {
 
     /// Build, configure, and execute a pipeline
     public func run(argv: [String]) throws {
+
+        Resources.initialize()
+
         try config.processOptions(cliOpts: argv)
+
+        Resources.reportInitialization()
 
         guard !config.performConfigCommand() else {
             return
