@@ -74,3 +74,19 @@ final class TestLogger {
         Logger.shared = Logger()
     }
 }
+
+extension XCTestCase {
+    /// Set up so that the code can find the resources - needed for SPM
+    /// where the built pieces are scattered.
+    func initResourceBundle() {
+        #if SWIFT_PACKAGE
+        let bundlePath = URL(fileURLWithPath: #file)
+            .deletingLastPathComponent()
+            .deletingLastPathComponent()
+            .deletingLastPathComponent()
+            .appendingPathComponent("Resources")
+            .path
+        setenv(Resources.BUNDLE_ENV_VAR, strdup(bundlePath), 1)
+        #endif
+    }
+}

@@ -21,17 +21,18 @@ public struct Pipeline {
         if let logger = logger {
             Logger.shared = logger
         }
-        config = Config()
-    }
-
-    /// Build, configure, and execute a pipeline
-    public func run(argv: [String]) throws {
 
         Resources.initialize()
 
+        config = Config()
+    }
+
+    /// Build, configure, and execute a pipeline according to `argv` and
+    /// any config file.
+    public func run(argv: [String] = []) throws {
         try config.processOptions(cliOpts: argv)
 
-        Resources.reportInitialization()
+        Resources.logInitializationProgress()
 
         guard !config.performConfigCommand() else {
             return
@@ -46,6 +47,7 @@ public extension Pipeline {
     static func main(argv: [String]) -> Int32 {
         Logger.shared.messagePrefix = { level in
             switch level {
+            // are these supposed to be localized?
             case .debug: return "j2: debug: "
             case .info: return ""
             case .warning: return "j2: warning: "

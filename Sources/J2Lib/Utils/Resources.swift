@@ -92,19 +92,22 @@ public final class Resources {
         debugLog.append(msg)
     }
 
-    public static func reportInitialization() {
+    public static func logInitializationProgress() {
         debugLog.forEach { logDebug($0) }
     }
 
-    // Hook for xctest - can't figure out how to make it work everywhere or even autodetect
-    static var injectedMainBundleUrl: URL?
+    /// Hook for xctest and unpredictable embeddings - manually specify where the resource bundle is
+    public static let BUNDLE_ENV_VAR = "J2_RESOURCES_PATH"
 
     /// Initialise the resource and localization bundles.
     /// Works or halts the process.
     public static func initialize() {
         let mainBundle: Bundle
-        if let injectedMainBundleUrl = injectedMainBundleUrl {
-            mainBundle = Bundle(url: injectedMainBundleUrl)!
+        if let injectedMainBundlePath = ProcessInfo.processInfo.environment[BUNDLE_ENV_VAR] {
+            guard let bundle = Bundle(path: injectedMainBundlePath) else {
+                preconditionFailure("Can't load resources bundle at \(BUNDLE_ENV_VAR)=\(injectedMainBundlePath)")
+            }
+            mainBundle = bundle
         } else {
             #if SWIFT_PACKAGE
             mainBundle = spmFindMainBundle()
@@ -122,8 +125,8 @@ public final class Resources {
         shared = Resources(bundle: mainBundle, localizationBundle: localizationBundle)
     }
 
-    /// In Xcode world, the resource bundle is a "plugin" sub-bundle of the J2Lib framework bundle.
-    /// This is (sort of) how the APIs want this to work.
+    /// In Xcode world, we have a framework bundle and the resource bundle is a "plugin" sub-bundle of the
+    /// J2Lib framework bundle.  This is (sort of) how the APIs want this to work.
     static func xcodeFindMainBundle() -> Bundle {
         let frameworkBundle = Bundle(for: Resources.self)
 
@@ -211,30 +214,42 @@ public final class Resources {
 
             // Some furrin platform that CF doesn't understand.
             // Not only is Locale broken, Bundle.preferredLocalizations(from:forPrefs:) is too.
-            // Galaxies of room for improvement.
-
-            if let langVar = ProcessInfo.processInfo.environment["LANG"],
-                let match = langVar.re_match(#"^(.*)\.?"#) {
-                let languageCountry = String(match[1])
-                let language = String(languageCountry.prefix(2))
-
-                log("Localization bundle: using LANG \(langVar) derived \(languageCountry), \(language)")
-
-                for match in [languageCountry, language] {
-                    if supported.contains(match) {
-                        return match
-                    }
-                }
-            }
-
-            // No LANG (bare-bones docker image!) or unsupported LANG
-
-            return nil
+            let (choice, msg) = chooseLanguageFromEnvironment(choices: supported)
+            log(msg)
+            return choice
         }
 
         // As appears traditional: fall back to en...
         let chosen = preferredLanguage() ?? "en"
-        let localizationURL = bundle.resourceURL!.appendingPathComponent("\(chosen).\(LPROJ)")
-        return Bundle(url: localizationURL)!
+        guard let resourceURL = bundle.resourceURL,
+            case let localizationURL = resourceURL.appendingPathComponent("\(chosen).\(LPROJ)"),
+            let locBundle = Bundle(url: localizationURL) else {
+            preconditionFailure("Installation looks corrupt - can no longer find .lproj directory " +
+                "\(chosen) in \(bundle.bundlePath) that we thought was there earlier (\(lprojs))")
+        }
+        return locBundle
+    }
+
+    /// Parse environment variables to figure out the user's preferred language.
+    /// Lots of space for improvement here but hoping CF gets fixed first.
+    /// Factored out for unit test.
+    static func chooseLanguageFromEnvironment(choices: [String]) -> (result: String?, log: String) {
+        let langVar = ProcessInfo.processInfo.environment["LANG"]
+        let log = "Localization bundle: using LANG \(langVar ?? "(nil)")"
+
+        guard let lv = langVar, let match = lv.re_match(#"^(.*)\.?"#) else {
+            return (nil, log)
+        }
+
+        let languageCountry = String(match[1])
+        let language = String(languageCountry.prefix(2))
+
+        for match in [languageCountry, language] {
+            if choices.contains(match) {
+                return (match, log)
+            }
+        }
+
+        return (nil, log)
     }
 }
