@@ -8,7 +8,7 @@ on:
 
 jobs:
   macos:
-    name: macOS build and test
+    name: macOS SPM unit tests
     runs-on: macos-latest
 
     steps:
@@ -17,7 +17,7 @@ jobs:
         run: swift test --enable-code-coverage
   
   xcode:
-    name: Xcode build test coverage
+    name: macOS Xcode unit tests and coverage
     runs-on: macos-latest
     
     steps:
@@ -31,7 +31,7 @@ jobs:
         run: bash <(curl -s https://codecov.io/bash) -J 'J2Lib$' -X gcov -X coveragepy -t 35729115-01be-4d17-8b1f-063fa0892b79
   
   linux:
-    name: linux build and test
+    name: Linux SPM unit tests
     runs-on: ubuntu-latest
     
     steps:
