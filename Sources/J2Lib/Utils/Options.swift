@@ -238,7 +238,7 @@ extension URL {
         var isDir = ObjCBool(false) // !!
         let exists = fm.fileExists(atPath: path, isDirectory: &isDir)
         if !exists {
-            throw OptionsError("Path doesn't exist or is inaccessible: \(path)")
+            throw OptionsError(.localized("err-path-not-exist", path))
         }
         return isDir.boolValue
     }
@@ -246,14 +246,14 @@ extension URL {
     /// Helper: does a path exist as a regular file?  Throw if not.
     func checkIsFile() throws {
         if try checkExistsTestDir() {
-            throw OptionsError("Path is for a directory not a regular file: \(path)")
+            throw OptionsError(.localized("err-path-not-file", path))
         }
     }
 
     /// Helper: does a path exist as a directory?  Throw if not.
     func checkIsDirectory() throws {
         if try !checkExistsTestDir() {
-            throw OptionsError("Path is for a regular file not a directory: \(path)")
+            throw OptionsError(.localized("err-path-not-dir", path))
         }
     }
 }
@@ -322,7 +322,7 @@ extension Opt {
     fileprivate func toEnum<E>(_ e: E.Type, from: String) throws -> E where E: RawRepresentable & CaseIterable, E.RawValue == String {
         guard let eVal = E(rawValue: from) else {
             let caseList = E.allCases.map({$0.rawValue}).joined(separator: ", ")
-            throw OptionsError("Bad value '\(from)' for \(name), valid values: \(caseList)")
+            throw OptionsError(.localized("err-enum-value", from, name, caseList))
         }
         return eVal
     }
@@ -467,7 +467,7 @@ final class OptsParser {
         var iter = cliOpts.makeIterator()
         while var next = iter.next() {
             guard next.isFlag else {
-                throw OptionsError("Unexpected text '\(next)'")
+                throw OptionsError(.localized("err-cli-unexpected", next))
             }
 
             var nextArg: String? = nil
@@ -479,13 +479,14 @@ final class OptsParser {
             }
 
             guard let tracker = matchTracker(flag: next) else {
-                throw OptionsError("Unknown option '\(next)'")
+                throw OptionsError(.localized("err-cli-unknown-option", next))
             }
             if let nextArg = nextArg, tracker.opt.type == .bool {
-                throw OptionsError("Unknown option '\(next)=\(nextArg)'")
+                throw OptionsError(.localized("err-cli-unknown-option",
+                                              "\(next)=\(nextArg)"))
             }
             guard (!tracker.cliSeen && !tracker.partnerCliSeen) || tracker.opt.repeats else {
-                throw OptionsError("Unexpected repeated option '\(next)'")
+                throw OptionsError(.localized("err-cli-repeated", next))
             }
             tracker.cliSeen = true
 
@@ -495,7 +496,7 @@ final class OptsParser {
             }
 
             guard let data = nextArg ?? iter.next() else {
-                throw OptionsError("No argument found for option '\(next)'")
+                throw OptionsError(.localized("err-cli-missing-arg", next))
             }
 
             let allData = tracker.opt.repeats
@@ -517,7 +518,7 @@ final class OptsParser {
     /// - throws: if the yaml doesn't look exactly as expected or some item validation fails.
     func apply(yaml: String) throws {
         guard let yamlNode = try Yams.compose(yaml: yaml) else {
-            throw OptionsError("Could not interpret config file as yaml")
+            throw OptionsError(.localized("err-cfg-not-yaml"))
         }
 
         let rootMapping = try yamlNode.checkMapping(context: "(root)")
@@ -525,10 +526,10 @@ final class OptsParser {
         for (key, value) in zip(rootMapping.keys, rootMapping.values) {
             let yamlOptName = try key.checkScalarKey().string
             guard let tracker = flagsDict[yamlOptName] else {
-                throw OptionsError("Unrecognized config key '\(yamlOptName)'")
+                throw OptionsError(.localized("err-cfg-bad-key", yamlOptName))
             }
             guard !tracker.cliSeen && !tracker.partnerCliSeen else {
-                logWarning("Config key \(yamlOptName) ignored, already set on command-line")
+                logWarning(.localized("wrn-cfg-ignored", yamlOptName))
                 continue
             }
             // Easy life if opt just wants yaml
@@ -540,12 +541,13 @@ final class OptsParser {
             // Coerce value into Opt required type
             switch value {
             case .mapping(_):
-                throw OptionsError("Unexpected config file shape, found mapping for key '\(yamlOptName)'")
+                throw OptionsError(.localized("err-cfg-bad-mapping", yamlOptName))
 
             case .scalar(let scalar):
                 if tracker.opt.type == .bool {
                     guard let yamlBool = Bool.construct(from: scalar) else {
-                        throw OptionsError("Unexpected text '\(scalar.string)' for config key '\(yamlOptName)', expected boolean")
+                        throw OptionsError(.localized("err-cfg-text-not-bool",
+                                                      scalar.string, yamlOptName))
                     }
                     tracker.opt.set(bool: yamlBool)
                 } else {
@@ -554,8 +556,8 @@ final class OptsParser {
 
             case .sequence(let sequence):
                 guard sequence.count == 1 || tracker.opt.repeats else {
-                    throw OptionsError("Unexpected multiple values '\(try value.asDebugString())' " +
-                                       "for config key '\(yamlOptName)', expecting just one")
+                    throw OptionsError(.localized("err-cfg-multi-seq",
+                                                  try value.asDebugString(), yamlOptName))
                 }
                 let data = try sequence.map { node -> String in
                     try node.checkScalar(context: yamlOptName).string
@@ -577,7 +579,7 @@ extension Yams.Node {
     func checkScalarKey() throws -> Yams.Node.Scalar {
         guard let scalar = scalar else {
             let strSelf = try asDebugString()
-            throw OptionsError("Unexpected yaml data, mapping key is '\(strSelf)', expected scalar.")
+            throw OptionsError(.localized("err-cfg-non-scalar-key", strSelf))
         }
         return scalar
     }
@@ -585,7 +587,7 @@ extension Yams.Node {
     func checkScalar(context: String) throws -> Yams.Node.Scalar {
         guard let scalar = scalar else {
             let strSelf = try asDebugString()
-            throw OptionsError("Unexpected yaml '\(strSelf)' for key '\(context)', expected scalar.")
+            throw OptionsError(.localized("err-cfg-not-scalar", strSelf, context))
         }
         return scalar
     }
@@ -593,7 +595,7 @@ extension Yams.Node {
     func checkMapping(context: String) throws -> Yams.Node.Mapping {
         guard let mapping = mapping else {
             let strSelf = try asDebugString()
-            throw OptionsError("Unexpected yaml '\(strSelf)' for key '\(context)', expected mapping.")
+            throw OptionsError(.localized("err-cfg-not-mapping", strSelf, context))
         }
         return mapping
     }

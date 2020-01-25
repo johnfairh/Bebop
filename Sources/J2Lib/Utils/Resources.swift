@@ -57,6 +57,17 @@
 
 import Foundation
 
+extension String {
+    /// Helper to grab a localized string and do substitutions %1 .... %n
+    static func localized(_ key: String, _ subs: Any...) -> String {
+        var result = Resources.shared.string(key)
+        subs.enumerated().forEach { idx, sub in
+            result = result.re_sub("%\(idx+1)", with: String(describing: sub))
+        }
+        return result
+    }
+}
+
 public final class Resources {
     /// The bundle for accessing non-localized resources
     let bundle: Bundle

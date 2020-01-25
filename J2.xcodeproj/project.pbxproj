@@ -197,18 +197,18 @@
 			path = en.lproj;
 			sourceTree = "<group>";
 		};
-		0257280123DB503C0001F510 /* fr.lproj */ = {
+		0257280123DB503C0001F510 /* qq.lproj */ = {
 			isa = PBXGroup;
 			children = (
 				0257280223DB503C0001F510 /* Localizable.strings */,
 			);
-			path = fr.lproj;
+			path = qq.lproj;
 			sourceTree = "<group>";
 		};
 		029A718523DB04F300D66069 /* J2Resources */ = {
 			isa = PBXGroup;
 			children = (
-				0257280123DB503C0001F510 /* fr.lproj */,
+				0257280123DB503C0001F510 /* qq.lproj */,
 				025727FD23DB50270001F510 /* en.lproj */,
 				029A718623DB04F300D66069 /* Info.plist */,
 			);

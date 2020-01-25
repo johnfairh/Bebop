@@ -38,7 +38,7 @@ extension URL {
             let rc = fileManager.changeCurrentDirectoryPath(cwd)
             if !rc {
                 // this is really bad, original directory deleted?  Struggle on.
-                logWarning("Cannot chdir back to '\(cwd)'")
+                logWarning(.localized("wrn-path-no-chdir", cwd))
             }
         }
         fileManager.changeCurrentDirectoryPath(path)

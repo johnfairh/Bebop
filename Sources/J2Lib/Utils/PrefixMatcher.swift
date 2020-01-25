@@ -106,7 +106,7 @@ public struct PrefixMatcher {
 private extension String {
     var headAndTail: (Character, String) {
         guard let firstChar = first else {
-            fatalError("Confused, chopping empty string")
+            preconditionFailure("Confused, chopping empty string")
         }
         let restStart = self.index(self.startIndex, offsetBy: 1)
         return (firstChar, String(self[restStart...]))

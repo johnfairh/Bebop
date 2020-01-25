@@ -88,7 +88,7 @@ public final class Config {
         if let configFileURL = try findConfigFile() {
             try configFileURL.checkIsFile()
 
-            logInfo("Using config file \(configFileURL.path)")
+            logInfo(.localized("msg-config-file", configFileURL.path))
 
             let configFile = try String(contentsOf: configFileURL)
 
@@ -147,13 +147,7 @@ public final class Config {
         }
 
         if helpOpt.value {
-            logInfo("""
-                    j2: Generate API documentation for Swift or Objective-C code.
-
-                    Usage: j2 [options]
-
-                    Options:
-                    """)
+            logInfo(Resources.shared.string("msg-help-intro"))
 
             var first = true
             optsParser.allOpts
@@ -202,7 +196,7 @@ public final class Config {
             if report {
                 logDebug("Debug enabled, version \(Version.j2libVersion)")
                 if quietOpt.value {
-                    logWarning("--quiet and --debug both set, ignoring --quiet")
+                    logWarning(.localized("wrn-quiet-debug"))
                 }
             }
         } else if quietOpt.value {
