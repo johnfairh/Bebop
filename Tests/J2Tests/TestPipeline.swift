@@ -12,7 +12,7 @@ import XCTest
 class TestPipeline: XCTestCase {
     // Check resource bundle xctest setup
     func testResourceSetup() {
-        initResourceBundle()
+        prepareResourceBundle()
         Resources.initialize()
     }
 
@@ -42,7 +42,7 @@ class TestPipeline: XCTestCase {
 
     // Pipeline construction but get out early
     func testPipelineSetup() throws {
-        initResourceBundle()
+        prepareResourceBundle()
         TestLogger.install()
         TestLogger.shared.expectNoDiags = true
         let p = Pipeline(logger: TestLogger.shared.logger)
@@ -53,7 +53,7 @@ class TestPipeline: XCTestCase {
     // Pipeline from CLI
     // (using --version here to avoid running the whole thing, have to think...)
     func testCliPipeline() throws {
-        initResourceBundle()
+        prepareResourceBundle()
         TestLogger.install()
         let rc = Pipeline.main(argv: ["--version"])
         XCTAssertEqual(0, rc)

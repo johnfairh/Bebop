@@ -1,0 +1,21 @@
+/* 
+  Help.strings
+  J2
+
+  Copyright 2019 J2 Authors
+  Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
+
+  Help text for CLI/Yaml options
+
+  The key in the file is the long CLI name or the yaml key name of the option.
+  If the option has both then the long CLI name takes precedence.
+
+  Try to keep max width to 74 characters for a terminal.
+*/
+"help" = "Show this help.";
+"debug" = "Report lots of information as the program runs.";
+"quiet" = "Report only serious problems.";
+"version" = "Report the program version.";
+"config" = "Path to configuration file, YAML or JSON.
+Default: .j2.yaml, .j2.json, .jazzy.yaml, .jazzy.json found in the current
+directory or ancestor.";

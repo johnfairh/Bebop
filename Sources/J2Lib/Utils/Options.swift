@@ -85,9 +85,6 @@ class Opt {
     let longFlag: String?
     let yamlKey: String?
 
-    /// Localized help text for the option.  Includes default behaviour.
-    let help: String
-
     /// A string-based opt may repeat.  This means:
     /// * Its flag may occur multiple times on the CLI, all values are collected.
     /// * The flag value may use , to separate items.
@@ -102,14 +99,13 @@ class Opt {
 
     /// At least one of `longFlagName` and `yamlKey` must be set.
     /// Don't include "-" at the start of flag names.
-    init(s shortFlagName: String? = nil, l longFlagName: String? = nil, y yamlKey: String? = nil, help: String) {
+    init(s shortFlagName: String? = nil, l longFlagName: String? = nil, y yamlKey: String? = nil) {
         precondition(longFlagName != nil || yamlKey != nil, "Opt must have a long name somewhere")
         shortFlagName.flatMap { precondition(!$0.isFlag, "Option names don't include the hyphen") }
         longFlagName.flatMap { precondition(!$0.isFlag, "Option names don't include the hyphen") }
         self.shortFlag = shortFlagName.flatMap { $0.asShortFlag }
         self.longFlag = longFlagName.flatMap { $0.asLongFlag }
         self.yamlKey = yamlKey
-        self.help = help
     }
 
     /// Debug/UI helper to refer to the Opt
@@ -131,6 +127,11 @@ class Opt {
     /// A user-sensible string to sort by
     var sortKey: String {
         longFlag?.withoutFlagPrefix ?? yamlKey!
+    }
+
+    /// Help text stored in strings file, keyed by the `sortKey`
+    var help: String {
+        Resources.shared.helpText(optionName: sortKey)
     }
 
     /// To be overridden

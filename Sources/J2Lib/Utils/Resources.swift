@@ -68,17 +68,19 @@ public final class Resources {
         self.localizationBundle = localizationBundle
     }
 
+    /// Get localized help text
+    func helpText(optionName: String) -> String {
+        return localizationBundle.localizedString(forKey: optionName,
+                                                  value: "(No help provided)",
+                                                  table: "Help")
+    }
+
     /// Read a localized string
     func string(_ key: String, value: String? = nil) -> String {
         return localizationBundle.localizedString(forKey: key, value: value ?? "This is not text", table: nil)
     }
 
     private(set) static var shared: Resources!
-
-    /// Read a locallized string
-    public static func string(_ key: String, value: String? = nil) -> String {
-        shared.string(key, value: value)
-    }
 
     // MARK: Main bundle location
 
@@ -102,6 +104,10 @@ public final class Resources {
     /// Initialise the resource and localization bundles.
     /// Works or halts the process.
     public static func initialize() {
+        guard shared == nil else {
+            return
+        }
+
         let mainBundle: Bundle
         if let injectedMainBundlePath = ProcessInfo.processInfo.environment[BUNDLE_ENV_VAR] {
             guard let bundle = Bundle(path: injectedMainBundlePath) else {

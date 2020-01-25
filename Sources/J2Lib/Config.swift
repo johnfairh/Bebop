@@ -39,17 +39,13 @@ extension Configurable {
 /// * --debug and --quiet modes
 public final class Config {
     /// Real option: where is the config file?
-    private let configFileOpt = PathOpt(l: "config", help: """
-        Path to configuration file, YAML or JSON.
-        Default: .j2.yaml, .j2.json, .jazzy.yaml, .jazzy.json in current directory
-        or ancestor.
-        """)
+    private let configFileOpt = PathOpt(l: "config")
 
     /// Command options for help / version / log-control
-    private let helpOpt = CmdOpt(l: "help", help: "Show this help.")
-    private let versionOpt = CmdOpt(l: "version", help: "Show the library version.")
-    private let debugOpt = CmdOpt(l: "debug", y: "debug", help: "Report lots of information as the program runs.")
-    private let quietOpt = CmdOpt(s: "q", l: "quiet", y: "quiet", help: "Report only serious problems.")
+    private let helpOpt = CmdOpt(l: "help")
+    private let versionOpt = CmdOpt(l: "version")
+    private let debugOpt = CmdOpt(l: "debug", y: "debug")
+    private let quietOpt = CmdOpt(s: "q", l: "quiet", y: "quiet")
 
     private let optsParser: OptsParser
 

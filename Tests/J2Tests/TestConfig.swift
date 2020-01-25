@@ -14,7 +14,7 @@ fileprivate class System: Configurable {
 
     let config = Config()
     let dummy = DummyComponent()
-    let nameOpt = StringOpt(l: "name", y: "name", help: "n")
+    let nameOpt = StringOpt(l: "name", y: "name")
     var checkOptionsCalled = false
 
     func configure(cliOpts: String...) throws {
@@ -33,6 +33,7 @@ class TestConfig: XCTestCase {
 
     override func setUp() {
         TestLogger.uninstall()
+        initResources()
     }
 
     // 1. register, propagates CLI opts and calls checkOpts

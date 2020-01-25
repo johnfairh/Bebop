@@ -26,6 +26,7 @@
 		0257280723DB50B40001F510 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0257280623DB50B40001F510 /* Resources.swift */; };
 		0257280C23DB540C0001F510 /* J2Resources.bundle in Embed PlugIns */ = {isa = PBXBuildFile; fileRef = 029A718423DB04F300D66069 /* J2Resources.bundle */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0257281123DB7E5E0001F510 /* TestPipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0257281023DB7E5E0001F510 /* TestPipeline.swift */; };
+		0257281423DC78820001F510 /* Help.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0257281223DC78820001F510 /* Help.strings */; };
 		029A6F1723D6375E00D66069 /* Yams.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 022818D623D61E740016B0D5 /* Yams.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		029A6F1923D77F7C00D66069 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029A6F1823D77F7C00D66069 /* Config.swift */; };
 		029A6F1B23D7838700D66069 /* Pipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029A6F1A23D7838700D66069 /* Pipeline.swift */; };
@@ -116,6 +117,7 @@
 		0257280323DB503C0001F510 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = Localizable.strings; sourceTree = "<group>"; };
 		0257280623DB50B40001F510 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		0257281023DB7E5E0001F510 /* TestPipeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPipeline.swift; sourceTree = "<group>"; };
+		0257281323DC78820001F510 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Help.strings; sourceTree = "<group>"; };
 		029A6F1823D77F7C00D66069 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		029A6F1A23D7838700D66069 /* Pipeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pipeline.swift; sourceTree = "<group>"; };
 		029A6F1C23D79AB000D66069 /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				025727FE23DB50270001F510 /* Localizable.strings */,
+				0257281223DC78820001F510 /* Help.strings */,
 			);
 			path = en.lproj;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 			files = (
 				0257280023DB50270001F510 /* Localizable.strings in Resources */,
 				0257280523DB503C0001F510 /* Localizable.strings in Resources */,
+				0257281423DC78820001F510 /* Help.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,6 +540,14 @@
 				0257280323DB503C0001F510 /* fr */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		0257281223DC78820001F510 /* Help.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0257281323DC78820001F510 /* en */,
+			);
+			name = Help.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
