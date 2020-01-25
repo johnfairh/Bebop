@@ -10,7 +10,6 @@ import XCTest
 @testable import J2Lib
 
 class TestRegex: XCTestCase {
-
     func testSplitNone() {
         let str = "123"
         XCTAssertEqual(["123"], str.re_split(","))

@@ -29,8 +29,7 @@ public func AssertThrows<Err, Ret>(_ expression: @autoclosure () throws -> Ret,
     })
 }
 
-/// `XCTAssertNoThrow` is ugly, `throws` on the method loses the error details, so ...
-/// (that would be because you haven't understood the localizedErrorDescription thing....)
+/// Probably can delete this now...
 func Do(code: () throws -> Void) {
     do {
         try code()

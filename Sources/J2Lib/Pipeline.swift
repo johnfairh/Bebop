@@ -58,6 +58,8 @@ public extension Pipeline {
             try Pipeline().run(argv: argv)
             return 0
         } catch let error as Error {
+            // Linux workaround or some bug here, if I call `localizedDescription` on
+            // one of my errors through whatever type then it segfaults.
             logError(error.description)
             return 1
         } catch {

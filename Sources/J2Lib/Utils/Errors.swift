@@ -5,9 +5,10 @@
 //  Copyright 2020 J2 Authors
 //  Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
 //
+import Foundation
 
 /// Type thrown by J2 when there is a problem meaning execution must stop.
-public class Error: CustomStringConvertible, CustomDebugStringConvertible, Swift.Error {
+public class Error: CustomStringConvertible, CustomDebugStringConvertible, Swift.Error, LocalizedError {
     public let file: String
     public let line: Int
 
@@ -22,6 +23,7 @@ public class Error: CustomStringConvertible, CustomDebugStringConvertible, Swift
 
     public var description: String { "" }
     public var debugDescription: String { "" }
+    public var errorDescription: String? { description }
 }
 
 /// A problem with parsing options.
