@@ -1,1 +1,2 @@
 github "jpsim/Yams" ~> 2.0
+github "jpsim/SourceKitten" ~> 0.29.0

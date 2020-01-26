@@ -12,12 +12,13 @@ let package = Package(
     .executable(name: "j2", targets: ["J2Lib", "J2CLI"])
   ],
   dependencies: [
-    .package(url: "https://github.com/jpsim/Yams.git", from: "2.0.0")
+    .package(url: "https://github.com/jpsim/Yams.git", from: "2.0.0"),
+    .package(url: "https://github.com/jpsim/SourceKitten.git", from: "0.29.0")
   ],
   targets: [
     .target(
       name: "J2Lib",
-      dependencies: ["Yams"]),
+      dependencies: ["Yams", "SourceKittenFramework"]),
     .target(
       name: "J2CLI",
       dependencies: ["J2Lib"]),
