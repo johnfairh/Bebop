@@ -44,29 +44,30 @@ class TestGather: XCTestCase {
         initResources()
     }
 
-    func FAILS_testDefault() throws {
-        try OptsSystem().test(jobs: [.swift(moduleName: nil, srcDir: nil)])
+    func testDefault() throws {
+        try OptsSystem().test(jobs: [.swift(moduleName: nil, srcDir: nil, buildTool: nil)])
     }
 
     func testModule() throws {
-        try OptsSystem().test("--module", "Test", jobs: [.swift(moduleName: "Test", srcDir: nil)])
+        try OptsSystem().test("--module", "Test", jobs: [.swift(moduleName: "Test", srcDir: nil, buildTool: nil)])
     }
 
     func testCwd() throws {
         let cwd = FileManager.default.currentDirectoryPath
         let system = OptsSystem()
-        try system.test("--module", "Test", "--source-directory", cwd, jobs: [.swift(moduleName: "Test", srcDir: URL(fileURLWithPath: cwd))])
+        try system.test("--module", "Test", "--source-directory", cwd,
+                        jobs: [.swift(moduleName: "Test", srcDir: URL(fileURLWithPath: cwd), buildTool: nil)])
     }
 
     // Run swift job in the Spm fixtures via srcdir.  Sniff results only.
-    func FAIL_testSpmSwift() throws {
+    func testSpmSwift() throws {
         let swiftTestURL = fixturesURL.appendingPathComponent("SpmSwiftModule")
         let system = System()
         try system.config.processOptions(cliOpts: ["--source-directory", swiftTestURL.path])
         let gatherModules = try system.gather.gather()
         let json = gatherModules.json
 
-        let sniffStr = #""key.name" : "someKindOfFunction\(\)""#
+        let sniffStr = #""key.usr" : "s:14SpmSwiftModuleAAV4textSSvp""#
         XCTAssertTrue(json.re_isMatch(sniffStr))
     }
 

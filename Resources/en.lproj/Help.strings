@@ -21,6 +21,9 @@ Default: .j2.yaml, .j2.json, .jazzy.yaml, .jazzy.json found in
 `--source-directory` (or the current directory if that is not set) or some
 parent directory.";
 "module" = "Name of the module to document.
-Default: the 'first' module built by the build tool.";
+Default: the first module built by the build tool.";
 "source-directory" = "Location of the module to document.
 Default: the current directory.";
+"build-tool" = "Tool used to build Swift modules.
+Default: 'xcodebuild' if there is an Xcode project or workspace file in
+the source directory, otherwise 'spm'.";

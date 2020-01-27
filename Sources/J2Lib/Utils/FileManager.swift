@@ -24,6 +24,11 @@ extension FileManager {
         let directoryURL = directory ?? temporaryDirectory
         return directoryURL.appendingPathComponent(filename)
     }
+
+    /// A file URL for the current directory
+    var currentDirectory: URL {
+        URL(fileURLWithPath: currentDirectoryPath)
+    }
 }
 
 extension URL {

@@ -5,6 +5,7 @@
 //  Copyright 2020 J2 Authors
 //  Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
 //
+import Foundation
 
 #if canImport(Glibc)
 import Glibc
@@ -30,16 +31,18 @@ public enum Glob {
 
     /// Return the list of files that match a pattern.
     ///
-    /// Might be that this should return `URL`s, have to see how we use it exactly.
-    ///
     /// - parameter pattern: A pattern that may contain simple shell globs, `*` and `?`.
-    public static func files(_ pattern: Pattern) -> [String] {
+    public static func files(_ pattern: Pattern) -> [URL] {
         var globData = glob_t()
 
         // required even if glob(3) fails
         defer { globfree(&globData) }
 
-        let rc = glob(pattern.value, GLOB_NOCHECK, nil, &globData)
+        let rc = glob(pattern.value, 0, nil, &globData)
+
+        guard rc != GLOB_NOMATCH else {
+            return []
+        }
 
         guard rc == 0, globData.gl_pathv != nil else {
             // This means we ran out of memory or something equally unlikely.
@@ -47,12 +50,12 @@ public enum Glob {
             return []
         }
 
-        var paths = [String]()
+        var paths = [URL]()
 
         for i in 0..<Int(globData.gl_pathc) {
             let charStar = globData.gl_pathv![i]
             if let cStr = charStar {
-                paths.append(String(cString: cStr))
+                paths.append(URL(fileURLWithPath: String(cString: cStr)))
             } else {
                 // This is also not ideal and suggests libc is messed up...
                 logWarning(.localized("wrn-glob-pattern", pattern))
@@ -83,4 +86,14 @@ private func strerror_s() -> String {
         return "(?)"
     }
     return String(cString: strerror)
+}
+
+extension URL {
+    /// Return all files in this directory URL that match the pattern[s]
+    public func filesMatching(_ patterns: Glob.Pattern...) -> [URL] {
+        patterns.flatMap { pat -> [URL] in
+            let globPath = appendingPathComponent(pat.value).path
+            return Glob.files(Glob.Pattern(globPath))
+        }
+    }
 }

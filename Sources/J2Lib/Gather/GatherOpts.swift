@@ -19,6 +19,7 @@ struct GatherOpts : Configurable {
 
     let moduleNameOpt = StringOpt(s: "m", l: "module", y: "module")
     let srcDirOpt = PathOpt(l: "source-directory", y: "source_directory")
+    let buildToolOpt = EnumOpt<GatherBuildTool>(l: "build-tool", y: "build_tool")
 
     init(config: Config) {
         self.config = config
@@ -31,6 +32,11 @@ struct GatherOpts : Configurable {
     }
 
     var jobs: [GatherJob] {
-        return [.swift(moduleName: moduleNameOpt.value, srcDir: srcDirOpt.value)]
+        return [.swift(moduleName: moduleNameOpt.value, srcDir: srcDirOpt.value, buildTool: buildToolOpt.value)]
     }
+}
+
+enum GatherBuildTool: String, CaseIterable {
+    case spm
+    case xcodebuild
 }

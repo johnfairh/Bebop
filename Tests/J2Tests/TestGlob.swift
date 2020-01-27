@@ -36,12 +36,14 @@ class TestGlob: XCTestCase {
             .deletingLastPathComponent()
             .deletingLastPathComponent()
             .deletingLastPathComponent()
-        let glob = Glob.Pattern(projectRoot.path + "/Pack*")
-        let packFiles = Glob.files(glob)
+        let packFiles = projectRoot.filesMatching("Pack*")
 
         let expected = ["Package.resolved", "Package.swift"] // alphabetical order
             .map { projectRoot.path + "/\($0)" }
 
-        XCTAssertEqual(expected, packFiles)
+        XCTAssertEqual(expected, packFiles.map { $0.path })
+
+        let noFiles = projectRoot.filesMatching("xxxxxx")
+        XCTAssertTrue(noFiles.isEmpty)
     }
 }
