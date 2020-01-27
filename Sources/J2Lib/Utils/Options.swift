@@ -71,6 +71,14 @@ enum OptType {
     case yaml
 }
 
+/// Yaml key policy
+enum OptYaml {
+    /// No yaml key
+    case none
+    /// Generate from the long opt
+    case auto
+}
+
 /// Models an option accepted by the program and its configured value.
 ///
 /// Supplied by components and then filled in by `OptsParser`.
@@ -97,33 +105,48 @@ class Opt {
     /// Boolean options with long flag names are invertable by default
     var isInvertable: Bool { type == .bool }
 
-    /// At least one of `longFlagName` and `yamlKey` must be set.
+    /// CLI options that may have yaml as well.
     /// Don't include "-" at the start of flag names.
-    init(s shortFlagName: String? = nil, l longFlagName: String? = nil, y yamlKey: String? = nil) {
-        precondition(longFlagName != nil || yamlKey != nil, "Opt must have a long name somewhere")
+    init(s shortFlagName: String? = nil, l longFlagName: String, yaml: OptYaml = .auto) {
         shortFlagName.flatMap { precondition(!$0.isFlag, "Option names don't include the hyphen") }
-        longFlagName.flatMap { precondition(!$0.isFlag, "Option names don't include the hyphen") }
+        precondition(!longFlagName.isFlag, "Option names don't include the hyphen")
         self.shortFlag = shortFlagName.flatMap { $0.asShortFlag }
-        self.longFlag = longFlagName.flatMap { $0.asLongFlag }
-        self.yamlKey = yamlKey
+        self.longFlag = longFlagName.asLongFlag
+        switch yaml {
+        case .none: yamlKey = nil
+        case .auto: yamlKey = longFlagName.replacingOccurrences(of: "-", with: "_")
+        }
+    }
+
+    /// YAML-only options
+    init(y yaml: String) {
+        shortFlag = nil
+        longFlag = nil
+        yamlKey = yaml
     }
 
     /// Debug/UI helper to refer to the Opt
     func name(usage: Bool) -> String {
-        let extendedLongFlag: String?
-        if isInvertable, let longFlag = longFlag {
-            extendedLongFlag = longFlag.invertableLongFlagSyntax
-        } else if let longFlag = longFlag, type != .bool {
-            extendedLongFlag = "\(longFlag) \(helpParam)"
+        var output = ""
+        if let longFlag = longFlag {
+            if isInvertable {
+                output = longFlag.invertableLongFlagSyntax
+            } else {
+                output = longFlag
+            }
+            if let shortFlag = shortFlag {
+                output += "|\(shortFlag)"
+            }
+            if type != .bool && usage {
+                output += " \(helpParam)"
+            }
         } else {
-            extendedLongFlag = longFlag
+            output = yamlKey!
+            if usage {
+                output += " (config key only)"
+            }
         }
-
-        let flags = [extendedLongFlag,
-                     shortFlag,
-                     yamlKey.flatMap { "config=\($0)" }]
-        return flags.compactMap { $0 }
-            .joined(separator: ", ")
+        return output
     }
 
     /// A user-sensible string to sort by
@@ -359,7 +382,7 @@ final class EnumListOpt<EnumType>: ArrayOpt<EnumType> where
     override var type: OptType { .string }
     override var repeats: Bool { true }
     override var helpParam: String {
-        caseList(EnumType.self, separator: "|") + "..."
+        caseList(EnumType.self, separator: "|") + ", ..."
     }
 }
 

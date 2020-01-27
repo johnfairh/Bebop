@@ -42,10 +42,10 @@ public final class Config {
     private let configFileOpt = PathOpt(l: "config").help("PATH")
 
     /// Command options for help / version / log-control
-    private let helpOpt = CmdOpt(l: "help")
-    private let versionOpt = CmdOpt(l: "version")
-    private let debugOpt = CmdOpt(l: "debug", y: "debug")
-    private let quietOpt = CmdOpt(s: "q", l: "quiet", y: "quiet")
+    private let helpOpt = CmdOpt(l: "help", yaml: .none)
+    private let versionOpt = CmdOpt(l: "version", yaml: .none)
+    private let debugOpt = CmdOpt(l: "debug")
+    private let quietOpt = CmdOpt(l: "quiet")
 
     private let optsParser: OptsParser
 

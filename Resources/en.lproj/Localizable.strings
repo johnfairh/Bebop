@@ -41,7 +41,6 @@
 
 Usage: j2 [options]
 
-Options:
-";
+Options:";
 
 "wrn-quiet-debug" = "--quiet and --debug both set, ignoring --quiet.";

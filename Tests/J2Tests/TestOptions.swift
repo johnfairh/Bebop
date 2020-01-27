@@ -21,9 +21,9 @@ fileprivate struct Client {
     let c: EnumOpt<Color>
 
     init(optsParser: OptsParser) {
-        a = BoolOpt(s: "a", l: "aaa", y: "aaa")
-        b = StringOpt(s: "b", l: "bbb", y: "bbb")
-        c = EnumOpt(l: "color", y: "ccc")
+        a = BoolOpt(s: "a", l: "aaa")
+        b = StringOpt(s: "b", l: "bbb").help("BBB")
+        c = EnumOpt(l: "color")
         optsParser.addOpts(from: self)
     }
 }
@@ -106,6 +106,10 @@ class TestOptions: XCTestCase {
         TestLogger.uninstall()
     }
 
+    override func setUp() {
+        initResources()
+    }
+
     /// No args, simple args
     func testBasic() throws {
         let system = System()
@@ -147,9 +151,17 @@ class TestOptions: XCTestCase {
         try SimpleSystem(opt).parse(["--bananas"])
         XCTAssertFalse(opt.value)
 
-        let opt2 = BoolOpt(s: "b", y: "yaml_bananas")
+        let opt2 = BoolOpt(s: "b", l: "bbb")
         try SimpleSystem(opt2).parse(["-b"])
         XCTAssertTrue(opt2.value)
+    }
+
+    // Help
+    func testHelp() {
+        let system = System()
+        XCTAssertEqual("red|blue", system.client.c.helpParam)
+        XCTAssertEqual("BBB", system.client.b.helpParam)
+        XCTAssertEqual("--[no-]aaa|-a", system.client.a.name(usage: true))
     }
 
     // Lists
@@ -164,6 +176,7 @@ class TestOptions: XCTestCase {
         let opt = EnumListOpt<Color>(s: "e", l: "e")
         try SimpleSystem(opt).parse("-e red -e red".components(separatedBy: " "))
         XCTAssertEqual(opt.value, [.red, .red])
+        XCTAssertEqual("red|blue, ...", opt.helpParam)
     }
 
     // Inline lists
@@ -188,7 +201,7 @@ class TestOptions: XCTestCase {
 
     // Path validation 1
     func testPathValidations() throws {
-        let opt = PathOpt(s: "p", y: "p")
+        let opt = PathOpt(s: "p", l: "ppp")
         let ss = SimpleSystem(opt)
         try ss.parse(["-p", "\(#file)"])
         try opt.checkIsFile()
@@ -204,7 +217,7 @@ class TestOptions: XCTestCase {
     }
 
     func testPathDefault() throws {
-        let opt = PathOpt(s: "p", y: "p").def("defaultPath")
+        let opt = PathOpt(s: "p", l: "ppp").def("defaultPath")
         let ss = SimpleSystem(opt)
         try ss.parse([])
         XCTAssertFalse(opt.configured)
@@ -213,7 +226,7 @@ class TestOptions: XCTestCase {
 
     // Path validation 2
     func testPathListValidations() throws {
-        let opt = PathListOpt(s: "p", y: "p")
+        let opt = PathListOpt(s: "p", l: "ppp")
         let ss = SimpleSystem(opt)
         try ss.parse(["-p", "\(#file)", "-p", "\(#file)"])
         try opt.checkAreFiles()
@@ -267,7 +280,7 @@ class TestOptions: XCTestCase {
                          aaa: true
                          bbb:
                            - Fish
-                         ccc: red
+                         color: red
                          """)
         system.verify(Spec(true, true, true, "Fish", true, .red))
     }
@@ -279,7 +292,7 @@ class TestOptions: XCTestCase {
                          {
                            "aaa": "true",
                            "bbb": [ "Fish" ],
-                           "ccc": "red"
+                           "color": "red"
                          }
                          """)
         system.verify(Spec(true, true, true, "Fish", true, .red))
@@ -316,11 +329,13 @@ class TestOptions: XCTestCase {
                          - Bar
 
                        """, actual)
+        XCTAssertEqual("custom_categories", opt.name(usage: false))
+        XCTAssertTrue(opt.name(usage: true).hasPrefix("custom_categories ("))
     }
 
     // Yaml vs. CLI
     func testYamlVsCli() throws {
-        let opt = StringOpt(s: "c", y: "ccc")
+        let opt = StringOpt(s: "c", l: "ccc")
         let system = SimpleSystem(opt)
         try system.parse(["-c", "foo"], yaml: "ccc: bar")
         XCTAssertEqual(opt.value, "foo")
@@ -370,7 +385,7 @@ class TestOptions: XCTestCase {
 
     // More misc option ui
     func testSortKey() {
-        let opt1 = BoolOpt(l: "aaa", y: "zzz")
+        let opt1 = BoolOpt(l: "aaa")
         let opt2 = BoolOpt(y: "bbb")
 
         XCTAssertEqual("aaa", opt1.sortKey)

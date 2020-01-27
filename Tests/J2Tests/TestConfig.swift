@@ -14,7 +14,7 @@ fileprivate class System: Configurable {
 
     let config = Config()
     let dummy = DummyComponent()
-    let nameOpt = StringOpt(l: "name", y: "name")
+    let nameOpt = StringOpt(l: "name")
     var checkOptionsCalled = false
 
     func configure(cliOpts: String...) throws {

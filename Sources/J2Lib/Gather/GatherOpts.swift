@@ -17,9 +17,9 @@ import Foundation
 struct GatherOpts : Configurable {
     let config: Config
 
-    let moduleNameOpt = StringOpt(s: "m", l: "module", y: "module").help("MODULE_NAME")
-    let srcDirOpt = PathOpt(l: "source-directory", y: "source_directory").help("PATH")
-    let buildToolOpt = EnumOpt<GatherBuildTool>(l: "build-tool", y: "build_tool")
+    let moduleNameOpt = StringOpt(s: "m", l: "module").help("MODULE_NAME")
+    let srcDirOpt = PathOpt(l: "source-directory").help("PATH")
+    let buildToolOpt = EnumOpt<GatherBuildTool>(l: "build-tool")
 
     init(config: Config) {
         self.config = config
