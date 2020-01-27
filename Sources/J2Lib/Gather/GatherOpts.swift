@@ -8,6 +8,12 @@
 
 import Foundation
 
+/// Type  responsible for declaring and parsing the config options.
+///
+/// Its output is a set of `GatherJob`s that are self-contained recipes on how to
+/// create a `GatherModulePass`.
+///
+/// The main interesting piece here is dealing with `modules`.
 struct GatherOpts : Configurable {
     let config: Config
 

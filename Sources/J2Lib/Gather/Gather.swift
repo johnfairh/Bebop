@@ -7,14 +7,37 @@
 //
 import Foundation
 
+/// `Gather` is responsible for generating code definition data according to rules in the config.
+///
+/// Fundamentally this means getting SourceKitten to run its docs pass, which means running a bunch of
+/// SourceKit queries or asking libclang, for Objective C.
+///
+/// Gather then adds a bunch of its own garnishes to augment this basic information:
+/// 1) tbd
+///
+/// Gather applies pathname filtering (include/exclude) from the config.
+///
+/// The `modules` config key allows gather to run over multiple modules to generate their documentation
+/// together.  Further, it allows for multiple passes of each module: building the module multiple times with
+/// different compiler flags, or for different platforms.
+///
+/// Gather's results can be viewed as an extended `sourcekitten doc` command -- the json for this
+/// can be extracted by running j2 (XXX somehow).
+///
+/// The input to any of the module passes that Gather has to perform can be one of these gather.json files,
+/// or an original `sourcekitten doc` json file.
+///
+/// XXX podspec
 public struct Gather {
-
+    /// Subcomponent for options and config YAML processing
     let opts: GatherOpts
 
+    /// Create a new instance
     init(config: Config) {
         opts = GatherOpts(config: config)
     }
 
+    /// Gather information from the configured modules.
     public func gather() throws -> GatherModules {
         // have opts separately figure out the module->mergepolicy.
         // that way we don't get incredible tramp data with mergepolicy.
@@ -43,20 +66,24 @@ public struct Gather {
         return GatherModules(modules)
     }
 
+    /// For somewhat legacy but maybe plausible reasons, the search for the config file starts in the
+    /// source directory of the first (usually the only) module.
     public var configFileSearchStart: URL? {
         opts.configFileSearchStart
     }
 }
 
+/// Data from one pass of a module.
 public struct GatherModulePass {
-    public let index: Int                     // serialized with each file for debug
-    public let defs: [(String, GatherDef)]   // String key is the pathname
+    public let index: Int
+    public let defs: [(pathname: String, GatherDef)]
     // public let availabilityDefaults: [String] // not serialized
     // public let ignoreAvailabilityAttr: Bool   // not serialized
 }
 
+/// Data from all passes of a module.
 public final class GatherModule {
-    public let name: String                   // serialized with each file for ease of import
+    public let name: String
     // public let merge: MergeModulePolicy       // not serialized,
     public internal(set) var passes: [GatherModulePass]
 
@@ -66,6 +93,7 @@ public final class GatherModule {
     }
 }
 
+/// Data from all gathered modules.
 public struct GatherModules {
     public let modules: [GatherModule]
 
@@ -74,9 +102,8 @@ public struct GatherModules {
     }
 }
 
-
-public enum MergeModulePolicy {
-    case yes
-    case no
-    case group(name: String) // should be localized map
-}
+//public enum MergeModulePolicy {
+//    case yes
+//    case no
+//    case group(name: String) // should be localized map
+//}

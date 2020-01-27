@@ -11,8 +11,14 @@ import SourceKittenFramework
 
 typealias SourceKittenDict = [String: SourceKitRepresentable]
 
+/// Type representing a code definition (or some weird SourceKit not-a-node).
+///
+/// Originally created from a SourceKitten dictionary this is augmented by successive
+/// garnishings before gather is complete.
 public struct GatherDef {
+    /// Child definitions, constructed from the SourceKitten substructure
     let children: [GatherDef]
+    /// SourceKitten hash _except_ the substructure key
     let sourceKittenDict: SourceKittenDict
 
     init(sourceKittenDict: SourceKittenDict) {

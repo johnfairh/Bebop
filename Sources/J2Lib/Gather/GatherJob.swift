@@ -9,6 +9,10 @@
 import Foundation
 import SourceKittenFramework
 
+/// A recipe to create one pass over a module.
+///
+/// In fact that's a lie because "import a gather.json" is also a job that can vend multiple modules and passes.
+/// That may be a modelling error, tbd pending implementation of import.
 enum GatherJob {
     case swift(moduleName: String?)
 

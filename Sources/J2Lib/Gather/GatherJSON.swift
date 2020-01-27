@@ -22,12 +22,14 @@ import SourceKittenFramework
 // If Gather has done multiple passes then each pass contributes all its files.
 // So if it does two passes over one module, we get two lots of files.
 
+/// Keys added by J2.
 private enum GatherKey: String {
     case version = "key.j2.version"         // metadata, root
     case passIndex = "key.j2.pass_index"    // metadata, root
     case moduleName = "key.j2.module_name"  // root-only
 }
 
+/// Helper to use `GatherKey`
 extension SourceKittenDict {
     fileprivate subscript(key: GatherKey) -> SourceKitRepresentable? {
         get {
@@ -40,7 +42,7 @@ extension SourceKittenDict {
 }
 
 extension GatherDef {
-
+    /// Build up the dictionary from children and our garnished values
     var dictForJSON: SourceKittenDict {
         var dict = sourceKittenDict
         if !children.isEmpty {
@@ -49,6 +51,7 @@ extension GatherDef {
         return dict
     }
 
+    /// Add in extra metadata at the root
     func rootDictForJSON(moduleName: String, passIndex: Int) -> SourceKittenDict {
         var dict = dictForJSON
         dict[.version] = Version.j2libVersion
@@ -59,20 +62,23 @@ extension GatherDef {
 }
 
 extension GatherModulePass {
+    /// Build array of 1-element hashes from pathname to data
     func dictsForJSON(moduleName: String) -> [NSDictionary] {
         defs.map { def in
-            toNSDictionary([def.0 : def.1.rootDictForJSON(moduleName: moduleName, passIndex: self.index)])
+            toNSDictionary([def.pathname : def.1.rootDictForJSON(moduleName: moduleName, passIndex: self.index)])
         }
     }
 }
 
 extension GatherModule {
+    /// Accumulate the passes
     var dictsForJSON: [NSDictionary] {
         passes.flatMap { $0.dictsForJSON(moduleName: self.name) }
     }
 }
 
 extension GatherModules {
+    /// Accumulate the modules and convert
     public var json: String {
         let allFiles: [NSDictionary] = modules.flatMap { $0.dictsForJSON }
         return toJSON(allFiles)
