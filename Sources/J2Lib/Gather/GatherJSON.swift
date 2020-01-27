@@ -18,11 +18,14 @@ import SourceKittenFramework
 // hash with `key.diagnostic_stage` and `key.substructure` for the contents.  We
 // inject metadata keys at this top level and inject further data as we proceed
 // down the Defs tree.
+//
+// If Gather has done multiple passes then each pass contributes all its files.
+// So if it does two passes over one module, we get two lots of files.
 
 private enum GatherKey: String {
-    case version = "key.j2.version"
-    case moduleName = "key.j2.module_name"
-    case passIndex = "key.j2.pass_index"
+    case version = "key.j2.version"         // metadata, root
+    case passIndex = "key.j2.pass_index"    // metadata, root
+    case moduleName = "key.j2.module_name"  // root-only
 }
 
 extension SourceKittenDict {
@@ -39,7 +42,11 @@ extension SourceKittenDict {
 extension GatherDef {
 
     var dictForJSON: SourceKittenDict {
-        sourceKittenDict
+        var dict = sourceKittenDict
+        if !children.isEmpty {
+            dict[SwiftDocKey.substructure.rawValue] = children.map { $0.dictForJSON }
+        }
+        return dict
     }
 
     func rootDictForJSON(moduleName: String, passIndex: Int) -> SourceKittenDict {

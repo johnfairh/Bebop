@@ -21,7 +21,7 @@ enum GatherJob {
 
             let filesInfo = module.docs.map { swiftDoc in
                 (swiftDoc.file.path ?? "(no path)",
-                 GatherDef(rootSourceKittenDict: swiftDoc.docsDictionary))
+                 GatherDef(sourceKittenDict: swiftDoc.docsDictionary))
             }
 
             return [(module.name, GatherModulePass(index: 0, defs: filesInfo))]

@@ -12,9 +12,13 @@ import SourceKittenFramework
 typealias SourceKittenDict = [String: SourceKitRepresentable]
 
 public struct GatherDef {
+    let children: [GatherDef]
     let sourceKittenDict: SourceKittenDict
 
-    init(rootSourceKittenDict: SourceKittenDict) {
-        sourceKittenDict = rootSourceKittenDict
+    init(sourceKittenDict: SourceKittenDict) {
+        var dict = sourceKittenDict
+        let substructure = dict.removeValue(forKey: SwiftDocKey.substructure.rawValue) as? [SourceKittenDict] ?? []
+        self.children = substructure.map(GatherDef.init)
+        self.sourceKittenDict = dict
     }
 }
