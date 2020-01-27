@@ -45,6 +45,7 @@
 		02CFF92523DDFFC900FDE5B9 /* GatherDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFF92423DDFFC900FDE5B9 /* GatherDef.swift */; };
 		02CFF92723DE009900FDE5B9 /* GatherOpts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFF92623DE009900FDE5B9 /* GatherOpts.swift */; };
 		02CFF92923DE044200FDE5B9 /* GatherJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFF92823DE044200FDE5B9 /* GatherJob.swift */; };
+		02CFF92B23DEF49400FDE5B9 /* GatherJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFF92A23DEF49400FDE5B9 /* GatherJSON.swift */; };
 		02F2B3C4239A7E2A00397BC6 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C24034239A732200518764 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -157,6 +158,7 @@
 		02CFF92423DDFFC900FDE5B9 /* GatherDef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherDef.swift; sourceTree = "<group>"; };
 		02CFF92623DE009900FDE5B9 /* GatherOpts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherOpts.swift; sourceTree = "<group>"; };
 		02CFF92823DE044200FDE5B9 /* GatherJob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherJob.swift; sourceTree = "<group>"; };
+		02CFF92A23DEF49400FDE5B9 /* GatherJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherJSON.swift; sourceTree = "<group>"; };
 		02F2B3B4239A7E0C00397BC6 /* J2CLI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = J2CLI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02F2B3D0239A89D700397BC6 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -313,6 +315,7 @@
 				02CFF92823DE044200FDE5B9 /* GatherJob.swift */,
 				02CFF92623DE009900FDE5B9 /* GatherOpts.swift */,
 				02CFF92423DDFFC900FDE5B9 /* GatherDef.swift */,
+				02CFF92A23DEF49400FDE5B9 /* GatherJSON.swift */,
 			);
 			path = Gather;
 			sourceTree = "<group>";
@@ -508,6 +511,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02CFF92B23DEF49400FDE5B9 /* GatherJSON.swift in Sources */,
 				022818D123D4F2AE0016B0D5 /* Glob.swift in Sources */,
 				022818C523D33C2B0016B0D5 /* Regex.swift in Sources */,
 				02CFF92723DE009900FDE5B9 /* GatherOpts.swift in Sources */,

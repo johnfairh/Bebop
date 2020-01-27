@@ -41,7 +41,8 @@ public struct Pipeline {
             return
         }
 
-        let _ = try gather.gather()
+        let gatheredModules = try gather.gather()
+        print(gatheredModules.json)
     }
 }
 

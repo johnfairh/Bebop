@@ -66,26 +66,17 @@ public final class GatherModule {
     }
 }
 
+public struct GatherModules {
+    public let modules: [GatherModule]
+
+    init<T: Sequence>(_ modules: T) where T.Element == GatherModule {
+        self.modules = Array(modules)
+    }
+}
+
+
 public enum MergeModulePolicy {
     case yes
     case no
     case group(name: String) // should be localized map
 }
-
-public typealias GatherModules = [GatherModule]
-
-// Serialized:
-// Array [
-//   Hash {
-//      Version : "J2Libversion Gather output"
-//      Pathname : Hash {
-//         key.diagns = "...."
-//         key.off : 0
-//         key.len : xxx
-//         key.j2.modulename: xxx
-//         key.j2.configIndex: n
-//         key.substructure : Array [
-//            {defs}
-//         ]
-//      }
-// ]
