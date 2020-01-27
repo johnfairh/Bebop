@@ -19,3 +19,5 @@
 "config" = "Path to configuration file, YAML or JSON.
 Default: .j2.yaml, .j2.json, .jazzy.yaml, .jazzy.json found in the current
 directory or ancestor.";
+"module" = "Name of the module to document.
+Default: the 'first' module built by the build tool.";

@@ -12,6 +12,8 @@ import Foundation
 public struct Pipeline {
     /// Options parsing and validation orchestration
     public let config: Config
+    /// Info gathering and garnishing
+    public let gather: Gather
 
     /// Set up a new pipeline.
     /// - parameter logger: Optional `Logger` to use for logging messages.
@@ -25,6 +27,7 @@ public struct Pipeline {
         Resources.initialize()
 
         config = Config()
+        gather = Gather(config: config)
     }
 
     /// Build, configure, and execute a pipeline according to `argv` and
@@ -37,6 +40,8 @@ public struct Pipeline {
         guard !config.performConfigCommand() else {
             return
         }
+
+        let _ = try gather.gather()
     }
 }
 
