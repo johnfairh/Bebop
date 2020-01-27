@@ -64,6 +64,13 @@
 			remoteGlobalIDString = 02C24011239A6F0700518764;
 			remoteInfo = J2Lib;
 		};
+		02CFF9F123DF0D4300FDE5B9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02CFF9ED23DF0D4300FDE5B9 /* XcodeSwiftModule.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 02CFF93523DF0C6300FDE5B9;
+			remoteInfo = XcodeSwiftModule;
+		};
 		02F2B3CA239A804100397BC6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 02C24009239A6F0700518764 /* Project object */;
@@ -159,6 +166,11 @@
 		02CFF92623DE009900FDE5B9 /* GatherOpts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherOpts.swift; sourceTree = "<group>"; };
 		02CFF92823DE044200FDE5B9 /* GatherJob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherJob.swift; sourceTree = "<group>"; };
 		02CFF92A23DEF49400FDE5B9 /* GatherJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherJSON.swift; sourceTree = "<group>"; };
+		02CFF9EC23DF0D4300FDE5B9 /* XcodeSwiftModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcodeSwiftModule.swift; sourceTree = "<group>"; };
+		02CFF9ED23DF0D4300FDE5B9 /* XcodeSwiftModule.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = XcodeSwiftModule.xcodeproj; sourceTree = "<group>"; };
+		02CFF9F523DF0EB100FDE5B9 /* Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Empty.swift; sourceTree = "<group>"; };
+		02CFF9F623DF0EB100FDE5B9 /* SpmSwiftModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpmSwiftModule.swift; sourceTree = "<group>"; };
+		02CFF9F723DF0EB100FDE5B9 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		02F2B3B4239A7E0C00397BC6 /* J2CLI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = J2CLI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02F2B3D0239A89D700397BC6 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -293,6 +305,7 @@
 				029A717A23D9B2AC00D66069 /* TestConfig.swift */,
 				0257281023DB7E5E0001F510 /* TestPipeline.swift */,
 				022818CD23D4E89D0016B0D5 /* TestHelpers.swift */,
+				02CFF93F23DF0D4300FDE5B9 /* Fixtures */,
 				02C24022239A6F0700518764 /* Info.plist */,
 			);
 			name = J2Tests;
@@ -318,6 +331,42 @@
 				02CFF92A23DEF49400FDE5B9 /* GatherJSON.swift */,
 			);
 			path = Gather;
+			sourceTree = "<group>";
+		};
+		02CFF93F23DF0D4300FDE5B9 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				02CFF94023DF0D4300FDE5B9 /* SpmSwiftModule */,
+				02CFF9EB23DF0D4300FDE5B9 /* XcodeSwiftModule */,
+			);
+			path = Fixtures;
+			sourceTree = "<group>";
+		};
+		02CFF94023DF0D4300FDE5B9 /* SpmSwiftModule */ = {
+			isa = PBXGroup;
+			children = (
+				02CFF9F523DF0EB100FDE5B9 /* Empty.swift */,
+				02CFF9F723DF0EB100FDE5B9 /* Package.swift */,
+				02CFF9F623DF0EB100FDE5B9 /* SpmSwiftModule.swift */,
+			);
+			path = SpmSwiftModule;
+			sourceTree = "<group>";
+		};
+		02CFF9EB23DF0D4300FDE5B9 /* XcodeSwiftModule */ = {
+			isa = PBXGroup;
+			children = (
+				02CFF9EC23DF0D4300FDE5B9 /* XcodeSwiftModule.swift */,
+				02CFF9ED23DF0D4300FDE5B9 /* XcodeSwiftModule.xcodeproj */,
+			);
+			path = XcodeSwiftModule;
+			sourceTree = "<group>";
+		};
+		02CFF9EE23DF0D4300FDE5B9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				02CFF9F223DF0D4300FDE5B9 /* libXcodeSwiftModule.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		02F2B3C7239A804100397BC6 /* Frameworks */ = {
@@ -455,6 +504,12 @@
 			mainGroup = 02C24008239A6F0700518764;
 			productRefGroup = 02C24013239A6F0700518764 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 02CFF9EE23DF0D4300FDE5B9 /* Products */;
+					ProjectRef = 02CFF9ED23DF0D4300FDE5B9 /* XcodeSwiftModule.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				02C24011239A6F0700518764 /* J2Lib */,
@@ -464,6 +519,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		02CFF9F223DF0D4300FDE5B9 /* libXcodeSwiftModule.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libXcodeSwiftModule.a;
+			remoteRef = 02CFF9F123DF0D4300FDE5B9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		029A718223DB04F300D66069 /* Resources */ = {
