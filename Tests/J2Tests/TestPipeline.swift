@@ -82,8 +82,6 @@ class TestPipeline: XCTestCase {
     func FAIL_testEndToEnd() throws {
         let pipeline = Pipeline()
         let spmTestURL = fixturesURL.appendingPathComponent("SpmSwiftModule")
-        try spmTestURL.withCurrentDirectory {
-            try pipeline.run()
-        }
+        try pipeline.run(argv: ["--source-directory", spmTestURL.path])
     }
 }

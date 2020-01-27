@@ -24,6 +24,7 @@ struct GatherOpts : Configurable {
         self.config = config
 
         config.register(self)
+        config.srcDirPathOpt = srcDirOpt
     }
 
     func checkOptions() throws {
@@ -31,9 +32,5 @@ struct GatherOpts : Configurable {
 
     var jobs: [GatherJob] {
         return [.swift(moduleName: moduleNameOpt.value, srcDir: srcDirOpt.value)]
-    }
-
-    var configFileSearchStart: URL? {
-        srcDirOpt.value
     }
 }

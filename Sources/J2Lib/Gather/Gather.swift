@@ -65,12 +65,6 @@ public struct Gather {
 
         return GatherModules(modules)
     }
-
-    /// For somewhat legacy but maybe plausible reasons, the search for the config file starts in the
-    /// source directory of the first (usually the only) module.
-    public var configFileSearchStart: URL? {
-        opts.configFileSearchStart
-    }
 }
 
 /// Data from one pass of a module.

@@ -49,7 +49,10 @@ public final class Config {
 
     private let optsParser: OptsParser
 
+    /// Client stuff
     private var configurables: [Configurable]
+    /// Broken abstraction, need the --source-directory to know where to search for the config file...
+    var srcDirPathOpt: PathOpt?
 
     /// Create a new `Config` component
     public init() {
@@ -112,6 +115,14 @@ public final class Config {
 
         let fm = FileManager.default
 
+        let initialSearchPath: String
+        if let srcDirPathOpt = srcDirPathOpt,
+            let srcDirURL = srcDirPathOpt.value {
+            initialSearchPath = srcDirURL.path
+        } else {
+            initialSearchPath = fm.currentDirectoryPath
+        }
+
         // CoreFoundation vs. RealFoundation bug.
         //
         // In RF, "/".deleteLastPathComponent.standardize() => ""
@@ -119,7 +130,7 @@ public final class Config {
         //
         // ...so don't rely on the path going down to nothing.
         for prefix in [".j2", ".jazzy"] {
-            var pathURL = URL(fileURLWithPath: fm.currentDirectoryPath)
+            var pathURL = URL(fileURLWithPath: initialSearchPath)
             while true {
                 for suffix in [".yaml", ".json"] {
                     let fileURL = pathURL.appendingPathComponent(prefix + suffix)

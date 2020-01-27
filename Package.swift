@@ -24,6 +24,7 @@ let package = Package(
       dependencies: ["J2Lib"]),
     .testTarget(
       name: "J2Tests",
-      dependencies: ["J2Lib"]),
+      dependencies: ["J2Lib"],
+      exclude: ["Fixtures"]),
   ]
 )

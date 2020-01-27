@@ -56,7 +56,6 @@ class TestGather: XCTestCase {
         let cwd = FileManager.default.currentDirectoryPath
         let system = OptsSystem()
         try system.test("--module", "Test", "--source-directory", cwd, jobs: [.swift(moduleName: "Test", srcDir: URL(fileURLWithPath: cwd))])
-        XCTAssertEqual(cwd, system.gatherOpts.configFileSearchStart?.path)
     }
 
     // Run swift job in the Spm fixtures via srcdir.  Sniff results only.
