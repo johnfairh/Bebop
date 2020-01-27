@@ -27,9 +27,6 @@ struct GatherOpts : Configurable {
     }
 
     func checkOptions() throws {
-        guard moduleNameOpt.configured else {
-            throw OptionsError("Missing 'module' option.") // temp
-        }
     }
 
     var jobs: [GatherJob] {

@@ -77,4 +77,13 @@ class TestPipeline: XCTestCase {
         }
         XCTAssertTrue(eMsg.re_isMatch("^j2: error: .*--unpossible"), eMsg)
     }
+
+    // Simple end-to-end run
+    func FAIL_testEndToEnd() throws {
+        let pipeline = Pipeline()
+        let spmTestURL = fixturesURL.appendingPathComponent("SpmSwiftModule")
+        try spmTestURL.withCurrentDirectory {
+            try pipeline.run()
+        }
+    }
 }

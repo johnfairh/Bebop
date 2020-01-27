@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		02CFF93923DF0C6300FDE5B9 /* XcodeSwiftModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFF93823DF0C6300FDE5B9 /* XcodeSwiftModule.swift */; };
+		02CFF9FB23DF476A00FDE5B9 /* XcodeSwiftModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFF93823DF0C6300FDE5B9 /* XcodeSwiftModule.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,7 +41,7 @@
 		02CFF92C23DF0C6200FDE5B9 = {
 			isa = PBXGroup;
 			children = (
-				02CFF93723DF0C6300FDE5B9 /* XcodeSwiftModule */,
+				02CFF93823DF0C6300FDE5B9 /* XcodeSwiftModule.swift */,
 				02CFF93623DF0C6300FDE5B9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -52,14 +52,6 @@
 				02CFF93523DF0C6300FDE5B9 /* libXcodeSwiftModule.a */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		02CFF93723DF0C6300FDE5B9 /* XcodeSwiftModule */ = {
-			isa = PBXGroup;
-			children = (
-				02CFF93823DF0C6300FDE5B9 /* XcodeSwiftModule.swift */,
-			);
-			path = XcodeSwiftModule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,7 +112,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02CFF93923DF0C6300FDE5B9 /* XcodeSwiftModule.swift in Sources */,
+				02CFF9FB23DF476A00FDE5B9 /* XcodeSwiftModule.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

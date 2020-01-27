@@ -93,4 +93,10 @@ extension XCTestCase {
         prepareResourceBundle()
         Resources.initialize()
     }
+
+    var fixturesURL: URL {
+        URL(fileURLWithPath: #file)
+            .deletingLastPathComponent()
+            .appendingPathComponent("Fixtures")
+    }
 }

@@ -10,7 +10,7 @@ import XCTest
 @testable import J2Lib
 
 // For testing config -> jobs
-private struct System {
+private struct OptsSystem {
     let config: Config
     let gatherOpts: GatherOpts
 
@@ -29,29 +29,72 @@ private struct System {
     }
 }
 
+private struct System {
+    let config: Config
+    let gather: Gather
+
+    init() {
+        config = Config()
+        gather = Gather(config: config)
+    }
+}
+
 class TestGather: XCTestCase {
     override func setUp() {
         initResources()
     }
 
     func FAILS_testDefault() throws {
-        try System().test(jobs: [.swift(moduleName: nil, srcDir: nil)])
+        try OptsSystem().test(jobs: [.swift(moduleName: nil, srcDir: nil)])
     }
 
     func testModule() throws {
-        try System().test("--module", "Test", jobs: [.swift(moduleName: "Test", srcDir: nil)])
+        try OptsSystem().test("--module", "Test", jobs: [.swift(moduleName: "Test", srcDir: nil)])
     }
 
     func testCwd() throws {
         let cwd = FileManager.default.currentDirectoryPath
-        let system = System()
+        let system = OptsSystem()
         try system.test("--module", "Test", "--source-directory", cwd, jobs: [.swift(moduleName: "Test", srcDir: URL(fileURLWithPath: cwd))])
         XCTAssertEqual(cwd, system.gatherOpts.configFileSearchStart?.path)
     }
 
-    // Run swift job in the Spm fixtures via srcdir.  Sniff results only.  JSON non-empty, regexp a couple things.
-    // Run swift job in the Xcode fixtures via chdir.  Sniff results only. ditto.
+    // Run swift job in the Spm fixtures via srcdir.  Sniff results only.
+    func FAIL_testSpmSwift() throws {
+        let swiftTestURL = fixturesURL.appendingPathComponent("SpmSwiftModule")
+        let system = System()
+        try system.config.processOptions(cliOpts: ["--source-directory", swiftTestURL.path])
+        let gatherModules = try system.gather.gather()
+        let json = gatherModules.json
+
+        let sniffStr = #""key.name" : "someKindOfFunction\(\)""#
+        XCTAssertTrue(json.re_isMatch(sniffStr))
+    }
+
+    // Run swift job in the Xcode fixtures via chdir.  Sniff results only.
+    func testXcodeSwift() throws {
+        #if !os(Linux)
+        let xcodeTestURL = fixturesURL.appendingPathComponent("XcodeSwiftModule")
+        try xcodeTestURL.withCurrentDirectory {
+            let system = System()
+            try system.config.processOptions(cliOpts: [])
+            let gatherModules = try system.gather.gather()
+            let json = gatherModules.json
+
+            let sniffStr = #""key.name" : "someKindOfFunction\(\)""#
+            XCTAssertTrue(json.re_isMatch(sniffStr))
+        }
+        #endif
+    }
+
     // Run gather in a fake directory, check error.
-    // Add a pipeline e2e test against the spm fixtures.
+    func testSwiftJobFailure() throws {
+        try TemporaryDirectory.withNew {
+            let system = System()
+            try system.config.processOptions(cliOpts: [])
+            AssertThrows(try system.gather.gather(), OptionsError.self)
+        }
+    }
+
     // Come back here later on to test multipass and merging.
 }
