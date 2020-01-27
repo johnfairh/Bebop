@@ -18,6 +18,7 @@ struct GatherOpts : Configurable {
     let config: Config
 
     let moduleNameOpt = StringOpt(s: "m", l: "module", y: "module")
+    let srcDirOpt = PathOpt(l: "source-directory", y: "source_directory")
 
     init(config: Config) {
         self.config = config
@@ -32,10 +33,10 @@ struct GatherOpts : Configurable {
     }
 
     var jobs: [GatherJob] {
-        return [.swift(moduleName: moduleNameOpt.value)]
+        return [.swift(moduleName: moduleNameOpt.value, srcDir: srcDirOpt.value)]
     }
 
     var configFileSearchStart: URL? {
-        nil
+        srcDirOpt.value
     }
 }

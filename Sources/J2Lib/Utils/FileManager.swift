@@ -82,4 +82,11 @@ public final class TemporaryDirectory {
         let url = try FileManager.default.createTemporaryDirectory(inDirectory: directoryURL)
         return TemporaryDirectory(url: url)
     }
+
+    /// Run some code in new temporary directory, cleaning up afterwards
+    public static func withNew<T>(_ code: () throws -> T) throws -> T {
+        try withExtendedLifetime(TemporaryDirectory()) { tmpDir in
+            try tmpDir.directoryURL.withCurrentDirectory(code: code)
+        }
+    }
 }
