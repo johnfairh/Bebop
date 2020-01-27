@@ -40,7 +40,25 @@ public final class OptionsError: Error {
     }
 
     public override var debugDescription: String {
-        "[options parsing] \(description) (\(errorSource))]"
+        "[options parsing] \(description) (\(errorSource))"
+    }
+}
+
+/// A problem with data gathering
+public final class GatherError: Error {
+    public let message: String
+
+    public init(_ message: String = "", file: String = #file, line: Int = #line) {
+        self.message = message
+        super.init(file: file, line: line)
+    }
+
+    public override var description: String {
+        message
+    }
+
+    public override var debugDescription: String {
+        "[gather] \(description) (\(errorSource))"
     }
 }
 

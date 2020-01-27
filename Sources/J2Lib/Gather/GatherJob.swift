@@ -28,12 +28,16 @@ enum GatherJob: Equatable {
             case .xcodebuild:
                 module = Module(xcodeBuildArguments: [], name: moduleName, inPath: actualSrcDir.path)
                 if module == nil {
-                    throw OptionsError("SourceKitten unhappy") // XXXX
+                    if let moduleName = moduleName {
+                        throw GatherError(.localized("err-sktn-xcode-mod", moduleName))
+                    } else {
+                        throw GatherError(.localized("err-sktn-xcode-def"))
+                    }
                 }
             case .spm:
                 module = Module(spmArguments: [], spmName: moduleName, inPath: actualSrcDir.path)
                 if module == nil {
-                    throw OptionsError("SourceKitten unhappy") // XXXX
+                    throw GatherError(.localized("err-sktn-spm"))
                 }
             }
 

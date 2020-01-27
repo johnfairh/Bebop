@@ -366,7 +366,8 @@ extension Opt {
     fileprivate func toEnum<E>(_ e: E.Type, from: String) throws -> E
         where E: RawRepresentable & CaseIterable, E.RawValue == String {
         guard let eVal = E(rawValue: from) else {
-            throw OptionsError(.localized("err-enum-value", from, name, caseList(E.self, separator: ", ")))
+            throw OptionsError(.localized("err-enum-value",
+                from, name(usage: false), caseList(E.self, separator: ", ")))
         }
         return eVal
     }

@@ -53,10 +53,12 @@ class TestGather: XCTestCase {
     }
 
     func testCwd() throws {
-        let cwd = FileManager.default.currentDirectoryPath
+        let cwd = FileManager.default.currentDirectory
         let system = OptsSystem()
-        try system.test("--module", "Test", "--source-directory", cwd,
-                        jobs: [.swift(moduleName: "Test", srcDir: URL(fileURLWithPath: cwd), buildTool: nil)])
+        // Weirdness here to work around Linux URL incompatibility.  How can anyone mess this up.
+        let expectedSrcDir = URL(fileURLWithPath: cwd.path, relativeTo: cwd)
+        let expected: GatherJob = .swift(moduleName: "Test", srcDir: expectedSrcDir, buildTool: nil)
+        try system.test("--module", "Test", "--source-directory", cwd.path, jobs: [expected])
     }
 
     // Run swift job in the Spm fixtures via srcdir.  Sniff results only.
@@ -87,12 +89,17 @@ class TestGather: XCTestCase {
         #endif
     }
 
-    // Run gather in a fake directory, check error.
+    // Run gather in a fake directory, check errors.
     func testSwiftJobFailure() throws {
-        try TemporaryDirectory.withNew {
-            let system = System()
-            try system.config.processOptions(cliOpts: [])
-            AssertThrows(try system.gather.gather(), OptionsError.self)
+        let cliOpts = [ [],
+                        ["--build-tool", "xcodebuild"],
+                        ["--build-tool", "xcodebuild", "--module", "Butter"]]
+        try cliOpts.forEach { opts in
+            try TemporaryDirectory.withNew {
+                let system = System()
+                try system.config.processOptions(cliOpts: opts)
+                AssertThrows(try system.gather.gather(), GatherError.self)
+            }
         }
     }
 
