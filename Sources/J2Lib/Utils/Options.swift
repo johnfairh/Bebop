@@ -109,10 +109,12 @@ class Opt {
     }
 
     /// Debug/UI helper to refer to the Opt
-    var name: String {
+    func name(usage: Bool) -> String {
         let extendedLongFlag: String?
         if isInvertable, let longFlag = longFlag {
             extendedLongFlag = longFlag.invertableLongFlagSyntax
+        } else if let longFlag = longFlag, type != .bool {
+            extendedLongFlag = "\(longFlag) \(helpParam)"
         } else {
             extendedLongFlag = longFlag
         }
@@ -140,18 +142,31 @@ class Opt {
     func set(path: URL) { fatalError() }
     func set(yaml: Yams.Node) { fatalError() }
     var  type: OptType { fatalError() }
+    var  helpParam: String { "" }
 }
 
 /// Intermediate type to add default values and typed option storage.
 ///
 class TypedOpt<OptType>: Opt {
     private var defaultValue: OptType?
+    private var theHelpParam: String?
 
     /// Set the default value for the option, before running `OptsParser`.
     @discardableResult
     func def(_ defaultValue: OptType) -> Self {
         self.defaultValue = defaultValue
         return self
+    }
+
+    /// Set the help param value for the option, before running `OptsParser`.
+    @discardableResult
+    func help(_ helpParam: String) -> Self {
+        self.theHelpParam = helpParam
+        return self
+    }
+
+    override var helpParam: String {
+        return theHelpParam ?? ""
     }
 
     fileprivate(set) var configValue: OptType? {
@@ -318,11 +333,17 @@ final class YamlOpt: TypedOpt<Yams.Node> {
 // MARK: Enum Options
 
 /// Helpers for enum conversion
+
+private func caseList<E>(_ enum: E.Type, separator: String) -> String
+    where E: RawRepresentable & CaseIterable, E.RawValue == String {
+    E.allCases.map({$0.rawValue}).joined(separator: separator)
+}
+
 extension Opt {
-    fileprivate func toEnum<E>(_ e: E.Type, from: String) throws -> E where E: RawRepresentable & CaseIterable, E.RawValue == String {
+    fileprivate func toEnum<E>(_ e: E.Type, from: String) throws -> E
+        where E: RawRepresentable & CaseIterable, E.RawValue == String {
         guard let eVal = E(rawValue: from) else {
-            let caseList = E.allCases.map({$0.rawValue}).joined(separator: ", ")
-            throw OptionsError(.localized("err-enum-value", from, name, caseList))
+            throw OptionsError(.localized("err-enum-value", from, name, caseList(E.self, separator: ", ")))
         }
         return eVal
     }
@@ -337,6 +358,9 @@ final class EnumListOpt<EnumType>: ArrayOpt<EnumType> where
     }
     override var type: OptType { .string }
     override var repeats: Bool { true }
+    override var helpParam: String {
+        caseList(EnumType.self, separator: "|") + "..."
+    }
 }
 
 /// Type for clients to describe a non-repeating closed enum option,
@@ -347,6 +371,9 @@ final class EnumOpt<EnumType>: TypedOpt<EnumType> where
         configValue = try toEnum(EnumType.self, from: string)
     }
     override var type: OptType { .string }
+    override var helpParam: String {
+        caseList(EnumType.self, separator: "|")
+    }
 }
 
 // MARK: OptsParser

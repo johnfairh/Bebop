@@ -39,7 +39,7 @@ extension Configurable {
 /// * --debug and --quiet modes
 public final class Config {
     /// Real option: where is the config file?
-    private let configFileOpt = PathOpt(l: "config")
+    private let configFileOpt = PathOpt(l: "config").help("PATH")
 
     /// Command options for help / version / log-control
     private let helpOpt = CmdOpt(l: "help")
@@ -170,7 +170,7 @@ public final class Config {
                     logInfo("")
                 }
 
-                logInfo(" " + opt.name)
+                logInfo(" " + opt.name(usage: true))
 
                 opt.help.split(separator: "\n")
                     .map { "   " + $0 }

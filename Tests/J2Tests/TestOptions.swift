@@ -361,11 +361,11 @@ class TestOptions: XCTestCase {
     func testInvertableSyntax() {
         let opt1 = BoolOpt(l: "foo")
         XCTAssertTrue(opt1.isInvertable)
-        XCTAssertTrue(opt1.name.contains("--[no-]foo"))
+        XCTAssertTrue(opt1.name(usage: false).contains("--[no-]foo"))
 
         let opt2 = BoolOpt(l: "no-foo")
         XCTAssertTrue(opt2.isInvertable)
-        XCTAssertTrue(opt2.name.contains("--[no-]foo"))
+        XCTAssertTrue(opt2.name(usage: true).contains("--[no-]foo"))
     }
 
     // More misc option ui
