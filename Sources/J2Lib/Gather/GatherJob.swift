@@ -17,15 +17,21 @@ enum GatherJob: Equatable {
     case swift(moduleName: String?, srcDir: URL?, buildTool: GatherBuildTool?, buildToolArgs: [String])
 
     func execute() throws -> [(moduleName: String, pass: GatherModulePass)] {
+        logDebug("Gather: starting job \(self)")
+        defer { logDebug("Gather: finished job \(self)") }
+
         switch self {
         case .swift(let moduleName, let srcDir, let buildTool, let buildToolArgs):
             let actualSrcDir = srcDir ?? FileManager.default.currentDirectory
             let actualBuildTool = buildTool ?? inferBuildTool(in: actualSrcDir, buildToolArgs: buildToolArgs)
 
+            logDebug(" Using srcdir '\(actualSrcDir)', build tool '\(actualBuildTool)'")
+
             let module: Module?
 
             switch actualBuildTool {
             case .xcodebuild:
+                logDebug(" Calling sourcekitten in swift xcodebuild mode")
                 module = Module(xcodeBuildArguments: buildToolArgs, name: moduleName, inPath: actualSrcDir.path)
                 if module == nil {
                     if let moduleName = moduleName {
@@ -35,12 +41,14 @@ enum GatherJob: Equatable {
                     }
                 }
             case .spm:
+                logDebug(" Calling sourcekitten in swift spm mode")
                 module = Module(spmArguments: buildToolArgs, spmName: moduleName, inPath: actualSrcDir.path)
                 if module == nil {
                     throw GatherError(.localized("err-sktn-spm"))
                 }
             }
 
+            logDebug(" Calling sourcekitten docs generation")
             let filesInfo = module!.docs.map { swiftDoc in
                 (swiftDoc.file.path ?? "(no path)",
                  GatherDef(sourceKittenDict: swiftDoc.docsDictionary))
