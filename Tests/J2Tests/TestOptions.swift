@@ -391,4 +391,23 @@ class TestOptions: XCTestCase {
         XCTAssertEqual("aaa", opt1.sortKey)
         XCTAssertEqual("bbb", opt2.sortKey)
     }
+
+    // Alias options
+    func testAlias() throws {
+        struct Aliased {
+            let realOpt: BoolOpt
+            let aliasOpt: AliasOpt
+
+            init() {
+                realOpt = BoolOpt(l: "rrr")
+                aliasOpt = AliasOpt(realOpt: realOpt, s: "a", l: "aaa")
+            }
+        }
+        let component = Aliased()
+        let optsParser = OptsParser()
+        optsParser.addOpts(from: component)
+        try optsParser.apply(cliOpts: ["--aa"]) // prefix match
+        XCTAssertTrue(component.realOpt.configured)
+        XCTAssertTrue(component.realOpt.value)
+    }
 }

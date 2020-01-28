@@ -52,6 +52,10 @@ private extension String {
     var withoutFlagPrefix: String {
         re_sub("^-*", with: "")
     }
+
+    var asYamlKey: String {
+        replacingOccurrences(of: "-", with: "_")
+    }
 }
 
 // MARK: Abstract Option Types
@@ -114,7 +118,7 @@ class Opt {
         self.longFlag = longFlagName.asLongFlag
         switch yaml {
         case .none: yamlKey = nil
-        case .auto: yamlKey = longFlagName.replacingOccurrences(of: "-", with: "_")
+        case .auto: yamlKey = longFlagName.asYamlKey
         }
     }
 
@@ -166,6 +170,27 @@ class Opt {
     func set(yaml: Yams.Node) { fatalError() }
     var  type: OptType { fatalError() }
     var  helpParam: String { "" }
+}
+
+/// Begrudging support for option aliases.  These don't appear in help.
+struct AliasOpt {
+    let realOpt: Opt
+    let aliases: [String]
+
+    init(realOpt: Opt, s shortFlagName: String? = nil, l longFlagName: String, yaml: OptYaml = .auto) {
+        self.realOpt = realOpt
+        var aliases = [String]()
+        if let short = shortFlagName {
+            precondition(!short.isFlag, "Option names don't include the hyphen")
+            aliases.append(short.asShortFlag)
+        }
+        precondition(!longFlagName.isFlag, "Option names don't include the hyphen")
+        aliases.append(longFlagName.asLongFlag)
+        if yaml == .auto {
+            aliases.append(longFlagName.asYamlKey)
+        }
+        self.aliases = aliases
+    }
 }
 
 /// Intermediate type to add default values and typed option storage.
@@ -478,11 +503,23 @@ final class OptsParser {
         }
     }
 
+    /// Add some aliases for an existing opt
+    private func addAlias(opt: AliasOpt) {
+        guard let realOptLongFlag = opt.realOpt.longFlag,
+            let tracker = matchTracker(flag: realOptLongFlag) else {
+            preconditionFailure("Can't resolve AliasOpt \(opt)")
+        }
+        opt.aliases.forEach { self.add(flag: $0, tracker: tracker) }
+    }
+
     /// Add all `Opt`s declared as properties of the object to dictionary
     func addOpts(from: Any) {
         let m = Mirror(reflecting: from)
         m.children.compactMap({ $0.value as? Opt}).forEach {
             self.add(opt: $0)
+        }
+        m.children.compactMap({ $0.value as? AliasOpt}).forEach {
+            self.addAlias(opt: $0)
         }
     }
 
