@@ -83,7 +83,7 @@ class TestGather: XCTestCase {
 
     // Run swift job in the Xcode fixtures via chdir.  Sniff results only.
     func testXcodeSwift() throws {
-        #if !os(Linux)
+        #if os(macOS)
         let xcodeTestURL = fixturesURL.appendingPathComponent("XcodeSwiftModule")
         try xcodeTestURL.withCurrentDirectory {
             let system = System()

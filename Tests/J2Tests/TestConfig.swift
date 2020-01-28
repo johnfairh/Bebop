@@ -143,7 +143,6 @@ class TestConfig: XCTestCase {
 
     func testDebug() throws {
         TestLogger.install()
-        TestLogger.shared.expectNoDiags = true
         let system = System()
         try system.configure(cliOpts: "--debug")
         XCTAssertFalse(system.config.performConfigCommand())
@@ -154,18 +153,19 @@ class TestConfig: XCTestCase {
         logWarning("w")
         logError("e")
 
-        TestLogger.shared.messageBuf.forEach { m in
-            XCTAssertTrue(m.re_isMatch(#"\[\d\d:\d\d:\d\d ....\] .*$"#))
+        TestLogger.shared.diagsBuf.forEach { m in
+            XCTAssertTrue(m.re_isMatch(#"\[\d\d:\d\d:\d\d ....\] .*$"#), m)
         }
+        XCTAssertTrue(TestLogger.shared.messageBuf.isEmpty)
     }
 
     func testDebugVsQuiet() throws {
         TestLogger.install()
-        TestLogger.shared.expectNoDiags = true
         let system = System()
         try system.configure(cliOpts: "--debug", "--quiet")
         XCTAssertFalse(system.config.performConfigCommand())
         XCTAssertEqual(Logger.allLevels, TestLogger.shared.logger.activeLevels)
+        XCTAssertTrue(TestLogger.shared.messageBuf.isEmpty)
     }
 
     // 6. Opts error actually thrown

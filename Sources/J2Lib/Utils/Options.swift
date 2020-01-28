@@ -54,6 +54,14 @@ private extension String {
     }
 
     var asYamlKey: String {
+        asSwiftEnumCase
+    }
+
+    var asCliEnumCase: String {
+        replacingOccurrences(of: "_", with: "-")
+    }
+
+    var asSwiftEnumCase: String {
         replacingOccurrences(of: "-", with: "_")
     }
 }
@@ -147,7 +155,7 @@ class Opt {
         } else {
             output = yamlKey!
             if usage {
-                output += " (config key only)"
+                output += " (config key only)" // XXX localize
             }
         }
         return output
@@ -382,13 +390,13 @@ final class YamlOpt: TypedOpt<Yams.Node> {
 
 private func caseList<E>(_ enum: E.Type, separator: String) -> String
     where E: RawRepresentable & CaseIterable, E.RawValue == String {
-    E.allCases.map({$0.rawValue}).joined(separator: separator)
+    E.allCases.map({$0.rawValue.asCliEnumCase}).joined(separator: separator)
 }
 
 extension Opt {
     fileprivate func toEnum<E>(_ e: E.Type, from: String) throws -> E
         where E: RawRepresentable & CaseIterable, E.RawValue == String {
-        guard let eVal = E(rawValue: from) else {
+        guard let eVal = E(rawValue: from.asSwiftEnumCase) else {
             throw OptionsError(.localized("err-enum-value",
                 from, name(usage: false), caseList(E.self, separator: ", ")))
         }
@@ -406,7 +414,7 @@ final class EnumListOpt<EnumType>: ArrayOpt<EnumType> where
     override var type: OptType { .string }
     override var repeats: Bool { true }
     override var helpParam: String {
-        caseList(EnumType.self, separator: "|") + ", ..."
+        caseList(EnumType.self, separator: "|") + ",..."
     }
 }
 

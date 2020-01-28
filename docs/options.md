@@ -23,6 +23,17 @@ the config file you can write `option_name: V1` or a sequence.
 CLI options don't have to be written in full, just enough to make the meaning
 unambiguous.  Config files need you to write out the whole thing.
 
+## Control
+
+`--products` controls what the tool creates.  Lets you skip creation of parts
+you don't need or generate structured json data describing various phases of
+docs generation.  This can be used for ingestion elsewhere or as input to
+another invocation of the program running on a different operating system, for
+example.
+
+* `file-json` prints file-oriented json describing the code declarations to be
+documented.  See [xxx]().
+
 ## Gather
 Two modes of operation, simple and custom.  _Simple_ is for one module (or
 multiple modules in the same language & directory & compiler flags, such as

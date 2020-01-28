@@ -16,7 +16,7 @@ public protocol Configurable {
     func checkOptions() throws
 }
 
-extension Configurable {
+public extension Configurable {
     /// Do nothing by default
     func checkOptions() throws {
     }
@@ -87,11 +87,19 @@ public final class Config {
         }
 
         configureLogger(report: false)
+        // More spaghetti.  We normally want to dump the config file location to stdout
+        // but mustn't if we're in pipeline mode, but we don't know if we're in pipeline
+        // mode until we've read the config file, but we want to display the config
+        // file location if there's an error parsing the config file.
+        // The 'pipeline mode' changes happen during the #1 callback, so logging this
+        // on exit should work.
+        var infoLog: String? = nil
+        defer { infoLog.flatMap { logInfo($0) } }
 
         if let configFileURL = try findConfigFile() {
             try configFileURL.checkIsFile()
 
-            logInfo(.localized("msg-config-file", configFileURL.path))
+            infoLog = .localized("msg-config-file", configFileURL.path)
 
             let configFile = try String(contentsOf: configFileURL)
 
@@ -102,7 +110,7 @@ public final class Config {
 
         configureLogger(report: true)
 
-        try configurables.forEach { try $0.checkOptions() }
+        try configurables.forEach { try $0.checkOptions() } // #1
     }
 
     /// Find the config file, using a configured path or default rules.
@@ -201,8 +209,8 @@ public final class Config {
                 }
                 return "[\(timestamp) \(levelStr)] "
             }
-            // Everything to stdout
-            Logger.shared.diagnosticLevels = []
+            // Everything to stderr
+            Logger.shared.diagnosticLevels = Logger.allLevels
 
             if report {
                 logDebug("Debug enabled, version \(Version.j2libVersion)")

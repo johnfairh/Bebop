@@ -8,12 +8,45 @@
 
 import Foundation
 
+/// The various products that the pipeline can create
+enum PipelineProduct: String, CaseIterable {
+    case files_json
+
+    /// Pipeline mode is when the thing behaves fit to go in a shell pipeline -- producing parseable
+    /// output only to stdout, everything else to stderr.  Used for the various json-dumping modes.
+    var needsPipelineMode: Bool {
+        switch self {
+        case .files_json: return true
+        }
+    }
+}
+
+extension Sequence where Element == PipelineProduct {
+    var needsPipelineMode: Bool {
+        reduce(false, { result, next in result || next.needsPipelineMode })
+    }
+}
+
 /// A top-level type to coordinate the components.
-public struct Pipeline {
+public final class Pipeline: Configurable {
     /// Options parsing and validation orchestration
     public let config: Config
     /// Info gathering and garnishing
     public let gather: Gather
+
+    /// User product config
+    private let productsOpt = EnumListOpt<PipelineProduct>(l: "products")
+
+    /// Product tracking
+    private var productsToDo: Set<PipelineProduct> = []
+
+    func testAndClearProduct(_ product: PipelineProduct) -> Bool {
+        productsToDo.remove(product) != nil
+    }
+
+    var productsAllDone: Bool {
+        productsToDo.isEmpty
+    }
 
     /// Set up a new pipeline.
     /// - parameter logger: Optional `Logger` to use for logging messages.
@@ -28,6 +61,7 @@ public struct Pipeline {
 
         config = Config()
         gather = Gather(config: config)
+        config.register(self)
     }
 
     /// Build, configure, and execute a pipeline according to `argv` and
@@ -42,7 +76,22 @@ public struct Pipeline {
         }
 
         let gatheredModules = try gather.gather()
-        print(gatheredModules.json)
+
+        if testAndClearProduct(.files_json) {
+            logDebug("Pipeline: producing files-json")
+            logOutput(gatheredModules.json)
+            if productsAllDone { return }
+        }
+    }
+
+    /// Callback during options processing.  Important we sort out pipeline mode now to avoid
+    /// polluting stdout....
+    public func checkOptions() throws {
+        productsToDo = Set(productsOpt.value)
+        logDebug("Pipeline: products: \(productsToDo)")
+        if productsToDo.needsPipelineMode {
+            Logger.shared.diagnosticLevels = Logger.allLevels
+        }
     }
 }
 

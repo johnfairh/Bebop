@@ -10,39 +10,12 @@ import XCTest
 @testable import J2Lib
 
 class TestPipeline: XCTestCase {
-    // Check resource bundle xctest setup
-    func testResourceSetup() {
+    override func setUp() {
         prepareResourceBundle()
-        Resources.initialize()
-    }
-
-    // Test a chunk of localization selection
-    func testLanguageChoice() {
-        func setLang(_ l: String) { setenv("LANG", strdup(l) /* leak it */, 1) }
-        let origLang = ProcessInfo.processInfo.environment["LANG"]
-        defer { setLang(origLang ?? "") }
-
-        setLang("fr_FR.UTF-8")
-        XCTAssertEqual("fr", Resources.chooseLanguageFromEnvironment(choices: ["fr", "en"]).0)
-        XCTAssertNil(Resources.chooseLanguageFromEnvironment(choices: ["en"]).0)
-
-        setLang("fr_FR")
-        XCTAssertEqual("fr_FR", Resources.chooseLanguageFromEnvironment(choices: ["fr", "fr_FR"]).0)
-        XCTAssertNil(Resources.chooseLanguageFromEnvironment(choices: ["fr_CA", "en"]).0)
-
-        setLang("Nonsense")
-        XCTAssertNil(Resources.chooseLanguageFromEnvironment(choices: ["en"]).0)
-
-        setLang("")
-        XCTAssertNil(Resources.chooseLanguageFromEnvironment(choices: ["en"]).0)
-
-        unsetenv("LANG")
-        XCTAssertNil(Resources.chooseLanguageFromEnvironment(choices: ["en"]).0)
     }
 
     // Pipeline construction but get out early
     func testPipelineSetup() throws {
-        prepareResourceBundle()
         TestLogger.install()
         TestLogger.shared.expectNoDiags = true
         let p = Pipeline(logger: TestLogger.shared.logger)
@@ -53,7 +26,6 @@ class TestPipeline: XCTestCase {
     // Pipeline from CLI
     // (using --version here to avoid running the whole thing, have to think...)
     func testCliPipeline() throws {
-        prepareResourceBundle()
         TestLogger.install()
         let rc = Pipeline.main(argv: ["--version"])
         XCTAssertEqual(0, rc)
@@ -79,9 +51,9 @@ class TestPipeline: XCTestCase {
     }
 
     // Simple end-to-end run
-    func FAIL_testEndToEnd() throws {
+    func testEndToEnd() throws {
         let pipeline = Pipeline()
         let spmTestURL = fixturesURL.appendingPathComponent("SpmSwiftModule")
-        try pipeline.run(argv: ["--source-directory", spmTestURL.path])
+        try pipeline.run(argv: ["--source-directory", spmTestURL.path, "--products", "files-json"])
     }
 }

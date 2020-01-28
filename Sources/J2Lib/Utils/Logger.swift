@@ -54,14 +54,31 @@ public final class Logger {
             return
         }
 
-        logHandler(messagePrefix(level) + message(), diagnosticLevels.contains(level))
+        logHandler(messagePrefix(level) + message(),
+                   diagnosticLevels.contains(level) ? .diagnostic : .message)
+    }
+
+    // Produce some output
+    public func output(_ data: String) {
+        logHandler(data, .output)
+    }
+
+    /// Logger back-end characterization
+    public enum LogHandlerLevel {
+        /// abnormal status message
+        case diagnostic
+        /// normal status message
+        case message
+        /// meaningful program output
+        case output
     }
 
     /// Logger back-end, actually do something with a message.
-    public var logHandler: (String, _ isDiagnostic: Bool) -> Void = { m, d in
-        if d {
+    public var logHandler: (String, _ level: LogHandlerLevel) -> Void = { m, d in
+        switch d {
+        case .diagnostic:
             print(m, to: &StdStream.stderr)
-        } else {
+        case .message, .output:
             print(m, to: &StdStream.stdout)
         }
     }
@@ -95,6 +112,11 @@ internal func logWarning(_ message: @autoclosure () -> String) {
 /// Log an error message
 internal func logError(_ message: @autoclosure () -> String) {
     Logger.shared.log(.error, message())
+}
+
+/// Make some output
+internal func logOutput(_ data: String) {
+    Logger.shared.output(data)
 }
 
 // MARK: Std streams

@@ -176,7 +176,7 @@ class TestOptions: XCTestCase {
         let opt = EnumListOpt<Color>(s: "e", l: "e")
         try SimpleSystem(opt).parse("-e red -e red".components(separatedBy: " "))
         XCTAssertEqual(opt.value, [.red, .red])
-        XCTAssertEqual("red|blue, ...", opt.helpParam)
+        XCTAssertEqual("red|blue,...", opt.helpParam)
     }
 
     // Inline lists

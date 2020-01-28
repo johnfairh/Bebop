@@ -43,20 +43,26 @@ func Do(code: () throws -> Void) {
 final class TestLogger {
     var messageBuf = [String]()
     var diagsBuf = [String]()
+    var outputBuf = [String]()
     var logger = Logger()
     var expectNothing = false
     var expectNoDiags = false
     var expectNoMessages = false
+    var expectNoOutput = false
 
     init() {
         logger.logHandler = { m, d in
             XCTAssertFalse(self.expectNothing)
-            if d {
+            switch d {
+            case .diagnostic:
                 XCTAssertFalse(self.expectNoDiags)
                 self.diagsBuf.append(m)
-            } else {
+            case .message:
                 XCTAssertFalse(self.expectNoMessages)
                 self.messageBuf.append(m)
+            case .output:
+                XCTAssertFalse(self.expectNoOutput)
+                self.outputBuf.append(m)
             }
         }
     }

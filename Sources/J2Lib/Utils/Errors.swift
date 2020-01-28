@@ -63,19 +63,19 @@ public final class GatherError: Error {
 }
 
 /// Some reachable code isn't implemented
-public final class NotImplementedError: Error {
-    public let function: String
-
-    public init(_ function: String = "", file: String = #file, line: Int = #line) {
-        self.function = function
-        super.init(file: file, line: line)
-    }
-
-    public override var description: String {
-        "Not implemented: \(function)"
-    }
-
-    public override var debugDescription: String {
-        "\(description) (\(errorSource))]"
-    }
-}
+//public final class NotImplementedError: Error {
+//    public let function: String
+//
+//    public init(_ function: String = "", file: String = #file, line: Int = #line) {
+//        self.function = function
+//        super.init(file: file, line: line)
+//    }
+//
+//    public override var description: String {
+//        "Not implemented: \(function)"
+//    }
+//
+//    public override var debugDescription: String {
+//        "\(description) (\(errorSource))]"
+//    }
+//}
