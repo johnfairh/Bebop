@@ -10,13 +10,19 @@ import Foundation
 
 /// The various products that the pipeline can create
 enum PipelineProduct: String, CaseIterable {
+    /// Gather output
     case files_json
+    /// Merge output
+    case decls_json
+    /// Produce docs
+    case docs
 
     /// Pipeline mode is when the thing behaves fit to go in a shell pipeline -- producing parseable
     /// output only to stdout, everything else to stderr.  Used for the various json-dumping modes.
     var needsPipelineMode: Bool {
         switch self {
-        case .files_json: return true
+        case .files_json, .decls_json: return true
+        case .docs: return false
         }
     }
 }
@@ -33,9 +39,13 @@ public final class Pipeline: Configurable {
     public let config: Config
     /// Info gathering and garnishing
     public let gather: Gather
+    /// Duplicate and extension merging, conversion to more formal data structure
+    public let merge: Merge
+    /// Generate final docs
+    public let gen: Gen
 
     /// User product config
-    private let productsOpt = EnumListOpt<PipelineProduct>(l: "products")
+    private let productsOpt = EnumListOpt<PipelineProduct>(l: "products").def([.docs])
 
     /// Product tracking
     private var productsToDo: Set<PipelineProduct> = []
@@ -61,6 +71,8 @@ public final class Pipeline: Configurable {
 
         config = Config()
         gather = Gather(config: config)
+        merge = Merge(config: config)
+        gen = Gen(config: config)
         config.register(self)
     }
 
@@ -82,6 +94,16 @@ public final class Pipeline: Configurable {
             logOutput(gatheredModules.json)
             if productsAllDone { return }
         }
+
+        let mergedDefs = try merge.merge(gathered: gatheredModules)
+
+        if testAndClearProduct(.decls_json) {
+            logDebug("Pipeline: producing decls-json")
+            logOutput(try mergedDefs.toJSON())
+            if productsAllDone { return }
+        }
+
+        try gen.generate(defs: mergedDefs)
     }
 
     /// Callback during options processing.  Important we sort out pipeline mode now to avoid
