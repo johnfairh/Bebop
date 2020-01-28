@@ -21,12 +21,14 @@ struct GatherOpts : Configurable {
     let srcDirOpt = PathOpt(l: "source-directory").help("PATH")
     let buildToolOpt = EnumOpt<GatherBuildTool>(l: "build-tool")
     let buildToolArgsOpt = StringListOpt(s: "b", l: "build-tool-arguments").help("ARG1,ARG2...")
-    let xcodeBuildArgsOpt: AliasOpt
+    let xcodeBuildArgsAlias: AliasOpt
+    let swiftBuildToolAlias: AliasOpt
 
     init(config: Config) {
         self.config = config
 
-        xcodeBuildArgsOpt = AliasOpt(realOpt: buildToolArgsOpt, s: "x", l: "xcodebuild-arguments")
+        xcodeBuildArgsAlias = AliasOpt(realOpt: buildToolArgsOpt, s: "x", l: "xcodebuild-arguments")
+        swiftBuildToolAlias = AliasOpt(realOpt: buildToolOpt, l: "swift-build-tool")
 
         config.register(self)
         config.srcDirPathOpt = srcDirOpt
