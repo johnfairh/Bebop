@@ -14,19 +14,19 @@ import SourceKittenFramework
 /// In fact that's a lie because "import a gather.json" is also a job that can vend multiple modules and passes.
 /// That may be a modelling error, tbd pending implementation of import....
 enum GatherJob: Equatable {
-    case swift(moduleName: String?, srcDir: URL?, buildTool: GatherBuildTool?)
+    case swift(moduleName: String?, srcDir: URL?, buildTool: GatherBuildTool?, buildToolArgs: [String])
 
     func execute() throws -> [(moduleName: String, pass: GatherModulePass)] {
         switch self {
-        case .swift(let moduleName, let srcDir, let buildTool):
+        case .swift(let moduleName, let srcDir, let buildTool, let buildToolArgs):
             let actualSrcDir = srcDir ?? FileManager.default.currentDirectory
-            let actualBuildTool = buildTool ?? inferBuildTool(in: actualSrcDir)
+            let actualBuildTool = buildTool ?? inferBuildTool(in: actualSrcDir, buildToolArgs: buildToolArgs)
 
             let module: Module?
 
             switch actualBuildTool {
             case .xcodebuild:
-                module = Module(xcodeBuildArguments: [], name: moduleName, inPath: actualSrcDir.path)
+                module = Module(xcodeBuildArguments: buildToolArgs, name: moduleName, inPath: actualSrcDir.path)
                 if module == nil {
                     if let moduleName = moduleName {
                         throw GatherError(.localized("err-sktn-xcode-mod", moduleName))
@@ -35,7 +35,7 @@ enum GatherJob: Equatable {
                     }
                 }
             case .spm:
-                module = Module(spmArguments: [], spmName: moduleName, inPath: actualSrcDir.path)
+                module = Module(spmArguments: buildToolArgs, spmName: moduleName, inPath: actualSrcDir.path)
                 if module == nil {
                     throw GatherError(.localized("err-sktn-spm"))
                 }
@@ -51,12 +51,17 @@ enum GatherJob: Equatable {
     }
 }
 
-private func inferBuildTool(in directory: URL) -> GatherBuildTool {
+private func inferBuildTool(in directory: URL, buildToolArgs: [String]) -> GatherBuildTool {
+    #if os(macOS)
     guard directory.filesMatching("*.xcodeproj", "*.xcworkspace").isEmpty else {
         return .xcodebuild
     }
 
-    // XXX check build flags
+    guard !buildToolArgs.contains("-workspace"),
+        !buildToolArgs.contains("-project") else {
+        return .xcodebuild
+    }
+    #endif
 
     return .spm
 }

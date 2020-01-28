@@ -19,7 +19,7 @@ private struct OptsSystem {
         gatherOpts = GatherOpts(config: config)
     }
 
-    func test(_ opts: String..., jobs expected: [GatherJob]) throws {
+    func test(_ opts: [String] = [], jobs expected: [GatherJob]) throws {
         try config.processOptions(cliOpts: opts)
         let actual = gatherOpts.jobs
         XCTAssertEqual(expected.count, actual.count)
@@ -45,11 +45,19 @@ class TestGather: XCTestCase {
     }
 
     func testDefault() throws {
-        try OptsSystem().test(jobs: [.swift(moduleName: nil, srcDir: nil, buildTool: nil)])
+        try OptsSystem().test(jobs: [.swift(moduleName: nil, srcDir: nil, buildTool: nil, buildToolArgs: [])])
     }
 
     func testModule() throws {
-        try OptsSystem().test("--module", "Test", jobs: [.swift(moduleName: "Test", srcDir: nil, buildTool: nil)])
+        try OptsSystem().test(["--module", "Test"], jobs: [.swift(moduleName: "Test", srcDir: nil, buildTool: nil, buildToolArgs: [])])
+    }
+
+    func testBuildToolArgs() throws {
+        let expected = GatherJob.swift(moduleName: nil, srcDir: nil, buildTool: nil, buildToolArgs: ["aa", "bb", "cc"])
+        try [ ["--build-tool-arguments", "aa,bb,cc"],
+              ["-b", "aa", "-b", "bb", "--build-tool-arguments", "cc"] ].forEach { opts in
+            try OptsSystem().test(opts, jobs: [expected])
+        }
     }
 
     func testCwd() throws {
@@ -57,8 +65,8 @@ class TestGather: XCTestCase {
         let system = OptsSystem()
         // Weirdness here to work around Linux URL incompatibility.  How can anyone mess this up.
         let expectedSrcDir = URL(fileURLWithPath: cwd.path, relativeTo: cwd)
-        let expected: GatherJob = .swift(moduleName: "Test", srcDir: expectedSrcDir, buildTool: nil)
-        try system.test("--module", "Test", "--source-directory", cwd.path, jobs: [expected])
+        let expected: GatherJob = .swift(moduleName: "Test", srcDir: expectedSrcDir, buildTool: nil, buildToolArgs: [])
+        try system.test(["--module", "Test", "--source-directory", cwd.path], jobs: [expected])
     }
 
     // Run swift job in the Spm fixtures via srcdir.  Sniff results only.
@@ -103,5 +111,45 @@ class TestGather: XCTestCase {
         }
     }
 
+    // Auto detect build tool
+
+    private func doEmptyFailingBuild(cliOpts: [String] = [], touchFile: String? = nil, expectSpm: Bool) throws {
+        try TemporaryDirectory.withNew {
+            if let touchFile = touchFile {
+                let rc = FileManager.default.createFile(atPath: touchFile, contents: nil)
+                XCTAssertTrue(rc)
+            }
+            let system = System()
+            try system.config.processOptions(cliOpts: cliOpts)
+            do {
+                _ = try system.gather.gather()
+                XCTFail("Can't succeed, no project")
+            } catch let error as GatherError {
+                if expectSpm {
+                    XCTAssertTrue(error.description.re_isMatch("swift build"))
+                } else {
+                    XCTAssertTrue(error.description.re_isMatch("xcodebuild"))
+                }
+            }
+        }
+    }
+
+    func testSpmDefault() throws {
+        try doEmptyFailingBuild(cliOpts: [], expectSpm: true)
+    }
+
+    func testXcodebuildWithArgs() throws {
+        #if os(macOS)
+        try doEmptyFailingBuild(cliOpts: ["-b", "-workspace,../My.xcworkspace"], expectSpm: false)
+        try doEmptyFailingBuild(cliOpts: ["-b", "-project,../My.xcodeproj"], expectSpm: false)
+        #endif
+    }
+
+    func testXcodebuildWithFiles() throws {
+        #if os(macOS)
+        try doEmptyFailingBuild(touchFile: "my.xcodeproj", expectSpm: false)
+        try doEmptyFailingBuild(touchFile: "my.xcworkspace", expectSpm: false)
+        #endif
+    }
     // Come back here later on to test multipass and merging.
 }

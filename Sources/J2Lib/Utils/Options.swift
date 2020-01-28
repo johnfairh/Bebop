@@ -212,10 +212,8 @@ class TypedOpt<OptType>: Opt {
 
 /// Further intermediate for array options -- replaces optionals with empty arrays
 class ArrayOpt<OptElemType>: TypedOpt<[OptElemType]> {
-    private var defaultValue = [OptElemType]()
-
     override var value: [OptElemType] {
-        super.value!
+        super.value ?? []
     }
 
     override var repeats: Bool { true }

@@ -27,3 +27,5 @@ Default: the current directory.";
 "build-tool" = "Tool used to build Swift modules.
 Default: 'xcodebuild' if there is an Xcode project or workspace file in
 the source directory, otherwise 'spm'.";
+"build-tool-arguments" =
+"Arguments to pass through to `xcodebuild`, `swift build`, or `clang`.";
