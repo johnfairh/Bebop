@@ -30,4 +30,7 @@ the source directory, otherwise 'spm'.";
 "build-tool-arguments" =
 "Arguments to pass through to `xcodebuild`, `swift build`, or `clang`.";
 "products" = "Things to produce.
-Default: docs,docset,undocumented-json";
+Default: 'docs,docset,undocumented-json'";
+"output" = "Directory in which to create documentation.
+Default: 'docs'.";
+"clean" = "Delete output directory and contents before creating documentation.";

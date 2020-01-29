@@ -2,6 +2,7 @@
 
 * [Syntax](#syntax) - how options work.
 * [Gather](#gather) - getting information about declarations.
+* [Generation](#gen) - output generation.
 * [Meta](#meta) - how the program runs.
 
 ## Syntax
@@ -45,6 +46,10 @@ ways in multiple locations -- configured only in the config file.
 * `--build-tool-arguments` any extra flags to pass to the build tool.
 * `--module` names of modules to build.  Guessed if omitted.
 * `--source-directory PATH` where to build from.  Current dir if omitted.
+
+## Gen
+* `--output PATH` directory in which to put docs.
+* `--clean` delete output directory and contents before starting.
 
 ## Meta
 * `--config PATH` config file location.
