@@ -34,3 +34,7 @@ Default: 'docs,docset,undocumented-json'";
 "output" = "Directory in which to create documentation.
 Default: 'docs'.";
 "clean" = "Delete output directory and contents before creating documentation.";
+"theme" = "Theme for generated documentation.  Use the name of a built-in theme
+or give the path of a directory containing your customized templates and
+assets.
+Default: Built-in theme 'fw2020'.";"

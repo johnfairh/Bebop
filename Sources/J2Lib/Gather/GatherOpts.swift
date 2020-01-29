@@ -18,7 +18,7 @@ struct GatherOpts : Configurable {
     let config: Config
 
     let moduleNameOpt = StringOpt(s: "m", l: "module").help("MODULE_NAME")
-    let srcDirOpt = PathOpt(l: "source-directory").help("PATH")
+    let srcDirOpt = PathOpt(l: "source-directory").help("DIRPATH")
     let buildToolOpt = EnumOpt<GatherBuildTool>(l: "build-tool")
     let buildToolArgsOpt = StringListOpt(s: "b", l: "build-tool-arguments").help("ARG1,ARG2...")
     let xcodeBuildArgsAlias: AliasOpt

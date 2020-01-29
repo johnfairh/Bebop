@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Mustache
 
 /// `Gen` produces docs output data from an `Item` forest.
 ///
@@ -20,12 +19,18 @@ public struct Gen: Configurable {
         outputOpt.value!
     }
 
+    let themes: Themes
+
     public init(config: Config) {
-        Mustache.MustacheLogger = { logWarning("Mustache: \($0)") }
+
+        themes = Themes(config: config)
+
         config.register(self)
     }
 
     public func generate(defs: [DefItem]) throws {
+        let theme = try themes.select()
+
         if cleanOpt.value {
             logDebug("Gen: Cleaning output directory \(outputURL.path)")
             try FileManager.default.removeItem(at: outputURL)
@@ -34,12 +39,13 @@ public struct Gen: Configurable {
         logDebug("Gen: Creating output directory \(outputURL.path)")
         try FileManager.default.createDirectory(at: outputURL, withIntermediateDirectories: true)
 
-        try defs.forEach { try self.createPage(def: $0) }
-    }
-
-    func createPage(def: DefItem) throws {
-        let url = outputURL.appendingPathComponent("\(def.name).html")
-        let content = Data(base64Encoded: def.name)!
-        try content.write(to: url)
+        try defs.forEach { def in
+            let url = outputURL.appendingPathComponent("\(def.name).\(theme.fileExtension)")
+            let mustacheData = ["name" : def.name]
+            logDebug("Gen: Rendering template \(def.name)")
+            let rendered = try theme.renderTemplate(data: mustacheData)
+            logDebug("Gen: Creating \(url.path)")
+            try rendered.write(to: url, atomically: true, encoding: .utf8)
+        }
     }
 }

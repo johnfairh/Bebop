@@ -174,7 +174,7 @@ class Opt {
     /// To be overridden
     func set(bool: Bool) { fatalError() }
     func set(string: String) throws { fatalError() }
-    func set(path: URL) { fatalError() }
+    func set(string: String, path: URL) { fatalError() }
     func set(yaml: Yams.Node) { fatalError() }
     var  type: OptType { fatalError() }
     var  helpParam: String { "" }
@@ -328,8 +328,13 @@ extension URL {
 }
 
 /// Type for clients to describe a non-repeating pathname option,
+/// Because 'theme' we store what they typed as well as the expanded path....
 final class PathOpt: TypedOpt<URL> {
-    override func set(path: URL) { configValue = path }
+    var configStringValue: String?
+    override func set(string: String, path: URL) {
+        configStringValue = string
+        configValue = path
+    }
     override var type: OptType { .path }
 
     /// Smarter default - interpreted as relative to the current directory
@@ -351,7 +356,7 @@ final class PathOpt: TypedOpt<URL> {
 
 /// Type for clients to describe a repeating pathname option.
 final class PathListOpt: ArrayOpt<URL> {
-    override func set(path: URL) { add(path) }
+    override func set(string: String, path: URL) { add(path) }
     override var type: OptType { .path }
 
     /// Validation helper, throw unless all given are existing files
@@ -414,7 +419,7 @@ final class EnumListOpt<EnumType>: ArrayOpt<EnumType> where
     override var type: OptType { .string }
     override var repeats: Bool { true }
     override var helpParam: String {
-        caseList(EnumType.self, separator: "|") + ",..."
+        caseList(EnumType.self, separator: " | ") + ", ..."
     }
 }
 
@@ -427,7 +432,7 @@ final class EnumOpt<EnumType>: TypedOpt<EnumType> where
     }
     override var type: OptType { .string }
     override var helpParam: String {
-        caseList(EnumType.self, separator: "|")
+        caseList(EnumType.self, separator: " | ")
     }
 }
 
@@ -543,7 +548,7 @@ final class OptsParser {
                 try opt.set(string: url.standardized.path)
             case .path:
                 let url = URL(fileURLWithPath: datum, relativeTo: relativePathBase)
-                opt.set(path: url.standardized)
+                opt.set(string: datum, path: url.standardized)
             default:
                 try opt.set(string: datum)
             }

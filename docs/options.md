@@ -50,6 +50,8 @@ ways in multiple locations -- configured only in the config file.
 ## Gen
 * `--output PATH` directory in which to put docs.
 * `--clean` delete output directory and contents before starting.
+* `--theme name|PATH` theme name or custom path.  Themes must contain a
+  `templates` directory and may contain a `theme.yaml` file.
 
 ## Meta
 * `--config PATH` config file location.
