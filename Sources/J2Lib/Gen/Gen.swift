@@ -9,6 +9,9 @@
 import Foundation
 import Mustache
 
+/// `Gen` produces docs output data from an `Item` forest.
+///
+/// tbd whether we need the pagegen / sitegen split - just stubs really
 public struct Gen: Configurable {
     let outputOpt = PathOpt(s: "o", l: "output").help("PATH").def("docs")
     let cleanOpt = BoolOpt(s: "c", l: "clean")
@@ -22,7 +25,7 @@ public struct Gen: Configurable {
         config.register(self)
     }
 
-    public func generate(defs: [DeclDef]) throws {
+    public func generate(defs: [DefItem]) throws {
         if cleanOpt.value {
             logDebug("Gen: Cleaning output directory \(outputURL.path)")
             try FileManager.default.removeItem(at: outputURL)
@@ -34,7 +37,7 @@ public struct Gen: Configurable {
         try defs.forEach { try self.createPage(def: $0) }
     }
 
-    func createPage(def: DeclDef) throws {
+    func createPage(def: DefItem) throws {
         let url = outputURL.appendingPathComponent("\(def.name).html")
         let content = Data(base64Encoded: def.name)!
         try content.write(to: url)

@@ -8,30 +8,31 @@
 
 import Foundation
 
-extension Def {
-    enum CodingKeys: String, CodingKey {
-        case name = "key.j2.name"
-    }
+// Bits to do with creating the decl-json product
+
+fileprivate enum DefItemCodingKeys: String, CodingKey {
+    case moduleName
+    case passIndex
 }
 
-fileprivate enum DeclDefCodingKeys: String, CodingKey {
-    case moduleName = "key.j2.module_name"
-    case passIndex = "key.j2.pass_index"
-}
-
-extension DeclDef {
+extension DefItem {
     func doEncode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: DeclDefCodingKeys.self)
+        try super.encode(to: encoder)
+        
+        var container = encoder.container(keyedBy: DefItemCodingKeys.self)
         try container.encode(self.moduleName, forKey: .moduleName)
         try container.encode(self.passIndex, forKey: .passIndex)
     }
 }
 
-extension Array where Element == DeclDef {
+extension Array where Element == DefItem {
     public func toJSON() throws -> String {
         let encoder = JSONEncoder()
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
+        encoder.keyEncodingStrategy = .convertToSnakeCase
         let data = try encoder.encode(self)
-        return String(data: data, encoding: .utf8)!
+        let json = String(data: data, encoding: .utf8)!
+        // Get rid of empty arrays....
+        return json.re_sub(#"\n +"\w+" : \[\n\n +\],"#, with: "")
     }
 }

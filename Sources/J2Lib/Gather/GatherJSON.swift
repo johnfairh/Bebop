@@ -63,24 +63,18 @@ extension GatherDef {
 
 extension GatherModulePass {
     /// Build array of 1-element hashes from pathname to data
-    func dictsForJSON(moduleName: String) -> [NSDictionary] {
-        defs.map { def in
-            toNSDictionary([def.pathname : def.1.rootDictForJSON(moduleName: moduleName, passIndex: self.index)])
+    var dictsForJSON : [NSDictionary] {
+        files.map { file in
+            let contentsDict = file.1.rootDictForJSON(moduleName: moduleName, passIndex: passIndex)
+            return toNSDictionary([file.pathname : contentsDict])
         }
     }
 }
 
-extension GatherModule {
-    /// Accumulate the passes
-    var dictsForJSON: [NSDictionary] {
-        passes.flatMap { $0.dictsForJSON(moduleName: self.name) }
-    }
-}
-
-extension GatherModules {
+extension Array where Element == GatherModulePass {
     /// Accumulate the modules and convert
     public var json: String {
-        let allFiles: [NSDictionary] = modules.flatMap { $0.dictsForJSON }
-        return toJSON(allFiles)
+        let allFiles: [NSDictionary] = flatMap { $0.dictsForJSON}
+        return SourceKittenFramework.toJSON(allFiles)
     }
 }

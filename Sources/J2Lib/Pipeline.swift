@@ -87,15 +87,15 @@ public final class Pipeline: Configurable {
             return
         }
 
-        let gatheredModules = try gather.gather()
+        let gatheredData = try gather.gather()
 
         if testAndClearProduct(.files_json) {
             logDebug("Pipeline: producing files-json")
-            logOutput(gatheredModules.json)
+            logOutput(gatheredData.json)
             if productsAllDone { return }
         }
 
-        let mergedDefs = try merge.merge(gathered: gatheredModules)
+        let mergedDefs = try merge.merge(gathered: gatheredData)
 
         if testAndClearProduct(.decls_json) {
             logDebug("Pipeline: producing decls-json")

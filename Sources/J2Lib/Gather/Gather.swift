@@ -7,7 +7,7 @@
 //
 import Foundation
 
-/// `Gather` is responsible for generating code definition data according to rules in the config.
+/// `Gather` generates code definition data according to rules in the config.
 ///
 /// Fundamentally this means getting SourceKitten to run its docs pass, which means running a bunch of
 /// SourceKit queries or asking libclang, for Objective C.
@@ -38,39 +38,28 @@ public struct Gather {
     }
 
     /// Gather information from the configured modules.
-    public func gather() throws -> GatherModules {
+    public func gather() throws -> [GatherModulePass] {
         // have opts separately figure out the module->mergepolicy.
         // that way we don't get incredible tramp data with mergepolicy.
         // we can't have it figure out module names because of implicit
         // top-level, and multi-module-import.
         // ooh no, it has an API mapping module-name to merge-policy, defaults
         // to something for unknown.  Fine.
-        let passData = try opts.jobs.map { try $0.execute() }.flatMap { $0 }
+        let passes = try opts.jobs.map { try $0.execute() }.flatMap { $0 }
 
         // include/exclude filtering
 
-        var moduleDict = [String: GatherModule]()
+        // Garnishes
 
-        passData.forEach { pass in
-            if let module = moduleDict[pass.0] {
-                module.passes.append(pass.1)
-            } else {
-                moduleDict[pass.0] = GatherModule(name: pass.0, pass: pass.1)
-            }
-        }
-
-        let modules = moduleDict.values
-
-        // Garnishes here
-
-        return GatherModules(modules)
+        return passes
     }
 }
 
 /// Data from one pass of a module.
 public struct GatherModulePass {
-    public let index: Int
-    public let defs: [(pathname: String, GatherDef)]
+    public let moduleName: String
+    public let passIndex: Int
+    public let files: [(pathname: String, GatherDef)]
     // public let availabilityDefaults: [String] // not serialized
     // public let ignoreAvailabilityAttr: Bool   // not serialized
 }

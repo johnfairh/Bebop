@@ -49,8 +49,8 @@
 		02CFF9F923DF158700FDE5B9 /* TestGather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFF9F823DF158700FDE5B9 /* TestGather.swift */; };
 		02CFF9FE23E0A9D100FDE5B9 /* TestResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFF9FD23E0A9D100FDE5B9 /* TestResources.swift */; };
 		02CFFA0123E0B95F00FDE5B9 /* Merge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFFA0023E0B95F00FDE5B9 /* Merge.swift */; };
-		02CFFA0423E0BA2900FDE5B9 /* Def.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFFA0323E0BA2900FDE5B9 /* Def.swift */; };
-		02CFFA0623E0BD8B00FDE5B9 /* DefJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFFA0523E0BD8B00FDE5B9 /* DefJSON.swift */; };
+		02CFFA0423E0BA2900FDE5B9 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFFA0323E0BA2900FDE5B9 /* Item.swift */; };
+		02CFFA0623E0BD8B00FDE5B9 /* ItemJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFFA0523E0BD8B00FDE5B9 /* ItemJSON.swift */; };
 		02CFFA0923E0C8AC00FDE5B9 /* Gen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFFA0823E0C8AC00FDE5B9 /* Gen.swift */; };
 		02CFFA0D23E1973300FDE5B9 /* Mustache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02CFFA0C23E1973300FDE5B9 /* Mustache.framework */; };
 		02CFFA0E23E1973300FDE5B9 /* Mustache.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02CFFA0C23E1973300FDE5B9 /* Mustache.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -174,8 +174,8 @@
 		02CFF9F823DF158700FDE5B9 /* TestGather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGather.swift; sourceTree = "<group>"; };
 		02CFF9FD23E0A9D100FDE5B9 /* TestResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResources.swift; sourceTree = "<group>"; };
 		02CFFA0023E0B95F00FDE5B9 /* Merge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Merge.swift; sourceTree = "<group>"; };
-		02CFFA0323E0BA2900FDE5B9 /* Def.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Def.swift; sourceTree = "<group>"; };
-		02CFFA0523E0BD8B00FDE5B9 /* DefJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefJSON.swift; sourceTree = "<group>"; };
+		02CFFA0323E0BA2900FDE5B9 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		02CFFA0523E0BD8B00FDE5B9 /* ItemJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemJSON.swift; sourceTree = "<group>"; };
 		02CFFA0823E0C8AC00FDE5B9 /* Gen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gen.swift; sourceTree = "<group>"; };
 		02CFFA0C23E1973300FDE5B9 /* Mustache.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mustache.framework; path = Carthage/Build/Mac/Mustache.framework; sourceTree = "<group>"; };
 		02F2B3B4239A7E0C00397BC6 /* J2CLI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = J2CLI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -383,8 +383,8 @@
 		02CFFA0223E0BA0F00FDE5B9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				02CFFA0323E0BA2900FDE5B9 /* Def.swift */,
-				02CFFA0523E0BD8B00FDE5B9 /* DefJSON.swift */,
+				02CFFA0323E0BA2900FDE5B9 /* Item.swift */,
+				02CFFA0523E0BD8B00FDE5B9 /* ItemJSON.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -591,11 +591,11 @@
 			files = (
 				02CFF92B23DEF49400FDE5B9 /* GatherJSON.swift in Sources */,
 				022818D123D4F2AE0016B0D5 /* Glob.swift in Sources */,
-				02CFFA0623E0BD8B00FDE5B9 /* DefJSON.swift in Sources */,
+				02CFFA0623E0BD8B00FDE5B9 /* ItemJSON.swift in Sources */,
 				022818C523D33C2B0016B0D5 /* Regex.swift in Sources */,
 				02CFFA0123E0B95F00FDE5B9 /* Merge.swift in Sources */,
 				02CFF92723DE009900FDE5B9 /* GatherOpts.swift in Sources */,
-				02CFFA0423E0BA2900FDE5B9 /* Def.swift in Sources */,
+				02CFFA0423E0BA2900FDE5B9 /* Item.swift in Sources */,
 				022818BF23D238F30016B0D5 /* Errors.swift in Sources */,
 				02CFF92523DDFFC900FDE5B9 /* GatherDef.swift in Sources */,
 				029A6F1923D77F7C00D66069 /* Config.swift in Sources */,

@@ -16,7 +16,7 @@ import SourceKittenFramework
 enum GatherJob: Equatable {
     case swift(moduleName: String?, srcDir: URL?, buildTool: GatherBuildTool?, buildToolArgs: [String])
 
-    func execute() throws -> [(moduleName: String, pass: GatherModulePass)] {
+    func execute() throws -> [GatherModulePass] {
         logDebug("Gather: starting job \(self)")
         defer { logDebug("Gather: finished job \(self)") }
 
@@ -54,7 +54,7 @@ enum GatherJob: Equatable {
                  GatherDef(sourceKittenDict: swiftDoc.docsDictionary))
             }
 
-            return [(module!.name, GatherModulePass(index: 0, defs: filesInfo))]
+            return [GatherModulePass(moduleName: module!.name, passIndex: 0, files: filesInfo)]
         }
     }
 }
