@@ -25,7 +25,7 @@ public struct Merge {
                 let filePathName = fileDef.0
                 let rootDef = fileDef.1
                 guard rootDef.sourceKittenDict["key.diagnostic_stage"] != nil else {
-                    logWarning("Malformed data for \(filePathName) pass \(pass.passIndex): missing diagnostic_stage")
+                    logWarning(.localized("wrn-merge-missing-root", filePathName, pass.passIndex))
                     return []
                 }
 

@@ -57,7 +57,7 @@ class TestPipeline: XCTestCase {
         let tempDir = try TemporaryDirectory()
         try pipeline.run(argv: ["--source-directory", spmTestURL.path,
                                 "--output", tempDir.directoryURL.path,
-                                "--products", "files-json,decls-json,docs"])
+                                "--products", "docs"])
         // XXX site byte-check
     }
 }

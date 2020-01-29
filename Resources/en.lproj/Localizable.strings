@@ -48,3 +48,5 @@ Options:";
 "err-sktn-xcode-mod" = "SourceKitten couldn't find build info from `xcodebuild`.  Check the log above; it was looking for a `swiftc` command that included `-module-name %1`.";
 "err-sktn-xcode-def" = "SourceKitten couldn't find build info from `xcodebuild`.  Check the log mentioned above; it was looking for a `swiftc` command that included `-module-name`.";
 "err-sktn-spm" = "SourceKitten couldn't find build info from `swift build`.  Check the log mentioned above.";
+
+"wrn-merge-missing-root" = "Bad file json data for '%1' pass %2: missing 'key.diagnostic_stage' key.  Ignoring this file.";

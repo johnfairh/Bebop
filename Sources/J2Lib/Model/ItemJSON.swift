@@ -35,6 +35,8 @@ extension Array where Element == DefItem {
         let data = try encoder.encode(self)
         let json = String(data: data, encoding: .utf8)!
         // Get rid of empty arrays...
-        return json.re_sub(#"\n +"\w+" : \[\n\n +\],"#, with: "")
+        // (and omg, another open-source foundation difference appears,
+        //  trailing spaces galore on linux...)
+        return json.re_sub(#"\n +"\w+" : \[\n *\n +\],"#, with: "")
     }
 }

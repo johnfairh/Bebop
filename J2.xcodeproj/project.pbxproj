@@ -17,14 +17,12 @@
 		022818CE23D4E89D0016B0D5 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022818CD23D4E89D0016B0D5 /* TestHelpers.swift */; };
 		022818D123D4F2AE0016B0D5 /* Glob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022818CF23D4EB0E0016B0D5 /* Glob.swift */; };
 		022818D323D4F7CB0016B0D5 /* TestGlob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022818D223D4F7CB0016B0D5 /* TestGlob.swift */; };
-		022818DA23D61FD00016B0D5 /* Yams.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 022818D623D61E740016B0D5 /* Yams.framework */; };
 		0257280023DB50270001F510 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 025727FE23DB50270001F510 /* Localizable.strings */; };
 		0257280523DB503C0001F510 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0257280223DB503C0001F510 /* Localizable.strings */; };
 		0257280723DB50B40001F510 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0257280623DB50B40001F510 /* Resources.swift */; };
 		0257280C23DB540C0001F510 /* J2Resources.bundle in Embed PlugIns */ = {isa = PBXBuildFile; fileRef = 029A718423DB04F300D66069 /* J2Resources.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0257281123DB7E5E0001F510 /* TestPipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0257281023DB7E5E0001F510 /* TestPipeline.swift */; };
 		0257281423DC78820001F510 /* Help.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0257281223DC78820001F510 /* Help.strings */; };
-		029A6F1723D6375E00D66069 /* Yams.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 022818D623D61E740016B0D5 /* Yams.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		029A6F1923D77F7C00D66069 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029A6F1823D77F7C00D66069 /* Config.swift */; };
 		029A6F1B23D7838700D66069 /* Pipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029A6F1A23D7838700D66069 /* Pipeline.swift */; };
 		029A6F1D23D79AB000D66069 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029A6F1C23D79AB000D66069 /* Version.swift */; };
@@ -56,6 +54,9 @@
 		02CFFA0E23E1973300FDE5B9 /* Mustache.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02CFFA0C23E1973300FDE5B9 /* Mustache.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		02CFFA1023E1E9A700FDE5B9 /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFFA0F23E1E9A700FDE5B9 /* Themes.swift */; };
 		02CFFA1D23E20AB400FDE5B9 /* themes in Resources */ = {isa = PBXBuildFile; fileRef = 02CFFA1C23E20AB400FDE5B9 /* themes */; };
+		02CFFA1F23E20E7500FDE5B9 /* TestMerge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFFA1E23E20E7500FDE5B9 /* TestMerge.swift */; };
+		02CFFA2223E215F300FDE5B9 /* SourceKittenFramework.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 02CFF90A23DDF9DF00FDE5B9 /* SourceKittenFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		02CFFA2323E215FF00FDE5B9 /* Yams.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 022818D623D61E740016B0D5 /* Yams.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		02F2B3C4239A7E2A00397BC6 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C24034239A732200518764 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -126,7 +127,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				029A6F1723D6375E00D66069 /* Yams.framework in CopyFiles */,
+				02CFFA2323E215FF00FDE5B9 /* Yams.framework in CopyFiles */,
+				02CFFA2223E215F300FDE5B9 /* SourceKittenFramework.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,6 +184,7 @@
 		02CFFA0C23E1973300FDE5B9 /* Mustache.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mustache.framework; path = Carthage/Build/Mac/Mustache.framework; sourceTree = "<group>"; };
 		02CFFA0F23E1E9A700FDE5B9 /* Themes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
 		02CFFA1C23E20AB400FDE5B9 /* themes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = themes; sourceTree = "<group>"; };
+		02CFFA1E23E20E7500FDE5B9 /* TestMerge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMerge.swift; sourceTree = "<group>"; };
 		02F2B3B4239A7E0C00397BC6 /* J2CLI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = J2CLI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02F2B3D0239A89D700397BC6 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -209,7 +212,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				022818DA23D61FD00016B0D5 /* Yams.framework in Frameworks */,
 				02C2401C239A6F0700518764 /* J2Lib.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,6 +316,7 @@
 			isa = PBXGroup;
 			children = (
 				02CFF9F823DF158700FDE5B9 /* TestGather.swift */,
+				02CFFA1E23E20E7500FDE5B9 /* TestMerge.swift */,
 				0257281023DB7E5E0001F510 /* TestPipeline.swift */,
 				029A717A23D9B2AC00D66069 /* TestConfig.swift */,
 				022818C023D23DFE0016B0D5 /* TestOptions.swift */,
@@ -624,6 +627,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02CFFA1F23E20E7500FDE5B9 /* TestMerge.swift in Sources */,
 				022818CC23D39B270016B0D5 /* TestPrefixMatcher.swift in Sources */,
 				02CFF9FE23E0A9D100FDE5B9 /* TestResources.swift in Sources */,
 				022818C223D23E050016B0D5 /* TestOptions.swift in Sources */,
