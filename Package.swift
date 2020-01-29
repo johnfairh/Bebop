@@ -13,12 +13,18 @@ let package = Package(
   ],
   dependencies: [
     .package(url: "https://github.com/jpsim/Yams.git", from: "2.0.0"),
-    .package(url: "https://github.com/jpsim/SourceKitten.git", from: "0.29.0")
+    .package(url: "https://github.com/jpsim/SourceKitten.git", from: "0.29.0"),
+    .package(url: "https://github.com/johnfairh/GRMustache.swift.git",
+             from: "14.0.1")
   ],
   targets: [
     .target(
       name: "J2Lib",
-      dependencies: ["Yams", "SourceKittenFramework"]),
+      dependencies: [
+        "Yams",
+        "SourceKittenFramework",
+        "Mustache"
+      ]),
     .target(
       name: "J2CLI",
       dependencies: ["J2Lib"]),

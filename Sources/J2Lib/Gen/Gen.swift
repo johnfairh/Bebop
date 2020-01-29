@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Mustache
 
 public struct Gen: Configurable {
     let outputOpt = PathOpt(s: "o", l: "output").help("PATH").def("docs")
@@ -17,6 +18,7 @@ public struct Gen: Configurable {
     }
 
     public init(config: Config) {
+        Mustache.MustacheLogger = { logWarning("Mustache: \($0)") }
         config.register(self)
     }
 
