@@ -36,7 +36,7 @@ public class DefItem: Item {
     /// Create from a gathered definition
     public init?(moduleName: String, passIndex: Int, gatherDef: GatherDef) {
         guard let name = gatherDef.sourceKittenDict[SwiftDocKey.name.rawValue] as? String else {
-            // XXX wrn
+            // XXX wrn - lots to add here tho, leave for now
             return nil
         }
         let children = gatherDef.children.compactMap {

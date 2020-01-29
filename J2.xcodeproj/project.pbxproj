@@ -55,6 +55,7 @@
 		02CFFA0D23E1973300FDE5B9 /* Mustache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02CFFA0C23E1973300FDE5B9 /* Mustache.framework */; };
 		02CFFA0E23E1973300FDE5B9 /* Mustache.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02CFFA0C23E1973300FDE5B9 /* Mustache.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		02CFFA1023E1E9A700FDE5B9 /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFFA0F23E1E9A700FDE5B9 /* Themes.swift */; };
+		02CFFA1D23E20AB400FDE5B9 /* themes in Resources */ = {isa = PBXBuildFile; fileRef = 02CFFA1C23E20AB400FDE5B9 /* themes */; };
 		02F2B3C4239A7E2A00397BC6 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C24034239A732200518764 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -180,6 +181,7 @@
 		02CFFA0823E0C8AC00FDE5B9 /* Gen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gen.swift; sourceTree = "<group>"; };
 		02CFFA0C23E1973300FDE5B9 /* Mustache.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mustache.framework; path = Carthage/Build/Mac/Mustache.framework; sourceTree = "<group>"; };
 		02CFFA0F23E1E9A700FDE5B9 /* Themes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
+		02CFFA1C23E20AB400FDE5B9 /* themes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = themes; sourceTree = "<group>"; };
 		02F2B3B4239A7E0C00397BC6 /* J2CLI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = J2CLI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02F2B3D0239A89D700397BC6 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -258,8 +260,9 @@
 		029A718523DB04F300D66069 /* J2Resources */ = {
 			isa = PBXGroup;
 			children = (
-				0257280123DB503C0001F510 /* qq.lproj */,
+				02CFFA1C23E20AB400FDE5B9 /* themes */,
 				025727FD23DB50270001F510 /* en.lproj */,
+				0257280123DB503C0001F510 /* qq.lproj */,
 				029A718623DB04F300D66069 /* Info.plist */,
 			);
 			name = J2Resources;
@@ -551,6 +554,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02CFFA1D23E20AB400FDE5B9 /* themes in Resources */,
 				0257280023DB50270001F510 /* Localizable.strings in Resources */,
 				0257280523DB503C0001F510 /* Localizable.strings in Resources */,
 				0257281423DC78820001F510 /* Help.strings in Resources */,

@@ -22,9 +22,7 @@ public struct Gen: Configurable {
     let themes: Themes
 
     public init(config: Config) {
-
         themes = Themes(config: config)
-
         config.register(self)
     }
 

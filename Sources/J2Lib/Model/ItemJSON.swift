@@ -16,6 +16,8 @@ fileprivate enum DefItemCodingKeys: String, CodingKey {
 }
 
 extension DefItem {
+    // I may well have got this wrong, but I am using classes here - can't see
+    // how to use the auto-gen encode code for the derived class fields.
     func doEncode(to encoder: Encoder) throws {
         try super.encode(to: encoder)
         
@@ -32,7 +34,7 @@ extension Array where Element == DefItem {
         encoder.keyEncodingStrategy = .convertToSnakeCase
         let data = try encoder.encode(self)
         let json = String(data: data, encoding: .utf8)!
-        // Get rid of empty arrays....
+        // Get rid of empty arrays...
         return json.re_sub(#"\n +"\w+" : \[\n\n +\],"#, with: "")
     }
 }

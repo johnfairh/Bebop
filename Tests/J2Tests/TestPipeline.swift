@@ -54,6 +54,10 @@ class TestPipeline: XCTestCase {
     func testEndToEnd() throws {
         let pipeline = Pipeline()
         let spmTestURL = fixturesURL.appendingPathComponent("SpmSwiftModule")
-        try pipeline.run(argv: ["--source-directory", spmTestURL.path, "--products", "files-json"])
+        let tempDir = try TemporaryDirectory()
+        try pipeline.run(argv: ["--source-directory", spmTestURL.path,
+                                "--output", tempDir.directoryURL.path,
+                                "--products", "files-json,decls-json,docs"])
+        // XXX site byte-check
     }
 }

@@ -64,27 +64,6 @@ public struct GatherModulePass {
     // public let ignoreAvailabilityAttr: Bool   // not serialized
 }
 
-/// Data from all passes of a module.
-public final class GatherModule {
-    public let name: String
-    // public let merge: MergeModulePolicy       // not serialized,
-    public internal(set) var passes: [GatherModulePass]
-
-    init(name: String, pass: GatherModulePass) {
-        self.name = name
-        self.passes = [pass]
-    }
-}
-
-/// Data from all gathered modules.
-public struct GatherModules {
-    public let modules: [GatherModule]
-
-    init<T: Sequence>(_ modules: T) where T.Element == GatherModule {
-        self.modules = Array(modules)
-    }
-}
-
 //public enum MergeModulePolicy {
 //    case yes
 //    case no
