@@ -70,7 +70,9 @@ public final class TemporaryDirectory {
     }
 
     deinit {
-        try? FileManager.default.removeItem(at: directoryURL)
+        if !keepDirectory {
+            try? FileManager.default.removeItem(at: directoryURL)
+        }
     }
 
     /// Get a path for a temp file in this object's directory.  File doesn't exist, directory does.

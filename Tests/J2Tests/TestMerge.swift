@@ -23,6 +23,8 @@ class TestMerge: XCTestCase {
         initResources()
     }
 
+    // Utils for building interesting defs
+
     let goodRootDict = [ "key.diagnostic_stage" : "parse" ]
     let badRootDict = SourceKittenDict()
 
@@ -106,6 +108,7 @@ class TestMerge: XCTestCase {
 
         let actualJson = TestLogger.shared.outputBuf[0]
 
+        // to fix up when it changes...
         // try actualJson.write(to: spmTestDeclsJsonURL, atomically: true, encoding: .utf8)
 
         let expectedJson = try String(contentsOf: spmTestDeclsJsonURL)
