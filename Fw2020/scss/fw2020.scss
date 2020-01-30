@@ -536,7 +536,7 @@ $j2-breadcrumbs-height: 37px;
 
   .j2-inline-heading {
     font-weight: 600;
-    opacity: .9;
+    opacity: .95;
   }
 
   .j2-aux-nav-wrapper {
@@ -556,7 +556,7 @@ $j2-breadcrumbs-height: 37px;
 
   .j2-aux-action {
     @include j2-article-dim-links();
-    opacity: .8;
+    opacity: .95;
   }
 }
 
