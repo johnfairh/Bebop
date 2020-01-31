@@ -62,6 +62,10 @@
 		02CFFA2A23E30F9E00FDE5B9 /* TestGen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFFA2923E30F9E00FDE5B9 /* TestGen.swift */; };
 		02CFFA2C23E45F4F00FDE5B9 /* GatherDecl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFFA2B23E45F4F00FDE5B9 /* GatherDecl.swift */; };
 		02CFFA2E23E4702700FDE5B9 /* TestGatherDecl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFFA2D23E4702700FDE5B9 /* TestGatherDecl.swift */; };
+		02CFFA3823E4B1EE00FDE5B9 /* SwiftSyntax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02CFFA3723E4B1EE00FDE5B9 /* SwiftSyntax.framework */; };
+		02CFFA3923E4B1EE00FDE5B9 /* SwiftSyntax.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02CFFA3723E4B1EE00FDE5B9 /* SwiftSyntax.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		02CFFA3B23E4B1F100FDE5B9 /* _CSwiftSyntax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02CFFA3A23E4B1F100FDE5B9 /* _CSwiftSyntax.framework */; };
+		02CFFA3C23E4B1F100FDE5B9 /* _CSwiftSyntax.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02CFFA3A23E4B1F100FDE5B9 /* _CSwiftSyntax.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		02F2B3C4239A7E2A00397BC6 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C24034239A732200518764 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -110,7 +114,9 @@
 				02CFFA0E23E1973300FDE5B9 /* Mustache.framework in Embed Frameworks */,
 				02CFF91D23DDFB0600FDE5B9 /* Yams.framework in Embed Frameworks */,
 				02CFF91B23DDFB0500FDE5B9 /* SWXMLHash.framework in Embed Frameworks */,
+				02CFFA3C23E4B1F100FDE5B9 /* _CSwiftSyntax.framework in Embed Frameworks */,
 				02CFF91823DDFB0100FDE5B9 /* SourceKittenFramework.framework in Embed Frameworks */,
+				02CFFA3923E4B1EE00FDE5B9 /* SwiftSyntax.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -195,6 +201,8 @@
 		02CFFA2923E30F9E00FDE5B9 /* TestGen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGen.swift; sourceTree = "<group>"; };
 		02CFFA2B23E45F4F00FDE5B9 /* GatherDecl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherDecl.swift; sourceTree = "<group>"; };
 		02CFFA2D23E4702700FDE5B9 /* TestGatherDecl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGatherDecl.swift; sourceTree = "<group>"; };
+		02CFFA3723E4B1EE00FDE5B9 /* SwiftSyntax.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftSyntax.framework; path = Syntax/SwiftSyntax.framework; sourceTree = "<group>"; };
+		02CFFA3A23E4B1F100FDE5B9 /* _CSwiftSyntax.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = _CSwiftSyntax.framework; path = Syntax/_CSwiftSyntax.framework; sourceTree = "<group>"; };
 		02F2B3B4239A7E0C00397BC6 /* J2CLI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = J2CLI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02F2B3D0239A89D700397BC6 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -214,7 +222,9 @@
 				02CFFA0D23E1973300FDE5B9 /* Mustache.framework in Frameworks */,
 				02CFF91C23DDFB0600FDE5B9 /* Yams.framework in Frameworks */,
 				02CFF91723DDFB0100FDE5B9 /* SourceKittenFramework.framework in Frameworks */,
+				02CFFA3B23E4B1F100FDE5B9 /* _CSwiftSyntax.framework in Frameworks */,
 				02CFF91A23DDFB0500FDE5B9 /* SWXMLHash.framework in Frameworks */,
+				02CFFA3823E4B1EE00FDE5B9 /* SwiftSyntax.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,6 +433,8 @@
 		02F2B3C7239A804100397BC6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				02CFFA3A23E4B1F100FDE5B9 /* _CSwiftSyntax.framework */,
+				02CFFA3723E4B1EE00FDE5B9 /* SwiftSyntax.framework */,
 				02CFFA0C23E1973300FDE5B9 /* Mustache.framework */,
 				02CFF90E23DDF9E400FDE5B9 /* SWXMLHash.framework */,
 				02CFF90A23DDF9DF00FDE5B9 /* SourceKittenFramework.framework */,
@@ -880,6 +892,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/Syntax",
 				);
 				INFOPLIST_FILE = Sources/J2Lib/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -910,6 +923,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/Syntax",
 				);
 				INFOPLIST_FILE = Sources/J2Lib/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";

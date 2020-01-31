@@ -18,7 +18,9 @@ let package = Package(
              from: "14.0.1"),
     // Duplicate SourceKitten's requirement for general sanity
     .package(url: "https://github.com/drmohundro/SWXMLHash.git",
-             .upToNextMinor(from: "5.0.1"))
+             .upToNextMinor(from: "5.0.1")),
+    .package(url: "https://github.com/apple/swift-syntax.git",
+             .exact("0.50100.0"))
   ],
   targets: [
     .target(
@@ -27,7 +29,8 @@ let package = Package(
         "Yams",
         "SourceKittenFramework",
         "Mustache",
-        "SWXMLHash"
+        "SWXMLHash",
+        "SwiftSyntax"
       ]),
     .target(
       name: "J2CLI",
