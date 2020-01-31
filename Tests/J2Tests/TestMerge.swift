@@ -55,7 +55,7 @@ class TestMerge: XCTestCase {
     /// Normal file with one def
     func testGoodMergeImport() throws {
         let goodFile = add(child: makeDefDict(name: "Good"), to: goodRootDict)
-        let goodDef = GatherDef(sourceKittenDict: goodFile)
+        let goodDef = GatherDef(sourceKittenDict: goodFile, file: nil)
         let passes = makePasses(from: goodDef, moduleName: "GoodModule", pathName: "pathname")
         let system = System()
         TestLogger.install()
@@ -69,7 +69,7 @@ class TestMerge: XCTestCase {
     /// Bad file
     func testBadFileMergeImport() throws {
         let badFile = badRootDict
-        let badDef = GatherDef(sourceKittenDict: badFile)
+        let badDef = GatherDef(sourceKittenDict: badFile, file: nil)
         let passes = makePasses(from: badDef, moduleName: "BadModule", pathName: "pathname")
         let system = System()
         TestLogger.install()
@@ -84,7 +84,7 @@ class TestMerge: XCTestCase {
                                   to: add(child: makeDefDict(name: "Good"),
                                           to: makeDefDict(name: "Parent"))),
                        to: goodRootDict)
-        let def = GatherDef(sourceKittenDict: file)
+        let def = GatherDef(sourceKittenDict: file, file: nil)
         let passes = makePasses(from: def, moduleName: "BadModule", pathName: "pathname")
         let system = System()
         TestLogger.install()

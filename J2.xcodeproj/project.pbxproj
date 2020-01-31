@@ -60,6 +60,7 @@
 		02CFFA2523E2244C00FDE5B9 /* TestTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFFA2423E2244C00FDE5B9 /* TestTheme.swift */; };
 		02CFFA2623E30B3A00FDE5B9 /* Mustache.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 02CFFA0C23E1973300FDE5B9 /* Mustache.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		02CFFA2A23E30F9E00FDE5B9 /* TestGen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFFA2923E30F9E00FDE5B9 /* TestGen.swift */; };
+		02CFFA2C23E45F4F00FDE5B9 /* GatherDecl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFFA2B23E45F4F00FDE5B9 /* GatherDecl.swift */; };
 		02F2B3C4239A7E2A00397BC6 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C24034239A732200518764 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -191,6 +192,7 @@
 		02CFFA1E23E20E7500FDE5B9 /* TestMerge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMerge.swift; sourceTree = "<group>"; };
 		02CFFA2423E2244C00FDE5B9 /* TestTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTheme.swift; sourceTree = "<group>"; };
 		02CFFA2923E30F9E00FDE5B9 /* TestGen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGen.swift; sourceTree = "<group>"; };
+		02CFFA2B23E45F4F00FDE5B9 /* GatherDecl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherDecl.swift; sourceTree = "<group>"; };
 		02F2B3B4239A7E0C00397BC6 /* J2CLI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = J2CLI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02F2B3D0239A89D700397BC6 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -357,6 +359,7 @@
 				02CFF92823DE044200FDE5B9 /* GatherJob.swift */,
 				02CFF92623DE009900FDE5B9 /* GatherOpts.swift */,
 				02CFF92423DDFFC900FDE5B9 /* GatherDef.swift */,
+				02CFFA2B23E45F4F00FDE5B9 /* GatherDecl.swift */,
 				02CFF92A23DEF49400FDE5B9 /* GatherJSON.swift */,
 			);
 			path = Gather;
@@ -607,6 +610,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02CFFA2C23E45F4F00FDE5B9 /* GatherDecl.swift in Sources */,
 				02CFF92B23DEF49400FDE5B9 /* GatherJSON.swift in Sources */,
 				022818D123D4F2AE0016B0D5 /* Glob.swift in Sources */,
 				02CFFA0623E0BD8B00FDE5B9 /* ItemJSON.swift in Sources */,

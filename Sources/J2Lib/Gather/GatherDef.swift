@@ -20,11 +20,15 @@ public struct GatherDef {
     let children: [GatherDef]
     /// SourceKitten hash _except_ the substructure key
     let sourceKittenDict: SourceKittenDict
+    /// Multi-faceted Swift declaration
+    let swiftDeclaration: SwiftDeclaration?
 
-    init(sourceKittenDict: SourceKittenDict) {
+    init(sourceKittenDict: SourceKittenDict, file: SourceKittenFramework.File?) {
         var dict = sourceKittenDict
         let substructure = dict.removeValue(forKey: SwiftDocKey.substructure.rawValue) as? [SourceKittenDict] ?? []
-        self.children = substructure.map(GatherDef.init)
+        self.children = substructure.map { GatherDef(sourceKittenDict: $0, file: file) }
         self.sourceKittenDict = dict
+
+        self.swiftDeclaration = SwiftDeclarationBuilder.build(dict: sourceKittenDict, file: file)
     }
 }

@@ -51,7 +51,7 @@ enum GatherJob: Equatable {
             logDebug(" Calling sourcekitten docs generation")
             let filesInfo = module!.docs.map { swiftDoc in
                 (swiftDoc.file.path ?? "(no path)",
-                 GatherDef(sourceKittenDict: swiftDoc.docsDictionary))
+                 GatherDef(sourceKittenDict: swiftDoc.docsDictionary, file: swiftDoc.file))
             }
 
             return [GatherModulePass(moduleName: module!.name, passIndex: 0, files: filesInfo)]
