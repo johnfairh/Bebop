@@ -9,12 +9,13 @@
 import Foundation
 import SWXMLHash
 import SourceKittenFramework
+import SwiftSyntax
 
 // Swift declaration production.
+//
 // 1) make a nice-looking declaration
 // 2) extract and analyze @available attributes
 // 3) generate piece-name declarations
-// 4) identify generic parameter names to avoid autolinking them
 //
 // Problems:
 // 1) Want to use the standard-form compiler declaration that regularizes
@@ -41,17 +42,17 @@ import SourceKittenFramework
 // 3) Check parsed declaration to see if we prefer it
 //    - means newlines.  should really just bash out a naive prettyprinter.
 //    - strip leading attributes and unindent
-// 4) Do @available empire
+// 4) Do @available empire - parse manually, SwiftSyntax too bespoke
 // 5) Form decl stacking attributes on decl
-// 6) Form name pieces and pick out generic params by invoking SwiftSyntax.
+// 6) Form name pieces by invoking SwiftSyntax.
 //    This is the only option because we don't have decl XML for the ObjC
 //    ones.
 
 public struct SwiftDeclaration {
     public let declaration: String
-    public let deprecationMessage: String?
-    public let availableList: [String]
-    public let genericParameters: [String]
+    public let deprecations: [String]
+    public let obsoletions: [String]
+    public let availability: [String]
     public let namePieces: [Piece]
 
     public enum Piece {
@@ -60,17 +61,18 @@ public struct SwiftDeclaration {
     }
 }
 
-// sigh
-typealias JXMLElement = SWXMLHash.XMLElement
-
 final class SwiftDeclarationBuilder {
     let dict: SourceKittenDict
-    let file: SourceKittenFramework.File?
+    let file: File?
 
     var compilerDecl: String?
     var neatParsedDecl: String?
+    var attributes: [String] = []
+    var deprecations: [String] = []
+    var obsoletions: [String] = []
+    var availability: [String] = []
 
-    init(dict: SourceKittenDict, file: SourceKittenFramework.File?) {
+    init(dict: SourceKittenDict, file: File?) {
         self.dict = dict
         self.file = file
     }
@@ -84,6 +86,7 @@ final class SwiftDeclarationBuilder {
         compilerDecl = parse(annotatedDecl: annotatedDecl)
         if let parsedDecl = dict[SwiftDocKey.parsedDeclaration.rawValue] as? String,
             parsedDecl.contains("\n") || compilerDecl == nil {
+            // XXX todo check type var
             // Use the declaration as-written
             neatParsedDecl = parse(parsedDecl: parsedDecl)
         }
@@ -94,10 +97,18 @@ final class SwiftDeclarationBuilder {
             return nil
         }
 
-        return SwiftDeclaration(declaration: bestDeclaration,
-                                deprecationMessage: nil,
-                                availableList: [],
-                                genericParameters: [],
+        if let attributeDicts = dict["key.attributes"] as? [SourceKittenDict] {
+            var allAttributes = parse(attributeDicts: attributeDicts)
+            let pivot = allAttributes.partition { $0.hasPrefix("@available") }
+            attributes = Array(allAttributes[0..<pivot])
+
+            parse(availables: Array(allAttributes[pivot...]))
+        }
+
+        return SwiftDeclaration(declaration: (attributes + [bestDeclaration]).joined(separator: "\n"),
+                                deprecations: deprecations,
+                                obsoletions: obsoletions,
+                                availability: availability,
                                 namePieces: [])
     }
 
@@ -118,7 +129,7 @@ final class SwiftDeclarationBuilder {
         }
 
         rootElement.children = rootElement.children.filter { content in
-            guard let xmlChild = content as? JXMLElement else {
+            guard let xmlChild = content as? SWXMLHash.XMLElement else {
                 return true // keep text
             }
             return xmlChild.name != "syntaxtype.attribute.builtin"
@@ -144,5 +155,30 @@ final class SwiftDeclarationBuilder {
         }
         let attrUnindent = String(repeating: " ", count: matches[1].count)
         return String(matches[2]).re_sub("^\(attrUnindent)", with: "", options: .m)
+    }
+
+    /// Grab all the attributes from the associated file.
+    /// SourceKit has a wild view of what counts as an "attribute" so have to check the @....
+    func parse(attributeDicts: [SourceKittenDict]) -> [String] {
+        attributeDicts.compactMap { dict in
+            guard let offset = dict["key.offset"] as? Int64,
+                let length = dict["key.length"] as? Int64 else {
+                return nil
+            }
+
+            let byteRange = ByteRange(location: ByteCount(offset), length: ByteCount(length))
+            guard let text = file?.stringView.substringWithByteRange(byteRange),
+                text.hasPrefix("@") else {
+                return nil
+            }
+
+            return text
+        }
+    }
+
+    /// Parse the @available attributes and update members 'deprecations', 'obsoletions', and 'availability'
+    func parse(availables: [String]) {
+        availables.forEach { _ in
+        }
     }
 }

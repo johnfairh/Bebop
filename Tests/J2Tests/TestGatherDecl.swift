@@ -8,6 +8,7 @@
 
 import XCTest
 @testable import J2Lib
+import SourceKittenFramework
 
 // Declaration parsing
 
@@ -30,7 +31,7 @@ class TestGatherDecl: XCTestCase {
     }
 
     // Attribute stripping
-    func testAttributes() {
+    func testAttributesXmlStripping() {
         XCTAssertEqual("Fred", fullyAnnotatedToString("<syntaxtype.attribute.builtin><syntaxtype.attribute.name>@objc</syntaxtype.attribute.name></syntaxtype.attribute.builtin> <decl.name>Fred</decl.name>"))
     }
 
@@ -76,5 +77,33 @@ class TestGatherDecl: XCTestCase {
         let builder2 = SwiftDeclarationBuilder(dict: dict2, file: nil)
         let decl2 = builder2.build()
         XCTAssertEqual("Inner", decl2?.declaration)
+    }
+
+    // Attributes
+    func testAttributes() {
+        let file = File(contents: "@discardableResult public func fred() {}")
+
+        let attrDicts: [SourceKittenDict] =
+            [["key.attribute" : "source.decl.attribute.public",
+              "key.length" : Int64(6),
+              "key.offset" : Int64(19)],
+             ["key.attribute" : "source.decl.attribute.public",
+              "key.offset" : Int64(89)],
+             ["key.attribute" : "source.decl.attribute.discardableResult",
+              "key.length" : Int64(18),
+              "key.offset" : Int64(0)]]
+        let dict: SourceKittenDict =
+            ["key.attributes" : attrDicts,
+             "key.fully_annotated_decl": "<outer>public func fred()</outer"]
+        let builder = SwiftDeclarationBuilder(dict: dict, file: file)
+        
+        let parsed = builder.parse(attributeDicts: attrDicts)
+        XCTAssertEqual(["@discardableResult"], parsed)
+
+        guard let built = builder.build() else {
+            XCTFail("Couldn't build decl-info")
+            return
+        }
+        XCTAssertEqual("@discardableResult\npublic func fred()", built.declaration)
     }
 }
