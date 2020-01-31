@@ -29,6 +29,6 @@ public struct GatherDef {
         self.children = substructure.map { GatherDef(sourceKittenDict: $0, file: file) }
         self.sourceKittenDict = dict
 
-        self.swiftDeclaration = SwiftDeclarationBuilder.build(dict: sourceKittenDict, file: file)
+        self.swiftDeclaration = SwiftDeclarationBuilder(dict: sourceKittenDict, file: file).build()
     }
 }

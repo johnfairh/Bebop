@@ -15,7 +15,10 @@ let package = Package(
     .package(url: "https://github.com/jpsim/Yams.git", from: "2.0.0"),
     .package(url: "https://github.com/jpsim/SourceKitten.git", from: "0.29.0"),
     .package(url: "https://github.com/johnfairh/GRMustache.swift.git",
-             from: "14.0.1")
+             from: "14.0.1"),
+    // Duplicate SourceKitten's requirement for general sanity
+    .package(url: "https://github.com/drmohundro/SWXMLHash.git",
+             .upToNextMinor(from: "5.0.1"))
   ],
   targets: [
     .target(
@@ -23,7 +26,8 @@ let package = Package(
       dependencies: [
         "Yams",
         "SourceKittenFramework",
-        "Mustache"
+        "Mustache",
+        "SWXMLHash"
       ]),
     .target(
       name: "J2CLI",
