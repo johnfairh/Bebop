@@ -53,3 +53,16 @@ public class DefItem: Item {
         try doEncode(to: encoder)
     }
 }
+
+// er where does this go...
+
+/// Most-top level categorization of definitions
+public enum MetaKind: String, CaseIterable {
+    case guide
+    case type
+    case variable
+    case function
+    case `extension`
+    case category
+    case other
+}

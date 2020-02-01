@@ -23,7 +23,7 @@ extension SwiftDeclarationBuilder {
         availables.forEach {
             let args = $0.parseAvailable()
             guard args.count > 0 else {
-                logWarning("Failed to parse @available: '$0'.")
+                logWarning("Failed to parse @available: '\($0)'.")
                 return
             }
             switch args[0] {
