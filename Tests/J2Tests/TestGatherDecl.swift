@@ -106,4 +106,40 @@ class TestGatherDecl: XCTestCase {
         }
         XCTAssertEqual("@discardableResult\npublic func fred()", built.declaration)
     }
+
+    // Available empire
+    private func checkAvail(_ available: String, _ expectAvail: [String], _ expectDeprecations: [String],
+                            file: StaticString = #file, line: UInt = #line) {
+        let builder = SwiftDeclarationBuilder(dict: [:], file: nil)
+        builder.parse(availables: [available])
+        XCTAssertEqual(expectAvail, builder.availability, file: file, line: line)
+        XCTAssertEqual(expectDeprecations, builder.deprecations, file: file, line: line)
+    }
+
+    func testAvailable() {
+        checkAvail("@available(swift 5, *)", ["swift 5"], [])
+        checkAvail("@available (iOS 13,macOS 12 ,*)", ["iOS 13", "macOS 12"], [])
+        checkAvail("@available(*, unavailable)", [], ["Unavailable."])
+        checkAvail("@available(*, unavailable, message: \"MSG\" )", [], ["Unavailable. MSG."])
+        checkAvail("@available(*, unavailable, message: \"MSG\", renamed: \"NU\" )",
+                   [], ["Unavailable. MSG. Renamed: `NU`."])
+        checkAvail("@available(*, deprecated, renamed: \"NU\" )",
+                   [], ["Deprecated. Renamed: `NU`."])
+        checkAvail("@available(iOS, introduced: 1)", ["iOS 1"], [])
+        checkAvail("@available(iOS, introduced: 1, obsoleted: 2)", ["iOS 1-2"], ["iOS - obsoleted in 2."])
+        checkAvail("@available(iOS, obsoleted: 2)", ["iOS ?-2"], ["iOS - obsoleted in 2."])
+        checkAvail("@available(iOS, introduced: 1, deprecated: 2)", ["iOS 1"], ["iOS - deprecated in 2."])
+        checkAvail("@available(iOS, introduced: 1, deprecated: 2, obsoleted: 3)", ["iOS 1-3"], ["iOS - obsoleted in 3."])
+        checkAvail("@available(iOS, deprecated: 2, message: \"MSG\")", [], ["iOS - deprecated in 2. MSG."])
+        checkAvail("@available(iOS, deprecated, message: \"MSG\")", [], ["iOS - deprecated. MSG."])
+        checkAvail("@available(iOS, deprecated, message: \"MSG\", renamed: \"NU\")", [], ["iOS - deprecated. MSG. Renamed: `NU`."])
+        checkAvail("@available(iOS, unavailable, message: \"MSG\", renamed: \"NU\")", [], ["iOS - unavailable. MSG. Renamed: `NU`."])
+
+        // Syntax etc issues
+        checkAvail("@available(dasdasd", [], [])
+        checkAvail(#"@available(*, renamed: "NU\""#, [], [" Renamed: `NU\"`."])
+        checkAvail("@available(*, introduced: 123", [], [])
+        checkAvail("@available(", [], [])
+        checkAvail("@available(swift, something: 1, introduced: 2, introduced: 3)", ["swift 3"], [])
+    }
 }

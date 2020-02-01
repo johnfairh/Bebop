@@ -51,7 +51,6 @@ import SwiftSyntax
 public struct SwiftDeclaration {
     public let declaration: String
     public let deprecations: [String]
-    public let obsoletions: [String]
     public let availability: [String]
     public let namePieces: [Piece]
 
@@ -107,7 +106,6 @@ final class SwiftDeclarationBuilder {
 
         return SwiftDeclaration(declaration: (attributes + [bestDeclaration]).joined(separator: "\n"),
                                 deprecations: deprecations,
-                                obsoletions: obsoletions,
                                 availability: availability,
                                 namePieces: [])
     }
@@ -173,12 +171,6 @@ final class SwiftDeclarationBuilder {
             }
 
             return text
-        }
-    }
-
-    /// Parse the @available attributes and update members 'deprecations', 'obsoletions', and 'availability'
-    func parse(availables: [String]) {
-        availables.forEach { _ in
         }
     }
 }
