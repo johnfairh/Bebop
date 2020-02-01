@@ -151,5 +151,47 @@ class TestGather: XCTestCase {
         try doEmptyFailingBuild(touchFile: "my.xcworkspace", expectSpm: false)
         #endif
     }
+
+    func testFilesJson() throws {
+        let pipeline = Pipeline()
+        let spmTestURL = fixturesURL.appendingPathComponent("SpmSwiftModule")
+        TestLogger.install()
+        try pipeline.run(argv: ["--source-directory", spmTestURL.path,
+                                "--products", "files-json"])
+        XCTAssertEqual(1, TestLogger.shared.outputBuf.count)
+
+        let spmTestFilesJsonURL = fixturesURL.appendingPathComponent("SpmSwiftModule.files.json")
+
+        let actualJson = TestLogger.shared.outputBuf[0] + "\n"
+
+        // to fix up when it changes...
+        // try actualJson.write(to: spmTestFilesJsonURL2, atomically: true, encoding: .utf8)
+
+        let expectedJson = try String(contentsOf: spmTestFilesJsonURL)
+        let cleanedActual = cleanUpJson(file: actualJson)
+        let cleanedExpected = cleanUpJson(file: expectedJson)
+        XCTAssertEqual(cleanedExpected, cleanedActual)
+    }
+
     // Come back here later on to test multipass and merging.
+
+    func cleanUpJson(file: String) -> String {
+        let lines = file.split(separator: "\n")
+        let cleanedLines = lines.compactMap { line -> Substring? in
+            if line.contains(#""key.usr""#) || line.contains(#""key.typeusr""#) {
+                // linux
+                return nil
+            }
+            if line.contains(#""key.filepath""#) {
+                // filesystem
+                return nil
+            }
+            if line.hasPrefix(#"    ""#) {
+                // pathname key
+                return nil
+            }
+            return line
+        }
+        return cleanedLines.joined(separator: "\n")
+    }
 }

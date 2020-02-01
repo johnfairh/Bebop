@@ -30,7 +30,9 @@ import SwiftSyntax
 //    but for now we'll take the user's hand-written multi-line one.
 // 4) Attributes in sourcekit include some keywords due to their
 //    internal implementation.
-// 5) Swift decls generated from ObjC code have lost their metadata by the time
+// 5) Available attributes in sourcekit often REPEAT because of careless
+//    compiler implementation leakage
+// 6) Swift decls generated from ObjC code have lost their metadata by the time
 //    SourceKitten gives them to us.  On the plus side they don't have any
 //    attributes.
 //
@@ -50,7 +52,7 @@ import SwiftSyntax
 
 public struct SwiftDeclaration {
     public let declaration: String
-    public let deprecations: [String]
+    public let deprecation: String
     public let availability: [String]
     public let namePieces: [Piece]
 
@@ -111,7 +113,7 @@ final class SwiftDeclarationBuilder {
         }
 
         return SwiftDeclaration(declaration: (attributes + [bestDeclaration]).joined(separator: "\n"),
-                                deprecations: deprecations,
+                                deprecation: deprecations.joined(separator: "\n\n"),
                                 availability: availability,
                                 namePieces: [])
     }
@@ -164,15 +166,24 @@ final class SwiftDeclarationBuilder {
     }
 
     /// Grab all the attributes from the associated file.
-    /// SourceKit has a wild view of what counts as an "attribute" so have to check the @....
+    /// SourceKit has a wild view of what counts as an "attribute" so have to check the @
+    /// @available attributes that state multiple facts get reflected multiple times so we have to dedup.
     func parse(attributeDicts: [SourceKittenDict]) -> [String] {
-        attributeDicts.compactMap { dict in
+        struct Attr: Hashable {
+            let offset: Int64
+            let length: Int64
+        }
+        let attrs = attributeDicts.compactMap { dict -> Attr? in
             guard let offset = dict["key.offset"] as? Int64,
                 let length = dict["key.length"] as? Int64 else {
                 return nil
             }
+            return Attr(offset: offset, length: length)
+        }
 
-            let byteRange = ByteRange(location: ByteCount(offset), length: ByteCount(length))
+        return Set<Attr>(attrs).compactMap { attr -> String? in
+            let byteRange = ByteRange(location: ByteCount(attr.offset),
+                                      length: ByteCount(attr.length))
             guard let text = file?.stringView.substringWithByteRange(byteRange),
                 text.hasPrefix("@") else {
                 return nil

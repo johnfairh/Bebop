@@ -106,7 +106,7 @@ class TestMerge: XCTestCase {
 
         let spmTestDeclsJsonURL = fixturesURL.appendingPathComponent("SpmSwiftModule.decls.json")
 
-        let actualJson = TestLogger.shared.outputBuf[0]
+        let actualJson = TestLogger.shared.outputBuf[0] + "\n"
 
         // to fix up when it changes...
         // try actualJson.write(to: spmTestDeclsJsonURL, atomically: true, encoding: .utf8)

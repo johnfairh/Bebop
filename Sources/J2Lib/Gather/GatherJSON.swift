@@ -27,6 +27,14 @@ private enum GatherKey: String {
     case version = "key.j2.version"         // metadata, root
     case passIndex = "key.j2.pass_index"    // metadata, root
     case moduleName = "key.j2.module_name"  // root-only
+
+    /// Computed Swift declaration, code string
+    case preferredDeclaration = "key.j2.preferred_declaration"
+    /// Computed declaration messages, markdown string
+    case deprecationMessages = "key.j2.deprecation_messages"
+    /// List of availability statements
+    case availabilities = "key.j2.availabilities"
+    case availability = "key.j2.availability"
 }
 
 /// Helper to use `GatherKey`
@@ -45,6 +53,18 @@ extension GatherDef {
     /// Build up the dictionary from children and our garnished values
     var dictForJSON: SourceKittenDict {
         var dict = sourceKittenDict
+        if let swiftDecl = swiftDeclaration {
+            dict[.preferredDeclaration] = swiftDecl.declaration
+            if !swiftDecl.deprecation.isEmpty {
+                dict[.deprecationMessages] = swiftDecl.deprecation
+            }
+            if !swiftDecl.availability.isEmpty {
+                dict[.availabilities] = swiftDecl.availability.map {
+                    [GatherKey.availability.rawValue : $0]
+                }
+            }
+            // XXX name pieces
+        }
         if !children.isEmpty {
             dict[SwiftDocKey.substructure.rawValue] = children.map { $0.dictForJSON }
         }

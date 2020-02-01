@@ -10,5 +10,15 @@
     "module_name" : "SpmSwiftModule",
     "name" : "SpmSwiftModule",
     "pass_index" : 0
+  },
+  {
+    "module_name" : "SpmSwiftModule",
+    "name" : "functionA(arg1:_:arg3:)",
+    "pass_index" : 0
+  },
+  {
+    "module_name" : "SpmSwiftModule",
+    "name" : "deprecatedFunction(callback:)",
+    "pass_index" : 0
   }
 ]
