@@ -102,6 +102,40 @@ public final class DefKind {
                   metaKind: metaKind)
     }
 
+    // MARK: Predicates
+
+    private func testSwiftKey(keys: [SwiftDeclarationKind]) -> Bool {
+        guard case let .swift(swiftKey) = kindKey else {
+            return false
+        }
+        return keys.contains(swiftKey)
+    }
+
+    /// Is this any kind of Swift extension declaration?
+    var isSwiftExtension: Bool {
+        testSwiftKey(keys: [
+            .extension,
+            .extensionClass,
+            .extensionEnum,
+            .extensionStruct,
+            .extensionProtocol
+        ])
+    }
+
+    /// Is this any kind of Swift property declaration?
+    var isSwiftProperty: Bool {
+        testSwiftKey(keys: [
+            .varClass,
+            .varGlobal,
+            .varLocal,
+            .varStatic,
+            .varInstance,
+            .varParameter
+        ])
+    }
+
+    // MARK: Factory
+
     /// Find the `Kind` object from a sourcekitten dictionary key, or `nil` if it's not supported
     public static func from(key: String) -> DefKind? {
         if kindMap.isEmpty {

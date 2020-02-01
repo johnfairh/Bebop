@@ -32,6 +32,6 @@ public struct GatherDef {
         self.sourceKittenDict = dict
         self.kind = (dict[SwiftDocKey.kind.rawValue] as? String).flatMap { DefKind.from(key: $0) }
 
-        self.swiftDeclaration = SwiftDeclarationBuilder(dict: sourceKittenDict, file: file).build()
+        self.swiftDeclaration = SwiftDeclarationBuilder(dict: sourceKittenDict, file: file, kind: kind).build()
     }
 }

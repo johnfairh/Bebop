@@ -18,7 +18,7 @@ class TestGatherDecl: XCTestCase {
         // doesn't matter what outer element is, just that it's there
         let realXML = "<decl.function.method.instance>\(xml)</decl.function.method.instance>"
         let dict = ["key.fully_annotated_decl" : realXML]
-        let builder = SwiftDeclarationBuilder(dict: dict, file: nil)
+        let builder = SwiftDeclarationBuilder(dict: dict, file: nil, kind: nil)
         let _ = builder.build()
         return builder.compilerDecl
     }
@@ -38,16 +38,16 @@ class TestGatherDecl: XCTestCase {
     // Errors
     func testAnnotatedErrors() {
         TestLogger.install()
-        XCTAssertNil(SwiftDeclarationBuilder(dict: [:], file: nil).build())
+        XCTAssertNil(SwiftDeclarationBuilder(dict: [:], file: nil, kind: nil).build())
 
         let badDict = ["key.fully_annotated_decl" : "<open text"]
-        XCTAssertNil(SwiftDeclarationBuilder(dict: badDict, file: nil).build())
+        XCTAssertNil(SwiftDeclarationBuilder(dict: badDict, file: nil, kind: nil).build())
         XCTAssertEqual(1, TestLogger.shared.diagsBuf.count)
     }
 
     // 'orrible parsed text regular expressions
     func testParsedDecl() {
-        let b = SwiftDeclarationBuilder(dict: [:], file: nil)
+        let b = SwiftDeclarationBuilder(dict: [:], file: nil, kind: nil)
         let str1 = "foo(bar)"
         XCTAssertEqual(str1, b.parse(parsedDecl: str1))
         let str2 = "@discardableResult foo(bar)"
@@ -66,17 +66,32 @@ class TestGatherDecl: XCTestCase {
 
     // Parse preference
     func testParsePreference() {
+        let classKind = DefKind.from(key: SwiftDeclarationKind.class.rawValue)
         let dict = ["key.fully_annotated_decl" : "<outer>Inner</outer>",
                     "key.parsed_declaration" : "One\nTwo"]
-        let builder = SwiftDeclarationBuilder(dict: dict, file: nil)
+        let builder = SwiftDeclarationBuilder(dict: dict, file: nil, kind: classKind)
         let decl = builder.build()
         XCTAssertEqual("One\nTwo", decl?.declaration)
 
         let dict2 = ["key.fully_annotated_decl" : "<outer>Inner</outer>",
                      "key.parsed_declaration" : "One Two"]
-        let builder2 = SwiftDeclarationBuilder(dict: dict2, file: nil)
+        let builder2 = SwiftDeclarationBuilder(dict: dict2, file: nil, kind: classKind)
         let decl2 = builder2.build()
         XCTAssertEqual("Inner", decl2?.declaration)
+
+        let extKind = DefKind.from(key: SwiftDeclarationKind.extension.rawValue)
+        let extDict = ["key.fully_annotated_decl" : "<outer>class Fred</outer>",
+                       "key.parsed_declaration" : "extension Fred"]
+        let extBuilder = SwiftDeclarationBuilder(dict: extDict, file: nil, kind: extKind)
+        let extDecl = extBuilder.build()
+        XCTAssertEqual("extension Fred", extDecl?.declaration)
+
+        let varKind = DefKind.from(key: SwiftDeclarationKind.varClass.rawValue)
+        let varDict = ["key.fully_annotated_decl" : "<outer>var toast { get set }</outer>",
+                       "key.parsed_declaration" : "var toast = { blah\n }()"]
+        let varBuilder = SwiftDeclarationBuilder(dict: varDict, file: nil, kind: varKind)
+        let varDecl = varBuilder.build()
+        XCTAssertEqual("var toast { get set }", varDecl?.declaration)
     }
 
     // Attributes
@@ -95,7 +110,7 @@ class TestGatherDecl: XCTestCase {
         let dict: SourceKittenDict =
             ["key.attributes" : attrDicts,
              "key.fully_annotated_decl": "<outer>public func fred()</outer"]
-        let builder = SwiftDeclarationBuilder(dict: dict, file: file)
+        let builder = SwiftDeclarationBuilder(dict: dict, file: file, kind: nil)
         
         let parsed = builder.parse(attributeDicts: attrDicts)
         XCTAssertEqual(["@discardableResult"], parsed)
@@ -107,10 +122,10 @@ class TestGatherDecl: XCTestCase {
         XCTAssertEqual("@discardableResult\npublic func fred()", built.declaration)
     }
 
-    // Available empire
+    // Available empire.  or at least a satrapie.
     private func checkAvail(_ available: String, _ expectAvail: [String], _ expectDeprecations: [String],
                             file: StaticString = #file, line: UInt = #line) {
-        let builder = SwiftDeclarationBuilder(dict: [:], file: nil)
+        let builder = SwiftDeclarationBuilder(dict: [:], file: nil, kind: nil)
         builder.parse(availables: [available])
         XCTAssertEqual(expectAvail, builder.availability, file: file, line: line)
         XCTAssertEqual(expectDeprecations, builder.deprecations, file: file, line: line)

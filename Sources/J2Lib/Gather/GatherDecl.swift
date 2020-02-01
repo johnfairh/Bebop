@@ -37,7 +37,7 @@ import SwiftSyntax
 // Strategy:
 // 1) Get declaration attributes directly from sourcekitten data.
 // 2) Get compiler declaration from fully_annotated_decl:
-//    - strip out attribute elements
+//    - strip out attribute elements [bcos incomplete]
 //    - convert to text
 // 3) Check parsed declaration to see if we prefer it
 //    - means newlines.  should really just bash out a naive prettyprinter.
@@ -63,6 +63,7 @@ public struct SwiftDeclaration {
 final class SwiftDeclarationBuilder {
     let dict: SourceKittenDict
     let file: File?
+    let kind: DefKind?
 
     var compilerDecl: String?
     var neatParsedDecl: String?
@@ -71,9 +72,10 @@ final class SwiftDeclarationBuilder {
     var obsoletions: [String] = []
     var availability: [String] = []
 
-    init(dict: SourceKittenDict, file: File?) {
+    init(dict: SourceKittenDict, file: File?, kind: DefKind?) {
         self.dict = dict
         self.file = file
+        self.kind = kind
     }
 
     func build() -> SwiftDeclaration? {
@@ -83,11 +85,15 @@ final class SwiftDeclarationBuilder {
         }
 
         compilerDecl = parse(annotatedDecl: annotatedDecl)
-        if let parsedDecl = dict[SwiftDocKey.parsedDeclaration.rawValue] as? String,
-            parsedDecl.contains("\n") || compilerDecl == nil {
-            // XXX todo check type var
-            // Use the declaration as-written
-            neatParsedDecl = parse(parsedDecl: parsedDecl)
+        if let parsedDecl = dict[SwiftDocKey.parsedDeclaration.rawValue] as? String {
+            // Always use parsed for extensions - compiler is for extended type
+            if (kind?.isSwiftExtension ?? false) ||
+                // Use parsed if compiler is missing (impossible?)
+                compilerDecl == nil ||
+                // Use parsed if it's multi-line _except_ vars where we want the { get} form
+                (parsedDecl.contains("\n") && !(kind?.isSwiftProperty ?? false)) {
+                neatParsedDecl = parse(parsedDecl: parsedDecl)
+            }
         }
 
         guard let bestDeclaration = neatParsedDecl ?? compilerDecl else {
@@ -133,7 +139,9 @@ final class SwiftDeclarationBuilder {
             return xmlChild.name != "syntaxtype.attribute.builtin"
         }
         var flat = rootElement.recursiveText
-        flat = flat.hasPrefix(" ") ? String(flat.dropFirst()) : flat
+        if flat.first == " " {
+            flat.removeFirst()
+        }
 
         // XXX todo - unqualified name massaging, need parent hierarchy
 
