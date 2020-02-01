@@ -13,6 +13,8 @@ import Foundation
 fileprivate enum DefItemCodingKeys: String, CodingKey {
     case moduleName
     case passIndex
+    case kind
+    case swiftDeclaration
 }
 
 extension DefItem {
@@ -24,6 +26,10 @@ extension DefItem {
         var container = encoder.container(keyedBy: DefItemCodingKeys.self)
         try container.encode(self.moduleName, forKey: .moduleName)
         try container.encode(self.passIndex, forKey: .passIndex)
+        try container.encode(self.kind.key, forKey: .kind)
+        if !self.swiftDeclaration.declaration.isEmpty {
+            try container.encode(self.swiftDeclaration, forKey: .swiftDeclaration)
+        }
     }
 }
 
@@ -38,5 +44,6 @@ extension Array where Element == DefItem {
         // (and omg, another open-source foundation difference appears,
         //  trailing spaces galore on linux...)
         return json.re_sub(#"\n +"\w+" : \[\n *\n +\],"#, with: "")
+                .re_sub(#",\n +"\w+" : \[\n *\n +\](?=\n)"#, with: "")
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import SourceKittenFramework
 @testable import J2Lib
 
 fileprivate struct System {
@@ -29,7 +30,9 @@ class TestMerge: XCTestCase {
     let badRootDict = SourceKittenDict()
 
     func makeDefDict(name: String) -> SourceKittenDict {
-        [ "key.name" : name ]
+        [ "key.name" : name,
+          "key.kind" : SwiftDeclarationKind.class.rawValue,
+          "key.fully_annotated_decl" : "<o>class Fred</o>"]
     }
 
     let badDefDict = SourceKittenDict()
