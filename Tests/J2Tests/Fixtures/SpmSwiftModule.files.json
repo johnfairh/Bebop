@@ -32,6 +32,16 @@
           "key.bodyoffset" : 30,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftModule\/SpmSwiftModule.swift",
           "key.fully_annotated_decl" : "<decl.struct><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>struct<\/syntaxtype.keyword> <decl.name>SpmSwiftModule<\/decl.name><\/decl.struct>",
+          "key.j2.name_pieces" : [
+            {
+              "key.j2.name_piece_is_name" : false,
+              "key.j2.name_piece_text" : "struct "
+            },
+            {
+              "key.j2.name_piece_is_name" : true,
+              "key.j2.name_piece_text" : "SpmSwiftModule"
+            }
+          ],
           "key.j2.preferred_declaration" : "public struct SpmSwiftModule",
           "key.kind" : "source.lang.swift.decl.struct",
           "key.length" : 63,
@@ -55,6 +65,20 @@
               ],
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.var.instance><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>var<\/syntaxtype.keyword> <decl.name>text<\/decl.name>: <decl.var.type><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.var.type><\/decl.var.instance>",
+              "key.j2.name_pieces" : [
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "var "
+                },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "text"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : ": String"
+                }
+              ],
               "key.j2.preferred_declaration" : "public var text: String",
               "key.kind" : "source.lang.swift.decl.var.instance",
               "key.length" : 26,
@@ -107,6 +131,36 @@
               "key.j2.availability" : "macOS 10.12"
             }
           ],
+          "key.j2.name_pieces" : [
+            {
+              "key.j2.name_piece_is_name" : false,
+              "key.j2.name_piece_text" : "func "
+            },
+            {
+              "key.j2.name_piece_is_name" : true,
+              "key.j2.name_piece_text" : "functionA"
+            },
+            {
+              "key.j2.name_piece_is_name" : false,
+              "key.j2.name_piece_text" : "("
+            },
+            {
+              "key.j2.name_piece_is_name" : true,
+              "key.j2.name_piece_text" : "arg1"
+            },
+            {
+              "key.j2.name_piece_is_name" : false,
+              "key.j2.name_piece_text" : ": Int, Int, "
+            },
+            {
+              "key.j2.name_piece_is_name" : true,
+              "key.j2.name_piece_text" : "arg3"
+            },
+            {
+              "key.j2.name_piece_is_name" : false,
+              "key.j2.name_piece_text" : ": Int)"
+            }
+          ],
           "key.j2.preferred_declaration" : "public func functionA(arg1: Int,\n                      _ arg2: Int,\n                      arg3 argMeaning: Int)",
           "key.kind" : "source.lang.swift.decl.function.free",
           "key.length" : 108,
@@ -141,6 +195,28 @@
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftModule\/SpmSwiftModule.swift",
           "key.fully_annotated_decl" : "<decl.function.free><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>deprecatedFunction<\/decl.name>(<decl.var.parameter><decl.var.parameter.argument_label>callback<\/decl.var.parameter.argument_label>: <decl.var.parameter.type>(<decl.var.parameter><decl.var.parameter.argument_label>_<\/decl.var.parameter.argument_label> <decl.var.parameter.name>report<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.function.returntype><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.function.returntype><\/decl.function.free>",
           "key.j2.deprecation_messages" : "Deprecated. Has always been deprecated.",
+          "key.j2.name_pieces" : [
+            {
+              "key.j2.name_piece_is_name" : false,
+              "key.j2.name_piece_text" : "func "
+            },
+            {
+              "key.j2.name_piece_is_name" : true,
+              "key.j2.name_piece_text" : "deprecatedFunction"
+            },
+            {
+              "key.j2.name_piece_is_name" : false,
+              "key.j2.name_piece_text" : "("
+            },
+            {
+              "key.j2.name_piece_is_name" : true,
+              "key.j2.name_piece_text" : "callback"
+            },
+            {
+              "key.j2.name_piece_is_name" : false,
+              "key.j2.name_piece_text" : ": (_ report: String) -> Int) -> String"
+            }
+          ],
           "key.j2.preferred_declaration" : "public func deprecatedFunction(callback: (_ report: String) -> Int) -> String",
           "key.kind" : "source.lang.swift.decl.function.free",
           "key.length" : 86,

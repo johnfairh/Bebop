@@ -9,6 +9,7 @@
 import XCTest
 @testable import J2Lib
 import SourceKittenFramework
+import SwiftSyntax
 
 // Declaration parsing
 
@@ -156,5 +157,66 @@ class TestGatherDecl: XCTestCase {
         checkAvail("@available(*, introduced: 123", [], [])
         checkAvail("@available(", [], [])
         checkAvail("@available(swift, something: 1, introduced: 2, introduced: 3)", ["swift 3"], [])
+    }
+
+    // Swift decl-piece-name
+
+    private func checkPieces(_ pieces: [SwiftDeclaration.Piece], _ str: String, file: StaticString = #file, line: UInt = #line) {
+        var acc = ""
+        pieces.forEach {
+            switch $0 {
+            case .name(let name): acc += "#\(name)#"
+            case .other(let other): acc += other
+            }
+        }
+        XCTAssertEqual(str, acc, file: file, line: line)
+    }
+
+    private func checkFuncPieces(_ decl: String, _ name: String, _ expect: String, file: StaticString = #file, line: UInt = #line) {
+        let kind = DefKind.from(key: "source.lang.swift.decl.function.method.instance")!
+        let builder = SwiftDeclarationBuilder(dict: [:], file: nil, kind: nil)
+        let pieces = builder.parseToPieces(declaration: decl, name: name, kind: kind)
+        checkPieces(pieces, expect, file: file, line: line)
+    }
+
+    func testFunctionPieces() {
+        checkFuncPieces("func a(b c: Int = 2, d: String, _ e: Double)", "a",
+                        "func #a#(#b#: Int, #d#: String, Double)")
+        checkFuncPieces("func aaa(b: @escaping (_ c: Int) -> String) -> Int", "aaa",
+                        "func #aaa#(#b#: (_ c: Int) -> String) -> Int")
+        checkFuncPieces("func fff<T>() where T: Comparable", "fff",
+                        "func #fff#<T>()")
+        checkFuncPieces("func fff(a: Int) throws", "fff",
+                        "func #fff#(#a#: Int)")
+        checkFuncPieces("func fff(a: Int) rethrows -> String", "fff",
+                        "func #fff#(#a#: Int) -> String")
+    }
+
+    func testSimplePieces() {
+        let builder = SwiftDeclarationBuilder(dict: [:], file: nil, kind: nil)
+
+        let classKind = DefKind.from(key: "source.lang.swift.decl.class")!
+        let pieces = builder.parseToPieces(declaration: "class Fred: Barney", name: "Fred", kind: classKind)
+        checkPieces(pieces, "class #Fred#")
+
+        let varKind = DefKind.from(key: "source.lang.swift.decl.var.class")!
+        let pieces2 = builder.parseToPieces(declaration: "class var fred: String { get }", name: "fred", kind: varKind)
+        checkPieces(pieces2, "class var #fred#: String")
+    }
+
+    func testNearFunctionPieces() {
+        let builder = SwiftDeclarationBuilder(dict: [:], file: nil, kind: nil)
+
+        // Not entirely sure this is right for subscript!
+        let subscriptKind = DefKind.from(key: "source.lang.swift.decl.function.subscript")!
+        let pieces = builder.parseToPieces(declaration: "public subscript(newValue: Int) -> String", name: "subscript", kind: subscriptKind)
+        checkPieces(pieces, "#subscript#(#newValue#: Int) -> String")
+
+        let initKind = DefKind.from(key: "source.lang.swift.decl.function.constructor")!
+        let pieces2 = builder.parseToPieces(declaration: "init()", name: "init", kind: initKind)
+        checkPieces(pieces2, "#init#()")
+
+        let pieces3 = builder.parseToPieces(declaration: "init(a b: Int)", name: "init", kind: initKind)
+        checkPieces(pieces3, "#init#(#a#: Int)")
     }
 }

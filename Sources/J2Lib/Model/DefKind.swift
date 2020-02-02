@@ -134,6 +134,19 @@ public final class DefKind {
         ])
     }
 
+    /// Does this have a multipart function-like name?  `func` `init` `subscript`.
+    var hasSwiftFunctionName: Bool {
+        testSwiftKey(keys: [
+            .functionFree,
+            .functionOperator,
+            .functionMethodClass,
+            .functionMethodStatic,
+            .functionMethodInstance,
+            .functionSubscript,
+            .functionConstructor
+        ])
+    }
+
     // MARK: Factory
 
     /// Find the `Kind` object from a sourcekitten dictionary key, or `nil` if it's not supported

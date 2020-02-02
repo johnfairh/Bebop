@@ -8,7 +8,18 @@
         "pass_index" : 0,
         "swift_declaration" : {
           "declaration" : "public var text: String",
-          "deprecation" : ""
+          "deprecation" : "",
+          "name_pieces" : [
+            {
+              "other" : "var "
+            },
+            {
+              "name" : "text"
+            },
+            {
+              "other" : ": String"
+            }
+          ]
         }
       }
     ],
@@ -18,7 +29,15 @@
     "pass_index" : 0,
     "swift_declaration" : {
       "declaration" : "public struct SpmSwiftModule",
-      "deprecation" : ""
+      "deprecation" : "",
+      "name_pieces" : [
+        {
+          "other" : "struct "
+        },
+        {
+          "name" : "SpmSwiftModule"
+        }
+      ]
     }
   },
   {
@@ -32,7 +51,30 @@
         "macOS 10.12"
       ],
       "declaration" : "public func functionA(arg1: Int,\n                      _ arg2: Int,\n                      arg3 argMeaning: Int)",
-      "deprecation" : ""
+      "deprecation" : "",
+      "name_pieces" : [
+        {
+          "other" : "func "
+        },
+        {
+          "name" : "functionA"
+        },
+        {
+          "other" : "("
+        },
+        {
+          "name" : "arg1"
+        },
+        {
+          "other" : ": Int, Int, "
+        },
+        {
+          "name" : "arg3"
+        },
+        {
+          "other" : ": Int)"
+        }
+      ]
     }
   },
   {
@@ -42,7 +84,24 @@
     "pass_index" : 0,
     "swift_declaration" : {
       "declaration" : "public func deprecatedFunction(callback: (_ report: String) -> Int) -> String",
-      "deprecation" : "Deprecated. Has always been deprecated."
+      "deprecation" : "Deprecated. Has always been deprecated.",
+      "name_pieces" : [
+        {
+          "other" : "func "
+        },
+        {
+          "name" : "deprecatedFunction"
+        },
+        {
+          "other" : "("
+        },
+        {
+          "name" : "callback"
+        },
+        {
+          "other" : ": (_ report: String) -> Int) -> String"
+        }
+      ]
     }
   }
 ]

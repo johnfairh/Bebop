@@ -35,6 +35,10 @@ private enum GatherKey: String {
     /// List of availability statements
     case availabilities = "key.j2.availabilities"
     case availability = "key.j2.availability"
+    /// Name piece breakdown
+    case namePieces = "key.j2.name_pieces"
+    case namePieceIsName = "key.j2.name_piece_is_name"
+    case namePieceText = "key.j2.name_piece_text"
 }
 
 /// Helper to use `GatherKey`
@@ -63,7 +67,22 @@ extension GatherDef {
                     [GatherKey.availability.rawValue : $0]
                 }
             }
-            // XXX name pieces
+            if !swiftDecl.namePieces.isEmpty {
+                dict[.namePieces] = swiftDecl.namePieces.map { piece -> SourceKittenDict in
+                    let isName: Bool
+                    let text: String
+                    switch piece {
+                    case .name(let name):
+                        isName = true
+                        text = name
+                    case .other(let other):
+                        isName = false
+                        text = other
+                    }
+                    return [GatherKey.namePieceIsName.rawValue: isName,
+                            GatherKey.namePieceText.rawValue: text]
+                }
+            }
         }
         if !children.isEmpty {
             dict[SwiftDocKey.substructure.rawValue] = children.map { $0.dictForJSON }

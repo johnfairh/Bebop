@@ -31,7 +31,7 @@ import SwiftSyntax
 // 4) Attributes in sourcekit include some keywords due to their
 //    internal implementation.
 // 5) Available attributes in sourcekit often REPEAT because of careless
-//    compiler implementation leakage
+//    compiler implementation leakage.
 // 6) Swift decls generated from ObjC code have lost their metadata by the time
 //    SourceKitten gives them to us.  On the plus side they don't have any
 //    attributes.
@@ -44,8 +44,8 @@ import SwiftSyntax
 // 3) Check parsed declaration to see if we prefer it
 //    - means newlines.  should really just bash out a naive prettyprinter.
 //    - strip leading attributes and unindent
-// 4) Do @available empire - parse manually, SwiftSyntax too bespoke
-// 5) Form decl stacking attributes on decl
+// 4) Do @available empire - extract key facts including deprecation messages
+// 5) Form final decl by stacking attributes on decl
 // 6) Form name pieces by invoking SwiftSyntax.
 //    This is the only option because we don't have decl XML for the ObjC
 //    ones.
@@ -86,6 +86,7 @@ public struct SwiftDeclaration: Encodable {
     }
 }
 
+/// Short-lived workspace for figuring things out about a Swift declaration
 final class SwiftDeclarationBuilder {
     let dict: SourceKittenDict
     let file: File?
@@ -95,7 +96,6 @@ final class SwiftDeclarationBuilder {
     var neatParsedDecl: String?
     var attributes: [String] = []
     var deprecations: [String] = []
-    var obsoletions: [String] = []
     var availability: [String] = []
 
     init(dict: SourceKittenDict, file: File?, kind: DefKind?) {
@@ -128,6 +128,8 @@ final class SwiftDeclarationBuilder {
             return nil
         }
 
+        // Sort out decl attributes and @available statements
+
         if let attributeDicts = dict["key.attributes"] as? [SourceKittenDict] {
             var allAttributes = parse(attributeDicts: attributeDicts)
             let pivot = allAttributes.partition { $0.hasPrefix("@available") }
@@ -136,10 +138,24 @@ final class SwiftDeclarationBuilder {
             parse(availables: Array(allAttributes[pivot...]))
         }
 
+        // Sort out decl pieces
+
+        let pieces: [SwiftDeclaration.Piece]
+
+        if let name = dict[SwiftDocKey.name.rawValue] as? String,
+            let kind = kind,
+            let compilerDecl = compilerDecl {
+            pieces = parseToPieces(declaration: compilerDecl, name: name, kind: kind)
+        } else {
+            pieces = [.other(bestDeclaration.re_sub("\\s+", with: " "))]
+        }
+
+        // Tidy up
+
         return SwiftDeclaration(declaration: (attributes + [bestDeclaration]).joined(separator: "\n"),
                                 deprecation: deprecations.joined(separator: "\n\n"),
                                 availability: availability,
-                                namePieces: [])
+                                namePieces: pieces)
     }
 
     /// Get the compiler declaration out of an 'annotated declaration' xml.
@@ -164,10 +180,7 @@ final class SwiftDeclarationBuilder {
             }
             return xmlChild.name != "syntaxtype.attribute.builtin"
         }
-        var flat = rootElement.recursiveText
-        if flat.first == " " {
-            flat.removeFirst()
-        }
+        let flat = rootElement.recursiveText.trimmingCharacters(in: .whitespaces)
 
         // XXX todo - unqualified name massaging, need parent hierarchy
 
