@@ -153,10 +153,10 @@ class TestGatherDecl: XCTestCase {
 
         // Syntax etc issues
         checkAvail("@available(dasdasd", [], [])
-        checkAvail(#"@available(*, renamed: "NU\""#, [], [" Renamed: `NU\"`."])
+        checkAvail(#"@available(*, renamed: "NU\""#, [], [])
         checkAvail("@available(*, introduced: 123", [], [])
         checkAvail("@available(", [], [])
-        checkAvail("@available(swift, something: 1, introduced: 2, introduced: 3)", ["swift 3"], [])
+        checkAvail("@available(swift, something: 1, introduced: 2, introduced: 3)", [], [])
     }
 
     // Swift decl-piece-name
