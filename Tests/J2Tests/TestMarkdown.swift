@@ -1,0 +1,91 @@
+//
+//  TestMarkdown.swift
+//  J2Tests
+//
+//  Copyright 2020 J2 Authors
+//  Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
+//
+
+import XCTest
+@testable import J2Lib
+import Maaku
+
+private let doc1 = Markdown("""
+Abstract line.
+
+Discussion para 1 of 2.
+
+- not a callout
+
+Discussion para 2 of 2.
+
+- returns: The answer -
+  On two lines.
+
+- localizationKey: en
+
+- parameter Fred: Barney
+""")
+
+private let doc2 = Markdown("""
+- parameters:
+    - fred: wilma
+    - barney: betty
+""")
+
+
+class TestMarkdown: XCTestCase {
+    // Basic callout detection
+    private func checkCallout(_ str: String, _ title: String, _ body: String, _ format: CMNode.Callout.Format,
+                              file: StaticString = #file, line: UInt = #line) {
+        guard let callout = CMNode.Callout(string: str) else {
+            XCTFail("No callout", file: file, line: line)
+            return
+        }
+        XCTAssertEqual(title, callout.title, file: file, line: line)
+        XCTAssertEqual(body, callout.body, file: file, line: line)
+        XCTAssertEqual(format, callout.format, file: file, line: line)
+    }
+
+    private func checkNoCallout(_ str: String, file: StaticString = #file, line: UInt = #line) {
+        if let callout = CMNode.Callout(string: str) {
+            XCTFail("Callout: \(callout)", file: file, line: line)
+        }
+    }
+
+    func testCalloutDetection() {
+        checkCallout("a: b", "a", "b", .other)
+        checkCallout("a  :b", "a", "b", .other)
+        checkCallout("callout(fred): barney", "fred", "barney", .custom)
+        checkCallout("  callout(fred) :  barney", "fred", "barney", .custom)
+        checkCallout("paraMeters:", "paraMeters", "", .other)
+        checkCallout("parameter fred: barney", "fred", "barney", .parameter)
+        checkCallout("Parameter: fred barney", "fred", "barney", .parameter)
+
+        checkNoCallout("param fred: barney")
+        checkNoCallout("callout (fred): barney")
+    }
+
+    func testDestructure1() {
+        let m = MarkdownBuilder(markdown: doc1)
+        guard let results = m.build() else {
+            XCTFail("Failed")
+            return
+        }
+        XCTAssertEqual(m.localizationKey, "en")
+        XCTAssertEqual(results.returns, Markdown("The answer -"))
+        XCTAssertEqual(results.parameters, ["Fred" : Markdown("Barney")])
+    }
+
+    func testDestructure2() {
+        let m = MarkdownBuilder(markdown: doc2)
+        guard let results = m.build() else {
+            XCTFail("Failed")
+            return
+        }
+        XCTAssertNil(m.localizationKey)
+        XCTAssertNil(results.returns)
+        XCTAssertEqual(results.parameters, ["fred" : Markdown("wilma"),
+                                            "barney" : Markdown("betty")])
+    }
+}

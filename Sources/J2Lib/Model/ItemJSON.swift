@@ -24,11 +24,11 @@ extension DefItem {
         try super.encode(to: encoder)
         
         var container = encoder.container(keyedBy: DefItemCodingKeys.self)
-        try container.encode(self.moduleName, forKey: .moduleName)
-        try container.encode(self.passIndex, forKey: .passIndex)
-        try container.encode(self.kind.key, forKey: .kind)
-        if !self.swiftDeclaration.declaration.isEmpty {
-            try container.encode(self.swiftDeclaration, forKey: .swiftDeclaration)
+        try container.encode(moduleName, forKey: .moduleName)
+        try container.encode(passIndex, forKey: .passIndex)
+        try container.encode(kind.key, forKey: .kind)
+        if !swiftDeclaration.declaration.isEmpty {
+            try container.encode(swiftDeclaration, forKey: .swiftDeclaration)
         }
     }
 }
