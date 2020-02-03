@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
   name: "J2",
   platforms: [
-    .macOS(.v10_13)
+    .macOS("10.13")
   ],
   products: [
     .executable(name: "j2", targets: ["J2Lib", "J2CLI"])
@@ -20,7 +20,9 @@ let package = Package(
     .package(url: "https://github.com/drmohundro/SWXMLHash.git",
              .upToNextMinor(from: "5.0.1")),
     .package(url: "https://github.com/apple/swift-syntax.git",
-             .exact("0.50100.0"))
+             .exact("0.50100.0")),
+    .package(url: "https://github.com/johnfairh/Maaku.git",
+             from: "10.9.2")
   ],
   targets: [
     .target(
@@ -30,7 +32,8 @@ let package = Package(
         "SourceKittenFramework",
         "Mustache",
         "SWXMLHash",
-        "SwiftSyntax"
+        "SwiftSyntax",
+        "Maaku"
       ]),
     .target(
       name: "J2CLI",

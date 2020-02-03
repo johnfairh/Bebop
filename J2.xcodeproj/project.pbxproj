@@ -73,6 +73,10 @@
 		02CFFA4323E6CF5700FDE5B9 /* _CSwiftSyntax.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 02CFFA3A23E4B1F100FDE5B9 /* _CSwiftSyntax.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		02CFFA4423E6CF6900FDE5B9 /* SwiftSyntax.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 02CFFA3723E4B1EE00FDE5B9 /* SwiftSyntax.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		02CFFA4623E75DF500FDE5B9 /* GatherDeclPieces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFFA4523E75DF500FDE5B9 /* GatherDeclPieces.swift */; };
+		02CFFA4B23E8461800FDE5B9 /* libcmark_gfm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02CFFA4923E8460700FDE5B9 /* libcmark_gfm.framework */; };
+		02CFFA4C23E8461800FDE5B9 /* libcmark_gfm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02CFFA4923E8460700FDE5B9 /* libcmark_gfm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		02CFFA4D23E8461A00FDE5B9 /* Maaku.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02CFFA4723E8460400FDE5B9 /* Maaku.framework */; };
+		02CFFA4E23E8461A00FDE5B9 /* Maaku.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02CFFA4723E8460400FDE5B9 /* Maaku.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		02F2B3C4239A7E2A00397BC6 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C24034239A732200518764 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -118,7 +122,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				02CFFA4C23E8461800FDE5B9 /* libcmark_gfm.framework in Embed Frameworks */,
 				02CFFA0E23E1973300FDE5B9 /* Mustache.framework in Embed Frameworks */,
+				02CFFA4E23E8461A00FDE5B9 /* Maaku.framework in Embed Frameworks */,
 				02CFF91D23DDFB0600FDE5B9 /* Yams.framework in Embed Frameworks */,
 				02CFF91B23DDFB0500FDE5B9 /* SWXMLHash.framework in Embed Frameworks */,
 				02CFFA3C23E4B1F100FDE5B9 /* _CSwiftSyntax.framework in Embed Frameworks */,
@@ -215,6 +221,8 @@
 		02CFFA3D23E5A95B00FDE5B9 /* GatherDeclAvailable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherDeclAvailable.swift; sourceTree = "<group>"; };
 		02CFFA3F23E5CFF800FDE5B9 /* DefKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefKind.swift; sourceTree = "<group>"; };
 		02CFFA4523E75DF500FDE5B9 /* GatherDeclPieces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherDeclPieces.swift; sourceTree = "<group>"; };
+		02CFFA4723E8460400FDE5B9 /* Maaku.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Maaku.framework; path = Carthage/Build/Mac/Maaku.framework; sourceTree = "<group>"; };
+		02CFFA4923E8460700FDE5B9 /* libcmark_gfm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libcmark_gfm.framework; path = Carthage/Build/Mac/libcmark_gfm.framework; sourceTree = "<group>"; };
 		02F2B3B4239A7E0C00397BC6 /* J2CLI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = J2CLI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02F2B3D0239A89D700397BC6 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -231,7 +239,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02CFFA4B23E8461800FDE5B9 /* libcmark_gfm.framework in Frameworks */,
 				02CFFA0D23E1973300FDE5B9 /* Mustache.framework in Frameworks */,
+				02CFFA4D23E8461A00FDE5B9 /* Maaku.framework in Frameworks */,
 				02CFF91C23DDFB0600FDE5B9 /* Yams.framework in Frameworks */,
 				02CFF91723DDFB0100FDE5B9 /* SourceKittenFramework.framework in Frameworks */,
 				02CFFA3B23E4B1F100FDE5B9 /* _CSwiftSyntax.framework in Frameworks */,
@@ -450,6 +460,8 @@
 		02F2B3C7239A804100397BC6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				02CFFA4923E8460700FDE5B9 /* libcmark_gfm.framework */,
+				02CFFA4723E8460400FDE5B9 /* Maaku.framework */,
 				02CFFA3A23E4B1F100FDE5B9 /* _CSwiftSyntax.framework */,
 				02CFFA3723E4B1EE00FDE5B9 /* SwiftSyntax.framework */,
 				02CFFA0C23E1973300FDE5B9 /* Mustache.framework */,
