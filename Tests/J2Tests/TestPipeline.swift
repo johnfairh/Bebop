@@ -21,6 +21,8 @@ class TestPipeline: XCTestCase {
         let p = Pipeline(logger: TestLogger.shared.logger)
         try p.run(argv: ["--version"])
         XCTAssertEqual([Version.j2libVersion], TestLogger.shared.messageBuf)
+
+        XCTAssertEqual(["en"], p.localizations.allTags)
     }
 
     // Pipeline from CLI

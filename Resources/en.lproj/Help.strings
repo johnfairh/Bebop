@@ -31,10 +31,17 @@ the source directory, otherwise 'spm'.";
 "Arguments to pass through to `xcodebuild`, `swift build`, or `clang`.";
 "products" = "Things to produce.
 Default: 'docs,docset,undocumented-json'";
-"output" = "Directory in which to create documentation.
+"output" = "Directory in which to generate documentation.
 Default: 'docs'.";
-"clean" = "Delete output directory and contents before creating documentation.";
+"clean" = "Delete output directory and contents before generating documentation.";
 "theme" = "Theme for generated documentation.  Use the name of a built-in theme
 or give the path of a directory containing your customized templates and
 assets.
-Default: Built-in theme 'fw2020'.";"
+Default: Built-in theme 'fw2020'.";
+"default-localization" = "The default localization for the generated documentation in the
+format 'tag:flag:label'.
+Default: 'en:🇺🇸:English'";
+"localizations" = "The other localizations for the generated documentation in the
+format 'tag:flag:label'.
+Default: None - only generate documentation according to the default
+localization.";

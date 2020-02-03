@@ -52,6 +52,11 @@ ways in multiple locations -- configured only in the config file.
 * `--clean` delete output directory and contents before starting.
 * `--theme name|PATH` theme name or custom path.  Themes must contain a
   `templates` directory and may contain a `theme.yaml` file.
+* `--default-localization LOCSPEC` default localization.  A `LOCSPEC` looks like
+  `tag:flag:label`, eg. `en:🇺🇸:English`.  The tag is used to find resources
+  during generation the other parts in the generated docs' UI.
+* `--localizations LOCSPEC,...` other localizations to support in addition to
+  the default localization.
 
 ## Meta
 * `--config PATH` config file location.
