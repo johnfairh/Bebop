@@ -22,7 +22,7 @@ let package = Package(
     .package(url: "https://github.com/apple/swift-syntax.git",
              .exact("0.50100.0")),
     .package(url: "https://github.com/johnfairh/Maaku.git",
-             from: "10.9.2")
+             from: "10.9.3")
   ],
   targets: [
     .target(

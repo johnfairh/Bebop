@@ -36,9 +36,9 @@ private let doc2 = Markdown("""
 
 class TestMarkdown: XCTestCase {
     // Basic callout detection
-    private func checkCallout(_ str: String, _ title: String, _ body: String, _ format: CMNode.Callout.Format,
+    private func checkCallout(_ str: String, _ title: String, _ body: String, _ format: CMCallout.Format,
                               file: StaticString = #file, line: UInt = #line) {
-        guard let callout = CMNode.Callout(string: str) else {
+        guard let callout = CMCallout(string: str) else {
             XCTFail("No callout", file: file, line: line)
             return
         }
@@ -48,7 +48,7 @@ class TestMarkdown: XCTestCase {
     }
 
     private func checkNoCallout(_ str: String, file: StaticString = #file, line: UInt = #line) {
-        if let callout = CMNode.Callout(string: str) {
+        if let callout = CMCallout(string: str) {
             XCTFail("Callout: \(callout)", file: file, line: line)
         }
     }
@@ -73,8 +73,18 @@ class TestMarkdown: XCTestCase {
             return
         }
         XCTAssertEqual(m.localizationKey, "en")
-        XCTAssertEqual(results.returns, Markdown("The answer -"))
+        XCTAssertEqual(results.returns, Markdown("The answer - On two lines."))
         XCTAssertEqual(results.parameters, ["Fred" : Markdown("Barney")])
+        XCTAssertEqual(results.abstract, Markdown("Abstract line."))
+        XCTAssertEqual(results.overview, Markdown("""
+           Discussion para 1 of 2.
+
+             - not a callout
+
+           Discussion para 2 of 2.
+
+             - localizationKey: en
+           """))
     }
 
     func testDestructure2() {
@@ -87,5 +97,7 @@ class TestMarkdown: XCTestCase {
         XCTAssertNil(results.returns)
         XCTAssertEqual(results.parameters, ["fred" : Markdown("wilma"),
                                             "barney" : Markdown("betty")])
+        XCTAssertNil(results.abstract)
+        XCTAssertEqual(Markdown(""), results.overview)
     }
 }

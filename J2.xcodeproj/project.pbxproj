@@ -82,6 +82,7 @@
 		02FDC67C23E879E700C2F9CD /* GatherMarkdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FDC67B23E879E700C2F9CD /* GatherMarkdown.swift */; };
 		02FDC67E23E89E8300C2F9CD /* TestMarkdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FDC67D23E89E8300C2F9CD /* TestMarkdown.swift */; };
 		02FDC68023E8B25100C2F9CD /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FDC67F23E8B25100C2F9CD /* Localization.swift */; };
+		02FDC68223E997D700C2F9CD /* Markdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FDC68123E997D700C2F9CD /* Markdown.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -233,6 +234,7 @@
 		02FDC67B23E879E700C2F9CD /* GatherMarkdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherMarkdown.swift; sourceTree = "<group>"; };
 		02FDC67D23E89E8300C2F9CD /* TestMarkdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMarkdown.swift; sourceTree = "<group>"; };
 		02FDC67F23E8B25100C2F9CD /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		02FDC68123E997D700C2F9CD /* Markdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Markdown.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,6 +293,7 @@
 				029A717E23D9F91200D66069 /* FileManager.swift */,
 				02FDC67F23E8B25100C2F9CD /* Localization.swift */,
 				0257280623DB50B40001F510 /* Resources.swift */,
+				02FDC68123E997D700C2F9CD /* Markdown.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -676,6 +679,7 @@
 				02CFF92723DE009900FDE5B9 /* GatherOpts.swift in Sources */,
 				02CFFA1023E1E9A700FDE5B9 /* Themes.swift in Sources */,
 				02CFFA0423E0BA2900FDE5B9 /* Item.swift in Sources */,
+				02FDC68223E997D700C2F9CD /* Markdown.swift in Sources */,
 				022818BF23D238F30016B0D5 /* Errors.swift in Sources */,
 				02CFF92523DDFFC900FDE5B9 /* GatherDef.swift in Sources */,
 				02CFFA4023E5CFF800FDE5B9 /* DefKind.swift in Sources */,
