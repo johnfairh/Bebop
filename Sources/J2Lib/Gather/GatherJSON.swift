@@ -59,13 +59,15 @@ extension SourceKittenDict {
     }
 }
 
-extension DefMarkdown {
+extension DefMarkdownDocs {
     var dictForJSON: SourceKittenDict {
         var dict = SourceKittenDict()
         if let abstract = abstract {
             dict[GatherKey.abstract] = abstract.description
         }
-        dict[GatherKey.overview] = overview.description
+        if let overview = overview {
+            dict[GatherKey.overview] = overview.description
+        }
         if let returns = returns {
             dict[GatherKey.returns] = returns.description
         }

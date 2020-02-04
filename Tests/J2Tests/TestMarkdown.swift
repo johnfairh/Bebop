@@ -33,6 +33,8 @@ private let doc2 = Markdown("""
     - barney: betty
 """)
 
+private let doc3 = Markdown("")
+
 
 class TestMarkdown: XCTestCase {
     // Basic callout detection
@@ -98,6 +100,19 @@ class TestMarkdown: XCTestCase {
         XCTAssertEqual(results.parameters, ["fred" : Markdown("wilma"),
                                             "barney" : Markdown("betty")])
         XCTAssertNil(results.abstract)
-        XCTAssertEqual(Markdown(""), results.overview)
+        XCTAssertNil(results.overview)
+    }
+
+    func testDestructure3() {
+        let m = MarkdownBuilder(markdown: doc3)
+        guard let results = m.build() else {
+            XCTFail("Failed")
+            return
+        }
+        XCTAssertNil(m.localizationKey)
+        XCTAssertNil(results.returns)
+        XCTAssertEqual(results.parameters, [:])
+        XCTAssertNil(results.abstract)
+        XCTAssertEqual(results.overview, Markdown(""))
     }
 }

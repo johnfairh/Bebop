@@ -9,7 +9,6 @@
 import XCTest
 @testable import J2Lib
 import SourceKittenFramework
-import SwiftSyntax
 
 // Declaration parsing
 

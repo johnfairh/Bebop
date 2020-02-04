@@ -13,43 +13,11 @@ import SourceKittenFramework
 // Port and extension of SourceDeclaration::Type -- what are the different types
 // of definition that can occur and how are they expressed in various envirnoments.
 //
-// This `Kind` type only needs to cover definitions, the plan goes, because Guides
-// and Groups will have some separate type-info to differentiate them.  We'll see.
-//
 
-/// The underlying sourcekitten key - keep hold of the enum to avoid string comparisons (right?)
-private enum DefKindKey {
-    case swift(SwiftDeclarationKind)
-    #if os(Linux)
-    // sourcekitten doesn't have OCDK on linux, this gives things the right shape.
-    case objC(SwiftDeclarationKind)
-    #else
-    case objC(ObjCDeclarationKind)
-    #endif
-    // Only for swift 'MARK' comments rn...
-    case other(key: String, isSwift: Bool)
-
-    var isSwift: Bool {
-        switch self {
-        case .swift(_): return true;
-        case .objC(_): return false;
-        case .other(_, let isSwift): return isSwift;
-        }
-    }
-
-    var key: String {
-        switch self {
-        case .swift(let kind): return kind.rawValue
-        case .objC(let kind): return kind.rawValue
-        case .other(let key, _): return key
-        }
-    }
-}
-
-/// The type of a definition 
+/// The type of a definition
 public final class DefKind {
     /// The underlying key
-    private let kindKey: DefKindKey
+    private let kindKey: Key
     /// The sourcekit[ten] key for the definition type
     public var key: String { kindKey.key }
     /// Is this a Swift definition kind?
@@ -57,7 +25,7 @@ public final class DefKind {
     /// The name of the declaration type in the generated docs [translate??]
     public let uiName: String
     /// The metakind for the definition type
-    public let metaKind: MetaKind
+    public let metaKind: ItemKind
     /// The name of the declaration type per Dash rules, revised Jan 2020
     /// (https://kapeli.com/docsets#supportedentrytypes))
     public var dashName: String { _dashName ?? uiName }
@@ -65,11 +33,40 @@ public final class DefKind {
     /// The Swift keywords that should precede the declaration name
     public let declPrefix: String?
 
-    private init(_ kindKey: DefKindKey,
+    /// The underlying sourcekitten key - keep hold of the enum to avoid string comparisons (right?)
+    private enum Key {
+        case swift(SwiftDeclarationKind)
+        #if os(Linux)
+        // sourcekitten doesn't have OCDK on linux, this gives things the right shape.
+        case objC(SwiftDeclarationKind)
+        #else
+        case objC(ObjCDeclarationKind)
+        #endif
+        // Only for swift 'MARK' comments rn...
+        case other(key: String, isSwift: Bool)
+
+        var isSwift: Bool {
+            switch self {
+            case .swift(_): return true;
+            case .objC(_): return false;
+            case .other(_, let isSwift): return isSwift;
+            }
+        }
+
+        var key: String {
+            switch self {
+            case .swift(let kind): return kind.rawValue
+            case .objC(let kind): return kind.rawValue
+            case .other(let key, _): return key
+            }
+        }
+    }
+
+    private init(_ kindKey: Key,
                  _ uiName: String,
                  dashName: String? = nil,
                  declPrefix: String? = nil,
-                 metaKind: MetaKind = .other) {
+                 metaKind: ItemKind = .other) {
         self.kindKey = kindKey
         self.uiName = uiName
         self._dashName = dashName
@@ -77,11 +74,11 @@ public final class DefKind {
         self.metaKind = metaKind
     }
 
-    #if !os(Linux)
+    #if os(macOS)
     private convenience init(o key: ObjCDeclarationKind,
                              _ uiName: String,
                              dash: String? = nil,
-                             meta metaKind: MetaKind = .other) {
+                             meta metaKind: ItemKind = .other) {
         self.init(.objC(key),
                   uiName,
                   dashName: dash,
@@ -94,7 +91,7 @@ public final class DefKind {
                              _ uiName: String,
                              dash: String? = nil,
                              dp: String? = nil,
-                             meta metaKind: MetaKind = .other) {
+                             meta metaKind: ItemKind = .other) {
         self.init(.swift(key),
                   uiName,
                   dashName: dash,
@@ -151,26 +148,23 @@ public final class DefKind {
 
     /// Find the `Kind` object from a sourcekitten dictionary key, or `nil` if it's not supported
     public static func from(key: String) -> DefKind? {
-        if kindMap.isEmpty {
-            allSwiftKinds.forEach {
-                kindMap[$0.key] = $0
-            }
-            #if !os(Linux)
-            allObjCKinds.forEach {
-                kindMap[$0.key] = $0
-            }
-            #endif
-        }
         return kindMap[key]
     }
 
     /// Cache string -> Kind
-    private static var kindMap: [String : DefKind] = [:]
+    private static let kindMap: [String : DefKind] = {
+        var map: [String: DefKind] = [:]
+        allSwiftKinds.forEach { map[$0.key] = $0 }
+        #if os(macOS)
+        allObjCKinds.forEach { map[$0.key] = $0 }
+        #endif
+        return map
+    }()
 
     /// Master list of kinds.  I've superstitiously kept the jazzy ordering, which might affect the default
     /// ordering somewhere - tbd.
 
-    #if !os(Linux)
+    #if os(macOS)
     private static let allObjCKinds: [DefKind] = [
         // Objective-C
         DefKind(o: .unexposedDecl,  "Unexposed"),

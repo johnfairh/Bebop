@@ -25,7 +25,7 @@ public struct GatherDef {
     /// Multi-faceted Swift declaration info
     let swiftDeclaration: SwiftDeclaration?
     /// Documentation
-    let documentation: DefMarkdown?
+    let documentation: DefMarkdownDocs?
 
     init(sourceKittenDict: SourceKittenDict, file: SourceKittenFramework.File?) {
         var dict = sourceKittenDict

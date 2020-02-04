@@ -16,6 +16,7 @@ import Maaku
 public class MarkdownBuilder {
     let input: Markdown
     private var abstract: Markdown?
+    private var overview: Markdown?
     private var returns: Markdown?
     private var parameters: [String : Markdown] = [:]
     private(set) var localizationKey: String?
@@ -26,7 +27,7 @@ public class MarkdownBuilder {
 
     /// Try to destructure this doc comment markdown into pieces.
     /// Also update `localizationKey`
-    public func build() -> DefMarkdown? {
+    public func build() -> DefMarkdownDocs? {
         guard let doc = CMDocument(markdown: input) else {
             logInfo("Markdown: can't parse as markdown '\(input)'.")
             return nil
@@ -53,11 +54,21 @@ public class MarkdownBuilder {
             abstract = firstPara.renderMarkdown()
         }
 
-        // overview is then just what's left of the doc, if anything
-        return DefMarkdown(abstract: abstract,
-                           overview: doc.node.renderMarkdown(),
-                           returns: returns,
-                           parameters: parameters)
+        // overview is what's left if anything
+        if doc.node.firstChild != nil {
+            overview = doc.node.renderMarkdown()
+        } else if abstract == nil &&
+                  returns == nil &&
+                  parameters.count == 0 {
+            // preserve 'empty' string to avoid wrong 'undocumented' categorization,
+            // which is maybe fair but they did write a doc comment so...
+            overview = Markdown("")
+        }
+
+        return DefMarkdownDocs(abstract: abstract,
+                                        overview: overview,
+                                        returns: returns,
+                                        parameters: parameters)
     }
 
     /// Handle a top-level callout - side-effect `parameters` `returns` `localizationKey`.
