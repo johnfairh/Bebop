@@ -93,7 +93,7 @@ public final class Pipeline: Configurable {
             return
         }
 
-        let gatheredData = try gather.gather()
+        let gatheredData = try gather.gather(localizations: localizations)
 
         if testAndClearProduct(.files_json) {
             logDebug("Pipeline: producing files-json")

@@ -15,7 +15,7 @@ typealias SourceKittenDict = [String: SourceKitRepresentable]
 ///
 /// Originally created from a SourceKitten dictionary this is augmented by successive
 /// garnishings before gather is complete.
-public struct GatherDef {
+public final class GatherDef {
     /// Child definitions, constructed from the SourceKitten substructure
     let children: [GatherDef]
     /// SourceKitten hash _except_ the substructure key
@@ -26,6 +26,7 @@ public struct GatherDef {
     let swiftDeclaration: SwiftDeclaration?
     /// Documentation
     let documentation: DefMarkdownDocs?
+    let localizationKey: String?
 
     init(sourceKittenDict: SourceKittenDict, file: SourceKittenFramework.File?) {
         var dict = sourceKittenDict
@@ -36,11 +37,16 @@ public struct GatherDef {
 
         self.swiftDeclaration = SwiftDeclarationBuilder(dict: sourceKittenDict, file: file, kind: kind).build()
 
-        if let docComment = dict[SwiftDocKey.documentationComment.rawValue] as? String {
+        if let docComment = sourceKittenDict[SwiftDocKey.documentationComment.rawValue] as? String {
             let docsBuilder = MarkdownBuilder(markdown: Markdown(docComment))
             self.documentation = docsBuilder.build()
+            self.localizationKey = docsBuilder.localizationKey
         } else {
             self.documentation = nil
+            self.localizationKey = nil
         }
     }
+
+    // Things calculated after init
+    var translatedDocs = Localized<DefMarkdownDocs>()
 }

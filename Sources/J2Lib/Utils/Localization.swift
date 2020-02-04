@@ -84,3 +84,6 @@ public struct Localizations {
         others = Array(otherLocalizations).sorted()
     }
 }
+
+/// Keyed by language tag
+public typealias Localized<T> = [String : T]

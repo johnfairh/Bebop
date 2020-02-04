@@ -31,7 +31,7 @@ extension DefItem {
         if !swiftDeclaration.declaration.isEmpty {
             try container.encode(swiftDeclaration, forKey: .swiftDeclaration)
         }
-        if let documentation = documentation {
+        if !documentation.isEmpty {
             try container.encode(documentation, forKey: .documentation)
         }
     }

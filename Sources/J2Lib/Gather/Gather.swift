@@ -32,13 +32,19 @@ public struct Gather {
     /// Subcomponent for options and config YAML processing
     let opts: GatherOpts
 
+    /// Doc comment translation
+    let localize: GatherLocalize
+
     /// Create a new instance
     init(config: Config) {
         opts = GatherOpts(config: config)
+        localize = GatherLocalize(config: config)
     }
 
     /// Gather information from the configured modules.
-    public func gather() throws -> [GatherModulePass] {
+    public func gather(localizations: Localizations = Localizations()) throws -> [GatherModulePass] {
+        localize.setLocalizations(localizations)
+
         // have opts separately figure out the module->mergepolicy.
         // that way we don't get incredible tramp data with mergepolicy.
         // we can't have it figure out module names because of implicit
@@ -50,6 +56,7 @@ public struct Gather {
         // include/exclude filtering
 
         // Garnishes
+        try passes.garnish(with: localize)
 
         return passes
     }
@@ -69,3 +76,21 @@ public struct GatherModulePass {
 //    case no
 //    case group(name: String) // should be localized map
 //}
+
+protocol GatherGarnish {
+    func garnish(def: GatherDef) throws
+}
+
+extension Array where Element == GatherModulePass {
+    func garnish<T>(with: T) throws where T: GatherGarnish {
+        try forEach { pass in
+            try pass.files.forEach {
+                func process(def: GatherDef) throws {
+                    try with.garnish(def: def)
+                    try def.children.forEach(process)
+                }
+                try process(def: $0.1)
+            }
+        }
+    }
+}

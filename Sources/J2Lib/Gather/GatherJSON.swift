@@ -29,7 +29,7 @@ private enum GatherKey: String {
     case moduleName = "key.j2.module_name"  // root-only
 
     /// Computed Swift declaration, code string
-    case preferredDeclaration = "key.j2.preferred_declaration"
+    case preferredDeclaration = "key.j2.preferred_swift_declaration"
     /// Computed declaration messages, markdown string
     case deprecationMessages = "key.j2.deprecation_messages"
     /// List of availability statements
@@ -109,8 +109,8 @@ extension GatherDef {
                 }
             }
         }
-        if let docs = documentation {
-            dict[.documentation] = docs.dictForJSON
+        if !translatedDocs.isEmpty {
+            dict[.documentation] = translatedDocs.mapValues { $0.dictForJSON }
         }
         if !children.isEmpty {
             dict[SwiftDocKey.substructure.rawValue] = children.map { $0.dictForJSON }

@@ -21,7 +21,7 @@ public class DefItem: Item {
     /// Swift declaration
     public let swiftDeclaration: SwiftDeclaration
     /// Documentation
-    public let documentation: DefMarkdownDocs?
+    public let documentation: Localized<DefMarkdownDocs>
 
     /// Create from a gathered definition
     public init?(moduleName: String, passIndex: Int, gatherDef: GatherDef) {
@@ -48,7 +48,7 @@ public class DefItem: Item {
                 return nil
             }
         }
-        documentation = gatherDef.documentation
+        documentation = gatherDef.translatedDocs
 
         super.init(name: name, children: children)
     }

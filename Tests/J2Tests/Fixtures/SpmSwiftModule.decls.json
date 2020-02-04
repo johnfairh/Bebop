@@ -24,12 +24,14 @@
       }
     ],
     "documentation" : {
-      "abstract" : null,
-      "overview" : "",
-      "parameters" : {
+      "en" : {
+        "abstract" : null,
+        "overview" : "",
+        "parameters" : {
 
-      },
-      "returns" : null
+        },
+        "returns" : null
+      }
     },
     "kind" : "source.lang.swift.decl.struct",
     "module_name" : "SpmSwiftModule",
@@ -87,12 +89,14 @@
   },
   {
     "documentation" : {
-      "abstract" : "A deprecated function",
-      "overview" : null,
-      "parameters" : {
-        "callback" : "The callback"
-      },
-      "returns" : "A string"
+      "en" : {
+        "abstract" : "A deprecated function",
+        "overview" : null,
+        "parameters" : {
+          "callback" : "The callback"
+        },
+        "returns" : "A string"
+      }
     },
     "kind" : "source.lang.swift.decl.function.free",
     "module_name" : "SpmSwiftModule",

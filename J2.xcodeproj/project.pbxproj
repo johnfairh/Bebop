@@ -84,6 +84,7 @@
 		02FDC68023E8B25100C2F9CD /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FDC67F23E8B25100C2F9CD /* Localization.swift */; };
 		02FDC68223E997D700C2F9CD /* Markdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FDC68123E997D700C2F9CD /* Markdown.swift */; };
 		02FDC68423E9DED600C2F9CD /* DefItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FDC68323E9DED600C2F9CD /* DefItem.swift */; };
+		02FDC68623E9EEE900C2F9CD /* GatherLocalize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FDC68523E9EEE900C2F9CD /* GatherLocalize.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -237,6 +238,7 @@
 		02FDC67F23E8B25100C2F9CD /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		02FDC68123E997D700C2F9CD /* Markdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Markdown.swift; sourceTree = "<group>"; };
 		02FDC68323E9DED600C2F9CD /* DefItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefItem.swift; sourceTree = "<group>"; };
+		02FDC68523E9EEE900C2F9CD /* GatherLocalize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherLocalize.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -415,6 +417,7 @@
 				02CFFA4523E75DF500FDE5B9 /* GatherDeclPieces.swift */,
 				02CFFA3D23E5A95B00FDE5B9 /* GatherDeclAvailable.swift */,
 				02FDC67B23E879E700C2F9CD /* GatherMarkdown.swift */,
+				02FDC68523E9EEE900C2F9CD /* GatherLocalize.swift */,
 				02CFF92A23DEF49400FDE5B9 /* GatherJSON.swift */,
 			);
 			path = Gather;
@@ -689,6 +692,7 @@
 				02CFFA4023E5CFF800FDE5B9 /* DefKind.swift in Sources */,
 				02CFFA4623E75DF500FDE5B9 /* GatherDeclPieces.swift in Sources */,
 				02FDC67A23E876D300C2F9CD /* DefDocs.swift in Sources */,
+				02FDC68623E9EEE900C2F9CD /* GatherLocalize.swift in Sources */,
 				029A6F1923D77F7C00D66069 /* Config.swift in Sources */,
 				029A6F1F23D880F700D66069 /* Logger.swift in Sources */,
 				02FDC67C23E879E700C2F9CD /* GatherMarkdown.swift in Sources */,

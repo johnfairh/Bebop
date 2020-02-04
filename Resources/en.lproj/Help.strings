@@ -45,3 +45,8 @@ Default: 'en:🇺🇸:English'";
 format 'tag:flag:label'.
 Default: None - only generate documentation according to the default
 localization.";
+"doc-comment-language" = "The language in which documentation comments are written.
+Default: 'en'.";
+"doc-comment-languages-directory" = "Directory that holds '<language-tag>/QuickHelp.strings' files with which
+to localize documentation comments.
+Default: None - do not localize documentation comments.";
