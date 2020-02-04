@@ -15,6 +15,7 @@ fileprivate enum DefItemCodingKeys: String, CodingKey {
     case passIndex
     case kind
     case swiftDeclaration
+    case documentation
 }
 
 extension DefItem {
@@ -29,6 +30,9 @@ extension DefItem {
         try container.encode(kind.key, forKey: .kind)
         if !swiftDeclaration.declaration.isEmpty {
             try container.encode(swiftDeclaration, forKey: .swiftDeclaration)
+        }
+        if let documentation = documentation {
+            try container.encode(documentation, forKey: .documentation)
         }
     }
 }

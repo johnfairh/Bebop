@@ -35,6 +35,8 @@ public class DefItem: Item {
     public let kind: DefKind
     /// Swift declaration
     public let swiftDeclaration: SwiftDeclaration
+    /// Documentation
+    public let documentation: DefMarkdown?
 
     /// Create from a gathered definition
     public init?(moduleName: String, passIndex: Int, gatherDef: GatherDef) {
@@ -61,6 +63,7 @@ public class DefItem: Item {
                 return nil
             }
         }
+        documentation = gatherDef.documentation
 
         super.init(name: name, children: children)
     }

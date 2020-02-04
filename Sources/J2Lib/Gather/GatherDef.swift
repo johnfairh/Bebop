@@ -24,6 +24,8 @@ public struct GatherDef {
     let kind: DefKind?
     /// Multi-faceted Swift declaration info
     let swiftDeclaration: SwiftDeclaration?
+    /// Documentation
+    let documentation: DefMarkdown?
 
     init(sourceKittenDict: SourceKittenDict, file: SourceKittenFramework.File?) {
         var dict = sourceKittenDict
@@ -33,5 +35,12 @@ public struct GatherDef {
         self.kind = (dict[SwiftDocKey.kind.rawValue] as? String).flatMap { DefKind.from(key: $0) }
 
         self.swiftDeclaration = SwiftDeclarationBuilder(dict: sourceKittenDict, file: file, kind: kind).build()
+
+        if let docComment = dict[SwiftDocKey.documentationComment.rawValue] as? String {
+            let docsBuilder = MarkdownBuilder(markdown: Markdown(docComment))
+            self.documentation = docsBuilder.build()
+        } else {
+            self.documentation = nil
+        }
     }
 }

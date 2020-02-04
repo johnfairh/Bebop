@@ -39,6 +39,12 @@ private enum GatherKey: String {
     case namePieces = "key.j2.name_pieces"
     case namePieceIsName = "key.j2.name_piece_is_name"
     case namePieceText = "key.j2.name_piece_text"
+    /// Documentation
+    case documentation = "key.j2.documentation"
+    case abstract = "key.j2.abstract"
+    case overview = "key.j2.overview"
+    case returns = "key.j2.returns"
+    case parameters = "key.j2.parameters"
 }
 
 /// Helper to use `GatherKey`
@@ -50,6 +56,23 @@ extension SourceKittenDict {
         set {
             self[key.rawValue] = newValue
         }
+    }
+}
+
+extension DefMarkdown {
+    var dictForJSON: SourceKittenDict {
+        var dict = SourceKittenDict()
+        if let abstract = abstract {
+            dict[GatherKey.abstract] = abstract.description
+        }
+        dict[GatherKey.overview] = overview.description
+        if let returns = returns {
+            dict[GatherKey.returns] = returns.description
+        }
+        if !parameters.isEmpty {
+            dict[GatherKey.parameters] = parameters.mapValues { $0.description }
+        }
+        return dict
     }
 }
 
@@ -83,6 +106,9 @@ extension GatherDef {
                             GatherKey.namePieceText.rawValue: text]
                 }
             }
+        }
+        if let docs = documentation {
+            dict[.documentation] = docs.dictForJSON
         }
         if !children.isEmpty {
             dict[SwiftDocKey.substructure.rawValue] = children.map { $0.dictForJSON }
