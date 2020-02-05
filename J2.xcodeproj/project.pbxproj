@@ -420,8 +420,8 @@
 			isa = PBXGroup;
 			children = (
 				02CFF92223DDFE3000FDE5B9 /* Gather.swift */,
-				02CFF92823DE044200FDE5B9 /* GatherJob.swift */,
 				02CFF92623DE009900FDE5B9 /* GatherOpts.swift */,
+				02CFF92823DE044200FDE5B9 /* GatherJob.swift */,
 				02CFF92423DDFFC900FDE5B9 /* GatherDef.swift */,
 				02CFFA2B23E45F4F00FDE5B9 /* GatherDecl.swift */,
 				02CFFA4523E75DF500FDE5B9 /* GatherDeclPieces.swift */,

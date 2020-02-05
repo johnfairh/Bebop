@@ -42,11 +42,12 @@ class TestGatherDecl: XCTestCase {
     // Errors
     func testAnnotatedErrors() {
         TestLogger.install()
+        TestLogger.shared.logger.activeLevels = Logger.allLevels
         XCTAssertNil(SwiftDeclarationBuilder(dict: [:], file: nil, kind: nil).build())
 
         let badDict = ["key.fully_annotated_decl" : "<open text"]
         XCTAssertNil(SwiftDeclarationBuilder(dict: badDict, file: nil, kind: nil).build())
-        XCTAssertEqual(1, TestLogger.shared.diagsBuf.count)
+        XCTAssertEqual(2, TestLogger.shared.diagsBuf.count)
     }
 
     // 'orrible parsed text regular expressions

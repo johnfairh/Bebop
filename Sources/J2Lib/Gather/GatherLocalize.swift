@@ -44,17 +44,17 @@ final class GatherLocalize: GatherGarnish, Configurable {
             return
         }
         guard let languagesURL = docCommentLanguageDirOpt.value else {
-            logWarning("Doc comments will not be localized because '--doc-comment-languages-directory' not set.")
+            logWarning(.localized("wrn-no-comment-languages"))
             return
         }
 
         bundleLanguages.forEach { language in
             let bundleURL = languagesURL.appendingPathComponent(language)
             guard let bundle = Bundle(url: bundleURL) else {
-                logWarning("Doc comments will not be localized for '\(language)' because cannot open '\(bundleURL.path)'.")
+                logWarning(.localized("wrn-no-comment-missing", language, bundleURL.path))
                 return
             }
-            logInfo("Found doc comment translation bundle for '\(language)'.")
+            logDebug("Found doc comment translation bundle for '\(language)'.")
             docCommentBundles[language] = bundle
         }
     }

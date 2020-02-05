@@ -84,6 +84,7 @@ final class SwiftDeclarationBuilder {
                 (parsedDecl.contains("\n") && !(kind?.isSwiftProperty ?? false)) {
                 neatParsedDecl = parse(parsedDecl: parsedDecl)
             }
+            // Not working around SR-2608 (= default) or SR-6321 (type attrs) --- too old
         }
 
         guard let bestDeclaration = neatParsedDecl ?? compilerDecl else {
@@ -128,13 +129,13 @@ final class SwiftDeclarationBuilder {
         let xml = SWXMLHash.parse(annotatedDecl)
         if case let .parsingError(error) = xml {
             // SourceKit bug
-            logWarning("Couldn't parse SourceKit XML.  Error: '\(error)', xml: '\(annotatedDecl)'.")
+            logDebug("Couldn't parse SourceKit XML.  Error: '\(error)', xml: '\(annotatedDecl)'.")
             return nil
         }
         guard let rootIndexer = xml.children.first,
             case let .element(rootElement) = rootIndexer else {
             // SourceKit bug, probably
-            logWarning("Malformed SourceKit XML from '\(annotatedDecl)'.")
+            logDebug("Malformed SourceKit XML from '\(annotatedDecl)'.")
             return nil
         }
 

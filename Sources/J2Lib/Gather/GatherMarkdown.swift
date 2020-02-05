@@ -29,7 +29,7 @@ public class MarkdownBuilder {
     /// Also update `localizationKey`
     public func build() -> DefMarkdownDocs? {
         guard let doc = CMDocument(markdown: input) else {
-            logInfo("Markdown: can't parse as markdown '\(input)'.")
+            logDebug("Markdown: can't parse as markdown '\(input)'.")
             return nil
         }
 
