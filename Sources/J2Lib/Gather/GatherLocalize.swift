@@ -43,14 +43,14 @@ final class GatherLocalize: GatherGarnish, Configurable {
             return
         }
         guard let languagesURL = docCommentLanguageDirOpt.value else {
-            logWarning("Doc comment translation required but --doc-comment-languages-directory not set.")
+            logWarning("Doc comments will not be localized because '--doc-comment-languages-directory' not set.")
             return
         }
 
         bundleLanguages.forEach { language in
             let bundleURL = languagesURL.appendingPathComponent(language)
             guard let bundle = Bundle(url: bundleURL) else {
-                logWarning("Doc comment translation to '\(language)' required but cannot open '\(bundleURL.path)'.")
+                logWarning("Doc comments will not be localized for '\(language)' because cannot open '\(bundleURL.path)'.")
                 return
             }
             logInfo("Found doc comment translation bundle for '\(language)'.")
@@ -60,9 +60,11 @@ final class GatherLocalize: GatherGarnish, Configurable {
 
     /// Find a key translated for some language, implementing the "fallback to default" part.
     func markdown(forKey key: String, language: String) -> Markdown? {
+        let eyecatcher = "EYECATCH£R"
         guard let bundle = docCommentBundles[language],
-            case let translated: String = bundle.localizedString(forKey: key, value: nil, table: "QuickHelp"),
-            !translated.isEmpty else {
+            // What a terrible API this is.
+            case let translated: String = bundle.localizedString(forKey: key, value: eyecatcher, table: "QuickHelp"),
+            translated != eyecatcher else {
 
             // Can't resolve.  Fall back to default language unless
             // (a) we're already there; or

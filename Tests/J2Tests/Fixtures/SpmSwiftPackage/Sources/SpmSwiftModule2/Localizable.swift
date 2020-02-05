@@ -1,7 +1,7 @@
 /**
  * English
  *
- * -localizationKey: loc
+ * - localizationKey: loc
  */
 func localizedDocComment() {
 }

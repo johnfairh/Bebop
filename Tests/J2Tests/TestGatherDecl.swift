@@ -13,6 +13,10 @@ import SourceKittenFramework
 // Declaration parsing
 
 class TestGatherDecl: XCTestCase {
+    override func setUp() {
+        initResources()
+    }
+
     // Annotated XML parse
     private func fullyAnnotatedToString(_ xml: String) -> String? {
         // doesn't matter what outer element is, just that it's there
@@ -217,5 +221,66 @@ class TestGatherDecl: XCTestCase {
 
         let pieces3 = builder.parseToPieces(declaration: "init(a b: Int)", name: "init", kind: initKind)
         checkPieces(pieces3, "#init#(#a#: Int)")
+    }
+
+    // Localization
+
+    private func checkCommentLocalizations(_ cliArgs: [String], _ expect: [String], file: StaticString = #file, line: UInt = #line) throws {
+        TestLogger.install()
+        let pipeline = Pipeline()
+        let args = ["--products", "files-json", "--module", "SpmSwiftModule2"] + cliArgs
+        try pipeline.run(argv: args)
+        guard let json = TestLogger.shared.outputBuf.first else {
+            XCTFail("No output?", file: file, line: line)
+            return
+        }
+        expect.forEach { expect in
+            XCTAssertTrue(json.contains(#"abstract" : "\#(expect)""#), file: file, line: line)
+        }
+    }
+
+    func testNoCommentBundle() throws {
+        let srcURL = fixturesURL.appendingPathComponent("SpmSwiftPackage")
+        try checkCommentLocalizations(["--default-localization=zh:ZH:zzz",
+                                       "--doc-comment-language=en",
+                                       "--doc-comment-languages-directory=\(srcURL.path)",
+                                       "--source-directory=\(srcURL.path)"],
+                                      ["English"])
+        XCTAssertTrue(TestLogger.shared.diagsBuf.count > 0)
+    }
+
+    func testNoCommentString() throws {
+        let srcURL = fixturesURL.appendingPathComponent("SpmSwiftPackage")
+        try checkCommentLocalizations(["--default-localization=es:ES:eee",
+                                       "--doc-comment-language=en",
+                                       "--doc-comment-languages-directory=\(srcURL.path)",
+                                       "--source-directory=\(srcURL.path)"],
+                                      ["English"])
+    }
+
+    func testActualTranslation() throws {
+        let srcURL = fixturesURL.appendingPathComponent("SpmSwiftPackage")
+        try checkCommentLocalizations(["--localizations=fr:FR:fff",
+                                       "--doc-comment-languages-directory=\(srcURL.path)",
+                                       "--source-directory=\(srcURL.path)"],
+                                      ["English", "French"])
+    }
+
+    func testFallbackToDefaultTranslation() throws {
+        let srcURL = fixturesURL.appendingPathComponent("SpmSwiftPackage")
+        try checkCommentLocalizations(["--default-localization=fr:FR:fff",
+                                       "--localizations=es:ES:eee",
+                                       "--doc-comment-language=en",
+                                       "--doc-comment-languages-directory=\(srcURL.path)",
+                                       "--source-directory=\(srcURL.path)"],
+                                      ["French"])
+    }
+
+    func testNoLanguagesDirectory() throws {
+        let srcURL = fixturesURL.appendingPathComponent("SpmSwiftPackage")
+        try checkCommentLocalizations(["--default-localization=fr:FR:fff",
+                                       "--doc-comment-language=en",
+                                       "--source-directory=\(srcURL.path)"],
+                                      ["English"])
     }
 }
