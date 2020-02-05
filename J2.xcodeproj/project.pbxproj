@@ -85,6 +85,7 @@
 		02FDC68223E997D700C2F9CD /* Markdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FDC68123E997D700C2F9CD /* Markdown.swift */; };
 		02FDC68423E9DED600C2F9CD /* DefItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FDC68323E9DED600C2F9CD /* DefItem.swift */; };
 		02FDC68623E9EEE900C2F9CD /* GatherLocalize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FDC68523E9EEE900C2F9CD /* GatherLocalize.swift */; };
+		02FDC68823EAEB9F00C2F9CD /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FDC68723EAEB9F00C2F9CD /* Localizable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -207,8 +208,8 @@
 		02CFF92823DE044200FDE5B9 /* GatherJob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherJob.swift; sourceTree = "<group>"; };
 		02CFF92A23DEF49400FDE5B9 /* GatherJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherJSON.swift; sourceTree = "<group>"; };
 		02CFF9EC23DF0D4300FDE5B9 /* XcodeSwiftModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcodeSwiftModule.swift; sourceTree = "<group>"; };
-		02CFF9F523DF0EB100FDE5B9 /* Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Empty.swift; sourceTree = "<group>"; };
-		02CFF9F623DF0EB100FDE5B9 /* SpmSwiftModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpmSwiftModule.swift; sourceTree = "<group>"; };
+		02CFF9F523DF0EB100FDE5B9 /* Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Empty.swift; path = Sources/SpmSwiftModule/Empty.swift; sourceTree = "<group>"; };
+		02CFF9F623DF0EB100FDE5B9 /* SpmSwiftModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpmSwiftModule.swift; path = Sources/SpmSwiftModule/SpmSwiftModule.swift; sourceTree = "<group>"; };
 		02CFF9F823DF158700FDE5B9 /* TestGather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGather.swift; sourceTree = "<group>"; };
 		02CFF9FD23E0A9D100FDE5B9 /* TestResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResources.swift; sourceTree = "<group>"; };
 		02CFFA0023E0B95F00FDE5B9 /* Merge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Merge.swift; sourceTree = "<group>"; };
@@ -239,6 +240,7 @@
 		02FDC68123E997D700C2F9CD /* Markdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Markdown.swift; sourceTree = "<group>"; };
 		02FDC68323E9DED600C2F9CD /* DefItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefItem.swift; sourceTree = "<group>"; };
 		02FDC68523E9EEE900C2F9CD /* GatherLocalize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherLocalize.swift; sourceTree = "<group>"; };
+		02FDC68723EAEB9F00C2F9CD /* Localizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Localizable.swift; path = Sources/SpmSwiftModule2/Localizable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -426,19 +428,20 @@
 		02CFF93F23DF0D4300FDE5B9 /* Fixtures */ = {
 			isa = PBXGroup;
 			children = (
-				02CFF94023DF0D4300FDE5B9 /* SpmSwiftModule */,
+				02CFF94023DF0D4300FDE5B9 /* SpmSwiftPackage */,
 				02CFF9EB23DF0D4300FDE5B9 /* XcodeSwiftModule */,
 			);
 			path = Fixtures;
 			sourceTree = "<group>";
 		};
-		02CFF94023DF0D4300FDE5B9 /* SpmSwiftModule */ = {
+		02CFF94023DF0D4300FDE5B9 /* SpmSwiftPackage */ = {
 			isa = PBXGroup;
 			children = (
 				02CFF9F523DF0EB100FDE5B9 /* Empty.swift */,
 				02CFF9F623DF0EB100FDE5B9 /* SpmSwiftModule.swift */,
+				02FDC68723EAEB9F00C2F9CD /* Localizable.swift */,
 			);
-			path = SpmSwiftModule;
+			path = SpmSwiftPackage;
 			sourceTree = "<group>";
 		};
 		02CFF9EB23DF0D4300FDE5B9 /* XcodeSwiftModule */ = {
@@ -689,6 +692,7 @@
 				022818BF23D238F30016B0D5 /* Errors.swift in Sources */,
 				02FDC68423E9DED600C2F9CD /* DefItem.swift in Sources */,
 				02CFF92523DDFFC900FDE5B9 /* GatherDef.swift in Sources */,
+				02FDC68823EAEB9F00C2F9CD /* Localizable.swift in Sources */,
 				02CFFA4023E5CFF800FDE5B9 /* DefKind.swift in Sources */,
 				02CFFA4623E75DF500FDE5B9 /* GatherDeclPieces.swift in Sources */,
 				02FDC67A23E876D300C2F9CD /* DefDocs.swift in Sources */,

@@ -101,7 +101,7 @@ class TestMerge: XCTestCase {
     /// Decls json matches
     func testDeclsJson() throws {
         let pipeline = Pipeline()
-        let spmTestURL = fixturesURL.appendingPathComponent("SpmSwiftModule")
+        let spmTestURL = fixturesURL.appendingPathComponent("SpmSwiftPackage")
         TestLogger.install()
         try pipeline.run(argv: ["--source-directory", spmTestURL.path,
                                 "--products", "decls-json"])

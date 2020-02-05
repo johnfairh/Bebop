@@ -8,12 +8,14 @@ let package = Package(
         // Products define the executables and libraries produced by a package, and make them visible to other packages.
         .library(
             name: "SpmSwiftModule",
-            targets: ["SpmSwiftModule"]),
+            targets: ["SpmSwiftModule", "SpmSwiftModule2"]),
     ],
     targets: [
         .target(
             name: "SpmSwiftModule",
-            dependencies: [],
-            path: ".")
+            dependencies: []),
+        .target(
+            name: "SpmSwiftModule2",
+            dependencies: [])
     ]
 )

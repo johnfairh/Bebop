@@ -55,7 +55,7 @@ class TestPipeline: XCTestCase {
     // Simple end-to-end run
     func testEndToEnd() throws {
         let pipeline = Pipeline()
-        let spmTestURL = fixturesURL.appendingPathComponent("SpmSwiftModule")
+        let spmTestURL = fixturesURL.appendingPathComponent("SpmSwiftPackage")
         let tempDir = try TemporaryDirectory()
         try pipeline.run(argv: ["--source-directory", spmTestURL.path,
                                 "--output", tempDir.directoryURL.path,

@@ -56,7 +56,9 @@ public struct Gather {
         // include/exclude filtering
 
         // Garnishes
+        logInfo("Gather: start doc-comment localization pass.")
         try passes.garnish(with: localize)
+        logInfo("Gather: end doc-comment localization pass.")
 
         return passes
     }

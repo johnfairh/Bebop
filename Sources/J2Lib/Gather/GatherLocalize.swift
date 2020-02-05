@@ -31,6 +31,7 @@ final class GatherLocalize: GatherGarnish, Configurable {
         try docCommentLanguageDirOpt.checkIsDirectory()
     }
 
+    /// One-time initialization from Gather - track down the bundles we'll need
     func setLocalizations(_ localizations: Localizations) {
         docCommentLanguage = docCommentLanguageOpt.value ?? localizations.main.tag
         targetLanguages = Set(localizations.allTags)
@@ -45,16 +46,19 @@ final class GatherLocalize: GatherGarnish, Configurable {
             logWarning("Doc comment translation required but --doc-comment-languages-directory not set.")
             return
         }
+
         bundleLanguages.forEach { language in
             let bundleURL = languagesURL.appendingPathComponent(language)
             guard let bundle = Bundle(url: bundleURL) else {
                 logWarning("Doc comment translation to '\(language)' required but cannot open '\(bundleURL.path)'.")
                 return
             }
+            logInfo("Found doc comment translation bundle for '\(language)'.")
             docCommentBundles[language] = bundle
         }
     }
 
+    /// Find a key translated for some language, implementing the "fallback to default" part.
     func markdown(forKey key: String, language: String) -> Markdown? {
         guard let bundle = docCommentBundles[language],
             case let translated: String = bundle.localizedString(forKey: key, value: nil, table: "QuickHelp"),
@@ -71,6 +75,10 @@ final class GatherLocalize: GatherGarnish, Configurable {
         return Markdown(translated)
     }
 
+    /// Apply the localization garnishing to the def.
+    ///
+    /// This means set the `translatedDocs` field according to the config options: at minimum
+    /// this means `{"en": parsedDocs}`.
     func garnish(def: GatherDef) throws {
         guard let documentation = def.documentation else {
             return

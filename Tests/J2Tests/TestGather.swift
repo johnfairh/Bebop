@@ -71,7 +71,7 @@ class TestGather: XCTestCase {
 
     // Run swift job in the Spm fixtures via srcdir.  Sniff results only.
     func testSpmSwift() throws {
-        let swiftTestURL = fixturesURL.appendingPathComponent("SpmSwiftModule")
+        let swiftTestURL = fixturesURL.appendingPathComponent("SpmSwiftPackage")
         let system = System()
         try system.config.processOptions(cliOpts: ["--source-directory", swiftTestURL.path])
         let gatherModules = try system.gather.gather()
@@ -154,7 +154,7 @@ class TestGather: XCTestCase {
 
     func testFilesJson() throws {
         let pipeline = Pipeline()
-        let spmTestURL = fixturesURL.appendingPathComponent("SpmSwiftModule")
+        let spmTestURL = fixturesURL.appendingPathComponent("SpmSwiftPackage")
         TestLogger.install()
         try pipeline.run(argv: ["--source-directory", spmTestURL.path,
                                 "--products", "files-json"])
@@ -184,7 +184,8 @@ class TestGather: XCTestCase {
                 // linux
                 return nil
             }
-            if line.contains(#""key.filepath""#) {
+            if line.contains(#""key.filepath""#) ||
+                line.contains(#""key.doc.file""# ) {
                 // filesystem
                 return nil
             }
