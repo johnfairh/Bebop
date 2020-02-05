@@ -32,7 +32,8 @@ final class GatherLocalize: GatherGarnish, Configurable {
     }
 
     /// One-time initialization from Gather - track down the bundles we'll need
-    func setLocalizations(_ localizations: Localizations) {
+    func initialize() throws {
+        let localizations = Localizations.shared
         docCommentLanguage = docCommentLanguageOpt.value ?? localizations.main.tag
         targetLanguages = Set(localizations.allTags)
         defaultLanguage = localizations.main.tag

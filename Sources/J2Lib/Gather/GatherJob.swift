@@ -36,9 +36,8 @@ enum GatherJob: Equatable {
                 if module == nil {
                     if let moduleName = moduleName {
                         throw GatherError(.localized("err-sktn-xcode-mod", moduleName))
-                    } else {
-                        throw GatherError(.localized("err-sktn-xcode-def"))
                     }
+                    throw GatherError(.localized("err-sktn-xcode-def"))
                 }
             case .spm:
                 logDebug(" Calling sourcekitten in swift spm mode")

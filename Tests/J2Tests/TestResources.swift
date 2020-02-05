@@ -40,6 +40,10 @@ class TestResources: XCTestCase {
         XCTAssertNil(Resources.chooseLanguageFromEnvironment(choices: ["en"]).0)
     }
 
+    func testDefaultLocalizations() {
+        XCTAssertEqual(["en"], Localizations.shared.allTags)
+    }
+
     // Localization - for the generated products, not the app
     func testLocalizationBase() {
         XCTAssertEqual(Localization.defaultDescriptor,

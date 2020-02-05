@@ -36,11 +36,11 @@ public final class DefKind {
     /// The underlying sourcekitten key - keep hold of the enum to avoid string comparisons (right?)
     private enum Key {
         case swift(SwiftDeclarationKind)
-        #if os(Linux)
+        #if os(macOS)
+        case objC(ObjCDeclarationKind)
+        #else
         // sourcekitten doesn't have OCDK on linux, this gives things the right shape.
         case objC(SwiftDeclarationKind)
-        #else
-        case objC(ObjCDeclarationKind)
         #endif
         // Only for swift 'MARK' comments rn...
         case other(key: String, isSwift: Bool)

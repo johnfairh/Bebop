@@ -83,7 +83,48 @@ public struct Localizations {
         otherLocalizations.remove(main)
         others = Array(otherLocalizations).sorted()
     }
+
+    /// The current active localization settings.  This is needed in all kinds of leaf places and passing it around
+    /// and through often as so much tramp data is really ugly.
+    public static var shared = Localizations()
 }
+
+// MARK: Multistrings
 
 /// Keyed by language tag
 public typealias Localized<T> = [String : T]
+
+extension Dictionary where Key == String, Value == String {
+    /// Helper to grab a piece of localized output text and do substitutions %1 .... %n
+    public static func localizedOutput(key: String, subs: Any...) -> Localized<String> {
+        Resources.shared.localizedOutput(key: key, subs: subs)
+    }
+
+    public func append(_ str: Localized<String>) -> Self {
+        var out = Localized<String>()
+        forEach { key, val in
+            out[key] = val + (str[key] ?? "")
+        }
+        return out
+    }
+
+    public func append(_ str: String) -> Self {
+        mapValues { $0 + str }
+    }
+}
+
+extension Array where Element == Localized<String> {
+    public func joined(by: String) -> Element {
+        var output = Element()
+        forEach { str in
+            str.forEach { k, value in
+                if let current = output[k] {
+                    output[k] = current + by + value
+                } else {
+                    output[k] = value
+                }
+            }
+        }
+        return output
+    }
+}

@@ -132,7 +132,15 @@ class TestGatherDecl: XCTestCase {
         let builder = SwiftDeclarationBuilder(dict: [:], file: nil, kind: nil)
         builder.parse(availables: [available])
         XCTAssertEqual(expectAvail, builder.availability, file: file, line: line)
-        XCTAssertEqual(expectDeprecations, builder.deprecations, file: file, line: line)
+
+        let deprecation: [String]
+        if builder.deprecations.count > 0 {
+            deprecation = [(builder.deprecations[0])["en"]!]
+        } else {
+            deprecation = []
+        }
+
+        XCTAssertEqual(expectDeprecations, deprecation, file: file, line: line)
     }
 
     func testAvailable() {

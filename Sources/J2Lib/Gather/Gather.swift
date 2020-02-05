@@ -42,8 +42,8 @@ public struct Gather {
     }
 
     /// Gather information from the configured modules.
-    public func gather(localizations: Localizations = Localizations()) throws -> [GatherModulePass] {
-        localize.setLocalizations(localizations)
+    public func gather() throws -> [GatherModulePass] {
+        try localize.initialize()
 
         // have opts separately figure out the module->mergepolicy.
         // that way we don't get incredible tramp data with mergepolicy.
@@ -81,6 +81,7 @@ public struct GatherModulePass {
 
 protocol GatherGarnish {
     func garnish(def: GatherDef) throws
+    func initialize() throws
 }
 
 extension Array where Element == GatherModulePass {

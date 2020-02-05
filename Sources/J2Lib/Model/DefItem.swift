@@ -41,7 +41,7 @@ public class DefItem: Item {
         if let swiftDeclInfo = gatherDef.swiftDeclaration {
             swiftDeclaration = swiftDeclInfo
         } else {
-            swiftDeclaration = SwiftDeclaration(declaration: "", deprecation: "", availability: [], namePieces: [])
+            swiftDeclaration = SwiftDeclaration()
             if kind.isSwift {
                 // XXX wrn
                 logWarning("No declaration, ignoring")

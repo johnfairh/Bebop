@@ -58,13 +58,9 @@
 import Foundation
 
 extension String {
-    /// Helper to grab a localized string and do substitutions %1 .... %n
+    /// Helper to grab a localized message and do substitutions %1 .... %n
     static func localized(_ key: String, _ subs: Any...) -> String {
-        var result = Resources.shared.string(key)
-        subs.enumerated().forEach { idx, sub in
-            result = result.re_sub("%\(idx+1)", with: String(describing: sub))
-        }
-        return result
+        Resources.shared.string(key: key, type: .messages, subs: subs)
     }
 }
 
@@ -74,24 +70,62 @@ public final class Resources {
     /// The bundle for accessing localized resources
     let localizationBundle: Bundle
 
+    /// All localization bundles - for output message generation
+    let outputMessageBundles: [String : Bundle]
+
     private init(bundle: Bundle, localizationBundle: Bundle) {
         self.bundle = bundle
         self.localizationBundle = localizationBundle
+
+        var messageBundles = [String : Bundle]()
+        Resources.supportedLanguages.forEach {
+            messageBundles[$0] = bundle.nestedLProjBundle(languageTag: $0)
+        }
+        self.outputMessageBundles = messageBundles
+    }
+
+    /// Describe our localized strings  - enum value is the strings file name
+    enum StringsFile: String {
+        case messages = "Localizable"
+        case help = "Help"
+        case output = "Output"
+
+        var value: String? {
+            switch self {
+            case .messages, .output: return nil
+            case .help: return "(No help provided)"
+            }
+        }
+    }
+
+    /// Read a localized string
+    func string(key: String, type: StringsFile, subs: [Any]) -> String {
+        localizationBundle.string(key: key, type: type, subs: subs)
     }
 
     /// Get localized help text
     func helpText(optionName: String) -> String {
-        return localizationBundle.localizedString(forKey: optionName,
-                                                  value: "(No help provided)",
-                                                  table: "Help")
+        string(key: optionName, type: .help, subs: [])
     }
 
-    /// Read a localized string
-    func string(_ key: String, value: String? = nil) -> String {
-        return localizationBundle.localizedString(forKey: key, value: value ?? "This is not text", table: nil)
+    /// Get multiple localizations of an output string
+    func localizedOutput(key: String, subs: [Any]) -> Localized<String> {
+        var output = Localized<String>()
+        Localizations.shared.allTags.forEach { languageTag in
+            if let bundle = outputMessageBundles[languageTag] ??
+                outputMessageBundles[Localizations.shared.main.tag] ??
+                outputMessageBundles["en"] {
+                output[languageTag] = bundle.string(key: key, type: .output, subs: subs)
+            } else {
+                output[languageTag] = ""
+            }
+        }
+        return output
     }
 
     private(set) static var shared: Resources!
+
+    private static var supportedLanguages: [String] = []
 
     // MARK: Main bundle location
 
@@ -214,6 +248,7 @@ public final class Resources {
         #endif // wtf was that
 
         log("Localization bundle: Supported: \(supported)")
+        supportedLanguages = supported
 
         func preferredLanguage() -> String? {
             let localePreferred = Locale.preferredLanguages
@@ -237,14 +272,7 @@ public final class Resources {
         }
 
         // As appears traditional: fall back to en...
-        let chosen = preferredLanguage() ?? "en"
-        guard let resourceURL = bundle.resourceURL,
-            case let localizationURL = resourceURL.appendingPathComponent("\(chosen).\(LPROJ)"),
-            let locBundle = Bundle(url: localizationURL) else {
-            preconditionFailure("Installation looks corrupt - can no longer find .lproj directory " +
-                "\(chosen) in \(bundle.bundlePath) that we thought was there earlier (\(lprojs))")
-        }
-        return locBundle
+        return bundle.nestedLProjBundle(languageTag: preferredLanguage() ?? "en")
     }
 
     /// Parse environment variables to figure out the user's preferred language.
@@ -268,5 +296,29 @@ public final class Resources {
         }
 
         return (nil, log)
+    }
+}
+
+extension Bundle {
+    func nestedLProjBundle(languageTag: String) -> Bundle {
+        guard let resourceURL = resourceURL,
+            case let localizationURL = resourceURL.appendingPathComponent("\(languageTag).lproj"),
+            let locBundle = Bundle(url: localizationURL) else {
+            preconditionFailure("Installation looks corrupt - can no longer find .lproj directory " +
+                "\(languageTag) inside \(bundlePath) that we thought was there earlier.")
+        }
+        return locBundle
+    }
+
+    func string(key: String, type: Resources.StringsFile, subs: Any...) -> String {
+        string(key: key, type: type, subs: subs)
+    }
+
+    func string(key: String, type: Resources.StringsFile, subs: [Any]) -> String {
+        var str = localizedString(forKey: key, value: type.value, table: type.rawValue)
+        subs.enumerated().forEach { idx, sub in
+            str = str.re_sub("%\(idx+1)", with: String(describing: sub))
+        }
+        return str
     }
 }

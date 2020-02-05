@@ -86,6 +86,7 @@
 		02FDC68423E9DED600C2F9CD /* DefItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FDC68323E9DED600C2F9CD /* DefItem.swift */; };
 		02FDC68623E9EEE900C2F9CD /* GatherLocalize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FDC68523E9EEE900C2F9CD /* GatherLocalize.swift */; };
 		02FDC68823EAEB9F00C2F9CD /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FDC68723EAEB9F00C2F9CD /* Localizable.swift */; };
+		02FDC68B23EB2A7300C2F9CD /* Output.strings in Resources */ = {isa = PBXBuildFile; fileRef = 02FDC68923EB2A7300C2F9CD /* Output.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -241,6 +242,7 @@
 		02FDC68323E9DED600C2F9CD /* DefItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefItem.swift; sourceTree = "<group>"; };
 		02FDC68523E9EEE900C2F9CD /* GatherLocalize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherLocalize.swift; sourceTree = "<group>"; };
 		02FDC68723EAEB9F00C2F9CD /* Localizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Localizable.swift; path = Sources/SpmSwiftModule2/Localizable.swift; sourceTree = "<group>"; };
+		02FDC68A23EB2A7300C2F9CD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Output.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,6 +311,7 @@
 			children = (
 				025727FE23DB50270001F510 /* Localizable.strings */,
 				0257281223DC78820001F510 /* Help.strings */,
+				02FDC68923EB2A7300C2F9CD /* Output.strings */,
 			);
 			path = en.lproj;
 			sourceTree = "<group>";
@@ -637,6 +640,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02CFFA1D23E20AB400FDE5B9 /* themes in Resources */,
+				02FDC68B23EB2A7300C2F9CD /* Output.strings in Resources */,
 				0257280023DB50270001F510 /* Localizable.strings in Resources */,
 				0257280523DB503C0001F510 /* Localizable.strings in Resources */,
 				0257281423DC78820001F510 /* Help.strings in Resources */,
@@ -786,6 +790,14 @@
 				0257281323DC78820001F510 /* en */,
 			);
 			name = Help.strings;
+			sourceTree = "<group>";
+		};
+		02FDC68923EB2A7300C2F9CD /* Output.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				02FDC68A23EB2A7300C2F9CD /* en */,
+			);
+			name = Output.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

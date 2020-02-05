@@ -166,7 +166,7 @@ public final class Config {
         }
 
         if helpOpt.value {
-            logInfo(Resources.shared.string("msg-help-intro"))
+            logInfo(.localized("msg-help-intro"))
 
             var first = true
             optsParser.allOpts

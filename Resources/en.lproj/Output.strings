@@ -1,0 +1,17 @@
+/* 
+  Output.strings
+  J2
+
+  Copyright 2020 J2 Authors
+  Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
+
+  Strings used by the executable that end up in generated docs, independent of
+  the theme that gets used.
+*/
+"plat-obsoleted-ver" = "%1 - obsoleted in %2.";
+"plat-deprecated" = "%1 - deprecated.";
+"plat-deprecated-ver" = "%1 - deprecated in %2.";
+"plat-unavailable" = "%1 - unavailable.";
+"renamed-to" = " Renamed: `%1`."; /* Leading space! */
+"unavailable" = "Unavailable.";
+"deprecated" = "Deprecated.";

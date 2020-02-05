@@ -62,8 +62,6 @@ public final class Pipeline: Configurable {
     private let defaultLocalizationOpt = StringOpt(l: "default-localization").help("LOCALIZATION")
     private let localizationsOpt = StringListOpt(l: "localizations").help("LOCALIZATION1,LOCALIZATION2,...")
 
-    private(set) var localizations = Localizations()
-
     /// Set up a new pipeline.
     /// - parameter logger: Optional `Logger` to use for logging messages.
     ///   Some settings in it will be overwritten if `--quiet` or `--debug` are passed
@@ -93,7 +91,7 @@ public final class Pipeline: Configurable {
             return
         }
 
-        let gatheredData = try gather.gather(localizations: localizations)
+        let gatheredData = try gather.gather()
 
         if testAndClearProduct(.files_json) {
             logDebug("Pipeline: producing files-json")
@@ -121,10 +119,11 @@ public final class Pipeline: Configurable {
             Logger.shared.diagnosticLevels = Logger.allLevels
         }
 
-        localizations = Localizations(mainDescriptor: defaultLocalizationOpt.value,
-                                      otherDescriptors: localizationsOpt.value)
+        let localizations = Localizations(mainDescriptor: defaultLocalizationOpt.value,
+                                          otherDescriptors: localizationsOpt.value)
 
         logDebug("Pipeline: Main localization \(localizations.main), others \(localizations.others)")
+        Localizations.shared = localizations
     }
 }
 

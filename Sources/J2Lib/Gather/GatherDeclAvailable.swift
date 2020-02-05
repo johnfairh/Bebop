@@ -158,28 +158,27 @@ extension SwiftDeclarationBuilder {
             availability.append("\(platform) ?-\(obsoleted)")
         }
 
-        var depText = ""
+        var depText = Localized<String>()
         if let obsoleted = obsoleted {
-            depText = "\(platform) - obsoleted in \(obsoleted)."
+            depText = .localizedOutput(key: "plat-obsoleted-ver", subs: platform, obsoleted)
         }
         else if isDeprecated {
-            depText = "\(platform) - deprecated"
             if let deprecated = deprecated {
-                depText += " in \(deprecated)."
+                depText = .localizedOutput(key: "plat-deprecated-ver", subs: platform, deprecated)
             } else {
-                depText += "."
+                depText = .localizedOutput(key: "plat-deprecated", subs: platform)
             }
         }
         if isUnavailable {
-            depText = "\(platform) - unavailable."
+            depText = .localizedOutput(key: "plat-unavailable", subs: platform)
         }
         if let message = message {
-            depText += " \(message)."
+            depText = depText.append(" \(message).")
         }
         if let renamed = renamed {
-            depText += " Renamed: `\(renamed)`."
+            depText = depText.append(.localizedOutput(key: "renamed-to", subs: renamed))
         }
-        if depText != "" {
+        if !depText.isEmpty {
             deprecations.append(depText)
         }
     }
@@ -209,19 +208,19 @@ extension SwiftDeclarationBuilder {
             }
         }
 
-        var text = ""
+        var text = Localized<String>()
         if isUnavailable {
-            text = "Unavailable."
+            text = .localizedOutput(key: "unavailable")
         } else if isDeprecated {
-            text = "Deprecated."
+            text = .localizedOutput(key: "deprecated")
         }
         if let message = message {
-            text += " \(message)."
+            text = text.append(" \(message).")
         }
         if let renamed = renamed {
-            text += " Renamed: `\(renamed)`."
+            text = text.append(.localizedOutput(key: "renamed-to", subs: renamed))
         }
-        if text != "" {
+        if !text.isEmpty {
             deprecations.append(text)
         }
     }

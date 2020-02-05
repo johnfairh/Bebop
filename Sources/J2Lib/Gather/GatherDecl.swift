@@ -53,12 +53,12 @@ import SwiftSyntax
 // xxx move to model - used as-is in Def
 public struct SwiftDeclaration: Encodable {
     public let declaration: String
-    public let deprecation: String
+    public let deprecation: Localized<String>
     public let availability: [String]
     public let namePieces: [Piece]
 
     init(declaration: String = "",
-         deprecation: String = "",
+         deprecation: Localized<String> = [:],
          availability: [String] = [],
          namePieces: [Piece] = []) {
         self.declaration = declaration
@@ -95,7 +95,7 @@ final class SwiftDeclarationBuilder {
     var compilerDecl: String?
     var neatParsedDecl: String?
     var attributes: [String] = []
-    var deprecations: [String] = []
+    var deprecations: [Localized<String>] = []
     var availability: [String] = []
 
     init(dict: SourceKittenDict, file: File?, kind: DefKind?) {
@@ -153,7 +153,7 @@ final class SwiftDeclarationBuilder {
         // Tidy up
 
         return SwiftDeclaration(declaration: (attributes + [bestDeclaration]).joined(separator: "\n"),
-                                deprecation: deprecations.joined(separator: "\n\n"),
+                                deprecation: deprecations.joined(by: "\n\n"),
                                 availability: availability,
                                 namePieces: pieces)
     }

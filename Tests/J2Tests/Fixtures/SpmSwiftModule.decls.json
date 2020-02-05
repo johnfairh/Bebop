@@ -10,7 +10,7 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : "public var text: String",
-          "deprecation" : "",
+          "deprecation" : {},
           "name_pieces" : [
             {
               "other" : "var "
@@ -40,7 +40,7 @@
     "swift_declaration" : {
       "availability" : [],
       "declaration" : "public struct SpmSwiftModule",
-      "deprecation" : "",
+      "deprecation" : {},
       "name_pieces" : [
         {
           "other" : "struct "
@@ -63,7 +63,7 @@
         "macOS 10.12"
       ],
       "declaration" : "public func functionA(arg1: Int,\n                      _ arg2: Int,\n                      arg3 argMeaning: Int)",
-      "deprecation" : "",
+      "deprecation" : {},
       "name_pieces" : [
         {
           "other" : "func "
@@ -108,7 +108,9 @@
     "swift_declaration" : {
       "availability" : [],
       "declaration" : "public func deprecatedFunction(callback: (_ report: String) -> Int) -> String",
-      "deprecation" : "Deprecated. Has always been deprecated.",
+      "deprecation" : {
+        "en" : "Deprecated. Has always been deprecated."
+      },
       "name_pieces" : [
         {
           "other" : "func "

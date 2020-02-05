@@ -5,8 +5,7 @@
   Copyright 2020 J2 Authors
   Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
 
-  The key in the file is the long CLI name or the yaml key name of the option.
-  If the option has both then the long CLI name takes precedence.
+  Error and warning messages.
 */
 
 "err-cli-unexpected" = "Unexpected text '%1'.";
