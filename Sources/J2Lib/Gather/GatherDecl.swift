@@ -182,7 +182,9 @@ final class SwiftDeclarationBuilder {
             return Attr(offset: offset, length: length)
         }
 
-        return Set<Attr>(attrs).compactMap { attr -> String? in
+        // ..and we need to keep the output stable so re-sort them again.
+        let sorted = Set<Attr>(attrs).sorted { a, b in a.offset < b.offset }
+        return sorted.compactMap { attr -> String? in
             let byteRange = ByteRange(location: ByteCount(attr.offset),
                                       length: ByteCount(attr.length))
             guard let text = file?.stringView.substringWithByteRange(byteRange),

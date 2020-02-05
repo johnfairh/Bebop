@@ -22,11 +22,10 @@ import Darwin
 public enum Glob {
 
     /// A boxed string to make code a little more obvious
-    public struct Pattern: ExpressibleByStringLiteral, CustomStringConvertible, Equatable {
+    public struct Pattern: ExpressibleByStringLiteral, Equatable {
         public let value: String
         public init(_ pattern: String) { self.init(stringLiteral: pattern) }
         public init(stringLiteral value: String) { self.value = value }
-        public var description: String { return value }
     }
 
     /// Return the list of files that match a pattern.
