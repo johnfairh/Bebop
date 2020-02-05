@@ -50,42 +50,6 @@ import SwiftSyntax
 //    This is the only option because we don't have decl XML for the ObjC
 //    ones.
 
-// xxx move to model - used as-is in Def
-public struct SwiftDeclaration: Encodable {
-    public let declaration: String
-    public let deprecation: Localized<String>
-    public let availability: [String]
-    public let namePieces: [Piece]
-
-    init(declaration: String = "",
-         deprecation: Localized<String> = [:],
-         availability: [String] = [],
-         namePieces: [Piece] = []) {
-        self.declaration = declaration
-        self.deprecation = deprecation
-        self.availability = availability
-        self.namePieces = namePieces
-    }
-
-    public enum Piece: Encodable {
-        case name(String)
-        case other(String)
-
-        enum CodingKeys: String, CodingKey {
-            case name
-            case other
-        }
-
-        public func encode(to encoder: Encoder) throws {
-            var container = encoder.container(keyedBy: CodingKeys.self)
-            switch self {
-            case .name(let str): try container.encode(str, forKey: .name)
-            case .other(let str): try container.encode(str, forKey: .other)
-            }
-        }
-    }
-}
-
 /// Short-lived workspace for figuring things out about a Swift declaration
 final class SwiftDeclarationBuilder {
     let dict: SourceKittenDict
@@ -140,7 +104,7 @@ final class SwiftDeclarationBuilder {
 
         // Sort out decl pieces
 
-        let pieces: [SwiftDeclaration.Piece]
+        let pieces: [DeclarationPiece]
 
         if let name = dict[SwiftDocKey.name.rawValue] as? String,
             let kind = kind,

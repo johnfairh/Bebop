@@ -23,11 +23,11 @@ import SwiftSyntax
 ///
 extension SwiftDeclarationBuilder {
     /// Parse a swift compiler-style declaration into pieces for an index page
-    func parseToPieces(declaration: String, name: String, kind: DefKind) -> [SwiftDeclaration.Piece] {
+    func parseToPieces(declaration: String, name: String, kind: DefKind) -> [DeclarationPiece] {
         guard !kind.hasSwiftFunctionName else {
             return parseFunctionToPieces(declaration: declaration, kind: kind)
         }
-        var pieces: [SwiftDeclaration.Piece] = []
+        var pieces: [DeclarationPiece] = []
         if let declPrefix = kind.declPrefix {
             pieces.append(.other("\(declPrefix) "))
         }
@@ -42,7 +42,7 @@ extension SwiftDeclarationBuilder {
 
     /// Functions are incredibly difficult because the name is distributed through the declaration and regexps are very
     /// tricky because of closure parameters!  Also some bits we want to elide.
-    private func parseFunctionToPieces(declaration: String, kind: DefKind) -> [SwiftDeclaration.Piece] {
+    private func parseFunctionToPieces(declaration: String, kind: DefKind) -> [DeclarationPiece] {
         // Strip declaration of leading and trailing bits
         guard let match = declaration.re_match("(?:func|init|subscript).*?(?=$|\\s*where)"),
             case let cleanDecl = match[0].re_sub(" (?:re)?throws", with: ""),
@@ -66,7 +66,7 @@ private class FunctionPiecesVisitor: SyntaxVisitor {
     /// Accumulate non-name piece
     private var current: String
     /// Generated output
-    internal private(set) var pieces: [SwiftDeclaration.Piece]
+    internal private(set) var pieces: [DeclarationPiece]
 
     init(prefix: String?) {
         if let prefix = prefix {

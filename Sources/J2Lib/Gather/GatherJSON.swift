@@ -94,18 +94,8 @@ extension GatherDef {
             }
             if !swiftDecl.namePieces.isEmpty {
                 dict[.namePieces] = swiftDecl.namePieces.map { piece -> SourceKittenDict in
-                    let isName: Bool
-                    let text: String
-                    switch piece {
-                    case .name(let name):
-                        isName = true
-                        text = name
-                    case .other(let other):
-                        isName = false
-                        text = other
-                    }
-                    return [GatherKey.namePieceIsName.rawValue: isName,
-                            GatherKey.namePieceText.rawValue: text]
+                    return [GatherKey.namePieceIsName.rawValue: piece.isName,
+                            GatherKey.namePieceText.rawValue: piece.text]
                 }
             }
         }

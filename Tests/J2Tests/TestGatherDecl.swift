@@ -172,7 +172,7 @@ class TestGatherDecl: XCTestCase {
 
     // Swift decl-piece-name
 
-    private func checkPieces(_ pieces: [SwiftDeclaration.Piece], _ str: String, file: StaticString = #file, line: UInt = #line) {
+    private func checkPieces(_ pieces: [DeclarationPiece], _ str: String, file: StaticString = #file, line: UInt = #line) {
         var acc = ""
         pieces.forEach {
             switch $0 {

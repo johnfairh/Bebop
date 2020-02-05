@@ -87,6 +87,7 @@
 		02FDC68623E9EEE900C2F9CD /* GatherLocalize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FDC68523E9EEE900C2F9CD /* GatherLocalize.swift */; };
 		02FDC68823EAEB9F00C2F9CD /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FDC68723EAEB9F00C2F9CD /* Localizable.swift */; };
 		02FDC68B23EB2A7300C2F9CD /* Output.strings in Resources */ = {isa = PBXBuildFile; fileRef = 02FDC68923EB2A7300C2F9CD /* Output.strings */; };
+		02FDC68D23EB498A00C2F9CD /* DefDeclaration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FDC68C23EB498A00C2F9CD /* DefDeclaration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -243,6 +244,7 @@
 		02FDC68523E9EEE900C2F9CD /* GatherLocalize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherLocalize.swift; sourceTree = "<group>"; };
 		02FDC68723EAEB9F00C2F9CD /* Localizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Localizable.swift; path = Sources/SpmSwiftModule2/Localizable.swift; sourceTree = "<group>"; };
 		02FDC68A23EB2A7300C2F9CD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Output.strings; sourceTree = "<group>"; };
+		02FDC68C23EB498A00C2F9CD /* DefDeclaration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefDeclaration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -468,6 +470,7 @@
 			children = (
 				02CFFA0323E0BA2900FDE5B9 /* Item.swift */,
 				02FDC68323E9DED600C2F9CD /* DefItem.swift */,
+				02FDC68C23EB498A00C2F9CD /* DefDeclaration.swift */,
 				02CFFA3F23E5CFF800FDE5B9 /* DefKind.swift */,
 				02FDC67923E876D300C2F9CD /* DefDocs.swift */,
 				02CFFA0523E0BD8B00FDE5B9 /* DefItemJSON.swift */,
@@ -687,6 +690,7 @@
 				02FDC68023E8B25100C2F9CD /* Localization.swift in Sources */,
 				022818D123D4F2AE0016B0D5 /* Glob.swift in Sources */,
 				02CFFA0623E0BD8B00FDE5B9 /* DefItemJSON.swift in Sources */,
+				02FDC68D23EB498A00C2F9CD /* DefDeclaration.swift in Sources */,
 				022818C523D33C2B0016B0D5 /* Regex.swift in Sources */,
 				02CFFA0123E0B95F00FDE5B9 /* Merge.swift in Sources */,
 				02CFF92723DE009900FDE5B9 /* GatherOpts.swift in Sources */,
