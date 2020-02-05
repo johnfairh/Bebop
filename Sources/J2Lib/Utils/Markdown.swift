@@ -119,8 +119,8 @@ public struct CMCallout {
         for format in [Format.custom, Format.parameter, Format.other] { // order dependency here...
             for re in format.regexps {
                 if let matches = string.re_match(re, options: [.i, .m]) {
-                    title = String(matches[1])
-                    body = String(matches[2])
+                    title = matches[1]
+                    body = matches[2]
                     self.format = format
                     return
                 }

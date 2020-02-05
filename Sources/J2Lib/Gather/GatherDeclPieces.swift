@@ -35,7 +35,7 @@ extension SwiftDeclarationBuilder {
         // grab the type for properties but not any {get set}
         if kind.isSwiftProperty,
             let match = declaration.re_match(#"(?<=\#(name)).*?(?=$|\s*\{)"#) {
-            pieces.append(.other(String(match[0])))
+            pieces.append(.other(match[0]))
         }
         return pieces
     }
@@ -45,7 +45,7 @@ extension SwiftDeclarationBuilder {
     private func parseFunctionToPieces(declaration: String, kind: DefKind) -> [SwiftDeclaration.Piece] {
         // Strip declaration of leading and trailing bits
         guard let match = declaration.re_match("(?:func|init|subscript).*?(?=$|\\s*where)"),
-            case let cleanDecl = String(match[0]).re_sub(" (?:re)?throws", with: ""),
+            case let cleanDecl = match[0].re_sub(" (?:re)?throws", with: ""),
             // Build its parse tree
             let syntax = try? SyntaxParser.parse(source: cleanDecl) else {
             return [.other(declaration)]

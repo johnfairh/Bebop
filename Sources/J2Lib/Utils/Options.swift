@@ -600,7 +600,7 @@ final class OptsParser {
 
             let allData = tracker.opt.repeats
                 // Split on non-escaped commas, then remove any escapes.
-                ? data.re_split(#"(?<!\\),"#).map { String($0).re_sub(#"\\,"#, with: ",") }
+                ? data.re_split(#"(?<!\\),"#).map { $0.re_sub(#"\\,"#, with: ",") }
                 : [data]
 
             try apply(stringData: allData, to: tracker.opt)

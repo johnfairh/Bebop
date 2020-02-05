@@ -258,7 +258,7 @@ public final class Resources {
             return (nil, log)
         }
 
-        let languageCountry = String(match[1])
+        let languageCountry = match[1]
         let language = String(languageCountry.prefix(2))
 
         for match in [languageCountry, language] {

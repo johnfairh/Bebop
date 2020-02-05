@@ -199,7 +199,7 @@ final class SwiftDeclarationBuilder {
             return parsedDecl
         }
         let attrUnindent = String(repeating: " ", count: matches[1].count)
-        return String(matches[2]).re_sub("^\(attrUnindent)", with: "", options: .m)
+        return matches[2].re_sub("^\(attrUnindent)", with: "", options: .m)
     }
 
     /// Grab all the attributes from the associated file.

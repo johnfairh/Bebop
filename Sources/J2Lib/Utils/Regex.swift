@@ -8,9 +8,9 @@
 
 import Foundation
 
-//
 // A concise wrapper of regular expression string operators based on perl etc.
-//
+// Routines return `String`s rather than native `Substring`s because >90% of
+// users were immediately doing the conversion.
 
 /// Provide concise aliases for regexp options
 public extension NSRegularExpression.Options {
@@ -26,6 +26,26 @@ public extension NSRegularExpression.Options {
     static let w = Self.useUnicodeWordBoundaries
 }
 
+private struct RegexCache {
+    var lock = os_unfair_lock_s()
+    var cache: [String: NSRegularExpression] = [:]
+
+    mutating func get(pattern: String, options: NSRegularExpression.Options) -> NSRegularExpression {
+        os_unfair_lock_lock(&lock)
+        defer { os_unfair_lock_unlock(&lock) }
+
+        let key = pattern + String(options.rawValue) // this is very much not correct!
+        if let re = cache[key] {
+            return re
+        }
+        let re = try! NSRegularExpression(pattern: pattern, options: options)
+        cache[key] = re
+        return re
+    }
+}
+
+private var cache = RegexCache()
+
 public extension String {
     /// Split using a regular expression.
     ///
@@ -34,8 +54,8 @@ public extension String {
     /// - Parameter on: regexp to split on
     /// - Parameter options: regexp options
     func re_split(_ separator: String,
-                  options: NSRegularExpression.Options = []) -> [Substring] {
-        let re = try! NSRegularExpression(pattern: separator, options: options)
+                  options: NSRegularExpression.Options = []) -> [String] {
+        let re = cache.get(pattern: separator, options: options)
 
         // Find separator spans
         let sepRanges = re.matches(in: self, range: nsRange).map { Range($0.range, in: self)! }
@@ -51,7 +71,7 @@ public extension String {
         // Add the range between final separator and end-of-string
         itemRanges.append(nextIndex..<endIndex)
 
-        return itemRanges.filter({ !$0.isEmpty }).map { self[$0] }
+        return itemRanges.filter({ !$0.isEmpty }).map { String(self[$0]) }
     }
 
     /// Search & replace using a regular expression
@@ -62,7 +82,7 @@ public extension String {
     func re_sub(_ searchPattern: String,
                 with template: String,
                 options: NSRegularExpression.Options = []) -> String {
-        let re = try! NSRegularExpression(pattern: searchPattern, options: options)
+        let re = cache.get(pattern: searchPattern, options: options)
         return re.stringByReplacingMatches(in: self, range: nsRange, withTemplate: template)
     }
 
@@ -89,15 +109,15 @@ public extension String {
         }
 
         /// Get the capture group contents.  0 is the entire match.
-        public subscript(rangeIndex: Int) -> Substring {
+        public subscript(rangeIndex: Int) -> String {
             let nsRange = textCheckingResult.range(at: rangeIndex)
-            return string.from(nsRange: nsRange)
+            return String(string.from(nsRange: nsRange))
         }
 
         /// Get the contents of a named capture group
-        public subscript(captureGroupName: String) -> Substring {
+        public subscript(captureGroupName: String) -> String {
             let nsRange = textCheckingResult.range(withName: captureGroupName)
-            return string.from(nsRange: nsRange)
+            return String(string.from(nsRange: nsRange))
         }
     }
 
@@ -108,7 +128,7 @@ public extension String {
     /// - returns: `ReMatchResult` object that can be queried for capture groups, or `nil` if there is no match
     func re_match(_ pattern: String,
                   options: NSRegularExpression.Options = []) -> ReMatchResult? {
-        let re = try! NSRegularExpression(pattern: pattern, options: options)
+        let re = cache.get(pattern: pattern, options: options)
         guard let match = re.firstMatch(in: self, range: nsRange) else {
             return nil
         }
