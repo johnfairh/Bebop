@@ -27,20 +27,19 @@ public extension NSRegularExpression.Options {
 }
 
 private struct RegexCache {
-    var lock = os_unfair_lock_s()
+    var lock = Lock()
     var cache: [String: NSRegularExpression] = [:]
 
     mutating func get(pattern: String, options: NSRegularExpression.Options) -> NSRegularExpression {
-        os_unfair_lock_lock(&lock)
-        defer { os_unfair_lock_unlock(&lock) }
-
-        let key = pattern + String(options.rawValue) // this is very much not correct!
-        if let re = cache[key] {
+        lock.withLock {
+            let key = pattern + String(options.rawValue) // this is very much not correct!
+            if let re = cache[key] {
+                return re
+            }
+            let re = try! NSRegularExpression(pattern: pattern, options: options)
+            cache[key] = re
             return re
         }
-        let re = try! NSRegularExpression(pattern: pattern, options: options)
-        cache[key] = re
-        return re
     }
 }
 
