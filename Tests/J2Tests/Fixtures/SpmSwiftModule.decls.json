@@ -2,11 +2,13 @@
   {
     "children" : [
       {
+        "children" : [],
         "kind" : "source.lang.swift.decl.var.instance",
         "module_name" : "SpmSwiftModule",
         "name" : "text",
         "pass_index" : 0,
         "swift_declaration" : {
+          "availability" : [],
           "declaration" : "public var text: String",
           "deprecation" : "",
           "name_pieces" : [
@@ -27,9 +29,7 @@
       "en" : {
         "abstract" : null,
         "overview" : "",
-        "parameters" : {
-
-        },
+        "parameters" : {},
         "returns" : null
       }
     },
@@ -38,6 +38,7 @@
     "name" : "SpmSwiftModule",
     "pass_index" : 0,
     "swift_declaration" : {
+      "availability" : [],
       "declaration" : "public struct SpmSwiftModule",
       "deprecation" : "",
       "name_pieces" : [
@@ -51,6 +52,7 @@
     }
   },
   {
+    "children" : [],
     "kind" : "source.lang.swift.decl.function.free",
     "module_name" : "SpmSwiftModule",
     "name" : "functionA(arg1:_:arg3:)",
@@ -88,6 +90,7 @@
     }
   },
   {
+    "children" : [],
     "documentation" : {
       "en" : {
         "abstract" : "A deprecated function",
@@ -103,6 +106,7 @@
     "name" : "deprecatedFunction(callback:)",
     "pass_index" : 0,
     "swift_declaration" : {
+      "availability" : [],
       "declaration" : "public func deprecatedFunction(callback: (_ report: String) -> Int) -> String",
       "deprecation" : "Deprecated. Has always been deprecated.",
       "name_pieces" : [

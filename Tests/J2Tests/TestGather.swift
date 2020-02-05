@@ -178,7 +178,9 @@ class TestGather: XCTestCase {
     func cleanUpJson(file: String) -> String {
         let lines = file.split(separator: "\n")
         let cleanedLines = lines.compactMap { line -> Substring? in
-            if line.contains(#""key.usr""#) || line.contains(#""key.typeusr""#) {
+            if line.contains(#""key.usr""#) ||
+                line.contains(#""key.typeusr""#) ||
+                line.contains(#""key.doc.full_as_xml""#) {
                 // linux
                 return nil
             }

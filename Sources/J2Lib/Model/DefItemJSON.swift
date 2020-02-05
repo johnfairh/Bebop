@@ -44,11 +44,9 @@ extension Array where Element == DefItem {
         encoder.keyEncodingStrategy = .convertToSnakeCase
         let data = try encoder.encode(self)
         let json = String(data: data, encoding: .utf8)!
-        // Get rid of empty arrays...
-        // XXX oops this is bad json-citizenship.  should just squash to one line. {} too.
+        // Improve formatting of empty arrays / hashes
+        return json.re_sub(#"(?<=[\[{])\s*(?=[\]}])"#, with: "")
         // (and omg, another open-source foundation difference appears,
         //  trailing spaces galore on linux...)
-        return json.re_sub(#"\n +"\w+" : \[\n *\n +\],"#, with: "")
-                   .re_sub(#",\n +"\w+" : \[\n *\n +\](?=\n)"#, with: "")
     }
 }
