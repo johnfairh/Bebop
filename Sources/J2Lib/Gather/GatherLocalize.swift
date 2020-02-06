@@ -44,14 +44,14 @@ final class GatherLocalize: GatherGarnish, Configurable {
             return
         }
         guard let languagesURL = docCommentLanguageDirOpt.value else {
-            logWarning(.localized("wrn-no-comment-languages"))
+            logWarning(.localized(.wrnNoCommentLanguages))
             return
         }
 
         bundleLanguages.forEach { language in
             let bundleURL = languagesURL.appendingPathComponent(language)
             guard let bundle = Bundle(url: bundleURL) else {
-                logWarning(.localized("wrn-no-comment-missing", language, bundleURL.path))
+                logWarning(.localized(.wrnNoCommentMissing, language, bundleURL.path))
                 return
             }
             logDebug("Found doc comment translation bundle for '\(language)'.")

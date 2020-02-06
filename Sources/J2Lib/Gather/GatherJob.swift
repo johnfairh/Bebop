@@ -35,15 +35,15 @@ enum GatherJob: Equatable {
                 module = Module(xcodeBuildArguments: buildToolArgs, name: moduleName, inPath: actualSrcDir.path)
                 if module == nil {
                     if let moduleName = moduleName {
-                        throw GatherError(.localized("err-sktn-xcode-mod", moduleName))
+                        throw GatherError(.localized(.errSktnXcodeMod, moduleName))
                     }
-                    throw GatherError(.localized("err-sktn-xcode-def"))
+                    throw GatherError(.localized(.errSktnXcodeDef))
                 }
             case .spm:
                 logDebug(" Calling sourcekitten in swift spm mode")
                 module = Module(spmArguments: buildToolArgs, spmName: moduleName, inPath: actualSrcDir.path)
                 if module == nil {
-                    throw GatherError(.localized("err-sktn-spm"))
+                    throw GatherError(.localized(.errSktnSpm))
                 }
             }
 

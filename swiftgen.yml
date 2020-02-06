@@ -1,0 +1,6 @@
+strings:
+  inputs: Resources/en.lproj
+  filter: (Localizable|Output)\.strings
+  outputs:
+    - templatePath: strings.stencil
+      output: Sources/J2Lib/Utils/StringEnums.swift

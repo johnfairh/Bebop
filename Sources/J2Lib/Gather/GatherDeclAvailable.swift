@@ -160,23 +160,23 @@ extension SwiftDeclarationBuilder {
 
         var depText = Localized<String>()
         if let obsoleted = obsoleted {
-            depText = .localizedOutput(key: "plat-obsoleted-ver", subs: platform, obsoleted)
+            depText = .localizedOutput(.platObsoletedVer, platform, obsoleted)
         }
         else if isDeprecated {
             if let deprecated = deprecated {
-                depText = .localizedOutput(key: "plat-deprecated-ver", subs: platform, deprecated)
+                depText = .localizedOutput(.platDeprecatedVer, platform, deprecated)
             } else {
-                depText = .localizedOutput(key: "plat-deprecated", subs: platform)
+                depText = .localizedOutput(.platDeprecated, platform)
             }
         }
         if isUnavailable {
-            depText = .localizedOutput(key: "plat-unavailable", subs: platform)
+            depText = .localizedOutput(.platUnavailable, platform)
         }
         if let message = message {
             depText = depText.append(" \(message).")
         }
         if let renamed = renamed {
-            depText = depText.append(.localizedOutput(key: "renamed-to", subs: renamed))
+            depText = depText.append(.localizedOutput(.renamedTo, renamed))
         }
         if !depText.isEmpty {
             deprecations.append(depText)
@@ -210,15 +210,15 @@ extension SwiftDeclarationBuilder {
 
         var text = Localized<String>()
         if isUnavailable {
-            text = .localizedOutput(key: "unavailable")
+            text = .localizedOutput(.unavailable)
         } else if isDeprecated {
-            text = .localizedOutput(key: "deprecated")
+            text = .localizedOutput(.deprecated)
         }
         if let message = message {
             text = text.append(" \(message).")
         }
         if let renamed = renamed {
-            text = text.append(.localizedOutput(key: "renamed-to", subs: renamed))
+            text = text.append(.localizedOutput(.renamedTo, renamed))
         }
         if !text.isEmpty {
             deprecations.append(text)

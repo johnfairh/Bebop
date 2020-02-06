@@ -96,8 +96,8 @@ public typealias Localized<T> = [String : T]
 
 extension Dictionary where Key == String, Value == String {
     /// Helper to grab a piece of localized output text and do substitutions %1 .... %n
-    public static func localizedOutput(key: String, subs: Any...) -> Localized<String> {
-        Resources.shared.localizedOutput(key: key, subs: subs)
+    static func localizedOutput(_ key: L10n.Output, _ subs: Any...) -> Localized<String> {
+        Resources.shared.localizedOutput(key: key.rawValue, subs: subs)
     }
 
     public func append(_ str: Localized<String>) -> Self {

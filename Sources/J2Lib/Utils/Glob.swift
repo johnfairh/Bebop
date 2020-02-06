@@ -45,7 +45,7 @@ public enum Glob {
 
         guard rc == 0, globData.gl_pathv != nil else {
             // This means we ran out of memory or something equally unlikely.
-            logWarning(.localized("wrn-glob-errno", pattern, errno, strerror_s()))
+            logWarning(.localized(.wrnGlobErrno, pattern, errno, strerror_s()))
             return []
         }
 
@@ -57,7 +57,7 @@ public enum Glob {
                 paths.append(URL(fileURLWithPath: String(cString: cStr)))
             } else {
                 // This is also not ideal and suggests libc is messed up...
-                logWarning(.localized("wrn-glob-pattern", pattern))
+                logWarning(.localized(.wrnGlobPattern, pattern))
             }
         }
 
@@ -71,8 +71,7 @@ public enum Glob {
         let rc = fnmatch(pattern.value, path, 0)
 
         if rc != 0 && rc != FNM_NOMATCH {
-            logWarning(.localized("wrn-fnmatch-errno",
-                                  pattern, path, errno, strerror_s()))
+            logWarning(.localized(.wrnFnmatchErrno, pattern, path, errno, strerror_s()))
         }
 
         return rc == 0

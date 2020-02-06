@@ -99,7 +99,7 @@ public final class Config {
         if let configFileURL = try findConfigFile() {
             try configFileURL.checkIsFile()
 
-            infoLog = .localized("msg-config-file", configFileURL.path)
+            infoLog = .localized(.msgConfigFile, configFileURL.path)
 
             let configFile = try String(contentsOf: configFileURL)
 
@@ -166,7 +166,7 @@ public final class Config {
         }
 
         if helpOpt.value {
-            logInfo(.localized("msg-help-intro"))
+            logInfo(.localized(.msgHelpIntro))
 
             var first = true
             optsParser.allOpts
@@ -215,7 +215,7 @@ public final class Config {
             if report {
                 logDebug("Debug enabled, version \(Version.j2libVersion)")
                 if quietOpt.value {
-                    logWarning(.localized("wrn-quiet-debug"))
+                    logWarning(.localized(.wrnQuietDebug))
                 }
             }
         } else if quietOpt.value {
