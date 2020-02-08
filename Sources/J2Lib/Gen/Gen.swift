@@ -26,7 +26,7 @@ public struct Gen: Configurable {
         config.register(self)
     }
 
-    public func generate(defs: [DefItem]) throws {
+    public func generate(defs: [Item]) throws {
         let theme = try themes.select()
 
         if cleanOpt.value {

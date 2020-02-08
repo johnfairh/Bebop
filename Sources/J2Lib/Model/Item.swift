@@ -30,6 +30,17 @@ public enum ItemKind: String, CaseIterable {
     case variable
     case function
     case `extension`
-    case category
+    case group     // what is this actually for?
     case other
+
+    var name: Localized<String> {
+        switch self {
+        case .guide: return .localizedOutput(.guides)
+        case .type: return .localizedOutput(.types)
+        case .variable: return .localizedOutput(.variables)
+        case .function: return .localizedOutput(.functions)
+        case .extension: return .localizedOutput(.extensions)
+        default: return .localizedOutput(.others)
+        }
+    }
 }

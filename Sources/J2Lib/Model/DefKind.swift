@@ -161,6 +161,15 @@ public final class DefKind {
         return map
     }()
 
+    /// Sequence access to kinds list
+    public static var all: [DefKind] { // should be `some Sequence` !
+        #if os(macOS)
+        return allObjCKinds + allSwiftKinds
+        #else
+        return allSwiftKinds
+        #endif
+    }
+
     /// Master list of kinds.  I've superstitiously kept the jazzy ordering, which might affect the default
     /// ordering somewhere - tbd.
 
@@ -168,7 +177,7 @@ public final class DefKind {
     private static let allObjCKinds: [DefKind] = [
         // Objective-C
         DefKind(o: .unexposedDecl,  "Unexposed"),
-        DefKind(o: .category,       "Category",          dash: "Extension", meta: .category),
+        DefKind(o: .category,       "Category",          dash: "Extension", meta: .extension),
         DefKind(o: .class,          "Class",                                meta: .type),
         DefKind(o: .constant,       "Constant",                             meta: .variable),
         DefKind(o: .enum,           "Enumeration",       dash: "Enum",      meta: .type),
@@ -239,4 +248,14 @@ public final class DefKind {
         // not sure what to do with these yet
         DefKind(.other(key: "source.lang.swift.syntaxtype.comment.mark", isSwift: true), "Mark")
     ]
+}
+
+extension DefKind: Hashable {
+    public static func == (lhs: DefKind, rhs: DefKind) -> Bool {
+        lhs.key == rhs.key
+    }
+
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(key)
+    }
 }

@@ -41,6 +41,8 @@ public final class Pipeline: Configurable {
     public let gather: Gather
     /// Duplicate and extension merging, conversion to more formal data structure
     public let merge: Merge
+    /// Create sections and guides, sort topics
+    public let group: Group
     /// Generate final docs
     public let gen: Gen
 
@@ -76,6 +78,7 @@ public final class Pipeline: Configurable {
         config = Config()
         gather = Gather(config: config)
         merge = Merge(config: config)
+        group = Group(config: config)
         gen = Gen(config: config)
         config.register(self)
     }
@@ -107,7 +110,9 @@ public final class Pipeline: Configurable {
             if productsAllDone { return }
         }
 
-        try gen.generate(defs: mergedDefs)
+        let groupedDefs = try group.group(merged: mergedDefs)
+
+        try gen.generate(defs: groupedDefs)
     }
 
     /// Callback during options processing.  Important we sort out pipeline mode now to avoid

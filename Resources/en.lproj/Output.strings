@@ -8,6 +8,7 @@
   Strings used by the executable that end up in generated docs, independent of
   the theme that gets used.
 */
+/* Deprecation callouts */
 "plat-obsoleted-ver" = "%1 - obsoleted in %2.";
 "plat-deprecated" = "%1 - deprecated.";
 "plat-deprecated-ver" = "%1 - deprecated in %2.";
@@ -15,3 +16,11 @@
 "renamed-to" = " Renamed: `%1`."; /* Leading space! */
 "unavailable" = "Unavailable.";
 "deprecated" = "Deprecated.";
+
+/* Left-nav default groups */
+"guides" = "Guides";
+"types" = "Types";
+"variables" = "Variables";
+"functions" = "Functions";
+"extensions" = "Extensions";
+"others" = "Others";

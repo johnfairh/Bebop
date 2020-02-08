@@ -76,6 +76,14 @@ internal enum L10n {
   internal enum Output : String {
     /// Deprecated.
     case deprecated = "deprecated"
+    /// Extensions
+    case extensions = "extensions"
+    /// Functions
+    case functions = "functions"
+    /// Guides
+    case guides = "guides"
+    /// Others
+    case others = "others"
     /// %1 - deprecated.
     case platDeprecated = "plat-deprecated"
     /// %1 - deprecated in %2.
@@ -86,8 +94,12 @@ internal enum L10n {
     case platUnavailable = "plat-unavailable"
     ///  Renamed: `%1`.
     case renamedTo = "renamed-to"
+    /// Types
+    case types = "types"
     /// Unavailable.
     case unavailable = "unavailable"
+    /// Variables
+    case variables = "variables"
   }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
