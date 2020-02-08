@@ -24,13 +24,13 @@ extension String {
 }
 
 /// A gadget to unique a set of names
-public struct StringUniquer {
+public final class StringUniquer {
     private var map = [String : Int]()
 
     public init() {
     }
 
-    public mutating func unique(_ input: String) -> String {
+    public func unique(_ input: String) -> String {
         let dupCount = map.reduceKey(input, 0, { $0 + 1 })
         return dupCount == 0 ? input : input + String(dupCount)
     }

@@ -8,6 +8,7 @@
 
 import XCTest
 @testable import J2Lib
+import SourceKittenFramework
 
 /// Execute some code and check it throws a particular category of error.
 /// 
@@ -98,11 +99,108 @@ extension XCTestCase {
     func initResources() {
         prepareResourceBundle()
         Resources.initialize()
+        Localizations.shared = Localizations()
     }
 
     var fixturesURL: URL {
         URL(fileURLWithPath: #file)
             .deletingLastPathComponent()
             .appendingPathComponent("Fixtures")
+    }
+}
+
+//
+// Helpers for writing decl tests
+//
+extension SourceKittenDict {
+    func with(field: SwiftDocKey, value: SourceKitRepresentable) -> Self {
+        with(field: field.rawValue, value: value)
+    }
+
+    func with(field: String, value: SourceKitRepresentable) -> Self {
+        var copy = self
+        copy[field] = value
+        return copy
+    }
+
+    func with(name: String) -> Self {
+        with(field: .name, value: name)
+    }
+
+    func with(kind: SwiftDeclarationKind) -> Self {
+        with(field: .kind, value: kind.rawValue)
+    }
+
+    func with(decl: String) -> Self {
+        with(field: "key.fully_annotated_decl", value: "<o>\(decl)</o>")
+    }
+
+    func with(comment: String) -> Self {
+        with(field: .documentationComment, value: comment)
+    }
+
+    func with(children: [SourceKittenDict]) -> Self {
+        with(field: .substructure, value: children)
+    }
+
+    // Factories
+
+    static func mkClass(name: String, docs: String = "") -> Self {
+        SourceKittenDict()
+            .with(kind: .class)
+            .with(name: name)
+            .with(decl: "class \(name)")
+            .with(comment: docs)
+    }
+
+    static func mkStruct(name: String, docs: String = "") -> Self {
+        SourceKittenDict()
+            .with(kind: .struct)
+            .with(name: name)
+            .with(decl: "struct \(name)")
+            .with(comment: docs)
+    }
+
+    static func mkInstanceVar(name: String, docs: String = "") -> Self {
+        SourceKittenDict()
+            .with(kind: .varInstance)
+            .with(name: name)
+            .with(decl: "var \(name)")
+            .with(comment: docs)
+    }
+
+    static func mkGlobalVar(name: String, docs: String = "") -> Self {
+        SourceKittenDict()
+            .with(kind: .varGlobal)
+            .with(name: name)
+            .with(decl: "var \(name)")
+            .with(comment: docs)
+    }
+
+    static func mkFile() -> Self {
+        [ "key.diagnostic_stage" : "parse" ]
+    }
+
+    // Promotion
+
+    var asGatherDef: GatherDef {
+        GatherDef(sourceKittenDict: self, file: nil)
+    }
+
+    var asGatherPasses: [GatherModulePass] {
+        asGatherDef.asPasses()
+    }
+}
+
+extension GatherDef {
+
+    func asPass(moduleName: String = "module", pathName: String = "pathname") -> GatherModulePass {
+        GatherModulePass(moduleName: moduleName,
+                         passIndex: 0,
+                         files: [(pathName, self)])
+    }
+
+    func asPasses(moduleName: String = "module", pathName: String = "pathname") -> [GatherModulePass] {
+        [asPass(moduleName: moduleName, pathName: pathName)]
     }
 }

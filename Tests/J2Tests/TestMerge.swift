@@ -24,74 +24,38 @@ class TestMerge: XCTestCase {
         initResources()
     }
 
-    // Utils for building interesting defs
-
-    let goodRootDict = [ "key.diagnostic_stage" : "parse" ]
-    let badRootDict = SourceKittenDict()
-
-    func makeDefDict(name: String) -> SourceKittenDict {
-        [ "key.name" : name,
-          "key.kind" : SwiftDeclarationKind.class.rawValue,
-          "key.fully_annotated_decl" : "<o>class Fred</o>"]
-    }
-
-    let badDefDict = SourceKittenDict()
-
-    func add(child: SourceKittenDict, to parent: SourceKittenDict) -> SourceKittenDict {
-        var parent = parent
-        let newChildren: [SourceKittenDict]
-        if let children = parent["key.substructure"] as? [SourceKittenDict] {
-            newChildren = children + [child]
-        } else {
-            newChildren = [child]
-        }
-        parent["key.substructure"] = newChildren
-        return parent
-    }
-
-    func makePasses(from def: GatherDef, moduleName: String, pathName: String) -> [GatherModulePass] {
-        [GatherModulePass(moduleName: moduleName,
-                          passIndex: 0,
-                          files: [(pathName, def)])]
-    }
-
     /// Normal file with one def
     func testGoodMergeImport() throws {
-        let goodFile = add(child: makeDefDict(name: "Good"), to: goodRootDict)
-        let goodDef = GatherDef(sourceKittenDict: goodFile, file: nil)
-        let passes = makePasses(from: goodDef, moduleName: "GoodModule", pathName: "pathname")
+        let goodFile = SourceKittenDict.mkFile().with(children: [.mkClass(name: "Good", docs: "")])
         let system = System()
         TestLogger.install()
         TestLogger.shared.expectNothing = true
-        let defItems = try system.merge.merge(gathered: passes)
+        let defItems = try system.merge.merge(gathered: goodFile.asGatherPasses)
         XCTAssertEqual(1, defItems.count)
         XCTAssertEqual("Good", defItems[0].name)
-        XCTAssertEqual("GoodModule", defItems[0].moduleName)
+        XCTAssertEqual("module", defItems[0].moduleName)
     }
 
     /// Bad file
     func testBadFileMergeImport() throws {
-        let badFile = badRootDict
-        let badDef = GatherDef(sourceKittenDict: badFile, file: nil)
-        let passes = makePasses(from: badDef, moduleName: "BadModule", pathName: "pathname")
+        let badFile = SourceKittenDict()
         let system = System()
         TestLogger.install()
-        let defItems = try system.merge.merge(gathered: passes)
+        let defItems = try system.merge.merge(gathered: badFile.asGatherPasses)
         XCTAssertEqual(0, defItems.count)
         XCTAssertEqual(1, TestLogger.shared.diagsBuf.count)
     }
 
     /// Normal file, one def with one bad child and one good
     func testBadDeclMergeImport() throws {
-        let file = add(child: add(child: badDefDict,
-                                  to: add(child: makeDefDict(name: "Good"),
-                                          to: makeDefDict(name: "Parent"))),
-                       to: goodRootDict)
-        let def = GatherDef(sourceKittenDict: file, file: nil)
-        let passes = makePasses(from: def, moduleName: "BadModule", pathName: "pathname")
+        let clazz = SourceKittenDict.mkClass(name: "Parent").with(children: [
+            .mkClass(name: "Good"),
+            SourceKittenDict() // bad
+        ])
+        let file = SourceKittenDict.mkFile().with(children: [clazz])
         let system = System()
         TestLogger.install()
-        let defItems = try system.merge.merge(gathered: passes)
+        let defItems = try system.merge.merge(gathered: file.asGatherPasses)
         XCTAssertEqual(1, defItems.count)
         XCTAssertEqual("Parent", defItems[0].name)
         XCTAssertEqual(1, defItems[0].children.count)

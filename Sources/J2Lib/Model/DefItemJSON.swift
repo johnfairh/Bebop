@@ -11,7 +11,7 @@ import Foundation
 // Bits to do with creating the decl-json product
 
 extension DefItem {
-    fileprivate enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: CodingKey {
         case moduleName
         case passIndex
         case kind
@@ -21,13 +21,13 @@ extension DefItem {
 
     // I may well have got this wrong, but I am using classes here - can't see
     // how to use the auto-gen encode code for the derived class fields.
-    func doEncode(to encoder: Encoder) throws {
+    final func doEncode(to encoder: Encoder) throws {
         try super.encode(to: encoder)
         
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(moduleName, forKey: .moduleName)
         try container.encode(passIndex, forKey: .passIndex)
-        try container.encode(kind.key, forKey: .kind)
+        try container.encode(defKind.key, forKey: .kind)
         if !swiftDeclaration.declaration.isEmpty {
             try container.encode(swiftDeclaration, forKey: .swiftDeclaration)
         }

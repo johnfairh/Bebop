@@ -8,19 +8,22 @@
 
 import Foundation
 
-public enum GroupType {
-    case kind(ItemKind)
-    case custom(name: Localized<String>)
-}
-
 // A list-of-things group page in the docs
 
 public final class GroupItem: Item {
-    public let type: GroupType // not sure this is useful actually once constructed
+    public let title: Localized<String>
+
     // abstract
 
+    /// Create a new group based on the type of content, eg. 'All guides'.
     public init(kind: ItemKind, contents: [Item]) {
-        self.type = .kind(kind)
-        super.init(name: kind.name["en"] ?? String(describing: kind), children: contents)
+        self.title = kind.title
+        super.init(name: kind.name, slug: kind.name, children: contents)
     }
+
+    /// Visitor
+    override func accept(visitor: ItemVisitor, parents: [Item]) {
+        visitor.visit(groupItem: self, parents: parents)
+    }
+    override var kind: ItemKind { .group }
 }

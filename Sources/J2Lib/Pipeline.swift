@@ -43,6 +43,8 @@ public final class Pipeline: Configurable {
     public let merge: Merge
     /// Create sections and guides, sort topics
     public let group: Group
+    /// Assign URLs and render autolinked html, markdown
+    public let format: Format
     /// Generate final docs
     public let gen: Gen
 
@@ -79,6 +81,7 @@ public final class Pipeline: Configurable {
         gather = Gather(config: config)
         merge = Merge(config: config)
         group = Group(config: config)
+        format = Format(config: config)
         gen = Gen(config: config)
         config.register(self)
     }
@@ -112,7 +115,9 @@ public final class Pipeline: Configurable {
 
         let groupedDefs = try group.group(merged: mergedDefs)
 
-        try gen.generate(defs: groupedDefs)
+        let formattedDefs = try format.format(items: groupedDefs)
+
+        try gen.generate(defs: formattedDefs)
     }
 
     /// Callback during options processing.  Important we sort out pipeline mode now to avoid

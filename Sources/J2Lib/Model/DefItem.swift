@@ -17,14 +17,14 @@ public class DefItem: Item {
     /// For debug?  Which gather pass of the module this is from
     public let passIndex: Int
     /// Kind of the definition
-    public let kind: DefKind
+    public let defKind: DefKind
     /// Swift declaration
     public let swiftDeclaration: SwiftDeclaration
     /// Documentation
     public let documentation: Localized<DefMarkdownDocs>
 
     /// Create from a gathered definition
-    public init?(moduleName: String, passIndex: Int, gatherDef: GatherDef) {
+    public init?(moduleName: String, passIndex: Int, gatherDef: GatherDef, uniquer: StringUniquer) {
         guard let name = gatherDef.sourceKittenDict[SwiftDocKey.name.rawValue] as? String,
             let kind = gatherDef.kind else {
             // XXX wrn - lots to add here tho, leave for now
@@ -32,11 +32,11 @@ public class DefItem: Item {
             return nil
         }
         let children = gatherDef.children.compactMap {
-            DefItem(moduleName: moduleName, passIndex: passIndex, gatherDef: $0)
+            DefItem(moduleName: moduleName, passIndex: passIndex, gatherDef: $0, uniquer: uniquer)
         }
         self.moduleName = moduleName
         self.passIndex = passIndex
-        self.kind = kind
+        self.defKind = kind
 
         if let swiftDeclInfo = gatherDef.swiftDeclaration {
             swiftDeclaration = swiftDeclInfo
@@ -50,11 +50,18 @@ public class DefItem: Item {
         }
         documentation = gatherDef.translatedDocs
 
-        super.init(name: name, children: children)
+        super.init(name: name, slug: uniquer.unique(name.slugged), children: children)
     }
 
     /// Used to create the `decls-json` product.
     public override func encode(to encoder: Encoder) throws {
         try doEncode(to: encoder)
     }
+
+    /// Visitor
+    override func accept(visitor: ItemVisitor, parents: [Item]) {
+        visitor.visit(defItem: self, parents: parents)
+    }
+
+    override var kind: ItemKind { defKind.metaKind }
 }

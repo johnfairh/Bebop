@@ -11,28 +11,20 @@ import Foundation
 /// `Group` arranges `DefItems` into a hierarchy of `Items` suitable for documentation generation
 ///  by injecting guides and creating sections.
 ///
-/// - discard stuff that didn't actually get compiled
-/// - merge duplicates, combining availability
-/// - resolve extensions and categories
-///
-/// This is the end of the sourcekit-style hashes, converted into more well-typed `Item` hierarchy.
-public struct Group {
+/// unique custom groups alongside kind-groups if present....
+public struct Group: Configurable {
     public init(config: Config) {
+        config.register(self)
     }
 
-    public func group(merged: [DefItem]) throws -> [Item] {
+    public func group(merged: [DefItem]) throws -> [GroupItem] {
         // Cache kind:def while preserving order
-        var kindToDefs: [ItemKind : [DefItem]] = [:]
+        var kindToDefs = [ItemKind : [DefItem]]()
         merged.forEach { def in
-            if var list = kindToDefs[def.kind.metaKind] {
-                list.append(def)
-                kindToDefs[def.kind.metaKind] = list
-            } else {
-                kindToDefs[def.kind.metaKind] = [def]
-            }
+            kindToDefs.reduceKey(def.defKind.metaKind, [def], { $0 + [def] })
         }
         // Create the groups
-        let kindGroups = ItemKind.allCases.compactMap { kind -> Item? in
+        let kindGroups = ItemKind.allCases.compactMap { kind -> GroupItem? in
             guard let defsToGroup = kindToDefs[kind] else {
                 return nil
             }
