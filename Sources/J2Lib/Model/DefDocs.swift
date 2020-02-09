@@ -32,7 +32,7 @@ public struct DefDocs<T: CustomStringConvertible> {
 
 /// Serialization for def documentation
 extension DefDocs: Encodable {
-    fileprivate enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case abstract
         case overview
         case returns
@@ -50,3 +50,5 @@ extension DefDocs: Encodable {
 
 /// Def documentation encoded in markdown
 public typealias DefMarkdownDocs = DefDocs<Markdown>
+
+public typealias DefHtmlDocs = DefDocs<Html>

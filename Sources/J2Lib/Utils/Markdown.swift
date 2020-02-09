@@ -27,6 +27,19 @@ public struct Markdown: CustomStringConvertible, Hashable {
     }
 }
 
+/// Strongly-typed wrapper for html
+public struct Html: CustomStringConvertible, Hashable {
+    public let html: String
+
+    public init(_ html: String) {
+        self.html = html
+    }
+
+    public var description: String {
+        html
+    }
+}
+
 // MARK: `CMDocument` helpers
 
 extension CMDocument {
@@ -62,6 +75,16 @@ extension CMNode {
             return Markdown(md.trimmingTrailingCharacters(in: .whitespacesAndNewlines))
         } catch {
             return Markdown("")
+        }
+    }
+
+    /// Render the tree to html, standard options and minimal whitespace.
+    public func renderHtml() -> Html {
+        do {
+            let html = try renderHtml(CMDocument.options, extensions: CMDocument.extensions)
+            return Html(html.trimmingTrailingCharacters(in: .whitespacesAndNewlines))
+        } catch {
+            return Html("")
         }
     }
 }
