@@ -22,6 +22,9 @@
               "other" : ": String"
             }
           ]
+        },
+        "title" : {
+          "en" : "text"
         }
       }
     ],
@@ -49,6 +52,9 @@
           "name" : "SpmSwiftModule"
         }
       ]
+    },
+    "title" : {
+      "en" : "SpmSwiftModule"
     }
   },
   {
@@ -87,6 +93,9 @@
           "other" : ": Int)"
         }
       ]
+    },
+    "title" : {
+      "en" : "functionA(arg1:_:arg3:)"
     }
   },
   {
@@ -128,6 +137,9 @@
           "other" : ": (_ report: String) -> Int) -> String"
         }
       ]
+    },
+    "title" : {
+      "en" : "deprecatedFunction(callback:)"
     }
   }
 ]

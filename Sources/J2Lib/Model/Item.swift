@@ -16,33 +16,54 @@ public class Item: Encodable {
     public let name: String
     /// The item's slug, unique in its docs scope
     public let slug: String
+    /// The item's translated title
+    public let title: Localized<String>
     /// Children in the documentation tree
     public let children: [Item]
 
-    /// The path of the item's URL, relative to docroot, without a file extension.  URL-encoded.
-    public internal(set) var urlPath: String = ""
-    /// The hash of the item's URL, or `nil` if it has its own page
-    public internal(set) var urlHash: String? = nil
+    /// Info about the item's URL relative to the docroot
+    public internal(set) var url: URLPieces
 
-    public init(name: String, slug: String, children: [Item]) {
+    public init(name: String, slug: String, title: Localized<String>? = nil, children: [Item]) {
         self.name = name
         self.slug = slug
+        if let title = title {
+            self.title = title
+        } else {
+            self.title = Localized<String>(unLocalized: name)
+        }
         self.children = children
+        self.url = URLPieces()
     }
 
     /// Overridden
     func accept(visitor: ItemVisitor, parents: [Item]) { preconditionFailure() }
     var  kind: ItemKind { .other }
 
+    /// Does the item show in the table of contents?
+    public enum ShowInToc {
+        /// Alway show in ToC
+        case yes
+        /// Never show in ToC
+        case no
+        /// Only show at the outermost level
+        case atTopLevel
+    }
+    var showInToc: ShowInToc { .no }
+
+    // Encodable
 
     private enum CodingKeys: CodingKey {
         case name
+        case title
         case children
     }
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(name, forKey: .name)
+        try container.encode(title, forKey: .title)
         try container.encode(children, forKey: .children)
     }
 }
+

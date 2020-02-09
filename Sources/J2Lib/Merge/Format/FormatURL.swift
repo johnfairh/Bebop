@@ -10,35 +10,82 @@ import Foundation
 
 // Collect the routines for assigning and working with URLs.
 
-extension Item {
-    /// Set this item to be its own page in docs, nested under some parent page
-    func setURLPath(parentURLPath: String) {
-        urlPath = parentURLPath + "/" + slug.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
+private extension String {
+    var urlPathEncoded: String {
+        addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
+    }
+
+    var urlFragmentEncoded: String {
+        addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)!
+    }
+
+    var removingPercentEncoding: String {
+        removingPercentEncoding!
+    }
+}
+
+public struct URLPieces: Encodable {
+    /// %-encoded URL path, without file extension
+    public let urlPath: String
+    /// %-encoded URL hash, or `nil` if no hash
+    public let urlHash: String?
+
+    /// Initialize for a top-level web page
+    public init(pageName: String) {
+        urlPath = pageName.urlPathEncoded
         urlHash = nil
     }
 
-    /// Set this item to be embedded in some parent page
-    func setURLHash(parentURLPath: String) {
-        urlPath = parentURLPath
-        urlHash = slug.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)
+    /// Initialize for a nested web page
+    public init(parentURLPath: String, pageName: String) {
+        urlPath = parentURLPath + "/" + pageName.urlPathEncoded
+        urlHash = nil
     }
 
-    /// Get the url (path + fragment/hash) for the item, assuming some file extension.  %-encoded for a URL.
-    func url(fileExtension: String) -> String {
+    /// Initialize for an anchor on a web page
+    public init(parentURLPath: String, hashName: String) {
+        urlPath = parentURLPath
+        urlHash = hashName.urlFragmentEncoded
+    }
+
+    init() {
+        urlPath = ""
+        urlHash = nil
+    }
+
+    /// Get the url (path + fragment/hash), assuming some file extension.  %-encoded for a URL.
+    public func url(fileExtension: String) -> String {
         let path = urlPath + fileExtension
         return urlHash.flatMap { path + "#\($0)" } ?? path
     }
 
-    /// Get the file-system name of the item's page, assuming some file extension.
-    /// Only valid for items that actually have their own page.
-    func filepath(fileExtension: String) -> String {
-        precondition(renderAsPage)
-        return url(fileExtension: fileExtension).removingPercentEncoding!
+    /// Get the file-system name of the page, assuming some file extension.
+    /// Invalid for hashes.
+    public func filepath(fileExtension: String) -> String {
+        precondition(urlHash == nil)
+        return url(fileExtension: fileExtension).removingPercentEncoding
+    }
+}
+
+extension Item {
+    /// Set this item to be a top-level page in docs
+    func setURLPath() {
+        url = URLPieces(pageName: slug)
+    }
+
+    /// Set this item to be its own page in docs, nested under some parent page
+    func setURLPath(parentURLPath: String) {
+        url = URLPieces(parentURLPath: parentURLPath, pageName: slug)
+    }
+
+    /// Set this item to be embedded in some parent page
+    func setURLHash(parentURLPath: String) {
+        url = URLPieces(parentURLPath: parentURLPath, hashName: slug)
     }
 
     /// Does the item get its own page in the docs?  If not then it is inlined into its parent.
     var renderAsPage: Bool {
-        urlHash == nil
+        url.urlHash == nil
     }
 }
 
@@ -50,19 +97,20 @@ struct URLVisitor: ItemVisitor {
 
         if parent.kind == .group {
             // a top-level def, place according to kind
+            // NOT THE PARENT!  PARENT MAY BE A NESTED CUSTOM CATEGORY.
             // XXX need to understand multi-module here
             defItem.setURLPath(parentURLPath: defItem.defKind.metaKind.name)
         } else if !defItem.children.isEmpty {
             // we're a nested def with children, we go in our parent's directory
-            defItem.setURLPath(parentURLPath: parent.urlPath)
+            defItem.setURLPath(parentURLPath: parent.url.urlPath)
         } else {
             // embed on parent page
-            defItem.setURLHash(parentURLPath: parent.urlPath)
+            defItem.setURLHash(parentURLPath: parent.url.urlPath)
         }
     }
 
     /// Groups all go in the top level using their slug as a name.
     func visit(groupItem: GroupItem, parents: [Item]) {
-        groupItem.urlPath = groupItem.slug
+        groupItem.setURLPath()
     }
 }

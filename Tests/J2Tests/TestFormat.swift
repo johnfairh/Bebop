@@ -52,10 +52,10 @@ class TestFormat: XCTestCase {
 
         let clasItem = formatted[0].children[0]
         XCTAssertEqual("trés", clasItem.slug)
-        XCTAssertEqual("types/trés.html", clasItem.filepath(fileExtension: ".html"))
-        XCTAssertEqual("types/tr%C3%A9s.html", clasItem.url(fileExtension: ".html"))
+        XCTAssertEqual("types/trés.html", clasItem.url.filepath(fileExtension: ".html"))
+        XCTAssertEqual("types/tr%C3%A9s.html", clasItem.url.url(fileExtension: ".html"))
         let varItem = clasItem.children[0]
-        XCTAssertEqual("types/tr%C3%A9s.html#bient%C3%B4t", varItem.url(fileExtension: ".html"))
+        XCTAssertEqual("types/tr%C3%A9s.html#bient%C3%B4t", varItem.url.url(fileExtension: ".html"))
     }
 
     // URL policy -- when to generate a page for a leaf def
@@ -73,7 +73,7 @@ class TestFormat: XCTestCase {
 
     private func checkURL(_ item: Item, _ asPage: Bool, _ urlPath: String, file: StaticString = #file, line: UInt = #line) {
         XCTAssertEqual(asPage, item.renderAsPage, file: file, line: line)
-        XCTAssertEqual(urlPath, item.url(fileExtension: ".html"), file: file, line: line)
+        XCTAssertEqual(urlPath, item.url.url(fileExtension: ".html"), file: file, line: line)
     }
 
     func testDefaultURLPolicy() throws {
@@ -83,7 +83,7 @@ class TestFormat: XCTestCase {
         XCTAssertTrue(formatted[0].renderAsPage)
         XCTAssertEqual("Top1", formatted[0].children[0].name)
         checkURL(formatted[0].children[0], true, "types/top1.html")
-        XCTAssertEqual("types/top1.html", formatted[0].children[0].filepath(fileExtension: ".html"))
+        XCTAssertEqual("types/top1.html", formatted[0].children[0].url.filepath(fileExtension: ".html"))
         XCTAssertEqual(3, formatted[0].children[0].children.count)
         checkURL(formatted[0].children[0].children[0], false, "types/top1.html#nestednochildren")
         checkURL(formatted[0].children[0].children[1], false, "types/top1.html#instancevar1")

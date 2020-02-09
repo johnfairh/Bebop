@@ -28,7 +28,7 @@ public struct Markdown: CustomStringConvertible, Hashable {
 }
 
 /// Strongly-typed wrapper for html
-public struct Html: CustomStringConvertible, Hashable {
+public struct Html: CustomStringConvertible, Hashable, Encodable {
     public let html: String
 
     public init(_ html: String) {

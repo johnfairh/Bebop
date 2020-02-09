@@ -30,6 +30,8 @@ struct MarkdownVisitor: ItemVisitor {
         let rendered = defItem.markdownDocs.mapValues { render(docs: $0) }
         defItem.markdownDocs = rendered.mapValues { $0.0 }
         defItem.htmlDocs = rendered.mapValues { $0.1 }
+
+        // XXX deprecation notice
     }
 
     /// This isn't *too* bad but wow....

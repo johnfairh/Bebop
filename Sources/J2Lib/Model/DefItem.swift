@@ -66,4 +66,16 @@ public class DefItem: Item {
     }
 
     override var kind: ItemKind { defKind.metaKind }
+
+    override var showInToc: ShowInToc {
+        // Always show nominal types/extensions, however nested.
+        // (nesting can be natural or due to custom categories.)
+        if defKind.metaKind == .extension ||
+            defKind.metaKind == .type {
+            return .yes
+        }
+        // Only show functions etc. at the top level -- allows global
+        // functions but suppresses members.
+        return .atTopLevel
+    }
 }

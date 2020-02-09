@@ -14,6 +14,8 @@ enum PipelineProduct: String, CaseIterable {
     case files_json
     /// Merge output
     case decls_json
+    /// PageGen output
+    case docs_summary_json
     /// Produce docs
     case docs
 
@@ -21,7 +23,7 @@ enum PipelineProduct: String, CaseIterable {
     /// output only to stdout, everything else to stderr.  Used for the various json-dumping modes.
     var needsPipelineMode: Bool {
         switch self {
-        case .files_json, .decls_json: return true
+        case .files_json, .decls_json, .docs_summary_json: return true
         case .docs: return false
         }
     }
@@ -45,6 +47,8 @@ public final class Pipeline: Configurable {
     public let group: Group
     /// Assign URLs and render autolinked html, markdown
     public let format: Format
+    /// Flatten docs
+    public let pageGen: PageGen
     /// Generate final docs
     public let gen: Gen
 
@@ -82,6 +86,7 @@ public final class Pipeline: Configurable {
         merge = Merge(config: config)
         group = Group(config: config)
         format = Format(config: config)
+        pageGen = PageGen(config: config)
         gen = Gen(config: config)
         config.register(self)
     }
@@ -115,9 +120,17 @@ public final class Pipeline: Configurable {
 
         let groupedDefs = try group.group(merged: mergedDefs)
 
-        let formattedDefs = try format.format(items: groupedDefs)
+        let formattedItems = try format.format(items: groupedDefs)
 
-        try gen.generate(defs: formattedDefs)
+        let docsData = try pageGen.generatePages(items: formattedItems)
+
+        if testAndClearProduct(.docs_summary_json) {
+            logDebug("Pipeline: producing docs-summary-json")
+            logOutput(try docsData.toJSON())
+            if productsAllDone { return }
+        }
+
+        try gen.generate(docsData: docsData)
     }
 
     /// Callback during options processing.  Important we sort out pipeline mode now to avoid

@@ -94,6 +94,15 @@ public struct Localizations {
 /// Keyed by language tag
 public typealias Localized<T> = [String : T]
 
+extension Dictionary where Key == String {
+    init(unLocalized: Value) {
+        self.init()
+        Localizations.shared.allTags.forEach {
+            self[$0] = unLocalized
+        }
+    }
+}
+
 extension Dictionary where Key == String, Value == String {
     /// Helper to grab a piece of localized output text and do substitutions %1 .... %n
     static func localizedOutput(_ key: L10n.Output, _ subs: Any...) -> Localized<String> {

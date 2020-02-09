@@ -26,8 +26,8 @@ public struct Gen: Configurable {
         config.register(self)
     }
 
-    public func generate(defs: [Item]) throws {
-        let theme = try themes.select()
+    public func generate(docsData: DocsData) throws {
+        let _ = try themes.select()
 
         if cleanOpt.value {
             logDebug("Gen: Cleaning output directory \(outputURL.path)")
@@ -37,13 +37,13 @@ public struct Gen: Configurable {
         logDebug("Gen: Creating output directory \(outputURL.path)")
         try FileManager.default.createDirectory(at: outputURL, withIntermediateDirectories: true)
 
-        try defs.forEach { def in
-            let url = outputURL.appendingPathComponent("\(def.name).\(theme.fileExtension)")
-            let mustacheData = ["name" : def.name]
-            logDebug("Gen: Rendering template \(def.name)")
-            let rendered = try theme.renderTemplate(data: mustacheData)
-            logDebug("Gen: Creating \(url.path)")
-            try rendered.write(to: url, atomically: true, encoding: .utf8)
-        }
+//        try defs.forEach { def in
+//            let url = outputURL.appendingPathComponent("\(def.name).\(theme.fileExtension)")
+//            let mustacheData = ["name" : def.name]
+//            logDebug("Gen: Rendering template \(def.name)")
+//            let rendered = try theme.renderTemplate(data: mustacheData)
+//            logDebug("Gen: Creating \(url.path)")
+//            try rendered.write(to: url, atomically: true, encoding: .utf8)
+//        }
     }
 }

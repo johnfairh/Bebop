@@ -39,14 +39,6 @@ extension DefItem {
 
 extension Array where Element == DefItem {
     public func toJSON() throws -> String {
-        let encoder = JSONEncoder()
-        encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
-        encoder.keyEncodingStrategy = .convertToSnakeCase
-        let data = try encoder.encode(self)
-        let json = String(data: data, encoding: .utf8)!
-        // Improve formatting of empty arrays / hashes
-        return json.re_sub(#"(?<=[\[{])\s*(?=[\]}])"#, with: "")
-        // (and omg, another open-source foundation difference appears,
-        //  trailing spaces galore on linux...)
+        try JSON.encode(self)
     }
 }
