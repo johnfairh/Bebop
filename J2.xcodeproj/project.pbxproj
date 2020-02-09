@@ -27,8 +27,9 @@
 		0233D53123EF4047004DCD89 /* TestGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D53023EF4047004DCD89 /* TestGroup.swift */; };
 		0233D53323EF43A7004DCD89 /* TestFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D53223EF43A7004DCD89 /* TestFormat.swift */; };
 		0233D53523F067EE004DCD89 /* PageGen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D53423F067EE004DCD89 /* PageGen.swift */; };
-		0233D53723F07B1A004DCD89 /* DocsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D53623F07B1A004DCD89 /* DocsData.swift */; };
+		0233D53723F07B1A004DCD89 /* GenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D53623F07B1A004DCD89 /* GenData.swift */; };
 		0233D53923F07E6E004DCD89 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D53823F07E6E004DCD89 /* JSON.swift */; };
+		0233D53B23F09E0D004DCD89 /* MustacheGen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D53A23F09E0D004DCD89 /* MustacheGen.swift */; };
 		0257280023DB50270001F510 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 025727FE23DB50270001F510 /* Localizable.strings */; };
 		0257280523DB503C0001F510 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0257280223DB503C0001F510 /* Localizable.strings */; };
 		0257280723DB50B40001F510 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0257280623DB50B40001F510 /* Resources.swift */; };
@@ -61,7 +62,7 @@
 		02CFFA0123E0B95F00FDE5B9 /* Merge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFFA0023E0B95F00FDE5B9 /* Merge.swift */; };
 		02CFFA0423E0BA2900FDE5B9 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFFA0323E0BA2900FDE5B9 /* Item.swift */; };
 		02CFFA0623E0BD8B00FDE5B9 /* DefItemJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFFA0523E0BD8B00FDE5B9 /* DefItemJSON.swift */; };
-		02CFFA0923E0C8AC00FDE5B9 /* Gen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFFA0823E0C8AC00FDE5B9 /* Gen.swift */; };
+		02CFFA0923E0C8AC00FDE5B9 /* SiteGen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFFA0823E0C8AC00FDE5B9 /* SiteGen.swift */; };
 		02CFFA0D23E1973300FDE5B9 /* Mustache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02CFFA0C23E1973300FDE5B9 /* Mustache.framework */; };
 		02CFFA0E23E1973300FDE5B9 /* Mustache.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02CFFA0C23E1973300FDE5B9 /* Mustache.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		02CFFA1023E1E9A700FDE5B9 /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFFA0F23E1E9A700FDE5B9 /* Themes.swift */; };
@@ -208,8 +209,9 @@
 		0233D53023EF4047004DCD89 /* TestGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGroup.swift; sourceTree = "<group>"; };
 		0233D53223EF43A7004DCD89 /* TestFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFormat.swift; sourceTree = "<group>"; };
 		0233D53423F067EE004DCD89 /* PageGen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageGen.swift; sourceTree = "<group>"; };
-		0233D53623F07B1A004DCD89 /* DocsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocsData.swift; sourceTree = "<group>"; };
+		0233D53623F07B1A004DCD89 /* GenData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenData.swift; sourceTree = "<group>"; };
 		0233D53823F07E6E004DCD89 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
+		0233D53A23F09E0D004DCD89 /* MustacheGen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MustacheGen.swift; sourceTree = "<group>"; };
 		025727FF23DB50270001F510 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		0257280323DB503C0001F510 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = Localizable.strings; sourceTree = "<group>"; };
 		0257280623DB50B40001F510 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
@@ -244,7 +246,7 @@
 		02CFFA0023E0B95F00FDE5B9 /* Merge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Merge.swift; sourceTree = "<group>"; };
 		02CFFA0323E0BA2900FDE5B9 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		02CFFA0523E0BD8B00FDE5B9 /* DefItemJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefItemJSON.swift; sourceTree = "<group>"; };
-		02CFFA0823E0C8AC00FDE5B9 /* Gen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gen.swift; sourceTree = "<group>"; };
+		02CFFA0823E0C8AC00FDE5B9 /* SiteGen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteGen.swift; sourceTree = "<group>"; };
 		02CFFA0C23E1973300FDE5B9 /* Mustache.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mustache.framework; path = Carthage/Build/Mac/Mustache.framework; sourceTree = "<group>"; };
 		02CFFA0F23E1E9A700FDE5B9 /* Themes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
 		02CFFA1C23E20AB400FDE5B9 /* themes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = themes; sourceTree = "<group>"; };
@@ -533,9 +535,10 @@
 		02CFFA0723E0C89600FDE5B9 /* Gen */ = {
 			isa = PBXGroup;
 			children = (
-				0233D53623F07B1A004DCD89 /* DocsData.swift */,
+				0233D53623F07B1A004DCD89 /* GenData.swift */,
 				0233D53423F067EE004DCD89 /* PageGen.swift */,
-				02CFFA0823E0C8AC00FDE5B9 /* Gen.swift */,
+				0233D53A23F09E0D004DCD89 /* MustacheGen.swift */,
+				02CFFA0823E0C8AC00FDE5B9 /* SiteGen.swift */,
 				02CFFA0F23E1E9A700FDE5B9 /* Themes.swift */,
 			);
 			path = Gen;
@@ -752,7 +755,7 @@
 				02CFF92B23DEF49400FDE5B9 /* GatherJSON.swift in Sources */,
 				0233D52923EF1582004DCD89 /* Format.swift in Sources */,
 				02FDC68023E8B25100C2F9CD /* Localization.swift in Sources */,
-				0233D53723F07B1A004DCD89 /* DocsData.swift in Sources */,
+				0233D53723F07B1A004DCD89 /* GenData.swift in Sources */,
 				022818D123D4F2AE0016B0D5 /* Glob.swift in Sources */,
 				02CFFA0623E0BD8B00FDE5B9 /* DefItemJSON.swift in Sources */,
 				02FDC68D23EB498A00C2F9CD /* DefDeclaration.swift in Sources */,
@@ -785,9 +788,10 @@
 				02FDC68F23EB4C1B00C2F9CD /* Lock.swift in Sources */,
 				02D064F423EC208200FE11BD /* Group.swift in Sources */,
 				02CFFA3E23E5A95B00FDE5B9 /* GatherDeclAvailable.swift in Sources */,
-				02CFFA0923E0C8AC00FDE5B9 /* Gen.swift in Sources */,
+				02CFFA0923E0C8AC00FDE5B9 /* SiteGen.swift in Sources */,
 				022818B823D1C2E00016B0D5 /* Options.swift in Sources */,
 				0257280723DB50B40001F510 /* Resources.swift in Sources */,
+				0233D53B23F09E0D004DCD89 /* MustacheGen.swift in Sources */,
 				0233D53523F067EE004DCD89 /* PageGen.swift in Sources */,
 				029A6F1D23D79AB000D66069 /* Version.swift in Sources */,
 				02FDC69123EB617300C2F9CD /* StringEnums.swift in Sources */,

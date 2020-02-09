@@ -76,7 +76,7 @@ class TestMerge: XCTestCase {
         let actualJson = TestLogger.shared.outputBuf[0] + "\n"
 
         // to fix up when it changes...
-        // try actualJson.write(to: spmTestDeclsJsonURL, atomically: true, encoding: .utf8)
+        // try actualJson.write(to: spmTestDeclsJsonURL)
 
         let expectedJson = try String(contentsOf: spmTestDeclsJsonURL)
         XCTAssertEqual(expectedJson, actualJson)

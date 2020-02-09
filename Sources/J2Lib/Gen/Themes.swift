@@ -80,7 +80,7 @@ struct Theme {
     /// The root mustache template object
     private let template: Template
 
-    /// File extension that the generated output files should be given.  No leading period.
+    /// File extension that the generated output files should be given.  Includes leading period.
     let fileExtension: String
 
     init(url: URL) throws {

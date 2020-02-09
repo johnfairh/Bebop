@@ -69,7 +69,7 @@ class TestTheme: XCTestCase {
     func testThemeYaml() throws {
         let themeURL = fixturesURL.appendingPathComponent("Theme")
         let theme = try Theme(url: themeURL)
-        XCTAssertEqual("md", theme.fileExtension)
+        XCTAssertEqual(".md", theme.fileExtension)
         let data = ["name" : "Fred", "type" : "Barney"]
         let rendered = try theme.renderTemplate(data: data)
         XCTAssertEqual("Fred\nBarney\n\n", rendered)
@@ -85,9 +85,7 @@ class TestTheme: XCTestCase {
     // test-bad-theme-yaml
     func testBadThemeYaml() throws {
         let tmpDir = try createThemeDirs()
-        try "bad_attr: something".write(to: tmpDir.directoryURL.appendingPathComponent("theme.yaml"),
-                                        atomically: true,
-                                        encoding: .utf8)
+        try "bad_attr: something".write(to: tmpDir.directoryURL.appendingPathComponent("theme.yaml"))
         AssertThrows(try Theme(url: tmpDir.directoryURL), OptionsError.self)
     }
 

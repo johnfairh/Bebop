@@ -6,13 +6,11 @@
 //  Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
 //
 
-import Foundation
-
 /// A somewhat-normalized pure-ish data structure containing everything
-/// required to render the site.
+/// required to render the parts of the site that change page-to-page.
 ///
 /// Dumped for the `docs-summary-json` product.
-public struct DocsData: Encodable {
+public final class GenData: Encodable {
     public struct Meta: Encodable {
         public let version: String
     }
@@ -27,16 +25,22 @@ public struct DocsData: Encodable {
         public let url: URLPieces
         public let title: Localized<String>
         // breadcrumbs
-        public let swiftDeclaration: String
-        public let availability: [String]
-        public let abstract: Localized<Html>
-        public let overview: Localized<Html>
+//        public let swiftDeclaration: String
+//        public let availability: [String]
+//        public let abstract: Localized<Html>
+//        public let overview: Localized<Html>
         // topics
     }
     public let pages: [Page]
+
+    public init(meta: Meta, toc: [TocEntry], pages: [Page]) {
+        self.meta = meta
+        self.toc = toc
+        self.pages = pages
+    }
 }
 
-extension DocsData {
+extension GenData {
     public func toJSON() throws -> String {
         try JSON.encode(self)
     }

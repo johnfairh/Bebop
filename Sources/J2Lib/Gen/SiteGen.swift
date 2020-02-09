@@ -8,10 +8,10 @@
 
 import Foundation
 
-/// `Gen` produces docs output data from an `Item` forest.
+/// `SiteGen` produces docs output data from an `Item` forest.
 ///
 /// tbd whether we need the pagegen / sitegen split - just stubs really
-public struct Gen: Configurable {
+public struct SiteGen: Configurable {
     let outputOpt = PathOpt(s: "o", l: "output").help("PATH").def("docs")
     let cleanOpt = BoolOpt(s: "c", l: "clean")
 
@@ -26,8 +26,8 @@ public struct Gen: Configurable {
         config.register(self)
     }
 
-    public func generate(docsData: DocsData) throws {
-        let _ = try themes.select()
+    public func generate(genData: GenData) throws {
+        let theme = try themes.select()
 
         if cleanOpt.value {
             logDebug("Gen: Cleaning output directory \(outputURL.path)")
@@ -37,13 +37,19 @@ public struct Gen: Configurable {
         logDebug("Gen: Creating output directory \(outputURL.path)")
         try FileManager.default.createDirectory(at: outputURL, withIntermediateDirectories: true)
 
-//        try defs.forEach { def in
-//            let url = outputURL.appendingPathComponent("\(def.name).\(theme.fileExtension)")
-//            let mustacheData = ["name" : def.name]
-//            logDebug("Gen: Rendering template \(def.name)")
-//            let rendered = try theme.renderTemplate(data: mustacheData)
-//            logDebug("Gen: Creating \(url.path)")
-//            try rendered.write(to: url, atomically: true, encoding: .utf8)
-//        }
+        var pageIterator = genData.makeIterator(fileExt: theme.fileExtension)
+
+        while let page = pageIterator.next() {
+            var url = outputURL
+            if page.languageTag != Localizations.shared.main.tag {
+                url.appendPathComponent(page.languageTag)
+            }
+            url.appendPathComponent(page.filepath)
+            logDebug("Gen: Rendering template \(page.data[.title] ?? "??")")
+            let rendered = try theme.renderTemplate(data: page.data)
+
+            logDebug("Gen: Creating \(url.path)")
+            try rendered.write(to: url)
+        }
     }
 }

@@ -97,3 +97,15 @@ public final class TemporaryDirectory {
         }
     }
 }
+
+extension String {
+    /// Write contents to a file, creating directories along the way if necessary
+    public func write(to url: URL) throws {
+        let directory = url.deletingLastPathComponent()
+        if !FileManager.default.fileExists(atPath: directory.path) {
+            try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
+        }
+        try write(to: url, atomically: true, encoding: .utf8)
+    }
+}
+

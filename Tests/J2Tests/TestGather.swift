@@ -165,7 +165,7 @@ class TestGather: XCTestCase {
         let actualJson = TestLogger.shared.outputBuf[0] + "\n"
 
         // to fix up when it changes...
-        // try actualJson.write(to: spmTestFilesJsonURL, atomically: true, encoding: .utf8)
+        // try actualJson.write(to: spmTestFilesJsonURL)
 
         let expectedJson = try String(contentsOf: spmTestFilesJsonURL)
         let cleanedActual = cleanUpJson(file: actualJson)

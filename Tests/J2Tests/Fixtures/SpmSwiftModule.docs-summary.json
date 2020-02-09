@@ -1,0 +1,77 @@
+{
+  "meta" : {
+    "version" : "0.1"
+  },
+  "pages" : [
+    {
+      "title" : {
+        "en" : "Types"
+      },
+      "url" : {
+        "url_path" : "types"
+      }
+    },
+    {
+      "title" : {
+        "en" : "SpmSwiftModule"
+      },
+      "url" : {
+        "url_path" : "types\/spmswiftmodule"
+      }
+    },
+    {
+      "title" : {
+        "en" : "Functions"
+      },
+      "url" : {
+        "url_path" : "functions"
+      }
+    },
+    {
+      "title" : {
+        "en" : "functionA(arg1:_:arg3:)"
+      },
+      "url" : {
+        "url_path" : "functions\/functionaarg1_arg3"
+      }
+    },
+    {
+      "title" : {
+        "en" : "deprecatedFunction(callback:)"
+      },
+      "url" : {
+        "url_path" : "functions\/deprecatedfunctioncallback"
+      }
+    }
+  ],
+  "toc" : [
+    {
+      "children" : [
+        {
+          "children" : [],
+          "title" : {
+            "en" : "SpmSwiftModule"
+          },
+          "url" : {
+            "url_path" : "types\/spmswiftmodule"
+          }
+        }
+      ],
+      "title" : {
+        "en" : "Types"
+      },
+      "url" : {
+        "url_path" : "types"
+      }
+    },
+    {
+      "children" : [],
+      "title" : {
+        "en" : "Functions"
+      },
+      "url" : {
+        "url_path" : "functions"
+      }
+    }
+  ]
+}

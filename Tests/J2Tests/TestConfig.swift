@@ -54,7 +54,7 @@ class TestConfig: XCTestCase {
     func testConfigFile() throws {
         let tmpDir = try TemporaryDirectory()
         let configFile = try tmpDir.createFile(name: ".j2.yaml")
-        try "name: fred".write(to: configFile, atomically: true, encoding: .utf8)
+        try "name: fred".write(to: configFile)
 
         do {
             let system = System()
@@ -78,9 +78,9 @@ class TestConfig: XCTestCase {
         let tmpDir = try TemporaryDirectory()
         let tmpSubDir = try tmpDir.createDirectory()
         let j2Config = try tmpDir.createFile(name: ".j2.yaml")
-        try "name: barney".write(to: j2Config, atomically: true, encoding: .utf8)
+        try "name: barney".write(to: j2Config)
         let jazzyConfig = try tmpSubDir.createFile(name: ".jazzy.yaml")
-        try "name: wilma".write(to: jazzyConfig, atomically: true, encoding: .utf8)
+        try "name: wilma".write(to: jazzyConfig)
 
         try tmpDir.directoryURL.withCurrentDirectory {
             let system = System()
@@ -95,7 +95,7 @@ class TestConfig: XCTestCase {
     func testConfigFileCli() throws {
         let tmpDir = try TemporaryDirectory()
         let j2Config = try tmpDir.createFile(name: ".j2.yaml")
-        try "name: barney".write(to: j2Config, atomically: true, encoding: .utf8)
+        try "name: barney".write(to: j2Config)
 
         try tmpDir.directoryURL.withCurrentDirectory {
             TestLogger.install()

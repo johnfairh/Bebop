@@ -9,36 +9,58 @@
 import Foundation
 
 /// `PageGen` is a simple component that takes the formatted docs forest and converts them
-/// into a flat data structure very close to what's required by the page renderer.
+/// into the consolidated data structure that can spit out data for the page renderer.
 ///
 public struct PageGen: Configurable {
     public init(config: Config) {
         config.register(self)
     }
 
-    public func generatePages(items: [Item]) throws -> DocsData {
-        let meta = DocsData.Meta(version: Version.j2libVersion)
+    public func generatePages(items: [Item]) throws -> GenData {
+        let meta = GenData.Meta(version: Version.j2libVersion)
         let toc = generateToc(items: items)
-        return DocsData(meta: meta, toc: toc, pages: [])
+
+        let pageVisitor = PageVisitor()
+        pageVisitor.walk(items: items)
+
+        return GenData(meta: meta, toc: toc, pages: pageVisitor.pages)
     }
 
-    func generateToc(items: [Item]) -> [DocsData.TocEntry] {
-        items.compactMap { toplevelItem -> DocsData.TocEntry? in
+    // MARK: Table of contents
+
+    func generateToc(items: [Item]) -> [GenData.TocEntry] {
+        items.compactMap { toplevelItem -> GenData.TocEntry? in
             guard toplevelItem.showInToc != .no else {
                 return nil // readme
             }
-            return DocsData.TocEntry(url: toplevelItem.url,
+            return GenData.TocEntry(url: toplevelItem.url,
                                      title: toplevelItem.title,
                                      children: toplevelItem.children.compactMap { generateSubToc(item: $0) })
         }
     }
 
-    func generateSubToc(item: Item) -> DocsData.TocEntry? {
+    func generateSubToc(item: Item) -> GenData.TocEntry? {
         guard item.showInToc == .yes else {
             return nil
         }
-        return DocsData.TocEntry(url: item.url,
+        return GenData.TocEntry(url: item.url,
                                  title: item.title,
                                  children: item.children.compactMap { generateSubToc(item: $0) })
+    }
+}
+
+// MARK: Page data
+
+final class PageVisitor: ItemVisitor {
+    var pages = [GenData.Page]()
+
+    func visit(defItem: DefItem, parents: [Item]) {
+        if defItem.renderAsPage {
+            pages.append(GenData.Page(url: defItem.url, title: defItem.title))
+        }
+    }
+
+    func visit(groupItem: GroupItem, parents: [Item]) {
+        pages.append(GenData.Page(url: groupItem.url, title: groupItem.title))
     }
 }

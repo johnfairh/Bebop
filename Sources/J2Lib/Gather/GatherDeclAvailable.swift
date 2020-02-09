@@ -17,8 +17,6 @@ import SwiftSyntax
 // actual compiler decode from doc-info into cursorinfo.
 //
 
-// XXX localization - including deprecation messages....
-
 // First some types to categorize the @available arguments, which can occur
 // in practically any order.
 
