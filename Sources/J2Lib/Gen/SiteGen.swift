@@ -58,5 +58,6 @@ public struct SiteGen: Configurable {
             logDebug("Gen: Creating \(url.path)")
             try rendered.write(to: url)
         }
+        try theme.copyAssets(to: outputURL)
     }
 }

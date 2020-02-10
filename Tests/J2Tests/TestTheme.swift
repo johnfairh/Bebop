@@ -37,7 +37,7 @@ class TestTheme: XCTestCase {
         XCTAssertEqual("fw2020", url.lastPathComponent)
 
         let theme = try system.themes.select()
-        XCTAssertEqual("html", theme.fileExtension)
+        XCTAssertEqual(".html", theme.fileExtension)
     }
 
     func testImplicitThemeSelection() throws {

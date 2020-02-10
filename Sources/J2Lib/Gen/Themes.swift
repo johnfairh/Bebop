@@ -75,6 +75,8 @@ struct Theme {
         }
     }
 
+    /// URL to the theme root
+    private let url: URL
     /// URL to the root mustache template file
     private let mustacheRootURL: URL
     /// The root mustache template object
@@ -84,6 +86,7 @@ struct Theme {
     let fileExtension: String
 
     init(url: URL) throws {
+        self.url = url
         logDebug("Theme: checking theme \(url.path)")
 
         // Must have a templates directory
@@ -109,5 +112,21 @@ struct Theme {
 
     func renderTemplate(data: [String : Any]) throws -> String {
         try template.render(data)
+    }
+
+    /// Copy everything from the `assets` directory into the root of the docs siet
+    func copyAssets(to docsSiteURL: URL) throws {
+        logDebug("Theme: copying assets")
+        let assetsURL = url.appendingPathComponent("assets")
+        guard FileManager.default.fileExists(atPath: assetsURL.path) else {
+            return
+        }
+        let contents = try FileManager.default.contentsOfDirectory(at: assetsURL, includingPropertiesForKeys: [])
+        try contents.forEach { srcURL in
+            let filename = srcURL.lastPathComponent
+            let dstURL = docsSiteURL.appendingPathComponent(filename)
+            try? FileManager.default.removeItem(at: dstURL)
+            try FileManager.default.copyItem(at: srcURL, to: dstURL)
+        }
     }
 }
