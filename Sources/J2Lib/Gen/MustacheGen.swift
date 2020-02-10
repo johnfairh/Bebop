@@ -68,6 +68,13 @@ public enum MustacheKey: String {
     case languageTag = "language_tag"
     case pageTitle = "page_title"
     case pathToRoot = "path_to_root" // empty string or ends in "/"
+    case toc = "toc"
+
+    // ToC entries
+    case title = "title"
+    case url = "url"
+    case active = "active"
+    case children = "children"
 
     // Set by SiteGen
     case pathToAssets = "path_to_assets" // empty string or ends in "/"
@@ -82,6 +89,31 @@ extension GenData {
         data[.pageTitle] = pg.title[languageTag]
         data[.pathToRoot] = pg.url.pathToRoot
 
+        data[.toc] = generateToc(languageTag: languageTag,
+                                 fileExt: fileExt,
+                                 pageURLPath: pg.url.url(fileExtension: fileExt))
+
         return MustachePage(languageTag: languageTag, filepath: filepath, data: data)
     }
+
+    /// Generate the table of contents (left nav) for the page.
+    /// This is unique for each page because the 'active' element changes and translation.
+    func generateToc(languageTag: String, fileExt: String, pageURLPath: String) -> [[String : Any]] {
+
+        func tocList(entries: [TocEntry]) -> [[String : Any]] {
+            entries.map { entry in
+                let entryURLPath = entry.url.url(fileExtension: fileExt)
+                return MH([.title: entry.title[languageTag] ?? "??",
+                           .url: entryURLPath,
+                           .active: entryURLPath == pageURLPath,
+                           .children: tocList(entries: entry.children)])
+            }
+        }
+
+        return tocList(entries: toc)
+    }
+}
+
+private func MH(_ pairs: KeyValuePairs<MustacheKey, Any>) -> [String : Any] {
+    Dictionary(uniqueKeysWithValues: pairs.map { ($0.0.rawValue, $0.1) })
 }

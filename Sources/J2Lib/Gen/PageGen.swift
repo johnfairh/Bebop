@@ -29,23 +29,20 @@ public struct PageGen: Configurable {
     // MARK: Table of contents
 
     func generateToc(items: [Item]) -> [GenData.TocEntry] {
-        items.compactMap { toplevelItem -> GenData.TocEntry? in
-            guard toplevelItem.showInToc != .no else {
-                return nil // readme
-            }
-            return GenData.TocEntry(url: toplevelItem.url,
-                                     title: toplevelItem.title,
-                                     children: toplevelItem.children.compactMap { generateSubToc(item: $0) })
-        }
-    }
 
-    func generateSubToc(item: Item) -> GenData.TocEntry? {
-        guard item.showInToc == .yes else {
-            return nil
+        func doGenerate(items: [Item], depth: Int) -> [GenData.TocEntry] {
+            items.compactMap { item in
+                guard item.showInToc == .yes ||
+                    (item.showInToc == .atTopLevel && depth < 2) else {
+                    return nil
+                }
+                return GenData.TocEntry(url: item.url,
+                                        title: item.title,
+                                        children: doGenerate(items: item.children, depth: depth + 1))
+            }
         }
-        return GenData.TocEntry(url: item.url,
-                                 title: item.title,
-                                 children: item.children.compactMap { generateSubToc(item: $0) })
+
+        return doGenerate(items: items, depth: 0)
     }
 }
 

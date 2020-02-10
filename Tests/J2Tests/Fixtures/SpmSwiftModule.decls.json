@@ -26,6 +26,76 @@
         "title" : {
           "en" : "text"
         }
+      },
+      {
+        "children" : [
+          {
+            "children" : [],
+            "kind" : "source.lang.swift.decl.struct",
+            "module_name" : "SpmSwiftModule",
+            "name" : "Nested2a",
+            "pass_index" : 0,
+            "swift_declaration" : {
+              "availability" : [],
+              "declaration" : "public struct SpmSwiftModule.Nested1.Nested2a",
+              "deprecation" : {},
+              "name_pieces" : [
+                {
+                  "other" : "struct "
+                },
+                {
+                  "name" : "Nested2a"
+                }
+              ]
+            },
+            "title" : {
+              "en" : "Nested2a"
+            }
+          },
+          {
+            "children" : [],
+            "kind" : "source.lang.swift.decl.struct",
+            "module_name" : "SpmSwiftModule",
+            "name" : "Nested2b",
+            "pass_index" : 0,
+            "swift_declaration" : {
+              "availability" : [],
+              "declaration" : "public struct SpmSwiftModule.Nested1.Nested2b",
+              "deprecation" : {},
+              "name_pieces" : [
+                {
+                  "other" : "struct "
+                },
+                {
+                  "name" : "Nested2b"
+                }
+              ]
+            },
+            "title" : {
+              "en" : "Nested2b"
+            }
+          }
+        ],
+        "kind" : "source.lang.swift.decl.struct",
+        "module_name" : "SpmSwiftModule",
+        "name" : "Nested1",
+        "pass_index" : 0,
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : "public struct SpmSwiftModule.Nested1",
+          "deprecation" : {},
+          "name_pieces" : [
+            {
+              "other" : "struct "
+            },
+            {
+              "name" : "Nested1"
+            }
+          ]
+        },
+        "title" : {
+          "en" : "Nested1"
+        }
       }
     ],
     "documentation" : {

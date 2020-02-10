@@ -15,7 +15,7 @@
       "key.j2.module_name" : "SpmSwiftModule",
       "key.j2.pass_index" : 0,
       "key.j2.version" : "0.1",
-      "key.length" : 545,
+      "key.length" : 659,
       "key.offset" : 0,
       "key.substructure" : [
         {
@@ -28,7 +28,7 @@
               "key.offset" : 4
             }
           ],
-          "key.bodylength" : 39,
+          "key.bodylength" : 153,
           "key.bodyoffset" : 34,
           "key.doc.column" : 15,
           "key.doc.comment" : "",
@@ -59,13 +59,13 @@
           ],
           "key.j2.preferred_swift_declaration" : "public struct SpmSwiftModule",
           "key.kind" : "source.lang.swift.decl.struct",
-          "key.length" : 63,
+          "key.length" : 177,
           "key.name" : "SpmSwiftModule",
           "key.namelength" : 14,
           "key.nameoffset" : 18,
           "key.offset" : 11,
           "key.parsed_declaration" : "public struct SpmSwiftModule",
-          "key.parsed_scope.end" : 4,
+          "key.parsed_scope.end" : 11,
           "key.parsed_scope.start" : 2,
           "key.substructure" : [
             {
@@ -108,6 +108,122 @@
               "key.typename" : "String",
               "key.typeusr" : "$sSSD",
               "key.usr" : "s:14SpmSwiftModuleAAV4textSSvp"
+            },
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.public",
+              "key.annotated_decl" : "<Declaration>public struct <Type usr=\"s:14SpmSwiftModuleAAV\">SpmSwiftModule<\/Type>.Nested1<\/Declaration>",
+              "key.attributes" : [
+                {
+                  "key.attribute" : "source.decl.attribute.public",
+                  "key.length" : 6,
+                  "key.offset" : 78
+                }
+              ],
+              "key.bodylength" : 84,
+              "key.bodyoffset" : 101,
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+              "key.fully_annotated_decl" : "<decl.struct><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>struct<\/syntaxtype.keyword> <ref.struct usr=\"s:14SpmSwiftModuleAAV\">SpmSwiftModule<\/ref.struct>.<decl.name>Nested1<\/decl.name><\/decl.struct>",
+              "key.j2.name_pieces" : [
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "struct "
+                },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "Nested1"
+                }
+              ],
+              "key.j2.preferred_swift_declaration" : "public struct SpmSwiftModule.Nested1",
+              "key.kind" : "source.lang.swift.decl.struct",
+              "key.length" : 101,
+              "key.name" : "Nested1",
+              "key.namelength" : 7,
+              "key.nameoffset" : 92,
+              "key.offset" : 85,
+              "key.parsed_declaration" : "public struct Nested1",
+              "key.parsed_scope.end" : 10,
+              "key.parsed_scope.start" : 5,
+              "key.substructure" : [
+                {
+                  "key.accessibility" : "source.lang.swift.accessibility.public",
+                  "key.annotated_decl" : "<Declaration>public struct <Type usr=\"s:14SpmSwiftModuleAAV\">SpmSwiftModule<\/Type>.<Type usr=\"s:14SpmSwiftModuleAAV7Nested1V\">Nested1<\/Type>.Nested2a<\/Declaration>",
+                  "key.attributes" : [
+                    {
+                      "key.attribute" : "source.decl.attribute.public",
+                      "key.length" : 6,
+                      "key.offset" : 109
+                    }
+                  ],
+                  "key.bodylength" : 7,
+                  "key.bodyoffset" : 133,
+                  "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+                  "key.fully_annotated_decl" : "<decl.struct><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>struct<\/syntaxtype.keyword> <ref.struct usr=\"s:14SpmSwiftModuleAAV\">SpmSwiftModule<\/ref.struct>.<ref.struct usr=\"s:14SpmSwiftModuleAAV7Nested1V\">Nested1<\/ref.struct>.<decl.name>Nested2a<\/decl.name><\/decl.struct>",
+                  "key.j2.name_pieces" : [
+                    {
+                      "key.j2.name_piece_is_name" : false,
+                      "key.j2.name_piece_text" : "struct "
+                    },
+                    {
+                      "key.j2.name_piece_is_name" : true,
+                      "key.j2.name_piece_text" : "Nested2a"
+                    }
+                  ],
+                  "key.j2.preferred_swift_declaration" : "public struct SpmSwiftModule.Nested1.Nested2a",
+                  "key.kind" : "source.lang.swift.decl.struct",
+                  "key.length" : 25,
+                  "key.name" : "Nested2a",
+                  "key.namelength" : 8,
+                  "key.nameoffset" : 123,
+                  "key.offset" : 116,
+                  "key.parsed_declaration" : "public struct Nested2a",
+                  "key.parsed_scope.end" : 7,
+                  "key.parsed_scope.start" : 6,
+                  "key.typename" : "SpmSwiftModule.Nested1.Nested2a.Type",
+                  "key.typeusr" : "$s14SpmSwiftModuleAAV7Nested1V8Nested2aVmD",
+                  "key.usr" : "s:14SpmSwiftModuleAAV7Nested1V8Nested2aV"
+                },
+                {
+                  "key.accessibility" : "source.lang.swift.accessibility.public",
+                  "key.annotated_decl" : "<Declaration>public struct <Type usr=\"s:14SpmSwiftModuleAAV\">SpmSwiftModule<\/Type>.<Type usr=\"s:14SpmSwiftModuleAAV7Nested1V\">Nested1<\/Type>.Nested2b<\/Declaration>",
+                  "key.attributes" : [
+                    {
+                      "key.attribute" : "source.decl.attribute.public",
+                      "key.length" : 6,
+                      "key.offset" : 148
+                    }
+                  ],
+                  "key.bodylength" : 7,
+                  "key.bodyoffset" : 172,
+                  "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+                  "key.fully_annotated_decl" : "<decl.struct><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>struct<\/syntaxtype.keyword> <ref.struct usr=\"s:14SpmSwiftModuleAAV\">SpmSwiftModule<\/ref.struct>.<ref.struct usr=\"s:14SpmSwiftModuleAAV7Nested1V\">Nested1<\/ref.struct>.<decl.name>Nested2b<\/decl.name><\/decl.struct>",
+                  "key.j2.name_pieces" : [
+                    {
+                      "key.j2.name_piece_is_name" : false,
+                      "key.j2.name_piece_text" : "struct "
+                    },
+                    {
+                      "key.j2.name_piece_is_name" : true,
+                      "key.j2.name_piece_text" : "Nested2b"
+                    }
+                  ],
+                  "key.j2.preferred_swift_declaration" : "public struct SpmSwiftModule.Nested1.Nested2b",
+                  "key.kind" : "source.lang.swift.decl.struct",
+                  "key.length" : 25,
+                  "key.name" : "Nested2b",
+                  "key.namelength" : 8,
+                  "key.nameoffset" : 162,
+                  "key.offset" : 155,
+                  "key.parsed_declaration" : "public struct Nested2b",
+                  "key.parsed_scope.end" : 9,
+                  "key.parsed_scope.start" : 8,
+                  "key.typename" : "SpmSwiftModule.Nested1.Nested2b.Type",
+                  "key.typeusr" : "$s14SpmSwiftModuleAAV7Nested1V8Nested2bVmD",
+                  "key.usr" : "s:14SpmSwiftModuleAAV7Nested1V8Nested2bV"
+                }
+              ],
+              "key.typename" : "SpmSwiftModule.Nested1.Type",
+              "key.typeusr" : "$s14SpmSwiftModuleAAV7Nested1VmD",
+              "key.usr" : "s:14SpmSwiftModuleAAV7Nested1V"
             }
           ],
           "key.typename" : "SpmSwiftModule.Type",
@@ -121,21 +237,21 @@
             {
               "key.attribute" : "source.decl.attribute.public",
               "key.length" : 6,
-              "key.offset" : 110
+              "key.offset" : 224
             },
             {
               "key.attribute" : "source.decl.attribute.available",
               "key.length" : 33,
-              "key.offset" : 76
+              "key.offset" : 190
             },
             {
               "key.attribute" : "source.decl.attribute.available",
               "key.length" : 33,
-              "key.offset" : 76
+              "key.offset" : 190
             }
           ],
           "key.bodylength" : 1,
-          "key.bodyoffset" : 223,
+          "key.bodyoffset" : 337,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
           "key.fully_annotated_decl" : "<decl.function.free><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>functionA<\/decl.name>(<decl.var.parameter><decl.var.parameter.argument_label>arg1<\/decl.var.parameter.argument_label>: <decl.var.parameter.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>, <decl.var.parameter><decl.var.parameter.argument_label>_<\/decl.var.parameter.argument_label> <decl.var.parameter.name>arg2<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>, <decl.var.parameter><decl.var.parameter.argument_label>arg3<\/decl.var.parameter.argument_label> <decl.var.parameter.name>argMeaning<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>)<\/decl.function.free>",
           "key.j2.availabilities" : [
@@ -181,11 +297,11 @@
           "key.length" : 108,
           "key.name" : "functionA(arg1:_:arg3:)",
           "key.namelength" : 99,
-          "key.nameoffset" : 122,
-          "key.offset" : 117,
+          "key.nameoffset" : 236,
+          "key.offset" : 231,
           "key.parsed_declaration" : "public func functionA(arg1: Int,\n                      _ arg2: Int,\n                      arg3 argMeaning: Int)",
-          "key.parsed_scope.end" : 10,
-          "key.parsed_scope.start" : 7,
+          "key.parsed_scope.end" : 17,
+          "key.parsed_scope.start" : 14,
           "key.typename" : "(Int, Int, Int) -> ()",
           "key.typeusr" : "$s4arg1_4arg3ySi_S2itcD",
           "key.usr" : "s:14SpmSwiftModule9functionA4arg1_4arg3ySi_S2itF"
@@ -197,27 +313,27 @@
             {
               "key.attribute" : "source.decl.attribute.public",
               "key.length" : 6,
-              "key.offset" : 451
+              "key.offset" : 565
             },
             {
               "key.attribute" : "source.decl.attribute.available",
               "key.length" : 72,
-              "key.offset" : 378
+              "key.offset" : 492
             },
             {
               "key.attribute" : "source.decl.attribute.available",
               "key.length" : 57,
-              "key.offset" : 320
+              "key.offset" : 434
             }
           ],
           "key.bodylength" : 13,
-          "key.bodyoffset" : 530,
+          "key.bodyoffset" : 644,
           "key.doc.column" : 13,
           "key.doc.comment" : "A deprecated function\n\n- parameter callback: The callback\n- returns: A string",
           "key.doc.declaration" : "@available(iOS, deprecated: 12.0, message: \"Deprecated!\")\n@available(OSX, deprecated: 10.14, message: \"Deprecated on macOS too\")\npublic func deprecatedFunction(callback: (_ report: String) -> Int) -> String",
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"18\" column=\"13\"><Name>deprecatedFunction(callback:)<\/Name><USR>s:14SpmSwiftModule18deprecatedFunction8callbackSSSiSSXE_tF<\/USR><Declaration>@available(iOS, deprecated: 12.0, message: &quot;Deprecated!&quot;)\n@available(OSX, deprecated: 10.14, message: &quot;Deprecated on macOS too&quot;)\npublic func deprecatedFunction(callback: (_ report: String) -&gt; Int) -&gt; String<\/Declaration><CommentParts><Abstract><Para>A deprecated function<\/Para><\/Abstract><Parameters><Parameter><Name>callback<\/Name><Direction isExplicit=\"0\">in<\/Direction><Discussion><Para>The callback<\/Para><\/Discussion><\/Parameter><\/Parameters><ResultDiscussion><Para>A string<\/Para><\/ResultDiscussion><\/CommentParts><\/Function>",
-          "key.doc.line" : 18,
+          "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"25\" column=\"13\"><Name>deprecatedFunction(callback:)<\/Name><USR>s:14SpmSwiftModule18deprecatedFunction8callbackSSSiSSXE_tF<\/USR><Declaration>@available(iOS, deprecated: 12.0, message: &quot;Deprecated!&quot;)\n@available(OSX, deprecated: 10.14, message: &quot;Deprecated on macOS too&quot;)\npublic func deprecatedFunction(callback: (_ report: String) -&gt; Int) -&gt; String<\/Declaration><CommentParts><Abstract><Para>A deprecated function<\/Para><\/Abstract><Parameters><Parameter><Name>callback<\/Name><Direction isExplicit=\"0\">in<\/Direction><Discussion><Para>The callback<\/Para><\/Discussion><\/Parameter><\/Parameters><ResultDiscussion><Para>A string<\/Para><\/ResultDiscussion><\/CommentParts><\/Function>",
+          "key.doc.line" : 25,
           "key.doc.name" : "deprecatedFunction(callback:)",
           "key.doc.parameters" : [
             {
@@ -236,7 +352,7 @@
           ],
           "key.doc.type" : "Function",
           "key.doclength" : 93,
-          "key.docoffset" : 227,
+          "key.docoffset" : 341,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
           "key.fully_annotated_decl" : "<decl.function.free><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>deprecatedFunction<\/decl.name>(<decl.var.parameter><decl.var.parameter.argument_label>callback<\/decl.var.parameter.argument_label>: <decl.var.parameter.type>(<decl.var.parameter><decl.var.parameter.argument_label>_<\/decl.var.parameter.argument_label> <decl.var.parameter.name>report<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.function.returntype><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.function.returntype><\/decl.function.free>",
           "key.j2.deprecation_messages" : {
@@ -278,11 +394,11 @@
           "key.length" : 86,
           "key.name" : "deprecatedFunction(callback:)",
           "key.namelength" : 55,
-          "key.nameoffset" : 463,
-          "key.offset" : 458,
+          "key.nameoffset" : 577,
+          "key.offset" : 572,
           "key.parsed_declaration" : "public func deprecatedFunction(callback: (_ report: String) -> Int) -> String",
-          "key.parsed_scope.end" : 20,
-          "key.parsed_scope.start" : 18,
+          "key.parsed_scope.end" : 27,
+          "key.parsed_scope.start" : 25,
           "key.typename" : "((String) -> Int) -> String",
           "key.typeusr" : "$s8callbackSSSiSSXE_tcD",
           "key.usr" : "s:14SpmSwiftModule18deprecatedFunction8callbackSSSiSSXE_tF"

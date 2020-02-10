@@ -1,6 +1,13 @@
 ///
 public struct SpmSwiftModule {
     public var text = "Hello, World!"
+
+    public struct Nested1 { 
+      public struct Nested2a {
+      }
+      public struct Nested2b {
+      }
+    }
 }
 
 @available(iOS 9, macOS 10.12, *)

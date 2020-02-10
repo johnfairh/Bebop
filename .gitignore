@@ -26,3 +26,4 @@ node_modules
 .stylelintcache
 dist
 *.profraw
+Tests/J2Tests/Fixtures/SpmSwiftPackage/docs

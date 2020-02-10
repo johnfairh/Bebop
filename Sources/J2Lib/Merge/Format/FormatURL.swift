@@ -100,17 +100,17 @@ struct URLVisitor: ItemVisitor {
             preconditionFailure() // must be in a group at least
         }
 
-        if parent.kind == .group {
+        if defItem.children.isEmpty {
+            // embed on parent page
+            defItem.setURLHash(parentURLPath: parent.url.urlPath)
+        } else if parent.kind == .group {
             // a top-level def, place according to kind
             // NOT THE PARENT!  PARENT MAY BE A NESTED CUSTOM CATEGORY.
             // XXX need to understand multi-module here
             defItem.setURLPath(parentURLPath: defItem.defKind.metaKind.name)
-        } else if !defItem.children.isEmpty {
+        } else {
             // we're a nested def with children, we go in our parent's directory
             defItem.setURLPath(parentURLPath: parent.url.urlPath)
-        } else {
-            // embed on parent page
-            defItem.setURLHash(parentURLPath: parent.url.urlPath)
         }
     }
 
