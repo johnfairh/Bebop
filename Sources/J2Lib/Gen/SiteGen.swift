@@ -15,6 +15,14 @@ public struct SiteGen: Configurable {
     let outputOpt = PathOpt(s: "o", l: "output").help("PATH").def("docs")
     let cleanOpt = BoolOpt(s: "c", l: "clean")
 
+    let disableSearchOpt = BoolOpt(l: "disable-search")
+    let hideAttributionOpt = BoolOpt(l: "hide-attribution")
+    let hideCoverageOpt = BoolOpt(l: "hide-coverage")
+    let customHeadOpt = StringOpt(l: "custom-head").help("HTML")
+
+    let oldHideCoverageOpt: AliasOpt
+    let oldCustomHeadOpt: AliasOpt
+
     var outputURL: URL {
         outputOpt.value!
     }
@@ -23,6 +31,10 @@ public struct SiteGen: Configurable {
 
     public init(config: Config) {
         themes = Themes(config: config)
+
+        oldHideCoverageOpt = AliasOpt(realOpt: hideCoverageOpt, l: "hide-documentation-coverage")
+        oldCustomHeadOpt = AliasOpt(realOpt: customHeadOpt, l: "head")
+
         config.register(self)
     }
 
@@ -36,6 +48,8 @@ public struct SiteGen: Configurable {
 
         logDebug("Gen: Creating output directory \(outputURL.path)")
         try FileManager.default.createDirectory(at: outputURL, withIntermediateDirectories: true)
+
+        theme.setGlobalData(globalData)
 
         var pageIterator = genData.makeIterator(fileExt: theme.fileExtension)
 
@@ -59,5 +73,23 @@ public struct SiteGen: Configurable {
             try rendered.write(to: url)
         }
         try theme.copyAssets(to: outputURL)
+    }
+
+    /// Configured things that do not vary page-to-page
+    var globalData: [String: Any] {
+        var dict = MustacheKey.dict([
+            .j2libVersion : Version.j2libVersion,
+            .disableSearch : disableSearchOpt.value,
+            .hideAttribution: hideAttributionOpt.value
+        ])
+
+        if !hideCoverageOpt.value {
+            dict[.docCoverage] = 66
+        }
+        if let customHead = customHeadOpt.value {
+            dict[.customHead] = customHead
+        }
+
+        return dict
     }
 }

@@ -34,6 +34,8 @@ class TestGen: XCTestCase {
         initResources()
     }
 
+    // Output directory
+
     func testCreateOutputDir() throws {
         let fm = FileManager.default
         let outputDir = fm.temporaryFileURL()
@@ -56,6 +58,8 @@ class TestGen: XCTestCase {
         XCTAssertTrue(fm.fileExists(atPath: tmp.directoryURL.path))
         XCTAssertFalse(fm.fileExists(atPath: markerFileURL.path))
     }
+
+    // PageGen
 
     func testPageGen() throws {
         let pipeline = Pipeline()
@@ -124,5 +128,25 @@ class TestGen: XCTestCase {
         let it_4 = it.next()
         XCTAssertEqual("fr-page2", it_4?.data[.pageTitle] as? String)
         XCTAssertNil(it.next())
+    }
+
+    // Site-Gen global data
+    func testGlobalData() throws {
+        let system = System()
+        try system.configure(cliOpts: ["--hide-attribution", "--no-disable-search"])
+        let globalData = system.gen.globalData
+        XCTAssertEqual(Version.j2libVersion, globalData[.j2libVersion] as? String)
+        XCTAssertEqual(false, globalData[.disableSearch] as? Bool)
+        XCTAssertEqual(true, globalData[.hideAttribution] as? Bool)
+        XCTAssertEqual(66, globalData[.docCoverage] as? Int)
+        XCTAssertNil(globalData[.customHead])
+    }
+
+    // Site-Gen global data
+    func testHideCoverage() throws {
+        let system = System()
+        try system.configure(cliOpts: ["--hide-documentation-coverage"])
+        let globalData = system.gen.globalData
+        XCTAssertNil(globalData[.docCoverage])
     }
 }

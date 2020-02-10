@@ -65,10 +65,20 @@ extension Dictionary where Key == String {
 }
 
 public enum MustacheKey: String {
+    // Global, fixed
+    case j2libVersion = "j2lib_version"
+    case disableSearch = "disable_search"
+    case hideAttribution = "hide_attribution"
+    case docCoverage = "doc_coverage"
+    case customHead = "custom_head"
+
+    // Global, per-page
     case languageTag = "language_tag"
     case pageTitle = "page_title"
     case pathToRoot = "path_to_root" // empty string or ends in "/"
     case toc = "toc"
+    // Global, set by SiteGen
+    case pathToAssets = "path_to_assets" // empty string or ends in "/"
 
     // ToC entries
     case title = "title"
@@ -76,8 +86,13 @@ public enum MustacheKey: String {
     case active = "active"
     case children = "children"
 
-    // Set by SiteGen
-    case pathToAssets = "path_to_assets" // empty string or ends in "/"
+    static func dict(_ pairs: KeyValuePairs<MustacheKey, Any>) -> [String : Any] {
+        Dictionary(uniqueKeysWithValues: pairs.map { ($0.0.rawValue, $0.1) })
+    }
+}
+
+private func MH(_ pairs: KeyValuePairs<MustacheKey, Any>) -> [String : Any] {
+    MustacheKey.dict(pairs)
 }
 
 extension GenData {
@@ -112,8 +127,4 @@ extension GenData {
 
         return tocList(entries: toc)
     }
-}
-
-private func MH(_ pairs: KeyValuePairs<MustacheKey, Any>) -> [String : Any] {
-    Dictionary(uniqueKeysWithValues: pairs.map { ($0.0.rawValue, $0.1) })
 }
