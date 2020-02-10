@@ -109,3 +109,9 @@ extension String {
     }
 }
 
+extension String {
+    /// For a canonical filepath, how many directories of nesting are there?
+    var directoryNestingDepth: Int {
+        reduce(0) { $0 + ($1 == "/" ? 1 : 0) }
+    }
+}

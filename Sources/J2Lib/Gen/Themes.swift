@@ -66,7 +66,7 @@ struct Theme {
     /// Parser for the theme.yaml config file
     private struct Parser {
         let mustacheRootOpt = StringOpt(y: "mustache_root").def("doc.mustache")
-        let fileExtensionOpt = StringOpt(y: "file_extension").def("html")
+        let fileExtensionOpt = StringOpt(y: "file_extension").def(".html")
 
         func parse(themeYaml: String) throws {
             let optsParser = OptsParser()

@@ -66,7 +66,11 @@ extension Dictionary where Key == String {
 
 public enum MustacheKey: String {
     case languageTag = "language_tag"
-    case title = "title"
+    case pageTitle = "page_title"
+    case pathToRoot = "path_to_root" // empty string or ends in "/"
+
+    // Set by SiteGen
+    case pathToAssets = "path_to_assets" // empty string or ends in "/"
 }
 
 extension GenData {
@@ -75,7 +79,8 @@ extension GenData {
         let pg = pages[page]
         let filepath = pg.url.filepath(fileExtension: fileExt)
         data[.languageTag] = languageTag
-        data[.title] = pg.title[languageTag]
+        data[.pageTitle] = pg.title[languageTag]
+        data[.pathToRoot] = pg.url.pathToRoot
 
         return MustachePage(languageTag: languageTag, filepath: filepath, data: data)
     }

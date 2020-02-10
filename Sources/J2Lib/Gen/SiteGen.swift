@@ -41,12 +41,19 @@ public struct SiteGen: Configurable {
 
         while let page = pageIterator.next() {
             var url = outputURL
+            var depth = 0
             if page.languageTag != Localizations.shared.main.tag {
                 url.appendPathComponent(page.languageTag)
+                depth = 1
             }
             url.appendPathComponent(page.filepath)
-            logDebug("Gen: Rendering template \(page.data[.title] ?? "??")")
-            let rendered = try theme.renderTemplate(data: page.data)
+            depth += page.filepath.directoryNestingDepth
+
+            var mustacheData = page.data
+            mustacheData[.pathToAssets] = String(repeating: "../", count: depth)
+
+            logDebug("Gen: Rendering template for \(page.data[.pageTitle] ?? "??")")
+            let rendered = try theme.renderTemplate(data: mustacheData)
 
             logDebug("Gen: Creating \(url.path)")
             try rendered.write(to: url)

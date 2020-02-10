@@ -174,6 +174,7 @@ public extension Pipeline {
             return 1
         } catch {
             logError(error.localizedDescription)
+            logError(String(describing: error))
             return 1
         }
     }

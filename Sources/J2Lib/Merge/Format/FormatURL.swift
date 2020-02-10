@@ -65,6 +65,11 @@ public struct URLPieces: Encodable {
         precondition(urlHash == nil)
         return url(fileExtension: fileExtension).removingPercentEncoding
     }
+
+    /// Get a path from this item's page back up to the doc root - either empty string or ends in a slash
+    var pathToRoot: String {
+        return String(repeating: "../", count: urlPath.directoryNestingDepth)
+    }
 }
 
 extension Item {
