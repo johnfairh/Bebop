@@ -75,6 +75,13 @@ jazzy: dist
 	cp -f dist/fw2020.css dist/jazzy/assets/css/
 	@echo "Jazzy theme dir: ${PWD}/dist/jazzy"
 
-publish: ${THEMEPATHS}
-	@echo cp -f $^ Somewhere....
-	@echo need to figure out where these go
+j2: dist
+	mkdir -p dist/j2/templates
+	mkdir -p dist/j2/assets/js
+	mkdir -p dist/j2/assets/css
+	cp -f templates/j2/* dist/j2/templates/
+	cp -f dist/*.js dist/j2/assets/js/
+	cp -f dist/fw2020.css dist/j2/assets/css/
+
+publish: j2
+	cp -Rf dist/j2/* ../Resources/themes/fw2020/

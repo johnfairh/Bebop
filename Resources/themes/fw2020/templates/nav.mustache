@@ -1,0 +1,19 @@
+<div class="col-auto d-none d-md-flex flex-column j2-nav" id="nav-column">
+  <nav aria-label="swift" class="j2-swift">
+    <ul class="j2-nav-list">
+      {{#toc}}
+      <li class="j2-nav-group">
+        {{#.active}}
+        <span class="j2-nav-item active" aria-current="page">{{title}}</span>
+        {{/.active}}
+        {{^.active}}
+        <a class="j2-nav-item" aria-current="page" href="{{path_to_root}}{{url}}">{{title}}</a>
+        {{/.active}}
+        {{#children.count}}
+        {{> nav_section}}
+        {{/children.count}}
+      </li>
+      {{/toc}}
+    </ul>
+  </nav>
+</div>
