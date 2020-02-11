@@ -140,10 +140,6 @@ extension Dictionary where Key == String, Value == String {
         Resources.shared.localizedOutput(key: key.rawValue, subs: subs)
     }
 
-    init(_ key: L10n.Output, _ subs: Any...) {
-        self = Resources.shared.localizedOutput(key: key.rawValue, subs: subs)
-    }
-
     public func append(_ str: Localized<String>) -> Self {
         var out = Localized<String>()
         forEach { key, val in
@@ -178,10 +174,10 @@ extension Array where Element == Localized<String> {
     }
 }
 
-/// Helper to grab a localized version of a markdown file.
-/// `url` is supposed to be a markdown file, whose contents get used for the default localization.
-/// Its directory should contain a subdirectory for each language tag with an identically named file.
 extension Dictionary where Key == String, Value == Markdown {
+    /// Helper to grab a localized version of a markdown file.
+    /// `url` is supposed to be a markdown file, whose contents get used for the default localization.
+    /// Its directory should contain a subdirectory for each language tag with an identically named file.
     public init(localizingFile url: URL) throws {
         self.init()
         let locs = Localizations.shared

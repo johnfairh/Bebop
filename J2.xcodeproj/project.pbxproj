@@ -101,7 +101,6 @@
 		02FDC68223E997D700C2F9CD /* Markdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FDC68123E997D700C2F9CD /* Markdown.swift */; };
 		02FDC68423E9DED600C2F9CD /* DefItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FDC68323E9DED600C2F9CD /* DefItem.swift */; };
 		02FDC68623E9EEE900C2F9CD /* GatherLocalize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FDC68523E9EEE900C2F9CD /* GatherLocalize.swift */; };
-		02FDC68823EAEB9F00C2F9CD /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FDC68723EAEB9F00C2F9CD /* Localizable.swift */; };
 		02FDC68B23EB2A7300C2F9CD /* Output.strings in Resources */ = {isa = PBXBuildFile; fileRef = 02FDC68923EB2A7300C2F9CD /* Output.strings */; };
 		02FDC68D23EB498A00C2F9CD /* DefDeclaration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FDC68C23EB498A00C2F9CD /* DefDeclaration.swift */; };
 		02FDC68F23EB4C1B00C2F9CD /* Lock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FDC68E23EB4C1B00C2F9CD /* Lock.swift */; };
@@ -778,7 +777,6 @@
 				02FDC68423E9DED600C2F9CD /* DefItem.swift in Sources */,
 				02CFF92523DDFFC900FDE5B9 /* GatherDef.swift in Sources */,
 				0233D52D23EF2997004DCD89 /* FormatURL.swift in Sources */,
-				02FDC68823EAEB9F00C2F9CD /* Localizable.swift in Sources */,
 				0233D51D23EED547004DCD89 /* GroupItem.swift in Sources */,
 				0233D53923F07E6E004DCD89 /* JSON.swift in Sources */,
 				02CFFA4023E5CFF800FDE5B9 /* DefKind.swift in Sources */,

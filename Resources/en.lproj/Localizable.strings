@@ -56,3 +56,6 @@ Options:";
 "wrn-cfg-language-missing" = "Language tags missing for '%1': %2.";
 
 "msg-generating-docs" = "Generating documentation";
+
+"wrn-duplicate-guide" = "Duplicate guide name '%1', ignoring '%2'.";
+"wrn-empty-guide-glob" = "No guides matching '*.md' found expanding '%1'.";

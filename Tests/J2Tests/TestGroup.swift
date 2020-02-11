@@ -57,4 +57,55 @@ class TestGroup: XCTestCase {
         XCTAssertEqual(ItemKind.variable.name, groups[1].slug)
         XCTAssertEqual(1, groups[1].children.count)
     }
+
+    // Guides
+
+    func testGuides() throws {
+        let tmpDir = try TemporaryDirectory()
+        let subDir = tmpDir.directoryURL.appendingPathComponent("fr")
+        try FileManager.default.createDirectory(at: subDir, withIntermediateDirectories: false)
+        let filename = "Guide.md"
+        try "English".write(to: tmpDir.directoryURL.appendingPathComponent(filename))
+        try "French".write(to: subDir.appendingPathComponent(filename))
+
+        let system = System(cliArgs: ["--guides", "\(tmpDir.directoryURL.path)/*"])
+        let guides = try system.group.groupGuides.discoverGuides()
+        XCTAssertEqual(1, guides.count)
+        let guide = guides[0]
+        XCTAssertEqual(1, guide.markdownContent.count)
+        XCTAssertEqual(Markdown("English"), guide.markdownContent["en"])
+
+        Localizations.shared = Localizations(mainDescriptor: Localization.defaultDescriptor,
+                                             otherDescriptors: ["fr:FR:frfrfr"])
+        let guides2 = try system.group.groupGuides.discoverGuides()
+        XCTAssertEqual(1, guides2.count)
+        let guide2 = guides2[0]
+        XCTAssertEqual(2, guide2.markdownContent.count)
+        XCTAssertEqual(Markdown("English"), guide2.markdownContent["en"])
+        XCTAssertEqual(Markdown("French"), guide2.markdownContent["fr"])
+
+        Localizations.shared = Localizations(mainDescriptor: Localization.defaultDescriptor,
+                                             otherDescriptors: ["de:DE:dedede"])
+        let guides3 = try system.group.groupGuides.discoverGuides()
+        XCTAssertEqual(1, guides3.count)
+        let guide3 = guides3[0]
+        XCTAssertEqual(2, guide3.markdownContent.count)
+        XCTAssertEqual(Markdown("English"), guide3.markdownContent["en"])
+        XCTAssertEqual(Markdown("English"), guide3.markdownContent["de"])
+    }
+
+    func testBadGuides() throws {
+        let tmpDir1 = try TemporaryDirectory()
+        let tmpDir2 = try TemporaryDirectory()
+        try "A1".write(to: tmpDir1.directoryURL.appendingPathComponent("GuideA.md"))
+        try "A2".write(to: tmpDir2.directoryURL.appendingPathComponent("GuideA.md"))
+        try "B".write(to: tmpDir2.directoryURL.appendingPathComponent("GuideB.md"))
+
+        let system = System(cliArgs: ["--guides", "\(tmpDir1.directoryURL.path)/*,\(tmpDir2.directoryURL.path)/*.md,/*"])
+        let guides = try system.group.groupGuides.discoverGuides()
+        XCTAssertEqual(2, guides.count)
+        XCTAssertEqual("GuideA.md", guides[0].name)
+        XCTAssertEqual(Markdown("A1"), guides[0].markdownContent["en"])
+        XCTAssertEqual("GuideB.md", guides[1].name)
+    }
 }

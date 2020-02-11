@@ -9,9 +9,12 @@
 import Foundation
 
 final class GroupGuides: Configurable {
-    let docsOpt = GlobListOpt(l: "documentation").help("GLOB1,GLOB2,...")
+    let guidesOpt = GlobListOpt(l: "guides").help("GLOB1,GLOB2,...")
+
+    let documentationAliasOpt: AliasOpt
 
     init(config: Config) {
+        documentationAliasOpt = AliasOpt(realOpt: guidesOpt, l: "documentation")
         config.register(self)
     }
 
@@ -19,7 +22,7 @@ final class GroupGuides: Configurable {
     /// Throws only if something bad happens re. filesystem access.
     func discoverGuides() throws -> [GuideItem] {
         var guides = [String: Localized<Markdown>]()
-        try docsOpt.value.forEach { globPattern in
+        try guidesOpt.value.forEach { globPattern in
             logDebug("Group: Searching for guides using '\(globPattern)'")
             var count = 0
             try Glob.files(globPattern).forEach { url in
@@ -29,14 +32,14 @@ final class GroupGuides: Configurable {
                     return
                 }
                 guard guides[filename] == nil else {
-                    logWarning("Duplicate guide name '\(filename)', ignoring '\(url.path)'.")
+                    logWarning(.localized(.wrnDuplicateGuide, filename, url.path))
                     return
                 }
                 guides[filename] = try Localized<Markdown>(localizingFile: url)
                 count += 1
             }
             if count == 0 {
-                logWarning("No files matching '*.md' found expanding '\(globPattern)'.")
+                logWarning(.localized(.wrnEmptyGuideGlob, globPattern))
             } else {
                 logDebug("Group: Found \(count) guides.")
             }
@@ -47,6 +50,6 @@ final class GroupGuides: Configurable {
             let slug = uniquer.unique(fileBasename.slugged)
             let title = Localized<String>(unLocalized: fileBasename)
             return GuideItem(name: kv.key, slug: slug, title: title, content: kv.value)
-        }.sorted { $0.name > $1.name }
+        }.sorted { $0.name < $1.name }
     }
 }
