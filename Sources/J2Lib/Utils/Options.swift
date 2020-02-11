@@ -20,6 +20,7 @@ import Yams
 // - short/long/yaml opts
 // - auto-gen of --[no-] -style longopts
 // - auto unique-prefix expansion for longopts
+// - localized string options with per-language values
 
 // MARK: Flag string manipulation
 
@@ -79,6 +80,8 @@ enum OptType {
     case path
     /// a string with an absolute path as `path` containing * ?, for matching.
     case glob
+    /// a localized string, simple on the CLI or a map in the config file.
+    case locstring
     /// an arbitrary yaml structure, not on the CLI
     case yaml
 }
@@ -175,6 +178,7 @@ class Opt {
     func set(bool: Bool) { fatalError() }
     func set(string: String) throws { fatalError() }
     func set(string: String, path: URL) { fatalError() }
+    func set(locstring: Localized<String>) { fatalError() }
     func set(yaml: Yams.Node) { fatalError() }
     var  type: OptType { fatalError() }
     var  helpParam: String { "" }
@@ -436,6 +440,60 @@ final class EnumOpt<EnumType>: TypedOpt<EnumType> where
     }
 }
 
+// MARK: Localized Stringsets
+
+final class LocStringOpt: Opt {
+    private(set) var defaultValue: String?
+    private(set) var flatConfig: String?
+    private(set) var dictConfig: Localized<String>?
+
+    @discardableResult
+    func def(_ defaultValue: String) -> Self {
+        self.defaultValue = defaultValue
+        return self
+    }
+
+    /// Client responsible for not evaluating this until the actual desired
+    /// localizations have been configured, otherwise wackiness will ensue.
+    var value: Localized<String>? {
+        if var dictConfig = dictConfig {
+            let missing = dictConfig.expandLanguages()
+            logWarning(.localized(.wrnCfgLanguageMissing, name(usage: false), missing))
+            return dictConfig
+        }
+        return (flatConfig ?? defaultValue).flatMap {
+            Localized<String>(unLocalized: $0)
+        }
+    }
+
+    private var theHelpParam: String?
+    
+    /// Set the help param value for the option, before running `OptsParser`.
+    @discardableResult
+    func help(_ helpParam: String) -> Self {
+        self.theHelpParam = helpParam
+        return self
+    }
+
+    override var helpParam: String {
+        return theHelpParam ?? ""
+    }
+
+    var configured: Bool {
+        flatConfig != nil || dictConfig != nil
+    }
+
+    override func set(string: String) {
+        flatConfig = string
+    }
+
+    override func set(locstring: Localized<String>) {
+        dictConfig = locstring
+    }
+
+    override var type: OptType { .locstring }
+}
+
 // MARK: OptsParser
 
 /// Apply CLI arguments and a config file to declared client options.
@@ -638,8 +696,17 @@ final class OptsParser {
 
             // Coerce value into Opt required type
             switch value {
-            case .mapping(_):
-                throw OptionsError(.localized(.errCfgBadMapping, yamlOptName))
+            case .mapping(let mapping):
+                guard tracker.opt.type == .locstring else {
+                    throw OptionsError(.localized(.errCfgBadMapping, yamlOptName))
+                }
+                var locStr = Localized<String>()
+                for (k, v) in zip(mapping.keys, mapping.values) {
+                    let lang = try k.checkScalarKey().string
+                    let str = try v.checkScalar(context: lang).string
+                    locStr[lang] = str
+                }
+                tracker.opt.set(locstring: locStr)
 
             case .scalar(let scalar):
                 if tracker.opt.type == .bool {

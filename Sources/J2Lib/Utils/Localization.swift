@@ -95,11 +95,31 @@ public struct Localizations {
 public typealias Localized<T> = [String : T]
 
 extension Dictionary where Key == String {
+    /// Create a 'localized' version a value, showing that value for every language tag
     init(unLocalized: Value) {
         self.init()
         Localizations.shared.allTags.forEach {
             self[$0] = unLocalized
         }
+    }
+
+    /// Ensure there is a value for every language tag.
+    /// Defaults to the main localization if set, otherwise arbitrary.
+    /// Shouldn't really be here if empty, does nothing.
+    /// - returns: the list of tags that were invented
+    mutating func expandLanguages() -> [String] {
+        guard let anyValue = self.first?.value else {
+            return Localizations.shared.allTags
+        }
+        let defaultValue = self[Localizations.shared.main.tag]
+        var missingTags = [String]()
+        Localizations.shared.allTags.forEach { tag in
+            if self[tag] == nil {
+                self[tag] = defaultValue ?? anyValue
+                missingTags.append(tag)
+            }
+        }
+        return missingTags
     }
 }
 

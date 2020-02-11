@@ -410,4 +410,76 @@ class TestOptions: XCTestCase {
         XCTAssertTrue(component.realOpt.configured)
         XCTAssertTrue(component.realOpt.value)
     }
+
+    // Localized string options
+
+    func testLocStringCli() throws {
+        Localizations.shared = Localizations()
+        let opt = LocStringOpt(l: "name")
+        let system = SimpleSystem(opt)
+        try system.parse(["--name=fred"])
+        guard let value = opt.value else {
+            XCTFail("Missing value")
+            return
+        }
+        XCTAssertTrue(opt.configured)
+        XCTAssertEqual(1, value.count)
+        XCTAssertEqual("fred", value["en"])
+    }
+
+    func testLocStringCliExpanded() throws {
+        Localizations.shared = Localizations(main: .default,
+                                             others: [Localization(descriptor: "fr:FR:frfr")])
+        TestLogger.install()
+        let opt = LocStringOpt(l: "name")
+        let system = SimpleSystem(opt)
+        try system.parse(["--name=fred"])
+        guard let value = opt.value else {
+            XCTFail("Missing value")
+            return
+        }
+        XCTAssertEqual(2, value.count)
+        XCTAssertEqual("fred", value["en"])
+        XCTAssertEqual("fred", value["fr"])
+        XCTAssertEqual(0, TestLogger.shared.diagsBuf.count)
+    }
+
+    func testLocStringYaml() throws {
+        Localizations.shared = Localizations()
+        let opt = LocStringOpt(l: "name")
+        let system = SimpleSystem(opt)
+        try system.parse(yaml: """
+                               name:
+                                 en: fred
+                                 fr: barney
+                               """)
+        guard let value = opt.value else {
+            XCTFail("Missing value")
+            return
+        }
+        XCTAssertEqual(2, value.count)
+        XCTAssertEqual("fred", value["en"])
+        XCTAssertEqual("barney", value["fr"])
+    }
+
+    func testLocStringYamlExpanded() throws {
+        Localizations.shared = Localizations(main: .default,
+                                             others: [Localization(descriptor: "fr:FR:frfr")])
+        TestLogger.install()
+        let opt = LocStringOpt(l: "name")
+        let system = SimpleSystem(opt)
+        try system.parse(yaml: """
+                               name:
+                                 en: fred
+                               """)
+        guard let value = opt.value else {
+            XCTFail("Missing value")
+            return
+        }
+        XCTAssertEqual(2, value.count)
+        XCTAssertEqual("fred", value["en"])
+        XCTAssertEqual("fred", value["fr"])
+        XCTAssertEqual(1, TestLogger.shared.diagsBuf.count)
+        XCTAssertTrue(TestLogger.shared.diagsBuf[0].contains("fr"))
+    }
 }

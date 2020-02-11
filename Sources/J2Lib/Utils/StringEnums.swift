@@ -56,6 +56,8 @@ internal enum L10n {
     case msgHelpIntro = "msg-help-intro"
     /// Config key '%1' ignored, already set on command-line.
     case wrnCfgIgnored = "wrn-cfg-ignored"
+    /// Language tags missing for '%1': %2.
+    case wrnCfgLanguageMissing = "wrn-cfg-language-missing"
     /// fnmatch(3) failed, pattern '%1', path '%2', errno %3/%4.
     case wrnFnmatchErrno = "wrn-fnmatch-errno"
     /// glob(3) failed, pattern '%1', errno %2/%3.
