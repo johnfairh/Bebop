@@ -30,6 +30,8 @@
 		0233D53723F07B1A004DCD89 /* GenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D53623F07B1A004DCD89 /* GenData.swift */; };
 		0233D53923F07E6E004DCD89 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D53823F07E6E004DCD89 /* JSON.swift */; };
 		0233D53B23F09E0D004DCD89 /* MustacheGen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D53A23F09E0D004DCD89 /* MustacheGen.swift */; };
+		0233D53D23F30851004DCD89 /* GuideItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D53C23F30851004DCD89 /* GuideItem.swift */; };
+		0233D53F23F30EDB004DCD89 /* GroupGuides.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D53E23F30EDB004DCD89 /* GroupGuides.swift */; };
 		0257280023DB50270001F510 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 025727FE23DB50270001F510 /* Localizable.strings */; };
 		0257280523DB503C0001F510 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0257280223DB503C0001F510 /* Localizable.strings */; };
 		0257280723DB50B40001F510 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0257280623DB50B40001F510 /* Resources.swift */; };
@@ -212,6 +214,8 @@
 		0233D53623F07B1A004DCD89 /* GenData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenData.swift; sourceTree = "<group>"; };
 		0233D53823F07E6E004DCD89 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		0233D53A23F09E0D004DCD89 /* MustacheGen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MustacheGen.swift; sourceTree = "<group>"; };
+		0233D53C23F30851004DCD89 /* GuideItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideItem.swift; sourceTree = "<group>"; };
+		0233D53E23F30EDB004DCD89 /* GroupGuides.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupGuides.swift; sourceTree = "<group>"; };
 		025727FF23DB50270001F510 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		0257280323DB503C0001F510 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = Localizable.strings; sourceTree = "<group>"; };
 		0257280623DB50B40001F510 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
@@ -523,6 +527,7 @@
 				0233D52E23EF2CCD004DCD89 /* ItemKind.swift */,
 				0233D52A23EF1598004DCD89 /* ItemVisitor.swift */,
 				0233D51C23EED547004DCD89 /* GroupItem.swift */,
+				0233D53C23F30851004DCD89 /* GuideItem.swift */,
 				02FDC68323E9DED600C2F9CD /* DefItem.swift */,
 				02FDC68C23EB498A00C2F9CD /* DefDeclaration.swift */,
 				02CFFA3F23E5CFF800FDE5B9 /* DefKind.swift */,
@@ -548,6 +553,7 @@
 			isa = PBXGroup;
 			children = (
 				02D064F323EC208200FE11BD /* Group.swift */,
+				0233D53E23F30EDB004DCD89 /* GroupGuides.swift */,
 			);
 			name = Group;
 			path = Merge/Group;
@@ -757,9 +763,11 @@
 				02FDC68023E8B25100C2F9CD /* Localization.swift in Sources */,
 				0233D53723F07B1A004DCD89 /* GenData.swift in Sources */,
 				022818D123D4F2AE0016B0D5 /* Glob.swift in Sources */,
+				0233D53D23F30851004DCD89 /* GuideItem.swift in Sources */,
 				02CFFA0623E0BD8B00FDE5B9 /* DefItemJSON.swift in Sources */,
 				02FDC68D23EB498A00C2F9CD /* DefDeclaration.swift in Sources */,
 				022818C523D33C2B0016B0D5 /* Regex.swift in Sources */,
+				0233D53F23F30EDB004DCD89 /* GroupGuides.swift in Sources */,
 				02CFFA0123E0B95F00FDE5B9 /* Merge.swift in Sources */,
 				02CFF92723DE009900FDE5B9 /* GatherOpts.swift in Sources */,
 				02CFFA1023E1E9A700FDE5B9 /* Themes.swift in Sources */,

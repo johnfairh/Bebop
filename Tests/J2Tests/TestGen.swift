@@ -93,7 +93,7 @@ class TestGen: XCTestCase {
         Localizations.shared.allTags.forEach {
             title[$0] = "\($0)-\(name)"
         }
-        return GenData.Page(url: URLPieces(pageName: name), title: title)
+        return GenData.Page(url: URLPieces(pageName: name), title: title, isGuide: false)
     }
 
     func testPageGenIterator() throws {
@@ -146,7 +146,7 @@ class TestGen: XCTestCase {
     // Site-Gen global data
     func testGlobalData() throws {
         let system = System()
-        try system.configure(cliOpts: ["--hide-attribution", "--no-disable-search"])
+        try system.configure(cliOpts: ["--hide-attribution", "--no-hide-search"])
         let globalData = system.gen.globalData
         XCTAssertEqual(Version.j2libVersion, globalData[.j2libVersion] as? String)
         XCTAssertEqual(false, globalData[.hideSearch] as? Bool)

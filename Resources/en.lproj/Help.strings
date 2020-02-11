@@ -68,3 +68,12 @@ Default: Do not use a version number in the documentation title.";
 "breadcrumbs-root" = "The text for the left-most breadcrumb in the generated documentation.
 Can be localized using the config file.
 Default: Generated from the name of a source module.";
+"documentation" = "Globs of markdown (.md) files to include as guides in the generated
+documentation.  Can be localized by creating a version with the same
+filename in a subdirectory named after the language tag.
+Default: Do not create any guides.";
+"readme" = "A markdown (.md) file to use for the homepage in the generated documentation.
+Can be localized by creating a version with the same filename in a
+subdirectory named after the langauge tag.
+Default: 'README.md', 'README.markdown', 'README.mdown', 'README' in the
+source directory.";

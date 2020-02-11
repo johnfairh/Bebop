@@ -24,7 +24,7 @@ public class Item: Encodable {
     /// Info about the item's URL relative to the docroot
     public internal(set) var url: URLPieces
 
-    public init(name: String, slug: String, title: Localized<String>? = nil, children: [Item]) {
+    public init(name: String, slug: String, title: Localized<String>? = nil, children: [Item] = []) {
         self.name = name
         self.slug = slug
         if let title = title {

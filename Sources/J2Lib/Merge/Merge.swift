@@ -17,7 +17,7 @@ import Foundation
 /// This is the end of the sourcekit-style hashes, converted into more well-typed `Item` hierarchy.
 public struct Merge: Configurable {
     /// We unique names over the entire corpus which is unnecessary but makes life easier.
-    var uniquer = StringUniquer()
+    private var uniquer = StringUniquer()
 
     public init(config: Config) {
         config.register(self)

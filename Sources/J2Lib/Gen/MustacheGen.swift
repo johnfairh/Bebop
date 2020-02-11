@@ -77,6 +77,7 @@ public enum MustacheKey: String {
     case pageTitle = "page_title"
     case pathToRoot = "path_to_root" // empty string or ends in "/"
     case toc = "toc"
+    case hideArticleTitle = "hide_article_title"
     // Global, set by SiteGen
     case pathToAssets = "path_to_assets" // empty string or ends in "/"
     case docsTitle = "docs_title"
@@ -108,6 +109,7 @@ extension GenData {
         data[.languageTag] = languageTag
         data[.pageTitle] = pg.title[languageTag]
         data[.pathToRoot] = pg.url.pathToRoot
+        data[.hideArticleTitle] = pg.isGuide
 
         data[.toc] = generateToc(languageTag: languageTag,
                                  fileExt: fileExt,

@@ -39,7 +39,7 @@ class TestFormat: XCTestCase {
     // Passthrough empty
     func testEmpty() throws {
         let system = System()
-        XCTAssertTrue(try system.run([]).isEmpty)
+        XCTAssertEqual(1, try system.run([]).count) //readme
     }
 
     // % escaping

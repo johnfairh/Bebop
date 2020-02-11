@@ -30,7 +30,6 @@ public struct PageGen: Configurable {
     // MARK: Table of contents
 
     func generateToc(items: [Item]) -> [GenData.TocEntry] {
-
         func doGenerate(items: [Item], depth: Int) -> [GenData.TocEntry] {
             items.compactMap { item in
                 guard item.showInToc == .yes ||
@@ -57,12 +56,16 @@ final class PageVisitor: ItemVisitor {
 
     func visit(defItem: DefItem, parents: [Item]) {
         if defItem.renderAsPage {
-            pages.append(GenData.Page(url: defItem.url, title: defItem.title))
+            pages.append(GenData.Page(url: defItem.url, title: defItem.title, isGuide: false))
         }
         moduleNames.insert(defItem.moduleName)
     }
 
     func visit(groupItem: GroupItem, parents: [Item]) {
-        pages.append(GenData.Page(url: groupItem.url, title: groupItem.title))
+        pages.append(GenData.Page(url: groupItem.url, title: groupItem.title, isGuide: false))
+    }
+
+    func visit(guideItem: GuideItem, parents: [Item]) {
+        pages.append(GenData.Page(url: guideItem.url, title: guideItem.title, isGuide: true))
     }
 }

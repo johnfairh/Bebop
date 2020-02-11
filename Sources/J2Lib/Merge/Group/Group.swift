@@ -13,16 +13,24 @@ import Foundation
 ///
 /// unique custom groups alongside kind-groups if present....
 public struct Group: Configurable {
+    let groupGuides: GroupGuides
+
     public init(config: Config) {
+        groupGuides = GroupGuides(config: config)
         config.register(self)
     }
 
-    public func group(merged: [DefItem]) throws -> [GroupItem] {
+    public func group(merged: [DefItem]) throws -> [Item] {
         // Cache kind:def while preserving order
-        var kindToDefs = [ItemKind : [DefItem]]()
+        var kindToDefs = [ItemKind : [Item]]()
         merged.forEach { def in
             kindToDefs.reduceKey(def.defKind.metaKind, [def], { $0 + [def] })
         }
+        let guides = try groupGuides.discoverGuides()
+        if !guides.isEmpty {
+            kindToDefs[.guide] = guides
+        }
+
         // Create the groups
         let kindGroups = ItemKind.allCases.compactMap { kind -> GroupItem? in
             guard let defsToGroup = kindToDefs[kind] else {

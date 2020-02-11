@@ -15,8 +15,6 @@ import Foundation
 ///
 /// The main interesting piece here is dealing with `modules`.
 struct GatherOpts : Configurable {
-    let config: Config
-
     let moduleNameOpt = StringOpt(s: "m", l: "module").help("MODULE_NAME")
     let srcDirOpt = PathOpt(l: "source-directory").help("DIRPATH")
     let buildToolOpt = EnumOpt<GatherBuildTool>(l: "build-tool")
@@ -25,16 +23,15 @@ struct GatherOpts : Configurable {
     let swiftBuildToolAlias: AliasOpt
 
     init(config: Config) {
-        self.config = config
-
         xcodeBuildArgsAlias = AliasOpt(realOpt: buildToolArgsOpt, s: "x", l: "xcodebuild-arguments")
         swiftBuildToolAlias = AliasOpt(realOpt: buildToolOpt, l: "swift-build-tool")
 
         config.register(self)
-        config.srcDirPathOpt = srcDirOpt
+        config.publish(srcDirPathOpt: srcDirOpt)
     }
 
-    func checkOptions() throws {
+    func checkOptions(config: Config) throws {
+        try srcDirOpt.checkIsDirectory()
     }
 
     var jobs: [GatherJob] {

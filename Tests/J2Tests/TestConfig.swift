@@ -24,7 +24,7 @@ fileprivate class System: Configurable {
         try config.processOptions(cliOpts: cliOpts)
     }
 
-    func checkOptions() throws {
+    func checkOptions(config: Config) throws {
         checkOptionsCalled = true
     }
 }

@@ -177,3 +177,31 @@ extension Array where Element == Localized<String> {
         return output
     }
 }
+
+/// Helper to grab a localized version of a markdown file.
+/// `url` is supposed to be a markdown file, whose contents get used for the default localization.
+/// Its directory should contain a subdirectory for each language tag with an identically named file.
+extension Dictionary where Key == String, Value == Markdown {
+    public init(localizingFile url: URL) throws {
+        self.init()
+        let locs = Localizations.shared
+
+        let defaultContent = Markdown(try String(contentsOf: url))
+        self[locs.main.tag] = defaultContent
+
+        let filename = url.lastPathComponent
+        let directory = url.deletingLastPathComponent()
+
+        try locs.others.forEach { otherLoc in
+            let otherURL = directory
+                .appendingPathComponent(otherLoc.tag)
+                .appendingPathComponent(filename)
+            if FileManager.default.fileExists(atPath: otherURL.path) {
+                self[otherLoc.tag] = Markdown(try String(contentsOf: otherURL))
+            } else {
+                logDebug("Missing localization '\(otherLoc.tag)' for \(url.path).")
+                self[otherLoc.tag] = defaultContent
+            }
+        }
+    }
+}

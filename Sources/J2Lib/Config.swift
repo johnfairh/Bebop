@@ -13,12 +13,12 @@ import Foundation
 public protocol Configurable {
     /// Signal that all user options have been specified.
     /// Perform any in-component cross-option validation.
-    func checkOptions() throws
+    func checkOptions(config: Config) throws
 }
 
 public extension Configurable {
     /// Do nothing by default
-    func checkOptions() throws {
+    func checkOptions(config: Config) throws {
     }
 }
 
@@ -51,8 +51,14 @@ public final class Config {
 
     /// Client stuff
     private var configurables: [Configurable]
-    /// Broken abstraction, need the --source-directory to know where to search for the config file...
-    var srcDirPathOpt: PathOpt?
+
+    /// Published options -- publish during register, read during checkOptions
+    /// All broken abstractions....
+    private(set) var srcDirPathOpt: PathOpt?
+
+    func publish(srcDirPathOpt: PathOpt) {
+        self.srcDirPathOpt = srcDirPathOpt
+    }
 
     /// Create a new `Config` component
     public init() {
@@ -110,7 +116,7 @@ public final class Config {
 
         configureLogger(report: true)
 
-        try configurables.forEach { try $0.checkOptions() } // #1
+        try configurables.forEach { try $0.checkOptions(config: self) } // #1
     }
 
     /// Find the config file, using a configured path or default rules.

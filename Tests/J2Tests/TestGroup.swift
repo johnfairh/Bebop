@@ -21,7 +21,7 @@ fileprivate struct System {
         try! config.processOptions(cliOpts: cliArgs)
     }
 
-    func run(_ passes: [GatherModulePass]) throws -> [GroupItem] {
+    func run(_ passes: [GatherModulePass]) throws -> [Item] {
         let merged = try merge.merge(gathered: passes)
         return try group.group(merged: merged)
     }

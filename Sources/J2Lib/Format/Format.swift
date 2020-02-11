@@ -9,15 +9,44 @@
 import Foundation
 import Maaku
 
-public struct Format: Configurable {
+public final class Format: Configurable {
+    let readmeOpt = PathOpt(l: "readme").help("FILEPATH")
+
+    private var srcDirPathOpt: PathOpt?
+
     public init(config: Config) {
         config.register(self)
     }
 
+    public func checkOptions(config: Config) throws {
+        try readmeOpt.checkIsFile()
+        srcDirPathOpt = config.srcDirPathOpt
+    }
+
     public func format(items: [Item]) throws -> [Item] {
-        URLVisitor().walk(items: items)
-        MarkdownVisitor().walk(items: items)
-        return items
+        let allItems = items + [try createReadme()]
+        URLVisitor().walk(items: allItems)
+        MarkdownVisitor().walk(items: allItems)
+        return allItems
+    }
+
+    /// Go discover the readme.
+    func createReadme() throws -> ReadmeItem {
+        if let readmeURL = readmeOpt.value {
+            logDebug("Format: Using configured readme '\(readmeURL.path)'")
+            return ReadmeItem(content: try Localized<Markdown>(localizingFile: readmeURL))
+        }
+
+        let srcDirURL = srcDirPathOpt?.configValue ?? FileManager.default.currentDirectory
+        for guess in ["README.md", "README.markdown", "README.mdown", "README"] {
+            let guessURL = srcDirURL.appendingPathComponent(guess)
+            if FileManager.default.fileExists(atPath: guessURL.path) {
+                logDebug("Format: Using found readme '\(guessURL.path)'.")
+                return ReadmeItem(content: try Localized<Markdown>(localizingFile: guessURL))
+            }
+        }
+        logDebug("Format: Can't find anything that looks like a readme, making something up.")
+        return ReadmeItem(content: Localized<Markdown>(unLocalized: Markdown("Read ... me?")))
     }
 }
 
@@ -74,5 +103,8 @@ struct MarkdownVisitor: ItemVisitor {
     }
 
     func visit(groupItem: GroupItem, parents: [Item]) {
+    }
+
+    func visit(guideItem: GuideItem, parents: [Item]) {
     }
 }

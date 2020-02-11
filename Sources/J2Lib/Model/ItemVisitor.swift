@@ -14,6 +14,8 @@
 public protocol ItemVisitor {
     func visit(defItem: DefItem, parents: [Item])
     func visit(groupItem: GroupItem, parents: [Item])
+    func visit(guideItem: GuideItem, parents: [Item])
+    func visit(readmeItem: ReadmeItem, parents: [Item])
 }
 
 /// Default implementations do nothing on visit
@@ -22,6 +24,12 @@ extension ItemVisitor {
     public func visit(defItem: DefItem, parents: [Item]) {}
     /// Do nothing
     public func visit(groupItem: GroupItem, parents: [Item]) {}
+    /// Do nothing
+    public func visit(guideItem: GuideItem, parents: [Item]) {}
+    /// Treat the same as guides
+    public func visit(readmeItem: ReadmeItem, parents: [Item]) {
+        self.visit(guideItem: readmeItem, parents: parents)
+    }
 }
 
 extension ItemVisitor {

@@ -118,4 +118,14 @@ struct URLVisitor: ItemVisitor {
     func visit(groupItem: GroupItem, parents: [Item]) {
         groupItem.setURLPath()
     }
+
+    /// Guides in the guides directory.
+    func visit(guideItem: GuideItem, parents: [Item]) {
+        guideItem.setURLPath(parentURLPath: ItemKind.guide.name)
+    }
+
+    /// Readme at the top
+    func visit(readmeItem: ReadmeItem, parents: [Item]) {
+        readmeItem.setURLPath()
+    }
 }

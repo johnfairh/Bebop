@@ -7,6 +7,7 @@
   },
   "pages" : [
     {
+      "is_guide" : false,
       "title" : {
         "en" : "Types"
       },
@@ -15,6 +16,7 @@
       }
     },
     {
+      "is_guide" : false,
       "title" : {
         "en" : "SpmSwiftModule"
       },
@@ -23,6 +25,7 @@
       }
     },
     {
+      "is_guide" : false,
       "title" : {
         "en" : "Nested1"
       },
@@ -31,11 +34,21 @@
       }
     },
     {
+      "is_guide" : false,
       "title" : {
         "en" : "Functions"
       },
       "url" : {
         "url_path" : "functions"
+      }
+    },
+    {
+      "is_guide" : true,
+      "title" : {
+        "en" : "index"
+      },
+      "url" : {
+        "url_path" : "index"
       }
     }
   ],
