@@ -65,6 +65,16 @@ public struct Localizations {
         all.map { $0.tag }
     }
 
+    /// Lookup from tag, or main if no match
+    public func localization(languageTag: String) -> Localization {
+        for loc in all {
+            if loc.tag == languageTag {
+                return loc
+            }
+        }
+        return main
+    }
+
     /// Initialize a new set of localizations
     public init(main: Localization = .default, others: [Localization] = []) {
         self.main = main

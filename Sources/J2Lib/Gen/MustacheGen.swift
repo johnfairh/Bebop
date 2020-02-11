@@ -81,6 +81,9 @@ public enum MustacheKey: String {
     case pathToAssets = "path_to_assets" // empty string or ends in "/"
     case docsTitle = "docs_title"
     case breadcrumbsRoot = "breadcrumbs_root"
+    // Localizations menu -- only set if there are multiple localizations
+    case pageLocalization = "page_localization"
+    case localizations = "localizations"
 
     // ToC entries
     case title = "title"

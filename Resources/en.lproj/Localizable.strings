@@ -54,3 +54,5 @@ Options:";
 "wrn-no-comment-missing" = "Doc comments will not be localized for '%1' because cannot open '%2'.";
 
 "wrn-cfg-language-missing" = "Language tags missing for '%1': %2.";
+
+"msg-generating-docs" = "Generating documentation";

@@ -99,7 +99,7 @@ class TestGen: XCTestCase {
     func testPageGenIterator() throws {
         let meta = GenData.Meta()
 
-        Localizations.shared = Localizations(main: Localization.default)
+        Localizations.shared = Localizations()
         let genData = GenData(meta: meta, toc: [],
                               pages: [mkPage("page1"), mkPage("page2")])
 
@@ -128,6 +128,13 @@ class TestGen: XCTestCase {
         XCTAssertEqual("en-page1", it_1?.data[.pageTitle] as? String)
         let it_2 = it.next()
         XCTAssertEqual("en-page2", it_2?.data[.pageTitle] as? String)
+        let loc_2 = it_2!.getLocation()
+        XCTAssertEqual("page2.html", loc_2.filePath)
+        XCTAssertEqual("page2.html", loc_2.urlPath)
+        XCTAssertEqual("", loc_2.reversePath)
+        let loc_2_fr = it_2!.getLocation(languageTag: "fr")
+        XCTAssertEqual("fr/page2.html", loc_2_fr.filePath)
+        XCTAssertEqual("../", loc_2_fr.reversePath)
         let it_3 = it.next()
         XCTAssertEqual("fr", it_3?.languageTag)
         XCTAssertEqual("fr-page1", it_3?.data[.pageTitle] as? String)

@@ -47,16 +47,16 @@
     </a>
     {{/dash_url}}
 
-    {{#localizations}}
+    {{#page_localization}}
     <div class="nav-item dropdown d-none d-xxs-block">
-      <a class="nav-link dropdown-toggle j2-trans-dropdown" href="#" id="trans-menu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">🇺 🇸 </a>
+      <a class="nav-link dropdown-toggle j2-trans-dropdown" href="#" id="trans-menu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{page_localization}}</a>
       <div class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="trans-menu">
-        <a class="dropdown-item" href="" role="menuitem" aria-current="true">🇺 🇸  English</a>
-        <a class="dropdown-item" href="" role="menuitem">🇨 🇳  zh_CN</a>
-        <a class="dropdown-item" href="" role="menuitem">🇫 🇷  Français</a>
+        {{#localizations}}
+          <a class="dropdown-item" href="{{url}}" role="menuitem" {{#active}}aria-current="true"{{/active}}>{{title}}</a>
+        {{/localizations}}
       </div>
     </div>
-    {{/localizations}}
+    {{/page_localization}}
 
   </div>
 </div>

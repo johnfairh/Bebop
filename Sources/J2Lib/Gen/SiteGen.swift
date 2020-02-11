@@ -45,6 +45,8 @@ public struct SiteGen: Configurable {
     public func generate(genData: GenData) throws {
         let theme = try themes.select()
 
+        logInfo(.localized(.msgGeneratingDocs))
+
         if cleanOpt.value {
             logDebug("Gen: Cleaning output directory \(outputURL.path)")
             try FileManager.default.removeItem(at: outputURL)
@@ -61,23 +63,27 @@ public struct SiteGen: Configurable {
         var pageIterator = genData.makeIterator(fileExt: theme.fileExtension)
 
         while let page = pageIterator.next() {
-            var url = outputURL
-            var depth = 0
-            if page.languageTag != Localizations.shared.main.tag {
-                url.appendPathComponent(page.languageTag)
-                depth = 1
-            }
-            url.appendPathComponent(page.filepath)
-            depth += page.filepath.directoryNestingDepth
+            let location = page.getLocation()
 
             var mustacheData = page.data
-            mustacheData[.pathToAssets] = String(repeating: "../", count: depth)
+            mustacheData[.pathToAssets] = location.reversePath
             mustacheData[.docsTitle] = docsTitle.get(page.languageTag)
             mustacheData[.breadcrumbsRoot] = breadcrumbsRoot.get(page.languageTag)
+
+            let locs = Localizations.shared
+
+            if locs.all.count > 1 {
+                mustacheData[.pageLocalization] =
+                    locs.localization(languageTag: page.languageTag).flag
+                mustacheData[.localizations] =
+                    buildLocalizations(page: page,
+                                       currentPathToAssets: location.reversePath)
+            }
 
             logDebug("Gen: Rendering template for \(page.data[.pageTitle]!)")
             let rendered = try theme.renderTemplate(data: mustacheData)
 
+            let url = outputURL.appendingPathComponent(location.filePath)
             logDebug("Gen: Creating \(url.path)")
             try rendered.write(to: url)
         }
@@ -125,5 +131,46 @@ public struct SiteGen: Configurable {
         }
 
         return dict
+    }
+
+    /// Build the localizations menu - links to this same page in all the
+    /// localizations we're building for.
+    func buildLocalizations(page: MustachePage,
+                            currentPathToAssets: String) -> [[String: Any]] {
+        Localizations.shared.all.map { loc in
+            let otherLocation = page.getLocation(languageTag: loc.tag)
+            let relativeURL = currentPathToAssets + otherLocation.urlPath
+            return MustacheKey.dict([
+                .title : "\(loc.flag) \(loc.label)",
+                .active : loc.tag == page.languageTag,
+                .url : relativeURL
+            ])
+        }
+    }
+}
+
+// Helpers to deal with the actual filesystem location of pages, taking the
+// localization settings into account.
+struct MustachePageLocation {
+    /// Path relative to docroot
+    let filePath: String
+    /// URL-encoded path relative to docroot
+    var urlPath: String { filePath.urlPathEncoded }
+    /// Empty string or ends in '/'
+    let reversePath: String
+}
+
+extension MustachePage {
+    /// Work out where this page is in a particular language.
+    /// If `languageTag` is `nil` then it uses the page's own language.
+    func getLocation(languageTag: String? = nil) -> MustachePageLocation {
+        let tag = languageTag ?? self.languageTag
+        var locationPath = ""
+        if tag != Localizations.shared.main.tag {
+            locationPath = "\(tag)/"
+        }
+        let fullPath = locationPath + filepath
+        let reversePath = String(repeating: "../", count: fullPath.directoryNestingDepth)
+        return MustachePageLocation(filePath: fullPath, reversePath: reversePath)
     }
 }

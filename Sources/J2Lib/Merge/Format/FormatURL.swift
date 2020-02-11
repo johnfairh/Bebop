@@ -10,7 +10,7 @@ import Foundation
 
 // Collect the routines for assigning and working with URLs.
 
-private extension String {
+extension String {
     var urlPathEncoded: String {
         addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
     }
