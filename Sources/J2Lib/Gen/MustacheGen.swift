@@ -118,7 +118,7 @@ extension GenData {
         func tocList(entries: [TocEntry]) -> [[String : Any]] {
             entries.map { entry in
                 let entryURLPath = entry.url.url(fileExtension: fileExt)
-                return MH([.title: entry.title[languageTag] ?? "??",
+                return MH([.title: entry.title.get(languageTag),
                            .url: entryURLPath,
                            .active: entryURLPath == pageURLPath,
                            .children: tocList(entries: entry.children)])

@@ -107,6 +107,7 @@ extension Dictionary where Key == String {
     /// Defaults to the main localization if set, otherwise arbitrary.
     /// Shouldn't really be here if empty, does nothing.
     /// - returns: the list of tags that were invented
+    @discardableResult
     mutating func expandLanguages() -> [String] {
         guard let anyValue = self.first?.value else {
             return Localizations.shared.allTags
@@ -132,13 +133,18 @@ extension Dictionary where Key == String, Value == String {
     public func append(_ str: Localized<String>) -> Self {
         var out = Localized<String>()
         forEach { key, val in
-            out[key] = val + (str[key] ?? "")
+            out[key] = val + str.get(key)
         }
         return out
     }
 
     public func append(_ str: String) -> Self {
         mapValues { $0 + str }
+    }
+
+    /// Get the value for the language or an empty string if none
+    func get(_ languageTag: String) -> String {
+        self[languageTag] ?? ""
     }
 }
 

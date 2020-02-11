@@ -61,6 +61,7 @@ struct MarkdownVisitor: ItemVisitor {
     //     a) replace headings with custom nodes adding styles and tags
     //     b) create scaffolding around callouts
     //     c) ??? code blocks styles - at least language rewrite for prism
+    //     d) math reformatting
     // 5 - render that as html
     func render(md: Markdown) -> (Markdown, Html) {
         guard let doc = CMDocument(markdown: md),

@@ -205,15 +205,16 @@ struct AliasOpt {
     }
 }
 
-/// Intermediate type to add default values and typed option storage.
-///
-class TypedOpt<OptType>: Opt {
-    private var defaultValue: OptType?
-    private var theHelpParam: String?
+protocol OptHelpers: class {
+    associatedtype OptHelperType
+    var defaultValue: OptHelperType? { get set }
+    var theHelpParam: String? { get set }
+}
 
+extension OptHelpers {
     /// Set the default value for the option, before running `OptsParser`.
     @discardableResult
-    func def(_ defaultValue: OptType) -> Self {
+    func def(_ defaultValue: OptHelperType) -> Self {
         self.defaultValue = defaultValue
         return self
     }
@@ -224,6 +225,12 @@ class TypedOpt<OptType>: Opt {
         self.theHelpParam = helpParam
         return self
     }
+}
+
+/// Intermediate type to add default values and typed option storage.
+class TypedOpt<OptType>: Opt, OptHelpers {
+    var defaultValue: OptType?
+    var theHelpParam: String?
 
     override var helpParam: String {
         return theHelpParam ?? ""
@@ -442,16 +449,10 @@ final class EnumOpt<EnumType>: TypedOpt<EnumType> where
 
 // MARK: Localized Stringsets
 
-final class LocStringOpt: Opt {
-    private(set) var defaultValue: String?
+final class LocStringOpt: Opt, OptHelpers {
+    var defaultValue: String?
     private(set) var flatConfig: String?
     private(set) var dictConfig: Localized<String>?
-
-    @discardableResult
-    func def(_ defaultValue: String) -> Self {
-        self.defaultValue = defaultValue
-        return self
-    }
 
     /// Client responsible for not evaluating this until the actual desired
     /// localizations have been configured, otherwise wackiness will ensue.
@@ -466,15 +467,8 @@ final class LocStringOpt: Opt {
         }
     }
 
-    private var theHelpParam: String?
+    var theHelpParam: String?
     
-    /// Set the help param value for the option, before running `OptsParser`.
-    @discardableResult
-    func help(_ helpParam: String) -> Self {
-        self.theHelpParam = helpParam
-        return self
-    }
-
     override var helpParam: String {
         return theHelpParam ?? ""
     }
