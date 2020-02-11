@@ -27,7 +27,7 @@ final class GatherLocalize: GatherGarnish, Configurable {
         config.register(self)
     }
 
-    public func checkOptions(config: Config) throws {
+    public func checkOptions(published: Config.Published) throws {
         try docCommentLanguageDirOpt.checkIsDirectory()
     }
 

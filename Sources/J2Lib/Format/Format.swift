@@ -12,15 +12,15 @@ import Maaku
 public final class Format: Configurable {
     let readmeOpt = PathOpt(l: "readme").help("FILEPATH")
 
-    private var srcDirPathOpt: PathOpt?
+    private var configPublished: Config.Published
 
     public init(config: Config) {
+        configPublished = config.published
         config.register(self)
     }
 
-    public func checkOptions(config: Config) throws {
+    public func checkOptions(published: Config.Published) throws {
         try readmeOpt.checkIsFile()
-        srcDirPathOpt = config.srcDirPathOpt
     }
 
     public func format(items: [Item]) throws -> [Item] {
@@ -37,7 +37,7 @@ public final class Format: Configurable {
             return ReadmeItem(content: try Localized<Markdown>(localizingFile: readmeURL))
         }
 
-        let srcDirURL = srcDirPathOpt?.configValue ?? FileManager.default.currentDirectory
+        let srcDirURL = configPublished.sourceDirectoryURL ?? FileManager.default.currentDirectory
         for guess in ["README.md", "README.markdown", "README.mdown", "README"] {
             let guessURL = srcDirURL.appendingPathComponent(guess)
             if FileManager.default.fileExists(atPath: guessURL.path) {

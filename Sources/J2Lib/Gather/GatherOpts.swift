@@ -27,11 +27,13 @@ struct GatherOpts : Configurable {
         swiftBuildToolAlias = AliasOpt(realOpt: buildToolOpt, l: "swift-build-tool")
 
         config.register(self)
-        config.publish(srcDirPathOpt: srcDirOpt)
     }
 
-    func checkOptions(config: Config) throws {
+    func checkOptions(published: Config.Published) throws {
         try srcDirOpt.checkIsDirectory()
+        if let srcDirURL = srcDirOpt.value {
+            published.sourceDirectoryURL = srcDirURL
+        }
     }
 
     var jobs: [GatherJob] {

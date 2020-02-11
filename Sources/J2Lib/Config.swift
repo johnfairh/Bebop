@@ -13,12 +13,25 @@ import Foundation
 public protocol Configurable {
     /// Signal that all user options have been specified.
     /// Perform any in-component cross-option validation.
-    func checkOptions(config: Config) throws
+    func checkOptions(published: Config.Published) throws
 }
 
 public extension Configurable {
     /// Do nothing by default
-    func checkOptions(config: Config) throws {
+    func checkOptions(published: Config.Published) throws {
+    }
+}
+
+@propertyWrapper
+public struct Once<T> {
+    public var wrappedValue: T? {
+        willSet(newValue) {
+            precondition(wrappedValue == nil)
+        }
+    }
+
+    public init() {
+        wrappedValue = nil
     }
 }
 
@@ -53,12 +66,12 @@ public final class Config {
     private var configurables: [Configurable]
 
     /// Published options -- publish during register, read during checkOptions
-    /// All broken abstractions....
-    private(set) var srcDirPathOpt: PathOpt?
-
-    func publish(srcDirPathOpt: PathOpt) {
-        self.srcDirPathOpt = srcDirPathOpt
+    /// All rather broken abstractions....
+    public final class Published {
+        // Published by GatherJob
+        @Once public var sourceDirectoryURL: URL?
     }
+    public let published = Published()
 
     /// Create a new `Config` component
     public init() {
@@ -116,7 +129,7 @@ public final class Config {
 
         configureLogger(report: true)
 
-        try configurables.forEach { try $0.checkOptions(config: self) } // #1
+        try configurables.forEach { try $0.checkOptions(published: published) } // #1
     }
 
     /// Find the config file, using a configured path or default rules.
@@ -130,8 +143,7 @@ public final class Config {
         let fm = FileManager.default
 
         let initialSearchPath: String
-        if let srcDirPathOpt = srcDirPathOpt,
-            let srcDirURL = srcDirPathOpt.value {
+        if let srcDirURL = published.sourceDirectoryURL {
             initialSearchPath = srcDirURL.path
         } else {
             initialSearchPath = fm.currentDirectoryPath

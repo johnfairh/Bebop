@@ -46,7 +46,7 @@ struct Themes: Configurable {
     }
 
     /// Quick check upfront that the theme directory looks sort of plausable
-    func checkOptions(config: Config) throws {
+    func checkOptions(published: Config.Published) throws {
         let themeURL = themeURLFromOpt
         try themeURL.checkIsDirectory()
         try themeURL.appendingPathComponent("templates").checkIsDirectory()
