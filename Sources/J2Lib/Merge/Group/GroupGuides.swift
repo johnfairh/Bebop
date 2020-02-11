@@ -48,7 +48,7 @@ final class GroupGuides: Configurable {
         return guides.map { kv in
             let fileBasename = String(kv.key.dropLast(3 /*.md*/))
             let slug = uniquer.unique(fileBasename.slugged)
-            let title = Localized<String>(unLocalized: fileBasename)
+            let title = Localized<String>(unlocalized: fileBasename)
             return GuideItem(name: kv.key, slug: slug, title: title, content: kv.value)
         }.sorted { $0.name < $1.name }
     }

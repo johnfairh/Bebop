@@ -46,7 +46,7 @@ public final class Format: Configurable {
             }
         }
         logDebug("Format: Can't find anything that looks like a readme, making something up.")
-        return ReadmeItem(content: Localized<Markdown>(unLocalized: Markdown("Read ... me?")))
+        return ReadmeItem(content: Localized<Markdown>(unlocalized: Markdown("Read ... me?")))
     }
 }
 

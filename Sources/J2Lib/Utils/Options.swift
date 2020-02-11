@@ -463,7 +463,7 @@ final class LocStringOpt: Opt, OptHelpers {
             return dictConfig
         }
         return (flatConfig ?? defaultValue).flatMap {
-            Localized<String>(unLocalized: $0)
+            Localized<String>(unlocalized: $0)
         }
     }()
 

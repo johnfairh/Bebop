@@ -43,7 +43,7 @@ public final class ReadmeItem : GuideItem {
     public init(content: Localized<Markdown>) {
         super.init(name: ReadmeItem.index,
                    slug: ReadmeItem.index,
-                   title: Localized<String>(unLocalized: ReadmeItem.index),
+                   title: Localized<String>(unlocalized: ReadmeItem.index),
                    content: content)
     }
 

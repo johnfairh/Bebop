@@ -30,7 +30,7 @@ public class Item: Encodable {
         if let title = title {
             self.title = title
         } else {
-            self.title = Localized<String>(unLocalized: name)
+            self.title = Localized<String>(unlocalized: name)
         }
         self.children = children
         self.url = URLPieces()

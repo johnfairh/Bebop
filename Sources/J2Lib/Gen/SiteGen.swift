@@ -102,7 +102,7 @@ public struct SiteGen: Configurable {
         if let moduleVersion = moduleVersionOpt.value {
             flat += "\(moduleVersion) "
         }
-        return Localized<String>(unLocalized: flat)
+        return Localized<String>(unlocalized: flat)
             .append(.localizedOutput(.docs))
     }
 
@@ -112,7 +112,7 @@ public struct SiteGen: Configurable {
             return configured
         }
         if genData.meta.moduleNames.count == 1 {
-            return Localized<String>(unLocalized: genData.meta.moduleNames.first!)
+            return Localized<String>(unlocalized: genData.meta.moduleNames.first!)
         }
         return .localizedOutput(.index)
     }
