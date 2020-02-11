@@ -149,7 +149,7 @@ class TestGen: XCTestCase {
         try system.configure(cliOpts: ["--hide-attribution", "--no-disable-search"])
         let globalData = system.gen.globalData
         XCTAssertEqual(Version.j2libVersion, globalData[.j2libVersion] as? String)
-        XCTAssertEqual(false, globalData[.disableSearch] as? Bool)
+        XCTAssertEqual(false, globalData[.hideSearch] as? Bool)
         XCTAssertEqual(true, globalData[.hideAttribution] as? Bool)
         XCTAssertEqual(66, globalData[.docCoverage] as? Int)
         XCTAssertNil(globalData[.customHead])

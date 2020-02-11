@@ -15,7 +15,7 @@ public struct SiteGen: Configurable {
     let outputOpt = PathOpt(s: "o", l: "output").help("PATH").def("docs")
     let cleanOpt = BoolOpt(s: "c", l: "clean")
 
-    let disableSearchOpt = BoolOpt(l: "disable-search")
+    let hideSearchOpt = BoolOpt(l: "hide-search")
     let hideAttributionOpt = BoolOpt(l: "hide-attribution")
     let hideCoverageOpt = BoolOpt(l: "hide-coverage")
     let customHeadOpt = StringOpt(l: "custom-head").help("HTML")
@@ -26,6 +26,7 @@ public struct SiteGen: Configurable {
 
     let oldHideCoverageOpt: AliasOpt
     let oldCustomHeadOpt: AliasOpt
+    let oldDisableSearchOpt: AliasOpt
 
     var outputURL: URL {
         outputOpt.value!
@@ -38,6 +39,7 @@ public struct SiteGen: Configurable {
 
         oldHideCoverageOpt = AliasOpt(realOpt: hideCoverageOpt, l: "hide-documentation-coverage")
         oldCustomHeadOpt = AliasOpt(realOpt: customHeadOpt, l: "head")
+        oldDisableSearchOpt = AliasOpt(realOpt: hideSearchOpt, l: "disable-search")
 
         config.register(self)
     }
@@ -119,7 +121,7 @@ public struct SiteGen: Configurable {
     var globalData: [String: Any] {
         var dict = MustacheKey.dict([
             .j2libVersion : Version.j2libVersion,
-            .disableSearch : disableSearchOpt.value,
+            .hideSearch : hideSearchOpt.value,
             .hideAttribution: hideAttributionOpt.value
         ])
 

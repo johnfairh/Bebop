@@ -67,7 +67,7 @@ extension Dictionary where Key == String {
 public enum MustacheKey: String {
     // Global, fixed
     case j2libVersion = "j2lib_version"
-    case disableSearch = "disable_search"
+    case hideSearch = "disable_search"
     case hideAttribution = "hide_attribution"
     case docCoverage = "doc_coverage"
     case customHead = "custom_head"

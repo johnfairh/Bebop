@@ -50,7 +50,7 @@ Default: 'en'.";
 "doc-comment-languages-directory" = "Directory that holds '<language-tag>/QuickHelp.strings' files with which
 to localize documentation comments.
 Default: None - do not localize documentation comments.";
-"disable-search" = "Do not generate a search index or include search controls in the generated
+"hide-search" = "Do not generate a search index or include search controls in the generated
 documentation.";
 "hide-attribution" = "Do not display the attribution line in the footer of the generated
 documentation.";
