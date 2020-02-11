@@ -20,6 +20,10 @@ public struct SiteGen: Configurable {
     let hideCoverageOpt = BoolOpt(l: "hide-coverage")
     let customHeadOpt = StringOpt(l: "custom-head").help("HTML")
 
+    let titleOpt = LocStringOpt(l: "title").help("TITLE")
+    let moduleVersionOpt = StringOpt(l: "module-version").help("VERSION")
+    let breadcrumbsRootOpt = LocStringOpt(l: "breadcrumbs-root").help("TITLE")
+
     let oldHideCoverageOpt: AliasOpt
     let oldCustomHeadOpt: AliasOpt
 
@@ -51,6 +55,9 @@ public struct SiteGen: Configurable {
 
         theme.setGlobalData(globalData)
 
+        let docsTitle = buildDocsTitle(genData: genData)
+        let breadcrumbsRoot = buildBreadcrumbRoot(genData: genData)
+
         var pageIterator = genData.makeIterator(fileExt: theme.fileExtension)
 
         while let page = pageIterator.next() {
@@ -65,14 +72,41 @@ public struct SiteGen: Configurable {
 
             var mustacheData = page.data
             mustacheData[.pathToAssets] = String(repeating: "../", count: depth)
+            mustacheData[.docsTitle] = docsTitle.get(page.languageTag)
+            mustacheData[.breadcrumbsRoot] = breadcrumbsRoot.get(page.languageTag)
 
-            logDebug("Gen: Rendering template for \(page.data[.pageTitle] ?? "??")")
+            logDebug("Gen: Rendering template for \(page.data[.pageTitle]!)")
             let rendered = try theme.renderTemplate(data: mustacheData)
 
             logDebug("Gen: Creating \(url.path)")
             try rendered.write(to: url)
         }
         try theme.copyAssets(to: outputURL)
+    }
+
+    /// Figure out the title for the docs
+    func buildDocsTitle(genData: GenData) -> Localized<String> {
+        if let configured = titleOpt.value {
+            return configured
+        }
+        let aModuleName = genData.meta.moduleNames.first ?? "Module"
+        var flat = aModuleName + " "
+        if let moduleVersion = moduleVersionOpt.value {
+            flat += "\(moduleVersion) "
+        }
+        return Localized<String>(unLocalized: flat)
+            .append(.localizedOutput(.docs))
+    }
+
+    /// Figure out the breadcrumbs-root for the docs
+    func buildBreadcrumbRoot(genData: GenData) -> Localized<String> {
+        if let configured = breadcrumbsRootOpt.value {
+            return configured
+        }
+        if genData.meta.moduleNames.count == 1 {
+            return Localized<String>(unLocalized: genData.meta.moduleNames.first!)
+        }
+        return .localizedOutput(.index)
     }
 
     /// Configured things that do not vary page-to-page

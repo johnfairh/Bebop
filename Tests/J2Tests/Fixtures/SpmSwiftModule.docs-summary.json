@@ -1,5 +1,8 @@
 {
   "meta" : {
+    "module_names" : [
+      "SpmSwiftModule"
+    ],
     "version" : "0.1"
   },
   "pages" : [

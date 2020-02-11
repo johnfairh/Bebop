@@ -23,9 +23,15 @@ fileprivate struct System {
     }
 }
 
+extension GenData.Meta {
+    init() {
+        self.init(version: "TEST", moduleNames: ["M1"])
+    }
+}
+
 extension GenData {
     convenience init() {
-        self.init(meta: Meta(version: "TEST"), toc: [], pages: [])
+        self.init(meta: Meta(), toc: [], pages: [])
     }
 }
 
@@ -91,7 +97,7 @@ class TestGen: XCTestCase {
     }
 
     func testPageGenIterator() throws {
-        let meta = GenData.Meta(version: "")
+        let meta = GenData.Meta()
 
         Localizations.shared = Localizations(main: Localization.default)
         let genData = GenData(meta: meta, toc: [],
@@ -108,7 +114,7 @@ class TestGen: XCTestCase {
     }
 
     func testMultiLanguagePageGenIterator() throws {
-        let meta = GenData.Meta(version: "")
+        let meta = GenData.Meta()
 
         Localizations.shared =
             Localizations(mainDescriptor: Localization.defaultDescriptor,
@@ -148,5 +154,29 @@ class TestGen: XCTestCase {
         try system.configure(cliOpts: ["--hide-documentation-coverage"])
         let globalData = system.gen.globalData
         XCTAssertNil(globalData[.docCoverage])
+    }
+
+    private func checkTitles(_ cliOpts: [String], _ modules: [String],
+                             _ title: String?, _ bcRoot: String, line: UInt = #line) throws {
+        let system = System()
+        try system.configure(cliOpts: cliOpts)
+        let meta = GenData.Meta(version: "", moduleNames: Set<String>(modules))
+        let data = GenData(meta: meta, toc: [], pages: [])
+        let atitle = system.gen.buildDocsTitle(genData: data)
+        let abreadcrumbsRoot = system.gen.buildBreadcrumbRoot(genData: data)
+        if let title = title {
+            XCTAssertEqual(title, atitle["en"]!, line: line)
+        }
+        XCTAssertEqual(bcRoot, abreadcrumbsRoot["en"]!, line: line)
+    }
+
+    // Site-Gen title generation
+    func testDocsTitles() throws {
+        try checkTitles([], [], "Module docs", "Index")
+        try checkTitles([], ["MM"], "MM docs", "MM")
+        try checkTitles(["--module-version=1.2"], ["MM"], "MM 1.2 docs", "MM")
+        try checkTitles(["--title=TT"], ["MM"], "TT", "MM")
+        try checkTitles(["--breadcrumbs-root=BB"], ["MM"], "MM docs", "BB")
+        try checkTitles([], ["MM", "M2"], nil, "Index")
     }
 }

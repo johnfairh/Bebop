@@ -78,12 +78,16 @@ internal enum L10n {
   internal enum Output : String {
     /// Deprecated.
     case deprecated = "deprecated"
+    /// docs
+    case docs = "docs"
     /// Extensions
     case extensions = "extensions"
     /// Functions
     case functions = "functions"
     /// Guides
     case guides = "guides"
+    /// Index
+    case index = "index"
     /// Others
     case others = "others"
     /// %1 - deprecated.

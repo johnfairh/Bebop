@@ -96,7 +96,7 @@ public typealias Localized<T> = [String : T]
 
 extension Dictionary where Key == String {
     /// Create a 'localized' version a value, showing that value for every language tag
-    init(unLocalized: Value) {
+    public init(unLocalized: Value) {
         self.init()
         Localizations.shared.allTags.forEach {
             self[$0] = unLocalized
@@ -108,7 +108,7 @@ extension Dictionary where Key == String {
     /// Shouldn't really be here if empty, does nothing.
     /// - returns: the list of tags that were invented
     @discardableResult
-    mutating func expandLanguages() -> [String] {
+    public mutating func expandLanguages() -> [String] {
         guard let anyValue = self.first?.value else {
             return Localizations.shared.allTags
         }
@@ -128,6 +128,10 @@ extension Dictionary where Key == String, Value == String {
     /// Helper to grab a piece of localized output text and do substitutions %1 .... %n
     static func localizedOutput(_ key: L10n.Output, _ subs: Any...) -> Localized<String> {
         Resources.shared.localizedOutput(key: key.rawValue, subs: subs)
+    }
+
+    init(_ key: L10n.Output, _ subs: Any...) {
+        self = Resources.shared.localizedOutput(key: key.rawValue, subs: subs)
     }
 
     public func append(_ str: Localized<String>) -> Self {

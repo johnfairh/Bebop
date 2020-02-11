@@ -17,11 +17,12 @@ public struct PageGen: Configurable {
     }
 
     public func generatePages(items: [Item]) throws -> GenData {
-        let meta = GenData.Meta(version: Version.j2libVersion)
         let toc = generateToc(items: items)
 
         let pageVisitor = PageVisitor()
         pageVisitor.walk(items: items)
+        let meta = GenData.Meta(version: Version.j2libVersion,
+                                moduleNames: pageVisitor.moduleNames)
 
         return GenData(meta: meta, toc: toc, pages: pageVisitor.pages)
     }
@@ -49,12 +50,16 @@ public struct PageGen: Configurable {
 // MARK: Page data
 
 final class PageVisitor: ItemVisitor {
+    /// All pages
     var pages = [GenData.Page]()
+    /// Some module name - used to generate default headings, nothing semantic
+    var moduleNames = Set<String>()
 
     func visit(defItem: DefItem, parents: [Item]) {
         if defItem.renderAsPage {
             pages.append(GenData.Page(url: defItem.url, title: defItem.title))
         }
+        moduleNames.insert(defItem.moduleName)
     }
 
     func visit(groupItem: GroupItem, parents: [Item]) {

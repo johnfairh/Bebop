@@ -12,7 +12,10 @@
 /// Dumped for the `docs-summary-json` product.
 public final class GenData: Encodable {
     public struct Meta: Encodable {
+        /// Version of this program
         public let version: String
+        /// Modules being documented
+        public let moduleNames: Set<String>
     }
     public let meta: Meta
     public struct TocEntry: Encodable {

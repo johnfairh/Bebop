@@ -24,3 +24,8 @@
 "functions" = "Functions";
 "extensions" = "Extensions";
 "others" = "Others";
+
+/* Title */
+"docs" = "docs";
+/* Breadcrumb root */
+"index" = "Index";

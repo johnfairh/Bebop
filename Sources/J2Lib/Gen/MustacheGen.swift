@@ -79,6 +79,8 @@ public enum MustacheKey: String {
     case toc = "toc"
     // Global, set by SiteGen
     case pathToAssets = "path_to_assets" // empty string or ends in "/"
+    case docsTitle = "docs_title"
+    case breadcrumbsRoot = "breadcrumbs_root"
 
     // ToC entries
     case title = "title"

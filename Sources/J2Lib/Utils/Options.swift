@@ -456,7 +456,7 @@ final class LocStringOpt: Opt, OptHelpers {
 
     /// Client responsible for not evaluating this until the actual desired
     /// localizations have been configured, otherwise wackiness will ensue.
-    var value: Localized<String>? {
+    lazy var value: Localized<String>? = {
         if var dictConfig = dictConfig {
             let missing = dictConfig.expandLanguages()
             logWarning(.localized(.wrnCfgLanguageMissing, name(usage: false), missing))
@@ -465,7 +465,7 @@ final class LocStringOpt: Opt, OptHelpers {
         return (flatConfig ?? defaultValue).flatMap {
             Localized<String>(unLocalized: $0)
         }
-    }
+    }()
 
     var theHelpParam: String?
     
