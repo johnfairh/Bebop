@@ -31,12 +31,8 @@ extension FileManager {
     }
 }
 
-extension URL {
-    /// Execute some code with this file directory URL as the current directory, restoring current directory afterwards.
-    ///
-    /// I didn't mean to borrow this from Ruby -- wrote 90% of it with pieces then realized what the pattern was...
-    public func withCurrentDirectory<T>(code: () throws -> T) throws -> T {
-        try checkIsDirectory()
+extension FileManager {
+    public static func preservingCurrentDirectory<T>(_ code: () throws -> T) rethrows -> T {
         let fileManager = FileManager.default
         let cwd = fileManager.currentDirectoryPath
         defer {
@@ -46,8 +42,20 @@ extension URL {
                 logWarning(.localized(.wrnPathNoChdir, cwd))
             }
         }
-        fileManager.changeCurrentDirectoryPath(path)
         return try code()
+    }
+}
+
+extension URL {
+    /// Execute some code with this file directory URL as the current directory, restoring current directory afterwards.
+    ///
+    /// I didn't mean to borrow this from Ruby -- wrote 90% of it with pieces then realized what the pattern was...
+    public func withCurrentDirectory<T>(code: () throws -> T) throws -> T {
+        try checkIsDirectory()
+        return try FileManager.preservingCurrentDirectory {
+            FileManager.default.changeCurrentDirectoryPath(path)
+            return try code()
+        }
     }
 }
 

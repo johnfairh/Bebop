@@ -12,12 +12,14 @@ import XCTest
 
 fileprivate struct System {
     let config: Config
+    let gather: Gather
     let merge: Merge
     let group: Group
     let format: Format
 
     init(cliArgs: [String] = []) {
         config = Config()
+        gather = Gather(config: config)
         merge = Merge(config: config)
         group = Group(config: config)
         format = Format(config: config)
@@ -91,4 +93,45 @@ class TestFormat: XCTestCase {
         checkURL(formatted[0].children[0].children[2].children[0], false, "types/top1/nestedchildren.html#instancevar2")
     }
 
+    // README
+
+    func testReadmeDetection() throws {
+        let tmpdir = try TemporaryDirectory()
+
+        // Explicit
+        let readmeURL = tmpdir.directoryURL.appendingPathComponent("RME")
+        try "RR".write(to: readmeURL)
+        let system = System(cliArgs: ["--readme", readmeURL.path])
+
+        let readme = try system.format.createReadme()
+        XCTAssertEqual(Markdown("RR"), readme.markdownContent["en"])
+
+        // Guessed
+        try FileManager.preservingCurrentDirectory {
+            try ["README.md", "README.markdown",
+                 "README.mdown", "README"].enumerated().forEach { (offs, name) in
+                let readmeURL = tmpdir.directoryURL.appendingPathComponent(name)
+                try "RR".write(to: readmeURL)
+                let system: System
+                if offs % 2 == 0 {
+                    FileManager.default.changeCurrentDirectoryPath(tmpdir.directoryURL.path)
+                    system = System()
+                } else {
+                    FileManager.default.changeCurrentDirectoryPath("/")
+                    system = System(cliArgs: ["--source-directory", tmpdir.directoryURL.path])
+                }
+                let readme = try system.format.createReadme()
+                XCTAssertEqual(Markdown("RR"), readme.markdownContent["en"])
+                try FileManager.default.removeItem(at: readmeURL)
+            }
+        }
+    }
+
+    func testReadmeFabrication() throws {
+        try TemporaryDirectory.withNew {
+            let system = System()
+            let readme = try system.format.createReadme()
+            XCTAssertTrue(readme.markdownContent["en"]!.description.hasPrefix("Read "))
+        }
+    }
 }
