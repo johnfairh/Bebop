@@ -25,7 +25,7 @@ public final class GatherDef {
     /// Multi-faceted Swift declaration info
     let swiftDeclaration: SwiftDeclaration?
     /// Documentation
-    let documentation: DefMarkdownDocs?
+    let documentation: FlatDefDocs?
     let localizationKey: String?
 
     init(sourceKittenDict: SourceKittenDict, file: SourceKittenFramework.File?) {
@@ -48,5 +48,5 @@ public final class GatherDef {
     }
 
     // Things calculated after init
-    var translatedDocs = Localized<DefMarkdownDocs>()
+    var translatedDocs = LocalizedDefDocs()
 }

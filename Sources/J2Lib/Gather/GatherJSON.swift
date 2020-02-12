@@ -59,20 +59,20 @@ extension SourceKittenDict {
     }
 }
 
-extension DefMarkdownDocs {
+extension LocalizedDefDocs {
     var dictForJSON: SourceKittenDict {
         var dict = SourceKittenDict()
         if let abstract = abstract {
-            dict[GatherKey.abstract] = abstract.description
+            dict[GatherKey.abstract] = abstract.mapValues { $0.md }
         }
         if let overview = overview {
-            dict[GatherKey.overview] = overview.description
+            dict[GatherKey.overview] = overview.mapValues { $0.md }
         }
         if let returns = returns {
-            dict[GatherKey.returns] = returns.description
+            dict[GatherKey.returns] = returns.mapValues { $0.md }
         }
         if !parameters.isEmpty {
-            dict[GatherKey.parameters] = parameters.mapValues { $0.description }
+            dict[GatherKey.parameters] = parameters.mapValues { $0.mapValues { $0.md } }
         }
         return dict
     }
@@ -100,7 +100,7 @@ extension GatherDef {
             }
         }
         if !translatedDocs.isEmpty {
-            dict[.documentation] = translatedDocs.mapValues { $0.dictForJSON }
+            dict[.documentation] = translatedDocs.dictForJSON
         }
         if !children.isEmpty {
             dict[SwiftDocKey.substructure.rawValue] = children.map { $0.dictForJSON }

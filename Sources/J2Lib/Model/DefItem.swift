@@ -21,8 +21,7 @@ public class DefItem: Item {
     /// Swift declaration
     public let swiftDeclaration: SwiftDeclaration
     /// Documentation
-    public internal(set) var markdownDocs: Localized<DefMarkdownDocs>
-    public internal(set) var htmlDocs: Localized<DefHtmlDocs>
+    public internal(set) var documentation: RichDefDocs
 
     /// Create from a gathered definition
     public init?(moduleName: String, passIndex: Int, gatherDef: GatherDef, uniquer: StringUniquer) {
@@ -49,8 +48,7 @@ public class DefItem: Item {
                 return nil
             }
         }
-        markdownDocs = gatherDef.translatedDocs
-        htmlDocs = Localized<DefHtmlDocs>() // build this in Format if we make it that far
+        documentation = RichDefDocs(gatherDef.translatedDocs)
 
         super.init(name: name, slug: uniquer.unique(name.slugged), children: children)
     }

@@ -143,12 +143,12 @@
       }
     ],
     "documentation" : {
-      "en" : {
-        "abstract" : null,
-        "overview" : "",
-        "parameters" : {},
-        "returns" : null
-      }
+      "overview" : {
+        "markdown" : {
+          "en" : ""
+        }
+      },
+      "parameters" : {}
     },
     "kind" : "source.lang.swift.decl.struct",
     "module_name" : "SpmSwiftModule",
@@ -176,12 +176,12 @@
       {
         "children" : [],
         "documentation" : {
-          "en" : {
-            "abstract" : "First case",
-            "overview" : null,
-            "parameters" : {},
-            "returns" : null
-          }
+          "abstract" : {
+            "markdown" : {
+              "en" : "First case"
+            }
+          },
+          "parameters" : {}
         },
         "kind" : "source.lang.swift.decl.enumelement",
         "module_name" : "SpmSwiftModule",
@@ -207,12 +207,12 @@
       {
         "children" : [],
         "documentation" : {
-          "en" : {
-            "abstract" : "Second case",
-            "overview" : null,
-            "parameters" : {},
-            "returns" : null
-          }
+          "abstract" : {
+            "markdown" : {
+              "en" : "Second case"
+            }
+          },
+          "parameters" : {}
         },
         "kind" : "source.lang.swift.decl.enumelement",
         "module_name" : "SpmSwiftModule",
@@ -238,12 +238,12 @@
       {
         "children" : [],
         "documentation" : {
-          "en" : {
-            "abstract" : "Third & Fourth cases",
-            "overview" : null,
-            "parameters" : {},
-            "returns" : null
-          }
+          "abstract" : {
+            "markdown" : {
+              "en" : "Third & Fourth cases"
+            }
+          },
+          "parameters" : {}
         },
         "kind" : "source.lang.swift.decl.enumelement",
         "module_name" : "SpmSwiftModule",
@@ -291,12 +291,12 @@
       }
     ],
     "documentation" : {
-      "en" : {
-        "abstract" : "An enum",
-        "overview" : null,
-        "parameters" : {},
-        "returns" : null
-      }
+      "abstract" : {
+        "markdown" : {
+          "en" : "An enum"
+        }
+      },
+      "parameters" : {}
     },
     "kind" : "source.lang.swift.decl.enum",
     "module_name" : "SpmSwiftModule",
@@ -363,13 +363,22 @@
   {
     "children" : [],
     "documentation" : {
-      "en" : {
-        "abstract" : "A deprecated function",
-        "overview" : null,
-        "parameters" : {
-          "callback" : "The callback"
-        },
-        "returns" : "A string"
+      "abstract" : {
+        "markdown" : {
+          "en" : "A deprecated function"
+        }
+      },
+      "parameters" : {
+        "callback" : {
+          "markdown" : {
+            "en" : "The callback"
+          }
+        }
+      },
+      "returns" : {
+        "markdown" : {
+          "en" : "A string"
+        }
       }
     },
     "kind" : "source.lang.swift.decl.function.free",

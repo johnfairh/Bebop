@@ -87,21 +87,22 @@ final class GatherLocalize: GatherGarnish, Configurable {
             return
         }
 
-        var translatedDocs = Localized<DefMarkdownDocs>()
+        var translatedDocs = LocalizedDefDocs()
         var languagesToDo = targetLanguages
 
         // Start with what we have already
         if let native = languagesToDo.remove(docCommentLanguage) {
-            translatedDocs[native] = documentation
+            translatedDocs.set(tag: native, docs: documentation)
         }
 
         if let localizationKey = def.localizationKey {
             languagesToDo.forEach { language in
-                if let md = markdown(forKey: localizationKey, language: language) {
-                    let builder = MarkdownBuilder(markdown: md)
-                    translatedDocs[language] = builder.build()
+                if let md = markdown(forKey: localizationKey, language: language),
+                    case let builder = MarkdownBuilder(markdown: md),
+                    let langDocs = builder.build() {
+                    translatedDocs.set(tag: language, docs: langDocs)
                 } else {
-                    translatedDocs[language] = documentation
+                    translatedDocs.set(tag: language, docs: documentation)
                 }
             }
         }

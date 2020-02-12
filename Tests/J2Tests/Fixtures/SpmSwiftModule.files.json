@@ -43,8 +43,8 @@
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
           "key.fully_annotated_decl" : "<decl.struct><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>struct<\/syntaxtype.keyword> <decl.name>SpmSwiftModule<\/decl.name><\/decl.struct>",
           "key.j2.documentation" : {
-            "en" : {
-              "key.j2.overview" : ""
+            "key.j2.overview" : {
+              "en" : ""
             }
           },
           "key.j2.name_pieces" : [
@@ -309,8 +309,8 @@
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
           "key.fully_annotated_decl" : "<decl.enum><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>enum<\/syntaxtype.keyword> <decl.name>AnEnum<\/decl.name><\/decl.enum>",
           "key.j2.documentation" : {
-            "en" : {
-              "key.j2.abstract" : "An enum"
+            "key.j2.abstract" : {
+              "en" : "An enum"
             }
           },
           "key.j2.name_pieces" : [
@@ -357,8 +357,8 @@
                   "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
                   "key.fully_annotated_decl" : "<decl.enumelement><syntaxtype.keyword>case<\/syntaxtype.keyword> <decl.name>first<\/decl.name>(<decl.var.parameter><decl.var.parameter.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>)<\/decl.enumelement>",
                   "key.j2.documentation" : {
-                    "en" : {
-                      "key.j2.abstract" : "First case"
+                    "key.j2.abstract" : {
+                      "en" : "First case"
                     }
                   },
                   "key.j2.name_pieces" : [
@@ -410,8 +410,8 @@
                   "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
                   "key.fully_annotated_decl" : "<decl.enumelement><syntaxtype.keyword>case<\/syntaxtype.keyword> <decl.name>second<\/decl.name><\/decl.enumelement>",
                   "key.j2.documentation" : {
-                    "en" : {
-                      "key.j2.abstract" : "Second case"
+                    "key.j2.abstract" : {
+                      "en" : "Second case"
                     }
                   },
                   "key.j2.name_pieces" : [
@@ -463,8 +463,8 @@
                   "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
                   "key.fully_annotated_decl" : "<decl.enumelement><syntaxtype.keyword>case<\/syntaxtype.keyword> <decl.name>third<\/decl.name><\/decl.enumelement>",
                   "key.j2.documentation" : {
-                    "en" : {
-                      "key.j2.abstract" : "Third & Fourth cases"
+                    "key.j2.abstract" : {
+                      "en" : "Third & Fourth cases"
                     }
                   },
                   "key.j2.name_pieces" : [
@@ -665,12 +665,16 @@
             "en" : "iOS - deprecated in 12.0. Deprecated!.\n\nmacOS - deprecated in 10.14. Deprecated on macOS too."
           },
           "key.j2.documentation" : {
-            "en" : {
-              "key.j2.abstract" : "A deprecated function",
-              "key.j2.parameters" : {
-                "callback" : "The callback"
-              },
-              "key.j2.returns" : "A string"
+            "key.j2.abstract" : {
+              "en" : "A deprecated function"
+            },
+            "key.j2.parameters" : {
+              "callback" : {
+                "en" : "The callback"
+              }
+            },
+            "key.j2.returns" : {
+              "en" : "A string"
             }
           },
           "key.j2.name_pieces" : [

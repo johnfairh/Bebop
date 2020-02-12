@@ -27,7 +27,7 @@ public class MarkdownBuilder {
 
     /// Try to destructure this doc comment markdown into pieces.
     /// Also update `localizationKey`
-    public func build() -> DefMarkdownDocs? {
+    public func build() -> FlatDefDocs? {
         guard let doc = CMDocument(markdown: input) else {
             logDebug("Markdown: can't parse as markdown '\(input)'.")
             return nil
@@ -65,10 +65,10 @@ public class MarkdownBuilder {
             overview = Markdown("")
         }
 
-        return DefMarkdownDocs(abstract: abstract,
-                                        overview: overview,
-                                        returns: returns,
-                                        parameters: parameters)
+        return FlatDefDocs(abstract: abstract,
+                           overview: overview,
+                           returns: returns,
+                           parameters: parameters)
     }
 
     /// Handle a top-level callout - side-effect `parameters` `returns` `localizationKey`.

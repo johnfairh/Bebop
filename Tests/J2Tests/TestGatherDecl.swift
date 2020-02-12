@@ -244,7 +244,7 @@ class TestGatherDecl: XCTestCase {
             return
         }
         expect.forEach { expect in
-            XCTAssertTrue(json.contains(#"abstract" : "\#(expect)""#), file: file, line: line)
+            XCTAssertTrue(json.re_isMatch(#"abstract" : \{\n(.*?\n)? *".." : "\#(expect)""#), file: file, line: line)
         }
     }
 
