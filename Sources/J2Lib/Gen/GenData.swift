@@ -28,11 +28,48 @@ public final class GenData: Encodable {
         public let tabTitlePrefix: Bool
         public let isGuide: Bool
         // breadcrumbs
-//        public let swiftDeclaration: String
+        public let swiftDeclaration: Html?
 //        public let availability: [String]
-//        public let abstract: Localized<Html>
-//        public let overview: Localized<Html>
+        public let abstract: Localized<Html>?
+        public let overview: Localized<Html>?
         // topics
+
+        /// Def init
+        public init(defURL: URLPieces,
+                    title: Localized<String>,
+                    abstract: Localized<Html>?,
+                    overview: Localized<Html>?,
+                    swiftDeclaration: Html?) {
+            self.url = defURL
+            self.title = title
+            self.tabTitlePrefix = true
+            self.isGuide = false
+            self.abstract = abstract
+            self.overview = overview
+            self.swiftDeclaration = swiftDeclaration
+        }
+
+        /// Group init
+        public init(groupURL: URLPieces, title: Localized<String>, overview: Localized<Html>?) {
+            self.url = groupURL
+            self.title = title
+            self.tabTitlePrefix = true
+            self.isGuide = false
+            self.abstract = nil
+            self.overview = overview
+            self.swiftDeclaration = nil
+        }
+
+        /// Guide init
+        public init(guideURL: URLPieces, title: Localized<String>, isReadme: Bool, overview: Localized<Html>?) {
+            self.url = guideURL
+            self.title = title
+            self.tabTitlePrefix = !isReadme
+            self.isGuide = true
+            self.abstract = nil
+            self.overview = overview
+            self.swiftDeclaration = nil
+        }
     }
     public let pages: [Page]
 

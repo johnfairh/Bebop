@@ -131,9 +131,11 @@ extension SourceKittenDict {
         with(field: .kind, value: kind.rawValue)
     }
 
+    #if os(macOS)
     func with(okind: ObjCDeclarationKind) -> Self {
         with(field: .kind, value: okind.rawValue)
     }
+    #endif
 
     func with(decl: String) -> Self {
         with(field: "key.fully_annotated_decl", value: "<o>\(decl)</o>")
@@ -187,11 +189,13 @@ extension SourceKittenDict {
             .with(name: text)
     }
 
+    #if os(macOS)
     static func mkObjCMark(text: String) -> Self {
         SourceKittenDict()
             .with(okind: .mark)
             .with(name: text)
     }
+    #endif
 
     static func mkFile() -> Self {
         [ "key.diagnostic_stage" : "parse" ]

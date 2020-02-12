@@ -103,7 +103,9 @@ class TestMerge: XCTestCase {
         checkMark(SourceKittenDict.mkSwiftMark(text: "MARK: mark -"), "mark")
         checkMark(SourceKittenDict.mkSwiftMark(text: "MARK: - mark"), "mark")
         checkMark(SourceKittenDict.mkSwiftMark(text: "MARK: - mark -"), "mark")
+        #if os(macOS)
         checkMark(SourceKittenDict.mkObjCMark(text: "- mark"), "mark")
+        #endif
         checkNotMark(SourceKittenDict.mkSwiftMark(text: "FIXME: fixme"))
     }
 }

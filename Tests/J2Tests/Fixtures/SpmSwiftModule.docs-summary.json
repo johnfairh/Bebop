@@ -14,7 +14,15 @@
       }
     },
     {
+      "abstract" : {
+        "en" : {
+          "html" : "<p>Main structure<\/p>\n"
+        }
+      },
       "is_guide" : false,
+      "swift_declaration" : {
+        "html" : "public struct SpmSwiftModule"
+      },
       "tab_title_prefix" : true,
       "title" : {
         "en" : "SpmSwiftModule"
@@ -25,6 +33,9 @@
     },
     {
       "is_guide" : false,
+      "swift_declaration" : {
+        "html" : "public struct SpmSwiftModule.Nested1"
+      },
       "tab_title_prefix" : true,
       "title" : {
         "en" : "Nested1"
@@ -34,7 +45,15 @@
       }
     },
     {
+      "abstract" : {
+        "en" : {
+          "html" : "<p>An enum<\/p>\n"
+        }
+      },
       "is_guide" : false,
+      "swift_declaration" : {
+        "html" : "public enum AnEnum"
+      },
       "tab_title_prefix" : true,
       "title" : {
         "en" : "AnEnum"

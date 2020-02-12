@@ -19,7 +19,7 @@ public class DefItem: Item {
     /// Kind of the definition
     public let defKind: DefKind
     /// Swift declaration
-    public let swiftDeclaration: SwiftDeclaration
+    public let swiftDeclaration: SwiftDeclaration // optional?
     /// Documentation
     public internal(set) var documentation: RichDefDocs
 

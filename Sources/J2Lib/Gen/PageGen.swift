@@ -51,37 +51,35 @@ public struct PageGen: Configurable {
 final class PageVisitor: ItemVisitor {
     /// All pages
     var pages = [GenData.Page]()
-    /// Some module name - used to generate default headings, nothing semantic
-    var moduleNames = Set<String>()
 
     func visit(defItem: DefItem, parents: [Item]) {
         if defItem.renderAsPage {
-            pages.append(GenData.Page(url: defItem.url,
-                                      title: defItem.title,
-                                      tabTitlePrefix: true,
-                                      isGuide: false))
+            pages.append(GenData.Page(
+                defURL: defItem.url,
+                title: defItem.title,
+                abstract: defItem.documentation.abstract?.html,
+                overview: defItem.documentation.overview?.html,
+                swiftDeclaration: Html(defItem.swiftDeclaration.declaration)))
         }
-        moduleNames.insert(defItem.moduleName)
     }
 
     func visit(groupItem: GroupItem, parents: [Item]) {
-        pages.append(GenData.Page(url: groupItem.url,
+        pages.append(GenData.Page(groupURL: groupItem.url,
                                   title: groupItem.title,
-                                  tabTitlePrefix: true,
-                                  isGuide: false))
+                                  overview: nil))
     }
 
     func visit(guideItem: GuideItem, parents: [Item]) {
-        pages.append(GenData.Page(url: guideItem.url,
+        pages.append(GenData.Page(guideURL: guideItem.url,
                                   title: guideItem.title,
-                                  tabTitlePrefix: true,
-                                  isGuide: true))
+                                  isReadme: false,
+                                  overview: nil))
     }
 
     func visit(readmeItem: ReadmeItem, parents: [Item]) {
-        pages.append(GenData.Page(url: readmeItem.url,
+        pages.append(GenData.Page(guideURL: readmeItem.url,
                                   title: readmeItem.title,
-                                  tabTitlePrefix: false,
-                                  isGuide: true))
+                                  isReadme: true,
+                                  overview: nil))
     }
 }

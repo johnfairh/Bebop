@@ -143,9 +143,9 @@
       }
     ],
     "documentation" : {
-      "overview" : {
+      "abstract" : {
         "markdown" : {
-          "en" : ""
+          "en" : "Main structure"
         }
       },
       "parameters" : {}

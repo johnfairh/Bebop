@@ -1,4 +1,4 @@
-///
+/// Main structure
 public struct SpmSwiftModule {
     // MARK: Fields
     public var text = "Hello, World!"

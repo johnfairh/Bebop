@@ -87,6 +87,12 @@ public enum MustacheKey: String {
     case pageLocalization = "page_localization"
     case localizations = "localizations"
 
+    // Content
+    case abstractHtml = "abstract_html"
+    case overviewHtml = "overview_html"
+    case anyDeclaration = "any_declaration"
+    case swiftDeclarationHtml = "swift_declaration_html"
+
     // ToC entries
     case title = "title"
     case url = "url"
@@ -112,6 +118,10 @@ extension GenData {
         data[.tabTitlePrefix] = pg.tabTitlePrefix
         data[.pathToRoot] = pg.url.pathToRoot
         data[.hideArticleTitle] = pg.isGuide
+        data[.abstractHtml] = pg.abstract?[languageTag]?.html
+        data[.overviewHtml] = pg.overview?[languageTag]?.html
+        data[.swiftDeclarationHtml] = pg.swiftDeclaration?.html
+        data[.anyDeclaration] = pg.swiftDeclaration != nil
 
         data[.toc] = generateToc(languageTag: languageTag,
                                  fileExt: fileExt,
