@@ -144,6 +144,24 @@ public final class DefKind {
         ])
     }
 
+    /// EnumCase is the useless wrapper, we want the enumelement within
+    var isSwiftEnumCase: Bool {
+        testSwiftKey(keys: [.enumcase])
+    }
+
+    /// Is this a mark -- an objC `#pragma mark` or a Swift // MARK: - like comment
+    var isMark: Bool {
+        if case .other(_) = kindKey {
+            return true
+        }
+        #if os(macOS)
+        if case let .objC(k) = kindKey {
+            return k == .mark
+        }
+        #endif
+        return false
+    }
+
     // MARK: Factory
 
     /// Find the `Kind` object from a sourcekitten dictionary key, or `nil` if it's not supported

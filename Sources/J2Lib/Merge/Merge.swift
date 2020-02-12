@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SourceKittenFramework
 
 /// `Merge` generates rich code definition data by combining gathered source-code data.
 ///
@@ -33,13 +34,59 @@ public struct Merge: Configurable {
                     return []
                 }
 
-                return rootDef.children.compactMap { gatherDef in
-                    DefItem(moduleName: pass.moduleName,
-                            passIndex: pass.passIndex,
-                            gatherDef: gatherDef,
-                            uniquer: uniquer)
-                }
+                return rootDef.children.asDefItems(moduleName: pass.moduleName,
+                                                   passIndex: pass.passIndex,
+                                                   uniquer: uniquer)
             }.flatMap { $0 }
         }.flatMap { $0 }
+    }
+}
+
+extension Array where Element == GatherDef {
+    public func asDefItems(moduleName: String, passIndex: Int, uniquer: StringUniquer) -> [DefItem] {
+        var currentTopic: Topic? = nil
+        return flatMap { def -> [DefItem] in
+            // Spot topic marks and pull them out for subsequent items
+            if let topic = def.asTopicMark {
+                currentTopic = topic
+                return []
+            }
+            // Spot enum case wrappers and yield the element[s] within
+            if let kind = def.kind, kind.isSwiftEnumCase {
+                let items = def.children.asDefItems(moduleName: moduleName,
+                                                    passIndex: passIndex,
+                                                    uniquer: uniquer)
+                items.forEach { $0.topic = currentTopic }
+                return items
+            }
+            // Finally create 0/1 items.
+            guard let item = DefItem(moduleName: moduleName,
+                                     passIndex: passIndex,
+                                     gatherDef: def,
+                                     uniquer: uniquer) else {
+                return []
+            }
+            item.topic = currentTopic
+            return [item]
+        }
+    }
+}
+
+extension GatherDef {
+    public var asTopicMark: Topic? {
+        guard let kind = kind,
+            kind.isMark,
+            let text = sourceKittenDict[SwiftDocKey.name.rawValue] as? String else {
+            return nil
+        }
+        if kind.isSwift && !text.hasPrefix("MARK: ") {
+            // TODO or FIXME - we'll throw these away later on
+            return nil
+        }
+        // Format: 'MARK: - NAME -' with dashes and prefix optional
+        guard let match = text.re_match("^(?:MARK: )?(?:- )?(.*?)(?: -)?$") else {
+            return nil
+        }
+        return Topic(title: match[1])
     }
 }

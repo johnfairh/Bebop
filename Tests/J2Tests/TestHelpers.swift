@@ -131,6 +131,10 @@ extension SourceKittenDict {
         with(field: .kind, value: kind.rawValue)
     }
 
+    func with(okind: ObjCDeclarationKind) -> Self {
+        with(field: .kind, value: okind.rawValue)
+    }
+
     func with(decl: String) -> Self {
         with(field: "key.fully_annotated_decl", value: "<o>\(decl)</o>")
     }
@@ -175,6 +179,18 @@ extension SourceKittenDict {
             .with(name: name)
             .with(decl: "var \(name)")
             .with(comment: docs)
+    }
+
+    static func mkSwiftMark(text: String) -> Self {
+        SourceKittenDict()
+            .with(field: .kind, value: "source.lang.swift.syntaxtype.comment.mark")
+            .with(name: text)
+    }
+
+    static func mkObjCMark(text: String) -> Self {
+        SourceKittenDict()
+            .with(okind: .mark)
+            .with(name: text)
     }
 
     static func mkFile() -> Self {

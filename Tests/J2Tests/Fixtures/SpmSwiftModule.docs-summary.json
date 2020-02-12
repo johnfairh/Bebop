@@ -5,6 +5,7 @@
   "pages" : [
     {
       "is_guide" : false,
+      "tab_title_prefix" : true,
       "title" : {
         "en" : "Types"
       },
@@ -14,6 +15,7 @@
     },
     {
       "is_guide" : false,
+      "tab_title_prefix" : true,
       "title" : {
         "en" : "SpmSwiftModule"
       },
@@ -23,6 +25,7 @@
     },
     {
       "is_guide" : false,
+      "tab_title_prefix" : true,
       "title" : {
         "en" : "Nested1"
       },
@@ -32,6 +35,17 @@
     },
     {
       "is_guide" : false,
+      "tab_title_prefix" : true,
+      "title" : {
+        "en" : "AnEnum"
+      },
+      "url" : {
+        "url_path" : "types\/anenum"
+      }
+    },
+    {
+      "is_guide" : false,
+      "tab_title_prefix" : true,
       "title" : {
         "en" : "Functions"
       },
@@ -41,6 +55,7 @@
     },
     {
       "is_guide" : true,
+      "tab_title_prefix" : false,
       "title" : {
         "en" : "index"
       },
@@ -83,6 +98,16 @@
               "url" : {
                 "url_path" : "types\/spmswiftmodule\/nested1"
               }
+            },
+            {
+              "children" : [],
+              "title" : {
+                "en" : "Nested2"
+              },
+              "url" : {
+                "url_hash" : "nested2",
+                "url_path" : "types\/spmswiftmodule"
+              }
             }
           ],
           "title" : {
@@ -90,6 +115,15 @@
           },
           "url" : {
             "url_path" : "types\/spmswiftmodule"
+          }
+        },
+        {
+          "children" : [],
+          "title" : {
+            "en" : "AnEnum"
+          },
+          "url" : {
+            "url_path" : "types\/anenum"
           }
         }
       ],

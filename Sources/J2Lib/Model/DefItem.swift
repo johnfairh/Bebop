@@ -32,9 +32,9 @@ public class DefItem: Item {
             logWarning("Incomplete def, ignoring -- missing name")
             return nil
         }
-        let children = gatherDef.children.compactMap {
-            DefItem(moduleName: moduleName, passIndex: passIndex, gatherDef: $0, uniquer: uniquer)
-        }
+        let children = gatherDef.children.asDefItems(moduleName: moduleName,
+                                                     passIndex: passIndex,
+                                                     uniquer: uniquer)
         self.moduleName = moduleName
         self.passIndex = passIndex
         self.defKind = kind

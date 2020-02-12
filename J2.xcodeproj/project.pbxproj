@@ -33,6 +33,8 @@
 		0233D53D23F30851004DCD89 /* GuideItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D53C23F30851004DCD89 /* GuideItem.swift */; };
 		0233D53F23F30EDB004DCD89 /* GroupGuides.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D53E23F30EDB004DCD89 /* GroupGuides.swift */; };
 		0233D54123F344F3004DCD89 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D54023F344F3004DCD89 /* Localized.swift */; };
+		0233D54323F42682004DCD89 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D54223F42682004DCD89 /* Topic.swift */; };
+		0233D54523F432A3004DCD89 /* RichText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D54423F432A3004DCD89 /* RichText.swift */; };
 		0257280023DB50270001F510 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 025727FE23DB50270001F510 /* Localizable.strings */; };
 		0257280523DB503C0001F510 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0257280223DB503C0001F510 /* Localizable.strings */; };
 		0257280723DB50B40001F510 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0257280623DB50B40001F510 /* Resources.swift */; };
@@ -217,6 +219,8 @@
 		0233D53C23F30851004DCD89 /* GuideItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideItem.swift; sourceTree = "<group>"; };
 		0233D53E23F30EDB004DCD89 /* GroupGuides.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupGuides.swift; sourceTree = "<group>"; };
 		0233D54023F344F3004DCD89 /* Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
+		0233D54223F42682004DCD89 /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
+		0233D54423F432A3004DCD89 /* RichText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichText.swift; sourceTree = "<group>"; };
 		025727FF23DB50270001F510 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		0257280323DB503C0001F510 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = Localizable.strings; sourceTree = "<group>"; };
 		0257280623DB50B40001F510 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
@@ -341,6 +345,7 @@
 				02FDC67F23E8B25100C2F9CD /* Localization.swift */,
 				0233D54023F344F3004DCD89 /* Localized.swift */,
 				0257280623DB50B40001F510 /* Resources.swift */,
+				0233D54423F432A3004DCD89 /* RichText.swift */,
 				02FDC68123E997D700C2F9CD /* Markdown.swift */,
 				0233D52323EF0CC3004DCD89 /* Identifiers.swift */,
 				0233D53823F07E6E004DCD89 /* JSON.swift */,
@@ -526,6 +531,7 @@
 			isa = PBXGroup;
 			children = (
 				02CFFA0323E0BA2900FDE5B9 /* Item.swift */,
+				0233D54223F42682004DCD89 /* Topic.swift */,
 				0233D52E23EF2CCD004DCD89 /* ItemKind.swift */,
 				0233D52A23EF1598004DCD89 /* ItemVisitor.swift */,
 				0233D51C23EED547004DCD89 /* GroupItem.swift */,
@@ -777,6 +783,7 @@
 				02CFFA0423E0BA2900FDE5B9 /* Item.swift in Sources */,
 				02FDC68223E997D700C2F9CD /* Markdown.swift in Sources */,
 				022818BF23D238F30016B0D5 /* Errors.swift in Sources */,
+				0233D54523F432A3004DCD89 /* RichText.swift in Sources */,
 				0233D52F23EF2CCD004DCD89 /* ItemKind.swift in Sources */,
 				02FDC68423E9DED600C2F9CD /* DefItem.swift in Sources */,
 				02CFF92523DDFFC900FDE5B9 /* GatherDef.swift in Sources */,
@@ -793,6 +800,7 @@
 				02FDC67C23E879E700C2F9CD /* GatherMarkdown.swift in Sources */,
 				029A717F23D9F91200D66069 /* FileManager.swift in Sources */,
 				02CFF92323DDFE3000FDE5B9 /* Gather.swift in Sources */,
+				0233D54323F42682004DCD89 /* Topic.swift in Sources */,
 				0233D52423EF0CC3004DCD89 /* Identifiers.swift in Sources */,
 				022818CA23D38A0A0016B0D5 /* PrefixMatcher.swift in Sources */,
 				02FDC68F23EB4C1B00C2F9CD /* Lock.swift in Sources */,

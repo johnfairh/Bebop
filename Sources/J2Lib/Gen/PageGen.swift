@@ -39,6 +39,7 @@ public struct PageGen: Configurable {
                                         title: item.title,
                                         children: doGenerate(items: item.children, depth: depth + 1))
             }
+            // XXX for jazzy compat, sort outside of depth 0 unless custom cats???
         }
 
         return doGenerate(items: items, depth: 0)
@@ -57,7 +58,7 @@ final class PageVisitor: ItemVisitor {
         if defItem.renderAsPage {
             pages.append(GenData.Page(url: defItem.url,
                                       title: defItem.title,
-                                      tabTitlePrefix: defItem.title.append(" - "),
+                                      tabTitlePrefix: true,
                                       isGuide: false))
         }
         moduleNames.insert(defItem.moduleName)
@@ -66,21 +67,21 @@ final class PageVisitor: ItemVisitor {
     func visit(groupItem: GroupItem, parents: [Item]) {
         pages.append(GenData.Page(url: groupItem.url,
                                   title: groupItem.title,
-                                  tabTitlePrefix: groupItem.title.append(" - "),
+                                  tabTitlePrefix: true,
                                   isGuide: false))
     }
 
     func visit(guideItem: GuideItem, parents: [Item]) {
         pages.append(GenData.Page(url: guideItem.url,
                                   title: guideItem.title,
-                                  tabTitlePrefix: guideItem.title.append(" - "),
+                                  tabTitlePrefix: true,
                                   isGuide: true))
     }
 
     func visit(readmeItem: ReadmeItem, parents: [Item]) {
         pages.append(GenData.Page(url: readmeItem.url,
                                   title: readmeItem.title,
-                                  tabTitlePrefix: nil,
+                                  tabTitlePrefix: false,
                                   isGuide: true))
     }
 }

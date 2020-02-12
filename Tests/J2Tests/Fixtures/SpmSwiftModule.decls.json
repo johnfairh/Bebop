@@ -25,6 +25,13 @@
         },
         "title" : {
           "en" : "text"
+        },
+        "topic" : {
+          "title" : {
+            "markdown" : {
+              "en" : "Fields"
+            }
+          }
         }
       },
       {
@@ -95,6 +102,43 @@
         },
         "title" : {
           "en" : "Nested1"
+        },
+        "topic" : {
+          "title" : {
+            "markdown" : {
+              "en" : "Nested structures"
+            }
+          }
+        }
+      },
+      {
+        "children" : [],
+        "kind" : "source.lang.swift.decl.struct",
+        "module_name" : "SpmSwiftModule",
+        "name" : "Nested2",
+        "pass_index" : 0,
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : "public struct SpmSwiftModule.Nested2",
+          "deprecation" : {},
+          "name_pieces" : [
+            {
+              "other" : "struct "
+            },
+            {
+              "name" : "Nested2"
+            }
+          ]
+        },
+        "title" : {
+          "en" : "Nested2"
+        },
+        "topic" : {
+          "title" : {
+            "markdown" : {
+              "en" : "Nested structures"
+            }
+          }
         }
       }
     ],
@@ -125,6 +169,154 @@
     },
     "title" : {
       "en" : "SpmSwiftModule"
+    }
+  },
+  {
+    "children" : [
+      {
+        "children" : [],
+        "documentation" : {
+          "en" : {
+            "abstract" : "First case",
+            "overview" : null,
+            "parameters" : {},
+            "returns" : null
+          }
+        },
+        "kind" : "source.lang.swift.decl.enumelement",
+        "module_name" : "SpmSwiftModule",
+        "name" : "first(_:)",
+        "pass_index" : 0,
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : "case first(Int)",
+          "deprecation" : {},
+          "name_pieces" : [
+            {
+              "other" : "case "
+            },
+            {
+              "name" : "first(_:)"
+            }
+          ]
+        },
+        "title" : {
+          "en" : "first(_:)"
+        }
+      },
+      {
+        "children" : [],
+        "documentation" : {
+          "en" : {
+            "abstract" : "Second case",
+            "overview" : null,
+            "parameters" : {},
+            "returns" : null
+          }
+        },
+        "kind" : "source.lang.swift.decl.enumelement",
+        "module_name" : "SpmSwiftModule",
+        "name" : "second",
+        "pass_index" : 0,
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : "case second",
+          "deprecation" : {},
+          "name_pieces" : [
+            {
+              "other" : "case "
+            },
+            {
+              "name" : "second"
+            }
+          ]
+        },
+        "title" : {
+          "en" : "second"
+        }
+      },
+      {
+        "children" : [],
+        "documentation" : {
+          "en" : {
+            "abstract" : "Third & Fourth cases",
+            "overview" : null,
+            "parameters" : {},
+            "returns" : null
+          }
+        },
+        "kind" : "source.lang.swift.decl.enumelement",
+        "module_name" : "SpmSwiftModule",
+        "name" : "third",
+        "pass_index" : 0,
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : "case third",
+          "deprecation" : {},
+          "name_pieces" : [
+            {
+              "other" : "case "
+            },
+            {
+              "name" : "third"
+            }
+          ]
+        },
+        "title" : {
+          "en" : "third"
+        }
+      },
+      {
+        "children" : [],
+        "kind" : "source.lang.swift.decl.enumelement",
+        "module_name" : "SpmSwiftModule",
+        "name" : "fourth",
+        "pass_index" : 0,
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : "case fourth",
+          "deprecation" : {},
+          "name_pieces" : [
+            {
+              "other" : "case "
+            },
+            {
+              "name" : "fourth"
+            }
+          ]
+        },
+        "title" : {
+          "en" : "fourth"
+        }
+      }
+    ],
+    "documentation" : {
+      "en" : {
+        "abstract" : "An enum",
+        "overview" : null,
+        "parameters" : {},
+        "returns" : null
+      }
+    },
+    "kind" : "source.lang.swift.decl.enum",
+    "module_name" : "SpmSwiftModule",
+    "name" : "AnEnum",
+    "pass_index" : 0,
+    "swift_declaration" : {
+      "availability" : [],
+      "declaration" : "public enum AnEnum",
+      "deprecation" : {},
+      "name_pieces" : [
+        {
+          "other" : "enum "
+        },
+        {
+          "name" : "AnEnum"
+        }
+      ]
+    },
+    "title" : {
+      "en" : "AnEnum"
     }
   },
   {

@@ -81,4 +81,29 @@ class TestMerge: XCTestCase {
         let expectedJson = try String(contentsOf: spmTestDeclsJsonURL)
         XCTAssertEqual(expectedJson, actualJson)
     }
+
+    // Marks
+
+    private func checkMark(_ dict: SourceKittenDict, _ markText: String, line: UInt = #line) {
+        guard let mark = dict.asGatherDef.asTopicMark else {
+            XCTFail("not a mark", line: line)
+            return
+        }
+        XCTAssertEqual(Markdown(markText), mark.title.markdown["en"], line: line)
+    }
+
+    private func checkNotMark(_ dict: SourceKittenDict, line: UInt = #line) {
+        if let mark = dict.asGatherDef.asTopicMark {
+            XCTFail("not a mark: \(mark)")
+        }
+    }
+
+    func testMarks() throws {
+        checkMark(SourceKittenDict.mkSwiftMark(text: "MARK: mark"), "mark")
+        checkMark(SourceKittenDict.mkSwiftMark(text: "MARK: mark -"), "mark")
+        checkMark(SourceKittenDict.mkSwiftMark(text: "MARK: - mark"), "mark")
+        checkMark(SourceKittenDict.mkSwiftMark(text: "MARK: - mark -"), "mark")
+        checkMark(SourceKittenDict.mkObjCMark(text: "- mark"), "mark")
+        checkNotMark(SourceKittenDict.mkSwiftMark(text: "FIXME: fixme"))
+    }
 }

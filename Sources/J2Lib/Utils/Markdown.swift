@@ -14,31 +14,6 @@ import Maaku
 // formatting.
 //
 
-/// Strongly-typed wrapper for markdown documents
-public struct Markdown: CustomStringConvertible, Hashable {
-    public let md: String
-
-    public init(_ md: String) {
-        self.md = md
-    }
-
-    public var description: String {
-        md
-    }
-}
-
-/// Strongly-typed wrapper for html
-public struct Html: CustomStringConvertible, Hashable, Encodable {
-    public let html: String
-
-    public init(_ html: String) {
-        self.html = html
-    }
-
-    public var description: String {
-        html
-    }
-}
 
 // MARK: `CMDocument` helpers
 

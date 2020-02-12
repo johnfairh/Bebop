@@ -1,6 +1,9 @@
 ///
 public struct SpmSwiftModule {
+    // MARK: Fields
     public var text = "Hello, World!"
+
+    // MARK: Nested structures
 
     public struct Nested1 { 
       public struct Nested2a {
@@ -8,6 +11,18 @@ public struct SpmSwiftModule {
       public struct Nested2b {
       }
     }
+
+    public struct Nested2 {}
+}
+
+/// An enum
+public enum AnEnum {
+    /// First case
+    case first(Int)
+    /// Second case
+    case second
+    /// Third & Fourth cases
+    case third, fourth
 }
 
 @available(iOS 9, macOS 10.12, *)

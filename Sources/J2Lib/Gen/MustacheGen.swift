@@ -109,7 +109,7 @@ extension GenData {
         let filepath = pg.url.filepath(fileExtension: fileExt)
         data[.languageTag] = languageTag
         data[.pageTitle] = pg.title[languageTag]
-        data[.tabTitlePrefix] = pg.tabTitlePrefix?[languageTag]
+        data[.tabTitlePrefix] = pg.tabTitlePrefix
         data[.pathToRoot] = pg.url.pathToRoot
         data[.hideArticleTitle] = pg.isGuide
 

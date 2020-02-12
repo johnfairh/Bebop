@@ -20,6 +20,8 @@ public class Item: Encodable {
     public let title: Localized<String>
     /// Children in the documentation tree
     public let children: [Item]
+    /// Topic the item belongs to
+    public internal(set) var topic: Topic?
 
     /// Info about the item's URL relative to the docroot
     public internal(set) var url: URLPieces
@@ -57,6 +59,7 @@ public class Item: Encodable {
         case name
         case title
         case children
+        case topic
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -64,6 +67,8 @@ public class Item: Encodable {
         try container.encode(name, forKey: .name)
         try container.encode(title, forKey: .title)
         try container.encode(children, forKey: .children)
+        if let topic = topic {
+            try container.encode(topic, forKey: .topic)
+        }
     }
 }
-

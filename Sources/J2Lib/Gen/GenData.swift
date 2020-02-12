@@ -25,7 +25,7 @@ public final class GenData: Encodable {
     public struct Page: Encodable {
         public let url: URLPieces
         public let title: Localized<String>
-        public let tabTitlePrefix: Localized<String>?
+        public let tabTitlePrefix: Bool
         public let isGuide: Bool
         // breadcrumbs
 //        public let swiftDeclaration: String
