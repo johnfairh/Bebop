@@ -55,16 +55,32 @@ final class PageVisitor: ItemVisitor {
 
     func visit(defItem: DefItem, parents: [Item]) {
         if defItem.renderAsPage {
-            pages.append(GenData.Page(url: defItem.url, title: defItem.title, isGuide: false))
+            pages.append(GenData.Page(url: defItem.url,
+                                      title: defItem.title,
+                                      tabTitlePrefix: defItem.title.append(" - "),
+                                      isGuide: false))
         }
         moduleNames.insert(defItem.moduleName)
     }
 
     func visit(groupItem: GroupItem, parents: [Item]) {
-        pages.append(GenData.Page(url: groupItem.url, title: groupItem.title, isGuide: false))
+        pages.append(GenData.Page(url: groupItem.url,
+                                  title: groupItem.title,
+                                  tabTitlePrefix: groupItem.title.append(" - "),
+                                  isGuide: false))
     }
 
     func visit(guideItem: GuideItem, parents: [Item]) {
-        pages.append(GenData.Page(url: guideItem.url, title: guideItem.title, isGuide: true))
+        pages.append(GenData.Page(url: guideItem.url,
+                                  title: guideItem.title,
+                                  tabTitlePrefix: guideItem.title.append(" - "),
+                                  isGuide: true))
+    }
+
+    func visit(readmeItem: ReadmeItem, parents: [Item]) {
+        pages.append(GenData.Page(url: readmeItem.url,
+                                  title: readmeItem.title,
+                                  tabTitlePrefix: nil,
+                                  isGuide: true))
     }
 }
