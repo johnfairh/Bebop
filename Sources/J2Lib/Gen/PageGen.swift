@@ -21,8 +21,7 @@ public struct PageGen: Configurable {
 
         let pageVisitor = PageVisitor()
         pageVisitor.walk(items: items)
-        let meta = GenData.Meta(version: Version.j2libVersion,
-                                moduleNames: pageVisitor.moduleNames)
+        let meta = GenData.Meta(version: Version.j2libVersion)
 
         return GenData(meta: meta, toc: toc, pages: pageVisitor.pages)
     }

@@ -22,19 +22,6 @@ public extension Configurable {
     }
 }
 
-@propertyWrapper
-public struct Once<T> {
-    public var wrappedValue: T? {
-        willSet(newValue) {
-            precondition(wrappedValue == nil)
-        }
-    }
-
-    public init() {
-        wrappedValue = nil
-    }
-}
-
 /// Configuration (CLI options, config file)
 ///
 /// 1. Components declare their options to `Config.register` during initialization.
@@ -66,10 +53,12 @@ public final class Config {
     private var configurables: [Configurable]
 
     /// Published options -- publish during register, read during checkOptions
-    /// All rather broken abstractions....
+    /// All slightly broken abstractions....
     public final class Published {
-        // Published by GatherJob
-        @Once public var sourceDirectoryURL: URL?
+        // Published by GatherOpts
+        public var sourceDirectoryURL: URL?
+        // Published by GatherOpts
+        public var moduleNames: [String] = []
     }
     public let published = Published()
 

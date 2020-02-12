@@ -25,7 +25,7 @@ fileprivate struct System {
 
 extension GenData.Meta {
     init() {
-        self.init(version: "TEST", moduleNames: ["M1"])
+        self.init(version: "TEST")
     }
 }
 
@@ -167,7 +167,8 @@ class TestGen: XCTestCase {
                              _ title: String?, _ bcRoot: String, line: UInt = #line) throws {
         let system = System()
         try system.configure(cliOpts: cliOpts)
-        let meta = GenData.Meta(version: "", moduleNames: Set<String>(modules))
+        system.config.published.moduleNames = modules
+        let meta = GenData.Meta(version: "")
         let data = GenData(meta: meta, toc: [], pages: [])
         let atitle = system.gen.buildDocsTitle(genData: data)
         let abreadcrumbsRoot = system.gen.buildBreadcrumbRoot(genData: data)

@@ -35,8 +35,12 @@ public struct Gather {
     /// Doc comment translation
     let localize: GatherLocalize
 
+    /// Publishing obligations
+    private let published: Config.Published
+
     /// Create a new instance
     init(config: Config) {
+        published = config.published
         opts = GatherOpts(config: config)
         localize = GatherLocalize(config: config)
     }
@@ -51,9 +55,10 @@ public struct Gather {
         // top-level, and multi-module-import.
         // ooh no, it has an API mapping module-name to merge-policy, defaults
         // to something for unknown.  Fine.
+        // no - actually going to have to publish this stuff.
         let passes = try opts.jobs.map { try $0.execute() }.flatMap { $0 }
 
-        // include/exclude filtering
+        published.moduleNames = Array(Set(passes.map { $0.moduleName }))
 
         // Garnishes
         logDebug("Gather: start doc-comment localization pass.")

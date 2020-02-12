@@ -28,6 +28,8 @@ public struct SiteGen: Configurable {
     let oldCustomHeadOpt: AliasOpt
     let oldDisableSearchOpt: AliasOpt
 
+    private let published: Config.Published
+
     var outputURL: URL {
         outputOpt.value!
     }
@@ -40,6 +42,8 @@ public struct SiteGen: Configurable {
         oldHideCoverageOpt = AliasOpt(realOpt: hideCoverageOpt, l: "hide-documentation-coverage")
         oldCustomHeadOpt = AliasOpt(realOpt: customHeadOpt, l: "head")
         oldDisableSearchOpt = AliasOpt(realOpt: hideSearchOpt, l: "disable-search")
+
+        published = config.published
 
         config.register(self)
     }
@@ -97,7 +101,7 @@ public struct SiteGen: Configurable {
         if let configured = titleOpt.value {
             return configured
         }
-        let aModuleName = genData.meta.moduleNames.first ?? "Module"
+        let aModuleName = published.moduleNames.first ?? "Module"
         var flat = aModuleName + " "
         if let moduleVersion = moduleVersionOpt.value {
             flat += "\(moduleVersion) "
@@ -111,8 +115,8 @@ public struct SiteGen: Configurable {
         if let configured = breadcrumbsRootOpt.value {
             return configured
         }
-        if genData.meta.moduleNames.count == 1 {
-            return Localized<String>(unlocalized: genData.meta.moduleNames.first!)
+        if published.moduleNames.count == 1 {
+            return Localized<String>(unlocalized: published.moduleNames.first!)
         }
         return .localizedOutput(.index)
     }
