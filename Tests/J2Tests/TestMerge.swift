@@ -62,25 +62,6 @@ class TestMerge: XCTestCase {
         XCTAssertEqual(1, TestLogger.shared.diagsBuf.count)
     }
 
-    /// Decls json matches
-    func testDeclsJson() throws {
-        let pipeline = Pipeline()
-        let spmTestURL = fixturesURL.appendingPathComponent("SpmSwiftPackage")
-        TestLogger.install()
-        try pipeline.run(argv: ["--source-directory", spmTestURL.path,
-                                "--products", "decls-json"])
-        XCTAssertEqual(1, TestLogger.shared.outputBuf.count)
-
-        let spmTestDeclsJsonURL = fixturesURL.appendingPathComponent("SpmSwiftModule.decls.json")
-
-        let actualJson = TestLogger.shared.outputBuf[0] + "\n"
-
-        // to fix up when it changes...
-        // try actualJson.write(to: spmTestDeclsJsonURL)
-
-        let expectedJson = try String(contentsOf: spmTestDeclsJsonURL)
-        XCTAssertEqual(expectedJson, actualJson)
-    }
 
     // Marks
 

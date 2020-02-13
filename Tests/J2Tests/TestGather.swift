@@ -152,49 +152,5 @@ class TestGather: XCTestCase {
         #endif
     }
 
-    func testFilesJson() throws {
-        let pipeline = Pipeline()
-        let spmTestURL = fixturesURL.appendingPathComponent("SpmSwiftPackage")
-        TestLogger.install()
-        try pipeline.run(argv: ["--source-directory", spmTestURL.path,
-                                "--products", "files-json"])
-        XCTAssertEqual(1, TestLogger.shared.outputBuf.count)
-
-        let spmTestFilesJsonURL = fixturesURL.appendingPathComponent("SpmSwiftModule.files.json")
-
-        let actualJson = TestLogger.shared.outputBuf[0] + "\n"
-
-        // to fix up when it changes...
-        // try actualJson.write(to: spmTestFilesJsonURL)
-
-        let expectedJson = try String(contentsOf: spmTestFilesJsonURL)
-        let cleanedActual = cleanUpJson(file: actualJson)
-        let cleanedExpected = cleanUpJson(file: expectedJson)
-        XCTAssertEqual(cleanedExpected, cleanedActual)
-    }
-
     // Come back here later on to test multipass and merging.
-
-    func cleanUpJson(file: String) -> String {
-        let lines = file.split(separator: "\n")
-        let cleanedLines = lines.compactMap { line -> Substring? in
-            if line.contains(#""key.usr""#) ||
-                line.contains(#""key.typeusr""#) ||
-                line.contains(#""key.doc.full_as_xml""#) {
-                // linux
-                return nil
-            }
-            if line.contains(#""key.filepath""#) ||
-                line.contains(#""key.doc.file""# ) {
-                // filesystem
-                return nil
-            }
-            if line.hasPrefix(#"    ""#) {
-                // pathname key
-                return nil
-            }
-            return line
-        }
-        return cleanedLines.joined(separator: "\n")
-    }
 }
