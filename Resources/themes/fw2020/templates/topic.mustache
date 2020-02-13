@@ -20,7 +20,7 @@
   <section id="{{anchor_id}}" class="j2-item">
     <a name="//apple_ref/cpp/{{dash_type}}/{{dash_name}}" class="dashAnchor"></a>
     <h4 class="sr-only">{{title}}</h4>
-    <a class="j2-item-title{{#usage_discouraged}}-discouraged{{/usage_discouraged}}" data-toggle="collapse" href="#_{{anchor_id}}" role="button" aria-expanded="false" aria-controls="_{{anchor_id}}"><code><span class="j2-swift">{{{swift_title_html}}}</span></code></a>
+    <a class="j2-item-title{{#def.deprecation_html}}-discouraged{{/def.deprecation_html}}" data-toggle="collapse" href="#_{{anchor_id}}" role="button" aria-expanded="false" aria-controls="_{{anchor_id}}"><code><span class="j2-swift">{{{swift_title_html}}}</span></code></a>
     {{#.abstract_html}}
     <div class="j2-item-overview">
       {{abstract_html}}
@@ -30,7 +30,9 @@
       <div class="j2-item-popopen">
         <div class="j2-item-popopen-pointer" role="none"></div>
         <div class="j2-item-popopen-body">
+          {{#def}}
           {{> deprecation}}
+          {{/def}}
           <div class="clearfix">
             {{#default_impl_abstract}}
             <div class="j2-callout j2-callout-note">

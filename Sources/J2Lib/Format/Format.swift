@@ -58,8 +58,7 @@ struct MarkdownVisitor: ItemVisitorProtocol {
     func visit(defItem: DefItem, parents: [Item]) {
         defItem.documentation.format { render(md: $0) }
         defItem.topic?.format { renderInline(md: $0 )}
-
-        // XXX deprecation notice
+        defItem.deprecationNotice?.format { render(md: $0) }
     }
 
     // 1 - build markdown AST

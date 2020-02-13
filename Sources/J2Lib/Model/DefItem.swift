@@ -22,6 +22,8 @@ public class DefItem: Item {
     public let swiftDeclaration: SwiftDeclaration // optional?
     /// Documentation
     public internal(set) var documentation: RichDefDocs
+    /// Deprecation notice
+    public internal(set) var deprecationNotice: RichText?
 
     /// Create from a gathered definition
     public init?(moduleName: String, passIndex: Int, gatherDef: GatherDef, uniquer: StringUniquer) {
@@ -49,6 +51,7 @@ public class DefItem: Item {
             }
         }
         documentation = RichDefDocs(gatherDef.translatedDocs)
+        deprecationNotice = swiftDeclaration.deprecation.flatMap { RichText($0) }
 
         super.init(name: name, slug: uniquer.unique(name.slugged), children: children)
     }

@@ -10,7 +10,6 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : "public var text: String",
-          "deprecation" : {},
           "name_pieces" : [
             {
               "other" : "var "
@@ -45,7 +44,6 @@
             "swift_declaration" : {
               "availability" : [],
               "declaration" : "public struct SpmSwiftModule.Nested1.Nested2a",
-              "deprecation" : {},
               "name_pieces" : [
                 {
                   "other" : "struct "
@@ -68,7 +66,9 @@
             "swift_declaration" : {
               "availability" : [],
               "declaration" : "public struct SpmSwiftModule.Nested1.Nested2b",
-              "deprecation" : {},
+              "deprecation" : {
+                "en" : "Deprecated."
+              },
               "name_pieces" : [
                 {
                   "other" : "struct "
@@ -90,7 +90,6 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : "public struct SpmSwiftModule.Nested1",
-          "deprecation" : {},
           "name_pieces" : [
             {
               "other" : "struct "
@@ -120,7 +119,6 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : "public struct SpmSwiftModule.Nested2",
-          "deprecation" : {},
           "name_pieces" : [
             {
               "other" : "struct "
@@ -157,7 +155,6 @@
     "swift_declaration" : {
       "availability" : [],
       "declaration" : "public struct SpmSwiftModule",
-      "deprecation" : {},
       "name_pieces" : [
         {
           "other" : "struct "
@@ -190,7 +187,6 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : "case first(Int)",
-          "deprecation" : {},
           "name_pieces" : [
             {
               "other" : "case "
@@ -221,7 +217,6 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : "case second",
-          "deprecation" : {},
           "name_pieces" : [
             {
               "other" : "case "
@@ -252,7 +247,6 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : "case third",
-          "deprecation" : {},
           "name_pieces" : [
             {
               "other" : "case "
@@ -275,7 +269,6 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : "case fourth",
-          "deprecation" : {},
           "name_pieces" : [
             {
               "other" : "case "
@@ -305,7 +298,6 @@
     "swift_declaration" : {
       "availability" : [],
       "declaration" : "public enum AnEnum",
-      "deprecation" : {},
       "name_pieces" : [
         {
           "other" : "enum "
@@ -359,7 +351,6 @@
         "macOS 10.12"
       ],
       "declaration" : "public func functionA(arg1: Int,\n                      _ arg2: Int,\n                      arg3 argMeaning: Int)",
-      "deprecation" : {},
       "name_pieces" : [
         {
           "other" : "func "
@@ -420,7 +411,7 @@
       "availability" : [],
       "declaration" : "public func deprecatedFunction(callback: (_ report: String) -> Int) -> String",
       "deprecation" : {
-        "en" : "iOS - deprecated in 12.0. Deprecated!.\n\nmacOS - deprecated in 10.14. Deprecated on macOS too."
+        "en" : "iOS - deprecated in 12.0. Deprecated!.\n\nmacOS - deprecated in 10.14. Deprecated on *macOS* too."
       },
       "name_pieces" : [
         {

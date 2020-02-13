@@ -152,7 +152,8 @@ class ItemVisitor: ItemVisitorProtocol {
 
 extension DefItem {
     var asGenDef: GenData.Def {
-        GenData.Def(abstract: documentation.abstract?.html,
+        GenData.Def(deprecation: deprecationNotice?.html,
+                    abstract: documentation.abstract?.html,
                     overview: documentation.overview?.html,
                     swiftDeclaration: Html(swiftDeclaration.declaration),
                     params: documentation.parameters.map { docParam in

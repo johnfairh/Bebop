@@ -90,6 +90,7 @@ public enum MustacheKey: String {
 
     // Definitions
     case def = "def"
+    case deprecationHtml = "deprecation_html"
     case abstractHtml = "abstract_html"
     case overviewHtml = "overview_html"
     case swiftDeclarationHtml = "swift_declaration_html"
@@ -256,6 +257,7 @@ extension GenData.Item {
 extension GenData.Def {
     /// Def is split out because shared between top of page and inside items.
     /// Keys:
+    ///   deprecation_html  - optional - is it deprecated
     ///   swift_declaration_html - swift decl
     ///   abstract_html - optional - first part of discussion
     ///   overview_html - optional - second part of discussion
@@ -263,6 +265,7 @@ extension GenData.Def {
     ///   returns_html - optional - returns docs
     func generateDef(languageTag: String, fileExt: String) -> [String : Any] {
         var dict = [String : Any]()
+        dict.maybe(.deprecationHtml, deprecation?.get(languageTag).html)
         dict.maybe(.swiftDeclarationHtml, swiftDeclaration?.html)
         dict.maybe(.abstractHtml, abstract?.get(languageTag).html)
         dict.maybe(.overviewHtml, overview?.get(languageTag).html)

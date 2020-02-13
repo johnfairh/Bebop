@@ -57,6 +57,11 @@ public enum RichText: Encodable, Equatable {
         self = .unformatted(localizedMarkdown)
     }
 
+    /// Initialize from some mistyped localized markdown
+    public init(_ localizedText: Localized<String>) {
+        self = .unformatted(localizedText.mapValues { Markdown($0) })
+    }
+
     /// Get the markdown
     public var markdown: Localized<Markdown> {
         switch self {

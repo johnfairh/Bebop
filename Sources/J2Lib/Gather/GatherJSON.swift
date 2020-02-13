@@ -95,8 +95,8 @@ extension GatherDef {
         var dict = sourceKittenDict
         if let swiftDecl = swiftDeclaration {
             dict[.preferredDeclaration] = swiftDecl.declaration
-            if !swiftDecl.deprecation.isEmpty {
-                dict[.deprecationMessages] = swiftDecl.deprecation
+            if let deprecationMsg = swiftDecl.deprecation {
+                dict[.deprecationMessages] = deprecationMsg
             }
             if !swiftDecl.availability.isEmpty {
                 dict[.availabilities] = swiftDecl.availability.map {

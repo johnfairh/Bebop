@@ -212,6 +212,11 @@
               "anchor_id" : "nested2b",
               "dash_type" : "Struct",
               "def" : {
+                "deprecation" : {
+                  "en" : {
+                    "html" : "<p>Deprecated.<\/p>"
+                  }
+                },
                 "params" : [],
                 "swift_declaration" : {
                   "html" : "public struct SpmSwiftModule.Nested1.Nested2b"
@@ -412,6 +417,11 @@
                 "abstract" : {
                   "en" : {
                     "html" : "<p>A deprecated function<\/p>"
+                  }
+                },
+                "deprecation" : {
+                  "en" : {
+                    "html" : "<p>iOS - deprecated in 12.0. Deprecated!.<\/p>\n<p>macOS - deprecated in 10.14. Deprecated on <em>macOS<\/em> too.<\/p>"
                   }
                 },
                 "params" : [

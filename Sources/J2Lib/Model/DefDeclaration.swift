@@ -59,12 +59,12 @@ extension Array where Element == DeclarationPiece {
 /// A Swift language declaration split into its various parts
 public struct SwiftDeclaration: Encodable {
     public let declaration: String
-    public let deprecation: Localized<String>
+    public let deprecation: Localized<String>?
     public let availability: [String]
     public let namePieces: [DeclarationPiece]
 
     init(declaration: String = "",
-         deprecation: Localized<String> = [:],
+         deprecation: Localized<String>? = nil,
          availability: [String] = [],
          namePieces: [DeclarationPiece] = []) {
         self.declaration = declaration

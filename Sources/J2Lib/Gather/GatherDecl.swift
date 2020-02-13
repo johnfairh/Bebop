@@ -116,9 +116,10 @@ final class SwiftDeclarationBuilder {
         }
 
         // Tidy up
+        let deprecation = deprecations.isEmpty ? nil : deprecations.joined(by: "\n\n")
 
         return SwiftDeclaration(declaration: (attributes + [bestDeclaration]).joined(separator: "\n"),
-                                deprecation: deprecations.joined(by: "\n\n"),
+                                deprecation: deprecation,
                                 availability: availability,
                                 namePieces: pieces)
     }
