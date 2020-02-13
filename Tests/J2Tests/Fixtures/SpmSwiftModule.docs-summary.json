@@ -181,7 +181,51 @@
       "title" : {
         "en" : "Nested1"
       },
-      "topics" : [],
+      "topics" : [
+        {
+          "anchor_id" : "tpc_",
+          "items" : [
+            {
+              "anchor_id" : "nested2a",
+              "dash_type" : "Struct",
+              "def" : {
+                "swift_declaration" : {
+                  "html" : "public struct SpmSwiftModule.Nested1.Nested2a"
+                }
+              },
+              "flat_title" : {
+                "en" : "struct Nested2a"
+              },
+              "swift_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">struct <\/span>Nested2a"
+              }
+            },
+            {
+              "anchor_id" : "nested2b",
+              "dash_type" : "Struct",
+              "def" : {
+                "swift_declaration" : {
+                  "html" : "public struct SpmSwiftModule.Nested1.Nested2b"
+                }
+              },
+              "flat_title" : {
+                "en" : "struct Nested2b"
+              },
+              "swift_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">struct <\/span>Nested2b"
+              }
+            }
+          ],
+          "title" : {
+            "html" : {
+              "en" : ""
+            },
+            "markdown" : {
+              "en" : ""
+            }
+          }
+        }
+      ],
       "url" : {
         "url_path" : "types\/spmswiftmodule\/nested1"
       }
@@ -202,7 +246,96 @@
       "title" : {
         "en" : "AnEnum"
       },
-      "topics" : [],
+      "topics" : [
+        {
+          "anchor_id" : "tpc_",
+          "items" : [
+            {
+              "anchor_id" : "first_",
+              "dash_type" : "Case",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>First case<\/p>"
+                  }
+                },
+                "swift_declaration" : {
+                  "html" : "case first(Int)"
+                }
+              },
+              "flat_title" : {
+                "en" : "case first(_:)"
+              },
+              "swift_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">case <\/span>first(_:)"
+              }
+            },
+            {
+              "anchor_id" : "second",
+              "dash_type" : "Case",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Second case<\/p>"
+                  }
+                },
+                "swift_declaration" : {
+                  "html" : "case second"
+                }
+              },
+              "flat_title" : {
+                "en" : "case second"
+              },
+              "swift_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">case <\/span>second"
+              }
+            },
+            {
+              "anchor_id" : "third",
+              "dash_type" : "Case",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Third &amp; Fourth cases<\/p>"
+                  }
+                },
+                "swift_declaration" : {
+                  "html" : "case third"
+                }
+              },
+              "flat_title" : {
+                "en" : "case third"
+              },
+              "swift_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">case <\/span>third"
+              }
+            },
+            {
+              "anchor_id" : "fourth",
+              "dash_type" : "Case",
+              "def" : {
+                "swift_declaration" : {
+                  "html" : "case fourth"
+                }
+              },
+              "flat_title" : {
+                "en" : "case fourth"
+              },
+              "swift_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">case <\/span>fourth"
+              }
+            }
+          ],
+          "title" : {
+            "html" : {
+              "en" : ""
+            },
+            "markdown" : {
+              "en" : ""
+            }
+          }
+        }
+      ],
       "url" : {
         "url_path" : "types\/anenum"
       }
