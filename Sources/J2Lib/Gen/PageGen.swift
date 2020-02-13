@@ -57,8 +57,6 @@ final class PageVisitor: ItemVisitorProtocol {
             pages.append(GenData.Page(
                 defURL: defItem.url,
                 title: defItem.title,
-                abstract: defItem.documentation.abstract?.html,
-                overview: defItem.documentation.overview?.html,
                 definition: defItem.asGenDef,
                 topics: buildTopics(item: defItem)))
         }
@@ -67,7 +65,7 @@ final class PageVisitor: ItemVisitorProtocol {
     func visit(groupItem: GroupItem, parents: [Item]) {
         pages.append(GenData.Page(groupURL: groupItem.url,
                                   title: groupItem.title,
-                                  overview: nil,
+                                  content: nil,
                                   topics: buildTopics(item: groupItem)))
     }
 
@@ -75,14 +73,14 @@ final class PageVisitor: ItemVisitorProtocol {
         pages.append(GenData.Page(guideURL: guideItem.url,
                                   title: guideItem.title,
                                   isReadme: false,
-                                  overview: nil))
+                                  content: nil))
     }
 
     func visit(readmeItem: ReadmeItem, parents: [Item]) {
         pages.append(GenData.Page(guideURL: readmeItem.url,
                                   title: readmeItem.title,
                                   isReadme: true,
-                                  overview: nil))
+                                  content: nil))
     }
 
     func buildTopics(item: Item) -> [GenData.Topic] {
@@ -154,6 +152,8 @@ class ItemVisitor: ItemVisitorProtocol {
 
 extension DefItem {
     var asGenDef: GenData.Def {
-        GenData.Def(swiftDeclaration: Html(swiftDeclaration.declaration))
+        GenData.Def(abstract: documentation.abstract?.html,
+                    overview: documentation.overview?.html,
+                    swiftDeclaration: Html(swiftDeclaration.declaration))
     }
 }

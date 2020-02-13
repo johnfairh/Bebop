@@ -17,6 +17,11 @@
               "anchor_id" : "spmswiftmodule",
               "dash_type" : "Struct",
               "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Main structure<\/p>"
+                  }
+                },
                 "swift_declaration" : {
                   "html" : "public struct SpmSwiftModule"
                 }
@@ -35,6 +40,11 @@
               "anchor_id" : "anenum",
               "dash_type" : "enum",
               "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>An enum<\/p>"
+                  }
+                },
                 "swift_declaration" : {
                   "html" : "public enum AnEnum"
                 }
@@ -65,12 +75,12 @@
       }
     },
     {
-      "abstract" : {
-        "en" : {
-          "html" : "<p>Main structure<\/p>"
-        }
-      },
       "def" : {
+        "abstract" : {
+          "en" : {
+            "html" : "<p>Main structure<\/p>"
+          }
+        },
         "swift_declaration" : {
           "html" : "public struct SpmSwiftModule"
         }
@@ -177,12 +187,12 @@
       }
     },
     {
-      "abstract" : {
-        "en" : {
-          "html" : "<p>An enum<\/p>"
-        }
-      },
       "def" : {
+        "abstract" : {
+          "en" : {
+            "html" : "<p>An enum<\/p>"
+          }
+        },
         "swift_declaration" : {
           "html" : "public enum AnEnum"
         }
@@ -226,6 +236,11 @@
               "anchor_id" : "deprecatedfunctioncallback",
               "dash_type" : "Global",
               "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>A deprecated function<\/p>"
+                  }
+                },
                 "swift_declaration" : {
                   "html" : "public func deprecatedFunction(callback: (_ report: String) -> Int) -> String"
                 }

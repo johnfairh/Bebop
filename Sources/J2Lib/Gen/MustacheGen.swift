@@ -79,6 +79,7 @@ public enum MustacheKey: String {
     case pathToRoot = "path_to_root" // empty string or ends in "/"
     case toc = "toc"
     case hideArticleTitle = "hide_article_title"
+    case contentHtml = "content_html"
     // Global, set by SiteGen
     case pathToAssets = "path_to_assets" // empty string or ends in "/"
     case docsTitle = "docs_title"
@@ -141,8 +142,7 @@ extension GenData {
         data[.tabTitlePrefix] = pg.tabTitlePrefix
         data[.pathToRoot] = pg.url.pathToRoot
         data[.hideArticleTitle] = pg.isGuide
-        data[.abstractHtml] = pg.abstract?[languageTag]?.html
-        data[.overviewHtml] = pg.overview?[languageTag]?.html
+        data.maybe(.contentHtml, pg.content?.get(languageTag))
         data.maybe(.def, pg.def?.generateDef(languageTag: languageTag, fileExt: fileExt))
 
         let topics = pg.generateTopics(languageTag: languageTag, fileExt: fileExt)
@@ -154,8 +154,6 @@ extension GenData {
         data[.toc] = generateToc(languageTag: languageTag,
                                  fileExt: fileExt,
                                  pageURLPath: pg.url.url(fileExtension: fileExt))
-
-
 
         return MustachePage(languageTag: languageTag, filepath: filepath, data: data)
     }
@@ -259,6 +257,8 @@ extension GenData.Def {
     func generateDef(languageTag: String, fileExt: String) -> [String : Any] {
         var dict = [String : Any]()
         dict.maybe(.swiftDeclarationHtml, swiftDeclaration?.html)
+        dict.maybe(.abstractHtml, abstract?.get(languageTag).html)
+        dict.maybe(.overviewHtml, overview?.get(languageTag).html)
         return dict
     }
 }

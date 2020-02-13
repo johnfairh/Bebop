@@ -24,7 +24,10 @@ public final class GenData: Encodable {
     public let toc: [TocEntry]
 
     public struct Def: Encodable {
+        public let abstract: Localized<Html>?
+        public let overview: Localized<Html>?
         public let swiftDeclaration: Html?
+        //        public let availability: [String]
     }
     public struct Item: Encodable {
         public let anchorId: String
@@ -71,27 +74,22 @@ public final class GenData: Encodable {
         public let title: Localized<String>
         public let tabTitlePrefix: Bool
         public let isGuide: Bool
+        public let content: Localized<Html>?
         // breadcrumbs
         public let def: Def?
-//        public let availability: [String]
-        public let abstract: Localized<Html>?
-        public let overview: Localized<Html>?
         // topics
         public let topics: [Topic]
 
         /// Def init
         public init(defURL: URLPieces,
                     title: Localized<String>,
-                    abstract: Localized<Html>?,
-                    overview: Localized<Html>?,
                     definition: Def,
                     topics: [Topic] = []) {
             self.url = defURL
             self.title = title
             self.tabTitlePrefix = true
             self.isGuide = false
-            self.abstract = abstract
-            self.overview = overview
+            self.content = nil
             self.def = definition
             self.topics = topics
         }
@@ -99,26 +97,27 @@ public final class GenData: Encodable {
         /// Group init
         public init(groupURL: URLPieces,
                     title: Localized<String>,
-                    overview: Localized<Html>?,
+                    content: Localized<Html>?,
                     topics: [Topic] = []) {
             self.url = groupURL
             self.title = title
             self.tabTitlePrefix = true
             self.isGuide = false
-            self.abstract = nil
-            self.overview = overview
+            self.content = content
             self.def = nil
             self.topics = topics
         }
 
         /// Guide init
-        public init(guideURL: URLPieces, title: Localized<String>, isReadme: Bool, overview: Localized<Html>?) {
+        public init(guideURL: URLPieces,
+                    title: Localized<String>,
+                    isReadme: Bool,
+                    content: Localized<Html>?) {
             self.url = guideURL
             self.title = title
             self.tabTitlePrefix = !isReadme
             self.isGuide = true
-            self.abstract = nil
-            self.overview = overview
+            self.content = content
             self.def = nil
             self.topics = []
         }
