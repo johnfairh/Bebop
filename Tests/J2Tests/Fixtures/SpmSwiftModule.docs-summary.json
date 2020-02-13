@@ -16,6 +16,11 @@
             {
               "anchor_id" : "spmswiftmodule",
               "dash_type" : "Struct",
+              "def" : {
+                "swift_declaration" : {
+                  "html" : "public struct SpmSwiftModule"
+                }
+              },
               "flat_title" : {
                 "en" : "struct SpmSwiftModule"
               },
@@ -29,6 +34,11 @@
             {
               "anchor_id" : "anenum",
               "dash_type" : "enum",
+              "def" : {
+                "swift_declaration" : {
+                  "html" : "public enum AnEnum"
+                }
+              },
               "flat_title" : {
                 "en" : "enum AnEnum"
               },
@@ -60,10 +70,12 @@
           "html" : "<p>Main structure<\/p>"
         }
       },
-      "is_guide" : false,
-      "swift_declaration" : {
-        "html" : "public struct SpmSwiftModule"
+      "def" : {
+        "swift_declaration" : {
+          "html" : "public struct SpmSwiftModule"
+        }
       },
+      "is_guide" : false,
       "tab_title_prefix" : true,
       "title" : {
         "en" : "SpmSwiftModule"
@@ -75,6 +87,11 @@
             {
               "anchor_id" : "text",
               "dash_type" : "Property",
+              "def" : {
+                "swift_declaration" : {
+                  "html" : "public var text: String"
+                }
+              },
               "flat_title" : {
                 "en" : "var text: String"
               },
@@ -98,6 +115,11 @@
             {
               "anchor_id" : "nested1",
               "dash_type" : "Struct",
+              "def" : {
+                "swift_declaration" : {
+                  "html" : "public struct SpmSwiftModule.Nested1"
+                }
+              },
               "flat_title" : {
                 "en" : "struct Nested1"
               },
@@ -111,6 +133,11 @@
             {
               "anchor_id" : "nested2",
               "dash_type" : "Struct",
+              "def" : {
+                "swift_declaration" : {
+                  "html" : "public struct SpmSwiftModule.Nested2"
+                }
+              },
               "flat_title" : {
                 "en" : "struct Nested2"
               },
@@ -134,10 +161,12 @@
       }
     },
     {
-      "is_guide" : false,
-      "swift_declaration" : {
-        "html" : "public struct SpmSwiftModule.Nested1"
+      "def" : {
+        "swift_declaration" : {
+          "html" : "public struct SpmSwiftModule.Nested1"
+        }
       },
+      "is_guide" : false,
       "tab_title_prefix" : true,
       "title" : {
         "en" : "Nested1"
@@ -153,10 +182,12 @@
           "html" : "<p>An enum<\/p>"
         }
       },
-      "is_guide" : false,
-      "swift_declaration" : {
-        "html" : "public enum AnEnum"
+      "def" : {
+        "swift_declaration" : {
+          "html" : "public enum AnEnum"
+        }
       },
+      "is_guide" : false,
       "tab_title_prefix" : true,
       "title" : {
         "en" : "AnEnum"
@@ -179,6 +210,11 @@
             {
               "anchor_id" : "functionaarg1_arg3",
               "dash_type" : "Global",
+              "def" : {
+                "swift_declaration" : {
+                  "html" : "public func functionA(arg1: Int,\n                      _ arg2: Int,\n                      arg3 argMeaning: Int)"
+                }
+              },
               "flat_title" : {
                 "en" : "func functionA(arg1: Int, Int, arg3: Int)"
               },
@@ -189,6 +225,11 @@
             {
               "anchor_id" : "deprecatedfunctioncallback",
               "dash_type" : "Global",
+              "def" : {
+                "swift_declaration" : {
+                  "html" : "public func deprecatedFunction(callback: (_ report: String) -> Int) -> String"
+                }
+              },
               "flat_title" : {
                 "en" : "func deprecatedFunction(callback: (_ report: String) -> Int) -> String"
               },

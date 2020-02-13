@@ -23,6 +23,9 @@ public final class GenData: Encodable {
     }
     public let toc: [TocEntry]
 
+    public struct Def: Encodable {
+        public let swiftDeclaration: Html?
+    }
     public struct Item: Encodable {
         public let anchorId: String
         public let flatTitle: Localized<String>
@@ -30,6 +33,32 @@ public final class GenData: Encodable {
         public let dashType: String?
         public let url: URLPieces?
         // public let usageDiscouraged: Bool
+        public let def: Def?
+
+        /// Link init
+        public init(anchorId: String, title: Localized<String>, url: URLPieces) {
+            self.anchorId = anchorId
+            self.flatTitle = title
+            self.swiftTitleHtml = nil
+            self.dashType = nil
+            self.url = url
+            self.def = nil
+        }
+
+        /// Full item init
+        public init(anchorId: String,
+                    flatTitle: Localized<String>,
+                    swiftTitleHtml: Html,
+                    dashType: String,
+                    url: URLPieces?,
+                    def: Def) {
+            self.anchorId = anchorId
+            self.flatTitle = flatTitle
+            self.swiftTitleHtml = swiftTitleHtml
+            self.dashType = dashType
+            self.url = url
+            self.def = def
+        }
     }
     public struct Topic: Encodable {
         public let title: RichText
@@ -43,7 +72,7 @@ public final class GenData: Encodable {
         public let tabTitlePrefix: Bool
         public let isGuide: Bool
         // breadcrumbs
-        public let swiftDeclaration: Html?
+        public let def: Def?
 //        public let availability: [String]
         public let abstract: Localized<Html>?
         public let overview: Localized<Html>?
@@ -55,7 +84,7 @@ public final class GenData: Encodable {
                     title: Localized<String>,
                     abstract: Localized<Html>?,
                     overview: Localized<Html>?,
-                    swiftDeclaration: Html?,
+                    definition: Def,
                     topics: [Topic] = []) {
             self.url = defURL
             self.title = title
@@ -63,7 +92,7 @@ public final class GenData: Encodable {
             self.isGuide = false
             self.abstract = abstract
             self.overview = overview
-            self.swiftDeclaration = swiftDeclaration
+            self.def = definition
             self.topics = topics
         }
 
@@ -78,7 +107,7 @@ public final class GenData: Encodable {
             self.isGuide = false
             self.abstract = nil
             self.overview = overview
-            self.swiftDeclaration = nil
+            self.def = nil
             self.topics = topics
         }
 
@@ -90,7 +119,7 @@ public final class GenData: Encodable {
             self.isGuide = true
             self.abstract = nil
             self.overview = overview
-            self.swiftDeclaration = nil
+            self.def = nil
             self.topics = []
         }
     }

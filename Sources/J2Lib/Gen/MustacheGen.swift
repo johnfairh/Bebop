@@ -87,10 +87,10 @@ public enum MustacheKey: String {
     case pageLocalization = "page_localization"
     case localizations = "localizations"
 
-    // Content
+    // Definitions
+    case def = "def"
     case abstractHtml = "abstract_html"
     case overviewHtml = "overview_html"
-    case anyDeclaration = "any_declaration"
     case swiftDeclarationHtml = "swift_declaration_html"
 
     // Topics
@@ -106,6 +106,7 @@ public enum MustacheKey: String {
     case items = "items"
     case dashType = "dash_type"
     case swiftTitleHtml = "swift_title_html"
+    case anyDeclaration = "any_declaration"
 
     // ToC entries
     case title = "title"
@@ -142,14 +143,12 @@ extension GenData {
         data[.hideArticleTitle] = pg.isGuide
         data[.abstractHtml] = pg.abstract?[languageTag]?.html
         data[.overviewHtml] = pg.overview?[languageTag]?.html
-        data[.swiftDeclarationHtml] = pg.swiftDeclaration?.html
-        let anyDeclaration = pg.swiftDeclaration != nil
-        data[.anyDeclaration] = anyDeclaration
+        data.maybe(.def, pg.def?.generateDef(languageTag: languageTag, fileExt: fileExt))
 
         let topics = pg.generateTopics(languageTag: languageTag, fileExt: fileExt)
         data[.topics] = topics
         data[.topicsMenu] = generateTopicsMenu(topics: topics,
-                                               anyDeclaration: anyDeclaration,
+                                               anyDeclaration: pg.def != nil,
                                                languageTag: languageTag)
 
         data[.toc] = generateToc(languageTag: languageTag,
@@ -236,6 +235,7 @@ extension GenData.Item {
     ///     dash_type -- for dash links
     ///     dash_name -- title, %-encoded
     ///     url -- optional, link for more
+    ///     def -- optional, popopen item definition
     func generateItem(languageTag: String, fileExt: String) -> [String : Any] {
         let title = flatTitle.get(languageTag)
         var hash = MH([.anchorId: anchorId,
@@ -246,7 +246,19 @@ extension GenData.Item {
         hash.maybe(.swiftTitleHtml, swiftTitleHtml?.html)
         hash.maybe(.dashType, dashType)
         hash.maybe(.url, url?.url(fileExtension: fileExt))
+        hash.maybe(.def, def?.generateDef(languageTag: languageTag, fileExt: fileExt))
 
         return hash
+    }
+}
+
+extension GenData.Def {
+    /// Def is split out because shared between top of page and inside items.
+    /// Keys:
+    ///   swift_declaration_html - swift decl
+    func generateDef(languageTag: String, fileExt: String) -> [String : Any] {
+        var dict = [String : Any]()
+        dict.maybe(.swiftDeclarationHtml, swiftDeclaration?.html)
+        return dict
     }
 }

@@ -59,7 +59,7 @@ final class PageVisitor: ItemVisitorProtocol {
                 title: defItem.title,
                 abstract: defItem.documentation.abstract?.html,
                 overview: defItem.documentation.overview?.html,
-                swiftDeclaration: Html(defItem.swiftDeclaration.declaration),
+                definition: defItem.asGenDef,
                 topics: buildTopics(item: defItem)))
         }
     }
@@ -131,16 +131,15 @@ class ItemVisitor: ItemVisitorProtocol {
             flatTitle: .init(unlocalized: defItem.swiftDeclaration.namePieces.flattened),
             swiftTitleHtml: Html(swiftTitleHtml),
             dashType: defItem.defKind.dashName,
-            url: defItem.renderAsPage ? defItem.url : nil))
+            url: defItem.renderAsPage ? defItem.url : nil,
+            def: defItem.asGenDef))
     }
 
     /// Guides and Groups are simple, just a link really.
     func visitFlat(item: Item) {
         items.append(GenData.Item(
             anchorId: item.slug,
-            flatTitle: item.title,
-            swiftTitleHtml: nil,
-            dashType: nil,
+            title: item.title,
             url: item.url))
     }
 
@@ -150,5 +149,11 @@ class ItemVisitor: ItemVisitorProtocol {
 
     func visit(guideItem: GuideItem, parents: [Item]) {
         visitFlat(item: guideItem)
+    }
+}
+
+extension DefItem {
+    var asGenDef: GenData.Def {
+        GenData.Def(swiftDeclaration: Html(swiftDeclaration.declaration))
     }
 }

@@ -50,19 +50,22 @@
           <h5>Default Implementation</h5>
           {{{default_impl_abstract}}}
           {{/default_impl_abstract}}
-          {{#declaration}}
           <h5>Declaration</h5>
           <div class="j2-item-declaration">
-          <div class="j2-callout-title" role="heading" aria-level="6">{{language}}</div>
-          {{{declaration}}}
+            {{#def.swift_declaration_html}}
+            <div class="j2-swift">
+              <div class="j2-callout-title" role="heading" aria-level="6">Swift</div>
+              <pre><code class="language-swift">{{{def.swift_declaration_html}}}</code></pre>
+            </div>
+            {{/def.swift_declaration_html}}
+            {{#def.objc_declaration_html}}
+            <div class="j2-objc">
+              <div class="j2-callout-title" role="heading" aria-level="6">Objective-C</div>
+              <pre><code class="language-objectivec">{{{def.objc_declaration_html}}}</code></pre>
+            </div>
+            {{/def.objc_declaration_html}}
           </div>
-          {{#other_language_declaration}}
-          <div class="j2-item-declaration">
-          <div class="j2-callout-title" role="heading" aria-level="6">Swift</div>
-          {{{other_language_declaration}}}
-          </div>
-          {{/other_language_declaration}}
-          {{/declaration}}
+
           {{#parameters.count}}
           <h5>Parameters</h5>
           <table class="j2-param-table">
