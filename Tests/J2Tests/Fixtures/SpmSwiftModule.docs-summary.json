@@ -374,6 +374,11 @@
                     "html" : "<p>A deprecated function<\/p>"
                   }
                 },
+                "returns" : {
+                  "en" : {
+                    "html" : "<p>A string<\/p>"
+                  }
+                },
                 "swift_declaration" : {
                   "html" : "public func deprecatedFunction(callback: (_ report: String) -> Int) -> String"
                 }

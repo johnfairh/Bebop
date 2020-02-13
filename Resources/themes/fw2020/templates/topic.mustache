@@ -77,10 +77,10 @@
             </tbody>
           </table>
           {{/parameters.count}}
-          {{#return}}
+          {{#def.returns_html}}
           <h5>Return Value</h5>
-          {{{return}}}
-          {{/return}}
+          {{{def.returns_html}}}
+          {{/def.returns_html}}
           <nav class="j2-item-nav" aria-label="item details">
             {{#url}}
             <span class="j2-item-nav-item"><a href="{{{path_to_root}}}{{{url}}}">Show members</a></span>

@@ -80,7 +80,7 @@ class TestGen: XCTestCase {
         let actualJson = TestLogger.shared.outputBuf[0] + "\n"
 
         // to fix up when it changes...
-         try actualJson.write(to: spmTestDocsSummaryJsonURL)
+        // try actualJson.write(to: spmTestDocsSummaryJsonURL)
 
         let expectedJson = try String(contentsOf: spmTestDocsSummaryJsonURL)
         XCTAssertEqual(expectedJson, actualJson)

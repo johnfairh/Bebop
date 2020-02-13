@@ -93,6 +93,7 @@ public enum MustacheKey: String {
     case abstractHtml = "abstract_html"
     case overviewHtml = "overview_html"
     case swiftDeclarationHtml = "swift_declaration_html"
+    case returnsHtml = "returns_html"
 
     // Topics
     case topics = "topics"
@@ -259,6 +260,7 @@ extension GenData.Def {
         dict.maybe(.swiftDeclarationHtml, swiftDeclaration?.html)
         dict.maybe(.abstractHtml, abstract?.get(languageTag).html)
         dict.maybe(.overviewHtml, overview?.get(languageTag).html)
+        dict.maybe(.returnsHtml, returns?.get(languageTag).html)
         return dict
     }
 }

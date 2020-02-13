@@ -154,6 +154,7 @@ extension DefItem {
     var asGenDef: GenData.Def {
         GenData.Def(abstract: documentation.abstract?.html,
                     overview: documentation.overview?.html,
-                    swiftDeclaration: Html(swiftDeclaration.declaration))
+                    swiftDeclaration: Html(swiftDeclaration.declaration),
+                    returns: documentation.returns?.html)
     }
 }

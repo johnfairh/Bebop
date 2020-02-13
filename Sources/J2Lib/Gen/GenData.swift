@@ -27,6 +27,7 @@ public final class GenData: Encodable {
         public let abstract: Localized<Html>?
         public let overview: Localized<Html>?
         public let swiftDeclaration: Html?
+        public let returns: Localized<Html>?
         //        public let availability: [String]
     }
     public struct Item: Encodable {
