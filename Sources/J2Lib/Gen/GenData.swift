@@ -23,10 +23,15 @@ public final class GenData: Encodable {
     }
     public let toc: [TocEntry]
 
+    public struct Param: Encodable {
+        public let name: String
+        public let description: Localized<Html>
+    }
     public struct Def: Encodable {
         public let abstract: Localized<Html>?
         public let overview: Localized<Html>?
         public let swiftDeclaration: Html?
+        public let params: [Param]
         public let returns: Localized<Html>?
         //        public let availability: [String]
     }

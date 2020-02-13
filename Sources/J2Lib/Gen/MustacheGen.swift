@@ -93,6 +93,8 @@ public enum MustacheKey: String {
     case abstractHtml = "abstract_html"
     case overviewHtml = "overview_html"
     case swiftDeclarationHtml = "swift_declaration_html"
+    case parameters = "parameters"
+    case parameterHtml = "parameter_html"
     case returnsHtml = "returns_html"
 
     // Topics
@@ -255,11 +257,20 @@ extension GenData.Def {
     /// Def is split out because shared between top of page and inside items.
     /// Keys:
     ///   swift_declaration_html - swift decl
+    ///   abstract_html - optional - first part of discussion
+    ///   overview_html - optional - second part of discussion
+    ///   parameters - optional - array of title / parameter_html
+    ///   returns_html - optional - returns docs
     func generateDef(languageTag: String, fileExt: String) -> [String : Any] {
         var dict = [String : Any]()
         dict.maybe(.swiftDeclarationHtml, swiftDeclaration?.html)
         dict.maybe(.abstractHtml, abstract?.get(languageTag).html)
         dict.maybe(.overviewHtml, overview?.get(languageTag).html)
+        if !params.isEmpty {
+            dict[.parameters] = params.map {
+                MH([.title: $0.name, .parameterHtml: $0.description.get(languageTag).html])
+            }
+        }
         dict.maybe(.returnsHtml, returns?.get(languageTag).html)
         return dict
     }

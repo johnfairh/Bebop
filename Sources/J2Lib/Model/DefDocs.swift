@@ -100,9 +100,10 @@ extension RichDefDocs {
         try abstract?.format(call)
         try overview?.format(call)
         try returns?.format(call)
-        try parameters.forEach { param in
+        parameters = try parameters.map { param in
             var param = param
             try param.description.format(call)
+            return param
         }
     }
 }

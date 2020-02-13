@@ -321,6 +321,34 @@
   },
   {
     "children" : [],
+    "documentation" : {
+      "parameters" : [
+        {
+          "description" : {
+            "markdown" : {
+              "en" : "Number one"
+            }
+          },
+          "name" : "arg1"
+        },
+        {
+          "description" : {
+            "markdown" : {
+              "en" : "Second"
+            }
+          },
+          "name" : "arg2"
+        },
+        {
+          "description" : {
+            "markdown" : {
+              "en" : "Third"
+            }
+          },
+          "name" : "arg3"
+        }
+      ]
+    },
     "kind" : "source.lang.swift.decl.function.free",
     "module_name" : "SpmSwiftModule",
     "name" : "functionA(arg1:_:arg3:)",

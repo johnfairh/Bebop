@@ -67,16 +67,16 @@
             {{/def.objc_declaration_html}}
           </div>
 
-          {{#parameters.count}}
+          {{#def.parameters.count}}
           <h5>Parameters</h5>
           <table class="j2-param-table">
             <tbody>
-             {{#parameters}}
-             {{ parameter}}
-             {{/parameters}}
+             {{#def.parameters}}
+             {{>parameter}}
+             {{/def.parameters}}
             </tbody>
           </table>
-          {{/parameters.count}}
+          {{/def.parameters.count}}
           {{#def.returns_html}}
           <h5>Return Value</h5>
           {{{def.returns_html}}}

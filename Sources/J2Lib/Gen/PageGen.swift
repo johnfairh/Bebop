@@ -155,6 +155,9 @@ extension DefItem {
         GenData.Def(abstract: documentation.abstract?.html,
                     overview: documentation.overview?.html,
                     swiftDeclaration: Html(swiftDeclaration.declaration),
+                    params: documentation.parameters.map { docParam in
+                        GenData.Param(name: docParam.name, description: docParam.description.html)
+                    },
                     returns: documentation.returns?.html)
     }
 }

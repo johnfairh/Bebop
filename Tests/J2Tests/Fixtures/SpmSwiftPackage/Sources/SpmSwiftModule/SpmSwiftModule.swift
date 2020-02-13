@@ -25,6 +25,10 @@ public enum AnEnum {
     case third, fourth
 }
 
+/// - parameters:
+///    - arg1: Number one
+///    - arg2: Second
+///    - arg3: Third
 @available(iOS 9, macOS 10.12, *)
 public func functionA(arg1: Int,
                       _ arg2: Int,

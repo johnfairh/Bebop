@@ -22,6 +22,7 @@
                     "html" : "<p>Main structure<\/p>"
                   }
                 },
+                "params" : [],
                 "swift_declaration" : {
                   "html" : "public struct SpmSwiftModule"
                 }
@@ -45,6 +46,7 @@
                     "html" : "<p>An enum<\/p>"
                   }
                 },
+                "params" : [],
                 "swift_declaration" : {
                   "html" : "public enum AnEnum"
                 }
@@ -81,6 +83,7 @@
             "html" : "<p>Main structure<\/p>"
           }
         },
+        "params" : [],
         "swift_declaration" : {
           "html" : "public struct SpmSwiftModule"
         }
@@ -98,6 +101,7 @@
               "anchor_id" : "text",
               "dash_type" : "Property",
               "def" : {
+                "params" : [],
                 "swift_declaration" : {
                   "html" : "public var text: String"
                 }
@@ -126,6 +130,7 @@
               "anchor_id" : "nested1",
               "dash_type" : "Struct",
               "def" : {
+                "params" : [],
                 "swift_declaration" : {
                   "html" : "public struct SpmSwiftModule.Nested1"
                 }
@@ -144,6 +149,7 @@
               "anchor_id" : "nested2",
               "dash_type" : "Struct",
               "def" : {
+                "params" : [],
                 "swift_declaration" : {
                   "html" : "public struct SpmSwiftModule.Nested2"
                 }
@@ -172,6 +178,7 @@
     },
     {
       "def" : {
+        "params" : [],
         "swift_declaration" : {
           "html" : "public struct SpmSwiftModule.Nested1"
         }
@@ -189,6 +196,7 @@
               "anchor_id" : "nested2a",
               "dash_type" : "Struct",
               "def" : {
+                "params" : [],
                 "swift_declaration" : {
                   "html" : "public struct SpmSwiftModule.Nested1.Nested2a"
                 }
@@ -204,6 +212,7 @@
               "anchor_id" : "nested2b",
               "dash_type" : "Struct",
               "def" : {
+                "params" : [],
                 "swift_declaration" : {
                   "html" : "public struct SpmSwiftModule.Nested1.Nested2b"
                 }
@@ -237,6 +246,7 @@
             "html" : "<p>An enum<\/p>"
           }
         },
+        "params" : [],
         "swift_declaration" : {
           "html" : "public enum AnEnum"
         }
@@ -259,6 +269,7 @@
                     "html" : "<p>First case<\/p>"
                   }
                 },
+                "params" : [],
                 "swift_declaration" : {
                   "html" : "case first(Int)"
                 }
@@ -279,6 +290,7 @@
                     "html" : "<p>Second case<\/p>"
                   }
                 },
+                "params" : [],
                 "swift_declaration" : {
                   "html" : "case second"
                 }
@@ -299,6 +311,7 @@
                     "html" : "<p>Third &amp; Fourth cases<\/p>"
                   }
                 },
+                "params" : [],
                 "swift_declaration" : {
                   "html" : "case third"
                 }
@@ -314,6 +327,7 @@
               "anchor_id" : "fourth",
               "dash_type" : "Case",
               "def" : {
+                "params" : [],
                 "swift_declaration" : {
                   "html" : "case fourth"
                 }
@@ -354,6 +368,32 @@
               "anchor_id" : "functionaarg1_arg3",
               "dash_type" : "Global",
               "def" : {
+                "params" : [
+                  {
+                    "description" : {
+                      "en" : {
+                        "html" : "<p>Number one<\/p>"
+                      }
+                    },
+                    "name" : "arg1"
+                  },
+                  {
+                    "description" : {
+                      "en" : {
+                        "html" : "<p>Second<\/p>"
+                      }
+                    },
+                    "name" : "arg2"
+                  },
+                  {
+                    "description" : {
+                      "en" : {
+                        "html" : "<p>Third<\/p>"
+                      }
+                    },
+                    "name" : "arg3"
+                  }
+                ],
                 "swift_declaration" : {
                   "html" : "public func functionA(arg1: Int,\n                      _ arg2: Int,\n                      arg3 argMeaning: Int)"
                 }
@@ -374,6 +414,16 @@
                     "html" : "<p>A deprecated function<\/p>"
                   }
                 },
+                "params" : [
+                  {
+                    "description" : {
+                      "en" : {
+                        "html" : "<p>The callback<\/p>"
+                      }
+                    },
+                    "name" : "callback"
+                  }
+                ],
                 "returns" : {
                   "en" : {
                     "html" : "<p>A string<\/p>"
