@@ -11,13 +11,17 @@
       },
       "topics" : [
         {
+          "anchor_id" : "tpc_",
           "items" : [
             {},
             {}
           ],
           "title" : {
-            "en" : {
-              "html" : ""
+            "html" : {
+              "en" : ""
+            },
+            "markdown" : {
+              "en" : ""
             }
           }
         }
@@ -29,7 +33,7 @@
     {
       "abstract" : {
         "en" : {
-          "html" : "<p>Main structure<\/p>\n"
+          "html" : "<p>Main structure<\/p>"
         }
       },
       "is_guide" : false,
@@ -42,23 +46,31 @@
       },
       "topics" : [
         {
+          "anchor_id" : "tpc_fields",
           "items" : [
             {}
           ],
           "title" : {
-            "en" : {
-              "html" : "<p>Fields<\/p>\n"
+            "html" : {
+              "en" : "Fields"
+            },
+            "markdown" : {
+              "en" : "Fields"
             }
           }
         },
         {
+          "anchor_id" : "tpc_nested-structures",
           "items" : [
             {},
             {}
           ],
           "title" : {
-            "en" : {
-              "html" : "<p>Nested structures<\/p>\n"
+            "html" : {
+              "en" : "Nested structures"
+            },
+            "markdown" : {
+              "en" : "Nested structures"
             }
           }
         }
@@ -84,7 +96,7 @@
     {
       "abstract" : {
         "en" : {
-          "html" : "<p>An enum<\/p>\n"
+          "html" : "<p>An enum<\/p>"
         }
       },
       "is_guide" : false,
@@ -108,13 +120,17 @@
       },
       "topics" : [
         {
+          "anchor_id" : "tpc_",
           "items" : [
             {},
             {}
           ],
           "title" : {
-            "en" : {
-              "html" : ""
+            "html" : {
+              "en" : ""
+            },
+            "markdown" : {
+              "en" : ""
             }
           }
         }

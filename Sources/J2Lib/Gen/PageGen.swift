@@ -90,9 +90,13 @@ final class PageVisitor: ItemVisitor {
         var items = [GenData.Item]()
         var currentTopic: Topic? = nil
 
+        let uniquer = StringUniquer()
+
         func endTopic() {
             if let currentTopic = currentTopic {
-                topics.append(GenData.Topic(title: currentTopic.title.html,
+                let slugRoot = currentTopic.title.markdown.get(Localizations.shared.main.tag).md
+                topics.append(GenData.Topic(title: currentTopic.title,
+                                            anchorId: uniquer.unique("tpc_" + slugRoot.slugged),
                                             body: currentTopic.body?.html,
                                             items: items))
                 items = []

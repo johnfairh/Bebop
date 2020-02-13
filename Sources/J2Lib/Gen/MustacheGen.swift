@@ -93,6 +93,12 @@ public enum MustacheKey: String {
     case anyDeclaration = "any_declaration"
     case swiftDeclarationHtml = "swift_declaration_html"
 
+    // Topics
+    case topics = "topics"
+    case titleHtml = "title_html"
+    case anchorId = "anchor_id"
+    case dashName = "dash_name"
+
     // ToC entries
     case title = "title"
     case url = "url"
@@ -123,20 +129,11 @@ extension GenData {
         data[.swiftDeclarationHtml] = pg.swiftDeclaration?.html
         data[.anyDeclaration] = pg.swiftDeclaration != nil
 
+        data[.topics] = pg.generateTopics(languageTag: languageTag)
+
         data[.toc] = generateToc(languageTag: languageTag,
                                  fileExt: fileExt,
                                  pageURLPath: pg.url.url(fileExtension: fileExt))
-
-        // topics is an array of [String : Any]
-        // with keys title_html [can be missing if 0 title]
-        //           overview_html [can be missing] [use . syntax!!]
-        //           ... no id, let anchor.js figure it out? ...
-        //           something for dash, need to research what exactly it's supposed to be
-        //           items
-        //
-        // items is itself an array of [String : Any]
-        // with many keys that will be super-complicated, but for now do
-        //    name - anything!
 
         return MustachePage(languageTag: languageTag, filepath: filepath, data: data)
     }
@@ -156,5 +153,44 @@ extension GenData {
         }
 
         return tocList(entries: toc)
+    }
+
+
+    func generateTopicsMenu(topics: [[String: Any]]) -> [[String: Any]] {
+        topics.compactMap { hash in
+            guard let title = hash[.title] as? String,
+                let anchorId = hash[.anchorId] as? String else {
+                return nil
+            }
+            return MH([.title: title, .url: "#\(anchorId)"])
+        }
+    }
+}
+
+extension GenData.Page {
+    // topics is an array of [String : Any]
+    // with keys title_html [can be missing if 0 title]
+    //           overview_html [can be missing] [use . syntax!!]
+    //           anchorId -- need for linking from aux nav
+    //           dashName - %-encoded text (markdown) name
+    //
+    // items is itself an array of [String : Any]
+    // with many keys that will be super-complicated, but for now do
+    //    name - anything!
+
+    func generateTopics(languageTag: String) -> [[String : Any]] {
+        return topics.map { topic in
+            let title = topic.title.markdown.get(languageTag).md
+            let dashName = title.urlPathEncoded
+            var hash = MH([.anchorId: topic.anchorId, .dashName: dashName])
+            if !title.isEmpty {
+                hash[.title] = title
+                hash[.titleHtml] = topic.title.html.get(languageTag).html
+            }
+            if let body = topic.body {
+                hash[.overviewHtml] = body.get(languageTag).html
+            }
+            return hash
+        }
     }
 }

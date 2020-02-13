@@ -1,0 +1,90 @@
+<section>
+  {{#title_html}}
+  <a name="//apple_ref/cpp/Section/{{dash_name}}" class="dashAnchor"></a>
+  <h3 class="j2-anchor" id="{{anchor_id}}">
+    <span data-anchor-id="{{anchor_id}}">{{{title_html}}}</span>
+  </h3>
+  {{/title_html}}
+  {{#overview_html}}
+  <div class="j2-topic-overview">
+    {{{overview_html}}}
+  </div>
+  {{/overview_html}}
+  <!-- here on down is unfixed jazzy stuff -->
+  {{#items}}
+  {{#direct_link}}
+  <div class="j2-item" id="{{usr}}">
+    <a class="j2-item-title" href="{{url}}">{{name}}</a>
+  </div>
+  {{/direct_link}}
+  {{^direct_link}}
+  <section id="{{usr}}" class="j2-item">
+    <a name="//apple_ref/cpp/{{dash_type}}/{{name}}" class="dashAnchor"></a>
+    <h4 class="sr-only">{{name}}</h4>
+    <a class="j2-item-title{{#usage_discouraged}}-discouraged{{/usage_discouraged}}" data-toggle="collapse" href="#_{{usr}}" role="button" aria-expanded="false" aria-controls="_{{usr}}"><code>{{{name_html}}}</code></a>
+    <div class="collapse j2-item-popopen-wrapper" id="_{{usr}}">
+      <div class="j2-item-popopen">
+        <div class="j2-item-popopen-pointer" role="none"></div>
+        <div class="j2-item-popopen-body">
+          {{> deprecation}}
+          <div class="clearfix">
+            {{#default_impl_abstract}}
+            <div class="j2-callout j2-callout-note">
+              <div class="j2-callout-title" role=heading" aria-level="5">Note</div>
+              <p>Protocol method with default implementation</p>
+            </div>
+            {{/default_impl_abstract}}
+            {{#from_protocol_extension}}
+            <div class="j2-callout j2-callout-note">
+              <div class="j2-callout-title" role=heading" aria-level="5">Note</div>
+              <p>Protocol extension method</p>
+              </div>
+            {{/from_protocol_extension}}
+            {{{abstract}}}
+          </div>
+          {{#default_impl_abstract}}
+          <h5>Default Implementation</h5>
+          {{{default_impl_abstract}}}
+          {{/default_impl_abstract}}
+          {{#declaration}}
+          <h5>Declaration</h5>
+          <div class="j2-item-declaration">
+          <div class="j2-callout-title" role="heading" aria-level="6">{{language}}</div>
+          {{{declaration}}}
+          </div>
+          {{#other_language_declaration}}
+          <div class="j2-item-declaration">
+          <div class="j2-callout-title" role="heading" aria-level="6">Swift</div>
+          {{{other_language_declaration}}}
+          </div>
+          {{/other_language_declaration}}
+          {{/declaration}}
+          {{#parameters.count}}
+          <h5>Parameters</h5>
+          <table class="j2-param-table">
+            <tbody>
+             {{#parameters}}
+             {{ parameter}}
+             {{/parameters}}
+            </tbody>
+          </table>
+          {{/parameters.count}}
+          {{#return}}
+          <h5>Return Value</h5>
+          {{{return}}}
+          {{/return}}
+          <nav class="j2-item-nav" aria-label="item details">
+            {{#url}}
+            <span class="j2-item-nav-item"><a href="{{{path_to_root}}}{{{url}}}">Show members</a></span>
+            {{/url}}
+            {{#github_token_url}}
+            <span class="j2-item-nav-item"><a href="{{{github_token_url}}}">Show on GitHub</a></span>
+            {{/github_token_url}}
+          </nav>
+        </div>
+      <div>
+    </div>
+  </section>
+  {{/direct_link}}
+  {{/items}}
+</section>

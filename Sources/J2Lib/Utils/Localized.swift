@@ -53,15 +53,25 @@ extension Dictionary where Key == String {
 
 // MARK: Localized strings
 
+protocol NulInitializable {
+    init()
+}
+
+extension String : NulInitializable {}
+extension Markdown: NulInitializable { init() { md = "" } }
+extension Html: NulInitializable { init() { html = "" } }
+
 extension Dictionary where Key == String, Value == String {
     /// Helper to grab a piece of localized output text and do substitutions %1 .... %n
     static func localizedOutput(_ key: L10n.Output, _ subs: Any...) -> Localized<String> {
         Resources.shared.localizedOutput(key: key.rawValue, subs: subs)
     }
+}
 
+extension Dictionary where Key == String, Value: NulInitializable {
     /// Get the value for the language or an empty string if none
-    func get(_ languageTag: String) -> String {
-        self[languageTag] ?? ""
+    func get(_ languageTag: String) -> Value {
+        self[languageTag] ?? Value()
     }
 }
 

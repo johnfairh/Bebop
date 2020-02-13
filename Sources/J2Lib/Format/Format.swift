@@ -57,7 +57,7 @@ struct MarkdownVisitor: ItemVisitor {
     /// with an auto-linked version.
     func visit(defItem: DefItem, parents: [Item]) {
         defItem.documentation.format { render(md: $0) }
-        defItem.topic?.format { render(md: $0 )}
+        defItem.topic?.format { renderInline(md: $0 )}
 
         // XXX deprecation notice
     }
@@ -72,13 +72,21 @@ struct MarkdownVisitor: ItemVisitor {
     //     d) math reformatting
     // 5 - render that as html
     func render(md: Markdown) -> (Markdown, Html) {
-        guard let doc = CMDocument(markdown: md),
-            let html = try? doc.renderHtml() else {
+        guard let doc = CMDocument(markdown: md) else {
             logDebug("Couldn't parse and render markdown '\(md)'.")
             return (md, Html(""))
         }
 
-        return (md, Html(html))
+        let html = doc.node.renderHtml()
+
+        return (md, html)
+    }
+
+    /// Render for some inline html, stripping the outer paragraph element.
+    func renderInline(md: Markdown) -> (Markdown, Html) {
+        let (md, html) = render(md: md)
+        let inlineHtml = html.html.re_sub("^<p>|</p>$", with: "")
+        return (md, Html(inlineHtml))
     }
 
     func visit(groupItem: GroupItem, parents: [Item]) {
