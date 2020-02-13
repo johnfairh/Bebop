@@ -16,6 +16,8 @@ enum PipelineProduct: String, CaseIterable {
     case decls_json
     /// PageGen output
     case docs_summary_json
+    /// SiteGen output
+    case docs_json
     /// Produce docs
     case docs
 
@@ -23,7 +25,7 @@ enum PipelineProduct: String, CaseIterable {
     /// output only to stdout, everything else to stderr.  Used for the various json-dumping modes.
     var needsPipelineMode: Bool {
         switch self {
-        case .files_json, .decls_json, .docs_summary_json: return true
+        case .files_json, .decls_json, .docs_summary_json, .docs_json: return true
         case .docs: return false
         }
     }
@@ -130,7 +132,15 @@ public final class Pipeline: Configurable {
             if productsAllDone { return }
         }
 
-        try siteGen.generate(genData: genData)
+        if testAndClearProduct(.docs_json) {
+            logDebug("Pipeline: producing docs-json")
+            let output = try siteGen.generateJSON(genData: genData)
+            logOutput(output)
+            if productsAllDone { return }
+        }
+
+        logDebug("Pipeline: generating site")
+        try siteGen.generateSite(genData: genData)
     }
 
     /// Callback during options processing.  Important we sort out pipeline mode now to avoid

@@ -48,7 +48,7 @@ class TestGen: XCTestCase {
         XCTAssertFalse(fm.fileExists(atPath: outputDir.path))
         let system = System()
         try system.configure(cliOpts: ["--output", outputDir.path])
-        try system.gen.generate(genData: GenData())
+        try system.gen.generateSite(genData: GenData())
         XCTAssertTrue(fm.fileExists(atPath: outputDir.path))
         try fm.removeItem(at: outputDir)
     }
@@ -60,7 +60,7 @@ class TestGen: XCTestCase {
         XCTAssertTrue(fm.createFile(atPath: markerFileURL.path, contents: nil))
         let system = System()
         try system.configure(cliOpts: ["--output", tmp.directoryURL.path, "--clean"])
-        try system.gen.generate(genData: GenData())
+        try system.gen.generateSite(genData: GenData())
         XCTAssertTrue(fm.fileExists(atPath: tmp.directoryURL.path))
         XCTAssertFalse(fm.fileExists(atPath: markerFileURL.path))
     }
@@ -83,6 +83,25 @@ class TestGen: XCTestCase {
         // try actualJson.write(to: spmTestDocsSummaryJsonURL)
 
         let expectedJson = try String(contentsOf: spmTestDocsSummaryJsonURL)
+        XCTAssertEqual(expectedJson, actualJson)
+    }
+
+    func testSiteGen() throws {
+        let pipeline = Pipeline()
+        let spmTestURL = fixturesURL.appendingPathComponent("SpmSwiftPackage")
+        TestLogger.install()
+        try pipeline.run(argv: ["--source-directory", spmTestURL.path,
+                                "--products", "docs-json"])
+        XCTAssertEqual(1, TestLogger.shared.outputBuf.count)
+
+        let spmTestDocsJsonURL = fixturesURL.appendingPathComponent("SpmSwiftModule.docs.json")
+
+        let actualJson = TestLogger.shared.outputBuf[0] + "\n"
+
+        // to fix up when it changes...
+        // try actualJson.write(to: spmTestDocsJsonURL)
+
+        let expectedJson = try String(contentsOf: spmTestDocsJsonURL)
         XCTAssertEqual(expectedJson, actualJson)
     }
 

@@ -48,7 +48,8 @@ public struct SiteGen: Configurable {
         config.register(self)
     }
 
-    public func generate(genData: GenData) throws {
+    /// Final site generation
+    public func generateSite(genData: GenData) throws {
         let theme = try themes.select()
 
         logInfo(.localized(.msgGeneratingDocs))
@@ -63,10 +64,40 @@ public struct SiteGen: Configurable {
 
         theme.setGlobalData(globalData)
 
+        try generatePages(genData: genData, fileExt: theme.fileExtension) { location, data in
+            logDebug("Gen: Rendering template for \(data[.pageTitle]!)")
+            let rendered = try theme.renderTemplate(data: data)
+
+            let url = outputURL.appendingPathComponent(location.filePath)
+            logDebug("Gen: Creating \(url.path)")
+            try rendered.write(to: url)
+        }
+
+        try theme.copyAssets(to: outputURL)
+    }
+
+    /// JSON instead of the website
+    public func generateJSON(genData: GenData) throws -> String {
+        var siteData: [[String: Any]] = []
+        let globals = globalData
+
+        generatePages(genData: genData, fileExt: ".html" /* ?? */) { _, data in
+            var data = data
+            data.merge(globals, uniquingKeysWith: { a, b in a })
+            siteData.append(data)
+        }
+
+        return try JSON.encode(siteData)
+    }
+
+    /// Factored out page generation
+    private func generatePages(genData: GenData,
+                               fileExt: String,
+                               callback: (MustachePageLocation, [String: Any]) throws -> ()) rethrows {
         let docsTitle = buildDocsTitle(genData: genData)
         let breadcrumbsRoot = buildBreadcrumbRoot(genData: genData)
 
-        var pageIterator = genData.makeIterator(fileExt: theme.fileExtension)
+        var pageIterator = genData.makeIterator(fileExt: fileExt)
 
         while let page = pageIterator.next() {
             let location = page.getLocation()
@@ -86,14 +117,8 @@ public struct SiteGen: Configurable {
                                        currentPathToAssets: location.reversePath)
             }
 
-            logDebug("Gen: Rendering template for \(page.data[.pageTitle]!)")
-            let rendered = try theme.renderTemplate(data: mustacheData)
-
-            let url = outputURL.appendingPathComponent(location.filePath)
-            logDebug("Gen: Creating \(url.path)")
-            try rendered.write(to: url)
+            try callback(location, mustacheData)
         }
-        try theme.copyAssets(to: outputURL)
     }
 
     /// Figure out the title for the docs

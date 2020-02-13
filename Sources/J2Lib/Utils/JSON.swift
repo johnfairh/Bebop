@@ -16,6 +16,16 @@ public enum JSON {
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
         encoder.keyEncodingStrategy = .convertToSnakeCase
         let data = try encoder.encode(t)
+        return from(data: data)
+    }
+
+    /// Render a Foundation "JSON object" using preferred formatting options.
+    public static func encode(_ data: Any) throws -> String {
+        let jsonData = try JSONSerialization.data(withJSONObject: data, options: [.prettyPrinted, .sortedKeys])
+        return from(data: jsonData)
+    }
+
+    private static func from(data: Data) -> String {
         let json = String(data: data, encoding: .utf8)!
         // Improve formatting of empty arrays / hashes
         return json.re_sub(#"(?<=[\[{])\s*(?=[\]}])"#, with: "")
