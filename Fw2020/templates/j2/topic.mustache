@@ -1,28 +1,32 @@
 <section>
-  {{#title_html}}
+  {{#.title_html}}
   <a name="//apple_ref/cpp/Section/{{dash_name}}" class="dashAnchor"></a>
   <h3 class="j2-anchor" id="{{anchor_id}}">
     <span data-anchor-id="{{anchor_id}}">{{{title_html}}}</span>
   </h3>
-  {{/title_html}}
-  {{#overview_html}}
+  {{/.title_html}}
+  {{#.overview_html}}
   <div class="j2-topic-overview">
-    {{{overview_html}}}
+    {{{.overview_html}}}
   </div>
-  {{/overview_html}}
-  <!-- here on down is unfixed jazzy stuff -->
+  {{/.overview_html}}
   {{#items}}
-  {{#direct_link}}
-  <div class="j2-item" id="{{usr}}">
-    <a class="j2-item-title" href="{{url}}">{{name}}</a>
+  {{^any_declaration}}
+  <div class="j2-item" id="{{anchor_id}}">
+    <a class="j2-item-title" href="{{url}}">{{title}}</a>
   </div>
-  {{/direct_link}}
-  {{^direct_link}}
-  <section id="{{usr}}" class="j2-item">
-    <a name="//apple_ref/cpp/{{dash_type}}/{{name}}" class="dashAnchor"></a>
-    <h4 class="sr-only">{{name}}</h4>
-    <a class="j2-item-title{{#usage_discouraged}}-discouraged{{/usage_discouraged}}" data-toggle="collapse" href="#_{{usr}}" role="button" aria-expanded="false" aria-controls="_{{usr}}"><code>{{{name_html}}}</code></a>
-    <div class="collapse j2-item-popopen-wrapper" id="_{{usr}}">
+  {{/any_declaration}}
+  {{#any_declaration}}
+  <section id="{{anchor_id}}" class="j2-item">
+    <a name="//apple_ref/cpp/{{dash_type}}/{{dash_name}}" class="dashAnchor"></a>
+    <h4 class="sr-only">{{title}}</h4>
+    <a class="j2-item-title{{#usage_discouraged}}-discouraged{{/usage_discouraged}}" data-toggle="collapse" href="#_{{anchor_id}}" role="button" aria-expanded="false" aria-controls="_{{anchor_id}}"><code><span class="j2-swift">{{{swift_title_html}}}</span></code></a>
+    {{#.abstract_html}}
+    <div class="j2-item-overview">
+      {{abstract_html}}
+    </div>
+    {{/.abstract_html}}
+    <div class="collapse j2-item-popopen-wrapper" id="_{{anchor_id}}">
       <div class="j2-item-popopen">
         <div class="j2-item-popopen-pointer" role="none"></div>
         <div class="j2-item-popopen-body">
@@ -85,6 +89,6 @@
       <div>
     </div>
   </section>
-  {{/direct_link}}
+  {{/any_declaration}}
   {{/items}}
 </section>

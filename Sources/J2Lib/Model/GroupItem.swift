@@ -47,7 +47,7 @@ public final class GroupItem: Item {
     }
 
     /// Visitor
-    override func accept(visitor: ItemVisitor, parents: [Item]) {
+    override func accept(visitor: ItemVisitorProtocol, parents: [Item]) {
         visitor.visit(groupItem: self, parents: parents)
     }
 

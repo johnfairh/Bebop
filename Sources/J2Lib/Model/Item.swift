@@ -39,7 +39,7 @@ public class Item: Encodable {
     }
 
     /// Overridden
-    func accept(visitor: ItemVisitor, parents: [Item]) { preconditionFailure() }
+    func accept(visitor: ItemVisitorProtocol, parents: [Item]) { preconditionFailure() }
     var  kind: ItemKind { .other }
 
     /// Does the item show in the table of contents?

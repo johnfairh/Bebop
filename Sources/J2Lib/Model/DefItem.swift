@@ -59,7 +59,7 @@ public class DefItem: Item {
     }
 
     /// Visitor
-    override func accept(visitor: ItemVisitor, parents: [Item]) {
+    override func accept(visitor: ItemVisitorProtocol, parents: [Item]) {
         visitor.visit(defItem: self, parents: parents)
     }
 

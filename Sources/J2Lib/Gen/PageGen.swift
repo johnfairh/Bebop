@@ -48,7 +48,7 @@ public struct PageGen: Configurable {
 
 // MARK: Page data
 
-final class PageVisitor: ItemVisitor {
+final class PageVisitor: ItemVisitorProtocol {
     /// All pages
     var pages = [GenData.Page]()
 
@@ -87,7 +87,7 @@ final class PageVisitor: ItemVisitor {
 
     func buildTopics(item: Item) -> [GenData.Topic] {
         var topics = [GenData.Topic]()
-        var items = [GenData.Item]()
+        let itemVisitor = ItemVisitor()
         var currentTopic: Topic? = nil
 
         let uniquer = StringUniquer()
@@ -98,8 +98,7 @@ final class PageVisitor: ItemVisitor {
                 topics.append(GenData.Topic(title: currentTopic.title,
                                             anchorId: uniquer.unique("tpc_" + slugRoot.slugged),
                                             body: currentTopic.body?.html,
-                                            items: items))
-                items = []
+                                            items: itemVisitor.resetItems()))
             }
         }
 
@@ -108,13 +107,48 @@ final class PageVisitor: ItemVisitor {
                 endTopic()
                 currentTopic = child.topic
             }
-            items.append(buildItem(item: child))
+            itemVisitor.walkOne(item: child)
         }
         endTopic()
         return topics
     }
+}
 
-    func buildItem(item: Item) -> GenData.Item {
-        return GenData.Item()
+/// Visitor to construct an Item that can appear inside a topic on a page.
+class ItemVisitor: ItemVisitorProtocol {
+    var items = [GenData.Item]()
+
+    func resetItems() -> [GenData.Item] {
+        defer { items = [] }
+        return items
+    }
+
+    func visit(defItem: DefItem, parents: [Item]) {
+        // not masochistic enough to do this in templates...
+        let swiftTitleHtml = defItem.swiftDeclaration.namePieces.wrappingOther(before: #"<span class="j2-item-secondary">"#, after: "</span>")
+        items.append(GenData.Item(
+            anchorId: defItem.slug,
+            flatTitle: .init(unlocalized: defItem.swiftDeclaration.namePieces.flattened),
+            swiftTitleHtml: Html(swiftTitleHtml),
+            dashType: defItem.defKind.dashName,
+            url: defItem.renderAsPage ? defItem.url : nil))
+    }
+
+    /// Guides and Groups are simple, just a link really.
+    func visitFlat(item: Item) {
+        items.append(GenData.Item(
+            anchorId: item.slug,
+            flatTitle: item.title,
+            swiftTitleHtml: nil,
+            dashType: nil,
+            url: item.url))
+    }
+
+    func visit(groupItem: GroupItem, parents: [Item]) {
+        visitFlat(item: groupItem)
+    }
+
+    func visit(guideItem: GuideItem, parents: [Item]) {
+        visitFlat(item: guideItem)
     }
 }

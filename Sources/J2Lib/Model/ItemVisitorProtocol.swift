@@ -1,5 +1,5 @@
 //
-//  ItemVisitor.swift
+//  ItemVisitorProtocol.swift
 //  J2Lib
 //
 //  Copyright 2020 J2 Authors
@@ -11,7 +11,7 @@
 /// It turns to often be useful to have the parent path during these times.
 /// In the `parents` array, index 0 is a root node (has no parent) and index -1 is the visited item's
 /// immediate parent.
-public protocol ItemVisitor {
+public protocol ItemVisitorProtocol {
     func visit(defItem: DefItem, parents: [Item])
     func visit(groupItem: GroupItem, parents: [Item])
     func visit(guideItem: GuideItem, parents: [Item])
@@ -19,7 +19,7 @@ public protocol ItemVisitor {
 }
 
 /// Default implementations do nothing on visit
-extension ItemVisitor {
+extension ItemVisitorProtocol {
     /// Do nothing
     public func visit(defItem: DefItem, parents: [Item]) {}
     /// Do nothing
@@ -32,7 +32,7 @@ extension ItemVisitor {
     }
 }
 
-extension ItemVisitor {
+extension ItemVisitorProtocol {
     /// Visit  an item and its children
     func walk(item: Item, parents: [Item] = []) {
         item.accept(visitor: self, parents: parents)
@@ -42,5 +42,10 @@ extension ItemVisitor {
     /// Visit a list of items and their children
     func walk<S>(items: S, parents: [Item] = []) where S: Sequence, S.Element: Item {
         items.forEach { walk(item: $0, parents: parents) }
+    }
+
+    /// Visit one item only
+    func walkOne(item: Item) {
+        item.accept(visitor: self, parents: [])
     }
 }

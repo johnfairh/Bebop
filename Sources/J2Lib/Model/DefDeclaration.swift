@@ -41,6 +41,21 @@ extension DeclarationPiece: Encodable {
     }
 }
 
+extension Array where Element == DeclarationPiece {
+    var flattened: String {
+        map { $0.text }.joined()
+    }
+
+    func wrappingOther(before: String, after: String) -> String {
+        map {
+            switch $0 {
+            case .name(let str): return str
+            case .other(let str): return before + str + after
+            }
+        }.joined()
+    }
+}
+
 /// A Swift language declaration split into its various parts
 public struct SwiftDeclaration: Encodable {
     public let declaration: String

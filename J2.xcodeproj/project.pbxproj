@@ -21,7 +21,7 @@
 		0233D52423EF0CC3004DCD89 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D52323EF0CC3004DCD89 /* Identifiers.swift */; };
 		0233D52623EF11F6004DCD89 /* TestIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D52523EF11F6004DCD89 /* TestIdentifiers.swift */; };
 		0233D52923EF1582004DCD89 /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D52823EF1582004DCD89 /* Format.swift */; };
-		0233D52B23EF1598004DCD89 /* ItemVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D52A23EF1598004DCD89 /* ItemVisitor.swift */; };
+		0233D52B23EF1598004DCD89 /* ItemVisitorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D52A23EF1598004DCD89 /* ItemVisitorProtocol.swift */; };
 		0233D52D23EF2997004DCD89 /* FormatURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D52C23EF2997004DCD89 /* FormatURL.swift */; };
 		0233D52F23EF2CCD004DCD89 /* ItemKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D52E23EF2CCD004DCD89 /* ItemKind.swift */; };
 		0233D53123EF4047004DCD89 /* TestGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D53023EF4047004DCD89 /* TestGroup.swift */; };
@@ -207,7 +207,7 @@
 		0233D52323EF0CC3004DCD89 /* Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
 		0233D52523EF11F6004DCD89 /* TestIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestIdentifiers.swift; sourceTree = "<group>"; };
 		0233D52823EF1582004DCD89 /* Format.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Format.swift; path = Sources/J2Lib/Format/Format.swift; sourceTree = SOURCE_ROOT; };
-		0233D52A23EF1598004DCD89 /* ItemVisitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemVisitor.swift; sourceTree = "<group>"; };
+		0233D52A23EF1598004DCD89 /* ItemVisitorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemVisitorProtocol.swift; sourceTree = "<group>"; };
 		0233D52C23EF2997004DCD89 /* FormatURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatURL.swift; sourceTree = "<group>"; };
 		0233D52E23EF2CCD004DCD89 /* ItemKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemKind.swift; sourceTree = "<group>"; };
 		0233D53023EF4047004DCD89 /* TestGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGroup.swift; sourceTree = "<group>"; };
@@ -533,7 +533,7 @@
 				02CFFA0323E0BA2900FDE5B9 /* Item.swift */,
 				0233D54223F42682004DCD89 /* Topic.swift */,
 				0233D52E23EF2CCD004DCD89 /* ItemKind.swift */,
-				0233D52A23EF1598004DCD89 /* ItemVisitor.swift */,
+				0233D52A23EF1598004DCD89 /* ItemVisitorProtocol.swift */,
 				0233D51C23EED547004DCD89 /* GroupItem.swift */,
 				0233D53C23F30851004DCD89 /* GuideItem.swift */,
 				02FDC68323E9DED600C2F9CD /* DefItem.swift */,
@@ -791,7 +791,7 @@
 				0233D51D23EED547004DCD89 /* GroupItem.swift in Sources */,
 				0233D53923F07E6E004DCD89 /* JSON.swift in Sources */,
 				02CFFA4023E5CFF800FDE5B9 /* DefKind.swift in Sources */,
-				0233D52B23EF1598004DCD89 /* ItemVisitor.swift in Sources */,
+				0233D52B23EF1598004DCD89 /* ItemVisitorProtocol.swift in Sources */,
 				02CFFA4623E75DF500FDE5B9 /* GatherDeclPieces.swift in Sources */,
 				02FDC67A23E876D300C2F9CD /* DefDocs.swift in Sources */,
 				02FDC68623E9EEE900C2F9CD /* GatherLocalize.swift in Sources */,

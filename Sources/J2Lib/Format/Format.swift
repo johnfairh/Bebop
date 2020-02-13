@@ -51,7 +51,7 @@ public final class Format: Configurable {
 }
 
 
-struct MarkdownVisitor: ItemVisitor {
+struct MarkdownVisitor: ItemVisitorProtocol {
     /// Format the def's markdown.
     /// This both generates HTML versions of everything and also replaces the original markdown
     /// with an auto-linked version.

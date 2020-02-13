@@ -13,8 +13,32 @@
         {
           "anchor_id" : "tpc_",
           "items" : [
-            {},
-            {}
+            {
+              "anchor_id" : "spmswiftmodule",
+              "dash_type" : "Struct",
+              "flat_title" : {
+                "en" : "struct SpmSwiftModule"
+              },
+              "swift_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">struct <\/span>SpmSwiftModule"
+              },
+              "url" : {
+                "url_path" : "types\/spmswiftmodule"
+              }
+            },
+            {
+              "anchor_id" : "anenum",
+              "dash_type" : "enum",
+              "flat_title" : {
+                "en" : "enum AnEnum"
+              },
+              "swift_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">enum <\/span>AnEnum"
+              },
+              "url" : {
+                "url_path" : "types\/anenum"
+              }
+            }
           ],
           "title" : {
             "html" : {
@@ -48,7 +72,16 @@
         {
           "anchor_id" : "tpc_fields",
           "items" : [
-            {}
+            {
+              "anchor_id" : "text",
+              "dash_type" : "Property",
+              "flat_title" : {
+                "en" : "var text: String"
+              },
+              "swift_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">var <\/span>text<span class=\"j2-item-secondary\">: String<\/span>"
+              }
+            }
           ],
           "title" : {
             "html" : {
@@ -62,8 +95,29 @@
         {
           "anchor_id" : "tpc__nested_-strúctures",
           "items" : [
-            {},
-            {}
+            {
+              "anchor_id" : "nested1",
+              "dash_type" : "Struct",
+              "flat_title" : {
+                "en" : "struct Nested1"
+              },
+              "swift_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">struct <\/span>Nested1"
+              },
+              "url" : {
+                "url_path" : "types\/spmswiftmodule\/nested1"
+              }
+            },
+            {
+              "anchor_id" : "nested2",
+              "dash_type" : "Struct",
+              "flat_title" : {
+                "en" : "struct Nested2"
+              },
+              "swift_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">struct <\/span>Nested2"
+              }
+            }
           ],
           "title" : {
             "html" : {
@@ -122,8 +176,26 @@
         {
           "anchor_id" : "tpc_",
           "items" : [
-            {},
-            {}
+            {
+              "anchor_id" : "functionaarg1_arg3",
+              "dash_type" : "Global",
+              "flat_title" : {
+                "en" : "func functionA(arg1: Int, Int, arg3: Int)"
+              },
+              "swift_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>functionA<span class=\"j2-item-secondary\">(<\/span>arg1<span class=\"j2-item-secondary\">: Int, Int, <\/span>arg3<span class=\"j2-item-secondary\">: Int)<\/span>"
+              }
+            },
+            {
+              "anchor_id" : "deprecatedfunctioncallback",
+              "dash_type" : "Global",
+              "flat_title" : {
+                "en" : "func deprecatedFunction(callback: (_ report: String) -> Int) -> String"
+              },
+              "swift_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>deprecatedFunction<span class=\"j2-item-secondary\">(<\/span>callback<span class=\"j2-item-secondary\">: (_ report: String) -> Int) -> String<\/span>"
+              }
+            }
           ],
           "title" : {
             "html" : {

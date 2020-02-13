@@ -102,6 +102,11 @@ public enum MustacheKey: String {
     // Topics menu
     case topicsMenu = "topics_menu"
 
+    // Items
+    case items = "items"
+    case dashType = "dash_type"
+    case swiftTitleHtml = "swift_title_html"
+
     // ToC entries
     case title = "title"
     case url = "url"
@@ -115,6 +120,14 @@ public enum MustacheKey: String {
 
 private func MH(_ pairs: KeyValuePairs<MustacheKey, Any>) -> [String : Any] {
     MustacheKey.dict(pairs)
+}
+
+private extension Dictionary where Key == String, Value == Any {
+    mutating func maybe(_ k: MustacheKey, _ v: Any?) {
+        if let v = v {
+            self[k.rawValue] = v
+        }
+    }
 }
 
 extension GenData {
@@ -133,7 +146,7 @@ extension GenData {
         let anyDeclaration = pg.swiftDeclaration != nil
         data[.anyDeclaration] = anyDeclaration
 
-        let topics = pg.generateTopics(languageTag: languageTag)
+        let topics = pg.generateTopics(languageTag: languageTag, fileExt: fileExt)
         data[.topics] = topics
         data[.topicsMenu] = generateTopicsMenu(topics: topics,
                                                anyDeclaration: anyDeclaration,
@@ -193,9 +206,8 @@ extension GenData.Page {
     ///           overview_html [can be missing] [use . syntax!!]
     ///           anchorId -- need for linking from aux nav
     ///           dashName - %-encoded text (markdown) name
-    ///
-    /// items is itself an array of [String : Any]
-    func generateTopics(languageTag: String) -> [[String : Any]] {
+    ///           items - items array of [String: Any]
+    func generateTopics(languageTag: String, fileExt: String) -> [[String : Any]] {
         return topics.map { topic in
             let title = topic.title.markdown.get(languageTag).md
             let dashName = title.urlPathEncoded
@@ -204,10 +216,37 @@ extension GenData.Page {
                 hash[.title] = title
                 hash[.titleHtml] = topic.title.html.get(languageTag).html
             }
-            if let body = topic.body {
-                hash[.overviewHtml] = body.get(languageTag).html
+            hash.maybe(.overviewHtml, topic.body?.get(languageTag).html)
+            if topic.items.count > 0 {
+                hash[.items] = topic.items.map {
+                    $0.generateItem(languageTag: languageTag, fileExt: fileExt)
+                }
             }
             return hash
         }
+    }
+}
+
+extension GenData.Item {
+    /// Item has keys
+    ///     anchor_id
+    ///     title -- text title for meta refs & direct-links
+    ///     swift_title_html -- swift defs
+    ///     any_declaration -- F means direct_link
+    ///     dash_type -- for dash links
+    ///     dash_name -- title, %-encoded
+    ///     url -- optional, link for more
+    func generateItem(languageTag: String, fileExt: String) -> [String : Any] {
+        let title = flatTitle.get(languageTag)
+        var hash = MH([.anchorId: anchorId,
+                       .title: title,
+                       .dashName: title.urlPathEncoded,
+                       .anyDeclaration: swiftTitleHtml != nil])
+
+        hash.maybe(.swiftTitleHtml, swiftTitleHtml?.html)
+        hash.maybe(.dashType, dashType)
+        hash.maybe(.url, url?.url(fileExtension: fileExt))
+
+        return hash
     }
 }

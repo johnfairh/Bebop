@@ -24,7 +24,12 @@ public final class GenData: Encodable {
     public let toc: [TocEntry]
 
     public struct Item: Encodable {
-
+        public let anchorId: String
+        public let flatTitle: Localized<String>
+        public let swiftTitleHtml: Html?
+        public let dashType: String?
+        public let url: URLPieces?
+        // public let usageDiscouraged: Bool
     }
     public struct Topic: Encodable {
         public let title: RichText
