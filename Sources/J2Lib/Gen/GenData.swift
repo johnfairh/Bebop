@@ -22,6 +22,15 @@ public final class GenData: Encodable {
         public let children: [TocEntry]
     }
     public let toc: [TocEntry]
+
+    public struct Item: Encodable {
+
+    }
+    public struct Topic: Encodable {
+        public let title: Localized<Html>?
+        public let body: Localized<Html>?
+        public let items: [Item]
+    }
     public struct Page: Encodable {
         public let url: URLPieces
         public let title: Localized<String>
@@ -33,13 +42,15 @@ public final class GenData: Encodable {
         public let abstract: Localized<Html>?
         public let overview: Localized<Html>?
         // topics
+        public let topics: [Topic]
 
         /// Def init
         public init(defURL: URLPieces,
                     title: Localized<String>,
                     abstract: Localized<Html>?,
                     overview: Localized<Html>?,
-                    swiftDeclaration: Html?) {
+                    swiftDeclaration: Html?,
+                    topics: [Topic] = []) {
             self.url = defURL
             self.title = title
             self.tabTitlePrefix = true
@@ -47,10 +58,14 @@ public final class GenData: Encodable {
             self.abstract = abstract
             self.overview = overview
             self.swiftDeclaration = swiftDeclaration
+            self.topics = topics
         }
 
         /// Group init
-        public init(groupURL: URLPieces, title: Localized<String>, overview: Localized<Html>?) {
+        public init(groupURL: URLPieces,
+                    title: Localized<String>,
+                    overview: Localized<Html>?,
+                    topics: [Topic] = []) {
             self.url = groupURL
             self.title = title
             self.tabTitlePrefix = true
@@ -58,6 +73,7 @@ public final class GenData: Encodable {
             self.abstract = nil
             self.overview = overview
             self.swiftDeclaration = nil
+            self.topics = topics
         }
 
         /// Guide init
@@ -69,6 +85,7 @@ public final class GenData: Encodable {
             self.abstract = nil
             self.overview = overview
             self.swiftDeclaration = nil
+            self.topics = []
         }
     }
     public let pages: [Page]

@@ -9,6 +9,19 @@
       "title" : {
         "en" : "Types"
       },
+      "topics" : [
+        {
+          "items" : [
+            {},
+            {}
+          ],
+          "title" : {
+            "en" : {
+              "html" : ""
+            }
+          }
+        }
+      ],
       "url" : {
         "url_path" : "types"
       }
@@ -27,6 +40,29 @@
       "title" : {
         "en" : "SpmSwiftModule"
       },
+      "topics" : [
+        {
+          "items" : [
+            {}
+          ],
+          "title" : {
+            "en" : {
+              "html" : "<p>Fields<\/p>\n"
+            }
+          }
+        },
+        {
+          "items" : [
+            {},
+            {}
+          ],
+          "title" : {
+            "en" : {
+              "html" : "<p>Nested structures<\/p>\n"
+            }
+          }
+        }
+      ],
       "url" : {
         "url_path" : "types\/spmswiftmodule"
       }
@@ -40,6 +76,7 @@
       "title" : {
         "en" : "Nested1"
       },
+      "topics" : [],
       "url" : {
         "url_path" : "types\/spmswiftmodule\/nested1"
       }
@@ -58,6 +95,7 @@
       "title" : {
         "en" : "AnEnum"
       },
+      "topics" : [],
       "url" : {
         "url_path" : "types\/anenum"
       }
@@ -68,6 +106,19 @@
       "title" : {
         "en" : "Functions"
       },
+      "topics" : [
+        {
+          "items" : [
+            {},
+            {}
+          ],
+          "title" : {
+            "en" : {
+              "html" : ""
+            }
+          }
+        }
+      ],
       "url" : {
         "url_path" : "functions"
       }
@@ -78,6 +129,7 @@
       "title" : {
         "en" : "index"
       },
+      "topics" : [],
       "url" : {
         "url_path" : "index"
       }

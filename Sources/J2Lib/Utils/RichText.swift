@@ -36,7 +36,7 @@ public struct Html: CustomStringConvertible, Hashable, Encodable {
 
 /// Some text manipulated by the program.
 /// Localized and formattable.
-public enum RichText: Encodable {
+public enum RichText: Encodable, Equatable {
     /// Localized markdown from a source file
     case unformatted(Localized<Markdown>)
     /// Formatted version of the markdown (autolinks inserted) and the HTML version

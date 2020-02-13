@@ -57,6 +57,7 @@ struct MarkdownVisitor: ItemVisitor {
     /// with an auto-linked version.
     func visit(defItem: DefItem, parents: [Item]) {
         defItem.documentation.format { render(md: $0) }
+        defItem.topic?.format { render(md: $0 )}
 
         // XXX deprecation notice
     }

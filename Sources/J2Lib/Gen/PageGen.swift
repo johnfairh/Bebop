@@ -59,14 +59,16 @@ final class PageVisitor: ItemVisitor {
                 title: defItem.title,
                 abstract: defItem.documentation.abstract?.html,
                 overview: defItem.documentation.overview?.html,
-                swiftDeclaration: Html(defItem.swiftDeclaration.declaration)))
+                swiftDeclaration: Html(defItem.swiftDeclaration.declaration),
+                topics: buildTopics(item: defItem)))
         }
     }
 
     func visit(groupItem: GroupItem, parents: [Item]) {
         pages.append(GenData.Page(groupURL: groupItem.url,
                                   title: groupItem.title,
-                                  overview: nil))
+                                  overview: nil,
+                                  topics: buildTopics(item: groupItem)))
     }
 
     func visit(guideItem: GuideItem, parents: [Item]) {
@@ -81,5 +83,34 @@ final class PageVisitor: ItemVisitor {
                                   title: readmeItem.title,
                                   isReadme: true,
                                   overview: nil))
+    }
+
+    func buildTopics(item: Item) -> [GenData.Topic] {
+        var topics = [GenData.Topic]()
+        var items = [GenData.Item]()
+        var currentTopic: Topic? = nil
+
+        func endTopic() {
+            if let currentTopic = currentTopic {
+                topics.append(GenData.Topic(title: currentTopic.title.html,
+                                            body: currentTopic.body?.html,
+                                            items: items))
+                items = []
+            }
+        }
+
+        item.children.forEach { child in
+            if child.topic !== currentTopic {
+                endTopic()
+                currentTopic = child.topic
+            }
+            items.append(buildItem(item: child))
+        }
+        endTopic()
+        return topics
+    }
+
+    func buildItem(item: Item) -> GenData.Item {
+        return GenData.Item()
     }
 }

@@ -8,12 +8,12 @@
 
 import Foundation
 
-public final class Topic: Encodable {
+public final class Topic: Equatable, Encodable {
     public internal(set) var title: RichText
     public internal(set) var body: RichText?
 
-    /// Initialize from a pragma/MARK in source code or static string
-    public init(title: String) {
+    /// Initialize from a pragma/MARK in source code or static string (will be treated as markdown)
+    public init(title: String = "") {
         self.title = RichText(title)
         self.body = nil
     }
@@ -22,5 +22,17 @@ public final class Topic: Encodable {
     public init(title: Localized<Markdown>, body: Localized<Markdown>?) {
         self.title = RichText(title)
         self.body = body.flatMap { RichText($0) }
+    }
+
+    /// Format the topic's content
+    public func format(_ call: (Markdown) throws -> (Markdown, Html) ) rethrows {
+        try title.format(call)
+        try body?.format(call)
+    }
+
+    /// Not sure what stops this from being auto-generated.
+    public static func == (lhs: Topic, rhs: Topic) -> Bool {
+        lhs.title == rhs.title &&
+            lhs.body == rhs.body
     }
 }

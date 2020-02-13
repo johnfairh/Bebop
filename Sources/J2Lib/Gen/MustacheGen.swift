@@ -127,6 +127,17 @@ extension GenData {
                                  fileExt: fileExt,
                                  pageURLPath: pg.url.url(fileExtension: fileExt))
 
+        // topics is an array of [String : Any]
+        // with keys title_html [can be missing if 0 title]
+        //           overview_html [can be missing] [use . syntax!!]
+        //           ... no id, let anchor.js figure it out? ...
+        //           something for dash, need to research what exactly it's supposed to be
+        //           items
+        //
+        // items is itself an array of [String : Any]
+        // with many keys that will be super-complicated, but for now do
+        //    name - anything!
+
         return MustachePage(languageTag: languageTag, filepath: filepath, data: data)
     }
 

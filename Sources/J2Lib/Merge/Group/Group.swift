@@ -36,8 +36,9 @@ public struct Group: Configurable {
             guard let defsToGroup = kindToDefs[kind] else {
                 return nil
             }
-            // topics, topic-merging
-            return GroupItem(kind: kind, contents: defsToGroup)
+            let group = GroupItem(kind: kind, contents: defsToGroup)
+            group.rationalizeTopics()
+            return group
         }
         return kindGroups
     }
