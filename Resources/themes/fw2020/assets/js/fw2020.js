@@ -158,7 +158,8 @@ const collapseControl = {
 
   // Helper to uncollapse at the current anchor
   ensureUncollapsed () {
-    const $el = $(window.location.hash)
+    let decodedHash = decodeURIComponent(window.location.hash)
+    const $el = $(decodedHash)
     if ($el.hasClass('j2-item')) {
       const $collapse = $('#_' + $el.attr('id'))
       $collapse.collapse('show')

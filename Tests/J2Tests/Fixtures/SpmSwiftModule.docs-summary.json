@@ -60,17 +60,17 @@
           }
         },
         {
-          "anchor_id" : "tpc_nested-structures",
+          "anchor_id" : "tpc__nested_-strúctures",
           "items" : [
             {},
             {}
           ],
           "title" : {
             "html" : {
-              "en" : "Nested structures"
+              "en" : "<em>Nested<\/em> strúctures"
             },
             "markdown" : {
-              "en" : "Nested structures"
+              "en" : "_Nested_ strúctures"
             }
           }
         }

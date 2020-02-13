@@ -1,12 +1,15 @@
 <div class="col-xl d-none d-xl-block j2-aux-nav" id="aux-nav-column">
   <div class="j2-aux-nav-wrapper">
+    {{#topics_menu.count}}
     <h6 class="j2-inline-heading">Topics</h6>
     <nav aria-label="page">
       <ul class="j2-aux-group">
-        <li><a href="#">Declaration</a></li>
-        <!-- topics links --> 
+        {{#topics_menu}}
+        <li><a href="#{{anchor_id}}">{{title}}</a></li>
+        {{/topics_menu}}
       </ul>
     </nav>
+    {{/topics_menu.count}}
     <h6 class="j2-inline-heading">Actions</h6>
     <ul class="j2-aux-group">
       {{^disable_search}}

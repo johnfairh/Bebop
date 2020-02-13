@@ -99,6 +99,9 @@ public enum MustacheKey: String {
     case anchorId = "anchor_id"
     case dashName = "dash_name"
 
+    // Topics menu
+    case topicsMenu = "topics_menu"
+
     // ToC entries
     case title = "title"
     case url = "url"
@@ -127,15 +130,43 @@ extension GenData {
         data[.abstractHtml] = pg.abstract?[languageTag]?.html
         data[.overviewHtml] = pg.overview?[languageTag]?.html
         data[.swiftDeclarationHtml] = pg.swiftDeclaration?.html
-        data[.anyDeclaration] = pg.swiftDeclaration != nil
+        let anyDeclaration = pg.swiftDeclaration != nil
+        data[.anyDeclaration] = anyDeclaration
 
-        data[.topics] = pg.generateTopics(languageTag: languageTag)
+        let topics = pg.generateTopics(languageTag: languageTag)
+        data[.topics] = topics
+        data[.topicsMenu] = generateTopicsMenu(topics: topics,
+                                               anyDeclaration: anyDeclaration,
+                                               languageTag: languageTag)
 
         data[.toc] = generateToc(languageTag: languageTag,
                                  fileExt: fileExt,
                                  pageURLPath: pg.url.url(fileExtension: fileExt))
 
+
+
         return MustachePage(languageTag: languageTag, filepath: filepath, data: data)
+    }
+
+    /// TopicsMenu is array of [String : Any]
+    ///    title -- text for link
+    ///    anchor_id -- without #
+    /// Add an item for the top declaration if there is one.
+    func generateTopicsMenu(topics: [[String: Any]], anyDeclaration: Bool, languageTag: String) -> [[String: Any]] {
+        var topicsMenu = [[String: Any]]()
+        if anyDeclaration {
+            let declaration = Localized<String>.localizedOutput(.declaration).get(languageTag)
+            topicsMenu.append(MH([.title: declaration, .anchorId: ""]))
+        }
+        return topicsMenu +
+            topics.compactMap { hash in
+                guard let title = hash[.title] as? String,
+                    let anchorId = hash[.anchorId] as? String else {
+                        return nil
+                }
+                return MH([.title: title.re_sub("[_`*]+", with: ""),
+                           .anchorId: "\(anchorId.urlFragmentEncoded)"])
+            }
     }
 
     /// Generate the table of contents (left nav) for the page.
@@ -154,30 +185,16 @@ extension GenData {
 
         return tocList(entries: toc)
     }
-
-
-    func generateTopicsMenu(topics: [[String: Any]]) -> [[String: Any]] {
-        topics.compactMap { hash in
-            guard let title = hash[.title] as? String,
-                let anchorId = hash[.anchorId] as? String else {
-                return nil
-            }
-            return MH([.title: title, .url: "#\(anchorId)"])
-        }
-    }
 }
 
 extension GenData.Page {
-    // topics is an array of [String : Any]
-    // with keys title_html [can be missing if 0 title]
-    //           overview_html [can be missing] [use . syntax!!]
-    //           anchorId -- need for linking from aux nav
-    //           dashName - %-encoded text (markdown) name
-    //
-    // items is itself an array of [String : Any]
-    // with many keys that will be super-complicated, but for now do
-    //    name - anything!
-
+    /// topics is an array of [String : Any]
+    /// with keys title_html [can be missing if 0 title]
+    ///           overview_html [can be missing] [use . syntax!!]
+    ///           anchorId -- need for linking from aux nav
+    ///           dashName - %-encoded text (markdown) name
+    ///
+    /// items is itself an array of [String : Any]
     func generateTopics(languageTag: String) -> [[String : Any]] {
         return topics.map { topic in
             let title = topic.title.markdown.get(languageTag).md

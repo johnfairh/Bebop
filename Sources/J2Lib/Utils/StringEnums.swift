@@ -82,6 +82,8 @@ internal enum L10n {
     case wrnQuietDebug = "wrn-quiet-debug"
   }
   internal enum Output : String {
+    /// Declaration
+    case declaration = "declaration"
     /// Deprecated.
     case deprecated = "deprecated"
     /// docs

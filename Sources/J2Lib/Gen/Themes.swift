@@ -129,7 +129,9 @@ struct Theme {
         try contents.forEach { srcURL in
             let filename = srcURL.lastPathComponent
             let dstURL = docsSiteURL.appendingPathComponent(filename)
-            try? FileManager.default.removeItem(at: dstURL)
+            if FileManager.default.fileExists(atPath: dstURL.path) {
+                try FileManager.default.removeItem(at: dstURL)
+            }
             try FileManager.default.copyItem(at: srcURL, to: dstURL)
         }
     }

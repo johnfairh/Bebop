@@ -29,3 +29,5 @@
 "docs" = "docs";
 /* Breadcrumb root */
 "index" = "Index";
+/* Aux nav */
+"declaration" = "Declaration";

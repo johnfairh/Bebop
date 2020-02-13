@@ -3,7 +3,7 @@ public struct SpmSwiftModule {
     // MARK: Fields
     public var text = "Hello, World!"
 
-    // MARK: Nested structures
+    // MARK: _Nested_ strúctures
 
     public struct Nested1 { 
       public struct Nested2a {

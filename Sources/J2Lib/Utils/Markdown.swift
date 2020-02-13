@@ -57,10 +57,7 @@ extension CMNode {
     public func renderHtml() -> Html {
         do {
             let html = try renderHtml(CMDocument.options, extensions: CMDocument.extensions)
-            print("html = |\(html)|")
-            let trimmed = html.trimmingTrailingCharacters(in: .whitespacesAndNewlines)
-            print("trimmed = |\(trimmed)|")
-            return Html(trimmed)
+            return Html(html.trimmingTrailingCharacters(in: .whitespacesAndNewlines))
         } catch {
             return Html("")
         }
