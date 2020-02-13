@@ -7,17 +7,21 @@
 //
 
 /// Broken-down documentation for some definition in some format
-public struct DefDocs<T>: Encodable where T: Encodable {
+public struct DefDocs<T>: Encodable where T: Encodable & Equatable {
     public internal(set) var abstract: T?
     public internal(set) var overview: T?
     public internal(set) var returns: T?
-    public internal(set) var parameters: [String: T]
+    public struct Param: Encodable, Equatable {
+        public let name: String
+        public internal(set) var description: T
+    }
+    public internal(set) var parameters: [Param]
 
     /// Initialize a new documentation container
     public init(abstract: T? = nil,
                 overview: T? = nil,
                 returns: T? = nil,
-                parameters: [String : T] = [:]) {
+                parameters: [Param] = []) {
         self.abstract = abstract
         self.overview = overview
         self.returns = returns
@@ -59,12 +63,21 @@ extension LocalizedDefDocs {
             returns[tag] = treturns
             self.returns = returns
         }
-        docs.parameters.forEach { pk, pv in
-            if var param = parameters[pk] {
-                param[tag] = pv
-                parameters[pk] = param
-            } else {
-                parameters[pk] = [tag: pv]
+        if parameters.isEmpty {
+            parameters = docs.parameters.map {
+                Param(name: $0.name, description: [tag: $0.description])
+            }
+        } else {
+            parameters = parameters.map { currParam in
+                for newParam in docs.parameters {
+                    if newParam.name == currParam.name {
+                        var currParam = currParam
+                        currParam.description[tag] = newParam.description
+                        return currParam
+                    }
+                }
+                // Ignores newly introduced params...
+                return currParam
             }
         }
     }
@@ -78,17 +91,18 @@ extension RichDefDocs {
         abstract = ldocs.abstract.flatMap { RichText($0) }
         overview = ldocs.overview.flatMap { RichText($0) }
         returns = ldocs.returns.flatMap { RichText($0) }
-        parameters = ldocs.parameters.mapValues { RichText($0) }
+        parameters = ldocs.parameters.map {
+            Param(name: $0.name, description: RichText($0.description))
+        }
     }
 
     public mutating func format(_ call: (Markdown) throws -> (Markdown, Html) ) rethrows {
         try abstract?.format(call)
         try overview?.format(call)
         try returns?.format(call)
-        parameters = try parameters.mapValues { val in
-            var rich = val
-            try rich.format(call)
-            return rich
+        try parameters.forEach { param in
+            var param = param
+            try param.description.format(call)
         }
     }
 }

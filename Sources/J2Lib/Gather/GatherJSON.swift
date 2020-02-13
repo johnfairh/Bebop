@@ -45,6 +45,8 @@ private enum GatherKey: String {
     case overview = "key.j2.overview"
     case returns = "key.j2.returns"
     case parameters = "key.j2.parameters"
+    case paramName = "key.j2.param_name"
+    case paramDesc = "key.j2.param_desc"
 }
 
 /// Helper to use `GatherKey`
@@ -72,8 +74,17 @@ extension LocalizedDefDocs {
             dict[GatherKey.returns] = returns.mapValues { $0.md }
         }
         if !parameters.isEmpty {
-            dict[GatherKey.parameters] = parameters.mapValues { $0.mapValues { $0.md } }
+            dict[GatherKey.parameters] = parameters.map { $0.dictForJSON }
         }
+        return dict
+    }
+}
+
+extension DefDocs.Param where T == Localized<Markdown> {
+    var dictForJSON: SourceKittenDict {
+        var dict = SourceKittenDict()
+        dict[GatherKey.paramName] = name
+        dict[GatherKey.paramDesc] = description.mapValues { $0.md }
         return dict
     }
 }

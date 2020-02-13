@@ -148,7 +148,7 @@
           "en" : "Main structure"
         }
       },
-      "parameters" : {}
+      "parameters" : []
     },
     "kind" : "source.lang.swift.decl.struct",
     "module_name" : "SpmSwiftModule",
@@ -181,7 +181,7 @@
               "en" : "First case"
             }
           },
-          "parameters" : {}
+          "parameters" : []
         },
         "kind" : "source.lang.swift.decl.enumelement",
         "module_name" : "SpmSwiftModule",
@@ -212,7 +212,7 @@
               "en" : "Second case"
             }
           },
-          "parameters" : {}
+          "parameters" : []
         },
         "kind" : "source.lang.swift.decl.enumelement",
         "module_name" : "SpmSwiftModule",
@@ -243,7 +243,7 @@
               "en" : "Third & Fourth cases"
             }
           },
-          "parameters" : {}
+          "parameters" : []
         },
         "kind" : "source.lang.swift.decl.enumelement",
         "module_name" : "SpmSwiftModule",
@@ -296,7 +296,7 @@
           "en" : "An enum"
         }
       },
-      "parameters" : {}
+      "parameters" : []
     },
     "kind" : "source.lang.swift.decl.enum",
     "module_name" : "SpmSwiftModule",
@@ -368,13 +368,16 @@
           "en" : "A deprecated function"
         }
       },
-      "parameters" : {
-        "callback" : {
-          "markdown" : {
-            "en" : "The callback"
-          }
+      "parameters" : [
+        {
+          "description" : {
+            "markdown" : {
+              "en" : "The callback"
+            }
+          },
+          "name" : "callback"
         }
-      },
+      ],
       "returns" : {
         "markdown" : {
           "en" : "A string"

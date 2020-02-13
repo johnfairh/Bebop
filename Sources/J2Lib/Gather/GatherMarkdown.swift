@@ -18,7 +18,7 @@ public class MarkdownBuilder {
     private var abstract: Markdown?
     private var overview: Markdown?
     private var returns: Markdown?
-    private var parameters: [String : Markdown] = [:]
+    private var parameters: [FlatDefDocs.Param] = []
     private(set) var localizationKey: String?
 
     public init(markdown: Markdown) {
@@ -75,8 +75,9 @@ public class MarkdownBuilder {
     func processCallout(list: CMNode, listItem: CMNode, text: CMNode, callout: CMCallout) {
         // Helper to add a parameter
         func addParam(listItem: CMNode, text: CMNode, callout: CMCallout) {
-            parameters[callout.title] =
-                extractCallout(listItem: listItem, text: text, callout: callout)
+            parameters.append(
+                .init(name: callout.title,
+                      description: extractCallout(listItem: listItem, text: text, callout: callout)))
         }
 
         if callout.isParameter {

@@ -76,7 +76,7 @@ class TestMarkdown: XCTestCase {
         }
         XCTAssertEqual(m.localizationKey, "en")
         XCTAssertEqual(results.returns, Markdown("The answer - On two lines."))
-        XCTAssertEqual(results.parameters, ["Fred" : Markdown("Barney")])
+        XCTAssertEqual(results.parameters, [FlatDefDocs.Param(name: "Fred", description: Markdown("Barney"))])
         XCTAssertEqual(results.abstract, Markdown("Abstract line."))
         XCTAssertEqual(results.overview, Markdown("""
            Discussion para 1 of 2.
@@ -97,8 +97,9 @@ class TestMarkdown: XCTestCase {
         }
         XCTAssertNil(m.localizationKey)
         XCTAssertNil(results.returns)
-        XCTAssertEqual(results.parameters, ["fred" : Markdown("wilma"),
-                                            "barney" : Markdown("betty")])
+        XCTAssertEqual(results.parameters,
+                       [FlatDefDocs.Param(name: "fred", description: Markdown("wilma")),
+                        FlatDefDocs.Param(name: "barney", description: Markdown("betty"))])
         XCTAssertNil(results.abstract)
         XCTAssertNil(results.overview)
     }
@@ -111,7 +112,7 @@ class TestMarkdown: XCTestCase {
         }
         XCTAssertNil(m.localizationKey)
         XCTAssertNil(results.returns)
-        XCTAssertEqual(results.parameters, [:])
+        XCTAssertEqual(results.parameters, [])
         XCTAssertNil(results.abstract)
         XCTAssertEqual(results.overview, Markdown(""))
     }
