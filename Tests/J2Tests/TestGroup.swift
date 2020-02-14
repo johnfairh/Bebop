@@ -72,26 +72,26 @@ class TestGroup: XCTestCase {
         let guides = try system.group.groupGuides.discoverGuides()
         XCTAssertEqual(1, guides.count)
         let guide = guides[0]
-        XCTAssertEqual(1, guide.markdownContent.count)
-        XCTAssertEqual(Markdown("English"), guide.markdownContent["en"])
+        XCTAssertEqual(1, guide.content.markdown.count)
+        XCTAssertEqual(Markdown("English"), guide.content.markdown["en"])
 
         Localizations.shared = Localizations(mainDescriptor: Localization.defaultDescriptor,
                                              otherDescriptors: ["fr:FR:frfrfr"])
         let guides2 = try system.group.groupGuides.discoverGuides()
         XCTAssertEqual(1, guides2.count)
         let guide2 = guides2[0]
-        XCTAssertEqual(2, guide2.markdownContent.count)
-        XCTAssertEqual(Markdown("English"), guide2.markdownContent["en"])
-        XCTAssertEqual(Markdown("French"), guide2.markdownContent["fr"])
+        XCTAssertEqual(2, guide2.content.markdown.count)
+        XCTAssertEqual(Markdown("English"), guide2.content.markdown["en"])
+        XCTAssertEqual(Markdown("French"), guide2.content.markdown["fr"])
 
         Localizations.shared = Localizations(mainDescriptor: Localization.defaultDescriptor,
                                              otherDescriptors: ["de:DE:dedede"])
         let guides3 = try system.group.groupGuides.discoverGuides()
         XCTAssertEqual(1, guides3.count)
         let guide3 = guides3[0]
-        XCTAssertEqual(2, guide3.markdownContent.count)
-        XCTAssertEqual(Markdown("English"), guide3.markdownContent["en"])
-        XCTAssertEqual(Markdown("English"), guide3.markdownContent["de"])
+        XCTAssertEqual(2, guide3.content.markdown.count)
+        XCTAssertEqual(Markdown("English"), guide3.content.markdown["en"])
+        XCTAssertEqual(Markdown("English"), guide3.content.markdown["de"])
     }
 
     func testBadGuides() throws {
@@ -105,7 +105,7 @@ class TestGroup: XCTestCase {
         let guides = try system.group.groupGuides.discoverGuides()
         XCTAssertEqual(2, guides.count)
         XCTAssertEqual("GuideA.md", guides[0].name)
-        XCTAssertEqual(Markdown("A1"), guides[0].markdownContent["en"])
+        XCTAssertEqual(Markdown("A1"), guides[0].content.markdown["en"])
         XCTAssertEqual("GuideB.md", guides[1].name)
     }
 }

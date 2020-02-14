@@ -146,7 +146,7 @@ extension GenData {
         data[.tabTitlePrefix] = pg.tabTitlePrefix
         data[.pathToRoot] = pg.url.pathToRoot
         data[.hideArticleTitle] = pg.isGuide
-        data.maybe(.contentHtml, pg.content?.get(languageTag))
+        data.maybe(.contentHtml, pg.content?.get(languageTag).html)
         data.maybe(.def, pg.def?.generateDef(languageTag: languageTag, fileExt: fileExt))
 
         let topics = pg.generateTopics(languageTag: languageTag, fileExt: fileExt)

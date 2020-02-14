@@ -33,19 +33,7 @@ public class MarkdownBuilder {
             return nil
         }
 
-        doc.node.forEach { node in
-            guard node.maybeCalloutList else {
-                return
-            }
-
-            node.forEachCallout { li, t, c in
-                processCallout(list: node, listItem: li, text: t, callout: c)
-            }
-            if node.firstChild == nil {
-                // We deleted every item from the list
-                node.unlink()
-            }
-        }
+        doc.forEachCallout { processCallout(list: $0, listItem: $1, text: $2, callout: $3) }
 
         // Take any first paragraph as the 'abstract'
         if let firstPara = doc.node.firstChild,
@@ -100,9 +88,7 @@ public class MarkdownBuilder {
     func extractCallout(listItem: CMNode, text: CMNode, callout: CMCallout) -> Markdown {
         let newDoc = CMNode(type: .document)
         text.removeCalloutTitle(callout)
-        while let child = listItem.firstChild {
-            try! child.insertIntoTree(asLastChildOf: newDoc)
-        }
+        newDoc.moveChildren(from: listItem)
         listItem.unlink()
         return newDoc.renderMarkdown()
     }

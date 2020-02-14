@@ -665,6 +665,7 @@
   },
   {
     "breadcrumbs_root" : "SpmSwiftModule",
+    "content_html" : "<p>Read … me?<\/p>",
     "disable_search" : false,
     "doc_coverage" : 66,
     "docs_title" : "SpmSwiftModule docs",

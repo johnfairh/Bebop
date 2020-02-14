@@ -62,6 +62,30 @@ extension CMNode {
             return Html("")
         }
     }
+
+    /// Render the tree to plaintext, standard options and minimal whitespace.
+    public func renderPlainText() -> String {
+        do {
+            let text = try renderPlainText(CMDocument.options, width: 80)
+            return text.trimmingTrailingCharacters(in: .whitespacesAndNewlines)
+        } catch {
+            return ""
+        }
+    }
+
+    /// Move all children from the given node after our children
+    public func moveChildren(from node: CMNode) {
+        while let child = node.firstChild {
+            try! child.insertIntoTree(asLastChildOf: self)
+        }
+    }
+
+    /// Replace a node in the tree, taking its children.  The node being replaced ends up unlinked.
+    public func replaceInTree(node: CMNode) {
+        moveChildren(from: node)
+        try! insertIntoTree(beforeNode: node)
+        node.unlink()
+    }
 }
 
 // MARK: Callout matcher
@@ -71,8 +95,12 @@ public struct CMCallout {
     public let body: String
     public let format: Format
 
+    private var lowerTitle: String {
+        title.lowercased()
+    }
+
     private func hasTitle(_ match: String) -> Bool {
-        format == .other && title.lowercased() == match
+        format == .other && lowerTitle == match
     }
 
     public var isReturns: Bool { hasTitle("returns") }
@@ -85,7 +113,7 @@ public struct CMCallout {
 
     public var isNormalCallout: Bool {
         format == .custom ||
-            (format == .other && CMCallout.knownCallouts.contains(title))
+            (format == .other && CMCallout.knownCallouts.contains(lowerTitle))
     }
 
     /// Four slightly different formats wrapped up here:
@@ -163,6 +191,26 @@ extension CMNode {
                 textNode.type == .text,
                 let callout = textNode.asCallout {
                 call(listItemNode, textNode, callout)
+            }
+        }
+        if firstChild == nil {
+            // We deleted every item from the list
+            unlink()
+        }
+    }
+}
+
+// MARK: CMDocument callout scanner
+
+extension CMDocument {
+    public func forEachCallout(_ call: (_ list: CMNode, _ listItem: CMNode, _ text: CMNode, CMCallout) -> ()) {
+        node.forEach { node in
+            guard node.maybeCalloutList else {
+                return
+            }
+
+            node.forEachCallout { li, t, c in
+                call(node, li, t, c)
             }
         }
     }

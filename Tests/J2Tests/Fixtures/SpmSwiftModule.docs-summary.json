@@ -466,6 +466,11 @@
       }
     },
     {
+      "content" : {
+        "en" : {
+          "html" : "<p>Read … me?<\/p>"
+        }
+      },
       "is_guide" : true,
       "tab_title_prefix" : false,
       "title" : {

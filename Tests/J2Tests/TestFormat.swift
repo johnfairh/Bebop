@@ -104,7 +104,7 @@ class TestFormat: XCTestCase {
         let system = System(cliArgs: ["--readme", readmeURL.path])
 
         let readme = try system.format.createReadme()
-        XCTAssertEqual(Markdown("RR"), readme.markdownContent["en"])
+        XCTAssertEqual(Markdown("RR"), readme.content.markdown["en"])
 
         // Guessed
         try FileManager.preservingCurrentDirectory {
@@ -121,7 +121,7 @@ class TestFormat: XCTestCase {
                     system = System(cliArgs: ["--source-directory", tmpdir.directoryURL.path])
                 }
                 let readme = try system.format.createReadme()
-                XCTAssertEqual(Markdown("RR"), readme.markdownContent["en"])
+                XCTAssertEqual(Markdown("RR"), readme.content.markdown["en"])
                 try FileManager.default.removeItem(at: readmeURL)
             }
         }
@@ -131,7 +131,7 @@ class TestFormat: XCTestCase {
         try TemporaryDirectory.withNew {
             let system = System()
             let readme = try system.format.createReadme()
-            XCTAssertTrue(readme.markdownContent["en"]!.description.hasPrefix("Read "))
+            XCTAssertTrue(readme.content.markdown["en"]!.description.hasPrefix("Read "))
         }
     }
 }

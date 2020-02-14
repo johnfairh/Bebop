@@ -73,14 +73,14 @@ final class PageVisitor: ItemVisitorProtocol {
         pages.append(GenData.Page(guideURL: guideItem.url,
                                   title: guideItem.title,
                                   isReadme: false,
-                                  content: nil))
+                                  content: guideItem.content.html))
     }
 
     func visit(readmeItem: ReadmeItem, parents: [Item]) {
         pages.append(GenData.Page(guideURL: readmeItem.url,
                                   title: readmeItem.title,
                                   isReadme: true,
-                                  content: nil))
+                                  content: readmeItem.content.html))
     }
 
     func buildTopics(item: Item) -> [GenData.Topic] {

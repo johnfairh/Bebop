@@ -8,11 +8,9 @@
 
 import Foundation
 
-
 /// A pure markdown page in the docs rendered from a user configuration
 public class GuideItem: Item {
-    private(set) var markdownContent: Localized<Markdown>
-    private(set) var htmlContent: Localized<Html>
+    public internal(set) var content: RichText
 
     /// Create a new guide item.
     /// - parameter name: The name of the guide as described by the user, case-sensitive, any characters.
@@ -21,8 +19,7 @@ public class GuideItem: Item {
     /// - parameter title: The translated title of the guide, used in the navigation.
     /// - parameter content: The translated markdown for the guide, used to generate the guide itself.
     public init(name: String, slug: String, title: Localized<String>, content: Localized<Markdown>) {
-        self.markdownContent = content
-        self.htmlContent = Localized<Html>()
+        self.content = RichText(content)
         super.init(name: name, slug: slug, title: title)
     }
 
