@@ -116,4 +116,69 @@ class TestMarkdown: XCTestCase {
         XCTAssertNil(results.abstract)
         XCTAssertEqual(results.overview, Markdown(""))
     }
+
+    // Formatting part
+
+    func testBaseFormatting() {
+        let formatter = MarkdownFormatter(language: .swift)
+        let mdIn = Markdown("text")
+        let (mdOut, html) = formatter.format(md: mdIn)
+        XCTAssertEqual("<p>text</p>", html.html)
+        XCTAssertEqual(mdIn, mdOut)
+        let (mdInlineOut, htmlInline) = formatter.formatInline(md: mdIn)
+        XCTAssertEqual("text", htmlInline.html)
+        XCTAssertEqual(mdIn, mdInlineOut)
+    }
+
+    func testHeadingFormatting() {
+        let formatter = MarkdownFormatter(language: .swift)
+        let md = Markdown("# Heading Text")
+        let (_, html) = formatter.format(md: md)
+        XCTAssertEqual(
+            #"""
+            <h1 class="j2-anchor j2-heading" id="heading-text">
+            <span data-anchor-id="heading-text">
+            Heading Text
+            </span></h1>
+            """#,
+            html.html)
+    }
+
+    private func checkLanguage(in: String, out: String, line: UInt = #line) {
+        let formatter = MarkdownFormatter(language: .swift)
+        let md = Markdown("""
+                          ```\(`in`)
+                          text
+                          ```
+                          """)
+        let (_, html) = formatter.format(md: md)
+        XCTAssertTrue(html.html.contains("language-\(out)"))
+    }
+
+    func testCodeBlockFormatting() {
+        checkLanguage(in: "", out: "swift")
+        checkLanguage(in: "swift", out: "swift")
+        checkLanguage(in: "ruby", out: "ruby")
+        checkLanguage(in: "objectivec", out: "objectivec")
+        checkLanguage(in: "objc", out: "objectivec")
+    }
+
+    func testCalloutFormatting() {
+        let formatter = MarkdownFormatter(language: .swift)
+        let md = Markdown("""
+                          - warning: Warning
+                          - callout(Custom Callout): Custom
+                          """)
+        let (_, html) = formatter.format(md: md)
+        XCTAssertEqual("""
+            <div class="j2-callout j2-callout-warning">
+            <div class="j2-callout-title" role="heading" aria-level="6">warning</div>
+            <p>Warning</p>
+            </div>
+            <div class="j2-callout j2-callout-custom-callout">
+            <div class="j2-callout-title" role="heading" aria-level="6">Custom Callout</div>
+            <p>Custom</p>
+            </div>
+            """, html.html)
+    }
 }
