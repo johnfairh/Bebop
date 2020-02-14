@@ -31,5 +31,7 @@
 "index" = "Index";
 /* Aux nav */
 "declaration" = "Declaration";
-/* Copyright */
+/* Default copyright */
 "copyright" = "&copy; %1 %2. All rights reserved. (Last updated: %3).";
+/* Default readme */
+"authors" = "Authors";

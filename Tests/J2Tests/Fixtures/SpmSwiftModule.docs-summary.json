@@ -468,7 +468,7 @@
     {
       "content" : {
         "en" : {
-          "html" : "<p>Read … me?<\/p>"
+          "html" : "<h1 class=\"j2-anchor j2-heading\" id=\"spmswiftmodule\">\n<span data-anchor-id=\"spmswiftmodule\">\nSpmSwiftModule\n<\/span><\/h1>"
         }
       },
       "is_guide" : true,

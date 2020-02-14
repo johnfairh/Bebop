@@ -16,6 +16,7 @@ fileprivate struct System {
     let merge: Merge
     let group: Group
     let format: Format
+    let sitegen: SiteGen
 
     init(cliArgs: [String] = []) {
         config = Config()
@@ -23,6 +24,7 @@ fileprivate struct System {
         merge = Merge(config: config)
         group = Group(config: config)
         format = Format(config: config)
+        sitegen = SiteGen(config: config)
         try! config.processOptions(cliOpts: cliArgs)
     }
 
@@ -131,7 +133,16 @@ class TestFormat: XCTestCase {
         try TemporaryDirectory.withNew {
             let system = System()
             let readme = try system.format.createReadme()
-            XCTAssertTrue(readme.content.markdown["en"]!.description.hasPrefix("Read "))
+            let md = readme.content.markdown["en"]!.md
+            XCTAssertTrue(md.contains("# Module"), md)
+        }
+
+        try TemporaryDirectory.withNew {
+            let system = System(cliArgs: ["--author=Barney"])
+            let readme = try system.format.createReadme()
+            let md = readme.content.markdown["en"]!.md
+            XCTAssertTrue(md.contains("# Module"))
+            XCTAssertTrue(md.contains("### Authors\n\nBarney"))
         }
     }
 }

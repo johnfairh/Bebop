@@ -45,6 +45,15 @@ public final class Format: Configurable {
             }
         }
         logDebug("Format: Can't find anything that looks like a readme, making something up.")
-        return ReadmeItem(content: Localized<Markdown>(unlocalized: Markdown("Read ... me?")))
+        let readmeModule = configPublished.moduleNames.first ?? "Module"
+        var readmeMd = Localized<String>(unlocalized: "# \(readmeModule)")
+        if let readmeAuthor = configPublished.authorName {
+            readmeMd = readmeMd
+                .append("\n### ")
+                .append(.localizedOutput(.authors))
+                .append("\n\n")
+                .append(readmeAuthor)
+        }
+        return ReadmeItem(content: readmeMd.mapValues { Markdown($0) })
     }
 }
