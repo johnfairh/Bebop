@@ -39,8 +39,8 @@ public class Item: Encodable {
     }
 
     /// Overridden
-    func accept(visitor: ItemVisitorProtocol, parents: [Item]) { preconditionFailure() }
-    var  kind: ItemKind { .other }
+    public func accept(visitor: ItemVisitorProtocol, parents: [Item]) { preconditionFailure() }
+    public var  kind: ItemKind { .other }
 
     /// Does the item show in the table of contents?
     public enum ShowInToc {
@@ -51,7 +51,14 @@ public class Item: Encodable {
         /// Only show at the outermost level
         case atTopLevel
     }
-    var showInToc: ShowInToc { .no }
+    public var showInToc: ShowInToc {
+        .no
+    }
+
+    /// Format the item's associated text data
+    public func format(blockFormatter: RichText.Formatter,
+                       inlineFormatter: RichText.Formatter) rethrows {
+    }
 
     // Encodable
 

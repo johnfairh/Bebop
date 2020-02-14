@@ -21,9 +21,9 @@ public class DefItem: Item {
     /// Swift declaration
     public let swiftDeclaration: SwiftDeclaration // optional?
     /// Documentation
-    public internal(set) var documentation: RichDefDocs
+    public private(set) var documentation: RichDefDocs
     /// Deprecation notice
-    public internal(set) var deprecationNotice: RichText?
+    public private(set) var deprecationNotice: RichText?
 
     /// Create from a gathered definition
     public init?(moduleName: String, passIndex: Int, gatherDef: GatherDef, uniquer: StringUniquer) {
@@ -62,13 +62,13 @@ public class DefItem: Item {
     }
 
     /// Visitor
-    override func accept(visitor: ItemVisitorProtocol, parents: [Item]) {
+    public override func accept(visitor: ItemVisitorProtocol, parents: [Item]) {
         visitor.visit(defItem: self, parents: parents)
     }
 
-    override var kind: ItemKind { defKind.metaKind }
+    public override var kind: ItemKind { defKind.metaKind }
 
-    override var showInToc: ShowInToc {
+    public override var showInToc: ShowInToc {
         // Always show nominal types/extensions, however nested.
         // (nesting can be natural or due to custom categories.)
         if defKind.metaKind == .extension ||
@@ -78,5 +78,17 @@ public class DefItem: Item {
         // Only show functions etc. at the top level -- allows global
         // functions but suppresses members.
         return .atTopLevel
+    }
+
+    /// Format the item's associated text data
+    public override func format(blockFormatter: RichText.Formatter, inlineFormatter: RichText.Formatter) rethrows {
+        try documentation.format(blockFormatter)
+        try topic?.format(inlineFormatter)
+        try deprecationNotice?.format(blockFormatter)
+    }
+
+    /// Native language of the definition
+    public var nativeLanguage: DefLanguage {
+        defKind.isSwift ? .swift : .objc
     }
 }

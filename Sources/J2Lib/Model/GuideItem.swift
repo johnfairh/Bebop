@@ -10,7 +10,7 @@ import Foundation
 
 /// A pure markdown page in the docs rendered from a user configuration
 public class GuideItem: Item {
-    public internal(set) var content: RichText
+    public private(set) var content: RichText
 
     /// Create a new guide item.
     /// - parameter name: The name of the guide as described by the user, case-sensitive, any characters.
@@ -24,13 +24,18 @@ public class GuideItem: Item {
     }
 
     /// Visitor
-    override func accept(visitor: ItemVisitorProtocol, parents: [Item]) {
+    public override func accept(visitor: ItemVisitorProtocol, parents: [Item]) {
         visitor.visit(guideItem: self, parents: parents)
     }
 
-    override var kind: ItemKind { .guide }
+    public override var kind: ItemKind { .guide }
 
-    override var showInToc: ShowInToc { .yes }
+    public override var showInToc: ShowInToc { .yes }
+
+    public override func format(blockFormatter: RichText.Formatter,
+                                inlineFormatter: RichText.Formatter) rethrows {
+        try content.format(blockFormatter)
+    }
 }
 
 /// Special override for the readme / index.html that has no real name except in the filesystem.
@@ -45,9 +50,9 @@ public final class ReadmeItem : GuideItem {
     }
 
     /// Visitor
-    override func accept(visitor: ItemVisitorProtocol, parents: [Item]) {
+    public override func accept(visitor: ItemVisitorProtocol, parents: [Item]) {
         visitor.visit(readmeItem: self, parents: parents)
     }
 
-    override var showInToc: ShowInToc { .no }
+    public override var showInToc: ShowInToc { .no }
 }

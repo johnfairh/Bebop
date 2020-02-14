@@ -86,6 +86,14 @@ extension CMNode {
         try! insertIntoTree(beforeNode: node)
         node.unlink()
     }
+
+    /// Create a new 'custom' node with content that is rendered before & after its children,
+    /// independent of the render format requested on the tree.
+    public convenience init(customEnter: String, customExit: String) {
+        self.init(type: .customBlock)
+        try! setCustomOnEnter(customEnter)
+        try! setCustomOnExit(customExit)
+    }
 }
 
 // MARK: Callout matcher

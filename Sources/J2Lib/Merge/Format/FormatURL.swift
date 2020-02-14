@@ -94,7 +94,7 @@ extension Item {
     }
 }
 
-struct URLVisitor: ItemVisitorProtocol {
+struct URLFormatter: ItemVisitorProtocol {
     func visit(defItem: DefItem, parents: [Item]) {
         guard let parent = parents.last else {
             preconditionFailure() // must be in a group at least

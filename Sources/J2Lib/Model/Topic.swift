@@ -25,9 +25,9 @@ public final class Topic: Equatable, Encodable {
     }
 
     /// Format the topic's content
-    public func format(_ call: (Markdown) throws -> (Markdown, Html) ) rethrows {
-        try title.format(call)
-        try body?.format(call)
+    public func format(_ formatter: RichText.Formatter) rethrows {
+        try title.format(formatter)
+        try body?.format(formatter)
     }
 
     /// Not sure what stops this from being auto-generated.

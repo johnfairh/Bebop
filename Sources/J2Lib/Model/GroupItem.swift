@@ -19,11 +19,11 @@ public final class GroupItem: Item {
     }
 
     /// Visitor
-    override func accept(visitor: ItemVisitorProtocol, parents: [Item]) {
+    public override func accept(visitor: ItemVisitorProtocol, parents: [Item]) {
         visitor.visit(groupItem: self, parents: parents)
     }
 
-    override var kind: ItemKind { .group }
+    public override var kind: ItemKind { .group }
 
-    override var showInToc: ShowInToc { .yes }
+    public override var showInToc: ShowInToc { .yes }
 }

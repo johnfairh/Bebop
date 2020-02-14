@@ -34,6 +34,10 @@ public final class StringUniquer {
         let dupCount = map.reduceKey(input, 0, { $0 + 1 })
         return dupCount == 0 ? input : input + String(dupCount)
     }
+
+    func reset() {
+        map = .init()
+    }
 }
 
 extension Dictionary {

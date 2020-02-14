@@ -56,6 +56,19 @@ extension Array where Element == DeclarationPiece {
     }
 }
 
+public enum DefLanguage: String {
+    case swift
+    case objc
+
+    /// Name of language according to Prism, the code highlighter
+    var prismLanguage: String {
+        switch self {
+        case .swift: return "swift"
+        case .objc: return "objectivec"
+        }
+    }
+}
+
 /// A Swift language declaration split into its various parts
 public struct SwiftDeclaration: Encodable {
     public let declaration: String

@@ -78,8 +78,11 @@ public enum RichText: Encodable, Equatable {
         }
     }
 
+    /// Something that knows how to convert Markdown to HTML
+    public typealias Formatter = (Markdown) throws -> (Markdown, Html)
+
     /// Format the text
-    mutating public func format(_ formatter: (Markdown) throws -> (Markdown, Html)) rethrows {
+    mutating public func format(_ formatter: Formatter) rethrows {
         switch self {
         case .formatted(_,_): return
         case .unformatted(let locMd):
