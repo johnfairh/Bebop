@@ -76,6 +76,8 @@ class TestProducts: XCTestCase {
     }
 
     func testSiteGen() throws {
+        setenv("J2_STATIC_DATE", strdup("1") /* leak it */, 1)
+        defer { unsetenv("J2_STATIC_DATE") }
         try compare(product: "docs-json", against: "SpmSwiftModule.docs.json")
     }
 }

@@ -29,6 +29,14 @@ extension CMDocument {
             return nil
         }
     }
+
+    /// Simple helper to go straight from markdown to HTML
+    static func format(md: Markdown) -> (Markdown, Html) {
+        guard let doc = CMDocument(markdown: md) else {
+            return (md, Html(""))
+        }
+        return (md, doc.node.renderHtml())
+    }
 }
 
 // MARK: Base `CMNode` helpers

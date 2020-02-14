@@ -166,4 +166,31 @@ class TestGen: XCTestCase {
         try checkTitles(["--breadcrumbs-root=BB"], ["MM"], "MM docs", "BB")
         try checkTitles([], ["MM", "M2"], nil, "Index")
     }
+
+    // Copyright gen
+    private func checkCopyright(cliArgs: [String], langMatches: [String:[String]], line: UInt = #line) throws {
+        let config = Config()
+        let copyright = GenCopyright(config: config)
+        try config.processOptions(cliOpts: cliArgs)
+        let generated = copyright.generate().html
+        langMatches.forEach { kv in
+            let html = generated[kv.key]!
+            kv.value.forEach { match in
+                XCTAssertTrue(html.html.contains(match), html.html, line: line)
+            }
+        }
+    }
+
+    func testCopyright() throws {
+        /* Check auto path doesn't crash */
+        try checkCopyright(cliArgs: [], langMatches: ["en": ["©"]])
+        setenv("J2_STATIC_DATE", strdup("1") /* leak it */, 1)
+        defer { unsetenv("J2_STATIC_DATE") }
+        try checkCopyright(cliArgs: [], langMatches: ["en": ["9999", "today"]])
+        try checkCopyright(cliArgs: ["--author=Fred"], langMatches: ["en": ["9999 Fred"]])
+        try checkCopyright(cliArgs: ["--author=Fred", "--author-url=http://foo.bar/"],
+                           langMatches: ["en": [#"<a href="http://foo.bar/""#, ">Fred</a>"]])
+        try checkCopyright(cliArgs: ["--copyright=_COPYRIGHT_"],
+                           langMatches: ["en": ["<p><em>COPYRIGHT</em></p>"]])
+    }
 }

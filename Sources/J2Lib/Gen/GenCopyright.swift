@@ -1,0 +1,67 @@
+//
+//  GenCopyright.swift
+//  J2Lib
+//
+//  Copyright 2020 J2 Authors
+//  Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
+//
+
+import Foundation
+import Maaku
+
+struct GenCopyright: Configurable {
+    let copyrightOpt = LocStringOpt(l: "copyright").help("COPYRIGHT_MARKDOWN")
+    let authorNameOpt = LocStringOpt(l: "author").help("AUTHOR_NAME")
+    let authorURLOpt = StringOpt(l: "author-url").help("URL")
+
+    init(config: Config) {
+        config.register(self)
+    }
+
+    public func checkOptions(published: Config.Published) throws {
+        published.authorName = authorNameOpt.value
+    }
+
+    /// Figure out some text for the author details depending on what they supplied.
+    private var authorText: Localized<String> {
+        if let authorName = authorNameOpt.value {
+            if let authorURL = authorURLOpt.value {
+                return authorName.mapValues { name in
+                    #"<a href="\#(authorURL)" target="_blank" rel="external">\#(name)</a>"#
+                }
+            }
+            return authorName
+        }
+        return .init(unlocalized: "")
+    }
+
+    /// Generate the copyright statement from user or made up.
+    func generate() -> RichText {
+        if let userCopyright = copyrightOpt.value {
+            return format(copyright: userCopyright)
+        }
+        let year: Int
+        let dateNow: String
+        // Fix for test reproducability
+        if ProcessInfo.processInfo.environment["J2_STATIC_DATE"] != nil {
+            year = 9999
+            dateNow = "today"
+        } else {
+            // Use the user's locale settings for this
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .medium
+            dateFormatter.timeStyle = .none
+            let now = Date()
+            year = Calendar.current.component(.year, from: now)
+            dateNow = dateFormatter.string(from: now)
+        }
+        let locCopyright = Localized<String>.localizedOutput(.copyright, year, authorText, dateNow)
+        return format(copyright: locCopyright)
+    }
+
+    private func format(copyright: Localized<String>) -> RichText {
+        var richText = RichText(copyright)
+        richText.format(CMDocument.format)
+        return richText
+    }
+}

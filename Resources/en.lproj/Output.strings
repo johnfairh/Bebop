@@ -31,3 +31,5 @@
 "index" = "Index";
 /* Aux nav */
 "declaration" = "Declaration";
+/* Copyright */
+"copyright" = "&copy; %1 %2. All rights reserved. (Last updated: %3).";

@@ -35,9 +35,11 @@ public struct SiteGen: Configurable {
     }
 
     let themes: Themes
+    let copyright: GenCopyright
 
     public init(config: Config) {
         themes = Themes(config: config)
+        copyright = GenCopyright(config: config)
 
         oldHideCoverageOpt = AliasOpt(realOpt: hideCoverageOpt, l: "hide-documentation-coverage")
         oldCustomHeadOpt = AliasOpt(realOpt: customHeadOpt, l: "head")
@@ -97,6 +99,8 @@ public struct SiteGen: Configurable {
         let docsTitle = buildDocsTitle(genData: genData)
         let breadcrumbsRoot = buildBreadcrumbRoot(genData: genData)
 
+        let copyrightText = copyright.generate()
+
         var pageIterator = genData.makeIterator(fileExt: fileExt)
 
         while let page = pageIterator.next() {
@@ -105,6 +109,7 @@ public struct SiteGen: Configurable {
             var mustacheData = page.data
             mustacheData[.pathToAssets] = location.reversePath
             mustacheData[.docsTitle] = docsTitle.get(page.languageTag)
+            mustacheData[.copyrightHtml] = copyrightText.html.get(page.languageTag).html
             mustacheData[.breadcrumbsRoot] = breadcrumbsRoot.get(page.languageTag)
 
             let locs = Localizations.shared

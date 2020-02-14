@@ -77,3 +77,11 @@ Can be localized by creating a version with the same filename in a
 subdirectory named after the langauge tag.
 Default: 'README.md', 'README.markdown', 'README.mdown', 'README' in the
 source directory.";
+"copyright" = "Markdown to use in the copyright statement in the footer of the generated
+documentation.  Can be localized using the config file.
+Default: Generate a copyright statement.";
+"author" = "Name of the documentation author, used in the generated copyright statement.
+Can be localized using the config file.
+Default: None.";
+"author-url" = "URL of the documentation author, used in the generated copyright statement.
+Default: None.";

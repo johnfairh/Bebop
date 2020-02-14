@@ -115,7 +115,13 @@ public final class Resources {
             if let bundle = outputMessageBundles[languageTag] ??
                 outputMessageBundles[Localizations.shared.main.tag] ??
                 outputMessageBundles["en"] {
-                output[languageTag] = bundle.string(key: key, type: .output, subs: subs)
+                let langSubs = subs.map { sub -> Any in
+                    if let locSub = sub as? Localized<String> {
+                        return locSub.get(languageTag)
+                    }
+                    return sub
+                }
+                output[languageTag] = bundle.string(key: key, type: .output, subs: langSubs)
             } else {
                 output[languageTag] = ""
             }
@@ -308,10 +314,6 @@ extension Bundle {
                 "\(languageTag) inside \(bundlePath) that we thought was there earlier.")
         }
         return locBundle
-    }
-
-    func string(key: String, type: Resources.StringsFile, subs: Any...) -> String {
-        string(key: key, type: type, subs: subs)
     }
 
     func string(key: String, type: Resources.StringsFile, subs: [Any]) -> String {

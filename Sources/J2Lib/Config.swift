@@ -59,6 +59,8 @@ public final class Config {
         public var sourceDirectoryURL: URL?
         // Published by GatherOpts
         public var moduleNames: [String] = []
+        // Published by GenCopyright
+        public var authorName: Localized<String>?
     }
     public let published = Published()
 
