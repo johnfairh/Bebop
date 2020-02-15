@@ -16,7 +16,7 @@ fileprivate struct System {
     let merge: Merge
     let group: Group
     let format: Format
-    let sitegen: SiteGen
+    let sitegen: GenSite
 
     init(cliArgs: [String] = []) {
         config = Config()
@@ -24,7 +24,7 @@ fileprivate struct System {
         merge = Merge(config: config)
         group = Group(config: config)
         format = Format(config: config)
-        sitegen = SiteGen(config: config)
+        sitegen = GenSite(config: config)
         try! config.processOptions(cliOpts: cliArgs)
     }
 

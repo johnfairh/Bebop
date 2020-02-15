@@ -12,11 +12,11 @@ import Mustache
 
 fileprivate struct System {
     let config: Config
-    let themes: Themes
+    let themes: GenThemes
 
     init() {
         config = Config()
-        themes = Themes(config: config)
+        themes = GenThemes(config: config)
     }
 }
 

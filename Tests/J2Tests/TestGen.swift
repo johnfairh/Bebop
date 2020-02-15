@@ -11,11 +11,11 @@ import XCTest
 
 fileprivate struct System {
     let config: Config
-    let gen: SiteGen
+    let gen: GenSite
 
     init() {
         config = Config()
-        gen = SiteGen(config: config)
+        gen = GenSite(config: config)
     }
 
     func configure(cliOpts: [String]) throws {

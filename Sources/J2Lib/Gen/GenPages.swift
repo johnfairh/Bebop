@@ -8,10 +8,10 @@
 
 import Foundation
 
-/// `PageGen` is a simple component that takes the formatted docs forest and converts them
+/// `GenPages` is a simple component that takes the formatted docs forest and converts them
 /// into the consolidated data structure that can spit out data for the page renderer.
 ///
-public struct PageGen: Configurable {
+public struct GenPages: Configurable {
     public init(config: Config) {
         config.register(self)
     }

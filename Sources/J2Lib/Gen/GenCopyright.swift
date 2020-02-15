@@ -10,11 +10,16 @@ import Foundation
 import Maaku
 
 struct GenCopyright: Configurable {
-    let copyrightOpt = LocStringOpt(l: "copyright").help("COPYRIGHT_MARKDOWN")
-    let authorNameOpt = LocStringOpt(l: "author").help("AUTHOR_NAME")
+    let copyrightOpt = LocStringOpt(l: "custom-copyright").help("COPYRIGHT_MARKDOWN")
+    let authorNameOpt = LocStringOpt(l: "author-name").help("AUTHOR_NAME")
     let authorURLOpt = StringOpt(l: "author-url").help("URL")
 
+    let oldCopyrightOpt: AliasOpt
+    let oldAuthorOpt: AliasOpt
+
     init(config: Config) {
+        oldCopyrightOpt = AliasOpt(realOpt: copyrightOpt, l: "copyright")
+        oldAuthorOpt = AliasOpt(realOpt: authorNameOpt, l: "author")
         config.register(self)
     }
 
@@ -27,6 +32,7 @@ struct GenCopyright: Configurable {
         if let authorName = authorNameOpt.value {
             if let authorURL = authorURLOpt.value {
                 return authorName.mapValues { name in
+                    // This needs houdini_escape_href really...
                     #"<a href="\#(authorURL)" target="_blank" rel="external">\#(name)</a>"#
                 }
             }

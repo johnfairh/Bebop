@@ -50,9 +50,9 @@ public final class Pipeline: Configurable {
     /// Assign URLs and render autolinked html, markdown
     public let format: Format
     /// Flatten and consolidate docs
-    public let pageGen: PageGen
+    public let genPages: GenPages
     /// Generate final site
-    public let siteGen: SiteGen
+    public let genSite: GenSite
 
     /// User product config
     private let productsOpt = EnumListOpt<PipelineProduct>(l: "products").def([.docs])
@@ -88,8 +88,8 @@ public final class Pipeline: Configurable {
         merge = Merge(config: config)
         group = Group(config: config)
         format = Format(config: config)
-        pageGen = PageGen(config: config)
-        siteGen = SiteGen(config: config)
+        genPages = GenPages(config: config)
+        genSite = GenSite(config: config)
         config.register(self)
     }
 
@@ -124,7 +124,7 @@ public final class Pipeline: Configurable {
 
         let formattedItems = try format.format(items: groupedDefs)
 
-        let genData = try pageGen.generatePages(items: formattedItems)
+        let genData = try genPages.generatePages(items: formattedItems)
 
         if testAndClearProduct(.docs_summary_json) {
             logDebug("Pipeline: producing docs-summary-json")
@@ -134,13 +134,13 @@ public final class Pipeline: Configurable {
 
         if testAndClearProduct(.docs_json) {
             logDebug("Pipeline: producing docs-json")
-            let output = try siteGen.generateJSON(genData: genData)
+            let output = try genSite.generateJSON(genData: genData)
             logOutput(output)
             if productsAllDone { return }
         }
 
         logDebug("Pipeline: generating site")
-        try siteGen.generateSite(genData: genData)
+        try genSite.generateSite(genData: genData)
     }
 
     /// Callback during options processing.  Important we sort out pipeline mode now to avoid

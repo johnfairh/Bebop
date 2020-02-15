@@ -11,7 +11,7 @@ import Mustache
 
 /// Hate to use the term but this is the theme manager.  It figures out what builtin themes exist
 /// and figures out what the user means when they use `--theme`.
-struct Themes: Configurable {
+struct GenThemes: Configurable {
     let builtInURL: URL
     let builtInNames: [String]
 

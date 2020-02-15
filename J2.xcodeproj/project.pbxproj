@@ -26,10 +26,10 @@
 		0233D52F23EF2CCD004DCD89 /* ItemKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D52E23EF2CCD004DCD89 /* ItemKind.swift */; };
 		0233D53123EF4047004DCD89 /* TestGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D53023EF4047004DCD89 /* TestGroup.swift */; };
 		0233D53323EF43A7004DCD89 /* TestFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D53223EF43A7004DCD89 /* TestFormat.swift */; };
-		0233D53523F067EE004DCD89 /* PageGen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D53423F067EE004DCD89 /* PageGen.swift */; };
+		0233D53523F067EE004DCD89 /* GenPages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D53423F067EE004DCD89 /* GenPages.swift */; };
 		0233D53723F07B1A004DCD89 /* GenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D53623F07B1A004DCD89 /* GenData.swift */; };
 		0233D53923F07E6E004DCD89 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D53823F07E6E004DCD89 /* JSON.swift */; };
-		0233D53B23F09E0D004DCD89 /* MustacheGen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D53A23F09E0D004DCD89 /* MustacheGen.swift */; };
+		0233D53B23F09E0D004DCD89 /* GenMustache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D53A23F09E0D004DCD89 /* GenMustache.swift */; };
 		0233D53D23F30851004DCD89 /* GuideItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D53C23F30851004DCD89 /* GuideItem.swift */; };
 		0233D53F23F30EDB004DCD89 /* GroupGuides.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D53E23F30EDB004DCD89 /* GroupGuides.swift */; };
 		0233D54123F344F3004DCD89 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D54023F344F3004DCD89 /* Localized.swift */; };
@@ -70,10 +70,10 @@
 		02CFFA0123E0B95F00FDE5B9 /* Merge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFFA0023E0B95F00FDE5B9 /* Merge.swift */; };
 		02CFFA0423E0BA2900FDE5B9 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFFA0323E0BA2900FDE5B9 /* Item.swift */; };
 		02CFFA0623E0BD8B00FDE5B9 /* DefItemJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFFA0523E0BD8B00FDE5B9 /* DefItemJSON.swift */; };
-		02CFFA0923E0C8AC00FDE5B9 /* SiteGen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFFA0823E0C8AC00FDE5B9 /* SiteGen.swift */; };
+		02CFFA0923E0C8AC00FDE5B9 /* GenSite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFFA0823E0C8AC00FDE5B9 /* GenSite.swift */; };
 		02CFFA0D23E1973300FDE5B9 /* Mustache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02CFFA0C23E1973300FDE5B9 /* Mustache.framework */; };
 		02CFFA0E23E1973300FDE5B9 /* Mustache.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02CFFA0C23E1973300FDE5B9 /* Mustache.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		02CFFA1023E1E9A700FDE5B9 /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFFA0F23E1E9A700FDE5B9 /* Themes.swift */; };
+		02CFFA1023E1E9A700FDE5B9 /* GenThemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFFA0F23E1E9A700FDE5B9 /* GenThemes.swift */; };
 		02CFFA1D23E20AB400FDE5B9 /* themes in Resources */ = {isa = PBXBuildFile; fileRef = 02CFFA1C23E20AB400FDE5B9 /* themes */; };
 		02CFFA1F23E20E7500FDE5B9 /* TestMerge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFFA1E23E20E7500FDE5B9 /* TestMerge.swift */; };
 		02CFFA2223E215F300FDE5B9 /* SourceKittenFramework.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 02CFF90A23DDF9DF00FDE5B9 /* SourceKittenFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -215,10 +215,10 @@
 		0233D52E23EF2CCD004DCD89 /* ItemKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemKind.swift; sourceTree = "<group>"; };
 		0233D53023EF4047004DCD89 /* TestGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGroup.swift; sourceTree = "<group>"; };
 		0233D53223EF43A7004DCD89 /* TestFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFormat.swift; sourceTree = "<group>"; };
-		0233D53423F067EE004DCD89 /* PageGen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageGen.swift; sourceTree = "<group>"; };
+		0233D53423F067EE004DCD89 /* GenPages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenPages.swift; sourceTree = "<group>"; };
 		0233D53623F07B1A004DCD89 /* GenData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenData.swift; sourceTree = "<group>"; };
 		0233D53823F07E6E004DCD89 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
-		0233D53A23F09E0D004DCD89 /* MustacheGen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MustacheGen.swift; sourceTree = "<group>"; };
+		0233D53A23F09E0D004DCD89 /* GenMustache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenMustache.swift; sourceTree = "<group>"; };
 		0233D53C23F30851004DCD89 /* GuideItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideItem.swift; sourceTree = "<group>"; };
 		0233D53E23F30EDB004DCD89 /* GroupGuides.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupGuides.swift; sourceTree = "<group>"; };
 		0233D54023F344F3004DCD89 /* Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
@@ -261,9 +261,9 @@
 		02CFFA0023E0B95F00FDE5B9 /* Merge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Merge.swift; sourceTree = "<group>"; };
 		02CFFA0323E0BA2900FDE5B9 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		02CFFA0523E0BD8B00FDE5B9 /* DefItemJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefItemJSON.swift; sourceTree = "<group>"; };
-		02CFFA0823E0C8AC00FDE5B9 /* SiteGen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteGen.swift; sourceTree = "<group>"; };
+		02CFFA0823E0C8AC00FDE5B9 /* GenSite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenSite.swift; sourceTree = "<group>"; };
 		02CFFA0C23E1973300FDE5B9 /* Mustache.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mustache.framework; path = Carthage/Build/Mac/Mustache.framework; sourceTree = "<group>"; };
-		02CFFA0F23E1E9A700FDE5B9 /* Themes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
+		02CFFA0F23E1E9A700FDE5B9 /* GenThemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenThemes.swift; sourceTree = "<group>"; };
 		02CFFA1C23E20AB400FDE5B9 /* themes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = themes; sourceTree = "<group>"; };
 		02CFFA1E23E20E7500FDE5B9 /* TestMerge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMerge.swift; sourceTree = "<group>"; };
 		02CFFA2423E2244C00FDE5B9 /* TestTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTheme.swift; sourceTree = "<group>"; };
@@ -557,11 +557,11 @@
 			isa = PBXGroup;
 			children = (
 				0233D53623F07B1A004DCD89 /* GenData.swift */,
-				0233D53423F067EE004DCD89 /* PageGen.swift */,
+				0233D53423F067EE004DCD89 /* GenPages.swift */,
 				0233D54A23F70CA6004DCD89 /* GenCopyright.swift */,
-				0233D53A23F09E0D004DCD89 /* MustacheGen.swift */,
-				02CFFA0823E0C8AC00FDE5B9 /* SiteGen.swift */,
-				02CFFA0F23E1E9A700FDE5B9 /* Themes.swift */,
+				0233D53A23F09E0D004DCD89 /* GenMustache.swift */,
+				02CFFA0823E0C8AC00FDE5B9 /* GenSite.swift */,
+				02CFFA0F23E1E9A700FDE5B9 /* GenThemes.swift */,
 			);
 			path = Gen;
 			sourceTree = "<group>";
@@ -788,7 +788,7 @@
 				0233D53F23F30EDB004DCD89 /* GroupGuides.swift in Sources */,
 				02CFFA0123E0B95F00FDE5B9 /* Merge.swift in Sources */,
 				02CFF92723DE009900FDE5B9 /* GatherOpts.swift in Sources */,
-				02CFFA1023E1E9A700FDE5B9 /* Themes.swift in Sources */,
+				02CFFA1023E1E9A700FDE5B9 /* GenThemes.swift in Sources */,
 				02CFFA0423E0BA2900FDE5B9 /* Item.swift in Sources */,
 				02FDC68223E997D700C2F9CD /* Markdown.swift in Sources */,
 				022818BF23D238F30016B0D5 /* Errors.swift in Sources */,
@@ -816,12 +816,12 @@
 				02D064F423EC208200FE11BD /* Group.swift in Sources */,
 				0233D54B23F70CA6004DCD89 /* GenCopyright.swift in Sources */,
 				02CFFA3E23E5A95B00FDE5B9 /* GatherDeclAvailable.swift in Sources */,
-				02CFFA0923E0C8AC00FDE5B9 /* SiteGen.swift in Sources */,
+				02CFFA0923E0C8AC00FDE5B9 /* GenSite.swift in Sources */,
 				022818B823D1C2E00016B0D5 /* Options.swift in Sources */,
 				0257280723DB50B40001F510 /* Resources.swift in Sources */,
-				0233D53B23F09E0D004DCD89 /* MustacheGen.swift in Sources */,
+				0233D53B23F09E0D004DCD89 /* GenMustache.swift in Sources */,
 				0233D54923F6F2ED004DCD89 /* FormatMarkdown.swift in Sources */,
-				0233D53523F067EE004DCD89 /* PageGen.swift in Sources */,
+				0233D53523F067EE004DCD89 /* GenPages.swift in Sources */,
 				029A6F1D23D79AB000D66069 /* Version.swift in Sources */,
 				02FDC69123EB617300C2F9CD /* StringEnums.swift in Sources */,
 				02CFF92923DE044200FDE5B9 /* GatherJob.swift in Sources */,

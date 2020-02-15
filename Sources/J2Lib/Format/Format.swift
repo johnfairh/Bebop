@@ -24,7 +24,9 @@ public final class Format: Configurable {
 
     public func format(items: [Item]) throws -> [Item] {
         let allItems = items + [try createReadme()]
+        logDebug("Format: Assigning URLs")
         URLFormatter().walk(items: allItems)
+        logDebug("Format: Generating HTML")
         MarkdownFormatter(language: .swift).walk(items: allItems)
         return allItems
     }

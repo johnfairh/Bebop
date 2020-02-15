@@ -8,10 +8,10 @@
 
 import Foundation
 
-/// `SiteGen` produces docs output data from an `Item` forest.
+/// `GenSite` produces docs output data from an `Item` forest.
 ///
 /// tbd whether we need the pagegen / sitegen split - just stubs really
-public struct SiteGen: Configurable {
+public struct GenSite: Configurable {
     let outputOpt = PathOpt(s: "o", l: "output").help("PATH").def("docs")
     let cleanOpt = BoolOpt(s: "c", l: "clean")
 
@@ -34,11 +34,11 @@ public struct SiteGen: Configurable {
         outputOpt.value!
     }
 
-    let themes: Themes
+    let themes: GenThemes
     let copyright: GenCopyright
 
     public init(config: Config) {
-        themes = Themes(config: config)
+        themes = GenThemes(config: config)
         copyright = GenCopyright(config: config)
 
         oldHideCoverageOpt = AliasOpt(realOpt: hideCoverageOpt, l: "hide-documentation-coverage")
