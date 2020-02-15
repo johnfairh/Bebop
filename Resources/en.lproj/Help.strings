@@ -32,7 +32,7 @@ the source directory, otherwise 'spm'.";
 "products" = "Things to produce.
 Default: 'docs,docset,undocumented-json'";
 "output" = "Directory in which to generate documentation.
-Default: 'docs'.";
+Default: 'docs'";
 "clean" = "Delete output directory and contents before generating documentation.";
 "theme" = "Theme for generated documentation.  Use the name of a built-in theme
 or give the path of a directory containing your customized templates and
@@ -46,7 +46,7 @@ format 'tag:flag:label'.
 Default: None - only generate documentation according to the default
 localization.";
 "doc-comment-language" = "The language in which documentation comments are written.
-Default: 'en'.";
+Default: 'en'";
 "doc-comment-languages-directory" = "Directory that holds '<language-tag>/QuickHelp.strings' files with which
 to localize documentation comments.
 Default: None - do not localize documentation comments.";
@@ -77,11 +77,14 @@ Can be localized by creating a version with the same filename in a
 subdirectory named after the langauge tag.
 Default: 'README.md', 'README.markdown', 'README.mdown', 'README' in the
 source directory.";
-"copyright" = "Markdown to use in the copyright statement in the footer of the generated
+"custom-copyright" = "Markdown to use in the copyright statement in the footer of the generated
 documentation.  Can be localized using the config file.
 Default: Generate a copyright statement.";
-"author" = "Name of the documentation author, used in the generated copyright statement.
+"author-name" = "Name of the documentation author, used in the generated copyright statement.
 Can be localized using the config file.
 Default: None.";
 "author-url" = "URL of the documentation author, used in the generated copyright statement.
 Default: None.";
+"nested-item-style" = "Behavior of 'pop-open' child items that are nested under a page's
+main item.
+Default: 'start-closed'";

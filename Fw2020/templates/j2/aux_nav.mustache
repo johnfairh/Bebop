@@ -15,10 +15,12 @@
       {{^disable_search}}
       <li><a class="j2-aux-action" id="action-search" href="#" role="button" aria-keyshortcuts="/">Search (/)</a></li>
       {{/disable_search}}
+      {{^item_collapse_never}}
       <li><a class="j2-aux-action" id="action-collapse" href="#" role="button" aria-keyshortcuts="a">
         <span id="action-collapse-expand">Open all (a)</span>
         <span id="action-collapse-collapse" class="d-none">Close all (a)</span>
       </a></li>
+      {{/item_collapse_never}}
       <li><a class="j2-aux-action" id="action-language" href="#" role="button" aria-keyshortcuts="l">
         <span class="j2-swift">Objective-C (l)</span>
         <span class="j2-objc">Swift (l)</span>

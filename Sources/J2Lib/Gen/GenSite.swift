@@ -1,5 +1,5 @@
 //
-//  Gen.swift
+//  GenSite.swift
 //  J2Lib
 //
 //  Copyright 2020 J2 Authors
@@ -7,6 +7,25 @@
 //
 
 import Foundation
+
+/// Behaviours for the popopen sections
+enum NestedItemStyle: String, CaseIterable {
+    /// All items closed on page-load
+    case start_closed
+    /// All items open on page-load, can be closed
+    case start_open
+    /// All items open on page-load, cannot be closed
+    case always_open
+}
+
+enum ChildItemStyle: String, CaseIterable {
+    /// Nest children in parent
+    case nest
+    /// Types go on separate pages, methods etc. nest
+    case typesSeparate
+    /// Page per definition, no nesting
+    case separate
+}
 
 /// `GenSite` produces docs output data from an `Item` forest.
 ///
@@ -23,6 +42,8 @@ public struct GenSite: Configurable {
     let titleOpt = LocStringOpt(l: "title").help("TITLE")
     let moduleVersionOpt = StringOpt(l: "module-version").help("VERSION")
     let breadcrumbsRootOpt = LocStringOpt(l: "breadcrumbs-root").help("TITLE")
+
+    let nestedItemStyleOpt = EnumOpt<NestedItemStyle>(l: "nested-item-style").def(.start_closed)
 
     let oldHideCoverageOpt: AliasOpt
     let oldCustomHeadOpt: AliasOpt
@@ -156,7 +177,9 @@ public struct GenSite: Configurable {
         var dict = MustacheKey.dict([
             .j2libVersion : Version.j2libVersion,
             .hideSearch : hideSearchOpt.value,
-            .hideAttribution: hideAttributionOpt.value
+            .hideAttribution: hideAttributionOpt.value,
+            .itemCollapseOpen: nestedItemStyleOpt.value! == .start_open,
+            .itemCollapseNever: nestedItemStyleOpt.value! == .always_open
         ])
 
         if !hideCoverageOpt.value {

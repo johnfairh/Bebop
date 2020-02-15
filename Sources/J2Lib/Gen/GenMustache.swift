@@ -71,6 +71,8 @@ public enum MustacheKey: String {
     case hideAttribution = "hide_attribution"
     case docCoverage = "doc_coverage"
     case customHead = "custom_head"
+    case itemCollapseOpen = "item_collapse_open"
+    case itemCollapseNever = "item_collapse_never"
 
     // Global, per-page
     case languageTag = "language_tag"
