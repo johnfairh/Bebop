@@ -53,10 +53,14 @@ public struct URLPieces: Encodable {
         urlHash = nil
     }
 
+    /// URL hash/fragment (for relative use on the same page)
+    public var hashURL: String {
+        urlHash.flatMap { "#\($0)" } ?? ""
+    }
+
     /// Get the url (path + fragment/hash), assuming some file extension.  %-encoded for a URL.
     public func url(fileExtension: String) -> String {
-        let path = urlPath + fileExtension
-        return urlHash.flatMap { path + "#\($0)" } ?? path
+        urlPath + fileExtension + hashURL
     }
 
     /// Get the file-system name of the page, assuming some file extension.

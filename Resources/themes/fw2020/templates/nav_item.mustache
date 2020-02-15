@@ -1,0 +1,9 @@
+{{^.url}}
+  <span class="j2-nav-item active" aria-current="page">{{title}}</span>
+{{/.url}}
+{{#.url}}
+  <a class="j2-nav-item" aria-current="page" href="{{^same_page}}{{{path_to_root}}}{{/same_page}}{{{url}}}">{{title}}</a>
+{{/.url}}
+{{#children.count}}
+  {{> nav_section}}
+{{/children.count}}

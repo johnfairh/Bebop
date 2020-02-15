@@ -18,22 +18,17 @@
     "tab_title_prefix" : true,
     "toc" : [
       {
-        "active" : true,
         "children" : [
           {
-            "active" : false,
             "children" : [
               {
-                "active" : false,
                 "children" : [
                   {
-                    "active" : false,
                     "children" : [],
                     "title" : "Nested2a",
                     "url" : "types\/spmswiftmodule\/nested1.html#nested2a"
                   },
                   {
-                    "active" : false,
                     "children" : [],
                     "title" : "Nested2b",
                     "url" : "types\/spmswiftmodule\/nested1.html#nested2b"
@@ -43,7 +38,6 @@
                 "url" : "types\/spmswiftmodule\/nested1.html"
               },
               {
-                "active" : false,
                 "children" : [],
                 "title" : "Nested2",
                 "url" : "types\/spmswiftmodule.html#nested2"
@@ -53,26 +47,21 @@
             "url" : "types\/spmswiftmodule.html"
           },
           {
-            "active" : false,
             "children" : [],
             "title" : "AnEnum",
             "url" : "types\/anenum.html"
           }
         ],
-        "title" : "Types",
-        "url" : "types.html"
+        "title" : "Types"
       },
       {
-        "active" : false,
         "children" : [
           {
-            "active" : false,
             "children" : [],
             "title" : "functionA(arg1:_:arg3:)",
             "url" : "functions.html#functionaarg1_arg3"
           },
           {
-            "active" : false,
             "children" : [],
             "title" : "deprecatedFunction(callback:)",
             "url" : "functions.html#deprecatedfunctioncallback"
@@ -119,6 +108,12 @@
     "topics_menu" : []
   },
   {
+    "breadcrumbs" : [
+      {
+        "title" : "Types",
+        "url" : "types.html"
+      }
+    ],
     "breadcrumbs_root" : "SpmSwiftModule",
     "copyright_html" : "<p>© 9999 . All rights reserved. (Last updated: today).<\/p>",
     "def" : {
@@ -141,22 +136,17 @@
     "tab_title_prefix" : true,
     "toc" : [
       {
-        "active" : false,
         "children" : [
           {
-            "active" : true,
             "children" : [
               {
-                "active" : false,
                 "children" : [
                   {
-                    "active" : false,
                     "children" : [],
                     "title" : "Nested2a",
                     "url" : "types\/spmswiftmodule\/nested1.html#nested2a"
                   },
                   {
-                    "active" : false,
                     "children" : [],
                     "title" : "Nested2b",
                     "url" : "types\/spmswiftmodule\/nested1.html#nested2b"
@@ -166,17 +156,15 @@
                 "url" : "types\/spmswiftmodule\/nested1.html"
               },
               {
-                "active" : false,
                 "children" : [],
+                "same_page" : true,
                 "title" : "Nested2",
-                "url" : "types\/spmswiftmodule.html#nested2"
+                "url" : "#nested2"
               }
             ],
-            "title" : "SpmSwiftModule",
-            "url" : "types\/spmswiftmodule.html"
+            "title" : "SpmSwiftModule"
           },
           {
-            "active" : false,
             "children" : [],
             "title" : "AnEnum",
             "url" : "types\/anenum.html"
@@ -186,16 +174,13 @@
         "url" : "types.html"
       },
       {
-        "active" : false,
         "children" : [
           {
-            "active" : false,
             "children" : [],
             "title" : "functionA(arg1:_:arg3:)",
             "url" : "functions.html#functionaarg1_arg3"
           },
           {
-            "active" : false,
             "children" : [],
             "title" : "deprecatedFunction(callback:)",
             "url" : "functions.html#deprecatedfunctioncallback"
@@ -273,6 +258,16 @@
     ]
   },
   {
+    "breadcrumbs" : [
+      {
+        "title" : "Types",
+        "url" : "types.html"
+      },
+      {
+        "title" : "SpmSwiftModule",
+        "url" : "types\/spmswiftmodule.html"
+      }
+    ],
     "breadcrumbs_root" : "SpmSwiftModule",
     "copyright_html" : "<p>© 9999 . All rights reserved. (Last updated: today).<\/p>",
     "def" : {
@@ -294,32 +289,27 @@
     "tab_title_prefix" : true,
     "toc" : [
       {
-        "active" : false,
         "children" : [
           {
-            "active" : false,
             "children" : [
               {
-                "active" : true,
                 "children" : [
                   {
-                    "active" : false,
                     "children" : [],
+                    "same_page" : true,
                     "title" : "Nested2a",
-                    "url" : "types\/spmswiftmodule\/nested1.html#nested2a"
+                    "url" : "#nested2a"
                   },
                   {
-                    "active" : false,
                     "children" : [],
+                    "same_page" : true,
                     "title" : "Nested2b",
-                    "url" : "types\/spmswiftmodule\/nested1.html#nested2b"
+                    "url" : "#nested2b"
                   }
                 ],
-                "title" : "Nested1",
-                "url" : "types\/spmswiftmodule\/nested1.html"
+                "title" : "Nested1"
               },
               {
-                "active" : false,
                 "children" : [],
                 "title" : "Nested2",
                 "url" : "types\/spmswiftmodule.html#nested2"
@@ -329,7 +319,6 @@
             "url" : "types\/spmswiftmodule.html"
           },
           {
-            "active" : false,
             "children" : [],
             "title" : "AnEnum",
             "url" : "types\/anenum.html"
@@ -339,16 +328,13 @@
         "url" : "types.html"
       },
       {
-        "active" : false,
         "children" : [
           {
-            "active" : false,
             "children" : [],
             "title" : "functionA(arg1:_:arg3:)",
             "url" : "functions.html#functionaarg1_arg3"
           },
           {
-            "active" : false,
             "children" : [],
             "title" : "deprecatedFunction(callback:)",
             "url" : "functions.html#deprecatedfunctioncallback"
@@ -397,6 +383,12 @@
     ]
   },
   {
+    "breadcrumbs" : [
+      {
+        "title" : "Types",
+        "url" : "types.html"
+      }
+    ],
     "breadcrumbs_root" : "SpmSwiftModule",
     "copyright_html" : "<p>© 9999 . All rights reserved. (Last updated: today).<\/p>",
     "def" : {
@@ -419,22 +411,17 @@
     "tab_title_prefix" : true,
     "toc" : [
       {
-        "active" : false,
         "children" : [
           {
-            "active" : false,
             "children" : [
               {
-                "active" : false,
                 "children" : [
                   {
-                    "active" : false,
                     "children" : [],
                     "title" : "Nested2a",
                     "url" : "types\/spmswiftmodule\/nested1.html#nested2a"
                   },
                   {
-                    "active" : false,
                     "children" : [],
                     "title" : "Nested2b",
                     "url" : "types\/spmswiftmodule\/nested1.html#nested2b"
@@ -444,7 +431,6 @@
                 "url" : "types\/spmswiftmodule\/nested1.html"
               },
               {
-                "active" : false,
                 "children" : [],
                 "title" : "Nested2",
                 "url" : "types\/spmswiftmodule.html#nested2"
@@ -454,26 +440,21 @@
             "url" : "types\/spmswiftmodule.html"
           },
           {
-            "active" : true,
             "children" : [],
-            "title" : "AnEnum",
-            "url" : "types\/anenum.html"
+            "title" : "AnEnum"
           }
         ],
         "title" : "Types",
         "url" : "types.html"
       },
       {
-        "active" : false,
         "children" : [
           {
-            "active" : false,
             "children" : [],
             "title" : "functionA(arg1:_:arg3:)",
             "url" : "functions.html#functionaarg1_arg3"
           },
           {
-            "active" : false,
             "children" : [],
             "title" : "deprecatedFunction(callback:)",
             "url" : "functions.html#deprecatedfunctioncallback"
@@ -564,22 +545,17 @@
     "tab_title_prefix" : true,
     "toc" : [
       {
-        "active" : false,
         "children" : [
           {
-            "active" : false,
             "children" : [
               {
-                "active" : false,
                 "children" : [
                   {
-                    "active" : false,
                     "children" : [],
                     "title" : "Nested2a",
                     "url" : "types\/spmswiftmodule\/nested1.html#nested2a"
                   },
                   {
-                    "active" : false,
                     "children" : [],
                     "title" : "Nested2b",
                     "url" : "types\/spmswiftmodule\/nested1.html#nested2b"
@@ -589,7 +565,6 @@
                 "url" : "types\/spmswiftmodule\/nested1.html"
               },
               {
-                "active" : false,
                 "children" : [],
                 "title" : "Nested2",
                 "url" : "types\/spmswiftmodule.html#nested2"
@@ -599,7 +574,6 @@
             "url" : "types\/spmswiftmodule.html"
           },
           {
-            "active" : false,
             "children" : [],
             "title" : "AnEnum",
             "url" : "types\/anenum.html"
@@ -609,23 +583,21 @@
         "url" : "types.html"
       },
       {
-        "active" : true,
         "children" : [
           {
-            "active" : false,
             "children" : [],
+            "same_page" : true,
             "title" : "functionA(arg1:_:arg3:)",
-            "url" : "functions.html#functionaarg1_arg3"
+            "url" : "#functionaarg1_arg3"
           },
           {
-            "active" : false,
             "children" : [],
+            "same_page" : true,
             "title" : "deprecatedFunction(callback:)",
-            "url" : "functions.html#deprecatedfunctioncallback"
+            "url" : "#deprecatedfunctioncallback"
           }
         ],
-        "title" : "Functions",
-        "url" : "functions.html"
+        "title" : "Functions"
       }
     ],
     "topics" : [
@@ -703,22 +675,17 @@
     "tab_title_prefix" : false,
     "toc" : [
       {
-        "active" : false,
         "children" : [
           {
-            "active" : false,
             "children" : [
               {
-                "active" : false,
                 "children" : [
                   {
-                    "active" : false,
                     "children" : [],
                     "title" : "Nested2a",
                     "url" : "types\/spmswiftmodule\/nested1.html#nested2a"
                   },
                   {
-                    "active" : false,
                     "children" : [],
                     "title" : "Nested2b",
                     "url" : "types\/spmswiftmodule\/nested1.html#nested2b"
@@ -728,7 +695,6 @@
                 "url" : "types\/spmswiftmodule\/nested1.html"
               },
               {
-                "active" : false,
                 "children" : [],
                 "title" : "Nested2",
                 "url" : "types\/spmswiftmodule.html#nested2"
@@ -738,7 +704,6 @@
             "url" : "types\/spmswiftmodule.html"
           },
           {
-            "active" : false,
             "children" : [],
             "title" : "AnEnum",
             "url" : "types\/anenum.html"
@@ -748,16 +713,13 @@
         "url" : "types.html"
       },
       {
-        "active" : false,
         "children" : [
           {
-            "active" : false,
             "children" : [],
             "title" : "functionA(arg1:_:arg3:)",
             "url" : "functions.html#functionaarg1_arg3"
           },
           {
-            "active" : false,
             "children" : [],
             "title" : "deprecatedFunction(callback:)",
             "url" : "functions.html#deprecatedfunctioncallback"

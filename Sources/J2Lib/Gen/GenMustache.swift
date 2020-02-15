@@ -91,6 +91,7 @@ public enum MustacheKey: String {
     // Localizations menu -- only set if there are multiple localizations
     case pageLocalization = "page_localization"
     case localizations = "localizations"
+    case active = "active"
     // Breadcrumbs
     case breadcrumbs = "breadcrumbs"
 
@@ -122,7 +123,7 @@ public enum MustacheKey: String {
     // ToC entries
     case title = "title"
     case url = "url"
-    case active = "active"
+    case samePage = "same_page"
     case children = "children"
 
     static func dict(_ pairs: KeyValuePairs<MustacheKey, Any>) -> [String : Any] {
@@ -196,16 +197,25 @@ extension GenData {
     }
 
     /// Generate the table of contents (left nav) for the page.
-    /// This is unique for each page because the 'active' element changes and translation.
+    /// This is unique for each page because the URLs change around the current page, and translation.
     func generateToc(languageTag: String, fileExt: String, pageURLPath: String) -> [[String : Any]] {
 
         func tocList(entries: [TocEntry]) -> [[String : Any]] {
             entries.map { entry in
                 let entryURLPath = entry.url.url(fileExtension: fileExt)
-                return MH([.title: entry.title.get(languageTag),
-                           .url: entryURLPath,
-                           .active: entryURLPath == pageURLPath,
-                           .children: tocList(entries: entry.children)])
+                var dict = MH([.title: entry.title.get(languageTag),
+                               .children: tocList(entries: entry.children)])
+                if entryURLPath != pageURLPath {
+                    // no url for the page we're currently on.
+                    if entryURLPath.hasPrefix(pageURLPath) {
+                        // #link to something on the same page
+                        dict[.url] = entry.url.hashURL
+                        dict[.samePage] = true
+                    } else {
+                        dict[.url] = entryURLPath
+                    }
+                }
+                return dict
             }
         }
 

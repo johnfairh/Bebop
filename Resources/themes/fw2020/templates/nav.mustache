@@ -3,15 +3,7 @@
     <ul class="j2-nav-list">
       {{#toc}}
       <li class="j2-nav-group">
-        {{#.active}}
-        <span class="j2-nav-item active" aria-current="page">{{title}}</span>
-        {{/.active}}
-        {{^.active}}
-        <a class="j2-nav-item" aria-current="page" href="{{path_to_root}}{{url}}">{{title}}</a>
-        {{/.active}}
-        {{#children.count}}
-        {{> nav_section}}
-        {{/children.count}}
+        {{> nav_item}}
       </li>
       {{/toc}}
     </ul>
