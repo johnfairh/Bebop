@@ -42,7 +42,6 @@ public final class GenData: Encodable {
         public let swiftTitleHtml: Html?
         public let dashType: String?
         public let url: URLPieces?
-        // public let usageDiscouraged: Bool
         public let def: Def?
 
         /// Link init
@@ -76,20 +75,24 @@ public final class GenData: Encodable {
         public let body: Localized<Html>?
         public let items: [Item]
     }
+    public struct Breadcrumb: Encodable {
+        public let title: Localized<String>
+        public let url: URLPieces
+    }
     public struct Page: Encodable {
         public let url: URLPieces
         public let title: Localized<String>
         public let tabTitlePrefix: Bool
         public let isGuide: Bool
         public let content: Localized<Html>?
-        // breadcrumbs
+        public let breadcrumbs: [Breadcrumb]
         public let def: Def?
-        // topics
         public let topics: [Topic]
 
         /// Def init
         public init(defURL: URLPieces,
                     title: Localized<String>,
+                    breadcrumbs: [Breadcrumb],
                     definition: Def,
                     topics: [Topic] = []) {
             self.url = defURL
@@ -97,6 +100,7 @@ public final class GenData: Encodable {
             self.tabTitlePrefix = true
             self.isGuide = false
             self.content = nil
+            self.breadcrumbs = breadcrumbs
             self.def = definition
             self.topics = topics
         }
@@ -104,6 +108,7 @@ public final class GenData: Encodable {
         /// Group init
         public init(groupURL: URLPieces,
                     title: Localized<String>,
+                    breadcrumbs: [Breadcrumb],
                     content: Localized<Html>?,
                     topics: [Topic] = []) {
             self.url = groupURL
@@ -111,6 +116,7 @@ public final class GenData: Encodable {
             self.tabTitlePrefix = true
             self.isGuide = false
             self.content = content
+            self.breadcrumbs = breadcrumbs
             self.def = nil
             self.topics = topics
         }
@@ -118,6 +124,7 @@ public final class GenData: Encodable {
         /// Guide init
         public init(guideURL: URLPieces,
                     title: Localized<String>,
+                    breadcrumbs: [Breadcrumb],
                     isReadme: Bool,
                     content: Localized<Html>?) {
             self.url = guideURL
@@ -125,6 +132,7 @@ public final class GenData: Encodable {
             self.tabTitlePrefix = !isReadme
             self.isGuide = true
             self.content = content
+            self.breadcrumbs = breadcrumbs
             self.def = nil
             self.topics = []
         }

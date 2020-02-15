@@ -91,6 +91,8 @@ public enum MustacheKey: String {
     // Localizations menu -- only set if there are multiple localizations
     case pageLocalization = "page_localization"
     case localizations = "localizations"
+    // Breadcrumbs
+    case breadcrumbs = "breadcrumbs"
 
     // Definitions
     case def = "def"
@@ -152,6 +154,12 @@ extension GenData {
         data[.hideArticleTitle] = pg.isGuide
         data.maybe(.contentHtml, pg.content?.get(languageTag).html)
         data.maybe(.def, pg.def?.generateDef(languageTag: languageTag, fileExt: fileExt))
+
+        if !pg.breadcrumbs.isEmpty {
+            data[.breadcrumbs] = pg.breadcrumbs.map {
+                MH([.title: $0.title.get(languageTag), .url: $0.url.url(fileExtension: fileExt)])
+            }
+        }
 
         let topics = pg.generateTopics(languageTag: languageTag, fileExt: fileExt)
         data[.topics] = topics

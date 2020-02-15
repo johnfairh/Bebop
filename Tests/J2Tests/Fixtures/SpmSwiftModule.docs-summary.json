@@ -4,6 +4,7 @@
   },
   "pages" : [
     {
+      "breadcrumbs" : [],
       "is_guide" : false,
       "tab_title_prefix" : true,
       "title" : {
@@ -77,6 +78,16 @@
       }
     },
     {
+      "breadcrumbs" : [
+        {
+          "title" : {
+            "en" : "Types"
+          },
+          "url" : {
+            "url_path" : "types"
+          }
+        }
+      ],
       "def" : {
         "abstract" : {
           "en" : {
@@ -177,6 +188,24 @@
       }
     },
     {
+      "breadcrumbs" : [
+        {
+          "title" : {
+            "en" : "Types"
+          },
+          "url" : {
+            "url_path" : "types"
+          }
+        },
+        {
+          "title" : {
+            "en" : "SpmSwiftModule"
+          },
+          "url" : {
+            "url_path" : "types\/spmswiftmodule"
+          }
+        }
+      ],
       "def" : {
         "params" : [],
         "swift_declaration" : {
@@ -245,6 +274,16 @@
       }
     },
     {
+      "breadcrumbs" : [
+        {
+          "title" : {
+            "en" : "Types"
+          },
+          "url" : {
+            "url_path" : "types"
+          }
+        }
+      ],
       "def" : {
         "abstract" : {
           "en" : {
@@ -360,6 +399,7 @@
       }
     },
     {
+      "breadcrumbs" : [],
       "is_guide" : false,
       "tab_title_prefix" : true,
       "title" : {
@@ -466,6 +506,7 @@
       }
     },
     {
+      "breadcrumbs" : [],
       "content" : {
         "en" : {
           "html" : "<h1 class=\"j2-anchor j2-heading\" id=\"spmswiftmodule\">\n<span data-anchor-id=\"spmswiftmodule\">\nSpmSwiftModule\n<\/span><\/h1>"

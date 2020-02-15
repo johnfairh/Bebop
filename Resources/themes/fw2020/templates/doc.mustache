@@ -31,6 +31,9 @@ Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
   <nav aria-label="breadcrumb" class="small">
     <ol class="breadcrumb j2-breadcrumb">
       <li class="breadcrumb-item"><a href="{{path_to_root}}index.html">{{breadcrumbs_root}}</a></li>
+      {{#breadcrumbs}}
+      <li class="breadcrumb-item"><a href="{{{path_to_root}}}{{{url}}}">{{title}}</a></li>
+      {{/breadcrumbs}}
       <li class="breadcrumb-item" aria-current="page">{{page_title}}</li>
     </ol>
   </nav>

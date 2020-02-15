@@ -57,6 +57,7 @@ final class PageVisitor: ItemVisitorProtocol {
             pages.append(GenData.Page(
                 defURL: defItem.url,
                 title: defItem.title,
+                breadcrumbs: buildBreadcrumbs(parents: parents),
                 definition: defItem.asGenDef,
                 topics: buildTopics(item: defItem)))
         }
@@ -65,6 +66,7 @@ final class PageVisitor: ItemVisitorProtocol {
     func visit(groupItem: GroupItem, parents: [Item]) {
         pages.append(GenData.Page(groupURL: groupItem.url,
                                   title: groupItem.title,
+                                  breadcrumbs: buildBreadcrumbs(parents: parents),
                                   content: nil,
                                   topics: buildTopics(item: groupItem)))
     }
@@ -72,6 +74,7 @@ final class PageVisitor: ItemVisitorProtocol {
     func visit(guideItem: GuideItem, parents: [Item]) {
         pages.append(GenData.Page(guideURL: guideItem.url,
                                   title: guideItem.title,
+                                  breadcrumbs: buildBreadcrumbs(parents: parents),
                                   isReadme: false,
                                   content: guideItem.content.html))
     }
@@ -79,8 +82,16 @@ final class PageVisitor: ItemVisitorProtocol {
     func visit(readmeItem: ReadmeItem, parents: [Item]) {
         pages.append(GenData.Page(guideURL: readmeItem.url,
                                   title: readmeItem.title,
+                                  breadcrumbs: buildBreadcrumbs(parents: parents),
                                   isReadme: true,
                                   content: readmeItem.content.html))
+    }
+
+    /// Breadcrumbs for a page.
+    /// Don't include the root: that's the readme/index.html handled separately.
+    /// Don't include ourselves: that's not a link and is handled separately
+    func buildBreadcrumbs(parents: [Item]) -> [GenData.Breadcrumb] {
+        parents.map { GenData.Breadcrumb(title: $0.title, url: $0.url) }
     }
 
     func buildTopics(item: Item) -> [GenData.Topic] {
