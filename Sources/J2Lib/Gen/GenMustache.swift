@@ -73,6 +73,7 @@ public enum MustacheKey: String {
     case customHead = "custom_head"
     case itemCollapseOpen = "item_collapse_open"
     case itemCollapseNever = "item_collapse_never"
+    case itemNest = "item_nest"
 
     // Global, per-page
     case languageTag = "language_tag"

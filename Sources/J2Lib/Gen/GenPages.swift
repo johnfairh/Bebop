@@ -112,6 +112,8 @@ final class PageVisitor: ItemVisitorProtocol {
     }
 }
 
+// MARK: Items
+
 /// Visitor to construct an Item that can appear inside a topic on a page.
 class ItemVisitor: ItemVisitorProtocol {
     var items = [GenData.Item]()

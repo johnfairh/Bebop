@@ -85,6 +85,10 @@ Can be localized using the config file.
 Default: None.";
 "author-url" = "URL of the documentation author, used in the generated copyright statement.
 Default: None.";
-"nested-item-style" = "Behavior of 'pop-open' child items that are nested under a page's
+"nested-item-style" = "Behavior of collapsible child items that are nested under a page's
 main item.
 Default: 'start-closed'";
+"child-item-style" = "Control whether to nest child items on their parent's page or show
+them on their own separate page, similar to the style of Apple's
+documentation.
+Default: 'nest'";

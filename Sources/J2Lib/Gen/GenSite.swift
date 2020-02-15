@@ -9,7 +9,7 @@
 import Foundation
 
 /// Behaviours for the popopen sections
-enum NestedItemStyle: String, CaseIterable {
+public enum NestedItemStyle: String, CaseIterable {
     /// All items closed on page-load
     case start_closed
     /// All items open on page-load, can be closed
@@ -18,11 +18,12 @@ enum NestedItemStyle: String, CaseIterable {
     case always_open
 }
 
-enum ChildItemStyle: String, CaseIterable {
+/// Popopen or apple-style
+public enum ChildItemStyle: String, CaseIterable {
     /// Nest children in parent
     case nest
     /// Types go on separate pages, methods etc. nest
-    case typesSeparate
+    case nest_expand_types
     /// Page per definition, no nesting
     case separate
 }
@@ -43,6 +44,7 @@ public struct GenSite: Configurable {
     let moduleVersionOpt = StringOpt(l: "module-version").help("VERSION")
     let breadcrumbsRootOpt = LocStringOpt(l: "breadcrumbs-root").help("TITLE")
 
+    let childItemStyleOpt = EnumOpt<ChildItemStyle>(l: "child-item-style").def(.nest)
     let nestedItemStyleOpt = EnumOpt<NestedItemStyle>(l: "nested-item-style").def(.start_closed)
 
     let oldHideCoverageOpt: AliasOpt
@@ -51,9 +53,9 @@ public struct GenSite: Configurable {
 
     private let published: Config.Published
 
-    var outputURL: URL {
-        outputOpt.value!
-    }
+    var outputURL: URL { outputOpt.value! }
+    var childItemStyle: ChildItemStyle { childItemStyleOpt.value! }
+    var nestedItemStyle: NestedItemStyle { nestedItemStyleOpt.value! }
 
     let themes: GenThemes
     let copyright: GenCopyright
@@ -69,6 +71,10 @@ public struct GenSite: Configurable {
         published = config.published
 
         config.register(self)
+    }
+
+    public func checkOptions(published: Config.Published) throws {
+        published.childItemStyle = childItemStyle
     }
 
     /// Final site generation
@@ -178,8 +184,10 @@ public struct GenSite: Configurable {
             .j2libVersion : Version.j2libVersion,
             .hideSearch : hideSearchOpt.value,
             .hideAttribution: hideAttributionOpt.value,
-            .itemCollapseOpen: nestedItemStyleOpt.value! == .start_open,
-            .itemCollapseNever: nestedItemStyleOpt.value! == .always_open
+            .itemCollapseOpen: nestedItemStyle == .start_open,
+            .itemCollapseNever: nestedItemStyle == .always_open ||
+                                childItemStyle == .separate,
+            .itemNest: childItemStyle != .separate
         ])
 
         if !hideCoverageOpt.value {

@@ -61,6 +61,8 @@ public final class Config {
         public var moduleNames: [String] = []
         // Published by GenCopyright
         public var authorName: Localized<String>?
+        // Published by GenSite
+        public var childItemStyle: ChildItemStyle!
     }
     public let published = Published()
 
