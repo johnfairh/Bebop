@@ -69,16 +69,14 @@ Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
             </div>
             {{/objc_declaration_html}}
           </div>
-          {{> deprecation}}
 
           <div class="clearfix">
-            {{#available}}
+            {{> deprecation}}
+            {{#availability.count}}
             <aside class="j2-availability mt-n3" role="note">
-              <h6 class="j2-inline-heading">Availability</h6>
-              <ul> <!-- TODO -->
-              </ul>
+            {{> availability}}
             </aside>
-            {{/available}}
+            {{/availability.count}}
             {{{abstract_html}}}
             {{{overview_html}}}
           </div>

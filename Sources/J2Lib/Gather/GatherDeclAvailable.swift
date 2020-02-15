@@ -150,7 +150,7 @@ extension SwiftDeclarationBuilder {
             if let obsoleted = obsoleted {
                 availability.append("\(platform) \(introduced)-\(obsoleted)")
             } else {
-                availability.append("\(platform) \(introduced)")
+                availability.append("\(platform) \(introduced)+")
             }
         } else if let obsoleted = obsoleted {
             availability.append("\(platform) ?-\(obsoleted)")
@@ -227,7 +227,7 @@ extension SwiftDeclarationBuilder {
     fileprivate func parseIntroduced(args: Array<AvailArg>) {
         args.forEach {
             if case let .doubleToken(platform, version) = $0 {
-                availability.append("\(platform) \(version)")
+                availability.append("\(platform) \(version)+")
             }
         }
     }

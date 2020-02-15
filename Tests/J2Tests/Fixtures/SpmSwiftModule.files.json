@@ -606,10 +606,10 @@
           "key.fully_annotated_decl" : "<decl.function.free><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>functionA<\/decl.name>(<decl.var.parameter><decl.var.parameter.argument_label>arg1<\/decl.var.parameter.argument_label>: <decl.var.parameter.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>, <decl.var.parameter><decl.var.parameter.argument_label>_<\/decl.var.parameter.argument_label> <decl.var.parameter.name>arg2<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>, <decl.var.parameter><decl.var.parameter.argument_label>arg3<\/decl.var.parameter.argument_label> <decl.var.parameter.name>argMeaning<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>)<\/decl.function.free>",
           "key.j2.availabilities" : [
             {
-              "key.j2.availability" : "iOS 9"
+              "key.j2.availability" : "iOS 9+"
             },
             {
-              "key.j2.availability" : "macOS 10.12"
+              "key.j2.availability" : "macOS 10.12+"
             }
           ],
           "key.j2.documentation" : {

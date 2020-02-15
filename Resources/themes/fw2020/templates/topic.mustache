@@ -33,10 +33,15 @@
       <div class="j2-item-popopen">
         <div class="j2-item-popopen-pointer" role="none"></div>
         <div class="j2-item-popopen-body">
-          {{#def}}
-          {{> deprecation}}
-          {{/def}}
           <div class="clearfix">
+            {{#def}}
+            {{#.availability.count}}
+            <aside class="j2-availability mb-n1" role="note">
+            {{> availability}}
+            </aside>
+            {{/.availability.count}}
+            {{> deprecation}}
+            {{/def}}
             {{#default_impl_abstract}}
             <div class="j2-callout j2-callout-note">
               <div class="j2-callout-title" role=heading" aria-level="5">Note</div>

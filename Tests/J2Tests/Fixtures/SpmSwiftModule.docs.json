@@ -611,6 +611,10 @@
             "dash_name" : "func%20functionA(arg1%3A%20Int,%20Int,%20arg3%3A%20Int)",
             "dash_type" : "Global",
             "def" : {
+              "availability" : [
+                "iOS 9+",
+                "macOS 10.12+"
+              ],
               "parameters" : [
                 {
                   "parameter_html" : "<p>Number one<\/p>",

@@ -98,6 +98,7 @@ public enum MustacheKey: String {
     // Definitions
     case def = "def"
     case deprecationHtml = "deprecation_html"
+    case availability = "availability"
     case abstractHtml = "abstract_html"
     case overviewHtml = "overview_html"
     case swiftDeclarationHtml = "swift_declaration_html"
@@ -288,6 +289,9 @@ extension GenData.Def {
     func generateDef(languageTag: String, fileExt: String) -> [String : Any] {
         var dict = [String : Any]()
         dict.maybe(.deprecationHtml, deprecation?.get(languageTag).html)
+        if !availability.isEmpty {
+            dict[.availability] = availability.map { $0.get(languageTag) }
+        }
         dict.maybe(.swiftDeclarationHtml, swiftDeclaration?.html)
         dict.maybe(.abstractHtml, abstract?.get(languageTag).html)
         dict.maybe(.overviewHtml, overview?.get(languageTag).html)

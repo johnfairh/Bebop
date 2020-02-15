@@ -29,12 +29,12 @@ public final class GenData: Encodable {
     }
     public struct Def: Encodable {
         public let deprecation: Localized<Html>?
+        public let availability: [Localized<String>]
         public let abstract: Localized<Html>?
         public let overview: Localized<Html>?
         public let swiftDeclaration: Html?
         public let params: [Param]
         public let returns: Localized<Html>?
-        //        public let availability: [String]
     }
     public struct Item: Encodable {
         public let anchorId: String

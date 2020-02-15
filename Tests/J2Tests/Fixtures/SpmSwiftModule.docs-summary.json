@@ -23,6 +23,7 @@
                     "html" : "<p>Main structure<\/p>"
                   }
                 },
+                "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
                   "html" : "public struct SpmSwiftModule"
@@ -47,6 +48,7 @@
                     "html" : "<p>An enum<\/p>"
                   }
                 },
+                "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
                   "html" : "public enum AnEnum"
@@ -94,6 +96,7 @@
             "html" : "<p>Main structure<\/p>"
           }
         },
+        "availability" : [],
         "params" : [],
         "swift_declaration" : {
           "html" : "public struct SpmSwiftModule"
@@ -112,6 +115,7 @@
               "anchor_id" : "text",
               "dash_type" : "Property",
               "def" : {
+                "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
                   "html" : "public var text: String"
@@ -141,6 +145,7 @@
               "anchor_id" : "nested1",
               "dash_type" : "Struct",
               "def" : {
+                "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
                   "html" : "public struct SpmSwiftModule.Nested1"
@@ -160,6 +165,7 @@
               "anchor_id" : "nested2",
               "dash_type" : "Struct",
               "def" : {
+                "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
                   "html" : "public struct SpmSwiftModule.Nested2"
@@ -207,6 +213,7 @@
         }
       ],
       "def" : {
+        "availability" : [],
         "params" : [],
         "swift_declaration" : {
           "html" : "public struct SpmSwiftModule.Nested1"
@@ -225,6 +232,7 @@
               "anchor_id" : "nested2a",
               "dash_type" : "Struct",
               "def" : {
+                "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
                   "html" : "public struct SpmSwiftModule.Nested1.Nested2a"
@@ -241,6 +249,7 @@
               "anchor_id" : "nested2b",
               "dash_type" : "Struct",
               "def" : {
+                "availability" : [],
                 "deprecation" : {
                   "en" : {
                     "html" : "<p>Deprecated.<\/p>"
@@ -290,6 +299,7 @@
             "html" : "<p>An enum<\/p>"
           }
         },
+        "availability" : [],
         "params" : [],
         "swift_declaration" : {
           "html" : "public enum AnEnum"
@@ -313,6 +323,7 @@
                     "html" : "<p>First case<\/p>"
                   }
                 },
+                "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
                   "html" : "case first(Int)"
@@ -334,6 +345,7 @@
                     "html" : "<p>Second case<\/p>"
                   }
                 },
+                "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
                   "html" : "case second"
@@ -355,6 +367,7 @@
                     "html" : "<p>Third &amp; Fourth cases<\/p>"
                   }
                 },
+                "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
                   "html" : "case third"
@@ -371,6 +384,7 @@
               "anchor_id" : "fourth",
               "dash_type" : "Case",
               "def" : {
+                "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
                   "html" : "case fourth"
@@ -413,6 +427,14 @@
               "anchor_id" : "functionaarg1_arg3",
               "dash_type" : "Global",
               "def" : {
+                "availability" : [
+                  {
+                    "en" : "iOS 9+"
+                  },
+                  {
+                    "en" : "macOS 10.12+"
+                  }
+                ],
                 "params" : [
                   {
                     "description" : {
@@ -459,6 +481,7 @@
                     "html" : "<p>A deprecated function<\/p>"
                   }
                 },
+                "availability" : [],
                 "deprecation" : {
                   "en" : {
                     "html" : "<p>iOS - deprecated in 12.0. Deprecated!.<\/p>\n<p>macOS - deprecated in 10.14. Deprecated on <em>macOS<\/em> too.<\/p>"
