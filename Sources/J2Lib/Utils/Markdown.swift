@@ -11,7 +11,7 @@ import Maaku
 
 //
 // Helpers on top of Maaku types and special knowledge about callout
-// formatting.
+// formatting ported from jazzy callout_scanner.
 //
 
 

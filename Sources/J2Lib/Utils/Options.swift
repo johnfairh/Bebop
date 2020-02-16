@@ -21,6 +21,7 @@ import Yams
 // - auto-gen of --[no-] -style longopts
 // - auto unique-prefix expansion for longopts
 // - localized string options with per-language values
+// - alias options
 
 // MARK: Flag string manipulation
 
