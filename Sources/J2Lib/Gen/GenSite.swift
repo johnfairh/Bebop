@@ -38,6 +38,7 @@ public struct GenSite: Configurable {
     let hideSearchOpt = BoolOpt(l: "hide-search")
     let hideAttributionOpt = BoolOpt(l: "hide-attribution")
     let hideCoverageOpt = BoolOpt(l: "hide-coverage")
+    let hideAvailabilityOpt = BoolOpt(l: "hide-availability")
     let customHeadOpt = StringOpt(l: "custom-head").help("HTML")
 
     let titleOpt = LocStringOpt(l: "title").help("TITLE")
@@ -184,6 +185,7 @@ public struct GenSite: Configurable {
             .j2libVersion : Version.j2libVersion,
             .hideSearch : hideSearchOpt.value,
             .hideAttribution: hideAttributionOpt.value,
+            .hideAvailability: hideAvailabilityOpt.value,
             .itemCollapseOpen: nestedItemStyle == .start_open,
             .itemCollapseNever: nestedItemStyle == .always_open ||
                                 childItemStyle == .separate,

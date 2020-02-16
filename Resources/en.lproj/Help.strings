@@ -92,3 +92,4 @@ Default: 'start-closed'";
 them on their own separate page, similar to the style of Apple's
 documentation.
 Default: 'nest'";
+"hide-availability" = "Do not display 'Availability' boxes in definitions.";

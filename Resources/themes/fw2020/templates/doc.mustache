@@ -72,28 +72,30 @@ Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
 
           <div class="clearfix">
             {{> deprecation}}
+            {{^hide_availability}}
             {{#availability.count}}
             <aside class="j2-availability mt-n3" role="note">
             {{> availability}}
             </aside>
             {{/availability.count}}
+            {{/hide_availability}}
             {{{abstract_html}}}
             {{{overview_html}}}
+            {{#parameters.count}}
+              <h5>Parameters</h5>
+              <table class="j2-param-table">
+                <tbody>
+                  {{#parameters}}
+                  {{>parameter}}
+                  {{/parameters}}
+                </tbody>
+              </table>
+            {{/parameters.count}}
+            {{#returns_html}}
+            <h5>Return Value</h5>
+            {{{returns_html}}}
+            {{/returns_html}}
           </div>
-          {{#parameters.count}}
-          <h5>Parameters</h5>
-          <table class="j2-param-table">
-            <tbody>
-             {{#parameters}}
-             {{>parameter}}
-             {{/parameters}}
-            </tbody>
-          </table>
-          {{/parameters.count}}
-          {{#returns_html}}
-          <h5>Return Value</h5>
-          {{{returns_html}}}
-          {{/returns_html}}
           <nav class="j2-item-nav" aria-label="item details">
             {{#github_token_url}}
             <span class="j2-item-nav-item"><a href="{{{github_token_url}}}">Show on GitHub</a></span>

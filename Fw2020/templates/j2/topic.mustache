@@ -35,11 +35,13 @@
         <div class="j2-item-popopen-body">
           <div class="clearfix">
             {{#def}}
+            {{^hide_availability}}
             {{#.availability.count}}
             <aside class="j2-availability mb-n1" role="note">
             {{> availability}}
             </aside>
             {{/.availability.count}}
+            {{/hide_availability}}
             {{> deprecation}}
             {{/def}}
             {{#default_impl_abstract}}

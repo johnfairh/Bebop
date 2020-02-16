@@ -69,6 +69,7 @@ public enum MustacheKey: String {
     case j2libVersion = "j2lib_version"
     case hideSearch = "disable_search"
     case hideAttribution = "hide_attribution"
+    case hideAvailability = "hide_availability"
     case docCoverage = "doc_coverage"
     case customHead = "custom_head"
     case itemCollapseOpen = "item_collapse_open"
