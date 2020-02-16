@@ -19,6 +19,8 @@ struct GatherOpts : Configurable {
     let srcDirOpt = PathOpt(l: "source-directory").help("DIRPATH")
     let buildToolOpt = EnumOpt<GatherBuildTool>(l: "build-tool")
     let buildToolArgsOpt = StringListOpt(s: "b", l: "build-tool-arguments").help("ARG1,ARG2...")
+    let availabilityDefaultsOpt = StringListOpt(l: "availability-defaults").help("AVAILABILITY1,...")
+    let ignoreAvailabilityAttrOpt = BoolOpt(l:"ignore-availability-attr")
     let xcodeBuildArgsAlias: AliasOpt
     let swiftBuildToolAlias: AliasOpt
 
@@ -37,14 +39,28 @@ struct GatherOpts : Configurable {
     }
 
     var jobs: [GatherJob] {
+        let availabilityRules =
+            GatherAvailabilityRules(defaults: availabilityDefaultsOpt.value,
+                                    ignoreAttr: ignoreAvailabilityAttrOpt.value)
         return [.swift(moduleName: moduleNameOpt.value,
                        srcDir: srcDirOpt.value,
                        buildTool: buildToolOpt.value,
-                       buildToolArgs: buildToolArgsOpt.value)]
+                       buildToolArgs: buildToolArgsOpt.value,
+                       availabilityRules: availabilityRules)]
     }
 }
 
 enum GatherBuildTool: String, CaseIterable {
     case spm
     case xcodebuild
+}
+
+struct GatherAvailabilityRules: Equatable {
+    let defaults: [String]
+    let ignoreAttr: Bool
+
+    init(defaults: [String] = [], ignoreAttr: Bool = false) {
+        self.defaults = defaults
+        self.ignoreAttr = ignoreAttr
+    }
 }

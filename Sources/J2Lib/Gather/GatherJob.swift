@@ -14,14 +14,18 @@ import SourceKittenFramework
 /// In fact that's a lie because "import a gather.json" is also a job that can vend multiple modules and passes.
 /// That may be a modelling error, tbd pending implementation of import....
 enum GatherJob: Equatable {
-    case swift(moduleName: String?, srcDir: URL?, buildTool: GatherBuildTool?, buildToolArgs: [String])
+    case swift(moduleName: String?,
+               srcDir: URL?,
+               buildTool: GatherBuildTool?,
+               buildToolArgs: [String],
+               availabilityRules: GatherAvailabilityRules)
 
     func execute() throws -> [GatherModulePass] {
         logDebug("Gather: starting job \(self)")
         defer { logDebug("Gather: finished job \(self)") }
 
         switch self {
-        case .swift(let moduleName, let srcDir, let buildTool, let buildToolArgs):
+        case .swift(let moduleName, let srcDir, let buildTool, let buildToolArgs, let availabilityRules):
             let actualSrcDir = srcDir ?? FileManager.default.currentDirectory
             let actualBuildTool = buildTool ?? inferBuildTool(in: actualSrcDir, buildToolArgs: buildToolArgs)
 
@@ -50,7 +54,7 @@ enum GatherJob: Equatable {
             logDebug(" Calling sourcekitten docs generation")
             let filesInfo = module!.docs.map { swiftDoc in
                 (swiftDoc.file.path ?? "(no path)",
-                 GatherDef(sourceKittenDict: swiftDoc.docsDictionary, file: swiftDoc.file))
+                 GatherDef(sourceKittenDict: swiftDoc.docsDictionary, file: swiftDoc.file, availabilityRules: availabilityRules))
             }
 
             return [GatherModulePass(moduleName: module!.name, passIndex: 0, files: filesInfo)]

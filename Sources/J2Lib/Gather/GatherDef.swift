@@ -28,14 +28,22 @@ public final class GatherDef {
     let documentation: FlatDefDocs?
     let localizationKey: String?
 
-    init(sourceKittenDict: SourceKittenDict, file: SourceKittenFramework.File?) {
+    init(sourceKittenDict: SourceKittenDict,
+         file: SourceKittenFramework.File?,
+         availabilityRules: GatherAvailabilityRules) {
         var dict = sourceKittenDict
         let substructure = dict.removeValue(forKey: SwiftDocKey.substructure.rawValue) as? [SourceKittenDict] ?? []
-        self.children = substructure.map { GatherDef(sourceKittenDict: $0, file: file) }
+        self.children = substructure.map {
+            GatherDef(sourceKittenDict: $0, file: file, availabilityRules: availabilityRules)
+        }
         self.sourceKittenDict = dict
         self.kind = (dict[SwiftDocKey.kind.rawValue] as? String).flatMap { DefKind.from(key: $0) }
 
-        self.swiftDeclaration = SwiftDeclarationBuilder(dict: sourceKittenDict, file: file, kind: kind).build()
+        self.swiftDeclaration =
+            SwiftDeclarationBuilder(dict: sourceKittenDict,
+                                    file: file,
+                                    kind: kind,
+                                    availabilityRules: availabilityRules).build()
 
         if let docComment = sourceKittenDict[SwiftDocKey.documentationComment.rawValue] as? String {
             let docsBuilder = MarkdownBuilder(markdown: Markdown(docComment))

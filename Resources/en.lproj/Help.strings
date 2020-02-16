@@ -93,3 +93,6 @@ them on their own separate page, similar to the style of Apple's
 documentation.
 Default: 'nest'";
 "hide-availability" = "Do not display 'Availability' boxes in definitions.";
+"availability-defaults" = "Fixed contents of 'Availability' boxes, merged with facts from `@available`
+attributes unless '--ignore-availability-attr' is set.";
+"ignore-availability-attr" = "Do not populate 'Availability' boxes from `@available` attributes.";

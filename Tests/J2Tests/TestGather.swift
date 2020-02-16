@@ -45,15 +45,27 @@ class TestGather: XCTestCase {
     }
 
     func testDefault() throws {
-        try OptsSystem().test(jobs: [.swift(moduleName: nil, srcDir: nil, buildTool: nil, buildToolArgs: [])])
+        try OptsSystem().test(jobs: [.swift(moduleName: nil,
+                                            srcDir: nil,
+                                            buildTool: nil,
+                                            buildToolArgs: [],
+                                            availabilityRules: GatherAvailabilityRules())])
     }
 
     func testModule() throws {
-        try OptsSystem().test(["--module", "Test"], jobs: [.swift(moduleName: "Test", srcDir: nil, buildTool: nil, buildToolArgs: [])])
+        try OptsSystem().test(["--module", "Test"], jobs: [.swift(moduleName: "Test",
+                                                                  srcDir: nil,
+                                                                  buildTool: nil,
+                                                                  buildToolArgs: [],
+                                                                  availabilityRules: GatherAvailabilityRules())])
     }
 
     func testBuildToolArgs() throws {
-        let expected = GatherJob.swift(moduleName: nil, srcDir: nil, buildTool: nil, buildToolArgs: ["aa", "bb", "cc"])
+        let expected = GatherJob.swift(moduleName: nil,
+                                       srcDir: nil,
+                                       buildTool: nil,
+                                       buildToolArgs: ["aa", "bb", "cc"],
+                                       availabilityRules: GatherAvailabilityRules())
         try [ ["--build-tool-arguments", "aa,bb,cc"],
               ["-b", "aa", "-b", "bb", "--build-tool-arguments", "cc"] ].forEach { opts in
             try OptsSystem().test(opts, jobs: [expected])
@@ -65,7 +77,11 @@ class TestGather: XCTestCase {
         let system = OptsSystem()
         // Weirdness here to work around Linux URL incompatibility.  How can anyone mess this up.
         let expectedSrcDir = URL(fileURLWithPath: cwd.path, relativeTo: cwd)
-        let expected: GatherJob = .swift(moduleName: "Test", srcDir: expectedSrcDir, buildTool: nil, buildToolArgs: [])
+        let expected: GatherJob = .swift(moduleName: "Test",
+                                         srcDir: expectedSrcDir,
+                                         buildTool: nil,
+                                         buildToolArgs: [],
+                                         availabilityRules: GatherAvailabilityRules())
         try system.test(["--module", "Test", "--source-directory", cwd.path], jobs: [expected])
     }
 

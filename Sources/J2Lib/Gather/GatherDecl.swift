@@ -55,6 +55,7 @@ final class SwiftDeclarationBuilder {
     let dict: SourceKittenDict
     let file: File?
     let kind: DefKind?
+    let availabilityRules: GatherAvailabilityRules
 
     var compilerDecl: String?
     var neatParsedDecl: String?
@@ -62,10 +63,11 @@ final class SwiftDeclarationBuilder {
     var deprecations: [Localized<String>] = []
     var availability: [String] = []
 
-    init(dict: SourceKittenDict, file: File?, kind: DefKind?) {
+    init(dict: SourceKittenDict, file: File?, kind: DefKind?, availabilityRules: GatherAvailabilityRules) {
         self.dict = dict
         self.file = file
         self.kind = kind
+        self.availabilityRules = availabilityRules
     }
 
     func build() -> SwiftDeclaration? {
@@ -117,6 +119,11 @@ final class SwiftDeclarationBuilder {
 
         // Tidy up
         let deprecation = deprecations.isEmpty ? nil : deprecations.joined(by: "\n\n")
+
+        if availabilityRules.ignoreAttr {
+            availability = []
+        }
+        availability = availabilityRules.defaults + availability
 
         return SwiftDeclaration(declaration: (attributes + [bestDeclaration]).joined(separator: "\n"),
                                 deprecation: deprecation,
