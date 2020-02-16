@@ -30,15 +30,6 @@ public func AssertThrows<Err, Ret>(_ expression: @autoclosure () throws -> Ret,
     })
 }
 
-/// Probably can delete this now...
-func Do(code: () throws -> Void) {
-    do {
-        try code()
-    } catch {
-        XCTFail("Unexpected error thrown: \(error)")
-    }
-}
-
 // Logger drop-in to log to string buffers
 //
 final class TestLogger {

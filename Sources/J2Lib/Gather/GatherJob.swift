@@ -16,16 +16,24 @@ import SourceKittenFramework
 enum GatherJob: Equatable {
     case swift(moduleName: String?,
                srcDir: URL?,
-               buildTool: GatherBuildTool?,
+               buildTool: GatherOpts.BuildTool?,
                buildToolArgs: [String],
                availabilityRules: GatherAvailabilityRules)
+
+    case objcDirect(moduleName: String,
+                    srcDir: URL?,
+                    headerFile: URL,
+                    includePaths: [URL],
+                    sdk: GatherOpts.Sdk,
+                    buildToolArgs: [String],
+                    availabilityRules: GatherAvailabilityRules)
 
     func execute() throws -> [GatherModulePass] {
         logDebug("Gather: starting job \(self)")
         defer { logDebug("Gather: finished job \(self)") }
 
         switch self {
-        case .swift(let moduleName, let srcDir, let buildTool, let buildToolArgs, let availabilityRules):
+        case let .swift(moduleName, srcDir, buildTool, buildToolArgs, availabilityRules):
             let actualSrcDir = srcDir ?? FileManager.default.currentDirectory
             let actualBuildTool = buildTool ?? inferBuildTool(in: actualSrcDir, buildToolArgs: buildToolArgs)
 
@@ -58,11 +66,14 @@ enum GatherJob: Equatable {
             }
 
             return [GatherModulePass(moduleName: module!.name, passIndex: 0, files: filesInfo)]
+
+        case let .objcDirect(moduleName, srcDir, headerFile, includePaths, sdk, buildToolArgs, availabilityRules):
+            return [GatherModulePass(moduleName: moduleName, passIndex: 0, files: [])]
         }
     }
 }
 
-private func inferBuildTool(in directory: URL, buildToolArgs: [String]) -> GatherBuildTool {
+private func inferBuildTool(in directory: URL, buildToolArgs: [String]) -> GatherOpts.BuildTool {
     #if os(macOS)
     guard directory.filesMatching("*.xcodeproj", "*.xcworkspace").isEmpty else {
         return .xcodebuild

@@ -96,3 +96,11 @@ Default: 'nest'";
 "availability-defaults" = "Fixed contents of 'Availability' boxes, merged with facts from `@available`
 attributes unless '--ignore-availability-attr' is set.";
 "ignore-availability-attr" = "Do not populate 'Availability' boxes from `@available` attributes.";
+"objc-direct" = "Build an Objective-C header file directly, without using a build tool to
+guess compiler flags.";
+"objc-header-file" = "Objective-C header file to document.";
+"objc-include-paths" = "List of directories to add to the Objective-C compiler include search path,
+used to resolve header file inclusions in direct mode.  Adds the given
+directory and all subdirectories en route to header files.";
+"objc-sdk" = "The SDK to compile Objective-C against, used only in direct mode.
+Default: 'macosx'";"

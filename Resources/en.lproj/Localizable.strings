@@ -50,7 +50,7 @@ Options:";
 
 "wrn-merge-missing-root" = "Bad file json data for '%1' pass %2: missing 'key.diagnostic_stage' key.  Ignoring this file.";
 
-"wrn-no-comment-languages" = "Doc comments will not be localized because '--doc-comment-languages-directory' is not set.";
+"wrn-no-comment-languages" = "Doc comments will not be localized because --doc-comment-languages-directory is not set.";
 "wrn-no-comment-missing" = "Doc comments will not be localized for '%1' because cannot open '%2'.";
 
 "wrn-cfg-language-missing" = "Language tags missing for '%1': %2.";
@@ -59,3 +59,8 @@ Options:";
 
 "wrn-duplicate-guide" = "Duplicate guide name '%1', ignoring '%2'.";
 "wrn-empty-guide-glob" = "No guides matching '*.md' found expanding '%1'.";
+
+"err-objc-build-tools" = "Both --objc-direct and --build-tool are set: choose just one.";
+"err-objc-no-header" = "Some Objective-C options are set but --objc-header-file is not.";
+"wrn-objc-module" = "Objective-C direct mode requested but --module is not set: using 'Module' for the module name.";
+"err-objc-linux" = "Documenting Objective-C modules is supported only on macOS.";
