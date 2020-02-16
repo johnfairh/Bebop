@@ -30,7 +30,7 @@ class TestGatherObjC: XCTestCase {
     }
 
     #if !os(macOS)
-    func testNoObjC() {
+    func testNoObjC() throws {
         let tmpDir = try TemporaryDirectory()
         let tmpFile = try tmpDir.createFile(name: "test.h")
         try "extern int fred;".write(to: tmpFile)

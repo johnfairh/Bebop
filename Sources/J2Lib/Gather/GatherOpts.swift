@@ -68,12 +68,6 @@ struct GatherOpts : Configurable {
         }
 
         // Rigorously police the objc options...
-        #if !os(macOS)
-        if objcDirectOpt.configred {
-            throw OptionsError(.localized(.errObjcLinux))
-        }
-        #endif
-
         if objcDirectOpt.configured && buildToolOpt.configured {
             throw OptionsError(.localized(.errObjcBuildTools))
         }
@@ -87,6 +81,12 @@ struct GatherOpts : Configurable {
             logDebug("Gather: ObjcHeaderFile and no BuildTool.  Inferring ObjcDirect")
             objcDirectOpt.set(bool: true)
         }
+
+        #if !os(macOS)
+        if objcDirectOpt.configured {
+            throw OptionsError(.localized(.errObjcLinux))
+        }
+        #endif
 
         if objcHeaderFileOpt.configured && buildToolOpt.configured {
             throw NotImplementedError("Objective-C with build-tool")

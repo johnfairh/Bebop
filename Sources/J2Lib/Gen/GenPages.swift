@@ -82,7 +82,7 @@ final class PageVisitor: ItemVisitorProtocol {
     func visit(readmeItem: ReadmeItem, parents: [Item]) {
         pages.append(GenData.Page(guideURL: readmeItem.url,
                                   title: readmeItem.title,
-                                  breadcrumbs: buildBreadcrumbs(parents: parents),
+                                  breadcrumbs: [],
                                   isReadme: true,
                                   content: readmeItem.content.html))
     }
