@@ -76,7 +76,6 @@ class TestGatherObjC: XCTestCase {
         TestLogger.install()
         try checkJob(["--objc-header-file=\(tmpFile.path)"],
                  .objcDirect(moduleName: "Module",
-                             srcDir: nil,
                              headerFile: tmpFile,
                              includePaths: [],
                              sdk: .macosx,
@@ -86,7 +85,6 @@ class TestGatherObjC: XCTestCase {
 
         try checkJob(["--objc-header-file=\(tmpFile.path)", "--module=MyMod"],
                  .objcDirect(moduleName: "MyMod",
-                             srcDir: nil,
                              headerFile: tmpFile,
                              includePaths: [],
                              sdk: .macosx,
@@ -97,7 +95,6 @@ class TestGatherObjC: XCTestCase {
                       "--objc-sdk=iphoneos",
                       "--objc-include-paths=\(tmpDir.directoryURL.path)"],
                  .objcDirect(moduleName: "Module",
-                             srcDir: nil,
                              headerFile: tmpFile,
                              includePaths: [tmpDirURL],
                              sdk: .iphoneos,

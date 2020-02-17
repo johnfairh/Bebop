@@ -1,5 +1,5 @@
 //
-//  GatherDecl.swift
+//  GatherSwiftDecl.swift
 //  J2Lib
 //
 //  Copyright 2020 J2 Authors
@@ -51,7 +51,7 @@ import SwiftSyntax
 //    ones.
 
 /// Short-lived workspace for figuring things out about a Swift declaration
-final class SwiftDeclarationBuilder {
+class SwiftDeclarationBuilder {
     let dict: SourceKittenDict
     let file: File?
     let kind: DefKind?
@@ -71,6 +71,8 @@ final class SwiftDeclarationBuilder {
     }
 
     func build() -> SwiftDeclaration? {
+        availability = availabilityRules.defaults // override later if we get that far
+
         guard let annotatedDecl = dict["key.fully_annotated_decl"] as? String else {
             // Means unavailable or something, not an error condition
             return nil
@@ -114,7 +116,7 @@ final class SwiftDeclarationBuilder {
             let compilerDecl = compilerDecl {
             pieces = parseToPieces(declaration: compilerDecl, name: name, kind: kind)
         } else {
-            pieces = [.other(bestDeclaration.re_sub("\\s+", with: " "))]
+            pieces = [DeclarationPiece(bestDeclaration)]
         }
 
         // Tidy up
@@ -203,5 +205,30 @@ final class SwiftDeclarationBuilder {
 
             return text
         }
+    }
+}
+
+/// An adapter to build Swift declaration info from the pieces we may have got from an ObjC build.
+final class ObjCSwiftDeclarationBuilder : SwiftDeclarationBuilder {
+    /// Take ObjC info, and form enough pieces of Swift info to drive the declaration builder
+    init(objCDict: SourceKittenDict, kind: DefKind, availabilityRules: GatherAvailabilityRules) {
+        var swiftDict = SourceKittenDict()
+        let swiftDecl = objCDict[SwiftDocKey.swiftDeclaration.rawValue] as? String
+        if let swiftDecl = swiftDecl {
+            swiftDict["key.fully_annotated_decl"] = "<objc>\(swiftDecl)</objc>"
+        }
+        if let swiftName = objCDict[SwiftDocKey.swiftName.rawValue] as? String {
+            swiftDict[SwiftDocKey.name.rawValue] = swiftName
+        }
+        precondition(!kind.isSwift)
+        var swiftKind = kind.otherLanguageKind
+        // Enums are imported as structs without NS_ENUM magic...
+        if let decl = swiftDecl,
+            decl.hasPrefix("struct"),
+            let kind = swiftKind,
+            kind.isSwiftEnum {
+            swiftKind = DefKind.from(key: SwiftDeclarationKind.struct.rawValue)!
+        }
+        super.init(dict: swiftDict, file: nil, kind: swiftKind, availabilityRules: availabilityRules)
     }
 }

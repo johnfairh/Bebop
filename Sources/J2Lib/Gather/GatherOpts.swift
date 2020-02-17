@@ -113,13 +113,14 @@ struct GatherOpts : Configurable {
         if objcHeaderFileOpt.configured {
             precondition(objcDirectOpt.configured)
             precondition(moduleNameOpt.configured)
+            #if os(macOS)
             jobs.append(.objcDirect(moduleName: moduleNameOpt.value!,
-                                    srcDir: srcDirOpt.value,
                                     headerFile: objcHeaderFileOpt.value!,
                                     includePaths: objcIncludePathsOpt.value,
                                     sdk: objcSdkOpt.value!,
                                     buildToolArgs: buildToolArgsOpt.value,
                                     availabilityRules: availabilityRules))
+            #endif
         } else {
             jobs.append(.swift(moduleName: moduleNameOpt.value,
                                srcDir: srcDirOpt.value,

@@ -11,6 +11,11 @@ public enum DeclarationPiece {
     case name(String)
     case other(String)
 
+    // Fallback for when the declaration can't be destructured
+    init(_ flat: String) {
+        self = .other(flat.re_sub("\\s+", with: " "))
+    }
+
     var isName: Bool {
         switch self {
         case .name(_): return true
@@ -71,9 +76,13 @@ public enum DefLanguage: String {
 
 /// A Swift language declaration split into its various parts
 public struct SwiftDeclaration: Encodable {
+    /// Possibly multi-line declaration, for verbatim display
     public let declaration: String
+    /// Deprecation messages, or `nil` if not deprecated (XXX Markdown?)
     public let deprecation: Localized<String>?
+    /// List of availability conditions
     public let availability: [String]
+    /// Declaration split into name and non-name pieces, for making an item title
     public let namePieces: [DeclarationPiece]
 
     init(declaration: String = "",
@@ -83,6 +92,28 @@ public struct SwiftDeclaration: Encodable {
         self.declaration = declaration
         self.deprecation = deprecation
         self.availability = availability
+        self.namePieces = namePieces
+    }
+}
+
+/// An Objective-C declaration split into its various parts
+public struct ObjCDeclaration: Encodable {
+    /// Possibly multi-line declaration, for verbatim display
+    public let declaration: String
+    /// Deprecation messages, or `nil` if not deprecated (XXX Markdown?)
+    public let deprecation: Localized<String>?
+    /// Unavailability messages, or `nil` if not unavailable (XXX Markdown?)
+    public let unavailability: Localized<String>?
+    /// Declaration split into name and non-name pieces, for making an item title
+    public let namePieces: [DeclarationPiece]
+
+    init(declaration: String = "",
+         deprecation: Localized<String>? = nil,
+         unavailability: Localized<String>? = nil,
+         namePieces: [DeclarationPiece] = []) {
+        self.declaration = declaration
+        self.deprecation = deprecation
+        self.unavailability = unavailability
         self.namePieces = namePieces
     }
 }

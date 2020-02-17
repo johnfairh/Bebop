@@ -98,6 +98,8 @@ private extension String {
 extension SwiftDeclarationBuilder {
     /// Parse the @available attributes and update members 'deprecations' and 'availability'
     func parse(availables: [String]) {
+        // reset calculated availability
+        availability = []
         availables.forEach {
             let args = $0.parseAvailable()
             guard args.count > 0 else {

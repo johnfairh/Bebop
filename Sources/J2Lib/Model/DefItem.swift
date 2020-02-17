@@ -44,7 +44,7 @@ public class DefItem: Item {
             swiftDeclaration = swiftDeclInfo
         } else {
             swiftDeclaration = SwiftDeclaration()
-            if kind.isSwift {
+            if defKind.isSwift {
                 // XXX wrn
                 logWarning("No declaration, ignoring")
                 return nil

@@ -37,10 +37,10 @@ public final class DefKind {
     private enum Key {
         case swift(SwiftDeclarationKind)
         #if os(macOS)
-        case objC(ObjCDeclarationKind)
+        case objC(ObjCDeclarationKind, SwiftDeclarationKind?)
         #else
-        // sourcekitten doesn't have OCDK on linux, this gives things the right shape.
-        case objC(SwiftDeclarationKind)
+        // sourcekitten doesn't have objc on linux, this gives things the right shape.
+        case objC(SwiftDeclarationKind, SwiftDeclarationKind?)
         #endif
         // Only for swift 'MARK' comments rn...
         case other(key: String, isSwift: Bool)
@@ -48,7 +48,7 @@ public final class DefKind {
         var isSwift: Bool {
             switch self {
             case .swift(_): return true;
-            case .objC(_): return false;
+            case .objC(_, _): return false;
             case .other(_, let isSwift): return isSwift;
             }
         }
@@ -56,7 +56,7 @@ public final class DefKind {
         var key: String {
             switch self {
             case .swift(let kind): return kind.rawValue
-            case .objC(let kind): return kind.rawValue
+            case .objC(let kind, _): return kind.rawValue
             case .other(let key, _): return key
             }
         }
@@ -77,9 +77,10 @@ public final class DefKind {
     #if os(macOS)
     private convenience init(o key: ObjCDeclarationKind,
                              _ uiName: String,
+                             s swiftKey: SwiftDeclarationKind? = nil,
                              dash: String? = nil,
                              meta metaKind: ItemKind = .other) {
-        self.init(.objC(key),
+        self.init(.objC(key, swiftKey),
                   uiName,
                   dashName: dash,
                   declPrefix: nil,
@@ -97,6 +98,14 @@ public final class DefKind {
                   dashName: dash,
                   declPrefix: dp,
                   metaKind: metaKind)
+    }
+
+    /// Map this kind into the other language.  Currently only maps objc -> swift.
+    var otherLanguageKind: DefKind? {
+        guard case let .objC(_, swiftKey) = kindKey else {
+            return nil
+        }
+        return swiftKey.flatMap { DefKind.from(key: $0.rawValue) }
     }
 
     // MARK: Predicates
@@ -149,13 +158,17 @@ public final class DefKind {
         testSwiftKey(keys: [.enumcase])
     }
 
+    var isSwiftEnum: Bool {
+        testSwiftKey(keys: [.enum])
+    }
+
     /// Is this a mark -- an objC `#pragma mark` or a Swift // MARK: - like comment
     var isMark: Bool {
         if case .other(_) = kindKey {
             return true
         }
         #if os(macOS)
-        if case let .objC(k) = kindKey {
+        if case let .objC(k, _) = kindKey {
             return k == .mark
         }
         #endif
@@ -195,22 +208,22 @@ public final class DefKind {
     private static let allObjCKinds: [DefKind] = [
         // Objective-C
         DefKind(o: .unexposedDecl,  "Unexposed"),
-        DefKind(o: .category,       "Category",          dash: "Extension", meta: .extension),
-        DefKind(o: .class,          "Class",                                meta: .type),
-        DefKind(o: .constant,       "Constant",                             meta: .variable),
-        DefKind(o: .enum,           "Enumeration",       dash: "Enum",      meta: .type),
-        DefKind(o: .enumcase,       "Enumeration Case",  dash: "Case"),
-        DefKind(o: .initializer,    "Initializer"),
-        DefKind(o: .methodClass,    "Class Method",      dash: "Method"),
-        DefKind(o: .methodInstance, "Instance Method",   dash: "Method"),
-        DefKind(o: .property,       "Property"),
-        DefKind(o: .protocol,       "Protocol",                             meta: .type),
-        DefKind(o: .typedef,        "Type Definition",   dash: "Type",      meta: .type),
+        DefKind(o: .category,       "Category",         s: .extension,              dash: "Extension", meta: .extension),
+        DefKind(o: .class,          "Class",            s: .class,                                     meta: .type),
+        DefKind(o: .constant,       "Constant",         s: .varGlobal,                                 meta: .variable),
+        DefKind(o: .enum,           "Enumeration",      s: .enum,                   dash: "Enum",      meta: .type),
+        DefKind(o: .enumcase,       "Enumeration Case", s: .enumelement,            dash: "Case"),
+        DefKind(o: .initializer,    "Initializer",      s: .functionConstructor),
+        DefKind(o: .methodClass,    "Class Method",     s: .functionMethodClass,    dash: "Method"),
+        DefKind(o: .methodInstance, "Instance Method",  s: .functionMethodInstance, dash: "Method"),
+        DefKind(o: .property,       "Property",         s: .varInstance),
+        DefKind(o: .protocol,       "Protocol",         s: .protocol,                                  meta: .type),
+        DefKind(o: .typedef,        "Type Definition",  s: .typealias,              dash: "Type",      meta: .type),
         DefKind(o: .mark,           "Mark"),
-        DefKind(o: .function,       "Function",                             meta: .function),
-        DefKind(o: .struct,         "Structure",         dash: "Struct",    meta: .type),
-        DefKind(o: .field,          "Field"),
-        DefKind(o: .ivar,           "Instance Variable", dash: "Variable"),
+        DefKind(o: .function,       "Function",         s: .functionFree,                              meta: .function),
+        DefKind(o: .struct,         "Structure",        s: .struct,                 dash: "Struct",    meta: .type),
+        DefKind(o: .field,          "Field",            s: .varInstance),
+        DefKind(o: .ivar,           "Instance Variable",                            dash: "Variable"),
         DefKind(o: .moduleImport,   "Module"),
     ]
     #endif

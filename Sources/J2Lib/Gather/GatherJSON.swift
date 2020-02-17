@@ -51,7 +51,7 @@ private enum GatherKey: String {
 
 /// Helper to use `GatherKey`
 extension SourceKittenDict {
-    fileprivate subscript(key: GatherKey) -> SourceKitRepresentable? {
+    fileprivate subscript(key: GatherKey) -> Any? {
         get {
             return self[key.rawValue]
         }

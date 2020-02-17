@@ -32,4 +32,13 @@ public enum JSON {
         // (and omg, another open-source foundation difference appears,
         //  trailing spaces galore on linux...)
     }
+
+    /// Decode JSON to expected format
+    public static func decode<T>(_ json: String, _ type: T.Type) throws -> T {
+        let object = try JSONSerialization.jsonObject(with: json.data(using: .utf8)!)
+        guard let result = object as? T else {
+            throw OptionsError("Can't decode json as right type '\(T.self)'.")
+        }
+        return result
+    }
 }

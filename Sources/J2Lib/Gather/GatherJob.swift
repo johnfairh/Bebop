@@ -20,17 +20,18 @@ enum GatherJob: Equatable {
                buildToolArgs: [String],
                availabilityRules: GatherAvailabilityRules)
 
+    #if os(macOS)
     case objcDirect(moduleName: String,
-                    srcDir: URL?,
                     headerFile: URL,
                     includePaths: [URL],
                     sdk: GatherOpts.Sdk,
                     buildToolArgs: [String],
                     availabilityRules: GatherAvailabilityRules)
+    #endif
 
     func execute() throws -> [GatherModulePass] {
         logDebug("Gather: starting job \(self)")
-        defer { logDebug("Gather: finished job \(self)") }
+        defer { logDebug("Gather: finished job") }
 
         switch self {
         case let .swift(moduleName, srcDir, buildTool, buildToolArgs, availabilityRules):
@@ -60,15 +61,39 @@ enum GatherJob: Equatable {
             }
 
             logDebug(" Calling sourcekitten docs generation")
-            let filesInfo = module!.docs.map { swiftDoc in
-                (swiftDoc.file.path ?? "(no path)",
-                 GatherDef(sourceKittenDict: swiftDoc.docsDictionary, file: swiftDoc.file, availabilityRules: availabilityRules))
+            let filesInfo = module!.docs.compactMap { swiftDoc -> (String, GatherDef)? in
+                guard let def = GatherDef(sourceKittenDict: swiftDoc.docsDictionary,
+                                          file: swiftDoc.file,
+                                          availabilityRules: availabilityRules) else {
+                    return nil
+                }
+                return (swiftDoc.file.path ?? "(no path)", def)
             }
 
             return [GatherModulePass(moduleName: module!.name, passIndex: 0, files: filesInfo)]
-
-        case let .objcDirect(moduleName, srcDir, headerFile, includePaths, sdk, buildToolArgs, availabilityRules):
-            return [GatherModulePass(moduleName: moduleName, passIndex: 0, files: [])]
+        #if os(macOS)
+        case let .objcDirect(moduleName, headerFile, includePaths, sdk, buildToolArgs, availabilityRules):
+            let clangArgs = ["-x", "objective-c", "-isysroot",
+                             "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
+                             "-fmodules"]
+            logDebug(" Calling sourcekitten clang mode, args:")
+            clangArgs.forEach { logDebug("  \($0)") }
+            let translationUnit = ClangTranslationUnit(headerFiles: [headerFile.path], compilerArguments: clangArgs)
+            logDebug(" Found \(translationUnit.declarations.count) top-level declarations.")
+            let dicts = try JSON.decode(translationUnit.description, [[String: Any]].self)
+            let filesInfo = try dicts.compactMap { dict -> (String, GatherDef)? in
+                guard let dictEntry = dict.first,
+                    dict.count == 1,
+                    let fileDict = dictEntry.value as? SourceKittenDict else {
+                    throw GatherError("Unexpected datashape from SourceKitten json, can't process dict '\(dict)'.")
+                }
+                guard let def = GatherDef(sourceKittenDict: fileDict, file: nil, availabilityRules: availabilityRules) else {
+                    return nil
+                }
+                return (dictEntry.key, def)
+            }
+            return [GatherModulePass(moduleName: moduleName, passIndex: 0, files: filesInfo)]
+        #endif
         }
     }
 }
