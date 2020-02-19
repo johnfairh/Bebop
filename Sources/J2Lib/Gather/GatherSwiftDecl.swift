@@ -222,12 +222,15 @@ final class ObjCSwiftDeclarationBuilder : SwiftDeclarationBuilder {
         }
         precondition(!kind.isSwift)
         var swiftKind = kind.otherLanguageKind
-        // Enums are imported as structs without NS_ENUM magic...
-        if let decl = swiftDecl,
-            decl.hasPrefix("struct"),
-            let kind = swiftKind,
-            kind.isSwiftEnum {
-            swiftKind = DefKind.from(key: SwiftDeclarationKind.struct.rawValue)!
+        if let decl = swiftDecl {
+            // Enums are imported as structs without NS_ENUM magic...
+            if decl.hasPrefix("struct") {
+                swiftKind = DefKind.from(key: SwiftDeclarationKind.struct.rawValue)!
+            }
+            // Properties can map to class vars...
+            else if decl.contains("class var") {
+                swiftKind = DefKind.from(key: SwiftDeclarationKind.varClass.rawValue)!
+            }
         }
         super.init(dict: swiftDict, file: nil, kind: swiftKind, availabilityRules: availabilityRules)
     }

@@ -8,6 +8,7 @@
 
 import XCTest
 @testable import J2Lib
+import SourceKittenFramework
 
 private class System {
     let config: Config
@@ -39,7 +40,6 @@ class TestGatherObjC: XCTestCase {
         AssertThrows(try system.configure(["--objc-header-file=\(tmpFile.path)"]), OptionsError.self)
     }
     #else
-
 
     private func checkError(_ cliOpts: [String], line: UInt = #line) {
         let system = System()
@@ -100,6 +100,56 @@ class TestGatherObjC: XCTestCase {
                              sdk: .iphoneos,
                              buildToolArgs: [],
                              availabilityRules: GatherAvailabilityRules()))
+    }
+
+    // Declaration formatting
+
+    private func checkDeclaration(_ decl: String, _ name: String, _ rawKind: ObjCDeclarationKind,
+                                  _ expectDecl: String, _ expectPieces: String, line: UInt = #line) {
+        let dict: SourceKittenDict = [SwiftDocKey.parsedDeclaration.rawValue: decl,
+                                      SwiftDocKey.name.rawValue: name]
+        let kind = DefKind.from(key: rawKind.rawValue)!
+        let builder = ObjCDeclarationBuilder(dict: dict, kind: kind)
+        guard let built = builder.build() else {
+            XCTFail("Couldn't build", line: line)
+            return
+        }
+        XCTAssertEqual(expectDecl, built.declaration, "original: \(decl)", line: line)
+    }
+
+    func testStructDeclarations() {
+        let classVariants = [
+            "@interface Test : NSObject {\n  NSString *ivarName;\n}",
+            "@interface Test : NSObject\n{\nNSString *ivarName;\n\n}\n\n\n@property NSString *propertyName;\n\n\n- (void)method;\n\n+ (void)classMethod;\n\n\n@end",
+            "@interface Test : NSObject {}",
+            "@interface Test : NSObject\n@end",
+            "@interface Test : NSObject",
+        ]
+        classVariants.forEach { variant in
+            checkDeclaration(variant, "Test", .class, "@interface Test : NSObject", "@interface #Test#")
+        }
+    }
+
+    func testEnumDeclarations() {
+        checkDeclaration("NS_ENUM(NSInteger, AEnum) {\n  a = 3,\n  b = 4\n}", "AEnum", .enum,
+                         "NS_ENUM(NSInteger, AEnum)", "NS_ENUM(NSInteger, #AEnum#)")
+        checkDeclaration("typedef NS_ENUM(NSInteger, AEnum", "AEnum", .typedef,
+                         "typedef NS_ENUM(NSInteger, AEnum)", "typedef NS_ENUM(NSInteger, #AEnum#)")
+        checkDeclaration("typedef enum AEnum AEnum", "typedef enum AEnum AEnum", .typedef,
+                         "typedef enum AEnum AEnum", "typedef enum AEnum #AEnum#")
+    }
+
+    func testPropertyDeclarations() {
+        checkDeclaration("@property NSString *prop", "prop", .property,
+                         "@property NSString *prop", "NSString *#prop#")
+        checkDeclaration("@property (assign, readwrite, atomic) NSString *prop;", "prop", .property,
+                         "@property NSString *prop", "NSString *#prop#")
+        checkDeclaration("@property (assign, readwrite, nonatomic, nullable) NSImage *image;", "image", .property,
+                         "@property (nonatomic, nullable) NSImage *image", "NSImage *#image#")
+        checkDeclaration("@property (class, nonatomic, copy) NSUUID *identifier", "identifier", .property,
+                         "@property (class, nonatomic, copy) NSUUID *identifier", "NSUUID *#identifier#")
+        checkDeclaration("@property (readwrite, copy, nonatomic, class) NSUUID *identifier", "identifier", .property,
+                         "@property (copy, nonatomic, class) NSUUID *identifier", "NSUUID *#identifier#")
     }
 
     #endif /* macOS */

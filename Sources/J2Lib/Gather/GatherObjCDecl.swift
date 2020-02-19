@@ -36,16 +36,16 @@ class ObjCDeclarationBuilder {
             return nil
         }
         let neatDeclaration = parse(declaration: declaration)
-
-        let deprecations = parseDeprecations()
-
         let pieces: [DeclarationPiece]
 
+        // If we're missing the name then don't try very hard
         if let name = dict[SwiftDocKey.name.rawValue] as? String {
             pieces = parseToPieces(declaration: neatDeclaration, name: name)
         } else {
             pieces = [DeclarationPiece(neatDeclaration)]
         }
+
+        let deprecations = parseDeprecations()
 
         return ObjCDeclaration(declaration: neatDeclaration,
                                deprecation: deprecations.deprecated,
@@ -53,13 +53,33 @@ class ObjCDeclarationBuilder {
                                namePieces: pieces)
     }
 
-    /// Tidy up the Objective-C declaration.  We need to:
-    /// 1) Remove ivar declaration blocks from @interfaces
-    /// 2) Remove the 'structure' part of a nominal type def (we get this with a parsed declaration)
-    /// 3) Understand NS_ENUM magic
-    /// 4) Remove default property attributes from property decls
-    func parse(declaration: String) -> String {
-        return declaration
+    /// Tidy up the Objective-C declaration to remove stuff that libclang has added
+    /// but humans aren't interested in and work around bugs in the stack.
+    func parse(declaration input: String) -> String {
+        var decl = input
+        if kind.isObjCStructural {
+            // Strip trailing content that can show up: ivar blocks, random {}, etc.
+            decl = decl.re_sub(#"(?:\s*)[{\n].*\z"#, with: "", options: [.s])
+        } else if kind.isObjCTypedef {
+            // Bug somewhere stripping the last char of NS_ENUM typedefs
+            if decl.re_isMatch(#"^typedef\s+NS_\w*\("#) && !decl.hasSuffix(")") {
+                decl.append(")")
+            }
+        } else if kind.isObjCProperty {
+            if let propertyMatch = decl.re_match(#"@property\s*( \(.*?\))"#) {
+                // 1) Don't show atomic: it's the default
+                // 2) Don't show readwrite: it's the default
+                // 3) Don't show 'assign': that's a default
+                // 3a) Don't show 'assign, unsafe_unretained': that's the same default in Xcode11.4+
+                var newProperties = propertyMatch[1].re_sub(#"\b(?:atomic|readwrite|assign|unsafe_retained),? ?"#, with: "")
+                if newProperties == " ()" {
+                    newProperties = "" // all gone!
+                }
+                decl = decl.re_sub(#"(?<=@property)\s+\(.*?\)"#, with: newProperties)
+            }
+        }
+        // Strip any trailing semicolons/whitespace - inconsistencies somewhere
+        return decl.re_sub(#"[;\s]*$"#, with: "")
     }
 
     /// Make some sense out of the four optional attributes that SourceKitten gives us.
@@ -69,6 +89,37 @@ class ObjCDeclarationBuilder {
 
     /// Parse the cleaned-up declaration into a sequence of pieces.
     func parseToPieces(declaration: String, name: String) -> [DeclarationPiece] {
+        // type: <typekindname> name
+        //
+        // DefKind(o: .category,       "Category",         s: .extension,              dash: "Extension", meta: .extension),
+        // DefKind(o: .class,          "Class",            s: .class,                                     meta: .type),
+        // DefKind(o: .protocol,       "Protocol",         s: .protocol,                                  meta: .type),
+        // DefKind(o: .struct,         "Structure",        s: .struct,                 dash: "Struct",    meta: .type),
+        // DefKind(o: .enum,           "Enumeration",      s: .enum, /* or struct */   dash: "Enum",      meta: .type),
+        // DefKind(o: .typedef,        "Type Definition",  s: .typealias,              dash: "Type",      meta: .type),
+        //
+        // enumcase like this too, but blank prefix
+        //
+        // DefKind(o: .enumcase,       "Enumeration Case", s: .enumelement,            dash: "Case"),
+
+        // variable: strip any @property(stuff)|extern / before the name / name / stop
+        //
+        // DefKind(o: .constant,       "Constant",         s: .varGlobal,                                 meta: .variable),
+        // DefKind(o: .property,       "Property",         s: .varInstance), /* or varClass */
+        // DefKind(o: .field,          "Field",            s: .varInstance),
+        // DefKind(o: .ivar,           "Instance Variable",                            dash: "Variable"),
+
+        // function-like: tremendous fun
+        // DefKind(o: .initializer,    "Initializer",      s: .functionConstructor),
+        // DefKind(o: .methodClass,    "Class Method",     s: .functionMethodClass,    dash: "Method"),
+        // DefKind(o: .methodInstance, "Instance Method",  s: .functionMethodInstance, dash: "Method"),
+        // DefKind(o: .function,       "Function",         s: .functionFree,                              meta: .function),
+
+        // other: all-name, sure....
+        // DefKind(o: .unexposedDecl,  "Unexposed"),
+        // DefKind(o: .mark,           "Mark"),
+        // DefKind(o: .moduleImport,   "Module"),
+
         return [DeclarationPiece(declaration)]
     }
 }

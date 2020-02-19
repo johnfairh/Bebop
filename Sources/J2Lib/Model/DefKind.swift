@@ -36,12 +36,7 @@ public final class DefKind {
     /// The underlying sourcekitten key - keep hold of the enum to avoid string comparisons (right?)
     private enum Key {
         case swift(SwiftDeclarationKind)
-        #if os(macOS)
         case objC(ObjCDeclarationKind, SwiftDeclarationKind?)
-        #else
-        // sourcekitten doesn't have objc on linux, this gives things the right shape.
-        case objC(SwiftDeclarationKind, SwiftDeclarationKind?)
-        #endif
         // Only for swift 'MARK' comments rn...
         case other(key: String, isSwift: Bool)
 
@@ -74,7 +69,6 @@ public final class DefKind {
         self.metaKind = metaKind
     }
 
-    #if os(macOS)
     private convenience init(o key: ObjCDeclarationKind,
                              _ uiName: String,
                              s swiftKey: SwiftDeclarationKind? = nil,
@@ -86,7 +80,7 @@ public final class DefKind {
                   declPrefix: nil,
                   metaKind: metaKind)
     }
-    #endif
+
 
     private convenience init(s key: SwiftDeclarationKind,
                              _ uiName: String,
@@ -115,6 +109,13 @@ public final class DefKind {
             return false
         }
         return keys.contains(swiftKey)
+    }
+
+    private func testObjCKey(keys: [ObjCDeclarationKind]) -> Bool {
+        guard case let .objC(objcKey, _) = kindKey else {
+            return false
+        }
+        return keys.contains(objcKey)
     }
 
     /// Is this any kind of Swift extension declaration?
@@ -167,12 +168,31 @@ public final class DefKind {
         if case .other(_) = kindKey {
             return true
         }
-        #if os(macOS)
         if case let .objC(k, _) = kindKey {
             return k == .mark
         }
-        #endif
         return false
+    }
+
+    /// Is this an ObjC decl with a 'body' - like struct or @interface
+    var isObjCStructural: Bool {
+        testObjCKey(keys: [
+            .category,
+            .class,
+            .enum,
+            .protocol,
+            .struct,
+        ])
+    }
+
+    /// Is this a typedef
+    var isObjCTypedef: Bool {
+        testObjCKey(keys: [.typedef])
+    }
+
+    /// Is this a @property
+    var isObjCProperty: Bool {
+        testObjCKey(keys: [.property])
     }
 
     // MARK: Factory
@@ -186,37 +206,30 @@ public final class DefKind {
     private static let kindMap: [String : DefKind] = {
         var map: [String: DefKind] = [:]
         allSwiftKinds.forEach { map[$0.key] = $0 }
-        #if os(macOS)
         allObjCKinds.forEach { map[$0.key] = $0 }
-        #endif
         return map
     }()
 
     /// Sequence access to kinds list
     public static var all: [DefKind] { // should be `some Sequence` !
-        #if os(macOS)
-        return allObjCKinds + allSwiftKinds
-        #else
-        return allSwiftKinds
-        #endif
+        allObjCKinds + allSwiftKinds
     }
 
     /// Master list of kinds.  I've superstitiously kept the jazzy ordering, which might affect the default
     /// ordering somewhere - tbd.
 
-    #if os(macOS)
     private static let allObjCKinds: [DefKind] = [
         // Objective-C
         DefKind(o: .unexposedDecl,  "Unexposed"),
         DefKind(o: .category,       "Category",         s: .extension,              dash: "Extension", meta: .extension),
         DefKind(o: .class,          "Class",            s: .class,                                     meta: .type),
         DefKind(o: .constant,       "Constant",         s: .varGlobal,                                 meta: .variable),
-        DefKind(o: .enum,           "Enumeration",      s: .enum,                   dash: "Enum",      meta: .type),
+        DefKind(o: .enum,           "Enumeration",      s: .enum, /* or struct */   dash: "Enum",      meta: .type),
         DefKind(o: .enumcase,       "Enumeration Case", s: .enumelement,            dash: "Case"),
         DefKind(o: .initializer,    "Initializer",      s: .functionConstructor),
         DefKind(o: .methodClass,    "Class Method",     s: .functionMethodClass,    dash: "Method"),
         DefKind(o: .methodInstance, "Instance Method",  s: .functionMethodInstance, dash: "Method"),
-        DefKind(o: .property,       "Property",         s: .varInstance),
+        DefKind(o: .property,       "Property",         s: .varInstance), /* or varClass */
         DefKind(o: .protocol,       "Protocol",         s: .protocol,                                  meta: .type),
         DefKind(o: .typedef,        "Type Definition",  s: .typealias,              dash: "Type",      meta: .type),
         DefKind(o: .mark,           "Mark"),
@@ -226,7 +239,6 @@ public final class DefKind {
         DefKind(o: .ivar,           "Instance Variable",                            dash: "Variable"),
         DefKind(o: .moduleImport,   "Module"),
     ]
-    #endif
 
     private static let allSwiftKinds: [DefKind] = [
         // Swift
@@ -290,3 +302,44 @@ extension DefKind: Hashable {
         hasher.combine(key)
     }
 }
+
+#if os(Linux) /* Too exhausting to chop out references to these */
+public enum ObjCDeclarationKind: String {
+    /// `category`.
+    case category = "sourcekitten.source.lang.objc.decl.category"
+    /// `class`.
+    case `class` = "sourcekitten.source.lang.objc.decl.class"
+    /// `constant`.
+    case constant = "sourcekitten.source.lang.objc.decl.constant"
+    /// `enum`.
+    case `enum` = "sourcekitten.source.lang.objc.decl.enum"
+    /// `enumcase`.
+    case enumcase = "sourcekitten.source.lang.objc.decl.enumcase"
+    /// `initializer`.
+    case initializer = "sourcekitten.source.lang.objc.decl.initializer"
+    /// `method.class`.
+    case methodClass = "sourcekitten.source.lang.objc.decl.method.class"
+    /// `method.instance`.
+    case methodInstance = "sourcekitten.source.lang.objc.decl.method.instance"
+    /// `property`.
+    case property = "sourcekitten.source.lang.objc.decl.property"
+    /// `protocol`.
+    case `protocol` = "sourcekitten.source.lang.objc.decl.protocol"
+    /// `typedef`.
+    case typedef = "sourcekitten.source.lang.objc.decl.typedef"
+    /// `function`.
+    case function = "sourcekitten.source.lang.objc.decl.function"
+    /// `mark`.
+    case mark = "sourcekitten.source.lang.objc.mark"
+    /// `struct`
+    case `struct` = "sourcekitten.source.lang.objc.decl.struct"
+    /// `field`
+    case field = "sourcekitten.source.lang.objc.decl.field"
+    /// `ivar`
+    case ivar = "sourcekitten.source.lang.objc.decl.ivar"
+    /// `ModuleImport`
+    case moduleImport = "sourcekitten.source.lang.objc.module.import"
+    /// `UnexposedDecl`
+    case unexposedDecl = "sourcekitten.source.lang.objc.decl.unexposed"
+}
+#endif

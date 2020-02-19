@@ -205,22 +205,11 @@ class TestGatherDecl: XCTestCase {
 
     // Swift decl-piece-name
 
-    private func checkPieces(_ pieces: [DeclarationPiece], _ str: String, file: StaticString = #file, line: UInt = #line) {
-        var acc = ""
-        pieces.forEach {
-            switch $0 {
-            case .name(let name): acc += "#\(name)#"
-            case .other(let other): acc += other
-            }
-        }
-        XCTAssertEqual(str, acc, file: file, line: line)
-    }
-
-    private func checkFuncPieces(_ decl: String, _ name: String, _ expect: String, file: StaticString = #file, line: UInt = #line) {
+    private func checkFuncPieces(_ decl: String, _ name: String, _ expect: String, line: UInt = #line) {
         let kind = DefKind.from(key: "source.lang.swift.decl.function.method.instance")!
         let builder = SwiftDeclarationBuilder(dict: [:], file: nil, kind: nil)
         let pieces = builder.parseToPieces(declaration: decl, name: name, kind: kind)
-        checkPieces(pieces, expect, file: file, line: line)
+        XCTAssertEqual(expect, pieces.flat, line: line)
     }
 
     func testFunctionPieces() {
@@ -241,11 +230,11 @@ class TestGatherDecl: XCTestCase {
 
         let classKind = DefKind.from(key: "source.lang.swift.decl.class")!
         let pieces = builder.parseToPieces(declaration: "class Fred: Barney", name: "Fred", kind: classKind)
-        checkPieces(pieces, "class #Fred#")
+        XCTAssertEqual("class #Fred#", pieces.flat)
 
         let varKind = DefKind.from(key: "source.lang.swift.decl.var.class")!
         let pieces2 = builder.parseToPieces(declaration: "class var fred: String { get }", name: "fred", kind: varKind)
-        checkPieces(pieces2, "class var #fred#: String")
+        XCTAssertEqual("class var #fred#: String", pieces2.flat)
     }
 
     func testNearFunctionPieces() {
@@ -254,14 +243,14 @@ class TestGatherDecl: XCTestCase {
         // Not entirely sure this is right for subscript!
         let subscriptKind = DefKind.from(key: "source.lang.swift.decl.function.subscript")!
         let pieces = builder.parseToPieces(declaration: "public subscript(newValue: Int) -> String", name: "subscript", kind: subscriptKind)
-        checkPieces(pieces, "#subscript#(#newValue#: Int) -> String")
+        XCTAssertEqual("#subscript#(#newValue#: Int) -> String", pieces.flat)
 
         let initKind = DefKind.from(key: "source.lang.swift.decl.function.constructor")!
         let pieces2 = builder.parseToPieces(declaration: "init()", name: "init", kind: initKind)
-        checkPieces(pieces2, "#init#()")
+        XCTAssertEqual("#init#()", pieces2.flat)
 
         let pieces3 = builder.parseToPieces(declaration: "init(a b: Int)", name: "init", kind: initKind)
-        checkPieces(pieces3, "#init#(#a#: Int)")
+        XCTAssertEqual("#init#(#a#: Int)", pieces3.flat)
     }
 
     // Localization
@@ -323,5 +312,18 @@ class TestGatherDecl: XCTestCase {
                                        "--doc-comment-language=en",
                                        "--source-directory=\(srcURL.path)"],
                                       ["English"])
+    }
+}
+
+extension Array where Element == DeclarationPiece {
+    var flat: String {
+        var acc = ""
+        forEach {
+            switch $0 {
+            case .name(let name): acc += "#\(name)#"
+            case .other(let other): acc += other
+            }
+        }
+        return acc
     }
 }

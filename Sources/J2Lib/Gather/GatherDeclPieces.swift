@@ -21,6 +21,9 @@ import SwiftSyntax
 /// ...in the presence of arbitrarily-complex types and other stuff that defeat regular
 /// expressions.
 ///
+/// Intentionally dropping generic parameter lists, requirements clauses, and inheritance
+/// clauses from nominal/extension type declarations.
+///
 extension SwiftDeclarationBuilder {
     /// Parse a swift compiler-style declaration into pieces for an index page
     func parseToPieces(declaration: String, name: String, kind: DefKind) -> [DeclarationPiece] {
