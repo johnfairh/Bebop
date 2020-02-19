@@ -73,11 +73,12 @@ public final class DefKind {
                              _ uiName: String,
                              s swiftKey: SwiftDeclarationKind? = nil,
                              dash: String? = nil,
+                             dp: String? = nil,
                              meta metaKind: ItemKind = .other) {
         self.init(.objC(key, swiftKey),
                   uiName,
                   dashName: dash,
-                  declPrefix: nil,
+                  declPrefix: dp,
                   metaKind: metaKind)
     }
 
@@ -195,6 +196,30 @@ public final class DefKind {
         testObjCKey(keys: [.property])
     }
 
+    /// Is this a thing with method syntax
+    var isObjCMethod: Bool {
+        testObjCKey(keys: [
+            .initializer,
+            .methodClass,
+            .methodInstance
+        ])
+    }
+
+    /// Is a raw C function with C syntax
+    var isObjCCFunction: Bool {
+        testObjCKey(keys: [.function])
+    }
+
+    /// Is basically a C variable
+    var isObjCVariable: Bool {
+        testObjCKey(keys: [
+            .constant,
+            .property,
+            .field,
+            .ivar
+        ])
+    }
+
     // MARK: Factory
 
     /// Find the `Kind` object from a sourcekitten dictionary key, or `nil` if it's not supported
@@ -221,20 +246,20 @@ public final class DefKind {
     private static let allObjCKinds: [DefKind] = [
         // Objective-C
         DefKind(o: .unexposedDecl,  "Unexposed"),
-        DefKind(o: .category,       "Category",         s: .extension,              dash: "Extension", meta: .extension),
-        DefKind(o: .class,          "Class",            s: .class,                                     meta: .type),
-        DefKind(o: .constant,       "Constant",         s: .varGlobal,                                 meta: .variable),
-        DefKind(o: .enum,           "Enumeration",      s: .enum, /* or struct */   dash: "Enum",      meta: .type),
-        DefKind(o: .enumcase,       "Enumeration Case", s: .enumelement,            dash: "Case"),
+        DefKind(o: .category,       "Category",         s: .extension,              dash: "Extension", dp: "@category",  meta: .extension),
+        DefKind(o: .class,          "Class",            s: .class,                                     dp: "@interface", meta: .type),
+        DefKind(o: .constant,       "Constant",         s: .varGlobal,                                                   meta: .variable),
+        DefKind(o: .enum,           "Enumeration",      s: .enum, /* or struct */   dash: "Enum",      dp: "enum",       meta: .type),
+        DefKind(o: .enumcase,       "Enumeration Case", s: .enumelement,            dash: "Case",      dp: ""),
         DefKind(o: .initializer,    "Initializer",      s: .functionConstructor),
         DefKind(o: .methodClass,    "Class Method",     s: .functionMethodClass,    dash: "Method"),
         DefKind(o: .methodInstance, "Instance Method",  s: .functionMethodInstance, dash: "Method"),
         DefKind(o: .property,       "Property",         s: .varInstance), /* or varClass */
-        DefKind(o: .protocol,       "Protocol",         s: .protocol,                                  meta: .type),
-        DefKind(o: .typedef,        "Type Definition",  s: .typealias,              dash: "Type",      meta: .type),
+        DefKind(o: .protocol,       "Protocol",         s: .protocol,                                  dp: "@protocol",  meta: .type),
+        DefKind(o: .typedef,        "Type Definition",  s: .typealias,              dash: "Type",      dp: "typedef",    meta: .type),
         DefKind(o: .mark,           "Mark"),
-        DefKind(o: .function,       "Function",         s: .functionFree,                              meta: .function),
-        DefKind(o: .struct,         "Structure",        s: .struct,                 dash: "Struct",    meta: .type),
+        DefKind(o: .function,       "Function",         s: .functionFree,                                                meta: .function),
+        DefKind(o: .struct,         "Structure",        s: .struct,                 dash: "Struct",    dp: "struct",     meta: .type),
         DefKind(o: .field,          "Field",            s: .varInstance),
         DefKind(o: .ivar,           "Instance Variable",                            dash: "Variable"),
         DefKind(o: .moduleImport,   "Module"),

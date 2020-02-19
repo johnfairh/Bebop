@@ -91,35 +91,83 @@ class ObjCDeclarationBuilder {
     func parseToPieces(declaration: String, name: String) -> [DeclarationPiece] {
         // type: <typekindname> name
         //
-        // DefKind(o: .category,       "Category",         s: .extension,              dash: "Extension", meta: .extension),
-        // DefKind(o: .class,          "Class",            s: .class,                                     meta: .type),
-        // DefKind(o: .protocol,       "Protocol",         s: .protocol,                                  meta: .type),
-        // DefKind(o: .struct,         "Structure",        s: .struct,                 dash: "Struct",    meta: .type),
-        // DefKind(o: .enum,           "Enumeration",      s: .enum, /* or struct */   dash: "Enum",      meta: .type),
-        // DefKind(o: .typedef,        "Type Definition",  s: .typealias,              dash: "Type",      meta: .type),
-        //
-        // enumcase like this too, but blank prefix
-        //
-        // DefKind(o: .enumcase,       "Enumeration Case", s: .enumelement,            dash: "Case"),
-
+        // DefKind(o: .category,
+        // DefKind(o: .class,
+        // DefKind(o: .protocol,
+        // DefKind(o: .struct,
+        // DefKind(o: .enum,
+        // DefKind(o: .typedef,
+        // DefKind(o: .enumcase,
+        if let declPrefix = kind.declPrefix {
+            return [.other("\(declPrefix) "), .name(name)]
+        }
+        // ObjCMethod-like: sigh...
+        // DefKind(o: .initializer,
+        // DefKind(o: .methodClass,
+        // DefKind(o: .methodInstance,
+        if kind.isObjCMethod {
+            return parseMethodToPieces(method: declaration)
+        }
         // variable: strip any @property(stuff)|extern / before the name / name / stop
         //
-        // DefKind(o: .constant,       "Constant",         s: .varGlobal,                                 meta: .variable),
-        // DefKind(o: .property,       "Property",         s: .varInstance), /* or varClass */
-        // DefKind(o: .field,          "Field",            s: .varInstance),
-        // DefKind(o: .ivar,           "Instance Variable",                            dash: "Variable"),
-
-        // function-like: tremendous fun
-        // DefKind(o: .initializer,    "Initializer",      s: .functionConstructor),
-        // DefKind(o: .methodClass,    "Class Method",     s: .functionMethodClass,    dash: "Method"),
-        // DefKind(o: .methodInstance, "Instance Method",  s: .functionMethodInstance, dash: "Method"),
-        // DefKind(o: .function,       "Function",         s: .functionFree,                              meta: .function),
-
-        // other: all-name, sure....
+        // DefKind(o: .constant,
+        // DefKind(o: .property,
+        // DefKind(o: .field,
+        // DefKind(o: .ivar,
+        if kind.isObjCVariable {
+            guard let matches = declaration.re_match(#"(^.*)\#(name)"#) else {
+                return [.name(declaration)]
+            }
+            let prefix = matches[1].re_sub(#"^(extern|@property\s*(?:\(.*?\))?)"#, with: "")
+            return [.other(prefix.re_sub(#"^\s+"#, with: "")), .name(name)]
+        }
+        // Free C function: don't try to decode types
+        // DefKind(o: .function,
+        if kind.isObjCCFunction {
+            guard let matches = declaration.re_match(#"(^.*)\#(name)(.*$)"#, options: [.s]) else {
+                return [.name(declaration)]
+            }
+            return [.other(matches[1]), .name(name), .other(matches[2])]
+        }
+        // Won't make it anywhere we can see it
+        //
         // DefKind(o: .unexposedDecl,  "Unexposed"),
         // DefKind(o: .mark,           "Mark"),
         // DefKind(o: .moduleImport,   "Module"),
+        return [.name(declaration)]
+    }
 
-        return [DeclarationPiece(declaration)]
+    /// Deal with the method syntax, pull out the 'name' pieces.
+    private func parseMethodToPieces(method: String) -> [DeclarationPiece] {
+        var pieces = [DeclarationPiece]()
+
+        var decl = method
+        guard let intro = decl.prefixMatch(#".*?(?=\w+\s*($|:))"#) else {
+            return [.name(method)] // confused
+        }
+        pieces.append(.other(intro))
+        while true {
+            guard let name = decl.prefixMatch(#"\w+"#) else {
+                return [.name(method)] // confused again
+            }
+            pieces.append(.name(name))
+            guard let nextOther = decl.prefixMatch(#"\s*:.*?(?=\w+\s*:)"#) else {
+                pieces.append(.other(decl))
+                break
+            }
+            pieces.append(.other(nextOther))
+        }
+        return pieces
+    }
+}
+
+private extension String {
+    mutating func prefixMatch(_ pattern: String) -> String? {
+        guard let match = self.re_match("^\(pattern)", options: [.s]) else {
+            return nil
+        }
+        let prefix = match[0]
+        self = String(dropFirst(prefix.count))
+        return prefix
     }
 }

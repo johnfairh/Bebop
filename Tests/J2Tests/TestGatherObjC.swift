@@ -102,6 +102,8 @@ class TestGatherObjC: XCTestCase {
                              availabilityRules: GatherAvailabilityRules()))
     }
 
+    #endif /* macOS */
+
     // Declaration formatting
 
     private func checkDeclaration(_ decl: String, _ name: String, _ rawKind: ObjCDeclarationKind,
@@ -115,6 +117,7 @@ class TestGatherObjC: XCTestCase {
             return
         }
         XCTAssertEqual(expectDecl, built.declaration, "original: \(decl)", line: line)
+        XCTAssertEqual(expectPieces, built.namePieces.flat, "originall: \(decl)", line: line)
     }
 
     func testStructDeclarations() {
@@ -132,11 +135,11 @@ class TestGatherObjC: XCTestCase {
 
     func testEnumDeclarations() {
         checkDeclaration("NS_ENUM(NSInteger, AEnum) {\n  a = 3,\n  b = 4\n}", "AEnum", .enum,
-                         "NS_ENUM(NSInteger, AEnum)", "NS_ENUM(NSInteger, #AEnum#)")
+                         "NS_ENUM(NSInteger, AEnum)", "enum #AEnum#")
         checkDeclaration("typedef NS_ENUM(NSInteger, AEnum", "AEnum", .typedef,
-                         "typedef NS_ENUM(NSInteger, AEnum)", "typedef NS_ENUM(NSInteger, #AEnum#)")
-        checkDeclaration("typedef enum AEnum AEnum", "typedef enum AEnum AEnum", .typedef,
-                         "typedef enum AEnum AEnum", "typedef enum AEnum #AEnum#")
+                         "typedef NS_ENUM(NSInteger, AEnum)", "typedef #AEnum#")
+        checkDeclaration("typedef enum AEnum AEnum", "AEnum", .typedef,
+                         "typedef enum AEnum AEnum", "typedef #AEnum#")
     }
 
     func testPropertyDeclarations() {
@@ -152,5 +155,39 @@ class TestGatherObjC: XCTestCase {
                          "@property (copy, nonatomic, class) NSUUID *identifier", "NSUUID *#identifier#")
     }
 
-    #endif /* macOS */
+    func testMethodDeclarations() {
+        checkDeclaration("+ method", "+method", .methodClass, "+ method", "+ #method#")
+        checkDeclaration("+ method:(int) param", "+method:", .methodClass,
+                         "+ method:(int) param", "+ #method#:(int) param")
+        checkDeclaration("-method:(int) param and:(NSString *)name", "-method:and:", .methodInstance,
+                         "-method:(int) param and:(NSString *)name", "-#method#:(int) param #and#:(NSString *)name")
+        checkDeclaration("""
+                         - methodName:(int) param1
+                                  and:(string) param2
+                              finally:(int) param3
+                         """,
+                         "-methodName:and:finally:",
+                         .methodInstance,
+                         """
+                         - methodName:(int) param1
+                                  and:(string) param2
+                              finally:(int) param3
+                         """,
+                         """
+                         - #methodName#:(int) param1
+                                  #and#:(string) param2
+                              #finally#:(int) param3
+                         """)
+    }
+
+    func testSimpleDeclarations() {
+        checkDeclaration("void cfunc(int)", "cfunc", .function,
+                         "void cfunc(int)", "void #cfunc#(int)")
+        checkDeclaration("int field", "field", .field,
+                         "int field", "int #field#")
+        checkDeclaration("@import Foundation", "Foundation", .moduleImport,
+                         "@import Foundation", "#@import Foundation#")
+    }
+
+    // + error paths on malformed data once complete here
 }
