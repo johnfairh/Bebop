@@ -82,15 +82,19 @@ class TestProducts: XCTestCase {
         try compareSwift(product: "files-json", against: "SpmSwiftModule.files.json", cleanUpJSON: true)
     }
 
+    func testDeclsJsonSwift() throws {
+        try compareSwift(product: "decls-json", against: "SpmSwiftModule.decls.json")
+    }
+
     #if os(macOS)
     func testFilesJsonObjC() throws {
         try compareObjC(product: "files-json", against: "ObjectiveC.files.json", cleanUpJSON: true)
     }
-    #endif
 
-    func testDeclsJsonSwift() throws {
-        try compareSwift(product: "decls-json", against: "SpmSwiftModule.decls.json")
+    func testDeclsJsonObjC() throws {
+        try compareObjC(product: "decls-json", against: "ObjectiveC.decls.json")
     }
+    #endif
 
     func testPageGenSwift() throws {
         try compareSwift(product: "docs-summary-json", against: "SpmSwiftModule.docs-summary.json")

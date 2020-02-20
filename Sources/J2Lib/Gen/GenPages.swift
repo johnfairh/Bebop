@@ -136,10 +136,10 @@ class ItemVisitor: ItemVisitorProtocol {
 
     func visit(defItem: DefItem, parents: [Item]) {
         // not masochistic enough to do this in templates...
-        let swiftTitleHtml = defItem.swiftDeclaration.namePieces.wrappingOther(before: #"<span class="j2-item-secondary">"#, after: "</span>")
+        let swiftTitleHtml = defItem.swiftDeclaration?.namePieces.wrappingOther(before: #"<span class="j2-item-secondary">"#, after: "</span>") ?? "SWIFT"
         items.append(GenData.Item(
             anchorId: defItem.slug,
-            flatTitle: .init(unlocalized: defItem.swiftDeclaration.namePieces.flattened),
+            flatTitle: .init(unlocalized: defItem.swiftDeclaration?.namePieces.flattened ?? "SWIFT"),
             swiftTitleHtml: Html(swiftTitleHtml),
             dashType: defItem.defKind.dashName,
             url: defItem.renderAsPage ? defItem.url : nil,
@@ -166,10 +166,10 @@ class ItemVisitor: ItemVisitorProtocol {
 extension DefItem {
     var asGenDef: GenData.Def {
         GenData.Def(deprecation: deprecationNotice?.html,
-                    availability: swiftDeclaration.availability.map { Localized<String>(unlocalized: $0) },
+                    availability: swiftDeclaration?.availability.map { Localized<String>(unlocalized: $0) } ?? [],
                     abstract: documentation.abstract?.html,
                     overview: documentation.overview?.html,
-                    swiftDeclaration: Html(swiftDeclaration.declaration),
+                    swiftDeclaration: Html(swiftDeclaration?.declaration ?? "SWIFT"),
                     params: documentation.parameters.map { docParam in
                         GenData.Param(name: docParam.name, description: docParam.description.html)
                     },

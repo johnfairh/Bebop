@@ -231,6 +231,10 @@ final class ObjCSwiftDeclarationBuilder : SwiftDeclarationBuilder {
             else if decl.contains("class var") {
                 swiftKind = DefKind.from(key: SwiftDeclarationKind.varClass.rawValue)!
             }
+            // ObjC initializer doesn't seem to work
+            else if kind.isObjCMethod && decl.re_isMatch(#"^init[!?]?\("#) {
+                swiftKind = DefKind.from(key: SwiftDeclarationKind.functionConstructor.rawValue)
+            }
         }
         super.init(dict: swiftDict, file: nil, kind: swiftKind, availabilityRules: availabilityRules)
     }

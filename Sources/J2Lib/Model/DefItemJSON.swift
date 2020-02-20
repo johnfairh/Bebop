@@ -16,6 +16,7 @@ extension DefItem {
         case passIndex
         case kind
         case swiftDeclaration
+        case objCDeclaration
         case documentation
     }
 
@@ -28,8 +29,11 @@ extension DefItem {
         try container.encode(moduleName, forKey: .moduleName)
         try container.encode(passIndex, forKey: .passIndex)
         try container.encode(defKind.key, forKey: .kind)
-        if !swiftDeclaration.declaration.isEmpty {
+        if let swiftDeclaration = swiftDeclaration {
             try container.encode(swiftDeclaration, forKey: .swiftDeclaration)
+        }
+        if let objCDeclaration = objCDeclaration {
+            try container.encode(objCDeclaration, forKey: .objCDeclaration)
         }
         if !documentation.isEmpty {
             try container.encode(documentation, forKey: .documentation)

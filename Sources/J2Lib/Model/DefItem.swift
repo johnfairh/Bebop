@@ -18,12 +18,15 @@ public class DefItem: Item {
     public let passIndex: Int
     /// Kind of the definition
     public let defKind: DefKind
-    /// Swift declaration
-    public let swiftDeclaration: SwiftDeclaration // optional?
+    /// Declarations
+    public let swiftDeclaration: SwiftDeclaration?
+    public let objCDeclaration: ObjCDeclaration?
     /// Documentation
     public private(set) var documentation: RichDefDocs
     /// Deprecation notice
     public private(set) var deprecationNotice: RichText?
+    /// Unavailable notice
+    public private(set) var unavailableNotice: RichText?
 
     /// Create from a gathered definition
     public init?(moduleName: String, passIndex: Int, gatherDef: GatherDef, uniquer: StringUniquer) {
@@ -39,19 +42,33 @@ public class DefItem: Item {
         self.moduleName = moduleName
         self.passIndex = passIndex
         self.defKind = kind
+        self.documentation = RichDefDocs(gatherDef.translatedDocs)
 
-        if let swiftDeclInfo = gatherDef.swiftDeclaration {
-            swiftDeclaration = swiftDeclInfo
-        } else {
-            swiftDeclaration = SwiftDeclaration()
-            if defKind.isSwift {
-                // XXX wrn
-                logWarning("No declaration, ignoring")
-                return nil
-            }
+        // ObjC-Swift merge
+
+        if (gatherDef.swiftDeclaration == nil && kind.isSwift) ||
+           (gatherDef.objCDeclaration == nil && kind.isObjC) {
+            // XXX wrn
+            logWarning("No declaration, ignoring")
+            return nil
         }
-        documentation = RichDefDocs(gatherDef.translatedDocs)
-        deprecationNotice = swiftDeclaration.deprecation.flatMap { RichText($0) }
+        self.swiftDeclaration = gatherDef.swiftDeclaration
+        self.objCDeclaration = gatherDef.objCDeclaration
+
+        // other_language_name
+        // usr
+        // file
+        // start_line / end_line (vs line???)
+        // gen_req
+        // inher_types
+
+        let deprecations = [objCDeclaration?.deprecation, swiftDeclaration?.deprecation].compactMap { $0 }
+        if !deprecations.isEmpty {
+            self.deprecationNotice = RichText(deprecations.joined(by: "\n\n"))
+        } else {
+            self.deprecationNotice = nil
+        }
+        self.unavailableNotice = objCDeclaration?.unavailability.flatMap(RichText.init)
 
         super.init(name: name, slug: uniquer.unique(name.slugged), children: children)
     }

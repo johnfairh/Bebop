@@ -22,6 +22,8 @@ public final class DefKind {
     public var key: String { kindKey.key }
     /// Is this a Swift definition kind?
     public var isSwift: Bool { kindKey.isSwift }
+    /// Is this an ObjC definition kind?
+    public var isObjC: Bool { kindKey.isObjC }
     /// The name of the declaration type in the generated docs [translate??]
     public let uiName: String
     /// The metakind for the definition type
@@ -45,6 +47,14 @@ public final class DefKind {
             case .swift(_): return true;
             case .objC(_, _): return false;
             case .other(_, let isSwift): return isSwift;
+            }
+        }
+
+        var isObjC: Bool {
+            switch self {
+            case .swift(_): return false;
+            case .objC(_, _): return true;
+            case .other(_, let isSwift): return !isSwift;
             }
         }
 

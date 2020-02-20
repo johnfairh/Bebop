@@ -1,0 +1,1157 @@
+[
+  {
+    "children" : [],
+    "kind" : "sourcekitten.source.lang.objc.module.import",
+    "module_name" : "Module",
+    "name" : "Foundation",
+    "obj_c_declaration" : {
+      "declaration" : "@import Foundation",
+      "name_pieces" : [
+        {
+          "name" : "@import Foundation"
+        }
+      ]
+    },
+    "pass_index" : 0,
+    "title" : {
+      "en" : "Foundation"
+    }
+  },
+  {
+    "children" : [
+      {
+        "children" : [],
+        "kind" : "sourcekitten.source.lang.objc.decl.ivar",
+        "module_name" : "Module",
+        "name" : "ivarName",
+        "obj_c_declaration" : {
+          "declaration" : "NSString *ivarName",
+          "name_pieces" : [
+            {
+              "other" : "NSString *"
+            },
+            {
+              "name" : "ivarName"
+            }
+          ]
+        },
+        "pass_index" : 0,
+        "title" : {
+          "en" : "ivarName"
+        }
+      },
+      {
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Documented property"
+            }
+          },
+          "parameters" : []
+        },
+        "kind" : "sourcekitten.source.lang.objc.decl.property",
+        "module_name" : "Module",
+        "name" : "propertyName",
+        "obj_c_declaration" : {
+          "declaration" : "@property (strong, ) NSString *propertyName",
+          "deprecation" : {
+            "en" : "Deprecated. Is deprecated"
+          },
+          "name_pieces" : [
+            {
+              "other" : "NSString *"
+            },
+            {
+              "name" : "propertyName"
+            }
+          ]
+        },
+        "pass_index" : 0,
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : "var propertyName: String! { get set }",
+          "name_pieces" : [
+            {
+              "other" : "var "
+            },
+            {
+              "name" : "propertyName"
+            },
+            {
+              "other" : ": String!"
+            }
+          ]
+        },
+        "title" : {
+          "en" : "propertyName"
+        }
+      }
+    ],
+    "kind" : "sourcekitten.source.lang.objc.decl.class",
+    "module_name" : "Module",
+    "name" : "IVarTest",
+    "obj_c_declaration" : {
+      "declaration" : "@interface IVarTest: NSObject",
+      "name_pieces" : [
+        {
+          "other" : "@interface "
+        },
+        {
+          "name" : "IVarTest"
+        }
+      ]
+    },
+    "pass_index" : 0,
+    "swift_declaration" : {
+      "availability" : [],
+      "declaration" : "class IVarTest : NSObject",
+      "name_pieces" : [
+        {
+          "other" : "class "
+        },
+        {
+          "name" : "IVarTest"
+        }
+      ]
+    },
+    "title" : {
+      "en" : "IVarTest"
+    }
+  },
+  {
+    "children" : [
+      {
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "doc"
+            }
+          },
+          "parameters" : []
+        },
+        "kind" : "sourcekitten.source.lang.objc.decl.property",
+        "module_name" : "Module",
+        "name" : "identifier",
+        "obj_c_declaration" : {
+          "declaration" : "@property (copy, nonatomic, class) NSUUID *identifier",
+          "name_pieces" : [
+            {
+              "other" : "NSUUID *"
+            },
+            {
+              "name" : "identifier"
+            }
+          ]
+        },
+        "pass_index" : 0,
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : "class var identifier: UUID! { get set }",
+          "name_pieces" : [
+            {
+              "other" : "class var "
+            },
+            {
+              "name" : "identifier"
+            },
+            {
+              "other" : ": UUID!"
+            }
+          ]
+        },
+        "title" : {
+          "en" : "identifier"
+        }
+      },
+      {
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Nullability"
+            }
+          },
+          "parameters" : []
+        },
+        "kind" : "sourcekitten.source.lang.objc.decl.property",
+        "module_name" : "Module",
+        "name" : "uuid",
+        "obj_c_declaration" : {
+          "declaration" : "@property (copy, nonatomic, nullable) NSUUID *uuid",
+          "name_pieces" : [
+            {
+              "other" : "NSUUID *"
+            },
+            {
+              "name" : "uuid"
+            }
+          ]
+        },
+        "pass_index" : 0,
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : "var uuid: UUID? { get set }",
+          "name_pieces" : [
+            {
+              "other" : "var "
+            },
+            {
+              "name" : "uuid"
+            },
+            {
+              "other" : ": UUID?"
+            }
+          ]
+        },
+        "title" : {
+          "en" : "uuid"
+        }
+      },
+      {
+        "children" : [],
+        "kind" : "sourcekitten.source.lang.objc.decl.method.class",
+        "module_name" : "Module",
+        "name" : "+alloc",
+        "obj_c_declaration" : {
+          "declaration" : "+ (instancetype) alloc",
+          "name_pieces" : [
+            {
+              "other" : "+ (instancetype) "
+            },
+            {
+              "name" : "alloc"
+            },
+            {
+              "other" : ""
+            }
+          ]
+        },
+        "pass_index" : 0,
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : "class func alloc() -> Self!",
+          "name_pieces" : [
+            {
+              "other" : "class func "
+            },
+            {
+              "name" : "alloc"
+            },
+            {
+              "other" : "() -> Self!"
+            }
+          ]
+        },
+        "title" : {
+          "en" : "+alloc"
+        }
+      },
+      {
+        "children" : [],
+        "kind" : "sourcekitten.source.lang.objc.decl.method.instance",
+        "module_name" : "Module",
+        "name" : "-init",
+        "obj_c_declaration" : {
+          "declaration" : "- (id)init __deprecated",
+          "deprecation" : {
+            "en" : "Deprecated. "
+          },
+          "name_pieces" : [
+            {
+              "other" : "- (id)init "
+            },
+            {
+              "name" : "__deprecated"
+            },
+            {
+              "other" : ""
+            }
+          ]
+        },
+        "pass_index" : 0,
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : "init!()",
+          "name_pieces" : [
+            {
+              "name" : "init"
+            },
+            {
+              "other" : "!()"
+            }
+          ]
+        },
+        "title" : {
+          "en" : "-init"
+        }
+      },
+      {
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "No params"
+            }
+          },
+          "parameters" : []
+        },
+        "kind" : "sourcekitten.source.lang.objc.decl.method.instance",
+        "module_name" : "Module",
+        "name" : "-method",
+        "obj_c_declaration" : {
+          "declaration" : "- (void)method",
+          "name_pieces" : [
+            {
+              "other" : "- (void)"
+            },
+            {
+              "name" : "method"
+            },
+            {
+              "other" : ""
+            }
+          ]
+        },
+        "pass_index" : 0,
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : "func method()",
+          "name_pieces" : [
+            {
+              "other" : "func "
+            },
+            {
+              "name" : "method"
+            },
+            {
+              "other" : "()"
+            }
+          ]
+        },
+        "title" : {
+          "en" : "-method"
+        }
+      },
+      {
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "params"
+            }
+          },
+          "parameters" : []
+        },
+        "kind" : "sourcekitten.source.lang.objc.decl.method.instance",
+        "module_name" : "Module",
+        "name" : "-doThingWith:named:",
+        "obj_c_declaration" : {
+          "declaration" : "- (int)doThingWith:(int)first named:(NSString *)name",
+          "name_pieces" : [
+            {
+              "other" : "- (int)"
+            },
+            {
+              "name" : "doThingWith"
+            },
+            {
+              "other" : ":(int)first "
+            },
+            {
+              "name" : "named"
+            },
+            {
+              "other" : ":(NSString *)name"
+            }
+          ]
+        },
+        "pass_index" : 0,
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : "func doThing(with first: Int32, named name: String!) -> Int32",
+          "name_pieces" : [
+            {
+              "other" : "func "
+            },
+            {
+              "name" : "doThing"
+            },
+            {
+              "other" : "("
+            },
+            {
+              "name" : "with"
+            },
+            {
+              "other" : ": Int32, "
+            },
+            {
+              "name" : "named"
+            },
+            {
+              "other" : ": String!) -> Int32"
+            }
+          ]
+        },
+        "title" : {
+          "en" : "-doThingWith:named:"
+        }
+      },
+      {
+        "children" : [],
+        "kind" : "sourcekitten.source.lang.objc.decl.method.class",
+        "module_name" : "Module",
+        "name" : "+classMethod",
+        "obj_c_declaration" : {
+          "declaration" : "+ (void)classMethod",
+          "name_pieces" : [
+            {
+              "other" : "+ (void)"
+            },
+            {
+              "name" : "classMethod"
+            },
+            {
+              "other" : ""
+            }
+          ]
+        },
+        "pass_index" : 0,
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : "class func classMethod()",
+          "name_pieces" : [
+            {
+              "other" : "class func "
+            },
+            {
+              "name" : "classMethod"
+            },
+            {
+              "other" : "()"
+            }
+          ]
+        },
+        "title" : {
+          "en" : "+classMethod"
+        }
+      }
+    ],
+    "documentation" : {
+      "abstract" : {
+        "markdown" : {
+          "en" : "Various kinds of property and method"
+        }
+      },
+      "parameters" : []
+    },
+    "kind" : "sourcekitten.source.lang.objc.decl.class",
+    "module_name" : "Module",
+    "name" : "PropertyKinds",
+    "obj_c_declaration" : {
+      "declaration" : "@interface PropertyKinds : NSObject",
+      "name_pieces" : [
+        {
+          "other" : "@interface "
+        },
+        {
+          "name" : "PropertyKinds"
+        }
+      ]
+    },
+    "pass_index" : 0,
+    "swift_declaration" : {
+      "availability" : [],
+      "declaration" : "class PropertyKinds : NSObject",
+      "name_pieces" : [
+        {
+          "other" : "class "
+        },
+        {
+          "name" : "PropertyKinds"
+        }
+      ]
+    },
+    "title" : {
+      "en" : "PropertyKinds"
+    }
+  },
+  {
+    "children" : [],
+    "kind" : "sourcekitten.source.lang.objc.decl.constant",
+    "module_name" : "Module",
+    "name" : "fred",
+    "obj_c_declaration" : {
+      "declaration" : "extern int fred",
+      "name_pieces" : [
+        {
+          "other" : "int "
+        },
+        {
+          "name" : "fred"
+        }
+      ],
+      "unavailability" : {
+        "en" : "Unavailable. "
+      }
+    },
+    "pass_index" : 0,
+    "title" : {
+      "en" : "fred"
+    }
+  },
+  {
+    "children" : [],
+    "kind" : "sourcekitten.source.lang.objc.decl.function",
+    "module_name" : "Module",
+    "name" : "global_func",
+    "obj_c_declaration" : {
+      "declaration" : "void global_func(void)",
+      "name_pieces" : [
+        {
+          "other" : "void "
+        },
+        {
+          "name" : "global_func"
+        },
+        {
+          "other" : "(void)"
+        }
+      ]
+    },
+    "pass_index" : 0,
+    "swift_declaration" : {
+      "availability" : [],
+      "declaration" : "func global_func()",
+      "name_pieces" : [
+        {
+          "other" : "func "
+        },
+        {
+          "name" : "global_func"
+        },
+        {
+          "other" : "()"
+        }
+      ]
+    },
+    "title" : {
+      "en" : "global_func"
+    }
+  },
+  {
+    "children" : [
+      {
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Field"
+            }
+          },
+          "parameters" : []
+        },
+        "kind" : "sourcekitten.source.lang.objc.decl.field",
+        "module_name" : "Module",
+        "name" : "field",
+        "obj_c_declaration" : {
+          "declaration" : "int field",
+          "name_pieces" : [
+            {
+              "other" : "int "
+            },
+            {
+              "name" : "field"
+            }
+          ]
+        },
+        "pass_index" : 0,
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : "var field: Int32",
+          "name_pieces" : [
+            {
+              "other" : "var "
+            },
+            {
+              "name" : "field"
+            },
+            {
+              "other" : ": Int32"
+            }
+          ]
+        },
+        "title" : {
+          "en" : "field"
+        }
+      }
+    ],
+    "documentation" : {
+      "abstract" : {
+        "markdown" : {
+          "en" : "Structures"
+        }
+      },
+      "parameters" : []
+    },
+    "kind" : "sourcekitten.source.lang.objc.decl.struct",
+    "module_name" : "Module",
+    "name" : "AStruct",
+    "obj_c_declaration" : {
+      "declaration" : "struct AStruct",
+      "name_pieces" : [
+        {
+          "other" : "struct "
+        },
+        {
+          "name" : "AStruct"
+        }
+      ]
+    },
+    "pass_index" : 0,
+    "swift_declaration" : {
+      "availability" : [],
+      "declaration" : "struct AStruct",
+      "name_pieces" : [
+        {
+          "other" : "struct "
+        },
+        {
+          "name" : "AStruct"
+        }
+      ]
+    },
+    "title" : {
+      "en" : "AStruct"
+    }
+  },
+  {
+    "children" : [],
+    "documentation" : {
+      "abstract" : {
+        "markdown" : {
+          "en" : "Enums"
+        }
+      },
+      "parameters" : []
+    },
+    "kind" : "sourcekitten.source.lang.objc.decl.typedef",
+    "module_name" : "Module",
+    "name" : "AEnum",
+    "obj_c_declaration" : {
+      "declaration" : "typedef enum AEnum AEnum",
+      "name_pieces" : [
+        {
+          "other" : "typedef "
+        },
+        {
+          "name" : "AEnum"
+        }
+      ]
+    },
+    "pass_index" : 0,
+    "title" : {
+      "en" : "AEnum"
+    }
+  },
+  {
+    "children" : [
+      {
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Enum element a"
+            }
+          },
+          "parameters" : []
+        },
+        "kind" : "sourcekitten.source.lang.objc.decl.enumcase",
+        "module_name" : "Module",
+        "name" : "a",
+        "obj_c_declaration" : {
+          "declaration" : "a = 3",
+          "name_pieces" : [
+            {
+              "other" : " "
+            },
+            {
+              "name" : "a"
+            }
+          ]
+        },
+        "pass_index" : 0,
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : "case a = 3",
+          "name_pieces" : [
+            {
+              "other" : "case "
+            },
+            {
+              "name" : "a"
+            }
+          ]
+        },
+        "title" : {
+          "en" : "a"
+        }
+      },
+      {
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Enum element b"
+            }
+          },
+          "parameters" : []
+        },
+        "kind" : "sourcekitten.source.lang.objc.decl.enumcase",
+        "module_name" : "Module",
+        "name" : "b",
+        "obj_c_declaration" : {
+          "declaration" : "b = 4",
+          "name_pieces" : [
+            {
+              "other" : " "
+            },
+            {
+              "name" : "b"
+            }
+          ]
+        },
+        "pass_index" : 0,
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : "case b = 4",
+          "name_pieces" : [
+            {
+              "other" : "case "
+            },
+            {
+              "name" : "b"
+            }
+          ]
+        },
+        "title" : {
+          "en" : "b"
+        }
+      }
+    ],
+    "documentation" : {
+      "abstract" : {
+        "markdown" : {
+          "en" : "Enums"
+        }
+      },
+      "parameters" : []
+    },
+    "kind" : "sourcekitten.source.lang.objc.decl.enum",
+    "module_name" : "Module",
+    "name" : "AEnum",
+    "obj_c_declaration" : {
+      "declaration" : "enum AEnum",
+      "name_pieces" : [
+        {
+          "other" : "enum "
+        },
+        {
+          "name" : "AEnum"
+        }
+      ]
+    },
+    "pass_index" : 0,
+    "swift_declaration" : {
+      "availability" : [],
+      "declaration" : "enum AEnum : Int",
+      "name_pieces" : [
+        {
+          "other" : "enum "
+        },
+        {
+          "name" : "AEnum"
+        }
+      ]
+    },
+    "title" : {
+      "en" : "AEnum"
+    }
+  },
+  {
+    "children" : [
+      {
+        "children" : [],
+        "kind" : "sourcekitten.source.lang.objc.decl.enumcase",
+        "module_name" : "Module",
+        "name" : "x",
+        "obj_c_declaration" : {
+          "declaration" : "x",
+          "name_pieces" : [
+            {
+              "other" : " "
+            },
+            {
+              "name" : "x"
+            }
+          ]
+        },
+        "pass_index" : 0,
+        "title" : {
+          "en" : "x"
+        }
+      },
+      {
+        "children" : [],
+        "kind" : "sourcekitten.source.lang.objc.decl.enumcase",
+        "module_name" : "Module",
+        "name" : "y",
+        "obj_c_declaration" : {
+          "declaration" : "y",
+          "name_pieces" : [
+            {
+              "other" : " "
+            },
+            {
+              "name" : "y"
+            }
+          ]
+        },
+        "pass_index" : 0,
+        "title" : {
+          "en" : "y"
+        }
+      }
+    ],
+    "kind" : "sourcekitten.source.lang.objc.decl.enum",
+    "module_name" : "Module",
+    "name" : "ASimpleEnum",
+    "obj_c_declaration" : {
+      "declaration" : "enum ASimpleEnum",
+      "name_pieces" : [
+        {
+          "other" : "enum "
+        },
+        {
+          "name" : "ASimpleEnum"
+        }
+      ]
+    },
+    "pass_index" : 0,
+    "swift_declaration" : {
+      "availability" : [],
+      "declaration" : "struct ASimpleEnum : Equatable, RawRepresentable",
+      "name_pieces" : [
+        {
+          "other" : "struct "
+        },
+        {
+          "name" : "ASimpleEnum"
+        }
+      ]
+    },
+    "title" : {
+      "en" : "ASimpleEnum"
+    }
+  },
+  {
+    "children" : [],
+    "documentation" : {
+      "abstract" : {
+        "markdown" : {
+          "en" : "Typedef"
+        }
+      },
+      "parameters" : []
+    },
+    "kind" : "sourcekitten.source.lang.objc.decl.typedef",
+    "module_name" : "Module",
+    "name" : "Fred",
+    "obj_c_declaration" : {
+      "declaration" : "typedef int Fred",
+      "name_pieces" : [
+        {
+          "other" : "typedef "
+        },
+        {
+          "name" : "Fred"
+        }
+      ]
+    },
+    "pass_index" : 0,
+    "swift_declaration" : {
+      "availability" : [],
+      "declaration" : "typealias Fred = Int32",
+      "name_pieces" : [
+        {
+          "other" : "typealias "
+        },
+        {
+          "name" : "Fred"
+        }
+      ]
+    },
+    "title" : {
+      "en" : "Fred"
+    }
+  },
+  {
+    "children" : [
+      {
+        "children" : [],
+        "kind" : "sourcekitten.source.lang.objc.decl.method.instance",
+        "module_name" : "Module",
+        "name" : "-categoryMethod",
+        "obj_c_declaration" : {
+          "declaration" : "- (void)categoryMethod",
+          "name_pieces" : [
+            {
+              "other" : "- (void)"
+            },
+            {
+              "name" : "categoryMethod"
+            },
+            {
+              "other" : ""
+            }
+          ]
+        },
+        "pass_index" : 0,
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : "func categoryMethod()",
+          "name_pieces" : [
+            {
+              "other" : "func "
+            },
+            {
+              "name" : "categoryMethod"
+            },
+            {
+              "other" : "()"
+            }
+          ]
+        },
+        "title" : {
+          "en" : "-categoryMethod"
+        }
+      }
+    ],
+    "documentation" : {
+      "abstract" : {
+        "markdown" : {
+          "en" : "Category"
+        }
+      },
+      "parameters" : []
+    },
+    "kind" : "sourcekitten.source.lang.objc.decl.category",
+    "module_name" : "Module",
+    "name" : "IVarTest(ACategory)",
+    "obj_c_declaration" : {
+      "declaration" : "@interface IVarTest (ACategory)",
+      "name_pieces" : [
+        {
+          "other" : "@category "
+        },
+        {
+          "name" : "IVarTest(ACategory)"
+        }
+      ]
+    },
+    "pass_index" : 0,
+    "title" : {
+      "en" : "IVarTest(ACategory)"
+    }
+  },
+  {
+    "children" : [
+      {
+        "children" : [],
+        "kind" : "sourcekitten.source.lang.objc.decl.method.instance",
+        "module_name" : "Module",
+        "name" : "-protocolMethod",
+        "obj_c_declaration" : {
+          "declaration" : "-(void)protocolMethod",
+          "name_pieces" : [
+            {
+              "other" : "-(void)"
+            },
+            {
+              "name" : "protocolMethod"
+            },
+            {
+              "other" : ""
+            }
+          ]
+        },
+        "pass_index" : 0,
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : "func protocolMethod()",
+          "name_pieces" : [
+            {
+              "other" : "func "
+            },
+            {
+              "name" : "protocolMethod"
+            },
+            {
+              "other" : "()"
+            }
+          ]
+        },
+        "title" : {
+          "en" : "-protocolMethod"
+        }
+      }
+    ],
+    "documentation" : {
+      "abstract" : {
+        "markdown" : {
+          "en" : "Protocol"
+        }
+      },
+      "parameters" : []
+    },
+    "kind" : "sourcekitten.source.lang.objc.decl.protocol",
+    "module_name" : "Module",
+    "name" : "SomeProtocol",
+    "obj_c_declaration" : {
+      "declaration" : "@protocol SomeProtocol",
+      "name_pieces" : [
+        {
+          "other" : "@protocol "
+        },
+        {
+          "name" : "SomeProtocol"
+        }
+      ]
+    },
+    "pass_index" : 0,
+    "swift_declaration" : {
+      "availability" : [],
+      "declaration" : "protocol SomeProtocol",
+      "name_pieces" : [
+        {
+          "other" : "protocol "
+        },
+        {
+          "name" : "SomeProtocol"
+        }
+      ]
+    },
+    "title" : {
+      "en" : "SomeProtocol"
+    }
+  },
+  {
+    "children" : [
+      {
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Method with lightweight generic type param"
+            }
+          },
+          "parameters" : []
+        },
+        "kind" : "sourcekitten.source.lang.objc.decl.method.instance",
+        "module_name" : "Module",
+        "name" : "-popWith:secondValue:",
+        "obj_c_declaration" : {
+          "declaration" : "- (ElementType *)popWith:(NSString *)weight secondValue:(NSInteger)density",
+          "name_pieces" : [
+            {
+              "other" : "- (ElementType *)"
+            },
+            {
+              "name" : "popWith"
+            },
+            {
+              "other" : ":(NSString *)weight "
+            },
+            {
+              "name" : "secondValue"
+            },
+            {
+              "other" : ":(NSInteger)density"
+            }
+          ]
+        },
+        "pass_index" : 0,
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : "func pop(with weight: String!, secondValue density: Int) -> AutoreleasingUnsafeMutablePointer",
+          "name_pieces" : [
+            {
+              "other" : "func "
+            },
+            {
+              "name" : "pop"
+            },
+            {
+              "other" : "("
+            },
+            {
+              "name" : "with"
+            },
+            {
+              "other" : ": String!, "
+            },
+            {
+              "name" : "secondValue"
+            },
+            {
+              "other" : ": Int) -> AutoreleasingUnsafeMutablePointer"
+            }
+          ]
+        },
+        "title" : {
+          "en" : "-popWith:secondValue:"
+        }
+      }
+    ],
+    "documentation" : {
+      "abstract" : {
+        "markdown" : {
+          "en" : "Lightweight generics"
+        }
+      },
+      "parameters" : []
+    },
+    "kind" : "sourcekitten.source.lang.objc.decl.class",
+    "module_name" : "Module",
+    "name" : "Stack",
+    "obj_c_declaration" : {
+      "declaration" : "@interface Stack<ElementType> : NSObject",
+      "name_pieces" : [
+        {
+          "other" : "@interface "
+        },
+        {
+          "name" : "Stack"
+        }
+      ]
+    },
+    "pass_index" : 0,
+    "swift_declaration" : {
+      "availability" : [],
+      "declaration" : "class Stack : NSObject where ElementType : AnyObject",
+      "name_pieces" : [
+        {
+          "other" : "class "
+        },
+        {
+          "name" : "Stack"
+        }
+      ]
+    },
+    "title" : {
+      "en" : "Stack"
+    }
+  }
+]

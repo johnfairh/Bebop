@@ -374,16 +374,12 @@
               "key.j2.swift_declaration" : "init!()",
               "key.j2.swift_name_pieces" : [
                 {
-                  "key.j2.name_piece_is_name" : false,
-                  "key.j2.name_piece_text" : "func "
-                },
-                {
                   "key.j2.name_piece_is_name" : true,
-                  "key.j2.name_piece_text" : "!"
+                  "key.j2.name_piece_text" : "init"
                 },
                 {
                   "key.j2.name_piece_is_name" : false,
-                  "key.j2.name_piece_text" : "()"
+                  "key.j2.name_piece_text" : "!()"
                 }
               ],
               "key.kind" : "sourcekitten.source.lang.objc.decl.method.instance",
