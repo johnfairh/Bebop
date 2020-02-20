@@ -28,15 +28,19 @@ private enum GatherKey: String {
     case passIndex = "key.j2.pass_index"    // metadata, root
     case moduleName = "key.j2.module_name"  // root-only
 
-    /// Computed Swift declaration, code string
-    case preferredDeclaration = "key.j2.preferred_swift_declaration"
+    /// Computed declaration, code string
+    case swiftDeclaration = "key.j2.swift_declaration"
+    case objCDeclaration = "key.j2.objc_declaration"
     /// Computed declaration messages, markdown string
-    case deprecationMessages = "key.j2.deprecation_messages"
+    case swiftDeprecationMessage = "key.j2.swift_deprecation_messages"
+    case objCDeprecationMessage = "key.j2.objc_deprecation_messages"
+    case objCUnavailableMessage = "key.j2.objc_unavailable_messages"
     /// List of availability statements
     case availabilities = "key.j2.availabilities"
     case availability = "key.j2.availability"
     /// Name piece breakdown
-    case namePieces = "key.j2.name_pieces"
+    case swiftNamePieces = "key.j2.swift_name_pieces"
+    case objCNamePieces = "key.j2.objc_name_pieces"
     case namePieceIsName = "key.j2.name_piece_is_name"
     case namePieceText = "key.j2.name_piece_text"
     /// Documentation
@@ -89,14 +93,23 @@ extension DefDocs.Param where T == Localized<Markdown> {
     }
 }
 
+extension Array where Element == DeclarationPiece {
+    var dictsForJSON: [SourceKittenDict] {
+        map {
+            [GatherKey.namePieceIsName.rawValue: $0.isName,
+             GatherKey.namePieceText.rawValue: $0.text]
+        }
+    }
+}
+
 extension GatherDef {
     /// Build up the dictionary from children and our garnished values
     var dictForJSON: SourceKittenDict {
         var dict = sourceKittenDict
         if let swiftDecl = swiftDeclaration {
-            dict[.preferredDeclaration] = swiftDecl.declaration
+            dict[.swiftDeclaration] = swiftDecl.declaration
             if let deprecationMsg = swiftDecl.deprecation {
-                dict[.deprecationMessages] = deprecationMsg
+                dict[.swiftDeprecationMessage] = deprecationMsg
             }
             if !swiftDecl.availability.isEmpty {
                 dict[.availabilities] = swiftDecl.availability.map {
@@ -104,10 +117,19 @@ extension GatherDef {
                 }
             }
             if !swiftDecl.namePieces.isEmpty {
-                dict[.namePieces] = swiftDecl.namePieces.map { piece -> SourceKittenDict in
-                    return [GatherKey.namePieceIsName.rawValue: piece.isName,
-                            GatherKey.namePieceText.rawValue: piece.text]
-                }
+                dict[.swiftNamePieces] = swiftDecl.namePieces.dictsForJSON
+            }
+        }
+        if let objCDecl = objCDeclaration {
+            dict[.objCDeclaration] = objCDecl.declaration
+            if let deprecationMsg = objCDecl.deprecation {
+                dict[.objCDeprecationMessage] = deprecationMsg
+            }
+            if let unavailableMsg = objCDecl.unavailability {
+                dict[.objCUnavailableMessage] = unavailableMsg
+            }
+            if !objCDecl.namePieces.isEmpty {
+                dict[.objCNamePieces] = objCDecl.namePieces.dictsForJSON
             }
         }
         if !translatedDocs.isEmpty {

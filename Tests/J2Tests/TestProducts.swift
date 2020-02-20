@@ -16,14 +16,29 @@ class TestProducts: XCTestCase {
         initResources()
     }
 
-    func compare(product: String, against: String, cleanUpJSON: Bool = false, line: UInt = #line) throws {
+    func compareSwift(product: String, against: String, cleanUpJSON: Bool = false, line: UInt = #line) throws {
         let pipeline = Pipeline()
         let spmTestURL = fixturesURL.appendingPathComponent("SpmSwiftPackage")
         TestLogger.install()
         try pipeline.run(argv: ["--source-directory", spmTestURL.path,
                                 "--products", product])
         XCTAssertEqual(1, TestLogger.shared.outputBuf.count, line: line)
+        try compare(against: against, cleanUpJSON: cleanUpJSON, line: line)
+    }
 
+    func compareObjC(product: String, against: String, cleanUpJSON: Bool = false, line: UInt = #line) throws {
+        let pipeline = Pipeline()
+        let headerURL = fixturesURL
+            .appendingPathComponent("ObjectiveC")
+            .appendingPathComponent("Header.h")
+        TestLogger.install()
+        try pipeline.run(argv: ["--objc-header-file", headerURL.path,
+                                "--products", product])
+        XCTAssertEqual(1, TestLogger.shared.outputBuf.count, line: line)
+        try compare(against: against, cleanUpJSON: cleanUpJSON, line: line)
+    }
+
+    func compare(against: String, cleanUpJSON: Bool = false, line: UInt = #line) throws {
         let fixtureJSONURL = fixturesURL.appendingPathComponent(against)
 
         var actualJson = TestLogger.shared.outputBuf[0] + "\n"
@@ -63,21 +78,27 @@ class TestProducts: XCTestCase {
         return cleanedLines.joined(separator: "\n")
     }
 
-    func testFilesJson() throws {
-        try compare(product: "files-json", against: "SpmSwiftModule.files.json", cleanUpJSON: true)
+    func testFilesJsonSwift() throws {
+        try compareSwift(product: "files-json", against: "SpmSwiftModule.files.json", cleanUpJSON: true)
     }
 
-    func testDeclsJson() throws {
-        try compare(product: "decls-json", against: "SpmSwiftModule.decls.json")
+    #if os(macOS)
+    func testFilesJsonObjC() throws {
+        try compareObjC(product: "files-json", against: "ObjectiveC.files.json", cleanUpJSON: true)
+    }
+    #endif
+
+    func testDeclsJsonSwift() throws {
+        try compareSwift(product: "decls-json", against: "SpmSwiftModule.decls.json")
     }
 
-    func testPageGen() throws {
-        try compare(product: "docs-summary-json", against: "SpmSwiftModule.docs-summary.json")
+    func testPageGenSwift() throws {
+        try compareSwift(product: "docs-summary-json", against: "SpmSwiftModule.docs-summary.json")
     }
 
-    func testSiteGen() throws {
+    func testSiteGenSwift() throws {
         setenv("J2_STATIC_DATE", strdup("1") /* leak it */, 1)
         defer { unsetenv("J2_STATIC_DATE") }
-        try compare(product: "docs-json", against: "SpmSwiftModule.docs.json")
+        try compareSwift(product: "docs-json", against: "SpmSwiftModule.docs.json")
     }
 }

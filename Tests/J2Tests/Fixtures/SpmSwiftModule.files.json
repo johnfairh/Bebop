@@ -47,7 +47,8 @@
               "en" : "Main structure"
             }
           },
-          "key.j2.name_pieces" : [
+          "key.j2.swift_declaration" : "public struct SpmSwiftModule",
+          "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
               "key.j2.name_piece_text" : "struct "
@@ -57,7 +58,6 @@
               "key.j2.name_piece_text" : "SpmSwiftModule"
             }
           ],
-          "key.j2.preferred_swift_declaration" : "public struct SpmSwiftModule",
           "key.kind" : "source.lang.swift.decl.struct",
           "key.length" : 294,
           "key.name" : "SpmSwiftModule",
@@ -88,7 +88,8 @@
               ],
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.var.instance><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>var<\/syntaxtype.keyword> <decl.name>text<\/decl.name>: <decl.var.type><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.var.type><\/decl.var.instance>",
-              "key.j2.name_pieces" : [
+              "key.j2.swift_declaration" : "public var text: String",
+              "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
                   "key.j2.name_piece_text" : "var "
@@ -102,7 +103,6 @@
                   "key.j2.name_piece_text" : ": String"
                 }
               ],
-              "key.j2.preferred_swift_declaration" : "public var text: String",
               "key.kind" : "source.lang.swift.decl.var.instance",
               "key.length" : 26,
               "key.name" : "text",
@@ -139,7 +139,8 @@
               "key.bodyoffset" : 171,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.struct><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>struct<\/syntaxtype.keyword> <ref.struct usr=\"s:14SpmSwiftModuleAAV\">SpmSwiftModule<\/ref.struct>.<decl.name>Nested1<\/decl.name><\/decl.struct>",
-              "key.j2.name_pieces" : [
+              "key.j2.swift_declaration" : "public struct SpmSwiftModule.Nested1",
+              "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
                   "key.j2.name_piece_text" : "struct "
@@ -149,7 +150,6 @@
                   "key.j2.name_piece_text" : "Nested1"
                 }
               ],
-              "key.j2.preferred_swift_declaration" : "public struct SpmSwiftModule.Nested1",
               "key.kind" : "source.lang.swift.decl.struct",
               "key.length" : 133,
               "key.name" : "Nested1",
@@ -174,7 +174,8 @@
                   "key.bodyoffset" : 203,
                   "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
                   "key.fully_annotated_decl" : "<decl.struct><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>struct<\/syntaxtype.keyword> <ref.struct usr=\"s:14SpmSwiftModuleAAV\">SpmSwiftModule<\/ref.struct>.<ref.struct usr=\"s:14SpmSwiftModuleAAV7Nested1V\">Nested1<\/ref.struct>.<decl.name>Nested2a<\/decl.name><\/decl.struct>",
-                  "key.j2.name_pieces" : [
+                  "key.j2.swift_declaration" : "public struct SpmSwiftModule.Nested1.Nested2a",
+                  "key.j2.swift_name_pieces" : [
                     {
                       "key.j2.name_piece_is_name" : false,
                       "key.j2.name_piece_text" : "struct "
@@ -184,7 +185,6 @@
                       "key.j2.name_piece_text" : "Nested2a"
                     }
                   ],
-                  "key.j2.preferred_swift_declaration" : "public struct SpmSwiftModule.Nested1.Nested2a",
                   "key.kind" : "source.lang.swift.decl.struct",
                   "key.length" : 25,
                   "key.name" : "Nested2a",
@@ -217,10 +217,11 @@
                   "key.bodyoffset" : 274,
                   "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
                   "key.fully_annotated_decl" : "<decl.struct><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>struct<\/syntaxtype.keyword> <ref.struct usr=\"s:14SpmSwiftModuleAAV\">SpmSwiftModule<\/ref.struct>.<ref.struct usr=\"s:14SpmSwiftModuleAAV7Nested1V\">Nested1<\/ref.struct>.<decl.name>Nested2b<\/decl.name><\/decl.struct>",
-                  "key.j2.deprecation_messages" : {
+                  "key.j2.swift_declaration" : "public struct SpmSwiftModule.Nested1.Nested2b",
+                  "key.j2.swift_deprecation_messages" : {
                     "en" : "Deprecated."
                   },
-                  "key.j2.name_pieces" : [
+                  "key.j2.swift_name_pieces" : [
                     {
                       "key.j2.name_piece_is_name" : false,
                       "key.j2.name_piece_text" : "struct "
@@ -230,7 +231,6 @@
                       "key.j2.name_piece_text" : "Nested2b"
                     }
                   ],
-                  "key.j2.preferred_swift_declaration" : "public struct SpmSwiftModule.Nested1.Nested2b",
                   "key.kind" : "source.lang.swift.decl.struct",
                   "key.length" : 25,
                   "key.name" : "Nested2b",
@@ -263,7 +263,8 @@
               "key.bodyoffset" : 317,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.struct><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>struct<\/syntaxtype.keyword> <ref.struct usr=\"s:14SpmSwiftModuleAAV\">SpmSwiftModule<\/ref.struct>.<decl.name>Nested2<\/decl.name><\/decl.struct>",
-              "key.j2.name_pieces" : [
+              "key.j2.swift_declaration" : "public struct SpmSwiftModule.Nested2",
+              "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
                   "key.j2.name_piece_text" : "struct "
@@ -273,7 +274,6 @@
                   "key.j2.name_piece_text" : "Nested2"
                 }
               ],
-              "key.j2.preferred_swift_declaration" : "public struct SpmSwiftModule.Nested2",
               "key.kind" : "source.lang.swift.decl.struct",
               "key.length" : 17,
               "key.name" : "Nested2",
@@ -321,7 +321,8 @@
               "en" : "An enum"
             }
           },
-          "key.j2.name_pieces" : [
+          "key.j2.swift_declaration" : "public enum AnEnum",
+          "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
               "key.j2.name_piece_text" : "enum "
@@ -331,7 +332,6 @@
               "key.j2.name_piece_text" : "AnEnum"
             }
           ],
-          "key.j2.preferred_swift_declaration" : "public enum AnEnum",
           "key.kind" : "source.lang.swift.decl.enum",
           "key.length" : 142,
           "key.name" : "AnEnum",
@@ -369,7 +369,8 @@
                       "en" : "First case"
                     }
                   },
-                  "key.j2.name_pieces" : [
+                  "key.j2.swift_declaration" : "case first(Int)",
+                  "key.j2.swift_name_pieces" : [
                     {
                       "key.j2.name_piece_is_name" : false,
                       "key.j2.name_piece_text" : "case "
@@ -379,7 +380,6 @@
                       "key.j2.name_piece_text" : "first(_:)"
                     }
                   ],
-                  "key.j2.preferred_swift_declaration" : "case first(Int)",
                   "key.kind" : "source.lang.swift.decl.enumelement",
                   "key.length" : 10,
                   "key.name" : "first(_:)",
@@ -422,7 +422,8 @@
                       "en" : "Second case"
                     }
                   },
-                  "key.j2.name_pieces" : [
+                  "key.j2.swift_declaration" : "case second",
+                  "key.j2.swift_name_pieces" : [
                     {
                       "key.j2.name_piece_is_name" : false,
                       "key.j2.name_piece_text" : "case "
@@ -432,7 +433,6 @@
                       "key.j2.name_piece_text" : "second"
                     }
                   ],
-                  "key.j2.preferred_swift_declaration" : "case second",
                   "key.kind" : "source.lang.swift.decl.enumelement",
                   "key.length" : 6,
                   "key.name" : "second",
@@ -475,7 +475,8 @@
                       "en" : "Third & Fourth cases"
                     }
                   },
-                  "key.j2.name_pieces" : [
+                  "key.j2.swift_declaration" : "case third",
+                  "key.j2.swift_name_pieces" : [
                     {
                       "key.j2.name_piece_is_name" : false,
                       "key.j2.name_piece_text" : "case "
@@ -485,7 +486,6 @@
                       "key.j2.name_piece_text" : "third"
                     }
                   ],
-                  "key.j2.preferred_swift_declaration" : "case third",
                   "key.kind" : "source.lang.swift.decl.enumelement",
                   "key.length" : 5,
                   "key.name" : "third",
@@ -513,7 +513,8 @@
                   "key.docoffset" : 434,
                   "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
                   "key.fully_annotated_decl" : "<decl.enumelement><syntaxtype.keyword>case<\/syntaxtype.keyword> <decl.name>fourth<\/decl.name><\/decl.enumelement>",
-                  "key.j2.name_pieces" : [
+                  "key.j2.swift_declaration" : "case fourth",
+                  "key.j2.swift_name_pieces" : [
                     {
                       "key.j2.name_piece_is_name" : false,
                       "key.j2.name_piece_text" : "case "
@@ -523,7 +524,6 @@
                       "key.j2.name_piece_text" : "fourth"
                     }
                   ],
-                  "key.j2.preferred_swift_declaration" : "case fourth",
                   "key.kind" : "source.lang.swift.decl.enumelement",
                   "key.length" : 6,
                   "key.name" : "fourth",
@@ -634,7 +634,8 @@
               }
             ]
           },
-          "key.j2.name_pieces" : [
+          "key.j2.swift_declaration" : "public func functionA(arg1: Int,\n                      _ arg2: Int,\n                      arg3 argMeaning: Int)",
+          "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
               "key.j2.name_piece_text" : "func "
@@ -664,7 +665,6 @@
               "key.j2.name_piece_text" : ": Int)"
             }
           ],
-          "key.j2.preferred_swift_declaration" : "public func functionA(arg1: Int,\n                      _ arg2: Int,\n                      arg3 argMeaning: Int)",
           "key.kind" : "source.lang.swift.decl.function.free",
           "key.length" : 108,
           "key.name" : "functionA(arg1:_:arg3:)",
@@ -727,9 +727,6 @@
           "key.docoffset" : 723,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
           "key.fully_annotated_decl" : "<decl.function.free><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>deprecatedFunction<\/decl.name>(<decl.var.parameter><decl.var.parameter.argument_label>callback<\/decl.var.parameter.argument_label>: <decl.var.parameter.type>(<decl.var.parameter><decl.var.parameter.argument_label>_<\/decl.var.parameter.argument_label> <decl.var.parameter.name>report<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.function.returntype><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.function.returntype><\/decl.function.free>",
-          "key.j2.deprecation_messages" : {
-            "en" : "iOS - deprecated in 12.0. Deprecated!.\n\nmacOS - deprecated in 10.14. Deprecated on *macOS* too."
-          },
           "key.j2.documentation" : {
             "key.j2.abstract" : {
               "en" : "A deprecated function"
@@ -746,7 +743,11 @@
               "en" : "A string"
             }
           },
-          "key.j2.name_pieces" : [
+          "key.j2.swift_declaration" : "public func deprecatedFunction(callback: (_ report: String) -> Int) -> String",
+          "key.j2.swift_deprecation_messages" : {
+            "en" : "iOS - deprecated in 12.0. Deprecated!.\n\nmacOS - deprecated in 10.14. Deprecated on *macOS* too."
+          },
+          "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
               "key.j2.name_piece_text" : "func "
@@ -768,7 +769,6 @@
               "key.j2.name_piece_text" : ": (_ report: String) -> Int) -> String"
             }
           ],
-          "key.j2.preferred_swift_declaration" : "public func deprecatedFunction(callback: (_ report: String) -> Int) -> String",
           "key.kind" : "source.lang.swift.decl.function.free",
           "key.length" : 86,
           "key.name" : "deprecatedFunction(callback:)",
