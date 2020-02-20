@@ -27,6 +27,8 @@ public class DefItem: Item {
     public private(set) var deprecationNotice: RichText?
     /// Unavailable notice
     public private(set) var unavailableNotice: RichText?
+    /// Name in the other language
+    public let otherLanguageName: String?
 
     /// Create from a gathered definition
     public init?(moduleName: String, passIndex: Int, gatherDef: GatherDef, uniquer: StringUniquer) {
@@ -55,9 +57,9 @@ public class DefItem: Item {
         self.swiftDeclaration = gatherDef.swiftDeclaration
         self.objCDeclaration = gatherDef.objCDeclaration
 
-        // other_language_name
         // usr
         // file
+        // type module name
         // start_line / end_line (vs line???)
         // gen_req
         // inher_types
@@ -70,6 +72,12 @@ public class DefItem: Item {
         }
         self.unavailableNotice = objCDeclaration?.unavailability.flatMap(RichText.init)
 
+        if kind.isObjC {
+            otherLanguageName = gatherDef.sourceKittenDict[SwiftDocKey.swiftName.rawValue] as? String
+        } else {
+            otherLanguageName = nil // todo swift->objc
+        }
+
         super.init(name: name, slug: uniquer.unique(name.slugged), children: children)
     }
 
@@ -81,6 +89,24 @@ public class DefItem: Item {
     /// Visitor
     public override func accept(visitor: ItemVisitorProtocol, parents: [Item]) {
         visitor.visit(defItem: self, parents: parents)
+    }
+
+    // Names/titles/argh the confusion
+
+    public var swiftName: String? {
+        defKind.isSwift ? name : otherLanguageName
+    }
+
+    public override var swiftTitle: Localized<String>? {
+        swiftName.flatMap { .init(unlocalized: $0) }
+    }
+
+    public var objCName: String? {
+        defKind.isObjC ? name : nil
+    }
+
+    public override var objCTitle: Localized<String>? {
+        objCName.flatMap { .init(unlocalized: $0) }
     }
 
     public override var kind: ItemKind { defKind.metaKind }

@@ -16,8 +16,6 @@ public class Item: Encodable {
     public let name: String
     /// The item's slug, unique in its docs scope
     public let slug: String
-    /// The item's translated title
-    public let title: Localized<String>
     /// Children in the documentation tree
     public let children: [Item]
     /// Topic the item belongs to
@@ -26,14 +24,9 @@ public class Item: Encodable {
     /// Info about the item's URL relative to the docroot
     public internal(set) var url: URLPieces
 
-    public init(name: String, slug: String, title: Localized<String>? = nil, children: [Item] = []) {
+    public init(name: String, slug: String, children: [Item] = []) {
         self.name = name
         self.slug = slug
-        if let title = title {
-            self.title = title
-        } else {
-            self.title = Localized<String>(unlocalized: name)
-        }
         self.children = children
         self.url = URLPieces()
     }
@@ -41,6 +34,13 @@ public class Item: Encodable {
     /// Overridden
     public func accept(visitor: ItemVisitorProtocol, parents: [Item]) { preconditionFailure() }
     public var  kind: ItemKind { .other }
+
+    /// The item's title, translated, for objc or swift
+    public var swiftTitle: Localized<String>? { return nil }
+    public var objCTitle: Localized<String>? { return nil }
+    //    public var title: Localized<String> {
+    //        swiftTitle ?? objCTitle ?? preconditionFailure()
+    //    }
 
     /// Does the item show in the table of contents?
     public enum ShowInToc {
@@ -72,7 +72,6 @@ public class Item: Encodable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(name, forKey: .name)
-        try container.encode(title, forKey: .title)
         try container.encode(children, forKey: .children)
         if let topic = topic {
             try container.encode(topic, forKey: .topic)

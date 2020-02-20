@@ -22,9 +22,7 @@
             }
           ]
         },
-        "title" : {
-          "en" : "text"
-        },
+        "swift_name" : "text",
         "topic" : {
           "title" : {
             "markdown" : {
@@ -53,9 +51,7 @@
                 }
               ]
             },
-            "title" : {
-              "en" : "Nested2a"
-            }
+            "swift_name" : "Nested2a"
           },
           {
             "children" : [],
@@ -78,9 +74,7 @@
                 }
               ]
             },
-            "title" : {
-              "en" : "Nested2b"
-            }
+            "swift_name" : "Nested2b"
           }
         ],
         "kind" : "source.lang.swift.decl.struct",
@@ -99,9 +93,7 @@
             }
           ]
         },
-        "title" : {
-          "en" : "Nested1"
-        },
+        "swift_name" : "Nested1",
         "topic" : {
           "title" : {
             "markdown" : {
@@ -128,9 +120,7 @@
             }
           ]
         },
-        "title" : {
-          "en" : "Nested2"
-        },
+        "swift_name" : "Nested2",
         "topic" : {
           "title" : {
             "markdown" : {
@@ -164,9 +154,7 @@
         }
       ]
     },
-    "title" : {
-      "en" : "SpmSwiftModule"
-    }
+    "swift_name" : "SpmSwiftModule"
   },
   {
     "children" : [
@@ -196,9 +184,7 @@
             }
           ]
         },
-        "title" : {
-          "en" : "first(_:)"
-        }
+        "swift_name" : "first(_:)"
       },
       {
         "children" : [],
@@ -226,9 +212,7 @@
             }
           ]
         },
-        "title" : {
-          "en" : "second"
-        }
+        "swift_name" : "second"
       },
       {
         "children" : [],
@@ -256,9 +240,7 @@
             }
           ]
         },
-        "title" : {
-          "en" : "third"
-        }
+        "swift_name" : "third"
       },
       {
         "children" : [],
@@ -278,9 +260,7 @@
             }
           ]
         },
-        "title" : {
-          "en" : "fourth"
-        }
+        "swift_name" : "fourth"
       }
     ],
     "documentation" : {
@@ -307,9 +287,7 @@
         }
       ]
     },
-    "title" : {
-      "en" : "AnEnum"
-    }
+    "swift_name" : "AnEnum"
   },
   {
     "children" : [],
@@ -375,9 +353,7 @@
         }
       ]
     },
-    "title" : {
-      "en" : "functionA(arg1:_:arg3:)"
-    }
+    "swift_name" : "functionA(arg1:_:arg3:)"
   },
   {
     "children" : [],
@@ -431,8 +407,6 @@
         }
       ]
     },
-    "title" : {
-      "en" : "deprecatedFunction(callback:)"
-    }
+    "swift_name" : "deprecatedFunction(callback:)"
   }
 ]

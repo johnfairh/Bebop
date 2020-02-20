@@ -11,6 +11,8 @@ import XCTest
 
 // Binary-check fixtures for the json products fils
 
+private var doFixup = false
+
 class TestProducts: XCTestCase {
     override func setUp() {
         initResources()
@@ -43,8 +45,9 @@ class TestProducts: XCTestCase {
 
         var actualJson = TestLogger.shared.outputBuf[0] + "\n"
 
-        // to fix up when it changes...
-        // try actualJson.write(to: fixtureJSONURL)
+        if doFixup {
+            try actualJson.write(to: fixtureJSONURL)
+        }
 
         var expectedJson = try String(contentsOf: fixtureJSONURL)
         if cleanUpJSON {

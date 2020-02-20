@@ -50,7 +50,7 @@ class TestGroup: XCTestCase {
 
         XCTAssertEqual(2, groups.count)
         XCTAssertEqual(ItemKind.type.name, groups[0].slug)
-        XCTAssertEqual("Types", groups[0].title["en"])
+        XCTAssertEqual("Types", groups[0].swiftTitle!["en"]) // XXX flat
         XCTAssertEqual(2, groups[0].children.count)
         XCTAssertEqual("C1", groups[0].children[0].name)
         XCTAssertEqual("c1", groups[0].children[0].slug)

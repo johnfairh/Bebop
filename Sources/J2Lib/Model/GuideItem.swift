@@ -11,6 +11,7 @@ import Foundation
 /// A pure markdown page in the docs rendered from a user configuration
 public class GuideItem: Item {
     public private(set) var content: RichText
+    public let title: Localized<String>
 
     /// Create a new guide item.
     /// - parameter name: The name of the guide as described by the user, case-sensitive, any characters.
@@ -20,7 +21,8 @@ public class GuideItem: Item {
     /// - parameter content: The translated markdown for the guide, used to generate the guide itself.
     public init(name: String, slug: String, title: Localized<String>, content: Localized<Markdown>) {
         self.content = RichText(content)
-        super.init(name: name, slug: slug, title: title)
+        self.title = title
+        super.init(name: name, slug: slug)
     }
 
     /// Visitor
@@ -29,6 +31,9 @@ public class GuideItem: Item {
     }
 
     public override var kind: ItemKind { .guide }
+
+    public override var swiftTitle: Localized<String>? { return title }
+    public override var objCTitle: Localized<String>? { return title }
 
     public override var showInToc: ShowInToc { .yes }
 

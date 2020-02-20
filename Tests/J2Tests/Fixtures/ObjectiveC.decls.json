@@ -12,10 +12,8 @@
         }
       ]
     },
-    "pass_index" : 0,
-    "title" : {
-      "en" : "Foundation"
-    }
+    "obj_c_name" : "Foundation",
+    "pass_index" : 0
   },
   {
     "children" : [
@@ -35,10 +33,8 @@
             }
           ]
         },
-        "pass_index" : 0,
-        "title" : {
-          "en" : "ivarName"
-        }
+        "obj_c_name" : "ivarName",
+        "pass_index" : 0
       },
       {
         "children" : [],
@@ -67,6 +63,7 @@
             }
           ]
         },
+        "obj_c_name" : "propertyName",
         "pass_index" : 0,
         "swift_declaration" : {
           "availability" : [],
@@ -83,9 +80,7 @@
             }
           ]
         },
-        "title" : {
-          "en" : "propertyName"
-        }
+        "swift_name" : "propertyName"
       }
     ],
     "kind" : "sourcekitten.source.lang.objc.decl.class",
@@ -102,6 +97,7 @@
         }
       ]
     },
+    "obj_c_name" : "IVarTest",
     "pass_index" : 0,
     "swift_declaration" : {
       "availability" : [],
@@ -115,9 +111,7 @@
         }
       ]
     },
-    "title" : {
-      "en" : "IVarTest"
-    }
+    "swift_name" : "IVarTest"
   },
   {
     "children" : [
@@ -145,6 +139,7 @@
             }
           ]
         },
+        "obj_c_name" : "identifier",
         "pass_index" : 0,
         "swift_declaration" : {
           "availability" : [],
@@ -161,9 +156,7 @@
             }
           ]
         },
-        "title" : {
-          "en" : "identifier"
-        }
+        "swift_name" : "identifier"
       },
       {
         "children" : [],
@@ -189,6 +182,7 @@
             }
           ]
         },
+        "obj_c_name" : "uuid",
         "pass_index" : 0,
         "swift_declaration" : {
           "availability" : [],
@@ -205,9 +199,7 @@
             }
           ]
         },
-        "title" : {
-          "en" : "uuid"
-        }
+        "swift_name" : "uuid"
       },
       {
         "children" : [],
@@ -228,6 +220,7 @@
             }
           ]
         },
+        "obj_c_name" : "+alloc",
         "pass_index" : 0,
         "swift_declaration" : {
           "availability" : [],
@@ -244,9 +237,7 @@
             }
           ]
         },
-        "title" : {
-          "en" : "+alloc"
-        }
+        "swift_name" : "alloc()"
       },
       {
         "children" : [],
@@ -270,6 +261,7 @@
             }
           ]
         },
+        "obj_c_name" : "-init",
         "pass_index" : 0,
         "swift_declaration" : {
           "availability" : [],
@@ -283,9 +275,7 @@
             }
           ]
         },
-        "title" : {
-          "en" : "-init"
-        }
+        "swift_name" : "init()"
       },
       {
         "children" : [],
@@ -314,6 +304,7 @@
             }
           ]
         },
+        "obj_c_name" : "-method",
         "pass_index" : 0,
         "swift_declaration" : {
           "availability" : [],
@@ -330,9 +321,7 @@
             }
           ]
         },
-        "title" : {
-          "en" : "-method"
-        }
+        "swift_name" : "method()"
       },
       {
         "children" : [],
@@ -367,6 +356,7 @@
             }
           ]
         },
+        "obj_c_name" : "-doThingWith:named:",
         "pass_index" : 0,
         "swift_declaration" : {
           "availability" : [],
@@ -395,9 +385,7 @@
             }
           ]
         },
-        "title" : {
-          "en" : "-doThingWith:named:"
-        }
+        "swift_name" : "doThing(with:named:)"
       },
       {
         "children" : [],
@@ -418,6 +406,7 @@
             }
           ]
         },
+        "obj_c_name" : "+classMethod",
         "pass_index" : 0,
         "swift_declaration" : {
           "availability" : [],
@@ -434,9 +423,7 @@
             }
           ]
         },
-        "title" : {
-          "en" : "+classMethod"
-        }
+        "swift_name" : "classMethod()"
       }
     ],
     "documentation" : {
@@ -461,6 +448,7 @@
         }
       ]
     },
+    "obj_c_name" : "PropertyKinds",
     "pass_index" : 0,
     "swift_declaration" : {
       "availability" : [],
@@ -474,9 +462,7 @@
         }
       ]
     },
-    "title" : {
-      "en" : "PropertyKinds"
-    }
+    "swift_name" : "PropertyKinds"
   },
   {
     "children" : [],
@@ -497,10 +483,8 @@
         "en" : "Unavailable. "
       }
     },
-    "pass_index" : 0,
-    "title" : {
-      "en" : "fred"
-    }
+    "obj_c_name" : "fred",
+    "pass_index" : 0
   },
   {
     "children" : [],
@@ -521,6 +505,7 @@
         }
       ]
     },
+    "obj_c_name" : "global_func",
     "pass_index" : 0,
     "swift_declaration" : {
       "availability" : [],
@@ -537,9 +522,7 @@
         }
       ]
     },
-    "title" : {
-      "en" : "global_func"
-    }
+    "swift_name" : "global_func()"
   },
   {
     "children" : [
@@ -567,6 +550,7 @@
             }
           ]
         },
+        "obj_c_name" : "field",
         "pass_index" : 0,
         "swift_declaration" : {
           "availability" : [],
@@ -583,9 +567,7 @@
             }
           ]
         },
-        "title" : {
-          "en" : "field"
-        }
+        "swift_name" : "field"
       }
     ],
     "documentation" : {
@@ -610,6 +592,7 @@
         }
       ]
     },
+    "obj_c_name" : "AStruct",
     "pass_index" : 0,
     "swift_declaration" : {
       "availability" : [],
@@ -623,9 +606,7 @@
         }
       ]
     },
-    "title" : {
-      "en" : "AStruct"
-    }
+    "swift_name" : "AStruct"
   },
   {
     "children" : [],
@@ -651,10 +632,8 @@
         }
       ]
     },
-    "pass_index" : 0,
-    "title" : {
-      "en" : "AEnum"
-    }
+    "obj_c_name" : "AEnum",
+    "pass_index" : 0
   },
   {
     "children" : [
@@ -682,6 +661,7 @@
             }
           ]
         },
+        "obj_c_name" : "a",
         "pass_index" : 0,
         "swift_declaration" : {
           "availability" : [],
@@ -695,9 +675,7 @@
             }
           ]
         },
-        "title" : {
-          "en" : "a"
-        }
+        "swift_name" : "a"
       },
       {
         "children" : [],
@@ -723,6 +701,7 @@
             }
           ]
         },
+        "obj_c_name" : "b",
         "pass_index" : 0,
         "swift_declaration" : {
           "availability" : [],
@@ -736,9 +715,7 @@
             }
           ]
         },
-        "title" : {
-          "en" : "b"
-        }
+        "swift_name" : "b"
       }
     ],
     "documentation" : {
@@ -763,6 +740,7 @@
         }
       ]
     },
+    "obj_c_name" : "AEnum",
     "pass_index" : 0,
     "swift_declaration" : {
       "availability" : [],
@@ -776,9 +754,7 @@
         }
       ]
     },
-    "title" : {
-      "en" : "AEnum"
-    }
+    "swift_name" : "AEnum"
   },
   {
     "children" : [
@@ -798,10 +774,8 @@
             }
           ]
         },
-        "pass_index" : 0,
-        "title" : {
-          "en" : "x"
-        }
+        "obj_c_name" : "x",
+        "pass_index" : 0
       },
       {
         "children" : [],
@@ -819,10 +793,8 @@
             }
           ]
         },
-        "pass_index" : 0,
-        "title" : {
-          "en" : "y"
-        }
+        "obj_c_name" : "y",
+        "pass_index" : 0
       }
     ],
     "kind" : "sourcekitten.source.lang.objc.decl.enum",
@@ -839,6 +811,7 @@
         }
       ]
     },
+    "obj_c_name" : "ASimpleEnum",
     "pass_index" : 0,
     "swift_declaration" : {
       "availability" : [],
@@ -852,9 +825,7 @@
         }
       ]
     },
-    "title" : {
-      "en" : "ASimpleEnum"
-    }
+    "swift_name" : "ASimpleEnum"
   },
   {
     "children" : [],
@@ -880,6 +851,7 @@
         }
       ]
     },
+    "obj_c_name" : "Fred",
     "pass_index" : 0,
     "swift_declaration" : {
       "availability" : [],
@@ -893,9 +865,7 @@
         }
       ]
     },
-    "title" : {
-      "en" : "Fred"
-    }
+    "swift_name" : "Fred"
   },
   {
     "children" : [
@@ -918,6 +888,7 @@
             }
           ]
         },
+        "obj_c_name" : "-categoryMethod",
         "pass_index" : 0,
         "swift_declaration" : {
           "availability" : [],
@@ -934,9 +905,7 @@
             }
           ]
         },
-        "title" : {
-          "en" : "-categoryMethod"
-        }
+        "swift_name" : "categoryMethod()"
       }
     ],
     "documentation" : {
@@ -961,10 +930,8 @@
         }
       ]
     },
-    "pass_index" : 0,
-    "title" : {
-      "en" : "IVarTest(ACategory)"
-    }
+    "obj_c_name" : "IVarTest(ACategory)",
+    "pass_index" : 0
   },
   {
     "children" : [
@@ -987,6 +954,7 @@
             }
           ]
         },
+        "obj_c_name" : "-protocolMethod",
         "pass_index" : 0,
         "swift_declaration" : {
           "availability" : [],
@@ -1003,9 +971,7 @@
             }
           ]
         },
-        "title" : {
-          "en" : "-protocolMethod"
-        }
+        "swift_name" : "protocolMethod()"
       }
     ],
     "documentation" : {
@@ -1030,6 +996,7 @@
         }
       ]
     },
+    "obj_c_name" : "SomeProtocol",
     "pass_index" : 0,
     "swift_declaration" : {
       "availability" : [],
@@ -1043,9 +1010,7 @@
         }
       ]
     },
-    "title" : {
-      "en" : "SomeProtocol"
-    }
+    "swift_name" : "SomeProtocol"
   },
   {
     "children" : [
@@ -1082,6 +1047,7 @@
             }
           ]
         },
+        "obj_c_name" : "-popWith:secondValue:",
         "pass_index" : 0,
         "swift_declaration" : {
           "availability" : [],
@@ -1110,9 +1076,7 @@
             }
           ]
         },
-        "title" : {
-          "en" : "-popWith:secondValue:"
-        }
+        "swift_name" : "pop(with:secondValue:)"
       }
     ],
     "documentation" : {
@@ -1137,6 +1101,7 @@
         }
       ]
     },
+    "obj_c_name" : "Stack",
     "pass_index" : 0,
     "swift_declaration" : {
       "availability" : [],
@@ -1150,8 +1115,6 @@
         }
       ]
     },
-    "title" : {
-      "en" : "Stack"
-    }
+    "swift_name" : "Stack"
   }
 ]

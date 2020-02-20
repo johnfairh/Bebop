@@ -36,7 +36,7 @@ public struct GenPages: Configurable {
                     return nil
                 }
                 return GenData.TocEntry(url: item.url,
-                                        title: item.title,
+                                        title: item.swiftTitle ?? .init(unlocalized: "SWIFT"),
                                         children: doGenerate(items: item.children, depth: depth + 1))
             }
             // XXX for jazzy compat, sort outside of depth 0 unless custom cats???
@@ -56,7 +56,7 @@ final class PageVisitor: ItemVisitorProtocol {
         if defItem.renderAsPage {
             pages.append(GenData.Page(
                 defURL: defItem.url,
-                title: defItem.title,
+                title: defItem.swiftTitle ?? .init(unlocalized: "SWIFT"),
                 breadcrumbs: buildBreadcrumbs(parents: parents),
                 definition: defItem.asGenDef,
                 topics: buildTopics(item: defItem)))
@@ -91,7 +91,10 @@ final class PageVisitor: ItemVisitorProtocol {
     /// Don't include the root: that's the readme/index.html handled separately.
     /// Don't include ourselves: that's not a link and is handled separately
     func buildBreadcrumbs(parents: [Item]) -> [GenData.Breadcrumb] {
-        parents.map { GenData.Breadcrumb(title: $0.title, url: $0.url) }
+        parents.map {
+            let title = $0.swiftTitle ?? .init(unlocalized: "SWIFT")
+            return GenData.Breadcrumb(title: title, url: $0.url)
+        }
     }
 
     func buildTopics(item: Item) -> [GenData.Topic] {
@@ -150,7 +153,7 @@ class ItemVisitor: ItemVisitorProtocol {
     func visitFlat(item: Item) {
         items.append(GenData.Item(
             anchorId: item.slug,
-            title: item.title,
+            title: item.swiftTitle!, // XXX this one can be flat title
             url: item.url))
     }
 
