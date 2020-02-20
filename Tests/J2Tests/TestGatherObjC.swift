@@ -189,5 +189,77 @@ class TestGatherObjC: XCTestCase {
                          "@import Foundation", "#@import Foundation#")
     }
 
-    // + error paths on malformed data once complete here
+    // Deprecations
+
+    private func checkDeprecations(_ dep: String?, _ exDep: String?, _ unav: String?, _ exUnav: String?, line: UInt = #line) {
+        var dict = SourceKittenDict()
+        dict[SwiftDocKey.parsedDeclaration.rawValue] = "@interface Fred";
+        dict[SwiftDocKey.alwaysDeprecated.rawValue] = dep == nil ? false : true
+        if let dep = dep, !dep.isEmpty {
+            dict[SwiftDocKey.deprecationMessage.rawValue] = dep
+        }
+        dict[SwiftDocKey.alwaysUnavailable.rawValue] = unav == nil ? false : true
+        if let unav = unav, !unav.isEmpty {
+            dict[SwiftDocKey.unavailableMessage.rawValue] = unav
+        }
+        let kind = DefKind.from(key: ObjCDeclarationKind.class.rawValue)!
+        let builder = ObjCDeclarationBuilder(dict: dict, kind: kind)
+        guard let built = builder.build() else {
+            XCTFail("Couldn't build", line: line)
+            return
+        }
+        if let exDep = exDep {
+            XCTAssertEqual(exDep, built.deprecation?.get("en"))
+        } else {
+            XCTAssertNil(built.deprecation)
+        }
+        if let exUnav = exUnav {
+            XCTAssertEqual(exUnav, built.unavailability?.get("en"))
+        } else {
+            XCTAssertNil(built.unavailability)
+        }
+    }
+
+    func testDeprecations() {
+        checkDeprecations(nil, nil, nil, nil)
+        checkDeprecations("", "Deprecated.", nil, nil)
+        checkDeprecations("Msg", "Deprecated. Msg", nil, nil)
+        checkDeprecations(nil, nil, "", "Unavailable.")
+        checkDeprecations(nil, nil, "Msg.", "Unavailable. Msg.")
+        checkDeprecations("Msg", "Deprecated. Msg", "Msg.", "Unavailable. Msg.")
+    }
+
+    // Misc error/weird paths
+
+    func testErrorPaths() {
+        let fieldKind = DefKind.from(key: ObjCDeclarationKind.field.rawValue)!
+        let noDecl = ObjCDeclarationBuilder.init(dict: [:], kind: fieldKind)
+        XCTAssertNil(noDecl.build())
+
+        // Field without name
+        let malformedFieldDict = [
+            SwiftDocKey.parsedDeclaration.rawValue: "int confused",
+            SwiftDocKey.name.rawValue: "missing"
+        ]
+        let oddField = ObjCDeclarationBuilder.init(dict: malformedFieldDict, kind: fieldKind)
+        XCTAssertEqual("#int confused#", oddField.build()?.namePieces.flat)
+
+        // Free function without name
+        let funcKind = DefKind.from(key: ObjCDeclarationKind.function.rawValue)!
+        let malformedFuncDict = [
+            SwiftDocKey.parsedDeclaration.rawValue: "int confused(void)",
+            SwiftDocKey.name.rawValue: "missing"
+        ]
+        let oddFunc = ObjCDeclarationBuilder.init(dict: malformedFuncDict, kind: funcKind)
+        XCTAssertEqual("#int confused(void)#", oddFunc.build()?.namePieces.flat)
+
+        // Method that we can't parse
+        let methodKind = DefKind.from(key: ObjCDeclarationKind.methodInstance.rawValue)!
+        let malformedMethodDict = [
+            SwiftDocKey.parsedDeclaration.rawValue: "int confused()",
+            SwiftDocKey.name.rawValue: "missing"
+        ]
+        let oddMethod = ObjCDeclarationBuilder.init(dict: malformedMethodDict, kind: methodKind)
+        XCTAssertEqual("#int confused()#", oddMethod.build()?.namePieces.flat)
+    }
 }

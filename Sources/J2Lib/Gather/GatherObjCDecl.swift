@@ -71,7 +71,7 @@ class ObjCDeclarationBuilder {
                 // 2) Don't show readwrite: it's the default
                 // 3) Don't show 'assign': that's a default
                 // 3a) Don't show 'assign, unsafe_unretained': that's the same default in Xcode11.4+
-                var newProperties = propertyMatch[1].re_sub(#"\b(?:atomic|readwrite|assign|unsafe_retained),? ?"#, with: "")
+                var newProperties = propertyMatch[1].re_sub(#"\b(?:atomic|readwrite|assign|unsafe_retained)\s*,?\s*"#, with: "")
                 if newProperties == " ()" {
                     newProperties = "" // all gone!
                 }
@@ -84,7 +84,19 @@ class ObjCDeclarationBuilder {
 
     /// Make some sense out of the four optional attributes that SourceKitten gives us.
     func parseDeprecations() -> (deprecated: Localized<String>?, unavailable: Localized<String>?) {
-        return (nil, nil)
+        func parse(_ type: L10n.Output, always: SwiftDocKey, message: SwiftDocKey) -> Localized<String>? {
+            guard let always = dict[always.rawValue] as? Bool, always else {
+                return nil
+            }
+            let output = Localized<String>.localizedOutput(type)
+            guard let message = dict[message.rawValue] as? String else {
+                return output
+            }
+            return output.append(" \(message)")
+        }
+
+        return (parse(.deprecated, always: .alwaysDeprecated, message: .deprecationMessage),
+                parse(.unavailable, always: .alwaysUnavailable, message: .unavailableMessage))
     }
 
     /// Parse the cleaned-up declaration into a sequence of pieces.
