@@ -32,15 +32,23 @@ public final class GenData: Encodable {
         public let availability: [Localized<String>] // erm this isn't localized ???
         public let abstract: Localized<Html>?
         public let overview: Localized<Html>?
+        // -> + objCDeclaration
         public let swiftDeclaration: Html?
         public let params: [Param]
         public let returns: Localized<Html>?
     }
     public struct Item: Encodable {
+        // -> primaryLanguage: DefLanguage
+        // -> secondaryLanguage: DefLanguage?
+        // Then deduce "solo-language" for the item in mustache-gen
         public let anchorId: String
         public let flatTitle: Localized<String>
+        // -> primaryTitleHtml?
+        // -> secondaryTitleHtml?
         public let swiftTitleHtml: Html?
         public let dashType: String?
+        // -> primaryURL?
+        // -> secondaryURL?
         public let url: URLPieces?
         public let def: Def?
 

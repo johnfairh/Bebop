@@ -91,20 +91,39 @@ public class DefItem: Item {
         visitor.visit(defItem: self, parents: parents)
     }
 
-    // Names/titles/argh the confusion
+    // Swift/ObjC personality
 
+    /// Does the def have Swift + ObjC versions?
+    public var dualLanguage: Bool {
+        otherLanguageName != nil
+    }
+
+    /// Written language of the definition
+    public var primaryLanguage: DefLanguage {
+        defKind.isSwift ? .swift : .objc
+    }
+
+    /// Converted language of the definition - or `nil` if unavailable
+    public var secondaryLanguage: DefLanguage? {
+        dualLanguage ? primaryLanguage.otherLanguage : nil
+    }
+
+    /// Name of the def in Swift, or `nil` if unavailable
     public var swiftName: String? {
         defKind.isSwift ? name : otherLanguageName
     }
 
-    public override var swiftTitle: Localized<String>? {
-        swiftName.flatMap { .init(unlocalized: $0) }
-    }
-
+    /// Name of the def in ObjC, or `nil` if unavailable
     public var objCName: String? {
         defKind.isObjC ? name : nil
     }
 
+    /// Title of the def in Swift, or `nil` if unavailable
+    public override var swiftTitle: Localized<String>? {
+        swiftName.flatMap { .init(unlocalized: $0) }
+    }
+
+    /// Title of the def in ObjC, or `nil` if unavailable
     public override var objCTitle: Localized<String>? {
         objCName.flatMap { .init(unlocalized: $0) }
     }
@@ -128,10 +147,5 @@ public class DefItem: Item {
         try documentation.format(blockFormatter)
         try topic?.format(inlineFormatter)
         try deprecationNotice?.format(blockFormatter)
-    }
-
-    /// Native language of the definition
-    public var nativeLanguage: DefLanguage {
-        defKind.isSwift ? .swift : .objc
     }
 }

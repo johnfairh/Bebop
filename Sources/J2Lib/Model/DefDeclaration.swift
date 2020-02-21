@@ -72,6 +72,22 @@ public enum DefLanguage: String {
         case .objc: return "objectivec"
         }
     }
+
+    /// Thing to include in a URL to force this language
+    var urlQuery: String {
+        switch self {
+        case .swift: return "?swift"
+        case .objc: return "?objc"
+        }
+    }
+
+    /// The other language
+    var otherLanguage: DefLanguage {
+        switch self {
+        case .swift: return .objc
+        case .objc: return .swift
+        }
+    }
 }
 
 /// A Swift language declaration split into its various parts

@@ -27,7 +27,7 @@ public final class Format: Configurable {
         logDebug("Format: Assigning URLs")
         URLFormatter(childItemStyle: configPublished.childItemStyle).walk(items: allItems)
         logDebug("Format: Generating HTML")
-        MarkdownFormatter(language: .swift).walk(items: allItems)
+        MarkdownFormatter(language: configPublished.defaultLanguage).walk(items: allItems)
         return allItems
     }
 

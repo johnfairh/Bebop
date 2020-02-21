@@ -82,11 +82,12 @@ struct GatherOpts : Configurable {
             objcDirectOpt.set(bool: true)
         }
 
-        #if !os(macOS)
         if objcDirectOpt.configured {
+            #if !os(macOS)
             throw OptionsError(.localized(.errObjcLinux))
+            #endif
+            published.defaultLanguage = .objc
         }
-        #endif
 
         if objcHeaderFileOpt.configured && buildToolOpt.configured {
             throw NotImplementedError("Objective-C with build-tool")

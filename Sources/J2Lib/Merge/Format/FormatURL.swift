@@ -59,8 +59,10 @@ public struct URLPieces: Encodable {
     }
 
     /// Get the url (path + fragment/hash), assuming some file extension.  %-encoded for a URL.
-    public func url(fileExtension: String) -> String {
-        urlPath + fileExtension + hashURL
+    /// Add a language to force the version of the page for that language.
+    public func url(fileExtension: String, language: DefLanguage? = nil) -> String {
+        let query = language.flatMap { $0.urlQuery } ?? ""
+        return urlPath + fileExtension + query + hashURL
     }
 
     /// Get the file-system name of the page, assuming some file extension.
