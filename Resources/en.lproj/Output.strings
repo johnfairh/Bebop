@@ -35,3 +35,6 @@
 "copyright" = "&copy; %1%2. All rights reserved. (Last updated: %3).";
 /* Default readme */
 "authors" = "Authors";
+/* Not-implemented apology */
+"not-swift" = "Not available in Swift.";
+"not-objc" = "Not available in Objective-C.";

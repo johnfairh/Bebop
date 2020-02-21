@@ -92,7 +92,7 @@ internal enum L10n {
   internal enum Output : String {
     /// Authors
     case authors = "authors"
-    /// &copy; %1 %2. All rights reserved. (Last updated: %3).
+    /// &copy; %1%2. All rights reserved. (Last updated: %3).
     case copyright = "copyright"
     /// Declaration
     case declaration = "declaration"
@@ -108,6 +108,10 @@ internal enum L10n {
     case guides = "guides"
     /// Index
     case index = "index"
+    /// Not available in Objective-C.
+    case notObjc = "not-objc"
+    /// Not available in Swift.
+    case notSwift = "not-swift"
     /// Others
     case others = "others"
     /// %1 - deprecated.

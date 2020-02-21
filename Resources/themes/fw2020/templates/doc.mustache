@@ -56,8 +56,11 @@ Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
             </h1>
           </header>
           {{/hide_article_title}}
+          {{#apology}}
+            <div class="{{{apology_language}}} j2-language-missing mb-3">{{.}}</div>
+          {{/apology}}
           {{#def}}
-          <div class="j2-callout j2-callout-declaration">
+          <div class="j2-callout {{{no_apology_language}}} j2-callout-declaration">
             {{#swift_declaration_html}}
             <div class="j2-swift">
               <div class="j2-callout-title" role="heading" aria-level="6">Swift</div>

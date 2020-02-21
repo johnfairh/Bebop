@@ -86,6 +86,9 @@ public enum MustacheKey: String {
     case toc = "toc"
     case hideArticleTitle = "hide_article_title"
     case contentHtml = "content_html"
+    case apologyLanguage = "apology_language"
+    case noApologyLanguage = "no_apology_language"
+    case apology = "apology"
     // Global, set by SiteGen
     case pathToAssets = "path_to_assets" // empty string or ends in "/"
     case docsTitle = "docs_title"
@@ -154,6 +157,15 @@ private extension Dictionary where Key == String, Value == Any {
     }
 }
 
+extension DefLanguage {
+    var apologyMessage: Localized<String> {
+        switch self {
+        case .swift: return .localizedOutput(.notSwift)
+        case .objc: return .localizedOutput(.notObjc)
+        }
+    }
+}
+
 extension GenData {
     public func generate(page: Int, languageTag: String, fileExt: String) -> MustachePage {
         var data = [String: Any]()
@@ -174,7 +186,13 @@ extension GenData {
         }
 
         let topics = pg.generateTopics(languageTag: languageTag, fileExt: fileExt)
-        data.maybe(.topicsLanguage, pg.soloTopicLanguage?.cssName)
+        let soloTopicsLanguage = pg.soloTopicsLanguage
+        data.maybe(.topicsLanguage, soloTopicsLanguage?.cssName)
+        if let apology = generateApology(page: pg, soloTopicsLanguage: soloTopicsLanguage) {
+            data[.apologyLanguage] = apology.0.cssName
+            data[.noApologyLanguage] = apology.0.otherLanguage.cssName
+            data[.apology] = apology.1.get(languageTag)
+        }
         data[.topics] = topics
         data[.topicsMenu] = generateTopicsMenu(topics: topics,
                                                anyDeclaration: pg.def != nil,
@@ -185,6 +203,29 @@ extension GenData {
                                  pageURLPath: pg.url.url(fileExtension: fileExt))
 
         return MustachePage(languageTag: languageTag, filepath: filepath, data: data)
+    }
+
+    /// Figure out when we need to invent some text for a language that the docset supports but the page doesn't.
+    func generateApology(page: Page, soloTopicsLanguage: DefLanguage?) -> (DefLanguage, Localized<String>)? {
+        guard meta.languages.count == 2, !page.isGuide else {
+            return nil
+        }
+        let apologyLanguage: DefLanguage
+        if let def = page.def {
+            // definition
+            if def.swiftDeclaration == nil && def.objCDeclaration != nil {
+                apologyLanguage = .swift
+            } else if def.swiftDeclaration != nil && def.objCDeclaration == nil {
+                apologyLanguage = .objc
+            } else {
+                return nil
+            }
+        } else if let soloTopicsLanguage = soloTopicsLanguage {
+            apologyLanguage = soloTopicsLanguage.otherLanguage
+        } else {
+            return nil // guide & mixed topics - keep.
+        }
+        return (apologyLanguage, apologyLanguage.apologyMessage)
     }
 
     /// TopicsMenu is array of [String : Any]
@@ -263,7 +304,7 @@ extension GenData.Page {
     }
 
     /// Identify if all topics are dependent on one language
-    var soloTopicLanguage: DefLanguage? {
+    var soloTopicsLanguage: DefLanguage? {
         var theLanguage: DefLanguage? = nil
         for topic in topics {
             guard let topicSoloLanguage = topic.soloLanguage else {
