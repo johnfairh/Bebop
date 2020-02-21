@@ -47,6 +47,7 @@ public struct GenSite: Configurable {
 
     let childItemStyleOpt = EnumOpt<ChildItemStyle>(l: "child-item-style").def(.nest)
     let nestedItemStyleOpt = EnumOpt<NestedItemStyle>(l: "nested-item-style").def(.start_closed)
+    let defaultLanguageOpt = EnumOpt<DefLanguage>(l: "default-language")
 
     let oldHideCoverageOpt: AliasOpt
     let oldCustomHeadOpt: AliasOpt
@@ -92,7 +93,7 @@ public struct GenSite: Configurable {
         logDebug("Gen: Creating output directory \(outputURL.path)")
         try FileManager.default.createDirectory(at: outputURL, withIntermediateDirectories: true)
 
-        theme.setGlobalData(globalData)
+        theme.setGlobalData(buildGlobalData(genData: genData))
 
         try generatePages(genData: genData, fileExt: theme.fileExtension) { location, data in
             logDebug("Gen: Rendering template for \(data[.pageTitle]!)")
@@ -109,7 +110,7 @@ public struct GenSite: Configurable {
     /// JSON instead of the website
     public func generateJSON(genData: GenData) throws -> String {
         var siteData: [[String: Any]] = []
-        let globals = globalData
+        let globals = buildGlobalData(genData: genData)
 
         generatePages(genData: genData, fileExt: ".html" /* ?? */) { _, data in
             var data = data
@@ -124,8 +125,8 @@ public struct GenSite: Configurable {
     private func generatePages(genData: GenData,
                                fileExt: String,
                                callback: (MustachePageLocation, [String: Any]) throws -> ()) rethrows {
-        let docsTitle = buildDocsTitle(genData: genData)
-        let breadcrumbsRoot = buildBreadcrumbRoot(genData: genData)
+        let docsTitle = buildDocsTitle()
+        let breadcrumbsRoot = buildBreadcrumbsRoot()
 
         let copyrightText = copyright.generate()
 
@@ -155,7 +156,7 @@ public struct GenSite: Configurable {
     }
 
     /// Figure out the title for the docs
-    func buildDocsTitle(genData: GenData) -> Localized<String> {
+    func buildDocsTitle() -> Localized<String> {
         if let configured = titleOpt.value {
             return configured
         }
@@ -169,7 +170,7 @@ public struct GenSite: Configurable {
     }
 
     /// Figure out the breadcrumbs-root for the docs
-    func buildBreadcrumbRoot(genData: GenData) -> Localized<String> {
+    func buildBreadcrumbsRoot() -> Localized<String> {
         if let configured = breadcrumbsRootOpt.value {
             return configured
         }
@@ -180,7 +181,7 @@ public struct GenSite: Configurable {
     }
 
     /// Configured things that do not vary page-to-page
-    var globalData: [String: Any] {
+    func buildGlobalData(genData: GenData) -> [String: Any] {
         var dict = MustacheKey.dict([
             .j2libVersion : Version.j2libVersion,
             .hideSearch : hideSearchOpt.value,
@@ -189,7 +190,9 @@ public struct GenSite: Configurable {
             .itemCollapseOpen: nestedItemStyle == .start_open,
             .itemCollapseNever: nestedItemStyle == .always_open ||
                                 childItemStyle == .separate,
-            .itemNest: childItemStyle != .separate
+            .itemNest: childItemStyle != .separate,
+            .dualLanguage: genData.meta.languages.count == 2,
+            .defaultLanguage: pickDefaultLanguage(from: genData.meta.languages).cssName
         ])
 
         if !hideCoverageOpt.value {
@@ -200,6 +203,26 @@ public struct GenSite: Configurable {
         }
 
         return dict
+    }
+
+    /// Decide what the default language is for the docs.
+    func pickDefaultLanguage(from languages: [DefLanguage]) -> DefLanguage {
+        let modulesDefault = published.defaultLanguage // set according to 1-module input swift/objc
+        let fallback = languages.contains(modulesDefault) ? modulesDefault : languages.first ?? .swift
+
+        guard let userDefault = defaultLanguageOpt.value else {
+            logDebug("Gen: Default language option not set, using '\(fallback)'.")
+            return fallback
+        }
+
+        if languages.contains(userDefault) {
+            logDebug("Gen: Default language from user option '\(userDefault)'.")
+            return userDefault
+        }
+        if fallback != userDefault {
+            logWarning("No definitions found in --default-language '\(userDefault)', using '\(fallback)'.")
+        }
+        return fallback
     }
 
     /// Build the localizations menu - links to this same page in all the

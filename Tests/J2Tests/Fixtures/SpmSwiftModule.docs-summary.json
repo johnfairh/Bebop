@@ -1,5 +1,8 @@
 {
   "meta" : {
+    "languages" : [
+      "swift"
+    ],
     "version" : "0.1"
   },
   "pages" : [

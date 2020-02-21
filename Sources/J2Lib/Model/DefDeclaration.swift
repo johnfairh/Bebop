@@ -61,7 +61,7 @@ extension Array where Element == DeclarationPiece {
     }
 }
 
-public enum DefLanguage: String, Encodable {
+public enum DefLanguage: String, Encodable, CaseIterable {
     case swift
     case objc
 

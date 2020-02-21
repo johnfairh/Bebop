@@ -21,7 +21,7 @@
     </form>
     {{/disable_search}}
 
-    <!-- TODO -->
+    {{#dual_language}}
     <div class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" href="#" id="language-menu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Swift</a>
       <div class="dropdown-menu dropdown-menu-right dropdown-menu-md-left" role="menu" aria-labelledby="language-menu">
@@ -29,7 +29,7 @@
         <a class="dropdown-item" href="" id="language-menu-objc" role="menuitem">ObjC</a>
       </div>
     </div>
-
+    {{/dual_language}}
 
     {{#github_url}}
     <a class="nav-item nav-link d-none d-sm-inline" rel="external" href="{{github_url}}">

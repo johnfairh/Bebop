@@ -68,6 +68,8 @@ const navControl = {
 // Language-switching controls
 //
 const langControl = {
+  // Global disable
+  alwaysDisabled: false,
 
   // Sync body style from URL for initial layout
   setup () {
@@ -86,6 +88,10 @@ const langControl = {
     this.langMenu = $('#language-menu')
     this.langSwift = $('#language-menu-swift')
     this.langObjC = $('#language-menu-objc')
+
+    if (this.langMenu.length === 0) {
+      this.alwaysDisabled = true
+    }
 
     this.updateChrome()
 
@@ -122,6 +128,8 @@ const langControl = {
 
   // Flip current on keypress/click
   toggle () {
+    if (this.alwaysDisabled) { return }
+
     $body.toggleClass('j2-swift j2-objc')
     const lang = this.updateChrome()
     const currentHash = window.location.hash
@@ -158,7 +166,7 @@ const collapseControl = {
 
   // Helper to uncollapse at the current anchor
   ensureUncollapsed () {
-    let decodedHash = decodeURIComponent(window.location.hash)
+    const decodedHash = decodeURIComponent(window.location.hash)
     const $el = $(decodedHash)
     if ($el.hasClass('j2-item')) {
       const $collapse = $('#_' + $el.attr('id'))

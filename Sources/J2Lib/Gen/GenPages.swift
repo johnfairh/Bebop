@@ -21,7 +21,8 @@ public struct GenPages: Configurable {
 
         let pageVisitor = PageVisitor()
         pageVisitor.walk(items: items)
-        let meta = GenData.Meta(version: Version.j2libVersion)
+        let meta = GenData.Meta(version: Version.j2libVersion,
+                                languages: Array(pageVisitor.languages))
 
         return GenData(meta: meta, toc: toc, pages: pageVisitor.pages)
     }
@@ -51,6 +52,8 @@ public struct GenPages: Configurable {
 final class PageVisitor: ItemVisitorProtocol {
     /// All pages
     var pages = [GenData.Page]()
+    /// Languages found
+    var languages = Set<DefLanguage>()
 
     func visit(defItem: DefItem, parents: [Item]) {
         if defItem.renderAsPage {
@@ -61,6 +64,8 @@ final class PageVisitor: ItemVisitorProtocol {
                 definition: defItem.asGenDef,
                 topics: buildTopics(item: defItem)))
         }
+        languages.insert(defItem.primaryLanguage)
+        _ = defItem.secondaryLanguage.flatMap { languages.insert($0) }
     }
 
     func visit(groupItem: GroupItem, parents: [Item]) {

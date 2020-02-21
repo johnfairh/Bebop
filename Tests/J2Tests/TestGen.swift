@@ -25,7 +25,7 @@ fileprivate struct System {
 
 extension GenData.Meta {
     init() {
-        self.init(version: "TEST")
+        self.init(version: "TEST", languages: [])
     }
 }
 
@@ -126,7 +126,7 @@ class TestGen: XCTestCase {
     func testGlobalData() throws {
         let system = System()
         try system.configure(cliOpts: ["--hide-attribution", "--no-hide-search"])
-        let globalData = system.gen.globalData
+        let globalData = system.gen.buildGlobalData(genData: GenData())
         XCTAssertEqual(Version.j2libVersion, globalData[.j2libVersion] as? String)
         XCTAssertEqual(false, globalData[.hideSearch] as? Bool)
         XCTAssertEqual(true, globalData[.hideAttribution] as? Bool)
@@ -138,7 +138,7 @@ class TestGen: XCTestCase {
     func testHideCoverage() throws {
         let system = System()
         try system.configure(cliOpts: ["--hide-documentation-coverage"])
-        let globalData = system.gen.globalData
+        let globalData = system.gen.buildGlobalData(genData: GenData())
         XCTAssertNil(globalData[.docCoverage])
     }
 
@@ -147,10 +147,8 @@ class TestGen: XCTestCase {
         let system = System()
         try system.configure(cliOpts: cliOpts)
         system.config.published.moduleNames = modules
-        let meta = GenData.Meta(version: "")
-        let data = GenData(meta: meta, toc: [], pages: [])
-        let atitle = system.gen.buildDocsTitle(genData: data)
-        let abreadcrumbsRoot = system.gen.buildBreadcrumbRoot(genData: data)
+        let atitle = system.gen.buildDocsTitle()
+        let abreadcrumbsRoot = system.gen.buildBreadcrumbsRoot()
         if let title = title {
             XCTAssertEqual(title, atitle["en"]!, line: line)
         }
@@ -193,4 +191,26 @@ class TestGen: XCTestCase {
         try checkCopyright(cliArgs: ["--copyright=_COPYRIGHT_"],
                            langMatches: ["en": ["<p><em>COPYRIGHT</em></p>"]])
     }
+
+    // Default language
+    func testAutoDefaultLanguage() throws {
+        let system = System()
+        try system.configure(cliOpts: [])
+        XCTAssertEqual(.swift, system.gen.pickDefaultLanguage(from: []))
+        XCTAssertEqual(.swift, system.gen.pickDefaultLanguage(from: [.swift]))
+        XCTAssertEqual(.swift, system.gen.pickDefaultLanguage(from: [.swift, .objc]))
+        XCTAssertEqual(.swift, system.gen.pickDefaultLanguage(from: [.objc, .swift]))
+        system.config.published.defaultLanguage = .objc
+        XCTAssertEqual(.objc, system.gen.pickDefaultLanguage(from: [.objc, .swift]))
+    }
+
+    func testUserDefaultLanguage() throws {
+        let system = System()
+        try system.configure(cliOpts: ["--default-language=objc"])
+        XCTAssertEqual(.swift, system.gen.pickDefaultLanguage(from: []))
+        XCTAssertEqual(.swift, system.gen.pickDefaultLanguage(from: [.swift]))
+        XCTAssertEqual(.objc, system.gen.pickDefaultLanguage(from: [.swift, .objc]))
+        XCTAssertEqual(.objc, system.gen.pickDefaultLanguage(from: [.objc, .swift]))
+    }
+
 }
