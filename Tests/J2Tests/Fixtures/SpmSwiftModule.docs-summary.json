@@ -32,7 +32,8 @@
               "flat_title" : {
                 "en" : "struct SpmSwiftModule"
               },
-              "swift_title_html" : {
+              "primary_language" : "swift",
+              "primary_title_html" : {
                 "html" : "<span class=\"j2-item-secondary\">struct <\/span>SpmSwiftModule"
               },
               "url" : {
@@ -57,7 +58,8 @@
               "flat_title" : {
                 "en" : "enum AnEnum"
               },
-              "swift_title_html" : {
+              "primary_language" : "swift",
+              "primary_title_html" : {
                 "html" : "<span class=\"j2-item-secondary\">enum <\/span>AnEnum"
               },
               "url" : {
@@ -124,7 +126,8 @@
               "flat_title" : {
                 "en" : "var text: String"
               },
-              "swift_title_html" : {
+              "primary_language" : "swift",
+              "primary_title_html" : {
                 "html" : "<span class=\"j2-item-secondary\">var <\/span>text<span class=\"j2-item-secondary\">: String<\/span>"
               }
             }
@@ -154,7 +157,8 @@
               "flat_title" : {
                 "en" : "struct Nested1"
               },
-              "swift_title_html" : {
+              "primary_language" : "swift",
+              "primary_title_html" : {
                 "html" : "<span class=\"j2-item-secondary\">struct <\/span>Nested1"
               },
               "url" : {
@@ -174,7 +178,8 @@
               "flat_title" : {
                 "en" : "struct Nested2"
               },
-              "swift_title_html" : {
+              "primary_language" : "swift",
+              "primary_title_html" : {
                 "html" : "<span class=\"j2-item-secondary\">struct <\/span>Nested2"
               }
             }
@@ -241,7 +246,8 @@
               "flat_title" : {
                 "en" : "struct Nested2a"
               },
-              "swift_title_html" : {
+              "primary_language" : "swift",
+              "primary_title_html" : {
                 "html" : "<span class=\"j2-item-secondary\">struct <\/span>Nested2a"
               }
             },
@@ -263,7 +269,8 @@
               "flat_title" : {
                 "en" : "struct Nested2b"
               },
-              "swift_title_html" : {
+              "primary_language" : "swift",
+              "primary_title_html" : {
                 "html" : "<span class=\"j2-item-secondary\">struct <\/span>Nested2b"
               }
             }
@@ -332,7 +339,8 @@
               "flat_title" : {
                 "en" : "case first(_:)"
               },
-              "swift_title_html" : {
+              "primary_language" : "swift",
+              "primary_title_html" : {
                 "html" : "<span class=\"j2-item-secondary\">case <\/span>first(_:)"
               }
             },
@@ -354,7 +362,8 @@
               "flat_title" : {
                 "en" : "case second"
               },
-              "swift_title_html" : {
+              "primary_language" : "swift",
+              "primary_title_html" : {
                 "html" : "<span class=\"j2-item-secondary\">case <\/span>second"
               }
             },
@@ -376,7 +385,8 @@
               "flat_title" : {
                 "en" : "case third"
               },
-              "swift_title_html" : {
+              "primary_language" : "swift",
+              "primary_title_html" : {
                 "html" : "<span class=\"j2-item-secondary\">case <\/span>third"
               }
             },
@@ -393,7 +403,8 @@
               "flat_title" : {
                 "en" : "case fourth"
               },
-              "swift_title_html" : {
+              "primary_language" : "swift",
+              "primary_title_html" : {
                 "html" : "<span class=\"j2-item-secondary\">case <\/span>fourth"
               }
             }
@@ -464,7 +475,8 @@
               "flat_title" : {
                 "en" : "func functionA(arg1: Int, Int, arg3: Int)"
               },
-              "swift_title_html" : {
+              "primary_language" : "swift",
+              "primary_title_html" : {
                 "html" : "<span class=\"j2-item-secondary\">func <\/span>functionA<span class=\"j2-item-secondary\">(<\/span>arg1<span class=\"j2-item-secondary\">: Int, Int, <\/span>arg3<span class=\"j2-item-secondary\">: Int)<\/span>"
               }
             },
@@ -505,7 +517,8 @@
               "flat_title" : {
                 "en" : "func deprecatedFunction(callback: (_ report: String) -> Int) -> String"
               },
-              "swift_title_html" : {
+              "primary_language" : "swift",
+              "primary_title_html" : {
                 "html" : "<span class=\"j2-item-secondary\">func <\/span>deprecatedFunction<span class=\"j2-item-secondary\">(<\/span>callback<span class=\"j2-item-secondary\">: (_ report: String) -> Int) -> String<\/span>"
               }
             }

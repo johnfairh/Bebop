@@ -103,12 +103,14 @@ public enum MustacheKey: String {
     case abstractHtml = "abstract_html"
     case overviewHtml = "overview_html"
     case swiftDeclarationHtml = "swift_declaration_html"
+    case objCDeclarationHtml = "objc_declaration_html"
     case parameters = "parameters"
     case parameterHtml = "parameter_html"
     case returnsHtml = "returns_html"
 
     // Topics
     case topics = "topics"
+    case topicsLanguage = "topics_language"
     case titleHtml = "title_html"
     case anchorId = "anchor_id"
     case dashName = "dash_name"
@@ -119,8 +121,13 @@ public enum MustacheKey: String {
     // Items
     case items = "items"
     case dashType = "dash_type"
-    case swiftTitleHtml = "swift_title_html"
+    case primaryTitleHtml = "primary_title_html"
+    case secondaryTitleHtml = "secondary_title_html"
+    case primaryLanguage = "primary_language"
+    case secondaryLanguage = "secondary_language"
     case anyDeclaration = "any_declaration"
+    case primaryUrl = "primary_url"
+    case secondaryUrl = "secondary_url"
 
     // ToC entries
     case title = "title"
@@ -165,6 +172,7 @@ extension GenData {
         }
 
         let topics = pg.generateTopics(languageTag: languageTag, fileExt: fileExt)
+        data.maybe(.topicsLanguage, pg.soloTopicLanguage?.cssName)
         data[.topics] = topics
         data[.topicsMenu] = generateTopicsMenu(topics: topics,
                                                anyDeclaration: pg.def != nil,
@@ -229,8 +237,9 @@ extension GenData.Page {
     /// topics is an array of [String : Any]
     /// with keys title_html [can be missing if 0 title]
     ///           overview_html [can be missing] [use . syntax!!]
-    ///           anchorId -- need for linking from aux nav
-    ///           dashName - %-encoded text (markdown) name
+    ///           anchor_id -- need for linking from aux nav
+    ///           dash_name - %-encoded text (markdown) name
+    ///           primary_language - if set then topic is only valid in that language
     ///           items - items array of [String: Any]
     func generateTopics(languageTag: String, fileExt: String) -> [[String : Any]] {
         return topics.map { topic in
@@ -238,10 +247,10 @@ extension GenData.Page {
             let dashName = title.urlPathEncoded
             var hash = MH([.anchorId: topic.anchorId, .dashName: dashName])
             if !title.isEmpty {
-                hash[.title] = title
                 hash[.titleHtml] = topic.title.html.get(languageTag).html
             }
             hash.maybe(.overviewHtml, topic.body?.get(languageTag).html)
+            hash.maybe(.primaryLanguage, topic.soloLanguage?.cssName)
             if topic.items.count > 0 {
                 hash[.items] = topic.items.map {
                     $0.generateItem(languageTag: languageTag, fileExt: fileExt)
@@ -250,28 +259,70 @@ extension GenData.Page {
             return hash
         }
     }
+
+    /// Identify if all topics are dependent on one language
+    var soloTopicLanguage: DefLanguage? {
+        var theLanguage: DefLanguage? = nil
+        for topic in topics {
+            guard let topicSoloLanguage = topic.soloLanguage else {
+                return nil // bilingual topic
+            }
+            if theLanguage == nil {
+                theLanguage = topicSoloLanguage // first lang
+            } else if theLanguage != topicSoloLanguage {
+                return nil // diff solo lang
+            }
+        }
+        return theLanguage
+    }
+}
+
+extension GenData.Topic {
+    /// Identify if every item in this topic is only present in the same one language.
+    /// If so then cascade that behaviour into the topic itself.
+    var soloLanguage: DefLanguage? {
+        var theLanguage: DefLanguage? = nil
+        for item in items {
+            if item.secondaryLanguage != nil || // bilingual
+                item.primaryTitleHtml == nil {  // direct-link
+                return nil
+            }
+            if theLanguage == nil {
+                theLanguage = item.primaryLanguage // first match
+            } else if theLanguage != item.primaryLanguage {
+                return nil // different 1-language
+            }
+        }
+        return theLanguage
+    }
 }
 
 extension GenData.Item {
     /// Item has keys
     ///     anchor_id
     ///     title -- text title for meta refs & direct-links
-    ///     swift_title_html -- swift defs
+    ///     prim|sec_title_html -- language defs, prim/sec is about which to show in dash (etc) mode
+    ///     prim|sec_language -- css-appendable class tag for other prim-sec stuff
     ///     any_declaration -- F means direct_link
     ///     dash_type -- for dash links
     ///     dash_name -- title, %-encoded
-    ///     url -- optional, link for more
+    ///     primaryUrl -- optional, link for more in primary language
+    ///     secondaryUrl -- optional, link for more in secondary language
     ///     def -- optional, popopen item definition
     func generateItem(languageTag: String, fileExt: String) -> [String : Any] {
         let title = flatTitle.get(languageTag)
         var hash = MH([.anchorId: anchorId,
                        .title: title,
                        .dashName: title.urlPathEncoded,
-                       .anyDeclaration: swiftTitleHtml != nil])
+                       .anyDeclaration: primaryTitleHtml != nil || secondaryTitleHtml != nil,
+                       .primaryLanguage: primaryLanguage.cssName])
 
-        hash.maybe(.swiftTitleHtml, swiftTitleHtml?.html)
+        hash.maybe(.primaryTitleHtml, primaryTitleHtml?.html)
+        hash.maybe(.secondaryLanguage, secondaryLanguage?.cssName)
+        hash.maybe(.secondaryTitleHtml, secondaryTitleHtml?.html)
         hash.maybe(.dashType, dashType)
-        hash.maybe(.url, url?.url(fileExtension: fileExt))
+        hash.maybe(.primaryUrl, url?.url(fileExtension: fileExt, language: primaryLanguage))
+        hash.maybe(.secondaryUrl, secondaryLanguage.flatMap { url?.url(fileExtension: fileExt, language: $0) })
         hash.maybe(.def, def?.generateDef(languageTag: languageTag, fileExt: fileExt))
 
         return hash
@@ -283,6 +334,7 @@ extension GenData.Def {
     /// Keys:
     ///   deprecation_html  - optional - is it deprecated
     ///   swift_declaration_html - swift decl
+    ///   objc_declaration_html - objc decl --- at least one of these two will be set
     ///   abstract_html - optional - first part of discussion
     ///   overview_html - optional - second part of discussion
     ///   parameters - optional - array of title / parameter_html
@@ -294,6 +346,7 @@ extension GenData.Def {
             dict[.availability] = availability
         }
         dict.maybe(.swiftDeclarationHtml, swiftDeclaration?.html)
+        dict.maybe(.objCDeclarationHtml, objCDeclaration?.html)
         dict.maybe(.abstractHtml, abstract?.get(languageTag).html)
         dict.maybe(.overviewHtml, overview?.get(languageTag).html)
         if !params.isEmpty {

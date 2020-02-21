@@ -32,6 +32,6 @@
 /* Aux nav */
 "declaration" = "Declaration";
 /* Default copyright */
-"copyright" = "&copy; %1 %2. All rights reserved. (Last updated: %3).";
+"copyright" = "&copy; %1%2. All rights reserved. (Last updated: %3).";
 /* Default readme */
 "authors" = "Authors";

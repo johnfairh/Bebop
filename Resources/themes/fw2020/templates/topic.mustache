@@ -1,4 +1,4 @@
-<section>
+<section class="{{.primary_language}}">
   {{#.title_html}}
   <a name="//apple_ref/cpp/Section/{{dash_name}}" class="dashAnchor"></a>
   <h3 class="j2-anchor" id="{{anchor_id}}">
@@ -17,10 +17,15 @@
   </div>
   {{/any_declaration}}
   {{#any_declaration}}
-  <section id="{{anchor_id}}" class="j2-item">
+    <section id="{{anchor_id}}" class="j2-item {{^secondary_language}}{{{primary_language}}}{{/secondary_language}}">
     <a name="//apple_ref/cpp/{{dash_type}}/{{dash_name}}" class="dashAnchor"></a>
     <h4 class="sr-only">{{title}}</h4>
-    <a class="j2-item-title{{#def.deprecation_html}}-discouraged{{/def.deprecation_html}}" href={{^item_nest}}"{{{path_to_root}}}{{{url}}}"{{/item_nest}}{{#item_nest}}"#_{{anchor_id}}" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="_{{anchor_id}}"{{/item_nest}}><code><span class="j2-swift">{{{swift_title_html}}}</span></code></a>
+    <a class="j2-item-title{{#def.deprecation_html}}-discouraged{{/def.deprecation_html}}" href={{^item_nest}}"{{{path_to_root}}}{{{url}}}"{{/item_nest}}{{#item_nest}}"#_{{anchor_id}}" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="_{{anchor_id}}"{{/item_nest}}><code>
+        <span class="{{{primary_language}}}">{{{primary_title_html}}}</span>
+        {{#secondary_title_html}}
+        <span class="{{{secondary_language}}} j2-secondary">{{{secondary_title_html}}}</span>
+        {{/secondary_title_html}}
+      </code></a>
     {{^item_nest}}
     {{#.def.abstract_html}}
     <div class="j2-item-overview">
@@ -68,13 +73,13 @@
             {{#def.swift_declaration_html}}
             <div class="j2-swift">
               <div class="j2-callout-title" role="heading" aria-level="6">Swift</div>
-              <pre><code class="language-swift">{{{def.swift_declaration_html}}}</code></pre>
+              <pre><code class="language-swift">{{{.}}}</code></pre>
             </div>
             {{/def.swift_declaration_html}}
             {{#def.objc_declaration_html}}
             <div class="j2-objc">
               <div class="j2-callout-title" role="heading" aria-level="6">Objective-C</div>
-              <pre><code class="language-objectivec">{{{def.objc_declaration_html}}}</code></pre>
+              <pre><code class="language-objectivec">{{{.}}}</code></pre>
             </div>
             {{/def.objc_declaration_html}}
           </div>
@@ -94,9 +99,16 @@
           {{{def.returns_html}}}
           {{/def.returns_html}}
           <nav class="j2-item-nav" aria-label="item details">
-            {{#url}}
-            <span class="j2-item-nav-item"><a href="{{{path_to_root}}}{{{url}}}">Show members</a></span>
-            {{/url}}
+            {{#primary_url}}
+            <span class="j2-item-nav-item">
+            {{#primary_url}}
+              <span class="{{{primary_language}}}"><a href="{{{path_to_root}}}{{{.}}}">Show members</a></span>
+            {{/primary_url}}
+            {{#secondary_url}}
+              <span class="{{{secondary_language}}} j2-secondary"><a href="{{{path_to_root}}}{{{.}}}">Show members</a></span>
+            {{/secondary_url}}
+            </span>
+            {{/primary_url}}
             {{#github_token_url}}
             <span class="j2-item-nav-item"><a href="{{{github_token_url}}}">Show on GitHub</a></span>
             {{/github_token_url}}

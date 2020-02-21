@@ -61,9 +61,17 @@ extension Array where Element == DeclarationPiece {
     }
 }
 
-public enum DefLanguage: String {
+public enum DefLanguage: String, Encodable {
     case swift
     case objc
+
+    /// The other language
+    var otherLanguage: DefLanguage {
+        switch self {
+        case .swift: return .objc
+        case .objc: return .swift
+        }
+    }
 
     /// Name of language according to Prism, the code highlighter
     var prismLanguage: String {
@@ -81,11 +89,11 @@ public enum DefLanguage: String {
         }
     }
 
-    /// The other language
-    var otherLanguage: DefLanguage {
+    /// CSS-name for the language
+    var cssName: String {
         switch self {
-        case .swift: return .objc
-        case .objc: return .swift
+        case .swift: return "j2-swift"
+        case .objc: return "j2-objc"
         }
     }
 }

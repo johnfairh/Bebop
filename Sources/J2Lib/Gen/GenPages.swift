@@ -128,6 +128,23 @@ final class PageVisitor: ItemVisitorProtocol {
 
 // MARK: Items
 
+extension DefItem {
+    func namePieces(for language: DefLanguage) -> [DeclarationPiece] {
+        switch language {
+        case .swift: return swiftDeclaration!.namePieces
+        case .objc: return objCDeclaration!.namePieces
+        }
+    }
+
+    var primaryNamePieces: [DeclarationPiece] {
+        namePieces(for: primaryLanguage)
+    }
+
+    var secondaryNamePieces: [DeclarationPiece]? {
+        secondaryLanguage.flatMap { namePieces(for: $0) }
+    }
+}
+
 /// Visitor to construct an Item that can appear inside a topic on a page.
 class ItemVisitor: ItemVisitorProtocol {
     var items = [GenData.Item]()
@@ -139,11 +156,18 @@ class ItemVisitor: ItemVisitorProtocol {
 
     func visit(defItem: DefItem, parents: [Item]) {
         // not masochistic enough to do this in templates...
-        let swiftTitleHtml = defItem.swiftDeclaration?.namePieces.wrappingOther(before: #"<span class="j2-item-secondary">"#, after: "</span>") ?? "SWIFT"
+        let titleHtmls = [defItem.primaryNamePieces, defItem.secondaryNamePieces].map {
+            $0.flatMap {
+                Html($0.wrappingOther(before: #"<span class="j2-item-secondary">"#, after: "</span>"))
+            }
+        }
         items.append(GenData.Item(
             anchorId: defItem.slug,
-            flatTitle: .init(unlocalized: defItem.swiftDeclaration?.namePieces.flattened ?? "SWIFT"),
-            swiftTitleHtml: Html(swiftTitleHtml),
+            flatTitle: .init(unlocalized: defItem.primaryNamePieces.flattened),
+            primaryLanguage: defItem.primaryLanguage,
+            secondaryLanguage: defItem.secondaryLanguage,
+            primaryTitleHtml: titleHtmls[0],
+            secondaryTitleHtml: titleHtmls[1],
             dashType: defItem.defKind.dashName,
             url: defItem.renderAsPage ? defItem.url : nil,
             def: defItem.asGenDef))
@@ -172,7 +196,8 @@ extension DefItem {
                     availability: swiftDeclaration?.availability ?? [],
                     abstract: documentation.abstract?.html,
                     overview: documentation.overview?.html,
-                    swiftDeclaration: Html(swiftDeclaration?.declaration ?? "SWIFT"),
+                    swiftDeclaration: swiftDeclaration.flatMap { Html($0.declaration) },
+                    objCDeclaration: objCDeclaration.flatMap { Html($0.declaration) },
                     params: documentation.parameters.map { docParam in
                         GenData.Param(name: docParam.name, description: docParam.description.html)
                     },

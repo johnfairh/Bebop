@@ -682,7 +682,9 @@ $j2-header-height: add($j2-titlebar-height, $j2-breadcrumbs-height);
   .j2-breadcrumb,
   .j2-nav,
   .j2-aux-nav,
-  .j2-footer {
+  .j2-footer,
+  .j2-secondary, // don't show alternatives
+  .j2-language-missing { // don't show apologies
     display: none !important;
   }
 
@@ -695,16 +697,6 @@ $j2-header-height: add($j2-titlebar-height, $j2-breadcrumbs-height);
   .j2-objc .j2-swift,
   .j2-swift .j2-objc {
     display: unset;
-
-    // But not in autolinks
-    &.j2-secondary {
-      display: none;
-    }
-
-    // And not if it's actually an apology
-    &.j2-language-missing {
-      display: none;
-    }
   }
 
   // Show declaration language name

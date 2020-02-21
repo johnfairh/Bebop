@@ -32,23 +32,22 @@ public final class GenData: Encodable {
         public let availability: [String]
         public let abstract: Localized<Html>?
         public let overview: Localized<Html>?
-        // -> + objCDeclaration
         public let swiftDeclaration: Html?
+        public let objCDeclaration: Html?
         public let params: [Param]
         public let returns: Localized<Html>?
     }
     public struct Item: Encodable {
-        // -> primaryLanguage: DefLanguage
-        // -> secondaryLanguage: DefLanguage?
-        // Then deduce "solo-language" for the item in mustache-gen
         public let anchorId: String
         public let flatTitle: Localized<String>
-        // -> primaryTitleHtml?
-        // -> secondaryTitleHtml?
-        public let swiftTitleHtml: Html?
+        public let primaryLanguage: DefLanguage
+        public let secondaryLanguage: DefLanguage?
+        // Then deduce "solo-language" for the item in mustache-gen
+        public let primaryTitleHtml: Html?
+        public let secondaryTitleHtml: Html?
         public let dashType: String?
-        // -> primaryURL?
-        // -> secondaryURL?
+        // -> primaryURL? -- no, calculate at mustache from primaryLanguage
+        // -> secondaryURL? -- ""
         public let url: URLPieces?
         public let def: Def?
 
@@ -56,7 +55,10 @@ public final class GenData: Encodable {
         public init(anchorId: String, title: Localized<String>, url: URLPieces) {
             self.anchorId = anchorId
             self.flatTitle = title
-            self.swiftTitleHtml = nil
+            self.primaryLanguage = .swift
+            self.secondaryLanguage = nil
+            self.primaryTitleHtml = nil
+            self.secondaryTitleHtml = nil
             self.dashType = nil
             self.url = url
             self.def = nil
@@ -65,13 +67,19 @@ public final class GenData: Encodable {
         /// Full item init
         public init(anchorId: String,
                     flatTitle: Localized<String>,
-                    swiftTitleHtml: Html,
+                    primaryLanguage: DefLanguage,
+                    secondaryLanguage: DefLanguage?,
+                    primaryTitleHtml: Html?,
+                    secondaryTitleHtml: Html?,
                     dashType: String,
                     url: URLPieces?,
                     def: Def) {
             self.anchorId = anchorId
             self.flatTitle = flatTitle
-            self.swiftTitleHtml = swiftTitleHtml
+            self.primaryLanguage = primaryLanguage
+            self.secondaryLanguage = secondaryLanguage
+            self.primaryTitleHtml = primaryTitleHtml
+            self.secondaryTitleHtml = secondaryTitleHtml
             self.dashType = dashType
             self.url = url
             self.def = def

@@ -7400,7 +7400,9 @@ pre {
 .dash .j2-breadcrumb,
 .dash .j2-nav,
 .dash .j2-aux-nav,
-.dash .j2-footer {
+.dash .j2-footer,
+.dash .j2-secondary,
+.dash .j2-language-missing {
   display: none !important;
 }
 
@@ -7412,16 +7414,6 @@ pre {
 .dash .j2-objc .j2-swift,
 .dash .j2-swift .j2-objc {
   display: unset;
-}
-
-.dash .j2-objc .j2-swift.j2-secondary,
-.dash .j2-swift .j2-objc.j2-secondary {
-  display: none;
-}
-
-.dash .j2-objc .j2-swift.j2-language-missing,
-.dash .j2-swift .j2-objc.j2-language-missing {
-  display: none;
 }
 
 .dash .j2-callout-declaration .j2-callout-title,

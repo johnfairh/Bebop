@@ -1,7 +1,7 @@
 [
   {
     "breadcrumbs_root" : "SpmSwiftModule",
-    "copyright_html" : "<p>© 9999 . All rights reserved. (Last updated: today).<\/p>",
+    "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "disable_search" : false,
     "doc_coverage" : 66,
     "docs_title" : "SpmSwiftModule docs",
@@ -86,9 +86,10 @@
               "abstract_html" : "<p>Main structure<\/p>",
               "swift_declaration_html" : "public struct SpmSwiftModule"
             },
-            "swift_title_html" : "<span class=\"j2-item-secondary\">struct <\/span>SpmSwiftModule",
-            "title" : "struct SpmSwiftModule",
-            "url" : "types\/spmswiftmodule.html"
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">struct <\/span>SpmSwiftModule",
+            "primary_url" : "types\/spmswiftmodule.html?swift",
+            "title" : "struct SpmSwiftModule"
           },
           {
             "anchor_id" : "anenum",
@@ -99,13 +100,16 @@
               "abstract_html" : "<p>An enum<\/p>",
               "swift_declaration_html" : "public enum AnEnum"
             },
-            "swift_title_html" : "<span class=\"j2-item-secondary\">enum <\/span>AnEnum",
-            "title" : "enum AnEnum",
-            "url" : "types\/anenum.html"
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">enum <\/span>AnEnum",
+            "primary_url" : "types\/anenum.html?swift",
+            "title" : "enum AnEnum"
           }
-        ]
+        ],
+        "primary_language" : "j2-swift"
       }
     ],
+    "topics_language" : "j2-swift",
     "topics_menu" : []
   },
   {
@@ -116,7 +120,7 @@
       }
     ],
     "breadcrumbs_root" : "SpmSwiftModule",
-    "copyright_html" : "<p>© 9999 . All rights reserved. (Last updated: today).<\/p>",
+    "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "def" : {
       "abstract_html" : "<p>Main structure<\/p>",
       "swift_declaration_html" : "public struct SpmSwiftModule"
@@ -205,11 +209,12 @@
             "def" : {
               "swift_declaration_html" : "public var text: String"
             },
-            "swift_title_html" : "<span class=\"j2-item-secondary\">var <\/span>text<span class=\"j2-item-secondary\">: String<\/span>",
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">var <\/span>text<span class=\"j2-item-secondary\">: String<\/span>",
             "title" : "var text: String"
           }
         ],
-        "title" : "Fields",
+        "primary_language" : "j2-swift",
         "title_html" : "Fields"
       },
       {
@@ -224,9 +229,10 @@
             "def" : {
               "swift_declaration_html" : "public struct SpmSwiftModule.Nested1"
             },
-            "swift_title_html" : "<span class=\"j2-item-secondary\">struct <\/span>Nested1",
-            "title" : "struct Nested1",
-            "url" : "types\/spmswiftmodule\/nested1.html"
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">struct <\/span>Nested1",
+            "primary_url" : "types\/spmswiftmodule\/nested1.html?swift",
+            "title" : "struct Nested1"
           },
           {
             "anchor_id" : "nested2",
@@ -236,26 +242,20 @@
             "def" : {
               "swift_declaration_html" : "public struct SpmSwiftModule.Nested2"
             },
-            "swift_title_html" : "<span class=\"j2-item-secondary\">struct <\/span>Nested2",
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">struct <\/span>Nested2",
             "title" : "struct Nested2"
           }
         ],
-        "title" : "_Nested_ strúctures",
+        "primary_language" : "j2-swift",
         "title_html" : "<em>Nested<\/em> strúctures"
       }
     ],
+    "topics_language" : "j2-swift",
     "topics_menu" : [
       {
         "anchor_id" : "",
         "title" : "Declaration"
-      },
-      {
-        "anchor_id" : "tpc_fields",
-        "title" : "Fields"
-      },
-      {
-        "anchor_id" : "tpc__nested_-str%C3%BActures",
-        "title" : "Nested strúctures"
       }
     ]
   },
@@ -271,7 +271,7 @@
       }
     ],
     "breadcrumbs_root" : "SpmSwiftModule",
-    "copyright_html" : "<p>© 9999 . All rights reserved. (Last updated: today).<\/p>",
+    "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "def" : {
       "swift_declaration_html" : "public struct SpmSwiftModule.Nested1"
     },
@@ -360,7 +360,8 @@
             "def" : {
               "swift_declaration_html" : "public struct SpmSwiftModule.Nested1.Nested2a"
             },
-            "swift_title_html" : "<span class=\"j2-item-secondary\">struct <\/span>Nested2a",
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">struct <\/span>Nested2a",
             "title" : "struct Nested2a"
           },
           {
@@ -372,12 +373,15 @@
               "deprecation_html" : "<p>Deprecated.<\/p>",
               "swift_declaration_html" : "public struct SpmSwiftModule.Nested1.Nested2b"
             },
-            "swift_title_html" : "<span class=\"j2-item-secondary\">struct <\/span>Nested2b",
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">struct <\/span>Nested2b",
             "title" : "struct Nested2b"
           }
-        ]
+        ],
+        "primary_language" : "j2-swift"
       }
     ],
+    "topics_language" : "j2-swift",
     "topics_menu" : [
       {
         "anchor_id" : "",
@@ -393,7 +397,7 @@
       }
     ],
     "breadcrumbs_root" : "SpmSwiftModule",
-    "copyright_html" : "<p>© 9999 . All rights reserved. (Last updated: today).<\/p>",
+    "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "def" : {
       "abstract_html" : "<p>An enum<\/p>",
       "swift_declaration_html" : "public enum AnEnum"
@@ -482,7 +486,8 @@
               "abstract_html" : "<p>First case<\/p>",
               "swift_declaration_html" : "case first(Int)"
             },
-            "swift_title_html" : "<span class=\"j2-item-secondary\">case <\/span>first(_:)",
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">case <\/span>first(_:)",
             "title" : "case first(_:)"
           },
           {
@@ -494,7 +499,8 @@
               "abstract_html" : "<p>Second case<\/p>",
               "swift_declaration_html" : "case second"
             },
-            "swift_title_html" : "<span class=\"j2-item-secondary\">case <\/span>second",
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">case <\/span>second",
             "title" : "case second"
           },
           {
@@ -506,7 +512,8 @@
               "abstract_html" : "<p>Third &amp; Fourth cases<\/p>",
               "swift_declaration_html" : "case third"
             },
-            "swift_title_html" : "<span class=\"j2-item-secondary\">case <\/span>third",
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">case <\/span>third",
             "title" : "case third"
           },
           {
@@ -517,12 +524,15 @@
             "def" : {
               "swift_declaration_html" : "case fourth"
             },
-            "swift_title_html" : "<span class=\"j2-item-secondary\">case <\/span>fourth",
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">case <\/span>fourth",
             "title" : "case fourth"
           }
-        ]
+        ],
+        "primary_language" : "j2-swift"
       }
     ],
+    "topics_language" : "j2-swift",
     "topics_menu" : [
       {
         "anchor_id" : "",
@@ -532,7 +542,7 @@
   },
   {
     "breadcrumbs_root" : "SpmSwiftModule",
-    "copyright_html" : "<p>© 9999 . All rights reserved. (Last updated: today).<\/p>",
+    "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "disable_search" : false,
     "doc_coverage" : 66,
     "docs_title" : "SpmSwiftModule docs",
@@ -636,7 +646,8 @@
               ],
               "swift_declaration_html" : "public func functionA(arg1: Int,\n                      _ arg2: Int,\n                      arg3 argMeaning: Int)"
             },
-            "swift_title_html" : "<span class=\"j2-item-secondary\">func <\/span>functionA<span class=\"j2-item-secondary\">(<\/span>arg1<span class=\"j2-item-secondary\">: Int, Int, <\/span>arg3<span class=\"j2-item-secondary\">: Int)<\/span>",
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>functionA<span class=\"j2-item-secondary\">(<\/span>arg1<span class=\"j2-item-secondary\">: Int, Int, <\/span>arg3<span class=\"j2-item-secondary\">: Int)<\/span>",
             "title" : "func functionA(arg1: Int, Int, arg3: Int)"
           },
           {
@@ -656,18 +667,21 @@
               "returns_html" : "<p>A string<\/p>",
               "swift_declaration_html" : "public func deprecatedFunction(callback: (_ report: String) -> Int) -> String"
             },
-            "swift_title_html" : "<span class=\"j2-item-secondary\">func <\/span>deprecatedFunction<span class=\"j2-item-secondary\">(<\/span>callback<span class=\"j2-item-secondary\">: (_ report: String) -> Int) -> String<\/span>",
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>deprecatedFunction<span class=\"j2-item-secondary\">(<\/span>callback<span class=\"j2-item-secondary\">: (_ report: String) -> Int) -> String<\/span>",
             "title" : "func deprecatedFunction(callback: (_ report: String) -> Int) -> String"
           }
-        ]
+        ],
+        "primary_language" : "j2-swift"
       }
     ],
+    "topics_language" : "j2-swift",
     "topics_menu" : []
   },
   {
     "breadcrumbs_root" : "SpmSwiftModule",
     "content_html" : "<h1 class=\"j2-anchor j2-heading\" id=\"spmswiftmodule\">\n<span data-anchor-id=\"spmswiftmodule\">\nSpmSwiftModule\n<\/span><\/h1>",
-    "copyright_html" : "<p>© 9999 . All rights reserved. (Last updated: today).<\/p>",
+    "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "disable_search" : false,
     "doc_coverage" : 66,
     "docs_title" : "SpmSwiftModule docs",
