@@ -11,6 +11,7 @@ import XCTest
 
 // Binary-check fixtures for the json products fils
 
+//private var doFixup = true
 private var doFixup = false
 
 class TestProducts: XCTestCase {

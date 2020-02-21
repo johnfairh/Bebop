@@ -29,7 +29,7 @@ public final class GenData: Encodable {
     }
     public struct Def: Encodable {
         public let deprecation: Localized<Html>?
-        public let availability: [Localized<String>] // erm this isn't localized ???
+        public let availability: [String]
         public let abstract: Localized<Html>?
         public let overview: Localized<Html>?
         // -> + objCDeclaration

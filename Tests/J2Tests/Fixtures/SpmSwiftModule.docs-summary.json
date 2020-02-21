@@ -428,12 +428,8 @@
               "dash_type" : "Global",
               "def" : {
                 "availability" : [
-                  {
-                    "en" : "iOS 9+"
-                  },
-                  {
-                    "en" : "macOS 10.12+"
-                  }
+                  "iOS 9+",
+                  "macOS 10.12+"
                 ],
                 "params" : [
                   {

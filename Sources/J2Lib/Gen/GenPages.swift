@@ -169,7 +169,7 @@ class ItemVisitor: ItemVisitorProtocol {
 extension DefItem {
     var asGenDef: GenData.Def {
         GenData.Def(deprecation: deprecationNotice?.html,
-                    availability: swiftDeclaration?.availability.map { Localized<String>(unlocalized: $0) } ?? [],
+                    availability: swiftDeclaration?.availability ?? [],
                     abstract: documentation.abstract?.html,
                     overview: documentation.overview?.html,
                     swiftDeclaration: Html(swiftDeclaration?.declaration ?? "SWIFT"),

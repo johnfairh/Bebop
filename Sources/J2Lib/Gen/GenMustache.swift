@@ -291,7 +291,7 @@ extension GenData.Def {
         var dict = [String : Any]()
         dict.maybe(.deprecationHtml, deprecation?.get(languageTag).html)
         if !availability.isEmpty {
-            dict[.availability] = availability.map { $0.get(languageTag) }
+            dict[.availability] = availability
         }
         dict.maybe(.swiftDeclarationHtml, swiftDeclaration?.html)
         dict.maybe(.abstractHtml, abstract?.get(languageTag).html)
