@@ -435,37 +435,37 @@ $j2-breadcrumbs-height: 37px;
   &:last-child {
     margin-bottom: 1rem;
   }
+}
 
-  $item-overview-indent: 2rem;
+$item-overview-indent: 2rem;
 
-  .j2-item-title {
-    // These add an indent to the 2nd+ lines
-    display: inline-block;
-    margin-left: $item-overview-indent;
-    text-indent: -$item-overview-indent;
+.j2-item-title {
+  // These add an indent to the 2nd+ lines
+  display: inline-block;
+  margin-left: $item-overview-indent;
+  text-indent: -$item-overview-indent;
 
-    code {
-      padding: 0;
-    }
-
-    .j2-item-secondary {
-      color: $j2-article-secondary-color;
-    }
+  code {
+    padding: 0;
   }
 
-  .j2-item-title-discouraged {
-    @extend .j2-item-title;
-    text-decoration: line-through;
-    &:hover {
-      text-decoration: line-through underline !important;
-    }
+  .j2-item-secondary {
+    color: $j2-article-secondary-color;
   }
+}
 
-  .j2-item-overview {
-    margin-left: $item-overview-indent;
-    p:last-child {
-      margin-bottom: 0;
-    }
+.j2-item-title-discouraged {
+  @extend .j2-item-title;
+  text-decoration: line-through;
+  &:hover {
+    text-decoration: line-through underline !important;
+  }
+}
+
+.j2-item-overview {
+  margin-left: $item-overview-indent;
+  p:last-child {
+    margin-bottom: 0;
   }
 }
 

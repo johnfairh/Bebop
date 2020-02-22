@@ -7165,33 +7165,33 @@ pre {
   margin-bottom: 1rem;
 }
 
-.j2-item .j2-item-title, .j2-item .j2-item-title-discouraged {
+.j2-item-title, .j2-item-title-discouraged {
   display: inline-block;
   margin-left: 2rem;
   text-indent: -2rem;
 }
 
-.j2-item .j2-item-title code, .j2-item .j2-item-title-discouraged code {
+.j2-item-title code, .j2-item-title-discouraged code {
   padding: 0;
 }
 
-.j2-item .j2-item-title .j2-item-secondary, .j2-item .j2-item-title-discouraged .j2-item-secondary {
+.j2-item-title .j2-item-secondary, .j2-item-title-discouraged .j2-item-secondary {
   color: var(--article-secondary-color);
 }
 
-.j2-item .j2-item-title-discouraged {
+.j2-item-title-discouraged {
   text-decoration: line-through;
 }
 
-.j2-item .j2-item-title-discouraged:hover {
+.j2-item-title-discouraged:hover {
   text-decoration: line-through underline !important;
 }
 
-.j2-item .j2-item-overview {
+.j2-item-overview {
   margin-left: 2rem;
 }
 
-.j2-item .j2-item-overview p:last-child {
+.j2-item-overview p:last-child {
   margin-bottom: 0;
 }
 
