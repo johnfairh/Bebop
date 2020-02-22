@@ -126,7 +126,9 @@ public enum MustacheKey: String {
     case dashName = "dash_name"
 
     // Topics menu
+    case topicsMenus = "topics_menus"
     case topicsMenu = "topics_menu"
+    case language = "language"
 
     // Items
     case items = "items"
@@ -207,9 +209,18 @@ extension GenData {
             data[.apology] = apology.1.get(languageTag)
         }
         data[.topics] = topics
-        data[.topicsMenu] = generateTopicsMenu(topics: topics,
-                                               anyDeclaration: pg.def != nil,
-                                               languageTag: languageTag)
+        data[.topicsMenus] = meta.languages.compactMap { lang -> [String:Any]? in
+            let topicsMenu = generateTopicsMenu(topics: topics,
+                                                language: lang,
+                                                anyDeclaration: pg.def != nil,
+                                                languageTag: languageTag)
+            guard !topicsMenu.isEmpty else {
+                return nil
+            }
+
+            return MH([.topicsMenu: topicsMenu,
+                       .language: lang.cssName])
+        }
 
         zip(meta.languages, tocs).forEach { tocSrc in
             let dictKey = tocSrc.0 == .swift ? MustacheKey.swiftToc : MustacheKey.objCToc
@@ -250,17 +261,25 @@ extension GenData {
     ///    title -- text for link
     ///    anchor_id -- without #
     /// Add an item for the top declaration if there is one.
-    func generateTopicsMenu(topics: [[String: Any]], anyDeclaration: Bool, languageTag: String) -> [[String: Any]] {
+    func generateTopicsMenu(topics: [[String: Any]],
+                            language: DefLanguage,
+                            anyDeclaration: Bool,
+                            languageTag: String) -> [[String: Any]] {
         var topicsMenu = [[String: Any]]()
         if anyDeclaration {
             let declaration = Localized<String>.localizedOutput(.declaration).get(languageTag)
             topicsMenu.append(MH([.title: declaration, .anchorId: ""]))
         }
+        let otherLanguageName = language.otherLanguage.cssName
         return topicsMenu +
             topics.compactMap { hash in
                 guard let title = hash[.title] as? String,
                     let anchorId = hash[.anchorId] as? String else {
                         return nil
+                }
+                if let topicSoloLanguageName = hash[.primaryLanguage] as? String,
+                    topicSoloLanguageName == otherLanguageName {
+                    return nil
                 }
                 return MH([.title: title.re_sub("[_`*]+", with: ""),
                            .anchorId: "\(anchorId.urlFragmentEncoded)"])
@@ -314,6 +333,7 @@ extension GenData.Page {
             var hash = MH([.anchorId: topic.anchorId, .dashName: dashName])
             if !title.isEmpty {
                 hash[.titleHtml] = topic.title.html.get(languageTag).html
+                hash[.title] = title // for menu
             }
             hash.maybe(.overviewHtml, topic.body?.get(languageTag).html)
             hash.maybe(.primaryLanguage, topic.soloLanguage?.cssName)

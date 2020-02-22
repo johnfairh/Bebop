@@ -19,7 +19,7 @@ public struct GenPages: Configurable {
     public func generatePages(items: [Item]) throws -> GenData {
         let languageVisitor = LanguageVisitor()
         languageVisitor.walk(items: items)
-        let languages = Array(languageVisitor.languages)
+        let languages = languageVisitor.languages
 
         let pageVisitor = PageVisitor(languages: languages)
         pageVisitor.walk(items: items)
@@ -65,12 +65,15 @@ public struct GenPages: Configurable {
 
 final class LanguageVisitor: ItemVisitorProtocol {
     /// Languages found
-    var languages = Set<DefLanguage>()
+    private var foundLanguages = Set<DefLanguage>()
+    var languages: [DefLanguage] {
+        foundLanguages.isEmpty ? [.swift] : Array(foundLanguages)
+    }
 
     func visit(defItem: DefItem, parents: [Item]) {
-        languages.insert(defItem.primaryLanguage)
+        foundLanguages.insert(defItem.primaryLanguage)
         if let secondaryLanguage = defItem.secondaryLanguage {
-            languages.insert(secondaryLanguage)
+            foundLanguages.insert(secondaryLanguage)
         }
     }
 }

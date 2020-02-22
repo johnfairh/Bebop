@@ -33,6 +33,8 @@
 
 /* C compat*/
 
+#pragma mark - C-only?
+
 extern int fred __unavailable;
 
 void global_func(void);

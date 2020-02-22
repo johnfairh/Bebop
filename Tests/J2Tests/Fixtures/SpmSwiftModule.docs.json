@@ -129,7 +129,7 @@
       }
     ],
     "topics_language" : "j2-swift",
-    "topics_menu" : []
+    "topics_menus" : []
   },
   {
     "breadcrumbs_root" : "SpmSwiftModule",
@@ -250,6 +250,7 @@
           }
         ],
         "primary_language" : "j2-swift",
+        "title" : "Fields",
         "title_html" : "Fields"
       },
       {
@@ -283,14 +284,28 @@
           }
         ],
         "primary_language" : "j2-swift",
+        "title" : "_Nested_ strúctures",
         "title_html" : "<em>Nested<\/em> strúctures"
       }
     ],
     "topics_language" : "j2-swift",
-    "topics_menu" : [
+    "topics_menus" : [
       {
-        "anchor_id" : "",
-        "title" : "Declaration"
+        "language" : "j2-swift",
+        "topics_menu" : [
+          {
+            "anchor_id" : "",
+            "title" : "Declaration"
+          },
+          {
+            "anchor_id" : "tpc_fields",
+            "title" : "Fields"
+          },
+          {
+            "anchor_id" : "tpc__nested_-str%C3%BActures",
+            "title" : "Nested strúctures"
+          }
+        ]
       }
     ]
   },
@@ -432,10 +447,15 @@
       }
     ],
     "topics_language" : "j2-swift",
-    "topics_menu" : [
+    "topics_menus" : [
       {
-        "anchor_id" : "",
-        "title" : "Declaration"
+        "language" : "j2-swift",
+        "topics_menu" : [
+          {
+            "anchor_id" : "",
+            "title" : "Declaration"
+          }
+        ]
       }
     ]
   },
@@ -600,10 +620,15 @@
       }
     ],
     "topics_language" : "j2-swift",
-    "topics_menu" : [
+    "topics_menus" : [
       {
-        "anchor_id" : "",
-        "title" : "Declaration"
+        "language" : "j2-swift",
+        "topics_menu" : [
+          {
+            "anchor_id" : "",
+            "title" : "Declaration"
+          }
+        ]
       }
     ]
   },
@@ -760,7 +785,7 @@
       }
     ],
     "topics_language" : "j2-swift",
-    "topics_menu" : []
+    "topics_menus" : []
   },
   {
     "breadcrumbs_root" : "SpmSwiftModule",
@@ -851,6 +876,6 @@
     ],
     "tab_title_prefix" : false,
     "topics" : [],
-    "topics_menu" : []
+    "topics_menus" : []
   }
 ]

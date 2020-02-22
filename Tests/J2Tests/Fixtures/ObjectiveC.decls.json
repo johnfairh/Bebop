@@ -484,7 +484,14 @@
       }
     },
     "obj_c_name" : "fred",
-    "pass_index" : 0
+    "pass_index" : 0,
+    "topic" : {
+      "title" : {
+        "markdown" : {
+          "en" : "C-only?"
+        }
+      }
+    }
   },
   {
     "children" : [],
@@ -522,7 +529,14 @@
         }
       ]
     },
-    "swift_name" : "global_func()"
+    "swift_name" : "global_func()",
+    "topic" : {
+      "title" : {
+        "markdown" : {
+          "en" : "C-only?"
+        }
+      }
+    }
   },
   {
     "children" : [
@@ -606,7 +620,14 @@
         }
       ]
     },
-    "swift_name" : "AStruct"
+    "swift_name" : "AStruct",
+    "topic" : {
+      "title" : {
+        "markdown" : {
+          "en" : "C-only?"
+        }
+      }
+    }
   },
   {
     "children" : [],
@@ -633,7 +654,14 @@
       ]
     },
     "obj_c_name" : "AEnum",
-    "pass_index" : 0
+    "pass_index" : 0,
+    "topic" : {
+      "title" : {
+        "markdown" : {
+          "en" : "C-only?"
+        }
+      }
+    }
   },
   {
     "children" : [
@@ -754,7 +782,14 @@
         }
       ]
     },
-    "swift_name" : "AEnum"
+    "swift_name" : "AEnum",
+    "topic" : {
+      "title" : {
+        "markdown" : {
+          "en" : "C-only?"
+        }
+      }
+    }
   },
   {
     "children" : [
@@ -825,7 +860,14 @@
         }
       ]
     },
-    "swift_name" : "ASimpleEnum"
+    "swift_name" : "ASimpleEnum",
+    "topic" : {
+      "title" : {
+        "markdown" : {
+          "en" : "C-only?"
+        }
+      }
+    }
   },
   {
     "children" : [],
@@ -865,7 +907,14 @@
         }
       ]
     },
-    "swift_name" : "Fred"
+    "swift_name" : "Fred",
+    "topic" : {
+      "title" : {
+        "markdown" : {
+          "en" : "C-only?"
+        }
+      }
+    }
   },
   {
     "children" : [
@@ -931,7 +980,14 @@
       ]
     },
     "obj_c_name" : "IVarTest(ACategory)",
-    "pass_index" : 0
+    "pass_index" : 0,
+    "topic" : {
+      "title" : {
+        "markdown" : {
+          "en" : "C-only?"
+        }
+      }
+    }
   },
   {
     "children" : [
@@ -1010,7 +1066,14 @@
         }
       ]
     },
-    "swift_name" : "SomeProtocol"
+    "swift_name" : "SomeProtocol",
+    "topic" : {
+      "title" : {
+        "markdown" : {
+          "en" : "C-only?"
+        }
+      }
+    }
   },
   {
     "children" : [
@@ -1115,6 +1178,13 @@
         }
       ]
     },
-    "swift_name" : "Stack"
+    "swift_name" : "Stack",
+    "topic" : {
+      "title" : {
+        "markdown" : {
+          "en" : "C-only?"
+        }
+      }
+    }
   }
 ]
