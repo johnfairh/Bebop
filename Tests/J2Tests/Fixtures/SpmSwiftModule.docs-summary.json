@@ -7,7 +7,15 @@
   },
   "pages" : [
     {
-      "breadcrumbs" : [],
+      "breadcrumbs" : [
+        [
+          {
+            "title" : {
+              "en" : "Types"
+            }
+          }
+        ]
+      ],
       "is_guide" : false,
       "primary_language" : "swift",
       "primary_title" : {
@@ -87,14 +95,21 @@
     },
     {
       "breadcrumbs" : [
-        {
-          "title" : {
-            "en" : "Types"
+        [
+          {
+            "title" : {
+              "en" : "Types"
+            },
+            "url" : {
+              "url_path" : "types"
+            }
           },
-          "url" : {
-            "url_path" : "types"
+          {
+            "title" : {
+              "en" : "SpmSwiftModule"
+            }
           }
-        }
+        ]
       ],
       "def" : {
         "abstract" : {
@@ -205,22 +220,29 @@
     },
     {
       "breadcrumbs" : [
-        {
-          "title" : {
-            "en" : "Types"
+        [
+          {
+            "title" : {
+              "en" : "Types"
+            },
+            "url" : {
+              "url_path" : "types"
+            }
           },
-          "url" : {
-            "url_path" : "types"
-          }
-        },
-        {
-          "title" : {
-            "en" : "SpmSwiftModule"
+          {
+            "title" : {
+              "en" : "SpmSwiftModule"
+            },
+            "url" : {
+              "url_path" : "types\/spmswiftmodule"
+            }
           },
-          "url" : {
-            "url_path" : "types\/spmswiftmodule"
+          {
+            "title" : {
+              "en" : "Nested1"
+            }
           }
-        }
+        ]
       ],
       "def" : {
         "availability" : [],
@@ -297,14 +319,21 @@
     },
     {
       "breadcrumbs" : [
-        {
-          "title" : {
-            "en" : "Types"
+        [
+          {
+            "title" : {
+              "en" : "Types"
+            },
+            "url" : {
+              "url_path" : "types"
+            }
           },
-          "url" : {
-            "url_path" : "types"
+          {
+            "title" : {
+              "en" : "AnEnum"
+            }
           }
-        }
+        ]
       ],
       "def" : {
         "abstract" : {
@@ -431,7 +460,15 @@
       }
     },
     {
-      "breadcrumbs" : [],
+      "breadcrumbs" : [
+        [
+          {
+            "title" : {
+              "en" : "Functions"
+            }
+          }
+        ]
+      ],
       "is_guide" : false,
       "primary_language" : "swift",
       "primary_title" : {

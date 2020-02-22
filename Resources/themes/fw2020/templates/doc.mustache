@@ -29,15 +29,37 @@ Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
   <!-- breadcrumb bar -->
 
   <nav aria-label="breadcrumb" class="small">
+    {{^tab_title_prefix}}
     <ol class="breadcrumb j2-breadcrumb">
-      <li class="breadcrumb-item"><a href="{{path_to_root}}index.html">{{breadcrumbs_root}}</a></li>
-      {{#breadcrumbs}}
-      <li class="breadcrumb-item"><a href="{{{path_to_root}}}{{{url}}}">{{title}}</a></li>
-      {{/breadcrumbs}}
-      {{#tab_title_prefix}}
-      <li class="breadcrumb-item" aria-current="page">{{primary_page_title}}</li>
-      {{/tab_title_prefix}}
+    <li class="breadcrumb-item">{{breadcrumbs_root}}</li>
     </ol>
+    {{/tab_title_prefix}}
+    {{#swift_breadcrumbs.count}}
+    <ol class="breadcrumb j2-breadcrumb j2-swift">
+      <li class="breadcrumb-item"><a href="{{path_to_root}}index.html">{{breadcrumbs_root}}</a></li>
+      {{#swift_breadcrumbs}}
+      {{#url}}
+      <li class="breadcrumb-item"><a href="{{{path_to_root}}}{{{.}}}">{{title}}</a></li>
+      {{/url}}
+      {{^url}}
+      <li class="breadcrumb-item" aria-current="page">{{title}}</li>
+      {{/url}}
+      {{/swift_breadcrumbs}}
+    </ol>
+    {{/swift_breadcrumbs.count}}
+    {{#objc_breadcrumbs.count}}
+    <ol class="breadcrumb j2-breadcrumb j2-objc">
+      <li class="breadcrumb-item"><a href="{{path_to_root}}index.html">{{breadcrumbs_root}}</a></li>
+      {{#objc_breadcrumbs}}
+      {{#url}}
+      <li class="breadcrumb-item"><a href="{{{path_to_root}}}{{{.}}}">{{title}}</a></li>
+      {{/url}}
+      {{^url}}
+      <li class="breadcrumb-item" aria-current="page">{{title}}</li>
+      {{/url}}
+      {{/objc_breadcrumbs}}
+    </ol>
+    {{/objc_breadcrumbs.count}}
   </nav>
 
   </header>

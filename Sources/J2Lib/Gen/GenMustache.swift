@@ -103,7 +103,8 @@ public enum MustacheKey: String {
     case localizations = "localizations"
     case active = "active"
     // Breadcrumbs
-    case breadcrumbs = "breadcrumbs"
+    case swiftBreadcrumbs = "swift_breadcrumbs"
+    case objCBreadcrumbs = "objc_breadcrumbs"
 
     // Definitions
     case def = "def"
@@ -188,9 +189,12 @@ extension GenData {
         data.maybe(.contentHtml, pg.content?.get(languageTag).html)
         data.maybe(.def, pg.def?.generateDef(languageTag: languageTag, fileExt: fileExt))
 
-        if !pg.breadcrumbs.isEmpty {
-            data[.breadcrumbs] = pg.breadcrumbs.map {
-                MH([.title: $0.title.get(languageTag), .url: $0.url.url(fileExtension: fileExt)])
+        zip(meta.languages, pg.breadcrumbs).forEach { breadcrumbSrc in
+            let dictKey = breadcrumbSrc.0 == .swift ? MustacheKey.swiftBreadcrumbs : MustacheKey.objCBreadcrumbs
+            data[dictKey] = breadcrumbSrc.1.map { bc -> [String:Any] in
+                var dict = MH([.title: bc.title.get(languageTag)])
+                dict.maybe(.url, bc.url?.url(fileExtension: fileExt, language: breadcrumbSrc.0))
+                return dict
             }
         }
 
@@ -284,6 +288,7 @@ extension GenData {
                         dict[.samePage] = true
                     } else {
                         dict[.url] = entryURLPath
+                        dict[.samePage] = false
                     }
                 }
                 return dict

@@ -17,13 +17,16 @@ public struct GenPages: Configurable {
     }
 
     public func generatePages(items: [Item]) throws -> GenData {
+        let languageVisitor = LanguageVisitor()
+        languageVisitor.walk(items: items)
+        let languages = Array(languageVisitor.languages)
 
-        let pageVisitor = PageVisitor()
+        let pageVisitor = PageVisitor(languages: languages)
         pageVisitor.walk(items: items)
         let meta = GenData.Meta(version: Version.j2libVersion,
-                                languages: Array(pageVisitor.languages))
+                                languages: languages)
 
-        let tocs = meta.languages.map {
+        let tocs = languages.map {
             generateToc(items: items, language: $0)
         }
 
@@ -60,11 +63,26 @@ public struct GenPages: Configurable {
 
 // MARK: Page data
 
-final class PageVisitor: ItemVisitorProtocol {
-    /// All pages
-    var pages = [GenData.Page]()
+final class LanguageVisitor: ItemVisitorProtocol {
     /// Languages found
     var languages = Set<DefLanguage>()
+
+    func visit(defItem: DefItem, parents: [Item]) {
+        languages.insert(defItem.primaryLanguage)
+        if let secondaryLanguage = defItem.secondaryLanguage {
+            languages.insert(secondaryLanguage)
+        }
+    }
+}
+
+final class PageVisitor: ItemVisitorProtocol {
+    let languages: [DefLanguage]
+    init(languages: [DefLanguage]) {
+        self.languages = languages
+    }
+
+    /// All pages
+    var pages = [GenData.Page]()
 
     func visit(defItem: DefItem, parents: [Item]) {
         if defItem.renderAsPage {
@@ -73,18 +91,16 @@ final class PageVisitor: ItemVisitorProtocol {
                 primaryTitle: defItem.primaryTitle,
                 primaryLanguage: defItem.primaryLanguage,
                 secondaryTitle: defItem.secondaryTitle,
-                breadcrumbs: buildBreadcrumbs(parents: parents),
+                breadcrumbs: buildBreadcrumbs(item: defItem, parents: parents),
                 definition: defItem.asGenDef,
                 topics: buildTopics(item: defItem)))
         }
-        languages.insert(defItem.primaryLanguage)
-        _ = defItem.secondaryLanguage.flatMap { languages.insert($0) }
     }
 
     func visit(groupItem: GroupItem, parents: [Item]) {
         pages.append(GenData.Page(groupURL: groupItem.url,
                                   title: groupItem.title,
-                                  breadcrumbs: buildBreadcrumbs(parents: parents),
+                                  breadcrumbs: buildBreadcrumbs(item: groupItem, parents: parents),
                                   content: nil,
                                   topics: buildTopics(item: groupItem)))
     }
@@ -92,7 +108,7 @@ final class PageVisitor: ItemVisitorProtocol {
     func visit(guideItem: GuideItem, parents: [Item]) {
         pages.append(GenData.Page(guideURL: guideItem.url,
                                   title: guideItem.title,
-                                  breadcrumbs: buildBreadcrumbs(parents: parents),
+                                  breadcrumbs: buildBreadcrumbs(item: guideItem, parents: parents),
                                   isReadme: false,
                                   content: guideItem.content.html))
     }
@@ -105,14 +121,21 @@ final class PageVisitor: ItemVisitorProtocol {
                                   content: readmeItem.content.html))
     }
 
-    /// Breadcrumbs for a page.
+    /// Breadcrumbs for a page
     /// Don't include the root: that's the readme/index.html handled separately.
-    /// Don't include ourselves: that's not a link and is handled separately
-    func buildBreadcrumbs(parents: [Item]) -> [GenData.Breadcrumb] {
-        parents.map {
-            let title = $0.swiftTitle ?? .init(unlocalized: "SWIFT")
-            return GenData.Breadcrumb(title: title, url: $0.url)
+    /// Include ourselves but without a URL.
+    func buildBreadcrumbs(item: Item, parents: [Item]) -> [[GenData.Breadcrumb]] {
+        languages.map {
+            buildBreadcrumbs(for: $0, item: item, parents: parents)
         }
+    }
+
+    func buildBreadcrumbs(for language: DefLanguage, item: Item, parents: [Item]) -> [GenData.Breadcrumb] {
+        var crumbs = parents.map {
+            GenData.Breadcrumb(title: $0.titlePreferring(language: language), url: $0.url)
+        }
+        crumbs.append(GenData.Breadcrumb(title: item.titlePreferring(language: language), url: nil))
+        return crumbs
     }
 
     func buildTopics(item: Item) -> [GenData.Topic] {
@@ -152,6 +175,10 @@ extension Item {
         case .swift: return swiftTitle
         case .objc: return objCTitle
         }
+    }
+
+    func titlePreferring(language: DefLanguage) -> Localized<String> {
+        title(for: language) ?? title(for: language.otherLanguage)!
     }
 }
 

@@ -93,7 +93,7 @@ public final class GenData: Encodable {
     }
     public struct Breadcrumb: Encodable {
         public let title: Localized<String>
-        public let url: URLPieces
+        public let url: URLPieces?
     }
     public struct Page: Encodable {
         public let url: URLPieces
@@ -103,7 +103,8 @@ public final class GenData: Encodable {
         public let tabTitlePrefix: Bool
         public let isGuide: Bool
         public let content: Localized<Html>?
-        public let breadcrumbs: [Breadcrumb]
+        // goes with meta.languages
+        public let breadcrumbs: [[Breadcrumb]]
         public let def: Def?
         public let topics: [Topic]
 
@@ -112,7 +113,7 @@ public final class GenData: Encodable {
                     primaryTitle: Localized<String>,
                     primaryLanguage: DefLanguage,
                     secondaryTitle: Localized<String>?,
-                    breadcrumbs: [Breadcrumb],
+                    breadcrumbs: [[Breadcrumb]],
                     definition: Def,
                     topics: [Topic] = []) {
             self.url = defURL
@@ -130,7 +131,7 @@ public final class GenData: Encodable {
         /// Group init
         public init(groupURL: URLPieces,
                     title: Localized<String>,
-                    breadcrumbs: [Breadcrumb],
+                    breadcrumbs: [[Breadcrumb]],
                     content: Localized<Html>?,
                     topics: [Topic] = []) {
             self.url = groupURL
@@ -148,7 +149,7 @@ public final class GenData: Encodable {
         /// Guide init
         public init(guideURL: URLPieces,
                     title: Localized<String>,
-                    breadcrumbs: [Breadcrumb],
+                    breadcrumbs: [[Breadcrumb]],
                     isReadme: Bool,
                     content: Localized<Html>?) {
             self.url = guideURL
