@@ -23,7 +23,8 @@ public final class GenData: Encodable {
         public let title: Localized<String>
         public let children: [TocEntry]
     }
-    public let toc: [TocEntry]
+    // match meta.languages
+    public let tocs: [[TocEntry]]
 
     public struct Param: Encodable {
         public let name: String
@@ -164,9 +165,9 @@ public final class GenData: Encodable {
     }
     public let pages: [Page]
 
-    public init(meta: Meta, toc: [TocEntry], pages: [Page]) {
+    public init(meta: Meta, tocs: [[TocEntry]], pages: [Page]) {
         self.meta = meta
-        self.toc = toc
+        self.tocs = tocs
         self.pages = pages
     }
 }

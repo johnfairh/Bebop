@@ -86,7 +86,8 @@ public enum MustacheKey: String {
     case secondaryTitleLanguage = "secondary_title_language"
     case tabTitlePrefix = "tab_title_prefix"
     case pathToRoot = "path_to_root" // empty string or ends in "/"
-    case toc = "toc"
+    case swiftToc = "swift_toc"
+    case objCToc = "objc_toc"
     case hideArticleTitle = "hide_article_title"
     case contentHtml = "content_html"
     case apologyLanguage = "apology_language"
@@ -206,9 +207,14 @@ extension GenData {
                                                anyDeclaration: pg.def != nil,
                                                languageTag: languageTag)
 
-        data[.toc] = generateToc(languageTag: languageTag,
-                                 fileExt: fileExt,
-                                 pageURLPath: pg.url.url(fileExtension: fileExt))
+        zip(meta.languages, tocs).forEach { tocSrc in
+            let dictKey = tocSrc.0 == .swift ? MustacheKey.swiftToc : MustacheKey.objCToc
+            data[dictKey] = generateToc(from: tocSrc.1,
+                                        language: tocSrc.0,
+                                        languageTag: languageTag,
+                                        fileExt: fileExt,
+                                        pageURLPath: pg.url.url(fileExtension: fileExt))
+        }
 
         return MustachePage(languageTag: languageTag, filepath: filepath, data: data)
     }
@@ -259,11 +265,15 @@ extension GenData {
 
     /// Generate the table of contents (left nav) for the page.
     /// This is unique for each page because the URLs change around the current page, and translation.
-    func generateToc(languageTag: String, fileExt: String, pageURLPath: String) -> [[String : Any]] {
+    func generateToc(from toc: [TocEntry],
+                     language: DefLanguage,
+                     languageTag: String,
+                     fileExt: String,
+                     pageURLPath: String) -> [[String : Any]] {
 
         func tocList(entries: [TocEntry]) -> [[String : Any]] {
             entries.map { entry in
-                let entryURLPath = entry.url.url(fileExtension: fileExt)
+                let entryURLPath = entry.url.url(fileExtension: fileExt, language: language)
                 var dict = MH([.title: entry.title.get(languageTag),
                                .children: tocList(entries: entry.children)])
                 if entryURLPath != pageURLPath {

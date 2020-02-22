@@ -31,7 +31,7 @@ extension GenData.Meta {
 
 extension GenData {
     convenience init() {
-        self.init(meta: Meta(), toc: [], pages: [])
+        self.init(meta: Meta(), tocs: [], pages: [])
     }
 }
 
@@ -79,7 +79,7 @@ class TestGen: XCTestCase {
         let meta = GenData.Meta()
 
         Localizations.shared = Localizations()
-        let genData = GenData(meta: meta, toc: [],
+        let genData = GenData(meta: meta, tocs: [],
                               pages: [mkPage("page1"), mkPage("page2")])
 
         var it = genData.makeIterator(fileExt: ".html")
@@ -98,7 +98,7 @@ class TestGen: XCTestCase {
         Localizations.shared =
             Localizations(mainDescriptor: Localization.defaultDescriptor,
                           otherDescriptors: ["fr:FR:frfrfr"])
-        let genData = GenData(meta: meta, toc: [],
+        let genData = GenData(meta: meta, tocs: [],
                               pages: [mkPage("page1"), mkPage("page2")])
 
         var it = genData.makeIterator(fileExt: ".html")

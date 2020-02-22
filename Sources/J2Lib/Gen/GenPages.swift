@@ -17,27 +17,38 @@ public struct GenPages: Configurable {
     }
 
     public func generatePages(items: [Item]) throws -> GenData {
-        let toc = generateToc(items: items)
 
         let pageVisitor = PageVisitor()
         pageVisitor.walk(items: items)
         let meta = GenData.Meta(version: Version.j2libVersion,
                                 languages: Array(pageVisitor.languages))
 
-        return GenData(meta: meta, toc: toc, pages: pageVisitor.pages)
+        let tocs = meta.languages.map {
+            generateToc(items: items, language: $0)
+        }
+
+        return GenData(meta: meta, tocs: tocs, pages: pageVisitor.pages)
     }
 
     // MARK: Table of contents
 
-    func generateToc(items: [Item]) -> [GenData.TocEntry] {
+    func generateToc(items: [Item], language: DefLanguage) -> [GenData.TocEntry] {
         func doGenerate(items: [Item], depth: Int) -> [GenData.TocEntry] {
             items.compactMap { item in
                 guard item.showInToc == .yes ||
                     (item.showInToc == .atTopLevel && depth < 2) else {
                     return nil
                 }
+                guard let title = item.title(for: language) else {
+                    return nil
+                }
+                // Groups themselves are bilingual but don't show if empty
+                if item.kind == .group &&
+                    item.children.allSatisfy({ $0.title(for: language) == nil }) {
+                    return nil
+                }
                 return GenData.TocEntry(url: item.url,
-                                        title: item.swiftTitle ?? .init(unlocalized: "SWIFT"),
+                                        title: title,
                                         children: doGenerate(items: item.children, depth: depth + 1))
             }
             // XXX for jazzy compat, sort outside of depth 0 unless custom cats???
@@ -135,18 +146,20 @@ final class PageVisitor: ItemVisitorProtocol {
 
 // MARK: Items
 
+extension Item {
+    func title(for language: DefLanguage) -> Localized<String>? {
+        switch language {
+        case .swift: return swiftTitle
+        case .objc: return objCTitle
+        }
+    }
+}
+
 extension DefItem {
     func namePieces(for language: DefLanguage) -> [DeclarationPiece] {
         switch language {
         case .swift: return swiftDeclaration!.namePieces
         case .objc: return objCDeclaration!.namePieces
-        }
-    }
-
-    func title(for language: DefLanguage) -> Localized<String> {
-        switch language {
-        case .swift: return swiftTitle!
-        case .objc: return objCTitle!
         }
     }
 
@@ -159,7 +172,7 @@ extension DefItem {
     }
 
     var primaryTitle: Localized<String> {
-        title(for: primaryLanguage)
+        title(for: primaryLanguage)!
     }
 
     var secondaryTitle: Localized<String>? {

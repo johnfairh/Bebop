@@ -19,8 +19,7 @@
     "path_to_root" : "",
     "primary_page_title" : "Types",
     "primary_title_language" : "j2-swift",
-    "tab_title_prefix" : true,
-    "toc" : [
+    "swift_toc" : [
       {
         "children" : [
           {
@@ -30,51 +29,54 @@
                   {
                     "children" : [],
                     "title" : "Nested2a",
-                    "url" : "types\/spmswiftmodule\/nested1.html#nested2a"
+                    "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2a"
                   },
                   {
                     "children" : [],
                     "title" : "Nested2b",
-                    "url" : "types\/spmswiftmodule\/nested1.html#nested2b"
+                    "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2b"
                   }
                 ],
                 "title" : "Nested1",
-                "url" : "types\/spmswiftmodule\/nested1.html"
+                "url" : "types\/spmswiftmodule\/nested1.html?swift"
               },
               {
                 "children" : [],
                 "title" : "Nested2",
-                "url" : "types\/spmswiftmodule.html#nested2"
+                "url" : "types\/spmswiftmodule.html?swift#nested2"
               }
             ],
             "title" : "SpmSwiftModule",
-            "url" : "types\/spmswiftmodule.html"
+            "url" : "types\/spmswiftmodule.html?swift"
           },
           {
             "children" : [],
             "title" : "AnEnum",
-            "url" : "types\/anenum.html"
+            "url" : "types\/anenum.html?swift"
           }
         ],
-        "title" : "Types"
+        "same_page" : true,
+        "title" : "Types",
+        "url" : ""
       },
       {
         "children" : [
           {
             "children" : [],
             "title" : "functionA(arg1:_:arg3:)",
-            "url" : "functions.html#functionaarg1_arg3"
+            "url" : "functions.html?swift#functionaarg1_arg3"
           },
           {
             "children" : [],
             "title" : "deprecatedFunction(callback:)",
-            "url" : "functions.html#deprecatedfunctioncallback"
+            "url" : "functions.html?swift#deprecatedfunctioncallback"
           }
         ],
         "title" : "Functions",
-        "url" : "functions.html"
+        "url" : "functions.html?swift"
       }
     ],
+    "tab_title_prefix" : true,
     "topics" : [
       {
         "anchor_id" : "tpc_",
@@ -145,8 +147,7 @@
     "path_to_root" : "..\/",
     "primary_page_title" : "SpmSwiftModule",
     "primary_title_language" : "j2-swift",
-    "tab_title_prefix" : true,
-    "toc" : [
+    "swift_toc" : [
       {
         "children" : [
           {
@@ -156,16 +157,16 @@
                   {
                     "children" : [],
                     "title" : "Nested2a",
-                    "url" : "types\/spmswiftmodule\/nested1.html#nested2a"
+                    "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2a"
                   },
                   {
                     "children" : [],
                     "title" : "Nested2b",
-                    "url" : "types\/spmswiftmodule\/nested1.html#nested2b"
+                    "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2b"
                   }
                 ],
                 "title" : "Nested1",
-                "url" : "types\/spmswiftmodule\/nested1.html"
+                "url" : "types\/spmswiftmodule\/nested1.html?swift"
               },
               {
                 "children" : [],
@@ -174,34 +175,37 @@
                 "url" : "#nested2"
               }
             ],
-            "title" : "SpmSwiftModule"
+            "same_page" : true,
+            "title" : "SpmSwiftModule",
+            "url" : ""
           },
           {
             "children" : [],
             "title" : "AnEnum",
-            "url" : "types\/anenum.html"
+            "url" : "types\/anenum.html?swift"
           }
         ],
         "title" : "Types",
-        "url" : "types.html"
+        "url" : "types.html?swift"
       },
       {
         "children" : [
           {
             "children" : [],
             "title" : "functionA(arg1:_:arg3:)",
-            "url" : "functions.html#functionaarg1_arg3"
+            "url" : "functions.html?swift#functionaarg1_arg3"
           },
           {
             "children" : [],
             "title" : "deprecatedFunction(callback:)",
-            "url" : "functions.html#deprecatedfunctioncallback"
+            "url" : "functions.html?swift#deprecatedfunctioncallback"
           }
         ],
         "title" : "Functions",
-        "url" : "functions.html"
+        "url" : "functions.html?swift"
       }
     ],
+    "tab_title_prefix" : true,
     "topics" : [
       {
         "anchor_id" : "tpc_fields",
@@ -298,8 +302,7 @@
     "path_to_root" : "..\/..\/",
     "primary_page_title" : "Nested1",
     "primary_title_language" : "j2-swift",
-    "tab_title_prefix" : true,
-    "toc" : [
+    "swift_toc" : [
       {
         "children" : [
           {
@@ -319,43 +322,46 @@
                     "url" : "#nested2b"
                   }
                 ],
-                "title" : "Nested1"
+                "same_page" : true,
+                "title" : "Nested1",
+                "url" : ""
               },
               {
                 "children" : [],
                 "title" : "Nested2",
-                "url" : "types\/spmswiftmodule.html#nested2"
+                "url" : "types\/spmswiftmodule.html?swift#nested2"
               }
             ],
             "title" : "SpmSwiftModule",
-            "url" : "types\/spmswiftmodule.html"
+            "url" : "types\/spmswiftmodule.html?swift"
           },
           {
             "children" : [],
             "title" : "AnEnum",
-            "url" : "types\/anenum.html"
+            "url" : "types\/anenum.html?swift"
           }
         ],
         "title" : "Types",
-        "url" : "types.html"
+        "url" : "types.html?swift"
       },
       {
         "children" : [
           {
             "children" : [],
             "title" : "functionA(arg1:_:arg3:)",
-            "url" : "functions.html#functionaarg1_arg3"
+            "url" : "functions.html?swift#functionaarg1_arg3"
           },
           {
             "children" : [],
             "title" : "deprecatedFunction(callback:)",
-            "url" : "functions.html#deprecatedfunctioncallback"
+            "url" : "functions.html?swift#deprecatedfunctioncallback"
           }
         ],
         "title" : "Functions",
-        "url" : "functions.html"
+        "url" : "functions.html?swift"
       }
     ],
+    "tab_title_prefix" : true,
     "topics" : [
       {
         "anchor_id" : "tpc_",
@@ -428,8 +434,7 @@
     "path_to_root" : "..\/",
     "primary_page_title" : "AnEnum",
     "primary_title_language" : "j2-swift",
-    "tab_title_prefix" : true,
-    "toc" : [
+    "swift_toc" : [
       {
         "children" : [
           {
@@ -439,51 +444,54 @@
                   {
                     "children" : [],
                     "title" : "Nested2a",
-                    "url" : "types\/spmswiftmodule\/nested1.html#nested2a"
+                    "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2a"
                   },
                   {
                     "children" : [],
                     "title" : "Nested2b",
-                    "url" : "types\/spmswiftmodule\/nested1.html#nested2b"
+                    "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2b"
                   }
                 ],
                 "title" : "Nested1",
-                "url" : "types\/spmswiftmodule\/nested1.html"
+                "url" : "types\/spmswiftmodule\/nested1.html?swift"
               },
               {
                 "children" : [],
                 "title" : "Nested2",
-                "url" : "types\/spmswiftmodule.html#nested2"
+                "url" : "types\/spmswiftmodule.html?swift#nested2"
               }
             ],
             "title" : "SpmSwiftModule",
-            "url" : "types\/spmswiftmodule.html"
+            "url" : "types\/spmswiftmodule.html?swift"
           },
           {
             "children" : [],
-            "title" : "AnEnum"
+            "same_page" : true,
+            "title" : "AnEnum",
+            "url" : ""
           }
         ],
         "title" : "Types",
-        "url" : "types.html"
+        "url" : "types.html?swift"
       },
       {
         "children" : [
           {
             "children" : [],
             "title" : "functionA(arg1:_:arg3:)",
-            "url" : "functions.html#functionaarg1_arg3"
+            "url" : "functions.html?swift#functionaarg1_arg3"
           },
           {
             "children" : [],
             "title" : "deprecatedFunction(callback:)",
-            "url" : "functions.html#deprecatedfunctioncallback"
+            "url" : "functions.html?swift#deprecatedfunctioncallback"
           }
         ],
         "title" : "Functions",
-        "url" : "functions.html"
+        "url" : "functions.html?swift"
       }
     ],
+    "tab_title_prefix" : true,
     "topics" : [
       {
         "anchor_id" : "tpc_",
@@ -572,8 +580,7 @@
     "path_to_root" : "",
     "primary_page_title" : "Functions",
     "primary_title_language" : "j2-swift",
-    "tab_title_prefix" : true,
-    "toc" : [
+    "swift_toc" : [
       {
         "children" : [
           {
@@ -583,34 +590,34 @@
                   {
                     "children" : [],
                     "title" : "Nested2a",
-                    "url" : "types\/spmswiftmodule\/nested1.html#nested2a"
+                    "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2a"
                   },
                   {
                     "children" : [],
                     "title" : "Nested2b",
-                    "url" : "types\/spmswiftmodule\/nested1.html#nested2b"
+                    "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2b"
                   }
                 ],
                 "title" : "Nested1",
-                "url" : "types\/spmswiftmodule\/nested1.html"
+                "url" : "types\/spmswiftmodule\/nested1.html?swift"
               },
               {
                 "children" : [],
                 "title" : "Nested2",
-                "url" : "types\/spmswiftmodule.html#nested2"
+                "url" : "types\/spmswiftmodule.html?swift#nested2"
               }
             ],
             "title" : "SpmSwiftModule",
-            "url" : "types\/spmswiftmodule.html"
+            "url" : "types\/spmswiftmodule.html?swift"
           },
           {
             "children" : [],
             "title" : "AnEnum",
-            "url" : "types\/anenum.html"
+            "url" : "types\/anenum.html?swift"
           }
         ],
         "title" : "Types",
-        "url" : "types.html"
+        "url" : "types.html?swift"
       },
       {
         "children" : [
@@ -627,9 +634,12 @@
             "url" : "#deprecatedfunctioncallback"
           }
         ],
-        "title" : "Functions"
+        "same_page" : true,
+        "title" : "Functions",
+        "url" : ""
       }
     ],
+    "tab_title_prefix" : true,
     "topics" : [
       {
         "anchor_id" : "tpc_",
@@ -714,8 +724,7 @@
     "path_to_root" : "",
     "primary_page_title" : "index",
     "primary_title_language" : "j2-swift",
-    "tab_title_prefix" : false,
-    "toc" : [
+    "swift_toc" : [
       {
         "children" : [
           {
@@ -725,52 +734,53 @@
                   {
                     "children" : [],
                     "title" : "Nested2a",
-                    "url" : "types\/spmswiftmodule\/nested1.html#nested2a"
+                    "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2a"
                   },
                   {
                     "children" : [],
                     "title" : "Nested2b",
-                    "url" : "types\/spmswiftmodule\/nested1.html#nested2b"
+                    "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2b"
                   }
                 ],
                 "title" : "Nested1",
-                "url" : "types\/spmswiftmodule\/nested1.html"
+                "url" : "types\/spmswiftmodule\/nested1.html?swift"
               },
               {
                 "children" : [],
                 "title" : "Nested2",
-                "url" : "types\/spmswiftmodule.html#nested2"
+                "url" : "types\/spmswiftmodule.html?swift#nested2"
               }
             ],
             "title" : "SpmSwiftModule",
-            "url" : "types\/spmswiftmodule.html"
+            "url" : "types\/spmswiftmodule.html?swift"
           },
           {
             "children" : [],
             "title" : "AnEnum",
-            "url" : "types\/anenum.html"
+            "url" : "types\/anenum.html?swift"
           }
         ],
         "title" : "Types",
-        "url" : "types.html"
+        "url" : "types.html?swift"
       },
       {
         "children" : [
           {
             "children" : [],
             "title" : "functionA(arg1:_:arg3:)",
-            "url" : "functions.html#functionaarg1_arg3"
+            "url" : "functions.html?swift#functionaarg1_arg3"
           },
           {
             "children" : [],
             "title" : "deprecatedFunction(callback:)",
-            "url" : "functions.html#deprecatedfunctioncallback"
+            "url" : "functions.html?swift#deprecatedfunctioncallback"
           }
         ],
         "title" : "Functions",
-        "url" : "functions.html"
+        "url" : "functions.html?swift"
       }
     ],
+    "tab_title_prefix" : false,
     "topics" : [],
     "topics_menu" : []
   }

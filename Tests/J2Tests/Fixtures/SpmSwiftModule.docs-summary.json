@@ -564,105 +564,107 @@
       }
     }
   ],
-  "toc" : [
-    {
-      "children" : [
-        {
-          "children" : [
-            {
-              "children" : [
-                {
-                  "children" : [],
-                  "title" : {
-                    "en" : "Nested2a"
+  "tocs" : [
+    [
+      {
+        "children" : [
+          {
+            "children" : [
+              {
+                "children" : [
+                  {
+                    "children" : [],
+                    "title" : {
+                      "en" : "Nested2a"
+                    },
+                    "url" : {
+                      "url_hash" : "nested2a",
+                      "url_path" : "types\/spmswiftmodule\/nested1"
+                    }
                   },
-                  "url" : {
-                    "url_hash" : "nested2a",
-                    "url_path" : "types\/spmswiftmodule\/nested1"
+                  {
+                    "children" : [],
+                    "title" : {
+                      "en" : "Nested2b"
+                    },
+                    "url" : {
+                      "url_hash" : "nested2b",
+                      "url_path" : "types\/spmswiftmodule\/nested1"
+                    }
                   }
+                ],
+                "title" : {
+                  "en" : "Nested1"
                 },
-                {
-                  "children" : [],
-                  "title" : {
-                    "en" : "Nested2b"
-                  },
-                  "url" : {
-                    "url_hash" : "nested2b",
-                    "url_path" : "types\/spmswiftmodule\/nested1"
-                  }
+                "url" : {
+                  "url_path" : "types\/spmswiftmodule\/nested1"
                 }
-              ],
-              "title" : {
-                "en" : "Nested1"
               },
-              "url" : {
-                "url_path" : "types\/spmswiftmodule\/nested1"
+              {
+                "children" : [],
+                "title" : {
+                  "en" : "Nested2"
+                },
+                "url" : {
+                  "url_hash" : "nested2",
+                  "url_path" : "types\/spmswiftmodule"
+                }
               }
+            ],
+            "title" : {
+              "en" : "SpmSwiftModule"
             },
-            {
-              "children" : [],
-              "title" : {
-                "en" : "Nested2"
-              },
-              "url" : {
-                "url_hash" : "nested2",
-                "url_path" : "types\/spmswiftmodule"
-              }
+            "url" : {
+              "url_path" : "types\/spmswiftmodule"
             }
-          ],
-          "title" : {
-            "en" : "SpmSwiftModule"
           },
-          "url" : {
-            "url_path" : "types\/spmswiftmodule"
+          {
+            "children" : [],
+            "title" : {
+              "en" : "AnEnum"
+            },
+            "url" : {
+              "url_path" : "types\/anenum"
+            }
           }
+        ],
+        "title" : {
+          "en" : "Types"
         },
-        {
-          "children" : [],
-          "title" : {
-            "en" : "AnEnum"
-          },
-          "url" : {
-            "url_path" : "types\/anenum"
-          }
+        "url" : {
+          "url_path" : "types"
         }
-      ],
-      "title" : {
-        "en" : "Types"
       },
-      "url" : {
-        "url_path" : "types"
-      }
-    },
-    {
-      "children" : [
-        {
-          "children" : [],
-          "title" : {
-            "en" : "functionA(arg1:_:arg3:)"
+      {
+        "children" : [
+          {
+            "children" : [],
+            "title" : {
+              "en" : "functionA(arg1:_:arg3:)"
+            },
+            "url" : {
+              "url_hash" : "functionaarg1_arg3",
+              "url_path" : "functions"
+            }
           },
-          "url" : {
-            "url_hash" : "functionaarg1_arg3",
-            "url_path" : "functions"
+          {
+            "children" : [],
+            "title" : {
+              "en" : "deprecatedFunction(callback:)"
+            },
+            "url" : {
+              "url_hash" : "deprecatedfunctioncallback",
+              "url_path" : "functions"
+            }
           }
+        ],
+        "title" : {
+          "en" : "Functions"
         },
-        {
-          "children" : [],
-          "title" : {
-            "en" : "deprecatedFunction(callback:)"
-          },
-          "url" : {
-            "url_hash" : "deprecatedfunctioncallback",
-            "url_path" : "functions"
-          }
+        "url" : {
+          "url_path" : "functions"
         }
-      ],
-      "title" : {
-        "en" : "Functions"
-      },
-      "url" : {
-        "url_path" : "functions"
       }
-    }
+    ]
   ]
 }
