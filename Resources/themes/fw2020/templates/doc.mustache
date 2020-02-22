@@ -11,7 +11,7 @@ Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
  
     <link rel="stylesheet" href="{{path_to_assets}}css/fw2020.css">
     
-   <title>{{#tab_title_prefix}}{{page_title}} - {{/tab_title_prefix}}{{docs_title}}</title>
+   <title>{{#tab_title_prefix}}{{primary_page_title}} - {{/tab_title_prefix}}{{docs_title}}</title>
     {{{custom_head}}}
   </head>
   <body class="{{{default_language}}} {{#item_collapse_never}}j2-never-collapse{{/item_collapse_never}}" data-root-path="./{{path_to_root}}">
@@ -35,7 +35,7 @@ Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
       <li class="breadcrumb-item"><a href="{{{path_to_root}}}{{{url}}}">{{title}}</a></li>
       {{/breadcrumbs}}
       {{#tab_title_prefix}}
-      <li class="breadcrumb-item" aria-current="page">{{page_title}}</li>
+      <li class="breadcrumb-item" aria-current="page">{{primary_page_title}}</li>
       {{/tab_title_prefix}}
     </ol>
   </nav>
@@ -52,7 +52,13 @@ Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
           {{^hide_article_title}}
           <header>
             <h1 class="j2-anchor">
-              <span>{{page_title}}</span>
+              {{#secondary_page_title}}
+              <span class="{{{primary_title_language}}}">{{primary_page_title}}</span>
+              <span class="{{{secondary_title_language}}} j2-secondary">{{.}}</span>
+              {{/secondary_page_title}}
+              {{^secondary_page_title}}
+              <span>{{primary_page_title}}</span>
+              {{/secondary_page_title}}
             </h1>
           </header>
           {{/hide_article_title}}

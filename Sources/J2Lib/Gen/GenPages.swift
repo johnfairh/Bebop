@@ -59,7 +59,9 @@ final class PageVisitor: ItemVisitorProtocol {
         if defItem.renderAsPage {
             pages.append(GenData.Page(
                 defURL: defItem.url,
-                title: defItem.swiftTitle ?? .init(unlocalized: "SWIFT"),
+                primaryTitle: defItem.primaryTitle,
+                primaryLanguage: defItem.primaryLanguage,
+                secondaryTitle: defItem.secondaryTitle,
                 breadcrumbs: buildBreadcrumbs(parents: parents),
                 definition: defItem.asGenDef,
                 topics: buildTopics(item: defItem)))
@@ -141,12 +143,27 @@ extension DefItem {
         }
     }
 
+    func title(for language: DefLanguage) -> Localized<String> {
+        switch language {
+        case .swift: return swiftTitle!
+        case .objc: return objCTitle!
+        }
+    }
+
     var primaryNamePieces: [DeclarationPiece] {
         namePieces(for: primaryLanguage)
     }
 
     var secondaryNamePieces: [DeclarationPiece]? {
         secondaryLanguage.flatMap { namePieces(for: $0) }
+    }
+
+    var primaryTitle: Localized<String> {
+        title(for: primaryLanguage)
+    }
+
+    var secondaryTitle: Localized<String>? {
+        secondaryLanguage.flatMap { title(for: $0) }
     }
 }
 

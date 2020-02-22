@@ -44,12 +44,9 @@ public final class GenData: Encodable {
         public let flatTitle: Localized<String>
         public let primaryLanguage: DefLanguage
         public let secondaryLanguage: DefLanguage?
-        // Then deduce "solo-language" for the item in mustache-gen
         public let primaryTitleHtml: Html?
         public let secondaryTitleHtml: Html?
         public let dashType: String?
-        // -> primaryURL? -- no, calculate at mustache from primaryLanguage
-        // -> secondaryURL? -- ""
         public let url: URLPieces?
         public let def: Def?
 
@@ -99,7 +96,9 @@ public final class GenData: Encodable {
     }
     public struct Page: Encodable {
         public let url: URLPieces
-        public let title: Localized<String>
+        public let primaryTitle: Localized<String>
+        public let primaryLanguage: DefLanguage
+        public let secondaryTitle: Localized<String>?
         public let tabTitlePrefix: Bool
         public let isGuide: Bool
         public let content: Localized<Html>?
@@ -109,12 +108,16 @@ public final class GenData: Encodable {
 
         /// Def init
         public init(defURL: URLPieces,
-                    title: Localized<String>,
+                    primaryTitle: Localized<String>,
+                    primaryLanguage: DefLanguage,
+                    secondaryTitle: Localized<String>?,
                     breadcrumbs: [Breadcrumb],
                     definition: Def,
                     topics: [Topic] = []) {
             self.url = defURL
-            self.title = title
+            self.primaryTitle = primaryTitle
+            self.primaryLanguage = primaryLanguage
+            self.secondaryTitle = secondaryTitle
             self.tabTitlePrefix = true
             self.isGuide = false
             self.content = nil
@@ -130,7 +133,9 @@ public final class GenData: Encodable {
                     content: Localized<Html>?,
                     topics: [Topic] = []) {
             self.url = groupURL
-            self.title = title
+            self.primaryTitle = title
+            self.primaryLanguage = .swift
+            self.secondaryTitle = nil
             self.tabTitlePrefix = true
             self.isGuide = false
             self.content = content
@@ -146,7 +151,9 @@ public final class GenData: Encodable {
                     isReadme: Bool,
                     content: Localized<Html>?) {
             self.url = guideURL
-            self.title = title
+            self.primaryTitle = title
+            self.primaryLanguage = .swift
+            self.secondaryTitle = nil
             self.tabTitlePrefix = !isReadme
             self.isGuide = true
             self.content = content

@@ -15,9 +15,10 @@
     "item_nest" : true,
     "j2lib_version" : "0.1",
     "language_tag" : "en",
-    "page_title" : "Types",
     "path_to_assets" : "",
     "path_to_root" : "",
+    "primary_page_title" : "Types",
+    "primary_title_language" : "j2-swift",
     "tab_title_prefix" : true,
     "toc" : [
       {
@@ -140,9 +141,10 @@
     "item_nest" : true,
     "j2lib_version" : "0.1",
     "language_tag" : "en",
-    "page_title" : "SpmSwiftModule",
     "path_to_assets" : "..\/",
     "path_to_root" : "..\/",
+    "primary_page_title" : "SpmSwiftModule",
+    "primary_title_language" : "j2-swift",
     "tab_title_prefix" : true,
     "toc" : [
       {
@@ -292,9 +294,10 @@
     "item_nest" : true,
     "j2lib_version" : "0.1",
     "language_tag" : "en",
-    "page_title" : "Nested1",
     "path_to_assets" : "..\/..\/",
     "path_to_root" : "..\/..\/",
+    "primary_page_title" : "Nested1",
+    "primary_title_language" : "j2-swift",
     "tab_title_prefix" : true,
     "toc" : [
       {
@@ -421,9 +424,10 @@
     "item_nest" : true,
     "j2lib_version" : "0.1",
     "language_tag" : "en",
-    "page_title" : "AnEnum",
     "path_to_assets" : "..\/",
     "path_to_root" : "..\/",
+    "primary_page_title" : "AnEnum",
+    "primary_title_language" : "j2-swift",
     "tab_title_prefix" : true,
     "toc" : [
       {
@@ -564,9 +568,10 @@
     "item_nest" : true,
     "j2lib_version" : "0.1",
     "language_tag" : "en",
-    "page_title" : "Functions",
     "path_to_assets" : "",
     "path_to_root" : "",
+    "primary_page_title" : "Functions",
+    "primary_title_language" : "j2-swift",
     "tab_title_prefix" : true,
     "toc" : [
       {
@@ -705,9 +710,10 @@
     "item_nest" : true,
     "j2lib_version" : "0.1",
     "language_tag" : "en",
-    "page_title" : "index",
     "path_to_assets" : "",
     "path_to_root" : "",
+    "primary_page_title" : "index",
+    "primary_title_language" : "j2-swift",
     "tab_title_prefix" : false,
     "toc" : [
       {

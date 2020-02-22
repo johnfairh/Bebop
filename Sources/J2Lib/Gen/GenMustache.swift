@@ -80,7 +80,10 @@ public enum MustacheKey: String {
 
     // Global, per-page
     case languageTag = "language_tag"
-    case pageTitle = "page_title"
+    case primaryPageTitle = "primary_page_title"
+    case primaryTitleLanguage = "primary_title_language"
+    case secondaryPageTitle = "secondary_page_title"
+    case secondaryTitleLanguage = "secondary_title_language"
     case tabTitlePrefix = "tab_title_prefix"
     case pathToRoot = "path_to_root" // empty string or ends in "/"
     case toc = "toc"
@@ -172,7 +175,12 @@ extension GenData {
         let pg = pages[page]
         let filepath = pg.url.filepath(fileExtension: fileExt)
         data[.languageTag] = languageTag
-        data[.pageTitle] = pg.title[languageTag]
+        data[.primaryPageTitle] = pg.primaryTitle[languageTag]
+        data[.primaryTitleLanguage] = pg.primaryLanguage.cssName
+        if let secondaryTitle = pg.secondaryTitle {
+            data[.secondaryPageTitle] = secondaryTitle[languageTag]
+            data[.secondaryTitleLanguage] = pg.primaryLanguage.otherLanguage.cssName
+        }
         data[.tabTitlePrefix] = pg.tabTitlePrefix
         data[.pathToRoot] = pg.url.pathToRoot
         data[.hideArticleTitle] = pg.isGuide

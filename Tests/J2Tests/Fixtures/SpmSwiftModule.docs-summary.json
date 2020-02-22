@@ -9,10 +9,11 @@
     {
       "breadcrumbs" : [],
       "is_guide" : false,
-      "tab_title_prefix" : true,
-      "title" : {
+      "primary_language" : "swift",
+      "primary_title" : {
         "en" : "Types"
       },
+      "tab_title_prefix" : true,
       "topics" : [
         {
           "anchor_id" : "tpc_",
@@ -108,10 +109,11 @@
         }
       },
       "is_guide" : false,
-      "tab_title_prefix" : true,
-      "title" : {
+      "primary_language" : "swift",
+      "primary_title" : {
         "en" : "SpmSwiftModule"
       },
+      "tab_title_prefix" : true,
       "topics" : [
         {
           "anchor_id" : "tpc_fields",
@@ -228,10 +230,11 @@
         }
       },
       "is_guide" : false,
-      "tab_title_prefix" : true,
-      "title" : {
+      "primary_language" : "swift",
+      "primary_title" : {
         "en" : "Nested1"
       },
+      "tab_title_prefix" : true,
       "topics" : [
         {
           "anchor_id" : "tpc_",
@@ -316,10 +319,11 @@
         }
       },
       "is_guide" : false,
-      "tab_title_prefix" : true,
-      "title" : {
+      "primary_language" : "swift",
+      "primary_title" : {
         "en" : "AnEnum"
       },
+      "tab_title_prefix" : true,
       "topics" : [
         {
           "anchor_id" : "tpc_",
@@ -429,10 +433,11 @@
     {
       "breadcrumbs" : [],
       "is_guide" : false,
-      "tab_title_prefix" : true,
-      "title" : {
+      "primary_language" : "swift",
+      "primary_title" : {
         "en" : "Functions"
       },
+      "tab_title_prefix" : true,
       "topics" : [
         {
           "anchor_id" : "tpc_",
@@ -548,10 +553,11 @@
         }
       },
       "is_guide" : true,
-      "tab_title_prefix" : false,
-      "title" : {
+      "primary_language" : "swift",
+      "primary_title" : {
         "en" : "index"
       },
+      "tab_title_prefix" : false,
       "topics" : [],
       "url" : {
         "url_path" : "index"
