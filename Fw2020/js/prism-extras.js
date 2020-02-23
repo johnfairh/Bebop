@@ -105,7 +105,7 @@ delete Prism.languages.objectivec.function
       new RegExp(`\\b${id}(?=:\\s*[(])`),
       {
         // Property declarations
-        pattern: new RegExp(`(@property.*?)\\b${id}(?=;)`),
+        pattern: new RegExp(`(@property.*?)\\b${id}(?=(?:;|$))`),
         lookbehind: true
       },
       {
