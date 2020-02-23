@@ -240,23 +240,17 @@ extension GenData {
         guard meta.languages.count == 2, !page.isGuide else {
             return nil
         }
-        let apologyLanguage: DefLanguage
-        if let def = page.def {
-            // definition
-            if def.swiftDeclaration == nil && def.objCDeclaration != nil {
-                apologyLanguage = .swift
-            } else if def.swiftDeclaration != nil && def.objCDeclaration == nil {
-                apologyLanguage = .objc
+        func soloLanguage() -> DefLanguage? {
+            if let def = page.def {
+                return def.soloLanguage
             } else {
-                return nil
+                return soloTopicsLanguage
             }
-        } else if let soloTopicsLanguage = soloTopicsLanguage {
-            // group, all contents in one language
-            apologyLanguage = soloTopicsLanguage.otherLanguage
-        } else {
-            // group, mixed topics
+        }
+        guard let soloLanguage = soloLanguage() else {
             return nil
         }
+        let apologyLanguage = soloLanguage.otherLanguage
         return (apologyLanguage, apologyLanguage.apologyMessage)
     }
 
@@ -307,6 +301,8 @@ extension GenData.Page {
         topics.map { $0.generateTopic(languageTag: languageTag, fileExt: fileExt) }
     }
 
+    static let declarationLabel = Localized<String>.localizedOutput(.declaration)
+
     /// topics_menu is array of [String:Any]
     /// keys:  title - plain text title of topic
     ///      anchor_id - href without leading hash of topic on page
@@ -317,7 +313,7 @@ extension GenData.Page {
                             languageTag: String) -> [[String: Any]] {
         var topicsMenu = [[String: Any]]()
         if def != nil {
-            let declaration = Localized<String>.localizedOutput(.declaration).get(languageTag)
+            let declaration = Self.declarationLabel.get(languageTag)
             topicsMenu.append(MH([.title: declaration, .anchorId: ""]))
         }
         return topicsMenu +
@@ -326,38 +322,39 @@ extension GenData.Page {
 
     /// Identify if all topics are dependent on one language
     var soloTopicsLanguage: DefLanguage? {
+        topics.soloLanguage
+    }
+}
+
+// Helpers to deal with cascading 'only visible in one language' up the tree
+// of item -> topic -> topics.
+
+protocol SoloLanguageProtocol {
+    /// Is the thing present in just one language, if so which one?
+    var soloLanguage: DefLanguage? { get }
+}
+
+extension Array: SoloLanguageProtocol where Element: SoloLanguageProtocol {
+    var soloLanguage: DefLanguage? {
         var theLanguage: DefLanguage? = nil
-        for topic in topics {
-            guard let topicSoloLanguage = topic.soloLanguage else {
-                return nil // bilingual topic
+        for item in self {
+            guard let itemSoloLanguage = item.soloLanguage else {
+                // dual language
+                return nil
             }
             if theLanguage == nil {
-                theLanguage = topicSoloLanguage // first lang
-            } else if theLanguage != topicSoloLanguage {
-                return nil // diff solo lang
+                theLanguage = itemSoloLanguage // first match
+            } else if theLanguage != itemSoloLanguage {
+                return nil // different 1-language
             }
         }
         return theLanguage
     }
 }
 
-extension GenData.Topic {
-    /// Identify if every item in this topic is only present in the same one language.
-    /// If so then cascade that behaviour into the topic itself.
+extension GenData.Topic: SoloLanguageProtocol {
     var soloLanguage: DefLanguage? {
-        var theLanguage: DefLanguage? = nil
-        for item in items {
-            if item.secondaryLanguage != nil || // bilingual
-                item.primaryTitleHtml == nil {  // direct-link
-                return nil
-            }
-            if theLanguage == nil {
-                theLanguage = item.primaryLanguage // first match
-            } else if theLanguage != item.primaryLanguage {
-                return nil // different 1-language
-            }
-        }
-        return theLanguage
+        items.soloLanguage
     }
 
     /// topics is an array of [String : Any]
@@ -400,7 +397,7 @@ extension GenData.Topic {
     }
 }
 
-extension GenData.Item {
+extension GenData.Item: SoloLanguageProtocol {
     /// Item has keys
     ///     anchor_id
     ///     title -- text title for meta refs & direct-links
@@ -430,9 +427,14 @@ extension GenData.Item {
 
         return hash
     }
+
+    /// Is the item present in just one language?
+    var soloLanguage: DefLanguage? {
+        def.flatMap { $0.soloLanguage }
+    }
 }
 
-extension GenData.Def {
+extension GenData.Def: SoloLanguageProtocol {
     /// Def is split out because shared between top of page and inside items.
     /// Keys:
     ///   deprecation_html  - optional - is it deprecated
@@ -459,5 +461,14 @@ extension GenData.Def {
         }
         dict.maybe(.returnsHtml, returns?.get(languageTag).html)
         return dict
+    }
+
+    var soloLanguage: DefLanguage? {
+        if swiftDeclaration == nil {
+            return .objc
+        } else if objCDeclaration == nil {
+            return .swift
+        }
+        return nil
     }
 }
