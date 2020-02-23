@@ -182,18 +182,24 @@ public struct GenSite: Configurable {
 
     /// Configured things that do not vary page-to-page
     func buildGlobalData(genData: GenData) -> [String: Any] {
+        let isDualLanguage = genData.meta.languages.count == 2
+        let neverCollapse = nestedItemStyle == .always_open || childItemStyle == .separate
+
         var dict = MustacheKey.dict([
             .j2libVersion : Version.j2libVersion,
             .hideSearch : hideSearchOpt.value,
             .hideAttribution: hideAttributionOpt.value,
             .hideAvailability: hideAvailabilityOpt.value,
             .itemCollapseOpen: nestedItemStyle == .start_open,
-            .itemCollapseNever: nestedItemStyle == .always_open ||
-                                childItemStyle == .separate,
+            .itemCollapseNever: neverCollapse,
             .itemNest: childItemStyle != .separate,
-            .dualLanguage: genData.meta.languages.count == 2,
+            .dualLanguage: isDualLanguage,
             .defaultLanguage: pickDefaultLanguage(from: genData.meta.languages).cssName
         ])
+
+        if hideSearchOpt.value && !isDualLanguage && neverCollapse {
+            dict[.hideActions] = true
+        }
 
         if !hideCoverageOpt.value {
             dict[.docCoverage] = 66

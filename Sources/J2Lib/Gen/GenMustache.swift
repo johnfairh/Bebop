@@ -70,6 +70,7 @@ public enum MustacheKey: String {
     case hideSearch = "disable_search"
     case hideAttribution = "hide_attribution"
     case hideAvailability = "hide_availability"
+    case hideActions = "hide_actions"
     case docCoverage = "doc_coverage"
     case customHead = "custom_head"
     case itemCollapseOpen = "item_collapse_open"
