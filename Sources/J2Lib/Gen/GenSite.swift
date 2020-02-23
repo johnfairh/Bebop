@@ -109,7 +109,7 @@ public struct GenSite: Configurable {
 
     /// JSON instead of the website
     public func generateJSON(genData: GenData) throws -> String {
-        var siteData: [[String: Any]] = []
+        var siteData = [MustacheDict]()
         let globals = buildGlobalData(genData: genData)
 
         generatePages(genData: genData, fileExt: ".html" /* ?? */) { _, data in
@@ -124,7 +124,7 @@ public struct GenSite: Configurable {
     /// Factored out page generation
     private func generatePages(genData: GenData,
                                fileExt: String,
-                               callback: (MustachePageLocation, [String: Any]) throws -> ()) rethrows {
+                               callback: (MustachePageLocation, MustacheDict) throws -> ()) rethrows {
         let docsTitle = buildDocsTitle()
         let breadcrumbsRoot = buildBreadcrumbsRoot()
 
@@ -181,7 +181,7 @@ public struct GenSite: Configurable {
     }
 
     /// Configured things that do not vary page-to-page
-    func buildGlobalData(genData: GenData) -> [String: Any] {
+    func buildGlobalData(genData: GenData) -> MustacheDict {
         let isDualLanguage = genData.meta.languages.count == 2
         let neverCollapse = nestedItemStyle == .always_open || childItemStyle == .separate
 
@@ -234,7 +234,7 @@ public struct GenSite: Configurable {
     /// Build the localizations menu - links to this same page in all the
     /// localizations we're building for.
     func buildLocalizations(page: MustachePage,
-                            currentPathToAssets: String) -> [[String: Any]] {
+                            currentPathToAssets: String) -> [MustacheDict] {
         Localizations.shared.all.map { loc in
             let otherLocation = page.getLocation(languageTag: loc.tag)
             let relativeURL = currentPathToAssets + otherLocation.urlPath

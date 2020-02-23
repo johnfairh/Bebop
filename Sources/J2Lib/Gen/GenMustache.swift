@@ -8,6 +8,8 @@
 
 import Foundation
 
+// MARK: Generator
+
 /// Gubbins to generate a sequence of `MustachePage`s from a `GenData`.
 /// This loops over all the pages for every language being produced.
 extension GenData {
@@ -48,14 +50,16 @@ extension GenData {
     }
 }
 
-// MARK: Generate
+typealias MustacheDict = [String: Any]
 
 /// The type fed to the mustache templates to generate a page
 public struct MustachePage {
     let languageTag: String
     let filepath: String
-    let data: [String : Any]
+    let data: MustacheDict
 }
+
+// MARK: Mustache Keys
 
 extension Dictionary where Key == String {
     subscript(arg: MustacheKey) -> Value? {
@@ -91,9 +95,8 @@ public enum MustacheKey: String {
     case toc = "toc"
     case hideArticleTitle = "hide_article_title"
     case contentHtml = "content_html"
-    case apologyLanguage = "apology_language"
-    case noApologyLanguage = "no_apology_language"
     case apology = "apology"
+    case noApologyLanguage = "no_apology_language"
     // Global, set by SiteGen
     case pathToAssets = "path_to_assets" // empty string or ends in "/"
     case docsTitle = "docs_title"
@@ -149,12 +152,12 @@ public enum MustacheKey: String {
     case children = "children"
     case screenReaderName = "screen_reader_name"
 
-    static func dict(_ pairs: KeyValuePairs<MustacheKey, Any>) -> [String : Any] {
+    static func dict(_ pairs: KeyValuePairs<MustacheKey, Any>) -> MustacheDict {
         Dictionary(uniqueKeysWithValues: pairs.map { ($0.0.rawValue, $0.1) })
     }
 }
 
-private func MH(_ pairs: KeyValuePairs<MustacheKey, Any>) -> [String : Any] {
+private func MH(_ pairs: KeyValuePairs<MustacheKey, Any>) -> MustacheDict {
     MustacheKey.dict(pairs)
 }
 
@@ -166,18 +169,11 @@ private extension Dictionary where Key == String, Value == Any {
     }
 }
 
-extension DefLanguage {
-    var apologyMessage: Localized<String> {
-        switch self {
-        case .swift: return .localizedOutput(.notSwift)
-        case .objc: return .localizedOutput(.notObjc)
-        }
-    }
-}
+// MARK: Page
 
 extension GenData {
     public func generate(page: Int, languageTag: String, fileExt: String) -> MustachePage {
-        var data = [String: Any]()
+        var data = MustacheDict()
         let pg = pages[page]
         let filepath = pg.url.filepath(fileExtension: fileExt)
         data[.languageTag] = languageTag
@@ -193,111 +189,161 @@ extension GenData {
         data.maybe(.contentHtml, pg.content?.get(languageTag).html)
         data.maybe(.def, pg.def?.generateDef(languageTag: languageTag, fileExt: fileExt))
 
-        data[.breadcrumbsMenus] = zip(meta.languages, pg.breadcrumbs).map { breadcrumbSrc in
-            MH([.breadcrumbs: breadcrumbSrc.1.map { bc -> [String:Any] in
-                                  var dict = MH([.title: bc.title.get(languageTag)])
-                                  dict.maybe(.url, bc.url?.url(fileExtension: fileExt, language: breadcrumbSrc.0))
-                                  return dict
-                              },
-                .language: breadcrumbSrc.0.cssName])
+        data[.breadcrumbsMenus] = generateBreadcrumbs(for: pg, languageTag: languageTag, fileExt: fileExt)
+
+        data[.topics] = pg.generateTopics(languageTag: languageTag, fileExt: fileExt)
+        data.maybe(.topicsLanguage, pg.soloTopicsLanguage?.cssName)
+        data[.topicsMenus] = generateTopicsMenus(page: pg, languageTag: languageTag)
+        if meta.languages.count == 2 {
+            data.maybe(.apology, pg.generateApology(languageTag: languageTag))
         }
 
-        let topics = pg.generateTopics(languageTag: languageTag, fileExt: fileExt)
-        let soloTopicsLanguage = pg.soloTopicsLanguage
-        data.maybe(.topicsLanguage, soloTopicsLanguage?.cssName)
-        if let apology = generateApology(page: pg, soloTopicsLanguage: soloTopicsLanguage) {
-            data[.apologyLanguage] = apology.0.cssName
-            data[.noApologyLanguage] = apology.0.otherLanguage.cssName
-            data[.apology] = apology.1.get(languageTag)
-        }
-        data[.topics] = topics
-        data[.topicsMenus] = meta.languages.compactMap { lang -> [String:Any]? in
-            let topicsMenu = pg.generateTopicsMenu(language: lang,
-                                                   languageTag: languageTag)
-            guard !topicsMenu.isEmpty else {
-                return nil
-            }
-
-            return MH([.topicsMenu: topicsMenu,
-                       .language: lang.cssName])
-        }
-
-        data[.tocs] = zip(meta.languages, tocs).map { tocSrc in
-            MH([.toc: generateToc(from: tocSrc.1,
-                                  language: tocSrc.0,
-                                  languageTag: languageTag,
-                                  fileExt: fileExt,
-                                  pageURLPath: pg.url.url(fileExtension: fileExt)),
-                .language: tocSrc.0.cssName,
-                .screenReaderName: tocSrc.0.screenReaderName])
-        }
+        data[.tocs] = generateTocs(page: pg, languageTag: languageTag, fileExt: fileExt)
 
         return MustachePage(languageTag: languageTag, filepath: filepath, data: data)
     }
 
-    /// Figure out when we need to invent some text for a language that the docset supports but the page doesn't.
-    func generateApology(page: Page, soloTopicsLanguage: DefLanguage?) -> (DefLanguage, Localized<String>)? {
-        guard meta.languages.count == 2, !page.isGuide else {
-            return nil
+    /// Breadcrumbs root is array of breadcrumbs containers
+    func generateBreadcrumbs(for page: Page, languageTag: String, fileExt: String) -> [MustacheDict] {
+        zip(meta.languages, page.breadcrumbs).map {
+            $0.1.generateBreadcrumbs(language: $0.0, languageTag: languageTag, fileExt: fileExt)
         }
-        func soloLanguage() -> DefLanguage? {
-            if let def = page.def {
-                return def.soloLanguage
-            } else {
-                return soloTopicsLanguage
-            }
-        }
-        guard let soloLanguage = soloLanguage() else {
-            return nil
-        }
-        let apologyLanguage = soloLanguage.otherLanguage
-        return (apologyLanguage, apologyLanguage.apologyMessage)
     }
 
-    /// Generate the table of contents (left nav) for the page.
-    /// This is unique for each page because the URLs change around the current page, and translation.
-    /// keys:
-    ///   language: css-class for the toc
-    ///   title: text for the entry
-    ///   children: option array of this same format
-    ///   url: optional href to the entry [not set if we're already there]
-    ///   same_page: true if 'url' is a #href on the same page we're on
-    func generateToc(from toc: [TocEntry],
-                     language: DefLanguage,
-                     languageTag: String,
-                     fileExt: String,
-                     pageURLPath: String) -> [[String : Any]] {
-
-        func tocList(entries: [TocEntry]) -> [[String : Any]] {
-            entries.map { entry in
-                let entryURLPath = entry.url.url(fileExtension: fileExt, language: language)
-                var dict = MH([.title: entry.title.get(languageTag)])
-                let children = tocList(entries: entry.children)
-                if !children.isEmpty {
-                    dict[.children] = children
-                }
-                if entryURLPath != pageURLPath {
-                    // no url for the page we're currently on.
-                    if entryURLPath.hasPrefix(pageURLPath) {
-                        // #link to something on the same page
-                        dict[.url] = entry.url.hashURL
-                        dict[.samePage] = true
-                    } else {
-                        dict[.url] = entryURLPath
-                        dict[.samePage] = false
-                    }
-                }
-                return dict
-            }
+    /// Topics menus root is array of topics menu containers
+    func generateTopicsMenus(page: Page, languageTag: String) -> [MustacheDict] {
+        meta.languages.compactMap { lang in
+            page.generateTopicsMenu(language: lang, languageTag: languageTag)
         }
+    }
 
-        return tocList(entries: toc)
+    /// Table-of-contents (left nav) root is array of toc containers
+    /// This is unique for each page because the URLs change around the current page, and translation.
+    func generateTocs(page: Page, languageTag: String, fileExt: String) -> [MustacheDict] {
+        zip(meta.languages, tocs).map {
+            $0.1.generateToc(page: page, language: $0.0, languageTag: languageTag, fileExt: fileExt)
+        }
+    }
+}
+
+// MARK: Apology
+
+extension DefLanguage {
+    var apologyMessage: Localized<String> {
+        switch self {
+        case .swift: return .localizedOutput(.notSwift)
+        case .objc: return .localizedOutput(.notObjc)
+        }
     }
 }
 
 extension GenData.Page {
+    /// Apology - message for when the page doesn't make sense
+    /// keys
+    ///     title: text to display
+    ///     language: language mode we should be in to display apology
+    ///     no_apology_language: other mode (no apology)
+    func generateApology(languageTag: String) -> MustacheDict? {
+        func soloLanguage() -> DefLanguage? {
+            if let def = def {
+                return def.soloLanguage
+            }
+            return soloTopicsLanguage
+        }
+
+        guard !isGuide, let soloLanguage = soloLanguage() else {
+            return nil
+        }
+        let apologyLanguage = soloLanguage.otherLanguage
+        return MH([.title: apologyLanguage.apologyMessage.get(languageTag),
+                   .language: apologyLanguage.cssName,
+                   .noApologyLanguage: soloLanguage.cssName])
+    }
+}
+
+// MARK: Table of Contents
+
+extension Array where Element == GenData.TocEntry {
+    /// A entire ToC for one language
+    /// keys:
+    ///     toc: the top-level array of toc entries
+    ///     language: the css name for the toc's language
+    ///     screen_reader_name: describe the `nav` element for accessibility
+    func generateToc(page: GenData.Page, language: DefLanguage, languageTag: String, fileExt: String) -> MustacheDict {
+        MH([.toc: generateTocEntries(pageURLPath: page.url.url(fileExtension: fileExt),
+                                     language: language,
+                                     languageTag: languageTag,
+                                     fileExt: fileExt),
+            .language: language.cssName,
+            .screenReaderName: language.screenReaderName])
+    }
+
+    /// Helper to generate a list of toc entries
+    func generateTocEntries(pageURLPath: String, language: DefLanguage, languageTag: String, fileExt: String) -> [MustacheDict] {
+        map { $0.generateTocEntry(pageURLPath: pageURLPath, language: language, languageTag: languageTag, fileExt: fileExt)}
+    }
+}
+
+extension GenData.TocEntry {
+    /// One entry in the table of contents
+    /// keys:
+    ///   title: text for the entry
+    ///   children: option array of this same format
+    ///   url: optional href to the entry [not set if we're already there]
+    ///   same_page: true if 'url' is a #href on the same page we're on
+    func generateTocEntry(pageURLPath: String, language: DefLanguage, languageTag: String, fileExt: String) -> MustacheDict {
+        let entryURLPath = url.url(fileExtension: fileExt, language: language)
+        var dict = MH([.title: title.get(languageTag)])
+        let entries = children.generateTocEntries(pageURLPath: pageURLPath,
+                                                  language: language,
+                                                  languageTag: languageTag,
+                                                  fileExt: fileExt)
+        if !entries.isEmpty {
+            dict[.children] = entries
+        }
+        if entryURLPath != pageURLPath {
+            // no url for the page we're currently on.
+            if entryURLPath.hasPrefix(pageURLPath) {
+                // #link to something on the same page
+                dict[.url] = url.hashURL
+                dict[.samePage] = true
+            } else {
+                dict[.url] = entryURLPath
+                dict[.samePage] = false
+            }
+        }
+        return dict
+    }
+}
+
+// MARK: Breadcrumbs
+
+extension Array where Element == GenData.Breadcrumb {
+    /// Breadcrumbs keys:
+    ///       breadcrumbs: array of breadcrumbs
+    ///       language: css class for language mode
+    func generateBreadcrumbs(language: DefLanguage, languageTag: String, fileExt: String) -> MustacheDict {
+        let crumbs = map { $0.generateBreadcrumb(language: language, languageTag: languageTag, fileExt: fileExt)}
+        return MH([.breadcrumbs: crumbs, .language: language.cssName])
+    }
+}
+
+extension GenData.Breadcrumb {
+    /// Breadcrumb keys:
+    ///     title: text to display for breadcrumb
+    ///     url: full url for breadcrumb, optional (not set for self)
+    func generateBreadcrumb(language: DefLanguage, languageTag: String, fileExt: String) -> MustacheDict {
+        var dict = MH([.title: title.get(languageTag)])
+        dict.maybe(.url, url?.url(fileExtension: fileExt, language: language))
+        return dict
+    }
+}
+
+// MARK: Topics
+
+extension GenData.Page {
     /// topics is an array of [String : Any]
-    func generateTopics(languageTag: String, fileExt: String) -> [[String : Any]] {
+    func generateTopics(languageTag: String, fileExt: String) -> [MustacheDict] {
         topics.map { $0.generateTopic(languageTag: languageTag, fileExt: fileExt) }
     }
 
@@ -309,15 +355,26 @@ extension GenData.Page {
     ///
     /// There's one topics menu for each language on the page.
     /// Include a 'Declaration' item for the main item if present.
-    func generateTopicsMenu(language: DefLanguage,
-                            languageTag: String) -> [[String: Any]] {
-        var topicsMenu = [[String: Any]]()
+    func generateTopicsMenuItems(language: DefLanguage,
+                                 languageTag: String) -> [MustacheDict] {
+        var topicsMenu = [MustacheDict]()
         if def != nil {
             let declaration = Self.declarationLabel.get(languageTag)
             topicsMenu.append(MH([.title: declaration, .anchorId: ""]))
         }
         return topicsMenu +
             topics.compactMap { $0.generateMenuItem(language: language, languageTag: languageTag) }
+    }
+
+    /// Get the menu for a particular language, can be absent entirely
+    /// keys:  topics_menu - array of menu items
+    ///      language - language for menu
+    func generateTopicsMenu(language: DefLanguage, languageTag: String) -> MustacheDict? {
+        let menuItems = generateTopicsMenuItems(language: language, languageTag: languageTag)
+        guard !menuItems.isEmpty else {
+            return nil
+        }
+        return MH([.topicsMenu: menuItems, .language: language.cssName])
     }
 
     /// Identify if all topics are dependent on one language
@@ -364,7 +421,7 @@ extension GenData.Topic: SoloLanguageProtocol {
     ///           dash_name - %-encoded text (markdown) name
     ///           primary_language - if set then topic is only valid in that language
     ///           items - items array of [String: Any]
-    func generateTopic(languageTag: String, fileExt: String) -> [String : Any] {
+    func generateTopic(languageTag: String, fileExt: String) -> MustacheDict {
         let titleText = title.markdown.get(languageTag).md
         let dashName = titleText.urlPathEncoded
         var dict = MH([.anchorId: anchorId, .dashName: dashName])
@@ -382,7 +439,7 @@ extension GenData.Topic: SoloLanguageProtocol {
     }
 
     /// Build the topics menu item - nil if no title or only in the other language
-    func generateMenuItem(language: DefLanguage, languageTag: String) -> [String : Any]? {
+    func generateMenuItem(language: DefLanguage, languageTag: String) -> MustacheDict? {
         let titleText = title.markdown.get(languageTag).md
         if titleText.isEmpty {
             return nil
@@ -397,6 +454,8 @@ extension GenData.Topic: SoloLanguageProtocol {
     }
 }
 
+// MARK: Item
+
 extension GenData.Item: SoloLanguageProtocol {
     /// Item has keys
     ///     anchor_id
@@ -409,7 +468,7 @@ extension GenData.Item: SoloLanguageProtocol {
     ///     primaryUrl -- optional, link for more in primary language
     ///     secondaryUrl -- optional, link for more in secondary language
     ///     def -- optional, popopen item definition
-    func generateItem(languageTag: String, fileExt: String) -> [String : Any] {
+    func generateItem(languageTag: String, fileExt: String) -> MustacheDict {
         let title = flatTitle.get(languageTag)
         var hash = MH([.anchorId: anchorId,
                        .title: title,
@@ -434,6 +493,8 @@ extension GenData.Item: SoloLanguageProtocol {
     }
 }
 
+// MARK: Def
+
 extension GenData.Def: SoloLanguageProtocol {
     /// Def is split out because shared between top of page and inside items.
     /// Keys:
@@ -444,8 +505,8 @@ extension GenData.Def: SoloLanguageProtocol {
     ///   overview_html - optional - second part of discussion
     ///   parameters - optional - array of title / parameter_html
     ///   returns_html - optional - returns docs
-    func generateDef(languageTag: String, fileExt: String) -> [String : Any] {
-        var dict = [String : Any]()
+    func generateDef(languageTag: String, fileExt: String) -> MustacheDict {
+        var dict = MustacheDict()
         dict.maybe(.deprecationHtml, deprecation?.get(languageTag).html)
         if !availability.isEmpty {
             dict[.availability] = availability

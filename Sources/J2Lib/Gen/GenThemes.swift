@@ -110,11 +110,11 @@ struct Theme {
         logDebug("Theme: \(fileExtension) \(mustacheRootURL.path)")
     }
 
-    func setGlobalData(_ data: [String : Any]) {
+    func setGlobalData(_ data: MustacheDict) {
         template.extendBaseContext(data)
     }
 
-    func renderTemplate(data: [String : Any]) throws -> String {
+    func renderTemplate(data: MustacheDict) throws -> String {
         try template.render(data)
     }
 
