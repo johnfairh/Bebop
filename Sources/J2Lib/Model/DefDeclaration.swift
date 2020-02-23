@@ -96,6 +96,14 @@ public enum DefLanguage: String, Encodable, CaseIterable {
         case .objc: return "j2-objc"
         }
     }
+
+    /// Screen-reader name for the language
+    var screenReaderName: String {
+        switch self {
+        case .swift: return "Swift"
+        case .objc: return "Objective C"
+        }
+    }
 }
 
 /// A Swift language declaration split into its various parts

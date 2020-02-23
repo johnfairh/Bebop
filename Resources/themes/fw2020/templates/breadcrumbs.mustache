@@ -1,0 +1,20 @@
+<nav aria-label="breadcrumb" class="small">
+  {{^tab_title_prefix}}
+    <ol class="breadcrumb j2-breadcrumb">
+      <li class="breadcrumb-item">{{breadcrumbs_root}}</li>
+    </ol>
+  {{/tab_title_prefix}}
+  {{#breadcrumbs_menus}}
+    <ol class="breadcrumb j2-breadcrumb {{{language}}}">
+      <li class="breadcrumb-item"><a href="{{path_to_root}}index.html">{{breadcrumbs_root}}</a></li>
+      {{#breadcrumbs}}
+        {{#url}}
+          <li class="breadcrumb-item"><a href="{{{path_to_root}}}{{{.}}}">{{title}}</a></li>
+        {{/url}}
+        {{^url}}
+          <li class="breadcrumb-item" aria-current="page">{{title}}</li>
+        {{/url}}
+      {{/breadcrumbs}}
+    </ol>
+  {{/breadcrumbs_menus}}
+</nav>

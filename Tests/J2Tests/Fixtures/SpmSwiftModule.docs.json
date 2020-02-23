@@ -1,5 +1,15 @@
 [
   {
+    "breadcrumbs_menus" : [
+      {
+        "breadcrumbs" : [
+          {
+            "title" : "Types"
+          }
+        ],
+        "language" : "j2-swift"
+      }
+    ],
     "breadcrumbs_root" : "SpmSwiftModule",
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "default_language" : "j2-swift",
@@ -19,78 +29,79 @@
     "path_to_root" : "",
     "primary_page_title" : "Types",
     "primary_title_language" : "j2-swift",
-    "swift_breadcrumbs" : [
+    "tab_title_prefix" : true,
+    "tocs" : [
       {
-        "title" : "Types"
-      }
-    ],
-    "swift_toc" : [
-      {
-        "children" : [
+        "language" : "j2-swift",
+        "screen_reader_name" : "Swift",
+        "toc" : [
           {
             "children" : [
               {
                 "children" : [
                   {
-                    "children" : [],
+                    "children" : [
+                      {
+                        "children" : [],
+                        "same_page" : false,
+                        "title" : "Nested2a",
+                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2a"
+                      },
+                      {
+                        "children" : [],
+                        "same_page" : false,
+                        "title" : "Nested2b",
+                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2b"
+                      }
+                    ],
                     "same_page" : false,
-                    "title" : "Nested2a",
-                    "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2a"
+                    "title" : "Nested1",
+                    "url" : "types\/spmswiftmodule\/nested1.html?swift"
                   },
                   {
                     "children" : [],
                     "same_page" : false,
-                    "title" : "Nested2b",
-                    "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2b"
+                    "title" : "Nested2",
+                    "url" : "types\/spmswiftmodule.html?swift#nested2"
                   }
                 ],
                 "same_page" : false,
-                "title" : "Nested1",
-                "url" : "types\/spmswiftmodule\/nested1.html?swift"
+                "title" : "SpmSwiftModule",
+                "url" : "types\/spmswiftmodule.html?swift"
               },
               {
                 "children" : [],
                 "same_page" : false,
-                "title" : "Nested2",
-                "url" : "types\/spmswiftmodule.html?swift#nested2"
+                "title" : "AnEnum",
+                "url" : "types\/anenum.html?swift"
+              }
+            ],
+            "same_page" : true,
+            "title" : "Types",
+            "url" : ""
+          },
+          {
+            "children" : [
+              {
+                "children" : [],
+                "same_page" : false,
+                "title" : "functionA(arg1:_:arg3:)",
+                "url" : "functions.html?swift#functionaarg1_arg3"
+              },
+              {
+                "children" : [],
+                "same_page" : false,
+                "title" : "deprecatedFunction(callback:)",
+                "url" : "functions.html?swift#deprecatedfunctioncallback"
               }
             ],
             "same_page" : false,
-            "title" : "SpmSwiftModule",
-            "url" : "types\/spmswiftmodule.html?swift"
-          },
-          {
-            "children" : [],
-            "same_page" : false,
-            "title" : "AnEnum",
-            "url" : "types\/anenum.html?swift"
+            "title" : "Functions",
+            "url" : "functions.html?swift"
           }
-        ],
-        "same_page" : true,
-        "title" : "Types",
-        "url" : ""
-      },
-      {
-        "children" : [
-          {
-            "children" : [],
-            "same_page" : false,
-            "title" : "functionA(arg1:_:arg3:)",
-            "url" : "functions.html?swift#functionaarg1_arg3"
-          },
-          {
-            "children" : [],
-            "same_page" : false,
-            "title" : "deprecatedFunction(callback:)",
-            "url" : "functions.html?swift#deprecatedfunctioncallback"
-          }
-        ],
-        "same_page" : false,
-        "title" : "Functions",
-        "url" : "functions.html?swift"
+        ]
       }
     ],
-    "tab_title_prefix" : true,
     "topics" : [
       {
         "anchor_id" : "tpc_",
@@ -132,6 +143,20 @@
     "topics_menus" : []
   },
   {
+    "breadcrumbs_menus" : [
+      {
+        "breadcrumbs" : [
+          {
+            "title" : "Types",
+            "url" : "types.html?swift"
+          },
+          {
+            "title" : "SpmSwiftModule"
+          }
+        ],
+        "language" : "j2-swift"
+      }
+    ],
     "breadcrumbs_root" : "SpmSwiftModule",
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "def" : {
@@ -155,82 +180,79 @@
     "path_to_root" : "..\/",
     "primary_page_title" : "SpmSwiftModule",
     "primary_title_language" : "j2-swift",
-    "swift_breadcrumbs" : [
+    "tab_title_prefix" : true,
+    "tocs" : [
       {
-        "title" : "Types",
-        "url" : "types.html?swift"
-      },
-      {
-        "title" : "SpmSwiftModule"
-      }
-    ],
-    "swift_toc" : [
-      {
-        "children" : [
+        "language" : "j2-swift",
+        "screen_reader_name" : "Swift",
+        "toc" : [
           {
             "children" : [
               {
                 "children" : [
                   {
-                    "children" : [],
+                    "children" : [
+                      {
+                        "children" : [],
+                        "same_page" : false,
+                        "title" : "Nested2a",
+                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2a"
+                      },
+                      {
+                        "children" : [],
+                        "same_page" : false,
+                        "title" : "Nested2b",
+                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2b"
+                      }
+                    ],
                     "same_page" : false,
-                    "title" : "Nested2a",
-                    "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2a"
+                    "title" : "Nested1",
+                    "url" : "types\/spmswiftmodule\/nested1.html?swift"
                   },
                   {
                     "children" : [],
-                    "same_page" : false,
-                    "title" : "Nested2b",
-                    "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2b"
+                    "same_page" : true,
+                    "title" : "Nested2",
+                    "url" : "#nested2"
                   }
                 ],
-                "same_page" : false,
-                "title" : "Nested1",
-                "url" : "types\/spmswiftmodule\/nested1.html?swift"
+                "same_page" : true,
+                "title" : "SpmSwiftModule",
+                "url" : ""
               },
               {
                 "children" : [],
-                "same_page" : true,
-                "title" : "Nested2",
-                "url" : "#nested2"
+                "same_page" : false,
+                "title" : "AnEnum",
+                "url" : "types\/anenum.html?swift"
               }
             ],
-            "same_page" : true,
-            "title" : "SpmSwiftModule",
-            "url" : ""
+            "same_page" : false,
+            "title" : "Types",
+            "url" : "types.html?swift"
           },
           {
-            "children" : [],
+            "children" : [
+              {
+                "children" : [],
+                "same_page" : false,
+                "title" : "functionA(arg1:_:arg3:)",
+                "url" : "functions.html?swift#functionaarg1_arg3"
+              },
+              {
+                "children" : [],
+                "same_page" : false,
+                "title" : "deprecatedFunction(callback:)",
+                "url" : "functions.html?swift#deprecatedfunctioncallback"
+              }
+            ],
             "same_page" : false,
-            "title" : "AnEnum",
-            "url" : "types\/anenum.html?swift"
+            "title" : "Functions",
+            "url" : "functions.html?swift"
           }
-        ],
-        "same_page" : false,
-        "title" : "Types",
-        "url" : "types.html?swift"
-      },
-      {
-        "children" : [
-          {
-            "children" : [],
-            "same_page" : false,
-            "title" : "functionA(arg1:_:arg3:)",
-            "url" : "functions.html?swift#functionaarg1_arg3"
-          },
-          {
-            "children" : [],
-            "same_page" : false,
-            "title" : "deprecatedFunction(callback:)",
-            "url" : "functions.html?swift#deprecatedfunctioncallback"
-          }
-        ],
-        "same_page" : false,
-        "title" : "Functions",
-        "url" : "functions.html?swift"
+        ]
       }
     ],
-    "tab_title_prefix" : true,
     "topics" : [
       {
         "anchor_id" : "tpc_fields",
@@ -310,6 +332,24 @@
     ]
   },
   {
+    "breadcrumbs_menus" : [
+      {
+        "breadcrumbs" : [
+          {
+            "title" : "Types",
+            "url" : "types.html?swift"
+          },
+          {
+            "title" : "SpmSwiftModule",
+            "url" : "types\/spmswiftmodule.html?swift"
+          },
+          {
+            "title" : "Nested1"
+          }
+        ],
+        "language" : "j2-swift"
+      }
+    ],
     "breadcrumbs_root" : "SpmSwiftModule",
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "def" : {
@@ -332,86 +372,79 @@
     "path_to_root" : "..\/..\/",
     "primary_page_title" : "Nested1",
     "primary_title_language" : "j2-swift",
-    "swift_breadcrumbs" : [
+    "tab_title_prefix" : true,
+    "tocs" : [
       {
-        "title" : "Types",
-        "url" : "types.html?swift"
-      },
-      {
-        "title" : "SpmSwiftModule",
-        "url" : "types\/spmswiftmodule.html?swift"
-      },
-      {
-        "title" : "Nested1"
-      }
-    ],
-    "swift_toc" : [
-      {
-        "children" : [
+        "language" : "j2-swift",
+        "screen_reader_name" : "Swift",
+        "toc" : [
           {
             "children" : [
               {
                 "children" : [
                   {
-                    "children" : [],
+                    "children" : [
+                      {
+                        "children" : [],
+                        "same_page" : true,
+                        "title" : "Nested2a",
+                        "url" : "#nested2a"
+                      },
+                      {
+                        "children" : [],
+                        "same_page" : true,
+                        "title" : "Nested2b",
+                        "url" : "#nested2b"
+                      }
+                    ],
                     "same_page" : true,
-                    "title" : "Nested2a",
-                    "url" : "#nested2a"
+                    "title" : "Nested1",
+                    "url" : ""
                   },
                   {
                     "children" : [],
-                    "same_page" : true,
-                    "title" : "Nested2b",
-                    "url" : "#nested2b"
+                    "same_page" : false,
+                    "title" : "Nested2",
+                    "url" : "types\/spmswiftmodule.html?swift#nested2"
                   }
                 ],
-                "same_page" : true,
-                "title" : "Nested1",
-                "url" : ""
+                "same_page" : false,
+                "title" : "SpmSwiftModule",
+                "url" : "types\/spmswiftmodule.html?swift"
               },
               {
                 "children" : [],
                 "same_page" : false,
-                "title" : "Nested2",
-                "url" : "types\/spmswiftmodule.html?swift#nested2"
+                "title" : "AnEnum",
+                "url" : "types\/anenum.html?swift"
               }
             ],
             "same_page" : false,
-            "title" : "SpmSwiftModule",
-            "url" : "types\/spmswiftmodule.html?swift"
+            "title" : "Types",
+            "url" : "types.html?swift"
           },
           {
-            "children" : [],
+            "children" : [
+              {
+                "children" : [],
+                "same_page" : false,
+                "title" : "functionA(arg1:_:arg3:)",
+                "url" : "functions.html?swift#functionaarg1_arg3"
+              },
+              {
+                "children" : [],
+                "same_page" : false,
+                "title" : "deprecatedFunction(callback:)",
+                "url" : "functions.html?swift#deprecatedfunctioncallback"
+              }
+            ],
             "same_page" : false,
-            "title" : "AnEnum",
-            "url" : "types\/anenum.html?swift"
+            "title" : "Functions",
+            "url" : "functions.html?swift"
           }
-        ],
-        "same_page" : false,
-        "title" : "Types",
-        "url" : "types.html?swift"
-      },
-      {
-        "children" : [
-          {
-            "children" : [],
-            "same_page" : false,
-            "title" : "functionA(arg1:_:arg3:)",
-            "url" : "functions.html?swift#functionaarg1_arg3"
-          },
-          {
-            "children" : [],
-            "same_page" : false,
-            "title" : "deprecatedFunction(callback:)",
-            "url" : "functions.html?swift#deprecatedfunctioncallback"
-          }
-        ],
-        "same_page" : false,
-        "title" : "Functions",
-        "url" : "functions.html?swift"
+        ]
       }
     ],
-    "tab_title_prefix" : true,
     "topics" : [
       {
         "anchor_id" : "tpc_",
@@ -460,6 +493,20 @@
     ]
   },
   {
+    "breadcrumbs_menus" : [
+      {
+        "breadcrumbs" : [
+          {
+            "title" : "Types",
+            "url" : "types.html?swift"
+          },
+          {
+            "title" : "AnEnum"
+          }
+        ],
+        "language" : "j2-swift"
+      }
+    ],
     "breadcrumbs_root" : "SpmSwiftModule",
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "def" : {
@@ -483,82 +530,79 @@
     "path_to_root" : "..\/",
     "primary_page_title" : "AnEnum",
     "primary_title_language" : "j2-swift",
-    "swift_breadcrumbs" : [
+    "tab_title_prefix" : true,
+    "tocs" : [
       {
-        "title" : "Types",
-        "url" : "types.html?swift"
-      },
-      {
-        "title" : "AnEnum"
-      }
-    ],
-    "swift_toc" : [
-      {
-        "children" : [
+        "language" : "j2-swift",
+        "screen_reader_name" : "Swift",
+        "toc" : [
           {
             "children" : [
               {
                 "children" : [
                   {
-                    "children" : [],
+                    "children" : [
+                      {
+                        "children" : [],
+                        "same_page" : false,
+                        "title" : "Nested2a",
+                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2a"
+                      },
+                      {
+                        "children" : [],
+                        "same_page" : false,
+                        "title" : "Nested2b",
+                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2b"
+                      }
+                    ],
                     "same_page" : false,
-                    "title" : "Nested2a",
-                    "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2a"
+                    "title" : "Nested1",
+                    "url" : "types\/spmswiftmodule\/nested1.html?swift"
                   },
                   {
                     "children" : [],
                     "same_page" : false,
-                    "title" : "Nested2b",
-                    "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2b"
+                    "title" : "Nested2",
+                    "url" : "types\/spmswiftmodule.html?swift#nested2"
                   }
                 ],
                 "same_page" : false,
-                "title" : "Nested1",
-                "url" : "types\/spmswiftmodule\/nested1.html?swift"
+                "title" : "SpmSwiftModule",
+                "url" : "types\/spmswiftmodule.html?swift"
+              },
+              {
+                "children" : [],
+                "same_page" : true,
+                "title" : "AnEnum",
+                "url" : ""
+              }
+            ],
+            "same_page" : false,
+            "title" : "Types",
+            "url" : "types.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "children" : [],
+                "same_page" : false,
+                "title" : "functionA(arg1:_:arg3:)",
+                "url" : "functions.html?swift#functionaarg1_arg3"
               },
               {
                 "children" : [],
                 "same_page" : false,
-                "title" : "Nested2",
-                "url" : "types\/spmswiftmodule.html?swift#nested2"
+                "title" : "deprecatedFunction(callback:)",
+                "url" : "functions.html?swift#deprecatedfunctioncallback"
               }
             ],
             "same_page" : false,
-            "title" : "SpmSwiftModule",
-            "url" : "types\/spmswiftmodule.html?swift"
-          },
-          {
-            "children" : [],
-            "same_page" : true,
-            "title" : "AnEnum",
-            "url" : ""
+            "title" : "Functions",
+            "url" : "functions.html?swift"
           }
-        ],
-        "same_page" : false,
-        "title" : "Types",
-        "url" : "types.html?swift"
-      },
-      {
-        "children" : [
-          {
-            "children" : [],
-            "same_page" : false,
-            "title" : "functionA(arg1:_:arg3:)",
-            "url" : "functions.html?swift#functionaarg1_arg3"
-          },
-          {
-            "children" : [],
-            "same_page" : false,
-            "title" : "deprecatedFunction(callback:)",
-            "url" : "functions.html?swift#deprecatedfunctioncallback"
-          }
-        ],
-        "same_page" : false,
-        "title" : "Functions",
-        "url" : "functions.html?swift"
+        ]
       }
     ],
-    "tab_title_prefix" : true,
     "topics" : [
       {
         "anchor_id" : "tpc_",
@@ -633,6 +677,16 @@
     ]
   },
   {
+    "breadcrumbs_menus" : [
+      {
+        "breadcrumbs" : [
+          {
+            "title" : "Functions"
+          }
+        ],
+        "language" : "j2-swift"
+      }
+    ],
     "breadcrumbs_root" : "SpmSwiftModule",
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "default_language" : "j2-swift",
@@ -652,78 +706,79 @@
     "path_to_root" : "",
     "primary_page_title" : "Functions",
     "primary_title_language" : "j2-swift",
-    "swift_breadcrumbs" : [
+    "tab_title_prefix" : true,
+    "tocs" : [
       {
-        "title" : "Functions"
-      }
-    ],
-    "swift_toc" : [
-      {
-        "children" : [
+        "language" : "j2-swift",
+        "screen_reader_name" : "Swift",
+        "toc" : [
           {
             "children" : [
               {
                 "children" : [
                   {
-                    "children" : [],
+                    "children" : [
+                      {
+                        "children" : [],
+                        "same_page" : false,
+                        "title" : "Nested2a",
+                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2a"
+                      },
+                      {
+                        "children" : [],
+                        "same_page" : false,
+                        "title" : "Nested2b",
+                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2b"
+                      }
+                    ],
                     "same_page" : false,
-                    "title" : "Nested2a",
-                    "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2a"
+                    "title" : "Nested1",
+                    "url" : "types\/spmswiftmodule\/nested1.html?swift"
                   },
                   {
                     "children" : [],
                     "same_page" : false,
-                    "title" : "Nested2b",
-                    "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2b"
+                    "title" : "Nested2",
+                    "url" : "types\/spmswiftmodule.html?swift#nested2"
                   }
                 ],
                 "same_page" : false,
-                "title" : "Nested1",
-                "url" : "types\/spmswiftmodule\/nested1.html?swift"
+                "title" : "SpmSwiftModule",
+                "url" : "types\/spmswiftmodule.html?swift"
               },
               {
                 "children" : [],
                 "same_page" : false,
-                "title" : "Nested2",
-                "url" : "types\/spmswiftmodule.html?swift#nested2"
+                "title" : "AnEnum",
+                "url" : "types\/anenum.html?swift"
               }
             ],
             "same_page" : false,
-            "title" : "SpmSwiftModule",
-            "url" : "types\/spmswiftmodule.html?swift"
+            "title" : "Types",
+            "url" : "types.html?swift"
           },
           {
-            "children" : [],
-            "same_page" : false,
-            "title" : "AnEnum",
-            "url" : "types\/anenum.html?swift"
-          }
-        ],
-        "same_page" : false,
-        "title" : "Types",
-        "url" : "types.html?swift"
-      },
-      {
-        "children" : [
-          {
-            "children" : [],
+            "children" : [
+              {
+                "children" : [],
+                "same_page" : true,
+                "title" : "functionA(arg1:_:arg3:)",
+                "url" : "#functionaarg1_arg3"
+              },
+              {
+                "children" : [],
+                "same_page" : true,
+                "title" : "deprecatedFunction(callback:)",
+                "url" : "#deprecatedfunctioncallback"
+              }
+            ],
             "same_page" : true,
-            "title" : "functionA(arg1:_:arg3:)",
-            "url" : "#functionaarg1_arg3"
-          },
-          {
-            "children" : [],
-            "same_page" : true,
-            "title" : "deprecatedFunction(callback:)",
-            "url" : "#deprecatedfunctioncallback"
+            "title" : "Functions",
+            "url" : ""
           }
-        ],
-        "same_page" : true,
-        "title" : "Functions",
-        "url" : ""
+        ]
       }
     ],
-    "tab_title_prefix" : true,
     "topics" : [
       {
         "anchor_id" : "tpc_",
@@ -788,6 +843,7 @@
     "topics_menus" : []
   },
   {
+    "breadcrumbs_menus" : [],
     "breadcrumbs_root" : "SpmSwiftModule",
     "content_html" : "<h1 class=\"j2-anchor j2-heading\" id=\"spmswiftmodule\">\n<span data-anchor-id=\"spmswiftmodule\">\nSpmSwiftModule\n<\/span><\/h1>",
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
@@ -808,73 +864,79 @@
     "path_to_root" : "",
     "primary_page_title" : "index",
     "primary_title_language" : "j2-swift",
-    "swift_toc" : [
+    "tab_title_prefix" : false,
+    "tocs" : [
       {
-        "children" : [
+        "language" : "j2-swift",
+        "screen_reader_name" : "Swift",
+        "toc" : [
           {
             "children" : [
               {
                 "children" : [
                   {
-                    "children" : [],
+                    "children" : [
+                      {
+                        "children" : [],
+                        "same_page" : false,
+                        "title" : "Nested2a",
+                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2a"
+                      },
+                      {
+                        "children" : [],
+                        "same_page" : false,
+                        "title" : "Nested2b",
+                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2b"
+                      }
+                    ],
                     "same_page" : false,
-                    "title" : "Nested2a",
-                    "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2a"
+                    "title" : "Nested1",
+                    "url" : "types\/spmswiftmodule\/nested1.html?swift"
                   },
                   {
                     "children" : [],
                     "same_page" : false,
-                    "title" : "Nested2b",
-                    "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2b"
+                    "title" : "Nested2",
+                    "url" : "types\/spmswiftmodule.html?swift#nested2"
                   }
                 ],
                 "same_page" : false,
-                "title" : "Nested1",
-                "url" : "types\/spmswiftmodule\/nested1.html?swift"
+                "title" : "SpmSwiftModule",
+                "url" : "types\/spmswiftmodule.html?swift"
               },
               {
                 "children" : [],
                 "same_page" : false,
-                "title" : "Nested2",
-                "url" : "types\/spmswiftmodule.html?swift#nested2"
+                "title" : "AnEnum",
+                "url" : "types\/anenum.html?swift"
               }
             ],
             "same_page" : false,
-            "title" : "SpmSwiftModule",
-            "url" : "types\/spmswiftmodule.html?swift"
+            "title" : "Types",
+            "url" : "types.html?swift"
           },
           {
-            "children" : [],
+            "children" : [
+              {
+                "children" : [],
+                "same_page" : false,
+                "title" : "functionA(arg1:_:arg3:)",
+                "url" : "functions.html?swift#functionaarg1_arg3"
+              },
+              {
+                "children" : [],
+                "same_page" : false,
+                "title" : "deprecatedFunction(callback:)",
+                "url" : "functions.html?swift#deprecatedfunctioncallback"
+              }
+            ],
             "same_page" : false,
-            "title" : "AnEnum",
-            "url" : "types\/anenum.html?swift"
+            "title" : "Functions",
+            "url" : "functions.html?swift"
           }
-        ],
-        "same_page" : false,
-        "title" : "Types",
-        "url" : "types.html?swift"
-      },
-      {
-        "children" : [
-          {
-            "children" : [],
-            "same_page" : false,
-            "title" : "functionA(arg1:_:arg3:)",
-            "url" : "functions.html?swift#functionaarg1_arg3"
-          },
-          {
-            "children" : [],
-            "same_page" : false,
-            "title" : "deprecatedFunction(callback:)",
-            "url" : "functions.html?swift#deprecatedfunctioncallback"
-          }
-        ],
-        "same_page" : false,
-        "title" : "Functions",
-        "url" : "functions.html?swift"
+        ]
       }
     ],
-    "tab_title_prefix" : false,
     "topics" : [],
     "topics_menus" : []
   }
