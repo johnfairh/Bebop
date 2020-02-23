@@ -4,6 +4,6 @@
 {{#.url}}
   <a class="j2-nav-item" href="{{^same_page}}{{{path_to_root}}}{{/same_page}}{{{.}}}">{{title}}</a>
 {{/.url}}
-{{#children.count}}
+{{#.children.count}}
   {{> nav_section}}
-{{/children.count}}
+{{/.children.count}}

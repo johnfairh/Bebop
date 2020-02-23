@@ -42,13 +42,11 @@
                   {
                     "children" : [
                       {
-                        "children" : [],
                         "same_page" : false,
                         "title" : "Nested2a",
                         "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2a"
                       },
                       {
-                        "children" : [],
                         "same_page" : false,
                         "title" : "Nested2b",
                         "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2b"
@@ -59,7 +57,6 @@
                     "url" : "types\/spmswiftmodule\/nested1.html?swift"
                   },
                   {
-                    "children" : [],
                     "same_page" : false,
                     "title" : "Nested2",
                     "url" : "types\/spmswiftmodule.html?swift#nested2"
@@ -70,7 +67,6 @@
                 "url" : "types\/spmswiftmodule.html?swift"
               },
               {
-                "children" : [],
                 "same_page" : false,
                 "title" : "AnEnum",
                 "url" : "types\/anenum.html?swift"
@@ -83,13 +79,11 @@
           {
             "children" : [
               {
-                "children" : [],
                 "same_page" : false,
                 "title" : "functionA(arg1:_:arg3:)",
                 "url" : "functions.html?swift#functionaarg1_arg3"
               },
               {
-                "children" : [],
                 "same_page" : false,
                 "title" : "deprecatedFunction(callback:)",
                 "url" : "functions.html?swift#deprecatedfunctioncallback"
@@ -193,13 +187,11 @@
                   {
                     "children" : [
                       {
-                        "children" : [],
                         "same_page" : false,
                         "title" : "Nested2a",
                         "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2a"
                       },
                       {
-                        "children" : [],
                         "same_page" : false,
                         "title" : "Nested2b",
                         "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2b"
@@ -210,7 +202,6 @@
                     "url" : "types\/spmswiftmodule\/nested1.html?swift"
                   },
                   {
-                    "children" : [],
                     "same_page" : true,
                     "title" : "Nested2",
                     "url" : "#nested2"
@@ -221,7 +212,6 @@
                 "url" : ""
               },
               {
-                "children" : [],
                 "same_page" : false,
                 "title" : "AnEnum",
                 "url" : "types\/anenum.html?swift"
@@ -234,13 +224,11 @@
           {
             "children" : [
               {
-                "children" : [],
                 "same_page" : false,
                 "title" : "functionA(arg1:_:arg3:)",
                 "url" : "functions.html?swift#functionaarg1_arg3"
               },
               {
-                "children" : [],
                 "same_page" : false,
                 "title" : "deprecatedFunction(callback:)",
                 "url" : "functions.html?swift#deprecatedfunctioncallback"
@@ -272,7 +260,6 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title" : "Fields",
         "title_html" : "Fields"
       },
       {
@@ -306,7 +293,6 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title" : "_Nested_ strúctures",
         "title_html" : "<em>Nested<\/em> strúctures"
       }
     ],
@@ -385,13 +371,11 @@
                   {
                     "children" : [
                       {
-                        "children" : [],
                         "same_page" : true,
                         "title" : "Nested2a",
                         "url" : "#nested2a"
                       },
                       {
-                        "children" : [],
                         "same_page" : true,
                         "title" : "Nested2b",
                         "url" : "#nested2b"
@@ -402,7 +386,6 @@
                     "url" : ""
                   },
                   {
-                    "children" : [],
                     "same_page" : false,
                     "title" : "Nested2",
                     "url" : "types\/spmswiftmodule.html?swift#nested2"
@@ -413,7 +396,6 @@
                 "url" : "types\/spmswiftmodule.html?swift"
               },
               {
-                "children" : [],
                 "same_page" : false,
                 "title" : "AnEnum",
                 "url" : "types\/anenum.html?swift"
@@ -426,13 +408,11 @@
           {
             "children" : [
               {
-                "children" : [],
                 "same_page" : false,
                 "title" : "functionA(arg1:_:arg3:)",
                 "url" : "functions.html?swift#functionaarg1_arg3"
               },
               {
-                "children" : [],
                 "same_page" : false,
                 "title" : "deprecatedFunction(callback:)",
                 "url" : "functions.html?swift#deprecatedfunctioncallback"
@@ -543,13 +523,11 @@
                   {
                     "children" : [
                       {
-                        "children" : [],
                         "same_page" : false,
                         "title" : "Nested2a",
                         "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2a"
                       },
                       {
-                        "children" : [],
                         "same_page" : false,
                         "title" : "Nested2b",
                         "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2b"
@@ -560,7 +538,6 @@
                     "url" : "types\/spmswiftmodule\/nested1.html?swift"
                   },
                   {
-                    "children" : [],
                     "same_page" : false,
                     "title" : "Nested2",
                     "url" : "types\/spmswiftmodule.html?swift#nested2"
@@ -571,7 +548,6 @@
                 "url" : "types\/spmswiftmodule.html?swift"
               },
               {
-                "children" : [],
                 "same_page" : true,
                 "title" : "AnEnum",
                 "url" : ""
@@ -584,13 +560,11 @@
           {
             "children" : [
               {
-                "children" : [],
                 "same_page" : false,
                 "title" : "functionA(arg1:_:arg3:)",
                 "url" : "functions.html?swift#functionaarg1_arg3"
               },
               {
-                "children" : [],
                 "same_page" : false,
                 "title" : "deprecatedFunction(callback:)",
                 "url" : "functions.html?swift#deprecatedfunctioncallback"
@@ -719,13 +693,11 @@
                   {
                     "children" : [
                       {
-                        "children" : [],
                         "same_page" : false,
                         "title" : "Nested2a",
                         "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2a"
                       },
                       {
-                        "children" : [],
                         "same_page" : false,
                         "title" : "Nested2b",
                         "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2b"
@@ -736,7 +708,6 @@
                     "url" : "types\/spmswiftmodule\/nested1.html?swift"
                   },
                   {
-                    "children" : [],
                     "same_page" : false,
                     "title" : "Nested2",
                     "url" : "types\/spmswiftmodule.html?swift#nested2"
@@ -747,7 +718,6 @@
                 "url" : "types\/spmswiftmodule.html?swift"
               },
               {
-                "children" : [],
                 "same_page" : false,
                 "title" : "AnEnum",
                 "url" : "types\/anenum.html?swift"
@@ -760,13 +730,11 @@
           {
             "children" : [
               {
-                "children" : [],
                 "same_page" : true,
                 "title" : "functionA(arg1:_:arg3:)",
                 "url" : "#functionaarg1_arg3"
               },
               {
-                "children" : [],
                 "same_page" : true,
                 "title" : "deprecatedFunction(callback:)",
                 "url" : "#deprecatedfunctioncallback"
@@ -877,13 +845,11 @@
                   {
                     "children" : [
                       {
-                        "children" : [],
                         "same_page" : false,
                         "title" : "Nested2a",
                         "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2a"
                       },
                       {
-                        "children" : [],
                         "same_page" : false,
                         "title" : "Nested2b",
                         "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2b"
@@ -894,7 +860,6 @@
                     "url" : "types\/spmswiftmodule\/nested1.html?swift"
                   },
                   {
-                    "children" : [],
                     "same_page" : false,
                     "title" : "Nested2",
                     "url" : "types\/spmswiftmodule.html?swift#nested2"
@@ -905,7 +870,6 @@
                 "url" : "types\/spmswiftmodule.html?swift"
               },
               {
-                "children" : [],
                 "same_page" : false,
                 "title" : "AnEnum",
                 "url" : "types\/anenum.html?swift"
@@ -918,13 +882,11 @@
           {
             "children" : [
               {
-                "children" : [],
                 "same_page" : false,
                 "title" : "functionA(arg1:_:arg3:)",
                 "url" : "functions.html?swift#functionaarg1_arg3"
               },
               {
-                "children" : [],
                 "same_page" : false,
                 "title" : "deprecatedFunction(callback:)",
                 "url" : "functions.html?swift#deprecatedfunctioncallback"

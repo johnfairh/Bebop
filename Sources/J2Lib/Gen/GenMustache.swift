@@ -262,6 +262,12 @@ extension GenData {
 
     /// Generate the table of contents (left nav) for the page.
     /// This is unique for each page because the URLs change around the current page, and translation.
+    /// keys:
+    ///   language: css-class for the toc
+    ///   title: text for the entry
+    ///   children: option array of this same format
+    ///   url: optional href to the entry [not set if we're already there]
+    ///   same_page: true if 'url' is a #href on the same page we're on
     func generateToc(from toc: [TocEntry],
                      language: DefLanguage,
                      languageTag: String,
@@ -271,8 +277,11 @@ extension GenData {
         func tocList(entries: [TocEntry]) -> [[String : Any]] {
             entries.map { entry in
                 let entryURLPath = entry.url.url(fileExtension: fileExt, language: language)
-                var dict = MH([.title: entry.title.get(languageTag),
-                               .children: tocList(entries: entry.children)])
+                var dict = MH([.title: entry.title.get(languageTag)])
+                let children = tocList(entries: entry.children)
+                if !children.isEmpty {
+                    dict[.children] = children
+                }
                 if entryURLPath != pageURLPath {
                     // no url for the page we're currently on.
                     if entryURLPath.hasPrefix(pageURLPath) {
@@ -294,30 +303,8 @@ extension GenData {
 
 extension GenData.Page {
     /// topics is an array of [String : Any]
-    /// with keys title_html [can be missing if 0 title]
-    ///           overview_html [can be missing] [use . syntax!!]
-    ///           anchor_id -- need for linking from aux nav
-    ///           dash_name - %-encoded text (markdown) name
-    ///           primary_language - if set then topic is only valid in that language
-    ///           items - items array of [String: Any]
     func generateTopics(languageTag: String, fileExt: String) -> [[String : Any]] {
-        return topics.map { topic in
-            let title = topic.title.markdown.get(languageTag).md
-            let dashName = title.urlPathEncoded
-            var hash = MH([.anchorId: topic.anchorId, .dashName: dashName])
-            if !title.isEmpty {
-                hash[.titleHtml] = topic.title.html.get(languageTag).html
-                hash[.title] = title // for menu
-            }
-            hash.maybe(.overviewHtml, topic.body?.get(languageTag).html)
-            hash.maybe(.primaryLanguage, topic.soloLanguage?.cssName)
-            if topic.items.count > 0 {
-                hash[.items] = topic.items.map {
-                    $0.generateItem(languageTag: languageTag, fileExt: fileExt)
-                }
-            }
-            return hash
-        }
+        topics.map { $0.generateTopic(languageTag: languageTag, fileExt: fileExt) }
     }
 
     /// topics_menu is array of [String:Any]
@@ -334,19 +321,7 @@ extension GenData.Page {
             topicsMenu.append(MH([.title: declaration, .anchorId: ""]))
         }
         return topicsMenu +
-            topics.compactMap { topic in
-                let title = topic.title.markdown.get(languageTag).md
-                if title.isEmpty {
-                    return nil
-                }
-                if let soloLanguage = topic.soloLanguage,
-                    soloLanguage == language.otherLanguage {
-                    return nil
-                }
-
-                return MH([.title: title.re_sub("[_`*]+", with: ""),
-                           .anchorId: topic.anchorId.urlFragmentEncoded])
-            }
+            topics.compactMap { $0.generateMenuItem(language: language, languageTag: languageTag) }
     }
 
     /// Identify if all topics are dependent on one language
@@ -383,6 +358,45 @@ extension GenData.Topic {
             }
         }
         return theLanguage
+    }
+
+    /// topics is an array of [String : Any]
+    /// with keys title_html [can be missing if 0 title]
+    ///           overview_html [can be missing]
+    ///           anchor_id -- need for linking from aux nav
+    ///           dash_name - %-encoded text (markdown) name
+    ///           primary_language - if set then topic is only valid in that language
+    ///           items - items array of [String: Any]
+    func generateTopic(languageTag: String, fileExt: String) -> [String : Any] {
+        let titleText = title.markdown.get(languageTag).md
+        let dashName = titleText.urlPathEncoded
+        var dict = MH([.anchorId: anchorId, .dashName: dashName])
+        if !titleText.isEmpty {
+            dict[.titleHtml] = title.html.get(languageTag).html
+        }
+        dict.maybe(.overviewHtml, body?.get(languageTag).html)
+        dict.maybe(.primaryLanguage, soloLanguage?.cssName)
+        if items.count > 0 {
+            dict[.items] = items.map {
+                $0.generateItem(languageTag: languageTag, fileExt: fileExt)
+            }
+        }
+        return dict
+    }
+
+    /// Build the topics menu item - nil if no title or only in the other language
+    func generateMenuItem(language: DefLanguage, languageTag: String) -> [String : Any]? {
+        let titleText = title.markdown.get(languageTag).md
+        if titleText.isEmpty {
+            return nil
+        }
+        if let soloLanguage = soloLanguage,
+            soloLanguage == language.otherLanguage {
+            return nil
+        }
+
+        return MH([.title: titleText.re_sub("[_`*]+", with: ""),
+                   .anchorId: anchorId.urlFragmentEncoded])
     }
 }
 
