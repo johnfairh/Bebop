@@ -153,6 +153,9 @@ class TestGatherObjC: XCTestCase {
                          "@property (class, nonatomic, copy) NSUUID *identifier", "NSUUID *#identifier#")
         checkDeclaration("@property (readwrite, copy, nonatomic, class) NSUUID *identifier", "identifier", .property,
                          "@property (copy, nonatomic, class) NSUUID *identifier", "NSUUID *#identifier#")
+        checkDeclaration("@property (class, readwrite) NSUUID *identifier", "identifier", .property,
+                         "@property (class) NSUUID *identifier", "NSUUID *#identifier#")
+
     }
 
     func testMethodDeclarations() {

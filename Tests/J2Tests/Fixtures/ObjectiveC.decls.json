@@ -50,7 +50,7 @@
         "module_name" : "Module",
         "name" : "propertyName",
         "obj_c_declaration" : {
-          "declaration" : "@property (strong, ) NSString *propertyName",
+          "declaration" : "@property (strong) NSString *propertyName",
           "deprecation" : {
             "en" : "Deprecated. Is deprecated"
           },

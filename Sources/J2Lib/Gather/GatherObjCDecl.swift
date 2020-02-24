@@ -66,16 +66,19 @@ class ObjCDeclarationBuilder {
                 decl.append(")")
             }
         } else if kind.isObjCProperty {
-            if let propertyMatch = decl.re_match(#"@property\s*( \(.*?\))"#) {
+            if let propertyMatch = decl.re_match(#"@property\s+\((.*?)\)"#) {
                 // 1) Don't show atomic: it's the default
                 // 2) Don't show readwrite: it's the default
                 // 3) Don't show 'assign': that's a default
                 // 3a) Don't show 'assign, unsafe_unretained': that's the same default in Xcode11.4+
-                var newProperties = propertyMatch[1].re_sub(#"\b(?:atomic|readwrite|assign|unsafe_retained)\s*,?\s*"#, with: "")
-                if newProperties == " ()" {
-                    newProperties = "" // all gone!
-                }
-                decl = decl.re_sub(#"(?<=@property)\s+\(.*?\)"#, with: newProperties)
+                let badProperties = ["atomic", "readwrite", "assign", "unsafe_retained"]
+
+                let newProperties = propertyMatch[1].split(separator: ",")
+                    .map { $0.trimmingCharacters(in: .whitespaces) }
+                    .filter { !badProperties.contains($0) }
+                    .joined(separator: ", ")
+                let newPropertyList = newProperties.count > 0 ? " (\(newProperties))" : ""
+                decl = decl.re_sub(#"(?<=@property)\s+\(.*?\)"#, with: newPropertyList)
             }
         }
         // Strip any trailing semicolons/whitespace - inconsistencies somewhere

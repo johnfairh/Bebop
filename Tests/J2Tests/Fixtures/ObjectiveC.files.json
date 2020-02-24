@@ -107,7 +107,7 @@
                   "en" : "Documented property"
                 }
               },
-              "key.j2.objc_declaration" : "@property (strong, ) NSString *propertyName",
+              "key.j2.objc_declaration" : "@property (strong) NSString *propertyName",
               "key.j2.objc_deprecation_messages" : {
                 "en" : "Deprecated. Is deprecated"
               },
