@@ -365,6 +365,33 @@ const searchControl = {
 }
 
 //
+// Translation jumping
+//
+const translationControl = {
+  // Register click handler, set active when dom ready
+  ready () {
+    const $menuItems = $('.j2-translation')
+    $menuItems.click((e) => {
+      const tagPath = e.target.dataset.languageTagPath
+      const pathToAssets = $body.data('assets-path')
+      const docPath = $body.data('doc-path')
+      const search = window.location.search
+      const hash = window.location.hash
+      const newHref = pathToAssets + tagPath + docPath + search + hash
+      window.location = newHref
+      return false
+    })
+
+    const pageLangTag = $('html').attr('lang')
+    $menuItems.each((_, item) => {
+      if (item.dataset.languageTag === pageLangTag) {
+        $(item).attr('aria-current', true)
+      }
+    })
+  }
+}
+
+//
 // Keypress handler
 //
 const keysControl = {
@@ -419,4 +446,7 @@ $(function () {
 
   // Typeahead
   searchControl.ready()
+
+  // Translation menu
+  translationControl.ready()
 })

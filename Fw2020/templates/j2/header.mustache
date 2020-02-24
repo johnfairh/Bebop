@@ -52,7 +52,7 @@
       <a class="nav-link dropdown-toggle j2-trans-dropdown" href="#" id="trans-menu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{page_localization}}</a>
       <div class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="trans-menu">
         {{#localizations}}
-          <a class="dropdown-item" href="{{url}}" role="menuitem" {{#active}}aria-current="true"{{/active}}>{{title}}</a>
+          <a class="dropdown-item j2-translation" href="#" role="menuitem" data-language-tag="{{tag}}" data-language-tag-path="{{tag_path}}"}>{{title}}</a>
         {{/localizations}}
       </div>
     </div>

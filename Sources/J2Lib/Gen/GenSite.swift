@@ -136,18 +136,14 @@ public struct GenSite: Configurable {
 
             var mustacheData = page.data
             mustacheData[.pathToAssets] = location.reversePath
+            mustacheData[.pathFromRoot] = page.filepath.urlPathEncoded
             mustacheData[.docsTitle] = docsTitle.get(page.languageTag)
             mustacheData[.copyrightHtml] = copyrightText.html.get(page.languageTag).html
             mustacheData[.breadcrumbsRoot] = breadcrumbsRoot.get(page.languageTag)
 
-            let locs = Localizations.shared
-
-            if locs.all.count > 1 {
+            if Localizations.shared.all.count > 1 {
                 mustacheData[.pageLocalization] =
-                    locs.localization(languageTag: page.languageTag).flag
-                mustacheData[.localizations] =
-                    buildLocalizations(page: page,
-                                       currentPathToAssets: location.reversePath)
+                    Localizations.shared.localization(languageTag: page.languageTag).flag
             }
 
             try callback(location, mustacheData)
@@ -203,26 +199,23 @@ public struct GenSite: Configurable {
         if !hideCoverageOpt.value {
             dict[.docCoverage] = 66
         }
+
         if let customHead = customHeadOpt.value {
             dict[.customHead] = customHead
         }
 
-        return dict
-    }
-
-    /// Build the localizations menu - links to this same page in all the
-    /// localizations we're building for.
-    func buildLocalizations(page: MustachePage,
-                            currentPathToAssets: String) -> [MustacheDict] {
-        Localizations.shared.all.map { loc in
-            let otherLocation = page.getLocation(languageTag: loc.tag)
-            let relativeURL = currentPathToAssets + otherLocation.urlPath
-            return MustacheKey.dict([
-                .title : "\(loc.flag) \(loc.label)",
-                .active : loc.tag == page.languageTag,
-                .url : relativeURL
-            ])
+        if Localizations.shared.all.count > 1 {
+            dict[.localizations] =
+                Localizations.shared.all.map { loc in
+                    MustacheKey.dict([
+                        .title : "\(loc.flag) \(loc.label)",
+                        .tag: loc.tag,
+                        .tagPath: loc.tag.languageTagPathComponent
+                    ])
+            }
         }
+
+        return dict
     }
 }
 
@@ -231,23 +224,26 @@ public struct GenSite: Configurable {
 struct MustachePageLocation {
     /// Path relative to docroot
     let filePath: String
-    /// URL-encoded path relative to docroot
-    var urlPath: String { filePath.urlPathEncoded }
     /// Empty string or ends in '/'
     let reversePath: String
 }
 
 extension MustachePage {
-    /// Work out where this page is in a particular language.
-    /// If `languageTag` is `nil` then it uses the page's own language.
-    func getLocation(languageTag: String? = nil) -> MustachePageLocation {
-        let tag = languageTag ?? self.languageTag
-        var locationPath = ""
-        if tag != Localizations.shared.main.tag {
-            locationPath = "\(tag)/"
-        }
-        let fullPath = locationPath + filepath
+    /// Work out where this page is in its language
+    func getLocation() -> MustachePageLocation {
+        let locPathComponent = self.languageTag.languageTagPathComponent
+        let fullPath = locPathComponent + filepath
         let reversePath = String(repeating: "../", count: fullPath.directoryNestingDepth)
         return MustachePageLocation(filePath: fullPath, reversePath: reversePath)
+    }
+}
+
+extension String {
+    var languageTagPathComponent: String {
+        let defaultTag = Localizations.shared.main.tag
+        if defaultTag == self {
+            return ""
+        }
+        return "\(self)/"
     }
 }

@@ -99,6 +99,7 @@ public enum MustacheKey: String {
     case noApologyLanguage = "no_apology_language"
     // Global, set by SiteGen
     case pathToAssets = "path_to_assets" // empty string or ends in "/"
+    case pathFromRoot = "path_from_root"
     case docsTitle = "docs_title"
     case breadcrumbsRoot = "breadcrumbs_root"
     case copyrightHtml = "copyright_html"
@@ -106,6 +107,8 @@ public enum MustacheKey: String {
     case pageLocalization = "page_localization"
     case localizations = "localizations"
     case active = "active"
+    case tag = "tag"
+    case tagPath = "tag_path"
     // Breadcrumbs
     case breadcrumbsMenus = "breadcrumbs_menus"
     case breadcrumbs = "breadcrumbs"
