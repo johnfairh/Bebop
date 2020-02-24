@@ -118,14 +118,11 @@ public class DefItem: Item {
         defKind.isObjC ? name : nil
     }
 
-    /// Title of the def in Swift, or `nil` if unavailable
-    public override var swiftTitle: Localized<String>? {
-        swiftName.flatMap { .init(unlocalized: $0) }
-    }
-
-    /// Title of the def in ObjC, or `nil` if unavailable
-    public override var objCTitle: Localized<String>? {
-        objCName.flatMap { .init(unlocalized: $0) }
+    public override func title(for language: DefLanguage) -> Localized<String>? {
+        switch language {
+        case .swift: return swiftName.flatMap { .init(unlocalized: $0) }
+        case .objc: return objCName.flatMap { .init(unlocalized: $0) }
+        }
     }
 
     public override var kind: ItemKind { defKind.metaKind }

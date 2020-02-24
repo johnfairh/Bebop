@@ -972,7 +972,7 @@
       "declaration" : "@interface IVarTest (ACategory)",
       "name_pieces" : [
         {
-          "other" : "@category "
+          "other" : "@interface "
         },
         {
           "name" : "IVarTest(ACategory)"

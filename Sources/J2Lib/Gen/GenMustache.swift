@@ -169,6 +169,17 @@ private extension Dictionary where Key == String, Value == Any {
     }
 }
 
+extension DefLanguage {
+    /// CSS-name for the language
+    public var cssName: String {
+        switch self {
+        case .swift: return "j2-swift"
+        case .objc: return "j2-objc"
+        }
+    }
+}
+
+
 // MARK: Page
 
 extension GenData {
@@ -275,7 +286,7 @@ extension Array where Element == GenData.TocEntry {
                                      languageTag: languageTag,
                                      fileExt: fileExt),
             .language: language.cssName,
-            .screenReaderName: language.screenReaderName])
+            .screenReaderName: language.humanName])
     }
 
     /// Helper to generate a list of toc entries

@@ -47,7 +47,6 @@ public struct GenSite: Configurable {
 
     let childItemStyleOpt = EnumOpt<ChildItemStyle>(l: "child-item-style").def(.nest)
     let nestedItemStyleOpt = EnumOpt<NestedItemStyle>(l: "nested-item-style").def(.start_closed)
-    let defaultLanguageOpt = EnumOpt<DefLanguage>(l: "default-language")
 
     let oldHideCoverageOpt: AliasOpt
     let oldCustomHeadOpt: AliasOpt
@@ -194,7 +193,7 @@ public struct GenSite: Configurable {
             .itemCollapseNever: neverCollapse,
             .itemNest: childItemStyle != .separate,
             .dualLanguage: isDualLanguage,
-            .defaultLanguage: pickDefaultLanguage(from: genData.meta.languages).cssName
+            .defaultLanguage: genData.meta.defaultLanguage.cssName
         ])
 
         if hideSearchOpt.value && !isDualLanguage && neverCollapse {
@@ -209,26 +208,6 @@ public struct GenSite: Configurable {
         }
 
         return dict
-    }
-
-    /// Decide what the default language is for the docs.
-    func pickDefaultLanguage(from languages: [DefLanguage]) -> DefLanguage {
-        let modulesDefault = published.defaultLanguage // set according to 1-module input swift/objc
-        let fallback = languages.contains(modulesDefault) ? modulesDefault : languages.first ?? .swift
-
-        guard let userDefault = defaultLanguageOpt.value else {
-            logDebug("Gen: Default language option not set, using '\(fallback)'.")
-            return fallback
-        }
-
-        if languages.contains(userDefault) {
-            logDebug("Gen: Default language from user option '\(userDefault)'.")
-            return userDefault
-        }
-        if fallback != userDefault {
-            logWarning("No definitions found in --default-language '\(userDefault)', using '\(fallback)'.")
-        }
-        return fallback
     }
 
     /// Build the localizations menu - links to this same page in all the

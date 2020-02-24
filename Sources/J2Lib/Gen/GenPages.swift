@@ -12,7 +12,12 @@ import Foundation
 /// into the consolidated data structure that can spit out data for the page renderer.
 ///
 public struct GenPages: Configurable {
+    let defaultLanguageOpt = EnumOpt<DefLanguage>(l: "default-language")
+
+    private let published: Config.Published
+
     public init(config: Config) {
+        published = config.published
         config.register(self)
     }
 
@@ -20,17 +25,39 @@ public struct GenPages: Configurable {
         let languageVisitor = LanguageVisitor()
         languageVisitor.walk(items: items)
         let languages = languageVisitor.languages
+        let defaultLanguage = pickDefaultLanguage(from: languages)
 
-        let pageVisitor = PageVisitor(languages: languages)
+        let pageVisitor = PageVisitor(languages: languages, defaultLanguage: defaultLanguage)
         pageVisitor.walk(items: items)
         let meta = GenData.Meta(version: Version.j2libVersion,
-                                languages: languages)
+                                languages: languages,
+                                defaultLanguage: defaultLanguage)
 
         let tocs = languages.map {
             generateToc(items: items, language: $0)
         }
 
         return GenData(meta: meta, tocs: tocs, pages: pageVisitor.pages)
+    }
+
+    /// Decide what the default language is -- affects some primary/secondary choices
+    func pickDefaultLanguage(from languages: [DefLanguage]) -> DefLanguage {
+        let modulesDefault = published.defaultLanguage // set according to 1-module input swift/objc
+        let fallback = languages.contains(modulesDefault) ? modulesDefault : languages.first ?? .swift
+
+        guard let userDefault = defaultLanguageOpt.value else {
+            logDebug("Gen: Default language option not set, using '\(fallback)'.")
+            return fallback
+        }
+
+        if languages.contains(userDefault) {
+            logDebug("Gen: Default language from user option '\(userDefault)'.")
+            return userDefault
+        }
+        if fallback != userDefault {
+            logWarning("No definitions found in --default-language '\(userDefault)', using '\(fallback)'.")
+        }
+        return fallback
     }
 
     // MARK: Table of contents
@@ -80,8 +107,11 @@ final class LanguageVisitor: ItemVisitorProtocol {
 
 final class PageVisitor: ItemVisitorProtocol {
     let languages: [DefLanguage]
-    init(languages: [DefLanguage]) {
+    let defaultLanguage: DefLanguage
+
+    init(languages: [DefLanguage], defaultLanguage: DefLanguage) {
         self.languages = languages
+        self.defaultLanguage = defaultLanguage
     }
 
     /// All pages
@@ -102,7 +132,9 @@ final class PageVisitor: ItemVisitorProtocol {
 
     func visit(groupItem: GroupItem, parents: [Item]) {
         pages.append(GenData.Page(groupURL: groupItem.url,
-                                  title: groupItem.title,
+                                  primaryTitle: groupItem.titlePreferring(language: defaultLanguage),
+                                  primaryLanguage: defaultLanguage,
+                                  secondaryTitle: groupItem.titlePreferring(language: defaultLanguage.otherLanguage),
                                   breadcrumbs: buildBreadcrumbs(item: groupItem, parents: parents),
                                   content: nil,
                                   topics: buildTopics(item: groupItem)))
@@ -143,7 +175,7 @@ final class PageVisitor: ItemVisitorProtocol {
 
     func buildTopics(item: Item) -> [GenData.Topic] {
         var topics = [GenData.Topic]()
-        let itemVisitor = ItemVisitor()
+        let itemVisitor = ItemVisitor(defaultLanguage: defaultLanguage)
         var currentTopic: Topic? = nil
 
         let uniquer = StringUniquer()
@@ -172,19 +204,6 @@ final class PageVisitor: ItemVisitorProtocol {
 
 // MARK: Items
 
-extension Item {
-    func title(for language: DefLanguage) -> Localized<String>? {
-        switch language {
-        case .swift: return swiftTitle
-        case .objc: return objCTitle
-        }
-    }
-
-    func titlePreferring(language: DefLanguage) -> Localized<String> {
-        title(for: language) ?? title(for: language.otherLanguage)!
-    }
-}
-
 extension DefItem {
     func namePieces(for language: DefLanguage) -> [DeclarationPiece] {
         switch language {
@@ -212,7 +231,13 @@ extension DefItem {
 
 /// Visitor to construct an Item that can appear inside a topic on a page.
 class ItemVisitor: ItemVisitorProtocol {
-    var items = [GenData.Item]()
+    let defaultLanguage: DefLanguage
+    var items: [GenData.Item]
+
+    init(defaultLanguage: DefLanguage) {
+        self.defaultLanguage = defaultLanguage
+        self.items = []
+    }
 
     func resetItems() -> [GenData.Item] {
         defer { items = [] }
@@ -242,7 +267,7 @@ class ItemVisitor: ItemVisitorProtocol {
     func visitFlat(item: Item) {
         items.append(GenData.Item(
             anchorId: item.slug,
-            title: item.swiftTitle!, // XXX this one can be flat title
+            title: item.titlePreferring(language: defaultLanguage),
             url: item.url))
     }
 

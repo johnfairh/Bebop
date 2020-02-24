@@ -23,6 +23,7 @@
 "variables" = "Variables";
 "functions" = "Functions";
 "extensions" = "Extensions";
+"categories" = "Categories";
 "others" = "Others";
 
 /* Title */

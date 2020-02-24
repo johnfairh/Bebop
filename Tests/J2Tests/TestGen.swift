@@ -11,10 +11,12 @@ import XCTest
 
 fileprivate struct System {
     let config: Config
+    let genPages: GenPages
     let gen: GenSite
 
     init() {
         config = Config()
+        genPages = GenPages(config: config)
         gen = GenSite(config: config)
     }
 
@@ -25,7 +27,7 @@ fileprivate struct System {
 
 extension GenData.Meta {
     init() {
-        self.init(version: "TEST", languages: [])
+        self.init(version: "TEST", languages: [], defaultLanguage: .swift)
     }
 }
 
@@ -196,21 +198,21 @@ class TestGen: XCTestCase {
     func testAutoDefaultLanguage() throws {
         let system = System()
         try system.configure(cliOpts: [])
-        XCTAssertEqual(.swift, system.gen.pickDefaultLanguage(from: []))
-        XCTAssertEqual(.swift, system.gen.pickDefaultLanguage(from: [.swift]))
-        XCTAssertEqual(.swift, system.gen.pickDefaultLanguage(from: [.swift, .objc]))
-        XCTAssertEqual(.swift, system.gen.pickDefaultLanguage(from: [.objc, .swift]))
+        XCTAssertEqual(.swift, system.genPages.pickDefaultLanguage(from: []))
+        XCTAssertEqual(.swift, system.genPages.pickDefaultLanguage(from: [.swift]))
+        XCTAssertEqual(.swift, system.genPages.pickDefaultLanguage(from: [.swift, .objc]))
+        XCTAssertEqual(.swift, system.genPages.pickDefaultLanguage(from: [.objc, .swift]))
         system.config.published.defaultLanguage = .objc
-        XCTAssertEqual(.objc, system.gen.pickDefaultLanguage(from: [.objc, .swift]))
+        XCTAssertEqual(.objc, system.genPages.pickDefaultLanguage(from: [.objc, .swift]))
     }
 
     func testUserDefaultLanguage() throws {
         let system = System()
         try system.configure(cliOpts: ["--default-language=objc"])
-        XCTAssertEqual(.swift, system.gen.pickDefaultLanguage(from: []))
-        XCTAssertEqual(.swift, system.gen.pickDefaultLanguage(from: [.swift]))
-        XCTAssertEqual(.objc, system.gen.pickDefaultLanguage(from: [.swift, .objc]))
-        XCTAssertEqual(.objc, system.gen.pickDefaultLanguage(from: [.objc, .swift]))
+        XCTAssertEqual(.swift, system.genPages.pickDefaultLanguage(from: []))
+        XCTAssertEqual(.swift, system.genPages.pickDefaultLanguage(from: [.swift]))
+        XCTAssertEqual(.objc, system.genPages.pickDefaultLanguage(from: [.swift, .objc]))
+        XCTAssertEqual(.objc, system.genPages.pickDefaultLanguage(from: [.objc, .swift]))
     }
 
 }

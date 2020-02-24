@@ -100,6 +100,16 @@ extension Item {
     }
 }
 
+extension DefLanguage {
+    /// Thing to include in a URL to force this language
+    var urlQuery: String {
+        switch self {
+        case .swift: return "?swift"
+        case .objc: return "?objc"
+        }
+    }
+}
+
 extension ChildItemStyle {
     /// Should we embed the item in its parent given the chance?  Means it has no page of its own.
     func shouldEmbed(defItem: DefItem) -> Bool {

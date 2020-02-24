@@ -28,8 +28,8 @@ public enum ItemKind: String, CaseIterable {
         }
     }
 
-    /// The title of the kind, shown in docs
-    var title: Localized<String> {
+    /// The title of the kind, shown in docs, for Swift language
+    var swiftTitle: Localized<String> {
         switch self {
         case .guide: return .localizedOutput(.guides)
         case .type: return .localizedOutput(.types)
@@ -37,6 +37,14 @@ public enum ItemKind: String, CaseIterable {
         case .function: return .localizedOutput(.functions)
         case .extension: return .localizedOutput(.extensions)
         default: return .localizedOutput(.others)
+        }
+    }
+
+    /// The title of the kind, shown in docs, for Objective-C language
+    var objCTitle: Localized<String> {
+        switch self {
+        case .extension: return .localizedOutput(.categories)
+        default: return swiftTitle
         }
     }
 }

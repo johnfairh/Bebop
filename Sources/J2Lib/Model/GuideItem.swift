@@ -32,8 +32,9 @@ public class GuideItem: Item {
 
     public override var kind: ItemKind { .guide }
 
-    public override var swiftTitle: Localized<String>? { return title }
-    public override var objCTitle: Localized<String>? { return title }
+    public override func title(for language: DefLanguage) -> Localized<String>? {
+        return title
+    }
 
     public override var showInToc: ShowInToc { .yes }
 

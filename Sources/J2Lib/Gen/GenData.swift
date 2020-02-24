@@ -16,6 +16,8 @@ public final class GenData: Encodable {
         public let version: String
         /// Languages supported
         public let languages: [DefLanguage]
+        /// Default language
+        public let defaultLanguage: DefLanguage
     }
     public let meta: Meta
     public struct TocEntry: Encodable {
@@ -130,14 +132,16 @@ public final class GenData: Encodable {
 
         /// Group init
         public init(groupURL: URLPieces,
-                    title: Localized<String>,
+                    primaryTitle: Localized<String>,
+                    primaryLanguage: DefLanguage,
+                    secondaryTitle: Localized<String>,
                     breadcrumbs: [[Breadcrumb]],
                     content: Localized<Html>?,
                     topics: [Topic] = []) {
             self.url = groupURL
-            self.primaryTitle = title
-            self.primaryLanguage = .swift
-            self.secondaryTitle = nil
+            self.primaryTitle = primaryTitle
+            self.primaryLanguage = primaryLanguage
+            self.secondaryTitle = secondaryTitle
             self.tabTitlePrefix = true
             self.isGuide = false
             self.content = content

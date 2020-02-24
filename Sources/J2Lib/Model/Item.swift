@@ -35,12 +35,15 @@ public class Item: Encodable {
     public func accept(visitor: ItemVisitorProtocol, parents: [Item]) { preconditionFailure() }
     public var  kind: ItemKind { .other }
 
-    /// The item's title, translated, for objc or swift
-    public var swiftTitle: Localized<String>? { return nil }
-    public var objCTitle: Localized<String>? { return nil }
-    //    public var title: Localized<String> {
-    //        swiftTitle ?? objCTitle ?? preconditionFailure()
-    //    }
+    /// The item's title, translated, for objc or swift.
+    public func title(for language: DefLanguage) -> Localized<String>? {
+        return nil
+    }
+
+    /// The item's title, preferring a particular language but guaranteed to return something.
+    public func titlePreferring(language: DefLanguage) -> Localized<String> {
+        title(for: language) ?? title(for: language.otherLanguage)!
+    }
 
     /// Does the item show in the table of contents?
     public enum ShowInToc {
@@ -51,6 +54,7 @@ public class Item: Encodable {
         /// Only show at the outermost level
         case atTopLevel
     }
+
     public var showInToc: ShowInToc {
         .no
     }

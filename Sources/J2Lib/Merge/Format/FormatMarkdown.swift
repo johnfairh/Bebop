@@ -178,3 +178,13 @@ final class MarkdownFormatter: ItemVisitorProtocol {
         }
     }
 }
+
+extension DefLanguage {
+    /// Name of language according to Prism, the code highlighter
+    var prismLanguage: String {
+        switch self {
+        case .swift: return "swift"
+        case .objc: return "objectivec"
+        }
+    }
+}

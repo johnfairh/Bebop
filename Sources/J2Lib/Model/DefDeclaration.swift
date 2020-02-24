@@ -61,6 +61,7 @@ extension Array where Element == DeclarationPiece {
     }
 }
 
+/// The programming language, Swift or Objective-C.
 public enum DefLanguage: String, Encodable, CaseIterable {
     case swift
     case objc
@@ -73,32 +74,8 @@ public enum DefLanguage: String, Encodable, CaseIterable {
         }
     }
 
-    /// Name of language according to Prism, the code highlighter
-    var prismLanguage: String {
-        switch self {
-        case .swift: return "swift"
-        case .objc: return "objectivec"
-        }
-    }
-
-    /// Thing to include in a URL to force this language
-    var urlQuery: String {
-        switch self {
-        case .swift: return "?swift"
-        case .objc: return "?objc"
-        }
-    }
-
-    /// CSS-name for the language
-    var cssName: String {
-        switch self {
-        case .swift: return "j2-swift"
-        case .objc: return "j2-objc"
-        }
-    }
-
-    /// Screen-reader name for the language
-    var screenReaderName: String {
+    /// Human-readable name for the language
+    var humanName: String {
         switch self {
         case .swift: return "Swift"
         case .objc: return "Objective C"

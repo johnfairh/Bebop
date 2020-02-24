@@ -1107,7 +1107,7 @@
           "key.j2.objc_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
-              "key.j2.name_piece_text" : "@category "
+              "key.j2.name_piece_text" : "@interface "
             },
             {
               "key.j2.name_piece_is_name" : true,
