@@ -73,9 +73,11 @@ enum GatherJob: Equatable {
             return [GatherModulePass(moduleName: module!.name, passIndex: 0, files: filesInfo)]
         #if os(macOS)
         case let .objcDirect(moduleName, headerFile, includePaths, sdk, buildToolArgs, availabilityRules):
-            let clangArgs = ["-x", "objective-c", "-isysroot",
-                             "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
-                             "-fmodules"]
+            let sdkPathResults = Exec.run("/usr/bin/env", "xcrun", "--show-sdk-path", "--sdk", sdk.rawValue, stderr: .merge)
+            guard let sdkPath = sdkPathResults.successString else {
+                throw GatherError("Couldn't find SDK path.\n\(sdkPathResults.failureReport)")
+            }
+            let clangArgs = ["-x", "objective-c", "-isysroot", sdkPath, "-fmodules"]
             logDebug(" Calling sourcekitten clang mode, args:")
             clangArgs.forEach { logDebug("  \($0)") }
             let translationUnit = ClangTranslationUnit(headerFiles: [headerFile.path], compilerArguments: clangArgs)
@@ -85,7 +87,7 @@ enum GatherJob: Equatable {
                 guard let dictEntry = dict.first,
                     dict.count == 1,
                     let fileDict = dictEntry.value as? SourceKittenDict else {
-                    throw GatherError("Unexpected datashape from SourceKitten json, can't process dict '\(dict)'.")
+                    throw GatherError("Unexpected data shape from SourceKitten json, can't process dict '\(dict)'.")
                 }
                 guard let def = GatherDef(sourceKittenDict: fileDict, file: nil, availabilityRules: availabilityRules) else {
                     return nil

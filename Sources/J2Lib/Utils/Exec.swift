@@ -23,6 +23,10 @@ enum Exec {
 
     /// The result of running the child process.
     struct Results {
+        /// The command that was run
+        let command: String
+        /// Its arguments
+        let arguments: [String]
         /// The process's exit status.
         let terminationStatus: Int32
         /// The data from stdout and optionally stderr.
@@ -32,6 +36,25 @@ enum Exec {
             let encoded = String(data: data, encoding: .utf8) ?? ""
             let trimmed = encoded.trimmingCharacters(in: .whitespacesAndNewlines)
             return trimmed.isEmpty ? nil : trimmed
+        }
+        /// The `data` reinterpreted as a string but intercepted to `nil` if the command actually failed
+        var successString: String? {
+            guard terminationStatus == 0 else {
+                return nil
+            }
+            return string
+        }
+        /// Some text explaining a failure
+        var failureReport: String {
+            var report = """
+            Command failed: \(command)
+            Arguments: \(arguments)
+            Exit status: \(terminationStatus)
+            """
+            if let output = string {
+                report += ", output:\n\(output)"
+            }
+            return report
         }
     }
 
@@ -104,12 +127,12 @@ enum Exec {
             process.launch()
 #endif
         } catch {
-            return Results(terminationStatus: -1, data: Data())
+            return Results(command: command, arguments: arguments, terminationStatus: -1, data: Data())
         }
 
         let file = pipe.fileHandleForReading
         let data = file.readDataToEndOfFile()
         process.waitUntilExit()
-        return Results(terminationStatus: process.terminationStatus, data: data)
+        return Results(command: command, arguments: arguments, terminationStatus: process.terminationStatus, data: data)
     }
 }
