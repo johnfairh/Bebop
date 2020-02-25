@@ -49,7 +49,7 @@ public final class GatherDef {
             return
         }
         guard let kind = DefKind.from(key: kindValue) else {
-            logWarning("Unsupported kind '\(kindValue)', ignoring.")
+            logWarning("Unsupported declaration kind '\(kindValue)', ignoring.")
             return nil
         }
 

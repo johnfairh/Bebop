@@ -16,11 +16,13 @@ public class DefItem: Item {
     public let location: DefLocation
     /// Kind of the definition
     public let defKind: DefKind
+    /// USR
+    public let usr: String
+    /// Documentation
+    public private(set) var documentation: RichDefDocs
     /// Declarations
     public let swiftDeclaration: SwiftDeclaration?
     public let objCDeclaration: ObjCDeclaration?
-    /// Documentation
-    public private(set) var documentation: RichDefDocs
     /// Deprecation notice
     public private(set) var deprecationNotice: RichText?
     /// Unavailable notice
@@ -30,13 +32,25 @@ public class DefItem: Item {
 
     /// Create from a gathered definition
     public init?(location: DefLocation, gatherDef: GatherDef, uniquer: StringUniquer) {
-        guard let name = gatherDef.sourceKittenDict[SwiftDocKey.name.rawValue] as? String,
-            let kind = gatherDef.kind else {
-            // XXX wrn - lots to add here tho, leave for now
-            logWarning("Incomplete def, ignoring -- missing name")
+
+        // Inadequacy checks
+
+        guard let usr = gatherDef.sourceKittenDict[SwiftDocKey.usr.rawValue] as? String else {
+            // Usr is special, missing means just not compiled, #if'd out - should be in another pass.
+            logDebug("No usr, ignoring \(gatherDef.sourceKittenDict) \(location)")
             return nil
         }
-        let children = gatherDef.children.asDefItems(location: location, uniquer: uniquer)
+
+        guard let name = gatherDef.sourceKittenDict[SwiftDocKey.name.rawValue] as? String,
+            let kind = gatherDef.kind,
+            ( (kind.isSwift && gatherDef.swiftDeclaration != nil) ||
+              (kind.isObjC && gatherDef.objCDeclaration != nil) ) else {
+            logWarning("Incomplete definition JSON, ignoring \(gatherDef.sourceKittenDict) \(location)")
+            return nil
+        }
+
+        // filter weird kinds
+
         let line = (gatherDef.sourceKittenDict[SwiftDocKey.docLine.rawValue] as? Int64).flatMap(Int.init)
         let startLine = (gatherDef.sourceKittenDict[SwiftDocKey.parsedScopeStart.rawValue] as? Int64).flatMap(Int.init)
         let endLine = (gatherDef.sourceKittenDict[SwiftDocKey.parsedScopeEnd.rawValue] as? Int64).flatMap(Int.init)
@@ -46,26 +60,16 @@ public class DefItem: Item {
                                     firstLine: startLine ?? line,
                                     lastLine: endLine ?? line)
         self.defKind = kind
+        self.usr = usr
         self.documentation = RichDefDocs(gatherDef.translatedDocs)
-
-        // ObjC-Swift merge
-
-        if (gatherDef.swiftDeclaration == nil && kind.isSwift) ||
-           (gatherDef.objCDeclaration == nil && kind.isObjC) {
-            // XXX wrn
-            logWarning("No declaration, ignoring")
-            return nil
-        }
         self.swiftDeclaration = gatherDef.swiftDeclaration
         self.objCDeclaration = gatherDef.objCDeclaration
 
-        // usr
         // type module name
-        // start_line / end_line (vs line???)
-        // gen_req
         // inher_types
 
-        let deprecations = [objCDeclaration?.deprecation, swiftDeclaration?.deprecation].compactMap { $0 }
+        let deprecations = [objCDeclaration?.deprecation,
+                            swiftDeclaration?.deprecation].compactMap { $0 }
         if !deprecations.isEmpty {
             self.deprecationNotice = RichText(deprecations.joined(by: "\n\n"))
         } else {
@@ -78,6 +82,9 @@ public class DefItem: Item {
         } else {
             otherLanguageName = nil // todo swift->objc
         }
+
+        let children = gatherDef.children.asDefItems(location: location, uniquer: uniquer)
+        // generic param filter
 
         super.init(name: name, slug: uniquer.unique(name.slugged), children: children)
     }

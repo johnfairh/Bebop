@@ -50,7 +50,7 @@ class TestMerge: XCTestCase {
     func testBadDeclMergeImport() throws {
         let clazz = SourceKittenDict.mkClass(name: "Parent").with(children: [
             .mkClass(name: "Good"),
-            SourceKittenDict() // bad
+            SourceKittenDict().with(field: .usr, value: "usr") // bad
         ])
         let file = SourceKittenDict.mkFile().with(children: [clazz])
         let system = System()

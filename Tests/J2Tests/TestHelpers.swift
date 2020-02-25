@@ -116,6 +116,7 @@ extension SourceKittenDict {
 
     func with(name: String) -> Self {
         with(field: .name, value: name)
+            .with(field: .usr, value: name)
     }
 
     func with(kind: SwiftDeclarationKind) -> Self {

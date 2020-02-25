@@ -34,7 +34,8 @@
               "en" : "Fields"
             }
           }
-        }
+        },
+        "usr" : "s:14SpmSwiftModuleAAV4textSSvp"
       },
       {
         "children" : [
@@ -61,7 +62,8 @@
                 }
               ]
             },
-            "swift_name" : "Nested2a"
+            "swift_name" : "Nested2a",
+            "usr" : "s:14SpmSwiftModuleAAV7Nested1V8Nested2aV"
           },
           {
             "children" : [],
@@ -89,7 +91,8 @@
                 }
               ]
             },
-            "swift_name" : "Nested2b"
+            "swift_name" : "Nested2b",
+            "usr" : "s:14SpmSwiftModuleAAV7Nested1V8Nested2bV"
           }
         ],
         "kind" : "source.lang.swift.decl.struct",
@@ -120,7 +123,8 @@
               "en" : "_Nested_ strúctures"
             }
           }
-        }
+        },
+        "usr" : "s:14SpmSwiftModuleAAV7Nested1V"
       },
       {
         "children" : [],
@@ -152,7 +156,8 @@
               "en" : "_Nested_ strúctures"
             }
           }
-        }
+        },
+        "usr" : "s:14SpmSwiftModuleAAV7Nested2V"
       }
     ],
     "documentation" : {
@@ -184,7 +189,8 @@
         }
       ]
     },
-    "swift_name" : "SpmSwiftModule"
+    "swift_name" : "SpmSwiftModule",
+    "usr" : "s:14SpmSwiftModuleAAV"
   },
   {
     "children" : [
@@ -219,7 +225,8 @@
             }
           ]
         },
-        "swift_name" : "first(_:)"
+        "swift_name" : "first(_:)",
+        "usr" : "s:14SpmSwiftModule6AnEnumO5firstyACSicACmF"
       },
       {
         "children" : [],
@@ -252,7 +259,8 @@
             }
           ]
         },
-        "swift_name" : "second"
+        "swift_name" : "second",
+        "usr" : "s:14SpmSwiftModule6AnEnumO6secondyA2CmF"
       },
       {
         "children" : [],
@@ -285,7 +293,8 @@
             }
           ]
         },
-        "swift_name" : "third"
+        "swift_name" : "third",
+        "usr" : "s:14SpmSwiftModule6AnEnumO5thirdyA2CmF"
       },
       {
         "children" : [],
@@ -310,7 +319,8 @@
             }
           ]
         },
-        "swift_name" : "fourth"
+        "swift_name" : "fourth",
+        "usr" : "s:14SpmSwiftModule6AnEnumO6fourthyA2CmF"
       }
     ],
     "documentation" : {
@@ -342,7 +352,8 @@
         }
       ]
     },
-    "swift_name" : "AnEnum"
+    "swift_name" : "AnEnum",
+    "usr" : "s:14SpmSwiftModule6AnEnumO"
   },
   {
     "children" : [],
@@ -413,7 +424,8 @@
         }
       ]
     },
-    "swift_name" : "functionA(arg1:_:arg3:)"
+    "swift_name" : "functionA(arg1:_:arg3:)",
+    "usr" : "s:14SpmSwiftModule9functionA4arg1_4arg3ySi_S2itF"
   },
   {
     "children" : [],
@@ -472,6 +484,7 @@
         }
       ]
     },
-    "swift_name" : "deprecatedFunction(callback:)"
+    "swift_name" : "deprecatedFunction(callback:)",
+    "usr" : "s:14SpmSwiftModule18deprecatedFunction8callbackSSSiSSXE_tF"
   }
 ]

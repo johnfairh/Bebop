@@ -18,7 +18,8 @@
         }
       ]
     },
-    "obj_c_name" : "Foundation"
+    "obj_c_name" : "Foundation",
+    "usr" : "c:"
   },
   {
     "children" : [
@@ -44,7 +45,8 @@
             }
           ]
         },
-        "obj_c_name" : "ivarName"
+        "obj_c_name" : "ivarName",
+        "usr" : "c:objc(cs)IVarTest@ivarName"
       },
       {
         "children" : [],
@@ -95,7 +97,8 @@
             }
           ]
         },
-        "swift_name" : "propertyName"
+        "swift_name" : "propertyName",
+        "usr" : "c:objc(cs)IVarTest(py)propertyName"
       }
     ],
     "kind" : "sourcekitten.source.lang.objc.decl.class",
@@ -131,7 +134,8 @@
         }
       ]
     },
-    "swift_name" : "IVarTest"
+    "swift_name" : "IVarTest",
+    "usr" : "c:objc(cs)IVarTest"
   },
   {
     "children" : [
@@ -181,7 +185,8 @@
             }
           ]
         },
-        "swift_name" : "identifier"
+        "swift_name" : "identifier",
+        "usr" : "c:objc(cs)PropertyKinds(cpy)identifier"
       },
       {
         "children" : [],
@@ -229,7 +234,8 @@
             }
           ]
         },
-        "swift_name" : "uuid"
+        "swift_name" : "uuid",
+        "usr" : "c:objc(cs)PropertyKinds(py)uuid"
       },
       {
         "children" : [],
@@ -272,7 +278,8 @@
             }
           ]
         },
-        "swift_name" : "alloc()"
+        "swift_name" : "alloc()",
+        "usr" : "c:objc(cs)PropertyKinds(cm)alloc"
       },
       {
         "children" : [],
@@ -315,7 +322,8 @@
             }
           ]
         },
-        "swift_name" : "init()"
+        "swift_name" : "init()",
+        "usr" : "c:objc(cs)PropertyKinds(im)init"
       },
       {
         "children" : [],
@@ -366,7 +374,8 @@
             }
           ]
         },
-        "swift_name" : "method()"
+        "swift_name" : "method()",
+        "usr" : "c:objc(cs)PropertyKinds(im)method"
       },
       {
         "children" : [],
@@ -435,7 +444,8 @@
             }
           ]
         },
-        "swift_name" : "doThing(with:named:)"
+        "swift_name" : "doThing(with:named:)",
+        "usr" : "c:objc(cs)PropertyKinds(im)doThingWith:named:"
       },
       {
         "children" : [],
@@ -478,7 +488,8 @@
             }
           ]
         },
-        "swift_name" : "classMethod()"
+        "swift_name" : "classMethod()",
+        "usr" : "c:objc(cs)PropertyKinds(cm)classMethod"
       }
     ],
     "documentation" : {
@@ -522,7 +533,8 @@
         }
       ]
     },
-    "swift_name" : "PropertyKinds"
+    "swift_name" : "PropertyKinds",
+    "usr" : "c:objc(cs)PropertyKinds"
   },
   {
     "children" : [],
@@ -556,7 +568,8 @@
           "en" : "C-only?"
         }
       }
-    }
+    },
+    "usr" : "c:@fred"
   },
   {
     "children" : [],
@@ -606,7 +619,8 @@
           "en" : "C-only?"
         }
       }
-    }
+    },
+    "usr" : "c:@F@global_func"
   },
   {
     "children" : [
@@ -656,7 +670,8 @@
             }
           ]
         },
-        "swift_name" : "field"
+        "swift_name" : "field",
+        "usr" : "c:@S@AStruct@FI@field"
       }
     ],
     "documentation" : {
@@ -707,7 +722,8 @@
           "en" : "C-only?"
         }
       }
-    }
+    },
+    "usr" : "c:@S@AStruct"
   },
   {
     "children" : [],
@@ -746,7 +762,8 @@
           "en" : "C-only?"
         }
       }
-    }
+    },
+    "usr" : "c:Header.h@T@AEnum"
   },
   {
     "children" : [
@@ -793,7 +810,8 @@
             }
           ]
         },
-        "swift_name" : "a"
+        "swift_name" : "a",
+        "usr" : "c:@E@AEnum@a"
       },
       {
         "children" : [],
@@ -838,7 +856,8 @@
             }
           ]
         },
-        "swift_name" : "b"
+        "swift_name" : "b",
+        "usr" : "c:@E@AEnum@b"
       }
     ],
     "documentation" : {
@@ -889,7 +908,8 @@
           "en" : "C-only?"
         }
       }
-    }
+    },
+    "usr" : "c:@E@AEnum"
   },
   {
     "children" : [
@@ -915,7 +935,8 @@
             }
           ]
         },
-        "obj_c_name" : "x"
+        "obj_c_name" : "x",
+        "usr" : "c:@E@ASimpleEnum@x"
       },
       {
         "children" : [],
@@ -939,7 +960,8 @@
             }
           ]
         },
-        "obj_c_name" : "y"
+        "obj_c_name" : "y",
+        "usr" : "c:@E@ASimpleEnum@y"
       }
     ],
     "kind" : "sourcekitten.source.lang.objc.decl.enum",
@@ -982,7 +1004,8 @@
           "en" : "C-only?"
         }
       }
-    }
+    },
+    "usr" : "c:@E@ASimpleEnum"
   },
   {
     "children" : [],
@@ -1034,7 +1057,8 @@
           "en" : "C-only?"
         }
       }
-    }
+    },
+    "usr" : "c:Header.h@T@Fred"
   },
   {
     "children" : [
@@ -1079,7 +1103,8 @@
             }
           ]
         },
-        "swift_name" : "categoryMethod()"
+        "swift_name" : "categoryMethod()",
+        "usr" : "c:objc(cs)IVarTest(im)categoryMethod"
       }
     ],
     "documentation" : {
@@ -1117,7 +1142,8 @@
           "en" : "C-only?"
         }
       }
-    }
+    },
+    "usr" : "c:objc(cy)IVarTest@ACategory"
   },
   {
     "children" : [
@@ -1162,7 +1188,8 @@
             }
           ]
         },
-        "swift_name" : "protocolMethod()"
+        "swift_name" : "protocolMethod()",
+        "usr" : "c:objc(pl)SomeProtocol(im)protocolMethod"
       }
     ],
     "documentation" : {
@@ -1213,7 +1240,8 @@
           "en" : "C-only?"
         }
       }
-    }
+    },
+    "usr" : "c:objc(pl)SomeProtocol"
   },
   {
     "children" : [
@@ -1284,7 +1312,8 @@
             }
           ]
         },
-        "swift_name" : "pop(with:secondValue:)"
+        "swift_name" : "pop(with:secondValue:)",
+        "usr" : "c:objc(cs)Stack(im)popWith:secondValue:"
       }
     ],
     "documentation" : {
@@ -1335,6 +1364,7 @@
           "en" : "C-only?"
         }
       }
-    }
+    },
+    "usr" : "c:objc(cs)Stack"
   }
 ]

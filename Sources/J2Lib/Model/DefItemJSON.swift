@@ -14,6 +14,7 @@ extension DefItem {
     private enum CodingKeys: CodingKey {
         case location
         case kind
+        case usr
         case swiftName
         case objCName
         case swiftDeclaration
@@ -29,6 +30,7 @@ extension DefItem {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(location, forKey: .location)
         try container.encode(defKind.key, forKey: .kind)
+        try container.encode(usr, forKey: .usr)
         try container.encodeIfPresent(swiftName, forKey: .swiftName)
         try container.encodeIfPresent(objCName, forKey: .objCName)
         try container.encodeIfPresent(swiftDeclaration, forKey: .swiftDeclaration)

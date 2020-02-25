@@ -255,7 +255,7 @@ public final class DefKind {
 
     private static let allObjCKinds: [DefKind] = [
         // Objective-C
-        DefKind(o: .unexposedDecl,  "Unexposed"),
+        DefKind(o: .unexposedDecl,  "Unexposed",                                    dash: "Type"),
         DefKind(o: .category,       "Category",         s: .extension,              dash: "Extension", dp: "@interface", meta: .extension),
         DefKind(o: .class,          "Class",            s: .class,                                     dp: "@interface", meta: .type),
         DefKind(o: .constant,       "Constant",         s: .varGlobal,                                                   meta: .variable),

@@ -128,7 +128,7 @@ public struct ObjCDeclaration: Encodable {
 }
 
 /// Where a definition was written
-public struct DefLocation: Encodable {
+public struct DefLocation: Encodable, CustomStringConvertible {
     /// Name of the module the definition belongs to.  If the definition is an extension of
     /// a type from a different module then this is the extension's module not the type's.
     public let moduleName: String
@@ -140,4 +140,11 @@ public struct DefLocation: Encodable {
     public let firstLine: Int?
     /// Last line in the file of the definition.  Can be same as `firstLine`.
     public let lastLine: Int?
+
+    public var description: String {
+        let file = filePathname ?? "(??)"
+        let from = firstLine ?? 0
+        let to = lastLine ?? 0
+        return "[\(moduleName):\(passIndex) \(file) ll\(from)-\(to)]"
+    }
 }
