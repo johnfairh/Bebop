@@ -27,15 +27,19 @@ public struct Merge: Configurable {
     public func merge(gathered: [GatherModulePass]) throws -> [DefItem] {
         gathered.map { pass in
             pass.files.map { fileDef -> [DefItem] in
-                let filePathName = fileDef.0
+                let filePathname = fileDef.0
                 let rootDef = fileDef.1
                 guard rootDef.sourceKittenDict["key.diagnostic_stage"] != nil else {
-                    logWarning(.localized(.wrnMergeMissingRoot, filePathName, pass.passIndex))
+                    logWarning(.localized(.wrnMergeMissingRoot, filePathname, pass.passIndex))
                     return []
                 }
+                let baseLocation = DefLocation(moduleName: pass.moduleName,
+                                               passIndex: pass.passIndex,
+                                               filePathname: filePathname,
+                                               firstLine: nil,
+                                               lastLine: nil)
 
-                return rootDef.children.asDefItems(moduleName: pass.moduleName,
-                                                   passIndex: pass.passIndex,
+                return rootDef.children.asDefItems(location: baseLocation,
                                                    uniquer: uniquer)
             }.flatMap { $0 }
         }.flatMap { $0 }
@@ -43,7 +47,7 @@ public struct Merge: Configurable {
 }
 
 extension Array where Element == GatherDef {
-    public func asDefItems(moduleName: String, passIndex: Int, uniquer: StringUniquer) -> [DefItem] {
+    public func asDefItems(location: DefLocation, uniquer: StringUniquer) -> [DefItem] {
         var currentTopic: Topic? = nil
         return flatMap { def -> [DefItem] in
             // Spot topic marks and pull them out for subsequent items
@@ -53,15 +57,13 @@ extension Array where Element == GatherDef {
             }
             // Spot enum case wrappers and yield the element[s] within
             if let kind = def.kind, kind.isSwiftEnumCase {
-                let items = def.children.asDefItems(moduleName: moduleName,
-                                                    passIndex: passIndex,
+                let items = def.children.asDefItems(location: location,
                                                     uniquer: uniquer)
                 items.forEach { $0.topic = currentTopic }
                 return items
             }
             // Finally create 0/1 items.
-            guard let item = DefItem(moduleName: moduleName,
-                                     passIndex: passIndex,
+            guard let item = DefItem(location: location,
                                      gatherDef: def,
                                      uniquer: uniquer) else {
                 return []

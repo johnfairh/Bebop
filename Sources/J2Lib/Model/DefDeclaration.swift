@@ -126,3 +126,18 @@ public struct ObjCDeclaration: Encodable {
         self.namePieces = namePieces
     }
 }
+
+/// Where a definition was written
+public struct DefLocation: Encodable {
+    /// Name of the module the definition belongs to.  If the definition is an extension of
+    /// a type from a different module then this is the extension's module not the type's.
+    public let moduleName: String
+    /// Gather pass through the module
+    public let passIndex: Int
+    /// Full pathname of the definition's source file.  Nil only after some kind of binary gather.
+    public let filePathname: String?
+    /// First line in the file.  Nil if we don't know it.  Line numbers start at 1.
+    public let firstLine: Int?
+    /// Last line in the file of the definition.  Can be same as `firstLine`.
+    public let lastLine: Int?
+}

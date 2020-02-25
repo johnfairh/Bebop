@@ -12,8 +12,7 @@ import Foundation
 
 extension DefItem {
     private enum CodingKeys: CodingKey {
-        case moduleName
-        case passIndex
+        case location
         case kind
         case swiftName
         case objCName
@@ -28,8 +27,7 @@ extension DefItem {
         try super.encode(to: encoder)
         
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(moduleName, forKey: .moduleName)
-        try container.encode(passIndex, forKey: .passIndex)
+        try container.encode(location, forKey: .location)
         try container.encode(defKind.key, forKey: .kind)
         try container.encodeIfPresent(swiftName, forKey: .swiftName)
         try container.encodeIfPresent(objCName, forKey: .objCName)

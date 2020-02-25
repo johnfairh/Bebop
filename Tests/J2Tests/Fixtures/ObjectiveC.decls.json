@@ -2,7 +2,13 @@
   {
     "children" : [],
     "kind" : "sourcekitten.source.lang.objc.module.import",
-    "module_name" : "Module",
+    "location" : {
+      "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
+      "first_line" : 1,
+      "last_line" : 1,
+      "module_name" : "Module",
+      "pass_index" : 0
+    },
     "name" : "Foundation",
     "obj_c_declaration" : {
       "declaration" : "@import Foundation",
@@ -12,15 +18,20 @@
         }
       ]
     },
-    "obj_c_name" : "Foundation",
-    "pass_index" : 0
+    "obj_c_name" : "Foundation"
   },
   {
     "children" : [
       {
         "children" : [],
         "kind" : "sourcekitten.source.lang.objc.decl.ivar",
-        "module_name" : "Module",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
+          "first_line" : 4,
+          "last_line" : 4,
+          "module_name" : "Module",
+          "pass_index" : 0
+        },
         "name" : "ivarName",
         "obj_c_declaration" : {
           "declaration" : "NSString *ivarName",
@@ -33,8 +44,7 @@
             }
           ]
         },
-        "obj_c_name" : "ivarName",
-        "pass_index" : 0
+        "obj_c_name" : "ivarName"
       },
       {
         "children" : [],
@@ -47,7 +57,13 @@
           "parameters" : []
         },
         "kind" : "sourcekitten.source.lang.objc.decl.property",
-        "module_name" : "Module",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
+          "first_line" : 8,
+          "last_line" : 8,
+          "module_name" : "Module",
+          "pass_index" : 0
+        },
         "name" : "propertyName",
         "obj_c_declaration" : {
           "declaration" : "@property (strong) NSString *propertyName",
@@ -64,7 +80,6 @@
           ]
         },
         "obj_c_name" : "propertyName",
-        "pass_index" : 0,
         "swift_declaration" : {
           "availability" : [],
           "declaration" : "var propertyName: String! { get set }",
@@ -84,7 +99,13 @@
       }
     ],
     "kind" : "sourcekitten.source.lang.objc.decl.class",
-    "module_name" : "Module",
+    "location" : {
+      "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
+      "first_line" : 3,
+      "last_line" : 10,
+      "module_name" : "Module",
+      "pass_index" : 0
+    },
     "name" : "IVarTest",
     "obj_c_declaration" : {
       "declaration" : "@interface IVarTest: NSObject",
@@ -98,7 +119,6 @@
       ]
     },
     "obj_c_name" : "IVarTest",
-    "pass_index" : 0,
     "swift_declaration" : {
       "availability" : [],
       "declaration" : "class IVarTest : NSObject",
@@ -126,7 +146,13 @@
           "parameters" : []
         },
         "kind" : "sourcekitten.source.lang.objc.decl.property",
-        "module_name" : "Module",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
+          "first_line" : 16,
+          "last_line" : 16,
+          "module_name" : "Module",
+          "pass_index" : 0
+        },
         "name" : "identifier",
         "obj_c_declaration" : {
           "declaration" : "@property (copy, nonatomic, class) NSUUID *identifier",
@@ -140,7 +166,6 @@
           ]
         },
         "obj_c_name" : "identifier",
-        "pass_index" : 0,
         "swift_declaration" : {
           "availability" : [],
           "declaration" : "class var identifier: UUID! { get set }",
@@ -169,7 +194,13 @@
           "parameters" : []
         },
         "kind" : "sourcekitten.source.lang.objc.decl.property",
-        "module_name" : "Module",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
+          "first_line" : 19,
+          "last_line" : 19,
+          "module_name" : "Module",
+          "pass_index" : 0
+        },
         "name" : "uuid",
         "obj_c_declaration" : {
           "declaration" : "@property (copy, nonatomic, nullable) NSUUID *uuid",
@@ -183,7 +214,6 @@
           ]
         },
         "obj_c_name" : "uuid",
-        "pass_index" : 0,
         "swift_declaration" : {
           "availability" : [],
           "declaration" : "var uuid: UUID? { get set }",
@@ -204,7 +234,13 @@
       {
         "children" : [],
         "kind" : "sourcekitten.source.lang.objc.decl.method.class",
-        "module_name" : "Module",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
+          "first_line" : 21,
+          "last_line" : 21,
+          "module_name" : "Module",
+          "pass_index" : 0
+        },
         "name" : "+alloc",
         "obj_c_declaration" : {
           "declaration" : "+ (instancetype) alloc",
@@ -221,7 +257,6 @@
           ]
         },
         "obj_c_name" : "+alloc",
-        "pass_index" : 0,
         "swift_declaration" : {
           "availability" : [],
           "declaration" : "class func alloc() -> Self!",
@@ -242,7 +277,13 @@
       {
         "children" : [],
         "kind" : "sourcekitten.source.lang.objc.decl.method.instance",
-        "module_name" : "Module",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
+          "first_line" : 22,
+          "last_line" : 22,
+          "module_name" : "Module",
+          "pass_index" : 0
+        },
         "name" : "-init",
         "obj_c_declaration" : {
           "declaration" : "- (id)init __deprecated",
@@ -262,7 +303,6 @@
           ]
         },
         "obj_c_name" : "-init",
-        "pass_index" : 0,
         "swift_declaration" : {
           "availability" : [],
           "declaration" : "init!()",
@@ -288,7 +328,13 @@
           "parameters" : []
         },
         "kind" : "sourcekitten.source.lang.objc.decl.method.instance",
-        "module_name" : "Module",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
+          "first_line" : 25,
+          "last_line" : 25,
+          "module_name" : "Module",
+          "pass_index" : 0
+        },
         "name" : "-method",
         "obj_c_declaration" : {
           "declaration" : "- (void)method",
@@ -305,7 +351,6 @@
           ]
         },
         "obj_c_name" : "-method",
-        "pass_index" : 0,
         "swift_declaration" : {
           "availability" : [],
           "declaration" : "func method()",
@@ -334,7 +379,13 @@
           "parameters" : []
         },
         "kind" : "sourcekitten.source.lang.objc.decl.method.instance",
-        "module_name" : "Module",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
+          "first_line" : 28,
+          "last_line" : 28,
+          "module_name" : "Module",
+          "pass_index" : 0
+        },
         "name" : "-doThingWith:named:",
         "obj_c_declaration" : {
           "declaration" : "- (int)doThingWith:(int)first named:(NSString *)name",
@@ -357,7 +408,6 @@
           ]
         },
         "obj_c_name" : "-doThingWith:named:",
-        "pass_index" : 0,
         "swift_declaration" : {
           "availability" : [],
           "declaration" : "func doThing(with first: Int32, named name: String!) -> Int32",
@@ -390,7 +440,13 @@
       {
         "children" : [],
         "kind" : "sourcekitten.source.lang.objc.decl.method.class",
-        "module_name" : "Module",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
+          "first_line" : 30,
+          "last_line" : 30,
+          "module_name" : "Module",
+          "pass_index" : 0
+        },
         "name" : "+classMethod",
         "obj_c_declaration" : {
           "declaration" : "+ (void)classMethod",
@@ -407,7 +463,6 @@
           ]
         },
         "obj_c_name" : "+classMethod",
-        "pass_index" : 0,
         "swift_declaration" : {
           "availability" : [],
           "declaration" : "class func classMethod()",
@@ -435,7 +490,13 @@
       "parameters" : []
     },
     "kind" : "sourcekitten.source.lang.objc.decl.class",
-    "module_name" : "Module",
+    "location" : {
+      "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
+      "first_line" : 13,
+      "last_line" : 32,
+      "module_name" : "Module",
+      "pass_index" : 0
+    },
     "name" : "PropertyKinds",
     "obj_c_declaration" : {
       "declaration" : "@interface PropertyKinds : NSObject",
@@ -449,7 +510,6 @@
       ]
     },
     "obj_c_name" : "PropertyKinds",
-    "pass_index" : 0,
     "swift_declaration" : {
       "availability" : [],
       "declaration" : "class PropertyKinds : NSObject",
@@ -467,7 +527,13 @@
   {
     "children" : [],
     "kind" : "sourcekitten.source.lang.objc.decl.constant",
-    "module_name" : "Module",
+    "location" : {
+      "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
+      "first_line" : 38,
+      "last_line" : 38,
+      "module_name" : "Module",
+      "pass_index" : 0
+    },
     "name" : "fred",
     "obj_c_declaration" : {
       "declaration" : "extern int fred",
@@ -484,7 +550,6 @@
       }
     },
     "obj_c_name" : "fred",
-    "pass_index" : 0,
     "topic" : {
       "title" : {
         "markdown" : {
@@ -496,7 +561,13 @@
   {
     "children" : [],
     "kind" : "sourcekitten.source.lang.objc.decl.function",
-    "module_name" : "Module",
+    "location" : {
+      "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
+      "first_line" : 40,
+      "last_line" : 40,
+      "module_name" : "Module",
+      "pass_index" : 0
+    },
     "name" : "global_func",
     "obj_c_declaration" : {
       "declaration" : "void global_func(void)",
@@ -513,7 +584,6 @@
       ]
     },
     "obj_c_name" : "global_func",
-    "pass_index" : 0,
     "swift_declaration" : {
       "availability" : [],
       "declaration" : "func global_func()",
@@ -551,7 +621,13 @@
           "parameters" : []
         },
         "kind" : "sourcekitten.source.lang.objc.decl.field",
-        "module_name" : "Module",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
+          "first_line" : 45,
+          "last_line" : 45,
+          "module_name" : "Module",
+          "pass_index" : 0
+        },
         "name" : "field",
         "obj_c_declaration" : {
           "declaration" : "int field",
@@ -565,7 +641,6 @@
           ]
         },
         "obj_c_name" : "field",
-        "pass_index" : 0,
         "swift_declaration" : {
           "availability" : [],
           "declaration" : "var field: Int32",
@@ -593,7 +668,13 @@
       "parameters" : []
     },
     "kind" : "sourcekitten.source.lang.objc.decl.struct",
-    "module_name" : "Module",
+    "location" : {
+      "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
+      "first_line" : 43,
+      "last_line" : 46,
+      "module_name" : "Module",
+      "pass_index" : 0
+    },
     "name" : "AStruct",
     "obj_c_declaration" : {
       "declaration" : "struct AStruct",
@@ -607,7 +688,6 @@
       ]
     },
     "obj_c_name" : "AStruct",
-    "pass_index" : 0,
     "swift_declaration" : {
       "availability" : [],
       "declaration" : "struct AStruct",
@@ -640,7 +720,13 @@
       "parameters" : []
     },
     "kind" : "sourcekitten.source.lang.objc.decl.typedef",
-    "module_name" : "Module",
+    "location" : {
+      "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
+      "first_line" : 49,
+      "last_line" : 49,
+      "module_name" : "Module",
+      "pass_index" : 0
+    },
     "name" : "AEnum",
     "obj_c_declaration" : {
       "declaration" : "typedef enum AEnum AEnum",
@@ -654,7 +740,6 @@
       ]
     },
     "obj_c_name" : "AEnum",
-    "pass_index" : 0,
     "topic" : {
       "title" : {
         "markdown" : {
@@ -676,7 +761,13 @@
           "parameters" : []
         },
         "kind" : "sourcekitten.source.lang.objc.decl.enumcase",
-        "module_name" : "Module",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
+          "first_line" : 51,
+          "last_line" : 51,
+          "module_name" : "Module",
+          "pass_index" : 0
+        },
         "name" : "a",
         "obj_c_declaration" : {
           "declaration" : "a = 3",
@@ -690,7 +781,6 @@
           ]
         },
         "obj_c_name" : "a",
-        "pass_index" : 0,
         "swift_declaration" : {
           "availability" : [],
           "declaration" : "case a = 3",
@@ -716,7 +806,13 @@
           "parameters" : []
         },
         "kind" : "sourcekitten.source.lang.objc.decl.enumcase",
-        "module_name" : "Module",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
+          "first_line" : 53,
+          "last_line" : 53,
+          "module_name" : "Module",
+          "pass_index" : 0
+        },
         "name" : "b",
         "obj_c_declaration" : {
           "declaration" : "b = 4",
@@ -730,7 +826,6 @@
           ]
         },
         "obj_c_name" : "b",
-        "pass_index" : 0,
         "swift_declaration" : {
           "availability" : [],
           "declaration" : "case b = 4",
@@ -755,7 +850,13 @@
       "parameters" : []
     },
     "kind" : "sourcekitten.source.lang.objc.decl.enum",
-    "module_name" : "Module",
+    "location" : {
+      "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
+      "first_line" : 49,
+      "last_line" : 54,
+      "module_name" : "Module",
+      "pass_index" : 0
+    },
     "name" : "AEnum",
     "obj_c_declaration" : {
       "declaration" : "enum AEnum",
@@ -769,7 +870,6 @@
       ]
     },
     "obj_c_name" : "AEnum",
-    "pass_index" : 0,
     "swift_declaration" : {
       "availability" : [],
       "declaration" : "enum AEnum : Int",
@@ -796,7 +896,13 @@
       {
         "children" : [],
         "kind" : "sourcekitten.source.lang.objc.decl.enumcase",
-        "module_name" : "Module",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
+          "first_line" : 57,
+          "last_line" : 57,
+          "module_name" : "Module",
+          "pass_index" : 0
+        },
         "name" : "x",
         "obj_c_declaration" : {
           "declaration" : "x",
@@ -809,13 +915,18 @@
             }
           ]
         },
-        "obj_c_name" : "x",
-        "pass_index" : 0
+        "obj_c_name" : "x"
       },
       {
         "children" : [],
         "kind" : "sourcekitten.source.lang.objc.decl.enumcase",
-        "module_name" : "Module",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
+          "first_line" : 58,
+          "last_line" : 58,
+          "module_name" : "Module",
+          "pass_index" : 0
+        },
         "name" : "y",
         "obj_c_declaration" : {
           "declaration" : "y",
@@ -828,12 +939,17 @@
             }
           ]
         },
-        "obj_c_name" : "y",
-        "pass_index" : 0
+        "obj_c_name" : "y"
       }
     ],
     "kind" : "sourcekitten.source.lang.objc.decl.enum",
-    "module_name" : "Module",
+    "location" : {
+      "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
+      "first_line" : 56,
+      "last_line" : 59,
+      "module_name" : "Module",
+      "pass_index" : 0
+    },
     "name" : "ASimpleEnum",
     "obj_c_declaration" : {
       "declaration" : "enum ASimpleEnum",
@@ -847,7 +963,6 @@
       ]
     },
     "obj_c_name" : "ASimpleEnum",
-    "pass_index" : 0,
     "swift_declaration" : {
       "availability" : [],
       "declaration" : "struct ASimpleEnum : Equatable, RawRepresentable",
@@ -880,7 +995,13 @@
       "parameters" : []
     },
     "kind" : "sourcekitten.source.lang.objc.decl.typedef",
-    "module_name" : "Module",
+    "location" : {
+      "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
+      "first_line" : 62,
+      "last_line" : 62,
+      "module_name" : "Module",
+      "pass_index" : 0
+    },
     "name" : "Fred",
     "obj_c_declaration" : {
       "declaration" : "typedef int Fred",
@@ -894,7 +1015,6 @@
       ]
     },
     "obj_c_name" : "Fred",
-    "pass_index" : 0,
     "swift_declaration" : {
       "availability" : [],
       "declaration" : "typealias Fred = Int32",
@@ -921,7 +1041,13 @@
       {
         "children" : [],
         "kind" : "sourcekitten.source.lang.objc.decl.method.instance",
-        "module_name" : "Module",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
+          "first_line" : 67,
+          "last_line" : 67,
+          "module_name" : "Module",
+          "pass_index" : 0
+        },
         "name" : "-categoryMethod",
         "obj_c_declaration" : {
           "declaration" : "- (void)categoryMethod",
@@ -938,7 +1064,6 @@
           ]
         },
         "obj_c_name" : "-categoryMethod",
-        "pass_index" : 0,
         "swift_declaration" : {
           "availability" : [],
           "declaration" : "func categoryMethod()",
@@ -966,7 +1091,13 @@
       "parameters" : []
     },
     "kind" : "sourcekitten.source.lang.objc.decl.category",
-    "module_name" : "Module",
+    "location" : {
+      "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
+      "first_line" : 65,
+      "last_line" : 69,
+      "module_name" : "Module",
+      "pass_index" : 0
+    },
     "name" : "IVarTest(ACategory)",
     "obj_c_declaration" : {
       "declaration" : "@interface IVarTest (ACategory)",
@@ -980,7 +1111,6 @@
       ]
     },
     "obj_c_name" : "IVarTest(ACategory)",
-    "pass_index" : 0,
     "topic" : {
       "title" : {
         "markdown" : {
@@ -994,7 +1124,13 @@
       {
         "children" : [],
         "kind" : "sourcekitten.source.lang.objc.decl.method.instance",
-        "module_name" : "Module",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
+          "first_line" : 74,
+          "last_line" : 74,
+          "module_name" : "Module",
+          "pass_index" : 0
+        },
         "name" : "-protocolMethod",
         "obj_c_declaration" : {
           "declaration" : "-(void)protocolMethod",
@@ -1011,7 +1147,6 @@
           ]
         },
         "obj_c_name" : "-protocolMethod",
-        "pass_index" : 0,
         "swift_declaration" : {
           "availability" : [],
           "declaration" : "func protocolMethod()",
@@ -1039,7 +1174,13 @@
       "parameters" : []
     },
     "kind" : "sourcekitten.source.lang.objc.decl.protocol",
-    "module_name" : "Module",
+    "location" : {
+      "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
+      "first_line" : 72,
+      "last_line" : 76,
+      "module_name" : "Module",
+      "pass_index" : 0
+    },
     "name" : "SomeProtocol",
     "obj_c_declaration" : {
       "declaration" : "@protocol SomeProtocol",
@@ -1053,7 +1194,6 @@
       ]
     },
     "obj_c_name" : "SomeProtocol",
-    "pass_index" : 0,
     "swift_declaration" : {
       "availability" : [],
       "declaration" : "protocol SomeProtocol",
@@ -1088,7 +1228,13 @@
           "parameters" : []
         },
         "kind" : "sourcekitten.source.lang.objc.decl.method.instance",
-        "module_name" : "Module",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
+          "first_line" : 82,
+          "last_line" : 82,
+          "module_name" : "Module",
+          "pass_index" : 0
+        },
         "name" : "-popWith:secondValue:",
         "obj_c_declaration" : {
           "declaration" : "- (ElementType *)popWith:(NSString *)weight secondValue:(NSInteger)density",
@@ -1111,7 +1257,6 @@
           ]
         },
         "obj_c_name" : "-popWith:secondValue:",
-        "pass_index" : 0,
         "swift_declaration" : {
           "availability" : [],
           "declaration" : "func pop(with weight: String!, secondValue density: Int) -> AutoreleasingUnsafeMutablePointer",
@@ -1151,7 +1296,13 @@
       "parameters" : []
     },
     "kind" : "sourcekitten.source.lang.objc.decl.class",
-    "module_name" : "Module",
+    "location" : {
+      "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
+      "first_line" : 79,
+      "last_line" : 84,
+      "module_name" : "Module",
+      "pass_index" : 0
+    },
     "name" : "Stack",
     "obj_c_declaration" : {
       "declaration" : "@interface Stack<ElementType> : NSObject",
@@ -1165,7 +1316,6 @@
       ]
     },
     "obj_c_name" : "Stack",
-    "pass_index" : 0,
     "swift_declaration" : {
       "availability" : [],
       "declaration" : "class Stack : NSObject where ElementType : AnyObject",

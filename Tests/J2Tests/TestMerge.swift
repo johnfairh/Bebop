@@ -33,7 +33,7 @@ class TestMerge: XCTestCase {
         let defItems = try system.merge.merge(gathered: goodFile.asGatherPasses)
         XCTAssertEqual(1, defItems.count)
         XCTAssertEqual("Good", defItems[0].name)
-        XCTAssertEqual("module", defItems[0].moduleName)
+        XCTAssertEqual("module", defItems[0].location.moduleName)
     }
 
     /// Bad file

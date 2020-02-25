@@ -12,10 +12,8 @@ import SourceKittenFramework
 /// Base class of definition items -- those that correspond to a definition in
 /// some source code.
 public class DefItem: Item {
-    /// Module in which this definition is written
-    public let moduleName: String
-    /// For debug?  Which gather pass of the module this is from
-    public let passIndex: Int
+    /// Location of the definition
+    public let location: DefLocation
     /// Kind of the definition
     public let defKind: DefKind
     /// Declarations
@@ -31,18 +29,22 @@ public class DefItem: Item {
     public let otherLanguageName: String?
 
     /// Create from a gathered definition
-    public init?(moduleName: String, passIndex: Int, gatherDef: GatherDef, uniquer: StringUniquer) {
+    public init?(location: DefLocation, gatherDef: GatherDef, uniquer: StringUniquer) {
         guard let name = gatherDef.sourceKittenDict[SwiftDocKey.name.rawValue] as? String,
             let kind = gatherDef.kind else {
             // XXX wrn - lots to add here tho, leave for now
             logWarning("Incomplete def, ignoring -- missing name")
             return nil
         }
-        let children = gatherDef.children.asDefItems(moduleName: moduleName,
-                                                     passIndex: passIndex,
-                                                     uniquer: uniquer)
-        self.moduleName = moduleName
-        self.passIndex = passIndex
+        let children = gatherDef.children.asDefItems(location: location, uniquer: uniquer)
+        let line = (gatherDef.sourceKittenDict[SwiftDocKey.docLine.rawValue] as? Int64).flatMap(Int.init)
+        let startLine = (gatherDef.sourceKittenDict[SwiftDocKey.parsedScopeStart.rawValue] as? Int64).flatMap(Int.init)
+        let endLine = (gatherDef.sourceKittenDict[SwiftDocKey.parsedScopeEnd.rawValue] as? Int64).flatMap(Int.init)
+        self.location = DefLocation(moduleName: location.moduleName,
+                                    passIndex: location.passIndex,
+                                    filePathname: location.filePathname,
+                                    firstLine: startLine ?? line,
+                                    lastLine: endLine ?? line)
         self.defKind = kind
         self.documentation = RichDefDocs(gatherDef.translatedDocs)
 
@@ -58,7 +60,6 @@ public class DefItem: Item {
         self.objCDeclaration = gatherDef.objCDeclaration
 
         // usr
-        // file
         // type module name
         // start_line / end_line (vs line???)
         // gen_req
