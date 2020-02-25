@@ -59,10 +59,44 @@ class TestGatherObjC: XCTestCase {
         checkNotImplemented(["--objc-header=/foo.h", "--build-tool=spm"])
     }
 
-    private func checkJob(_ cliOpts: [String], _ expectedJob: GatherJob, line: UInt = #line) throws {
+    private func makeJob(_ cliOpts: [String]) throws -> GatherJob {
         let system = System()
-        let job = try system.configure(cliOpts)
+        return try system.configure(cliOpts)
+    }
+
+    private func checkJob(_ cliOpts: [String], _ expectedJob: GatherJob, line: UInt = #line) throws {
+        let job = try makeJob(cliOpts)
         XCTAssertEqual(expectedJob, job, line: line)
+    }
+
+    func testBuildOptions() throws {
+        let tmpDir = try TemporaryDirectory()
+        let hFile = try tmpDir.createFile(name: "test.h")
+        try "extern int fred;".write(to: hFile)
+        let subTmpDir = try tmpDir.createDirectory()
+        let hFile2 = try subTmpDir.createFile(name: "test2.hpp")
+        try "extern int barney;".write(to: hFile2)
+        let subTmpDir2 = try tmpDir.createDirectory()
+        let fakeFile = try subTmpDir2.createFile(name: "not_header")
+        try "not_header".write(to: fakeFile)
+
+        let job = try makeJob(["--objc-header-file=\(hFile.path)",
+                               "--objc-include-paths=\(tmpDir.directoryURL.path)"])
+        guard case let .objcDirect(_, _, includeURLs, _, _, _) = job else {
+            XCTFail("not objc job")
+            return
+        }
+        let includeOpts = try job.buildIncludeArgs(includePaths: includeURLs)
+        XCTAssertEqual(4, includeOpts.count)
+        let expectIncludeOpts = ["-I", tmpDir.directoryURL.path, "-I", subTmpDir.directoryURL.path]
+        XCTAssertEqual(expectIncludeOpts, includeOpts)
+
+        let baseBadFlags = ["-x", "objective-c", "stop"]
+        let badClangFlags = try job.buildClangArgs(includePaths: [], sdk: .macosx, buildToolArgs: baseBadFlags)
+        XCTAssertEqual(baseBadFlags, badClangFlags)
+
+        let badClangFlags2 = try job.buildClangArgs(includePaths: includeURLs, sdk: .macosx, buildToolArgs: baseBadFlags)
+        XCTAssertEqual(baseBadFlags + expectIncludeOpts, badClangFlags2)
     }
 
     func testJobOptions() throws {

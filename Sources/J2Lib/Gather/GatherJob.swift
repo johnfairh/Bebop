@@ -71,13 +71,10 @@ enum GatherJob: Equatable {
             }
 
             return [GatherModulePass(moduleName: module!.name, passIndex: 0, files: filesInfo)]
+
         #if os(macOS)
         case let .objcDirect(moduleName, headerFile, includePaths, sdk, buildToolArgs, availabilityRules):
-            let sdkPathResults = Exec.run("/usr/bin/env", "xcrun", "--show-sdk-path", "--sdk", sdk.rawValue, stderr: .merge)
-            guard let sdkPath = sdkPathResults.successString else {
-                throw GatherError("Couldn't find SDK path.\n\(sdkPathResults.failureReport)")
-            }
-            let clangArgs = ["-x", "objective-c", "-isysroot", sdkPath, "-fmodules"]
+            let clangArgs = try buildClangArgs(includePaths: includePaths, sdk: sdk, buildToolArgs: buildToolArgs)
             logDebug(" Calling sourcekitten clang mode, args:")
             clangArgs.forEach { logDebug("  \($0)") }
             let translationUnit = ClangTranslationUnit(headerFiles: [headerFile.path], compilerArguments: clangArgs)
@@ -97,6 +94,55 @@ enum GatherJob: Equatable {
             return [GatherModulePass(moduleName: moduleName, passIndex: 0, files: filesInfo)]
         #endif
         }
+    }
+
+    /// Figure out the actual args to pass to clang given some options.  Visibility for testing.
+    func buildClangArgs(includePaths: [URL], sdk: GatherOpts.Sdk, buildToolArgs: [String]) throws -> [String] {
+        let includePathArgs = try buildIncludeArgs(includePaths: includePaths)
+        if buildToolArgs.count >= 2 &&
+            buildToolArgs[0] == "-x" &&
+            buildToolArgs[1] == "objective-c" {
+            logDebug( "BuildToolArgs starts '-x objective-c', passing unchanged to clang")
+            return buildToolArgs + includePathArgs
+        }
+
+        let sdkPathResults = Exec.run("/usr/bin/env", "xcrun", "--show-sdk-path", "--sdk", sdk.rawValue, stderr: .merge)
+        guard let sdkPath = sdkPathResults.successString else {
+            throw GatherError("Couldn't find SDK path.\n\(sdkPathResults.failureReport)")
+        }
+        return ["-x", "objective-c", "-isysroot", sdkPath, "-fmodules"] + includePathArgs + buildToolArgs
+    }
+
+    /// Given a list of places where header files might be, churn out a list of include options that should
+    /// cover attempts to use them.  Inherited from jazzy and stripped of the worst behaviours that cause
+    /// clang to barf but I still don't love it.
+    func buildIncludeArgs(includePaths: [URL]) throws -> [String] {
+        let allDirURLs = try includePaths.map { baseURL -> Set<URL> in
+            var dirPaths = Set([baseURL])
+            guard let enumerator = FileManager.default.enumerator(atPath: baseURL.path) else {
+                throw GatherError("Couldn't create enumerator for path '\(baseURL.path)'.")
+            }
+            while let pathname = enumerator.nextObject() as? String {
+                if pathname.re_isMatch(#"\.h(h|pp)?$"#) {
+                    // Found a header file?  Add all directories from its directory up to
+                    // the base - can't tell if "#import "a/b.h" etc.
+                    var directoryURL = baseURL.appendingPathComponent(pathname).deletingLastPathComponent().standardized
+                    while !dirPaths.contains(directoryURL) {
+                        dirPaths.insert(directoryURL)
+                        directoryURL.deleteLastPathComponent()
+                        directoryURL.standardize()
+                    }
+                }
+            }
+            logDebug(" Expanded include path '\(baseURL.path)' to:")
+            dirPaths.forEach { logDebug("  \($0.path)")}
+            return dirPaths
+        }
+
+        return Array(allDirURLs.reduce(Set<URL>()) { $0.union($1) })
+            // search from roots down
+            .sorted(by: {$0.path.directoryNestingDepth < $1.path.directoryNestingDepth})
+            .flatMap { ["-I", $0.path] }
     }
 }
 

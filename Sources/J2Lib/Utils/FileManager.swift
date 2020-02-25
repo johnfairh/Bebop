@@ -91,7 +91,7 @@ public final class TemporaryDirectory {
         return FileManager.default.temporaryFileURL(inDirectory: directoryURL)
     }
 
-    /// Get a path for a subdirectory in this object's directory.  File doesn't exist, directory does.
+    /// Get a path for a subdirectory in this object's directory.
     /// The new `TemporaryDirectory` is not auto-delete by default.
     public func createDirectory() throws -> TemporaryDirectory {
         let url = try FileManager.default.createTemporaryDirectory(inDirectory: directoryURL)
