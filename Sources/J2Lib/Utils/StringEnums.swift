@@ -38,12 +38,18 @@ internal enum L10n {
     case errCliUnknownOption = "err-cli-unknown-option"
     /// Invalid value '%1' for '%2', valid values: '%3'.
     case errEnumValue = "err-enum-value"
+    /// Couldn't create path enumerator starting '%1'.
+    case errEnumerator = "err-enumerator"
     /// Both --objc-direct and --build-tool are set: choose just one.
     case errObjcBuildTools = "err-objc-build-tools"
     /// Documenting Objective-C modules is supported only on macOS.
     case errObjcLinux = "err-objc-linux"
     /// Some Objective-C options are set but --objc-header-file is not.
     case errObjcNoHeader = "err-objc-no-header"
+    /// Couldn't find SDK path.
+    case errObjcSdk = "err-objc-sdk"
+    /// Unexpected data shape from SourceKitten json, can't process dict '%1'.
+    case errObjcSourcekitten = "err-objc-sourcekitten"
     /// Path is for a regular file, not a directory: '%1'.
     case errPathNotDir = "err-path-not-dir"
     /// Path doesn't exist or is inaccessible: '%1'.

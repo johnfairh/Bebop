@@ -84,7 +84,7 @@ enum GatherJob: Equatable {
                 guard let dictEntry = dict.first,
                     dict.count == 1,
                     let fileDict = dictEntry.value as? SourceKittenDict else {
-                    throw GatherError("Unexpected data shape from SourceKitten json, can't process dict '\(dict)'.")
+                    throw GatherError(.localized(.errObjcSourcekitten, dict))
                 }
                 guard let def = GatherDef(sourceKittenDict: fileDict, file: nil, availabilityRules: availabilityRules) else {
                     return nil
@@ -108,7 +108,7 @@ enum GatherJob: Equatable {
 
         let sdkPathResults = Exec.run("/usr/bin/env", "xcrun", "--show-sdk-path", "--sdk", sdk.rawValue, stderr: .merge)
         guard let sdkPath = sdkPathResults.successString else {
-            throw GatherError("Couldn't find SDK path.\n\(sdkPathResults.failureReport)")
+            throw GatherError(.localized(.errObjcSdk) + "\n\(sdkPathResults.failureReport)")
         }
         return ["-x", "objective-c", "-isysroot", sdkPath, "-fmodules"] + includePathArgs + buildToolArgs
     }
@@ -120,7 +120,7 @@ enum GatherJob: Equatable {
         let allDirURLs = try includePaths.map { baseURL -> Set<URL> in
             var dirPaths = Set([baseURL])
             guard let enumerator = FileManager.default.enumerator(atPath: baseURL.path) else {
-                throw GatherError("Couldn't create enumerator for path '\(baseURL.path)'.")
+                throw GatherError(.localized(.errEnumerator, baseURL.path))
             }
             while let pathname = enumerator.nextObject() as? String {
                 if pathname.re_isMatch(#"\.h(h|pp)?$"#) {

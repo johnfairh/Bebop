@@ -64,3 +64,6 @@ Options:";
 "err-objc-no-header" = "Some Objective-C options are set but --objc-header-file is not.";
 "wrn-objc-module" = "Objective-C direct mode requested but --module is not set: using 'Module' for the module name.";
 "err-objc-linux" = "Documenting Objective-C modules is supported only on macOS.";
+"err-objc-sourcekitten" = "Unexpected data shape from SourceKitten json, can't process dict '%1'.";
+"err-objc-sdk" = "Couldn't find SDK path.";
+"err-enumerator" = "Couldn't create path enumerator starting '%1'.";
