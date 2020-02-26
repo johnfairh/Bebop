@@ -31,12 +31,18 @@ public final class GatherDef {
     let localizationKey: String?
 
     init?(sourceKittenDict: SourceKittenDict,
+          parentNameComponents: [String],
           file: SourceKittenFramework.File?,
           availabilityRules: GatherAvailabilityRules) {
         var dict = sourceKittenDict
+        let name = sourceKittenDict[SwiftDocKey.name.rawValue] as? String
+        let nameComponents = name.flatMap { parentNameComponents + [$0] } ?? parentNameComponents
         let substructure = dict.removeValue(forKey: SwiftDocKey.substructure.rawValue) as? [SourceKittenDict] ?? []
         self.children = substructure.compactMap {
-            GatherDef(sourceKittenDict: $0, file: file, availabilityRules: availabilityRules)
+            GatherDef(sourceKittenDict: $0,
+                      parentNameComponents: nameComponents,
+                      file: file,
+                      availabilityRules: availabilityRules)
         }
         self.sourceKittenDict = dict
 
@@ -48,8 +54,7 @@ public final class GatherDef {
             self.objCDeclaration = nil
             return
         }
-        let name = sourceKittenDict[SwiftDocKey.name.rawValue] as? String ?? ""
-        guard let kind = DefKind.from(key: kindValue, name: name) else {
+        guard let kind = DefKind.from(key: kindValue, name: name ?? "") else {
             logWarning(.localized(.wrnSktnKind, kindValue))
             return nil
         }
@@ -67,6 +72,7 @@ public final class GatherDef {
         if kind.isSwift {
             self.swiftDeclaration =
                 SwiftDeclarationBuilder(dict: sourceKittenDict,
+                                        nameComponents: nameComponents,
                                         file: file,
                                         kind: kind,
                                         availabilityRules: availabilityRules).build()

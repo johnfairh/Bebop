@@ -217,7 +217,10 @@ extension SourceKittenDict {
     // Promotion
 
     var asGatherDef: GatherDef {
-        GatherDef(sourceKittenDict: self, file: nil, availabilityRules: GatherAvailabilityRules())!
+        GatherDef(sourceKittenDict: self,
+                  parentNameComponents: [],
+                  file: nil,
+                  availabilityRules: GatherAvailabilityRules())!
     }
 
     var asGatherPasses: [GatherModulePass] {

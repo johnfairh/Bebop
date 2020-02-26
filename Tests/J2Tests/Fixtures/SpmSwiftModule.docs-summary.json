@@ -227,7 +227,7 @@
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public struct SpmSwiftModule.Nested1"
+                  "html" : "public struct Nested1"
                 }
               },
               "flat_title" : {
@@ -248,7 +248,7 @@
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public struct SpmSwiftModule.Nested2"
+                  "html" : "public struct Nested2"
                 }
               },
               "flat_title" : {
@@ -304,7 +304,7 @@
         "availability" : [],
         "params" : [],
         "swift_declaration" : {
-          "html" : "public struct SpmSwiftModule.Nested1"
+          "html" : "public struct Nested1"
         }
       },
       "is_guide" : false,
@@ -324,7 +324,7 @@
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public struct SpmSwiftModule.Nested1.Nested2a"
+                  "html" : "public struct Nested2a"
                 }
               },
               "flat_title" : {
@@ -347,7 +347,7 @@
                 },
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public struct SpmSwiftModule.Nested1.Nested2b"
+                  "html" : "public struct Nested2b"
                 }
               },
               "flat_title" : {

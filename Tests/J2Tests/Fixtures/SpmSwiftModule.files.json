@@ -139,7 +139,7 @@
               "key.bodyoffset" : 171,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.struct><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>struct<\/syntaxtype.keyword> <ref.struct usr=\"s:14SpmSwiftModuleAAV\">SpmSwiftModule<\/ref.struct>.<decl.name>Nested1<\/decl.name><\/decl.struct>",
-              "key.j2.swift_declaration" : "public struct SpmSwiftModule.Nested1",
+              "key.j2.swift_declaration" : "public struct Nested1",
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -174,7 +174,7 @@
                   "key.bodyoffset" : 203,
                   "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
                   "key.fully_annotated_decl" : "<decl.struct><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>struct<\/syntaxtype.keyword> <ref.struct usr=\"s:14SpmSwiftModuleAAV\">SpmSwiftModule<\/ref.struct>.<ref.struct usr=\"s:14SpmSwiftModuleAAV7Nested1V\">Nested1<\/ref.struct>.<decl.name>Nested2a<\/decl.name><\/decl.struct>",
-                  "key.j2.swift_declaration" : "public struct SpmSwiftModule.Nested1.Nested2a",
+                  "key.j2.swift_declaration" : "public struct Nested2a",
                   "key.j2.swift_name_pieces" : [
                     {
                       "key.j2.name_piece_is_name" : false,
@@ -217,7 +217,7 @@
                   "key.bodyoffset" : 274,
                   "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
                   "key.fully_annotated_decl" : "<decl.struct><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>struct<\/syntaxtype.keyword> <ref.struct usr=\"s:14SpmSwiftModuleAAV\">SpmSwiftModule<\/ref.struct>.<ref.struct usr=\"s:14SpmSwiftModuleAAV7Nested1V\">Nested1<\/ref.struct>.<decl.name>Nested2b<\/decl.name><\/decl.struct>",
-                  "key.j2.swift_declaration" : "public struct SpmSwiftModule.Nested1.Nested2b",
+                  "key.j2.swift_declaration" : "public struct Nested2b",
                   "key.j2.swift_deprecation_messages" : {
                     "en" : "Deprecated."
                   },
@@ -263,7 +263,7 @@
               "key.bodyoffset" : 317,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.struct><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>struct<\/syntaxtype.keyword> <ref.struct usr=\"s:14SpmSwiftModuleAAV\">SpmSwiftModule<\/ref.struct>.<decl.name>Nested2<\/decl.name><\/decl.struct>",
-              "key.j2.swift_declaration" : "public struct SpmSwiftModule.Nested2",
+              "key.j2.swift_declaration" : "public struct Nested2",
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,

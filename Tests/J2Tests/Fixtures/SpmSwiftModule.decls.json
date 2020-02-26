@@ -53,7 +53,7 @@
             "name" : "Nested2a",
             "swift_declaration" : {
               "availability" : [],
-              "declaration" : "public struct SpmSwiftModule.Nested1.Nested2a",
+              "declaration" : "public struct Nested2a",
               "inherited_types" : [],
               "name_pieces" : [
                 {
@@ -80,7 +80,7 @@
             "name" : "Nested2b",
             "swift_declaration" : {
               "availability" : [],
-              "declaration" : "public struct SpmSwiftModule.Nested1.Nested2b",
+              "declaration" : "public struct Nested2b",
               "deprecation" : {
                 "en" : "Deprecated."
               },
@@ -109,7 +109,7 @@
         "name" : "Nested1",
         "swift_declaration" : {
           "availability" : [],
-          "declaration" : "public struct SpmSwiftModule.Nested1",
+          "declaration" : "public struct Nested1",
           "inherited_types" : [],
           "name_pieces" : [
             {
@@ -143,7 +143,7 @@
         "name" : "Nested2",
         "swift_declaration" : {
           "availability" : [],
-          "declaration" : "public struct SpmSwiftModule.Nested2",
+          "declaration" : "public struct Nested2",
           "inherited_types" : [],
           "name_pieces" : [
             {

@@ -143,4 +143,9 @@ public extension String {
     private func from(nsRange: NSRange) -> Substring {
         self[Range(nsRange, in: self)!]
     }
+
+    /// A version of the string escaped to retain its literal value when used in a pattern
+    var re_escapedPattern: String {
+        NSRegularExpression.escapedPattern(for: self)
+    }
 }

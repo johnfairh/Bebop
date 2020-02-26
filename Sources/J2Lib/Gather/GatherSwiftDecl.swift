@@ -53,6 +53,7 @@ import SwiftSyntax
 /// Short-lived workspace for figuring things out about a Swift declaration
 class SwiftDeclarationBuilder {
     let dict: SourceKittenDict
+    let nameComponents: [String]
     let file: File?
     let kind: DefKind?
     let availabilityRules: GatherAvailabilityRules
@@ -63,8 +64,13 @@ class SwiftDeclarationBuilder {
     var deprecations: [Localized<String>] = []
     var availability: [String] = []
 
-    init(dict: SourceKittenDict, file: File?, kind: DefKind?, availabilityRules: GatherAvailabilityRules) {
+    init(dict: SourceKittenDict,
+         nameComponents: [String],
+         file: File?,
+         kind: DefKind?,
+         availabilityRules: GatherAvailabilityRules) {
         self.dict = dict
+        self.nameComponents = nameComponents
         self.file = file
         self.kind = kind
         self.availabilityRules = availabilityRules
@@ -164,10 +170,16 @@ class SwiftDeclarationBuilder {
         }
         let flat = rootElement.recursiveText.trimmingCharacters(in: .whitespaces)
 
-        // XXX todo - unqualified name massaging, need parent hierarchy
+        // For a nested type, ocurrences of its own name in the declaration get spelt
+        // by the compiler as the fully-qualfied name.  We don't want this because we
+        // will always present the type in context.
+        let namePattern = nameComponents
+            .map { $0.re_escapedPattern }
+            .joined(separator: #"(?:<.*?>)?\."#)
+        let unqualified = nameComponents.last.flatMap { flat.re_sub(namePattern, with: $0) } ?? flat
 
         // Workaround for SR-9816 (not fixed as of Swift 5.1.3)
-        return flat.replacingOccurrences(of: " {\n  get\n  }", with: "")
+        return unqualified.replacingOccurrences(of: " {\n  get\n  }", with: "")
     }
 
     /// The parsed decl is of entire lines of code, which means we may get a leading @attr if the
@@ -243,6 +255,6 @@ final class ObjCSwiftDeclarationBuilder : SwiftDeclarationBuilder {
                 swiftKind = DefKind.from(key: SwiftDeclarationKind.functionConstructor.rawValue)
             }
         }
-        super.init(dict: swiftDict, file: nil, kind: swiftKind, availabilityRules: availabilityRules)
+        super.init(dict: swiftDict, nameComponents: [], file: nil, kind: swiftKind, availabilityRules: availabilityRules)
     }
 }

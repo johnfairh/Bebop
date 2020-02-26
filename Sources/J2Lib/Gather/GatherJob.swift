@@ -63,6 +63,7 @@ enum GatherJob: Equatable {
             logDebug(" Calling sourcekitten docs generation")
             let filesInfo = module!.docs.compactMap { swiftDoc -> (String, GatherDef)? in
                 guard let def = GatherDef(sourceKittenDict: swiftDoc.docsDictionary,
+                                          parentNameComponents: [],
                                           file: swiftDoc.file,
                                           availabilityRules: availabilityRules) else {
                     return nil
@@ -86,7 +87,10 @@ enum GatherJob: Equatable {
                     let fileDict = dictEntry.value as? SourceKittenDict else {
                     throw GatherError(.localized(.errObjcSourcekitten, dict))
                 }
-                guard let def = GatherDef(sourceKittenDict: fileDict, file: nil, availabilityRules: availabilityRules) else {
+                guard let def = GatherDef(sourceKittenDict: fileDict,
+                                          parentNameComponents: [],
+                                          file: nil,
+                                          availabilityRules: availabilityRules) else {
                     return nil
                 }
                 return (dictEntry.key, def)

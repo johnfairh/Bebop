@@ -13,8 +13,8 @@ import SourceKittenFramework
 // Declaration parsing
 
 extension SwiftDeclarationBuilder {
-    convenience init(dict: SourceKittenDict, file: File? = nil, kind: DefKind? = nil) {
-        self.init(dict: dict, file: file, kind: kind, availabilityRules: GatherAvailabilityRules())
+    convenience init(dict: SourceKittenDict, nameComponents: [String] = [], file: File? = nil, kind: DefKind? = nil) {
+        self.init(dict: dict, nameComponents: nameComponents, file: file, kind: kind, availabilityRules: GatherAvailabilityRules())
     }
 }
 
@@ -105,6 +105,25 @@ class TestGatherDecl: XCTestCase {
         XCTAssertEqual("var toast { get set }", varDecl?.declaration)
     }
 
+    func testParentTypes() {
+        let classKind = DefKind.from(key: SwiftDeclarationKind.class.rawValue)
+        ["Outer.Inner", "Outer&lt;S&gt;.Inner", "Outer&lt;A, B:C&gt;.Inner"].forEach { innerClassName in
+            let dict = ["key.fully_annotated_decl" : "<outer>class \(innerClassName)</outer>"]
+            let builder = SwiftDeclarationBuilder(dict: dict, nameComponents: ["Outer", "Inner"], kind: classKind)
+            let decl = builder.build()
+            XCTAssertEqual("class Inner", decl?.declaration, "Original: \(innerClassName)")
+        }
+
+        let dict = ["key.fully_annotated_decl" : "<outer>class A&lt;B&gt;.C.D</outer>"]
+        let builder = SwiftDeclarationBuilder(dict: dict, nameComponents: ["A", "C", "D"], kind: classKind)
+        let decl = builder.build()
+        XCTAssertEqual("class D", decl?.declaration)
+
+        let builder2 = SwiftDeclarationBuilder(dict: dict, nameComponents: ["A", "D"], kind: classKind)
+        let decl2 = builder2.build()
+        XCTAssertEqual("class A<B>.C.D", decl2?.declaration)
+    }
+
     // Attributes
     func testAttributes() {
         let file = File(contents: "@discardableResult public func fred() {}")
@@ -143,7 +162,7 @@ class TestGatherDecl: XCTestCase {
         let dict: SourceKittenDict = [
             "key.attributes": attrDicts,
             "key.fully_annotated_decl": "<outer>func fred()</outer>"]
-        let builder = SwiftDeclarationBuilder(dict: dict, file: file, kind: nil, availabilityRules: availabilityRules)
+        let builder = SwiftDeclarationBuilder(dict: dict, nameComponents: [], file: file, kind: nil, availabilityRules: availabilityRules)
         guard let built = builder.build() else {
             XCTFail("Couldn't build decl-info", line: line)
             return

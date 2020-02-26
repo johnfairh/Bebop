@@ -324,7 +324,7 @@
             "dash_name" : "struct%20Nested1",
             "dash_type" : "Struct",
             "def" : {
-              "swift_declaration_html" : "public struct SpmSwiftModule.Nested1"
+              "swift_declaration_html" : "public struct Nested1"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">struct <\/span>Nested1",
@@ -337,7 +337,7 @@
             "dash_name" : "struct%20Nested2",
             "dash_type" : "Struct",
             "def" : {
-              "swift_declaration_html" : "public struct SpmSwiftModule.Nested2"
+              "swift_declaration_html" : "public struct Nested2"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">struct <\/span>Nested2",
@@ -391,7 +391,7 @@
     "breadcrumbs_root" : "SpmSwiftModule",
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "def" : {
-      "swift_declaration_html" : "public struct SpmSwiftModule.Nested1"
+      "swift_declaration_html" : "public struct Nested1"
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
@@ -499,7 +499,7 @@
             "dash_name" : "struct%20Nested2a",
             "dash_type" : "Struct",
             "def" : {
-              "swift_declaration_html" : "public struct SpmSwiftModule.Nested1.Nested2a"
+              "swift_declaration_html" : "public struct Nested2a"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">struct <\/span>Nested2a",
@@ -512,7 +512,7 @@
             "dash_type" : "Struct",
             "def" : {
               "deprecation_html" : "<p>Deprecated.<\/p>",
-              "swift_declaration_html" : "public struct SpmSwiftModule.Nested1.Nested2b"
+              "swift_declaration_html" : "public struct Nested2b"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">struct <\/span>Nested2b",
