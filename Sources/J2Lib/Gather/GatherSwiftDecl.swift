@@ -119,6 +119,11 @@ class SwiftDeclarationBuilder {
             pieces = [DeclarationPiece(bestDeclaration)]
         }
 
+        // Declaration-adjacent info
+        let typeModuleName = dict["key.modulename"] as? String
+        let inheritedTypes = (dict[SwiftDocKey.inheritedtypes.rawValue] as? [SourceKittenDict])
+            .flatMap { $0.compactMap { $0[SwiftDocKey.name.rawValue] as? String } } ?? []
+
         // Tidy up
         let deprecation = deprecations.isEmpty ? nil : deprecations.joined(by: "\n\n")
 
@@ -130,7 +135,9 @@ class SwiftDeclarationBuilder {
         return SwiftDeclaration(declaration: (attributes + [bestDeclaration]).joined(separator: "\n"),
                                 deprecation: deprecation,
                                 availability: availability,
-                                namePieces: pieces)
+                                namePieces: pieces,
+                                typeModuleName: typeModuleName,
+                                inheritedTypes: inheritedTypes)
     }
 
     /// Get the compiler declaration out of an 'annotated declaration' xml.

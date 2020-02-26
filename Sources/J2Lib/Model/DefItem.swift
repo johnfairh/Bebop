@@ -37,6 +37,8 @@ public class DefItem: Item {
 
         guard let usr = gatherDef.sourceKittenDict[SwiftDocKey.usr.rawValue] as? String else {
             // Usr is special, missing means just not compiled, #if'd out - should be in another pass.
+            // Compiler errors come in here too unfortunately and we can't tell them apart -- the
+            // key.diagnostic is useless.
             logDebug("No usr, ignoring \(gatherDef.sourceKittenDict) \(location)")
             return nil
         }
@@ -49,7 +51,9 @@ public class DefItem: Item {
             return nil
         }
 
-        // filter weird kinds
+        // Filter unwanted kinds
+
+        // Populate self
 
         let line = (gatherDef.sourceKittenDict[SwiftDocKey.docLine.rawValue] as? Int64).flatMap(Int.init)
         let startLine = (gatherDef.sourceKittenDict[SwiftDocKey.parsedScopeStart.rawValue] as? Int64).flatMap(Int.init)
@@ -64,9 +68,6 @@ public class DefItem: Item {
         self.documentation = RichDefDocs(gatherDef.translatedDocs)
         self.swiftDeclaration = gatherDef.swiftDeclaration
         self.objCDeclaration = gatherDef.objCDeclaration
-
-        // type module name
-        // inher_types
 
         let deprecations = [objCDeclaration?.deprecation,
                             swiftDeclaration?.deprecation].compactMap { $0 }

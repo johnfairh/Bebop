@@ -93,15 +93,23 @@ public struct SwiftDeclaration: Encodable {
     public let availability: [String]
     /// Declaration split into name and non-name pieces, for making an item title
     public let namePieces: [DeclarationPiece]
+    /// For extensions, the module name of the type
+    public let typeModuleName: String?
+    /// Names of inherited types
+    public let inheritedTypes: [String]
 
     init(declaration: String = "",
          deprecation: Localized<String>? = nil,
          availability: [String] = [],
-         namePieces: [DeclarationPiece] = []) {
+         namePieces: [DeclarationPiece] = [],
+         typeModuleName: String? = nil,
+         inheritedTypes: [String] = []) {
         self.declaration = declaration
         self.deprecation = deprecation
         self.availability = availability
         self.namePieces = namePieces
+        self.typeModuleName = typeModuleName
+        self.inheritedTypes = inheritedTypes
     }
 }
 

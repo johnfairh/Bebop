@@ -15,6 +15,7 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : "public var text: String",
+          "inherited_types" : [],
           "name_pieces" : [
             {
               "other" : "var "
@@ -53,6 +54,7 @@
             "swift_declaration" : {
               "availability" : [],
               "declaration" : "public struct SpmSwiftModule.Nested1.Nested2a",
+              "inherited_types" : [],
               "name_pieces" : [
                 {
                   "other" : "struct "
@@ -82,6 +84,7 @@
               "deprecation" : {
                 "en" : "Deprecated."
               },
+              "inherited_types" : [],
               "name_pieces" : [
                 {
                   "other" : "struct "
@@ -107,6 +110,7 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : "public struct SpmSwiftModule.Nested1",
+          "inherited_types" : [],
           "name_pieces" : [
             {
               "other" : "struct "
@@ -140,6 +144,7 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : "public struct SpmSwiftModule.Nested2",
+          "inherited_types" : [],
           "name_pieces" : [
             {
               "other" : "struct "
@@ -180,6 +185,7 @@
     "swift_declaration" : {
       "availability" : [],
       "declaration" : "public struct SpmSwiftModule",
+      "inherited_types" : [],
       "name_pieces" : [
         {
           "other" : "struct "
@@ -216,6 +222,7 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : "case first(Int)",
+          "inherited_types" : [],
           "name_pieces" : [
             {
               "other" : "case "
@@ -250,6 +257,7 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : "case second",
+          "inherited_types" : [],
           "name_pieces" : [
             {
               "other" : "case "
@@ -284,6 +292,7 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : "case third",
+          "inherited_types" : [],
           "name_pieces" : [
             {
               "other" : "case "
@@ -310,6 +319,7 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : "case fourth",
+          "inherited_types" : [],
           "name_pieces" : [
             {
               "other" : "case "
@@ -343,6 +353,7 @@
     "swift_declaration" : {
       "availability" : [],
       "declaration" : "public enum AnEnum",
+      "inherited_types" : [],
       "name_pieces" : [
         {
           "other" : "enum "
@@ -400,6 +411,7 @@
         "macOS 10.12+"
       ],
       "declaration" : "public func functionA(arg1: Int,\n                      _ arg2: Int,\n                      arg3 argMeaning: Int)",
+      "inherited_types" : [],
       "name_pieces" : [
         {
           "other" : "func "
@@ -466,6 +478,7 @@
       "deprecation" : {
         "en" : "iOS - deprecated in 12.0. Deprecated!.\n\nmacOS - deprecated in 10.14. Deprecated on *macOS* too."
       },
+      "inherited_types" : [],
       "name_pieces" : [
         {
           "other" : "func "
@@ -486,5 +499,216 @@
     },
     "swift_name" : "deprecatedFunction(callback:)",
     "usr" : "s:14SpmSwiftModule18deprecatedFunction8callbackSSSiSSXE_tF"
+  },
+  {
+    "children" : [
+      {
+        "children" : [],
+        "kind" : "source.lang.swift.decl.function.method.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+          "first_line" : 51,
+          "last_line" : 51,
+          "module_name" : "SpmSwiftModule",
+          "pass_index" : 0
+        },
+        "name" : "init()",
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : "public init()",
+          "inherited_types" : [],
+          "name_pieces" : [
+            {
+              "other" : "func "
+            },
+            {
+              "name" : "("
+            },
+            {
+              "other" : ")"
+            }
+          ]
+        },
+        "swift_name" : "init()",
+        "usr" : "s:14SpmSwiftModule10ABaseClassCACycfc"
+      },
+      {
+        "children" : [],
+        "kind" : "source.lang.swift.decl.function.method.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+          "first_line" : 52,
+          "last_line" : 52,
+          "module_name" : "SpmSwiftModule",
+          "pass_index" : 0
+        },
+        "name" : "deinit",
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : "deinit",
+          "inherited_types" : [],
+          "name_pieces" : [
+            {
+              "other" : "func "
+            },
+            {
+              "name" : ""
+            }
+          ]
+        },
+        "swift_name" : "deinit",
+        "usr" : "s:14SpmSwiftModule10ABaseClassCfd"
+      },
+      {
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Base class docs for `method(param:)`"
+            }
+          },
+          "parameters" : []
+        },
+        "kind" : "source.lang.swift.decl.function.method.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+          "first_line" : 54,
+          "last_line" : 56,
+          "module_name" : "SpmSwiftModule",
+          "pass_index" : 0
+        },
+        "name" : "method(param:)",
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : "public func method(param: Int) -> String",
+          "inherited_types" : [],
+          "name_pieces" : [
+            {
+              "other" : "func "
+            },
+            {
+              "name" : "method"
+            },
+            {
+              "other" : "("
+            },
+            {
+              "name" : "param"
+            },
+            {
+              "other" : ": Int) -> String"
+            }
+          ]
+        },
+        "swift_name" : "method(param:)",
+        "usr" : "s:14SpmSwiftModule10ABaseClassC6method5paramSSSi_tF"
+      }
+    ],
+    "documentation" : {
+      "abstract" : {
+        "markdown" : {
+          "en" : "A base class"
+        }
+      },
+      "parameters" : []
+    },
+    "kind" : "source.lang.swift.decl.class",
+    "location" : {
+      "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+      "first_line" : 50,
+      "last_line" : 57,
+      "module_name" : "SpmSwiftModule",
+      "pass_index" : 0
+    },
+    "name" : "ABaseClass",
+    "swift_declaration" : {
+      "availability" : [],
+      "declaration" : "public class ABaseClass",
+      "inherited_types" : [],
+      "name_pieces" : [
+        {
+          "other" : "class "
+        },
+        {
+          "name" : "ABaseClass"
+        }
+      ]
+    },
+    "swift_name" : "ABaseClass",
+    "usr" : "s:14SpmSwiftModule10ABaseClassC"
+  },
+  {
+    "children" : [
+      {
+        "children" : [],
+        "kind" : "source.lang.swift.decl.function.method.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+          "first_line" : 61,
+          "last_line" : 63,
+          "module_name" : "SpmSwiftModule",
+          "pass_index" : 0
+        },
+        "name" : "method(param:)",
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : "public override func method(param: Int) -> String",
+          "inherited_types" : [],
+          "name_pieces" : [
+            {
+              "other" : "func "
+            },
+            {
+              "name" : "method"
+            },
+            {
+              "other" : "("
+            },
+            {
+              "name" : "param"
+            },
+            {
+              "other" : ": Int) -> String"
+            }
+          ]
+        },
+        "swift_name" : "method(param:)",
+        "usr" : "s:14SpmSwiftModule13ADerivedClassC6method5paramSSSi_tF"
+      }
+    ],
+    "documentation" : {
+      "abstract" : {
+        "markdown" : {
+          "en" : "A derived class"
+        }
+      },
+      "parameters" : []
+    },
+    "kind" : "source.lang.swift.decl.class",
+    "location" : {
+      "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+      "first_line" : 60,
+      "last_line" : 64,
+      "module_name" : "SpmSwiftModule",
+      "pass_index" : 0
+    },
+    "name" : "ADerivedClass",
+    "swift_declaration" : {
+      "availability" : [],
+      "declaration" : "public class ADerivedClass : ABaseClass",
+      "inherited_types" : [
+        "ABaseClass"
+      ],
+      "name_pieces" : [
+        {
+          "other" : "class "
+        },
+        {
+          "name" : "ADerivedClass"
+        }
+      ]
+    },
+    "swift_name" : "ADerivedClass",
+    "usr" : "s:14SpmSwiftModule13ADerivedClassC"
   }
 ]

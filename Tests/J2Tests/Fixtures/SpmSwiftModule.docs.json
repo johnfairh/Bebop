@@ -73,6 +73,16 @@
                 "same_page" : false,
                 "title" : "AnEnum",
                 "url" : "types\/anenum.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "ABaseClass",
+                "url" : "types\/abaseclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "ADerivedClass",
+                "url" : "types\/aderivedclass.html?swift"
               }
             ],
             "same_page" : true,
@@ -131,6 +141,34 @@
             "primary_title_html" : "<span class=\"j2-item-secondary\">enum <\/span>AnEnum",
             "primary_url" : "types\/anenum.html?swift",
             "title" : "enum AnEnum"
+          },
+          {
+            "anchor_id" : "abaseclass",
+            "any_declaration" : true,
+            "dash_name" : "class%20ABaseClass",
+            "dash_type" : "Class",
+            "def" : {
+              "abstract_html" : "<p>A base class<\/p>",
+              "swift_declaration_html" : "public class ABaseClass"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">class <\/span>ABaseClass",
+            "primary_url" : "types\/abaseclass.html?swift",
+            "title" : "class ABaseClass"
+          },
+          {
+            "anchor_id" : "aderivedclass",
+            "any_declaration" : true,
+            "dash_name" : "class%20ADerivedClass",
+            "dash_type" : "Class",
+            "def" : {
+              "abstract_html" : "<p>A derived class<\/p>",
+              "swift_declaration_html" : "public class ADerivedClass : ABaseClass"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">class <\/span>ADerivedClass",
+            "primary_url" : "types\/aderivedclass.html?swift",
+            "title" : "class ADerivedClass"
           }
         ],
         "primary_language" : "j2-swift"
@@ -219,6 +257,16 @@
                 "same_page" : false,
                 "title" : "AnEnum",
                 "url" : "types\/anenum.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "ABaseClass",
+                "url" : "types\/abaseclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "ADerivedClass",
+                "url" : "types\/aderivedclass.html?swift"
               }
             ],
             "same_page" : false,
@@ -404,6 +452,16 @@
                 "same_page" : false,
                 "title" : "AnEnum",
                 "url" : "types\/anenum.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "ABaseClass",
+                "url" : "types\/abaseclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "ADerivedClass",
+                "url" : "types\/aderivedclass.html?swift"
               }
             ],
             "same_page" : false,
@@ -557,6 +615,16 @@
                 "same_page" : true,
                 "title" : "AnEnum",
                 "url" : ""
+              },
+              {
+                "same_page" : false,
+                "title" : "ABaseClass",
+                "url" : "types\/abaseclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "ADerivedClass",
+                "url" : "types\/aderivedclass.html?swift"
               }
             ],
             "same_page" : false,
@@ -661,6 +729,331 @@
       {
         "breadcrumbs" : [
           {
+            "title" : "Types",
+            "url" : "types.html?swift"
+          },
+          {
+            "title" : "ABaseClass"
+          }
+        ],
+        "language" : "j2-swift"
+      }
+    ],
+    "breadcrumbs_root" : "SpmSwiftModule",
+    "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
+    "def" : {
+      "abstract_html" : "<p>A base class<\/p>",
+      "swift_declaration_html" : "public class ABaseClass"
+    },
+    "default_language" : "j2-swift",
+    "disable_search" : false,
+    "doc_coverage" : 66,
+    "docs_title" : "SpmSwiftModule docs",
+    "dual_language" : false,
+    "hide_article_title" : false,
+    "hide_attribution" : false,
+    "hide_availability" : false,
+    "item_collapse_never" : false,
+    "item_collapse_open" : false,
+    "item_nest" : true,
+    "j2lib_version" : "0.1",
+    "language_tag" : "en",
+    "path_from_root" : "types\/abaseclass.html",
+    "path_to_assets" : "..\/",
+    "path_to_root" : "..\/",
+    "primary_page_title" : "ABaseClass",
+    "primary_title_language" : "j2-swift",
+    "tab_title_prefix" : true,
+    "tocs" : [
+      {
+        "language" : "j2-swift",
+        "screen_reader_name" : "Swift",
+        "toc" : [
+          {
+            "children" : [
+              {
+                "children" : [
+                  {
+                    "children" : [
+                      {
+                        "same_page" : false,
+                        "title" : "Nested2a",
+                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2a"
+                      },
+                      {
+                        "same_page" : false,
+                        "title" : "Nested2b",
+                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2b"
+                      }
+                    ],
+                    "same_page" : false,
+                    "title" : "Nested1",
+                    "url" : "types\/spmswiftmodule\/nested1.html?swift"
+                  },
+                  {
+                    "same_page" : false,
+                    "title" : "Nested2",
+                    "url" : "types\/spmswiftmodule.html?swift#nested2"
+                  }
+                ],
+                "same_page" : false,
+                "title" : "SpmSwiftModule",
+                "url" : "types\/spmswiftmodule.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "AnEnum",
+                "url" : "types\/anenum.html?swift"
+              },
+              {
+                "same_page" : true,
+                "title" : "ABaseClass",
+                "url" : ""
+              },
+              {
+                "same_page" : false,
+                "title" : "ADerivedClass",
+                "url" : "types\/aderivedclass.html?swift"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Types",
+            "url" : "types.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "functionA(arg1:_:arg3:)",
+                "url" : "functions.html?swift#functionaarg1_arg3"
+              },
+              {
+                "same_page" : false,
+                "title" : "deprecatedFunction(callback:)",
+                "url" : "functions.html?swift#deprecatedfunctioncallback"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Functions",
+            "url" : "functions.html?swift"
+          }
+        ]
+      }
+    ],
+    "topics" : [
+      {
+        "anchor_id" : "tpc_",
+        "dash_name" : "",
+        "items" : [
+          {
+            "anchor_id" : "init",
+            "any_declaration" : true,
+            "dash_name" : "func%20()",
+            "dash_type" : "Method",
+            "def" : {
+              "swift_declaration_html" : "public init()"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>(<span class=\"j2-item-secondary\">)<\/span>",
+            "title" : "func ()"
+          },
+          {
+            "anchor_id" : "deinit",
+            "any_declaration" : true,
+            "dash_name" : "func%20",
+            "dash_type" : "Method",
+            "def" : {
+              "swift_declaration_html" : "deinit"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>",
+            "title" : "func "
+          },
+          {
+            "anchor_id" : "methodparam",
+            "any_declaration" : true,
+            "dash_name" : "func%20method(param%3A%20Int)%20-%3E%20String",
+            "dash_type" : "Method",
+            "def" : {
+              "abstract_html" : "<p>Base class docs for <code>method(param:)<\/code><\/p>",
+              "swift_declaration_html" : "public func method(param: Int) -> String"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>method<span class=\"j2-item-secondary\">(<\/span>param<span class=\"j2-item-secondary\">: Int) -> String<\/span>",
+            "title" : "func method(param: Int) -> String"
+          }
+        ],
+        "primary_language" : "j2-swift"
+      }
+    ],
+    "topics_language" : "j2-swift",
+    "topics_menus" : [
+      {
+        "language" : "j2-swift",
+        "topics_menu" : [
+          {
+            "anchor_id" : "",
+            "title" : "Declaration"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "breadcrumbs_menus" : [
+      {
+        "breadcrumbs" : [
+          {
+            "title" : "Types",
+            "url" : "types.html?swift"
+          },
+          {
+            "title" : "ADerivedClass"
+          }
+        ],
+        "language" : "j2-swift"
+      }
+    ],
+    "breadcrumbs_root" : "SpmSwiftModule",
+    "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
+    "def" : {
+      "abstract_html" : "<p>A derived class<\/p>",
+      "swift_declaration_html" : "public class ADerivedClass : ABaseClass"
+    },
+    "default_language" : "j2-swift",
+    "disable_search" : false,
+    "doc_coverage" : 66,
+    "docs_title" : "SpmSwiftModule docs",
+    "dual_language" : false,
+    "hide_article_title" : false,
+    "hide_attribution" : false,
+    "hide_availability" : false,
+    "item_collapse_never" : false,
+    "item_collapse_open" : false,
+    "item_nest" : true,
+    "j2lib_version" : "0.1",
+    "language_tag" : "en",
+    "path_from_root" : "types\/aderivedclass.html",
+    "path_to_assets" : "..\/",
+    "path_to_root" : "..\/",
+    "primary_page_title" : "ADerivedClass",
+    "primary_title_language" : "j2-swift",
+    "tab_title_prefix" : true,
+    "tocs" : [
+      {
+        "language" : "j2-swift",
+        "screen_reader_name" : "Swift",
+        "toc" : [
+          {
+            "children" : [
+              {
+                "children" : [
+                  {
+                    "children" : [
+                      {
+                        "same_page" : false,
+                        "title" : "Nested2a",
+                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2a"
+                      },
+                      {
+                        "same_page" : false,
+                        "title" : "Nested2b",
+                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2b"
+                      }
+                    ],
+                    "same_page" : false,
+                    "title" : "Nested1",
+                    "url" : "types\/spmswiftmodule\/nested1.html?swift"
+                  },
+                  {
+                    "same_page" : false,
+                    "title" : "Nested2",
+                    "url" : "types\/spmswiftmodule.html?swift#nested2"
+                  }
+                ],
+                "same_page" : false,
+                "title" : "SpmSwiftModule",
+                "url" : "types\/spmswiftmodule.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "AnEnum",
+                "url" : "types\/anenum.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "ABaseClass",
+                "url" : "types\/abaseclass.html?swift"
+              },
+              {
+                "same_page" : true,
+                "title" : "ADerivedClass",
+                "url" : ""
+              }
+            ],
+            "same_page" : false,
+            "title" : "Types",
+            "url" : "types.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "functionA(arg1:_:arg3:)",
+                "url" : "functions.html?swift#functionaarg1_arg3"
+              },
+              {
+                "same_page" : false,
+                "title" : "deprecatedFunction(callback:)",
+                "url" : "functions.html?swift#deprecatedfunctioncallback"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Functions",
+            "url" : "functions.html?swift"
+          }
+        ]
+      }
+    ],
+    "topics" : [
+      {
+        "anchor_id" : "tpc_",
+        "dash_name" : "",
+        "items" : [
+          {
+            "anchor_id" : "methodparam1",
+            "any_declaration" : true,
+            "dash_name" : "func%20method(param%3A%20Int)%20-%3E%20String",
+            "dash_type" : "Method",
+            "def" : {
+              "swift_declaration_html" : "public override func method(param: Int) -> String"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>method<span class=\"j2-item-secondary\">(<\/span>param<span class=\"j2-item-secondary\">: Int) -> String<\/span>",
+            "title" : "func method(param: Int) -> String"
+          }
+        ],
+        "primary_language" : "j2-swift"
+      }
+    ],
+    "topics_language" : "j2-swift",
+    "topics_menus" : [
+      {
+        "language" : "j2-swift",
+        "topics_menu" : [
+          {
+            "anchor_id" : "",
+            "title" : "Declaration"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "breadcrumbs_menus" : [
+      {
+        "breadcrumbs" : [
+          {
             "title" : "Functions"
           }
         ],
@@ -730,6 +1123,16 @@
                 "same_page" : false,
                 "title" : "AnEnum",
                 "url" : "types\/anenum.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "ABaseClass",
+                "url" : "types\/abaseclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "ADerivedClass",
+                "url" : "types\/aderivedclass.html?swift"
               }
             ],
             "same_page" : false,
@@ -883,6 +1286,16 @@
                 "same_page" : false,
                 "title" : "AnEnum",
                 "url" : "types\/anenum.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "ABaseClass",
+                "url" : "types\/abaseclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "ADerivedClass",
+                "url" : "types\/aderivedclass.html?swift"
               }
             ],
             "same_page" : false,

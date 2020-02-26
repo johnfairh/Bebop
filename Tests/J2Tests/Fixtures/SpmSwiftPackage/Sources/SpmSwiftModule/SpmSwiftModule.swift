@@ -45,3 +45,20 @@ public func functionA(arg1: Int,
 public func deprecatedFunction(callback: (_ report: String) -> Int) -> String {
   return ""
 }
+
+/// A base class
+public class ABaseClass {
+  public init() {}
+  deinit {}
+  /// Base class docs for `method(param:)`
+  public func method(param: Int) -> String {
+    return ""
+  }
+}
+
+/// A derived class
+public class ADerivedClass: ABaseClass {
+  public override func method(param: Int) -> String {
+    return ""
+  }
+}

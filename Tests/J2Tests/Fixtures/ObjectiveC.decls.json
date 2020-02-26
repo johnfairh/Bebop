@@ -85,6 +85,7 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : "var propertyName: String! { get set }",
+          "inherited_types" : [],
           "name_pieces" : [
             {
               "other" : "var "
@@ -125,6 +126,7 @@
     "swift_declaration" : {
       "availability" : [],
       "declaration" : "class IVarTest : NSObject",
+      "inherited_types" : [],
       "name_pieces" : [
         {
           "other" : "class "
@@ -173,6 +175,7 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : "class var identifier: UUID! { get set }",
+          "inherited_types" : [],
           "name_pieces" : [
             {
               "other" : "class var "
@@ -222,6 +225,7 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : "var uuid: UUID? { get set }",
+          "inherited_types" : [],
           "name_pieces" : [
             {
               "other" : "var "
@@ -266,6 +270,7 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : "class func alloc() -> Self!",
+          "inherited_types" : [],
           "name_pieces" : [
             {
               "other" : "class func "
@@ -313,6 +318,7 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : "init!()",
+          "inherited_types" : [],
           "name_pieces" : [
             {
               "name" : "init"
@@ -362,6 +368,7 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : "func method()",
+          "inherited_types" : [],
           "name_pieces" : [
             {
               "other" : "func "
@@ -420,6 +427,7 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : "func doThing(with first: Int32, named name: String!) -> Int32",
+          "inherited_types" : [],
           "name_pieces" : [
             {
               "other" : "func "
@@ -476,6 +484,7 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : "class func classMethod()",
+          "inherited_types" : [],
           "name_pieces" : [
             {
               "other" : "class func "
@@ -524,6 +533,7 @@
     "swift_declaration" : {
       "availability" : [],
       "declaration" : "class PropertyKinds : NSObject",
+      "inherited_types" : [],
       "name_pieces" : [
         {
           "other" : "class "
@@ -600,6 +610,7 @@
     "swift_declaration" : {
       "availability" : [],
       "declaration" : "func global_func()",
+      "inherited_types" : [],
       "name_pieces" : [
         {
           "other" : "func "
@@ -658,6 +669,7 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : "var field: Int32",
+          "inherited_types" : [],
           "name_pieces" : [
             {
               "other" : "var "
@@ -706,6 +718,7 @@
     "swift_declaration" : {
       "availability" : [],
       "declaration" : "struct AStruct",
+      "inherited_types" : [],
       "name_pieces" : [
         {
           "other" : "struct "
@@ -801,6 +814,7 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : "case a = 3",
+          "inherited_types" : [],
           "name_pieces" : [
             {
               "other" : "case "
@@ -847,6 +861,7 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : "case b = 4",
+          "inherited_types" : [],
           "name_pieces" : [
             {
               "other" : "case "
@@ -892,6 +907,7 @@
     "swift_declaration" : {
       "availability" : [],
       "declaration" : "enum AEnum : Int",
+      "inherited_types" : [],
       "name_pieces" : [
         {
           "other" : "enum "
@@ -988,6 +1004,7 @@
     "swift_declaration" : {
       "availability" : [],
       "declaration" : "struct ASimpleEnum : Equatable, RawRepresentable",
+      "inherited_types" : [],
       "name_pieces" : [
         {
           "other" : "struct "
@@ -1041,6 +1058,7 @@
     "swift_declaration" : {
       "availability" : [],
       "declaration" : "typealias Fred = Int32",
+      "inherited_types" : [],
       "name_pieces" : [
         {
           "other" : "typealias "
@@ -1091,6 +1109,7 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : "func categoryMethod()",
+          "inherited_types" : [],
           "name_pieces" : [
             {
               "other" : "func "
@@ -1176,6 +1195,7 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : "func protocolMethod()",
+          "inherited_types" : [],
           "name_pieces" : [
             {
               "other" : "func "
@@ -1224,6 +1244,7 @@
     "swift_declaration" : {
       "availability" : [],
       "declaration" : "protocol SomeProtocol",
+      "inherited_types" : [],
       "name_pieces" : [
         {
           "other" : "protocol "
@@ -1288,6 +1309,7 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : "func pop(with weight: String!, secondValue density: Int) -> AutoreleasingUnsafeMutablePointer",
+          "inherited_types" : [],
           "name_pieces" : [
             {
               "other" : "func "
@@ -1348,6 +1370,7 @@
     "swift_declaration" : {
       "availability" : [],
       "declaration" : "class Stack : NSObject where ElementType : AnyObject",
+      "inherited_types" : [],
       "name_pieces" : [
         {
           "other" : "class "
