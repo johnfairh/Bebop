@@ -9,8 +9,6 @@
 import Foundation
 import SourceKittenFramework
 
-typealias SourceKittenDict = [String: Any]
-
 /// Type representing a code definition (or some weird SourceKit not-a-node).
 ///
 /// Originally created from a SourceKitten dictionary this is augmented by successive
@@ -35,9 +33,9 @@ public final class GatherDef {
           file: SourceKittenFramework.File?,
           availabilityRules: GatherAvailabilityRules) {
         var dict = sourceKittenDict
-        let name = sourceKittenDict[SwiftDocKey.name.rawValue] as? String
+        let name = sourceKittenDict.name
         let nameComponents = name.flatMap { parentNameComponents + [$0] } ?? parentNameComponents
-        let substructure = dict.removeValue(forKey: SwiftDocKey.substructure.rawValue) as? [SourceKittenDict] ?? []
+        let substructure = dict.removeSubstructure()
         self.children = substructure.compactMap {
             GatherDef(sourceKittenDict: $0,
                       parentNameComponents: nameComponents,
@@ -46,7 +44,7 @@ public final class GatherDef {
         }
         self.sourceKittenDict = dict
 
-        guard let kindValue = dict[SwiftDocKey.kind.rawValue] as? String else {
+        guard let kindValue = dict.kind else {
             self.kind = nil
             self.documentation = nil
             self.localizationKey = nil
@@ -60,7 +58,7 @@ public final class GatherDef {
         }
         self.kind = kind
 
-        if let docComment = sourceKittenDict[SwiftDocKey.documentationComment.rawValue] as? String {
+        if let docComment = sourceKittenDict.documentationComment {
             let docsBuilder = MarkdownBuilder(markdown: Markdown(docComment))
             self.documentation = docsBuilder.build()
             self.localizationKey = docsBuilder.localizationKey

@@ -31,7 +31,7 @@ class ObjCDeclarationBuilder {
     func build() -> ObjCDeclaration? {
         /// This thing is either the parsed declaration or the libclang round-tripped version.
         /// If there's no doc comment we get the parsed one, otherwise libclang.
-        guard let declaration = dict[SwiftDocKey.parsedDeclaration.rawValue] as? String else {
+        guard let declaration = dict.parsedDeclaration else {
             logDebug("No declaration found in ObjC def, ignoring \(dict).")
             return nil
         }
@@ -39,7 +39,7 @@ class ObjCDeclarationBuilder {
         let pieces: [DeclarationPiece]
 
         // If we're missing the name then don't try very hard
-        if let name = dict[SwiftDocKey.name.rawValue] as? String {
+        if let name = dict.name {
             pieces = parseToPieces(declaration: neatDeclaration, name: name)
         } else {
             pieces = [DeclarationPiece(neatDeclaration)]

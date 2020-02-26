@@ -51,49 +51,46 @@ private enum GatherKey: String {
     case parameters = "key.j2.parameters"
     case paramName = "key.j2.param_name"
     case paramDesc = "key.j2.param_desc"
+    /// Children
+    case substructure = "key.substructure"
 }
 
 /// Helper to use `GatherKey`
-extension SourceKittenDict {
-    fileprivate subscript(key: GatherKey) -> Any? {
-        get {
-            return self[key.rawValue]
+fileprivate extension SourceKittenDict {
+    mutating func set(_ key: GatherKey, _ value: Any) {
+        self[key.rawValue] = value
+    }
+    mutating func maybe(_ key: GatherKey, _ value: Any?) {
+        if let value = value {
+            self[key.rawValue] = value
         }
-        set {
-            self[key.rawValue] = newValue
+    }
+    mutating func maybe<T>(_ key: GatherKey, _ value: Array<T>) {
+        if !value.isEmpty {
+            self[key.rawValue] = value
         }
     }
 }
 
-extension LocalizedDefDocs {
+fileprivate extension LocalizedDefDocs {
     var dictForJSON: SourceKittenDict {
         var dict = SourceKittenDict()
-        if let abstract = abstract {
-            dict[GatherKey.abstract] = abstract.mapValues { $0.md }
-        }
-        if let overview = overview {
-            dict[GatherKey.overview] = overview.mapValues { $0.md }
-        }
-        if let returns = returns {
-            dict[GatherKey.returns] = returns.mapValues { $0.md }
-        }
-        if !parameters.isEmpty {
-            dict[GatherKey.parameters] = parameters.map { $0.dictForJSON }
-        }
+        dict.maybe(.abstract, abstract?.mapValues { $0.md })
+        dict.maybe(.overview, overview?.mapValues { $0.md })
+        dict.maybe(.returns, returns?.mapValues { $0.md })
+        dict.maybe(.parameters, parameters.map { $0.dictForJSON })
         return dict
     }
 }
 
-extension DefDocs.Param where T == Localized<Markdown> {
+fileprivate extension DefDocs.Param where T == Localized<Markdown> {
     var dictForJSON: SourceKittenDict {
-        var dict = SourceKittenDict()
-        dict[GatherKey.paramName] = name
-        dict[GatherKey.paramDesc] = description.mapValues { $0.md }
-        return dict
+        [GatherKey.paramName.rawValue : name,
+         GatherKey.paramDesc.rawValue : description.mapValues { $0.md }]
     }
 }
 
-extension Array where Element == DeclarationPiece {
+fileprivate extension Array where Element == DeclarationPiece {
     var dictsForJSON: [SourceKittenDict] {
         map {
             [GatherKey.namePieceIsName.rawValue: $0.isName,
@@ -107,51 +104,37 @@ extension GatherDef {
     var dictForJSON: SourceKittenDict {
         var dict = sourceKittenDict
         if let swiftDecl = swiftDeclaration {
-            dict[.swiftDeclaration] = swiftDecl.declaration
-            if let deprecationMsg = swiftDecl.deprecation {
-                dict[.swiftDeprecationMessage] = deprecationMsg
-            }
-            if !swiftDecl.availability.isEmpty {
-                dict[.availabilities] = swiftDecl.availability.map {
-                    [GatherKey.availability.rawValue : $0]
-                }
-            }
-            if !swiftDecl.namePieces.isEmpty {
-                dict[.swiftNamePieces] = swiftDecl.namePieces.dictsForJSON
-            }
+            dict.set(.swiftDeclaration, swiftDecl.declaration)
+            dict.maybe(.swiftDeprecationMessage, swiftDecl.deprecation)
+            dict.maybe(.availabilities, swiftDecl.availability.map {
+                [GatherKey.availability.rawValue : $0]
+            })
+            dict.maybe(.swiftNamePieces, swiftDecl.namePieces.dictsForJSON)
         }
         if let objCDecl = objCDeclaration {
-            dict[.objCDeclaration] = objCDecl.declaration
-            if let deprecationMsg = objCDecl.deprecation {
-                dict[.objCDeprecationMessage] = deprecationMsg
-            }
-            if let unavailableMsg = objCDecl.unavailability {
-                dict[.objCUnavailableMessage] = unavailableMsg
-            }
-            if !objCDecl.namePieces.isEmpty {
-                dict[.objCNamePieces] = objCDecl.namePieces.dictsForJSON
-            }
+            dict.set(.objCDeclaration, objCDecl.declaration)
+            dict.maybe(.objCDeprecationMessage, objCDecl.deprecation)
+            dict.maybe(.objCUnavailableMessage, objCDecl.unavailability)
+            dict.maybe(.objCNamePieces, objCDecl.namePieces.dictsForJSON)
         }
         if !translatedDocs.isEmpty {
-            dict[.documentation] = translatedDocs.dictForJSON
+            dict.set(.documentation, translatedDocs.dictForJSON)
         }
-        if !children.isEmpty {
-            dict[SwiftDocKey.substructure.rawValue] = children.map { $0.dictForJSON }
-        }
+        dict.maybe(.substructure, children.map { $0.dictForJSON })
         return dict
     }
 
     /// Add in extra metadata at the root
     func rootDictForJSON(moduleName: String, passIndex: Int) -> SourceKittenDict {
         var dict = dictForJSON
-        dict[.version] = Version.j2libVersion
-        dict[.moduleName] = moduleName
-        dict[.passIndex] = Int64(passIndex)
+        dict.set(.version, Version.j2libVersion)
+        dict.set(.moduleName, moduleName)
+        dict.set(.passIndex, Int64(passIndex))
         return dict
     }
 }
 
-extension GatherModulePass {
+fileprivate extension GatherModulePass {
     /// Build array of 1-element hashes from pathname to data
     var dictsForJSON : [NSDictionary] {
         files.map { file in

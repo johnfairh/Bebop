@@ -79,13 +79,13 @@ class SwiftDeclarationBuilder {
     func build() -> SwiftDeclaration? {
         availability = availabilityRules.defaults // override later if we get that far
 
-        guard let annotatedDecl = dict["key.fully_annotated_decl"] as? String else {
+        guard let annotatedDecl = dict.fullyAnnotatedDecl else {
             // Means unavailable or something, not an error condition
             return nil
         }
 
         compilerDecl = parse(annotatedDecl: annotatedDecl)
-        if let parsedDecl = dict[SwiftDocKey.parsedDeclaration.rawValue] as? String {
+        if let parsedDecl = dict.parsedDeclaration {
             // Always use parsed for extensions - compiler is for extended type
             if (kind?.isSwiftExtension ?? false) ||
                 // Use parsed if compiler is missing (impossible?)
@@ -98,14 +98,14 @@ class SwiftDeclarationBuilder {
         }
 
         guard let bestDeclaration = neatParsedDecl ?? compilerDecl else {
-            let name = dict[SwiftDocKey.name.rawValue] as? String ?? "(unknown)"
+            let name = dict.name ?? "(unknown)"
             logDebug("Couldn't figure out a declaration for '\(name)'.")
             return nil
         }
 
         // Sort out decl attributes and @available statements
 
-        if let attributeDicts = dict["key.attributes"] as? [SourceKittenDict] {
+        if let attributeDicts = dict.attributes {
             var allAttributes = parse(attributeDicts: attributeDicts)
             let pivot = allAttributes.partition { $0.hasPrefix("@available") }
             attributes = Array(allAttributes[0..<pivot])
@@ -126,9 +126,8 @@ class SwiftDeclarationBuilder {
         }
 
         // Declaration-adjacent info
-        let typeModuleName = dict["key.modulename"] as? String
-        let inheritedTypes = (dict[SwiftDocKey.inheritedtypes.rawValue] as? [SourceKittenDict])
-            .flatMap { $0.compactMap { $0[SwiftDocKey.name.rawValue] as? String } } ?? []
+        let inheritedTypes = dict.inheritedTypes
+            .flatMap { $0.compactMap { $0.name } } ?? []
 
         // Tidy up
         let deprecation = deprecations.isEmpty ? nil : deprecations.joined(by: "\n\n")
@@ -142,7 +141,7 @@ class SwiftDeclarationBuilder {
                                 deprecation: deprecation,
                                 availability: availability,
                                 namePieces: pieces,
-                                typeModuleName: typeModuleName,
+                                typeModuleName: dict.moduleName,
                                 inheritedTypes: inheritedTypes)
     }
 
@@ -201,12 +200,12 @@ class SwiftDeclarationBuilder {
     /// @available attributes that state multiple facts get reflected multiple times so we have to dedup.
     func parse(attributeDicts: [SourceKittenDict]) -> [String] {
         struct Attr: Hashable {
-            let offset: Int64
-            let length: Int64
+            let offset: Int
+            let length: Int
         }
         let attrs = attributeDicts.compactMap { dict -> Attr? in
-            guard let offset = dict["key.offset"] as? Int64,
-                let length = dict["key.length"] as? Int64 else {
+            guard let offset = dict.offset,
+                let length = dict.length else {
                 return nil
             }
             return Attr(offset: offset, length: length)
@@ -232,11 +231,11 @@ final class ObjCSwiftDeclarationBuilder : SwiftDeclarationBuilder {
     /// Take ObjC info, and form enough pieces of Swift info to drive the declaration builder
     init(objCDict: SourceKittenDict, kind: DefKind, availabilityRules: GatherAvailabilityRules) {
         var swiftDict = SourceKittenDict()
-        let swiftDecl = objCDict[SwiftDocKey.swiftDeclaration.rawValue] as? String
+        let swiftDecl = objCDict.swiftDeclaration
         if let swiftDecl = swiftDecl {
-            swiftDict["key.fully_annotated_decl"] = "<objc>\(swiftDecl)</objc>"
+            swiftDict[SwiftDocKey2.fullyAnnotatedDecl.rawValue] = "<objc>\(swiftDecl)</objc>"
         }
-        if let swiftName = objCDict[SwiftDocKey.swiftName.rawValue] as? String {
+        if let swiftName = objCDict.swiftName {
             swiftDict[SwiftDocKey.name.rawValue] = swiftName
         }
         precondition(!kind.isSwift)

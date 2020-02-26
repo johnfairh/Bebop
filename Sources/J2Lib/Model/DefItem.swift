@@ -34,8 +34,8 @@ public class DefItem: Item {
     public init?(location: DefLocation, gatherDef: GatherDef, uniquer: StringUniquer) {
         // Filter out defs we don't/can't include in docs
 
-        guard let usr = gatherDef.sourceKittenDict[SwiftDocKey.usr.rawValue] as? String else {
-            if let typename = gatherDef.sourceKittenDict[SwiftDocKey.typeName.rawValue] as? String,
+        guard let usr = gatherDef.sourceKittenDict.usr else {
+            if let typename = gatherDef.sourceKittenDict.typeName,
                 typename.contains("<<error-type>>") {
                 logWarning(.localized(.wrnErrorType, gatherDef.sourceKittenDict, location))
             } else {
@@ -47,7 +47,7 @@ public class DefItem: Item {
             return nil
         }
 
-        guard let name = gatherDef.sourceKittenDict[SwiftDocKey.name.rawValue] as? String,
+        guard let name = gatherDef.sourceKittenDict.name,
             let kind = gatherDef.kind,
             ( (kind.isSwift && gatherDef.swiftDeclaration != nil) ||
               (kind.isObjC && gatherDef.objCDeclaration != nil) ) else {
@@ -62,9 +62,9 @@ public class DefItem: Item {
 
         // Populate self
 
-        let line = (gatherDef.sourceKittenDict[SwiftDocKey.docLine.rawValue] as? Int64).flatMap(Int.init)
-        let startLine = (gatherDef.sourceKittenDict[SwiftDocKey.parsedScopeStart.rawValue] as? Int64).flatMap(Int.init)
-        let endLine = (gatherDef.sourceKittenDict[SwiftDocKey.parsedScopeEnd.rawValue] as? Int64).flatMap(Int.init)
+        let line = gatherDef.sourceKittenDict.docLine
+        let startLine = gatherDef.sourceKittenDict.parsedScopeStart
+        let endLine = gatherDef.sourceKittenDict.parsedScopeEnd
         self.location = DefLocation(moduleName: location.moduleName,
                                     passIndex: location.passIndex,
                                     filePathname: location.filePathname,
@@ -86,7 +86,7 @@ public class DefItem: Item {
         self.unavailableNotice = objCDeclaration?.unavailability.flatMap(RichText.init)
 
         if kind.isObjC {
-            otherLanguageName = gatherDef.sourceKittenDict[SwiftDocKey.swiftName.rawValue] as? String
+            otherLanguageName = gatherDef.sourceKittenDict.swiftName
         } else {
             otherLanguageName = nil // todo swift->objc
         }

@@ -74,8 +74,6 @@ public struct GatherModulePass {
     public let moduleName: String
     public let passIndex: Int
     public let files: [(pathname: String, GatherDef)]
-    // public let availabilityDefaults: [String] // not serialized
-    // public let ignoreAvailabilityAttr: Bool   // not serialized
 }
 
 //public enum MergeModulePolicy {

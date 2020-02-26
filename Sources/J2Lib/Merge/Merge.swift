@@ -29,7 +29,7 @@ public struct Merge: Configurable {
             pass.files.map { fileDef -> [DefItem] in
                 let filePathname = fileDef.0
                 let rootDef = fileDef.1
-                guard rootDef.sourceKittenDict["key.diagnostic_stage"] != nil else {
+                guard rootDef.sourceKittenDict.diagnosticStage != nil else {
                     logWarning(.localized(.wrnMergeMissingRoot, filePathname, pass.passIndex))
                     return []
                 }
@@ -78,7 +78,7 @@ extension GatherDef {
     public var asTopicMark: Topic? {
         guard let kind = kind,
             kind.isMark,
-            let text = sourceKittenDict[SwiftDocKey.name.rawValue] as? String else {
+            let text = sourceKittenDict.name else {
             return nil
         }
         if kind.isSwift && !text.hasPrefix("MARK: ") {

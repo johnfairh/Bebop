@@ -101,6 +101,7 @@
 		02CFFA4C23E8461800FDE5B9 /* libcmark_gfm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02CFFA4923E8460700FDE5B9 /* libcmark_gfm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		02CFFA4D23E8461A00FDE5B9 /* Maaku.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02CFFA4723E8460400FDE5B9 /* Maaku.framework */; };
 		02CFFA4E23E8461A00FDE5B9 /* Maaku.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02CFFA4723E8460400FDE5B9 /* Maaku.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		02D00C802406D74700DD93C5 /* GatherSourceKitten.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D00C7F2406D74700DD93C5 /* GatherSourceKitten.swift */; };
 		02D064F423EC208200FE11BD /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D064F323EC208200FE11BD /* Group.swift */; };
 		02F2B3C4239A7E2A00397BC6 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C24034239A732200518764 /* main.swift */; };
 		02FDC67A23E876D300C2F9CD /* DefDocs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FDC67923E876D300C2F9CD /* DefDocs.swift */; };
@@ -283,6 +284,7 @@
 		02CFFA4523E75DF500FDE5B9 /* GatherDeclPieces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherDeclPieces.swift; sourceTree = "<group>"; };
 		02CFFA4723E8460400FDE5B9 /* Maaku.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Maaku.framework; path = Carthage/Build/Mac/Maaku.framework; sourceTree = "<group>"; };
 		02CFFA4923E8460700FDE5B9 /* libcmark_gfm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libcmark_gfm.framework; path = Carthage/Build/Mac/libcmark_gfm.framework; sourceTree = "<group>"; };
+		02D00C7F2406D74700DD93C5 /* GatherSourceKitten.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherSourceKitten.swift; sourceTree = "<group>"; };
 		02D064F323EC208200FE11BD /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		02F2B3B4239A7E0C00397BC6 /* J2CLI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = J2CLI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02F2B3D0239A89D700397BC6 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
@@ -505,6 +507,7 @@
 				02FDC67B23E879E700C2F9CD /* GatherMarkdown.swift */,
 				02FDC68523E9EEE900C2F9CD /* GatherLocalize.swift */,
 				02CFF92A23DEF49400FDE5B9 /* GatherJSON.swift */,
+				02D00C7F2406D74700DD93C5 /* GatherSourceKitten.swift */,
 			);
 			path = Gather;
 			sourceTree = "<group>";
@@ -788,6 +791,7 @@
 				02CFF92B23DEF49400FDE5B9 /* GatherJSON.swift in Sources */,
 				0233D52923EF1582004DCD89 /* Format.swift in Sources */,
 				02FDC68023E8B25100C2F9CD /* Localization.swift in Sources */,
+				02D00C802406D74700DD93C5 /* GatherSourceKitten.swift in Sources */,
 				0233D53723F07B1A004DCD89 /* GenData.swift in Sources */,
 				022818D123D4F2AE0016B0D5 /* Glob.swift in Sources */,
 				0233D53D23F30851004DCD89 /* GuideItem.swift in Sources */,
