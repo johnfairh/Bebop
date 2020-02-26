@@ -68,6 +68,8 @@ internal enum L10n {
     case msgGeneratingDocs = "msg-generating-docs"
     /// j2: Generate API documentation for Swift or Objective-C code.\n\nUsage: j2 [options]\n\nOptions:
     case msgHelpIntro = "msg-help-intro"
+    /// No definitions found in --default-langauge '%1', using '%2' instead.
+    case wrnBadUserLanguage = "wrn-bad-user-language"
     /// Config key '%1' ignored, already set on command-line.
     case wrnCfgIgnored = "wrn-cfg-ignored"
     /// Language tags missing for '%1': %2.
@@ -94,6 +96,10 @@ internal enum L10n {
     case wrnPathNoChdir = "wrn-path-no-chdir"
     /// --quiet and --debug both set, ignoring --quiet.
     case wrnQuietDebug = "wrn-quiet-debug"
+    /// Incomplete definition JSON '%1' %2, ignoring.
+    case wrnSktnIncomplete = "wrn-sktn-incomplete"
+    /// Unsupported definition kind '%1', ignoring.
+    case wrnSktnKind = "wrn-sktn-kind"
   }
   internal enum Output : String {
     /// Authors

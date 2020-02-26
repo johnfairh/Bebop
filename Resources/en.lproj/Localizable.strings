@@ -67,3 +67,6 @@ Options:";
 "err-objc-sourcekitten" = "Unexpected data shape from SourceKitten json, can't process dict '%1'.";
 "err-objc-sdk" = "Couldn't find SDK path.";
 "err-enumerator" = "Couldn't create path enumerator starting '%1'.";
+"wrn-sktn-kind" = "Unsupported definition kind '%1', ignoring.";
+"wrn-sktn-incomplete" = "Incomplete definition JSON '%1' %2, ignoring.";
+"wrn-bad-user-language" = "No definitions found in --default-langauge '%1', using '%2' instead.";

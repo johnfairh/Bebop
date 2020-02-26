@@ -50,7 +50,7 @@ public final class GatherDef {
         }
         let name = sourceKittenDict[SwiftDocKey.name.rawValue] as? String ?? ""
         guard let kind = DefKind.from(key: kindValue, name: name) else {
-            logWarning("Unsupported definition kind '\(kindValue)', ignoring.")
+            logWarning(.localized(.wrnSktnKind, kindValue))
             return nil
         }
         self.kind = kind

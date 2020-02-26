@@ -47,7 +47,7 @@ public class DefItem: Item {
             let kind = gatherDef.kind,
             ( (kind.isSwift && gatherDef.swiftDeclaration != nil) ||
               (kind.isObjC && gatherDef.objCDeclaration != nil) ) else {
-            logWarning("Incomplete definition JSON, ignoring \(gatherDef.sourceKittenDict) \(location)")
+            logWarning(.localized(.wrnSktnIncomplete, gatherDef.sourceKittenDict, location))
             return nil
         }
 

@@ -55,7 +55,7 @@ public struct GenPages: Configurable {
             return userDefault
         }
         if fallback != userDefault {
-            logWarning("No definitions found in --default-language '\(userDefault)', using '\(fallback)'.")
+            logWarning(.localized(.wrnBadUserLanguage, userDefault, fallback))
         }
         return fallback
     }
