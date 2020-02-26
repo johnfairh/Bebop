@@ -54,6 +54,14 @@ public class ABaseClass {
   public func method(param: Int) -> String {
     return ""
   }
+
+  public subscript(arg: String) -> Int {
+    get {
+      return 0
+    }
+    set {
+    }
+  }
 }
 
 /// A derived class

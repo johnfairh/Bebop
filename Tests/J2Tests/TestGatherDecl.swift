@@ -242,15 +242,19 @@ class TestGatherDecl: XCTestCase {
 
         // Not entirely sure this is right for subscript!
         let subscriptKind = DefKind.from(key: "source.lang.swift.decl.function.subscript")!
-        let pieces = builder.parseToPieces(declaration: "public subscript(newValue: Int) -> String", name: "subscript", kind: subscriptKind)
+        let pieces = builder.parseToPieces(declaration: "public subscript(newValue: Int) -> String { get }", name: "subscript", kind: subscriptKind)
         XCTAssertEqual("#subscript#(#newValue#: Int) -> String", pieces.flat)
 
-        let initKind = DefKind.from(key: "source.lang.swift.decl.function.constructor")!
-        let pieces2 = builder.parseToPieces(declaration: "init()", name: "init", kind: initKind)
+        let initKind = DefKind.from(key: "source.lang.swift.decl.function.method.instance", name: "init?()")!
+        let pieces2 = builder.parseToPieces(declaration: "init()", name: "init()", kind: initKind)
         XCTAssertEqual("#init#()", pieces2.flat)
 
-        let pieces3 = builder.parseToPieces(declaration: "init(a b: Int)", name: "init", kind: initKind)
+        let pieces3 = builder.parseToPieces(declaration: "init(a b: Int)", name: "init(b:)", kind: initKind)
         XCTAssertEqual("#init#(#a#: Int)", pieces3.flat)
+
+        let deinitKind = DefKind.from(key: "source.lang.swift.decl.function.method.instance", name: "deinit")!
+        let pieces4 = builder.parseToPieces(declaration: "deinit", name: "deinit", kind: deinitKind)
+        XCTAssertEqual("#deinit#", pieces4.flat)
     }
 
     // Localization

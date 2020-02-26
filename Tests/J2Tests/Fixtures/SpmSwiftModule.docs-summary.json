@@ -557,7 +557,7 @@
           "items" : [
             {
               "anchor_id" : "init",
-              "dash_type" : "Method",
+              "dash_type" : "Constructor",
               "def" : {
                 "availability" : [],
                 "params" : [],
@@ -566,11 +566,11 @@
                 }
               },
               "flat_title" : {
-                "en" : "func ()"
+                "en" : "init()"
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>(<span class=\"j2-item-secondary\">)<\/span>"
+                "html" : "init<span class=\"j2-item-secondary\">()<\/span>"
               }
             },
             {
@@ -584,11 +584,11 @@
                 }
               },
               "flat_title" : {
-                "en" : "func "
+                "en" : "deinit"
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>"
+                "html" : "deinit"
               }
             },
             {
@@ -612,6 +612,24 @@
               "primary_language" : "swift",
               "primary_title_html" : {
                 "html" : "<span class=\"j2-item-secondary\">func <\/span>method<span class=\"j2-item-secondary\">(<\/span>param<span class=\"j2-item-secondary\">: Int) -> String<\/span>"
+              }
+            },
+            {
+              "anchor_id" : "subscript_",
+              "dash_type" : "Method",
+              "def" : {
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "public subscript(arg: String) -> Int { get set }"
+                }
+              },
+              "flat_title" : {
+                "en" : "subscript(arg: String) -> Int"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "subscript<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: String) -> Int<\/span>"
               }
             }
           ],

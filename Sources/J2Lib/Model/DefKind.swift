@@ -237,6 +237,11 @@ public final class DefKind {
         return kindMap[key]
     }
 
+    /// Find the `Kind` object from a sourcekitten dictionary key and declaration name, or `nil` if it's not supported
+    public static func from(key: String, name: String) -> DefKind? {
+        kindMap[key].flatMap { $0.adjust(name: name) }
+    }
+
     /// Cache string -> Kind
     private static let kindMap: [String : DefKind] = {
         var map: [String: DefKind] = [:]
@@ -248,6 +253,19 @@ public final class DefKind {
     /// Sequence access to kinds list
     public static var all: [DefKind] { // should be `some Sequence` !
         allObjCKinds + allSwiftKinds
+    }
+
+    /// Tweak cockups...
+    private func adjust(name: String) -> DefKind {
+        if hasSwiftFunctionName {
+            if name.re_isMatch(#"^init[?!]?\("#) {
+                return DefKind.from(key: SwiftDeclarationKind.functionConstructor.rawValue)!
+            }
+            if name == "deinit" {
+                return DefKind.from(key: SwiftDeclarationKind.functionDestructor.rawValue)!
+            }
+        }
+        return self
     }
 
     /// Master list of kinds.  I've superstitiously kept the jazzy ordering, which might affect the default

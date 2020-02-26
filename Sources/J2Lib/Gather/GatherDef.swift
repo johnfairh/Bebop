@@ -48,11 +48,11 @@ public final class GatherDef {
             self.objCDeclaration = nil
             return
         }
-        guard let kind = DefKind.from(key: kindValue) else {
-            logWarning("Unsupported declaration kind '\(kindValue)', ignoring.")
+        let name = sourceKittenDict[SwiftDocKey.name.rawValue] as? String ?? ""
+        guard let kind = DefKind.from(key: kindValue, name: name) else {
+            logWarning("Unsupported definition kind '\(kindValue)', ignoring.")
             return nil
         }
-
         self.kind = kind
 
         if let docComment = sourceKittenDict[SwiftDocKey.documentationComment.rawValue] as? String {

@@ -48,7 +48,8 @@ extension SwiftDeclarationBuilder {
     private func parseFunctionToPieces(declaration: String, kind: DefKind) -> [DeclarationPiece] {
         // Strip declaration of leading and trailing bits
         guard let match = declaration.re_match("(?:func|init|subscript).*?(?=$|\\s*where)"),
-            case let cleanDecl = match[0].re_sub(" (?:re)?throws", with: ""),
+            case let cleanDecl = match[0].re_sub(" (?:re)?throws", with: "")
+                .re_sub(#"\s*\{(?:\s*get|\s+set)+\s*\}"#, with: ""),
             // Build its parse tree
             let syntax = try? SyntaxParser.parse(source: cleanDecl) else {
             return [.other(declaration)]
