@@ -69,7 +69,8 @@ class TestProducts: XCTestCase {
                 return nil
             }
             if line.contains(#""key.filepath""#) ||
-                line.contains(#""key.doc.file""# ) {
+                line.contains(#""key.doc.file""#) ||
+                line.contains(#""file_pathname""#) {
                 // filesystem
                 return nil
             }
@@ -87,7 +88,7 @@ class TestProducts: XCTestCase {
     }
 
     func testDeclsJsonSwift() throws {
-        try compareSwift(product: "decls-json", against: "SpmSwiftModule.decls.json")
+        try compareSwift(product: "decls-json", against: "SpmSwiftModule.decls.json", cleanUpJSON: true)
     }
 
     #if os(macOS)
@@ -96,7 +97,7 @@ class TestProducts: XCTestCase {
     }
 
     func testDeclsJsonObjC() throws {
-        try compareObjC(product: "decls-json", against: "ObjectiveC.decls.json")
+        try compareObjC(product: "decls-json", against: "ObjectiveC.decls.json", cleanUpJSON: true)
     }
     #endif
 
