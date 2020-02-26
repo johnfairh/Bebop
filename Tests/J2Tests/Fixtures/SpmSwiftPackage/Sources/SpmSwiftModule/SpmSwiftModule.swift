@@ -24,6 +24,8 @@ public enum AnEnum {
     case second
     /// Third & Fourth cases
     case third, fourth
+    /// Fifth case
+    case fifth(a: String,_ b: Int)
 }
 
 /// - parameters:

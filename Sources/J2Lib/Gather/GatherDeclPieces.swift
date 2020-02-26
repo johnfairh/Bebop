@@ -30,6 +30,9 @@ extension SwiftDeclarationBuilder {
         guard !kind.hasSwiftFunctionName else {
             return parseFunctionToPieces(declaration: declaration, kind: kind)
         }
+        guard !kind.isSwiftEnumElement else {
+            return parseEnumElementToPieces(declaration: declaration, kind: kind)
+        }
         var pieces: [DeclarationPiece] = []
         if let declPrefix = kind.declPrefix {
             pieces.append(.other("\(declPrefix) "))
@@ -49,10 +52,26 @@ extension SwiftDeclarationBuilder {
         // Strip declaration of leading and trailing bits
         guard let match = declaration.re_match("(?:func|init|subscript).*?(?=$|\\s*where)"),
             case let cleanDecl = match[0].re_sub(" (?:re)?throws", with: "")
-                .re_sub(#"\s*\{(?:\s*get|\s+set)+\s*\}"#, with: ""),
-            // Build its parse tree
-            let syntax = try? SyntaxParser.parse(source: cleanDecl) else {
+                .re_sub(#"\s*\{(?:\s*get|\s+set)+\s*\}"#, with: "") else {
             return [.other(declaration)]
+        }
+        return parseToPieces(cleanDecl: cleanDecl, kind: kind)
+    }
+
+    /// Enum elements are a lot like function parameters.  Luckily SwiftSyntax is aware of this and uses the exact same
+    /// types to model the associated value clause.
+    private func parseEnumElementToPieces(declaration: String, kind: DefKind) -> [DeclarationPiece] {
+        // Strip declaration of leading and trailing bits
+        guard let match = declaration.re_match("case.*?(?=$|\\s=)") else {
+            return [.other(declaration)]
+        }
+        return parseToPieces(cleanDecl: match[0], kind: kind)
+    }
+
+    private func parseToPieces(cleanDecl: String, kind: DefKind) -> [DeclarationPiece] {
+        // Build the parse tree
+        guard let syntax = try? SyntaxParser.parse(source: cleanDecl) else {
+            return [.other(cleanDecl)]
         }
         // Pick out and sort the tokens we want
         var visitor = FunctionPiecesVisitor(prefix: kind.declPrefix)
@@ -61,9 +80,9 @@ extension SwiftDeclarationBuilder {
     }
 }
 
-/// SwiftSyntax visitor to pick out pieces of a function's name (the token after the `func`, then
-/// the names of any arguments, picking whichever looks right.  Also discard extraneous stuff
-/// from the declaration: default argument values, type attributess.
+/// SwiftSyntax visitor to pick out pieces of a function/enum element's name (the token after the
+/// `func`, then the names of any arguments, picking whichever looks right.  Also discard
+/// extraneous stuff from the declaration: default argument values, type attributes.
 private class FunctionPiecesVisitor: SyntaxVisitor {
     private var ignoreNextToken: Bool
     private var seenName: Bool
@@ -136,6 +155,7 @@ private class FunctionPiecesVisitor: SyntaxVisitor {
         return .skipChildren
     }
 
+    /// Called at the end of everything, finish our current accumulator
     func visitPost(_ node: CodeBlockItemSyntax) {
         finishCurrentOther()
     }

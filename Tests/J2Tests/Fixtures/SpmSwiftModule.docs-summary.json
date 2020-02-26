@@ -429,11 +429,11 @@
                 }
               },
               "flat_title" : {
-                "en" : "case first(_:)"
+                "en" : "case first(Int)"
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">case <\/span>first(_:)"
+                "html" : "<span class=\"j2-item-secondary\">case <\/span>first<span class=\"j2-item-secondary\">(Int)<\/span>"
               }
             },
             {
@@ -498,6 +498,29 @@
               "primary_language" : "swift",
               "primary_title_html" : {
                 "html" : "<span class=\"j2-item-secondary\">case <\/span>fourth"
+              }
+            },
+            {
+              "anchor_id" : "fiftha_",
+              "dash_type" : "Case",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Fifth case<\/p>"
+                  }
+                },
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "case fifth(a: String, _: Int)"
+                }
+              },
+              "flat_title" : {
+                "en" : "case fifth(a: String, Int)"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">case <\/span>fifth<span class=\"j2-item-secondary\">(<\/span>a<span class=\"j2-item-secondary\">: String, Int)<\/span>"
               }
             }
           ],

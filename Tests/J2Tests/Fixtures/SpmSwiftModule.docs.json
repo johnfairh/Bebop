@@ -659,15 +659,15 @@
           {
             "anchor_id" : "first_",
             "any_declaration" : true,
-            "dash_name" : "case%20first(_%3A)",
+            "dash_name" : "case%20first(Int)",
             "dash_type" : "Case",
             "def" : {
               "abstract_html" : "<p>First case<\/p>",
               "swift_declaration_html" : "case first(Int)"
             },
             "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">case <\/span>first(_:)",
-            "title" : "case first(_:)"
+            "primary_title_html" : "<span class=\"j2-item-secondary\">case <\/span>first<span class=\"j2-item-secondary\">(Int)<\/span>",
+            "title" : "case first(Int)"
           },
           {
             "anchor_id" : "second",
@@ -706,6 +706,19 @@
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">case <\/span>fourth",
             "title" : "case fourth"
+          },
+          {
+            "anchor_id" : "fiftha_",
+            "any_declaration" : true,
+            "dash_name" : "case%20fifth(a%3A%20String,%20Int)",
+            "dash_type" : "Case",
+            "def" : {
+              "abstract_html" : "<p>Fifth case<\/p>",
+              "swift_declaration_html" : "case fifth(a: String, _: Int)"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">case <\/span>fifth<span class=\"j2-item-secondary\">(<\/span>a<span class=\"j2-item-secondary\">: String, Int)<\/span>",
+            "title" : "case fifth(a: String, Int)"
           }
         ],
         "primary_language" : "j2-swift"

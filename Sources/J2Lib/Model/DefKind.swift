@@ -170,9 +170,14 @@ public final class DefKind {
         ])
     }
 
-    /// EnumCase is the useless wrapper, we want the enumelement within
+    /// EnumCase is the useless wrapper, we usually want the enumelement[s] within
     var isSwiftEnumCase: Bool {
         testSwiftKey(keys: [.enumcase])
+    }
+
+    /// EnumElement is the singular enum element
+    var isSwiftEnumElement: Bool {
+        testSwiftKey(keys: [.enumelement])
     }
 
     var isSwiftEnum: Bool {
