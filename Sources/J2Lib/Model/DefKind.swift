@@ -129,6 +129,11 @@ public final class DefKind {
         return keys.contains(objcKey)
     }
 
+    /// Is this def kind supposed to make it into docs?
+    var includeInDocs: Bool {
+        !testObjCKey(keys: [.moduleImport])
+    }
+
     /// Is this any kind of Swift extension declaration?
     var isSwiftExtension: Bool {
         testSwiftKey(keys: [
@@ -251,9 +256,10 @@ public final class DefKind {
     }()
 
     /// Sequence access to kinds list
-    public static var all: [DefKind] { // should be `some Sequence` !
-        allObjCKinds + allSwiftKinds
-    }
+    // wtf was this for??
+//    public static var all: [DefKind] { // should be `some Sequence` !
+//        allObjCKinds + allSwiftKinds
+//    }
 
     /// Tweak cockups...
     private func adjust(name: String) -> DefKind {

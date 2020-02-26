@@ -50,7 +50,7 @@ class TestMerge: XCTestCase {
     func testBadDeclMergeImport() throws {
         let clazz = SourceKittenDict.mkClass(name: "Parent").with(children: [
             .mkClass(name: "Good"),
-            SourceKittenDict().with(field: .usr, value: "usr") // bad
+            SourceKittenDict().with(usr: "usr") // bad
         ])
         let file = SourceKittenDict.mkFile().with(children: [clazz])
         let system = System()
@@ -62,6 +62,29 @@ class TestMerge: XCTestCase {
         XCTAssertEqual(1, TestLogger.shared.diagsBuf.count)
     }
 
+    /// Bad-usr scenarios 1
+    func testMissingUsrScenarios1() throws {
+        TestLogger.install()
+        let clazz = SourceKittenDict.mkClass(name: "C").without(field: .usr)
+        let file = SourceKittenDict.mkFile().with(children: [clazz])
+        let system = System()
+        let defItems = try system.merge.merge(gathered: file.asGatherPasses)
+        XCTAssertTrue(defItems.isEmpty)
+        XCTAssertTrue(TestLogger.shared.diagsBuf.isEmpty)
+    }
+
+    /// Bad-usr scenarios 2
+    func testMissingUsrScenarios2() throws {
+        TestLogger.install()
+        let clazz = SourceKittenDict.mkClass(name: "C")
+            .without(field: .usr)
+            .with(typename: "<<error-type>> -> String")
+        let file = SourceKittenDict.mkFile().with(children: [clazz])
+        let system = System()
+        let defItems = try system.merge.merge(gathered: file.asGatherPasses)
+        XCTAssertTrue(defItems.isEmpty)
+        XCTAssertEqual(1, TestLogger.shared.diagsBuf.count)
+    }
 
     // Marks
 

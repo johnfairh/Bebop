@@ -32,14 +32,18 @@ public class DefItem: Item {
 
     /// Create from a gathered definition
     public init?(location: DefLocation, gatherDef: GatherDef, uniquer: StringUniquer) {
-
-        // Inadequacy checks
+        // Filter out defs we don't/can't include in docs
 
         guard let usr = gatherDef.sourceKittenDict[SwiftDocKey.usr.rawValue] as? String else {
-            // Usr is special, missing means just not compiled, #if'd out - should be in another pass.
-            // Compiler errors come in here too unfortunately and we can't tell them apart -- the
-            // key.diagnostic is useless.
-            logDebug("No usr, ignoring \(gatherDef.sourceKittenDict) \(location)")
+            if let typename = gatherDef.sourceKittenDict[SwiftDocKey.typeName.rawValue] as? String,
+                typename.contains("<<error-type>>") {
+                logWarning(.localized(.wrnErrorType, gatherDef.sourceKittenDict, location))
+            } else {
+                // Usr is special, missing means just not compiled, #if'd out - should be in another pass.
+                // Compiler errors come in here too unfortunately and we can't tell them apart -- the
+                // key.diagnostic is useless.
+                logDebug("No usr, ignoring \(gatherDef.sourceKittenDict) \(location)")
+            }
             return nil
         }
 
@@ -51,7 +55,10 @@ public class DefItem: Item {
             return nil
         }
 
-        // Filter unwanted kinds
+        guard kind.includeInDocs else {
+            logDebug("Kind marked for exclusion, ignoring \(gatherDef.sourceKittenDict) \(location)")
+            return nil
+        }
 
         // Populate self
 

@@ -70,3 +70,4 @@ Options:";
 "wrn-sktn-kind" = "Unsupported definition kind '%1', ignoring.";
 "wrn-sktn-incomplete" = "Incomplete definition JSON '%1' %2, ignoring.";
 "wrn-bad-user-language" = "No definitions found in --default-langauge '%1', using '%2' instead.";
+"wrn-error-type" = "Swift compiler error for '%1' %2, ignoring.  Check build flags and import statements?";

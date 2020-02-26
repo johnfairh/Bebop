@@ -108,19 +108,36 @@ extension SourceKittenDict {
         with(field: field.rawValue, value: value)
     }
 
+    func without(field: SwiftDocKey) -> Self {
+        without(field: field.rawValue)
+    }
+
     func with(field: String, value: SourceKitRepresentable) -> Self {
         var copy = self
         copy[field] = value
         return copy
     }
 
+    func without(field: String) -> Self {
+        var copy = self
+        copy.removeValue(forKey: field)
+        return copy
+    }
+
     func with(name: String) -> Self {
         with(field: .name, value: name)
-            .with(field: .usr, value: name)
     }
 
     func with(kind: SwiftDeclarationKind) -> Self {
         with(field: .kind, value: kind.rawValue)
+    }
+
+    func with(usr: String) -> Self {
+        with(field: .usr, value: usr)
+    }
+
+    func with(typename: String) -> Self {
+        with(field: .typeName, value: typename)
     }
 
     #if os(macOS)
@@ -149,6 +166,7 @@ extension SourceKittenDict {
             .with(name: name)
             .with(decl: "class \(name)")
             .with(comment: docs)
+            .with(usr: name)
     }
 
     static func mkStruct(name: String, docs: String = "") -> Self {
@@ -157,6 +175,7 @@ extension SourceKittenDict {
             .with(name: name)
             .with(decl: "struct \(name)")
             .with(comment: docs)
+            .with(usr: name)
     }
 
     static func mkInstanceVar(name: String, docs: String = "") -> Self {
@@ -165,6 +184,7 @@ extension SourceKittenDict {
             .with(name: name)
             .with(decl: "var \(name)")
             .with(comment: docs)
+            .with(usr: name)
     }
 
     static func mkGlobalVar(name: String, docs: String = "") -> Self {
@@ -173,6 +193,7 @@ extension SourceKittenDict {
             .with(name: name)
             .with(decl: "var \(name)")
             .with(comment: docs)
+            .with(usr: name)
     }
 
     static func mkSwiftMark(text: String) -> Self {

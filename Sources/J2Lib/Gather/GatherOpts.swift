@@ -83,10 +83,10 @@ struct GatherOpts : Configurable {
         }
 
         if objcDirectOpt.configured {
+            published.defaultLanguage = .objc
             #if !os(macOS)
             throw OptionsError(.localized(.errObjcLinux))
             #endif
-            published.defaultLanguage = .objc
         }
 
         if objcHeaderFileOpt.configured && buildToolOpt.configured {

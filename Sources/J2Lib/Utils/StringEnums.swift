@@ -78,6 +78,8 @@ internal enum L10n {
     case wrnDuplicateGuide = "wrn-duplicate-guide"
     /// No guides matching '*.md' found expanding '%1'.
     case wrnEmptyGuideGlob = "wrn-empty-guide-glob"
+    /// Swift compiler error for '%1' %2, ignoring.  Check build flags and import statements?
+    case wrnErrorType = "wrn-error-type"
     /// fnmatch(3) failed, pattern '%1', path '%2', errno %3/%4.
     case wrnFnmatchErrno = "wrn-fnmatch-errno"
     /// glob(3) failed, pattern '%1', errno %2/%3.

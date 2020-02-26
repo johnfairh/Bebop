@@ -1,27 +1,5 @@
 [
   {
-    "children" : [],
-    "kind" : "sourcekitten.source.lang.objc.module.import",
-    "location" : {
-      "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-      "first_line" : 1,
-      "last_line" : 1,
-      "module_name" : "Module",
-      "pass_index" : 0
-    },
-    "name" : "Foundation",
-    "obj_c_declaration" : {
-      "declaration" : "@import Foundation",
-      "name_pieces" : [
-        {
-          "name" : "@import Foundation"
-        }
-      ]
-    },
-    "obj_c_name" : "Foundation",
-    "usr" : "c:"
-  },
-  {
     "children" : [
       {
         "children" : [],
