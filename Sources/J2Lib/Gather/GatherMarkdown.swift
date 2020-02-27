@@ -16,7 +16,7 @@ import Maaku
 public class MarkdownBuilder {
     let input: Markdown
     private var abstract: Markdown?
-    private var overview: Markdown?
+    private var discussion: Markdown?
     private var returns: Markdown?
     private var parameters: [FlatDefDocs.Param] = []
     private(set) var localizationKey: String?
@@ -42,19 +42,19 @@ public class MarkdownBuilder {
             abstract = firstPara.renderMarkdown()
         }
 
-        // overview is what's left if anything
+        // discussion is what's left if anything
         if doc.node.firstChild != nil {
-            overview = doc.node.renderMarkdown()
+            discussion = doc.node.renderMarkdown()
         } else if abstract == nil &&
                   returns == nil &&
                   parameters.count == 0 {
             // preserve 'empty' string to avoid wrong 'undocumented' categorization,
             // which is maybe fair but they did write a doc comment so...
-            overview = Markdown("")
+            discussion = Markdown("")
         }
 
         return FlatDefDocs(abstract: abstract,
-                           overview: overview,
+                           discussion: discussion,
                            returns: returns,
                            parameters: parameters)
     }

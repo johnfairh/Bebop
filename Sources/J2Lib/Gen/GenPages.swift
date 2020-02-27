@@ -285,7 +285,7 @@ extension DefItem {
         GenData.Def(deprecation: deprecationNotice?.html,
                     availability: swiftDeclaration?.availability ?? [],
                     abstract: documentation.abstract?.html,
-                    overview: documentation.overview?.html,
+                    discussion: documentation.discussion?.html,
                     swiftDeclaration: swiftDeclaration.flatMap { Html($0.declaration) },
                     objCDeclaration: objCDeclaration.flatMap { Html($0.declaration) },
                     params: documentation.parameters.map { docParam in

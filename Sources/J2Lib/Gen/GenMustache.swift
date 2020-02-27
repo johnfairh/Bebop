@@ -118,7 +118,7 @@ public enum MustacheKey: String {
     case deprecationHtml = "deprecation_html"
     case availability = "availability"
     case abstractHtml = "abstract_html"
-    case overviewHtml = "overview_html"
+    case discussionHtml = "discussion_html"
     case swiftDeclarationHtml = "swift_declaration_html"
     case objCDeclarationHtml = "objc_declaration_html"
     case parameters = "parameters"
@@ -129,6 +129,7 @@ public enum MustacheKey: String {
     case topics = "topics"
     case topicsLanguage = "topics_language"
     case titleHtml = "title_html"
+    case overviewHtml = "overview_html"
     case anchorId = "anchor_id"
     case dashName = "dash_name"
 
@@ -516,7 +517,7 @@ extension GenData.Def: SoloLanguageProtocol {
     ///   swift_declaration_html - swift decl
     ///   objc_declaration_html - objc decl --- at least one of these two will be set
     ///   abstract_html - optional - first part of discussion
-    ///   overview_html - optional - second part of discussion
+    ///   discussion_html - optional - second part of discussion
     ///   parameters - optional - array of title / parameter_html
     ///   returns_html - optional - returns docs
     func generateDef(languageTag: String, fileExt: String) -> MustacheDict {
@@ -528,7 +529,7 @@ extension GenData.Def: SoloLanguageProtocol {
         dict.maybe(.swiftDeclarationHtml, swiftDeclaration?.html)
         dict.maybe(.objCDeclarationHtml, objCDeclaration?.html)
         dict.maybe(.abstractHtml, abstract?.get(languageTag).html)
-        dict.maybe(.overviewHtml, overview?.get(languageTag).html)
+        dict.maybe(.discussionHtml, discussion?.get(languageTag).html)
         if !params.isEmpty {
             dict[.parameters] = params.map {
                 MH([.title: $0.name, .parameterHtml: $0.description.get(languageTag).html])

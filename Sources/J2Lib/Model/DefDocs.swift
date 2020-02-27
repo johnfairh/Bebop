@@ -9,7 +9,7 @@
 /// Broken-down documentation for some definition in some format
 public struct DefDocs<T>: Encodable where T: Encodable & Equatable {
     public internal(set) var abstract: T?
-    public internal(set) var overview: T?
+    public internal(set) var discussion: T?
     public internal(set) var returns: T?
     public struct Param: Encodable, Equatable {
         public let name: String
@@ -19,11 +19,11 @@ public struct DefDocs<T>: Encodable where T: Encodable & Equatable {
 
     /// Initialize a new documentation container
     public init(abstract: T? = nil,
-                overview: T? = nil,
+                discussion: T? = nil,
                 returns: T? = nil,
                 parameters: [Param] = []) {
         self.abstract = abstract
-        self.overview = overview
+        self.discussion = discussion
         self.returns = returns
         self.parameters = parameters
     }
@@ -31,7 +31,7 @@ public struct DefDocs<T>: Encodable where T: Encodable & Equatable {
     /// Is there any content?
     public var isEmpty: Bool {
         abstract == nil &&
-            overview == nil &&
+            discussion == nil &&
             returns == nil &&
             parameters.isEmpty
     }
@@ -53,10 +53,10 @@ extension LocalizedDefDocs {
             abstract[tag] = tabstract
             self.abstract = abstract
         }
-        if let toverview = docs.overview {
-            var overview = self.overview ?? [:]
-            overview[tag] = toverview
-            self.overview = overview
+        if let tdiscussion = docs.discussion {
+            var discussion = self.discussion ?? [:]
+            discussion[tag] = tdiscussion
+            self.discussion = discussion
         }
         if let treturns = docs.returns {
             var returns = self.returns ?? [:]
@@ -89,7 +89,7 @@ public typealias RichDefDocs = DefDocs<RichText>
 extension RichDefDocs {
     public init(_ ldocs: LocalizedDefDocs) {
         abstract = ldocs.abstract.flatMap { RichText($0) }
-        overview = ldocs.overview.flatMap { RichText($0) }
+        discussion = ldocs.discussion.flatMap { RichText($0) }
         returns = ldocs.returns.flatMap { RichText($0) }
         parameters = ldocs.parameters.map {
             Param(name: $0.name, description: RichText($0.description))
@@ -98,7 +98,7 @@ extension RichDefDocs {
 
     public mutating func format(_ call: (Markdown) throws -> (Markdown, Html) ) rethrows {
         try abstract?.format(call)
-        try overview?.format(call)
+        try discussion?.format(call)
         try returns?.format(call)
         parameters = try parameters.map { param in
             var param = param

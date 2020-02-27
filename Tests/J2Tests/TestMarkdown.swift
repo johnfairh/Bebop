@@ -78,7 +78,7 @@ class TestMarkdown: XCTestCase {
         XCTAssertEqual(results.returns, Markdown("The answer - On two lines."))
         XCTAssertEqual(results.parameters, [FlatDefDocs.Param(name: "Fred", description: Markdown("Barney"))])
         XCTAssertEqual(results.abstract, Markdown("Abstract line."))
-        XCTAssertEqual(results.overview, Markdown("""
+        XCTAssertEqual(results.discussion, Markdown("""
            Discussion para 1 of 2.
 
              - not a callout
@@ -101,7 +101,7 @@ class TestMarkdown: XCTestCase {
                        [FlatDefDocs.Param(name: "fred", description: Markdown("wilma")),
                         FlatDefDocs.Param(name: "barney", description: Markdown("betty"))])
         XCTAssertNil(results.abstract)
-        XCTAssertNil(results.overview)
+        XCTAssertNil(results.discussion)
     }
 
     func testDestructure3() {
@@ -114,7 +114,7 @@ class TestMarkdown: XCTestCase {
         XCTAssertNil(results.returns)
         XCTAssertEqual(results.parameters, [])
         XCTAssertNil(results.abstract)
-        XCTAssertEqual(results.overview, Markdown(""))
+        XCTAssertEqual(results.discussion, Markdown(""))
     }
 
     // Formatting part

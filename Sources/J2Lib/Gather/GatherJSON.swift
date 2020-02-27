@@ -46,7 +46,7 @@ private enum GatherKey: String {
     /// Documentation
     case documentation = "key.j2.documentation"
     case abstract = "key.j2.abstract"
-    case overview = "key.j2.overview"
+    case discussion = "key.j2.discussion"
     case returns = "key.j2.returns"
     case parameters = "key.j2.parameters"
     case paramName = "key.j2.param_name"
@@ -76,7 +76,7 @@ fileprivate extension LocalizedDefDocs {
     var dictForJSON: SourceKittenDict {
         var dict = SourceKittenDict()
         dict.maybe(.abstract, abstract?.mapValues { $0.md })
-        dict.maybe(.overview, overview?.mapValues { $0.md })
+        dict.maybe(.discussion, discussion?.mapValues { $0.md })
         dict.maybe(.returns, returns?.mapValues { $0.md })
         dict.maybe(.parameters, parameters.map { $0.dictForJSON })
         return dict

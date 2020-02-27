@@ -36,7 +36,7 @@ public final class GenData: Encodable {
         public let deprecation: Localized<Html>?
         public let availability: [String]
         public let abstract: Localized<Html>?
-        public let overview: Localized<Html>?
+        public let discussion: Localized<Html>?
         public let swiftDeclaration: Html?
         public let objCDeclaration: Html?
         public let params: [Param]
