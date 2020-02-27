@@ -15,7 +15,7 @@
       "key.j2.module_name" : "SpmSwiftModule",
       "key.j2.pass_index" : 0,
       "key.j2.version" : "0.1",
-      "key.length" : 1509,
+      "key.length" : 1605,
       "key.offset" : 0,
       "key.substructure" : [
         {
@@ -1086,7 +1086,7 @@
         },
         {
           "key.accessibility" : "source.lang.swift.accessibility.public",
-          "key.annotated_decl" : "<Declaration>public class ADerivedClass : <Type usr=\"s:14SpmSwiftModule10ABaseClassC\">ABaseClass<\/Type><\/Declaration>",
+          "key.annotated_decl" : "<Declaration>public class ADerivedClass&lt;T, Q&gt; : <Type usr=\"s:14SpmSwiftModule10ABaseClassC\">ABaseClass<\/Type> where Q : <Type usr=\"s:ST\">Sequence<\/Type><\/Declaration>",
           "key.attributes" : [
             {
               "key.attribute" : "source.decl.attribute.public",
@@ -1094,13 +1094,13 @@
               "key.offset" : 1394
             }
           ],
-          "key.bodylength" : 73,
-          "key.bodyoffset" : 1434,
+          "key.bodylength" : 153,
+          "key.bodyoffset" : 1450,
           "key.doc.column" : 14,
           "key.doc.comment" : "A derived class",
-          "key.doc.declaration" : "public class ADerivedClass : ABaseClass",
+          "key.doc.declaration" : "public class ADerivedClass<T, Q> : ABaseClass where Q : Sequence",
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "key.doc.full_as_xml" : "<Class file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"70\" column=\"14\"><Name>ADerivedClass<\/Name><USR>s:14SpmSwiftModule13ADerivedClassC<\/USR><Declaration>public class ADerivedClass : ABaseClass<\/Declaration><CommentParts><Abstract><Para>A derived class<\/Para><\/Abstract><\/CommentParts><\/Class>",
+          "key.doc.full_as_xml" : "<Class file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"70\" column=\"14\"><Name>ADerivedClass<\/Name><USR>s:14SpmSwiftModule13ADerivedClassC<\/USR><Declaration>public class ADerivedClass&lt;T, Q&gt; : ABaseClass where Q : Sequence<\/Declaration><CommentParts><Abstract><Para>A derived class<\/Para><\/Abstract><\/CommentParts><\/Class>",
           "key.doc.line" : 70,
           "key.doc.name" : "ADerivedClass",
           "key.doc.type" : "Class",
@@ -1110,11 +1110,11 @@
             {
               "key.kind" : "source.lang.swift.structure.elem.typeref",
               "key.length" : 10,
-              "key.offset" : 1422
+              "key.offset" : 1438
             }
           ],
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "key.fully_annotated_decl" : "<decl.class><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>class<\/syntaxtype.keyword> <decl.name>ADerivedClass<\/decl.name> : <ref.class usr=\"s:14SpmSwiftModule10ABaseClassC\">ABaseClass<\/ref.class><\/decl.class>",
+          "key.fully_annotated_decl" : "<decl.class><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>class<\/syntaxtype.keyword> <decl.name>ADerivedClass<\/decl.name>&lt;<decl.generic_type_param usr=\"s:14SpmSwiftModule13ADerivedClassC1Txmfp\"><decl.generic_type_param.name>T<\/decl.generic_type_param.name><\/decl.generic_type_param>, <decl.generic_type_param usr=\"s:14SpmSwiftModule13ADerivedClassC1Qq_mfp\"><decl.generic_type_param.name>Q<\/decl.generic_type_param.name><\/decl.generic_type_param>&gt; : <ref.class usr=\"s:14SpmSwiftModule10ABaseClassC\">ABaseClass<\/ref.class> <syntaxtype.keyword>where<\/syntaxtype.keyword> <decl.generic_type_requirement>Q : <ref.protocol usr=\"s:ST\">Sequence<\/ref.protocol><\/decl.generic_type_requirement><\/decl.class>",
           "key.inheritedtypes" : [
             {
               "key.name" : "ABaseClass"
@@ -1125,7 +1125,7 @@
               "en" : "A derived class"
             }
           },
-          "key.j2.swift_declaration" : "public class ADerivedClass : ABaseClass",
+          "key.j2.swift_declaration" : "public class ADerivedClass<T, Q> : ABaseClass where Q : Sequence",
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -1137,16 +1137,109 @@
             }
           ],
           "key.kind" : "source.lang.swift.decl.class",
-          "key.length" : 107,
+          "key.length" : 203,
           "key.name" : "ADerivedClass",
           "key.namelength" : 13,
           "key.nameoffset" : 1407,
           "key.offset" : 1401,
-          "key.parsed_declaration" : "public class ADerivedClass: ABaseClass",
-          "key.parsed_scope.end" : 74,
+          "key.parsed_declaration" : "public class ADerivedClass<T, Q: Sequence>: ABaseClass",
+          "key.parsed_scope.end" : 80,
           "key.parsed_scope.start" : 70,
-          "key.runtime_name" : "_TtC4main13ADerivedClass",
           "key.substructure" : [
+            {
+              "key.annotated_decl" : "<Declaration>T<\/Declaration>",
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+              "key.fully_annotated_decl" : "<decl.generic_type_param><decl.generic_type_param.name>T<\/decl.generic_type_param.name><\/decl.generic_type_param>",
+              "key.j2.swift_declaration" : "T",
+              "key.j2.swift_name_pieces" : [
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "T"
+                }
+              ],
+              "key.kind" : "source.lang.swift.decl.generic_type_param",
+              "key.length" : 1,
+              "key.name" : "T",
+              "key.namelength" : 1,
+              "key.nameoffset" : 1421,
+              "key.offset" : 1421,
+              "key.parsed_declaration" : "public class ADerivedClass<T",
+              "key.parsed_scope.end" : 70,
+              "key.parsed_scope.start" : 70,
+              "key.typename" : "T.Type",
+              "key.typeusr" : "$sxmD",
+              "key.usr" : "s:14SpmSwiftModule13ADerivedClassC1Txmfp"
+            },
+            {
+              "key.annotated_decl" : "<Declaration>Q : <Type usr=\"s:ST\">Sequence<\/Type><\/Declaration>",
+              "key.elements" : [
+                {
+                  "key.kind" : "source.lang.swift.structure.elem.typeref",
+                  "key.length" : 8,
+                  "key.offset" : 1427
+                }
+              ],
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+              "key.fully_annotated_decl" : "<decl.generic_type_param><decl.generic_type_param.name>Q<\/decl.generic_type_param.name> : <decl.generic_type_param.constraint><ref.protocol usr=\"s:ST\">Sequence<\/ref.protocol><\/decl.generic_type_param.constraint><\/decl.generic_type_param>",
+              "key.inheritedtypes" : [
+                {
+                  "key.name" : "Sequence"
+                }
+              ],
+              "key.j2.swift_declaration" : "Q : Sequence",
+              "key.j2.swift_name_pieces" : [
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "Q"
+                }
+              ],
+              "key.kind" : "source.lang.swift.decl.generic_type_param",
+              "key.length" : 11,
+              "key.name" : "Q",
+              "key.namelength" : 1,
+              "key.nameoffset" : 1424,
+              "key.offset" : 1424,
+              "key.parsed_declaration" : "public class ADerivedClass<T, Q: Sequence",
+              "key.parsed_scope.end" : 70,
+              "key.parsed_scope.start" : 70,
+              "key.typename" : "Q.Type",
+              "key.typeusr" : "$sq_mD",
+              "key.usr" : "s:14SpmSwiftModule13ADerivedClassC1Qq_mfp"
+            },
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.internal",
+              "key.annotated_decl" : "<Declaration>var t: Q?<\/Declaration>",
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+              "key.fully_annotated_decl" : "<decl.var.instance><syntaxtype.keyword>var<\/syntaxtype.keyword> <decl.name>t<\/decl.name>: <decl.var.type>Q?<\/decl.var.type><\/decl.var.instance>",
+              "key.j2.swift_declaration" : "var t: Q?",
+              "key.j2.swift_name_pieces" : [
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "var "
+                },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "t"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : ": Q?"
+                }
+              ],
+              "key.kind" : "source.lang.swift.decl.var.instance",
+              "key.length" : 15,
+              "key.name" : "t",
+              "key.namelength" : 1,
+              "key.nameoffset" : 1457,
+              "key.offset" : 1453,
+              "key.parsed_declaration" : "var t: Q? = nil",
+              "key.parsed_scope.end" : 71,
+              "key.parsed_scope.start" : 71,
+              "key.setter_accessibility" : "source.lang.swift.accessibility.internal",
+              "key.typename" : "Q?",
+              "key.typeusr" : "$sq_SgD",
+              "key.usr" : "s:14SpmSwiftModule13ADerivedClassC1tq_Sgvp"
+            },
             {
               "key.accessibility" : "source.lang.swift.accessibility.public",
               "key.annotated_decl" : "<Declaration>public override func method(param: <Type usr=\"s:Si\">Int<\/Type>) -&gt; <Type usr=\"s:SS\">String<\/Type><\/Declaration>",
@@ -1154,16 +1247,16 @@
                 {
                   "key.attribute" : "source.decl.attribute.override",
                   "key.length" : 8,
-                  "key.offset" : 1444
+                  "key.offset" : 1479
                 },
                 {
                   "key.attribute" : "source.decl.attribute.public",
                   "key.length" : 6,
-                  "key.offset" : 1437
+                  "key.offset" : 1472
                 }
               ],
               "key.bodylength" : 17,
-              "key.bodyoffset" : 1488,
+              "key.bodyoffset" : 1523,
               "key.doc.column" : 24,
               "key.doc.declaration" : "public override func method(param: Int) -> String",
               "key.doc.discussion" : [
@@ -1172,8 +1265,8 @@
                 }
               ],
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-              "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"71\" column=\"24\"><Name>method(param:)<\/Name><USR>s:14SpmSwiftModule13ADerivedClassC6method5paramSSSi_tF<\/USR><Declaration>public override func method(param: Int) -&gt; String<\/Declaration><CommentParts><Abstract><Para>Base class docs for <codeVoice>method(param:)<\/codeVoice><\/Para><\/Abstract><Discussion><Note><Para>This documentation comment was inherited from <codeVoice>ABaseClass<\/codeVoice>.<\/Para><\/Note><\/Discussion><\/CommentParts><\/Function>",
-              "key.doc.line" : 71,
+              "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"73\" column=\"24\"><Name>method(param:)<\/Name><USR>s:14SpmSwiftModule13ADerivedClassC6method5paramSSSi_tF<\/USR><Declaration>public override func method(param: Int) -&gt; String<\/Declaration><CommentParts><Abstract><Para>Base class docs for <codeVoice>method(param:)<\/codeVoice><\/Para><\/Abstract><Discussion><Note><Para>This documentation comment was inherited from <codeVoice>ABaseClass<\/codeVoice>.<\/Para><\/Note><\/Discussion><\/CommentParts><\/Function>",
+              "key.doc.line" : 73,
               "key.doc.name" : "method(param:)",
               "key.doc.type" : "Function",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -1205,23 +1298,73 @@
               "key.length" : 53,
               "key.name" : "method(param:)",
               "key.namelength" : 18,
-              "key.nameoffset" : 1458,
-              "key.offset" : 1453,
+              "key.nameoffset" : 1493,
+              "key.offset" : 1488,
               "key.overrides" : [
                 {
                   "key.usr" : "s:14SpmSwiftModule10ABaseClassC6method5paramSSSi_tF"
                 }
               ],
               "key.parsed_declaration" : "public override func method(param: Int) -> String",
-              "key.parsed_scope.end" : 73,
-              "key.parsed_scope.start" : 71,
-              "key.typename" : "(ADerivedClass) -> (Int) -> String",
+              "key.parsed_scope.end" : 75,
+              "key.parsed_scope.start" : 73,
+              "key.typename" : "<T, Q where Q : Sequence> (ADerivedClass<T, Q>) -> (Int) -> String",
               "key.typeusr" : "$s5paramSSSi_tcD",
               "key.usr" : "s:14SpmSwiftModule13ADerivedClassC6method5paramSSSi_tF"
+            },
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.public",
+              "key.annotated_decl" : "<Declaration>public func generic(param: <Type usr=\"s:14SpmSwiftModule13ADerivedClassC1Txmfp\">T<\/Type>) -&gt; <Type usr=\"s:14SpmSwiftModule13ADerivedClassC1Txmfp\">T<\/Type><\/Declaration>",
+              "key.attributes" : [
+                {
+                  "key.attribute" : "source.decl.attribute.public",
+                  "key.length" : 6,
+                  "key.offset" : 1545
+                }
+              ],
+              "key.bodylength" : 20,
+              "key.bodyoffset" : 1581,
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+              "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>generic<\/decl.name>(<decl.var.parameter><decl.var.parameter.argument_label>param<\/decl.var.parameter.argument_label>: <decl.var.parameter.type><ref.generic_type_param usr=\"s:14SpmSwiftModule13ADerivedClassC1Txmfp\">T<\/ref.generic_type_param><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.generic_type_param usr=\"s:14SpmSwiftModule13ADerivedClassC1Txmfp\">T<\/ref.generic_type_param><\/decl.function.returntype><\/decl.function.method.instance>",
+              "key.j2.swift_declaration" : "public func generic(param: T) -> T",
+              "key.j2.swift_name_pieces" : [
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "func "
+                },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "generic"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "("
+                },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "param"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : ": T) -> T"
+                }
+              ],
+              "key.kind" : "source.lang.swift.decl.function.method.instance",
+              "key.length" : 50,
+              "key.name" : "generic(param:)",
+              "key.namelength" : 17,
+              "key.nameoffset" : 1557,
+              "key.offset" : 1552,
+              "key.parsed_declaration" : "public func generic(param: T) -> T",
+              "key.parsed_scope.end" : 79,
+              "key.parsed_scope.start" : 77,
+              "key.typename" : "<T, Q where Q : Sequence> (ADerivedClass<T, Q>) -> (T) -> T",
+              "key.typeusr" : "$s5paramxx_tcD",
+              "key.usr" : "s:14SpmSwiftModule13ADerivedClassC7generic5paramxx_tF"
             }
           ],
-          "key.typename" : "ADerivedClass.Type",
-          "key.typeusr" : "$s14SpmSwiftModule13ADerivedClassCmD",
+          "key.typename" : "ADerivedClass<T, Q>.Type",
+          "key.typeusr" : "$s14SpmSwiftModule13ADerivedClassCyxq_GmD",
           "key.usr" : "s:14SpmSwiftModule13ADerivedClassC"
         }
       ]

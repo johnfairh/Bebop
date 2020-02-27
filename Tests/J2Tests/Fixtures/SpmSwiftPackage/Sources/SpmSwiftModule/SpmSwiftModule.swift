@@ -67,8 +67,14 @@ public class ABaseClass {
 }
 
 /// A derived class
-public class ADerivedClass: ABaseClass {
+public class ADerivedClass<T, Q: Sequence>: ABaseClass {
+  var t: Q? = nil
+
   public override func method(param: Int) -> String {
     return ""
+  }
+
+  public func generic(param: T) -> T {
+    return param
   }
 }

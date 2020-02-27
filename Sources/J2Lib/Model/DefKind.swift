@@ -180,8 +180,14 @@ public final class DefKind {
         testSwiftKey(keys: [.enumelement])
     }
 
-    var isSwiftEnum: Bool {
-        testSwiftKey(keys: [.enum])
+//    /// Is it an enum?
+//    var isSwiftEnum: Bool {
+//        testSwiftKey(keys: [.enum])
+//    }
+
+    /// Is this a generic type parameter (The T in `class N<T>`)
+    var isGenericParameter: Bool {
+        testSwiftKey(keys: [.genericTypeParam])
     }
 
     /// Is this a mark -- an objC `#pragma mark` or a Swift // MARK: - like comment

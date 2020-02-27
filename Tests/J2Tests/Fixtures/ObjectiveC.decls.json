@@ -3,6 +3,7 @@
     "children" : [
       {
         "children" : [],
+        "generic_type_parameters" : [],
         "kind" : "sourcekitten.source.lang.objc.decl.ivar",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
@@ -36,6 +37,7 @@
           },
           "parameters" : []
         },
+        "generic_type_parameters" : [],
         "kind" : "sourcekitten.source.lang.objc.decl.property",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
@@ -80,6 +82,7 @@
         "usr" : "c:objc(cs)IVarTest(py)propertyName"
       }
     ],
+    "generic_type_parameters" : [],
     "kind" : "sourcekitten.source.lang.objc.decl.class",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
@@ -129,6 +132,7 @@
           },
           "parameters" : []
         },
+        "generic_type_parameters" : [],
         "kind" : "sourcekitten.source.lang.objc.decl.property",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
@@ -179,6 +183,7 @@
           },
           "parameters" : []
         },
+        "generic_type_parameters" : [],
         "kind" : "sourcekitten.source.lang.objc.decl.property",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
@@ -221,6 +226,7 @@
       },
       {
         "children" : [],
+        "generic_type_parameters" : [],
         "kind" : "sourcekitten.source.lang.objc.decl.method.class",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
@@ -266,6 +272,7 @@
       },
       {
         "children" : [],
+        "generic_type_parameters" : [],
         "kind" : "sourcekitten.source.lang.objc.decl.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
@@ -319,6 +326,7 @@
           },
           "parameters" : []
         },
+        "generic_type_parameters" : [],
         "kind" : "sourcekitten.source.lang.objc.decl.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
@@ -372,6 +380,7 @@
           },
           "parameters" : []
         },
+        "generic_type_parameters" : [],
         "kind" : "sourcekitten.source.lang.objc.decl.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
@@ -435,6 +444,7 @@
       },
       {
         "children" : [],
+        "generic_type_parameters" : [],
         "kind" : "sourcekitten.source.lang.objc.decl.method.class",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
@@ -487,6 +497,7 @@
       },
       "parameters" : []
     },
+    "generic_type_parameters" : [],
     "kind" : "sourcekitten.source.lang.objc.decl.class",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
@@ -526,6 +537,7 @@
   },
   {
     "children" : [],
+    "generic_type_parameters" : [],
     "kind" : "sourcekitten.source.lang.objc.decl.constant",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
@@ -561,6 +573,7 @@
   },
   {
     "children" : [],
+    "generic_type_parameters" : [],
     "kind" : "sourcekitten.source.lang.objc.decl.function",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
@@ -623,6 +636,7 @@
           },
           "parameters" : []
         },
+        "generic_type_parameters" : [],
         "kind" : "sourcekitten.source.lang.objc.decl.field",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
@@ -672,6 +686,7 @@
       },
       "parameters" : []
     },
+    "generic_type_parameters" : [],
     "kind" : "sourcekitten.source.lang.objc.decl.struct",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
@@ -726,6 +741,7 @@
       },
       "parameters" : []
     },
+    "generic_type_parameters" : [],
     "kind" : "sourcekitten.source.lang.objc.decl.typedef",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
@@ -768,6 +784,7 @@
           },
           "parameters" : []
         },
+        "generic_type_parameters" : [],
         "kind" : "sourcekitten.source.lang.objc.decl.enumcase",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
@@ -815,6 +832,7 @@
           },
           "parameters" : []
         },
+        "generic_type_parameters" : [],
         "kind" : "sourcekitten.source.lang.objc.decl.enumcase",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
@@ -861,6 +879,7 @@
       },
       "parameters" : []
     },
+    "generic_type_parameters" : [],
     "kind" : "sourcekitten.source.lang.objc.decl.enum",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
@@ -909,6 +928,7 @@
     "children" : [
       {
         "children" : [],
+        "generic_type_parameters" : [],
         "kind" : "sourcekitten.source.lang.objc.decl.enumcase",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
@@ -934,6 +954,7 @@
       },
       {
         "children" : [],
+        "generic_type_parameters" : [],
         "kind" : "sourcekitten.source.lang.objc.decl.enumcase",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
@@ -958,6 +979,7 @@
         "usr" : "c:@E@ASimpleEnum@y"
       }
     ],
+    "generic_type_parameters" : [],
     "kind" : "sourcekitten.source.lang.objc.decl.enum",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
@@ -1012,6 +1034,7 @@
       },
       "parameters" : []
     },
+    "generic_type_parameters" : [],
     "kind" : "sourcekitten.source.lang.objc.decl.typedef",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
@@ -1060,6 +1083,7 @@
     "children" : [
       {
         "children" : [],
+        "generic_type_parameters" : [],
         "kind" : "sourcekitten.source.lang.objc.decl.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
@@ -1112,6 +1136,7 @@
       },
       "parameters" : []
     },
+    "generic_type_parameters" : [],
     "kind" : "sourcekitten.source.lang.objc.decl.category",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
@@ -1146,6 +1171,7 @@
     "children" : [
       {
         "children" : [],
+        "generic_type_parameters" : [],
         "kind" : "sourcekitten.source.lang.objc.decl.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
@@ -1198,6 +1224,7 @@
       },
       "parameters" : []
     },
+    "generic_type_parameters" : [],
     "kind" : "sourcekitten.source.lang.objc.decl.protocol",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
@@ -1254,6 +1281,7 @@
           },
           "parameters" : []
         },
+        "generic_type_parameters" : [],
         "kind" : "sourcekitten.source.lang.objc.decl.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
@@ -1324,6 +1352,7 @@
       },
       "parameters" : []
     },
+    "generic_type_parameters" : [],
     "kind" : "sourcekitten.source.lang.objc.decl.class",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",

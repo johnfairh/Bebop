@@ -29,6 +29,8 @@ public class DefItem: Item {
     public private(set) var unavailableNotice: RichText?
     /// Name in the other language
     public let otherLanguageName: String?
+    /// Names of generic type parameters
+    public let genericTypeParameters: [String]
 
     /// Create from a gathered definition
     public init?(location: DefLocation, gatherDef: GatherDef, uniquer: StringUniquer) {
@@ -92,9 +94,10 @@ public class DefItem: Item {
         }
 
         let children = gatherDef.children.asDefItems(location: location, uniquer: uniquer)
-        // generic param filter
+        let (genericParams, realChildren) = children.splitPartition { $0.defKind.isGenericParameter }
+        self.genericTypeParameters = genericParams.map { $0.name }
 
-        super.init(name: name, slug: uniquer.unique(name.slugged), children: children)
+        super.init(name: name, slug: uniquer.unique(name.slugged), children: realChildren)
     }
 
     /// Used to create the `decls-json` product.

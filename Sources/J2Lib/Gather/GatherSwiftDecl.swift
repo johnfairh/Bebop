@@ -106,11 +106,10 @@ class SwiftDeclarationBuilder {
         // Sort out decl attributes and @available statements
 
         if let attributeDicts = dict.attributes {
-            var allAttributes = parse(attributeDicts: attributeDicts)
-            let pivot = allAttributes.partition { $0.hasPrefix("@available") }
-            attributes = Array(allAttributes[0..<pivot])
-
-            parse(availables: Array(allAttributes[pivot...]))
+            let allAttributes = parse(attributeDicts: attributeDicts)
+            let (availables, others) = allAttributes.splitPartition { $0.hasPrefix("@available") }
+            attributes = others
+            parse(availables: availables)
         }
 
         // Sort out decl pieces

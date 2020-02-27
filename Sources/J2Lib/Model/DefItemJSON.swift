@@ -20,6 +20,7 @@ extension DefItem {
         case swiftDeclaration
         case objCDeclaration
         case documentation
+        case genericTypeParameters
     }
 
     // I may well have got this wrong, but I am using classes here - can't see
@@ -35,6 +36,7 @@ extension DefItem {
         try container.encodeIfPresent(objCName, forKey: .objCName)
         try container.encodeIfPresent(swiftDeclaration, forKey: .swiftDeclaration)
         try container.encodeIfPresent(objCDeclaration, forKey: .objCDeclaration)
+        try container.encode(genericTypeParameters, forKey: .genericTypeParameters)
         if !documentation.isEmpty {
             try container.encode(documentation, forKey: .documentation)
         }

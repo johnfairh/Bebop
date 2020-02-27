@@ -3,6 +3,7 @@
     "children" : [
       {
         "children" : [],
+        "generic_type_parameters" : [],
         "kind" : "source.lang.swift.decl.var.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -42,6 +43,7 @@
         "children" : [
           {
             "children" : [],
+            "generic_type_parameters" : [],
             "kind" : "source.lang.swift.decl.struct",
             "location" : {
               "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -69,6 +71,7 @@
           },
           {
             "children" : [],
+            "generic_type_parameters" : [],
             "kind" : "source.lang.swift.decl.struct",
             "location" : {
               "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -98,6 +101,7 @@
             "usr" : "s:14SpmSwiftModuleAAV7Nested1V8Nested2bV"
           }
         ],
+        "generic_type_parameters" : [],
         "kind" : "source.lang.swift.decl.struct",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -132,6 +136,7 @@
       },
       {
         "children" : [],
+        "generic_type_parameters" : [],
         "kind" : "source.lang.swift.decl.struct",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -173,6 +178,7 @@
       },
       "parameters" : []
     },
+    "generic_type_parameters" : [],
     "kind" : "source.lang.swift.decl.struct",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -210,6 +216,7 @@
           },
           "parameters" : []
         },
+        "generic_type_parameters" : [],
         "kind" : "source.lang.swift.decl.enumelement",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -248,6 +255,7 @@
           },
           "parameters" : []
         },
+        "generic_type_parameters" : [],
         "kind" : "source.lang.swift.decl.enumelement",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -283,6 +291,7 @@
           },
           "parameters" : []
         },
+        "generic_type_parameters" : [],
         "kind" : "source.lang.swift.decl.enumelement",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -310,6 +319,7 @@
       },
       {
         "children" : [],
+        "generic_type_parameters" : [],
         "kind" : "source.lang.swift.decl.enumelement",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -345,6 +355,7 @@
           },
           "parameters" : []
         },
+        "generic_type_parameters" : [],
         "kind" : "source.lang.swift.decl.enumelement",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -388,6 +399,7 @@
       },
       "parameters" : []
     },
+    "generic_type_parameters" : [],
     "kind" : "source.lang.swift.decl.enum",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -443,6 +455,7 @@
         }
       ]
     },
+    "generic_type_parameters" : [],
     "kind" : "source.lang.swift.decl.function.free",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -510,6 +523,7 @@
         }
       }
     },
+    "generic_type_parameters" : [],
     "kind" : "source.lang.swift.decl.function.free",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -551,6 +565,7 @@
     "children" : [
       {
         "children" : [],
+        "generic_type_parameters" : [],
         "kind" : "source.lang.swift.decl.function.constructor",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -578,6 +593,7 @@
       },
       {
         "children" : [],
+        "generic_type_parameters" : [],
         "kind" : "source.lang.swift.decl.function.destructor",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -610,6 +626,7 @@
           },
           "parameters" : []
         },
+        "generic_type_parameters" : [],
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -646,6 +663,7 @@
       },
       {
         "children" : [],
+        "generic_type_parameters" : [],
         "kind" : "source.lang.swift.decl.function.subscript",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -686,6 +704,7 @@
       },
       "parameters" : []
     },
+    "generic_type_parameters" : [],
     "kind" : "source.lang.swift.decl.class",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -715,11 +734,43 @@
     "children" : [
       {
         "children" : [],
-        "kind" : "source.lang.swift.decl.function.method.instance",
+        "generic_type_parameters" : [],
+        "kind" : "source.lang.swift.decl.var.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
           "first_line" : 71,
-          "last_line" : 73,
+          "last_line" : 71,
+          "module_name" : "SpmSwiftModule",
+          "pass_index" : 0
+        },
+        "name" : "t",
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : "var t: Q?",
+          "inherited_types" : [],
+          "name_pieces" : [
+            {
+              "other" : "var "
+            },
+            {
+              "name" : "t"
+            },
+            {
+              "other" : ": Q?"
+            }
+          ]
+        },
+        "swift_name" : "t",
+        "usr" : "s:14SpmSwiftModule13ADerivedClassC1tq_Sgvp"
+      },
+      {
+        "children" : [],
+        "generic_type_parameters" : [],
+        "kind" : "source.lang.swift.decl.function.method.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+          "first_line" : 73,
+          "last_line" : 75,
           "module_name" : "SpmSwiftModule",
           "pass_index" : 0
         },
@@ -748,6 +799,43 @@
         },
         "swift_name" : "method(param:)",
         "usr" : "s:14SpmSwiftModule13ADerivedClassC6method5paramSSSi_tF"
+      },
+      {
+        "children" : [],
+        "generic_type_parameters" : [],
+        "kind" : "source.lang.swift.decl.function.method.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+          "first_line" : 77,
+          "last_line" : 79,
+          "module_name" : "SpmSwiftModule",
+          "pass_index" : 0
+        },
+        "name" : "generic(param:)",
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : "public func generic(param: T) -> T",
+          "inherited_types" : [],
+          "name_pieces" : [
+            {
+              "other" : "func "
+            },
+            {
+              "name" : "generic"
+            },
+            {
+              "other" : "("
+            },
+            {
+              "name" : "param"
+            },
+            {
+              "other" : ": T) -> T"
+            }
+          ]
+        },
+        "swift_name" : "generic(param:)",
+        "usr" : "s:14SpmSwiftModule13ADerivedClassC7generic5paramxx_tF"
       }
     ],
     "documentation" : {
@@ -758,18 +846,22 @@
       },
       "parameters" : []
     },
+    "generic_type_parameters" : [
+      "T",
+      "Q"
+    ],
     "kind" : "source.lang.swift.decl.class",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
       "first_line" : 70,
-      "last_line" : 74,
+      "last_line" : 80,
       "module_name" : "SpmSwiftModule",
       "pass_index" : 0
     },
     "name" : "ADerivedClass",
     "swift_declaration" : {
       "availability" : [],
-      "declaration" : "public class ADerivedClass : ABaseClass",
+      "declaration" : "public class ADerivedClass<T, Q> : ABaseClass where Q : Sequence",
       "inherited_types" : [
         "ABaseClass"
       ],

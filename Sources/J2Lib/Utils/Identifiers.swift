@@ -53,3 +53,19 @@ extension Dictionary {
         return newValue
     }
 }
+
+extension MutableCollection {
+    /// Splits the collection into a part that satsifies the predicate and a part that does not.
+    ///
+    /// Preserves order.
+    func splitPartition(by filter: (Element) throws -> Bool) rethrows -> ([Element], [Element]) {
+        var include = [Element]()
+        var exclude = [Element]()
+        try forEach { element in
+            // ?: isn't an lvalue ... /sigh
+            if try filter(element) { include.append(element) }
+            else { exclude.append(element) }
+        }
+        return (include, exclude)
+    }
+}

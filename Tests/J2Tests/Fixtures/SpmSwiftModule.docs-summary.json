@@ -120,7 +120,7 @@
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public class ADerivedClass : ABaseClass"
+                  "html" : "public class ADerivedClass<T, Q> : ABaseClass where Q : Sequence"
                 }
               },
               "flat_title" : {
@@ -697,7 +697,7 @@
         "availability" : [],
         "params" : [],
         "swift_declaration" : {
-          "html" : "public class ADerivedClass : ABaseClass"
+          "html" : "public class ADerivedClass<T, Q> : ABaseClass where Q : Sequence"
         }
       },
       "is_guide" : false,
@@ -710,6 +710,24 @@
         {
           "anchor_id" : "tpc_",
           "items" : [
+            {
+              "anchor_id" : "t1",
+              "dash_type" : "Property",
+              "def" : {
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "var t: Q?"
+                }
+              },
+              "flat_title" : {
+                "en" : "var t: Q?"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">var <\/span>t<span class=\"j2-item-secondary\">: Q?<\/span>"
+              }
+            },
             {
               "anchor_id" : "methodparam1",
               "dash_type" : "Method",
@@ -726,6 +744,24 @@
               "primary_language" : "swift",
               "primary_title_html" : {
                 "html" : "<span class=\"j2-item-secondary\">func <\/span>method<span class=\"j2-item-secondary\">(<\/span>param<span class=\"j2-item-secondary\">: Int) -> String<\/span>"
+              }
+            },
+            {
+              "anchor_id" : "genericparam",
+              "dash_type" : "Method",
+              "def" : {
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "public func generic(param: T) -> T"
+                }
+              },
+              "flat_title" : {
+                "en" : "func generic(param: T) -> T"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>generic<span class=\"j2-item-secondary\">(<\/span>param<span class=\"j2-item-secondary\">: T) -> T<\/span>"
               }
             }
           ],
