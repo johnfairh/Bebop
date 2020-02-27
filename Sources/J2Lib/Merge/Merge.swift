@@ -18,77 +18,71 @@ import SourceKittenFramework
 /// This is the end of the sourcekit-style hashes, converted into more well-typed `Item` hierarchy.
 public struct Merge: Configurable {
     /// We unique names over the entire corpus which is unnecessary but makes life easier.
-    private var uniquer = StringUniquer()
+    var uniquer = StringUniquer()
 
     public init(config: Config) {
         config.register(self)
     }
     
     public func merge(gathered: [GatherModulePass]) throws -> [DefItem] {
-        gathered.map { pass in
-            pass.files.map { fileDef -> [DefItem] in
-                let filePathname = fileDef.0
-                let rootDef = fileDef.1
-                guard rootDef.sourceKittenDict.diagnosticStage != nil else {
-                    logWarning(.localized(.wrnMergeMissingRoot, filePathname, pass.passIndex))
-                    return []
-                }
-                let baseLocation = DefLocation(moduleName: pass.moduleName,
-                                               passIndex: pass.passIndex,
-                                               filePathname: filePathname,
-                                               firstLine: nil,
-                                               lastLine: nil)
+        let allItems = createItems(gathered: gathered)
 
-                return rootDef.children.asDefItems(location: baseLocation,
-                                                   uniquer: uniquer)
-            }.flatMap { $0 }
-        }.flatMap { $0 }
+        return allItems.merge()
     }
 }
 
-extension Array where Element == GatherDef {
-    public func asDefItems(location: DefLocation, uniquer: StringUniquer) -> [DefItem] {
-        var currentTopic: Topic? = nil
-        return flatMap { def -> [DefItem] in
-            // Spot topic marks and pull them out for subsequent items
-            if let topic = def.asTopicMark {
-                currentTopic = topic
-                return []
+extension Array where Element == DefItem {
+    func merge() -> [DefItem] {
+        var mergedItems = [DefItem]()
+        var index = MergeIndex()
+        forEach { item in
+            if !index.addTestMerged(item: item) {
+                mergedItems.append(item)
             }
-            // Spot enum case wrappers and yield the element[s] within
-            if let kind = def.kind, kind.isSwiftEnumCase {
-                let items = def.children.asDefItems(location: location,
-                                                    uniquer: uniquer)
-                items.forEach { $0.topic = currentTopic }
-                return items
-            }
-            // Finally create 0/1 items.
-            guard let item = DefItem(location: location,
-                                     gatherDef: def,
-                                     uniquer: uniquer) else {
-                return []
-            }
-            item.topic = currentTopic
-            return [item]
         }
+
+        return mergedItems
     }
 }
 
-extension GatherDef {
-    public var asTopicMark: Topic? {
-        guard let kind = kind,
-            kind.isMark,
-            let text = sourceKittenDict.name else {
-            return nil
+struct MergeIndex {
+    final class Name {
+        var usrMap = [String: DefItem]()
+        init(item: DefItem) {
+            usrMap[item.usr] = item
         }
-        if kind.isSwift && !text.hasPrefix("MARK: ") {
-            // TODO or FIXME - we'll throw these away later on
-            return nil
+
+        func addTestMerged(item: DefItem) -> Bool {
+            if let currentItem = usrMap[item.usr] {
+                // woah merge
+                return false
+            }
+            usrMap[item.usr] = item
+            return false
         }
-        // Format: 'MARK: - NAME -' with dashes and prefix optional
-        guard let match = text.re_match("^(?:MARK: )?(?:- )?(.*?)(?: -)?$") else {
-            return nil
+    }
+
+    final class Module {
+        var nameMap = [String: Name]()
+        init(item: DefItem) {
+            _ = addTestMerged(item: item)
         }
-        return Topic(title: match[1])
+
+        func addTestMerged(item: DefItem) -> Bool {
+            if let name = nameMap[item.name] {
+                return name.addTestMerged(item: item)
+            }
+            nameMap[item.name] = Name(item: item)
+            return false
+        }
+    }
+    var modules = [String: Module]()
+
+    mutating func addTestMerged(item: DefItem) -> Bool {
+        if let module = modules[item.location.moduleName] {
+            return module.addTestMerged(item: item)
+        }
+        modules[item.location.moduleName] = Module(item: item)
+        return false
     }
 }
