@@ -21,8 +21,8 @@ public class DefItem: Item {
     /// Documentation
     public private(set) var documentation: RichDefDocs
     /// Declarations
-    public let swiftDeclaration: SwiftDeclaration?
-    public let objCDeclaration: ObjCDeclaration?
+    public private(set) var swiftDeclaration: SwiftDeclaration?
+    public private(set) var objCDeclaration: ObjCDeclaration?
     /// Deprecation notice
     public private(set) var deprecationNotice: RichText?
     /// Unavailable notice
@@ -163,5 +163,11 @@ public class DefItem: Item {
         try documentation.format(blockFormatter)
         try topic?.format(inlineFormatter)
         try deprecationNotice?.format(blockFormatter)
+    }
+
+    /// Format the item's associated declarations
+    public func formatDeclarations(formatter: RichDeclaration.Formatter) rethrows {
+        try swiftDeclaration?.declaration.format(formatter)
+        try objCDeclaration?.declaration.format(formatter)
     }
 }

@@ -120,7 +120,7 @@
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public class ADerivedClass<T, Q> : ABaseClass where Q : Sequence"
+                  "html" : "public class ADerivedClass&lt;T, Q&gt; : ABaseClass where Q : Sequence"
                 }
               },
               "flat_title" : {
@@ -626,7 +626,7 @@
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public func method(param: Int) -> String"
+                  "html" : "public func method(param: Int) -&gt; String"
                 }
               },
               "flat_title" : {
@@ -644,7 +644,7 @@
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public subscript(arg: String) -> Int { get set }"
+                  "html" : "public subscript(arg: String) -&gt; Int { get set }"
                 }
               },
               "flat_title" : {
@@ -697,7 +697,7 @@
         "availability" : [],
         "params" : [],
         "swift_declaration" : {
-          "html" : "public class ADerivedClass<T, Q> : ABaseClass where Q : Sequence"
+          "html" : "public class ADerivedClass&lt;T, Q&gt; : ABaseClass where Q : Sequence"
         }
       },
       "is_guide" : false,
@@ -735,7 +735,7 @@
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public override func method(param: Int) -> String"
+                  "html" : "public override func method(param: Int) -&gt; String"
                 }
               },
               "flat_title" : {
@@ -753,7 +753,7 @@
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public func generic(param: T) -> T"
+                  "html" : "public func generic(param: T) -&gt; T"
                 }
               },
               "flat_title" : {
@@ -879,7 +879,7 @@
                   }
                 },
                 "swift_declaration" : {
-                  "html" : "public func deprecatedFunction(callback: (_ report: String) -> Int) -> String"
+                  "html" : "public func deprecatedFunction(callback: (_ report: String) -&gt; Int) -&gt; String"
                 }
               },
               "flat_title" : {

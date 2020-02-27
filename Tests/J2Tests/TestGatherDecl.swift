@@ -82,27 +82,27 @@ class TestGatherDecl: XCTestCase {
                     "key.parsed_declaration" : "One\nTwo"]
         let builder = SwiftDeclarationBuilder(dict: dict, kind: classKind)
         let decl = builder.build()
-        XCTAssertEqual("One\nTwo", decl?.declaration)
+        XCTAssertEqual("One\nTwo", decl?.declaration.text)
 
         let dict2 = ["key.fully_annotated_decl" : "<outer>Inner</outer>",
                      "key.parsed_declaration" : "One Two"]
         let builder2 = SwiftDeclarationBuilder(dict: dict2, kind: classKind)
         let decl2 = builder2.build()
-        XCTAssertEqual("Inner", decl2?.declaration)
+        XCTAssertEqual("Inner", decl2?.declaration.text)
 
         let extKind = DefKind.from(key: SwiftDeclarationKind.extension.rawValue)
         let extDict = ["key.fully_annotated_decl" : "<outer>class Fred</outer>",
                        "key.parsed_declaration" : "extension Fred"]
         let extBuilder = SwiftDeclarationBuilder(dict: extDict, kind: extKind)
         let extDecl = extBuilder.build()
-        XCTAssertEqual("extension Fred", extDecl?.declaration)
+        XCTAssertEqual("extension Fred", extDecl?.declaration.text)
 
         let varKind = DefKind.from(key: SwiftDeclarationKind.varClass.rawValue)
         let varDict = ["key.fully_annotated_decl" : "<outer>var toast { get set }</outer>",
                        "key.parsed_declaration" : "var toast = { blah\n }()"]
         let varBuilder = SwiftDeclarationBuilder(dict: varDict, kind: varKind)
         let varDecl = varBuilder.build()
-        XCTAssertEqual("var toast { get set }", varDecl?.declaration)
+        XCTAssertEqual("var toast { get set }", varDecl?.declaration.text)
     }
 
     func testParentTypes() {
@@ -111,17 +111,17 @@ class TestGatherDecl: XCTestCase {
             let dict = ["key.fully_annotated_decl" : "<outer>class \(innerClassName)</outer>"]
             let builder = SwiftDeclarationBuilder(dict: dict, nameComponents: ["Outer", "Inner"], kind: classKind)
             let decl = builder.build()
-            XCTAssertEqual("class Inner", decl?.declaration, "Original: \(innerClassName)")
+            XCTAssertEqual("class Inner", decl?.declaration.text, "Original: \(innerClassName)")
         }
 
         let dict = ["key.fully_annotated_decl" : "<outer>class A&lt;B&gt;.C.D</outer>"]
         let builder = SwiftDeclarationBuilder(dict: dict, nameComponents: ["A", "C", "D"], kind: classKind)
         let decl = builder.build()
-        XCTAssertEqual("class D", decl?.declaration)
+        XCTAssertEqual("class D", decl?.declaration.text)
 
         let builder2 = SwiftDeclarationBuilder(dict: dict, nameComponents: ["A", "D"], kind: classKind)
         let decl2 = builder2.build()
-        XCTAssertEqual("class A<B>.C.D", decl2?.declaration)
+        XCTAssertEqual("class A<B>.C.D", decl2?.declaration.text)
     }
 
     // Attributes
@@ -149,7 +149,7 @@ class TestGatherDecl: XCTestCase {
             XCTFail("Couldn't build decl-info")
             return
         }
-        XCTAssertEqual("@discardableResult\npublic func fred()", built.declaration)
+        XCTAssertEqual("@discardableResult\npublic func fred()", built.declaration.text)
     }
 
     private func checkAvailabilityControl(_ availabilityRules: GatherAvailabilityRules, _ expect: [String], line: UInt = #line) {

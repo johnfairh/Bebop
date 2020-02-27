@@ -14,7 +14,9 @@
         },
         "name" : "ivarName",
         "obj_c_declaration" : {
-          "declaration" : "NSString *ivarName",
+          "declaration" : {
+            "text" : "NSString *ivarName"
+          },
           "name_pieces" : [
             {
               "other" : "NSString *"
@@ -48,7 +50,9 @@
         },
         "name" : "propertyName",
         "obj_c_declaration" : {
-          "declaration" : "@property (strong) NSString *propertyName",
+          "declaration" : {
+            "text" : "@property (strong) NSString *propertyName"
+          },
           "deprecation" : {
             "en" : "Deprecated. Is deprecated"
           },
@@ -64,7 +68,9 @@
         "obj_c_name" : "propertyName",
         "swift_declaration" : {
           "availability" : [],
-          "declaration" : "var propertyName: String! { get set }",
+          "declaration" : {
+            "text" : "var propertyName: String! { get set }"
+          },
           "inherited_types" : [],
           "name_pieces" : [
             {
@@ -93,7 +99,9 @@
     },
     "name" : "IVarTest",
     "obj_c_declaration" : {
-      "declaration" : "@interface IVarTest: NSObject",
+      "declaration" : {
+        "text" : "@interface IVarTest: NSObject"
+      },
       "name_pieces" : [
         {
           "other" : "@interface "
@@ -106,7 +114,9 @@
     "obj_c_name" : "IVarTest",
     "swift_declaration" : {
       "availability" : [],
-      "declaration" : "class IVarTest : NSObject",
+      "declaration" : {
+        "text" : "class IVarTest : NSObject"
+      },
       "inherited_types" : [],
       "name_pieces" : [
         {
@@ -143,7 +153,9 @@
         },
         "name" : "identifier",
         "obj_c_declaration" : {
-          "declaration" : "@property (copy, nonatomic, class) NSUUID *identifier",
+          "declaration" : {
+            "text" : "@property (copy, nonatomic, class) NSUUID *identifier"
+          },
           "name_pieces" : [
             {
               "other" : "NSUUID *"
@@ -156,7 +168,9 @@
         "obj_c_name" : "identifier",
         "swift_declaration" : {
           "availability" : [],
-          "declaration" : "class var identifier: UUID! { get set }",
+          "declaration" : {
+            "text" : "class var identifier: UUID! { get set }"
+          },
           "inherited_types" : [],
           "name_pieces" : [
             {
@@ -194,7 +208,9 @@
         },
         "name" : "uuid",
         "obj_c_declaration" : {
-          "declaration" : "@property (copy, nonatomic, nullable) NSUUID *uuid",
+          "declaration" : {
+            "text" : "@property (copy, nonatomic, nullable) NSUUID *uuid"
+          },
           "name_pieces" : [
             {
               "other" : "NSUUID *"
@@ -207,7 +223,9 @@
         "obj_c_name" : "uuid",
         "swift_declaration" : {
           "availability" : [],
-          "declaration" : "var uuid: UUID? { get set }",
+          "declaration" : {
+            "text" : "var uuid: UUID? { get set }"
+          },
           "inherited_types" : [],
           "name_pieces" : [
             {
@@ -237,7 +255,9 @@
         },
         "name" : "+alloc",
         "obj_c_declaration" : {
-          "declaration" : "+ (instancetype) alloc",
+          "declaration" : {
+            "text" : "+ (instancetype) alloc"
+          },
           "name_pieces" : [
             {
               "other" : "+ (instancetype) "
@@ -253,7 +273,9 @@
         "obj_c_name" : "+alloc",
         "swift_declaration" : {
           "availability" : [],
-          "declaration" : "class func alloc() -> Self!",
+          "declaration" : {
+            "text" : "class func alloc() -> Self!"
+          },
           "inherited_types" : [],
           "name_pieces" : [
             {
@@ -283,7 +305,9 @@
         },
         "name" : "-init",
         "obj_c_declaration" : {
-          "declaration" : "- (id)init __deprecated",
+          "declaration" : {
+            "text" : "- (id)init __deprecated"
+          },
           "deprecation" : {
             "en" : "Deprecated. "
           },
@@ -302,7 +326,9 @@
         "obj_c_name" : "-init",
         "swift_declaration" : {
           "availability" : [],
-          "declaration" : "init!()",
+          "declaration" : {
+            "text" : "init!()"
+          },
           "inherited_types" : [],
           "name_pieces" : [
             {
@@ -337,7 +363,9 @@
         },
         "name" : "-method",
         "obj_c_declaration" : {
-          "declaration" : "- (void)method",
+          "declaration" : {
+            "text" : "- (void)method"
+          },
           "name_pieces" : [
             {
               "other" : "- (void)"
@@ -353,7 +381,9 @@
         "obj_c_name" : "-method",
         "swift_declaration" : {
           "availability" : [],
-          "declaration" : "func method()",
+          "declaration" : {
+            "text" : "func method()"
+          },
           "inherited_types" : [],
           "name_pieces" : [
             {
@@ -391,7 +421,9 @@
         },
         "name" : "-doThingWith:named:",
         "obj_c_declaration" : {
-          "declaration" : "- (int)doThingWith:(int)first named:(NSString *)name",
+          "declaration" : {
+            "text" : "- (int)doThingWith:(int)first named:(NSString *)name"
+          },
           "name_pieces" : [
             {
               "other" : "- (int)"
@@ -413,7 +445,9 @@
         "obj_c_name" : "-doThingWith:named:",
         "swift_declaration" : {
           "availability" : [],
-          "declaration" : "func doThing(with first: Int32, named name: String!) -> Int32",
+          "declaration" : {
+            "text" : "func doThing(with first: Int32, named name: String!) -> Int32"
+          },
           "inherited_types" : [],
           "name_pieces" : [
             {
@@ -455,7 +489,9 @@
         },
         "name" : "+classMethod",
         "obj_c_declaration" : {
-          "declaration" : "+ (void)classMethod",
+          "declaration" : {
+            "text" : "+ (void)classMethod"
+          },
           "name_pieces" : [
             {
               "other" : "+ (void)"
@@ -471,7 +507,9 @@
         "obj_c_name" : "+classMethod",
         "swift_declaration" : {
           "availability" : [],
-          "declaration" : "class func classMethod()",
+          "declaration" : {
+            "text" : "class func classMethod()"
+          },
           "inherited_types" : [],
           "name_pieces" : [
             {
@@ -508,7 +546,9 @@
     },
     "name" : "PropertyKinds",
     "obj_c_declaration" : {
-      "declaration" : "@interface PropertyKinds : NSObject",
+      "declaration" : {
+        "text" : "@interface PropertyKinds : NSObject"
+      },
       "name_pieces" : [
         {
           "other" : "@interface "
@@ -521,7 +561,9 @@
     "obj_c_name" : "PropertyKinds",
     "swift_declaration" : {
       "availability" : [],
-      "declaration" : "class PropertyKinds : NSObject",
+      "declaration" : {
+        "text" : "class PropertyKinds : NSObject"
+      },
       "inherited_types" : [],
       "name_pieces" : [
         {
@@ -548,7 +590,9 @@
     },
     "name" : "fred",
     "obj_c_declaration" : {
-      "declaration" : "extern int fred",
+      "declaration" : {
+        "text" : "extern int fred"
+      },
       "name_pieces" : [
         {
           "other" : "int "
@@ -584,7 +628,9 @@
     },
     "name" : "global_func",
     "obj_c_declaration" : {
-      "declaration" : "void global_func(void)",
+      "declaration" : {
+        "text" : "void global_func(void)"
+      },
       "name_pieces" : [
         {
           "other" : "void "
@@ -600,7 +646,9 @@
     "obj_c_name" : "global_func",
     "swift_declaration" : {
       "availability" : [],
-      "declaration" : "func global_func()",
+      "declaration" : {
+        "text" : "func global_func()"
+      },
       "inherited_types" : [],
       "name_pieces" : [
         {
@@ -647,7 +695,9 @@
         },
         "name" : "field",
         "obj_c_declaration" : {
-          "declaration" : "int field",
+          "declaration" : {
+            "text" : "int field"
+          },
           "name_pieces" : [
             {
               "other" : "int "
@@ -660,7 +710,9 @@
         "obj_c_name" : "field",
         "swift_declaration" : {
           "availability" : [],
-          "declaration" : "var field: Int32",
+          "declaration" : {
+            "text" : "var field: Int32"
+          },
           "inherited_types" : [],
           "name_pieces" : [
             {
@@ -697,7 +749,9 @@
     },
     "name" : "AStruct",
     "obj_c_declaration" : {
-      "declaration" : "struct AStruct",
+      "declaration" : {
+        "text" : "struct AStruct"
+      },
       "name_pieces" : [
         {
           "other" : "struct "
@@ -710,7 +764,9 @@
     "obj_c_name" : "AStruct",
     "swift_declaration" : {
       "availability" : [],
-      "declaration" : "struct AStruct",
+      "declaration" : {
+        "text" : "struct AStruct"
+      },
       "inherited_types" : [],
       "name_pieces" : [
         {
@@ -752,7 +808,9 @@
     },
     "name" : "AEnum",
     "obj_c_declaration" : {
-      "declaration" : "typedef enum AEnum AEnum",
+      "declaration" : {
+        "text" : "typedef enum AEnum AEnum"
+      },
       "name_pieces" : [
         {
           "other" : "typedef "
@@ -795,7 +853,9 @@
         },
         "name" : "a",
         "obj_c_declaration" : {
-          "declaration" : "a = 3",
+          "declaration" : {
+            "text" : "a = 3"
+          },
           "name_pieces" : [
             {
               "other" : " "
@@ -808,7 +868,9 @@
         "obj_c_name" : "a",
         "swift_declaration" : {
           "availability" : [],
-          "declaration" : "case a = 3",
+          "declaration" : {
+            "text" : "case a = 3"
+          },
           "inherited_types" : [],
           "name_pieces" : [
             {
@@ -843,7 +905,9 @@
         },
         "name" : "b",
         "obj_c_declaration" : {
-          "declaration" : "b = 4",
+          "declaration" : {
+            "text" : "b = 4"
+          },
           "name_pieces" : [
             {
               "other" : " "
@@ -856,7 +920,9 @@
         "obj_c_name" : "b",
         "swift_declaration" : {
           "availability" : [],
-          "declaration" : "case b = 4",
+          "declaration" : {
+            "text" : "case b = 4"
+          },
           "inherited_types" : [],
           "name_pieces" : [
             {
@@ -890,7 +956,9 @@
     },
     "name" : "AEnum",
     "obj_c_declaration" : {
-      "declaration" : "enum AEnum",
+      "declaration" : {
+        "text" : "enum AEnum"
+      },
       "name_pieces" : [
         {
           "other" : "enum "
@@ -903,7 +971,9 @@
     "obj_c_name" : "AEnum",
     "swift_declaration" : {
       "availability" : [],
-      "declaration" : "enum AEnum : Int",
+      "declaration" : {
+        "text" : "enum AEnum : Int"
+      },
       "inherited_types" : [],
       "name_pieces" : [
         {
@@ -939,7 +1009,9 @@
         },
         "name" : "x",
         "obj_c_declaration" : {
-          "declaration" : "x",
+          "declaration" : {
+            "text" : "x"
+          },
           "name_pieces" : [
             {
               "other" : " "
@@ -965,7 +1037,9 @@
         },
         "name" : "y",
         "obj_c_declaration" : {
-          "declaration" : "y",
+          "declaration" : {
+            "text" : "y"
+          },
           "name_pieces" : [
             {
               "other" : " "
@@ -990,7 +1064,9 @@
     },
     "name" : "ASimpleEnum",
     "obj_c_declaration" : {
-      "declaration" : "enum ASimpleEnum",
+      "declaration" : {
+        "text" : "enum ASimpleEnum"
+      },
       "name_pieces" : [
         {
           "other" : "enum "
@@ -1003,7 +1079,9 @@
     "obj_c_name" : "ASimpleEnum",
     "swift_declaration" : {
       "availability" : [],
-      "declaration" : "struct ASimpleEnum : Equatable, RawRepresentable",
+      "declaration" : {
+        "text" : "struct ASimpleEnum : Equatable, RawRepresentable"
+      },
       "inherited_types" : [],
       "name_pieces" : [
         {
@@ -1045,7 +1123,9 @@
     },
     "name" : "Fred",
     "obj_c_declaration" : {
-      "declaration" : "typedef int Fred",
+      "declaration" : {
+        "text" : "typedef int Fred"
+      },
       "name_pieces" : [
         {
           "other" : "typedef "
@@ -1058,7 +1138,9 @@
     "obj_c_name" : "Fred",
     "swift_declaration" : {
       "availability" : [],
-      "declaration" : "typealias Fred = Int32",
+      "declaration" : {
+        "text" : "typealias Fred = Int32"
+      },
       "inherited_types" : [],
       "name_pieces" : [
         {
@@ -1094,7 +1176,9 @@
         },
         "name" : "-categoryMethod",
         "obj_c_declaration" : {
-          "declaration" : "- (void)categoryMethod",
+          "declaration" : {
+            "text" : "- (void)categoryMethod"
+          },
           "name_pieces" : [
             {
               "other" : "- (void)"
@@ -1110,7 +1194,9 @@
         "obj_c_name" : "-categoryMethod",
         "swift_declaration" : {
           "availability" : [],
-          "declaration" : "func categoryMethod()",
+          "declaration" : {
+            "text" : "func categoryMethod()"
+          },
           "inherited_types" : [],
           "name_pieces" : [
             {
@@ -1147,7 +1233,9 @@
     },
     "name" : "IVarTest(ACategory)",
     "obj_c_declaration" : {
-      "declaration" : "@interface IVarTest (ACategory)",
+      "declaration" : {
+        "text" : "@interface IVarTest (ACategory)"
+      },
       "name_pieces" : [
         {
           "other" : "@interface "
@@ -1182,7 +1270,9 @@
         },
         "name" : "-protocolMethod",
         "obj_c_declaration" : {
-          "declaration" : "-(void)protocolMethod",
+          "declaration" : {
+            "text" : "-(void)protocolMethod"
+          },
           "name_pieces" : [
             {
               "other" : "-(void)"
@@ -1198,7 +1288,9 @@
         "obj_c_name" : "-protocolMethod",
         "swift_declaration" : {
           "availability" : [],
-          "declaration" : "func protocolMethod()",
+          "declaration" : {
+            "text" : "func protocolMethod()"
+          },
           "inherited_types" : [],
           "name_pieces" : [
             {
@@ -1235,7 +1327,9 @@
     },
     "name" : "SomeProtocol",
     "obj_c_declaration" : {
-      "declaration" : "@protocol SomeProtocol",
+      "declaration" : {
+        "text" : "@protocol SomeProtocol"
+      },
       "name_pieces" : [
         {
           "other" : "@protocol "
@@ -1248,7 +1342,9 @@
     "obj_c_name" : "SomeProtocol",
     "swift_declaration" : {
       "availability" : [],
-      "declaration" : "protocol SomeProtocol",
+      "declaration" : {
+        "text" : "protocol SomeProtocol"
+      },
       "inherited_types" : [],
       "name_pieces" : [
         {
@@ -1292,7 +1388,9 @@
         },
         "name" : "-popWith:secondValue:",
         "obj_c_declaration" : {
-          "declaration" : "- (ElementType *)popWith:(NSString *)weight secondValue:(NSInteger)density",
+          "declaration" : {
+            "text" : "- (ElementType *)popWith:(NSString *)weight secondValue:(NSInteger)density"
+          },
           "name_pieces" : [
             {
               "other" : "- (ElementType *)"
@@ -1314,7 +1412,9 @@
         "obj_c_name" : "-popWith:secondValue:",
         "swift_declaration" : {
           "availability" : [],
-          "declaration" : "func pop(with weight: String!, secondValue density: Int) -> AutoreleasingUnsafeMutablePointer",
+          "declaration" : {
+            "text" : "func pop(with weight: String!, secondValue density: Int) -> AutoreleasingUnsafeMutablePointer<ElementType?>!"
+          },
           "inherited_types" : [],
           "name_pieces" : [
             {
@@ -1336,7 +1436,7 @@
               "name" : "secondValue"
             },
             {
-              "other" : ": Int) -> AutoreleasingUnsafeMutablePointer"
+              "other" : ": Int) -> AutoreleasingUnsafeMutablePointer<ElementType?>!"
             }
           ]
         },
@@ -1363,7 +1463,9 @@
     },
     "name" : "Stack",
     "obj_c_declaration" : {
-      "declaration" : "@interface Stack<ElementType> : NSObject",
+      "declaration" : {
+        "text" : "@interface Stack<ElementType> : NSObject"
+      },
       "name_pieces" : [
         {
           "other" : "@interface "
@@ -1376,7 +1478,9 @@
     "obj_c_name" : "Stack",
     "swift_declaration" : {
       "availability" : [],
-      "declaration" : "class Stack : NSObject where ElementType : AnyObject",
+      "declaration" : {
+        "text" : "class Stack<ElementType> : NSObject where ElementType : AnyObject"
+      },
       "inherited_types" : [],
       "name_pieces" : [
         {

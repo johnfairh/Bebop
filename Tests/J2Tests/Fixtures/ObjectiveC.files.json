@@ -1295,7 +1295,7 @@
               "key.j2.name_piece_text" : "Stack"
             }
           ],
-          "key.j2.swift_declaration" : "class Stack : NSObject where ElementType : AnyObject",
+          "key.j2.swift_declaration" : "class Stack<ElementType> : NSObject where ElementType : AnyObject",
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -1350,7 +1350,7 @@
                   "key.j2.name_piece_text" : ":(NSInteger)density"
                 }
               ],
-              "key.j2.swift_declaration" : "func pop(with weight: String!, secondValue density: Int) -> AutoreleasingUnsafeMutablePointer",
+              "key.j2.swift_declaration" : "func pop(with weight: String!, secondValue density: Int) -> AutoreleasingUnsafeMutablePointer<ElementType?>!",
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -1378,7 +1378,7 @@
                 },
                 {
                   "key.j2.name_piece_is_name" : false,
-                  "key.j2.name_piece_text" : ": Int) -> AutoreleasingUnsafeMutablePointer"
+                  "key.j2.name_piece_text" : ": Int) -> AutoreleasingUnsafeMutablePointer<ElementType?>!"
                 }
               ],
               "key.kind" : "sourcekitten.source.lang.objc.decl.method.instance",

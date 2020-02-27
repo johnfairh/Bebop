@@ -104,7 +104,7 @@ extension GatherDef {
     var dictForJSON: SourceKittenDict {
         var dict = sourceKittenDict
         if let swiftDecl = swiftDeclaration {
-            dict.set(.swiftDeclaration, swiftDecl.declaration)
+            dict.set(.swiftDeclaration, swiftDecl.declaration.text)
             dict.maybe(.swiftDeprecationMessage, swiftDecl.deprecation)
             dict.maybe(.availabilities, swiftDecl.availability.map {
                 [GatherKey.availability.rawValue : $0]
@@ -112,7 +112,7 @@ extension GatherDef {
             dict.maybe(.swiftNamePieces, swiftDecl.namePieces.dictsForJSON)
         }
         if let objCDecl = objCDeclaration {
-            dict.set(.objCDeclaration, objCDecl.declaration)
+            dict.set(.objCDeclaration, objCDecl.declaration.text)
             dict.maybe(.objCDeprecationMessage, objCDecl.deprecation)
             dict.maybe(.objCUnavailableMessage, objCDecl.unavailability)
             dict.maybe(.objCNamePieces, objCDecl.namePieces.dictsForJSON)

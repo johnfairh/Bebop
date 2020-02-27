@@ -286,8 +286,8 @@ extension DefItem {
                     availability: swiftDeclaration?.availability ?? [],
                     abstract: documentation.abstract?.html,
                     discussion: documentation.discussion?.html,
-                    swiftDeclaration: swiftDeclaration.flatMap { Html($0.declaration) },
-                    objCDeclaration: objCDeclaration.flatMap { Html($0.declaration) },
+                    swiftDeclaration: swiftDeclaration.flatMap { $0.declaration.html },
+                    objCDeclaration: objCDeclaration.flatMap { $0.declaration.html },
                     params: documentation.parameters.map { docParam in
                         GenData.Param(name: docParam.name, description: docParam.description.html)
                     },

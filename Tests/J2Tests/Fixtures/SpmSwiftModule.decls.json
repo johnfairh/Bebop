@@ -15,7 +15,9 @@
         "name" : "text",
         "swift_declaration" : {
           "availability" : [],
-          "declaration" : "public var text: String",
+          "declaration" : {
+            "text" : "public var text: String"
+          },
           "inherited_types" : [],
           "name_pieces" : [
             {
@@ -55,7 +57,9 @@
             "name" : "Nested2a",
             "swift_declaration" : {
               "availability" : [],
-              "declaration" : "public struct Nested2a",
+              "declaration" : {
+                "text" : "public struct Nested2a"
+              },
               "inherited_types" : [],
               "name_pieces" : [
                 {
@@ -83,7 +87,9 @@
             "name" : "Nested2b",
             "swift_declaration" : {
               "availability" : [],
-              "declaration" : "public struct Nested2b",
+              "declaration" : {
+                "text" : "public struct Nested2b"
+              },
               "deprecation" : {
                 "en" : "Deprecated."
               },
@@ -113,7 +119,9 @@
         "name" : "Nested1",
         "swift_declaration" : {
           "availability" : [],
-          "declaration" : "public struct Nested1",
+          "declaration" : {
+            "text" : "public struct Nested1"
+          },
           "inherited_types" : [],
           "name_pieces" : [
             {
@@ -148,7 +156,9 @@
         "name" : "Nested2",
         "swift_declaration" : {
           "availability" : [],
-          "declaration" : "public struct Nested2",
+          "declaration" : {
+            "text" : "public struct Nested2"
+          },
           "inherited_types" : [],
           "name_pieces" : [
             {
@@ -190,7 +200,9 @@
     "name" : "SpmSwiftModule",
     "swift_declaration" : {
       "availability" : [],
-      "declaration" : "public struct SpmSwiftModule",
+      "declaration" : {
+        "text" : "public struct SpmSwiftModule"
+      },
       "inherited_types" : [],
       "name_pieces" : [
         {
@@ -228,7 +240,9 @@
         "name" : "first(_:)",
         "swift_declaration" : {
           "availability" : [],
-          "declaration" : "case first(Int)",
+          "declaration" : {
+            "text" : "case first(Int)"
+          },
           "inherited_types" : [],
           "name_pieces" : [
             {
@@ -267,7 +281,9 @@
         "name" : "second",
         "swift_declaration" : {
           "availability" : [],
-          "declaration" : "case second",
+          "declaration" : {
+            "text" : "case second"
+          },
           "inherited_types" : [],
           "name_pieces" : [
             {
@@ -303,7 +319,9 @@
         "name" : "third",
         "swift_declaration" : {
           "availability" : [],
-          "declaration" : "case third",
+          "declaration" : {
+            "text" : "case third"
+          },
           "inherited_types" : [],
           "name_pieces" : [
             {
@@ -331,7 +349,9 @@
         "name" : "fourth",
         "swift_declaration" : {
           "availability" : [],
-          "declaration" : "case fourth",
+          "declaration" : {
+            "text" : "case fourth"
+          },
           "inherited_types" : [],
           "name_pieces" : [
             {
@@ -367,7 +387,9 @@
         "name" : "fifth(a:_:)",
         "swift_declaration" : {
           "availability" : [],
-          "declaration" : "case fifth(a: String, _: Int)",
+          "declaration" : {
+            "text" : "case fifth(a: String, _: Int)"
+          },
           "inherited_types" : [],
           "name_pieces" : [
             {
@@ -411,7 +433,9 @@
     "name" : "AnEnum",
     "swift_declaration" : {
       "availability" : [],
-      "declaration" : "public enum AnEnum",
+      "declaration" : {
+        "text" : "public enum AnEnum"
+      },
       "inherited_types" : [],
       "name_pieces" : [
         {
@@ -470,7 +494,9 @@
         "iOS 9+",
         "macOS 10.12+"
       ],
-      "declaration" : "public func functionA(arg1: Int,\n                      _ arg2: Int,\n                      arg3 argMeaning: Int)",
+      "declaration" : {
+        "text" : "public func functionA(arg1: Int,\n                      _ arg2: Int,\n                      arg3 argMeaning: Int)"
+      },
       "inherited_types" : [],
       "name_pieces" : [
         {
@@ -535,7 +561,9 @@
     "name" : "deprecatedFunction(callback:)",
     "swift_declaration" : {
       "availability" : [],
-      "declaration" : "public func deprecatedFunction(callback: (_ report: String) -> Int) -> String",
+      "declaration" : {
+        "text" : "public func deprecatedFunction(callback: (_ report: String) -> Int) -> String"
+      },
       "deprecation" : {
         "en" : "iOS - deprecated in 12.0. Deprecated!.\n\nmacOS - deprecated in 10.14. Deprecated on *macOS* too."
       },
@@ -577,7 +605,9 @@
         "name" : "init()",
         "swift_declaration" : {
           "availability" : [],
-          "declaration" : "public init()",
+          "declaration" : {
+            "text" : "public init()"
+          },
           "inherited_types" : [],
           "name_pieces" : [
             {
@@ -605,7 +635,9 @@
         "name" : "deinit",
         "swift_declaration" : {
           "availability" : [],
-          "declaration" : "deinit",
+          "declaration" : {
+            "text" : "deinit"
+          },
           "inherited_types" : [],
           "name_pieces" : [
             {
@@ -638,7 +670,9 @@
         "name" : "method(param:)",
         "swift_declaration" : {
           "availability" : [],
-          "declaration" : "public func method(param: Int) -> String",
+          "declaration" : {
+            "text" : "public func method(param: Int) -> String"
+          },
           "inherited_types" : [],
           "name_pieces" : [
             {
@@ -675,7 +709,9 @@
         "name" : "subscript(_:)",
         "swift_declaration" : {
           "availability" : [],
-          "declaration" : "public subscript(arg: String) -> Int { get set }",
+          "declaration" : {
+            "text" : "public subscript(arg: String) -> Int { get set }"
+          },
           "inherited_types" : [],
           "name_pieces" : [
             {
@@ -716,7 +752,9 @@
     "name" : "ABaseClass",
     "swift_declaration" : {
       "availability" : [],
-      "declaration" : "public class ABaseClass",
+      "declaration" : {
+        "text" : "public class ABaseClass"
+      },
       "inherited_types" : [],
       "name_pieces" : [
         {
@@ -746,7 +784,9 @@
         "name" : "t",
         "swift_declaration" : {
           "availability" : [],
-          "declaration" : "var t: Q?",
+          "declaration" : {
+            "text" : "var t: Q?"
+          },
           "inherited_types" : [],
           "name_pieces" : [
             {
@@ -777,7 +817,9 @@
         "name" : "method(param:)",
         "swift_declaration" : {
           "availability" : [],
-          "declaration" : "public override func method(param: Int) -> String",
+          "declaration" : {
+            "text" : "public override func method(param: Int) -> String"
+          },
           "inherited_types" : [],
           "name_pieces" : [
             {
@@ -814,7 +856,9 @@
         "name" : "generic(param:)",
         "swift_declaration" : {
           "availability" : [],
-          "declaration" : "public func generic(param: T) -> T",
+          "declaration" : {
+            "text" : "public func generic(param: T) -> T"
+          },
           "inherited_types" : [],
           "name_pieces" : [
             {
@@ -861,7 +905,9 @@
     "name" : "ADerivedClass",
     "swift_declaration" : {
       "availability" : [],
-      "declaration" : "public class ADerivedClass<T, Q> : ABaseClass where Q : Sequence",
+      "declaration" : {
+        "text" : "public class ADerivedClass<T, Q> : ABaseClass where Q : Sequence"
+      },
       "inherited_types" : [
         "ABaseClass"
       ],

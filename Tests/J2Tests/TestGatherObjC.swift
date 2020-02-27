@@ -150,7 +150,7 @@ class TestGatherObjC: XCTestCase {
             XCTFail("Couldn't build", line: line)
             return
         }
-        XCTAssertEqual(expectDecl, built.declaration, "original: \(decl)", line: line)
+        XCTAssertEqual(expectDecl, built.declaration.text, "original: \(decl)", line: line)
         XCTAssertEqual(expectPieces, built.namePieces.flat, "originall: \(decl)", line: line)
     }
 

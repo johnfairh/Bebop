@@ -26,6 +26,8 @@ public final class Format: Configurable {
         let allItems = items + [try createReadme()]
         logDebug("Format: Assigning URLs")
         URLFormatter(childItemStyle: configPublished.childItemStyle).walk(items: allItems)
+        logDebug("Format: Formatting declarations")
+        DeclarationFormatter().walk(items: allItems)
         logDebug("Format: Generating HTML")
         MarkdownFormatter(language: configPublished.defaultLanguage).walk(items: allItems)
         return allItems

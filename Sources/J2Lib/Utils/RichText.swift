@@ -34,6 +34,13 @@ public struct Html: CustomStringConvertible, Hashable, Encodable {
     }
 }
 
+import func Mustache.escapeHTML
+extension String {
+    var htmlEscaped: String {
+        Mustache.escapeHTML(self)
+    }
+}
+
 /// Some text manipulated by the program.
 /// Localized and formattable.
 public enum RichText: Encodable, Equatable {
@@ -73,7 +80,7 @@ public enum RichText: Encodable, Equatable {
     /// Get the html - must only call if formatted
     public var html: Localized<Html> {
         switch self {
-        case .unformatted(_): preconditionFailure() // ???
+        case .unformatted(_): preconditionFailure()
         case .formatted(_, let html): return html
         }
     }
@@ -106,6 +113,66 @@ public enum RichText: Encodable, Equatable {
         case .formatted(let md, let html):
             try container.encode(md.mapValues { $0.md }, forKey: .markdown)
             try container.encode(html.mapValues { $0.html }, forKey: .html)
+        }
+    }
+}
+
+/// Wrap up declarations and their formatting behaviour.
+///
+/// Declarations are different: not localized, fixed line format, and we need
+/// to output html directly containing autolinks.
+public enum RichDeclaration: Encodable {
+    /// Unformatted version of the declaration
+    case unformatted(String)
+    /// Formatted version of the declaration
+    case formatted(String, Html)
+
+    public init(_ declaration: String) {
+        self = .unformatted(declaration)
+    }
+
+    /// Get the plain text
+    public var text: String {
+        switch self {
+        case .unformatted(let text): return text
+        case .formatted(let text, _): return text
+        }
+    }
+
+    /// Get the html - must only call if formatted
+    public var html: Html {
+        switch self {
+        case .unformatted(_): preconditionFailure()
+        case .formatted(_, let html): return html
+        }
+    }
+
+    /// Something that knows how to convert declaration text to HTML
+    public typealias Formatter = (String) throws -> Html
+
+    /// Format the declaration
+    mutating public func format(_ formatter: Formatter) rethrows {
+        switch self {
+        case .formatted(_,_): return
+        case .unformatted(let text):
+            self = .formatted(text, try formatter(text))
+        }
+    }
+
+    // MARK: Encodable
+    private enum CodingKeys: CodingKey {
+        case text
+        case html
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        switch self {
+        case .unformatted(let text):
+            try container.encode(text, forKey: .text)
+        case .formatted(let text, let html):
+            try container.encode(text, forKey: .text)
+            try container.encode(html, forKey: .html)
         }
     }
 }

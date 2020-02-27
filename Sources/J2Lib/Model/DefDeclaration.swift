@@ -86,7 +86,7 @@ public enum DefLanguage: String, Encodable, CaseIterable {
 /// A Swift language declaration split into its various parts
 public struct SwiftDeclaration: Encodable {
     /// Possibly multi-line declaration, for verbatim display
-    public let declaration: String
+    public internal(set) var declaration: RichDeclaration
     /// Deprecation messages, or `nil` if not deprecated (XXX Markdown?)
     public let deprecation: Localized<String>?
     /// List of availability conditions
@@ -104,7 +104,7 @@ public struct SwiftDeclaration: Encodable {
          namePieces: [DeclarationPiece] = [],
          typeModuleName: String? = nil,
          inheritedTypes: [String] = []) {
-        self.declaration = declaration
+        self.declaration = RichDeclaration(declaration)
         self.deprecation = deprecation
         self.availability = availability
         self.namePieces = namePieces
@@ -116,7 +116,7 @@ public struct SwiftDeclaration: Encodable {
 /// An Objective-C declaration split into its various parts
 public struct ObjCDeclaration: Encodable {
     /// Possibly multi-line declaration, for verbatim display
-    public let declaration: String
+    public internal(set) var declaration: RichDeclaration
     /// Deprecation messages, or `nil` if not deprecated (XXX Markdown?)
     public let deprecation: Localized<String>?
     /// Unavailability messages, or `nil` if not unavailable (XXX Markdown?)
@@ -128,7 +128,7 @@ public struct ObjCDeclaration: Encodable {
          deprecation: Localized<String>? = nil,
          unavailability: Localized<String>? = nil,
          namePieces: [DeclarationPiece] = []) {
-        self.declaration = declaration
+        self.declaration = RichDeclaration(declaration)
         self.deprecation = deprecation
         self.unavailability = unavailability
         self.namePieces = namePieces

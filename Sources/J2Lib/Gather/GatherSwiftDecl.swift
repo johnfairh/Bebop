@@ -232,7 +232,7 @@ final class ObjCSwiftDeclarationBuilder : SwiftDeclarationBuilder {
         var swiftDict = SourceKittenDict()
         let swiftDecl = objCDict.swiftDeclaration
         if let swiftDecl = swiftDecl {
-            swiftDict[SwiftDocKey2.fullyAnnotatedDecl.rawValue] = "<objc>\(swiftDecl)</objc>"
+            swiftDict[SwiftDocKey2.fullyAnnotatedDecl.rawValue] = "<objc>\(swiftDecl.htmlEscaped)</objc>"
         }
         if let swiftName = objCDict.swiftName {
             swiftDict[SwiftDocKey.name.rawValue] = swiftName

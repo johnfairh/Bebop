@@ -163,7 +163,7 @@
             "dash_type" : "Class",
             "def" : {
               "abstract_html" : "<p>A derived class<\/p>",
-              "swift_declaration_html" : "public class ADerivedClass<T, Q> : ABaseClass where Q : Sequence"
+              "swift_declaration_html" : "public class ADerivedClass&lt;T, Q&gt; : ABaseClass where Q : Sequence"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">class <\/span>ADerivedClass",
@@ -889,7 +889,7 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>Base class docs for <code>method(param:)<\/code><\/p>",
-              "swift_declaration_html" : "public func method(param: Int) -> String"
+              "swift_declaration_html" : "public func method(param: Int) -&gt; String"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>method<span class=\"j2-item-secondary\">(<\/span>param<span class=\"j2-item-secondary\">: Int) -> String<\/span>",
@@ -901,7 +901,7 @@
             "dash_name" : "subscript(arg%3A%20String)%20-%3E%20Int",
             "dash_type" : "Method",
             "def" : {
-              "swift_declaration_html" : "public subscript(arg: String) -> Int { get set }"
+              "swift_declaration_html" : "public subscript(arg: String) -&gt; Int { get set }"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "subscript<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: String) -> Int<\/span>",
@@ -943,7 +943,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "def" : {
       "abstract_html" : "<p>A derived class<\/p>",
-      "swift_declaration_html" : "public class ADerivedClass<T, Q> : ABaseClass where Q : Sequence"
+      "swift_declaration_html" : "public class ADerivedClass&lt;T, Q&gt; : ABaseClass where Q : Sequence"
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
@@ -1063,7 +1063,7 @@
             "dash_name" : "func%20method(param%3A%20Int)%20-%3E%20String",
             "dash_type" : "Method",
             "def" : {
-              "swift_declaration_html" : "public override func method(param: Int) -> String"
+              "swift_declaration_html" : "public override func method(param: Int) -&gt; String"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>method<span class=\"j2-item-secondary\">(<\/span>param<span class=\"j2-item-secondary\">: Int) -> String<\/span>",
@@ -1075,7 +1075,7 @@
             "dash_name" : "func%20generic(param%3A%20T)%20-%3E%20T",
             "dash_type" : "Method",
             "def" : {
-              "swift_declaration_html" : "public func generic(param: T) -> T"
+              "swift_declaration_html" : "public func generic(param: T) -&gt; T"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>generic<span class=\"j2-item-secondary\">(<\/span>param<span class=\"j2-item-secondary\">: T) -> T<\/span>",
@@ -1258,7 +1258,7 @@
                 }
               ],
               "returns_html" : "<p>A string<\/p>",
-              "swift_declaration_html" : "public func deprecatedFunction(callback: (_ report: String) -> Int) -> String"
+              "swift_declaration_html" : "public func deprecatedFunction(callback: (_ report: String) -&gt; Int) -&gt; String"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>deprecatedFunction<span class=\"j2-item-secondary\">(<\/span>callback<span class=\"j2-item-secondary\">: (_ report: String) -> Int) -> String<\/span>",
