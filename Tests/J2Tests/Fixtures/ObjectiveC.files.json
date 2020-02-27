@@ -1114,6 +1114,17 @@
               "key.j2.name_piece_text" : "IVarTest(ACategory)"
             }
           ],
+          "key.j2.swift_declaration" : "extension IVarTest",
+          "key.j2.swift_name_pieces" : [
+            {
+              "key.j2.name_piece_is_name" : false,
+              "key.j2.name_piece_text" : "extension "
+            },
+            {
+              "key.j2.name_piece_is_name" : true,
+              "key.j2.name_piece_text" : "IVarTest"
+            }
+          ],
           "key.kind" : "sourcekitten.source.lang.objc.decl.category",
           "key.name" : "IVarTest(ACategory)",
           "key.parsed_declaration" : "@interface IVarTest (ACategory)",
@@ -1169,6 +1180,8 @@
               "key.usr" : "c:objc(cs)IVarTest(im)categoryMethod"
             }
           ],
+          "key.swift_declaration" : "extension IVarTest",
+          "key.swift_name" : "IVarTest",
           "key.unavailable_message" : "",
           "key.usr" : "c:objc(cy)IVarTest@ACategory"
         },

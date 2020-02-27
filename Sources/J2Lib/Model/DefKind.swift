@@ -246,6 +246,11 @@ public final class DefKind {
         ])
     }
 
+    /// Is it an ObjC category
+    var isObjCCategory: Bool {
+        testObjCKey(keys: [.category])
+    }
+
     // MARK: Factory
 
     /// Find the `Kind` object from a sourcekitten dictionary key, or `nil` if it's not supported

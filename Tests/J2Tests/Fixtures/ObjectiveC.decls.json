@@ -1246,6 +1246,22 @@
       ]
     },
     "obj_c_name" : "IVarTest(ACategory)",
+    "swift_declaration" : {
+      "availability" : [],
+      "declaration" : {
+        "text" : "extension IVarTest"
+      },
+      "inherited_types" : [],
+      "name_pieces" : [
+        {
+          "other" : "extension "
+        },
+        {
+          "name" : "IVarTest"
+        }
+      ]
+    },
+    "swift_name" : "IVarTest",
     "topic" : {
       "title" : {
         "markdown" : {

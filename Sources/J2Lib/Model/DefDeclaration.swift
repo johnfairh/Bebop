@@ -135,6 +135,22 @@ public struct ObjCDeclaration: Encodable {
     }
 }
 
+/// A wrapper to unpack "Foo(bar)" category names
+public struct ObjCCategoryName {
+    /// The name of the type being extended
+    public let className: String
+    /// The name of the category (does this have any semantic value?)
+    public let categoryName: String
+    /// Try to break down a compound category name
+    public init?(_ compound: String) {
+        guard let matches = compound.re_match(#"(\w*)\((\w*)\)"#) else {
+            return nil
+        }
+        self.className = matches[1]
+        self.categoryName = matches[2]
+    }
+}
+
 /// Where a definition was written
 public struct DefLocation: Encodable, CustomStringConvertible {
     /// Name of the module the definition belongs to.  If the definition is an extension of

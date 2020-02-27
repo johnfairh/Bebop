@@ -42,7 +42,6 @@ public final class GatherDef {
                       file: file,
                       availabilityRules: availabilityRules)
         }
-        self.sourceKittenDict = dict
 
         guard let kindValue = dict.kind else {
             self.kind = nil
@@ -50,6 +49,7 @@ public final class GatherDef {
             self.localizationKey = nil
             self.swiftDeclaration = nil
             self.objCDeclaration = nil
+            self.sourceKittenDict = dict
             return
         }
         guard let kind = DefKind.from(key: kindValue, name: name ?? "") else {
@@ -69,20 +69,30 @@ public final class GatherDef {
 
         if kind.isSwift {
             self.swiftDeclaration =
-                SwiftDeclarationBuilder(dict: sourceKittenDict,
+                SwiftDeclarationBuilder(dict: dict,
                                         nameComponents: nameComponents,
                                         file: file,
                                         kind: kind,
                                         availabilityRules: availabilityRules).build()
             self.objCDeclaration = nil
         } else {
+            // Work around missing declarations for categories
+            if kind.isObjCCategory,
+                dict.swiftDeclaration == nil,
+                let name = dict.name,
+                let brokenName = ObjCCategoryName(name) {
+                dict[SwiftDocKey.swiftDeclaration.rawValue] = "extension \(brokenName.className)"
+                dict[SwiftDocKey.swiftName.rawValue] = brokenName.className
+            }
+
             self.swiftDeclaration =
-                ObjCSwiftDeclarationBuilder(objCDict: sourceKittenDict,
+                ObjCSwiftDeclarationBuilder(objCDict: dict,
                                             kind: kind,
                                             availabilityRules: availabilityRules).build()
             self.objCDeclaration =
-                ObjCDeclarationBuilder(dict: sourceKittenDict, kind: kind).build()
+                ObjCDeclarationBuilder(dict: dict, kind: kind).build()
         }
+        self.sourceKittenDict = dict
     }
 
     // Things calculated after init
