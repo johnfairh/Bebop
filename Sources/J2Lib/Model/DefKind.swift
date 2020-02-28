@@ -15,7 +15,7 @@ import SourceKittenFramework
 //
 
 /// The type of a definition
-public final class DefKind {
+public final class DefKind: CustomStringConvertible {
     /// The underlying key
     private let kindKey: Key
     /// The sourcekit[ten] key for the definition type
@@ -36,7 +36,7 @@ public final class DefKind {
     public let declPrefix: String?
 
     /// The underlying sourcekitten key - keep hold of the enum to avoid string comparisons (right?)
-    private enum Key {
+    private enum Key: CustomStringConvertible {
         case swift(SwiftDeclarationKind)
         case objC(ObjCDeclarationKind, SwiftDeclarationKind?)
         // Only for swift 'MARK' comments rn...
@@ -65,6 +65,8 @@ public final class DefKind {
             case .other(let key, _): return key
             }
         }
+
+        var description: String { key }
     }
 
     private init(_ kindKey: Key,
@@ -103,6 +105,10 @@ public final class DefKind {
                   dashName: dash,
                   declPrefix: dp,
                   metaKind: metaKind)
+    }
+
+    public var description: String {
+        key.description
     }
 
     /// Map this kind into the other language.  Currently only maps objc -> swift.

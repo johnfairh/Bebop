@@ -102,6 +102,8 @@ internal enum L10n {
     case wrnSktnIncomplete = "wrn-sktn-incomplete"
     /// Unsupported definition kind '%1', ignoring.
     case wrnSktnKind = "wrn-sktn-kind"
+    /// Confused by different types sharing a USR.\n1: %1\n2: %2\nIgnoring the second.
+    case wrnUsrCollision = "wrn-usr-collision"
   }
   internal enum Output : String {
     /// Authors

@@ -104,12 +104,7 @@ extension DefItem {
                 // A straight duplicate, probably from a different pass.
                 mergeAvailabilities(from: newItem)
             } else {
-                logWarning("""
-                           Confused by different types sharing a USR.
-                           1: \(name) \(defKind) \(usr) \(location)
-                           2: \(newItem.name) \(newItem.defKind) \(newItem.usr) \(newItem.location)
-                           Ignoring second.
-                           """)
+                logWarning(.localized(.wrnUsrCollision, self, newItem))
             }
         }
         // Remember extensions for later

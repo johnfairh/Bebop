@@ -169,6 +169,15 @@ extension SourceKittenDict {
             .with(usr: name)
     }
 
+    static func mkExtension(name: String, docs: String = "") -> Self {
+        SourceKittenDict()
+            .with(kind: .extension)
+            .with(name: name)
+            .with(decl: "extension \(name)")
+            .with(comment: docs)
+            .with(usr: name)
+    }
+
     static func mkStruct(name: String, docs: String = "") -> Self {
         SourceKittenDict()
             .with(kind: .struct)
@@ -192,6 +201,15 @@ extension SourceKittenDict {
             .with(kind: .varGlobal)
             .with(name: name)
             .with(decl: "var \(name)")
+            .with(comment: docs)
+            .with(usr: name)
+    }
+
+    static func mkMethod(name: String, docs: String = "") -> Self {
+        SourceKittenDict()
+            .with(kind: .functionMethodInstance)
+            .with(name: name)
+            .with(decl: "func \(name)()")
             .with(comment: docs)
             .with(usr: name)
     }

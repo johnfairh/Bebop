@@ -11,7 +11,7 @@ import SourceKittenFramework
 
 /// Base class of definition items -- those that correspond to a definition in
 /// some source code.
-public class DefItem: Item {
+public class DefItem: Item, CustomStringConvertible {
     /// Location of the definition
     public let location: DefLocation
     /// Kind of the definition
@@ -203,6 +203,10 @@ public class DefItem: Item {
     /// Oops
     public var defChildren: DefItemList {
         children.compactMap { $0 as? DefItem }
+    }
+
+    public var description: String {
+        "\(name) \(defKind) \(usr) \(location)"
     }
 }
 

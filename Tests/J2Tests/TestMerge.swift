@@ -86,7 +86,8 @@ class TestMerge: XCTestCase {
         XCTAssertEqual(1, TestLogger.shared.diagsBuf.count)
     }
 
-    // Available
+    // Available/Types
+
     func testMergeAvailable() throws {
         let macClass = SourceKittenDict.mkClass(name: "Clazz").asGatherDef(availability: "macOS")
         let linuxClass = SourceKittenDict.mkClass(name: "Clazz").asGatherDef(availability: "Linux")
@@ -95,6 +96,53 @@ class TestMerge: XCTestCase {
         let defItems = try system.merge.merge(gathered: file.asPasses())
         XCTAssertEqual(1, defItems.count)
         XCTAssertEqual(["macOS", "Linux"], defItems[0].swiftDeclaration?.availability)
+    }
+
+    func testMergeWeird() throws {
+        let clas = SourceKittenDict.mkClass(name: "Clazz")
+        let struc = SourceKittenDict.mkStruct(name: "Clazz")
+        let file = SourceKittenDict.mkFile().with(children: [clas, struc])
+        let system = System()
+        TestLogger.install()
+        let defItems = try system.merge.merge(gathered: file.asGatherPasses)
+        XCTAssertEqual(1, TestLogger.shared.diagsBuf.count)
+        XCTAssertEqual(1, defItems.count)
+    }
+
+    // Extensions
+
+    func testMergeTypeExtension() throws {
+        let claz = SourceKittenDict.mkClass(name: "Clazz").with(children: [.mkMethod(name: "cMethod")])
+        let extn = SourceKittenDict.mkExtension(name: "Clazz").with(children: [.mkMethod(name: "eMethod")])
+        let file = SourceKittenDict.mkFile().with(children: [claz, extn])
+        let system = System()
+        let defItems = try system.merge.merge(gathered: file.asGatherPasses)
+        XCTAssertEqual(1, defItems.count)
+        XCTAssertEqual(1, defItems[0].children.count)
+        XCTAssertEqual(1, defItems[0].extensions.count)
+    }
+
+    func testMergeLeftoverExtension() throws {
+        let claz = SourceKittenDict.mkClass(name: "Clazz").with(children: [.mkMethod(name: "cMethod")])
+        let extn1 = SourceKittenDict.mkExtension(name: "Clazz2").with(children: [.mkMethod(name: "eMethod1")])
+        let extn2 = SourceKittenDict.mkExtension(name: "Clazz2").with(children: [.mkMethod(name: "eMethod2")])
+        let file = SourceKittenDict.mkFile().with(children: [claz, extn1, extn2])
+        let system = System()
+        let defItems = try system.merge.merge(gathered: file.asGatherPasses)
+        XCTAssertEqual(2, defItems.count)
+        XCTAssertEqual(1, defItems[1].extensions.count)
+    }
+
+    func testMergeNestedExtension() throws {
+        let claz = SourceKittenDict.mkClass(name: "Clazz")
+            .with(children: [.mkClass(name: "Nested")])
+        let extn = SourceKittenDict.mkExtension(name: "Nested").with(children: [.mkMethod(name: "eMethod")])
+        let file = SourceKittenDict.mkFile().with(children: [claz, extn])
+        let system = System()
+        let defItems = try system.merge.merge(gathered: file.asGatherPasses)
+        XCTAssertEqual(1, defItems.count)
+        XCTAssertEqual(1, defItems[0].children.count)
+        XCTAssertEqual(1, defItems[0].defChildren[0].extensions.count)
     }
 
     // Marks
