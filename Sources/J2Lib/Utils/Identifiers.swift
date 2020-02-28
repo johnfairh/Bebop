@@ -41,6 +41,8 @@ public final class StringUniquer {
 }
 
 extension Dictionary {
+    /// Reduce a new item into a key.  If key absent, is `initial`, otherwise via `reduceValue`.
+    /// Return the new value for the key.
     @discardableResult
     public mutating func reduceKey(_ key: Key, _ initial: Value, _ reduceValue: (Value) -> Value) -> Value {
         let newValue: Value

@@ -84,13 +84,13 @@ public enum DefLanguage: String, Encodable, CaseIterable {
 }
 
 /// A Swift language declaration split into its various parts
-public struct SwiftDeclaration: Encodable {
+public final class SwiftDeclaration: Encodable {
     /// Possibly multi-line declaration, for verbatim display
     public internal(set) var declaration: RichDeclaration
     /// Deprecation messages, or `nil` if not deprecated (XXX Markdown?)
     public let deprecation: Localized<String>?
     /// List of availability conditions
-    public let availability: [String]
+    public internal(set) var availability: [String]
     /// Declaration split into name and non-name pieces, for making an item title
     public let namePieces: [DeclarationPiece]
     /// For extensions, the module name of the type
@@ -114,7 +114,7 @@ public struct SwiftDeclaration: Encodable {
 }
 
 /// An Objective-C declaration split into its various parts
-public struct ObjCDeclaration: Encodable {
+public final class ObjCDeclaration: Encodable {
     /// Possibly multi-line declaration, for verbatim display
     public internal(set) var declaration: RichDeclaration
     /// Deprecation messages, or `nil` if not deprecated (XXX Markdown?)
@@ -170,5 +170,24 @@ public struct DefLocation: Encodable, CustomStringConvertible {
         let from = firstLine ?? 0
         let to = lastLine ?? 0
         return "[\(moduleName):\(passIndex) \(file) ll\(from)-\(to)]"
+    }
+}
+
+/// A USR.
+///
+/// Understanding the structure of this is a fallback when we don't have properly spelt-out data
+/// through a formal interface.
+public struct USR: Encodable, CustomStringConvertible, Hashable {
+    public let value: String
+    public var description: String { value }
+    public init(_ value: String) { self.value = value }
+
+    /// Given the USR of an ObjC category, make the USR for the class
+    public init?(classFromCategoryUSR usr: USR) {
+        // c:objc(cy)Type@Cat -> c:objc(cs)Type
+        guard let match = usr.value.re_match(#"(?<=\(cy\)).*(?=@)"#) else {
+            return nil
+        }
+        value = "c:objc(cs)" + match[0]
     }
 }

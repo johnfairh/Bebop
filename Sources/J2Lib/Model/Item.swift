@@ -17,7 +17,7 @@ public class Item: Encodable {
     /// The item's slug, unique in its docs scope
     public let slug: String
     /// Children in the documentation tree
-    public let children: [Item]
+    public internal(set) var children: [Item]
     /// Topic the item belongs to
     public internal(set) var topic: Topic?
 

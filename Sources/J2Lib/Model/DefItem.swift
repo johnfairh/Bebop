@@ -17,7 +17,7 @@ public class DefItem: Item {
     /// Kind of the definition
     public let defKind: DefKind
     /// USR
-    public let usr: String
+    public let usr: USR
     /// Documentation
     public private(set) var documentation: RichDefDocs
     /// Declarations
@@ -31,6 +31,8 @@ public class DefItem: Item {
     public let otherLanguageName: String?
     /// Names of generic type parameters
     public let genericTypeParameters: [String]
+    /// Extensions on a base type - carried temporarily here and eventually merged
+    public private(set) var extensions: DefItemList
 
     /// Create from a gathered definition
     public init?(location: DefLocation, gatherDef: GatherDef, uniquer: StringUniquer) {
@@ -73,7 +75,7 @@ public class DefItem: Item {
                                     firstLine: startLine ?? line,
                                     lastLine: endLine ?? line)
         self.defKind = kind
-        self.usr = usr
+        self.usr = USR(usr)
         self.documentation = RichDefDocs(gatherDef.translatedDocs)
         self.swiftDeclaration = gatherDef.swiftDeclaration
         self.objCDeclaration = gatherDef.objCDeclaration
@@ -93,9 +95,20 @@ public class DefItem: Item {
             otherLanguageName = nil // todo swift->objc
         }
 
-        let children = gatherDef.children.asDefItems(location: location, uniquer: uniquer)
+        // Sort out children.
+        // - Generic type params need to be pulled into us for reference later; we don't
+        //   want them in docs.
+        // - libclang generates bad children for typedefs when using code like
+        //   `typedef struct Foo { ... } Foo;` and we don't want any of them.
+        let children: [DefItem]
+        if !kind.isObjCTypedef {
+            children = gatherDef.children.asDefItems(location: location, uniquer: uniquer)
+        } else {
+            children = []
+        }
         let (genericParams, realChildren) = children.splitPartition { $0.defKind.isGenericParameter }
         self.genericTypeParameters = genericParams.map { $0.name }
+        self.extensions = []
 
         super.init(name: name, slug: uniquer.unique(name.slugged), children: realChildren)
     }
@@ -170,4 +183,27 @@ public class DefItem: Item {
         try swiftDeclaration?.declaration.format(formatter)
         try objCDeclaration?.declaration.format(formatter)
     }
+
+    /// The USR of the type that this def is about.
+    /// Even Swift extensions already have this set up.
+    /// ObjC categories need transformation.
+    public var typeUSR: USR {
+        if defKind.isObjCCategory,
+            let typeUSR = USR(classFromCategoryUSR: usr) {
+            return typeUSR
+        }
+        return usr
+    }
+
+    /// Add extensions
+    public func add(extensions: DefItemList) {
+        self.extensions += extensions
+    }
+
+    /// Oops
+    public var defChildren: DefItemList {
+        children.compactMap { $0 as? DefItem }
+    }
 }
+
+public typealias DefItemList = Array<DefItem>

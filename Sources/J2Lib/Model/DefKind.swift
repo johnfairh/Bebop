@@ -134,6 +134,11 @@ public final class DefKind {
         !testObjCKey(keys: [.moduleImport])
     }
 
+    /// Is this some kind of extension or category?
+    var isExtension: Bool {
+        isSwiftExtension || isObjCCategory
+    }
+
     /// Is this any kind of Swift extension declaration?
     var isSwiftExtension: Bool {
         testSwiftKey(keys: [

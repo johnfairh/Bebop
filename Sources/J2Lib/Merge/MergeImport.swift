@@ -12,7 +12,7 @@
 
 extension Merge {
     /// Flatten and interpret the gather info into `DefItem` trees.
-    func createItems(gathered: [GatherModulePass]) -> [DefItem] {
+    func importItems(gathered: [GatherModulePass]) -> [DefItem] {
         gathered.map { pass in
             pass.files.map { fileDef -> [DefItem] in
                 let filePathname = fileDef.0
