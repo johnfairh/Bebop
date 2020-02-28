@@ -105,6 +105,7 @@ class SwiftDeclarationBuilder {
 
         // Sort out decl attributes and @available statements
 
+        availability = [] // no more early exits
         if let attributeDicts = dict.attributes {
             let allAttributes = parse(attributeDicts: attributeDicts)
             let (availables, others) = allAttributes.splitPartition { $0.hasPrefix("@available") }

@@ -216,15 +216,17 @@ extension SourceKittenDict {
 
     // Promotion
 
-    var asGatherDef: GatherDef {
-        GatherDef(sourceKittenDict: self,
-                  parentNameComponents: [],
-                  file: nil,
-                  availabilityRules: GatherAvailabilityRules())!
+    func asGatherDef(availability: String? = nil) -> GatherDef {
+        let rules = GatherAvailabilityRules(defaults: availability.flatMap { [$0] } ?? [],
+                                            ignoreAttr: false)
+        return GatherDef(sourceKittenDict: self,
+                         parentNameComponents: [],
+                         file: nil,
+                         availabilityRules: rules)!
     }
 
     var asGatherPasses: [GatherModulePass] {
-        asGatherDef.asPasses()
+        asGatherDef().asPasses()
     }
 }
 
@@ -238,5 +240,10 @@ extension GatherDef {
 
     func asPasses(moduleName: String = "module", pathName: String = "pathname") -> [GatherModulePass] {
         [asPass(moduleName: moduleName, pathName: pathName)]
+    }
+
+    static func mkFile(children: [GatherDef]) -> GatherDef {
+        let fileDict = SourceKittenDict.mkFile()
+        return GatherDef(sourceKittenDict: fileDict, children: children)
     }
 }

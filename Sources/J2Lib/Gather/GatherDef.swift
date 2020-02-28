@@ -97,4 +97,15 @@ public final class GatherDef {
 
     // Things calculated after init
     var translatedDocs = LocalizedDefDocs()
+
+    /// Test helper
+    init(sourceKittenDict: SourceKittenDict, children: [GatherDef]) {
+        self.children = children
+        self.sourceKittenDict = sourceKittenDict
+        self.kind = nil
+        self.swiftDeclaration = nil
+        self.objCDeclaration = nil
+        self.documentation = nil
+        self.localizationKey = nil
+    }
 }

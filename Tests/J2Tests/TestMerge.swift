@@ -86,10 +86,21 @@ class TestMerge: XCTestCase {
         XCTAssertEqual(1, TestLogger.shared.diagsBuf.count)
     }
 
+    // Available
+    func testMergeAvailable() throws {
+        let macClass = SourceKittenDict.mkClass(name: "Clazz").asGatherDef(availability: "macOS")
+        let linuxClass = SourceKittenDict.mkClass(name: "Clazz").asGatherDef(availability: "Linux")
+        let file = GatherDef.mkFile(children: [macClass, linuxClass])
+        let system = System()
+        let defItems = try system.merge.merge(gathered: file.asPasses())
+        XCTAssertEqual(1, defItems.count)
+        XCTAssertEqual(["macOS", "Linux"], defItems[0].swiftDeclaration?.availability)
+    }
+
     // Marks
 
     private func checkMark(_ dict: SourceKittenDict, _ markText: String, line: UInt = #line) {
-        guard let mark = dict.asGatherDef.asTopicMark else {
+        guard let mark = dict.asGatherDef().asTopicMark else {
             XCTFail("not a mark", line: line)
             return
         }
@@ -97,7 +108,7 @@ class TestMerge: XCTestCase {
     }
 
     private func checkNotMark(_ dict: SourceKittenDict, line: UInt = #line) {
-        if let mark = dict.asGatherDef.asTopicMark {
+        if let mark = dict.asGatherDef().asTopicMark {
             XCTFail("not a mark: \(mark)")
         }
     }
