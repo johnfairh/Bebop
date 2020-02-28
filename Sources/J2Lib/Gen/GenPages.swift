@@ -283,6 +283,7 @@ class ItemVisitor: ItemVisitorProtocol {
 extension DefItem {
     var asGenDef: GenData.Def {
         GenData.Def(deprecation: deprecationNotice?.html,
+                    unavailability: unavailableNotice?.html,
                     availability: swiftDeclaration?.availability ?? [],
                     abstract: documentation.abstract?.html,
                     discussion: documentation.discussion?.html,

@@ -512,6 +512,7 @@
             "dash_type" : "Struct",
             "def" : {
               "deprecation_html" : "<p>Deprecated.<\/p>",
+              "discouraged" : true,
               "swift_declaration_html" : "public struct Nested2b"
             },
             "primary_language" : "j2-swift",
@@ -1251,6 +1252,7 @@
             "def" : {
               "abstract_html" : "<p>A deprecated function<\/p>",
               "deprecation_html" : "<p>iOS - deprecated in 12.0. Deprecated!.<\/p>\n<p>macOS - deprecated in 10.14. Deprecated on <em>macOS<\/em> too.<\/p>",
+              "discouraged" : true,
               "parameters" : [
                 {
                   "parameter_html" : "<p>The callback<\/p>",

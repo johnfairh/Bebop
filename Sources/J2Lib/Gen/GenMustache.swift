@@ -116,6 +116,8 @@ public enum MustacheKey: String {
     // Definitions
     case def = "def"
     case deprecationHtml = "deprecation_html"
+    case unavailableHtml = "unavailable_html"
+    case discouraged = "discouraged"
     case availability = "availability"
     case abstractHtml = "abstract_html"
     case discussionHtml = "discussion_html"
@@ -514,6 +516,8 @@ extension GenData.Def: SoloLanguageProtocol {
     /// Def is split out because shared between top of page and inside items.
     /// Keys:
     ///   deprecation_html  - optional - is it deprecated
+    ///   unavailable_html  - optional - is it unavailable
+    ///   discouraged - optional - is it deprecated/unavailable
     ///   swift_declaration_html - swift decl
     ///   objc_declaration_html - objc decl --- at least one of these two will be set
     ///   abstract_html - optional - first part of discussion
@@ -523,6 +527,10 @@ extension GenData.Def: SoloLanguageProtocol {
     func generateDef(languageTag: String, fileExt: String) -> MustacheDict {
         var dict = MustacheDict()
         dict.maybe(.deprecationHtml, deprecation?.get(languageTag).html)
+        dict.maybe(.unavailableHtml, unavailability?.get(languageTag).html)
+        if deprecation != nil || unavailability != nil {
+            dict[.discouraged] = true
+        }
         if !availability.isEmpty {
             dict[.availability] = availability
         }

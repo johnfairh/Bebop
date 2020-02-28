@@ -176,6 +176,7 @@ public class DefItem: Item, CustomStringConvertible {
         try documentation.format(blockFormatter)
         try topic?.format(inlineFormatter)
         try deprecationNotice?.format(blockFormatter)
+        try unavailableNotice?.format(blockFormatter)
     }
 
     /// Format the item's associated declarations

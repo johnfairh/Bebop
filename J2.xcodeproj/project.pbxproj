@@ -105,6 +105,7 @@
 		02D00C822407D70800DD93C5 /* FormatDeclaration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D00C812407D70800DD93C5 /* FormatDeclaration.swift */; };
 		02D00C862407EEC100DD93C5 /* MergeImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D00C852407EEC100DD93C5 /* MergeImport.swift */; };
 		02D00C88240940B600DD93C5 /* MergeDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D00C87240940B600DD93C5 /* MergeDefinitions.swift */; };
+		02D00C8A24096E8A00DD93C5 /* MergeFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D00C8924096E8A00DD93C5 /* MergeFilter.swift */; };
 		02D064F423EC208200FE11BD /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D064F323EC208200FE11BD /* Group.swift */; };
 		02F2B3C4239A7E2A00397BC6 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C24034239A732200518764 /* main.swift */; };
 		02FDC67A23E876D300C2F9CD /* DefDocs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FDC67923E876D300C2F9CD /* DefDocs.swift */; };
@@ -291,6 +292,7 @@
 		02D00C812407D70800DD93C5 /* FormatDeclaration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatDeclaration.swift; sourceTree = "<group>"; };
 		02D00C852407EEC100DD93C5 /* MergeImport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MergeImport.swift; sourceTree = "<group>"; };
 		02D00C87240940B600DD93C5 /* MergeDefinitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MergeDefinitions.swift; sourceTree = "<group>"; };
+		02D00C8924096E8A00DD93C5 /* MergeFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MergeFilter.swift; sourceTree = "<group>"; };
 		02D064F323EC208200FE11BD /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		02F2B3B4239A7E0C00397BC6 /* J2CLI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = J2CLI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02F2B3D0239A89D700397BC6 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
@@ -552,6 +554,7 @@
 				02CFFA0023E0B95F00FDE5B9 /* Merge.swift */,
 				02D00C852407EEC100DD93C5 /* MergeImport.swift */,
 				02D00C87240940B600DD93C5 /* MergeDefinitions.swift */,
+				02D00C8924096E8A00DD93C5 /* MergeFilter.swift */,
 			);
 			path = Merge;
 			sourceTree = "<group>";
@@ -853,6 +856,7 @@
 				02FDC69123EB617300C2F9CD /* StringEnums.swift in Sources */,
 				02CFF92923DE044200FDE5B9 /* GatherJob.swift in Sources */,
 				029A6F1B23D7838700D66069 /* Pipeline.swift in Sources */,
+				02D00C8A24096E8A00DD93C5 /* MergeFilter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

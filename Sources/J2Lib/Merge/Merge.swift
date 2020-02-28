@@ -17,16 +17,20 @@ import SourceKittenFramework
 ///
 /// This is the end of the sourcekit-style hashes, converted into more well-typed `Item` hierarchy.
 public struct Merge: Configurable {
+    let filter: MergeFilter
+
     /// We unique names over the entire corpus which is unnecessary but makes life easier.
     var uniquer = StringUniquer()
 
     public init(config: Config) {
+        filter = MergeFilter(config: config)
         config.register(self)
     }
     
     public func merge(gathered: [GatherModulePass]) throws -> [DefItem] {
-        let allItems = importItems(gathered: gathered)
-
-        return allItems.mergeDefinitions()
+        let importedItems = importItems(gathered: gathered)
+        let defnMergedItems = importedItems.mergeDefinitions()
+        let filteredItems = filter.filter(items: defnMergedItems)
+        return filteredItems
     }
 }
