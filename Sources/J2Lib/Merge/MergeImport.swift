@@ -8,6 +8,7 @@
 
 //
 // Stuff to do with building the initial DefItem forest from GatherPasses
+// See also `DefItem.init(...)`.
 //
 
 extension Merge {

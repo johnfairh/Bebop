@@ -86,6 +86,56 @@
         },
         "swift_name" : "propertyName",
         "usr" : "c:objc(cs)IVarTest(py)propertyName"
+      },
+      {
+        "children" : [],
+        "generic_type_parameters" : [],
+        "kind" : "sourcekitten.source.lang.objc.decl.method.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
+          "first_line" : 67,
+          "last_line" : 67,
+          "module_name" : "Module",
+          "pass_index" : 0
+        },
+        "name" : "-categoryMethod",
+        "obj_c_declaration" : {
+          "declaration" : {
+            "text" : "- (void)categoryMethod"
+          },
+          "name_pieces" : [
+            {
+              "other" : "- (void)"
+            },
+            {
+              "name" : "categoryMethod"
+            },
+            {
+              "other" : ""
+            }
+          ]
+        },
+        "obj_c_name" : "-categoryMethod",
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : {
+            "text" : "func categoryMethod()"
+          },
+          "inherited_types" : [],
+          "name_pieces" : [
+            {
+              "other" : "func "
+            },
+            {
+              "name" : "categoryMethod"
+            },
+            {
+              "other" : "()"
+            }
+          ]
+        },
+        "swift_name" : "categoryMethod()",
+        "usr" : "c:objc(cs)IVarTest(im)categoryMethod"
       }
     ],
     "generic_type_parameters" : [],

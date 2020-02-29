@@ -9,6 +9,9 @@
 // MergeDefinitions
 // - elimination of total duplicate types and availability merging
 // - association of extensions/categories with types
+// - merging of extensions/categories into types
+
+// MARK: UsrGroups helper
 
 /// An index of lists of items that share a USR.
 ///
@@ -18,7 +21,7 @@
 /// 3) There is an ObjC category of an Objective-C type in our sources.
 /// 4) There are multiple Swift extensions or ObjC categories on some type that
 ///   is not in our sources -- will be a top-level extension in the generated docs.
-final class UsrGroups {
+private final class UsrGroups {
     private var sortOrder: [USR]
     private var groups: [USR: DefItemList]
 
@@ -51,54 +54,113 @@ final class UsrGroups {
             return try call(first, items)
         }
     }
+
+    /// Iterate the groups in some order
+    func forEachGroup(_ call: (DefItemList) throws -> Void) rethrows {
+        try groups.values.forEach { try call($0 )}
+    }
 }
 
-extension DefItemList {
-    /// The top level merge is different to the others because of Swift extensions.
-    /// These are different because extensions always occur at the outer scope, but
-    /// may refer to a nested scope (extension A.B).
+fileprivate extension DefItemList {
+    /// Transform a list of items by grouping them by USR.  Preserves order.
+    func mergeDuplicates(using: (DefItem, [DefItem]) throws -> Void) rethrows -> [DefItem] {
+        try UsrGroups(items: self).map { first, rest in
+            try using(first, rest)
+            return first
+        }
+    }
+}
+
+// MARK: MergeDefinitions
+
+/// MergeDefinitions deals with merging together multiple copies of the same definition,
+/// extensions of definitions with definitions, and multiple copies of said extensions.
+///
+/// There are two main phases to this separated by the `MergeFilter` process.
+/// Phase 1 associates (but does not merge) extensions with their types, and merges multiple
+/// copies of things that are not in extensions.
+///
+/// The filter process then prunes this forest by discarding defs the user does not want
+/// to see in the docs.
+///
+/// Phase 2 merges extensions that passed the filter into their types.
+///
+/// The phasing is such to make filter possible: grouping extensions with their types is necessary
+/// to understand access control, and filtering stuff after extension-merging is really hard because
+/// we lose sight of where things came from.
+struct MergeDefinitions {
+    init(config: Config) {
+    }
+
+    /// Phase 1 - merge types and link extensions
     ///
-    /// So we collect up extensions once, then pick them up as we recurse down the
-    /// tree of types.
+    /// Surprisingly complicated because extensions: always occur at the top level but
+    /// may extend a nested type ("extension A.B"), may introduce new nested types
+    /// ("extension A { struct B {} }""), and may be extensions of types that are introduced
+    /// by other extensions (last two examples together).  And we may have multiple copies
+    /// of them due to gather passes.
     ///
-    /// Any left-over extensions must be of external types, and we can add them back
-    /// to the merged list -- but grouped up, so we have just one representative extension
-    /// of a given type.
-    func mergeDefinitions() -> DefItemList {
-        let (exts, defs) = splitPartition { $0.defKind.isExtension }
+    func mergePhase1(items: DefItemList) -> DefItemList {
+        // Separate extensions
+        let (exts, defs) = items.splitPartition { $0.defKind.isExtension }
         let extensionGroups = UsrGroups(items: exts)
 
-        let mergedDefs = defs.merge(extensions: extensionGroups)
+        // Merge non-extensions
+        let mergedDefs = defs.mergeDuplicates {
+            $0.mergePhase1(others: $1)
+        }
 
-        let unmergedExts = extensionGroups.map { first, rest -> DefItem in
+        // Associate extensions with the types they are extending.
+        // First, extensions of types introduced by other extensions
+        extensionGroups.forEachGroup { group in
+            group.forEach {
+                $0.linkExtensions(extensions: extensionGroups)
+            }
+        }
+        // Then extensions of straight types.
+        mergedDefs.forEach {
+            $0.linkExtensions(extensions: extensionGroups)
+        }
+
+        // Clean up any unclaimed extensions
+        let unlinkedExts = extensionGroups.map { first, rest -> DefItem in
             first.add(extensions: rest)
             return first
         }
 
-        return mergedDefs + unmergedExts
+        return mergedDefs + unlinkedExts
     }
 
-    /// The recursive-step merge.
+    /// Phase 2 - merge  extensions
     ///
-    /// Take all the defs and sort into groups, then merge each
-    /// group along with the top-level extensions group.
-    func merge(extensions: UsrGroups) -> [DefItem] {
-        UsrGroups(items: self).map { first, rest in
-            first.merge(with: rest, extensions: extensions)
-            return first
-        }
+    /// This 'just' needs to walk the forest and eliminate the 'extensions' lists dangling
+    /// of some types.
+    func mergePhase2(items: DefItemList) -> DefItemList {
+        items.forEach { $0.mergePhase2(others: []) }
+        return items
     }
 }
 
-extension DefItem {
-    /// Merge a set of items into this one.
+// MARK: DefItem methods
+
+fileprivate extension DefItem {
+    /// Phase 1 merge, part 1: reduce duplicate type definitions.
     ///
     /// The `newItems` all have the same USR as we do.
     /// They will not be independently included in docs.
     /// Either roll the meaning of each `newItem` element into this one or report a warning to record its loss.
-    /// Pick up extensions from `extensions` and record for later.
-    func merge(with newItems: DefItemList, extensions: UsrGroups) {
-        // Main declaration
+    func mergePhase1(others newItems: DefItemList) {
+        mergeAvailabilities(with: newItems)
+        newItems.forEach { precondition($0.extensions.isEmpty) }
+
+        let allChildren = defChildren + newItems.flatMap { $0.defChildren }
+        children = allChildren.mergeDuplicates {
+            $0.mergePhase1(others: $1)
+        }
+    }
+
+    /// Merge the availabilities of a bunch of duplicate definitions into ours
+    func mergeAvailabilities(with newItems: DefItemList) {
         newItems.forEach { newItem in
             if defKind == newItem.defKind {
                 // A straight duplicate, probably from a different pass.
@@ -107,12 +169,6 @@ extension DefItem {
                 logWarning(.localized(.wrnUsrCollision, self, newItem))
             }
         }
-        // Remember extensions for later
-        add(extensions: extensions.remove(usr: usr))
-
-        // Children - recurse!
-        let allChildren = defChildren + newItems.flatMap { $0.defChildren }
-        children = allChildren.merge(extensions: extensions)
     }
 
     /// Add any new availabilities into our set
@@ -124,6 +180,42 @@ extension DefItem {
                     currentSwiftDecl.availability.append(availability)
                 }
             }
+        }
+    }
+
+    /// Phase 1 merge, part 2: pick up extensions from the index.
+    /// (Could merge with phase1part1 I'm sure, but my head almost exploded getting this far.)
+    func linkExtensions(extensions: UsrGroups) {
+        if !defKind.isExtension {
+            add(extensions: extensions.remove(usr: usr))
+        }
+        defChildren.forEach { $0.linkExtensions(extensions: extensions) }
+    }
+
+    /// Phase 2 merge: merge extensions
+    ///
+    /// Because we can have multiple copies of extensions, some deduplication is necessary
+    /// here as well as straight extension merging.
+    ///
+    /// For example 2x "extension A { struct B {} }" and 1x "extension A.B {}".
+    /// When this routine executes for `A.B`, we will have the A.B extension waiting in
+    /// 'extensions', having located it during phase 1, and will also have newItems.count = 1
+    /// as it holds the second copy of the struct A.B declaration.
+    /// All this needs merging together because the struct declarations could have different
+    /// content.
+    func mergePhase2(others newItems: DefItemList) {
+        mergeAvailabilities(with: newItems)
+
+        // TODO: work through the extensions list doing actual useful work
+
+        let allChildren = defChildren +
+            extensions.flatMap { $0.defChildren } +
+            newItems.flatMap { $0.defChildren }
+
+        set(extensions: [])
+
+        children = allChildren.mergeDuplicates {
+            $0.mergePhase2(others: $1)
         }
     }
 }

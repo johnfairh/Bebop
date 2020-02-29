@@ -200,6 +200,10 @@ public class DefItem: Item, CustomStringConvertible {
     public func add(extensions: DefItemList) {
         self.extensions += extensions
     }
+    // XXX I've got confused with the whole ACL concept for this framework.....
+    public func set(extensions: DefItemList) {
+        self.extensions = extensions
+    }
 
     /// Oops
     public var defChildren: DefItemList {
