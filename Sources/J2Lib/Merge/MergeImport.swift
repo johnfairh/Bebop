@@ -11,10 +11,15 @@
 // See also `DefItem.init(...)`.
 //
 
-extension Merge {
+struct MergeImport {
+    init(config: Config) {
+    }
+
     /// Flatten and interpret the gather info into `DefItem` trees.
     func importItems(gathered: [GatherModulePass]) -> [DefItem] {
-        gathered.map { pass in
+        let uniquer = StringUniquer()
+
+        return gathered.map { pass in
             pass.files.map { fileDef -> [DefItem] in
                 let filePathname = fileDef.0
                 let rootDef = fileDef.1
@@ -65,7 +70,7 @@ extension Array where Element == GatherDef {
 
 extension GatherDef {
     /// Try to interpret the def as a Topic
-    public var asTopicMark: Topic? {
+    var asTopicMark: Topic? {
         guard let kind = kind,
             kind.isMark,
             let text = sourceKittenDict.name else {
