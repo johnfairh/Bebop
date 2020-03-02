@@ -68,10 +68,11 @@
             {{{def.abstract_html}}}
             {{{def.overview_html}}}
           </div>
-          {{#default_impl_abstract}}
+          {{#def.default_abstract_html}}
           <h5>Default Implementation</h5>
-          {{{default_impl_abstract}}}
-          {{/default_impl_abstract}}
+          {{{def.default_abstract_html}}}
+          {{{def.default_discussion_html}}}
+          {{/def.default_abstract_html}}
           <h5>Declaration</h5>
           <div class="j2-item-declaration">
             {{#def.swift_declaration_html}}

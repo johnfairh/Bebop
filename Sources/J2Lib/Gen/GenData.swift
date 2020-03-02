@@ -38,6 +38,8 @@ public final class GenData: Encodable {
         public let availability: [String]
         public let abstract: Localized<Html>?
         public let discussion: Localized<Html>?
+        public let defaultAbstract: Localized<Html>?
+        public let defaultDiscussion: Localized<Html>?
         public let swiftDeclaration: Html?
         public let objCDeclaration: Html?
         public let params: [Param]

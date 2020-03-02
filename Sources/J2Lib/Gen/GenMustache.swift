@@ -121,6 +121,8 @@ public enum MustacheKey: String {
     case availability = "availability"
     case abstractHtml = "abstract_html"
     case discussionHtml = "discussion_html"
+    case defaultAbstractHtml = "default_abstract_html"
+    case defaultDiscussionHtml = "default_discussion_html"
     case swiftDeclarationHtml = "swift_declaration_html"
     case objCDeclarationHtml = "objc_declaration_html"
     case parameters = "parameters"
@@ -522,6 +524,8 @@ extension GenData.Def: SoloLanguageProtocol {
     ///   objc_declaration_html - objc decl --- at least one of these two will be set
     ///   abstract_html - optional - first part of discussion
     ///   discussion_html - optional - second part of discussion
+    ///   default_abstract_html - optional - first part of default implementation abstract
+    ///   default_discussion_html - optional - rest of default implementation abstract
     ///   parameters - optional - array of title / parameter_html
     ///   returns_html - optional - returns docs
     func generateDef(languageTag: String, fileExt: String) -> MustacheDict {
@@ -538,6 +542,8 @@ extension GenData.Def: SoloLanguageProtocol {
         dict.maybe(.objCDeclarationHtml, objCDeclaration?.html)
         dict.maybe(.abstractHtml, abstract?.get(languageTag).html)
         dict.maybe(.discussionHtml, discussion?.get(languageTag).html)
+        dict.maybe(.defaultAbstractHtml, defaultAbstract?.get(languageTag).html)
+        dict.maybe(.defaultDiscussionHtml, defaultDiscussion?.get(languageTag).html)
         if !params.isEmpty {
             dict[.parameters] = params.map {
                 MH([.title: $0.name, .parameterHtml: $0.description.get(languageTag).html])

@@ -68,22 +68,21 @@ extension LocalizedDefDocs {
     /// Add a translation to the set.
     /// Whichever way I shake these data structures there's always one incredibly ugly piece.
     /// This is the least bad option I've found.
-    public mutating func set(tag: String, docs: DefDocs<Markdown>) {
-        if let tabstract = docs.abstract {
-            var abstract = self.abstract ?? [:]
-            abstract[tag] = tabstract
-            self.abstract = abstract
+    public mutating func set(tag: String, docs: FlatDefDocs) {
+        func s(mdKeyPath: KeyPath<FlatDefDocs, Markdown?>,
+               locKeyPath: WritableKeyPath<Self, Localized<Markdown>?>) {
+            if let thing = docs[keyPath: mdKeyPath] {
+                var current = self[keyPath: locKeyPath] ?? [:]
+                current[tag] = thing
+                self[keyPath: locKeyPath] = current
+            }
         }
-        if let tdiscussion = docs.discussion {
-            var discussion = self.discussion ?? [:]
-            discussion[tag] = tdiscussion
-            self.discussion = discussion
-        }
-        if let treturns = docs.returns {
-            var returns = self.returns ?? [:]
-            returns[tag] = treturns
-            self.returns = returns
-        }
+        s(mdKeyPath: \.abstract, locKeyPath: \.abstract)
+        s(mdKeyPath: \.discussion, locKeyPath: \.discussion)
+        s(mdKeyPath: \.defaultAbstract, locKeyPath: \.defaultAbstract)
+        s(mdKeyPath: \.defaultDiscussion, locKeyPath: \.defaultDiscussion)
+        s(mdKeyPath: \.returns, locKeyPath: \.returns)
+
         if parameters.isEmpty {
             parameters = docs.parameters.map {
                 Param(name: $0.name, description: [tag: $0.description])
@@ -111,6 +110,8 @@ extension RichDefDocs {
     public init(_ ldocs: LocalizedDefDocs) {
         abstract = ldocs.abstract.flatMap { RichText($0) }
         discussion = ldocs.discussion.flatMap { RichText($0) }
+        defaultAbstract = ldocs.defaultAbstract.flatMap { RichText($0) }
+        defaultDiscussion = ldocs.defaultDiscussion.flatMap { RichText($0) }
         returns = ldocs.returns.flatMap { RichText($0) }
         parameters = ldocs.parameters.map {
             Param(name: $0.name, description: RichText($0.description))
@@ -120,6 +121,8 @@ extension RichDefDocs {
     public mutating func format(_ call: (Markdown) throws -> (Markdown, Html) ) rethrows {
         try abstract?.format(call)
         try discussion?.format(call)
+        try defaultAbstract?.format(call)
+        try defaultDiscussion?.format(call)
         try returns?.format(call)
         parameters = try parameters.map { param in
             var param = param

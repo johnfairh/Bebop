@@ -41,6 +41,11 @@
           {
             "children" : [
               {
+                "same_page" : false,
+                "title" : "FirstProtocol",
+                "url" : "types\/firstprotocol.html?swift"
+              },
+              {
                 "children" : [
                   {
                     "children" : [
@@ -115,6 +120,20 @@
         "dash_name" : "",
         "items" : [
           {
+            "anchor_id" : "firstprotocol",
+            "any_declaration" : true,
+            "dash_name" : "protocol%20FirstProtocol",
+            "dash_type" : "Protocol",
+            "def" : {
+              "abstract_html" : "<p>A protocol.<\/p>",
+              "swift_declaration_html" : "protocol FirstProtocol"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">protocol <\/span>FirstProtocol",
+            "primary_url" : "types\/firstprotocol.html?swift",
+            "title" : "protocol FirstProtocol"
+          },
+          {
             "anchor_id" : "spmswiftmodule",
             "any_declaration" : true,
             "dash_name" : "struct%20SpmSwiftModule",
@@ -186,6 +205,185 @@
             "url" : "types.html?swift"
           },
           {
+            "title" : "FirstProtocol"
+          }
+        ],
+        "language" : "j2-swift"
+      }
+    ],
+    "breadcrumbs_root" : "SpmSwiftModule",
+    "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
+    "def" : {
+      "abstract_html" : "<p>A protocol.<\/p>",
+      "swift_declaration_html" : "protocol FirstProtocol"
+    },
+    "default_language" : "j2-swift",
+    "disable_search" : false,
+    "doc_coverage" : 66,
+    "docs_title" : "SpmSwiftModule docs",
+    "dual_language" : false,
+    "hide_article_title" : false,
+    "hide_attribution" : false,
+    "hide_availability" : false,
+    "item_collapse_never" : false,
+    "item_collapse_open" : false,
+    "item_nest" : true,
+    "j2lib_version" : "0.1",
+    "language_tag" : "en",
+    "path_from_root" : "types\/firstprotocol.html",
+    "path_to_assets" : "..\/",
+    "path_to_root" : "..\/",
+    "primary_page_title" : "FirstProtocol",
+    "primary_title_language" : "j2-swift",
+    "tab_title_prefix" : true,
+    "tocs" : [
+      {
+        "language" : "j2-swift",
+        "screen_reader_name" : "Swift",
+        "toc" : [
+          {
+            "children" : [
+              {
+                "same_page" : true,
+                "title" : "FirstProtocol",
+                "url" : ""
+              },
+              {
+                "children" : [
+                  {
+                    "children" : [
+                      {
+                        "same_page" : false,
+                        "title" : "Nested2a",
+                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2a"
+                      },
+                      {
+                        "same_page" : false,
+                        "title" : "Nested2b",
+                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2b"
+                      }
+                    ],
+                    "same_page" : false,
+                    "title" : "Nested1",
+                    "url" : "types\/spmswiftmodule\/nested1.html?swift"
+                  },
+                  {
+                    "same_page" : false,
+                    "title" : "Nested2",
+                    "url" : "types\/spmswiftmodule.html?swift#nested2"
+                  }
+                ],
+                "same_page" : false,
+                "title" : "SpmSwiftModule",
+                "url" : "types\/spmswiftmodule.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "AnEnum",
+                "url" : "types\/anenum.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "ABaseClass",
+                "url" : "types\/abaseclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "ADerivedClass",
+                "url" : "types\/aderivedclass.html?swift"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Types",
+            "url" : "types.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "functionA(arg1:_:arg3:)",
+                "url" : "functions.html?swift#functionaarg1_arg3"
+              },
+              {
+                "same_page" : false,
+                "title" : "deprecatedFunction(callback:)",
+                "url" : "functions.html?swift#deprecatedfunctioncallback"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Functions",
+            "url" : "functions.html?swift"
+          }
+        ]
+      }
+    ],
+    "topics" : [
+      {
+        "anchor_id" : "tpc_",
+        "dash_name" : "",
+        "items" : [
+          {
+            "anchor_id" : "marg",
+            "any_declaration" : true,
+            "dash_name" : "func%20m(arg%3A%20Int)%20-%3E%20String",
+            "dash_type" : "Method",
+            "def" : {
+              "abstract_html" : "<p>Brief note about m<\/p>",
+              "default_abstract_html" : "<p>Return a safe default.<\/p>",
+              "default_discussion_html" : "<p>There’s more: it’s the empty string.<\/p>",
+              "discussion_html" : "<p>What m is all about.<\/p>",
+              "parameters" : [
+                {
+                  "parameter_html" : "<p>The argument<\/p>",
+                  "title" : "arg"
+                }
+              ],
+              "returns_html" : "<p>The answer<\/p>",
+              "swift_declaration_html" : "func m(arg: Int) -&gt; String"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>m<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: Int) -> String<\/span>",
+            "title" : "func m(arg: Int) -> String"
+          },
+          {
+            "anchor_id" : "e",
+            "any_declaration" : true,
+            "dash_name" : "func%20e()",
+            "dash_type" : "Method",
+            "def" : {
+              "abstract_html" : "<p>A protocol extension method<\/p>",
+              "swift_declaration_html" : "func e()"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>e<span class=\"j2-item-secondary\">()<\/span>",
+            "title" : "func e()"
+          }
+        ],
+        "primary_language" : "j2-swift"
+      }
+    ],
+    "topics_language" : "j2-swift",
+    "topics_menus" : [
+      {
+        "language" : "j2-swift",
+        "topics_menu" : [
+          {
+            "anchor_id" : "",
+            "title" : "Declaration"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "breadcrumbs_menus" : [
+      {
+        "breadcrumbs" : [
+          {
+            "title" : "Types",
+            "url" : "types.html?swift"
+          },
+          {
             "title" : "SpmSwiftModule"
           }
         ],
@@ -224,6 +422,11 @@
         "toc" : [
           {
             "children" : [
+              {
+                "same_page" : false,
+                "title" : "FirstProtocol",
+                "url" : "types\/firstprotocol.html?swift"
+              },
               {
                 "children" : [
                   {
@@ -420,6 +623,11 @@
           {
             "children" : [
               {
+                "same_page" : false,
+                "title" : "FirstProtocol",
+                "url" : "types\/firstprotocol.html?swift"
+              },
+              {
                 "children" : [
                   {
                     "children" : [
@@ -583,6 +791,11 @@
         "toc" : [
           {
             "children" : [
+              {
+                "same_page" : false,
+                "title" : "FirstProtocol",
+                "url" : "types\/firstprotocol.html?swift"
+              },
               {
                 "children" : [
                   {
@@ -786,6 +999,11 @@
           {
             "children" : [
               {
+                "same_page" : false,
+                "title" : "FirstProtocol",
+                "url" : "types\/firstprotocol.html?swift"
+              },
+              {
                 "children" : [
                   {
                     "children" : [
@@ -973,6 +1191,11 @@
           {
             "children" : [
               {
+                "same_page" : false,
+                "title" : "FirstProtocol",
+                "url" : "types\/firstprotocol.html?swift"
+              },
+              {
                 "children" : [
                   {
                     "children" : [
@@ -1141,6 +1364,11 @@
           {
             "children" : [
               {
+                "same_page" : false,
+                "title" : "FirstProtocol",
+                "url" : "types\/firstprotocol.html?swift"
+              },
+              {
                 "children" : [
                   {
                     "children" : [
@@ -1304,6 +1532,11 @@
         "toc" : [
           {
             "children" : [
+              {
+                "same_page" : false,
+                "title" : "FirstProtocol",
+                "url" : "types\/firstprotocol.html?swift"
+              },
               {
                 "children" : [
                   {

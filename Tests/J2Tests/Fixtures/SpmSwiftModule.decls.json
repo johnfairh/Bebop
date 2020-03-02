@@ -3,6 +3,164 @@
     "children" : [
       {
         "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Brief note about m"
+            }
+          },
+          "default_abstract" : {
+            "markdown" : {
+              "en" : "Return a safe default."
+            }
+          },
+          "default_discussion" : {
+            "markdown" : {
+              "en" : "There’s more: it’s the empty string."
+            }
+          },
+          "discussion" : {
+            "markdown" : {
+              "en" : "What m is all about."
+            }
+          },
+          "parameters" : [
+            {
+              "description" : {
+                "markdown" : {
+                  "en" : "The argument"
+                }
+              },
+              "name" : "arg"
+            }
+          ],
+          "returns" : {
+            "markdown" : {
+              "en" : "The answer"
+            }
+          }
+        },
+        "kind" : "source.lang.swift.decl.function.method.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+          "first_line" : 8,
+          "last_line" : 8,
+          "module_name" : "SpmSwiftModule",
+          "pass_index" : 0
+        },
+        "name" : "m(arg:)",
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : {
+            "text" : "func m(arg: Int) -> String"
+          },
+          "inherited_types" : [],
+          "name_pieces" : [
+            {
+              "other" : "func "
+            },
+            {
+              "name" : "m"
+            },
+            {
+              "other" : "("
+            },
+            {
+              "name" : "arg"
+            },
+            {
+              "other" : ": Int) -> String"
+            }
+          ]
+        },
+        "swift_name" : "m(arg:)",
+        "usr" : "s:14SpmSwiftModule13FirstProtocolP1m3argSSSi_tF"
+      },
+      {
+        "children" : [],
+        "decl_notes" : [
+          {
+            "protocol_extension_member" : true
+          }
+        ],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "A protocol extension method"
+            }
+          },
+          "parameters" : []
+        },
+        "kind" : "source.lang.swift.decl.function.method.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+          "first_line" : 13,
+          "last_line" : 13,
+          "module_name" : "SpmSwiftModule",
+          "pass_index" : 0
+        },
+        "name" : "e()",
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : {
+            "text" : "func e()"
+          },
+          "inherited_types" : [],
+          "name_pieces" : [
+            {
+              "other" : "func "
+            },
+            {
+              "name" : "e"
+            },
+            {
+              "other" : "()"
+            }
+          ]
+        },
+        "swift_name" : "e()",
+        "usr" : "s:14SpmSwiftModule13FirstProtocolPAAE1eyyF"
+      }
+    ],
+    "documentation" : {
+      "abstract" : {
+        "markdown" : {
+          "en" : "A protocol."
+        }
+      },
+      "parameters" : []
+    },
+    "kind" : "source.lang.swift.decl.protocol",
+    "location" : {
+      "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+      "first_line" : 2,
+      "last_line" : 9,
+      "module_name" : "SpmSwiftModule",
+      "pass_index" : 0
+    },
+    "name" : "FirstProtocol",
+    "swift_declaration" : {
+      "availability" : [],
+      "declaration" : {
+        "text" : "protocol FirstProtocol"
+      },
+      "inherited_types" : [],
+      "name_pieces" : [
+        {
+          "other" : "protocol "
+        },
+        {
+          "name" : "FirstProtocol"
+        }
+      ]
+    },
+    "swift_name" : "FirstProtocol",
+    "usr" : "s:14SpmSwiftModule13FirstProtocolP"
+  },
+  {
+    "children" : [
+      {
+        "children" : [],
         "kind" : "source.lang.swift.decl.var.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",

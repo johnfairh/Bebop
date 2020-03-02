@@ -10,6 +10,363 @@
     }
   },
   {
+    "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift" : {
+      "key.diagnostic_stage" : "source.diagnostic.stage.swift.parse",
+      "key.j2.module_name" : "SpmSwiftModule",
+      "key.j2.pass_index" : 0,
+      "key.j2.version" : "0.1",
+      "key.length" : 420,
+      "key.offset" : 0,
+      "key.substructure" : [
+        {
+          "key.accessibility" : "source.lang.swift.accessibility.internal",
+          "key.annotated_decl" : "<Declaration>protocol FirstProtocol<\/Declaration>",
+          "key.bodylength" : 152,
+          "key.bodyoffset" : 40,
+          "key.doc.column" : 10,
+          "key.doc.comment" : "A protocol.",
+          "key.doc.declaration" : "protocol FirstProtocol",
+          "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+          "key.doc.full_as_xml" : "<Class file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift\" line=\"2\" column=\"10\"><Name>FirstProtocol<\/Name><USR>s:14SpmSwiftModule13FirstProtocolP<\/USR><Declaration>protocol FirstProtocol<\/Declaration><CommentParts><Abstract><Para>A protocol.<\/Para><\/Abstract><\/CommentParts><\/Class>",
+          "key.doc.line" : 2,
+          "key.doc.name" : "FirstProtocol",
+          "key.doc.type" : "Class",
+          "key.doclength" : 16,
+          "key.docoffset" : 0,
+          "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+          "key.fully_annotated_decl" : "<decl.protocol><syntaxtype.keyword>protocol<\/syntaxtype.keyword> <decl.name>FirstProtocol<\/decl.name><\/decl.protocol>",
+          "key.j2.documentation" : {
+            "key.j2.abstract" : {
+              "en" : "A protocol."
+            }
+          },
+          "key.j2.swift_declaration" : "protocol FirstProtocol",
+          "key.j2.swift_name_pieces" : [
+            {
+              "key.j2.name_piece_is_name" : false,
+              "key.j2.name_piece_text" : "protocol "
+            },
+            {
+              "key.j2.name_piece_is_name" : true,
+              "key.j2.name_piece_text" : "FirstProtocol"
+            }
+          ],
+          "key.kind" : "source.lang.swift.decl.protocol",
+          "key.length" : 177,
+          "key.name" : "FirstProtocol",
+          "key.namelength" : 13,
+          "key.nameoffset" : 25,
+          "key.offset" : 16,
+          "key.parsed_declaration" : "protocol FirstProtocol",
+          "key.parsed_scope.end" : 9,
+          "key.parsed_scope.start" : 2,
+          "key.runtime_name" : "_TtP4main13FirstProtocol_",
+          "key.substructure" : [
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.internal",
+              "key.annotated_decl" : "<Declaration>func m(arg: <Type usr=\"s:Si\">Int<\/Type>) -&gt; <Type usr=\"s:SS\">String<\/Type><\/Declaration>",
+              "key.doc.column" : 8,
+              "key.doc.comment" : "Brief note about m\n\nWhat m is all about.\n- parameter arg: The argument\n- returns: The answer",
+              "key.doc.declaration" : "func m(arg: Int) -> String",
+              "key.doc.discussion" : [
+                {
+                  "Para" : "What m is all about."
+                }
+              ],
+              "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+              "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift\" line=\"8\" column=\"8\"><Name>m(arg:)<\/Name><USR>s:14SpmSwiftModule13FirstProtocolP1m3argSSSi_tF<\/USR><Declaration>func m(arg: Int) -&gt; String<\/Declaration><CommentParts><Abstract><Para>Brief note about m<\/Para><\/Abstract><Parameters><Parameter><Name>arg<\/Name><Direction isExplicit=\"0\">in<\/Direction><Discussion><Para>The argument<\/Para><\/Discussion><\/Parameter><\/Parameters><ResultDiscussion><Para>The answer<\/Para><\/ResultDiscussion><Discussion><Para>What m is all about.<\/Para><\/Discussion><\/CommentParts><\/Function>",
+              "key.doc.line" : 8,
+              "key.doc.name" : "m(arg:)",
+              "key.doc.parameters" : [
+                {
+                  "discussion" : [
+                    {
+                      "Para" : "The argument"
+                    }
+                  ],
+                  "name" : "arg"
+                }
+              ],
+              "key.doc.result_discussion" : [
+                {
+                  "Para" : "The answer"
+                }
+              ],
+              "key.doc.type" : "Function",
+              "key.doclength" : 120,
+              "key.docoffset" : 43,
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+              "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>m<\/decl.name>(<decl.var.parameter><decl.var.parameter.argument_label>arg<\/decl.var.parameter.argument_label>: <decl.var.parameter.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.function.returntype><\/decl.function.method.instance>",
+              "key.j2.documentation" : {
+                "key.j2.abstract" : {
+                  "en" : "Brief note about m"
+                },
+                "key.j2.discussion" : {
+                  "en" : "What m is all about."
+                },
+                "key.j2.parameters" : [
+                  {
+                    "key.j2.param_desc" : {
+                      "en" : "The argument"
+                    },
+                    "key.j2.param_name" : "arg"
+                  }
+                ],
+                "key.j2.returns" : {
+                  "en" : "The answer"
+                }
+              },
+              "key.j2.swift_declaration" : "func m(arg: Int) -> String",
+              "key.j2.swift_name_pieces" : [
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "func "
+                },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "m"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "("
+                },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "arg"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : ": Int) -> String"
+                }
+              ],
+              "key.kind" : "source.lang.swift.decl.function.method.instance",
+              "key.length" : 26,
+              "key.name" : "m(arg:)",
+              "key.namelength" : 11,
+              "key.nameoffset" : 170,
+              "key.offset" : 165,
+              "key.parsed_declaration" : "func m(arg: Int) -> String",
+              "key.parsed_scope.end" : 8,
+              "key.parsed_scope.start" : 8,
+              "key.related_decls" : [
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule13FirstProtocolPAAE1m3argSSSi_tF\">m(arg: Int) -&gt; String<\/RelatedName>"
+                }
+              ],
+              "key.typename" : "<Self where Self : FirstProtocol> (Self) -> (Int) -> String",
+              "key.typeusr" : "$s3argSSSi_tcD",
+              "key.usr" : "s:14SpmSwiftModule13FirstProtocolP1m3argSSSi_tF"
+            }
+          ],
+          "key.typename" : "FirstProtocol.Protocol",
+          "key.typeusr" : "$s14SpmSwiftModule13FirstProtocol_pmD",
+          "key.usr" : "s:14SpmSwiftModule13FirstProtocolP"
+        },
+        {
+          "key.accessibility" : "source.lang.swift.accessibility.internal",
+          "key.annotated_decl" : "<Declaration>protocol FirstProtocol<\/Declaration>",
+          "key.bodylength" : 49,
+          "key.bodyoffset" : 220,
+          "key.doc.column" : 10,
+          "key.doc.declaration" : "protocol FirstProtocol",
+          "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+          "key.doc.full_as_xml" : "<Class file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift\" line=\"2\" column=\"10\"><Name>FirstProtocol<\/Name><USR>s:14SpmSwiftModule13FirstProtocolP<\/USR><Declaration>protocol FirstProtocol<\/Declaration><CommentParts><Abstract><Para>A protocol.<\/Para><\/Abstract><\/CommentParts><\/Class>",
+          "key.doc.line" : 2,
+          "key.doc.name" : "FirstProtocol",
+          "key.doc.type" : "Class",
+          "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+          "key.fully_annotated_decl" : "<decl.protocol><syntaxtype.keyword>protocol<\/syntaxtype.keyword> <decl.name>FirstProtocol<\/decl.name><\/decl.protocol>",
+          "key.j2.swift_declaration" : "extension FirstProtocol",
+          "key.j2.swift_name_pieces" : [
+            {
+              "key.j2.name_piece_is_name" : false,
+              "key.j2.name_piece_text" : "extension "
+            },
+            {
+              "key.j2.name_piece_is_name" : true,
+              "key.j2.name_piece_text" : "FirstProtocol"
+            }
+          ],
+          "key.kind" : "source.lang.swift.decl.extension",
+          "key.length" : 75,
+          "key.name" : "FirstProtocol",
+          "key.namelength" : 13,
+          "key.nameoffset" : 205,
+          "key.offset" : 195,
+          "key.parsed_declaration" : "extension FirstProtocol",
+          "key.parsed_scope.end" : 14,
+          "key.parsed_scope.start" : 11,
+          "key.substructure" : [
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.internal",
+              "key.annotated_decl" : "<Declaration>func e()<\/Declaration>",
+              "key.bodylength" : 0,
+              "key.bodyoffset" : 267,
+              "key.doc.column" : 8,
+              "key.doc.comment" : "A protocol extension method",
+              "key.doc.declaration" : "func e()",
+              "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+              "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift\" line=\"13\" column=\"8\"><Name>e()<\/Name><USR>s:14SpmSwiftModule13FirstProtocolPAAE1eyyF<\/USR><Declaration>func e()<\/Declaration><CommentParts><Abstract><Para>A protocol extension method<\/Para><\/Abstract><\/CommentParts><\/Function>",
+              "key.doc.line" : 13,
+              "key.doc.name" : "e()",
+              "key.doc.type" : "Function",
+              "key.doclength" : 32,
+              "key.docoffset" : 223,
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+              "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>e<\/decl.name>()<\/decl.function.method.instance>",
+              "key.j2.documentation" : {
+                "key.j2.abstract" : {
+                  "en" : "A protocol extension method"
+                }
+              },
+              "key.j2.swift_declaration" : "func e()",
+              "key.j2.swift_name_pieces" : [
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "func "
+                },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "e"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "()"
+                }
+              ],
+              "key.kind" : "source.lang.swift.decl.function.method.instance",
+              "key.length" : 11,
+              "key.name" : "e()",
+              "key.namelength" : 3,
+              "key.nameoffset" : 262,
+              "key.offset" : 257,
+              "key.parsed_declaration" : "func e()",
+              "key.parsed_scope.end" : 13,
+              "key.parsed_scope.start" : 13,
+              "key.typename" : "<Self where Self : FirstProtocol> (Self) -> () -> ()",
+              "key.typeusr" : "$syycD",
+              "key.usr" : "s:14SpmSwiftModule13FirstProtocolPAAE1eyyF"
+            }
+          ],
+          "key.typename" : "FirstProtocol.Protocol",
+          "key.typeusr" : "$s14SpmSwiftModule13FirstProtocol_pmD",
+          "key.usr" : "s:14SpmSwiftModule13FirstProtocolP"
+        },
+        {
+          "key.accessibility" : "source.lang.swift.accessibility.internal",
+          "key.annotated_decl" : "<Declaration>protocol FirstProtocol<\/Declaration>",
+          "key.bodylength" : 121,
+          "key.bodyoffset" : 297,
+          "key.doc.column" : 10,
+          "key.doc.declaration" : "protocol FirstProtocol",
+          "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+          "key.doc.full_as_xml" : "<Class file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift\" line=\"2\" column=\"10\"><Name>FirstProtocol<\/Name><USR>s:14SpmSwiftModule13FirstProtocolP<\/USR><Declaration>protocol FirstProtocol<\/Declaration><CommentParts><Abstract><Para>A protocol.<\/Para><\/Abstract><\/CommentParts><\/Class>",
+          "key.doc.line" : 2,
+          "key.doc.name" : "FirstProtocol",
+          "key.doc.type" : "Class",
+          "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+          "key.fully_annotated_decl" : "<decl.protocol><syntaxtype.keyword>protocol<\/syntaxtype.keyword> <decl.name>FirstProtocol<\/decl.name><\/decl.protocol>",
+          "key.j2.swift_declaration" : "extension FirstProtocol",
+          "key.j2.swift_name_pieces" : [
+            {
+              "key.j2.name_piece_is_name" : false,
+              "key.j2.name_piece_text" : "extension "
+            },
+            {
+              "key.j2.name_piece_is_name" : true,
+              "key.j2.name_piece_text" : "FirstProtocol"
+            }
+          ],
+          "key.kind" : "source.lang.swift.decl.extension",
+          "key.length" : 147,
+          "key.name" : "FirstProtocol",
+          "key.namelength" : 13,
+          "key.nameoffset" : 282,
+          "key.offset" : 272,
+          "key.parsed_declaration" : "extension FirstProtocol",
+          "key.parsed_scope.end" : 23,
+          "key.parsed_scope.start" : 16,
+          "key.substructure" : [
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.internal",
+              "key.annotated_decl" : "<Declaration>func m(arg: <Type usr=\"s:Si\">Int<\/Type>) -&gt; <Type usr=\"s:SS\">String<\/Type><\/Declaration>",
+              "key.bodylength" : 10,
+              "key.bodyoffset" : 406,
+              "key.doc.column" : 8,
+              "key.doc.comment" : "Return a safe default.\n\nThere's more: it's the empty string.",
+              "key.doc.declaration" : "func m(arg: Int) -> String",
+              "key.doc.discussion" : [
+                {
+                  "Para" : "There’s more: it’s the empty string."
+                }
+              ],
+              "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+              "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift\" line=\"20\" column=\"8\"><Name>m(arg:)<\/Name><USR>s:14SpmSwiftModule13FirstProtocolPAAE1m3argSSSi_tF<\/USR><Declaration>func m(arg: Int) -&gt; String<\/Declaration><CommentParts><Abstract><Para>Return a safe default.<\/Para><\/Abstract><Discussion><Para>There’s more: it’s the empty string.<\/Para><\/Discussion><\/CommentParts><\/Function>",
+              "key.doc.line" : 20,
+              "key.doc.name" : "m(arg:)",
+              "key.doc.type" : "Function",
+              "key.doclength" : 76,
+              "key.docoffset" : 300,
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+              "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>m<\/decl.name>(<decl.var.parameter><decl.var.parameter.argument_label>arg<\/decl.var.parameter.argument_label>: <decl.var.parameter.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.function.returntype><\/decl.function.method.instance>",
+              "key.j2.documentation" : {
+                "key.j2.abstract" : {
+                  "en" : "Return a safe default."
+                },
+                "key.j2.discussion" : {
+                  "en" : "There’s more: it’s the empty string."
+                }
+              },
+              "key.j2.swift_declaration" : "func m(arg: Int) -> String",
+              "key.j2.swift_name_pieces" : [
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "func "
+                },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "m"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "("
+                },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "arg"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : ": Int) -> String"
+                }
+              ],
+              "key.kind" : "source.lang.swift.decl.function.method.instance",
+              "key.length" : 39,
+              "key.name" : "m(arg:)",
+              "key.namelength" : 11,
+              "key.nameoffset" : 383,
+              "key.offset" : 378,
+              "key.parsed_declaration" : "func m(arg: Int) -> String",
+              "key.parsed_scope.end" : 22,
+              "key.parsed_scope.start" : 20,
+              "key.related_decls" : [
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule13FirstProtocolP1m3argSSSi_tF\">m(arg: Int) -&gt; String<\/RelatedName>"
+                }
+              ],
+              "key.typename" : "<Self where Self : FirstProtocol> (Self) -> (Int) -> String",
+              "key.typeusr" : "$s3argSSSi_tcD",
+              "key.usr" : "s:14SpmSwiftModule13FirstProtocolPAAE1m3argSSSi_tF"
+            }
+          ],
+          "key.typename" : "FirstProtocol.Protocol",
+          "key.typeusr" : "$s14SpmSwiftModule13FirstProtocol_pmD",
+          "key.usr" : "s:14SpmSwiftModule13FirstProtocolP"
+        }
+      ]
+    }
+  },
+  {
     "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift" : {
       "key.diagnostic_stage" : "source.diagnostic.stage.swift.parse",
       "key.j2.module_name" : "SpmSwiftModule",

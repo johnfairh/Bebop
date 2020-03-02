@@ -287,6 +287,8 @@ extension DefItem {
                     availability: swiftDeclaration?.availability ?? [],
                     abstract: documentation.abstract?.html,
                     discussion: documentation.discussion?.html,
+                    defaultAbstract: documentation.defaultAbstract?.html,
+                    defaultDiscussion: documentation.defaultDiscussion?.html,
                     swiftDeclaration: swiftDeclaration.flatMap { $0.declaration.html },
                     objCDeclaration: objCDeclaration.flatMap { $0.declaration.html },
                     params: documentation.parameters.map { docParam in

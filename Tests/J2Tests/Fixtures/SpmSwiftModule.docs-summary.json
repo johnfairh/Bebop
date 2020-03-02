@@ -31,6 +31,32 @@
           "anchor_id" : "tpc_",
           "items" : [
             {
+              "anchor_id" : "firstprotocol",
+              "dash_type" : "Protocol",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>A protocol.<\/p>"
+                  }
+                },
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "protocol FirstProtocol"
+                }
+              },
+              "flat_title" : {
+                "en" : "protocol FirstProtocol"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">protocol <\/span>FirstProtocol"
+              },
+              "url" : {
+                "url_path" : "types\/firstprotocol"
+              }
+            },
+            {
               "anchor_id" : "spmswiftmodule",
               "dash_type" : "Struct",
               "def" : {
@@ -147,6 +173,136 @@
       ],
       "url" : {
         "url_path" : "types"
+      }
+    },
+    {
+      "breadcrumbs" : [
+        [
+          {
+            "title" : {
+              "en" : "Types"
+            },
+            "url" : {
+              "url_path" : "types"
+            }
+          },
+          {
+            "title" : {
+              "en" : "FirstProtocol"
+            }
+          }
+        ]
+      ],
+      "def" : {
+        "abstract" : {
+          "en" : {
+            "html" : "<p>A protocol.<\/p>"
+          }
+        },
+        "availability" : [],
+        "params" : [],
+        "swift_declaration" : {
+          "html" : "protocol FirstProtocol"
+        }
+      },
+      "is_guide" : false,
+      "primary_language" : "swift",
+      "primary_title" : {
+        "en" : "FirstProtocol"
+      },
+      "tab_title_prefix" : true,
+      "topics" : [
+        {
+          "anchor_id" : "tpc_",
+          "items" : [
+            {
+              "anchor_id" : "marg",
+              "dash_type" : "Method",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Brief note about m<\/p>"
+                  }
+                },
+                "availability" : [],
+                "default_abstract" : {
+                  "en" : {
+                    "html" : "<p>Return a safe default.<\/p>"
+                  }
+                },
+                "default_discussion" : {
+                  "en" : {
+                    "html" : "<p>There’s more: it’s the empty string.<\/p>"
+                  }
+                },
+                "discussion" : {
+                  "en" : {
+                    "html" : "<p>What m is all about.<\/p>"
+                  }
+                },
+                "params" : [
+                  {
+                    "description" : {
+                      "en" : {
+                        "html" : "<p>The argument<\/p>"
+                      }
+                    },
+                    "name" : "arg"
+                  }
+                ],
+                "returns" : {
+                  "en" : {
+                    "html" : "<p>The answer<\/p>"
+                  }
+                },
+                "swift_declaration" : {
+                  "html" : "func m(arg: Int) -&gt; String"
+                }
+              },
+              "flat_title" : {
+                "en" : "func m(arg: Int) -> String"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>m<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: Int) -> String<\/span>"
+              }
+            },
+            {
+              "anchor_id" : "e",
+              "dash_type" : "Method",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>A protocol extension method<\/p>"
+                  }
+                },
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "func e()"
+                }
+              },
+              "flat_title" : {
+                "en" : "func e()"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>e<span class=\"j2-item-secondary\">()<\/span>"
+              }
+            }
+          ],
+          "title" : {
+            "html" : {
+              "en" : ""
+            },
+            "markdown" : {
+              "en" : ""
+            }
+          }
+        }
+      ],
+      "url" : {
+        "url_path" : "types\/firstprotocol"
       }
     },
     {
@@ -928,6 +1084,15 @@
     [
       {
         "children" : [
+          {
+            "children" : [],
+            "title" : {
+              "en" : "FirstProtocol"
+            },
+            "url" : {
+              "url_path" : "types\/firstprotocol"
+            }
+          },
           {
             "children" : [
               {

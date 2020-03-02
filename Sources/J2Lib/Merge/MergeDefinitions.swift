@@ -216,7 +216,6 @@ fileprivate extension DefItem {
             exts.flatMap { $0.defChildren } +
             newItems.flatMap { $0.defChildren }
 
-
         children = allChildren.mergeDuplicates {
             $0.mergePhase2(others: $1)
         }
@@ -250,7 +249,7 @@ fileprivate extension DefItem {
                 return false
             }
 
-            return ext.children.isEmpty ? ext : nil
+            return ext.children.isEmpty ? nil : ext
         }
     }
 }
