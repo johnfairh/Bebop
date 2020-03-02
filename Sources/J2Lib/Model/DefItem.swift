@@ -32,7 +32,9 @@ public class DefItem: Item, CustomStringConvertible {
     /// Names of generic type parameters
     public let genericTypeParameters: [String]
     /// Extensions on a base type - carried temporarily here and eventually merged
-    public private(set) var extensions: DefItemList
+    public internal(set) var extensions: DefItemList
+    /// Notes to add to the declaration, added during merge
+    public internal(set) var declNotes: [DeclNote]
 
     /// Create from a gathered definition
     public init?(location: DefLocation, gatherDef: GatherDef, uniquer: StringUniquer) {
@@ -109,6 +111,7 @@ public class DefItem: Item, CustomStringConvertible {
         let (genericParams, realChildren) = children.splitPartition { $0.defKind.isGenericParameter }
         self.genericTypeParameters = genericParams.map { $0.name }
         self.extensions = []
+        self.declNotes = []
 
         super.init(name: name, slug: uniquer.unique(name.slugged), children: realChildren)
     }
@@ -185,6 +188,15 @@ public class DefItem: Item, CustomStringConvertible {
         try objCDeclaration?.declaration.format(formatter)
     }
 
+    /// Is this a constrained Swift extension?
+    public var swiftGenericRequirements: String? {
+        swiftDeclaration?.genericRequirements
+    }
+
+    public var isSwiftConstrainedExtension: Bool {
+        defKind.isSwiftExtension && swiftGenericRequirements != nil
+    }
+
     /// The USR of the type that this def is about.
     /// Even Swift extensions already have this set up.
     /// ObjC categories need transformation.
@@ -196,15 +208,6 @@ public class DefItem: Item, CustomStringConvertible {
         return usr
     }
 
-    /// Add extensions
-    public func add(extensions: DefItemList) {
-        self.extensions += extensions
-    }
-    // XXX I've got confused with the whole ACL concept for this framework.....
-    public func set(extensions: DefItemList) {
-        self.extensions = extensions
-    }
-
     /// Oops
     public var defChildren: DefItemList {
         children.compactMap { $0 as? DefItem }
@@ -212,6 +215,20 @@ public class DefItem: Item, CustomStringConvertible {
 
     public var description: String {
         "\(name) \(defKind) \(usr) \(location)"
+    }
+
+    /// During merge, update docs to indicate a default implementation
+    func setDefaultImplementation(from otherItem: DefItem) {
+        documentation.setDefaultImplementation(from: otherItem.documentation)
+        if location.moduleName != otherItem.location.moduleName {
+            declNotes.append(.importedDefaultImplementation(otherItem.location.moduleName))
+        }
+        // hmm availability...
+    }
+
+    /// During merge, demote our implementation documentation to defaults of something else
+    func makeDefaultImplementation() {
+        documentation.makeDefaultImplementation()
     }
 }
 

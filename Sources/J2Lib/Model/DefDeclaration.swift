@@ -191,3 +191,40 @@ public struct USR: Encodable, CustomStringConvertible, Hashable {
         value = "c:objc(cs)" + match[0]
     }
 }
+
+/// A note about a declaration
+public enum DeclNote: Hashable {
+    case imported(String)
+    case importedDefaultImplementation(String)
+    case protocolExtensionMember
+}
+
+extension DeclNote: Encodable {
+    private enum CodingKeys: String, CodingKey {
+        case imported
+        case importedDefaultImplementation
+        case protocolExtensionMember
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        switch self {
+        case .imported(let module):
+            try container.encode(module, forKey: .imported)
+        case .importedDefaultImplementation(let module):
+            try container.encode(module, forKey: .importedDefaultImplementation)
+        case .protocolExtensionMember:
+            try container.encode(true, forKey: .protocolExtensionMember)
+        }
+    }
+}
+
+// this is a bit dodgy, could use SwiftSyntax to get it...
+extension SwiftDeclaration {
+    var genericRequirements: String? {
+        guard let match = declaration.text.re_match(#"\bwhere\s+(.*)$"#, options: .s) else {
+            return nil
+        }
+        return match[1].re_sub(#"\s+"#, with: " ")
+    }
+}

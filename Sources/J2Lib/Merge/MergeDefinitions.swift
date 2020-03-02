@@ -114,17 +114,17 @@ struct MergeDefinitions {
         // First, extensions of types introduced by other extensions
         extensionGroups.forEachGroup { group in
             group.forEach {
-                $0.linkExtensions(extensions: extensionGroups)
+                $0.linkExtensions(extensionGroups: extensionGroups)
             }
         }
         // Then extensions of straight types.
         mergedDefs.forEach {
-            $0.linkExtensions(extensions: extensionGroups)
+            $0.linkExtensions(extensionGroups: extensionGroups)
         }
 
         // Clean up any unclaimed extensions
         let unlinkedExts = extensionGroups.map { first, rest -> DefItem in
-            first.add(extensions: rest)
+            first.extensions = rest
             return first
         }
 
@@ -185,11 +185,11 @@ fileprivate extension DefItem {
 
     /// Phase 1 merge, part 2: pick up extensions from the index.
     /// (Could merge with phase1part1 I'm sure, but my head almost exploded getting this far.)
-    func linkExtensions(extensions: UsrGroups) {
+    func linkExtensions(extensionGroups: UsrGroups) {
         if !defKind.isExtension {
-            add(extensions: extensions.remove(usr: usr))
+            extensions = extensionGroups.remove(usr: usr)
         }
-        defChildren.forEach { $0.linkExtensions(extensions: extensions) }
+        defChildren.forEach { $0.linkExtensions(extensionGroups: extensionGroups) }
     }
 
     /// Phase 2 merge: merge extensions
@@ -206,16 +206,51 @@ fileprivate extension DefItem {
     func mergePhase2(others newItems: DefItemList) {
         mergeAvailabilities(with: newItems)
 
-        // TODO: work through the extensions list doing actual useful work
+        var exts = extensions
+        extensions = []
+        if defKind.isSwiftProtocol {
+            exts = mergeProtocolExtensions(extensions: exts)
+        }
 
         let allChildren = defChildren +
-            extensions.flatMap { $0.defChildren } +
+            exts.flatMap { $0.defChildren } +
             newItems.flatMap { $0.defChildren }
 
-        set(extensions: [])
 
         children = allChildren.mergeDuplicates {
             $0.mergePhase2(others: $1)
+        }
+    }
+
+    /// Extensions of protocols are unusual:
+    /// 1) Spot default implementations and merge into the actual protocol.
+    /// 1a) Unless the extension has generic constraints.
+    /// 2) Stuff that is not a default implementation needs a flag to identify it as not an extension point.
+    func mergeProtocolExtensions(extensions: DefItemList) -> DefItemList {
+        extensions.compactMap { ext in
+            ext.children = ext.defChildren.filter { extChild in
+                let protoChild = defChildren.first { child in
+                    child.name == extChild.name && child.defKind == extChild.defKind
+                }
+
+                // Extension-only member
+                if protoChild == nil {
+                    extChild.declNotes.append(.protocolExtensionMember)
+                    return true
+                }
+
+                // Default impl, but under 'generic' constraints - mark, don't merge
+                if ext.isSwiftConstrainedExtension {
+                    extChild.makeDefaultImplementation()
+                    return true
+                }
+
+                // Default impl, no constraints - merge.
+                protoChild?.setDefaultImplementation(from: extChild)
+                return false
+            }
+
+            return ext.children.isEmpty ? ext : nil
         }
     }
 }

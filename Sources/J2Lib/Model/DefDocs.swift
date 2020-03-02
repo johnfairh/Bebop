@@ -10,6 +10,8 @@
 public struct DefDocs<T>: Encodable where T: Encodable & Equatable {
     public internal(set) var abstract: T?
     public internal(set) var discussion: T?
+    public internal(set) var defaultAbstract: T?
+    public internal(set) var defaultDiscussion: T?
     public internal(set) var returns: T?
     public struct Param: Encodable, Equatable {
         public let name: String
@@ -20,10 +22,14 @@ public struct DefDocs<T>: Encodable where T: Encodable & Equatable {
     /// Initialize a new documentation container
     public init(abstract: T? = nil,
                 discussion: T? = nil,
+                defaultAbstract: T? = nil,
+                defaultDiscussion: T? = nil,
                 returns: T? = nil,
                 parameters: [Param] = []) {
         self.abstract = abstract
         self.discussion = discussion
+        self.defaultAbstract = defaultAbstract
+        self.defaultDiscussion = defaultDiscussion
         self.returns = returns
         self.parameters = parameters
     }
@@ -32,8 +38,23 @@ public struct DefDocs<T>: Encodable where T: Encodable & Equatable {
     public var isEmpty: Bool {
         abstract == nil &&
             discussion == nil &&
+            defaultAbstract == nil &&
+            defaultDiscussion == nil &&
             returns == nil &&
             parameters.isEmpty
+    }
+
+    /// Move abstract & discussion to defaults leaving them blank
+    public mutating func makeDefaultImplementation() {
+        setDefaultImplementation(from: self)
+        self.abstract = nil
+        self.discussion = nil
+    }
+
+    /// Set default abstract/discussion from another docs' primary fields
+    public mutating func setDefaultImplementation(from: Self) {
+        self.defaultAbstract = from.abstract
+        self.defaultDiscussion = from.discussion
     }
 }
 

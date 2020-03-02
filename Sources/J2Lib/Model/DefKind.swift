@@ -191,6 +191,11 @@ public final class DefKind: CustomStringConvertible {
         testSwiftKey(keys: [.enumelement])
     }
 
+    /// Is it a Swift protocol?
+    var isSwiftProtocol: Bool {
+        testSwiftKey(keys: [.protocol])
+    }
+
 //    /// Is it an enum?
 //    var isSwiftEnum: Bool {
 //        testSwiftKey(keys: [.enum])
