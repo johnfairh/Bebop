@@ -117,6 +117,7 @@ public enum MustacheKey: String {
     case def = "def"
     case deprecationHtml = "deprecation_html"
     case unavailableHtml = "unavailable_html"
+    case notesHtml = "notes_html"
     case discouraged = "discouraged"
     case availability = "availability"
     case abstractHtml = "abstract_html"
@@ -519,6 +520,7 @@ extension GenData.Def: SoloLanguageProtocol {
     /// Keys:
     ///   deprecation_html  - optional - is it deprecated
     ///   unavailable_html  - optional - is it unavailable
+    ///   notes_html - optional - are there interesting notes
     ///   discouraged - optional - is it deprecated/unavailable
     ///   swift_declaration_html - swift decl
     ///   objc_declaration_html - objc decl --- at least one of these two will be set
@@ -532,6 +534,7 @@ extension GenData.Def: SoloLanguageProtocol {
         var dict = MustacheDict()
         dict.maybe(.deprecationHtml, deprecation?.get(languageTag).html)
         dict.maybe(.unavailableHtml, unavailability?.get(languageTag).html)
+        dict.maybe(.notesHtml, notes?.get(languageTag).html)
         if deprecation != nil || unavailability != nil {
             dict[.discouraged] = true
         }

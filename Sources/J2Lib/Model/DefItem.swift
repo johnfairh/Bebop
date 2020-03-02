@@ -19,7 +19,7 @@ public class DefItem: Item, CustomStringConvertible {
     /// USR
     public let usr: USR
     /// Documentation
-    public private(set) var documentation: RichDefDocs
+    public internal(set) var documentation: RichDefDocs
     /// Declarations
     public private(set) var swiftDeclaration: SwiftDeclaration?
     public private(set) var objCDeclaration: ObjCDeclaration?
@@ -33,8 +33,9 @@ public class DefItem: Item, CustomStringConvertible {
     public let genericTypeParameters: [String]
     /// Extensions on a base type - carried temporarily here and eventually merged
     public internal(set) var extensions: DefItemList
-    /// Notes to add to the declaration, added during merge
+    /// Notes to add to the declaration, added during merge and resolved during format
     public internal(set) var declNotes: [DeclNote]
+    public private(set) var declNotesNotice: RichText?
 
     /// Create from a gathered definition
     public init?(location: DefLocation, gatherDef: GatherDef, uniquer: StringUniquer) {
@@ -112,6 +113,7 @@ public class DefItem: Item, CustomStringConvertible {
         self.genericTypeParameters = genericParams.map { $0.name }
         self.extensions = []
         self.declNotes = []
+        self.declNotesNotice = nil
 
         super.init(name: name, slug: uniquer.unique(name.slugged), children: realChildren)
     }
@@ -180,6 +182,7 @@ public class DefItem: Item, CustomStringConvertible {
         try topic?.format(inlineFormatter)
         try deprecationNotice?.format(blockFormatter)
         try unavailableNotice?.format(blockFormatter)
+        try declNotesNotice?.format(blockFormatter)
     }
 
     /// Format the item's associated declarations
@@ -217,18 +220,14 @@ public class DefItem: Item, CustomStringConvertible {
         "\(name) \(defKind) \(usr) \(location)"
     }
 
-    /// During merge, update docs to indicate a default implementation
-    func setDefaultImplementation(from otherItem: DefItem) {
-        documentation.setDefaultImplementation(from: otherItem.documentation)
-        if location.moduleName != otherItem.location.moduleName {
-            declNotes.append(.importedDefaultImplementation(otherItem.location.moduleName))
+    /// After merge, collate the decl notes ready for formatting
+    func finalizeDeclNotes() {
+        guard !declNotes.isEmpty else {
+            return
         }
-        // hmm availability...
-    }
-
-    /// During merge, demote our implementation documentation to defaults of something else
-    func makeDefaultImplementation() {
-        documentation.makeDefaultImplementation()
+        declNotesNotice = RichText(Set(declNotes)
+            .map { $0.localized }
+            .joined(by: "\n\n"))
     }
 }
 

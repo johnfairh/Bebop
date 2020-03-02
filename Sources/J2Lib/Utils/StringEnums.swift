@@ -124,6 +124,8 @@ internal enum L10n {
     case functions = "functions"
     /// Guides
     case guides = "guides"
+    /// Provided by module `%1`.
+    case imported = "imported"
     /// Index
     case index = "index"
     /// Not available in Objective-C.
@@ -140,6 +142,12 @@ internal enum L10n {
     case platObsoletedVer = "plat-obsoleted-ver"
     /// %1 - unavailable.
     case platUnavailable = "plat-unavailable"
+    /// Protocol method with default implementation.
+    case protocolDefault = "protocol-default"
+    /// Protocol method with default implementation provided by module `%1`.
+    case protocolDefaultImported = "protocol-default-imported"
+    /// From a protocol extension: not a customization point.
+    case protocolExtn = "protocol-extn"
     ///  Renamed: `%1`.
     case renamedTo = "renamed-to"
     /// Types

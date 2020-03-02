@@ -39,3 +39,9 @@
 /* Not-implemented apology */
 "not-swift" = "Not available in Swift.";
 "not-objc" = "Not available in Objective-C.";
+
+/* Decl notes callouts */
+"imported" = "Provided by module `%1`.";
+"protocol-extn" = "From a protocol extension: not a customization point.";
+"protocol-default" = "Protocol method with default implementation.";
+"protocol-default-imported" = "Protocol method with default implementation provided by module `%1`.";

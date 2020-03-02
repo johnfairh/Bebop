@@ -39,6 +39,7 @@ final class MarkdownFormatter: ItemVisitorProtocol {
     func visit(defItem: DefItem, parents: [Item]) {
         uniquer.reset() // this isn't right...
         currentLanguage = defItem.primaryLanguage
+        defItem.finalizeDeclNotes()
         format(item: defItem)
     }
 

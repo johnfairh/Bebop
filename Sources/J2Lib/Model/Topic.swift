@@ -36,3 +36,10 @@ public final class Topic: Equatable, Encodable {
             lhs.body == rhs.body
     }
 }
+
+// TopicKind
+// - SourceMark
+// - GenericConstraint
+// - CategoryName
+// - Custom
+// - DefKind

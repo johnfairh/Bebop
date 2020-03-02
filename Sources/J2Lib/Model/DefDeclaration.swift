@@ -194,27 +194,49 @@ public struct USR: Encodable, CustomStringConvertible, Hashable {
 
 /// A note about a declaration
 public enum DeclNote: Hashable {
-    case imported(String)
-    case importedDefaultImplementation(String)
+    /// A non-customization point in a protocol
     case protocolExtensionMember
+    /// A protocol method with a default implementation
+    case defaultImplementation
+    /// An extension member imported from a different module to the type
+    case imported(String)
+    /// A default implementation of a protocol from an imported extension
+    case importedDefaultImplementation(String)
+
+    /// Get the message for the note
+    var localized: Localized<String> {
+        switch self {
+        case .protocolExtensionMember:
+            return .localizedOutput(.protocolExtn)
+        case .defaultImplementation:
+            return .localizedOutput(.protocolDefault)
+        case .imported(let module):
+            return .localizedOutput(.imported, module)
+        case .importedDefaultImplementation(let module):
+            return .localizedOutput(.protocolDefaultImported, module)
+        }
+    }
 }
 
 extension DeclNote: Encodable {
     private enum CodingKeys: String, CodingKey {
+        case protocolExtensionMember
+        case defaultImplementation
         case imported
         case importedDefaultImplementation
-        case protocolExtensionMember
     }
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         switch self {
+        case .protocolExtensionMember:
+            try container.encode(true, forKey: .protocolExtensionMember)
+        case .defaultImplementation:
+            try container.encode(true, forKey: .defaultImplementation)
         case .imported(let module):
             try container.encode(module, forKey: .imported)
         case .importedDefaultImplementation(let module):
             try container.encode(module, forKey: .importedDefaultImplementation)
-        case .protocolExtensionMember:
-            try container.encode(true, forKey: .protocolExtensionMember)
         }
     }
 }

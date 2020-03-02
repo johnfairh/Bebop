@@ -240,6 +240,11 @@
                     "html" : "<p>What m is all about.<\/p>"
                   }
                 },
+                "notes" : {
+                  "en" : {
+                    "html" : "<p>Protocol method with default implementation.<\/p>"
+                  }
+                },
                 "params" : [
                   {
                     "description" : {
@@ -277,6 +282,11 @@
                   }
                 },
                 "availability" : [],
+                "notes" : {
+                  "en" : {
+                    "html" : "<p>From a protocol extension: not a customization point.<\/p>"
+                  }
+                },
                 "params" : [],
                 "swift_declaration" : {
                   "html" : "func e()"

@@ -111,7 +111,7 @@ class TestMerge: XCTestCase {
         XCTAssertEqual(1, defItems.count)
     }
 
-    // Extensions
+    // Extensions - basic merging
 
     func testMergeTypeExtension() throws {
         let claz = SourceKittenDict.mkClass(name: "Clazz").with(children: [.mkMethod(name: "cMethod")])
@@ -186,6 +186,30 @@ class TestMerge: XCTestCase {
         XCTAssertEqual(1, defItems2.count)
         XCTAssertEqual(1, defItems2[0].children.count)
         XCTAssertEqual(1, defItems2[0].children[0].children.count)
+    }
+
+    // Extensions - merging and declnotes
+    func testExtensionDeclNotes() throws {
+        let prot = SourceKittenDict.mkProtocol(name: "Proto")
+            .with(children: [.mkMethod(name: "method1")])
+        let extn = SourceKittenDict.mkExtension(name: "Proto")
+            .with(children: [.mkMethod(name: "method1"),
+                             .mkMethod(name: "method2")])
+
+        let protFile = GatherDef.mkFile(children: [prot.asGatherDef()])
+        let extnFile = GatherDef.mkFile(children: [extn.asGatherDef()])
+        let passes = [protFile.asPass(moduleName: "BaseModule"),
+                      extnFile.asPass(moduleName: "ExtModule")]
+
+        let system = System(true)
+        let defItems = try system.merge.merge(gathered: passes)
+        XCTAssertEqual(1, defItems.count)
+        XCTAssertEqual(2, defItems[0].defChildren.count)
+        XCTAssertEqual([DeclNote.importedDefaultImplementation("ExtModule")],
+                       defItems[0].defChildren[0].declNotes)
+        XCTAssertEqual([DeclNote.imported("ExtModule"),
+                        DeclNote.protocolExtensionMember],
+                       defItems[0].defChildren[1].declNotes)
     }
 
     // Marks

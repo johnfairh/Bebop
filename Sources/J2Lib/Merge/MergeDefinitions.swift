@@ -208,6 +208,13 @@ fileprivate extension DefItem {
 
         var exts = extensions
         extensions = []
+
+        // Mark imported extensions
+        if defKind.isSwift {
+            markImportedExtensions(extensions: exts)
+        }
+
+        // Deal with protocol extensions
         if defKind.isSwiftProtocol {
             exts = mergeProtocolExtensions(extensions: exts)
         }
@@ -220,7 +227,29 @@ fileprivate extension DefItem {
             $0.mergePhase2(others: $1)
         }
     }
+}
 
+// MARK: Import Marker
+
+fileprivate extension DefItem {
+    /// Tag extension members that come from a different module to the base type
+    func markImportedExtensions(extensions: DefItemList) {
+        struct MarkVisitor: ItemVisitorProtocol {
+            func visit(defItem: DefItem, parents: [Item]) {
+                defItem.declNotes.append(.imported(defItem.location.moduleName))
+            }
+        }
+        extensions.forEach { ext in
+            if ext.location.moduleName != location.moduleName {
+                MarkVisitor().walk(item: ext)
+            }
+        }
+    }
+}
+
+// MARK: Protocol Extensions
+
+fileprivate extension DefItem {
     /// Extensions of protocols are unusual:
     /// 1) Spot default implementations and merge into the actual protocol.
     /// 1a) Unless the extension has generic constraints.
@@ -228,28 +257,52 @@ fileprivate extension DefItem {
     func mergeProtocolExtensions(extensions: DefItemList) -> DefItemList {
         extensions.compactMap { ext in
             ext.children = ext.defChildren.filter { extChild in
-                let protoChild = defChildren.first { child in
+                guard let protoChild = defChildren.first(where: { child in
                     child.name == extChild.name && child.defKind == extChild.defKind
-                }
-
-                // Extension-only member
-                if protoChild == nil {
+                }) else {
+                    // Extension-only member
                     extChild.declNotes.append(.protocolExtensionMember)
                     return true
                 }
 
                 // Default impl, but under 'generic' constraints - mark, don't merge
                 if ext.isSwiftConstrainedExtension {
-                    extChild.makeDefaultImplementation()
+                    extChild.makeDefaultImplementation(for: protoChild)
                     return true
                 }
 
                 // Default impl, no constraints - merge.
-                protoChild?.setDefaultImplementation(from: extChild)
+                protoChild.setDefaultImplementation(from: extChild)
                 return false
             }
 
             return ext.children.isEmpty ? nil : ext
+        }
+    }
+
+    /// During merge, update docs to indicate a default implementation.
+    /// This is when a protocol extension default implementation gets merged into the protocol.
+    func setDefaultImplementation(from otherItem: DefItem) {
+        documentation.setDefaultImplementation(from: otherItem.documentation)
+        updateDeclNotesForDefaultImplementation(mainModuleName: location.moduleName,
+                                                extModuleName: otherItem.location.moduleName)
+        // hmm availability...
+    }
+
+    /// During merge, demote our implementation documentation to defaults of something else.
+    /// This is when a protocol extension default implementation stays unmerged with the protocol.
+    func makeDefaultImplementation(for mainItem: DefItem) {
+        documentation.makeDefaultImplementation()
+        updateDeclNotesForDefaultImplementation(mainModuleName: mainItem.location.moduleName,
+                                                extModuleName: location.moduleName)
+    }
+
+    private func updateDeclNotesForDefaultImplementation(mainModuleName: String, extModuleName: String) {
+        if mainModuleName != extModuleName {
+            declNotes.removeAll { $0 == .imported(extModuleName) }
+            declNotes.append(.importedDefaultImplementation(extModuleName))
+        } else {
+            declNotes.append(.defaultImplementation)
         }
     }
 }

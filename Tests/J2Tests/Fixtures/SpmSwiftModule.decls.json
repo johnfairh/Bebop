@@ -3,6 +3,11 @@
     "children" : [
       {
         "children" : [],
+        "decl_notes" : [
+          {
+            "default_implementation" : true
+          }
+        ],
         "documentation" : {
           "abstract" : {
             "markdown" : {

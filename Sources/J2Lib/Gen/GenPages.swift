@@ -175,7 +175,7 @@ final class PageVisitor: ItemVisitorProtocol {
 
     func buildTopics(item: Item) -> [GenData.Topic] {
         var topics = [GenData.Topic]()
-        let itemVisitor = ItemVisitor(defaultLanguage: defaultLanguage)
+        let itemVisitor = GenItemVisitor(defaultLanguage: defaultLanguage)
         var currentTopic: Topic? = nil
 
         let uniquer = StringUniquer()
@@ -230,7 +230,7 @@ extension DefItem {
 }
 
 /// Visitor to construct an Item that can appear inside a topic on a page.
-class ItemVisitor: ItemVisitorProtocol {
+class GenItemVisitor: ItemVisitorProtocol {
     let defaultLanguage: DefLanguage
     var items: [GenData.Item]
 
@@ -284,6 +284,7 @@ extension DefItem {
     var asGenDef: GenData.Def {
         GenData.Def(deprecation: deprecationNotice?.html,
                     unavailability: unavailableNotice?.html,
+                    notes: declNotesNotice?.html,
                     availability: swiftDeclaration?.availability ?? [],
                     abstract: documentation.abstract?.html,
                     discussion: documentation.discussion?.html,

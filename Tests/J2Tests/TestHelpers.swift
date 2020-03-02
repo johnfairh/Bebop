@@ -169,6 +169,15 @@ extension SourceKittenDict {
             .with(usr: name)
     }
 
+    static func mkProtocol(name: String, docs: String = "") -> Self {
+        SourceKittenDict()
+            .with(kind: .protocol)
+            .with(name: name)
+            .with(decl: "protocol \(name)")
+            .with(comment: docs)
+            .with(usr: name)
+    }
+
     static func mkExtension(name: String, docs: String = "") -> Self {
         SourceKittenDict()
             .with(kind: .extension)
