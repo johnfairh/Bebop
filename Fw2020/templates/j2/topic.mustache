@@ -42,55 +42,18 @@
       <div class="j2-item-popopen">
         <div class="j2-item-popopen-pointer" role="none"></div>
         <div class="j2-item-popopen-body">
-          <div class="clearfix">
-            {{#def}}
-            {{^hide_availability}}
-            {{#.availability.count}}
-            <aside class="j2-availability mb-n1" role="note">
-            {{> availability}}
-            </aside>
-            {{/.availability.count}}
-            {{/hide_availability}}
-            {{> deprecation}}
-            {{/def}}
-            {{{def.abstract_html}}}
-            {{{def.overview_html}}}
-          </div>
-          {{#def.default_abstract_html}}
-          <h5>Default Implementation</h5>
-          {{{def.default_abstract_html}}}
-          {{{def.default_discussion_html}}}
-          {{/def.default_abstract_html}}
-          <h5>Declaration</h5>
-          <div class="j2-item-declaration">
-            {{#def.swift_declaration_html}}
-            <div class="j2-swift">
-              <div class="j2-callout-title" role="heading" aria-level="6">Swift</div>
-              <pre><code class="language-swift">{{{.}}}</code></pre>
+          {{#def}}
+            <div class="clearfix">
+              {{< availability}} {{$classes}}mb-n1{{/classes}} {{/availability}}
+              {{> def_discussion}}
             </div>
-            {{/def.swift_declaration_html}}
-            {{#def.objc_declaration_html}}
-            <div class="j2-objc">
-              <div class="j2-callout-title" role="heading" aria-level="6">Objective-C</div>
-              <pre><code class="language-objectivec">{{{.}}}</code></pre>
+            <h5>Declaration</h5>
+            <div class="j2-item-declaration">
+              {{> declaration}}
             </div>
-            {{/def.objc_declaration_html}}
-          </div>
+            {{> params_returns}}
+          {{/def}}
 
-          {{#def.parameters.count}}
-          <h5>Parameters</h5>
-          <table class="j2-param-table">
-            <tbody>
-             {{#def.parameters}}
-             {{>parameter}}
-             {{/def.parameters}}
-            </tbody>
-          </table>
-          {{/def.parameters.count}}
-          {{#def.returns_html}}
-          <h5>Return Value</h5>
-          {{{def.returns_html}}}
-          {{/def.returns_html}}
           <nav class="j2-item-nav" aria-label="item details">
             {{#primary_url}}
             <span class="j2-item-nav-item">
@@ -103,7 +66,7 @@
             </span>
             {{/primary_url}}
             {{#github_token_url}}
-            <span class="j2-item-nav-item"><a href="{{{github_token_url}}}">Show on GitHub</a></span>
+            <span class="j2-item-nav-item"><a href="{{{.}}}">Show on GitHub</a></span>
             {{/github_token_url}}
           </nav>
         </div>

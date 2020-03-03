@@ -1,6 +1,12 @@
-<h6 class="j2-inline-heading">Availability</h6>
-<ul>
-  {{#availability}}
-  <li>{{.}}</li>
-  {{/availability}}
-</ul>
+{{^hide_availability}}
+  {{#.availability.count}}
+    <aside class="j2-availability {{$classes}}{{/classes}}" role="note">
+      <h6 class="j2-inline-heading">Availability</h6>
+      <ul>
+        {{#availability}}
+          <li>{{.}}</li>
+        {{/availability}}
+      </ul>
+    </aside>
+  {{/.availability.count}}
+{{/hide_availability}}

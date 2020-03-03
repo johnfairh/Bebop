@@ -53,60 +53,20 @@ Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
           {{/apology}}
           {{#def}}
           <div class="j2-callout {{{apology.no_apology_language}}} j2-callout-declaration">
-            {{#swift_declaration_html}}
-            <div class="j2-swift">
-              <div class="j2-callout-title" role="heading" aria-level="6">Swift</div>
-              <pre><code class="language-swift">{{{swift_declaration_html}}}</code></pre>
-            </div>
-            {{/swift_declaration_html}}
-            {{#objc_declaration_html}}
-            <div class="j2-objc">
-              <div class="j2-callout-title" role="heading" aria-level="6">Objective-C</div>
-              <pre><code class="language-objectivec">{{{objc_declaration_html}}}</code></pre>
-            </div>
-            {{/objc_declaration_html}}
+            {{> declaration}}
           </div>
 
           <div class="clearfix">
-            {{> deprecation}}
-            {{^hide_availability}}
-            {{#availability.count}}
-            <aside class="j2-availability mt-n3" role="note">
             {{> availability}}
-            </aside>
-            {{/availability.count}}
-            {{/hide_availability}}
-            {{{abstract_html}}}
-            {{{discussion_html}}}
-
-            {{#default_abstract_html}}
-            <h5>Default Implementation</h5>
-            {{{default_abstract_html}}}
-            {{{default_discussion_html}}}
-            {{/default_abstract_html}}
-
-            {{#parameters.count}}
-              <h5>Parameters</h5>
-              <table class="j2-param-table">
-                <tbody>
-                  {{#parameters}}
-                  {{>parameter}}
-                  {{/parameters}}
-                </tbody>
-              </table>
-            {{/parameters.count}}
-            {{#returns_html}}
-            <h5>Return Value</h5>
-            {{{returns_html}}}
-            {{/returns_html}}
+            {{> def_discussion}}
+            {{> params_returns}}
           </div>
+          {{/def}}
           <nav class="j2-item-nav" aria-label="item details">
             {{#github_token_url}}
-            <span class="j2-item-nav-item"><a href="{{{github_token_url}}}">Show on GitHub</a></span>
+            <span class="j2-item-nav-item"><a href="{{{.}}}">Show on GitHub</a></span>
             {{/github_token_url}}
           </nav>
-
-          {{/def}}
           {{{content_html}}}
         </section>
 

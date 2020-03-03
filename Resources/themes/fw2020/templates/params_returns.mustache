@@ -1,0 +1,17 @@
+{{#.parameters.count}}
+  <h5>Parameters</h5>
+  <table class="j2-param-table">
+    <tbody>
+      {{#.parameters}}
+      <tr>
+        <td><code>{{title}}</code></td>
+        <td>{{{parameter_html}}}</td>
+      </tr>
+      {{/.parameters}}
+    </tbody>
+  </table>
+{{/.parameters.count}}
+{{#.returns_html}}
+  <h5>Return Value</h5>
+  {{{.}}}
+{{/.returns_html}}
