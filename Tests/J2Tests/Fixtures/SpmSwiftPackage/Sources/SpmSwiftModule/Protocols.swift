@@ -6,6 +6,9 @@ protocol FirstProtocol {
   /// - parameter arg: The argument
   /// - returns: The answer
   func m(arg: Int) -> String
+
+  associatedtype AssocType
+  func assocFunc() -> AssocType
 }
 
 extension FirstProtocol {

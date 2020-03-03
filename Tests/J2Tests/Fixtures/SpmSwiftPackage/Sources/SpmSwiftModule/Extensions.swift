@@ -20,6 +20,11 @@ extension GenericBase where T: Equatable,
   func doMoreMagic() {}
 }
 
+extension GenericBase where T: Hashable {
+  // MARK: User-custom mark
+  func doHashable() {}
+}
+
 // MARK: CustomStringConvertible
 extension GenericBase : CustomStringConvertible {
   var description: String {
@@ -33,4 +38,13 @@ extension Collection where Element: FirstProtocol {
 
 extension Collection where Element == SpmSwiftModule.Nested1 {
   func nestEmAll() {}
+}
+
+extension FirstProtocol where AssocType: Hashable {
+  func extHashableMethod() {}
+
+  /// Special default implementation for m in Hashable case.
+  func m(arg: Int) -> String {
+    return ""
+  }
 }

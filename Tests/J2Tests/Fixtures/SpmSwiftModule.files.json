@@ -15,7 +15,7 @@
       "key.j2.module_name" : "SpmSwiftModule",
       "key.j2.pass_index" : 0,
       "key.j2.version" : "0.1",
-      "key.length" : 635,
+      "key.length" : 927,
       "key.offset" : 0,
       "key.substructure" : [
         {
@@ -355,23 +355,99 @@
           "key.usr" : "s:14SpmSwiftModule11GenericBaseC"
         },
         {
+          "key.accessibility" : "source.lang.swift.accessibility.internal",
+          "key.annotated_decl" : "<Declaration>class GenericBase&lt;T&gt;<\/Declaration>",
+          "key.bodylength" : 52,
+          "key.bodyoffset" : 377,
+          "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
+          "key.fully_annotated_decl" : "<decl.class><syntaxtype.keyword>class<\/syntaxtype.keyword> <decl.name>GenericBase<\/decl.name>&lt;<decl.generic_type_param usr=\"s:14SpmSwiftModule11GenericBaseC1Txmfp\"><decl.generic_type_param.name>T<\/decl.generic_type_param.name><\/decl.generic_type_param>&gt;<\/decl.class>",
+          "key.j2.swift_declaration" : "extension GenericBase where T: Hashable",
+          "key.j2.swift_name_pieces" : [
+            {
+              "key.j2.name_piece_is_name" : false,
+              "key.j2.name_piece_text" : "extension "
+            },
+            {
+              "key.j2.name_piece_is_name" : true,
+              "key.j2.name_piece_text" : "GenericBase"
+            }
+          ],
+          "key.kind" : "source.lang.swift.decl.extension",
+          "key.length" : 94,
+          "key.name" : "GenericBase",
+          "key.namelength" : 11,
+          "key.nameoffset" : 346,
+          "key.offset" : 336,
+          "key.parsed_declaration" : "extension GenericBase where T: Hashable",
+          "key.parsed_scope.end" : 26,
+          "key.parsed_scope.start" : 23,
+          "key.substructure" : [
+            {
+              "key.kind" : "source.lang.swift.syntaxtype.comment.mark",
+              "key.length" : 22,
+              "key.name" : "MARK: User-custom mark",
+              "key.namelength" : 0,
+              "key.nameoffset" : 0,
+              "key.offset" : 383
+            },
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.internal",
+              "key.annotated_decl" : "<Declaration>func doHashable()<\/Declaration>",
+              "key.bodylength" : 0,
+              "key.bodyoffset" : 427,
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
+              "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>doHashable<\/decl.name>()<\/decl.function.method.instance>",
+              "key.j2.swift_declaration" : "func doHashable()",
+              "key.j2.swift_name_pieces" : [
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "func "
+                },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "doHashable"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "()"
+                }
+              ],
+              "key.kind" : "source.lang.swift.decl.function.method.instance",
+              "key.length" : 20,
+              "key.name" : "doHashable()",
+              "key.namelength" : 12,
+              "key.nameoffset" : 413,
+              "key.offset" : 408,
+              "key.parsed_declaration" : "func doHashable()",
+              "key.parsed_scope.end" : 25,
+              "key.parsed_scope.start" : 25,
+              "key.typename" : "<T where T : Hashable> (GenericBase<T>) -> () -> ()",
+              "key.typeusr" : "$syycD",
+              "key.usr" : "s:14SpmSwiftModule11GenericBaseCAASHRzlE10doHashableyyF"
+            }
+          ],
+          "key.typename" : "GenericBase<T>.Type",
+          "key.typeusr" : "$s14SpmSwiftModule11GenericBaseCyxGmD",
+          "key.usr" : "s:14SpmSwiftModule11GenericBaseC"
+        },
+        {
           "key.kind" : "source.lang.swift.syntaxtype.comment.mark",
           "key.length" : 29,
           "key.name" : "MARK: CustomStringConvertible",
           "key.namelength" : 0,
           "key.nameoffset" : 0,
-          "key.offset" : 339
+          "key.offset" : 435
         },
         {
           "key.accessibility" : "source.lang.swift.accessibility.internal",
           "key.annotated_decl" : "<Declaration>class GenericBase&lt;T&gt;<\/Declaration>",
           "key.bodylength" : 47,
-          "key.bodyoffset" : 418,
+          "key.bodyoffset" : 514,
           "key.elements" : [
             {
               "key.kind" : "source.lang.swift.structure.elem.typeref",
               "key.length" : 23,
-              "key.offset" : 393
+              "key.offset" : 489
             }
           ],
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
@@ -396,17 +472,17 @@
           "key.length" : 97,
           "key.name" : "GenericBase",
           "key.namelength" : 11,
-          "key.nameoffset" : 379,
-          "key.offset" : 369,
+          "key.nameoffset" : 475,
+          "key.offset" : 465,
           "key.parsed_declaration" : "extension GenericBase : CustomStringConvertible",
-          "key.parsed_scope.end" : 28,
-          "key.parsed_scope.start" : 24,
+          "key.parsed_scope.end" : 33,
+          "key.parsed_scope.start" : 29,
           "key.substructure" : [
             {
               "key.accessibility" : "source.lang.swift.accessibility.internal",
               "key.annotated_decl" : "<Declaration>var description: <Type usr=\"s:SS\">String<\/Type> { get }<\/Declaration>",
               "key.bodylength" : 17,
-              "key.bodyoffset" : 446,
+              "key.bodyoffset" : 542,
               "key.doc.declaration" : "var description: String { get }",
               "key.doc.discussion" : [
                 {
@@ -446,16 +522,16 @@
               "key.length" : 43,
               "key.name" : "description",
               "key.namelength" : 11,
-              "key.nameoffset" : 425,
-              "key.offset" : 421,
+              "key.nameoffset" : 521,
+              "key.offset" : 517,
               "key.overrides" : [
                 {
                   "key.usr" : "s:s23CustomStringConvertibleP11descriptionSSvp"
                 }
               ],
               "key.parsed_declaration" : "var description: String",
-              "key.parsed_scope.end" : 27,
-              "key.parsed_scope.start" : 25,
+              "key.parsed_scope.end" : 32,
+              "key.parsed_scope.start" : 30,
               "key.typename" : "String",
               "key.typeusr" : "$sSSD",
               "key.usr" : "s:s23CustomStringConvertibleP11descriptionSSvp"
@@ -469,7 +545,7 @@
           "key.accessibility" : "source.lang.swift.accessibility.internal",
           "key.annotated_decl" : "<Declaration>protocol Collection : <Type usr=\"s:ST\">Sequence<\/Type><\/Declaration>",
           "key.bodylength" : 26,
-          "key.bodyoffset" : 519,
+          "key.bodyoffset" : 615,
           "key.doc.declaration" : "protocol Collection : Sequence",
           "key.doc.discussion" : [
             {
@@ -597,17 +673,17 @@
           "key.modulename" : "Swift",
           "key.name" : "Collection",
           "key.namelength" : 10,
-          "key.nameoffset" : 478,
-          "key.offset" : 468,
+          "key.nameoffset" : 574,
+          "key.offset" : 564,
           "key.parsed_declaration" : "extension Collection where Element: FirstProtocol",
-          "key.parsed_scope.end" : 32,
-          "key.parsed_scope.start" : 30,
+          "key.parsed_scope.end" : 37,
+          "key.parsed_scope.start" : 35,
           "key.substructure" : [
             {
               "key.accessibility" : "source.lang.swift.accessibility.internal",
               "key.annotated_decl" : "<Declaration>func collectEmAll()<\/Declaration>",
               "key.bodylength" : 0,
-              "key.bodyoffset" : 543,
+              "key.bodyoffset" : 639,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>collectEmAll<\/decl.name>()<\/decl.function.method.instance>",
               "key.groupname" : "Collection",
@@ -630,11 +706,11 @@
               "key.length" : 22,
               "key.name" : "collectEmAll()",
               "key.namelength" : 14,
-              "key.nameoffset" : 527,
-              "key.offset" : 522,
+              "key.nameoffset" : 623,
+              "key.offset" : 618,
               "key.parsed_declaration" : "func collectEmAll()",
-              "key.parsed_scope.end" : 31,
-              "key.parsed_scope.start" : 31,
+              "key.parsed_scope.end" : 36,
+              "key.parsed_scope.start" : 36,
               "key.typename" : "<Self where Self : Collection, Self.Element : FirstProtocol> (Self) -> () -> ()",
               "key.typeusr" : "$syycD",
               "key.usr" : "s:Sl14SpmSwiftModuleAA13FirstProtocol7ElementRpzrlE12collectEmAllyyF"
@@ -648,7 +724,7 @@
           "key.accessibility" : "source.lang.swift.accessibility.internal",
           "key.annotated_decl" : "<Declaration>protocol Collection : <Type usr=\"s:ST\">Sequence<\/Type><\/Declaration>",
           "key.bodylength" : 23,
-          "key.bodyoffset" : 610,
+          "key.bodyoffset" : 706,
           "key.doc.declaration" : "protocol Collection : Sequence",
           "key.doc.discussion" : [
             {
@@ -776,17 +852,17 @@
           "key.modulename" : "Swift",
           "key.name" : "Collection",
           "key.namelength" : 10,
-          "key.nameoffset" : 558,
-          "key.offset" : 548,
+          "key.nameoffset" : 654,
+          "key.offset" : 644,
           "key.parsed_declaration" : "extension Collection where Element == SpmSwiftModule.Nested1",
-          "key.parsed_scope.end" : 36,
-          "key.parsed_scope.start" : 34,
+          "key.parsed_scope.end" : 41,
+          "key.parsed_scope.start" : 39,
           "key.substructure" : [
             {
               "key.accessibility" : "source.lang.swift.accessibility.internal",
               "key.annotated_decl" : "<Declaration>func nestEmAll()<\/Declaration>",
               "key.bodylength" : 0,
-              "key.bodyoffset" : 631,
+              "key.bodyoffset" : 727,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>nestEmAll<\/decl.name>()<\/decl.function.method.instance>",
               "key.groupname" : "Collection",
@@ -809,11 +885,11 @@
               "key.length" : 19,
               "key.name" : "nestEmAll()",
               "key.namelength" : 11,
-              "key.nameoffset" : 618,
-              "key.offset" : 613,
+              "key.nameoffset" : 714,
+              "key.offset" : 709,
               "key.parsed_declaration" : "func nestEmAll()",
-              "key.parsed_scope.end" : 35,
-              "key.parsed_scope.start" : 35,
+              "key.parsed_scope.end" : 40,
+              "key.parsed_scope.start" : 40,
               "key.typename" : "<Self where Self : Collection, Self.Element == SpmSwiftModule.Nested1> (Self) -> () -> ()",
               "key.typeusr" : "$syycD",
               "key.usr" : "s:Sl14SpmSwiftModuleA2AV7Nested1V7ElementRtzrlE9nestEmAllyyF"
@@ -822,6 +898,147 @@
           "key.typename" : "Collection.Protocol",
           "key.typeusr" : "$sSl_pmD",
           "key.usr" : "s:Sl"
+        },
+        {
+          "key.accessibility" : "source.lang.swift.accessibility.internal",
+          "key.annotated_decl" : "<Declaration>protocol FirstProtocol<\/Declaration>",
+          "key.bodylength" : 142,
+          "key.bodyoffset" : 783,
+          "key.doc.column" : 10,
+          "key.doc.declaration" : "protocol FirstProtocol",
+          "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+          "key.doc.full_as_xml" : "<Class file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift\" line=\"2\" column=\"10\"><Name>FirstProtocol<\/Name><USR>s:14SpmSwiftModule13FirstProtocolP<\/USR><Declaration>protocol FirstProtocol<\/Declaration><CommentParts><Abstract><Para>A protocol.<\/Para><\/Abstract><\/CommentParts><\/Class>",
+          "key.doc.line" : 2,
+          "key.doc.name" : "FirstProtocol",
+          "key.doc.type" : "Class",
+          "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+          "key.fully_annotated_decl" : "<decl.protocol><syntaxtype.keyword>protocol<\/syntaxtype.keyword> <decl.name>FirstProtocol<\/decl.name><\/decl.protocol>",
+          "key.j2.swift_declaration" : "extension FirstProtocol where AssocType: Hashable",
+          "key.j2.swift_name_pieces" : [
+            {
+              "key.j2.name_piece_is_name" : false,
+              "key.j2.name_piece_text" : "extension "
+            },
+            {
+              "key.j2.name_piece_is_name" : true,
+              "key.j2.name_piece_text" : "FirstProtocol"
+            }
+          ],
+          "key.kind" : "source.lang.swift.decl.extension",
+          "key.length" : 194,
+          "key.name" : "FirstProtocol",
+          "key.namelength" : 13,
+          "key.nameoffset" : 742,
+          "key.offset" : 732,
+          "key.parsed_declaration" : "extension FirstProtocol where AssocType: Hashable",
+          "key.parsed_scope.end" : 50,
+          "key.parsed_scope.start" : 43,
+          "key.substructure" : [
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.internal",
+              "key.annotated_decl" : "<Declaration>func extHashableMethod()<\/Declaration>",
+              "key.bodylength" : 0,
+              "key.bodyoffset" : 812,
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
+              "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>extHashableMethod<\/decl.name>()<\/decl.function.method.instance>",
+              "key.j2.swift_declaration" : "func extHashableMethod()",
+              "key.j2.swift_name_pieces" : [
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "func "
+                },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "extHashableMethod"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "()"
+                }
+              ],
+              "key.kind" : "source.lang.swift.decl.function.method.instance",
+              "key.length" : 27,
+              "key.name" : "extHashableMethod()",
+              "key.namelength" : 19,
+              "key.nameoffset" : 791,
+              "key.offset" : 786,
+              "key.parsed_declaration" : "func extHashableMethod()",
+              "key.parsed_scope.end" : 44,
+              "key.parsed_scope.start" : 44,
+              "key.typename" : "<Self where Self : FirstProtocol, Self.AssocType : Hashable> (Self) -> () -> ()",
+              "key.typeusr" : "$syycD",
+              "key.usr" : "s:14SpmSwiftModule13FirstProtocolPAASH9AssocTypeRpzrlE17extHashableMethodyyF"
+            },
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.internal",
+              "key.annotated_decl" : "<Declaration>func m(arg: <Type usr=\"s:Si\">Int<\/Type>) -&gt; <Type usr=\"s:SS\">String<\/Type><\/Declaration>",
+              "key.bodylength" : 17,
+              "key.bodyoffset" : 906,
+              "key.doc.column" : 8,
+              "key.doc.comment" : "Special default implementation for m in Hashable case.",
+              "key.doc.declaration" : "func m(arg: Int) -> String",
+              "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
+              "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift\" line=\"47\" column=\"8\"><Name>m(arg:)<\/Name><USR>s:14SpmSwiftModule13FirstProtocolPAASH9AssocTypeRpzrlE1m3argSSSi_tF<\/USR><Declaration>func m(arg: Int) -&gt; String<\/Declaration><CommentParts><Abstract><Para>Special default implementation for m in Hashable case.<\/Para><\/Abstract><\/CommentParts><\/Function>",
+              "key.doc.line" : 47,
+              "key.doc.name" : "m(arg:)",
+              "key.doc.type" : "Function",
+              "key.doclength" : 59,
+              "key.docoffset" : 817,
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
+              "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>m<\/decl.name>(<decl.var.parameter><decl.var.parameter.argument_label>arg<\/decl.var.parameter.argument_label>: <decl.var.parameter.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.function.returntype><\/decl.function.method.instance>",
+              "key.j2.documentation" : {
+                "key.j2.abstract" : {
+                  "en" : "Special default implementation for m in Hashable case."
+                }
+              },
+              "key.j2.swift_declaration" : "func m(arg: Int) -> String",
+              "key.j2.swift_name_pieces" : [
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "func "
+                },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "m"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "("
+                },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "arg"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : ": Int) -> String"
+                }
+              ],
+              "key.kind" : "source.lang.swift.decl.function.method.instance",
+              "key.length" : 46,
+              "key.name" : "m(arg:)",
+              "key.namelength" : 11,
+              "key.nameoffset" : 883,
+              "key.offset" : 878,
+              "key.parsed_declaration" : "func m(arg: Int) -> String",
+              "key.parsed_scope.end" : 49,
+              "key.parsed_scope.start" : 47,
+              "key.related_decls" : [
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule13FirstProtocolP1m3argSSSi_tF\">m(arg: Int) -&gt; String<\/RelatedName>"
+                },
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule13FirstProtocolPAAE1m3argSSSi_tF\">m(arg: Int) -&gt; String<\/RelatedName>"
+                }
+              ],
+              "key.typename" : "<Self where Self : FirstProtocol, Self.AssocType : Hashable> (Self) -> (Int) -> String",
+              "key.typeusr" : "$s3argSSSi_tcD",
+              "key.usr" : "s:14SpmSwiftModule13FirstProtocolPAASH9AssocTypeRpzrlE1m3argSSSi_tF"
+            }
+          ],
+          "key.typename" : "FirstProtocol.Protocol",
+          "key.typeusr" : "$s14SpmSwiftModule13FirstProtocol_pmD",
+          "key.usr" : "s:14SpmSwiftModule13FirstProtocolP"
         }
       ]
     }
@@ -832,13 +1049,13 @@
       "key.j2.module_name" : "SpmSwiftModule",
       "key.j2.pass_index" : 0,
       "key.j2.version" : "0.1",
-      "key.length" : 420,
+      "key.length" : 480,
       "key.offset" : 0,
       "key.substructure" : [
         {
           "key.accessibility" : "source.lang.swift.accessibility.internal",
           "key.annotated_decl" : "<Declaration>protocol FirstProtocol<\/Declaration>",
-          "key.bodylength" : 152,
+          "key.bodylength" : 212,
           "key.bodyoffset" : 40,
           "key.doc.column" : 10,
           "key.doc.comment" : "A protocol.",
@@ -869,13 +1086,13 @@
             }
           ],
           "key.kind" : "source.lang.swift.decl.protocol",
-          "key.length" : 177,
+          "key.length" : 237,
           "key.name" : "FirstProtocol",
           "key.namelength" : 13,
           "key.nameoffset" : 25,
           "key.offset" : 16,
           "key.parsed_declaration" : "protocol FirstProtocol",
-          "key.parsed_scope.end" : 9,
+          "key.parsed_scope.end" : 12,
           "key.parsed_scope.start" : 2,
           "key.runtime_name" : "_TtP4main13FirstProtocol_",
           "key.substructure" : [
@@ -967,12 +1184,77 @@
               "key.parsed_scope.start" : 8,
               "key.related_decls" : [
                 {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule13FirstProtocolPAASH9AssocTypeRpzrlE1m3argSSSi_tF\">m(arg: Int) -&gt; String<\/RelatedName>"
+                },
+                {
                   "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule13FirstProtocolPAAE1m3argSSSi_tF\">m(arg: Int) -&gt; String<\/RelatedName>"
                 }
               ],
               "key.typename" : "<Self where Self : FirstProtocol> (Self) -> (Int) -> String",
               "key.typeusr" : "$s3argSSSi_tcD",
               "key.usr" : "s:14SpmSwiftModule13FirstProtocolP1m3argSSSi_tF"
+            },
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.internal",
+              "key.annotated_decl" : "<Declaration>associatedtype AssocType<\/Declaration>",
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+              "key.fully_annotated_decl" : "<decl.associatedtype><syntaxtype.keyword>associatedtype<\/syntaxtype.keyword> <decl.name>AssocType<\/decl.name><\/decl.associatedtype>",
+              "key.j2.swift_declaration" : "associatedtype AssocType",
+              "key.j2.swift_name_pieces" : [
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "associatedtype "
+                },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "AssocType"
+                }
+              ],
+              "key.kind" : "source.lang.swift.decl.associatedtype",
+              "key.length" : 24,
+              "key.name" : "AssocType",
+              "key.namelength" : 9,
+              "key.nameoffset" : 210,
+              "key.offset" : 195,
+              "key.parsed_declaration" : "associatedtype AssocType",
+              "key.parsed_scope.end" : 10,
+              "key.parsed_scope.start" : 10,
+              "key.typename" : "Self.AssocType.Type",
+              "key.typeusr" : "$s9AssocType14SpmSwiftModule13FirstProtocolPQzmD",
+              "key.usr" : "s:14SpmSwiftModule13FirstProtocolP9AssocTypeQa"
+            },
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.internal",
+              "key.annotated_decl" : "<Declaration>func assocFunc() -&gt; <Type usr=\"s:14SpmSwiftModule13FirstProtocolP9AssocTypeQa\">AssocType<\/Type><\/Declaration>",
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+              "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>assocFunc<\/decl.name>() -&gt; <decl.function.returntype><ref.associatedtype usr=\"s:14SpmSwiftModule13FirstProtocolP9AssocTypeQa\">AssocType<\/ref.associatedtype><\/decl.function.returntype><\/decl.function.method.instance>",
+              "key.j2.swift_declaration" : "func assocFunc() -> AssocType",
+              "key.j2.swift_name_pieces" : [
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "func "
+                },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "assocFunc"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "() -> AssocType"
+                }
+              ],
+              "key.kind" : "source.lang.swift.decl.function.method.instance",
+              "key.length" : 29,
+              "key.name" : "assocFunc()",
+              "key.namelength" : 11,
+              "key.nameoffset" : 227,
+              "key.offset" : 222,
+              "key.parsed_declaration" : "func assocFunc() -> AssocType",
+              "key.parsed_scope.end" : 11,
+              "key.parsed_scope.start" : 11,
+              "key.typename" : "<Self where Self : FirstProtocol> (Self) -> () -> Self.AssocType",
+              "key.typeusr" : "$s9AssocTypeQzycD",
+              "key.usr" : "s:14SpmSwiftModule13FirstProtocolP9assocFunc9AssocTypeQzyF"
             }
           ],
           "key.typename" : "FirstProtocol.Protocol",
@@ -983,7 +1265,7 @@
           "key.accessibility" : "source.lang.swift.accessibility.internal",
           "key.annotated_decl" : "<Declaration>protocol FirstProtocol<\/Declaration>",
           "key.bodylength" : 49,
-          "key.bodyoffset" : 220,
+          "key.bodyoffset" : 280,
           "key.doc.column" : 10,
           "key.doc.declaration" : "protocol FirstProtocol",
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
@@ -1008,27 +1290,27 @@
           "key.length" : 75,
           "key.name" : "FirstProtocol",
           "key.namelength" : 13,
-          "key.nameoffset" : 205,
-          "key.offset" : 195,
+          "key.nameoffset" : 265,
+          "key.offset" : 255,
           "key.parsed_declaration" : "extension FirstProtocol",
-          "key.parsed_scope.end" : 14,
-          "key.parsed_scope.start" : 11,
+          "key.parsed_scope.end" : 17,
+          "key.parsed_scope.start" : 14,
           "key.substructure" : [
             {
               "key.accessibility" : "source.lang.swift.accessibility.internal",
               "key.annotated_decl" : "<Declaration>func e()<\/Declaration>",
               "key.bodylength" : 0,
-              "key.bodyoffset" : 267,
+              "key.bodyoffset" : 327,
               "key.doc.column" : 8,
               "key.doc.comment" : "A protocol extension method",
               "key.doc.declaration" : "func e()",
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
-              "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift\" line=\"13\" column=\"8\"><Name>e()<\/Name><USR>s:14SpmSwiftModule13FirstProtocolPAAE1eyyF<\/USR><Declaration>func e()<\/Declaration><CommentParts><Abstract><Para>A protocol extension method<\/Para><\/Abstract><\/CommentParts><\/Function>",
-              "key.doc.line" : 13,
+              "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift\" line=\"16\" column=\"8\"><Name>e()<\/Name><USR>s:14SpmSwiftModule13FirstProtocolPAAE1eyyF<\/USR><Declaration>func e()<\/Declaration><CommentParts><Abstract><Para>A protocol extension method<\/Para><\/Abstract><\/CommentParts><\/Function>",
+              "key.doc.line" : 16,
               "key.doc.name" : "e()",
               "key.doc.type" : "Function",
               "key.doclength" : 32,
-              "key.docoffset" : 223,
+              "key.docoffset" : 283,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>e<\/decl.name>()<\/decl.function.method.instance>",
               "key.j2.documentation" : {
@@ -1055,11 +1337,11 @@
               "key.length" : 11,
               "key.name" : "e()",
               "key.namelength" : 3,
-              "key.nameoffset" : 262,
-              "key.offset" : 257,
+              "key.nameoffset" : 322,
+              "key.offset" : 317,
               "key.parsed_declaration" : "func e()",
-              "key.parsed_scope.end" : 13,
-              "key.parsed_scope.start" : 13,
+              "key.parsed_scope.end" : 16,
+              "key.parsed_scope.start" : 16,
               "key.typename" : "<Self where Self : FirstProtocol> (Self) -> () -> ()",
               "key.typeusr" : "$syycD",
               "key.usr" : "s:14SpmSwiftModule13FirstProtocolPAAE1eyyF"
@@ -1073,7 +1355,7 @@
           "key.accessibility" : "source.lang.swift.accessibility.internal",
           "key.annotated_decl" : "<Declaration>protocol FirstProtocol<\/Declaration>",
           "key.bodylength" : 121,
-          "key.bodyoffset" : 297,
+          "key.bodyoffset" : 357,
           "key.doc.column" : 10,
           "key.doc.declaration" : "protocol FirstProtocol",
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
@@ -1098,17 +1380,17 @@
           "key.length" : 147,
           "key.name" : "FirstProtocol",
           "key.namelength" : 13,
-          "key.nameoffset" : 282,
-          "key.offset" : 272,
+          "key.nameoffset" : 342,
+          "key.offset" : 332,
           "key.parsed_declaration" : "extension FirstProtocol",
-          "key.parsed_scope.end" : 23,
-          "key.parsed_scope.start" : 16,
+          "key.parsed_scope.end" : 26,
+          "key.parsed_scope.start" : 19,
           "key.substructure" : [
             {
               "key.accessibility" : "source.lang.swift.accessibility.internal",
               "key.annotated_decl" : "<Declaration>func m(arg: <Type usr=\"s:Si\">Int<\/Type>) -&gt; <Type usr=\"s:SS\">String<\/Type><\/Declaration>",
               "key.bodylength" : 10,
-              "key.bodyoffset" : 406,
+              "key.bodyoffset" : 466,
               "key.doc.column" : 8,
               "key.doc.comment" : "Return a safe default.\n\nThere's more: it's the empty string.",
               "key.doc.declaration" : "func m(arg: Int) -> String",
@@ -1118,12 +1400,12 @@
                 }
               ],
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
-              "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift\" line=\"20\" column=\"8\"><Name>m(arg:)<\/Name><USR>s:14SpmSwiftModule13FirstProtocolPAAE1m3argSSSi_tF<\/USR><Declaration>func m(arg: Int) -&gt; String<\/Declaration><CommentParts><Abstract><Para>Return a safe default.<\/Para><\/Abstract><Discussion><Para>There’s more: it’s the empty string.<\/Para><\/Discussion><\/CommentParts><\/Function>",
-              "key.doc.line" : 20,
+              "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift\" line=\"23\" column=\"8\"><Name>m(arg:)<\/Name><USR>s:14SpmSwiftModule13FirstProtocolPAAE1m3argSSSi_tF<\/USR><Declaration>func m(arg: Int) -&gt; String<\/Declaration><CommentParts><Abstract><Para>Return a safe default.<\/Para><\/Abstract><Discussion><Para>There’s more: it’s the empty string.<\/Para><\/Discussion><\/CommentParts><\/Function>",
+              "key.doc.line" : 23,
               "key.doc.name" : "m(arg:)",
               "key.doc.type" : "Function",
               "key.doclength" : 76,
-              "key.docoffset" : 300,
+              "key.docoffset" : 360,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>m<\/decl.name>(<decl.var.parameter><decl.var.parameter.argument_label>arg<\/decl.var.parameter.argument_label>: <decl.var.parameter.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.function.returntype><\/decl.function.method.instance>",
               "key.j2.documentation" : {
@@ -1161,14 +1443,17 @@
               "key.length" : 39,
               "key.name" : "m(arg:)",
               "key.namelength" : 11,
-              "key.nameoffset" : 383,
-              "key.offset" : 378,
+              "key.nameoffset" : 443,
+              "key.offset" : 438,
               "key.parsed_declaration" : "func m(arg: Int) -> String",
-              "key.parsed_scope.end" : 22,
-              "key.parsed_scope.start" : 20,
+              "key.parsed_scope.end" : 25,
+              "key.parsed_scope.start" : 23,
               "key.related_decls" : [
                 {
                   "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule13FirstProtocolP1m3argSSSi_tF\">m(arg: Int) -&gt; String<\/RelatedName>"
+                },
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule13FirstProtocolPAASH9AssocTypeRpzrlE1m3argSSSi_tF\">m(arg: Int) -&gt; String<\/RelatedName>"
                 }
               ],
               "key.typename" : "<Self where Self : FirstProtocol> (Self) -> (Int) -> String",

@@ -225,6 +225,9 @@ fileprivate extension DefItem {
         }
         exts.forEach { $0.cascadeTopic() }
 
+        // Constrained extensions at the end
+        _ = exts.partition { $0.swiftGenericRequirements != nil }
+
         let allChildren = defChildren +
             exts.flatMap { $0.defChildren } +
             newItems.flatMap { $0.defChildren }

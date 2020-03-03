@@ -102,43 +102,43 @@
       },
       {
         "children" : [],
-        "kind" : "source.lang.swift.decl.function.method.instance",
+        "kind" : "source.lang.swift.decl.var.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
-          "first_line" : 13,
-          "last_line" : 13,
+          "first_line" : 30,
+          "last_line" : 32,
           "module_name" : "SpmSwiftModule",
           "pass_index" : 0
         },
-        "name" : "doCodability()",
+        "name" : "description",
         "swift_declaration" : {
           "availability" : [],
           "declaration" : {
-            "text" : "func doCodability()"
+            "text" : "var description: String { get }"
           },
           "inherited_types" : [],
           "name_pieces" : [
             {
-              "other" : "func "
+              "other" : "var "
             },
             {
-              "name" : "doCodability"
+              "name" : "description"
             },
             {
-              "other" : "()"
+              "other" : ": String"
             }
           ]
         },
-        "swift_name" : "doCodability()",
+        "swift_name" : "description",
         "topic" : {
-          "kind" : "genericRequirements",
+          "kind" : "sourceMark",
           "title" : {
             "markdown" : {
-              "en" : "Available where `T`: `Codable`"
+              "en" : "CustomStringConvertible"
             }
           }
         },
-        "usr" : "s:14SpmSwiftModule11GenericBaseCAASeRzSERzlE12doCodabilityyyF"
+        "usr" : "s:s23CustomStringConvertibleP11descriptionSSvp"
       },
       {
         "children" : [],
@@ -214,43 +214,83 @@
       },
       {
         "children" : [],
-        "kind" : "source.lang.swift.decl.var.instance",
+        "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
           "first_line" : 25,
-          "last_line" : 27,
+          "last_line" : 25,
           "module_name" : "SpmSwiftModule",
           "pass_index" : 0
         },
-        "name" : "description",
+        "name" : "doHashable()",
         "swift_declaration" : {
           "availability" : [],
           "declaration" : {
-            "text" : "var description: String { get }"
+            "text" : "func doHashable()"
           },
           "inherited_types" : [],
           "name_pieces" : [
             {
-              "other" : "var "
+              "other" : "func "
             },
             {
-              "name" : "description"
+              "name" : "doHashable"
             },
             {
-              "other" : ": String"
+              "other" : "()"
             }
           ]
         },
-        "swift_name" : "description",
+        "swift_name" : "doHashable()",
         "topic" : {
-          "kind" : "sourceMark",
+          "kind" : "genericRequirements",
           "title" : {
             "markdown" : {
-              "en" : "CustomStringConvertible"
+              "en" : "User-custom mark"
             }
           }
         },
-        "usr" : "s:s23CustomStringConvertibleP11descriptionSSvp"
+        "usr" : "s:14SpmSwiftModule11GenericBaseCAASHRzlE10doHashableyyF"
+      },
+      {
+        "children" : [],
+        "kind" : "source.lang.swift.decl.function.method.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
+          "first_line" : 13,
+          "last_line" : 13,
+          "module_name" : "SpmSwiftModule",
+          "pass_index" : 0
+        },
+        "name" : "doCodability()",
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : {
+            "text" : "func doCodability()"
+          },
+          "inherited_types" : [],
+          "name_pieces" : [
+            {
+              "other" : "func "
+            },
+            {
+              "name" : "doCodability"
+            },
+            {
+              "other" : "()"
+            }
+          ]
+        },
+        "swift_name" : "doCodability()",
+        "topic" : {
+          "kind" : "genericRequirements",
+          "title" : {
+            "markdown" : {
+              "en" : "Available where `T`: `Codable`"
+            }
+          }
+        },
+        "usr" : "s:14SpmSwiftModule11GenericBaseCAASeRzSERzlE12doCodabilityyyF"
       }
     ],
     "generic_type_parameters" : [
@@ -367,6 +407,67 @@
       },
       {
         "children" : [],
+        "kind" : "source.lang.swift.decl.associatedtype",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+          "first_line" : 10,
+          "last_line" : 10,
+          "module_name" : "SpmSwiftModule",
+          "pass_index" : 0
+        },
+        "name" : "AssocType",
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : {
+            "text" : "associatedtype AssocType"
+          },
+          "inherited_types" : [],
+          "name_pieces" : [
+            {
+              "other" : "associatedtype "
+            },
+            {
+              "name" : "AssocType"
+            }
+          ]
+        },
+        "swift_name" : "AssocType",
+        "usr" : "s:14SpmSwiftModule13FirstProtocolP9AssocTypeQa"
+      },
+      {
+        "children" : [],
+        "kind" : "source.lang.swift.decl.function.method.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+          "first_line" : 11,
+          "last_line" : 11,
+          "module_name" : "SpmSwiftModule",
+          "pass_index" : 0
+        },
+        "name" : "assocFunc()",
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : {
+            "text" : "func assocFunc() -> AssocType"
+          },
+          "inherited_types" : [],
+          "name_pieces" : [
+            {
+              "other" : "func "
+            },
+            {
+              "name" : "assocFunc"
+            },
+            {
+              "other" : "() -> AssocType"
+            }
+          ]
+        },
+        "swift_name" : "assocFunc()",
+        "usr" : "s:14SpmSwiftModule13FirstProtocolP9assocFunc9AssocTypeQzyF"
+      },
+      {
+        "children" : [],
         "decl_notes" : [
           {
             "protocol_extension_member" : true
@@ -383,8 +484,8 @@
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
-          "first_line" : 13,
-          "last_line" : 13,
+          "first_line" : 16,
+          "last_line" : 16,
           "module_name" : "SpmSwiftModule",
           "pass_index" : 0
         },
@@ -409,6 +510,102 @@
         },
         "swift_name" : "e()",
         "usr" : "s:14SpmSwiftModule13FirstProtocolPAAE1eyyF"
+      },
+      {
+        "children" : [],
+        "decl_notes" : [
+          {
+            "protocol_extension_member" : true
+          }
+        ],
+        "kind" : "source.lang.swift.decl.function.method.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
+          "first_line" : 44,
+          "last_line" : 44,
+          "module_name" : "SpmSwiftModule",
+          "pass_index" : 0
+        },
+        "name" : "extHashableMethod()",
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : {
+            "text" : "func extHashableMethod()"
+          },
+          "inherited_types" : [],
+          "name_pieces" : [
+            {
+              "other" : "func "
+            },
+            {
+              "name" : "extHashableMethod"
+            },
+            {
+              "other" : "()"
+            }
+          ]
+        },
+        "swift_name" : "extHashableMethod()",
+        "topic" : {
+          "kind" : "genericRequirements",
+          "title" : {
+            "markdown" : {
+              "en" : "Available where `AssocType`: `Hashable`"
+            }
+          }
+        },
+        "usr" : "s:14SpmSwiftModule13FirstProtocolPAASH9AssocTypeRpzrlE17extHashableMethodyyF"
+      },
+      {
+        "children" : [],
+        "decl_notes" : [
+          {
+            "default_implementation" : true
+          }
+        ],
+        "documentation" : {
+          "default_abstract" : {
+            "markdown" : {
+              "en" : "Special default implementation for m in Hashable case."
+            }
+          },
+          "parameters" : []
+        },
+        "kind" : "source.lang.swift.decl.function.method.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
+          "first_line" : 47,
+          "last_line" : 49,
+          "module_name" : "SpmSwiftModule",
+          "pass_index" : 0
+        },
+        "name" : "m(arg:)",
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : {
+            "text" : "func m(arg: Int) -> String"
+          },
+          "inherited_types" : [],
+          "name_pieces" : [
+            {
+              "other" : "func "
+            },
+            {
+              "name" : "m"
+            },
+            {
+              "other" : "("
+            },
+            {
+              "name" : "arg"
+            },
+            {
+              "other" : ": Int) -> String"
+            }
+          ]
+        },
+        "swift_name" : "m(arg:)",
+        "usr" : "s:14SpmSwiftModule13FirstProtocolPAASH9AssocTypeRpzrlE1m3argSSSi_tF"
       }
     ],
     "documentation" : {
@@ -423,7 +620,7 @@
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
       "first_line" : 2,
-      "last_line" : 9,
+      "last_line" : 12,
       "module_name" : "SpmSwiftModule",
       "pass_index" : 0
     },
@@ -1358,8 +1555,8 @@
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
-          "first_line" : 31,
-          "last_line" : 31,
+          "first_line" : 36,
+          "last_line" : 36,
           "module_name" : "SpmSwiftModule",
           "pass_index" : 0
         },
@@ -1398,8 +1595,8 @@
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
-          "first_line" : 35,
-          "last_line" : 35,
+          "first_line" : 40,
+          "last_line" : 40,
           "module_name" : "SpmSwiftModule",
           "pass_index" : 0
         },
@@ -1437,8 +1634,8 @@
     "kind" : "source.lang.swift.decl.extension",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
-      "first_line" : 30,
-      "last_line" : 32,
+      "first_line" : 35,
+      "last_line" : 37,
       "module_name" : "SpmSwiftModule",
       "pass_index" : 0
     },

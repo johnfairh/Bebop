@@ -48,7 +48,7 @@
               {
                 "same_page" : false,
                 "title" : "FirstProtocol",
-                "url" : "types\/firstprotocol.html?swift"
+                "url" : "types\/firstprotocol1.html?swift"
               },
               {
                 "children" : [
@@ -150,7 +150,7 @@
             "title" : "class GenericBase"
           },
           {
-            "anchor_id" : "firstprotocol",
+            "anchor_id" : "firstprotocol1",
             "any_declaration" : true,
             "dash_name" : "protocol%20FirstProtocol",
             "dash_type" : "Protocol",
@@ -160,7 +160,7 @@
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">protocol <\/span>FirstProtocol",
-            "primary_url" : "types\/firstprotocol.html?swift",
+            "primary_url" : "types\/firstprotocol1.html?swift",
             "title" : "protocol FirstProtocol"
           },
           {
@@ -280,7 +280,7 @@
               {
                 "same_page" : false,
                 "title" : "FirstProtocol",
-                "url" : "types\/firstprotocol.html?swift"
+                "url" : "types\/firstprotocol1.html?swift"
               },
               {
                 "children" : [
@@ -408,24 +408,24 @@
         "primary_language" : "j2-swift"
       },
       {
-        "anchor_id" : "tpc_available-where-t-codable",
-        "dash_name" : "Available%20where%20%60T%60%3A%20%60Codable%60",
+        "anchor_id" : "tpc_customstringconvertible",
+        "dash_name" : "CustomStringConvertible",
         "items" : [
           {
-            "anchor_id" : "docodability",
+            "anchor_id" : "description",
             "any_declaration" : true,
-            "dash_name" : "func%20doCodability()",
-            "dash_type" : "Method",
+            "dash_name" : "var%20description%3A%20String",
+            "dash_type" : "Property",
             "def" : {
-              "swift_declaration_html" : "func doCodability()"
+              "swift_declaration_html" : "var description: String { get }"
             },
             "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>doCodability<span class=\"j2-item-secondary\">()<\/span>",
-            "title" : "func doCodability()"
+            "primary_title_html" : "<span class=\"j2-item-secondary\">var <\/span>description<span class=\"j2-item-secondary\">: String<\/span>",
+            "title" : "var description: String"
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Available where <code>T<\/code>: <code>Codable<\/code>"
+        "title_html" : "CustomStringConvertible"
       },
       {
         "anchor_id" : "tpc_available-where-t-equatable-t-firstprotocol",
@@ -460,24 +460,44 @@
         "title_html" : "Available where <code>T<\/code>: <code>Equatable<\/code>, <code>T<\/code>: <code>FirstProtocol<\/code>"
       },
       {
-        "anchor_id" : "tpc_customstringconvertible",
-        "dash_name" : "CustomStringConvertible",
+        "anchor_id" : "tpc_usercustom-mark",
+        "dash_name" : "User-custom%20mark",
         "items" : [
           {
-            "anchor_id" : "description",
+            "anchor_id" : "dohashable",
             "any_declaration" : true,
-            "dash_name" : "var%20description%3A%20String",
-            "dash_type" : "Property",
+            "dash_name" : "func%20doHashable()",
+            "dash_type" : "Method",
             "def" : {
-              "swift_declaration_html" : "var description: String { get }"
+              "swift_declaration_html" : "func doHashable()"
             },
             "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">var <\/span>description<span class=\"j2-item-secondary\">: String<\/span>",
-            "title" : "var description: String"
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>doHashable<span class=\"j2-item-secondary\">()<\/span>",
+            "title" : "func doHashable()"
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "CustomStringConvertible"
+        "title_html" : "User-custom mark"
+      },
+      {
+        "anchor_id" : "tpc_available-where-t-codable",
+        "dash_name" : "Available%20where%20%60T%60%3A%20%60Codable%60",
+        "items" : [
+          {
+            "anchor_id" : "docodability",
+            "any_declaration" : true,
+            "dash_name" : "func%20doCodability()",
+            "dash_type" : "Method",
+            "def" : {
+              "swift_declaration_html" : "func doCodability()"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>doCodability<span class=\"j2-item-secondary\">()<\/span>",
+            "title" : "func doCodability()"
+          }
+        ],
+        "primary_language" : "j2-swift",
+        "title_html" : "Available where <code>T<\/code>: <code>Codable<\/code>"
       }
     ],
     "topics_language" : "j2-swift",
@@ -490,16 +510,20 @@
             "title" : "Declaration"
           },
           {
-            "anchor_id" : "tpc_available-where-t-codable",
-            "title" : "Available where T: Codable"
+            "anchor_id" : "tpc_customstringconvertible",
+            "title" : "CustomStringConvertible"
           },
           {
             "anchor_id" : "tpc_available-where-t-equatable-t-firstprotocol",
             "title" : "Available where T: Equatable, T: FirstProtocol"
           },
           {
-            "anchor_id" : "tpc_customstringconvertible",
-            "title" : "CustomStringConvertible"
+            "anchor_id" : "tpc_usercustom-mark",
+            "title" : "User-custom mark"
+          },
+          {
+            "anchor_id" : "tpc_available-where-t-codable",
+            "title" : "Available where T: Codable"
           }
         ]
       }
@@ -539,7 +563,7 @@
     "item_nest" : true,
     "j2lib_version" : "0.1",
     "language_tag" : "en",
-    "path_from_root" : "types\/firstprotocol.html",
+    "path_from_root" : "types\/firstprotocol1.html",
     "path_to_assets" : "..\/",
     "path_to_root" : "..\/",
     "primary_page_title" : "FirstProtocol",
@@ -649,7 +673,7 @@
         "dash_name" : "",
         "items" : [
           {
-            "anchor_id" : "marg",
+            "anchor_id" : "marg1",
             "any_declaration" : true,
             "dash_name" : "func%20m(arg%3A%20Int)%20-%3E%20String",
             "dash_type" : "Method",
@@ -673,6 +697,30 @@
             "title" : "func m(arg: Int) -> String"
           },
           {
+            "anchor_id" : "assoctype",
+            "any_declaration" : true,
+            "dash_name" : "associatedtype%20AssocType",
+            "dash_type" : "Type",
+            "def" : {
+              "swift_declaration_html" : "associatedtype AssocType"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">associatedtype <\/span>AssocType",
+            "title" : "associatedtype AssocType"
+          },
+          {
+            "anchor_id" : "assocfunc",
+            "any_declaration" : true,
+            "dash_name" : "func%20assocFunc()%20-%3E%20AssocType",
+            "dash_type" : "Method",
+            "def" : {
+              "swift_declaration_html" : "func assocFunc() -&gt; AssocType"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>assocFunc<span class=\"j2-item-secondary\">() -> AssocType<\/span>",
+            "title" : "func assocFunc() -> AssocType"
+          },
+          {
             "anchor_id" : "e",
             "any_declaration" : true,
             "dash_name" : "func%20e()",
@@ -688,6 +736,41 @@
           }
         ],
         "primary_language" : "j2-swift"
+      },
+      {
+        "anchor_id" : "tpc_available-where-assoctype-hashable",
+        "dash_name" : "Available%20where%20%60AssocType%60%3A%20%60Hashable%60",
+        "items" : [
+          {
+            "anchor_id" : "exthashablemethod",
+            "any_declaration" : true,
+            "dash_name" : "func%20extHashableMethod()",
+            "dash_type" : "Method",
+            "def" : {
+              "notes_html" : "<p>From a protocol extension: not a customization point.<\/p>",
+              "swift_declaration_html" : "func extHashableMethod()"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>extHashableMethod<span class=\"j2-item-secondary\">()<\/span>",
+            "title" : "func extHashableMethod()"
+          },
+          {
+            "anchor_id" : "marg",
+            "any_declaration" : true,
+            "dash_name" : "func%20m(arg%3A%20Int)%20-%3E%20String",
+            "dash_type" : "Method",
+            "def" : {
+              "default_abstract_html" : "<p>Special default implementation for m in Hashable case.<\/p>",
+              "notes_html" : "<p>Protocol method with default implementation.<\/p>",
+              "swift_declaration_html" : "func m(arg: Int) -&gt; String"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>m<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: Int) -> String<\/span>",
+            "title" : "func m(arg: Int) -> String"
+          }
+        ],
+        "primary_language" : "j2-swift",
+        "title_html" : "Available where <code>AssocType<\/code>: <code>Hashable<\/code>"
       }
     ],
     "topics_language" : "j2-swift",
@@ -698,6 +781,10 @@
           {
             "anchor_id" : "",
             "title" : "Declaration"
+          },
+          {
+            "anchor_id" : "tpc_available-where-assoctype-hashable",
+            "title" : "Available where AssocType: Hashable"
           }
         ]
       }
@@ -758,7 +845,7 @@
               {
                 "same_page" : false,
                 "title" : "FirstProtocol",
-                "url" : "types\/firstprotocol.html?swift"
+                "url" : "types\/firstprotocol1.html?swift"
               },
               {
                 "children" : [
@@ -975,7 +1062,7 @@
               {
                 "same_page" : false,
                 "title" : "FirstProtocol",
-                "url" : "types\/firstprotocol.html?swift"
+                "url" : "types\/firstprotocol1.html?swift"
               },
               {
                 "children" : [
@@ -1161,7 +1248,7 @@
               {
                 "same_page" : false,
                 "title" : "FirstProtocol",
-                "url" : "types\/firstprotocol.html?swift"
+                "url" : "types\/firstprotocol1.html?swift"
               },
               {
                 "children" : [
@@ -1385,7 +1472,7 @@
               {
                 "same_page" : false,
                 "title" : "FirstProtocol",
-                "url" : "types\/firstprotocol.html?swift"
+                "url" : "types\/firstprotocol1.html?swift"
               },
               {
                 "children" : [
@@ -1594,7 +1681,7 @@
               {
                 "same_page" : false,
                 "title" : "FirstProtocol",
-                "url" : "types\/firstprotocol.html?swift"
+                "url" : "types\/firstprotocol1.html?swift"
               },
               {
                 "children" : [
@@ -1784,7 +1871,7 @@
               {
                 "same_page" : false,
                 "title" : "FirstProtocol",
-                "url" : "types\/firstprotocol.html?swift"
+                "url" : "types\/firstprotocol1.html?swift"
               },
               {
                 "children" : [
@@ -1980,7 +2067,7 @@
               {
                 "same_page" : false,
                 "title" : "FirstProtocol",
-                "url" : "types\/firstprotocol.html?swift"
+                "url" : "types\/firstprotocol1.html?swift"
               },
               {
                 "children" : [
@@ -2153,7 +2240,7 @@
               {
                 "same_page" : false,
                 "title" : "FirstProtocol",
-                "url" : "types\/firstprotocol.html?swift"
+                "url" : "types\/firstprotocol1.html?swift"
               },
               {
                 "children" : [
@@ -2338,7 +2425,7 @@
               {
                 "same_page" : false,
                 "title" : "FirstProtocol",
-                "url" : "types\/firstprotocol.html?swift"
+                "url" : "types\/firstprotocol1.html?swift"
               },
               {
                 "children" : [

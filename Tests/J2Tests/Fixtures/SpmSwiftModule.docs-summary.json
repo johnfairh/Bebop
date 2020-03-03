@@ -52,7 +52,7 @@
               }
             },
             {
-              "anchor_id" : "firstprotocol",
+              "anchor_id" : "firstprotocol1",
               "dash_type" : "Protocol",
               "def" : {
                 "abstract" : {
@@ -74,7 +74,7 @@
                 "html" : "<span class=\"j2-item-secondary\">protocol <\/span>FirstProtocol"
               },
               "url" : {
-                "url_path" : "types\/firstprotocol"
+                "url_path" : "types\/firstprotocol1"
               }
             },
             {
@@ -296,33 +296,33 @@
           }
         },
         {
-          "anchor_id" : "tpc_available-where-t-codable",
+          "anchor_id" : "tpc_customstringconvertible",
           "items" : [
             {
-              "anchor_id" : "docodability",
-              "dash_type" : "Method",
+              "anchor_id" : "description",
+              "dash_type" : "Property",
               "def" : {
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "func doCodability()"
+                  "html" : "var description: String { get }"
                 }
               },
               "flat_title" : {
-                "en" : "func doCodability()"
+                "en" : "var description: String"
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>doCodability<span class=\"j2-item-secondary\">()<\/span>"
+                "html" : "<span class=\"j2-item-secondary\">var <\/span>description<span class=\"j2-item-secondary\">: String<\/span>"
               }
             }
           ],
           "title" : {
             "html" : {
-              "en" : "Available where <code>T<\/code>: <code>Codable<\/code>"
+              "en" : "CustomStringConvertible"
             },
             "markdown" : {
-              "en" : "Available where `T`: `Codable`"
+              "en" : "CustomStringConvertible"
             }
           }
         },
@@ -376,33 +376,64 @@
           }
         },
         {
-          "anchor_id" : "tpc_customstringconvertible",
+          "anchor_id" : "tpc_usercustom-mark",
           "items" : [
             {
-              "anchor_id" : "description",
-              "dash_type" : "Property",
+              "anchor_id" : "dohashable",
+              "dash_type" : "Method",
               "def" : {
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "var description: String { get }"
+                  "html" : "func doHashable()"
                 }
               },
               "flat_title" : {
-                "en" : "var description: String"
+                "en" : "func doHashable()"
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">var <\/span>description<span class=\"j2-item-secondary\">: String<\/span>"
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>doHashable<span class=\"j2-item-secondary\">()<\/span>"
               }
             }
           ],
           "title" : {
             "html" : {
-              "en" : "CustomStringConvertible"
+              "en" : "User-custom mark"
             },
             "markdown" : {
-              "en" : "CustomStringConvertible"
+              "en" : "User-custom mark"
+            }
+          }
+        },
+        {
+          "anchor_id" : "tpc_available-where-t-codable",
+          "items" : [
+            {
+              "anchor_id" : "docodability",
+              "dash_type" : "Method",
+              "def" : {
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "func doCodability()"
+                }
+              },
+              "flat_title" : {
+                "en" : "func doCodability()"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>doCodability<span class=\"j2-item-secondary\">()<\/span>"
+              }
+            }
+          ],
+          "title" : {
+            "html" : {
+              "en" : "Available where <code>T<\/code>: <code>Codable<\/code>"
+            },
+            "markdown" : {
+              "en" : "Available where `T`: `Codable`"
             }
           }
         }
@@ -452,7 +483,7 @@
           "anchor_id" : "tpc_",
           "items" : [
             {
-              "anchor_id" : "marg",
+              "anchor_id" : "marg1",
               "dash_type" : "Method",
               "def" : {
                 "abstract" : {
@@ -509,6 +540,42 @@
               }
             },
             {
+              "anchor_id" : "assoctype",
+              "dash_type" : "Type",
+              "def" : {
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "associatedtype AssocType"
+                }
+              },
+              "flat_title" : {
+                "en" : "associatedtype AssocType"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">associatedtype <\/span>AssocType"
+              }
+            },
+            {
+              "anchor_id" : "assocfunc",
+              "dash_type" : "Method",
+              "def" : {
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "func assocFunc() -&gt; AssocType"
+                }
+              },
+              "flat_title" : {
+                "en" : "func assocFunc() -> AssocType"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>assocFunc<span class=\"j2-item-secondary\">() -> AssocType<\/span>"
+              }
+            },
+            {
               "anchor_id" : "e",
               "dash_type" : "Method",
               "def" : {
@@ -545,10 +612,74 @@
               "en" : ""
             }
           }
+        },
+        {
+          "anchor_id" : "tpc_available-where-assoctype-hashable",
+          "items" : [
+            {
+              "anchor_id" : "exthashablemethod",
+              "dash_type" : "Method",
+              "def" : {
+                "availability" : [],
+                "notes" : {
+                  "en" : {
+                    "html" : "<p>From a protocol extension: not a customization point.<\/p>"
+                  }
+                },
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "func extHashableMethod()"
+                }
+              },
+              "flat_title" : {
+                "en" : "func extHashableMethod()"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>extHashableMethod<span class=\"j2-item-secondary\">()<\/span>"
+              }
+            },
+            {
+              "anchor_id" : "marg",
+              "dash_type" : "Method",
+              "def" : {
+                "availability" : [],
+                "default_abstract" : {
+                  "en" : {
+                    "html" : "<p>Special default implementation for m in Hashable case.<\/p>"
+                  }
+                },
+                "notes" : {
+                  "en" : {
+                    "html" : "<p>Protocol method with default implementation.<\/p>"
+                  }
+                },
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "func m(arg: Int) -&gt; String"
+                }
+              },
+              "flat_title" : {
+                "en" : "func m(arg: Int) -> String"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>m<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: Int) -> String<\/span>"
+              }
+            }
+          ],
+          "title" : {
+            "html" : {
+              "en" : "Available where <code>AssocType<\/code>: <code>Hashable<\/code>"
+            },
+            "markdown" : {
+              "en" : "Available where `AssocType`: `Hashable`"
+            }
+          }
         }
       ],
       "url" : {
-        "url_path" : "types\/firstprotocol"
+        "url_path" : "types\/firstprotocol1"
       }
     },
     {
@@ -1503,7 +1634,7 @@
               "en" : "FirstProtocol"
             },
             "url" : {
-              "url_path" : "types\/firstprotocol"
+              "url_path" : "types\/firstprotocol1"
             }
           },
           {
