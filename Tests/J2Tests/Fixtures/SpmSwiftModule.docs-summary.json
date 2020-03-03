@@ -31,6 +31,27 @@
           "anchor_id" : "tpc_",
           "items" : [
             {
+              "anchor_id" : "genericbase",
+              "dash_type" : "Class",
+              "def" : {
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "class GenericBase&lt;T&gt;"
+                }
+              },
+              "flat_title" : {
+                "en" : "class GenericBase"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">class <\/span>GenericBase"
+              },
+              "url" : {
+                "url_path" : "types\/genericbase"
+              }
+            },
+            {
               "anchor_id" : "firstprotocol",
               "dash_type" : "Protocol",
               "def" : {
@@ -173,6 +194,221 @@
       ],
       "url" : {
         "url_path" : "types"
+      }
+    },
+    {
+      "breadcrumbs" : [
+        [
+          {
+            "title" : {
+              "en" : "Types"
+            },
+            "url" : {
+              "url_path" : "types"
+            }
+          },
+          {
+            "title" : {
+              "en" : "GenericBase"
+            }
+          }
+        ]
+      ],
+      "def" : {
+        "availability" : [],
+        "params" : [],
+        "swift_declaration" : {
+          "html" : "class GenericBase&lt;T&gt;"
+        }
+      },
+      "is_guide" : false,
+      "primary_language" : "swift",
+      "primary_title" : {
+        "en" : "GenericBase"
+      },
+      "tab_title_prefix" : true,
+      "topics" : [
+        {
+          "anchor_id" : "tpc_",
+          "items" : [
+            {
+              "anchor_id" : "boxed",
+              "dash_type" : "Property",
+              "def" : {
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "var boxed: T"
+                }
+              },
+              "flat_title" : {
+                "en" : "var boxed: T"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">var <\/span>boxed<span class=\"j2-item-secondary\">: T<\/span>"
+              }
+            },
+            {
+              "anchor_id" : "inittype",
+              "dash_type" : "Constructor",
+              "def" : {
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "init(type: T)"
+                }
+              },
+              "flat_title" : {
+                "en" : "init(type: T)"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "init<span class=\"j2-item-secondary\">(<\/span>type<span class=\"j2-item-secondary\">: T)<\/span>"
+              }
+            },
+            {
+              "anchor_id" : "mutify",
+              "dash_type" : "Method",
+              "def" : {
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "func mutify() -&gt; T"
+                }
+              },
+              "flat_title" : {
+                "en" : "func mutify() -> T"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>mutify<span class=\"j2-item-secondary\">() -> T<\/span>"
+              }
+            }
+          ],
+          "title" : {
+            "html" : {
+              "en" : ""
+            },
+            "markdown" : {
+              "en" : ""
+            }
+          }
+        },
+        {
+          "anchor_id" : "tpc_available-where-t-codable",
+          "items" : [
+            {
+              "anchor_id" : "docodability",
+              "dash_type" : "Method",
+              "def" : {
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "func doCodability()"
+                }
+              },
+              "flat_title" : {
+                "en" : "func doCodability()"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>doCodability<span class=\"j2-item-secondary\">()<\/span>"
+              }
+            }
+          ],
+          "title" : {
+            "html" : {
+              "en" : "Available where <code>T<\/code>: <code>Codable<\/code>"
+            },
+            "markdown" : {
+              "en" : "Available where `T`: `Codable`"
+            }
+          }
+        },
+        {
+          "anchor_id" : "tpc_available-where-t-equatable-t-firstprotocol",
+          "items" : [
+            {
+              "anchor_id" : "dofirstmagic",
+              "dash_type" : "Method",
+              "def" : {
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "func doFirstMagic()"
+                }
+              },
+              "flat_title" : {
+                "en" : "func doFirstMagic()"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>doFirstMagic<span class=\"j2-item-secondary\">()<\/span>"
+              }
+            },
+            {
+              "anchor_id" : "domoremagic",
+              "dash_type" : "Method",
+              "def" : {
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "func doMoreMagic()"
+                }
+              },
+              "flat_title" : {
+                "en" : "func doMoreMagic()"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>doMoreMagic<span class=\"j2-item-secondary\">()<\/span>"
+              }
+            }
+          ],
+          "title" : {
+            "html" : {
+              "en" : "Available where <code>T<\/code>: <code>Equatable<\/code>, <code>T<\/code>: <code>FirstProtocol<\/code>"
+            },
+            "markdown" : {
+              "en" : "Available where `T`: `Equatable`, `T`: `FirstProtocol`"
+            }
+          }
+        },
+        {
+          "anchor_id" : "tpc_customstringconvertible",
+          "items" : [
+            {
+              "anchor_id" : "description",
+              "dash_type" : "Property",
+              "def" : {
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "var description: String { get }"
+                }
+              },
+              "flat_title" : {
+                "en" : "var description: String"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">var <\/span>description<span class=\"j2-item-secondary\">: String<\/span>"
+              }
+            }
+          ],
+          "title" : {
+            "html" : {
+              "en" : "CustomStringConvertible"
+            },
+            "markdown" : {
+              "en" : "CustomStringConvertible"
+            }
+          }
+        }
+      ],
+      "url" : {
+        "url_path" : "types\/genericbase"
       }
     },
     {
@@ -877,7 +1113,7 @@
           "anchor_id" : "tpc_",
           "items" : [
             {
-              "anchor_id" : "t1",
+              "anchor_id" : "t2",
               "dash_type" : "Property",
               "def" : {
                 "availability" : [],
@@ -1072,6 +1308,164 @@
       }
     },
     {
+      "breadcrumbs" : [
+        [
+          {
+            "title" : {
+              "en" : "Extensions"
+            }
+          }
+        ]
+      ],
+      "is_guide" : false,
+      "primary_language" : "swift",
+      "primary_title" : {
+        "en" : "Extensions"
+      },
+      "secondary_title" : {
+        "en" : "Categories"
+      },
+      "tab_title_prefix" : true,
+      "topics" : [
+        {
+          "anchor_id" : "tpc_customstringconvertible",
+          "items" : [
+            {
+              "anchor_id" : "collection",
+              "dash_type" : "Extension",
+              "def" : {
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "extension Collection where Element: FirstProtocol"
+                }
+              },
+              "flat_title" : {
+                "en" : "extension Collection"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">extension <\/span>Collection"
+              },
+              "url" : {
+                "url_path" : "extensions\/collection"
+              }
+            }
+          ],
+          "title" : {
+            "html" : {
+              "en" : "CustomStringConvertible"
+            },
+            "markdown" : {
+              "en" : "CustomStringConvertible"
+            }
+          }
+        }
+      ],
+      "url" : {
+        "url_path" : "extensions"
+      }
+    },
+    {
+      "breadcrumbs" : [
+        [
+          {
+            "title" : {
+              "en" : "Extensions"
+            },
+            "url" : {
+              "url_path" : "extensions"
+            }
+          },
+          {
+            "title" : {
+              "en" : "Collection"
+            }
+          }
+        ]
+      ],
+      "def" : {
+        "availability" : [],
+        "params" : [],
+        "swift_declaration" : {
+          "html" : "extension Collection where Element: FirstProtocol"
+        }
+      },
+      "is_guide" : false,
+      "primary_language" : "swift",
+      "primary_title" : {
+        "en" : "Collection"
+      },
+      "tab_title_prefix" : true,
+      "topics" : [
+        {
+          "anchor_id" : "tpc_available-where-element-firstprotocol",
+          "items" : [
+            {
+              "anchor_id" : "collectemall",
+              "dash_type" : "Method",
+              "def" : {
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "func collectEmAll()"
+                }
+              },
+              "flat_title" : {
+                "en" : "func collectEmAll()"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>collectEmAll<span class=\"j2-item-secondary\">()<\/span>"
+              }
+            }
+          ],
+          "title" : {
+            "html" : {
+              "en" : "Available where <code>Element<\/code>: <code>FirstProtocol<\/code>"
+            },
+            "markdown" : {
+              "en" : "Available where `Element`: `FirstProtocol`"
+            }
+          }
+        },
+        {
+          "anchor_id" : "tpc_available-where-element-spmswiftmodulenested1",
+          "items" : [
+            {
+              "anchor_id" : "nestemall",
+              "dash_type" : "Method",
+              "def" : {
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "func nestEmAll()"
+                }
+              },
+              "flat_title" : {
+                "en" : "func nestEmAll()"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>nestEmAll<span class=\"j2-item-secondary\">()<\/span>"
+              }
+            }
+          ],
+          "title" : {
+            "html" : {
+              "en" : "Available where <code>Element<\/code> == <code>SpmSwiftModule.Nested1<\/code>"
+            },
+            "markdown" : {
+              "en" : "Available where `Element` == `SpmSwiftModule.Nested1`"
+            }
+          }
+        }
+      ],
+      "url" : {
+        "url_path" : "extensions\/collection"
+      }
+    },
+    {
       "breadcrumbs" : [],
       "content" : {
         "en" : {
@@ -1094,6 +1488,15 @@
     [
       {
         "children" : [
+          {
+            "children" : [],
+            "title" : {
+              "en" : "GenericBase"
+            },
+            "url" : {
+              "url_path" : "types\/genericbase"
+            }
+          },
           {
             "children" : [],
             "title" : {
@@ -1216,6 +1619,25 @@
         },
         "url" : {
           "url_path" : "functions"
+        }
+      },
+      {
+        "children" : [
+          {
+            "children" : [],
+            "title" : {
+              "en" : "Collection"
+            },
+            "url" : {
+              "url_path" : "extensions\/collection"
+            }
+          }
+        ],
+        "title" : {
+          "en" : "Extensions"
+        },
+        "url" : {
+          "url_path" : "extensions"
         }
       }
     ]

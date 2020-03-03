@@ -219,6 +219,12 @@ fileprivate extension DefItem {
             exts = mergeProtocolExtensions(extensions: exts)
         }
 
+        // Add topics to extension members
+        if defKind.isExtension {
+            cascadeTopic()
+        }
+        exts.forEach { $0.cascadeTopic() }
+
         let allChildren = defChildren +
             exts.flatMap { $0.defChildren } +
             newItems.flatMap { $0.defChildren }
@@ -303,6 +309,39 @@ fileprivate extension DefItem {
             declNotes.append(.importedDefaultImplementation(extModuleName))
         } else {
             declNotes.append(.defaultImplementation)
+        }
+    }
+}
+
+// MARK: Topic Cascade
+
+fileprivate extension DefItem {
+    /// Assign a topic to the extension's children for the extended type's page.
+    ///
+    /// Categories - use the category name
+    /// Swift exts with generic requirements - use them
+    /// Other Swift exts - any topic that we have
+    ///
+    /// This info is mostly discarded by Group unless source-order grouping is enabled.
+    func cascadeTopic() {
+        precondition(defKind.isExtension)
+        guard let firstChild = children.first else {
+            return
+        }
+        if defKind.isObjCCategory,
+            firstChild.topic == nil,
+            let categoryName = ObjCCategoryName(name) {
+            firstChild.topic = Topic(categoryName: categoryName)
+        }
+        else if let genericReqs = swiftGenericRequirements {
+            if let existingTopic = firstChild.topic {
+                existingTopic.makeGenericRequirement()
+            } else {
+                firstChild.topic = Topic(requirements: genericReqs)
+            }
+        }
+        else if topic != nil && firstChild.topic == nil {
+            firstChild.topic = topic
         }
     }
 }

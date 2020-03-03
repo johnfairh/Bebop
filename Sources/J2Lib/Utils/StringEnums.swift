@@ -108,6 +108,8 @@ internal enum L10n {
   internal enum Output : String {
     /// Authors
     case authors = "authors"
+    /// Available where %1
+    case availableWhere = "available-where"
     /// Categories
     case categories = "categories"
     /// &copy; %1%2. All rights reserved. (Last updated: %3).
