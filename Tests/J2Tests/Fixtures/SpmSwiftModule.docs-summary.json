@@ -557,7 +557,7 @@
                 },
                 "notes" : {
                   "en" : {
-                    "html" : "<p>Protocol method with default implementation.<\/p>"
+                    "html" : "<p>Has a default implementation.<\/p>\n<p>Has a default implementation for some conforming types.<\/p>"
                   }
                 },
                 "params" : [
@@ -707,7 +707,7 @@
                 },
                 "notes" : {
                   "en" : {
-                    "html" : "<p>Protocol method with default implementation.<\/p>"
+                    "html" : "<p>Default implementation only for types that satisfy the constraints.<\/p>"
                   }
                 },
                 "params" : [],

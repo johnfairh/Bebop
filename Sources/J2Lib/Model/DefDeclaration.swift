@@ -198,6 +198,10 @@ public enum DeclNote: Hashable {
     case protocolExtensionMember
     /// A protocol method with a default implementation
     case defaultImplementation
+    /// A protocol method with default implementations provided by conditional extensions
+    case conditionalDefaultImplementationExists
+    /// A default implementation of a protocl method in a conditional extension
+    case conditionalDefaultImplementation
     /// An extension member imported from a different module to the type
     case imported(String)
     /// A default implementation of a protocol from an imported extension
@@ -210,6 +214,10 @@ public enum DeclNote: Hashable {
             return .localizedOutput(.protocolExtn)
         case .defaultImplementation:
             return .localizedOutput(.protocolDefault)
+        case .conditionalDefaultImplementationExists:
+            return .localizedOutput(.protocolDefaultConditionalExists)
+        case .conditionalDefaultImplementation:
+            return .localizedOutput(.protocolDefaultConditional)
         case .imported(let module):
             return .localizedOutput(.imported, module)
         case .importedDefaultImplementation(let module):
@@ -222,6 +230,8 @@ extension DeclNote: Encodable {
     private enum CodingKeys: String, CodingKey {
         case protocolExtensionMember
         case defaultImplementation
+        case conditionalDefaultImplementationExists
+        case conditionalDefaultImplementation
         case imported
         case importedDefaultImplementation
     }
@@ -233,6 +243,10 @@ extension DeclNote: Encodable {
             try container.encode(true, forKey: .protocolExtensionMember)
         case .defaultImplementation:
             try container.encode(true, forKey: .defaultImplementation)
+        case .conditionalDefaultImplementation:
+            try container.encode(true, forKey: .conditionalDefaultImplementation)
+        case .conditionalDefaultImplementationExists:
+            try container.encode(true, forKey: .conditionalDefaultImplementationExists)
         case .imported(let module):
             try container.encode(module, forKey: .imported)
         case .importedDefaultImplementation(let module):

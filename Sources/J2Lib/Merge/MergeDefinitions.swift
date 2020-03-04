@@ -281,7 +281,8 @@ fileprivate extension DefItem {
 
                 // Default impl, but under 'generic' constraints - mark, don't merge
                 if ext.isSwiftExtensionWithConstraints {
-                    extChild.makeDefaultImplementation(for: protoChild)
+                    extChild.makeDefaultImplementation()
+                    protoChild.declNotes.append(.conditionalDefaultImplementationExists)
                     return true
                 }
 
@@ -298,26 +299,20 @@ fileprivate extension DefItem {
     /// This is when a protocol extension default implementation gets merged into the protocol.
     func setDefaultImplementation(from otherItem: DefItem) {
         documentation.setDefaultImplementation(from: otherItem.documentation)
-        updateDeclNotesForDefaultImplementation(mainModuleName: location.moduleName,
-                                                extModuleName: otherItem.location.moduleName)
+        if location.moduleName != otherItem.location.moduleName {
+            declNotes.append(.importedDefaultImplementation(otherItem.location.moduleName))
+        } else {
+            declNotes.append(.defaultImplementation)
+        }
+
         // hmm availability...
     }
 
     /// During merge, demote our implementation documentation to defaults of something else.
     /// This is when a protocol extension default implementation stays unmerged with the protocol.
-    func makeDefaultImplementation(for mainItem: DefItem) {
+    func makeDefaultImplementation() {
         documentation.makeDefaultImplementation()
-        updateDeclNotesForDefaultImplementation(mainModuleName: mainItem.location.moduleName,
-                                                extModuleName: location.moduleName)
-    }
-
-    private func updateDeclNotesForDefaultImplementation(mainModuleName: String, extModuleName: String) {
-        if mainModuleName != extModuleName {
-            declNotes.removeAll { $0 == .imported(extModuleName) }
-            declNotes.append(.importedDefaultImplementation(extModuleName))
-        } else {
-            declNotes.append(.defaultImplementation)
-        }
+        declNotes.append(.conditionalDefaultImplementation)
     }
 }
 
@@ -383,6 +378,7 @@ fileprivate extension DefItem {
         let compoundDecl = ([baseSwiftDecl] + extraDecls)
             .map { $0.text }
             .joined(separator: "\n\n")
+        // hmm availability again...
 
         swiftDeclaration?.declaration = RichDeclaration(compoundDecl)
     }

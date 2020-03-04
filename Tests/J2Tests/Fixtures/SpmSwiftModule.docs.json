@@ -682,7 +682,7 @@
               "default_abstract_html" : "<p>Return a safe default.<\/p>",
               "default_discussion_html" : "<p>There’s more: it’s the empty string.<\/p>",
               "discussion_html" : "<p>What m is all about.<\/p>",
-              "notes_html" : "<p>Protocol method with default implementation.<\/p>",
+              "notes_html" : "<p>Has a default implementation for some conforming types.<\/p>\n<p>Has a default implementation.<\/p>",
               "parameters" : [
                 {
                   "parameter_html" : "<p>The argument<\/p>",
@@ -761,7 +761,7 @@
             "dash_type" : "Method",
             "def" : {
               "default_abstract_html" : "<p>Special default implementation for m in Hashable case.<\/p>",
-              "notes_html" : "<p>Protocol method with default implementation.<\/p>",
+              "notes_html" : "<p>Default implementation only for types that satisfy the constraints.<\/p>",
               "swift_declaration_html" : "func m(arg: Int) -&gt; String"
             },
             "primary_language" : "j2-swift",

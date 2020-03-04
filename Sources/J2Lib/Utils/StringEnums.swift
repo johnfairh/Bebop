@@ -110,7 +110,7 @@ internal enum L10n {
     case authors = "authors"
     /// Available where %1
     case availableWhere = "available-where"
-    /// &ldots; where %1
+    /// …where %1
     case availableWhereShort = "available-where-short"
     /// Categories
     case categories = "categories"
@@ -146,9 +146,13 @@ internal enum L10n {
     case platObsoletedVer = "plat-obsoleted-ver"
     /// %1 - unavailable.
     case platUnavailable = "plat-unavailable"
-    /// Protocol method with default implementation.
+    /// Has a default implementation.
     case protocolDefault = "protocol-default"
-    /// Protocol method with default implementation provided by module `%1`.
+    /// Default implementation only for types that satisfy the constraints.
+    case protocolDefaultConditional = "protocol-default-conditional"
+    /// Has a default implementation for only some conforming types.
+    case protocolDefaultConditionalExists = "protocol-default-conditional-exists"
+    /// Has a default implementation provided by module `%1`.
     case protocolDefaultImported = "protocol-default-imported"
     /// From a protocol extension: not a customization point.
     case protocolExtn = "protocol-extn"

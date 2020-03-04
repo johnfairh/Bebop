@@ -339,6 +339,9 @@
         "children" : [],
         "decl_notes" : [
           {
+            "conditional_default_implementation_exists" : true
+          },
+          {
             "default_implementation" : true
           }
         ],
@@ -575,7 +578,7 @@
         "children" : [],
         "decl_notes" : [
           {
-            "default_implementation" : true
+            "conditional_default_implementation" : true
           }
         ],
         "documentation" : {

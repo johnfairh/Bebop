@@ -43,8 +43,10 @@
 /* Decl notes callouts */
 "imported" = "Provided by module `%1`.";
 "protocol-extn" = "From a protocol extension: not a customization point.";
-"protocol-default" = "Protocol method with default implementation.";
-"protocol-default-imported" = "Protocol method with default implementation provided by module `%1`.";
+"protocol-default" = "Has a default implementation.";
+"protocol-default-imported" = "Has a default implementation provided by module `%1`.";
+"protocol-default-conditional-exists" = "Has a default implementation for some conforming types.";
+"protocol-default-conditional" = "Default implementation only for types that satisfy the constraints.";
 
 /* Generic requirements topic name */
 "available-where" = "Available where %1";
