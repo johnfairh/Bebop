@@ -37,7 +37,7 @@
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "class GenericBase&lt;T&gt;"
+                  "html" : "class GenericBase&lt;T&gt;\n\nextension GenericBase : CustomStringConvertible"
                 }
               },
               "flat_title" : {
@@ -218,7 +218,7 @@
         "availability" : [],
         "params" : [],
         "swift_declaration" : {
-          "html" : "class GenericBase&lt;T&gt;"
+          "html" : "class GenericBase&lt;T&gt;\n\nextension GenericBase : CustomStringConvertible"
         }
       },
       "is_guide" : false,
@@ -1468,7 +1468,7 @@
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "extension Collection where Element: FirstProtocol"
+                  "html" : "extension Collection where Element: FirstProtocol\n\nextension Collection where Element == SpmSwiftModule.Nested1"
                 }
               },
               "flat_title" : {
@@ -1519,7 +1519,7 @@
         "availability" : [],
         "params" : [],
         "swift_declaration" : {
-          "html" : "extension Collection where Element: FirstProtocol"
+          "html" : "extension Collection where Element: FirstProtocol\n\nextension Collection where Element == SpmSwiftModule.Nested1"
         }
       },
       "is_guide" : false,

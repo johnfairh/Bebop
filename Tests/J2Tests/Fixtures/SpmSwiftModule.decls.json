@@ -308,7 +308,7 @@
     "swift_declaration" : {
       "availability" : [],
       "declaration" : {
-        "text" : "class GenericBase<T>"
+        "text" : "class GenericBase<T>\n\nextension GenericBase : CustomStringConvertible"
       },
       "inherited_types" : [],
       "name_pieces" : [
@@ -1643,7 +1643,7 @@
     "swift_declaration" : {
       "availability" : [],
       "declaration" : {
-        "text" : "extension Collection where Element: FirstProtocol"
+        "text" : "extension Collection where Element: FirstProtocol\n\nextension Collection where Element == SpmSwiftModule.Nested1"
       },
       "inherited_types" : [],
       "name_pieces" : [

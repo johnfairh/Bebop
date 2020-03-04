@@ -71,3 +71,21 @@ extension MutableCollection {
         return (include, exclude)
     }
 }
+
+extension Sequence where Element: Equatable {
+    /// Return an array collapsing consecutive identical elements down to one.
+    ///
+    /// Preserves order.  Sort first to eliminate any duplicates.
+    func uniqued() -> Array<Element> {
+        var result = [Element]()
+        var iterator = makeIterator()
+        var previous: Element? = nil
+        while let next = iterator.next() {
+            if next != previous {
+                result.append(next)
+                previous = next
+            }
+        }
+        return result
+    }
+}

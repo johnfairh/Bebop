@@ -209,28 +209,33 @@ fileprivate extension DefItem {
         var exts = extensions
         extensions = []
 
-        // Mark imported extensions
-        if defKind.isSwift {
-            markImportedExtensions(extensions: exts)
-        }
+        if !exts.isEmpty {
+            // Mark imported extensions
+            if defKind.isSwift {
+                markImportedExtensions(extensions: exts)
+            }
 
-        // Deal with protocol extensions
-        if defKind.isSwiftProtocol {
-            exts = mergeProtocolExtensions(extensions: exts)
-        }
+            // Deal with protocol extensions
+            if defKind.isSwiftProtocol {
+                exts = mergeProtocolExtensions(extensions: exts)
+            }
 
-        // Add topics to extension members
-        if defKind.isExtension {
-            cascadeTopic()
-        }
-        exts.forEach { $0.cascadeTopic() }
+            // Add topics to extension members
+            if defKind.isExtension {
+                cascadeTopic()
+            }
+            exts.forEach { $0.cascadeTopic() }
 
-        // Constrained extensions at the end
-        _ = exts.partition { $0.swiftGenericRequirements != nil }
+            // Merge in declarations
+            mergeDeclarations(extensions: exts)
+
+            // Constrained extensions at the end
+            _ = exts.partition { $0.swiftGenericRequirements != nil }
+        }
 
         let allChildren = defChildren +
-            exts.flatMap { $0.defChildren } +
-            newItems.flatMap { $0.defChildren }
+            newItems.flatMap { $0.defChildren } +
+            exts.flatMap { $0.defChildren }
 
         children = allChildren.mergeDuplicates {
             $0.mergePhase2(others: $1)
@@ -275,7 +280,7 @@ fileprivate extension DefItem {
                 }
 
                 // Default impl, but under 'generic' constraints - mark, don't merge
-                if ext.isSwiftConstrainedExtension {
+                if ext.isSwiftExtensionWithConstraints {
                     extChild.makeDefaultImplementation(for: protoChild)
                     return true
                 }
@@ -346,5 +351,39 @@ fileprivate extension DefItem {
         else if topic != nil && firstChild.topic == nil {
             firstChild.topic = topic
         }
+    }
+}
+
+// MARK: Declaration merge
+fileprivate extension DefItem {
+    /// Merge the actual declaration.
+    ///
+    /// This is Swift-only and the idea is to add extension decls that are inherently interesting,
+    /// that is ones that add protocol conformances or, in the case where the head def is itself
+    /// an extension, ones that have additional constraints.
+    func mergeDeclarations(extensions: DefItemList) {
+        guard let baseSwiftDecl = swiftDeclaration?.declaration else {
+            return
+        }
+
+        let extraDecls = extensions
+            .filter { ext in
+                ext.isSwiftExtensionWithConformances ||
+                    (defKind.isSwiftExtension && ext.isSwiftExtensionWithConstraints)
+            }
+            .compactMap { $0.swiftDeclaration?.declaration }
+            .filter { $0 != baseSwiftDecl }
+            .sorted(by: <)
+            .uniqued()
+
+        guard !extraDecls.isEmpty else {
+            return
+        }
+
+        let compoundDecl = ([baseSwiftDecl] + extraDecls)
+            .map { $0.text }
+            .joined(separator: "\n\n")
+
+        swiftDeclaration?.declaration = RichDeclaration(compoundDecl)
     }
 }

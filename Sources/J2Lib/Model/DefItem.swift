@@ -191,13 +191,20 @@ public class DefItem: Item, CustomStringConvertible {
         try objCDeclaration?.declaration.format(formatter)
     }
 
-    /// Is this a constrained Swift extension?
     public var swiftGenericRequirements: String? {
         swiftDeclaration?.genericRequirements
     }
 
-    public var isSwiftConstrainedExtension: Bool {
+    /// Is this a constrained Swift extension?
+    public var isSwiftExtensionWithConstraints: Bool {
         defKind.isSwiftExtension && swiftGenericRequirements != nil
+    }
+
+    /// Is this a Swift extension that adds protocol conformances?
+    public var isSwiftExtensionWithConformances: Bool {
+        return swiftDeclaration.flatMap {
+            defKind.isSwiftExtension && !$0.inheritedTypes.isEmpty
+        } ?? false
     }
 
     /// The USR of the type that this def is about.

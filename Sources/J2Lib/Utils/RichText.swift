@@ -121,7 +121,7 @@ public enum RichText: Encodable, Equatable {
 ///
 /// Declarations are different: not localized, fixed line format, and we need
 /// to output html directly containing autolinks.
-public enum RichDeclaration: Encodable {
+public enum RichDeclaration: Encodable, Comparable {
     /// Unformatted version of the declaration
     case unformatted(String)
     /// Formatted version of the declaration
@@ -174,5 +174,10 @@ public enum RichDeclaration: Encodable {
             try container.encode(text, forKey: .text)
             try container.encode(html, forKey: .html)
         }
+    }
+
+    /// Order by plaintext
+    public static func < (lhs: RichDeclaration, rhs: RichDeclaration) -> Bool {
+        lhs.text < rhs.text
     }
 }
