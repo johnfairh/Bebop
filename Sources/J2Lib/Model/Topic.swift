@@ -10,8 +10,13 @@ import Foundation
 
 public final class Topic: Equatable, Encodable {
     public private(set) var title: RichText
+    public private(set) var _menuTitle: RichText?
     public private(set) var body: RichText?
     public private(set) var kind: TopicKind
+
+    public var menuTitle: RichText {
+        _menuTitle ?? title
+    }
 
     /// Initialize from a pragma/MARK in source code or static string (will be treated as markdown)
     public init(title: String = "") {
@@ -38,6 +43,7 @@ public final class Topic: Equatable, Encodable {
     public init(requirements: String) {
         let markdown = requirements.re_sub(#"[\w\.]+"#, with: #"`$0`"#)
         self.title = RichText(.localizedOutput(.availableWhere, markdown))
+        self._menuTitle = RichText(.localizedOutput(.availableWhereShort, markdown))
         self.body = nil
         self.kind = .genericRequirements
     }
@@ -50,6 +56,7 @@ public final class Topic: Equatable, Encodable {
     /// Format the topic's content
     public func format(_ formatter: RichText.Formatter) rethrows {
         try title.format(formatter)
+        try _menuTitle?.format(formatter)
         try body?.format(formatter)
     }
 

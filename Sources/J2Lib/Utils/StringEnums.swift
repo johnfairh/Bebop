@@ -110,6 +110,8 @@ internal enum L10n {
     case authors = "authors"
     /// Available where %1
     case availableWhere = "available-where"
+    /// &ldots; where %1
+    case availableWhereShort = "available-where-short"
     /// Categories
     case categories = "categories"
     /// &copy; %1%2. All rights reserved. (Last updated: %3).

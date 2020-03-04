@@ -460,7 +460,7 @@ extension GenData.Topic: SoloLanguageProtocol {
 
     /// Build the topics menu item - nil if no title or only in the other language
     func generateMenuItem(language: DefLanguage, languageTag: String) -> MustacheDict? {
-        let titleText = title.markdown.get(languageTag).md
+        let titleText = menuTitle.markdown.get(languageTag).md
         if titleText.isEmpty {
             return nil
         }

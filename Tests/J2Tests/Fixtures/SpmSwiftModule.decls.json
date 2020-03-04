@@ -171,6 +171,11 @@
         },
         "swift_name" : "doFirstMagic()",
         "topic" : {
+          "_menu_title" : {
+            "markdown" : {
+              "en" : "…where `T`: `Equatable`, `T`: `FirstProtocol`"
+            }
+          },
           "kind" : "genericRequirements",
           "title" : {
             "markdown" : {
@@ -283,6 +288,11 @@
         },
         "swift_name" : "doCodability()",
         "topic" : {
+          "_menu_title" : {
+            "markdown" : {
+              "en" : "…where `T`: `Codable`"
+            }
+          },
           "kind" : "genericRequirements",
           "title" : {
             "markdown" : {
@@ -547,6 +557,11 @@
         },
         "swift_name" : "extHashableMethod()",
         "topic" : {
+          "_menu_title" : {
+            "markdown" : {
+              "en" : "…where `AssocType`: `Hashable`"
+            }
+          },
           "kind" : "genericRequirements",
           "title" : {
             "markdown" : {
@@ -1581,6 +1596,11 @@
         },
         "swift_name" : "collectEmAll()",
         "topic" : {
+          "_menu_title" : {
+            "markdown" : {
+              "en" : "…where `Element`: `FirstProtocol`"
+            }
+          },
           "kind" : "genericRequirements",
           "title" : {
             "markdown" : {
@@ -1621,6 +1641,11 @@
         },
         "swift_name" : "nestEmAll()",
         "topic" : {
+          "_menu_title" : {
+            "markdown" : {
+              "en" : "…where `Element` == `SpmSwiftModule.Nested1`"
+            }
+          },
           "kind" : "genericRequirements",
           "title" : {
             "markdown" : {

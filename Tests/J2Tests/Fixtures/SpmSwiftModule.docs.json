@@ -515,7 +515,7 @@
           },
           {
             "anchor_id" : "tpc_available-where-t-equatable-t-firstprotocol",
-            "title" : "Available where T: Equatable, T: FirstProtocol"
+            "title" : "…where T: Equatable, T: FirstProtocol"
           },
           {
             "anchor_id" : "tpc_usercustom-mark",
@@ -523,7 +523,7 @@
           },
           {
             "anchor_id" : "tpc_available-where-t-codable",
-            "title" : "Available where T: Codable"
+            "title" : "…where T: Codable"
           }
         ]
       }
@@ -784,7 +784,7 @@
           },
           {
             "anchor_id" : "tpc_available-where-assoctype-hashable",
-            "title" : "Available where AssocType: Hashable"
+            "title" : "…where AssocType: Hashable"
           }
         ]
       }
@@ -2376,11 +2376,11 @@
           },
           {
             "anchor_id" : "tpc_available-where-element-firstprotocol",
-            "title" : "Available where Element: FirstProtocol"
+            "title" : "…where Element: FirstProtocol"
           },
           {
             "anchor_id" : "tpc_available-where-element-spmswiftmodulenested1",
-            "title" : "Available where Element == SpmSwiftModule.Nested1"
+            "title" : "…where Element == SpmSwiftModule.Nested1"
           }
         ]
       }
