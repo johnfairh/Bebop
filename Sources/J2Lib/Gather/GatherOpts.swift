@@ -38,6 +38,7 @@ final class GatherOpts : Configurable {
         sdkAlias = AliasOpt(realOpt: rootPassOpts.objcSdkOpt, l: "sdk")
 
         config.register(rootPassOpts)
+        config.registerSrcDirOpt(rootPassOpts.srcDirOpt)
         config.register(self)
     }
 

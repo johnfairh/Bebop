@@ -108,7 +108,6 @@ class TestConfig: XCTestCase {
         }
     }
 
-
     // 3. version cmd (accurate)
     func testVersion() throws {
         TestLogger.install()
@@ -172,5 +171,20 @@ class TestConfig: XCTestCase {
     func testOptsError() {
         let system = System()
         AssertThrows(try system.configure(cliOpts: "--bad"), OptionsError.self)
+    }
+
+    // SrcDir
+    func testSrcDirConfigFile() throws {
+        let tmpDir = try TemporaryDirectory()
+        let configFile = tmpDir.directoryURL.appendingPathComponent(".j2.yaml")
+        try "badOption: value".write(to: configFile)
+        try TemporaryDirectory.withNew {
+            let config = Config()
+            let gather = Gather(config: config)
+            try withExtendedLifetime(gather) {
+                AssertThrows(try config.processOptions(cliOpts: ["--source-directory=\(tmpDir.directoryURL.path)"]),
+                             OptionsError.self)
+            }
+        }
     }
 }

@@ -51,6 +51,7 @@ public final class Config {
 
     /// Client stuff
     private var configurables: [Configurable]
+    private var srcDirOpt: PathOpt?
 
     /// Published options -- publish during register, read during checkOptions
     /// All slightly broken abstractions....
@@ -72,6 +73,7 @@ public final class Config {
     public init() {
         optsParser = OptsParser()
         configurables = []
+        srcDirOpt = nil
         optsParser.addOpts(from: self)
     }
 
@@ -80,6 +82,12 @@ public final class Config {
     public func register(_ configurable: Configurable) {
         configurables.append(configurable)
         optsParser.addOpts(from: configurable)
+    }
+
+    /// Record the srcDir option -- horrendous kludge to locate the config file part-way through
+    /// options processing...
+    func registerSrcDirOpt(_ opt: PathOpt) {
+        srcDirOpt = opt
     }
 
     /// Perform the configuration process: parse and validate the CLI arguments and config file.
@@ -138,7 +146,7 @@ public final class Config {
         let fm = FileManager.default
 
         let initialSearchPath: String
-        if let srcDirURL = published.sourceDirectoryURL {
+        if let srcDirURL = srcDirOpt?.value {
             initialSearchPath = srcDirURL.path
         } else {
             initialSearchPath = fm.currentDirectoryPath
