@@ -60,6 +60,7 @@ struct GatherOpts : Configurable {
             logWarning(.localized(.wrnObjcModule))
             moduleNameOpt.set(string: "Module")
         }
+        logDebug(rootPassOpts.description)
     }
 
     /// Collect up and return all the jobs

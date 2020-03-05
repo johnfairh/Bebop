@@ -8,7 +8,7 @@
 
 /// The common option set that can be set at outer, module, or module-pass level.
 /// These are the options that fundamentally generate `GatherJob`s.
-struct GatherJobOpts: Configurable {
+struct GatherJobOpts: Configurable, CustomStringConvertible {
     let srcDirOpt = PathOpt(l: "source-directory").help("DIRPATH")
     let buildToolOpt = EnumOpt<Gather.BuildTool>(l: "build-tool")
     let buildToolArgsOpt = StringListOpt(s: "b", l: "build-tool-arguments").help("ARG1,ARG2...")
@@ -20,6 +20,10 @@ struct GatherJobOpts: Configurable {
     let objcIncludePathsOpt = PathListOpt(l: "objc-include-paths").help("INCLUDEDIRPATH1,INCLUDEDIRPATH2,...")
     let objcSdkOpt = EnumOpt<Gather.Sdk>(l: "objc-sdk").def(.macosx)
 
+    var description: String {
+        "GatherJobOpts {\(srcDirOpt) \(buildToolOpt) \(buildToolArgsOpt) \(availabilityDefaultsOpt) \(ignoreAvailabilityAttrOpt) \(objcDirectOpt) \(objcHeaderFileOpt) \(objcIncludePathsOpt) \(objcSdkOpt)}"
+    }
+
     /// First pass of options-checking, that individual things entered are valid
     func checkOptions(published: Config.Published) throws {
         try srcDirOpt.checkIsDirectory()
@@ -28,52 +32,31 @@ struct GatherJobOpts: Configurable {
     }
 
     /// Update configuration from a parent set that we're specializing
-    func cascade(from: GatherJobOpts, debug: String) throws {
+    func cascade(from: GatherJobOpts) throws {
         // srcdir: always cascade
-        if from.srcDirOpt.configured && !srcDirOpt.configured {
-            logDebug("Gather: \(debug) srcDir")
-            srcDirOpt.set(string: from.srcDirOpt.configStringValue!, path: from.srcDirOpt.value!)
-        }
+        srcDirOpt.cascade(from: from.srcDirOpt)
         // buildtool: don't cascade if objcdirect [mutually exclusive]
         //            don't cascade if objcheaderfile [not implemented]
-        if from.buildToolOpt.configured && !buildToolOpt.configured && !objcDirectOpt.configured && !objcHeaderFileOpt.configured{
-            logDebug("Gather: \(debug) buildTool")
-            try buildToolOpt.set(string: from.buildToolOpt.value!.rawValue)
+        if !objcDirectOpt.configured && !objcHeaderFileOpt.configured {
+            buildToolOpt.cascade(from: from.buildToolOpt)
         }
         // buildtoolargs: always cascade
-        if from.buildToolArgsOpt.configured && !buildToolArgsOpt.configured {
-            logDebug("Gather: \(debug) buildToolArgs")
-            from.buildToolArgsOpt.value.forEach { buildToolArgsOpt.set(string: $0) }
-        }
+        buildToolArgsOpt.cascade(from: from.buildToolArgsOpt)
         // availability: always cascade
-        if from.availabilityDefaultsOpt.configured && !availabilityDefaultsOpt.configured {
-            logDebug("Gather: \(debug) availabilityDefaults")
-            from.availabilityDefaultsOpt.value.forEach { availabilityDefaultsOpt.set(string: $0) }
-        }
-        if from.ignoreAvailabilityAttrOpt.configured && !ignoreAvailabilityAttrOpt.configured {
-            logDebug("Gather: \(debug) ignoreAvailabilityAttr")
-            ignoreAvailabilityAttrOpt.set(bool: from.ignoreAvailabilityAttrOpt.value)
-        }
+        availabilityDefaultsOpt.cascade(from: from.availabilityDefaultsOpt)
+        ignoreAvailabilityAttrOpt.cascade(from: from.ignoreAvailabilityAttrOpt)
         // objcdirect: don't cascade if buildtool [mutually exclusive]
-        if from.objcDirectOpt.configured && !objcDirectOpt.configured && !buildToolOpt.configured {
-            logDebug("Gather: \(debug) objCDirect")
-            objcDirectOpt.set(bool: from.objcDirectOpt.value)
+        if !buildToolOpt.configured {
+            objcDirectOpt.cascade(from: from.objcDirectOpt)
         }
         // objcheaderfile: don't cascade if build tool [not implemented]
-        if from.objcHeaderFileOpt.configured && !objcHeaderFileOpt.configured && !buildToolOpt.configured {
-            logDebug("Gather: \(debug) objCHeaderFile")
-            objcHeaderFileOpt.set(string: from.objcHeaderFileOpt.configStringValue!, path: from.objcHeaderFileOpt.value!)
+        if !buildToolOpt.configured {
+            objcHeaderFileOpt.cascade(from: from.objcHeaderFileOpt)
         }
         // objcincludepaths: always cascade
-        if from.objcIncludePathsOpt.configured && !objcIncludePathsOpt.configured {
-            logDebug("Gather: \(debug) objcIncludePaths")
-            from.objcIncludePathsOpt.value.forEach { objcIncludePathsOpt.set(string: $0.path, path: $0) }
-        }
+        objcIncludePathsOpt.cascade(from: from.objcIncludePathsOpt)
         // objcsdk: always cascade
-        if from.objcSdkOpt.configured && !objcSdkOpt.configured {
-            logDebug("Gather: \(debug) objcSdk")
-            try objcSdkOpt.set(string: from.objcSdkOpt.value!.rawValue)
-        }
+        objcSdkOpt.cascade(from: from.objcSdkOpt)
     }
 
     /// Second pass of options-checking, of inter-option consistency after parent cascade
@@ -136,6 +119,8 @@ struct GatherJobOpts: Configurable {
         return jobs
     }
 }
+
+// MARK: Useful types
 
 extension Gather {
     /// SDK for Objective-C building

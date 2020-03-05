@@ -22,6 +22,7 @@ import Yams
 // - auto unique-prefix expansion for longopts
 // - localized string options with per-language values
 // - alias options
+// - cascade
 
 // MARK: Flag string manipulation
 
@@ -228,8 +229,22 @@ extension OptHelpers {
     }
 }
 
+protocol OptCascadable {
+    /// Did the "user" provide a value for this option?
+    var configured: Bool { get }
+
+    /// Set the value from some other option of the right type, provided it is configured and we are not.
+    func cascade(from: Self)
+}
+
+extension OptCascadable {
+    func shouldCascade(from: Self) -> Bool {
+        !configured && from.configured
+    }
+}
+
 /// Intermediate type to add default values and typed option storage.
-class TypedOpt<OptType>: Opt, OptHelpers {
+class TypedOpt<OptType>: Opt, OptHelpers, OptCascadable, CustomStringConvertible {
     var defaultValue: OptType?
     var theHelpParam: String?
 
@@ -252,6 +267,26 @@ class TypedOpt<OptType>: Opt, OptHelpers {
     /// If this is `false` and `value` is not `nil` then the default value has been used.
     var configured: Bool {
         configValue != nil
+    }
+
+    /// Set the value from some other option of the right type, provided it is configured and we are not.
+    func cascade(from: TypedOpt<OptType>) {
+        if shouldCascade(from: from) {
+            configValue = from.configValue
+        }
+    }
+
+    /// Debug
+    var description: String {
+        var str = "Opt \(sortKey)"
+        if let configValue = configValue {
+            str += "=\(configValue)"
+        } else if let defValue = defaultValue {
+            str += "=(default)\(defValue)"
+        } else {
+            str += "(unset)"
+        }
+        return str
     }
 }
 
@@ -277,7 +312,7 @@ class ArrayOpt<OptElemType>: TypedOpt<[OptElemType]> {
 
 /// Type for clients to describe a boolean option.
 /// Boolean options always have a default value: the default default value is `false`.
-class BoolOpt: Opt {
+class BoolOpt: Opt, OptCascadable, CustomStringConvertible {
     private(set) var value: Bool = false
     private(set) var configured: Bool = false
 
@@ -291,7 +326,26 @@ class BoolOpt: Opt {
         value = bool
         configured = true
     }
+
     override var type: OptType { .bool }
+
+    /// Set the value from some other option of the right type, provided it is configured and we are not.
+    func cascade(from: BoolOpt) {
+        if shouldCascade(from: from) {
+            set(bool: from.value)
+        }
+    }
+
+    /// Debug
+    var description: String {
+        var str = "Opt \(sortKey)"
+        if configured {
+            str += "=\(value)"
+        } else {
+            str += "=(default)\(value)"
+        }
+        return str
+    }
 }
 
 /// Special for something like `--version` where we don't want a `--no-version` generated too.
@@ -450,7 +504,7 @@ final class EnumOpt<EnumType>: TypedOpt<EnumType> where
 
 // MARK: Localized Stringsets
 
-final class LocStringOpt: Opt, OptHelpers {
+final class LocStringOpt: Opt, OptHelpers, OptCascadable, CustomStringConvertible {
     var defaultValue: String?
     private(set) var flatConfig: String?
     private(set) var dictConfig: Localized<String>?
@@ -487,6 +541,29 @@ final class LocStringOpt: Opt, OptHelpers {
     }
 
     override var type: OptType { .locstring }
+
+    /// Set the value from some other option of the right type, provided it is configured and we are not.
+    func cascade(from: LocStringOpt) {
+        if shouldCascade(from: from) {
+            flatConfig = from.flatConfig
+            dictConfig = from.dictConfig
+        }
+    }
+
+    /// Debug
+    var description: String {
+        var str = "Opt \(sortKey)"
+        if let flatConfig = flatConfig {
+            str += "=\(flatConfig)"
+        } else if let dictConfig = dictConfig {
+            str += "=\(dictConfig)"
+        } else if let defValue = defaultValue {
+            str += "=(default)\(defValue)"
+        } else {
+            str += "(unset)"
+        }
+        return str
+    }
 }
 
 // MARK: OptsParser
