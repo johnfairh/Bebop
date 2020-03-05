@@ -16,17 +16,17 @@ import SourceKittenFramework
 enum GatherJob: Equatable {
     case swift(moduleName: String?,
                srcDir: URL?,
-               buildTool: GatherOpts.BuildTool?,
+               buildTool: Gather.BuildTool?,
                buildToolArgs: [String],
-               availabilityRules: GatherAvailabilityRules)
+               availability: Gather.Availability)
 
     #if os(macOS)
     case objcDirect(moduleName: String,
                     headerFile: URL,
                     includePaths: [URL],
-                    sdk: GatherOpts.Sdk,
+                    sdk: Gather.Sdk,
                     buildToolArgs: [String],
-                    availabilityRules: GatherAvailabilityRules)
+                    availability: Gather.Availability)
     #endif
 
     func execute() throws -> [GatherModulePass] {
@@ -34,7 +34,7 @@ enum GatherJob: Equatable {
         defer { logDebug("Gather: finished job") }
 
         switch self {
-        case let .swift(moduleName, srcDir, buildTool, buildToolArgs, availabilityRules):
+        case let .swift(moduleName, srcDir, buildTool, buildToolArgs, availability):
             let actualSrcDir = srcDir ?? FileManager.default.currentDirectory
             let actualBuildTool = buildTool ?? inferBuildTool(in: actualSrcDir, buildToolArgs: buildToolArgs)
 
@@ -65,7 +65,7 @@ enum GatherJob: Equatable {
                 guard let def = GatherDef(sourceKittenDict: swiftDoc.docsDictionary,
                                           parentNameComponents: [],
                                           file: swiftDoc.file,
-                                          availabilityRules: availabilityRules) else {
+                                          availability: availability) else {
                     return nil
                 }
                 return (swiftDoc.file.path ?? "(no path)", def)
@@ -74,7 +74,7 @@ enum GatherJob: Equatable {
             return [GatherModulePass(moduleName: module!.name, passIndex: 0, files: filesInfo)]
 
         #if os(macOS)
-        case let .objcDirect(moduleName, headerFile, includePaths, sdk, buildToolArgs, availabilityRules):
+        case let .objcDirect(moduleName, headerFile, includePaths, sdk, buildToolArgs, availability):
             let clangArgs = try buildClangArgs(includePaths: includePaths, sdk: sdk, buildToolArgs: buildToolArgs)
             logDebug(" Calling sourcekitten clang mode, args:")
             clangArgs.forEach { logDebug("  \($0)") }
@@ -90,7 +90,7 @@ enum GatherJob: Equatable {
                 guard let def = GatherDef(sourceKittenDict: fileDict,
                                           parentNameComponents: [],
                                           file: nil,
-                                          availabilityRules: availabilityRules) else {
+                                          availability: availability) else {
                     return nil
                 }
                 return (dictEntry.key, def)
@@ -101,7 +101,7 @@ enum GatherJob: Equatable {
     }
 
     /// Figure out the actual args to pass to clang given some options.  Visibility for testing.
-    func buildClangArgs(includePaths: [URL], sdk: GatherOpts.Sdk, buildToolArgs: [String]) throws -> [String] {
+    func buildClangArgs(includePaths: [URL], sdk: Gather.Sdk, buildToolArgs: [String]) throws -> [String] {
         let includePathArgs = try buildIncludeArgs(includePaths: includePaths)
         if buildToolArgs.count >= 2 &&
             buildToolArgs[0] == "-x" &&
@@ -150,7 +150,7 @@ enum GatherJob: Equatable {
     }
 }
 
-private func inferBuildTool(in directory: URL, buildToolArgs: [String]) -> GatherOpts.BuildTool {
+private func inferBuildTool(in directory: URL, buildToolArgs: [String]) -> Gather.BuildTool {
     #if os(macOS)
     guard directory.filesMatching("*.xcodeproj", "*.xcworkspace").isEmpty else {
         return .xcodebuild

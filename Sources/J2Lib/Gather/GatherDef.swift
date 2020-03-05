@@ -31,7 +31,7 @@ public final class GatherDef {
     init?(sourceKittenDict: SourceKittenDict,
           parentNameComponents: [String],
           file: SourceKittenFramework.File?,
-          availabilityRules: GatherAvailabilityRules) {
+          availability: Gather.Availability) {
         var dict = sourceKittenDict
         let name = sourceKittenDict.name
         let nameComponents = name.flatMap { parentNameComponents + [$0] } ?? parentNameComponents
@@ -40,7 +40,7 @@ public final class GatherDef {
             GatherDef(sourceKittenDict: $0,
                       parentNameComponents: nameComponents,
                       file: file,
-                      availabilityRules: availabilityRules)
+                      availability: availability)
         }
 
         guard let kindValue = dict.kind else {
@@ -73,7 +73,7 @@ public final class GatherDef {
                                         nameComponents: nameComponents,
                                         file: file,
                                         kind: kind,
-                                        availabilityRules: availabilityRules).build()
+                                        availabilityRules: availability).build()
             self.objCDeclaration = nil
         } else {
             // Work around missing declarations for categories
@@ -88,7 +88,7 @@ public final class GatherDef {
             self.swiftDeclaration =
                 ObjCSwiftDeclarationBuilder(objCDict: dict,
                                             kind: kind,
-                                            availabilityRules: availabilityRules).build()
+                                            availability: availability).build()
             self.objCDeclaration =
                 ObjCDeclarationBuilder(dict: dict, kind: kind).build()
         }

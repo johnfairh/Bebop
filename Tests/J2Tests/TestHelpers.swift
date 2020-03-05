@@ -244,12 +244,12 @@ extension SourceKittenDict {
     // Promotion
 
     func asGatherDef(availability: String? = nil) -> GatherDef {
-        let rules = GatherAvailabilityRules(defaults: availability.flatMap { [$0] } ?? [],
-                                            ignoreAttr: false)
+        let rules = Gather.Availability(defaults: availability.flatMap { [$0] } ?? [],
+                                        ignoreAttr: false)
         return GatherDef(sourceKittenDict: self,
                          parentNameComponents: [],
                          file: nil,
-                         availabilityRules: rules)!
+                         availability: rules)!
     }
 
     var asGatherPasses: [GatherModulePass] {

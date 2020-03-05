@@ -14,7 +14,7 @@ import SourceKittenFramework
 
 extension SwiftDeclarationBuilder {
     convenience init(dict: SourceKittenDict, nameComponents: [String] = [], file: File? = nil, kind: DefKind? = nil) {
-        self.init(dict: dict, nameComponents: nameComponents, file: file, kind: kind, availabilityRules: GatherAvailabilityRules())
+        self.init(dict: dict, nameComponents: nameComponents, file: file, kind: kind, availabilityRules: Gather.Availability())
     }
 }
 
@@ -152,7 +152,7 @@ class TestGatherDecl: XCTestCase {
         XCTAssertEqual("@discardableResult\npublic func fred()", built.declaration.text)
     }
 
-    private func checkAvailabilityControl(_ availabilityRules: GatherAvailabilityRules, _ expect: [String], line: UInt = #line) {
+    private func checkAvailabilityControl(_ availabilityRules: Gather.Availability, _ expect: [String], line: UInt = #line) {
         let file = File(contents: "@available(iOS, introduced: 1) func fred() {}")
 
         let attrDicts: [SourceKittenDict] = [
@@ -171,11 +171,11 @@ class TestGatherDecl: XCTestCase {
     }
 
     func testAvailabilityControl() {
-        checkAvailabilityControl(GatherAvailabilityRules(), ["iOS 1+"])
-        checkAvailabilityControl(GatherAvailabilityRules(defaults: [], ignoreAttr: true), [])
-        checkAvailabilityControl(GatherAvailabilityRules(defaults: ["Def"], ignoreAttr: false), ["Def", "iOS 1+"])
-        checkAvailabilityControl(GatherAvailabilityRules(defaults: ["Def"], ignoreAttr: true), ["Def"])
-        checkAvailabilityControl(GatherAvailabilityRules(defaults: ["Def1", "Def2"], ignoreAttr: true), ["Def1", "Def2"])
+        checkAvailabilityControl(Gather.Availability(), ["iOS 1+"])
+        checkAvailabilityControl(Gather.Availability(defaults: [], ignoreAttr: true), [])
+        checkAvailabilityControl(Gather.Availability(defaults: ["Def"], ignoreAttr: false), ["Def", "iOS 1+"])
+        checkAvailabilityControl(Gather.Availability(defaults: ["Def"], ignoreAttr: true), ["Def"])
+        checkAvailabilityControl(Gather.Availability(defaults: ["Def1", "Def2"], ignoreAttr: true), ["Def1", "Def2"])
     }
 
     // Available empire.  or at least a satrapie.

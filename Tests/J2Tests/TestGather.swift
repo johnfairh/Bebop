@@ -49,7 +49,7 @@ class TestGather: XCTestCase {
                                             srcDir: nil,
                                             buildTool: nil,
                                             buildToolArgs: [],
-                                            availabilityRules: GatherAvailabilityRules())])
+                                            availability: Gather.Availability())])
     }
 
     func testModule() throws {
@@ -57,7 +57,7 @@ class TestGather: XCTestCase {
                                                                   srcDir: nil,
                                                                   buildTool: nil,
                                                                   buildToolArgs: [],
-                                                                  availabilityRules: GatherAvailabilityRules())])
+                                                                  availability: Gather.Availability())])
     }
 
     func testBuildToolArgs() throws {
@@ -65,7 +65,7 @@ class TestGather: XCTestCase {
                                        srcDir: nil,
                                        buildTool: nil,
                                        buildToolArgs: ["aa", "bb", "cc"],
-                                       availabilityRules: GatherAvailabilityRules())
+                                       availability: Gather.Availability())
         try [ ["--build-tool-arguments", "aa,bb,cc"],
               ["-b", "aa", "-b", "bb", "--build-tool-arguments", "cc"] ].forEach { opts in
             try OptsSystem().test(opts, jobs: [expected])
@@ -81,7 +81,7 @@ class TestGather: XCTestCase {
                                          srcDir: expectedSrcDir,
                                          buildTool: nil,
                                          buildToolArgs: [],
-                                         availabilityRules: GatherAvailabilityRules())
+                                         availability: Gather.Availability())
         try system.test(["--module", "Test", "--source-directory", cwd.path], jobs: [expected])
     }
 

@@ -56,7 +56,7 @@ class SwiftDeclarationBuilder {
     let nameComponents: [String]
     let file: File?
     let kind: DefKind?
-    let availabilityRules: GatherAvailabilityRules
+    let availabilityRules: Gather.Availability
 
     var compilerDecl: String?
     var neatParsedDecl: String?
@@ -68,7 +68,7 @@ class SwiftDeclarationBuilder {
          nameComponents: [String],
          file: File?,
          kind: DefKind?,
-         availabilityRules: GatherAvailabilityRules) {
+         availabilityRules: Gather.Availability) {
         self.dict = dict
         self.nameComponents = nameComponents
         self.file = file
@@ -229,7 +229,7 @@ class SwiftDeclarationBuilder {
 /// An adapter to build Swift declaration info from the pieces we may have got from an ObjC build.
 final class ObjCSwiftDeclarationBuilder : SwiftDeclarationBuilder {
     /// Take ObjC info, and form enough pieces of Swift info to drive the declaration builder
-    init(objCDict: SourceKittenDict, kind: DefKind, availabilityRules: GatherAvailabilityRules) {
+    init(objCDict: SourceKittenDict, kind: DefKind, availability: Gather.Availability) {
         var swiftDict = SourceKittenDict()
         let swiftDecl = objCDict.swiftDeclaration
         if let swiftDecl = swiftDecl {
@@ -254,6 +254,6 @@ final class ObjCSwiftDeclarationBuilder : SwiftDeclarationBuilder {
                 swiftKind = DefKind.from(key: SwiftDeclarationKind.functionConstructor.rawValue)
             }
         }
-        super.init(dict: swiftDict, nameComponents: [], file: nil, kind: swiftKind, availabilityRules: availabilityRules)
+        super.init(dict: swiftDict, nameComponents: [], file: nil, kind: swiftKind, availabilityRules: availability)
     }
 }

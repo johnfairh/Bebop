@@ -56,7 +56,8 @@ class TestGatherObjC: XCTestCase {
         checkError(["--objc-direct"])
         checkError(["--objc-sdk=macosx"])
         checkError(["--objc-include-paths=/"])
-        checkNotImplemented(["--objc-header=/foo.h", "--build-tool=spm"])
+        let someFilePath = fixturesURL.appendingPathComponent("SpmSwiftModule.files.json")
+        checkNotImplemented(["--objc-header=\(someFilePath.path)", "--build-tool=spm"])
     }
 
     private func makeJob(_ cliOpts: [String]) throws -> GatherJob {
@@ -114,7 +115,7 @@ class TestGatherObjC: XCTestCase {
                              includePaths: [],
                              sdk: .macosx,
                              buildToolArgs: [],
-                             availabilityRules: GatherAvailabilityRules()))
+                             availability: Gather.Availability()))
         XCTAssertEqual(1, TestLogger.shared.diagsBuf.count)
 
         try checkJob(["--objc-header-file=\(tmpFile.path)", "--module=MyMod"],
@@ -123,7 +124,7 @@ class TestGatherObjC: XCTestCase {
                              includePaths: [],
                              sdk: .macosx,
                              buildToolArgs: [],
-                             availabilityRules: GatherAvailabilityRules()))
+                             availability: Gather.Availability()))
 
         try checkJob(["--objc-header-file=\(tmpFile.path)",
                       "--objc-sdk=iphoneos",
@@ -133,7 +134,7 @@ class TestGatherObjC: XCTestCase {
                              includePaths: [tmpDirURL],
                              sdk: .iphoneos,
                              buildToolArgs: [],
-                             availabilityRules: GatherAvailabilityRules()))
+                             availability: Gather.Availability()))
     }
 
     #endif /* macOS */
