@@ -682,7 +682,7 @@
               "default_abstract_html" : "<p>Return a safe default.<\/p>",
               "default_discussion_html" : "<p>There’s more: it’s the empty string.<\/p>",
               "discussion_html" : "<p>What m is all about.<\/p>",
-              "notes_html" : "<p>Has a default implementation for some conforming types.<\/p>\n<p>Has a default implementation.<\/p>",
+              "notes_html" : "<p>Has a default implementation.<\/p>\n<p>Has a default implementation for some conforming types.<\/p>",
               "parameters" : [
                 {
                   "parameter_html" : "<p>The argument<\/p>",

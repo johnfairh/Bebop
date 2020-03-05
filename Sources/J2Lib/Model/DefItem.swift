@@ -34,7 +34,7 @@ public class DefItem: Item, CustomStringConvertible {
     /// Extensions on a base type - carried temporarily here and eventually merged
     public internal(set) var extensions: DefItemList
     /// Notes to add to the declaration, added during merge and resolved during format
-    public internal(set) var declNotes: [DeclNote]
+    public private(set) var declNotes: Set<DeclNote>
     public private(set) var declNotesNotice: RichText?
 
     /// Create from a gathered definition
@@ -227,12 +227,21 @@ public class DefItem: Item, CustomStringConvertible {
         "\(name) \(defKind) \(usr) \(location)"
     }
 
+    /// Add a new declnote
+    func add(declNote: DeclNote) {
+        declNotes.insert(declNote)
+    }
+
+    var orderedDeclNotes: [DeclNote] {
+        declNotes.sorted(by: <)
+    }
+
     /// After merge, collate the decl notes ready for formatting
     func finalizeDeclNotes() {
         guard !declNotes.isEmpty else {
             return
         }
-        declNotesNotice = RichText(Set(declNotes)
+        declNotesNotice = RichText(orderedDeclNotes
             .map { $0.localized }
             .joined(by: "\n\n"))
     }

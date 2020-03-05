@@ -339,10 +339,10 @@
         "children" : [],
         "decl_notes" : [
           {
-            "conditional_default_implementation_exists" : true
+            "default_implementation" : true
           },
           {
-            "default_implementation" : true
+            "conditional_default_implementation_exists" : true
           }
         ],
         "documentation" : {

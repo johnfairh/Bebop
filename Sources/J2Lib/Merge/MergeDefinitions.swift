@@ -250,7 +250,7 @@ fileprivate extension DefItem {
     func markImportedExtensions(extensions: DefItemList) {
         struct MarkVisitor: ItemVisitorProtocol {
             func visit(defItem: DefItem, parents: [Item]) {
-                defItem.declNotes.append(.imported(defItem.location.moduleName))
+                defItem.add(declNote: .imported(defItem.location.moduleName))
             }
         }
         extensions.forEach { ext in
@@ -275,14 +275,14 @@ fileprivate extension DefItem {
                     child.name == extChild.name && child.defKind == extChild.defKind
                 }) else {
                     // Extension-only member
-                    extChild.declNotes.append(.protocolExtensionMember)
+                    extChild.add(declNote: .protocolExtensionMember)
                     return true
                 }
 
                 // Default impl, but under 'generic' constraints - mark, don't merge
                 if ext.isSwiftExtensionWithConstraints {
                     extChild.makeDefaultImplementation()
-                    protoChild.declNotes.append(.conditionalDefaultImplementationExists)
+                    protoChild.add(declNote: .conditionalDefaultImplementationExists)
                     return true
                 }
 
@@ -300,9 +300,9 @@ fileprivate extension DefItem {
     func setDefaultImplementation(from otherItem: DefItem) {
         documentation.setDefaultImplementation(from: otherItem.documentation)
         if location.moduleName != otherItem.location.moduleName {
-            declNotes.append(.importedDefaultImplementation(otherItem.location.moduleName))
+            add(declNote: .importedDefaultImplementation(otherItem.location.moduleName))
         } else {
-            declNotes.append(.defaultImplementation)
+            add(declNote: .defaultImplementation)
         }
 
         // hmm availability...
@@ -312,7 +312,7 @@ fileprivate extension DefItem {
     /// This is when a protocol extension default implementation stays unmerged with the protocol.
     func makeDefaultImplementation() {
         documentation.makeDefaultImplementation()
-        declNotes.append(.conditionalDefaultImplementation)
+        add(declNote: .conditionalDefaultImplementation)
     }
 }
 

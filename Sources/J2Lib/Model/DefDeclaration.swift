@@ -255,6 +255,24 @@ extension DeclNote: Encodable {
     }
 }
 
+/// Define a order for multiple decl notes, lots are exclusive in practice.
+extension DeclNote: Comparable {
+    public static func < (lhs: DeclNote, rhs: DeclNote) -> Bool {
+        lhs.sortOrder < rhs.sortOrder
+    }
+
+    var sortOrder: Int {
+        switch self {
+        case .imported(_): return 0
+        case .protocolExtensionMember: return 1
+        case .defaultImplementation: return 2
+        case .conditionalDefaultImplementationExists: return 3
+        case .conditionalDefaultImplementation: return 4
+        case .importedDefaultImplementation(_): return 5
+        }
+    }
+}
+
 // this is a bit dodgy, could use SwiftSyntax to get it...
 extension SwiftDeclaration {
     var genericRequirements: String? {

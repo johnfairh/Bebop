@@ -41,7 +41,7 @@ extension DefItem {
             try container.encode(genericTypeParameters, forKey: .genericTypeParameters)
         }
         if !declNotes.isEmpty {
-            try container.encode(declNotes, forKey: .declNotes)
+            try container.encode(orderedDeclNotes, forKey: .declNotes)
         }
         if !documentation.isEmpty {
             try container.encode(documentation, forKey: .documentation)
