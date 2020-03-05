@@ -6,7 +6,7 @@
 //  Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
 //
 
-import Foundation
+import Yams
 
 /// Type  responsible for declaring and parsing the config options.
 ///
@@ -14,10 +14,12 @@ import Foundation
 /// create a `GatherModulePass`.
 ///
 /// The main interesting piece here is dealing with `modules`.
-struct GatherOpts : Configurable {
+final class GatherOpts : Configurable {
     let moduleNameOpt = StringOpt(s: "m", l: "module").help("MODULE_NAME")
+    let customModulesOpts = YamlOpt(y: "custom_modules")
 
     let rootPassOpts = GatherJobOpts()
+    private(set) var customModules = [GatherCustomModule]()
 
     // Top-level aliases for jazzy compatibility
     let xcodeBuildArgsAlias: AliasOpt
@@ -54,17 +56,98 @@ struct GatherOpts : Configurable {
         }
 
         // Check our own options
-        if rootPassOpts.objcHeaderFileOpt.configured &&
+        if customModulesOpts.configured {
+            if moduleNameOpt.configured {
+                throw OptionsError(.localized(.errModulesOverlap))
+            }
+            try processCustomModules()
+        }
+        if !customModulesOpts.configured &&
+            rootPassOpts.objcHeaderFileOpt.configured &&
             rootPassOpts.objcDirectOpt.configured &&
             !moduleNameOpt.configured {
             logWarning(.localized(.wrnObjcModule))
             moduleNameOpt.set(string: "Module")
         }
-        logDebug(rootPassOpts.description)
+    }
+
+    func processCustomModules() throws {
+        let modulesSequence = try customModulesOpts.value!.checkSequence(context: "custom_modules")
+        customModules = try modulesSequence.map { customModule in
+            let moduleMapping = try customModule.checkMapping(context: "custom_modules[]")
+            return try GatherCustomModule(yamlMapping: moduleMapping)
+        }
+
+        try customModules.forEach {
+            try $0.cascadeOptions(from: rootPassOpts)
+        }
     }
 
     /// Collect up and return all the jobs
     var jobs: [GatherJob] {
-        rootPassOpts.makeJobs(moduleName: moduleNameOpt.value)
+        if customModulesOpts.configured {
+            return customModules.flatMap { $0.jobs }
+        }
+        return rootPassOpts.makeJobs(moduleName: moduleNameOpt.value)
+    }
+}
+
+/// A custom module from the custom_modules YAML.
+///
+/// Either a job in itself, or a wrapper of 'passes'.
+struct GatherCustomModule {
+    let moduleNameOpt = StringOpt(y: "module")
+    let passesOpt = YamlOpt(y: "passes")
+    let moduleOpts = GatherJobOpts()
+    private(set) var passes: [GatherJobOpts] = []
+
+    /// Set up a custom module & passes from some YAML
+    init(yamlMapping: Node.Mapping) throws {
+        let parser = OptsParser()
+        parser.addOpts(from: self)
+        parser.addOpts(from: moduleOpts)
+        try parser.apply(mapping: yamlMapping)
+
+        if !moduleNameOpt.configured {
+            throw OptionsError(.localized(.errMissingModule))
+        }
+        try moduleOpts.checkBaseOptions()
+
+        if passesOpt.configured {
+            let passesSequence = try passesOpt.value!.checkSequence(context: "custom_modules[].passes")
+            passes = try passesSequence.map { customPass in
+                let passMapping = try customPass.checkMapping(context: "custom_modules[].passes[]")
+                let passOpts = GatherJobOpts()
+                let parser = OptsParser()
+                parser.addOpts(from: passOpts)
+                try parser.apply(mapping: passMapping)
+                try passOpts.checkBaseOptions()
+                return passOpts
+            }
+        }
+    }
+
+    /// Cascade options down the tree.
+    func cascadeOptions(from: GatherJobOpts) throws {
+        // Cascade from root level to the module settings
+        try moduleOpts.cascade(from: from)
+        try moduleOpts.checkCascadedOptions()
+
+        // Cascade from module settings down to each pass
+        try passes.forEach { pass in
+            try pass.cascade(from: moduleOpts)
+            try pass.checkCascadedOptions()
+        }
+    }
+
+    /// Generate jobs
+    var jobs: [GatherJob] {
+        guard let moduleName = moduleNameOpt.value else {
+            preconditionFailure()
+        }
+        if passes.isEmpty {
+            return moduleOpts.makeJobs(moduleName: moduleName)
+        }
+        return passes.flatMap { $0.makeJobs(moduleName: moduleName) }
     }
 }

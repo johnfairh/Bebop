@@ -22,6 +22,7 @@
 "err-cfg-non-scalar-key" = "Unexpected YAML, mapping key is '%1', expected scalar.";
 "err-cfg-not-scalar" = "Unexpected YAML '%1' for key '%2', expected scalar.";
 "err-cfg-not-mapping" = "Unexpected YAML '%1' for key '%2', expected mapping.";
+"err-cfg-not-sequence" = "Unexpected YAML '%1' for key '%2', expected sequence.";
 
 "err-enum-value" = "Invalid value '%1' for '%2', valid values: '%3'.";
 
@@ -75,3 +76,5 @@ Options:";
 1: %1
 2: %2
 Ignoring the second.";
+"err-modules-overlap" = "Both --module and custom_modules are set: choose just one.";
+"err-missing-module" = "Missing key 'module' in a custom_modules stanza -- you have to set this.";

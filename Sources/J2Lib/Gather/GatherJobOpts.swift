@@ -26,6 +26,10 @@ struct GatherJobOpts: Configurable, CustomStringConvertible {
 
     /// First pass of options-checking, that individual things entered are valid
     func checkOptions(published: Config.Published) throws {
+        try checkBaseOptions()
+    }
+
+    func checkBaseOptions() throws {
         try srcDirOpt.checkIsDirectory()
         try objcHeaderFileOpt.checkIsFile()
         try objcIncludePathsOpt.checkAreDirectories()

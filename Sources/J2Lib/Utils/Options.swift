@@ -750,7 +750,11 @@ final class OptsParser {
         }
 
         let rootMapping = try yamlNode.checkMapping(context: "(root)")
+        return try apply(mapping: rootMapping)
+    }
 
+    /// Version of `apply(yaml:)` for an existing Yams `Node.Mapping`.
+    func apply(mapping rootMapping: Node.Mapping) throws {
         for (key, value) in zip(rootMapping.keys, rootMapping.values) {
             let yamlOptName = try key.checkScalarKey().string
             guard let tracker = flagsDict[yamlOptName] else {
@@ -834,5 +838,13 @@ extension Yams.Node {
             throw OptionsError(.localized(.errCfgNotMapping, strSelf, context))
         }
         return mapping
+    }
+
+    func checkSequence(context: String) throws -> Yams.Node.Sequence {
+        guard let sequence = sequence else {
+            let strSelf = try asDebugString()
+            throw OptionsError(.localized(.errCfgNotSequence, strSelf, context))
+        }
+        return sequence
     }
 }

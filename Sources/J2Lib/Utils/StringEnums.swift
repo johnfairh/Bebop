@@ -24,6 +24,8 @@ internal enum L10n {
     case errCfgNotMapping = "err-cfg-not-mapping"
     /// Unexpected YAML '%1' for key '%2', expected scalar.
     case errCfgNotScalar = "err-cfg-not-scalar"
+    /// Unexpected YAML '%1' for key '%2', expected sequence.
+    case errCfgNotSequence = "err-cfg-not-sequence"
     /// Could not interpret config file as YAML.
     case errCfgNotYaml = "err-cfg-not-yaml"
     /// Unexpected text '%1' for config key '%2', expected boolean.
@@ -40,6 +42,10 @@ internal enum L10n {
     case errEnumValue = "err-enum-value"
     /// Couldn't create path enumerator starting '%1'.
     case errEnumerator = "err-enumerator"
+    /// Missing key 'module' in a custom_modules stanza -- you have to set this.
+    case errMissingModule = "err-missing-module"
+    /// Both --module and custom_modules are set: choose just one.
+    case errModulesOverlap = "err-modules-overlap"
     /// Both --objc-direct and --build-tool are set: choose just one.
     case errObjcBuildTools = "err-objc-build-tools"
     /// Documenting Objective-C modules is supported only on macOS.
@@ -150,7 +156,7 @@ internal enum L10n {
     case protocolDefault = "protocol-default"
     /// Default implementation only for types that satisfy the constraints.
     case protocolDefaultConditional = "protocol-default-conditional"
-    /// Has a default implementation for only some conforming types.
+    /// Has a default implementation for some conforming types.
     case protocolDefaultConditionalExists = "protocol-default-conditional-exists"
     /// Has a default implementation provided by module `%1`.
     case protocolDefaultImported = "protocol-default-imported"
