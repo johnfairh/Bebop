@@ -72,6 +72,7 @@ final class GatherOpts : Configurable {
     }
 
     func processCustomModules() throws {
+        logDebug("Gather: Parsing custom_modules")
         let modulesSequence = try customModulesOpts.value!.checkSequence(context: "custom_modules")
         customModules = try modulesSequence.map { customModule in
             let moduleMapping = try customModule.checkMapping(context: "custom_modules[]")
@@ -81,6 +82,7 @@ final class GatherOpts : Configurable {
         try customModules.forEach {
             try $0.cascadeOptions(from: rootPassOpts)
         }
+        logDebug("Gather: Finished custom_modules: \(customModules)")
     }
 
     /// Collect up and return all the jobs
@@ -95,7 +97,7 @@ final class GatherOpts : Configurable {
 /// A custom module from the custom_modules YAML.
 ///
 /// Either a job in itself, or a wrapper of 'passes'.
-struct GatherCustomModule {
+struct GatherCustomModule: CustomStringConvertible {
     let moduleNameOpt = StringOpt(y: "module")
     let passesOpt = YamlOpt(y: "passes")
     let moduleOpts = GatherJobOpts()
@@ -149,5 +151,9 @@ struct GatherCustomModule {
             return moduleOpts.makeJobs(moduleName: moduleName)
         }
         return passes.flatMap { $0.makeJobs(moduleName: moduleName) }
+    }
+
+    var description: String {
+        "CustomModule {\(moduleNameOpt) \(moduleOpts) \(passes)}"
     }
 }

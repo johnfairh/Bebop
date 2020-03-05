@@ -99,8 +99,6 @@ struct GatherJobOpts: Configurable, CustomStringConvertible {
 
         var jobs = [GatherJob]()
 
-        // CLI Job
-
         if objcHeaderFileOpt.configured {
             precondition(objcDirectOpt.configured)
             precondition(moduleName != nil)
