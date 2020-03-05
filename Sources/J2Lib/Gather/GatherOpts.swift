@@ -15,7 +15,7 @@ import Yams
 ///
 /// The main interesting piece here is dealing with `modules`.
 final class GatherOpts : Configurable {
-    let moduleNameOpt = StringOpt(s: "m", l: "module").help("MODULE_NAME")
+    let moduleNamesOpt = StringListOpt(s: "m", l: "modules").help("MODULE_NAME,...")
     let customModulesOpts = YamlOpt(y: "custom_modules")
 
     let rootPassOpts = GatherJobOpts()
@@ -28,6 +28,7 @@ final class GatherOpts : Configurable {
     let umbrellaHeaderAlias: AliasOpt
     let frameworkRootAlias: AliasOpt
     let sdkAlias: AliasOpt
+    let moduleAlias: AliasOpt
 
     init(config: Config) {
         xcodeBuildArgsAlias = AliasOpt(realOpt: rootPassOpts.buildToolArgsOpt, s: "x", l: "xcodebuild-arguments")
@@ -36,6 +37,7 @@ final class GatherOpts : Configurable {
         umbrellaHeaderAlias = AliasOpt(realOpt: rootPassOpts.objcHeaderFileOpt, l: "umbrella-header")
         frameworkRootAlias = AliasOpt(realOpt: rootPassOpts.objcIncludePathsOpt, l: "framework-root")
         sdkAlias = AliasOpt(realOpt: rootPassOpts.objcSdkOpt, l: "sdk")
+        moduleAlias = AliasOpt(realOpt: moduleNamesOpt, l: "module")
 
         config.register(rootPassOpts)
         config.registerSrcDirOpt(rootPassOpts.srcDirOpt)
@@ -58,17 +60,24 @@ final class GatherOpts : Configurable {
 
         // Check our own options
         if customModulesOpts.configured {
-            if moduleNameOpt.configured {
+            if moduleNamesOpt.configured {
                 throw OptionsError(.localized(.errModulesOverlap))
             }
             try processCustomModules()
         }
+
+        if moduleNamesOpt.configured {
+            if let dupModule = moduleNamesOpt.value.firstDuplicate {
+                throw OptionsError(.localized(.errRepeatedModule, dupModule))
+            }
+        }
+
         if !customModulesOpts.configured &&
             rootPassOpts.objcHeaderFileOpt.configured &&
             rootPassOpts.objcDirectOpt.configured &&
-            !moduleNameOpt.configured {
+            !moduleNamesOpt.configured {
             logWarning(.localized(.wrnObjcModule))
-            moduleNameOpt.set(string: "Module")
+            moduleNamesOpt.set(string: "Module")
         }
     }
 
@@ -91,7 +100,12 @@ final class GatherOpts : Configurable {
         if customModulesOpts.configured {
             return customModules.flatMap { $0.jobs }
         }
-        return rootPassOpts.makeJobs(moduleName: moduleNameOpt.value)
+        if moduleNamesOpt.configured {
+            return moduleNamesOpt.value.flatMap { moduleName in
+                rootPassOpts.makeJobs(moduleName: moduleName)
+            }
+        }
+        return rootPassOpts.makeJobs(moduleName: nil)
     }
 }
 

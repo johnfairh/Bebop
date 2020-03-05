@@ -20,7 +20,7 @@
 Default: Search for '.j2.yaml', '.j2.json', '.jazzy.yaml', '.jazzy.json'
 starting in '--source-directory' (or the current directory if that is not
 set) and then going up the directory tree.";
-"module" = "Name of the module to document.
+"modules" = "Names of the modules to document.
 Default: the first module built by the build tool.";
 "source-directory" = "Location of the module to document.
 Default: the current directory.";

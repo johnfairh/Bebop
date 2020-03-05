@@ -89,3 +89,17 @@ extension Sequence where Element: Equatable {
         return result
     }
 }
+
+extension Sequence where Element: Hashable {
+    /// Return a duplicated value in the sequence, or `nil` if none.
+    var firstDuplicate: Element? {
+        var cache = Set<Element>()
+        for element in self {
+            if cache.contains(element) {
+                return element
+            }
+            cache.insert(element)
+        }
+        return nil
+    }
+}

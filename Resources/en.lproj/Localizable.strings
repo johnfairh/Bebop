@@ -78,3 +78,4 @@ Options:";
 Ignoring the second.";
 "err-modules-overlap" = "Both --module and custom_modules are set: choose just one.";
 "err-missing-module" = "Missing key 'module' in a custom_modules stanza -- you have to set this.";
+"err-repeated-module" = "Module name '%1' repeated in --modules.";

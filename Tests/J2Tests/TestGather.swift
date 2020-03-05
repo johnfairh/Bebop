@@ -184,6 +184,21 @@ class TestGather: XCTestCase {
         #endif
     }
 
+    // Multi-module
+
+    func testMultiModule() throws {
+        let system = OptsSystem()
+        try system.test(["--modules=M1,M2"], jobs: [
+            .swift(moduleName: "M1", srcDir: nil, buildTool: nil, buildToolArgs: [], availability: Gather.Availability()),
+            .swift(moduleName: "M2", srcDir: nil, buildTool: nil, buildToolArgs: [], availability: Gather.Availability())
+        ])
+    }
+
+    func testRepeatedMultiModule() throws {
+        let system = OptsSystem()
+        AssertThrows(try system.test(["--modules=M1,M1"], jobs: []), OptionsError.self)
+    }
+
     // custom_modules
 
     // Basic multi-module

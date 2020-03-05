@@ -62,6 +62,8 @@ internal enum L10n {
     case errPathNotExist = "err-path-not-exist"
     /// Path is for a directory, not a regular file: '%1'.
     case errPathNotFile = "err-path-not-file"
+    /// Module name '%1' repeated in --modules.
+    case errRepeatedModule = "err-repeated-module"
     /// SourceKitten couldn't find build info from `swift build`.  Check the log mentioned above.
     case errSktnSpm = "err-sktn-spm"
     /// SourceKitten couldn't find build info from `xcodebuild`.  Check the log mentioned above; it was looking for a `swiftc` command that included `-module-name`.
