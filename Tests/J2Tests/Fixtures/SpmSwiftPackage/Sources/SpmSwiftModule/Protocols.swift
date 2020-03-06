@@ -1,5 +1,5 @@
 /// A protocol.
-protocol FirstProtocol {
+public protocol FirstProtocol {
   /// Brief note about m
   ///
   /// What m is all about.

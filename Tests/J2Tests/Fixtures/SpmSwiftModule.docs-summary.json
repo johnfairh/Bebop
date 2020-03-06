@@ -63,7 +63,7 @@
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "protocol FirstProtocol"
+                  "html" : "public protocol FirstProtocol"
                 }
               },
               "flat_title" : {
@@ -517,7 +517,7 @@
         "availability" : [],
         "params" : [],
         "swift_declaration" : {
-          "html" : "protocol FirstProtocol"
+          "html" : "public protocol FirstProtocol"
         }
       },
       "is_guide" : false,
@@ -621,6 +621,34 @@
               "primary_language" : "swift",
               "primary_title_html" : {
                 "html" : "<span class=\"j2-item-secondary\">func <\/span>assocFunc<span class=\"j2-item-secondary\">() -> AssocType<\/span>"
+              }
+            },
+            {
+              "anchor_id" : "module3func",
+              "dash_type" : "Method",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>From Module3<\/p>"
+                  }
+                },
+                "availability" : [],
+                "notes" : {
+                  "en" : {
+                    "html" : "<p>Provided by module <code>SpmSwiftModule3<\/code>.<\/p>\n<p>From a protocol extension: not a customization point.<\/p>"
+                  }
+                },
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "func module3func()"
+                }
+              },
+              "flat_title" : {
+                "en" : "func module3func()"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>module3func<span class=\"j2-item-secondary\">()<\/span>"
               }
             },
             {
@@ -946,6 +974,9 @@
               "primary_language" : "swift",
               "primary_title_html" : {
                 "html" : "<span class=\"j2-item-secondary\">struct <\/span>Nested2a"
+              },
+              "url" : {
+                "url_path" : "types\/spmswiftmodule\/nested1\/nested2a"
               }
             },
             {
@@ -992,6 +1023,108 @@
       ],
       "url" : {
         "url_path" : "types\/spmswiftmodule\/nested1"
+      }
+    },
+    {
+      "breadcrumbs" : [
+        [
+          {
+            "title" : {
+              "en" : "Types"
+            },
+            "url" : {
+              "url_path" : "types"
+            }
+          },
+          {
+            "title" : {
+              "en" : "SpmSwiftModule"
+            },
+            "url" : {
+              "url_path" : "types\/spmswiftmodule"
+            }
+          },
+          {
+            "title" : {
+              "en" : "Nested1"
+            },
+            "url" : {
+              "url_path" : "types\/spmswiftmodule\/nested1"
+            }
+          },
+          {
+            "title" : {
+              "en" : "Nested2a"
+            }
+          }
+        ]
+      ],
+      "def" : {
+        "availability" : [],
+        "params" : [],
+        "swift_declaration" : {
+          "html" : "public struct Nested2a"
+        }
+      },
+      "is_guide" : false,
+      "primary_language" : "swift",
+      "primary_title" : {
+        "en" : "Nested2a"
+      },
+      "tab_title_prefix" : true,
+      "topics" : [
+        {
+          "anchor_id" : "tpc_",
+          "items" : [
+            {
+              "anchor_id" : "module3nestedfunc",
+              "dash_type" : "Method",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>From Module3<\/p>"
+                  }
+                },
+                "availability" : [],
+                "notes" : {
+                  "en" : {
+                    "html" : "<p>Provided by module <code>SpmSwiftModule3<\/code>.<\/p>"
+                  }
+                },
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "func module3nestedFunc()"
+                }
+              },
+              "flat_title" : {
+                "en" : "func module3nestedFunc()"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>module3nestedFunc<span class=\"j2-item-secondary\">()<\/span>"
+              }
+            }
+          ],
+          "menu_title" : {
+            "html" : {
+              "en" : ""
+            },
+            "markdown" : {
+              "en" : ""
+            }
+          },
+          "title" : {
+            "html" : {
+              "en" : ""
+            },
+            "markdown" : {
+              "en" : ""
+            }
+          }
+        }
+      ],
+      "url" : {
+        "url_path" : "types\/spmswiftmodule\/nested1\/nested2a"
       }
     },
     {
@@ -1601,6 +1734,32 @@
               "url" : {
                 "url_path" : "extensions\/collection"
               }
+            },
+            {
+              "anchor_id" : "stringelement",
+              "dash_type" : "Extension",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Extension of a nested type from an external module<\/p>"
+                  }
+                },
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "extension String.Element"
+                }
+              },
+              "flat_title" : {
+                "en" : "extension String.Element"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">extension <\/span>String.Element"
+              },
+              "url" : {
+                "url_path" : "extensions\/stringelement"
+              }
             }
           ],
           "menu_title" : {
@@ -1741,6 +1900,110 @@
       }
     },
     {
+      "breadcrumbs" : [
+        [
+          {
+            "title" : {
+              "en" : "Extensions"
+            },
+            "url" : {
+              "url_path" : "extensions"
+            }
+          },
+          {
+            "title" : {
+              "en" : "String.Element"
+            }
+          }
+        ]
+      ],
+      "def" : {
+        "abstract" : {
+          "en" : {
+            "html" : "<p>Extension of a nested type from an external module<\/p>"
+          }
+        },
+        "availability" : [],
+        "params" : [],
+        "swift_declaration" : {
+          "html" : "extension String.Element"
+        }
+      },
+      "is_guide" : false,
+      "primary_language" : "swift",
+      "primary_title" : {
+        "en" : "String.Element"
+      },
+      "tab_title_prefix" : true,
+      "topics" : [
+        {
+          "anchor_id" : "tpc_",
+          "items" : [
+            {
+              "anchor_id" : "method1",
+              "dash_type" : "Method",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>documented method<\/p>"
+                  }
+                },
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "func method1()"
+                }
+              },
+              "flat_title" : {
+                "en" : "func method1()"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>method1<span class=\"j2-item-secondary\">()<\/span>"
+              }
+            },
+            {
+              "anchor_id" : "method2",
+              "dash_type" : "Method",
+              "def" : {
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "func method2()"
+                }
+              },
+              "flat_title" : {
+                "en" : "func method2()"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>method2<span class=\"j2-item-secondary\">()<\/span>"
+              }
+            }
+          ],
+          "menu_title" : {
+            "html" : {
+              "en" : ""
+            },
+            "markdown" : {
+              "en" : ""
+            }
+          },
+          "title" : {
+            "html" : {
+              "en" : ""
+            },
+            "markdown" : {
+              "en" : ""
+            }
+          }
+        }
+      ],
+      "url" : {
+        "url_path" : "extensions\/stringelement"
+      }
+    },
+    {
       "breadcrumbs" : [],
       "content" : {
         "en" : {
@@ -1791,8 +2054,7 @@
                       "en" : "Nested2a"
                     },
                     "url" : {
-                      "url_hash" : "nested2a",
-                      "url_path" : "types\/spmswiftmodule\/nested1"
+                      "url_path" : "types\/spmswiftmodule\/nested1\/nested2a"
                     }
                   },
                   {
@@ -1905,6 +2167,15 @@
             },
             "url" : {
               "url_path" : "extensions\/collection"
+            }
+          },
+          {
+            "children" : [],
+            "title" : {
+              "en" : "String.Element"
+            },
+            "url" : {
+              "url_path" : "extensions\/stringelement"
             }
           }
         ],

@@ -646,7 +646,7 @@
     "swift_declaration" : {
       "availability" : [],
       "declaration" : {
-        "text" : "protocol FirstProtocol"
+        "text" : "public protocol FirstProtocol"
       },
       "inherited_types" : [],
       "name_pieces" : [
@@ -1694,5 +1694,124 @@
       }
     },
     "usr" : "s:Sl"
+  },
+  {
+    "children" : [
+      {
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "documented method"
+            }
+          },
+          "parameters" : []
+        },
+        "kind" : "source.lang.swift.decl.function.method.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
+          "first_line" : 55,
+          "last_line" : 55,
+          "module_name" : "SpmSwiftModule",
+          "pass_index" : 0
+        },
+        "name" : "method1()",
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : {
+            "text" : "func method1()"
+          },
+          "inherited_types" : [],
+          "name_pieces" : [
+            {
+              "other" : "func "
+            },
+            {
+              "name" : "method1"
+            },
+            {
+              "other" : "()"
+            }
+          ]
+        },
+        "swift_name" : "method1()",
+        "usr" : "s:SJ14SpmSwiftModuleE7method1yyF"
+      },
+      {
+        "children" : [],
+        "kind" : "source.lang.swift.decl.function.method.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
+          "first_line" : 57,
+          "last_line" : 57,
+          "module_name" : "SpmSwiftModule",
+          "pass_index" : 0
+        },
+        "name" : "method2()",
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : {
+            "text" : "func method2()"
+          },
+          "inherited_types" : [],
+          "name_pieces" : [
+            {
+              "other" : "func "
+            },
+            {
+              "name" : "method2"
+            },
+            {
+              "other" : "()"
+            }
+          ]
+        },
+        "swift_name" : "method2()",
+        "usr" : "s:SJ14SpmSwiftModuleE7method2yyF"
+      }
+    ],
+    "documentation" : {
+      "abstract" : {
+        "markdown" : {
+          "en" : "Extension of a nested type from an external module"
+        }
+      },
+      "parameters" : []
+    },
+    "kind" : "source.lang.swift.decl.extension",
+    "location" : {
+      "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
+      "first_line" : 53,
+      "last_line" : 58,
+      "module_name" : "SpmSwiftModule",
+      "pass_index" : 0
+    },
+    "name" : "String.Element",
+    "swift_declaration" : {
+      "availability" : [],
+      "declaration" : {
+        "text" : "extension String.Element"
+      },
+      "inherited_types" : [],
+      "name_pieces" : [
+        {
+          "other" : "extension "
+        },
+        {
+          "name" : "String.Element"
+        }
+      ],
+      "type_module_name" : "Swift"
+    },
+    "swift_name" : "String.Element",
+    "topic" : {
+      "kind" : "sourceMark",
+      "title" : {
+        "markdown" : {
+          "en" : "CustomStringConvertible"
+        }
+      }
+    },
+    "usr" : "s:ST7ElementQa"
   }
 ]

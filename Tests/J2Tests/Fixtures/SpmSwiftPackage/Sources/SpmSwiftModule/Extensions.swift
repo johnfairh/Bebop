@@ -48,3 +48,11 @@ extension FirstProtocol where AssocType: Hashable {
     return ""
   }
 }
+
+/// Extension of a nested type from an external module
+extension String.Element {
+   /// documented method
+  func method1() {}
+  // undocumented method
+  func method2() {}
+}

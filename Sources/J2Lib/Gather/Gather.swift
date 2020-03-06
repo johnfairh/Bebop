@@ -58,7 +58,7 @@ public struct Gather {
         // no - actually going to have to publish this stuff.
         let passes = try opts.jobs.map { try $0.execute() }.flatMap { $0 }
 
-        published.moduleNames = Array(Set(passes.map { $0.moduleName }))
+        published.moduleNames = Array(Set(passes.map { $0.moduleName })).sorted(by: <)
 
         // Garnishes
         logDebug("Gather: start doc-comment localization pass.")

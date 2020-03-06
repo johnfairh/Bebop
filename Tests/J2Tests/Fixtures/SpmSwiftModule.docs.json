@@ -122,6 +122,11 @@
                 "same_page" : false,
                 "title" : "Collection",
                 "url" : "extensions\/collection.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "String.Element",
+                "url" : "extensions\/stringelement.html?swift"
               }
             ],
             "same_page" : false,
@@ -156,7 +161,7 @@
             "dash_type" : "Protocol",
             "def" : {
               "abstract_html" : "<p>A protocol.<\/p>",
-              "swift_declaration_html" : "protocol FirstProtocol"
+              "swift_declaration_html" : "public protocol FirstProtocol"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">protocol <\/span>FirstProtocol",
@@ -354,6 +359,11 @@
                 "same_page" : false,
                 "title" : "Collection",
                 "url" : "extensions\/collection.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "String.Element",
+                "url" : "extensions\/stringelement.html?swift"
               }
             ],
             "same_page" : false,
@@ -548,7 +558,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "def" : {
       "abstract_html" : "<p>A protocol.<\/p>",
-      "swift_declaration_html" : "protocol FirstProtocol"
+      "swift_declaration_html" : "public protocol FirstProtocol"
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
@@ -658,6 +668,11 @@
                 "same_page" : false,
                 "title" : "Collection",
                 "url" : "extensions\/collection.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "String.Element",
+                "url" : "extensions\/stringelement.html?swift"
               }
             ],
             "same_page" : false,
@@ -919,6 +934,11 @@
                 "same_page" : false,
                 "title" : "Collection",
                 "url" : "extensions\/collection.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "String.Element",
+                "url" : "extensions\/stringelement.html?swift"
               }
             ],
             "same_page" : false,
@@ -1136,6 +1156,11 @@
                 "same_page" : false,
                 "title" : "Collection",
                 "url" : "extensions\/collection.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "String.Element",
+                "url" : "extensions\/stringelement.html?swift"
               }
             ],
             "same_page" : false,
@@ -1322,6 +1347,11 @@
                 "same_page" : false,
                 "title" : "Collection",
                 "url" : "extensions\/collection.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "String.Element",
+                "url" : "extensions\/stringelement.html?swift"
               }
             ],
             "same_page" : false,
@@ -1546,6 +1576,11 @@
                 "same_page" : false,
                 "title" : "Collection",
                 "url" : "extensions\/collection.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "String.Element",
+                "url" : "extensions\/stringelement.html?swift"
               }
             ],
             "same_page" : false,
@@ -1755,6 +1790,11 @@
                 "same_page" : false,
                 "title" : "Collection",
                 "url" : "extensions\/collection.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "String.Element",
+                "url" : "extensions\/stringelement.html?swift"
               }
             ],
             "same_page" : false,
@@ -1945,6 +1985,11 @@
                 "same_page" : false,
                 "title" : "Collection",
                 "url" : "extensions\/collection.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "String.Element",
+                "url" : "extensions\/stringelement.html?swift"
               }
             ],
             "same_page" : false,
@@ -2141,6 +2186,11 @@
                 "same_page" : false,
                 "title" : "Collection",
                 "url" : "extensions\/collection.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "String.Element",
+                "url" : "extensions\/stringelement.html?swift"
               }
             ],
             "same_page" : true,
@@ -2167,6 +2217,20 @@
             "primary_title_html" : "<span class=\"j2-item-secondary\">extension <\/span>Collection",
             "primary_url" : "extensions\/collection.html?swift",
             "title" : "extension Collection"
+          },
+          {
+            "anchor_id" : "stringelement",
+            "any_declaration" : true,
+            "dash_name" : "extension%20String.Element",
+            "dash_type" : "Extension",
+            "def" : {
+              "abstract_html" : "<p>Extension of a nested type from an external module<\/p>",
+              "swift_declaration_html" : "extension String.Element"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">extension <\/span>String.Element",
+            "primary_url" : "extensions\/stringelement.html?swift",
+            "title" : "extension String.Element"
           }
         ],
         "primary_language" : "j2-swift",
@@ -2314,6 +2378,11 @@
                 "same_page" : true,
                 "title" : "Collection",
                 "url" : ""
+              },
+              {
+                "same_page" : false,
+                "title" : "String.Element",
+                "url" : "extensions\/stringelement.html?swift"
               }
             ],
             "same_page" : false,
@@ -2381,6 +2450,196 @@
           {
             "anchor_id" : "tpc_available-where-element-spmswiftmodulenested1",
             "title" : "…where Element == SpmSwiftModule.Nested1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "breadcrumbs_menus" : [
+      {
+        "breadcrumbs" : [
+          {
+            "title" : "Extensions",
+            "url" : "extensions.html?swift"
+          },
+          {
+            "title" : "String.Element"
+          }
+        ],
+        "language" : "j2-swift"
+      }
+    ],
+    "breadcrumbs_root" : "SpmSwiftModule",
+    "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
+    "def" : {
+      "abstract_html" : "<p>Extension of a nested type from an external module<\/p>",
+      "swift_declaration_html" : "extension String.Element"
+    },
+    "default_language" : "j2-swift",
+    "disable_search" : false,
+    "doc_coverage" : 66,
+    "docs_title" : "SpmSwiftModule docs",
+    "dual_language" : false,
+    "hide_article_title" : false,
+    "hide_attribution" : false,
+    "hide_availability" : false,
+    "item_collapse_never" : false,
+    "item_collapse_open" : false,
+    "item_nest" : true,
+    "j2lib_version" : "0.1",
+    "language_tag" : "en",
+    "path_from_root" : "extensions\/stringelement.html",
+    "path_to_assets" : "..\/",
+    "path_to_root" : "..\/",
+    "primary_page_title" : "String.Element",
+    "primary_title_language" : "j2-swift",
+    "tab_title_prefix" : true,
+    "tocs" : [
+      {
+        "language" : "j2-swift",
+        "screen_reader_name" : "Swift",
+        "toc" : [
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "GenericBase",
+                "url" : "types\/genericbase.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "FirstProtocol",
+                "url" : "types\/firstprotocol1.html?swift"
+              },
+              {
+                "children" : [
+                  {
+                    "children" : [
+                      {
+                        "same_page" : false,
+                        "title" : "Nested2a",
+                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2a"
+                      },
+                      {
+                        "same_page" : false,
+                        "title" : "Nested2b",
+                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2b"
+                      }
+                    ],
+                    "same_page" : false,
+                    "title" : "Nested1",
+                    "url" : "types\/spmswiftmodule\/nested1.html?swift"
+                  },
+                  {
+                    "same_page" : false,
+                    "title" : "Nested2",
+                    "url" : "types\/spmswiftmodule.html?swift#nested2"
+                  }
+                ],
+                "same_page" : false,
+                "title" : "SpmSwiftModule",
+                "url" : "types\/spmswiftmodule.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "AnEnum",
+                "url" : "types\/anenum.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "ABaseClass",
+                "url" : "types\/abaseclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "ADerivedClass",
+                "url" : "types\/aderivedclass.html?swift"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Types",
+            "url" : "types.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "functionA(arg1:_:arg3:)",
+                "url" : "functions.html?swift#functionaarg1_arg3"
+              },
+              {
+                "same_page" : false,
+                "title" : "deprecatedFunction(callback:)",
+                "url" : "functions.html?swift#deprecatedfunctioncallback"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Functions",
+            "url" : "functions.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "Collection",
+                "url" : "extensions\/collection.html?swift"
+              },
+              {
+                "same_page" : true,
+                "title" : "String.Element",
+                "url" : ""
+              }
+            ],
+            "same_page" : false,
+            "title" : "Extensions",
+            "url" : "extensions.html?swift"
+          }
+        ]
+      }
+    ],
+    "topics" : [
+      {
+        "anchor_id" : "tpc_",
+        "dash_name" : "",
+        "items" : [
+          {
+            "anchor_id" : "method1",
+            "any_declaration" : true,
+            "dash_name" : "func%20method1()",
+            "dash_type" : "Method",
+            "def" : {
+              "abstract_html" : "<p>documented method<\/p>",
+              "swift_declaration_html" : "func method1()"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>method1<span class=\"j2-item-secondary\">()<\/span>",
+            "title" : "func method1()"
+          },
+          {
+            "anchor_id" : "method2",
+            "any_declaration" : true,
+            "dash_name" : "func%20method2()",
+            "dash_type" : "Method",
+            "def" : {
+              "swift_declaration_html" : "func method2()"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>method2<span class=\"j2-item-secondary\">()<\/span>",
+            "title" : "func method2()"
+          }
+        ],
+        "primary_language" : "j2-swift"
+      }
+    ],
+    "topics_language" : "j2-swift",
+    "topics_menus" : [
+      {
+        "language" : "j2-swift",
+        "topics_menu" : [
+          {
+            "anchor_id" : "",
+            "title" : "Declaration"
           }
         ]
       }
@@ -2499,6 +2758,11 @@
                 "same_page" : false,
                 "title" : "Collection",
                 "url" : "extensions\/collection.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "String.Element",
+                "url" : "extensions\/stringelement.html?swift"
               }
             ],
             "same_page" : false,

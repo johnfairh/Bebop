@@ -19,12 +19,12 @@ class TestProducts: XCTestCase {
         initResources()
     }
 
-    func compareSwift(product: String, against: String, cleanUpJSON: Bool = false, line: UInt = #line) throws {
+    func compareSwift(product: String, cliArgs: [String] = [], against: String, cleanUpJSON: Bool = false, line: UInt = #line) throws {
         let pipeline = Pipeline()
         let spmTestURL = fixturesURL.appendingPathComponent("SpmSwiftPackage")
         TestLogger.install()
         try pipeline.run(argv: ["--source-directory", spmTestURL.path,
-                                "--products", product])
+                                "--products", product] + cliArgs)
         XCTAssertEqual(1, TestLogger.shared.outputBuf.count, line: line)
         try compare(against: against, cleanUpJSON: cleanUpJSON, line: line)
     }
@@ -102,7 +102,9 @@ class TestProducts: XCTestCase {
     #endif
 
     func testPageGenSwift() throws {
-        try compareSwift(product: "docs-summary-json", against: "SpmSwiftModule.docs-summary.json")
+        try compareSwift(product: "docs-summary-json",
+                         cliArgs: ["--modules=SpmSwiftModule,SpmSwiftModule3"],
+                         against: "SpmSwiftModule.docs-summary.json")
     }
 
     func testSiteGenSwift() throws {
