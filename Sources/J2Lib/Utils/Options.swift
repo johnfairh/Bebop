@@ -606,6 +606,14 @@ final class OptsParser {
     /// Collection of all the `Opt`s
     private(set) var allOpts = [Opt]()
 
+    /// The base path for interpreting relative paths in options.
+    var relativePathBase: URL
+
+    /// Create a new parser, seeding the base for relative paths - default to the current directory.
+    init(relativePathBase: URL? = nil) {
+        self.relativePathBase = relativePathBase ?? FileManager.default.currentDirectory
+    }
+
     /// Add a `Tracker` to the data structures
     private func add(flag: String, tracker: Tracker) {
         precondition(flagsDict[flag] == nil,
@@ -665,9 +673,6 @@ final class OptsParser {
             self.addAlias(opt: $0)
         }
     }
-
-    /// The base path for interpreting relative paths in options.
-    var relativePathBase = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
 
     /// Validate and send string data to a particular option.
     private func apply(stringData: [String], to opt: Opt) throws {

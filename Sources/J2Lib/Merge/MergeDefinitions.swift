@@ -211,9 +211,7 @@ fileprivate extension DefItem {
 
         if !exts.isEmpty {
             // Mark imported extensions
-            if defKind.isSwift {
-                markImportedExtensions(extensions: exts)
-            }
+            markImportedExtensions(extensions: exts)
 
             // Deal with protocol extensions
             if defKind.isSwiftProtocol {

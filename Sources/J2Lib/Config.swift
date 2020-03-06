@@ -56,6 +56,8 @@ public final class Config {
     /// Published options -- publish during register, read during checkOptions
     /// All slightly broken abstractions....
     public final class Published {
+        // Published by Config
+        public var configRelativePathBaseURL: URL?
         // Published by GatherOpts
         public var sourceDirectoryURL: URL?
         // Published by GatherOpts
@@ -124,8 +126,9 @@ public final class Config {
             infoLog = .localized(.msgConfigFile, configFileURL.path)
 
             let configFile = try String(contentsOf: configFileURL)
-
-            optsParser.relativePathBase = configFileURL.deletingLastPathComponent()
+            let configFileDir = configFileURL.deletingLastPathComponent()
+            optsParser.relativePathBase = configFileDir
+            published.configRelativePathBaseURL = configFileDir
 
             try optsParser.apply(yaml: configFile)
         }

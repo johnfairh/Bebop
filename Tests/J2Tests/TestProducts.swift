@@ -19,29 +19,24 @@ class TestProducts: XCTestCase {
         initResources()
     }
 
-    func compareSwift(product: String, cliArgs: [String] = [], against: String, cleanUpJSON: Bool = false, line: UInt = #line) throws {
-        let pipeline = Pipeline()
+    func compareSwift(product: String, cliArgs: [String] = [], against: String, line: UInt = #line) throws {
         let spmTestURL = fixturesURL.appendingPathComponent("SpmSwiftPackage")
-        TestLogger.install()
-        try pipeline.run(argv: ["--source-directory", spmTestURL.path,
-                                "--products", product] + cliArgs)
-        XCTAssertEqual(1, TestLogger.shared.outputBuf.count, line: line)
-        try compare(against: against, cleanUpJSON: cleanUpJSON, line: line)
+        try compare(["--source-directory", spmTestURL.path] + cliArgs, product, against: against, line: line)
     }
 
-    func compareObjC(product: String, against: String, cleanUpJSON: Bool = false, line: UInt = #line) throws {
-        let pipeline = Pipeline()
+    func compareObjC(product: String, against: String, line: UInt = #line) throws {
         let headerURL = fixturesURL
             .appendingPathComponent("ObjectiveC")
             .appendingPathComponent("Header.h")
-        TestLogger.install()
-        try pipeline.run(argv: ["--objc-header-file", headerURL.path,
-                                "--products", product])
-        XCTAssertEqual(1, TestLogger.shared.outputBuf.count, line: line)
-        try compare(against: against, cleanUpJSON: cleanUpJSON, line: line)
+        try compare(["--objc-header-file", headerURL.path], product, against: against, line: line)
     }
 
-    func compare(against: String, cleanUpJSON: Bool = false, line: UInt = #line) throws {
+    func compare(_ args: [String], _ product: String, against: String, line: UInt = #line) throws {
+        let pipeline = Pipeline()
+        TestLogger.install()
+        try pipeline.run(argv: args + ["--products", product])
+        XCTAssertEqual(1, TestLogger.shared.outputBuf.count, line: line)
+
         let fixtureJSONURL = fixturesURL.appendingPathComponent(against)
 
         var actualJson = TestLogger.shared.outputBuf[0] + "\n"
@@ -51,7 +46,7 @@ class TestProducts: XCTestCase {
         }
 
         var expectedJson = try String(contentsOf: fixtureJSONURL)
-        if cleanUpJSON {
+        if product == "files-json" || product == "decls-json" {
             actualJson = cleanUpJson(file: actualJson)
             expectedJson = cleanUpJson(file: expectedJson)
         }
@@ -84,20 +79,29 @@ class TestProducts: XCTestCase {
     }
 
     func testFilesJsonSwift() throws {
-        try compareSwift(product: "files-json", against: "SpmSwiftModule.files.json", cleanUpJSON: true)
+        try compareSwift(product: "files-json", against: "SpmSwiftModule.files.json")
     }
 
     func testDeclsJsonSwift() throws {
-        try compareSwift(product: "decls-json", against: "SpmSwiftModule.decls.json", cleanUpJSON: true)
+        try compareSwift(product: "decls-json", against: "SpmSwiftModule.decls.json")
     }
 
     #if os(macOS)
     func testFilesJsonObjC() throws {
-        try compareObjC(product: "files-json", against: "ObjectiveC.files.json", cleanUpJSON: true)
+        try compareObjC(product: "files-json", against: "ObjectiveC.files.json")
     }
 
     func testDeclsJsonObjC() throws {
-        try compareObjC(product: "decls-json", against: "ObjectiveC.decls.json", cleanUpJSON: true)
+        try compareObjC(product: "decls-json", against: "ObjectiveC.decls.json")
+    }
+
+    func testMixedSwiftObjC() throws {
+        let configURL = fixturesURL
+            .appendingPathComponent("SpmSwiftPackage")
+            .appendingPathComponent("mixed-objc-swift-j2.yaml")
+        try compareSwift(product: "docs-summary-json",
+                         cliArgs: ["--config=\(configURL.path)"],
+                         against: "MixedSwiftObjC.docs-summary.json")
     }
     #endif
 

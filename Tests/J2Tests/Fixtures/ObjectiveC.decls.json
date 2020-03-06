@@ -356,17 +356,17 @@
         "name" : "-init",
         "obj_c_declaration" : {
           "declaration" : {
-            "text" : "- (id)init __deprecated"
+            "text" : "- (id)init"
           },
           "deprecation" : {
             "en" : "Deprecated. "
           },
           "name_pieces" : [
             {
-              "other" : "- (id)init "
+              "other" : "- (id)"
             },
             {
-              "name" : "__deprecated"
+              "name" : "init"
             },
             {
               "other" : ""

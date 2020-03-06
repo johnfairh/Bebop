@@ -1,0 +1,4 @@
+custom_modules:
+  - module: SpmSwiftModule4
+  - module: SpmObjCModule
+    objc_header_file: Sources/SpmObjCModule/include/SpmObjCModule.h

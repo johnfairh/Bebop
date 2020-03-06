@@ -7,6 +7,7 @@
 //
 
 import Yams
+import Foundation
 
 /// Type  responsible for declaring and parsing the config options.
 ///
@@ -20,6 +21,8 @@ final class GatherOpts : Configurable {
 
     let rootPassOpts = GatherJobOpts()
     private(set) var customModules = [GatherCustomModule]()
+
+    private let published: Config.Published
 
     // Top-level aliases for jazzy compatibility
     let xcodeBuildArgsAlias: AliasOpt
@@ -38,6 +41,7 @@ final class GatherOpts : Configurable {
         frameworkRootAlias = AliasOpt(realOpt: rootPassOpts.objcIncludePathsOpt, l: "framework-root")
         sdkAlias = AliasOpt(realOpt: rootPassOpts.objcSdkOpt, l: "sdk")
         moduleAlias = AliasOpt(realOpt: moduleNamesOpt, l: "module")
+        published = config.published
 
         config.register(rootPassOpts)
         config.registerSrcDirOpt(rootPassOpts.srcDirOpt)
@@ -86,7 +90,8 @@ final class GatherOpts : Configurable {
         let modulesSequence = try customModulesOpts.value!.checkSequence(context: "custom_modules")
         customModules = try modulesSequence.map { customModule in
             let moduleMapping = try customModule.checkMapping(context: "custom_modules[]")
-            return try GatherCustomModule(yamlMapping: moduleMapping)
+            return try GatherCustomModule(yamlMapping: moduleMapping,
+                                          relativePathBaseURL: published.configRelativePathBaseURL)
         }
 
         try customModules.forEach {
@@ -119,8 +124,8 @@ struct GatherCustomModule: CustomStringConvertible {
     private(set) var passes: [GatherJobOpts] = []
 
     /// Set up a custom module & passes from some YAML
-    init(yamlMapping: Node.Mapping) throws {
-        let parser = OptsParser()
+    init(yamlMapping: Node.Mapping, relativePathBaseURL: URL?) throws {
+        let parser = OptsParser(relativePathBase: relativePathBaseURL)
         parser.addOpts(from: self)
         parser.addOpts(from: moduleOpts)
         try parser.apply(mapping: yamlMapping)
@@ -135,7 +140,7 @@ struct GatherCustomModule: CustomStringConvertible {
             passes = try passesSequence.map { customPass in
                 let passMapping = try customPass.checkMapping(context: "custom_modules[].passes[]")
                 let passOpts = GatherJobOpts()
-                let parser = OptsParser()
+                let parser = OptsParser(relativePathBase: relativePathBaseURL)
                 parser.addOpts(from: passOpts)
                 try parser.apply(mapping: passMapping)
                 try passOpts.checkBaseOptions()

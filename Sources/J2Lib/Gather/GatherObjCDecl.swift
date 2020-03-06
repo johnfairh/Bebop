@@ -57,6 +57,8 @@ class ObjCDeclarationBuilder {
     /// but humans aren't interested in and work around bugs in the stack.
     func parse(declaration input: String) -> String {
         var decl = input
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+            .re_sub(#"__\w+"#, with: "")
         if kind.isObjCStructural {
             // Strip trailing content that can show up: ivar blocks, random {}, etc.
             decl = decl.re_sub(#"(?:\s*)[{\n].*\z"#, with: "", options: [.s])
@@ -156,7 +158,7 @@ class ObjCDeclarationBuilder {
     private func parseMethodToPieces(method: String) -> [DeclarationPiece] {
         var pieces = [DeclarationPiece]()
 
-        var decl = method
+        var decl = method.re_sub("NS_SWIFT_NAME.*", with: "")
         guard let intro = decl.prefixMatch(#".*?(?=\w+\s*($|:))"#) else {
             return [.name(method)] // confused
         }

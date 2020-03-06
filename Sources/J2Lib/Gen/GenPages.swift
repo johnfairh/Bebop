@@ -94,7 +94,7 @@ final class LanguageVisitor: ItemVisitorProtocol {
     /// Languages found
     private var foundLanguages = Set<DefLanguage>()
     var languages: [DefLanguage] {
-        foundLanguages.isEmpty ? [.swift] : Array(foundLanguages)
+        foundLanguages.isEmpty ? [.swift] : Array(foundLanguages).sorted(by: <)
     }
 
     func visit(defItem: DefItem, parents: [Item]) {

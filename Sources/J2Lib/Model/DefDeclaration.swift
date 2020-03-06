@@ -62,7 +62,7 @@ extension Array where Element == DeclarationPiece {
 }
 
 /// The programming language, Swift or Objective-C.
-public enum DefLanguage: String, Encodable, CaseIterable {
+public enum DefLanguage: String, Encodable, CaseIterable, Comparable {
     case swift
     case objc
 
@@ -80,6 +80,11 @@ public enum DefLanguage: String, Encodable, CaseIterable {
         case .swift: return "Swift"
         case .objc: return "Objective C"
         }
+    }
+
+    /// Comparable
+    public static func < (lhs: DefLanguage, rhs: DefLanguage) -> Bool {
+        lhs.humanName < rhs.humanName
     }
 }
 

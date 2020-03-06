@@ -353,18 +353,18 @@
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
               "key.doc.line" : 22,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-              "key.j2.objc_declaration" : "- (id)init __deprecated",
+              "key.j2.objc_declaration" : "- (id)init",
               "key.j2.objc_deprecation_messages" : {
                 "en" : "Deprecated. "
               },
               "key.j2.objc_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
-                  "key.j2.name_piece_text" : "- (id)init "
+                  "key.j2.name_piece_text" : "- (id)"
                 },
                 {
                   "key.j2.name_piece_is_name" : true,
-                  "key.j2.name_piece_text" : "__deprecated"
+                  "key.j2.name_piece_text" : "init"
                 },
                 {
                   "key.j2.name_piece_is_name" : false,
