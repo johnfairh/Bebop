@@ -1667,6 +1667,34 @@
               "primary_title_html" : {
                 "html" : "<span class=\"j2-item-secondary\">func <\/span>deprecatedFunction<span class=\"j2-item-secondary\">(<\/span>callback<span class=\"j2-item-secondary\">: (_ report: String) -> Int) -> String<\/span>"
               }
+            },
+            {
+              "anchor_id" : "localizeddoccomment",
+              "dash_type" : "Global",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>English<\/p>"
+                  }
+                },
+                "availability" : [],
+                "discussion" : {
+                  "en" : {
+                    "html" : ""
+                  }
+                },
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "func localizedDocComment()"
+                }
+              },
+              "flat_title" : {
+                "en" : "func localizedDocComment()"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>localizedDocComment<span class=\"j2-item-secondary\">()<\/span>"
+              }
             }
           ],
           "menu_title" : {
@@ -2147,6 +2175,16 @@
             },
             "url" : {
               "url_hash" : "deprecatedfunctioncallback",
+              "url_path" : "functions"
+            }
+          },
+          {
+            "children" : [],
+            "title" : {
+              "en" : "localizedDocComment()"
+            },
+            "url" : {
+              "url_hash" : "localizeddoccomment",
               "url_path" : "functions"
             }
           }

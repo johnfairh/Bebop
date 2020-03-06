@@ -107,7 +107,7 @@ class TestProducts: XCTestCase {
 
     func testPageGenSwift() throws {
         try compareSwift(product: "docs-summary-json",
-                         cliArgs: ["--modules=SpmSwiftModule,SpmSwiftModule3"],
+                         cliArgs: ["--modules=SpmSwiftModule,SpmSwiftModule2,SpmSwiftModule3"],
                          against: "SpmSwiftModule.docs-summary.json")
     }
 

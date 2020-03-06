@@ -149,6 +149,8 @@ final class MarkdownFormatter: ItemVisitorProtocol {
 
     /// Create special callout markup for anything that looks like a callout --- we're past
     /// parameters etc. by now, all that's left are warnings/notes/etc.
+    ///
+    /// Strip out any leftover localization key callouts now - processed back in Gather.
     func customizeCallouts(listNode: CMNode, iterator: Iterator) {
         var iteratorReset = false
 
@@ -156,6 +158,16 @@ final class MarkdownFormatter: ItemVisitorProtocol {
             guard callout.isNormalCallout else {
                 return
             }
+
+            guard !callout.isLocalizationKey else {
+                listItem.unlink()
+                if !iteratorReset && listNode.firstChild == nil {
+                    iteratorReset = true
+                    iterator.reset(to: listNode, eventType: .exit)
+                }
+                return
+            }
+
             let calloutNode =
                 CMNode(customEnter:
                     #"""
