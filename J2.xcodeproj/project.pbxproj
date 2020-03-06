@@ -388,8 +388,7 @@
 				0233D54823F6F2ED004DCD89 /* FormatMarkdown.swift */,
 				02D00C812407D70800DD93C5 /* FormatDeclaration.swift */,
 			);
-			name = Format;
-			path = Merge/Format;
+			path = Format;
 			sourceTree = "<group>";
 		};
 		025727FD23DB50270001F510 /* en.lproj */ = {
@@ -599,8 +598,7 @@
 				02D064F323EC208200FE11BD /* Group.swift */,
 				0233D53E23F30EDB004DCD89 /* GroupGuides.swift */,
 			);
-			name = Group;
-			path = Merge/Group;
+			path = Group;
 			sourceTree = "<group>";
 		};
 		02F2B3C7239A804100397BC6 /* Frameworks */ = {
