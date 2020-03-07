@@ -103,7 +103,7 @@ struct GatherJobOpts: Configurable, CustomStringConvertible {
             precondition(objcDirectOpt.configured)
             precondition(moduleName != nil)
             #if os(macOS)
-            jobs.append(GatherJob(objcTitle: "",
+            jobs.append(GatherJob(objcTitle: "Objective-C module \(moduleName!)",
                                   moduleName: moduleName!,
                                   headerFile: objcHeaderFileOpt.value!,
                                   includePaths: objcIncludePathsOpt.value,
@@ -112,7 +112,7 @@ struct GatherJobOpts: Configurable, CustomStringConvertible {
                                   availability: availability))
             #endif
         } else {
-            jobs.append(GatherJob(swiftTitle: "",
+            jobs.append(GatherJob(swiftTitle: "Swift module \(moduleName ?? "(default)")",
                                   moduleName: moduleName,
                                   srcDir: srcDirOpt.value,
                                   buildTool: buildToolOpt.value,

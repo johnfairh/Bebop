@@ -72,6 +72,8 @@ internal enum L10n {
     case errSktnXcodeMod = "err-sktn-xcode-mod"
     /// Using config file '%1'.
     case msgConfigFile = "msg-config-file"
+    /// Gathering info for %1.
+    case msgGatherHeading = "msg-gather-heading"
     /// Generating documentation
     case msgGeneratingDocs = "msg-generating-docs"
     /// j2: Generate API documentation for Swift or Objective-C code.\n\nUsage: j2 [options]\n\nOptions:

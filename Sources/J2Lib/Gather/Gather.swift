@@ -56,7 +56,15 @@ public struct Gather {
         // ooh no, it has an API mapping module-name to merge-policy, defaults
         // to something for unknown.  Fine.
         // no - actually going to have to publish this stuff.
-        let passes = try opts.jobs.map { try $0.execute() }.flatMap { $0 }
+
+
+        let jobs = opts.jobs
+        let passes = try jobs.flatMap { job -> [GatherModulePass] in
+            if jobs.count > 1 {
+                logInfo(.localized(.msgGatherHeading, job.title))
+            }
+            return try job.execute()
+        }
 
         published.moduleNames = Array(Set(passes.map { $0.moduleName })).sorted(by: <)
 
