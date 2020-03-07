@@ -83,20 +83,35 @@ class TestGatherObjC: XCTestCase {
 
         let job = try makeJob(["--objc-header-file=\(hFile.path)",
                                "--objc-include-paths=\(tmpDir.directoryURL.path)"])
-        guard case let .objcDirect(_, _, includeURLs, _, _, _) = job else {
+        guard case let .objcDirect(_, ojob) = job else {
             XCTFail("not objc job")
             return
         }
-        let includeOpts = try job.buildIncludeArgs(includePaths: includeURLs)
+        let includeOpts = try ojob.buildIncludeArgs()
         XCTAssertEqual(4, includeOpts.count)
         let expectIncludeOpts = ["-I", tmpDir.directoryURL.path, "-I", subTmpDir.directoryURL.path]
         XCTAssertEqual(expectIncludeOpts, includeOpts)
 
-        let baseBadFlags = ["-x", "objective-c", "stop"]
-        let badClangFlags = try job.buildClangArgs(includePaths: [], sdk: .macosx, buildToolArgs: baseBadFlags)
-        XCTAssertEqual(baseBadFlags, badClangFlags)
 
-        let badClangFlags2 = try job.buildClangArgs(includePaths: includeURLs, sdk: .macosx, buildToolArgs: baseBadFlags)
+        let baseBadFlags = ["-x", "objective-c", "stop"]
+
+        let job2 = try makeJob(["--objc-header-file=\(hFile.path)",
+                                "--build-tool-arguments=\(baseBadFlags.joined(separator: ","))"])
+        guard case let .objcDirect(_, ojob2) = job2 else {
+            XCTFail("not objc job")
+            return
+        }
+        XCTAssertEqual(baseBadFlags, try ojob2.buildClangArgs())
+
+        let job3 = try makeJob(["--objc-header-file=\(hFile.path)",
+                                "--objc-include-paths=\(tmpDir.directoryURL.path)",
+                                "--build-tool-arguments=\(baseBadFlags.joined(separator: ","))"])
+        guard case let .objcDirect(_, ojob3) = job3 else {
+            XCTFail("not objc job")
+            return
+        }
+
+        let badClangFlags2 = try ojob3.buildClangArgs()
         XCTAssertEqual(baseBadFlags + expectIncludeOpts, badClangFlags2)
     }
 
@@ -110,31 +125,26 @@ class TestGatherObjC: XCTestCase {
 
         TestLogger.install()
         try checkJob(["--objc-header-file=\(tmpFile.path)"],
-                 .objcDirect(moduleName: "Module",
-                             headerFile: tmpFile,
-                             includePaths: [],
-                             sdk: .macosx,
-                             buildToolArgs: [],
-                             availability: Gather.Availability()))
+                     .init(objcTitle: "",
+                           moduleName: "Module",
+                           headerFile: tmpFile,
+                           sdk: .macosx))
         XCTAssertEqual(1, TestLogger.shared.diagsBuf.count)
 
         try checkJob(["--objc-header-file=\(tmpFile.path)", "--module=MyMod"],
-                 .objcDirect(moduleName: "MyMod",
-                             headerFile: tmpFile,
-                             includePaths: [],
-                             sdk: .macosx,
-                             buildToolArgs: [],
-                             availability: Gather.Availability()))
+                     .init(objcTitle: "",
+                           moduleName: "MyMod",
+                           headerFile: tmpFile,
+                           sdk: .macosx))
 
         try checkJob(["--objc-header-file=\(tmpFile.path)",
                       "--objc-sdk=iphoneos",
                       "--objc-include-paths=\(tmpDir.directoryURL.path)"],
-                 .objcDirect(moduleName: "Module",
-                             headerFile: tmpFile,
-                             includePaths: [tmpDirURL],
-                             sdk: .iphoneos,
-                             buildToolArgs: [],
-                             availability: Gather.Availability()))
+                     .init(objcTitle: "",
+                           moduleName: "Module",
+                           headerFile: tmpFile,
+                           includePaths: [tmpDirURL],
+                           sdk: .iphoneos))
     }
 
     #endif /* macOS */

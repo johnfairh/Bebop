@@ -103,19 +103,21 @@ struct GatherJobOpts: Configurable, CustomStringConvertible {
             precondition(objcDirectOpt.configured)
             precondition(moduleName != nil)
             #if os(macOS)
-            jobs.append(.objcDirect(moduleName: moduleName!,
-                                    headerFile: objcHeaderFileOpt.value!,
-                                    includePaths: objcIncludePathsOpt.value,
-                                    sdk: objcSdkOpt.value!,
-                                    buildToolArgs: buildToolArgsOpt.value,
-                                    availability: availability))
+            jobs.append(GatherJob(objcTitle: "",
+                                  moduleName: moduleName!,
+                                  headerFile: objcHeaderFileOpt.value!,
+                                  includePaths: objcIncludePathsOpt.value,
+                                  sdk: objcSdkOpt.value!,
+                                  buildToolArgs: buildToolArgsOpt.value,
+                                  availability: availability))
             #endif
         } else {
-            jobs.append(.swift(moduleName: moduleName,
-                               srcDir: srcDirOpt.value,
-                               buildTool: buildToolOpt.value,
-                               buildToolArgs: buildToolArgsOpt.value,
-                               availability: availability))
+            jobs.append(GatherJob(swiftTitle: "",
+                                  moduleName: moduleName,
+                                  srcDir: srcDirOpt.value,
+                                  buildTool: buildToolOpt.value,
+                                  buildToolArgs: buildToolArgsOpt.value,
+                                  availability: availability))
         }
 
         return jobs

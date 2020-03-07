@@ -13,154 +13,74 @@ import SourceKittenFramework
 ///
 /// In fact that's a lie because "import a gather.json" is also a job that can vend multiple modules and passes.
 /// That may be a modelling error, tbd pending implementation of import....
-enum GatherJob: Equatable {
-    case swift(moduleName: String?,
-               srcDir: URL?,
-               buildTool: Gather.BuildTool?,
-               buildToolArgs: [String],
-               availability: Gather.Availability)
+enum GatherJob : Equatable {
+    case swift(title: String, job: Swift)
+    case objcDirect(title: String, job: ObjCDirect)
 
-    #if os(macOS)
-    case objcDirect(moduleName: String,
-                    headerFile: URL,
-                    includePaths: [URL],
-                    sdk: Gather.Sdk,
-                    buildToolArgs: [String],
-                    availability: Gather.Availability)
-    #endif
+    var title: String {
+        switch self {
+        case .swift(let title, _): return title
+        case .objcDirect(let title, _): return title
+        }
+    }
 
     func execute() throws -> [GatherModulePass] {
         logDebug("Gather: starting job \(self)")
         defer { logDebug("Gather: finished job") }
 
         switch self {
-        case let .swift(moduleName, srcDir, buildTool, buildToolArgs, availability):
-            let actualSrcDir = srcDir ?? FileManager.default.currentDirectory
-            let actualBuildTool = buildTool ?? inferBuildTool(in: actualSrcDir, buildToolArgs: buildToolArgs)
+        case let .swift(_, job):
+            return try [job.execute()]
 
-            logDebug(" Using srcdir '\(actualSrcDir)', build tool '\(actualBuildTool)'")
-
-            let module: Module?
-
-            switch actualBuildTool {
-            case .xcodebuild:
-                logDebug(" Calling sourcekitten in swift xcodebuild mode")
-                module = Module(xcodeBuildArguments: buildToolArgs, name: moduleName, inPath: actualSrcDir.path)
-                if module == nil {
-                    if let moduleName = moduleName {
-                        throw GatherError(.localized(.errSktnXcodeMod, moduleName))
-                    }
-                    throw GatherError(.localized(.errSktnXcodeDef))
-                }
-            case .spm:
-                logDebug(" Calling sourcekitten in swift spm mode")
-                module = Module(spmArguments: buildToolArgs, spmName: moduleName, inPath: actualSrcDir.path)
-                if module == nil {
-                    throw GatherError(.localized(.errSktnSpm))
-                }
-            }
-
-            logDebug(" Calling sourcekitten docs generation")
-            let filesInfo = module!.docs.compactMap { swiftDoc -> (String, GatherDef)? in
-                guard let def = GatherDef(sourceKittenDict: swiftDoc.docsDictionary,
-                                          parentNameComponents: [],
-                                          file: swiftDoc.file,
-                                          availability: availability) else {
-                    return nil
-                }
-                return (swiftDoc.file.path ?? "(no path)", def)
-            }
-
-            return [GatherModulePass(moduleName: module!.name, passIndex: 0, files: filesInfo)]
-
-        #if os(macOS)
-        case let .objcDirect(moduleName, headerFile, includePaths, sdk, buildToolArgs, availability):
-            let clangArgs = try buildClangArgs(includePaths: includePaths, sdk: sdk, buildToolArgs: buildToolArgs)
-            logDebug(" Calling sourcekitten clang mode, args:")
-            clangArgs.forEach { logDebug("  \($0)") }
-            let translationUnit = ClangTranslationUnit(headerFiles: [headerFile.path], compilerArguments: clangArgs)
-            logDebug(" Found \(translationUnit.declarations.count) top-level declarations.")
-            let dicts = try JSON.decode(translationUnit.description, [[String: Any]].self)
-            let filesInfo = try dicts.compactMap { dict -> (String, GatherDef)? in
-                guard let dictEntry = dict.first,
-                    dict.count == 1,
-                    let fileDict = dictEntry.value as? SourceKittenDict else {
-                    throw GatherError(.localized(.errObjcSourcekitten, dict))
-                }
-                guard let def = GatherDef(sourceKittenDict: fileDict,
-                                          parentNameComponents: [],
-                                          file: nil,
-                                          availability: availability) else {
-                    return nil
-                }
-                return (dictEntry.key, def)
-            }
-            return [GatherModulePass(moduleName: moduleName, passIndex: 0, files: filesInfo)]
-        #endif
+        case let .objcDirect(_, job):
+            #if os(macOS)
+            return try [job.execute()]
+            #else
+            return []
+            #endif
         }
     }
 
-    /// Figure out the actual args to pass to clang given some options.  Visibility for testing.
-    func buildClangArgs(includePaths: [URL], sdk: Gather.Sdk, buildToolArgs: [String]) throws -> [String] {
-        let includePathArgs = try buildIncludeArgs(includePaths: includePaths)
-        if buildToolArgs.count >= 2 &&
-            buildToolArgs[0] == "-x" &&
-            buildToolArgs[1] == "objective-c" {
-            logDebug( "BuildToolArgs starts '-x objective-c', passing unchanged to clang")
-            return buildToolArgs + includePathArgs
+    /// Custom equatable to ignore the job title
+    static func == (lhs: GatherJob, rhs: GatherJob) -> Bool {
+        switch (lhs, rhs) {
+        case let (.swift(_, l), .swift(_, r)): return l == r
+        case let (.objcDirect(_, l), .objcDirect(_, r)): return l == r
+        default: return false
         }
-
-        let sdkPathResults = Exec.run("/usr/bin/env", "xcrun", "--show-sdk-path", "--sdk", sdk.rawValue, stderr: .merge)
-        guard let sdkPath = sdkPathResults.successString else {
-            throw GatherError(.localized(.errObjcSdk) + "\n\(sdkPathResults.failureReport)")
-        }
-        return ["-x", "objective-c", "-isysroot", sdkPath, "-fmodules"] + includePathArgs + buildToolArgs
     }
 
-    /// Given a list of places where header files might be, churn out a list of include options that should
-    /// cover attempts to use them.  Inherited from jazzy and stripped of the worst behaviours that cause
-    /// clang to barf but I still don't love it.
-    func buildIncludeArgs(includePaths: [URL]) throws -> [String] {
-        let allDirURLs = try includePaths.map { baseURL -> Set<URL> in
-            var dirPaths = Set([baseURL])
-            guard let enumerator = FileManager.default.enumerator(atPath: baseURL.path) else {
-                throw GatherError(.localized(.errEnumerator, baseURL.path))
-            }
-            while let pathname = enumerator.nextObject() as? String {
-                if pathname.re_isMatch(#"\.h(h|pp)?$"#) {
-                    // Found a header file?  Add all directories from its directory up to
-                    // the base - can't tell if "#import "a/b.h" etc.
-                    var directoryURL = baseURL.appendingPathComponent(pathname).deletingLastPathComponent().standardized
-                    while !dirPaths.contains(directoryURL) {
-                        dirPaths.insert(directoryURL)
-                        directoryURL.deleteLastPathComponent()
-                        directoryURL.standardize()
-                    }
-                }
-            }
-            logDebug(" Expanded include path '\(baseURL.path)' to:")
-            dirPaths.forEach { logDebug("  \($0.path)")}
-            return dirPaths
-        }
-
-        return Array(allDirURLs.reduce(Set<URL>()) { $0.union($1) })
-            // search from roots down
-            .sorted(by: {$0.path.directoryNestingDepth < $1.path.directoryNestingDepth})
-            .flatMap { ["-I", $0.path] }
+    /// Init helper for swift
+    init(swiftTitle: String,
+         moduleName: String? = nil,
+         srcDir: URL? = nil,
+         buildTool: Gather.BuildTool? = nil,
+         buildToolArgs: [String] = [],
+         availability: Gather.Availability = Gather.Availability()) {
+        self = .swift(title: swiftTitle,
+                      job: Swift(moduleName: moduleName,
+                                 srcDir: srcDir,
+                                 buildTool: buildTool,
+                                 buildToolArgs: buildToolArgs,
+                                 availability: availability))
     }
-}
 
-private func inferBuildTool(in directory: URL, buildToolArgs: [String]) -> Gather.BuildTool {
     #if os(macOS)
-    guard directory.filesMatching("*.xcodeproj", "*.xcworkspace").isEmpty else {
-        return .xcodebuild
-    }
-
-    guard !buildToolArgs.contains("-workspace"),
-        !buildToolArgs.contains("-project") else {
-        return .xcodebuild
+    /// Init helper for ObjCDirect
+    init(objcTitle: String,
+         moduleName: String,
+         headerFile: URL,
+         includePaths: [URL] = [],
+         sdk: Gather.Sdk,
+         buildToolArgs: [String] = [],
+         availability: Gather.Availability = Gather.Availability()) {
+        self = .objcDirect(title: objcTitle,
+                           job: ObjCDirect(moduleName: moduleName,
+                                           headerFile: headerFile,
+                                           includePaths: includePaths,
+                                           sdk: sdk,
+                                           buildToolArgs: buildToolArgs,
+                                           availability: availability))
     }
     #endif
-
-    return .spm
 }

@@ -61,27 +61,15 @@ class TestGather: XCTestCase {
     }
 
     func testDefault() throws {
-        try OptsSystem().test(jobs: [.swift(moduleName: nil,
-                                            srcDir: nil,
-                                            buildTool: nil,
-                                            buildToolArgs: [],
-                                            availability: Gather.Availability())])
+        try OptsSystem().test(jobs: [.init(swiftTitle: "")])
     }
 
     func testModule() throws {
-        try OptsSystem().test(["--module", "Test"], jobs: [.swift(moduleName: "Test",
-                                                                  srcDir: nil,
-                                                                  buildTool: nil,
-                                                                  buildToolArgs: [],
-                                                                  availability: Gather.Availability())])
+        try OptsSystem().test(["--module", "Test"], jobs: [.init(swiftTitle: "", moduleName: "Test")])
     }
 
     func testBuildToolArgs() throws {
-        let expected = GatherJob.swift(moduleName: nil,
-                                       srcDir: nil,
-                                       buildTool: nil,
-                                       buildToolArgs: ["aa", "bb", "cc"],
-                                       availability: Gather.Availability())
+        let expected = GatherJob(swiftTitle: "", buildToolArgs: ["aa", "bb", "cc"])
         try [ ["--build-tool-arguments", "aa,bb,cc"],
               ["-b", "aa", "-b", "bb", "--build-tool-arguments", "cc"] ].forEach { opts in
             try OptsSystem().test(opts, jobs: [expected])
@@ -93,11 +81,9 @@ class TestGather: XCTestCase {
         let system = OptsSystem()
         // Weirdness here to work around Linux URL incompatibility.  How can anyone mess this up.
         let expectedSrcDir = URL(fileURLWithPath: cwd.path, relativeTo: cwd)
-        let expected: GatherJob = .swift(moduleName: "Test",
-                                         srcDir: expectedSrcDir,
-                                         buildTool: nil,
-                                         buildToolArgs: [],
-                                         availability: Gather.Availability())
+        let expected = GatherJob(swiftTitle: "",
+                                 moduleName: "Test",
+                                 srcDir: expectedSrcDir)
         try system.test(["--module", "Test", "--source-directory", cwd.path], jobs: [expected])
     }
 
@@ -189,8 +175,8 @@ class TestGather: XCTestCase {
     func testMultiModule() throws {
         let system = OptsSystem()
         try system.test(["--modules=M1,M2"], jobs: [
-            .swift(moduleName: "M1", srcDir: nil, buildTool: nil, buildToolArgs: [], availability: Gather.Availability()),
-            .swift(moduleName: "M2", srcDir: nil, buildTool: nil, buildToolArgs: [], availability: Gather.Availability())
+            .init(swiftTitle: "", moduleName: "M1"),
+            .init(swiftTitle: "", moduleName: "M2")
         ])
     }
 
@@ -210,8 +196,8 @@ class TestGather: XCTestCase {
                    """
         let system = OptsSystem()
         try system.test(yaml, jobs: [
-            .swift(moduleName: "M1", srcDir: nil, buildTool: nil, buildToolArgs: [], availability: Gather.Availability()),
-            .swift(moduleName: "M2", srcDir: nil, buildTool: nil, buildToolArgs: [], availability: Gather.Availability())
+            .init(swiftTitle: "", moduleName: "M1"),
+            .init(swiftTitle: "", moduleName: "M2")
         ])
     }
 
@@ -233,9 +219,9 @@ class TestGather: XCTestCase {
         let defaultAvail = Gather.Availability()
         let modifiedAvail = Gather.Availability(defaults: [], ignoreAttr: true)
         try system.test(yaml, jobs: [
-            .swift(moduleName: "M1", srcDir: nil, buildTool: nil, buildToolArgs: ["f1"], availability: defaultAvail),
-            .swift(moduleName: "M2", srcDir: nil, buildTool: nil, buildToolArgs: ["f2"], availability: modifiedAvail),
-            .swift(moduleName: "M2", srcDir: nil, buildTool: nil, buildToolArgs: ["f3"], availability: modifiedAvail)
+            .init(swiftTitle: "", moduleName: "M1", buildToolArgs: ["f1"], availability: defaultAvail),
+            .init(swiftTitle: "", moduleName: "M2", buildToolArgs: ["f2"], availability: modifiedAvail),
+            .init(swiftTitle: "", moduleName: "M2", buildToolArgs: ["f3"], availability: modifiedAvail)
         ])
     }
 
