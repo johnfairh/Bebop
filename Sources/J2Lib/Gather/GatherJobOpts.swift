@@ -92,18 +92,20 @@ struct GatherJobOpts: Configurable, CustomStringConvertible {
     }
 
     /// Generate jobs from the options
-    func makeJobs(moduleName: String?) -> [GatherJob] {
+    func makeJobs(moduleName: String?, passIndex: Int? = nil) -> [GatherJob] {
         let availability =
             Gather.Availability(defaults: availabilityDefaultsOpt.value,
                                 ignoreAttr: ignoreAvailabilityAttrOpt.value)
 
         var jobs = [GatherJob]()
 
+        let passStr = passIndex.flatMap { "pass \($0)" } ?? ""
+
         if objcHeaderFileOpt.configured {
             precondition(objcDirectOpt.configured)
             precondition(moduleName != nil)
             #if os(macOS)
-            jobs.append(GatherJob(objcTitle: "Objective-C module \(moduleName!)",
+            jobs.append(GatherJob(objcTitle: "Objective-C module \(moduleName!) \(passStr)",
                                   moduleName: moduleName!,
                                   headerFile: objcHeaderFileOpt.value!,
                                   includePaths: objcIncludePathsOpt.value,
@@ -112,7 +114,7 @@ struct GatherJobOpts: Configurable, CustomStringConvertible {
                                   availability: availability))
             #endif
         } else {
-            jobs.append(GatherJob(swiftTitle: "Swift module \(moduleName ?? "(default)")",
+            jobs.append(GatherJob(swiftTitle: "Swift module \(moduleName ?? "(default)") \(passStr)",
                                   moduleName: moduleName,
                                   srcDir: srcDirOpt.value,
                                   buildTool: buildToolOpt.value,

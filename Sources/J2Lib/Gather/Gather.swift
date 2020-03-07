@@ -59,14 +59,20 @@ public struct Gather {
 
 
         let jobs = opts.jobs
+        publishJobFacts(jobs: jobs)
+
+        var moduleNames = Set<String>()
         let passes = try jobs.flatMap { job -> [GatherModulePass] in
             if jobs.count > 1 {
                 logInfo(.localized(.msgGatherHeading, job.title))
             }
-            return try job.execute()
+            let pass = try job.execute()
+            pass.forEach { moduleNames.insert($0.moduleName) }
+            return pass
         }
 
-        published.moduleNames = Array(Set(passes.map { $0.moduleName })).sorted(by: <)
+        // Publish stuff based on the passes resulting from the jobs
+        published.moduleNames = Array(moduleNames).sorted(by: <)
 
         // Garnishes
         logDebug("Gather: start doc-comment localization pass.")
@@ -74,6 +80,19 @@ public struct Gather {
         logDebug("Gather: end doc-comment localization pass.")
 
         return passes
+    }
+
+    /// Put up things that other components need to know
+    private func publishJobFacts(jobs: [GatherJob]) {
+        jobs.first.flatMap { published.defaultLanguage = $0.language }
+
+        for job in jobs {
+            if let sourceDirectoryURL = job.sourceDirectoryURL {
+                logDebug("Using \(sourceDirectoryURL.path) as main source directory.")
+                published.sourceDirectoryURL = sourceDirectoryURL
+                break
+            }
+        }
     }
 }
 

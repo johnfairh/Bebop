@@ -24,6 +24,20 @@ enum GatherJob : Equatable {
         }
     }
 
+    var language: DefLanguage {
+        switch self {
+        case .swift(_, _): return .swift
+        case .objcDirect(_, _): return .objc
+        }
+    }
+
+    var sourceDirectoryURL: URL? {
+        switch self {
+        case .swift(_, let job): return job.srcDir
+        case .objcDirect(_, _): return nil
+        }
+    }
+
     func execute() throws -> [GatherModulePass] {
         logDebug("Gather: starting job \(self)")
         defer { logDebug("Gather: finished job") }

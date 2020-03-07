@@ -53,15 +53,6 @@ final class GatherOpts : Configurable {
         try rootPassOpts.checkOptions(published: published)
         try rootPassOpts.checkCascadedOptions()
 
-        // Publish things we're obliged to
-        if let srcDirURL = rootPassOpts.srcDirOpt.value {
-            published.sourceDirectoryURL = srcDirURL
-        }
-
-        if rootPassOpts.objcDirectOpt.configured {
-            published.defaultLanguage = .objc
-        }
-
         // Check our own options
         if customModulesOpts.configured {
             if moduleNamesOpt.configured {
@@ -170,7 +161,9 @@ struct GatherCustomModule: CustomStringConvertible {
         if passes.isEmpty {
             return moduleOpts.makeJobs(moduleName: moduleName)
         }
-        return passes.flatMap { $0.makeJobs(moduleName: moduleName) }
+        return passes.enumerated().flatMap { index, opts in
+            opts.makeJobs(moduleName: moduleName, passIndex: index)
+        }
     }
 
     var description: String {

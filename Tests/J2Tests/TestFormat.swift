@@ -114,13 +114,12 @@ class TestFormat: XCTestCase {
                  "README.mdown", "README"].enumerated().forEach { (offs, name) in
                 let readmeURL = tmpdir.directoryURL.appendingPathComponent(name)
                 try "RR".write(to: readmeURL)
-                let system: System
+                let system = System()
                 if offs % 2 == 0 {
                     FileManager.default.changeCurrentDirectoryPath(tmpdir.directoryURL.path)
-                    system = System()
                 } else {
                     FileManager.default.changeCurrentDirectoryPath("/")
-                    system = System(cliArgs: ["--source-directory", tmpdir.directoryURL.path])
+                    system.config.published.sourceDirectoryURL = tmpdir.directoryURL
                 }
                 let readme = try system.format.createReadme()
                 XCTAssertEqual(Markdown("RR"), readme.content.markdown["en"])

@@ -30,8 +30,6 @@ public extension Configurable {
 /// 3. `Configurable.checkOptions()` happens.
 ///   Components check dependencies between their options (and validate complex yaml structures).
 ///   Again halt on the first error.
-/// 4. XXX somebody XXX does cross-component validation.  Need to figure out what this means, beyond
-///   a "warn if an option has been given that will be ignored because irrelevant"
 ///
 /// Config is also responsible for some miscellaneous non-mission tasks:
 /// * --version command
