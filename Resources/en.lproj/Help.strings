@@ -107,3 +107,5 @@ Default: 'macosx'";
 "default-language" = "Set the default language for documentation generated from definitions that
 are present in both Objective-C and Swift.
 Default: Choose one of the supported languages, biased by module build recipe.";
+"custom_modules" = "Use instead of --modules to generate and merge documentation from a variety
+of modules and build options.  See online help.";"
