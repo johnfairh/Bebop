@@ -50,10 +50,12 @@ public final class GatherDef {
             self.swiftDeclaration = nil
             self.objCDeclaration = nil
             self.sourceKittenDict = dict
+            Stats.inc(.gatherDef)
             return
         }
         guard let kind = DefKind.from(key: kindValue, name: name ?? "") else {
             logWarning(.localized(.wrnSktnKind, kindValue))
+            Stats.inc(.gatherFailure)
             return nil
         }
         self.kind = kind
@@ -93,6 +95,7 @@ public final class GatherDef {
                 ObjCDeclarationBuilder(dict: dict, kind: kind).build()
         }
         self.sourceKittenDict = dict
+        Stats.inc(.gatherDef)
     }
 
     // Things calculated after init

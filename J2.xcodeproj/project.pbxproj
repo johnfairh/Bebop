@@ -48,6 +48,7 @@
 		0259E18B24111099006435A1 /* GatherJobOpts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0259E18A24111099006435A1 /* GatherJobOpts.swift */; };
 		0259E18D2413C0A7006435A1 /* GatherJobSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0259E18C2413C0A7006435A1 /* GatherJobSwift.swift */; };
 		0259E18F2413C12A006435A1 /* GatherJobObjC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0259E18E2413C12A006435A1 /* GatherJobObjC.swift */; };
+		0259E1912414F5A5006435A1 /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0259E1902414F5A5006435A1 /* Stats.swift */; };
 		028321D723FB1F4F00B2C555 /* GatherObjCDecl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028321D623FB1F4F00B2C555 /* GatherObjCDecl.swift */; };
 		028321F92403F40200B2C555 /* Exec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028321F82403F40200B2C555 /* Exec.swift */; };
 		029A6F1923D77F7C00D66069 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029A6F1823D77F7C00D66069 /* Config.swift */; };
@@ -247,6 +248,7 @@
 		0259E18A24111099006435A1 /* GatherJobOpts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherJobOpts.swift; sourceTree = "<group>"; };
 		0259E18C2413C0A7006435A1 /* GatherJobSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherJobSwift.swift; sourceTree = "<group>"; };
 		0259E18E2413C12A006435A1 /* GatherJobObjC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherJobObjC.swift; sourceTree = "<group>"; };
+		0259E1902414F5A5006435A1 /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
 		028321D623FB1F4F00B2C555 /* GatherObjCDecl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherObjCDecl.swift; sourceTree = "<group>"; };
 		028321F82403F40200B2C555 /* Exec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exec.swift; sourceTree = "<group>"; };
 		029A6F1823D77F7C00D66069 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -454,6 +456,7 @@
 			children = (
 				029A6F1A23D7838700D66069 /* Pipeline.swift */,
 				029A6F1823D77F7C00D66069 /* Config.swift */,
+				0259E1902414F5A5006435A1 /* Stats.swift */,
 				029A6F1C23D79AB000D66069 /* Version.swift */,
 				02CFF92123DDFE1400FDE5B9 /* Gather */,
 				02CFF9FF23E0B94800FDE5B9 /* Merge */,
@@ -815,6 +818,7 @@
 				0233D53723F07B1A004DCD89 /* GenData.swift in Sources */,
 				022818D123D4F2AE0016B0D5 /* Glob.swift in Sources */,
 				0233D53D23F30851004DCD89 /* GuideItem.swift in Sources */,
+				0259E1912414F5A5006435A1 /* Stats.swift in Sources */,
 				0259E18F2413C12A006435A1 /* GatherJobObjC.swift in Sources */,
 				02CFFA0623E0BD8B00FDE5B9 /* DefItemJSON.swift in Sources */,
 				02FDC68D23EB498A00C2F9CD /* DefDeclaration.swift in Sources */,

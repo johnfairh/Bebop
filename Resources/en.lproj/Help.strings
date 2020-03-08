@@ -30,7 +30,7 @@ the source directory, otherwise 'spm'.";
 "build-tool-arguments" =
 "Arguments to pass through to `xcodebuild`, `swift build`, or `clang`.";
 "products" = "Things to produce.
-Default: 'docs,docset,undocumented-json'";
+Default: 'docs,docset,stats-json,undocumented-json'";
 "output" = "Directory in which to generate documentation.
 Default: 'docs'";
 "clean" = "Delete output directory and contents before generating documentation.";
@@ -108,4 +108,8 @@ Default: 'macosx'";
 are present in both Objective-C and Swift.
 Default: Choose one of the supported languages, biased by module build recipe.";
 "custom_modules" = "Use instead of --modules to generate and merge documentation from a variety
-of modules and build options.  See online help.";"
+of modules and build options.  See online help.";
+"output-stats" = "Filename to produce a statistics report about the generated documentation.
+Default: '(docs directory)/stats.json'";
+"output-undocumented" = "Filename to produce a report about symbols that do not have documentation.
+Default: '(docs directory)/undocumented.json'";

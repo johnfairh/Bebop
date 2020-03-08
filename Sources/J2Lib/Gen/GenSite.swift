@@ -117,7 +117,7 @@ public struct GenSite: Configurable {
             siteData.append(data)
         }
 
-        return try JSON.encode(siteData)
+        return try JSON.encode(data: siteData)
     }
 
     /// Factored out page generation

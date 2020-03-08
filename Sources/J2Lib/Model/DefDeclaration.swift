@@ -157,7 +157,7 @@ public struct ObjCCategoryName {
 }
 
 /// Where a definition was written
-public struct DefLocation: Encodable, CustomStringConvertible {
+public struct DefLocation: Encodable, CustomStringConvertible, Comparable {
     /// Name of the module the definition belongs to.  If the definition is an extension of
     /// a type from a different module then this is the extension's module not the type's.
     public let moduleName: String
@@ -175,6 +175,14 @@ public struct DefLocation: Encodable, CustomStringConvertible {
         let from = firstLine ?? 0
         let to = lastLine ?? 0
         return "[\(moduleName):\(passIndex) \(file) ll\(from)-\(to)]"
+    }
+
+    /// Comparable.  Bit of a crapshoot in general but reasonable for normal cases.
+    public static func < (lhs: DefLocation, rhs: DefLocation) -> Bool {
+        if lhs.filePathname == rhs.filePathname {
+            return (lhs.firstLine ?? 0) < (rhs.firstLine ?? 0)
+        }
+        return (lhs.filePathname ?? "") < (rhs.filePathname ?? "")
     }
 }
 

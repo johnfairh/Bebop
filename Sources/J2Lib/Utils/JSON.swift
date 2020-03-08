@@ -20,7 +20,7 @@ public enum JSON {
     }
 
     /// Render a Foundation "JSON object" using preferred formatting options.
-    public static func encode(_ data: Any) throws -> String {
+    public static func encode(data: Any) throws -> String {
         let jsonData = try JSONSerialization.data(withJSONObject: data, options: [.prettyPrinted, .sortedKeys])
         return from(data: jsonData)
     }

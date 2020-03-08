@@ -20,13 +20,17 @@ enum PipelineProduct: String, CaseIterable {
     case docs_json
     /// Produce docs
     case docs
+    /// Produce stats
+    case stats_json
+    /// Produce undocumented report
+    case undocumented_json
 
     /// Pipeline mode is when the thing behaves fit to go in a shell pipeline -- producing parseable
     /// output only to stdout, everything else to stderr.  Used for the various json-dumping modes.
     var needsPipelineMode: Bool {
         switch self {
         case .files_json, .decls_json, .docs_summary_json, .docs_json: return true
-        case .docs: return false
+        case .docs, .stats_json, .undocumented_json: return false
         }
     }
 }
@@ -41,6 +45,8 @@ extension Sequence where Element == PipelineProduct {
 public final class Pipeline: Configurable {
     /// Options parsing and validation orchestration
     public let config: Config
+    /// Statistics collection and output
+    public let stats: Stats
     /// Info gathering and garnishing
     public let gather: Gather
     /// Duplicate and extension merging, conversion to more formal data structure
@@ -55,7 +61,8 @@ public final class Pipeline: Configurable {
     public let genSite: GenSite
 
     /// User product config
-    private let productsOpt = EnumListOpt<PipelineProduct>(l: "products").def([.docs])
+    private let productsOpt = EnumListOpt<PipelineProduct>(l: "products")
+        .def([.docs, .stats_json, .undocumented_json])
 
     /// Product tracking
     private var productsToDo: Set<PipelineProduct> = []
@@ -84,6 +91,7 @@ public final class Pipeline: Configurable {
         Resources.initialize()
 
         config = Config()
+        stats = Stats(config: config)
         gather = Gather(config: config)
         merge = Merge(config: config)
         group = Group(config: config)
@@ -139,8 +147,21 @@ public final class Pipeline: Configurable {
             if productsAllDone { return }
         }
 
-        logDebug("Pipeline: generating site")
-        try genSite.generateSite(genData: genData)
+        if testAndClearProduct(.docs) {
+            logDebug("Pipeline: generating site")
+            try genSite.generateSite(genData: genData)
+        }
+
+        stats.debugReport()
+        if testAndClearProduct(.stats_json) {
+            logDebug("Pipeline: generating stats")
+            try stats.createStatsFile(outputURL: genSite.outputURL)
+        }
+
+        if testAndClearProduct(.undocumented_json) {
+            logDebug("Pipeline: generating undocumented")
+            try stats.createUndocumentedFile(outputURL: genSite.outputURL)
+        }
     }
 
     /// Callback during options processing.  Important we sort out pipeline mode now to avoid
