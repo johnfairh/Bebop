@@ -18,6 +18,8 @@ public class DefItem: Item, CustomStringConvertible {
     public let defKind: DefKind
     /// USR
     public let usr: USR
+    /// ACL
+    public let acl: DefAcl
     /// Documentation
     public internal(set) var documentation: RichDefDocs
     /// Declarations
@@ -98,8 +100,10 @@ public class DefItem: Item, CustomStringConvertible {
 
         if kind.isObjC {
             otherLanguageName = gatherDef.sourceKittenDict.swiftName
+            acl = DefAcl.forObjC
         } else {
             otherLanguageName = nil // todo swift->objc
+            acl = DefAcl(name: name, dict: gatherDef.sourceKittenDict)
         }
 
         // Sort out children.

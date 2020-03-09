@@ -17,6 +17,9 @@
 /// skip-undocumented
 
 public struct MergeFilter: Configurable {
+    let minAclOpt = EnumOpt<DefAcl>(l: "min-acl").def(.public)
+    var minAcl: DefAcl { minAclOpt.value! }
+
     init(config: Config) {
         config.register(self)
     }

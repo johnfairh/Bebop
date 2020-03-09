@@ -113,3 +113,5 @@ of modules and build options.  See online help.";
 Default: '(docs directory)/stats.json'";
 "output-undocumented" = "Filename to produce a report about symbols that do not have documentation.
 Default: '(docs directory)/undocumented.json'";
+"min-acl" = "Minimum Swift access control level to document.
+Default: 'public'";"

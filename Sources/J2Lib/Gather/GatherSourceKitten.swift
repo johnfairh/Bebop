@@ -16,6 +16,7 @@ enum SwiftDocKey2: String {
     case fullyAnnotatedDecl = "key.fully_annotated_decl"
     case attributes = "key.attributes"
     case moduleName = "key.modulename"
+    case accessibility = "key.accessibility"
 }
 
 // Specific getters
@@ -101,6 +102,10 @@ extension SourceKittenDict {
 
     var parsedScopeEnd: Int? {
         (self[.parsedScopeEnd] as? Int64).flatMap(Int.init)
+    }
+
+    var accessibility: String? {
+        self[.accessibility] as? String
     }
 
     mutating func removeSubstructure() -> [SourceKittenDict] {

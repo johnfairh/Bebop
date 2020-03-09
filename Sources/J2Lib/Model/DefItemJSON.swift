@@ -15,6 +15,7 @@ extension DefItem {
         case location
         case kind
         case usr
+        case acl
         case swiftName
         case objCName
         case swiftDeclaration
@@ -33,6 +34,7 @@ extension DefItem {
         try container.encode(location, forKey: .location)
         try container.encode(defKind.key, forKey: .kind)
         try container.encode(usr.value, forKey: .usr)
+        try container.encode(acl, forKey: .acl)
         try container.encodeIfPresent(swiftName, forKey: .swiftName)
         try container.encodeIfPresent(objCName, forKey: .objCName)
         try container.encodeIfPresent(swiftDeclaration, forKey: .swiftDeclaration)

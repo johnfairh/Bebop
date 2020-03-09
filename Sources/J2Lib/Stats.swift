@@ -90,6 +90,8 @@ struct StatsDb {
         case importFailureIncomplete
         /// Defs not imported because excluded
         case importExcluded
+        /// Defs with a guessed ACL (of `internal`)`
+        case importGuessedAcl
         /// Defs merged as dup definitions
         case mergeDupUsr
         /// Defs with colliding USRs
