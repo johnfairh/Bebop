@@ -110,5 +110,6 @@ public final class GatherDef {
         self.objCDeclaration = nil
         self.documentation = nil
         self.localizationKey = nil
+        Stats.inc(.gatherDef)
     }
 }

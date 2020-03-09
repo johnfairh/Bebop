@@ -70,6 +70,8 @@ final class MarkdownFormatter: ItemVisitorProtocol {
 
         let html = doc.node.renderHtml()
 
+        Stats.inc(.formatMarkdown)
+
         return (md, html)
     }
 

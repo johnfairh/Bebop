@@ -165,8 +165,10 @@ fileprivate extension DefItem {
             if defKind == newItem.defKind {
                 // A straight duplicate, probably from a different pass.
                 mergeAvailabilities(from: newItem)
+                Stats.inc(.mergeDupUsr)
             } else {
                 logWarning(.localized(.wrnUsrCollision, self, newItem))
+                Stats.inc(.mergeDupUsrMismatch)
             }
         }
     }
@@ -302,6 +304,7 @@ fileprivate extension DefItem {
         } else {
             add(declNote: .defaultImplementation)
         }
+        Stats.inc(.mergeDefaultImplementation)
 
         // hmm availability...
     }
@@ -311,6 +314,7 @@ fileprivate extension DefItem {
     func makeDefaultImplementation() {
         documentation.makeDefaultImplementation()
         add(declNote: .conditionalDefaultImplementation)
+        Stats.inc(.mergeDemoteDefaultImplementation)
     }
 }
 

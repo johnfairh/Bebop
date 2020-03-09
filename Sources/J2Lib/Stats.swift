@@ -66,10 +66,36 @@ public final class Stats: Configurable {
 /// The actual stats -- counters and a list of undocumented definitions
 struct StatsDb {
     enum Counter: String, Encodable, CaseIterable {
-        /// Definitions successfully collected at Gather
+        /// Defs successfully created from some input source
         case gatherDef
-        /// Definitions dropped at Gather
+        /// Defs that failed to create from some input source
         case gatherFailure
+        /// Markdown chunks processed for localization keys
+        case gatherLocalizationKey
+        /// Markdown localization successes
+        case gatherLocalizationSuccess
+        /// Markdown localization failures
+        case gatherLocalizationFailure
+        /// Defs rejected because of a missing root
+        case importFailureNoRoot
+        /// Defs rejected because of a definite compilation error
+        case importFailureNoType
+        /// Defs rejected because of usr, dup or compilation error
+        case importFailureNoUsr
+        /// Defs rejected because incomplete
+        case importFailureIncomplete
+        /// Defs not imported because excluded
+        case importExcluded
+        /// Defs merged as dup definitions
+        case mergeDupUsr
+        /// Defs with colliding USRs
+        case mergeDupUsrMismatch
+        /// Defs merged as default implementation
+        case mergeDefaultImplementation
+        /// Defs demoted to default implementation
+        case mergeDemoteDefaultImplementation
+        /// Markdown chunks formatted
+        case formatMarkdown
     }
     private var counters = [String : Int]()
 
