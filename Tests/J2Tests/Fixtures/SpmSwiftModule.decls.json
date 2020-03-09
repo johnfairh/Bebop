@@ -1,7 +1,9 @@
 [
   {
+    "acl" : "internal",
     "children" : [
       {
+        "acl" : "internal",
         "children" : [],
         "kind" : "source.lang.swift.decl.var.instance",
         "location" : {
@@ -34,6 +36,7 @@
         "usr" : "s:14SpmSwiftModule11GenericBaseC5boxedxvp"
       },
       {
+        "acl" : "internal",
         "children" : [],
         "kind" : "source.lang.swift.decl.function.constructor",
         "location" : {
@@ -69,6 +72,7 @@
         "usr" : "s:14SpmSwiftModule11GenericBaseC4typeACyxGx_tcfc"
       },
       {
+        "acl" : "internal",
         "children" : [],
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
@@ -101,6 +105,7 @@
         "usr" : "s:14SpmSwiftModule11GenericBaseC6mutifyxyF"
       },
       {
+        "acl" : "internal",
         "children" : [],
         "kind" : "source.lang.swift.decl.var.instance",
         "location" : {
@@ -141,6 +146,7 @@
         "usr" : "s:s23CustomStringConvertibleP11descriptionSSvp"
       },
       {
+        "acl" : "internal",
         "children" : [],
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
@@ -186,6 +192,7 @@
         "usr" : "s:14SpmSwiftModule11GenericBaseCA2A13FirstProtocolRzSQRzlE02doF5MagicyyF"
       },
       {
+        "acl" : "internal",
         "children" : [],
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
@@ -218,6 +225,7 @@
         "usr" : "s:14SpmSwiftModule11GenericBaseCA2A13FirstProtocolRzSQRzlE11doMoreMagicyyF"
       },
       {
+        "acl" : "internal",
         "children" : [],
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
@@ -258,6 +266,7 @@
         "usr" : "s:14SpmSwiftModule11GenericBaseCAASHRzlE10doHashableyyF"
       },
       {
+        "acl" : "internal",
         "children" : [],
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
@@ -334,8 +343,10 @@
     "usr" : "s:14SpmSwiftModule11GenericBaseC"
   },
   {
+    "acl" : "public",
     "children" : [
       {
+        "acl" : "public",
         "children" : [],
         "decl_notes" : [
           {
@@ -419,6 +430,7 @@
         "usr" : "s:14SpmSwiftModule13FirstProtocolP1m3argSSSi_tF"
       },
       {
+        "acl" : "public",
         "children" : [],
         "kind" : "source.lang.swift.decl.associatedtype",
         "location" : {
@@ -448,6 +460,7 @@
         "usr" : "s:14SpmSwiftModule13FirstProtocolP9AssocTypeQa"
       },
       {
+        "acl" : "public",
         "children" : [],
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
@@ -480,6 +493,7 @@
         "usr" : "s:14SpmSwiftModule13FirstProtocolP9assocFunc9AssocTypeQzyF"
       },
       {
+        "acl" : "internal",
         "children" : [],
         "decl_notes" : [
           {
@@ -525,6 +539,7 @@
         "usr" : "s:14SpmSwiftModule13FirstProtocolPAAE1eyyF"
       },
       {
+        "acl" : "internal",
         "children" : [],
         "decl_notes" : [
           {
@@ -575,6 +590,7 @@
         "usr" : "s:14SpmSwiftModule13FirstProtocolPAASH9AssocTypeRpzrlE17extHashableMethodyyF"
       },
       {
+        "acl" : "internal",
         "children" : [],
         "decl_notes" : [
           {
@@ -662,8 +678,10 @@
     "usr" : "s:14SpmSwiftModule13FirstProtocolP"
   },
   {
+    "acl" : "public",
     "children" : [
       {
+        "acl" : "public",
         "children" : [],
         "kind" : "source.lang.swift.decl.var.instance",
         "location" : {
@@ -704,8 +722,10 @@
         "usr" : "s:14SpmSwiftModuleAAV4textSSvp"
       },
       {
+        "acl" : "public",
         "children" : [
           {
+            "acl" : "public",
             "children" : [],
             "kind" : "source.lang.swift.decl.struct",
             "location" : {
@@ -735,6 +755,7 @@
             "usr" : "s:14SpmSwiftModuleAAV7Nested1V8Nested2aV"
           },
           {
+            "acl" : "public",
             "children" : [],
             "kind" : "source.lang.swift.decl.struct",
             "location" : {
@@ -803,6 +824,7 @@
         "usr" : "s:14SpmSwiftModuleAAV7Nested1V"
       },
       {
+        "acl" : "public",
         "children" : [],
         "kind" : "source.lang.swift.decl.struct",
         "location" : {
@@ -876,8 +898,10 @@
     "usr" : "s:14SpmSwiftModuleAAV"
   },
   {
+    "acl" : "public",
     "children" : [
       {
+        "acl" : "public",
         "children" : [],
         "documentation" : {
           "abstract" : {
@@ -918,6 +942,7 @@
         "usr" : "s:14SpmSwiftModule6AnEnumO5firstyACSicACmF"
       },
       {
+        "acl" : "public",
         "children" : [],
         "documentation" : {
           "abstract" : {
@@ -955,6 +980,7 @@
         "usr" : "s:14SpmSwiftModule6AnEnumO6secondyA2CmF"
       },
       {
+        "acl" : "public",
         "children" : [],
         "documentation" : {
           "abstract" : {
@@ -992,6 +1018,7 @@
         "usr" : "s:14SpmSwiftModule6AnEnumO5thirdyA2CmF"
       },
       {
+        "acl" : "public",
         "children" : [],
         "kind" : "source.lang.swift.decl.enumelement",
         "location" : {
@@ -1021,6 +1048,7 @@
         "usr" : "s:14SpmSwiftModule6AnEnumO6fourthyA2CmF"
       },
       {
+        "acl" : "public",
         "children" : [],
         "documentation" : {
           "abstract" : {
@@ -1103,6 +1131,7 @@
     "usr" : "s:14SpmSwiftModule6AnEnumO"
   },
   {
+    "acl" : "public",
     "children" : [],
     "documentation" : {
       "parameters" : [
@@ -1178,6 +1207,7 @@
     "usr" : "s:14SpmSwiftModule9functionA4arg1_4arg3ySi_S2itF"
   },
   {
+    "acl" : "public",
     "children" : [],
     "documentation" : {
       "abstract" : {
@@ -1241,8 +1271,10 @@
     "usr" : "s:14SpmSwiftModule18deprecatedFunction8callbackSSSiSSXE_tF"
   },
   {
+    "acl" : "public",
     "children" : [
       {
+        "acl" : "public",
         "children" : [],
         "kind" : "source.lang.swift.decl.function.constructor",
         "location" : {
@@ -1272,6 +1304,7 @@
         "usr" : "s:14SpmSwiftModule10ABaseClassCACycfc"
       },
       {
+        "acl" : "internal",
         "children" : [],
         "kind" : "source.lang.swift.decl.function.destructor",
         "location" : {
@@ -1298,6 +1331,7 @@
         "usr" : "s:14SpmSwiftModule10ABaseClassCfd"
       },
       {
+        "acl" : "public",
         "children" : [],
         "documentation" : {
           "abstract" : {
@@ -1344,6 +1378,7 @@
         "usr" : "s:14SpmSwiftModule10ABaseClassC6method5paramSSSi_tF"
       },
       {
+        "acl" : "public",
         "children" : [],
         "kind" : "source.lang.swift.decl.function.subscript",
         "location" : {
@@ -1415,8 +1450,10 @@
     "usr" : "s:14SpmSwiftModule10ABaseClassC"
   },
   {
+    "acl" : "public",
     "children" : [
       {
+        "acl" : "internal",
         "children" : [],
         "kind" : "source.lang.swift.decl.var.instance",
         "location" : {
@@ -1449,6 +1486,7 @@
         "usr" : "s:14SpmSwiftModule13ADerivedClassC1tq_Sgvp"
       },
       {
+        "acl" : "public",
         "children" : [],
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
@@ -1487,6 +1525,7 @@
         "usr" : "s:14SpmSwiftModule13ADerivedClassC6method5paramSSSi_tF"
       },
       {
+        "acl" : "public",
         "children" : [],
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
@@ -1567,8 +1606,10 @@
     "usr" : "s:14SpmSwiftModule13ADerivedClassC"
   },
   {
+    "acl" : "internal",
     "children" : [
       {
+        "acl" : "internal",
         "children" : [],
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
@@ -1614,6 +1655,7 @@
         "usr" : "s:Sl14SpmSwiftModuleAA13FirstProtocol7ElementRpzrlE12collectEmAllyyF"
       },
       {
+        "acl" : "internal",
         "children" : [],
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
@@ -1696,8 +1738,10 @@
     "usr" : "s:Sl"
   },
   {
+    "acl" : "internal",
     "children" : [
       {
+        "acl" : "internal",
         "children" : [],
         "documentation" : {
           "abstract" : {
@@ -1738,6 +1782,7 @@
         "usr" : "s:SJ14SpmSwiftModuleE7method1yyF"
       },
       {
+        "acl" : "internal",
         "children" : [],
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {

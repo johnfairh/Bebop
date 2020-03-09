@@ -51,6 +51,7 @@
 		0259E1912414F5A5006435A1 /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0259E1902414F5A5006435A1 /* Stats.swift */; };
 		0259E1932416444F006435A1 /* TestStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0259E1922416444F006435A1 /* TestStats.swift */; };
 		0259E1952416686D006435A1 /* DefAcl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0259E1942416686D006435A1 /* DefAcl.swift */; };
+		0259E1982416A693006435A1 /* TestAcl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0259E1962416A674006435A1 /* TestAcl.swift */; };
 		028321D723FB1F4F00B2C555 /* GatherObjCDecl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028321D623FB1F4F00B2C555 /* GatherObjCDecl.swift */; };
 		028321F92403F40200B2C555 /* Exec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028321F82403F40200B2C555 /* Exec.swift */; };
 		029A6F1923D77F7C00D66069 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029A6F1823D77F7C00D66069 /* Config.swift */; };
@@ -253,6 +254,7 @@
 		0259E1902414F5A5006435A1 /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
 		0259E1922416444F006435A1 /* TestStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestStats.swift; sourceTree = "<group>"; };
 		0259E1942416686D006435A1 /* DefAcl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefAcl.swift; sourceTree = "<group>"; };
+		0259E1962416A674006435A1 /* TestAcl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAcl.swift; sourceTree = "<group>"; };
 		028321D623FB1F4F00B2C555 /* GatherObjCDecl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherObjCDecl.swift; sourceTree = "<group>"; };
 		028321F82403F40200B2C555 /* Exec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exec.swift; sourceTree = "<group>"; };
 		029A6F1823D77F7C00D66069 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -483,6 +485,7 @@
 				0233D54C23F9B255004DCD89 /* TestGatherObjC.swift */,
 				02FDC67D23E89E8300C2F9CD /* TestMarkdown.swift */,
 				02CFFA1E23E20E7500FDE5B9 /* TestMerge.swift */,
+				0259E1962416A674006435A1 /* TestAcl.swift */,
 				0233D53023EF4047004DCD89 /* TestGroup.swift */,
 				0233D53223EF43A7004DCD89 /* TestFormat.swift */,
 				02CFFA2423E2244C00FDE5B9 /* TestTheme.swift */,
@@ -899,6 +902,7 @@
 				0233D53123EF4047004DCD89 /* TestGroup.swift in Sources */,
 				0259E1932416444F006435A1 /* TestStats.swift in Sources */,
 				0257281123DB7E5E0001F510 /* TestPipeline.swift in Sources */,
+				0259E1982416A693006435A1 /* TestAcl.swift in Sources */,
 				029A717923D9A46300D66069 /* TestLogger.swift in Sources */,
 				0233D54723F5ED95004DCD89 /* TestProducts.swift in Sources */,
 				02CFFA2A23E30F9E00FDE5B9 /* TestGen.swift in Sources */,

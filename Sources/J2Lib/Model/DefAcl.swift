@@ -57,10 +57,12 @@ public enum DefAcl: String, Comparable, CaseIterable, Encodable {
         .open
     }
 
+    /// List of ACLs included by one
     static func includedBy(acl: DefAcl) -> [DefAcl] {
         allCases.filter { $0 >= acl }
     }
 
+    /// List of ACLs excluded by one
     static func excludedBy(acl: DefAcl) -> [DefAcl] {
         allCases.filter { $0 < acl }
     }

@@ -140,6 +140,10 @@ extension SourceKittenDict {
         with(field: .typeName, value: typename)
     }
 
+    func with(accessibility: DefAcl) -> Self {
+        with(field: "key.accessibility", value: "source.lang.swift.accessibility.\(accessibility.rawValue)")
+    }
+
     #if os(macOS)
     func with(okind: ObjCDeclarationKind) -> Self {
         with(field: .kind, value: okind.rawValue)
