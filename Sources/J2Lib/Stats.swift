@@ -36,7 +36,7 @@ public final class Stats: Configurable {
 
     /// Write out the accumulated stats to a file
     func createStatsFile(outputURL: URL) throws {
-        let url = chooseURL(docURL: outputURL, opt: outputStatsOpt, basename: "stats.json")
+        let url = try chooseURL(docURL: outputURL, opt: outputStatsOpt, basename: "stats.json")
         try Self.db.buildStatsJSON().write(to: url)
     }
 
@@ -46,18 +46,22 @@ public final class Stats: Configurable {
             logDebug("Stats: No undocumented defs, not writing undoc file.")
             return
         }
-        let url = chooseURL(docURL: outputURL, opt: outputUndocOpt, basename: "undocumented.json")
+        let url = try chooseURL(docURL: outputURL, opt: outputUndocOpt, basename: "undocumented.json")
         try undocJSON.write(to: url)
     }
 
-    private func chooseURL(docURL: URL, opt: PathOpt, basename: String) -> URL {
+    private func chooseURL(docURL: URL, opt: PathOpt, basename: String) throws -> URL {
+        let url: URL
         if let userURL = opt.value {
             logDebug("Stats: Using user URL for \(basename): \(userURL.path)")
-            return userURL
+            url = userURL
+        } else {
+            url = docURL.appendingPathComponent(basename)
+            logDebug("Stats: Using docs URL for \(basename): \(url.path)")
         }
-        let defaultURL = docURL.appendingPathComponent(basename)
-        logDebug("Stats: Using docs URL for \(basename): \(defaultURL.path)")
-        return defaultURL
+        try FileManager.default.createDirectory(at: url.deletingLastPathComponent(),
+                                                withIntermediateDirectories: true)
+        return url
     }
 }
 
