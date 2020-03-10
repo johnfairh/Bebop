@@ -34,6 +34,11 @@
               "anchor_id" : "genericbase",
               "dash_type" : "Class",
               "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented.<\/p>"
+                  }
+                },
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
@@ -223,6 +228,11 @@
         ]
       ],
       "def" : {
+        "abstract" : {
+          "en" : {
+            "html" : "<p>Undocumented.<\/p>"
+          }
+        },
         "availability" : [],
         "params" : [],
         "swift_declaration" : {
@@ -243,6 +253,11 @@
               "anchor_id" : "boxed",
               "dash_type" : "Property",
               "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented.<\/p>"
+                  }
+                },
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
@@ -261,6 +276,11 @@
               "anchor_id" : "inittype",
               "dash_type" : "Constructor",
               "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented.<\/p>"
+                  }
+                },
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
@@ -279,6 +299,11 @@
               "anchor_id" : "mutify",
               "dash_type" : "Method",
               "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented.<\/p>"
+                  }
+                },
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
@@ -318,6 +343,11 @@
               "anchor_id" : "description",
               "dash_type" : "Property",
               "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented.<\/p>"
+                  }
+                },
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
@@ -357,6 +387,11 @@
               "anchor_id" : "dofirstmagic",
               "dash_type" : "Method",
               "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented.<\/p>"
+                  }
+                },
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
@@ -375,6 +410,11 @@
               "anchor_id" : "domoremagic",
               "dash_type" : "Method",
               "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented.<\/p>"
+                  }
+                },
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
@@ -414,6 +454,11 @@
               "anchor_id" : "dohashable",
               "dash_type" : "Method",
               "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented.<\/p>"
+                  }
+                },
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
@@ -453,6 +498,11 @@
               "anchor_id" : "docodability",
               "dash_type" : "Method",
               "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented.<\/p>"
+                  }
+                },
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
@@ -591,6 +641,11 @@
               "anchor_id" : "assoctype",
               "dash_type" : "Type",
               "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented.<\/p>"
+                  }
+                },
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
@@ -609,6 +664,11 @@
               "anchor_id" : "assocfunc",
               "dash_type" : "Method",
               "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented.<\/p>"
+                  }
+                },
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
@@ -704,6 +764,11 @@
               "anchor_id" : "exthashablemethod",
               "dash_type" : "Method",
               "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented.<\/p>"
+                  }
+                },
                 "availability" : [],
                 "notes" : {
                   "en" : {
@@ -818,6 +883,11 @@
               "anchor_id" : "text",
               "dash_type" : "Property",
               "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented.<\/p>"
+                  }
+                },
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
@@ -857,6 +927,11 @@
               "anchor_id" : "nested1",
               "dash_type" : "Struct",
               "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented.<\/p>"
+                  }
+                },
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
@@ -878,6 +953,11 @@
               "anchor_id" : "nested2",
               "dash_type" : "Struct",
               "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented.<\/p>"
+                  }
+                },
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
@@ -942,6 +1022,11 @@
         ]
       ],
       "def" : {
+        "abstract" : {
+          "en" : {
+            "html" : "<p>Undocumented.<\/p>"
+          }
+        },
         "availability" : [],
         "params" : [],
         "swift_declaration" : {
@@ -962,6 +1047,11 @@
               "anchor_id" : "nested2a",
               "dash_type" : "Struct",
               "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented.<\/p>"
+                  }
+                },
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
@@ -983,6 +1073,11 @@
               "anchor_id" : "nested2b",
               "dash_type" : "Struct",
               "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented.<\/p>"
+                  }
+                },
                 "availability" : [],
                 "deprecation" : {
                   "en" : {
@@ -1060,6 +1155,11 @@
         ]
       ],
       "def" : {
+        "abstract" : {
+          "en" : {
+            "html" : "<p>Undocumented.<\/p>"
+          }
+        },
         "availability" : [],
         "params" : [],
         "swift_declaration" : {
@@ -1240,6 +1340,11 @@
               "anchor_id" : "fourth",
               "dash_type" : "Case",
               "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented.<\/p>"
+                  }
+                },
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
@@ -1344,6 +1449,11 @@
               "anchor_id" : "init",
               "dash_type" : "Constructor",
               "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented.<\/p>"
+                  }
+                },
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
@@ -1362,6 +1472,11 @@
               "anchor_id" : "deinit",
               "dash_type" : "Method",
               "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented.<\/p>"
+                  }
+                },
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
@@ -1403,6 +1518,11 @@
               "anchor_id" : "subscript_",
               "dash_type" : "Method",
               "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented.<\/p>"
+                  }
+                },
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
@@ -1484,6 +1604,11 @@
               "anchor_id" : "t2",
               "dash_type" : "Property",
               "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented.<\/p>"
+                  }
+                },
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
@@ -1502,6 +1627,11 @@
               "anchor_id" : "methodparam1",
               "dash_type" : "Method",
               "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented.<\/p>"
+                  }
+                },
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
@@ -1520,6 +1650,11 @@
               "anchor_id" : "genericparam",
               "dash_type" : "Method",
               "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented.<\/p>"
+                  }
+                },
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
@@ -1851,6 +1986,11 @@
               "anchor_id" : "collectemall",
               "dash_type" : "Method",
               "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented.<\/p>"
+                  }
+                },
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
@@ -1890,6 +2030,11 @@
               "anchor_id" : "nestemall",
               "dash_type" : "Method",
               "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented.<\/p>"
+                  }
+                },
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
@@ -1994,6 +2139,11 @@
               "anchor_id" : "method2",
               "dash_type" : "Method",
               "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented.<\/p>"
+                  }
+                },
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {

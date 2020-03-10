@@ -25,7 +25,7 @@ fileprivate struct System {
         group = Group(config: config)
         format = Format(config: config)
         sitegen = GenSite(config: config)
-        try! config.processOptions(cliOpts: cliArgs)
+        try! config.processOptions(cliOpts: cliArgs + ["--min-acl=private"])
     }
 
     func run(_ passes: [GatherModulePass]) throws -> [Item] {

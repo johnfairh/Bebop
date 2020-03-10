@@ -100,6 +100,20 @@ struct StatsDb {
         case mergeDefaultImplementation
         /// Defs demoted to default implementation
         case mergeDemoteDefaultImplementation
+        /// Defs excluded by filename
+        case filterFilename
+        /// Defs excluded by :nodoc:
+        case filterNoDoc
+        /// Defs excluded by min-acl
+        case filterMinAclExcluded
+        /// Defs included by min-acl
+        case filterMinAclIncluded
+        /// Extensions excluded by being empty
+        case filterUselessExtension
+        /// Defs without documentation that should have them
+        case missingDocumentation
+        /// Defs excluded because no docs and skip-undoc
+        case filterSkipUndocumented
         /// Markdown chunks formatted
         case formatMarkdown
     }
@@ -120,19 +134,18 @@ struct StatsDb {
         try JSON.encode(counters) + "\n"
     }
 
-    private var undocumented = [DefItem]()
+    private var undocumented = [DefItem.UndocInfo]()
 
     mutating func addUndocumented(item: DefItem) {
-        undocumented.append(item)
+        undocumented.append(item.asUndocInfo)
+        inc(.missingDocumentation)
     }
 
     func buildUndocumentedJSON() throws -> String? {
         guard !undocumented.isEmpty else {
             return nil
         }
-        let undocs = undocumented
-            .map { $0.asUndocInfo }
-            .sorted(by: <)
+        let undocs = undocumented.sorted(by: <)
         return try JSON.encode(undocs) + "\n"
     }
 

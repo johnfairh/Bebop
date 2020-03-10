@@ -18,7 +18,7 @@ fileprivate struct System {
         config = Config()
         merge = Merge(config: config)
         group = Group(config: config)
-        try! config.processOptions(cliOpts: cliArgs)
+        try! config.processOptions(cliOpts: cliArgs + ["--min-acl=private"])
     }
 
     func run(_ passes: [GatherModulePass]) throws -> [Item] {

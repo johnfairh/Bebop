@@ -18,6 +18,7 @@ fileprivate struct System {
         var merge = Merge(config: config)
         merge.enablePhase2 = mergeP2
         self.merge = merge
+        try! config.processOptions(cliOpts: ["--min-acl=private"])
     }
 }
 

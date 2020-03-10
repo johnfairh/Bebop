@@ -83,7 +83,9 @@ class TestProducts: XCTestCase {
     }
 
     func testDeclsJsonSwift() throws {
-        try compareSwift(product: "decls-json", against: "SpmSwiftModule.decls.json")
+        try compareSwift(product: "decls-json",
+                         cliArgs: ["--min-acl=private"],
+                         against: "SpmSwiftModule.decls.json")
     }
 
     #if os(macOS)
@@ -100,20 +102,23 @@ class TestProducts: XCTestCase {
             .appendingPathComponent("SpmSwiftPackage")
             .appendingPathComponent("mixed-objc-swift-j2.yaml")
         try compareSwift(product: "docs-summary-json",
-                         cliArgs: ["--config=\(configURL.path)"],
+                         cliArgs: ["--config=\(configURL.path)", "--min-acl=private"],
                          against: "MixedSwiftObjC.docs-summary.json")
     }
     #endif
 
     func testPageGenSwift() throws {
         try compareSwift(product: "docs-summary-json",
-                         cliArgs: ["--modules=SpmSwiftModule,SpmSwiftModule2,SpmSwiftModule3"],
+                         cliArgs: ["--modules=SpmSwiftModule,SpmSwiftModule2,SpmSwiftModule3",
+                                   "--min-acl=private"],
                          against: "SpmSwiftModule.docs-summary.json")
     }
 
     func testSiteGenSwift() throws {
         setenv("J2_STATIC_DATE", strdup("1") /* leak it */, 1)
         defer { unsetenv("J2_STATIC_DATE") }
-        try compareSwift(product: "docs-json", against: "SpmSwiftModule.docs.json")
+        try compareSwift(product: "docs-json",
+                         cliArgs: ["--min-acl=private"],
+                         against: "SpmSwiftModule.docs.json")
     }
 }

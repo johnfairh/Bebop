@@ -5,6 +5,14 @@
       {
         "acl" : "internal",
         "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented."
+            }
+          },
+          "parameters" : []
+        },
         "kind" : "source.lang.swift.decl.var.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
@@ -38,6 +46,14 @@
       {
         "acl" : "internal",
         "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented."
+            }
+          },
+          "parameters" : []
+        },
         "kind" : "source.lang.swift.decl.function.constructor",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
@@ -74,6 +90,14 @@
       {
         "acl" : "internal",
         "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented."
+            }
+          },
+          "parameters" : []
+        },
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
@@ -107,6 +131,14 @@
       {
         "acl" : "internal",
         "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented."
+            }
+          },
+          "parameters" : []
+        },
         "kind" : "source.lang.swift.decl.var.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
@@ -148,6 +180,14 @@
       {
         "acl" : "internal",
         "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented."
+            }
+          },
+          "parameters" : []
+        },
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
@@ -194,6 +234,14 @@
       {
         "acl" : "internal",
         "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented."
+            }
+          },
+          "parameters" : []
+        },
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
@@ -227,6 +275,14 @@
       {
         "acl" : "internal",
         "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented."
+            }
+          },
+          "parameters" : []
+        },
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
@@ -268,6 +324,14 @@
       {
         "acl" : "internal",
         "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented."
+            }
+          },
+          "parameters" : []
+        },
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
@@ -312,6 +376,14 @@
         "usr" : "s:14SpmSwiftModule11GenericBaseCAASeRzSERzlE12doCodabilityyyF"
       }
     ],
+    "documentation" : {
+      "abstract" : {
+        "markdown" : {
+          "en" : "Undocumented."
+        }
+      },
+      "parameters" : []
+    },
     "generic_type_parameters" : [
       "T"
     ],
@@ -432,6 +504,14 @@
       {
         "acl" : "public",
         "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented."
+            }
+          },
+          "parameters" : []
+        },
         "kind" : "source.lang.swift.decl.associatedtype",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
@@ -462,6 +542,14 @@
       {
         "acl" : "public",
         "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented."
+            }
+          },
+          "parameters" : []
+        },
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
@@ -546,6 +634,14 @@
             "protocol_extension_member" : true
           }
         ],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented."
+            }
+          },
+          "parameters" : []
+        },
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
@@ -683,6 +779,14 @@
       {
         "acl" : "public",
         "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented."
+            }
+          },
+          "parameters" : []
+        },
         "kind" : "source.lang.swift.decl.var.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -727,6 +831,14 @@
           {
             "acl" : "public",
             "children" : [],
+            "documentation" : {
+              "abstract" : {
+                "markdown" : {
+                  "en" : "Undocumented."
+                }
+              },
+              "parameters" : []
+            },
             "kind" : "source.lang.swift.decl.struct",
             "location" : {
               "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -757,6 +869,14 @@
           {
             "acl" : "public",
             "children" : [],
+            "documentation" : {
+              "abstract" : {
+                "markdown" : {
+                  "en" : "Undocumented."
+                }
+              },
+              "parameters" : []
+            },
             "kind" : "source.lang.swift.decl.struct",
             "location" : {
               "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -788,6 +908,14 @@
             "usr" : "s:14SpmSwiftModuleAAV7Nested1V8Nested2bV"
           }
         ],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented."
+            }
+          },
+          "parameters" : []
+        },
         "kind" : "source.lang.swift.decl.struct",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -826,6 +954,14 @@
       {
         "acl" : "public",
         "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented."
+            }
+          },
+          "parameters" : []
+        },
         "kind" : "source.lang.swift.decl.struct",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -1020,6 +1156,14 @@
       {
         "acl" : "public",
         "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented."
+            }
+          },
+          "parameters" : []
+        },
         "kind" : "source.lang.swift.decl.enumelement",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -1276,6 +1420,14 @@
       {
         "acl" : "public",
         "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented."
+            }
+          },
+          "parameters" : []
+        },
         "kind" : "source.lang.swift.decl.function.constructor",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -1306,6 +1458,14 @@
       {
         "acl" : "internal",
         "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented."
+            }
+          },
+          "parameters" : []
+        },
         "kind" : "source.lang.swift.decl.function.destructor",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -1380,6 +1540,14 @@
       {
         "acl" : "public",
         "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented."
+            }
+          },
+          "parameters" : []
+        },
         "kind" : "source.lang.swift.decl.function.subscript",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -1455,6 +1623,14 @@
       {
         "acl" : "internal",
         "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented."
+            }
+          },
+          "parameters" : []
+        },
         "kind" : "source.lang.swift.decl.var.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -1488,6 +1664,14 @@
       {
         "acl" : "public",
         "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented."
+            }
+          },
+          "parameters" : []
+        },
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -1527,6 +1711,14 @@
       {
         "acl" : "public",
         "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented."
+            }
+          },
+          "parameters" : []
+        },
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -1611,6 +1803,14 @@
       {
         "acl" : "internal",
         "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented."
+            }
+          },
+          "parameters" : []
+        },
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
@@ -1657,6 +1857,14 @@
       {
         "acl" : "internal",
         "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented."
+            }
+          },
+          "parameters" : []
+        },
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
@@ -1784,6 +1992,14 @@
       {
         "acl" : "internal",
         "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented."
+            }
+          },
+          "parameters" : []
+        },
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",

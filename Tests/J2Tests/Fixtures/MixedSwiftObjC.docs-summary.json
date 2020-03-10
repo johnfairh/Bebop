@@ -251,6 +251,11 @@
               "anchor_id" : "objcnormalmethod",
               "dash_type" : "Method",
               "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented.<\/p>"
+                  }
+                },
                 "availability" : [],
                 "obj_c_declaration" : {
                   "html" : "- (void)objcNormalMethod"
@@ -388,6 +393,11 @@
               "anchor_id" : "jmlkitchenmethod",
               "dash_type" : "Method",
               "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented.<\/p>"
+                  }
+                },
                 "availability" : [],
                 "obj_c_declaration" : {
                   "html" : "- (void)jmlKitchenMethod NS_SWIFT_NAME(kitchenMethod())"
@@ -525,6 +535,11 @@
               "anchor_id" : "jmlkitchencupboardmethod",
               "dash_type" : "Method",
               "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented.<\/p>"
+                  }
+                },
                 "availability" : [],
                 "obj_c_declaration" : {
                   "html" : "-(void)jmlKitchenCupboardMethod"
@@ -628,6 +643,11 @@
               "anchor_id" : "jmlbathroomcupboardmethod",
               "dash_type" : "Method",
               "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented.<\/p>"
+                  }
+                },
                 "availability" : [],
                 "obj_c_declaration" : {
                   "html" : "-(void)jmlBathroomCupboardMethod"

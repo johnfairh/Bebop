@@ -147,6 +147,7 @@
             "dash_name" : "class%20GenericBase",
             "dash_type" : "Class",
             "def" : {
+              "abstract_html" : "<p>Undocumented.<\/p>",
               "swift_declaration_html" : "class GenericBase&lt;T&gt;\n\nextension GenericBase : CustomStringConvertible"
             },
             "primary_language" : "j2-swift",
@@ -249,6 +250,7 @@
     "breadcrumbs_root" : "SpmSwiftModule",
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "def" : {
+      "abstract_html" : "<p>Undocumented.<\/p>",
       "swift_declaration_html" : "class GenericBase&lt;T&gt;\n\nextension GenericBase : CustomStringConvertible"
     },
     "default_language" : "j2-swift",
@@ -384,6 +386,7 @@
             "dash_name" : "var%20boxed%3A%20T",
             "dash_type" : "Property",
             "def" : {
+              "abstract_html" : "<p>Undocumented.<\/p>",
               "swift_declaration_html" : "var boxed: T"
             },
             "primary_language" : "j2-swift",
@@ -396,6 +399,7 @@
             "dash_name" : "init(type%3A%20T)",
             "dash_type" : "Constructor",
             "def" : {
+              "abstract_html" : "<p>Undocumented.<\/p>",
               "swift_declaration_html" : "init(type: T)"
             },
             "primary_language" : "j2-swift",
@@ -408,6 +412,7 @@
             "dash_name" : "func%20mutify()%20-%3E%20T",
             "dash_type" : "Method",
             "def" : {
+              "abstract_html" : "<p>Undocumented.<\/p>",
               "swift_declaration_html" : "func mutify() -&gt; T"
             },
             "primary_language" : "j2-swift",
@@ -427,6 +432,7 @@
             "dash_name" : "var%20description%3A%20String",
             "dash_type" : "Property",
             "def" : {
+              "abstract_html" : "<p>Undocumented.<\/p>",
               "swift_declaration_html" : "var description: String { get }"
             },
             "primary_language" : "j2-swift",
@@ -447,6 +453,7 @@
             "dash_name" : "func%20doFirstMagic()",
             "dash_type" : "Method",
             "def" : {
+              "abstract_html" : "<p>Undocumented.<\/p>",
               "swift_declaration_html" : "func doFirstMagic()"
             },
             "primary_language" : "j2-swift",
@@ -459,6 +466,7 @@
             "dash_name" : "func%20doMoreMagic()",
             "dash_type" : "Method",
             "def" : {
+              "abstract_html" : "<p>Undocumented.<\/p>",
               "swift_declaration_html" : "func doMoreMagic()"
             },
             "primary_language" : "j2-swift",
@@ -479,6 +487,7 @@
             "dash_name" : "func%20doHashable()",
             "dash_type" : "Method",
             "def" : {
+              "abstract_html" : "<p>Undocumented.<\/p>",
               "swift_declaration_html" : "func doHashable()"
             },
             "primary_language" : "j2-swift",
@@ -499,6 +508,7 @@
             "dash_name" : "func%20doCodability()",
             "dash_type" : "Method",
             "def" : {
+              "abstract_html" : "<p>Undocumented.<\/p>",
               "swift_declaration_html" : "func doCodability()"
             },
             "primary_language" : "j2-swift",
@@ -717,6 +727,7 @@
             "dash_name" : "associatedtype%20AssocType",
             "dash_type" : "Type",
             "def" : {
+              "abstract_html" : "<p>Undocumented.<\/p>",
               "swift_declaration_html" : "associatedtype AssocType"
             },
             "primary_language" : "j2-swift",
@@ -729,6 +740,7 @@
             "dash_name" : "func%20assocFunc()%20-%3E%20AssocType",
             "dash_type" : "Method",
             "def" : {
+              "abstract_html" : "<p>Undocumented.<\/p>",
               "swift_declaration_html" : "func assocFunc() -&gt; AssocType"
             },
             "primary_language" : "j2-swift",
@@ -762,6 +774,7 @@
             "dash_name" : "func%20extHashableMethod()",
             "dash_type" : "Method",
             "def" : {
+              "abstract_html" : "<p>Undocumented.<\/p>",
               "notes_html" : "<p>From a protocol extension: not a customization point.<\/p>",
               "swift_declaration_html" : "func extHashableMethod()"
             },
@@ -959,6 +972,7 @@
             "dash_name" : "var%20text%3A%20String",
             "dash_type" : "Property",
             "def" : {
+              "abstract_html" : "<p>Undocumented.<\/p>",
               "swift_declaration_html" : "public var text: String"
             },
             "primary_language" : "j2-swift",
@@ -979,6 +993,7 @@
             "dash_name" : "struct%20Nested1",
             "dash_type" : "Struct",
             "def" : {
+              "abstract_html" : "<p>Undocumented.<\/p>",
               "swift_declaration_html" : "public struct Nested1"
             },
             "primary_language" : "j2-swift",
@@ -992,6 +1007,7 @@
             "dash_name" : "struct%20Nested2",
             "dash_type" : "Struct",
             "def" : {
+              "abstract_html" : "<p>Undocumented.<\/p>",
               "swift_declaration_html" : "public struct Nested2"
             },
             "primary_language" : "j2-swift",
@@ -1046,6 +1062,7 @@
     "breadcrumbs_root" : "SpmSwiftModule",
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "def" : {
+      "abstract_html" : "<p>Undocumented.<\/p>",
       "swift_declaration_html" : "public struct Nested1"
     },
     "default_language" : "j2-swift",
@@ -1181,6 +1198,7 @@
             "dash_name" : "struct%20Nested2a",
             "dash_type" : "Struct",
             "def" : {
+              "abstract_html" : "<p>Undocumented.<\/p>",
               "swift_declaration_html" : "public struct Nested2a"
             },
             "primary_language" : "j2-swift",
@@ -1193,6 +1211,7 @@
             "dash_name" : "struct%20Nested2b",
             "dash_type" : "Struct",
             "def" : {
+              "abstract_html" : "<p>Undocumented.<\/p>",
               "deprecation_html" : "<p>Deprecated.<\/p>",
               "discouraged" : true,
               "swift_declaration_html" : "public struct Nested2b"
@@ -1411,6 +1430,7 @@
             "dash_name" : "case%20fourth",
             "dash_type" : "Case",
             "def" : {
+              "abstract_html" : "<p>Undocumented.<\/p>",
               "swift_declaration_html" : "case fourth"
             },
             "primary_language" : "j2-swift",
@@ -1601,6 +1621,7 @@
             "dash_name" : "init()",
             "dash_type" : "Constructor",
             "def" : {
+              "abstract_html" : "<p>Undocumented.<\/p>",
               "swift_declaration_html" : "public init()"
             },
             "primary_language" : "j2-swift",
@@ -1613,6 +1634,7 @@
             "dash_name" : "deinit",
             "dash_type" : "Method",
             "def" : {
+              "abstract_html" : "<p>Undocumented.<\/p>",
               "swift_declaration_html" : "deinit"
             },
             "primary_language" : "j2-swift",
@@ -1638,6 +1660,7 @@
             "dash_name" : "subscript(arg%3A%20String)%20-%3E%20Int",
             "dash_type" : "Method",
             "def" : {
+              "abstract_html" : "<p>Undocumented.<\/p>",
               "swift_declaration_html" : "public subscript(arg: String) -&gt; Int { get set }"
             },
             "primary_language" : "j2-swift",
@@ -1815,6 +1838,7 @@
             "dash_name" : "var%20t%3A%20Q%3F",
             "dash_type" : "Property",
             "def" : {
+              "abstract_html" : "<p>Undocumented.<\/p>",
               "swift_declaration_html" : "var t: Q?"
             },
             "primary_language" : "j2-swift",
@@ -1827,6 +1851,7 @@
             "dash_name" : "func%20method(param%3A%20Int)%20-%3E%20String",
             "dash_type" : "Method",
             "def" : {
+              "abstract_html" : "<p>Undocumented.<\/p>",
               "swift_declaration_html" : "public override func method(param: Int) -&gt; String"
             },
             "primary_language" : "j2-swift",
@@ -1839,6 +1864,7 @@
             "dash_name" : "func%20generic(param%3A%20T)%20-%3E%20T",
             "dash_type" : "Method",
             "def" : {
+              "abstract_html" : "<p>Undocumented.<\/p>",
               "swift_declaration_html" : "public func generic(param: T) -&gt; T"
             },
             "primary_language" : "j2-swift",
@@ -2403,6 +2429,7 @@
             "dash_name" : "func%20collectEmAll()",
             "dash_type" : "Method",
             "def" : {
+              "abstract_html" : "<p>Undocumented.<\/p>",
               "swift_declaration_html" : "func collectEmAll()"
             },
             "primary_language" : "j2-swift",
@@ -2423,6 +2450,7 @@
             "dash_name" : "func%20nestEmAll()",
             "dash_type" : "Method",
             "def" : {
+              "abstract_html" : "<p>Undocumented.<\/p>",
               "swift_declaration_html" : "func nestEmAll()"
             },
             "primary_language" : "j2-swift",
@@ -2622,6 +2650,7 @@
             "dash_name" : "func%20method2()",
             "dash_type" : "Method",
             "def" : {
+              "abstract_html" : "<p>Undocumented.<\/p>",
               "swift_declaration_html" : "func method2()"
             },
             "primary_language" : "j2-swift",

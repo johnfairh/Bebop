@@ -5,6 +5,14 @@
       {
         "acl" : "open",
         "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented."
+            }
+          },
+          "parameters" : []
+        },
         "kind" : "sourcekitten.source.lang.objc.decl.ivar",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
@@ -91,6 +99,14 @@
       {
         "acl" : "open",
         "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented."
+            }
+          },
+          "parameters" : []
+        },
         "kind" : "sourcekitten.source.lang.objc.decl.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
@@ -147,6 +163,14 @@
         "usr" : "c:objc(cs)IVarTest(im)categoryMethod"
       }
     ],
+    "documentation" : {
+      "abstract" : {
+        "markdown" : {
+          "en" : "Undocumented."
+        }
+      },
+      "parameters" : []
+    },
     "kind" : "sourcekitten.source.lang.objc.decl.class",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
@@ -304,6 +328,14 @@
       {
         "acl" : "open",
         "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented."
+            }
+          },
+          "parameters" : []
+        },
         "kind" : "sourcekitten.source.lang.objc.decl.method.class",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
@@ -354,6 +386,14 @@
       {
         "acl" : "open",
         "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented."
+            }
+          },
+          "parameters" : []
+        },
         "kind" : "sourcekitten.source.lang.objc.decl.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
@@ -538,6 +578,14 @@
       {
         "acl" : "open",
         "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented."
+            }
+          },
+          "parameters" : []
+        },
         "kind" : "sourcekitten.source.lang.objc.decl.method.class",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
@@ -638,6 +686,14 @@
   {
     "acl" : "open",
     "children" : [],
+    "documentation" : {
+      "abstract" : {
+        "markdown" : {
+          "en" : "Undocumented."
+        }
+      },
+      "parameters" : []
+    },
     "kind" : "sourcekitten.source.lang.objc.decl.constant",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
@@ -677,6 +733,14 @@
   {
     "acl" : "open",
     "children" : [],
+    "documentation" : {
+      "abstract" : {
+        "markdown" : {
+          "en" : "Undocumented."
+        }
+      },
+      "parameters" : []
+    },
     "kind" : "sourcekitten.source.lang.objc.decl.function",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
@@ -1063,6 +1127,14 @@
       {
         "acl" : "open",
         "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented."
+            }
+          },
+          "parameters" : []
+        },
         "kind" : "sourcekitten.source.lang.objc.decl.enumcase",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
@@ -1091,6 +1163,14 @@
       {
         "acl" : "open",
         "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented."
+            }
+          },
+          "parameters" : []
+        },
         "kind" : "sourcekitten.source.lang.objc.decl.enumcase",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
@@ -1117,6 +1197,14 @@
         "usr" : "c:@E@ASimpleEnum@y"
       }
     ],
+    "documentation" : {
+      "abstract" : {
+        "markdown" : {
+          "en" : "Undocumented."
+        }
+      },
+      "parameters" : []
+    },
     "kind" : "sourcekitten.source.lang.objc.decl.enum",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
@@ -1232,6 +1320,14 @@
       {
         "acl" : "open",
         "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented."
+            }
+          },
+          "parameters" : []
+        },
         "kind" : "sourcekitten.source.lang.objc.decl.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
