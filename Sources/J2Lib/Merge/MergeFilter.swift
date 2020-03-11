@@ -88,7 +88,7 @@ public struct MergeFilter: Configurable {
             return false
         }
 
-        guard item.acl > minAcl else {
+        guard item.acl >= minAcl else {
             Stats.inc(.filterMinAclExcluded)
             return false
         }

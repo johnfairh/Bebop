@@ -57,9 +57,11 @@ class TestStats: XCTestCase {
         let structDef1 = SourceKittenDict
             .mkStruct(name: "MyStruct")
             .with(field: .docLine, value: Int64(100))
+            .with(accessibility: .public)
         let structDef2 = SourceKittenDict
             .mkStruct(name: "MyStruct2")
             .with(field: .docLine, value: Int64(20))
+            .with(accessibility: .public)
         let pass = SourceKittenDict
             .mkFile()
             .with(children: [structDef1, structDef2])
@@ -68,7 +70,6 @@ class TestStats: XCTestCase {
 
         let defs = try system.merge.merge(gathered: [pass])
         XCTAssertEqual(2, defs.count)
-        defs.forEach { Stats.addUndocumented(item: $0) }
 
         try system.stats.createUndocumentedFile(outputURL: tmpDir.directoryURL)
 
