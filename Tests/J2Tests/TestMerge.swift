@@ -13,12 +13,12 @@ import SourceKittenFramework
 fileprivate struct System {
     let config: Config
     let merge: Merge
-    init(_ mergeP2: Bool = false) {
+    init(_ mergeP2: Bool = false, opts: [String] = []) {
         config = Config()
         var merge = Merge(config: config)
         merge.enablePhase2 = mergeP2
         self.merge = merge
-        try! config.processOptions(cliOpts: ["--min-acl=private"])
+        try! config.processOptions(cliOpts: ["--min-acl=private"] + opts)
     }
 }
 
@@ -238,5 +238,19 @@ class TestMerge: XCTestCase {
         checkMark(SourceKittenDict.mkObjCMark(text: "- mark"), "mark")
         #endif
         checkNotMark(SourceKittenDict.mkSwiftMark(text: "FIXME: fixme"))
+    }
+
+    // Weird filter cases
+    func testUndocOverride() throws {
+        let system = System(true, opts: ["--skip-undocumented-override"])
+        let method = SourceKittenDict
+            .mkMethod(name: "method")
+            .with(xmlDocs: "<Method>stuff</Method>")
+            .with(overrides: ["SuperMethod"])
+        let passes = SourceKittenDict.mkFile().with(children: [method]).asGatherPasses
+        let filtered = try system.merge.merge(gathered: passes)
+        XCTAssertEqual(0, filtered.count)
+
+        XCTAssertEqual(1, Stats.db[.filterSkipUndocOverride])
     }
 }

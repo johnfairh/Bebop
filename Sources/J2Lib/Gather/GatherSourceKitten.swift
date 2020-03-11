@@ -17,6 +17,7 @@ enum SwiftDocKey2: String {
     case attributes = "key.attributes"
     case moduleName = "key.modulename"
     case accessibility = "key.accessibility"
+    case overrides = "key.overrides"
 }
 
 // Specific getters
@@ -106,6 +107,14 @@ extension SourceKittenDict {
 
     var accessibility: String? {
         self[.accessibility] as? String
+    }
+
+    var overrides: [SourceKittenDict]? {
+        self[.overrides] as? [SourceKittenDict]
+    }
+
+    var fullXMLDocs: String? {
+        self[.fullXMLDocs] as? String
     }
 
     mutating func removeSubstructure() -> [SourceKittenDict] {

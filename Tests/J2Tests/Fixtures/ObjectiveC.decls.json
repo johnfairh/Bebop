@@ -11,7 +11,8 @@
               "en" : "Undocumented"
             }
           },
-          "parameters" : []
+          "parameters" : [],
+          "source" : "fabricated"
         },
         "kind" : "sourcekitten.source.lang.objc.decl.ivar",
         "location" : {
@@ -47,7 +48,8 @@
               "en" : "Documented property"
             }
           },
-          "parameters" : []
+          "parameters" : [],
+          "source" : "docComment"
         },
         "kind" : "sourcekitten.source.lang.objc.decl.property",
         "location" : {
@@ -81,6 +83,7 @@
             "text" : "var propertyName: String! { get set }"
           },
           "inherited_types" : [],
+          "is_override" : false,
           "name_pieces" : [
             {
               "other" : "var "
@@ -105,7 +108,8 @@
               "en" : "Undocumented"
             }
           },
-          "parameters" : []
+          "parameters" : [],
+          "source" : "fabricated"
         },
         "kind" : "sourcekitten.source.lang.objc.decl.method.instance",
         "location" : {
@@ -139,6 +143,7 @@
             "text" : "func categoryMethod()"
           },
           "inherited_types" : [],
+          "is_override" : false,
           "name_pieces" : [
             {
               "other" : "func "
@@ -169,7 +174,8 @@
           "en" : "Undocumented"
         }
       },
-      "parameters" : []
+      "parameters" : [],
+      "source" : "fabricated"
     },
     "kind" : "sourcekitten.source.lang.objc.decl.class",
     "location" : {
@@ -200,6 +206,7 @@
         "text" : "class IVarTest : NSObject"
       },
       "inherited_types" : [],
+      "is_override" : false,
       "name_pieces" : [
         {
           "other" : "class "
@@ -224,7 +231,8 @@
               "en" : "doc"
             }
           },
-          "parameters" : []
+          "parameters" : [],
+          "source" : "docComment"
         },
         "kind" : "sourcekitten.source.lang.objc.decl.property",
         "location" : {
@@ -255,6 +263,7 @@
             "text" : "class var identifier: UUID! { get set }"
           },
           "inherited_types" : [],
+          "is_override" : false,
           "name_pieces" : [
             {
               "other" : "class var "
@@ -279,7 +288,8 @@
               "en" : "Nullability"
             }
           },
-          "parameters" : []
+          "parameters" : [],
+          "source" : "docComment"
         },
         "kind" : "sourcekitten.source.lang.objc.decl.property",
         "location" : {
@@ -310,6 +320,7 @@
             "text" : "var uuid: UUID? { get set }"
           },
           "inherited_types" : [],
+          "is_override" : false,
           "name_pieces" : [
             {
               "other" : "var "
@@ -334,7 +345,8 @@
               "en" : "Undocumented"
             }
           },
-          "parameters" : []
+          "parameters" : [],
+          "source" : "fabricated"
         },
         "kind" : "sourcekitten.source.lang.objc.decl.method.class",
         "location" : {
@@ -368,6 +380,7 @@
             "text" : "class func alloc() -> Self!"
           },
           "inherited_types" : [],
+          "is_override" : false,
           "name_pieces" : [
             {
               "other" : "class func "
@@ -392,7 +405,8 @@
               "en" : "Undocumented"
             }
           },
-          "parameters" : []
+          "parameters" : [],
+          "source" : "fabricated"
         },
         "kind" : "sourcekitten.source.lang.objc.decl.method.instance",
         "location" : {
@@ -429,6 +443,7 @@
             "text" : "init!()"
           },
           "inherited_types" : [],
+          "is_override" : false,
           "name_pieces" : [
             {
               "name" : "init"
@@ -450,7 +465,8 @@
               "en" : "No params"
             }
           },
-          "parameters" : []
+          "parameters" : [],
+          "source" : "docComment"
         },
         "kind" : "sourcekitten.source.lang.objc.decl.method.instance",
         "location" : {
@@ -484,6 +500,7 @@
             "text" : "func method()"
           },
           "inherited_types" : [],
+          "is_override" : false,
           "name_pieces" : [
             {
               "other" : "func "
@@ -508,7 +525,8 @@
               "en" : "params"
             }
           },
-          "parameters" : []
+          "parameters" : [],
+          "source" : "docComment"
         },
         "kind" : "sourcekitten.source.lang.objc.decl.method.instance",
         "location" : {
@@ -548,6 +566,7 @@
             "text" : "func doThing(with first: Int32, named name: String!) -> Int32"
           },
           "inherited_types" : [],
+          "is_override" : false,
           "name_pieces" : [
             {
               "other" : "func "
@@ -584,7 +603,8 @@
               "en" : "Undocumented"
             }
           },
-          "parameters" : []
+          "parameters" : [],
+          "source" : "fabricated"
         },
         "kind" : "sourcekitten.source.lang.objc.decl.method.class",
         "location" : {
@@ -618,6 +638,7 @@
             "text" : "class func classMethod()"
           },
           "inherited_types" : [],
+          "is_override" : false,
           "name_pieces" : [
             {
               "other" : "class func "
@@ -640,7 +661,8 @@
           "en" : "Various kinds of property and method"
         }
       },
-      "parameters" : []
+      "parameters" : [],
+      "source" : "docComment"
     },
     "kind" : "sourcekitten.source.lang.objc.decl.class",
     "location" : {
@@ -671,6 +693,7 @@
         "text" : "class PropertyKinds : NSObject"
       },
       "inherited_types" : [],
+      "is_override" : false,
       "name_pieces" : [
         {
           "other" : "class "
@@ -692,7 +715,8 @@
           "en" : "Undocumented"
         }
       },
-      "parameters" : []
+      "parameters" : [],
+      "source" : "fabricated"
     },
     "kind" : "sourcekitten.source.lang.objc.decl.constant",
     "location" : {
@@ -739,7 +763,8 @@
           "en" : "Undocumented"
         }
       },
-      "parameters" : []
+      "parameters" : [],
+      "source" : "fabricated"
     },
     "kind" : "sourcekitten.source.lang.objc.decl.function",
     "location" : {
@@ -773,6 +798,7 @@
         "text" : "func global_func()"
       },
       "inherited_types" : [],
+      "is_override" : false,
       "name_pieces" : [
         {
           "other" : "func "
@@ -808,7 +834,8 @@
               "en" : "Field"
             }
           },
-          "parameters" : []
+          "parameters" : [],
+          "source" : "docComment"
         },
         "kind" : "sourcekitten.source.lang.objc.decl.field",
         "location" : {
@@ -839,6 +866,7 @@
             "text" : "var field: Int32"
           },
           "inherited_types" : [],
+          "is_override" : false,
           "name_pieces" : [
             {
               "other" : "var "
@@ -861,7 +889,8 @@
           "en" : "Structures"
         }
       },
-      "parameters" : []
+      "parameters" : [],
+      "source" : "docComment"
     },
     "kind" : "sourcekitten.source.lang.objc.decl.struct",
     "location" : {
@@ -892,6 +921,7 @@
         "text" : "struct AStruct"
       },
       "inherited_types" : [],
+      "is_override" : false,
       "name_pieces" : [
         {
           "other" : "struct "
@@ -921,7 +951,8 @@
           "en" : "Enums"
         }
       },
-      "parameters" : []
+      "parameters" : [],
+      "source" : "docComment"
     },
     "kind" : "sourcekitten.source.lang.objc.decl.typedef",
     "location" : {
@@ -968,7 +999,8 @@
               "en" : "Enum element a"
             }
           },
-          "parameters" : []
+          "parameters" : [],
+          "source" : "docComment"
         },
         "kind" : "sourcekitten.source.lang.objc.decl.enumcase",
         "location" : {
@@ -999,6 +1031,7 @@
             "text" : "case a = 3"
           },
           "inherited_types" : [],
+          "is_override" : false,
           "name_pieces" : [
             {
               "other" : "case "
@@ -1020,7 +1053,8 @@
               "en" : "Enum element b"
             }
           },
-          "parameters" : []
+          "parameters" : [],
+          "source" : "docComment"
         },
         "kind" : "sourcekitten.source.lang.objc.decl.enumcase",
         "location" : {
@@ -1051,6 +1085,7 @@
             "text" : "case b = 4"
           },
           "inherited_types" : [],
+          "is_override" : false,
           "name_pieces" : [
             {
               "other" : "case "
@@ -1070,7 +1105,8 @@
           "en" : "Enums"
         }
       },
-      "parameters" : []
+      "parameters" : [],
+      "source" : "docComment"
     },
     "kind" : "sourcekitten.source.lang.objc.decl.enum",
     "location" : {
@@ -1101,6 +1137,7 @@
         "text" : "enum AEnum : Int"
       },
       "inherited_types" : [],
+      "is_override" : false,
       "name_pieces" : [
         {
           "other" : "enum "
@@ -1133,7 +1170,8 @@
               "en" : "Undocumented"
             }
           },
-          "parameters" : []
+          "parameters" : [],
+          "source" : "fabricated"
         },
         "kind" : "sourcekitten.source.lang.objc.decl.enumcase",
         "location" : {
@@ -1169,7 +1207,8 @@
               "en" : "Undocumented"
             }
           },
-          "parameters" : []
+          "parameters" : [],
+          "source" : "fabricated"
         },
         "kind" : "sourcekitten.source.lang.objc.decl.enumcase",
         "location" : {
@@ -1203,7 +1242,8 @@
           "en" : "Undocumented"
         }
       },
-      "parameters" : []
+      "parameters" : [],
+      "source" : "fabricated"
     },
     "kind" : "sourcekitten.source.lang.objc.decl.enum",
     "location" : {
@@ -1234,6 +1274,7 @@
         "text" : "struct ASimpleEnum : Equatable, RawRepresentable"
       },
       "inherited_types" : [],
+      "is_override" : false,
       "name_pieces" : [
         {
           "other" : "struct "
@@ -1263,7 +1304,8 @@
           "en" : "Typedef"
         }
       },
-      "parameters" : []
+      "parameters" : [],
+      "source" : "docComment"
     },
     "kind" : "sourcekitten.source.lang.objc.decl.typedef",
     "location" : {
@@ -1294,6 +1336,7 @@
         "text" : "typealias Fred = Int32"
       },
       "inherited_types" : [],
+      "is_override" : false,
       "name_pieces" : [
         {
           "other" : "typealias "
@@ -1326,7 +1369,8 @@
               "en" : "Undocumented"
             }
           },
-          "parameters" : []
+          "parameters" : [],
+          "source" : "fabricated"
         },
         "kind" : "sourcekitten.source.lang.objc.decl.method.instance",
         "location" : {
@@ -1360,6 +1404,7 @@
             "text" : "func protocolMethod()"
           },
           "inherited_types" : [],
+          "is_override" : false,
           "name_pieces" : [
             {
               "other" : "func "
@@ -1382,7 +1427,8 @@
           "en" : "Protocol"
         }
       },
-      "parameters" : []
+      "parameters" : [],
+      "source" : "docComment"
     },
     "kind" : "sourcekitten.source.lang.objc.decl.protocol",
     "location" : {
@@ -1413,6 +1459,7 @@
         "text" : "protocol SomeProtocol"
       },
       "inherited_types" : [],
+      "is_override" : false,
       "name_pieces" : [
         {
           "other" : "protocol "
@@ -1445,7 +1492,8 @@
               "en" : "Method with lightweight generic type param"
             }
           },
-          "parameters" : []
+          "parameters" : [],
+          "source" : "docComment"
         },
         "kind" : "sourcekitten.source.lang.objc.decl.method.instance",
         "location" : {
@@ -1485,6 +1533,7 @@
             "text" : "func pop(with weight: String!, secondValue density: Int) -> AutoreleasingUnsafeMutablePointer<ElementType?>!"
           },
           "inherited_types" : [],
+          "is_override" : false,
           "name_pieces" : [
             {
               "other" : "func "
@@ -1519,7 +1568,8 @@
           "en" : "Lightweight generics"
         }
       },
-      "parameters" : []
+      "parameters" : [],
+      "source" : "docComment"
     },
     "kind" : "sourcekitten.source.lang.objc.decl.class",
     "location" : {
@@ -1550,6 +1600,7 @@
         "text" : "class Stack<ElementType> : NSObject where ElementType : AnyObject"
       },
       "inherited_types" : [],
+      "is_override" : false,
       "name_pieces" : [
         {
           "other" : "class "

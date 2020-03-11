@@ -6,6 +6,16 @@
 //  Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
 //
 
+/// Sources of documentation for a definition
+public enum DefDocSource: String, Encodable {
+    /// Direct from a doc comment written in the source code by the def
+    case docComment
+    /// Figured out by Swift from some parent protocol or class
+    case inherited
+    /// Made up by this program
+    case fabricated
+}
+
 /// Broken-down documentation for some definition in some format
 public struct DefDocs<T>: Encodable where T: Encodable & Equatable {
     public internal(set) var abstract: T?
@@ -18,6 +28,7 @@ public struct DefDocs<T>: Encodable where T: Encodable & Equatable {
         public internal(set) var description: T
     }
     public internal(set) var parameters: [Param]
+    public internal(set) var source: DefDocSource
 
     /// Initialize a new documentation container
     public init(abstract: T? = nil,
@@ -25,13 +36,15 @@ public struct DefDocs<T>: Encodable where T: Encodable & Equatable {
                 defaultAbstract: T? = nil,
                 defaultDiscussion: T? = nil,
                 returns: T? = nil,
-                parameters: [Param] = []) {
+                parameters: [Param] = [],
+                source: DefDocSource = .fabricated) {
         self.abstract = abstract
         self.discussion = discussion
         self.defaultAbstract = defaultAbstract
         self.defaultDiscussion = defaultDiscussion
         self.returns = returns
         self.parameters = parameters
+        self.source = source
     }
 
     /// Is there any content?
@@ -100,6 +113,8 @@ extension LocalizedDefDocs {
                 return currParam
             }
         }
+
+        source = docs.source
     }
 }
 
@@ -116,6 +131,7 @@ extension RichDefDocs {
         parameters = ldocs.parameters.map {
             Param(name: $0.name, description: RichText($0.description))
         }
+        source = ldocs.source
     }
 
     public mutating func format(_ call: (Markdown) throws -> (Markdown, Html) ) rethrows {

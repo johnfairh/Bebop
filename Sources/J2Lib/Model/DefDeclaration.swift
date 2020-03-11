@@ -102,19 +102,23 @@ public final class SwiftDeclaration: Encodable {
     public let typeModuleName: String?
     /// Names of inherited types
     public internal(set) var inheritedTypes: [String]
+    /// Is this declaration overriding one from a supertype or protocol?
+    public let isOverride: Bool
 
     init(declaration: String = "",
          deprecation: Localized<String>? = nil,
          availability: [String] = [],
          namePieces: [DeclarationPiece] = [],
          typeModuleName: String? = nil,
-         inheritedTypes: [String] = []) {
+         inheritedTypes: [String] = [],
+         isOverride: Bool = false) {
         self.declaration = RichDeclaration(declaration)
         self.deprecation = deprecation
         self.availability = availability
         self.namePieces = namePieces
         self.typeModuleName = typeModuleName
         self.inheritedTypes = inheritedTypes
+        self.isOverride = isOverride
     }
 }
 

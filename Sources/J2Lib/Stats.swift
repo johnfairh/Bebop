@@ -17,7 +17,7 @@ public final class Stats: Configurable {
         config.register(self)
     }
 
-    private static var db = StatsDb()
+    private(set) static var db = StatsDb()
 
     /// Shared API to increment a counter
     static func inc(_ counter: StatsDb.Counter) {
@@ -112,8 +112,14 @@ struct StatsDb {
         case filterUselessExtension
         /// Defs without documentation that should have them
         case missingDocumentation
+        /// Defs with documentation that should have them
+        case documentedDef
         /// Defs excluded because no docs and skip-undoc
         case filterSkipUndocumented
+        /// Defs excluded because no docs, override, skip-undoc-override
+        case filterSkipUndocOverride
+        /// Defs whose inherited docs are ignored
+        case filterIgnoreInheritedDocs
         /// Markdown chunks formatted
         case formatMarkdown
     }
@@ -121,6 +127,12 @@ struct StatsDb {
 
     mutating func inc(_ counter: Counter) {
         counters.reduceKey(counter.rawValue, 1, { $0 + 1})
+    }
+
+    subscript(counter: Counter) -> Int {
+        get {
+            counters[counter.rawValue] ?? 0
+        }
     }
 
     func debugReport() {

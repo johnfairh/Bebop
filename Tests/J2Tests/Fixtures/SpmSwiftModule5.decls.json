@@ -11,7 +11,8 @@
               "en" : "Undoc"
             }
           },
-          "parameters" : []
+          "parameters" : [],
+          "source" : "fabricated"
         },
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
@@ -28,6 +29,7 @@
             "text" : "public func publicProtocolMethod()"
           },
           "inherited_types" : [],
+          "is_override" : true,
           "name_pieces" : [
             {
               "other" : "func "
@@ -52,7 +54,8 @@
               "en" : "Undoc"
             }
           },
-          "parameters" : []
+          "parameters" : [],
+          "source" : "fabricated"
         },
         "kind" : "source.lang.swift.decl.var.instance",
         "location" : {
@@ -69,6 +72,7 @@
             "text" : "public var description: String { get }"
           },
           "inherited_types" : [],
+          "is_override" : true,
           "name_pieces" : [
             {
               "other" : "var "
@@ -91,7 +95,8 @@
           "en" : "Should be included in docs"
         }
       },
-      "parameters" : []
+      "parameters" : [],
+      "source" : "docComment"
     },
     "kind" : "source.lang.swift.decl.class",
     "location" : {
@@ -108,6 +113,7 @@
         "text" : "open class PublicClass\n\nextension PublicClass : PublicProtocol\n\nextension PublicClass: CustomStringConvertible"
       },
       "inherited_types" : [],
+      "is_override" : false,
       "name_pieces" : [
         {
           "other" : "class "
@@ -132,7 +138,8 @@
               "en" : "Should be included"
             }
           },
-          "parameters" : []
+          "parameters" : [],
+          "source" : "docComment"
         },
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
@@ -149,6 +156,7 @@
             "text" : "func publicProtocolMethod()"
           },
           "inherited_types" : [],
+          "is_override" : false,
           "name_pieces" : [
             {
               "other" : "func "
@@ -171,7 +179,8 @@
           "en" : "Should be included"
         }
       },
-      "parameters" : []
+      "parameters" : [],
+      "source" : "docComment"
     },
     "kind" : "source.lang.swift.decl.protocol",
     "location" : {
@@ -188,6 +197,7 @@
         "text" : "public protocol PublicProtocol"
       },
       "inherited_types" : [],
+      "is_override" : false,
       "name_pieces" : [
         {
           "other" : "protocol "

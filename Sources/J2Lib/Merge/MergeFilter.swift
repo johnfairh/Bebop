@@ -22,8 +22,11 @@ public struct MergeFilter: Configurable {
     let minAclOpt = EnumOpt<DefAcl>(l: "min-acl").def(.public)
     let skipUndocumentedOpt = BoolOpt(l: "skip-undocumented")
     let undocumentedTextOpt = LocStringOpt(l: "undocumented-text").def("Undocumented")
+    let skipUndocumentedOverrideOpt = BoolOpt(l: "skip-undocumented-override")
+    let ignoreInheritedDocsOpt = BoolOpt(l: "ignore-inherited-docs")
     let includeFilesOpt = GlobListOpt(l: "include-source-files").help("FILEPATHGLOB1,FILEPATHGLOB2,...")
     let excludeFilesOpt = GlobListOpt(l: "exclude-source-files").help("FILEPATHGLOB1,FILEPATHGLOB2,...")
+
     var minAcl: DefAcl { minAclOpt.value! }
     var undocumentedText: Localized<String> { undocumentedTextOpt.value! }
 
@@ -151,14 +154,25 @@ public struct MergeFilter: Configurable {
     /// Filter based on lack/presence/nature of documentation.
     /// Sort out the default docstring while we're here.
     func filterDocumentation(item: DefItem) -> Bool {
-        /* if skip-overrides and is-override and docs-from-override {
-         *    return false /* drop the def */
-         * }
-         */
+        // Given the option, skip defs without doc-comments
+        // that are overriding superclass methods / implementing protocols.
+        if skipUndocumentedOverrideOpt.value,
+            item.documentation.source != .docComment,
+            let swiftDeclaration = item.swiftDeclaration,
+            swiftDeclaration.isOverride {
+            Stats.inc(.filterSkipUndocOverride)
+            return false
+        }
 
-        guard item.documentation.isEmpty && !item.defKind.isSwiftExtension else {
-            // Docs or extension -- no docs needed here - original type has
-            // no docs, extn docs are often just lost, follow the extended type.
+        // Given the option, demote inherited to missing
+        if item.documentation.source == .inherited && ignoreInheritedDocsOpt.value {
+            item.documentation = RichDefDocs()
+            Stats.inc(.filterIgnoreInheritedDocs)
+        }
+
+        // Do we have enough docs? Extensions don't need docs, follow extended type.
+        if !item.documentation.isEmpty || item.defKind.isSwiftExtension {
+            Stats.inc(.documentedDef)
             return true
         }
 
@@ -169,7 +183,7 @@ public struct MergeFilter: Configurable {
             return false
         }
 
-        item.documentation = .init(abstract: RichText(undocumentedText))
+        item.documentation = .init(abstract: RichText(undocumentedText), source: .fabricated)
         return true
     }
 }

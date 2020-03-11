@@ -158,6 +158,16 @@ extension SourceKittenDict {
         with(field: .documentationComment, value: comment)
     }
 
+    func with(xmlDocs: String) -> Self {
+        with(field: .fullXMLDocs, value: xmlDocs)
+    }
+
+    func with(overrides: [String]) -> Self {
+        let dicts = overrides.map { ["key.usr" : $0] }
+        return with(field: "key.overrides", value: dicts)
+    }
+
+
     func with(children: [SourceKittenDict]) -> Self {
         with(field: .substructure, value: children)
     }

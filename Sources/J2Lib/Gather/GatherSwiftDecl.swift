@@ -142,7 +142,8 @@ class SwiftDeclarationBuilder {
                                 availability: availability,
                                 namePieces: pieces,
                                 typeModuleName: dict.moduleName,
-                                inheritedTypes: inheritedTypes)
+                                inheritedTypes: inheritedTypes,
+                                isOverride: dict.overrides != nil)
     }
 
     /// Get the compiler declaration out of an 'annotated declaration' xml.

@@ -56,7 +56,8 @@ public class MarkdownBuilder {
         return FlatDefDocs(abstract: abstract,
                            discussion: discussion,
                            returns: returns,
-                           parameters: parameters)
+                           parameters: parameters,
+                           source: .docComment)
     }
 
     /// Handle a top-level callout - side-effect `parameters` `returns` `localizationKey`.

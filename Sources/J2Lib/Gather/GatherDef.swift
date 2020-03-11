@@ -64,6 +64,9 @@ public final class GatherDef {
             let docsBuilder = MarkdownBuilder(markdown: Markdown(docComment))
             self.documentation = docsBuilder.build()
             self.localizationKey = docsBuilder.localizationKey
+        } else if kind.isSwift, let _ = sourceKittenDict.fullXMLDocs {
+            self.documentation = nil //FlatDefDocs(abstract: Markdown("xml"), source: .inherited)
+            self.localizationKey = nil
         } else {
             self.documentation = nil
             self.localizationKey = nil

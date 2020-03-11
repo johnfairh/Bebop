@@ -117,6 +117,8 @@ Default: '(docs directory)/undocumented.json'";
 "min-acl" = "Minimum Swift access control level to document.
 Default: 'public'";
 "skip-undocumented" = "Omit declarations that don't have documentation comments.";
+"skip-undocumented-override" = "Omit declarations that don't have documentation comments and are
+overriding declarations from a superclass or protocol.";
 "undocumented-text" = "Default markdown text for declarations without any documentation comments.
 Can be localized using the config file.
 Default: 'Undocumented'";
@@ -125,4 +127,6 @@ Applied after --include-source-files.
 Default: Do not exclude any source files.";
 "include-source-files" = "Source files to include into documentation.  Supports wildcards.
 Applied before --exclude-source-files.
-Default: Include all source files.";"
+Default: Include all source files.";
+"ignore-inherited-docs" = "If a definition only has documentation that it has inherited then treat
+it as undocumented instead of using the inheritance.";
