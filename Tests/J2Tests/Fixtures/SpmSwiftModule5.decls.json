@@ -1,0 +1,244 @@
+[
+  {
+    "acl" : "open",
+    "children" : [
+      {
+        "acl" : "public",
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Should not be included in docs :nodoc:"
+            }
+          },
+          "parameters" : []
+        },
+        "kind" : "source.lang.swift.decl.function.method.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule5\/AclBase.swift",
+          "first_line" : 9,
+          "last_line" : 10,
+          "module_name" : "SpmSwiftModule5",
+          "pass_index" : 0
+        },
+        "name" : "hiddenPublicMethod()",
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : {
+            "text" : "public func hiddenPublicMethod()"
+          },
+          "inherited_types" : [],
+          "name_pieces" : [
+            {
+              "other" : "func "
+            },
+            {
+              "name" : "hiddenPublicMethod"
+            },
+            {
+              "other" : "()"
+            }
+          ]
+        },
+        "swift_name" : "hiddenPublicMethod()",
+        "usr" : "s:15SpmSwiftModule511PublicClassC06hiddenD6MethodyyF"
+      },
+      {
+        "acl" : "public",
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented."
+            }
+          },
+          "parameters" : []
+        },
+        "kind" : "source.lang.swift.decl.function.method.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule5\/AclBase.swift",
+          "first_line" : 36,
+          "last_line" : 37,
+          "module_name" : "SpmSwiftModule5",
+          "pass_index" : 0
+        },
+        "name" : "publicProtocolMethod()",
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : {
+            "text" : "public func publicProtocolMethod()"
+          },
+          "inherited_types" : [],
+          "name_pieces" : [
+            {
+              "other" : "func "
+            },
+            {
+              "name" : "publicProtocolMethod"
+            },
+            {
+              "other" : "()"
+            }
+          ]
+        },
+        "swift_name" : "publicProtocolMethod()",
+        "usr" : "s:15SpmSwiftModule514PublicProtocolP06publicE6MethodyyF"
+      },
+      {
+        "acl" : "public",
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented."
+            }
+          },
+          "parameters" : []
+        },
+        "kind" : "source.lang.swift.decl.var.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule5\/AclBase.swift",
+          "first_line" : 47,
+          "last_line" : 47,
+          "module_name" : "SpmSwiftModule5",
+          "pass_index" : 0
+        },
+        "name" : "description",
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : {
+            "text" : "public var description: String { get }"
+          },
+          "inherited_types" : [],
+          "name_pieces" : [
+            {
+              "other" : "var "
+            },
+            {
+              "name" : "description"
+            },
+            {
+              "other" : ": String"
+            }
+          ]
+        },
+        "swift_name" : "description",
+        "usr" : "s:s23CustomStringConvertibleP11descriptionSSvp"
+      }
+    ],
+    "documentation" : {
+      "abstract" : {
+        "markdown" : {
+          "en" : "Should be included in docs"
+        }
+      },
+      "parameters" : []
+    },
+    "kind" : "source.lang.swift.decl.class",
+    "location" : {
+      "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule5\/AclBase.swift",
+      "first_line" : 2,
+      "last_line" : 11,
+      "module_name" : "SpmSwiftModule5",
+      "pass_index" : 0
+    },
+    "name" : "PublicClass",
+    "swift_declaration" : {
+      "availability" : [],
+      "declaration" : {
+        "text" : "open class PublicClass\n\nextension PublicClass : PrivateProtocol\n\nextension PublicClass : PublicProtocol\n\nextension PublicClass: CustomStringConvertible"
+      },
+      "inherited_types" : [],
+      "name_pieces" : [
+        {
+          "other" : "class "
+        },
+        {
+          "name" : "PublicClass"
+        }
+      ]
+    },
+    "swift_name" : "PublicClass",
+    "usr" : "s:15SpmSwiftModule511PublicClassC"
+  },
+  {
+    "acl" : "public",
+    "children" : [
+      {
+        "acl" : "public",
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Should be included"
+            }
+          },
+          "parameters" : []
+        },
+        "kind" : "source.lang.swift.decl.function.method.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule5\/AclBase.swift",
+          "first_line" : 26,
+          "last_line" : 26,
+          "module_name" : "SpmSwiftModule5",
+          "pass_index" : 0
+        },
+        "name" : "publicProtocolMethod()",
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : {
+            "text" : "func publicProtocolMethod()"
+          },
+          "inherited_types" : [],
+          "name_pieces" : [
+            {
+              "other" : "func "
+            },
+            {
+              "name" : "publicProtocolMethod"
+            },
+            {
+              "other" : "()"
+            }
+          ]
+        },
+        "swift_name" : "publicProtocolMethod()",
+        "usr" : "s:15SpmSwiftModule514PublicProtocolP06publicE6MethodyyF"
+      }
+    ],
+    "documentation" : {
+      "abstract" : {
+        "markdown" : {
+          "en" : "Should be included"
+        }
+      },
+      "parameters" : []
+    },
+    "kind" : "source.lang.swift.decl.protocol",
+    "location" : {
+      "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule5\/AclBase.swift",
+      "first_line" : 24,
+      "last_line" : 27,
+      "module_name" : "SpmSwiftModule5",
+      "pass_index" : 0
+    },
+    "name" : "PublicProtocol",
+    "swift_declaration" : {
+      "availability" : [],
+      "declaration" : {
+        "text" : "public protocol PublicProtocol"
+      },
+      "inherited_types" : [],
+      "name_pieces" : [
+        {
+          "other" : "protocol "
+        },
+        {
+          "name" : "PublicProtocol"
+        }
+      ]
+    },
+    "swift_name" : "PublicProtocol",
+    "usr" : "s:15SpmSwiftModule514PublicProtocolP"
+  }
+]

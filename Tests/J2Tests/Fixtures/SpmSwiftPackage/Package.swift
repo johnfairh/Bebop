@@ -2,7 +2,12 @@
 
 import PackageDescription
 
-let baseTargetNames = ["SpmSwiftModule", "SpmSwiftModule2", "SpmSwiftModule3"]
+let baseTargetNames = [
+  "SpmSwiftModule",
+  "SpmSwiftModule2",
+  "SpmSwiftModule3",
+  "SpmSwiftModule5"
+]
 
 #if os(macOS)
 let osTargetNames = ["SpmSwiftModule4", "SpmObjCModule"]
@@ -42,7 +47,11 @@ let package = Package(
         /// Cross-module extensions with SpmSwiftModule1
         .target(
             name: "SpmSwiftModule3",
-            dependencies: ["SpmSwiftModule"])
+            dependencies: ["SpmSwiftModule"]),
+        /// ACL/filtering
+        .target(
+            name: "SpmSwiftModule5",
+            dependencies: [])
     ] +
     osTargets
 )

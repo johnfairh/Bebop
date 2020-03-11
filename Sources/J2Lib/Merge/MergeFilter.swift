@@ -88,7 +88,7 @@ public struct MergeFilter: Configurable {
             return false
         }
 
-        guard item.acl >= minAcl else {
+        guard item.acl >= minAcl || item.hasDefaultExtensionAcl else {
             Stats.inc(.filterMinAclExcluded)
             return false
         }
@@ -158,6 +158,13 @@ public struct MergeFilter: Configurable {
 // MARK: DefItem helpers
 
 fileprivate extension DefItem {
+    /// Swift extensions' ACLs aren't figured out properly on the way in, give them
+    /// the benefit of the doubt and fix up later.
+    var hasDefaultExtensionAcl: Bool {
+        defKind.isSwiftExtension &&
+            acl == .internal
+    }
+
     /// If a Swift extension is stripped of all its members and has no leftover
     /// protocol conformances (after excluding private protocols) then it is
     /// useless and gets thrown away.
@@ -166,4 +173,5 @@ fileprivate extension DefItem {
             defChildren.isEmpty &&
             (swiftDeclaration?.inheritedTypes ?? []).isEmpty
     }
+
 }

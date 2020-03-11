@@ -107,6 +107,12 @@ class TestProducts: XCTestCase {
     }
     #endif
 
+    func testAclFiltering() throws {
+        try compareSwift(product: "decls-json",
+                         cliArgs: ["--modules=SpmSwiftModule5"],
+                         against: "SpmSwiftModule5.decls.json")
+    }
+
     func testPageGenSwift() throws {
         try compareSwift(product: "docs-summary-json",
                          cliArgs: ["--modules=SpmSwiftModule,SpmSwiftModule2,SpmSwiftModule3",
