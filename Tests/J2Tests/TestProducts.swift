@@ -109,7 +109,10 @@ class TestProducts: XCTestCase {
 
     func testAclFiltering() throws {
         try compareSwift(product: "decls-json",
-                         cliArgs: ["--modules=SpmSwiftModule5"],
+                         cliArgs: [
+                            "--modules=SpmSwiftModule5",
+                            "--undocumented-text=Undoc"
+                         ],
                          against: "SpmSwiftModule5.decls.json")
     }
 

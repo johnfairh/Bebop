@@ -253,7 +253,7 @@
               "def" : {
                 "abstract" : {
                   "en" : {
-                    "html" : "<p>Undocumented.<\/p>"
+                    "html" : "<p>Undocumented<\/p>"
                   }
                 },
                 "availability" : [],
@@ -395,7 +395,7 @@
               "def" : {
                 "abstract" : {
                   "en" : {
-                    "html" : "<p>Undocumented.<\/p>"
+                    "html" : "<p>Undocumented<\/p>"
                   }
                 },
                 "availability" : [],
@@ -537,7 +537,7 @@
               "def" : {
                 "abstract" : {
                   "en" : {
-                    "html" : "<p>Undocumented.<\/p>"
+                    "html" : "<p>Undocumented<\/p>"
                   }
                 },
                 "availability" : [],
@@ -645,7 +645,7 @@
               "def" : {
                 "abstract" : {
                   "en" : {
-                    "html" : "<p>Undocumented.<\/p>"
+                    "html" : "<p>Undocumented<\/p>"
                   }
                 },
                 "availability" : [],

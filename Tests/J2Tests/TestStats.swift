@@ -53,7 +53,7 @@ class TestStats: XCTestCase {
     func testUndocReport() throws {
         let tmpDir = try TemporaryDirectory()
         let system = System()
-        try system.run()
+        try system.run(["--skip-undocumented"])
         let structDef1 = SourceKittenDict
             .mkStruct(name: "MyStruct")
             .with(field: .docLine, value: Int64(100))
@@ -69,7 +69,7 @@ class TestStats: XCTestCase {
             .asPass(moduleName: "Mod", pathName: "/foo/bar.swift")
 
         let defs = try system.merge.merge(gathered: [pass])
-        XCTAssertEqual(2, defs.count)
+        XCTAssertEqual(0, defs.count)
 
         try system.stats.createUndocumentedFile(outputURL: tmpDir.directoryURL)
 

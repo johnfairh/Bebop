@@ -114,4 +114,8 @@ Default: '(docs directory)/stats.json'";
 "output-undocumented" = "Filename to produce a report about symbols that do not have documentation.
 Default: '(docs directory)/undocumented.json'";
 "min-acl" = "Minimum Swift access control level to document.
-Default: 'public'";"
+Default: 'public'";
+"skip-undocumented" = "Omit declarations that don't have documentation comments.";
+"undocumented-text" = "Default markdown text for declarations without any documentation comments.
+Can be localized using the config file.
+Default: 'Undocumented'";

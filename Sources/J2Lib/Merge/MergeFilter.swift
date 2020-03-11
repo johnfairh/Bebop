@@ -21,7 +21,9 @@
 public struct MergeFilter: Configurable {
     let minAclOpt = EnumOpt<DefAcl>(l: "min-acl").def(.public)
     let skipUndocumentedOpt = BoolOpt(l: "skip-undocumented")
+    let undocumentedTextOpt = LocStringOpt(l: "undocumented-text").def("Undocumented")
     var minAcl: DefAcl { minAclOpt.value! }
+    var undocumentedText: Localized<String> { undocumentedTextOpt.value! }
 
     init(config: Config) {
         config.register(self)
@@ -147,7 +149,7 @@ public struct MergeFilter: Configurable {
             return false
         }
 
-        item.documentation = .init(abstract: RichText("Undocumented."))
+        item.documentation = .init(abstract: RichText(undocumentedText))
         return true
     }
 }
