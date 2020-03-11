@@ -197,7 +197,7 @@ public struct GenSite: Configurable {
         }
 
         if !hideCoverageOpt.value {
-            dict[.docCoverage] = 66
+            dict[.docCoverage] = Stats.coverage
         }
 
         if let customHead = customHeadOpt.value {

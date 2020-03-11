@@ -12,11 +12,15 @@ public final class Stats: Configurable {
     let outputStatsOpt = PathOpt(l: "output-stats").help("FILEPATH")
     let outputUndocOpt = PathOpt(l: "output-undocumented").help("FILEPATH")
 
+    let published: Config.Published
+
     init(config: Config) {
         Stats.db.reset()
+        published = config.published
         config.register(self)
     }
 
+    /// exposed just for testing really
     private(set) static var db = StatsDb()
 
     /// Shared API to increment a counter
@@ -29,9 +33,19 @@ public final class Stats: Configurable {
         db.addUndocumented(item: item)
     }
 
+    /// Shared API to get at the coverage value
+    static var coverage: Int {
+        db.coverage
+    }
+
     /// Report the counters for debug
     func debugReport() {
         Self.db.debugReport()
+    }
+
+    /// Report summary info to the user
+    func printReport() {
+        Self.db.coverageReport(aclExcludedNames: published.excludedAclList).forEach { logInfo($0 )}
     }
 
     /// Write out the accumulated stats to a file
@@ -140,6 +154,23 @@ struct StatsDb {
         counters.sorted(by: {l, r in l.key < r.key }).forEach { kv in
             logDebug("       \(kv.key) = \(kv.value)")
         }
+    }
+
+    var coverage: Int {
+        let undocCount = self[.missingDocumentation]
+        let docCount = self[.documentedDef]
+        let total = docCount + undocCount
+        guard total > 0 else { return 0 }
+        return (100 * docCount) / total
+    }
+
+    func coverageReport(aclExcludedNames: String) -> [String] {
+        var report = [String.localized(.msgCoverage, coverage,  self[.missingDocumentation])]
+        let aclSkipped = self[.filterMinAclExcluded]
+        if aclSkipped > 0 {
+            report.append(.localized(.msgSwiftAcl, aclSkipped, aclExcludedNames))
+        }
+        return report
     }
 
     func buildStatsJSON() throws -> String {

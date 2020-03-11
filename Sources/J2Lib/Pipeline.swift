@@ -104,6 +104,7 @@ public final class Pipeline: Configurable {
     /// Build, configure, and execute a pipeline according to `argv` and
     /// any config file.
     public func run(argv: [String] = []) throws {
+        defer { stats.debugReport() }
         try config.processOptions(cliOpts: argv)
 
         Resources.logInitializationProgress()
@@ -150,9 +151,9 @@ public final class Pipeline: Configurable {
         if testAndClearProduct(.docs) {
             logDebug("Pipeline: generating site")
             try genSite.generateSite(genData: genData)
+            stats.printReport()
         }
 
-        stats.debugReport()
         if testAndClearProduct(.stats_json) {
             logDebug("Pipeline: generating stats")
             try stats.createStatsFile(outputURL: genSite.outputURL)

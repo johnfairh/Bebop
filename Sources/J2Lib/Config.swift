@@ -66,6 +66,8 @@ public final class Config {
         public var authorName: Localized<String>?
         // Published by GenSite
         public var childItemStyle: ChildItemStyle!
+        // Published by MergeFilter
+        public var excludedAclList = ""
     }
     public let published = Published()
 

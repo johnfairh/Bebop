@@ -30,13 +30,7 @@ import Foundation
   {% if not param.noComments %}
   /// {{string.translation}}
   {% endif %}
-  {% if string.types %}
-  {{accessModifier}} static func {{string.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}}({% call parametersBlock string.types %}) -> String {
-    return {{enumName}}.tr("{{table}}", "{{string.key}}", {% call argumentsBlock string.types %})
-  }
-  {% else %}
   case {{string.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}} = "{{string.key}}"
-  {% endif %}
   {% endfor %}
   {% for child in item.children %}
 

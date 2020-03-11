@@ -131,7 +131,7 @@ class TestGen: XCTestCase {
         XCTAssertEqual(Version.j2libVersion, globalData[.j2libVersion] as? String)
         XCTAssertEqual(false, globalData[.hideSearch] as? Bool)
         XCTAssertEqual(true, globalData[.hideAttribution] as? Bool)
-        XCTAssertEqual(66, globalData[.docCoverage] as? Int)
+        XCTAssertEqual(0, globalData[.docCoverage] as? Int)
         XCTAssertNil(globalData[.customHead])
     }
 

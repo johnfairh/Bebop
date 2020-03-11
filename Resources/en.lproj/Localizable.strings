@@ -56,7 +56,7 @@ Options:";
 
 "wrn-cfg-language-missing" = "Language tags missing for '%1': %2.";
 
-"msg-generating-docs" = "Generating documentation";
+"msg-generating-docs" = "Generating documentation.";
 
 "wrn-duplicate-guide" = "Duplicate guide name '%1', ignoring '%2'.";
 "wrn-empty-guide-glob" = "No guides matching '*.md' found expanding '%1'.";
@@ -70,7 +70,7 @@ Options:";
 "err-enumerator" = "Couldn't create path enumerator starting '%1'.";
 "wrn-sktn-kind" = "Unsupported definition kind '%1', ignoring.";
 "wrn-sktn-incomplete" = "Incomplete definition JSON '%1' %2, ignoring.";
-"wrn-bad-user-language" = "No definitions found in --default-langauge '%1', using '%2' instead.";
+"wrn-bad-user-language" = "No definitions found in --default-language '%1', using '%2' instead.";
 "wrn-error-type" = "Swift compiler error for '%1' %2, ignoring.  Check build flags and import statements?";
 "wrn-usr-collision" = "Confused by different types sharing a USR.
 1: %1
@@ -80,3 +80,5 @@ Ignoring the second.";
 "err-missing-module" = "Missing key 'module' in a custom_modules stanza -- you have to set this.";
 "err-repeated-module" = "Module name '%1' repeated in --modules.";
 "msg-gather-heading" = "Gathering info for %1.";
+"msg-coverage" = "%1% documentation coverage with %2 undocumented symbols.";
+"msg-swift-acl" = "Skipped %1 %2 symbols.";

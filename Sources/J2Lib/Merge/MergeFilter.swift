@@ -39,6 +39,10 @@ public struct MergeFilter: Configurable {
         config.register(self)
     }
 
+    public func checkOptions(published: Config.Published) throws {
+        published.excludedAclList = DefAcl.excludedBy(acl: minAcl).map { $0.rawValue }.joined(separator: ", ")
+    }
+
     /// State carried around while filtering defs
     struct Context {
         /// Have we checked the filename of this def subtree?
