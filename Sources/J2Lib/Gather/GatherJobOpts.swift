@@ -16,8 +16,8 @@ struct GatherJobOpts: Configurable, CustomStringConvertible {
     let ignoreAvailabilityAttrOpt = BoolOpt(l: "ignore-availability-attr")
 
     let objcDirectOpt = BoolOpt(l: "objc-direct")
-    let objcHeaderFileOpt = PathOpt(l: "objc-header-file").help("HEADERPATH")
-    let objcIncludePathsOpt = PathListOpt(l: "objc-include-paths").help("INCLUDEDIRPATH1,INCLUDEDIRPATH2,...")
+    let objcHeaderFileOpt = PathOpt(l: "objc-header-file").help("FILEPATH")
+    let objcIncludePathsOpt = PathListOpt(l: "objc-include-paths").help("DIRPATH1,DIRPATH2,...")
     let objcSdkOpt = EnumOpt<Gather.Sdk>(l: "objc-sdk").def(.macosx)
 
     var description: String {

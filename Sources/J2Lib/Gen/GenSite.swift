@@ -32,7 +32,7 @@ public enum ChildItemStyle: String, CaseIterable {
 ///
 /// tbd whether we need the pagegen / sitegen split - just stubs really
 public struct GenSite: Configurable {
-    let outputOpt = PathOpt(s: "o", l: "output").help("PATH").def("docs")
+    let outputOpt = PathOpt(s: "o", l: "output").help("DIRPATH").def("docs")
     let cleanOpt = BoolOpt(s: "c", l: "clean")
 
     let hideSearchOpt = BoolOpt(l: "hide-search")

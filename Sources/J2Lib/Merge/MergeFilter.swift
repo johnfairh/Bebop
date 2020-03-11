@@ -22,10 +22,17 @@ public struct MergeFilter: Configurable {
     let minAclOpt = EnumOpt<DefAcl>(l: "min-acl").def(.public)
     let skipUndocumentedOpt = BoolOpt(l: "skip-undocumented")
     let undocumentedTextOpt = LocStringOpt(l: "undocumented-text").def("Undocumented")
+    let includeFilesOpt = GlobListOpt(l: "include-source-files").help("FILEPATHGLOB1,FILEPATHGLOB2,...")
+    let excludeFilesOpt = GlobListOpt(l: "exclude-source-files").help("FILEPATHGLOB1,FILEPATHGLOB2,...")
     var minAcl: DefAcl { minAclOpt.value! }
     var undocumentedText: Localized<String> { undocumentedTextOpt.value! }
 
+    let includeAlias: AliasOpt
+    let excludeAlias: AliasOpt
+
     init(config: Config) {
+        includeAlias = AliasOpt(realOpt: includeFilesOpt, l: "include")
+        excludeAlias = AliasOpt(realOpt: excludeFilesOpt, l: "exclude")
         config.register(self)
     }
 
@@ -125,7 +132,20 @@ public struct MergeFilter: Configurable {
     /// Filename include/exclude filtering.
     /// Return `true` to keep the item.
     func filterFilename(item: DefItem) -> Bool {
-        true
+        guard let filename = item.location.filePathname else {
+            return true
+        }
+        for includeGlob in includeFilesOpt.value {
+            guard Glob.match(includeGlob, path: filename) else {
+                return false
+            }
+        }
+        for excludeGlob in excludeFilesOpt.value {
+            if Glob.match(excludeGlob, path: filename) {
+                return false
+            }
+        }
+        return true
     }
 
     /// Filter based on lack/presence/nature of documentation.

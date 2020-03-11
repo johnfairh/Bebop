@@ -9,7 +9,7 @@
 import Foundation
 
 final class GroupGuides: Configurable {
-    let guidesOpt = GlobListOpt(l: "guides").help("GLOB1,GLOB2,...")
+    let guidesOpt = GlobListOpt(l: "guides").help("FILEPATHGLOB1,FILEPATHGLOB2,...")
 
     let documentationAliasOpt: AliasOpt
 

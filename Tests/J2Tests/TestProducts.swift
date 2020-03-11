@@ -108,12 +108,17 @@ class TestProducts: XCTestCase {
     #endif
 
     func testAclFiltering() throws {
-        try compareSwift(product: "decls-json",
-                         cliArgs: [
-                            "--modules=SpmSwiftModule5",
-                            "--undocumented-text=Undoc"
-                         ],
-                         against: "SpmSwiftModule5.decls.json")
+        let rootDir = fixturesURL.appendingPathComponent("SpmSwiftPackage")
+        try rootDir.withCurrentDirectory { // test relative file glob
+            try compareSwift(product: "decls-json",
+                             cliArgs: [
+                                "--modules=SpmSwiftModule5",
+                                "--undocumented-text=Undoc",
+                                "--include-source-files=/*/A*.swift",
+                                "--exclude-source-files", "*/Aexclude.swift"
+                             ],
+                             against: "SpmSwiftModule5.decls.json")
+        }
     }
 
     func testPageGenSwift() throws {
