@@ -101,7 +101,7 @@ public final class SwiftDeclaration: Encodable {
     /// For extensions, the module name of the type
     public let typeModuleName: String?
     /// Names of inherited types
-    public let inheritedTypes: [String]
+    public internal(set) var inheritedTypes: [String]
 
     init(declaration: String = "",
          deprecation: Localized<String>? = nil,

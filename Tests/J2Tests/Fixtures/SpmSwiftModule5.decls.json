@@ -8,47 +8,6 @@
         "documentation" : {
           "abstract" : {
             "markdown" : {
-              "en" : "Should not be included in docs :nodoc:"
-            }
-          },
-          "parameters" : []
-        },
-        "kind" : "source.lang.swift.decl.function.method.instance",
-        "location" : {
-          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule5\/AclBase.swift",
-          "first_line" : 9,
-          "last_line" : 10,
-          "module_name" : "SpmSwiftModule5",
-          "pass_index" : 0
-        },
-        "name" : "hiddenPublicMethod()",
-        "swift_declaration" : {
-          "availability" : [],
-          "declaration" : {
-            "text" : "public func hiddenPublicMethod()"
-          },
-          "inherited_types" : [],
-          "name_pieces" : [
-            {
-              "other" : "func "
-            },
-            {
-              "name" : "hiddenPublicMethod"
-            },
-            {
-              "other" : "()"
-            }
-          ]
-        },
-        "swift_name" : "hiddenPublicMethod()",
-        "usr" : "s:15SpmSwiftModule511PublicClassC06hiddenD6MethodyyF"
-      },
-      {
-        "acl" : "public",
-        "children" : [],
-        "documentation" : {
-          "abstract" : {
-            "markdown" : {
               "en" : "Undocumented."
             }
           },
@@ -146,7 +105,7 @@
     "swift_declaration" : {
       "availability" : [],
       "declaration" : {
-        "text" : "open class PublicClass\n\nextension PublicClass : PrivateProtocol\n\nextension PublicClass : PublicProtocol\n\nextension PublicClass: CustomStringConvertible"
+        "text" : "open class PublicClass\n\nextension PublicClass : PublicProtocol\n\nextension PublicClass: CustomStringConvertible"
       },
       "inherited_types" : [],
       "name_pieces" : [

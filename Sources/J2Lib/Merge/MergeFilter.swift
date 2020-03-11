@@ -30,24 +30,31 @@ public struct MergeFilter: Configurable {
     /// State carried around while filtering defs
     struct Context {
         /// Have we checked the filename of this def subtree?
-        var filenameChecked: Bool
+        let filenameChecked: Bool
         /// The global list of private protocols, conformances to these not wanted
-        let privateProtocols: DefItemList
+        let privateProtocols: Set<String>
 
         /// New context that will re-check the filename
         var recheckFilename: Context {
-            Context(filenameChecked: false, self.privateProtocols)
+            Context(filenameChecked: false, privateProtocols: self.privateProtocols)
         }
 
         /// New context that will stop checking the filename
         var noCheckFilename: Context {
-            Context(filenameChecked: true, self.privateProtocols)
+            Context(filenameChecked: true, privateProtocols: self.privateProtocols)
         }
 
         /// New context
-        init(filenameChecked: Bool = false, _ privateProtocols: DefItemList) {
+        init(filenameChecked: Bool, privateProtocols: Set<String>) {
             self.filenameChecked = filenameChecked
             self.privateProtocols = privateProtocols
+        }
+
+        init(protocols: DefItemList) {
+            self.filenameChecked = false
+            self.privateProtocols = Set(protocols.flatMap { item in
+                [item.name, "\(item.location.moduleName).\(item.name)"]
+            })
         }
     }
 
@@ -58,7 +65,7 @@ public struct MergeFilter: Configurable {
         let privateProtocols = items.filter { $0.defKind.isSwiftProtocol && $0.acl < minAcl }
         logDebug("Filter: found \(privateProtocols.count) private protocols")
 
-        let filtered = items.filter { filter(item: $0, Context(privateProtocols)) }
+        let filtered = items.filter { filter(item: $0, Context(protocols: privateProtocols)) }
 
         logDebug("Filter: done, \(filtered.count) top-level items")
         return filtered
@@ -83,7 +90,7 @@ public struct MergeFilter: Configurable {
 
         // :nodoc: excludes from the whole shebang, needs to be done
         // before looking at ACLs and updating those counters.
-        guard filterNoDoc(item: item) else {
+        guard !item.documentation.isMarkedNoDoc else {
             Stats.inc(.filterNoDoc)
             return false
         }
@@ -94,9 +101,10 @@ public struct MergeFilter: Configurable {
         }
         Stats.inc(.filterMinAclIncluded)
 
-        filterInheritedTypes(item: item)
+        item.filterInheritedTypes(exclude: ctx.privateProtocols)
 
         guard filterDocumentation(item: item) else {
+            // counters already done
             return false
         }
 
@@ -116,17 +124,6 @@ public struct MergeFilter: Configurable {
     /// Return `true` to keep the item.
     func filterFilename(item: DefItem) -> Bool {
         true
-    }
-
-    /// NoDoc filtering.
-    /// Return `true` to keep the item
-    func filterNoDoc(item: DefItem) -> Bool {
-        true
-    }
-
-    /// Protocol conformance editting - remove refs to things that are known to be 'private'
-    /// (in this context means beneath min-acl. )
-    func filterInheritedTypes(item: DefItem) {
     }
 
     /// Filter based on lack/presence/nature of documentation.
@@ -171,7 +168,16 @@ fileprivate extension DefItem {
     var isUselessExtension: Bool {
         defKind.isSwiftExtension &&
             defChildren.isEmpty &&
-            (swiftDeclaration?.inheritedTypes ?? []).isEmpty
+            swiftDeclaration!.inheritedTypes.isEmpty
     }
 
+    /// Remove anything in the 'inherited types' list that doesn't belong
+    func filterInheritedTypes(exclude: Set<String>) {
+        guard let swiftDecl = swiftDeclaration else {
+            return
+        }
+        swiftDecl.inheritedTypes = swiftDecl.inheritedTypes.filter {
+            !exclude.contains($0)
+        }
+    }
 }
