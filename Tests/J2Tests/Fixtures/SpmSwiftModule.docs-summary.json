@@ -432,7 +432,7 @@
           ],
           "menu_title" : {
             "html" : {
-              "en" : "…where <code>T<\/code>: <code>Equatable<\/code>, <code>T<\/code>: <code>FirstProtocol<\/code>"
+              "en" : "…where <code>T<\/code>: <code>Equatable<\/code>, <code>T<\/code>: <a href=\"..\/types\/firstprotocol1.html\"><code>FirstProtocol<\/code><\/a>"
             },
             "markdown" : {
               "en" : "…where `T`: `Equatable`, `T`: `FirstProtocol`"
@@ -440,7 +440,7 @@
           },
           "title" : {
             "html" : {
-              "en" : "Available where <code>T<\/code>: <code>Equatable<\/code>, <code>T<\/code>: <code>FirstProtocol<\/code>"
+              "en" : "Available where <code>T<\/code>: <code>Equatable<\/code>, <code>T<\/code>: <a href=\"..\/types\/firstprotocol1.html\"><code>FirstProtocol<\/code><\/a>"
             },
             "markdown" : {
               "en" : "Available where `T`: `Equatable`, `T`: `FirstProtocol`"
@@ -819,7 +819,7 @@
           ],
           "menu_title" : {
             "html" : {
-              "en" : "…where <code>AssocType<\/code>: <code>Hashable<\/code>"
+              "en" : "…where <a href=\"..\/types\/firstprotocol1.html#assoctype\"><code>AssocType<\/code><\/a>: <code>Hashable<\/code>"
             },
             "markdown" : {
               "en" : "…where `AssocType`: `Hashable`"
@@ -827,7 +827,7 @@
           },
           "title" : {
             "html" : {
-              "en" : "Available where <code>AssocType<\/code>: <code>Hashable<\/code>"
+              "en" : "Available where <a href=\"..\/types\/firstprotocol1.html#assoctype\"><code>AssocType<\/code><\/a>: <code>Hashable<\/code>"
             },
             "markdown" : {
               "en" : "Available where `AssocType`: `Hashable`"
@@ -1319,7 +1319,7 @@
               "def" : {
                 "abstract" : {
                   "en" : {
-                    "html" : "<p>Third &amp; Fourth cases<\/p>"
+                    "html" : "<p>Third &amp; Fourth cases - <a href=\"..\/types\/anenum.html#second\"><code>second<\/code><\/a><\/p>"
                   }
                 },
                 "availability" : [],
@@ -1629,7 +1629,7 @@
               "def" : {
                 "abstract" : {
                   "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                    "html" : "<p>See <a href=\"..\/types\/abaseclass.html#methodparam\"><code>ABaseClass.method(...)<\/code><\/a>.<\/p>"
                   }
                 },
                 "availability" : [],
@@ -1719,6 +1719,11 @@
               "anchor_id" : "functionaarg1_arg3",
               "dash_type" : "Global",
               "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>See <a href=\"types\/spmswiftmodule.html\"><code>SpmSwiftModule<\/code><\/a> – or <a href=\"types\/abaseclass.html\"><code>SpmSwiftModule.ABaseClass<\/code><\/a>.<\/p>"
+                  }
+                },
                 "availability" : [
                   "iOS 9+",
                   "macOS 10.12+"
@@ -2008,7 +2013,7 @@
           ],
           "menu_title" : {
             "html" : {
-              "en" : "…where <code>Element<\/code>: <code>FirstProtocol<\/code>"
+              "en" : "…where <code>Element<\/code>: <a href=\"..\/types\/firstprotocol1.html\"><code>FirstProtocol<\/code><\/a>"
             },
             "markdown" : {
               "en" : "…where `Element`: `FirstProtocol`"
@@ -2016,7 +2021,7 @@
           },
           "title" : {
             "html" : {
-              "en" : "Available where <code>Element<\/code>: <code>FirstProtocol<\/code>"
+              "en" : "Available where <code>Element<\/code>: <a href=\"..\/types\/firstprotocol1.html\"><code>FirstProtocol<\/code><\/a>"
             },
             "markdown" : {
               "en" : "Available where `Element`: `FirstProtocol`"
@@ -2052,7 +2057,7 @@
           ],
           "menu_title" : {
             "html" : {
-              "en" : "…where <code>Element<\/code> == <code>SpmSwiftModule.Nested1<\/code>"
+              "en" : "…where <code>Element<\/code> == <a href=\"..\/types\/spmswiftmodule\/nested1.html\"><code>SpmSwiftModule.Nested1<\/code><\/a>"
             },
             "markdown" : {
               "en" : "…where `Element` == `SpmSwiftModule.Nested1`"
@@ -2060,7 +2065,7 @@
           },
           "title" : {
             "html" : {
-              "en" : "Available where <code>Element<\/code> == <code>SpmSwiftModule.Nested1<\/code>"
+              "en" : "Available where <code>Element<\/code> == <a href=\"..\/types\/spmswiftmodule\/nested1.html\"><code>SpmSwiftModule.Nested1<\/code><\/a>"
             },
             "markdown" : {
               "en" : "Available where `Element` == `SpmSwiftModule.Nested1`"

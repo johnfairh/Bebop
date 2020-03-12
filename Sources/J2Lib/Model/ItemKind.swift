@@ -47,4 +47,11 @@ public enum ItemKind: String, CaseIterable {
         default: return swiftTitle
         }
     }
+
+    var isCode: Bool {
+        switch self {
+        case .guide, .group: return false
+        case .type, .variable, .function, .extension, .other: return true
+        }
+    }
 }

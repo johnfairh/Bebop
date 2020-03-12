@@ -14,7 +14,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 50,
+    "doc_coverage" : 51,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -255,7 +255,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 50,
+    "doc_coverage" : 51,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -475,7 +475,7 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Available where <code>T<\/code>: <code>Equatable<\/code>, <code>T<\/code>: <code>FirstProtocol<\/code>"
+        "title_html" : "Available where <code>T<\/code>: <code>Equatable<\/code>, <code>T<\/code>: <a href=\"..\/types\/firstprotocol1.html\"><code>FirstProtocol<\/code><\/a>"
       },
       {
         "anchor_id" : "tpc_usercustom-mark",
@@ -572,7 +572,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 50,
+    "doc_coverage" : 51,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -798,7 +798,7 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Available where <code>AssocType<\/code>: <code>Hashable<\/code>"
+        "title_html" : "Available where <a href=\"..\/types\/firstprotocol1.html#assoctype\"><code>AssocType<\/code><\/a>: <code>Hashable<\/code>"
       }
     ],
     "topics_language" : "j2-swift",
@@ -841,7 +841,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 50,
+    "doc_coverage" : 51,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -1067,7 +1067,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 50,
+    "doc_coverage" : 51,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -1260,7 +1260,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 50,
+    "doc_coverage" : 51,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -1417,7 +1417,7 @@
             "dash_name" : "case%20third",
             "dash_type" : "Case",
             "def" : {
-              "abstract_html" : "<p>Third &amp; Fourth cases<\/p>",
+              "abstract_html" : "<p>Third &amp; Fourth cases - <a href=\"..\/types\/anenum.html#second\"><code>second<\/code><\/a><\/p>",
               "swift_declaration_html" : "case third"
             },
             "primary_language" : "j2-swift",
@@ -1490,7 +1490,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 50,
+    "doc_coverage" : 51,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -1707,7 +1707,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 50,
+    "doc_coverage" : 51,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -1851,7 +1851,7 @@
             "dash_name" : "func%20method(param%3A%20Int)%20-%3E%20String",
             "dash_type" : "Method",
             "def" : {
-              "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_html" : "<p>See <a href=\"..\/types\/abaseclass.html#methodparam\"><code>ABaseClass.method(...)<\/code><\/a>.<\/p>",
               "swift_declaration_html" : "public override func method(param: Int) -&gt; String"
             },
             "primary_language" : "j2-swift",
@@ -1903,7 +1903,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 50,
+    "doc_coverage" : 51,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -2036,6 +2036,7 @@
             "dash_name" : "func%20functionA(arg1%3A%20Int,%20Int,%20arg3%3A%20Int)",
             "dash_type" : "Global",
             "def" : {
+              "abstract_html" : "<p>See <a href=\"types\/spmswiftmodule.html\"><code>SpmSwiftModule<\/code><\/a> – or <a href=\"types\/abaseclass.html\"><code>SpmSwiftModule.ABaseClass<\/code><\/a>.<\/p>",
               "availability" : [
                 "iOS 9+",
                 "macOS 10.12+"
@@ -2104,7 +2105,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 50,
+    "doc_coverage" : 51,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -2298,7 +2299,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 50,
+    "doc_coverage" : 51,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -2438,7 +2439,7 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Available where <code>Element<\/code>: <code>FirstProtocol<\/code>"
+        "title_html" : "Available where <code>Element<\/code>: <a href=\"..\/types\/firstprotocol1.html\"><code>FirstProtocol<\/code><\/a>"
       },
       {
         "anchor_id" : "tpc_available-where-element-spmswiftmodulenested1",
@@ -2459,7 +2460,7 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Available where <code>Element<\/code> == <code>SpmSwiftModule.Nested1<\/code>"
+        "title_html" : "Available where <code>Element<\/code> == <a href=\"..\/types\/spmswiftmodule\/nested1.html\"><code>SpmSwiftModule.Nested1<\/code><\/a>"
       }
     ],
     "topics_language" : "j2-swift",
@@ -2506,7 +2507,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 50,
+    "doc_coverage" : 51,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -2681,7 +2682,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 50,
+    "doc_coverage" : 51,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : true,

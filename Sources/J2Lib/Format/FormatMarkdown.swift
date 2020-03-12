@@ -22,37 +22,49 @@ final class MarkdownFormatter: ItemVisitorProtocol {
     /// For uniquing heading links
     let uniquer: StringUniquer
 
-    init(language: DefLanguage) {
+    /// For resolving autolinks
+    let autolink: FormatAutolink?
+
+    /// Context while visiting...
+    var visitParentContext = [Item]()
+    var visitItemContext: Item! = nil
+
+    init(language: DefLanguage, autolink: FormatAutolink? = nil) {
         fallbackLanguage = language
         currentLanguage = nil
         uniquer = StringUniquer()
+        self.autolink = autolink
     }
 
     /// Format the def's markdown.
     /// This both generates HTML versions of everything and also replaces the original markdown
     /// with an auto-linked version for generating markdown output.
-    private func format(item: Item) {
+    private func format(item: Item, parents: [Item]) {
+        visitParentContext = parents
+        visitItemContext = item
         item.format(blockFormatter: { format(md: $0) },
                     inlineFormatter: { formatInline(md: $0) })
+        visitParentContext = []
+        visitItemContext = nil
     }
 
     func visit(defItem: DefItem, parents: [Item]) {
         uniquer.reset() // this isn't right...
         currentLanguage = defItem.primaryLanguage
         defItem.finalizeDeclNotes()
-        format(item: defItem)
+        format(item: defItem, parents: parents)
     }
 
     func visit(groupItem: GroupItem, parents: [Item]) {
         uniquer.reset()
         currentLanguage = nil
-        format(item: groupItem)
+        format(item: groupItem, parents: [])
     }
 
     func visit(guideItem: GuideItem, parents: [Item]) {
         uniquer.reset()
         currentLanguage = nil
-        format(item: guideItem)
+        format(item: guideItem, parents: [])
     }
 
     /// 1 - build markdown AST
@@ -86,7 +98,8 @@ final class MarkdownFormatter: ItemVisitorProtocol {
     ///     a) replace headings with custom nodes adding styles and tags
     ///     b) create scaffolding around callouts
     ///     c) code blocks language rewrite for prism / default
-    ///     d) math reformatting [one day]
+    ///     d) autolinking
+    ///     e) math reformatting [one day]
     ///
     /// All the !s and try!s here are to do with poorly-wrapped cmark interfaces that
     /// are (not) policing node types.
@@ -108,6 +121,9 @@ final class MarkdownFormatter: ItemVisitorProtocol {
                 if node.maybeCalloutList {
                     customizeCallouts(listNode: node, iterator: iterator)
                 }
+
+            case .code:
+                customizeCode(code: node, iterator: iterator)
 
             default:
                 break
@@ -191,6 +207,25 @@ final class MarkdownFormatter: ItemVisitorProtocol {
                 iterator.reset(to: calloutNode, eventType: .enter)
             }
         }
+    }
+
+    func customizeCode(code: CMNode, iterator: Iterator) {
+        let text = code.literal!
+        guard let autolinkDef = autolink?.def(for: text, context: visitParentContext) else {
+            return
+        }
+        guard autolinkDef !== visitItemContext else {
+            Stats.inc(.autolinkSelfLink)
+            return
+        }
+        let linkURL = visitItemContext.url.pathToRoot +
+            autolinkDef.url.url(fileExtension: ".html")
+        let linkNode = CMNode.init(type: .link)
+        try! linkNode.setLinkURL(URL(string: linkURL)!)
+        try! linkNode.insertIntoTree(afterNode: code)
+        try! code.insertIntoTree(asFirstChildOf: linkNode)
+        linkNode.setUserData(unretained: autolinkDef)
+        iterator.reset(to: linkNode, eventType: .exit)
     }
 }
 

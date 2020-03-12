@@ -11,9 +11,12 @@ import Foundation
 public final class Format: Configurable {
     let readmeOpt = PathOpt(l: "readme").help("FILEPATH")
 
+    let autolink: FormatAutolink
+
     private var configPublished: Config.Published
 
     public init(config: Config) {
+        autolink = FormatAutolink(config: config)
         configPublished = config.published
         config.register(self)
     }
@@ -26,10 +29,13 @@ public final class Format: Configurable {
         let allItems = items + [try createReadme()]
         logDebug("Format: Assigning URLs")
         URLFormatter(childItemStyle: configPublished.childItemStyle).walk(items: allItems)
+        logDebug("Format: Building autolink index")
+        autolink.populate(defs: allItems)
         logDebug("Format: Formatting declarations")
         DeclarationFormatter().walk(items: allItems)
         logDebug("Format: Generating HTML")
-        MarkdownFormatter(language: configPublished.defaultLanguage).walk(items: allItems)
+        MarkdownFormatter(language: configPublished.defaultLanguage,
+                          autolink: autolink).walk(items: allItems)
         return allItems
     }
 

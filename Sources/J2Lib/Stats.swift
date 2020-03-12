@@ -138,6 +138,14 @@ struct StatsDb {
         case filterIgnoreInheritedDocs
         /// Markdown chunks formatted
         case formatMarkdown
+        /// Autolinks resolved to local docs in local scope
+        case autolinkLocalLocalScope
+        /// Autolinks resolved to local docs in global scope
+        case autolinkLocalGlobalScope
+        /// Autolink candidate resolved to self and ignored
+        case autolinkSelfLink
+        /// Autolink candidate not resolved
+        case autolinkNotAutolinked
     }
     private var counters = [String : Int]()
 

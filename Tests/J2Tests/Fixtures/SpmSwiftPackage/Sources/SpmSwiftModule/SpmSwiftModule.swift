@@ -22,7 +22,7 @@ public enum AnEnum {
     case first(Int)
     /// Second case
     case second
-    /// Third & Fourth cases
+    /// Third & Fourth cases - `second`
     case third, fourth
     /// Fifth case
     case fifth(a: String,_ b: Int)
@@ -32,6 +32,8 @@ public enum AnEnum {
 ///    - arg1: Number one
 ///    - arg2: Second
 ///    - arg3: Third
+///
+/// See `SpmSwiftModule` -- or `SpmSwiftModule.ABaseClass`.
 @available(iOS 9, macOS 10.12, *)
 public func functionA(arg1: Int,
                       _ arg2: Int,
@@ -70,6 +72,7 @@ public class ABaseClass {
 public class ADerivedClass<T, Q: Sequence>: ABaseClass {
   var t: Q? = nil
 
+  /// See `ABaseClass.method(...)`.
   public override func method(param: Int) -> String {
     return ""
   }

@@ -13,6 +13,22 @@ import Maaku
 // Helpers on top of Maaku types and special knowledge about callout
 // formatting ported from jazzy callout_scanner.
 //
+import libcmark_gfm
+
+extension CMNode {
+    func setUserData<T: AnyObject>(unretained: T) {
+        let unmanaged = Unmanaged.passUnretained(unretained)
+        cmark_node_set_user_data(cmarkNode, unmanaged.toOpaque())
+    }
+
+    func getUserData<T: AnyObject>(kind: T.Type) -> T? {
+        guard let opaque = cmark_node_get_user_data(cmarkNode) else {
+            return nil
+        }
+        let unmanaged = Unmanaged<T>.fromOpaque(opaque)
+        return unmanaged.takeUnretainedValue()
+    }
+}
 
 
 // MARK: `CMDocument` helpers
