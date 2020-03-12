@@ -15,6 +15,7 @@ public final class Stats: Configurable {
     let published: Config.Published
 
     init(config: Config) {
+        Self.db.reset()
         published = config.published
         config.register(self)
     }

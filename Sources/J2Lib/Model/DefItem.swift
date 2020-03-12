@@ -85,7 +85,7 @@ public class DefItem: Item, CustomStringConvertible {
                                     lastLine: endLine ?? line)
         self.defKind = kind
         self.usr = USR(usr)
-        self.documentation = RichDefDocs(gatherDef.translatedDocs)
+        self.documentation = RichDefDocs(gatherDef.translatedDocs )
         self.swiftDeclaration = gatherDef.swiftDeclaration
         self.objCDeclaration = gatherDef.objCDeclaration
 

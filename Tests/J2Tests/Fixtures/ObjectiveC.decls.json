@@ -17,8 +17,8 @@
         "kind" : "sourcekitten.source.lang.objc.decl.ivar",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-          "first_line" : 4,
-          "last_line" : 4,
+          "first_line" : 5,
+          "last_line" : 5,
           "module_name" : "Module",
           "pass_index" : 0
         },
@@ -54,8 +54,8 @@
         "kind" : "sourcekitten.source.lang.objc.decl.property",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-          "first_line" : 8,
-          "last_line" : 8,
+          "first_line" : 9,
+          "last_line" : 9,
           "module_name" : "Module",
           "pass_index" : 0
         },
@@ -114,8 +114,8 @@
         "kind" : "sourcekitten.source.lang.objc.decl.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-          "first_line" : 67,
-          "last_line" : 67,
+          "first_line" : 68,
+          "last_line" : 68,
           "module_name" : "Module",
           "pass_index" : 0
         },
@@ -171,24 +171,24 @@
     "documentation" : {
       "abstract" : {
         "markdown" : {
-          "en" : "Undocumented"
+          "en" : "Class with IVars"
         }
       },
       "parameters" : [],
-      "source" : "fabricated"
+      "source" : "docComment"
     },
     "kind" : "sourcekitten.source.lang.objc.decl.class",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-      "first_line" : 3,
-      "last_line" : 10,
+      "first_line" : 4,
+      "last_line" : 11,
       "module_name" : "Module",
       "pass_index" : 0
     },
     "name" : "IVarTest",
     "obj_c_declaration" : {
       "declaration" : {
-        "text" : "@interface IVarTest: NSObject"
+        "text" : "@interface IVarTest : NSObject"
       },
       "name_pieces" : [
         {
@@ -237,8 +237,8 @@
         "kind" : "sourcekitten.source.lang.objc.decl.property",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-          "first_line" : 16,
-          "last_line" : 16,
+          "first_line" : 17,
+          "last_line" : 17,
           "module_name" : "Module",
           "pass_index" : 0
         },
@@ -294,8 +294,8 @@
         "kind" : "sourcekitten.source.lang.objc.decl.property",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-          "first_line" : 19,
-          "last_line" : 19,
+          "first_line" : 20,
+          "last_line" : 20,
           "module_name" : "Module",
           "pass_index" : 0
         },
@@ -351,8 +351,8 @@
         "kind" : "sourcekitten.source.lang.objc.decl.method.class",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-          "first_line" : 21,
-          "last_line" : 21,
+          "first_line" : 22,
+          "last_line" : 22,
           "module_name" : "Module",
           "pass_index" : 0
         },
@@ -411,8 +411,8 @@
         "kind" : "sourcekitten.source.lang.objc.decl.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-          "first_line" : 22,
-          "last_line" : 22,
+          "first_line" : 23,
+          "last_line" : 23,
           "module_name" : "Module",
           "pass_index" : 0
         },
@@ -471,8 +471,8 @@
         "kind" : "sourcekitten.source.lang.objc.decl.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-          "first_line" : 25,
-          "last_line" : 25,
+          "first_line" : 26,
+          "last_line" : 26,
           "module_name" : "Module",
           "pass_index" : 0
         },
@@ -531,8 +531,8 @@
         "kind" : "sourcekitten.source.lang.objc.decl.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-          "first_line" : 28,
-          "last_line" : 28,
+          "first_line" : 29,
+          "last_line" : 29,
           "module_name" : "Module",
           "pass_index" : 0
         },
@@ -609,8 +609,8 @@
         "kind" : "sourcekitten.source.lang.objc.decl.method.class",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-          "first_line" : 30,
-          "last_line" : 30,
+          "first_line" : 31,
+          "last_line" : 31,
           "module_name" : "Module",
           "pass_index" : 0
         },
@@ -667,8 +667,8 @@
     "kind" : "sourcekitten.source.lang.objc.decl.class",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-      "first_line" : 13,
-      "last_line" : 32,
+      "first_line" : 14,
+      "last_line" : 33,
       "module_name" : "Module",
       "pass_index" : 0
     },
@@ -721,8 +721,8 @@
     "kind" : "sourcekitten.source.lang.objc.decl.constant",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-      "first_line" : 38,
-      "last_line" : 38,
+      "first_line" : 39,
+      "last_line" : 39,
       "module_name" : "Module",
       "pass_index" : 0
     },
@@ -769,8 +769,8 @@
     "kind" : "sourcekitten.source.lang.objc.decl.function",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-      "first_line" : 40,
-      "last_line" : 40,
+      "first_line" : 41,
+      "last_line" : 41,
       "module_name" : "Module",
       "pass_index" : 0
     },
@@ -840,8 +840,8 @@
         "kind" : "sourcekitten.source.lang.objc.decl.field",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-          "first_line" : 45,
-          "last_line" : 45,
+          "first_line" : 46,
+          "last_line" : 46,
           "module_name" : "Module",
           "pass_index" : 0
         },
@@ -895,8 +895,8 @@
     "kind" : "sourcekitten.source.lang.objc.decl.struct",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-      "first_line" : 43,
-      "last_line" : 46,
+      "first_line" : 44,
+      "last_line" : 47,
       "module_name" : "Module",
       "pass_index" : 0
     },
@@ -957,8 +957,8 @@
     "kind" : "sourcekitten.source.lang.objc.decl.typedef",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-      "first_line" : 49,
-      "last_line" : 49,
+      "first_line" : 50,
+      "last_line" : 50,
       "module_name" : "Module",
       "pass_index" : 0
     },
@@ -1005,8 +1005,8 @@
         "kind" : "sourcekitten.source.lang.objc.decl.enumcase",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-          "first_line" : 51,
-          "last_line" : 51,
+          "first_line" : 52,
+          "last_line" : 52,
           "module_name" : "Module",
           "pass_index" : 0
         },
@@ -1059,8 +1059,8 @@
         "kind" : "sourcekitten.source.lang.objc.decl.enumcase",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-          "first_line" : 53,
-          "last_line" : 53,
+          "first_line" : 54,
+          "last_line" : 54,
           "module_name" : "Module",
           "pass_index" : 0
         },
@@ -1111,8 +1111,8 @@
     "kind" : "sourcekitten.source.lang.objc.decl.enum",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-      "first_line" : 49,
-      "last_line" : 54,
+      "first_line" : 50,
+      "last_line" : 55,
       "module_name" : "Module",
       "pass_index" : 0
     },
@@ -1176,8 +1176,8 @@
         "kind" : "sourcekitten.source.lang.objc.decl.enumcase",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-          "first_line" : 57,
-          "last_line" : 57,
+          "first_line" : 58,
+          "last_line" : 58,
           "module_name" : "Module",
           "pass_index" : 0
         },
@@ -1213,8 +1213,8 @@
         "kind" : "sourcekitten.source.lang.objc.decl.enumcase",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-          "first_line" : 58,
-          "last_line" : 58,
+          "first_line" : 59,
+          "last_line" : 59,
           "module_name" : "Module",
           "pass_index" : 0
         },
@@ -1248,8 +1248,8 @@
     "kind" : "sourcekitten.source.lang.objc.decl.enum",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-      "first_line" : 56,
-      "last_line" : 59,
+      "first_line" : 57,
+      "last_line" : 60,
       "module_name" : "Module",
       "pass_index" : 0
     },
@@ -1310,8 +1310,8 @@
     "kind" : "sourcekitten.source.lang.objc.decl.typedef",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-      "first_line" : 62,
-      "last_line" : 62,
+      "first_line" : 63,
+      "last_line" : 63,
       "module_name" : "Module",
       "pass_index" : 0
     },
@@ -1375,8 +1375,8 @@
         "kind" : "sourcekitten.source.lang.objc.decl.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-          "first_line" : 74,
-          "last_line" : 74,
+          "first_line" : 75,
+          "last_line" : 75,
           "module_name" : "Module",
           "pass_index" : 0
         },
@@ -1433,8 +1433,8 @@
     "kind" : "sourcekitten.source.lang.objc.decl.protocol",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-      "first_line" : 72,
-      "last_line" : 76,
+      "first_line" : 73,
+      "last_line" : 77,
       "module_name" : "Module",
       "pass_index" : 0
     },
@@ -1498,8 +1498,8 @@
         "kind" : "sourcekitten.source.lang.objc.decl.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-          "first_line" : 82,
-          "last_line" : 82,
+          "first_line" : 83,
+          "last_line" : 83,
           "module_name" : "Module",
           "pass_index" : 0
         },
@@ -1574,8 +1574,8 @@
     "kind" : "sourcekitten.source.lang.objc.decl.class",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-      "first_line" : 79,
-      "last_line" : 84,
+      "first_line" : 80,
+      "last_line" : 85,
       "module_name" : "Module",
       "pass_index" : 0
     },

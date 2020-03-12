@@ -29,7 +29,8 @@ class TestMerge: XCTestCase {
 
     /// Normal file with one def
     func testGoodMergeImport() throws {
-        let goodFile = SourceKittenDict.mkFile().with(children: [.mkClass(name: "Good", docs: "")])
+        let clazz = SourceKittenDict.mkClass(name: "Good").with(docs: "")
+        let goodFile = SourceKittenDict.mkFile().with(children: [clazz])
         let system = System()
         TestLogger.install()
         TestLogger.shared.expectNothing = true
@@ -252,5 +253,21 @@ class TestMerge: XCTestCase {
         XCTAssertEqual(0, filtered.count)
 
         XCTAssertEqual(1, Stats.db[.filterSkipUndocOverride])
+    }
+
+    func testDocsExtMainCascade() throws {
+        let system = System(true, opts: ["--skip-undocumented"])
+        let clazz = SourceKittenDict
+            .mkClass(name: "Clas")
+        let extn = SourceKittenDict
+            .mkExtension(name: "Clas")
+            .with(docs: "Ext Docs")
+        let passes = SourceKittenDict
+            .mkFile()
+            .with(children: [clazz, extn])
+            .asGatherPasses
+        let merged = try system.merge.merge(gathered: passes)
+        XCTAssertEqual(1, merged.count)
+        XCTAssertEqual(merged[0].documentation.abstract, RichText("Ext Docs"))
     }
 }

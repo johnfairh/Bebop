@@ -144,6 +144,10 @@ extension SourceKittenDict {
         with(field: "key.accessibility", value: "source.lang.swift.accessibility.\(accessibility.rawValue)")
     }
 
+    func with(docs: String) -> Self {
+        with(field: .documentationComment, value: docs)
+    }
+
     #if os(macOS)
     func with(okind: ObjCDeclarationKind) -> Self {
         with(field: .kind, value: okind.rawValue)
@@ -167,73 +171,65 @@ extension SourceKittenDict {
         return with(field: "key.overrides", value: dicts)
     }
 
-
     func with(children: [SourceKittenDict]) -> Self {
         with(field: .substructure, value: children)
     }
 
     // Factories
 
-    static func mkClass(name: String, docs: String = "") -> Self {
+    static func mkClass(name: String) -> Self {
         SourceKittenDict()
             .with(kind: .class)
             .with(name: name)
             .with(decl: "class \(name)")
-            .with(comment: docs)
             .with(usr: name)
     }
 
-    static func mkProtocol(name: String, docs: String = "") -> Self {
+    static func mkProtocol(name: String) -> Self {
         SourceKittenDict()
             .with(kind: .protocol)
             .with(name: name)
             .with(decl: "protocol \(name)")
-            .with(comment: docs)
             .with(usr: name)
     }
 
-    static func mkExtension(name: String, docs: String = "") -> Self {
+    static func mkExtension(name: String) -> Self {
         SourceKittenDict()
             .with(kind: .extension)
             .with(name: name)
             .with(decl: "extension \(name)")
-            .with(comment: docs)
             .with(usr: name)
     }
 
-    static func mkStruct(name: String, docs: String = "") -> Self {
+    static func mkStruct(name: String) -> Self {
         SourceKittenDict()
             .with(kind: .struct)
             .with(name: name)
             .with(decl: "struct \(name)")
-            .with(comment: docs)
             .with(usr: name)
     }
 
-    static func mkInstanceVar(name: String, docs: String = "") -> Self {
+    static func mkInstanceVar(name: String) -> Self {
         SourceKittenDict()
             .with(kind: .varInstance)
             .with(name: name)
             .with(decl: "var \(name)")
-            .with(comment: docs)
             .with(usr: name)
     }
 
-    static func mkGlobalVar(name: String, docs: String = "") -> Self {
+    static func mkGlobalVar(name: String) -> Self {
         SourceKittenDict()
             .with(kind: .varGlobal)
             .with(name: name)
             .with(decl: "var \(name)")
-            .with(comment: docs)
             .with(usr: name)
     }
 
-    static func mkMethod(name: String, docs: String = "") -> Self {
+    static func mkMethod(name: String) -> Self {
         SourceKittenDict()
             .with(kind: .functionMethodInstance)
             .with(name: name)
             .with(decl: "func \(name)()")
-            .with(comment: docs)
             .with(usr: name)
     }
 
@@ -260,10 +256,18 @@ extension SourceKittenDict {
     func asGatherDef(availability: String? = nil) -> GatherDef {
         let rules = Gather.Availability(defaults: availability.flatMap { [$0] } ?? [],
                                         ignoreAttr: false)
-        return GatherDef(sourceKittenDict: self,
-                         parentNameComponents: [],
-                         file: nil,
-                         availability: rules)!
+        var rootDef = GatherDef(sourceKittenDict: self,
+                                parentNameComponents: [],
+                                file: nil,
+                                availability: rules)!
+        func fixDocComment(def: GatherDef) {
+            if let flatDocs = def.documentation {
+                def.translatedDocs.set(tag: Localizations.shared.main.tag, docs: flatDocs)
+            }
+            def.children.forEach { fixDocComment(def: $0) }
+        }
+        fixDocComment(def: rootDef)
+        return rootDef
     }
 
     var asGatherPasses: [GatherModulePass] {

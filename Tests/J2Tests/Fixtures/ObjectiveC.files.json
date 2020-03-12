@@ -34,10 +34,17 @@
           "key.always_unavailable" : false,
           "key.deprecation_message" : "",
           "key.doc.column" : 12,
+          "key.doc.comment" : "Class with IVars",
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-          "key.doc.line" : 3,
+          "key.doc.full_as_xml" : "",
+          "key.doc.line" : 4,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-          "key.j2.objc_declaration" : "@interface IVarTest: NSObject",
+          "key.j2.documentation" : {
+            "key.j2.abstract" : {
+              "en" : "Class with IVars"
+            }
+          },
+          "key.j2.objc_declaration" : "@interface IVarTest : NSObject",
           "key.j2.objc_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -61,9 +68,9 @@
           ],
           "key.kind" : "sourcekitten.source.lang.objc.decl.class",
           "key.name" : "IVarTest",
-          "key.parsed_declaration" : "@interface IVarTest: NSObject {\n    NSString *ivarName;\n}\n\n\/** Documented property *\/\n@property (strong) NSString *propertyName __deprecated_msg(\"Is deprecated\");\n\n@end",
-          "key.parsed_scope.end" : 10,
-          "key.parsed_scope.start" : 3,
+          "key.parsed_declaration" : "@interface IVarTest : NSObject {\n  NSString *ivarName;\n}",
+          "key.parsed_scope.end" : 11,
+          "key.parsed_scope.start" : 4,
           "key.substructure" : [
             {
               "key.always_deprecated" : false,
@@ -71,7 +78,7 @@
               "key.deprecation_message" : "",
               "key.doc.column" : 15,
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-              "key.doc.line" : 4,
+              "key.doc.line" : 5,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
               "key.j2.objc_declaration" : "NSString *ivarName",
               "key.j2.objc_name_pieces" : [
@@ -87,8 +94,8 @@
               "key.kind" : "sourcekitten.source.lang.objc.decl.ivar",
               "key.name" : "ivarName",
               "key.parsed_declaration" : "NSString *ivarName",
-              "key.parsed_scope.end" : 4,
-              "key.parsed_scope.start" : 4,
+              "key.parsed_scope.end" : 5,
+              "key.parsed_scope.start" : 5,
               "key.unavailable_message" : "",
               "key.usr" : "c:objc(cs)IVarTest@ivarName"
             },
@@ -100,7 +107,7 @@
               "key.doc.comment" : "Documented property",
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
               "key.doc.full_as_xml" : "",
-              "key.doc.line" : 8,
+              "key.doc.line" : 9,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
               "key.j2.documentation" : {
                 "key.j2.abstract" : {
@@ -139,8 +146,8 @@
               "key.kind" : "sourcekitten.source.lang.objc.decl.property",
               "key.name" : "propertyName",
               "key.parsed_declaration" : "@property (readwrite, strong, atomic) NSString *propertyName;",
-              "key.parsed_scope.end" : 8,
-              "key.parsed_scope.start" : 8,
+              "key.parsed_scope.end" : 9,
+              "key.parsed_scope.start" : 9,
               "key.swift_declaration" : "var propertyName: String! { get set }",
               "key.swift_name" : "propertyName",
               "key.unavailable_message" : "",
@@ -160,7 +167,7 @@
           "key.doc.comment" : "Various kinds of property and method",
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
           "key.doc.full_as_xml" : "",
-          "key.doc.line" : 13,
+          "key.doc.line" : 14,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
           "key.j2.documentation" : {
             "key.j2.abstract" : {
@@ -192,8 +199,8 @@
           "key.kind" : "sourcekitten.source.lang.objc.decl.class",
           "key.name" : "PropertyKinds",
           "key.parsed_declaration" : "@interface PropertyKinds : NSObject",
-          "key.parsed_scope.end" : 32,
-          "key.parsed_scope.start" : 13,
+          "key.parsed_scope.end" : 33,
+          "key.parsed_scope.start" : 14,
           "key.substructure" : [
             {
               "key.always_deprecated" : false,
@@ -203,7 +210,7 @@
               "key.doc.comment" : "doc",
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
               "key.doc.full_as_xml" : "",
-              "key.doc.line" : 16,
+              "key.doc.line" : 17,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
               "key.j2.documentation" : {
                 "key.j2.abstract" : {
@@ -239,8 +246,8 @@
               "key.kind" : "sourcekitten.source.lang.objc.decl.property",
               "key.name" : "identifier",
               "key.parsed_declaration" : "@property (readwrite, copy, nonatomic, class) NSUUID *identifier;",
-              "key.parsed_scope.end" : 16,
-              "key.parsed_scope.start" : 16,
+              "key.parsed_scope.end" : 17,
+              "key.parsed_scope.start" : 17,
               "key.swift_declaration" : "class var identifier: UUID! { get set }",
               "key.swift_name" : "identifier",
               "key.unavailable_message" : "",
@@ -254,7 +261,7 @@
               "key.doc.comment" : "Nullability",
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
               "key.doc.full_as_xml" : "",
-              "key.doc.line" : 19,
+              "key.doc.line" : 20,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
               "key.j2.documentation" : {
                 "key.j2.abstract" : {
@@ -290,8 +297,8 @@
               "key.kind" : "sourcekitten.source.lang.objc.decl.property",
               "key.name" : "uuid",
               "key.parsed_declaration" : "@property (readwrite, copy, nonatomic, nullable) NSUUID *uuid;",
-              "key.parsed_scope.end" : 19,
-              "key.parsed_scope.start" : 19,
+              "key.parsed_scope.end" : 20,
+              "key.parsed_scope.start" : 20,
               "key.swift_declaration" : "var uuid: UUID? { get set }",
               "key.swift_name" : "uuid",
               "key.unavailable_message" : "",
@@ -303,7 +310,7 @@
               "key.deprecation_message" : "",
               "key.doc.column" : 18,
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-              "key.doc.line" : 21,
+              "key.doc.line" : 22,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
               "key.j2.objc_declaration" : "+ (instancetype) alloc",
               "key.j2.objc_name_pieces" : [
@@ -338,8 +345,8 @@
               "key.kind" : "sourcekitten.source.lang.objc.decl.method.class",
               "key.name" : "+alloc",
               "key.parsed_declaration" : "+ (instancetype) alloc;",
-              "key.parsed_scope.end" : 21,
-              "key.parsed_scope.start" : 21,
+              "key.parsed_scope.end" : 22,
+              "key.parsed_scope.start" : 22,
               "key.swift_declaration" : "class func alloc() -> Self!",
               "key.swift_name" : "alloc()",
               "key.unavailable_message" : "",
@@ -351,7 +358,7 @@
               "key.deprecation_message" : "",
               "key.doc.column" : 7,
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-              "key.doc.line" : 22,
+              "key.doc.line" : 23,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
               "key.j2.objc_declaration" : "- (id)init",
               "key.j2.objc_deprecation_messages" : {
@@ -385,8 +392,8 @@
               "key.kind" : "sourcekitten.source.lang.objc.decl.method.instance",
               "key.name" : "-init",
               "key.parsed_declaration" : "- (id)init __deprecated;",
-              "key.parsed_scope.end" : 22,
-              "key.parsed_scope.start" : 22,
+              "key.parsed_scope.end" : 23,
+              "key.parsed_scope.start" : 23,
               "key.swift_declaration" : "init!()",
               "key.swift_name" : "init()",
               "key.unavailable_message" : "",
@@ -400,7 +407,7 @@
               "key.doc.comment" : "No params",
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
               "key.doc.full_as_xml" : "",
-              "key.doc.line" : 25,
+              "key.doc.line" : 26,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
               "key.j2.documentation" : {
                 "key.j2.abstract" : {
@@ -440,8 +447,8 @@
               "key.kind" : "sourcekitten.source.lang.objc.decl.method.instance",
               "key.name" : "-method",
               "key.parsed_declaration" : "- (void)method;",
-              "key.parsed_scope.end" : 25,
-              "key.parsed_scope.start" : 25,
+              "key.parsed_scope.end" : 26,
+              "key.parsed_scope.start" : 26,
               "key.swift_declaration" : "func method()",
               "key.swift_name" : "method()",
               "key.unavailable_message" : "",
@@ -455,7 +462,7 @@
               "key.doc.comment" : "params",
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
               "key.doc.full_as_xml" : "",
-              "key.doc.line" : 28,
+              "key.doc.line" : 29,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
               "key.j2.documentation" : {
                 "key.j2.abstract" : {
@@ -519,8 +526,8 @@
               "key.kind" : "sourcekitten.source.lang.objc.decl.method.instance",
               "key.name" : "-doThingWith:named:",
               "key.parsed_declaration" : "- (int)doThingWith:(int)first named:(NSString *)name;",
-              "key.parsed_scope.end" : 28,
-              "key.parsed_scope.start" : 28,
+              "key.parsed_scope.end" : 29,
+              "key.parsed_scope.start" : 29,
               "key.swift_declaration" : "func doThing(with first: Int32, named name: String!) -> Int32",
               "key.swift_name" : "doThing(with:named:)",
               "key.unavailable_message" : "",
@@ -532,7 +539,7 @@
               "key.deprecation_message" : "",
               "key.doc.column" : 9,
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-              "key.doc.line" : 30,
+              "key.doc.line" : 31,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
               "key.j2.objc_declaration" : "+ (void)classMethod",
               "key.j2.objc_name_pieces" : [
@@ -567,8 +574,8 @@
               "key.kind" : "sourcekitten.source.lang.objc.decl.method.class",
               "key.name" : "+classMethod",
               "key.parsed_declaration" : "+ (void)classMethod;",
-              "key.parsed_scope.end" : 30,
-              "key.parsed_scope.start" : 30,
+              "key.parsed_scope.end" : 31,
+              "key.parsed_scope.start" : 31,
               "key.swift_declaration" : "class func classMethod()",
               "key.swift_name" : "classMethod()",
               "key.unavailable_message" : "",
@@ -583,12 +590,12 @@
         {
           "key.doc.column" : 1,
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-          "key.doc.line" : 36,
+          "key.doc.line" : 37,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
           "key.kind" : "sourcekitten.source.lang.objc.mark",
           "key.name" : "C-only?",
-          "key.parsed_scope.end" : 36,
-          "key.parsed_scope.start" : 36
+          "key.parsed_scope.end" : 37,
+          "key.parsed_scope.start" : 37
         },
         {
           "key.always_deprecated" : false,
@@ -596,7 +603,7 @@
           "key.deprecation_message" : "",
           "key.doc.column" : 12,
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-          "key.doc.line" : 38,
+          "key.doc.line" : 39,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
           "key.j2.objc_declaration" : "extern int fred",
           "key.j2.objc_name_pieces" : [
@@ -615,8 +622,8 @@
           "key.kind" : "sourcekitten.source.lang.objc.decl.constant",
           "key.name" : "fred",
           "key.parsed_declaration" : "extern int fred",
-          "key.parsed_scope.end" : 38,
-          "key.parsed_scope.start" : 38,
+          "key.parsed_scope.end" : 39,
+          "key.parsed_scope.start" : 39,
           "key.unavailable_message" : "",
           "key.usr" : "c:@fred"
         },
@@ -626,7 +633,7 @@
           "key.deprecation_message" : "",
           "key.doc.column" : 6,
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-          "key.doc.line" : 40,
+          "key.doc.line" : 41,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
           "key.j2.objc_declaration" : "void global_func(void)",
           "key.j2.objc_name_pieces" : [
@@ -661,8 +668,8 @@
           "key.kind" : "sourcekitten.source.lang.objc.decl.function",
           "key.name" : "global_func",
           "key.parsed_declaration" : "void global_func(void)",
-          "key.parsed_scope.end" : 40,
-          "key.parsed_scope.start" : 40,
+          "key.parsed_scope.end" : 41,
+          "key.parsed_scope.start" : 41,
           "key.swift_declaration" : "func global_func()",
           "key.swift_name" : "global_func()",
           "key.unavailable_message" : "",
@@ -676,7 +683,7 @@
           "key.doc.comment" : "Structures",
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
           "key.doc.full_as_xml" : "",
-          "key.doc.line" : 43,
+          "key.doc.line" : 44,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
           "key.j2.documentation" : {
             "key.j2.abstract" : {
@@ -708,8 +715,8 @@
           "key.kind" : "sourcekitten.source.lang.objc.decl.struct",
           "key.name" : "AStruct",
           "key.parsed_declaration" : "struct AStruct {}",
-          "key.parsed_scope.end" : 46,
-          "key.parsed_scope.start" : 43,
+          "key.parsed_scope.end" : 47,
+          "key.parsed_scope.start" : 44,
           "key.substructure" : [
             {
               "key.always_deprecated" : false,
@@ -719,7 +726,7 @@
               "key.doc.comment" : "Field",
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
               "key.doc.full_as_xml" : "",
-              "key.doc.line" : 45,
+              "key.doc.line" : 46,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
               "key.j2.documentation" : {
                 "key.j2.abstract" : {
@@ -755,8 +762,8 @@
               "key.kind" : "sourcekitten.source.lang.objc.decl.field",
               "key.name" : "field",
               "key.parsed_declaration" : "int field",
-              "key.parsed_scope.end" : 45,
-              "key.parsed_scope.start" : 45,
+              "key.parsed_scope.end" : 46,
+              "key.parsed_scope.start" : 46,
               "key.swift_declaration" : "var field: Int32",
               "key.swift_name" : "field",
               "key.unavailable_message" : "",
@@ -776,7 +783,7 @@
           "key.doc.comment" : "Enums",
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
           "key.doc.full_as_xml" : "",
-          "key.doc.line" : 49,
+          "key.doc.line" : 50,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
           "key.j2.documentation" : {
             "key.j2.abstract" : {
@@ -797,8 +804,8 @@
           "key.kind" : "sourcekitten.source.lang.objc.decl.typedef",
           "key.name" : "AEnum",
           "key.parsed_declaration" : "typedef enum AEnum AEnum",
-          "key.parsed_scope.end" : 49,
-          "key.parsed_scope.start" : 49,
+          "key.parsed_scope.end" : 50,
+          "key.parsed_scope.start" : 50,
           "key.unavailable_message" : "",
           "key.usr" : "c:Header.h@T@AEnum"
         },
@@ -810,7 +817,7 @@
           "key.doc.comment" : "Enums",
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
           "key.doc.full_as_xml" : "",
-          "key.doc.line" : 49,
+          "key.doc.line" : 50,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
           "key.j2.documentation" : {
             "key.j2.abstract" : {
@@ -842,8 +849,8 @@
           "key.kind" : "sourcekitten.source.lang.objc.decl.enum",
           "key.name" : "AEnum",
           "key.parsed_declaration" : "enum AEnum {}",
-          "key.parsed_scope.end" : 54,
-          "key.parsed_scope.start" : 49,
+          "key.parsed_scope.end" : 55,
+          "key.parsed_scope.start" : 50,
           "key.substructure" : [
             {
               "key.always_deprecated" : false,
@@ -853,7 +860,7 @@
               "key.doc.comment" : "Enum element a",
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
               "key.doc.full_as_xml" : "",
-              "key.doc.line" : 51,
+              "key.doc.line" : 52,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
               "key.j2.documentation" : {
                 "key.j2.abstract" : {
@@ -885,8 +892,8 @@
               "key.kind" : "sourcekitten.source.lang.objc.decl.enumcase",
               "key.name" : "a",
               "key.parsed_declaration" : "a = 3",
-              "key.parsed_scope.end" : 51,
-              "key.parsed_scope.start" : 51,
+              "key.parsed_scope.end" : 52,
+              "key.parsed_scope.start" : 52,
               "key.swift_declaration" : "case a = 3",
               "key.swift_name" : "a",
               "key.unavailable_message" : "",
@@ -900,7 +907,7 @@
               "key.doc.comment" : "Enum element b",
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
               "key.doc.full_as_xml" : "",
-              "key.doc.line" : 53,
+              "key.doc.line" : 54,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
               "key.j2.documentation" : {
                 "key.j2.abstract" : {
@@ -932,8 +939,8 @@
               "key.kind" : "sourcekitten.source.lang.objc.decl.enumcase",
               "key.name" : "b",
               "key.parsed_declaration" : "b = 4",
-              "key.parsed_scope.end" : 53,
-              "key.parsed_scope.start" : 53,
+              "key.parsed_scope.end" : 54,
+              "key.parsed_scope.start" : 54,
               "key.swift_declaration" : "case b = 4",
               "key.swift_name" : "b",
               "key.unavailable_message" : "",
@@ -951,7 +958,7 @@
           "key.deprecation_message" : "",
           "key.doc.column" : 6,
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-          "key.doc.line" : 56,
+          "key.doc.line" : 57,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
           "key.j2.objc_declaration" : "enum ASimpleEnum",
           "key.j2.objc_name_pieces" : [
@@ -978,8 +985,8 @@
           "key.kind" : "sourcekitten.source.lang.objc.decl.enum",
           "key.name" : "ASimpleEnum",
           "key.parsed_declaration" : "enum ASimpleEnum {\n  x,\n  y\n}",
-          "key.parsed_scope.end" : 59,
-          "key.parsed_scope.start" : 56,
+          "key.parsed_scope.end" : 60,
+          "key.parsed_scope.start" : 57,
           "key.substructure" : [
             {
               "key.always_deprecated" : false,
@@ -987,7 +994,7 @@
               "key.deprecation_message" : "",
               "key.doc.column" : 3,
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-              "key.doc.line" : 57,
+              "key.doc.line" : 58,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
               "key.j2.objc_declaration" : "x",
               "key.j2.objc_name_pieces" : [
@@ -1003,8 +1010,8 @@
               "key.kind" : "sourcekitten.source.lang.objc.decl.enumcase",
               "key.name" : "x",
               "key.parsed_declaration" : "x",
-              "key.parsed_scope.end" : 57,
-              "key.parsed_scope.start" : 57,
+              "key.parsed_scope.end" : 58,
+              "key.parsed_scope.start" : 58,
               "key.unavailable_message" : "",
               "key.usr" : "c:@E@ASimpleEnum@x"
             },
@@ -1014,7 +1021,7 @@
               "key.deprecation_message" : "",
               "key.doc.column" : 3,
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-              "key.doc.line" : 58,
+              "key.doc.line" : 59,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
               "key.j2.objc_declaration" : "y",
               "key.j2.objc_name_pieces" : [
@@ -1030,8 +1037,8 @@
               "key.kind" : "sourcekitten.source.lang.objc.decl.enumcase",
               "key.name" : "y",
               "key.parsed_declaration" : "y",
-              "key.parsed_scope.end" : 58,
-              "key.parsed_scope.start" : 58,
+              "key.parsed_scope.end" : 59,
+              "key.parsed_scope.start" : 59,
               "key.unavailable_message" : "",
               "key.usr" : "c:@E@ASimpleEnum@y"
             }
@@ -1049,7 +1056,7 @@
           "key.doc.comment" : "Typedef",
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
           "key.doc.full_as_xml" : "",
-          "key.doc.line" : 62,
+          "key.doc.line" : 63,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
           "key.j2.documentation" : {
             "key.j2.abstract" : {
@@ -1081,8 +1088,8 @@
           "key.kind" : "sourcekitten.source.lang.objc.decl.typedef",
           "key.name" : "Fred",
           "key.parsed_declaration" : "typedef int Fred",
-          "key.parsed_scope.end" : 62,
-          "key.parsed_scope.start" : 62,
+          "key.parsed_scope.end" : 63,
+          "key.parsed_scope.start" : 63,
           "key.swift_declaration" : "typealias Fred = Int32",
           "key.swift_name" : "Fred",
           "key.unavailable_message" : "",
@@ -1096,7 +1103,7 @@
           "key.doc.comment" : "Category",
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
           "key.doc.full_as_xml" : "",
-          "key.doc.line" : 65,
+          "key.doc.line" : 66,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
           "key.j2.documentation" : {
             "key.j2.abstract" : {
@@ -1128,8 +1135,8 @@
           "key.kind" : "sourcekitten.source.lang.objc.decl.category",
           "key.name" : "IVarTest(ACategory)",
           "key.parsed_declaration" : "@interface IVarTest (ACategory)",
-          "key.parsed_scope.end" : 69,
-          "key.parsed_scope.start" : 65,
+          "key.parsed_scope.end" : 70,
+          "key.parsed_scope.start" : 66,
           "key.substructure" : [
             {
               "key.always_deprecated" : false,
@@ -1137,7 +1144,7 @@
               "key.deprecation_message" : "",
               "key.doc.column" : 9,
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-              "key.doc.line" : 67,
+              "key.doc.line" : 68,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
               "key.j2.objc_declaration" : "- (void)categoryMethod",
               "key.j2.objc_name_pieces" : [
@@ -1172,8 +1179,8 @@
               "key.kind" : "sourcekitten.source.lang.objc.decl.method.instance",
               "key.name" : "-categoryMethod",
               "key.parsed_declaration" : "- (void)categoryMethod;",
-              "key.parsed_scope.end" : 67,
-              "key.parsed_scope.start" : 67,
+              "key.parsed_scope.end" : 68,
+              "key.parsed_scope.start" : 68,
               "key.swift_declaration" : "func categoryMethod()",
               "key.swift_name" : "categoryMethod()",
               "key.unavailable_message" : "",
@@ -1193,7 +1200,7 @@
           "key.doc.comment" : "Protocol",
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
           "key.doc.full_as_xml" : "",
-          "key.doc.line" : 72,
+          "key.doc.line" : 73,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
           "key.j2.documentation" : {
             "key.j2.abstract" : {
@@ -1225,8 +1232,8 @@
           "key.kind" : "sourcekitten.source.lang.objc.decl.protocol",
           "key.name" : "SomeProtocol",
           "key.parsed_declaration" : "@protocol SomeProtocol",
-          "key.parsed_scope.end" : 76,
-          "key.parsed_scope.start" : 72,
+          "key.parsed_scope.end" : 77,
+          "key.parsed_scope.start" : 73,
           "key.substructure" : [
             {
               "key.always_deprecated" : false,
@@ -1234,7 +1241,7 @@
               "key.deprecation_message" : "",
               "key.doc.column" : 8,
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
-              "key.doc.line" : 74,
+              "key.doc.line" : 75,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
               "key.j2.objc_declaration" : "-(void)protocolMethod",
               "key.j2.objc_name_pieces" : [
@@ -1269,8 +1276,8 @@
               "key.kind" : "sourcekitten.source.lang.objc.decl.method.instance",
               "key.name" : "-protocolMethod",
               "key.parsed_declaration" : "-(void)protocolMethod;",
-              "key.parsed_scope.end" : 74,
-              "key.parsed_scope.start" : 74,
+              "key.parsed_scope.end" : 75,
+              "key.parsed_scope.start" : 75,
               "key.swift_declaration" : "func protocolMethod()",
               "key.swift_name" : "protocolMethod()",
               "key.unavailable_message" : "",
@@ -1290,7 +1297,7 @@
           "key.doc.comment" : "Lightweight generics",
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
           "key.doc.full_as_xml" : "",
-          "key.doc.line" : 79,
+          "key.doc.line" : 80,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
           "key.j2.documentation" : {
             "key.j2.abstract" : {
@@ -1322,8 +1329,8 @@
           "key.kind" : "sourcekitten.source.lang.objc.decl.class",
           "key.name" : "Stack",
           "key.parsed_declaration" : "@interface Stack<ElementType> : NSObject",
-          "key.parsed_scope.end" : 84,
-          "key.parsed_scope.start" : 79,
+          "key.parsed_scope.end" : 85,
+          "key.parsed_scope.start" : 80,
           "key.substructure" : [
             {
               "key.always_deprecated" : false,
@@ -1333,7 +1340,7 @@
               "key.doc.comment" : "Method with lightweight generic type param",
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
               "key.doc.full_as_xml" : "",
-              "key.doc.line" : 82,
+              "key.doc.line" : 83,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
               "key.j2.documentation" : {
                 "key.j2.abstract" : {
@@ -1397,8 +1404,8 @@
               "key.kind" : "sourcekitten.source.lang.objc.decl.method.instance",
               "key.name" : "-popWith:secondValue:",
               "key.parsed_declaration" : "- (ElementType *)popWith:(NSString *)weight secondValue:(NSInteger)density;",
-              "key.parsed_scope.end" : 82,
-              "key.parsed_scope.start" : 82,
+              "key.parsed_scope.end" : 83,
+              "key.parsed_scope.start" : 83,
               "key.swift_declaration" : "func pop(with weight: String!, secondValue density: Int) -> AutoreleasingUnsafeMutablePointer<ElementType?>!",
               "key.swift_name" : "pop(with:secondValue:)",
               "key.unavailable_message" : "",

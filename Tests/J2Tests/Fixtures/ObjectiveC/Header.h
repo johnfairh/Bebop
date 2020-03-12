@@ -1,5 +1,6 @@
 @import Foundation;
 
+/** Class with IVars */
 @interface IVarTest: NSObject {
     NSString *ivarName;
 }

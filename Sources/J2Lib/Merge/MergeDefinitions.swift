@@ -124,7 +124,7 @@ struct MergeDefinitions {
 
         // Clean up any unclaimed extensions
         let unlinkedExts = extensionGroups.map { first, rest -> DefItem in
-            first.extensions = rest
+            first.setExtensions(extensions: rest)
             return first
         }
 
@@ -189,9 +189,26 @@ fileprivate extension DefItem {
     /// (Could merge with phase1part1 I'm sure, but my head almost exploded getting this far.)
     func linkExtensions(extensionGroups: UsrGroups) {
         if !defKind.isExtension {
-            extensions = extensionGroups.remove(usr: usr)
+            setExtensions(extensions: extensionGroups.remove(usr: usr))
         }
         defChildren.forEach { $0.linkExtensions(extensionGroups: extensionGroups) }
+    }
+
+    /// Associate extensions with a primary type.
+    /// Corner-case for documentation: if we have a primary type with no docs, but docs on
+    /// the extension, move the docs over to the main type.
+    /// This is specifically for Xcode Core Data code generation, where the main class is generated
+    /// by code without doc comments and users write extensions with docs in their code.
+    func setExtensions(extensions: DefItemList) {
+        self.extensions = extensions
+        if documentation.isEmpty {
+            for ext in extensions {
+                if !ext.documentation.isEmpty {
+                    documentation = ext.documentation
+                    break
+                }
+            }
+        }
     }
 
     /// Phase 2 merge: merge extensions
