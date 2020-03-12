@@ -15,7 +15,6 @@ public final class Stats: Configurable {
     let published: Config.Published
 
     init(config: Config) {
-        Stats.db.reset()
         published = config.published
         config.register(self)
     }
@@ -116,6 +115,8 @@ struct StatsDb {
         case mergeDemoteDefaultImplementation
         /// Defs excluded by filename
         case filterFilename
+        /// Defs excluded by symbol name
+        case filterSymbolName
         /// Defs excluded by :nodoc:
         case filterNoDoc
         /// Defs excluded by min-acl
@@ -139,13 +140,17 @@ struct StatsDb {
     }
     private var counters = [String : Int]()
 
+    init() {
+        reset()
+    }
+
     mutating func inc(_ counter: Counter) {
         counters.reduceKey(counter.rawValue, 1, { $0 + 1})
     }
 
     subscript(counter: Counter) -> Int {
         get {
-            counters[counter.rawValue] ?? 0
+            counters[counter.rawValue]!
         }
     }
 

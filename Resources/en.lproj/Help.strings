@@ -130,3 +130,5 @@ Applied before --exclude-source-files.
 Default: Include all source files.";
 "ignore-inherited-docs" = "If a definition only has documentation that it has inherited then treat
 it as undocumented instead of using the inheritance.";
+"exclude-names" = "Regular expressions of definition names to omit from documentation.
+Default: Include all the definitions.";"

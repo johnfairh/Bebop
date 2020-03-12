@@ -26,6 +26,7 @@ public struct MergeFilter: Configurable {
     let ignoreInheritedDocsOpt = BoolOpt(l: "ignore-inherited-docs")
     let includeFilesOpt = GlobListOpt(l: "include-source-files").help("FILEPATHGLOB1,FILEPATHGLOB2,...")
     let excludeFilesOpt = GlobListOpt(l: "exclude-source-files").help("FILEPATHGLOB1,FILEPATHGLOB2,...")
+    let excludeNamesOpt = StringListOpt(l: "exclude-names").help("NAMEREGEXP1,NAMEREGEXP2,...")
 
     var minAcl: DefAcl { minAclOpt.value! }
     var undocumentedText: Localized<String> { undocumentedTextOpt.value! }
@@ -40,6 +41,7 @@ public struct MergeFilter: Configurable {
     }
 
     public func checkOptions(published: Config.Published) throws {
+        try excludeNamesOpt.value.forEach { try $0.re_check() }
         published.excludedAclList = DefAcl.excludedBy(acl: minAcl).map { $0.rawValue }.joined(separator: ", ")
     }
 
@@ -104,6 +106,11 @@ public struct MergeFilter: Configurable {
             return false
         }
 
+        guard filterSymbol(name: item.name) else {
+            Stats.inc(.filterSymbolName)
+            return false
+        }
+
         // :nodoc: excludes from the whole shebang, needs to be done
         // before looking at ACLs and updating those counters.
         guard !item.documentation.isMarkedNoDoc else {
@@ -149,6 +156,17 @@ public struct MergeFilter: Configurable {
         }
         for excludeGlob in excludeFilesOpt.value {
             if Glob.match(excludeGlob, path: filename) {
+                return false
+            }
+        }
+        return true
+    }
+
+    /// Def name filtering.
+    /// return `true` to keep the item
+    func filterSymbol(name: String) -> Bool {
+        for pattern in excludeNamesOpt.value {
+            if name.re_isMatch(pattern) {
                 return false
             }
         }

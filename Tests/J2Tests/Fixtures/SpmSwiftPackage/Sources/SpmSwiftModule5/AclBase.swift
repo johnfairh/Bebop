@@ -8,6 +8,14 @@ open class PublicClass {
   /// :nodoc:
   public func hiddenPublicMethod() {
   }
+
+  /// Should be excluded via CLI option
+  public func _implementationPublicMethod() {
+  }
+
+  /// Should survive CLI option
+  public func not_implementationPublicMethod() {
+  }
 }
 
 /// Should not be included

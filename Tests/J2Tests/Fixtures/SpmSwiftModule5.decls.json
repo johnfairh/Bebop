@@ -8,6 +8,49 @@
         "documentation" : {
           "abstract" : {
             "markdown" : {
+              "en" : "Should survive CLI option"
+            }
+          },
+          "parameters" : [],
+          "source" : "docComment"
+        },
+        "kind" : "source.lang.swift.decl.function.method.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule5\/AclBase.swift",
+          "first_line" : 17,
+          "last_line" : 18,
+          "module_name" : "SpmSwiftModule5",
+          "pass_index" : 0
+        },
+        "name" : "not_implementationPublicMethod()",
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : {
+            "text" : "public func not_implementationPublicMethod()"
+          },
+          "inherited_types" : [],
+          "is_override" : false,
+          "name_pieces" : [
+            {
+              "other" : "func "
+            },
+            {
+              "name" : "not_implementationPublicMethod"
+            },
+            {
+              "other" : "()"
+            }
+          ]
+        },
+        "swift_name" : "not_implementationPublicMethod()",
+        "usr" : "s:15SpmSwiftModule511PublicClassC018not_implementationD6MethodyyF"
+      },
+      {
+        "acl" : "public",
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
               "en" : "Undoc"
             }
           },
@@ -17,8 +60,8 @@
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule5\/AclBase.swift",
-          "first_line" : 36,
-          "last_line" : 37,
+          "first_line" : 44,
+          "last_line" : 45,
           "module_name" : "SpmSwiftModule5",
           "pass_index" : 0
         },
@@ -60,8 +103,8 @@
         "kind" : "source.lang.swift.decl.var.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule5\/AclBase.swift",
-          "first_line" : 47,
-          "last_line" : 47,
+          "first_line" : 55,
+          "last_line" : 55,
           "module_name" : "SpmSwiftModule5",
           "pass_index" : 0
         },
@@ -102,7 +145,7 @@
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule5\/AclBase.swift",
       "first_line" : 2,
-      "last_line" : 11,
+      "last_line" : 19,
       "module_name" : "SpmSwiftModule5",
       "pass_index" : 0
     },
@@ -144,8 +187,8 @@
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule5\/AclBase.swift",
-          "first_line" : 26,
-          "last_line" : 26,
+          "first_line" : 34,
+          "last_line" : 34,
           "module_name" : "SpmSwiftModule5",
           "pass_index" : 0
         },
@@ -185,8 +228,8 @@
     "kind" : "source.lang.swift.decl.protocol",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule5\/AclBase.swift",
-      "first_line" : 24,
-      "last_line" : 27,
+      "first_line" : 32,
+      "last_line" : 35,
       "module_name" : "SpmSwiftModule5",
       "pass_index" : 0
     },

@@ -28,6 +28,8 @@ internal enum L10n {
     case errCfgNotSequence = "err-cfg-not-sequence"
     /// Could not interpret config file as YAML.
     case errCfgNotYaml = "err-cfg-not-yaml"
+    /// Invalid ICU regular expression '%1'.  Original error: '%2'.
+    case errCfgRegexp = "err-cfg-regexp"
     /// Unexpected text '%1' for config key '%2', expected boolean.
     case errCfgTextNotBool = "err-cfg-text-not-bool"
     /// Missing argument for option '%1'.
@@ -76,13 +78,13 @@ internal enum L10n {
     case msgCoverage = "msg-coverage"
     /// Gathering info for %1.
     case msgGatherHeading = "msg-gather-heading"
-    /// Generating documentation
+    /// Generating documentation.
     case msgGeneratingDocs = "msg-generating-docs"
     /// j2: Generate API documentation for Swift or Objective-C code.\n\nUsage: j2 [options]\n\nOptions:
     case msgHelpIntro = "msg-help-intro"
     /// Skipped %1 %2 symbols.
     case msgSwiftAcl = "msg-swift-acl"
-    /// No definitions found in --default-langauge '%1', using '%2' instead.
+    /// No definitions found in --default-language '%1', using '%2' instead.
     case wrnBadUserLanguage = "wrn-bad-user-language"
     /// Config key '%1' ignored, already set on command-line.
     case wrnCfgIgnored = "wrn-cfg-ignored"

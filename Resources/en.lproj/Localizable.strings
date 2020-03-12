@@ -82,3 +82,4 @@ Ignoring the second.";
 "msg-gather-heading" = "Gathering info for %1.";
 "msg-coverage" = "%1% documentation coverage with %2 undocumented symbols.";
 "msg-swift-acl" = "Skipped %1 %2 symbols.";
+"err-cfg-regexp" = "Invalid ICU regular expression '%1'.  Original error: '%2'.";

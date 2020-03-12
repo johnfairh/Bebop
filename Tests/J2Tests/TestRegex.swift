@@ -73,4 +73,9 @@ class TestRegex: XCTestCase {
         XCTAssertEqual("ish or ", matches[0])
         XCTAssertEqual("or", matches["join"])
     }
+
+    func testCheck() {
+        initResources()
+        AssertThrows(try "a(".re_check(), OptionsError.self)
+    }
 }

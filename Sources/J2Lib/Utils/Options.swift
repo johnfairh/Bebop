@@ -455,6 +455,17 @@ final class YamlOpt: TypedOpt<Yams.Node> {
     override var type: OptType { .yaml }
 }
 
+extension String {
+    /// Validation for user-supplied regexps
+    func re_check() throws {
+        do {
+            let _ = try NSRegularExpression(pattern: self)
+        } catch {
+            throw OptionsError(.localized(.errCfgRegexp, self, error))
+        }
+    }
+}
+
 // MARK: Enum Options
 
 /// Helpers for enum conversion

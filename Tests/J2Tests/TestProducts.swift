@@ -115,7 +115,8 @@ class TestProducts: XCTestCase {
                                 "--modules=SpmSwiftModule5",
                                 "--undocumented-text=Undoc",
                                 "--include-source-files=/*/A*.swift",
-                                "--exclude-source-files", "*/Aexclude.swift"
+                                "--exclude-source-files", "*/Aexclude.swift",
+                                "--exclude-names", "^_"
                              ],
                              against: "SpmSwiftModule5.decls.json")
         }
