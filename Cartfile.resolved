@@ -1,6 +1,6 @@
 github "KristopherGBaker/libcmark_gfm" "0.29.3"
 github "drmohundro/SWXMLHash" "5.0.1"
 github "johnfairh/GRMustache.swift" "14.0.1"
-github "johnfairh/Maaku" "10.9.3"
+github "johnfairh/Maaku" "10.9.4"
 github "jpsim/SourceKitten" "0.29.0"
 github "jpsim/Yams" "2.0.0"

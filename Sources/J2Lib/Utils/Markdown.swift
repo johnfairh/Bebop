@@ -13,41 +13,6 @@ import Maaku
 // Helpers on top of Maaku types and special knowledge about callout
 // formatting ported from jazzy callout_scanner.
 //
-import libcmark_gfm
-
-extension CMNode {
-    func setUserData<T: AnyObject>(unretained: T) {
-        let unmanaged = Unmanaged.passUnretained(unretained)
-        cmark_node_set_user_data(cmarkNode, unmanaged.toOpaque())
-    }
-
-    func getUserData<T: AnyObject>(kind: T.Type) -> T? {
-        guard let opaque = cmark_node_get_user_data(cmarkNode) else {
-            return nil
-        }
-        let unmanaged = Unmanaged<T>.fromOpaque(opaque)
-        return unmanaged.takeUnretainedValue()
-    }
-}
-
-/// Simpler interface to node iterator
-struct CMIterator {
-    private let iterator: Iterator
-
-    init(doc: CMDocument) {
-        iterator = Iterator(node: doc.node)!
-    }
-
-    /// Simple iteration, calls for 'entry' event into every node.
-    func forEach(iter: (CMNode, Iterator) throws -> Void) rethrows {
-        try! iterator.enumerate { node, event in
-            if event == .enter {
-                try iter(node, iterator)
-            }
-            return false // keep going
-        }
-    }
-}
 
 // MARK: `CMDocument` helpers
 
@@ -76,15 +41,6 @@ extension CMDocument {
 // MARK: Base `CMNode` helpers
 
 extension CMNode {
-    /// Vend the children of the node.  Robust against the child being deleted.
-    public func forEach(_ call: (CMNode) throws -> ()) rethrows {
-        var child = firstChild
-        while let node = child {
-            child = node.next
-            try call(node)
-        }
-    }
-
     /// Render the tree to markdown, standard options and minimal whitespace.
     public func renderMarkdown() -> Markdown {
         do {

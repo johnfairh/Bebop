@@ -103,7 +103,7 @@ final class MarkdownFormatter: ItemVisitorProtocol {
     func autolink(doc: CMDocument) {
         let iterator = CMIterator(doc: doc)
 
-        iterator.forEach { node, iter in
+        try! iterator.forEach { node, iter in
             guard node.type == .code else {
                 return
             }
@@ -139,7 +139,7 @@ final class MarkdownFormatter: ItemVisitorProtocol {
     func customizeForHtml(doc: CMDocument) {
         let iterator = CMIterator(doc: doc)
 
-        iterator.forEach { node, iter in
+        try! iterator.forEach { node, iter in
             switch node.type {
             case .heading:
                 customizeHeading(heading: node, iterator: iter)
@@ -153,7 +153,7 @@ final class MarkdownFormatter: ItemVisitorProtocol {
                 }
 
             case .link:
-                if let autolinkDef = node.getUserData(kind: DefItem.self) {
+                if let autolinkDef = node.getUserDataUnretained(kind: DefItem.self) {
                     customizeAutolink(link: node, def: autolinkDef, iterator: iter)
                 }
 
