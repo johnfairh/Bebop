@@ -140,6 +140,8 @@ struct StatsDb {
         case formatMarkdown
         /// Autolinks resolved to local docs in local scope
         case autolinkLocalLocalScope
+        /// Autolinks resolved to local docs in nested scope
+        case autolinkLocalNestedScope
         /// Autolinks resolved to local docs in global scope
         case autolinkLocalGlobalScope
         /// Autolink candidate resolved to self and ignored

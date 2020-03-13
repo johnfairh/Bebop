@@ -50,7 +50,7 @@
                 "availability" : [],
                 "discussion" : {
                   "en" : {
-                    "html" : "<p>See <code>-objcNormalMethod<\/code>.<\/p>"
+                    "html" : "<p>See <a href=\"..\/types\/normalclass1.html?objc#objcnormalmethod\" class=\"j2-objc\"><code>-objcNormalMethod<\/code><\/a><a href=\"..\/types\/normalclass1.html?swift#objcnormalmethod\" class=\"j2-swift j2-secondary\"><code>objcNormalMethod()<\/code><\/a>.<\/p>"
                   }
                 },
                 "obj_c_declaration" : {
@@ -233,7 +233,7 @@
         "availability" : [],
         "discussion" : {
           "en" : {
-            "html" : "<p>See <code>-objcNormalMethod<\/code>.<\/p>"
+            "html" : "<p>See <a href=\"..\/types\/normalclass1.html?objc#objcnormalmethod\" class=\"j2-objc\"><code>-objcNormalMethod<\/code><\/a><a href=\"..\/types\/normalclass1.html?swift#objcnormalmethod\" class=\"j2-swift j2-secondary\"><code>objcNormalMethod()<\/code><\/a>.<\/p>"
           }
         },
         "obj_c_declaration" : {

@@ -21,13 +21,25 @@ final class FormatAutolink: Configurable {
     }
 
     /// Try to match a def from a name, in a particular naming context.
-    func def(for name: String, context: [Item]) -> DefItem? {
-        // First try in local scope
-        let localName = name.fullyQualified(context: context)
-        if let localDef = defsByName[localName] {
-            Stats.inc(.autolinkLocalLocalScope)
-            return localDef
+    func def(for name: String, context: Item) -> DefItem? {
+        // Relative matches for text in the def hierarchy
+        if let defContext = context as? DefItem {
+            // First try in local scope
+            let localName = name.fullyQualified(context: defContext.parentsFromRoot)
+            if let localDef = defsByName[localName] {
+                Stats.inc(.autolinkLocalLocalScope)
+                return localDef
+            }
+            // Special case for nested ObjC method references
+            if name.re_isMatch("^[+-]") && defContext.defKind.isObjCStructural {
+                let nestedName = "\(defContext.name).\(name)"
+                if let nestedDef = defsByName[nestedName] {
+                    Stats.inc(.autolinkLocalNestedScope)
+                    return nestedDef
+                }
+            }
         }
+
         // Now global (can memoize from hereout)
         let canonicalName = canonicalize(name: name)
         if let globalDef = defsByName[canonicalName] {
@@ -88,7 +100,7 @@ private final class AutolinkIndexer: ItemVisitorProtocol {
 
 extension String {
     func fullyQualified(context: [Item]) -> String {
-        let parentNamePieces = context.filter { $0.kind.isCode }.map { $0.name }
+        let parentNamePieces = context.compactMap { ($0 as? DefItem)?.name }
         return (parentNamePieces + [self]).joined(separator: ".")
     }
 }

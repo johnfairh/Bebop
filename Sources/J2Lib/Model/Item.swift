@@ -17,7 +17,13 @@ public class Item: Encodable {
     /// The item's slug, unique in its docs scope
     public let slug: String
     /// Children in the documentation tree
-    public internal(set) var children: [Item]
+    public internal(set) var children: [Item] {
+        didSet {
+            children.forEach { $0.parent = self }
+        }
+    }
+    /// Parent in the documentation tree
+    public private(set) weak var parent: Item?
     /// Topic the item belongs to
     public internal(set) var topic: Topic?
 
@@ -29,6 +35,17 @@ public class Item: Encodable {
         self.slug = slug
         self.children = children
         self.url = URLPieces()
+    }
+
+    /// Get the list of items that lead to this one, index 0 is the most root, index -1 is our direct parent
+    public var parentsFromRoot: [Item] {
+        var parents = [Item]()
+        var item = self
+        while let parent = item.parent {
+            parents.append(parent)
+            item = parent
+        }
+        return parents.reversed()
     }
 
     /// Overridden

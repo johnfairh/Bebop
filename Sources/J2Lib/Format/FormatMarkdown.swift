@@ -26,7 +26,6 @@ final class MarkdownFormatter: ItemVisitorProtocol {
     let autolink: FormatAutolink?
 
     /// Context while visiting...
-    var visitParentContext = [Item]()
     var visitItemContext: Item! = nil
 
     init(language: DefLanguage, autolink: FormatAutolink? = nil) {
@@ -40,11 +39,9 @@ final class MarkdownFormatter: ItemVisitorProtocol {
     /// This both generates HTML versions of everything and also replaces the original markdown
     /// with an auto-linked version for generating markdown output.
     private func format(item: Item, parents: [Item]) {
-        visitParentContext = parents
         visitItemContext = item
         item.format(blockFormatter: { format(md: $0) },
                     inlineFormatter: { formatInline(md: $0) })
-        visitParentContext = []
         visitItemContext = nil
     }
 
@@ -109,7 +106,7 @@ final class MarkdownFormatter: ItemVisitorProtocol {
             }
 
             guard let autolinkDef = autolink?.def(for: node.literal!,
-                                                  context: visitParentContext) else {
+                                                  context: visitItemContext) else {
                 return
             }
             guard autolinkDef !== visitItemContext else {
