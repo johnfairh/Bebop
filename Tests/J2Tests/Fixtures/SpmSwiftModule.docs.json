@@ -1851,7 +1851,7 @@
             "dash_name" : "func%20method(param%3A%20Int)%20-%3E%20String",
             "dash_type" : "Method",
             "def" : {
-              "abstract_html" : "<p>See <a href=\"..\/types\/abaseclass.html?swift#methodparam\"><code>method(param:)<\/code><\/a>.<\/p>",
+              "abstract_html" : "<p>See <a href=\"..\/types\/abaseclass.html?swift#methodparam\"><code>ABaseClass.method(...)<\/code><\/a>.<\/p>",
               "swift_declaration_html" : "public override func method(param: Int) -&gt; String"
             },
             "primary_language" : "j2-swift",
@@ -2036,7 +2036,7 @@
             "dash_name" : "func%20functionA(arg1%3A%20Int,%20Int,%20arg3%3A%20Int)",
             "dash_type" : "Global",
             "def" : {
-              "abstract_html" : "<p>See <a href=\"types\/spmswiftmodule.html?swift\"><code>SpmSwiftModule<\/code><\/a> – or <a href=\"types\/abaseclass.html?swift\"><code>ABaseClass<\/code><\/a>.<\/p>",
+              "abstract_html" : "<p>See <a href=\"types\/spmswiftmodule.html?swift\"><code>SpmSwiftModule<\/code><\/a> – or <a href=\"types\/abaseclass.html?swift\"><code>SpmSwiftModule.ABaseClass<\/code><\/a>.<\/p>",
               "availability" : [
                 "iOS 9+",
                 "macOS 10.12+"
@@ -2460,7 +2460,7 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Available where <code>Element<\/code> == <a href=\"..\/types\/spmswiftmodule\/nested1.html?swift\"><code>Nested1<\/code><\/a>"
+        "title_html" : "Available where <code>Element<\/code> == <a href=\"..\/types\/spmswiftmodule\/nested1.html?swift\"><code>SpmSwiftModule.Nested1<\/code><\/a>"
       }
     ],
     "topics_language" : "j2-swift",

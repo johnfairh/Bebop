@@ -163,6 +163,13 @@ public class DefItem: Item, CustomStringConvertible {
         defKind.isObjC ? name : nil
     }
 
+    public func name(for language: DefLanguage) -> String {
+        switch language {
+        case .swift: return swiftName ?? name
+        case .objc: return objCName ?? name
+        }
+    }
+
     public override func title(for language: DefLanguage) -> Localized<String>? {
         switch language {
         case .swift: return swiftName.flatMap { .init(unlocalized: $0) }

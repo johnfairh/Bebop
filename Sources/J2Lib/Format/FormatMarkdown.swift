@@ -105,21 +105,15 @@ final class MarkdownFormatter: ItemVisitorProtocol {
                 return
             }
 
-            guard let autolinkDef = autolink?.def(for: node.literal!,
-                                                  context: visitItemContext) else {
+            guard let autolink = autolink?.link(for: node.literal!,
+                                                context: visitItemContext) else {
                 return
             }
-            guard autolinkDef !== visitItemContext else {
-                Stats.inc(.autolinkSelfLink)
-                return
-            }
-            let linkURL = visitItemContext.url.pathToRoot +
-                autolinkDef.url.url(fileExtension: ".md")
             let linkNode = CMNode.init(type: .link)
-            try! linkNode.setLinkURL(URL(string: linkURL)!)
+            try! linkNode.setLinkURL(URL(string: autolink.markdownURL)!)
             try! linkNode.insertIntoTree(afterNode: node)
             try! node.insertIntoTree(asFirstChildOf: linkNode)
-            linkNode.setUserData(unretained: autolinkDef)
+            linkNode.setUserData(retained: autolink)
             iter.reset(to: linkNode, eventType: .exit)
         }
     }
@@ -150,8 +144,8 @@ final class MarkdownFormatter: ItemVisitorProtocol {
                 }
 
             case .link:
-                if let autolinkDef = node.getUserDataUnretained(kind: DefItem.self) {
-                    customizeAutolink(link: node, def: autolinkDef, iterator: iter)
+                if let autolink = node.getUserDataRetained(kind: Autolink.self) {
+                    customizeAutolink(link: node, autolink: autolink, iterator: iter)
                 }
 
             default:
@@ -239,26 +233,9 @@ final class MarkdownFormatter: ItemVisitorProtocol {
 
     /// Called for links that refer to defs in our docs.  Replace the markdown link with some html to support
     /// swift/objc switchable name links.
-    func customizeAutolink(link: CMNode, def: DefItem, iterator: Iterator) {
-        let primaryLanguage = def.primaryLanguage
-        let primaryUrl = visitItemContext.url.pathToRoot +
-            def.url.url(fileExtension: ".html", language: primaryLanguage)
-
-        let html: String
-
-        if let secondaryLanguage = def.secondaryLanguage,
-            let secondaryName = def.otherLanguageName {
-            let secondaryUrl = visitItemContext.url.pathToRoot +
-                def.url.url(fileExtension: ".html", language: secondaryLanguage)
-
-            html = #"<a href="\#(primaryUrl)" class="\#(primaryLanguage.cssName)"><code>\#(def.name.htmlEscaped)</code></a>"# +
-                   #"<a href="\#(secondaryUrl)" class="\#(secondaryLanguage.cssName) j2-secondary"><code>\#(secondaryName.htmlEscaped)</code></a>"#
-        } else {
-            html = #"<a href="\#(primaryUrl)"><code>\#(def.name.htmlEscaped)</code></a>"#
-        }
-
+    func customizeAutolink(link: CMNode, autolink: Autolink, iterator: Iterator) {
         let htmlNode = CMNode(type: .htmlInline)
-        try! htmlNode.setLiteral(html)
+        try! htmlNode.setLiteral(autolink.html)
         try! htmlNode.insertIntoTree(beforeNode: link)
         link.unlink()
         iterator.reset(to: htmlNode, eventType: .exit)

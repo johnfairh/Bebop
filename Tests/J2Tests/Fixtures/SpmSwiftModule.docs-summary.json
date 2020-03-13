@@ -1629,7 +1629,7 @@
               "def" : {
                 "abstract" : {
                   "en" : {
-                    "html" : "<p>See <a href=\"..\/types\/abaseclass.html?swift#methodparam\"><code>method(param:)<\/code><\/a>.<\/p>"
+                    "html" : "<p>See <a href=\"..\/types\/abaseclass.html?swift#methodparam\"><code>ABaseClass.method(...)<\/code><\/a>.<\/p>"
                   }
                 },
                 "availability" : [],
@@ -1721,7 +1721,7 @@
               "def" : {
                 "abstract" : {
                   "en" : {
-                    "html" : "<p>See <a href=\"types\/spmswiftmodule.html?swift\"><code>SpmSwiftModule<\/code><\/a> – or <a href=\"types\/abaseclass.html?swift\"><code>ABaseClass<\/code><\/a>.<\/p>"
+                    "html" : "<p>See <a href=\"types\/spmswiftmodule.html?swift\"><code>SpmSwiftModule<\/code><\/a> – or <a href=\"types\/abaseclass.html?swift\"><code>SpmSwiftModule.ABaseClass<\/code><\/a>.<\/p>"
                   }
                 },
                 "availability" : [
@@ -2057,7 +2057,7 @@
           ],
           "menu_title" : {
             "html" : {
-              "en" : "…where <code>Element<\/code> == <a href=\"..\/types\/spmswiftmodule\/nested1.html?swift\"><code>Nested1<\/code><\/a>"
+              "en" : "…where <code>Element<\/code> == <a href=\"..\/types\/spmswiftmodule\/nested1.html?swift\"><code>SpmSwiftModule.Nested1<\/code><\/a>"
             },
             "markdown" : {
               "en" : "…where `Element` ==\n[`SpmSwiftModule.Nested1`](..\/types\/spmswiftmodule\/nested1.md)"
@@ -2065,7 +2065,7 @@
           },
           "title" : {
             "html" : {
-              "en" : "Available where <code>Element<\/code> == <a href=\"..\/types\/spmswiftmodule\/nested1.html?swift\"><code>Nested1<\/code><\/a>"
+              "en" : "Available where <code>Element<\/code> == <a href=\"..\/types\/spmswiftmodule\/nested1.html?swift\"><code>SpmSwiftModule.Nested1<\/code><\/a>"
             },
             "markdown" : {
               "en" : "Available where `Element` ==\n[`SpmSwiftModule.Nested1`](..\/types\/spmswiftmodule\/nested1.md)"
