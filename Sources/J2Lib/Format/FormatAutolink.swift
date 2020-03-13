@@ -28,13 +28,26 @@ final class FormatAutolink: Configurable {
             Stats.inc(.autolinkLocalLocalScope)
             return localDef
         }
-        // Now global
-        if let globalDef = defsByName[name] {
+        // Now global (can memoize from hereout)
+        let canonicalName = canonicalize(name: name)
+        if let globalDef = defsByName[canonicalName] {
             Stats.inc(.autolinkLocalGlobalScope)
             return globalDef
         }
         Stats.inc(.autolinkNotAutolinked)
         return nil
+    }
+
+    func canonicalize(name: String) -> String {
+        guard name.re_isMatch(#"^[+-]\["#) else {
+            return name
+        }
+
+        guard let matches = name.re_match(#"([+-])\[(\w+)(?: ?\(\w+\))? ([\w:]+)\]"#) else {
+            return name
+        }
+        // 1=access 2=classname [category is dropped] 3=method
+        return "\(matches[2]).\(matches[1])\(matches[3])"
     }
 }
 
@@ -57,16 +70,19 @@ private final class AutolinkIndexer: ItemVisitorProtocol {
 
     /// Calculate names that should look up to the def
     func visit(defItem: DefItem, parents: [Item]) {
-        addWithModule(item: defItem, parents: parents, name: defItem.name)
+        if defItem.defKind.isSwift {
+            addWithModule(item: defItem, parents: parents, name: defItem.name)
 
-        // For swift, allow func/etc args elision with `funcName(...)`
-        if defItem.defKind.isSwift && defItem.name.contains("(") {
-            let shortName = defItem.name.re_sub(#"\(.*\)"#, with: "(...)")
-            addWithModule(item: defItem, parents: parents, name: shortName)
+            // Allow func/etc args elision with `funcName(...)`
+            if defItem.name.contains("(") {
+                let shortName = defItem.name.re_sub(#"\(.*\)"#, with: "(...)")
+                addWithModule(item: defItem, parents: parents, name: shortName)
+            }
+        } else {
+            add(defItem.name.fullyQualified(context: parents), defItem)
         }
 
         // look up in other language (if different)
-        // wtf are the objc things about
     }
 }
 

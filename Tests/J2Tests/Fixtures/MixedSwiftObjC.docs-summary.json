@@ -269,7 +269,7 @@
                 "availability" : [],
                 "discussion" : {
                   "en" : {
-                    "html" : "<p>See <code>-[JMLKitchen jmlKitchenMethod]<\/code><\/p>"
+                    "html" : "<p>See <a href=\"..\/types\/jmlkitchen.html?objc#jmlkitchenmethod\" class=\"j2-objc\"><code>-jmlKitchenMethod<\/code><\/a><a href=\"..\/types\/jmlkitchen.html?swift#jmlkitchenmethod\" class=\"j2-swift j2-secondary\"><code>kitchenMethod()<\/code><\/a><\/p>"
                   }
                 },
                 "obj_c_declaration" : {
