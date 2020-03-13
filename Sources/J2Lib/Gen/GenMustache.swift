@@ -178,17 +178,6 @@ private extension Dictionary where Key == String, Value == Any {
     }
 }
 
-extension DefLanguage {
-    /// CSS-name for the language
-    public var cssName: String {
-        switch self {
-        case .swift: return "j2-swift"
-        case .objc: return "j2-objc"
-        }
-    }
-}
-
-
 // MARK: Page
 
 extension GenData {

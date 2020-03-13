@@ -48,6 +48,11 @@
                   }
                 },
                 "availability" : [],
+                "discussion" : {
+                  "en" : {
+                    "html" : "<p>See <code>-objcNormalMethod<\/code>.<\/p>"
+                  }
+                },
                 "obj_c_declaration" : {
                   "html" : "@interface NormalClass : NSObject"
                 },
@@ -226,6 +231,11 @@
           }
         },
         "availability" : [],
+        "discussion" : {
+          "en" : {
+            "html" : "<p>See <code>-objcNormalMethod<\/code>.<\/p>"
+          }
+        },
         "obj_c_declaration" : {
           "html" : "@interface NormalClass : NSObject"
         },
@@ -253,10 +263,15 @@
               "def" : {
                 "abstract" : {
                   "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                    "html" : "<p>See <a href=\"..\/types\/jmlkitchen.html?objc\" class=\"j2-objc\"><code>JMLKitchen<\/code><\/a><a href=\"..\/types\/jmlkitchen.html?swift\" class=\"j2-swift j2-secondary\"><code>Kitchen<\/code><\/a>.<\/p>"
                   }
                 },
                 "availability" : [],
+                "discussion" : {
+                  "en" : {
+                    "html" : "<p>See <code>-[JMLKitchen jmlKitchenMethod]<\/code><\/p>"
+                  }
+                },
                 "obj_c_declaration" : {
                   "html" : "- (void)objcNormalMethod"
                 },
@@ -283,10 +298,15 @@
               "def" : {
                 "abstract" : {
                   "en" : {
-                    "html" : "<p>normal class swift method<\/p>"
+                    "html" : "<p>Normal class swift method<\/p>"
                   }
                 },
                 "availability" : [],
+                "discussion" : {
+                  "en" : {
+                    "html" : "<p>See <code>Kitchen<\/code><\/p>"
+                  }
+                },
                 "notes" : {
                   "en" : {
                     "html" : "<p>Provided by module <code>SpmSwiftModule4<\/code>.<\/p>"
@@ -645,21 +665,21 @@
               "def" : {
                 "abstract" : {
                   "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                    "html" : "<p>See <code>Cupboard.jmlKitchenCupboardMethod()<\/code><\/p>"
                   }
                 },
                 "availability" : [],
                 "obj_c_declaration" : {
-                  "html" : "-(void)jmlBathroomCupboardMethod"
+                  "html" : "- (void)jmlBathroomCupboardMethod"
                 },
                 "params" : []
               },
               "flat_title" : {
-                "en" : "-(void)jmlBathroomCupboardMethod"
+                "en" : "- (void)jmlBathroomCupboardMethod"
               },
               "primary_language" : "objc",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">-(void)<\/span>jmlBathroomCupboardMethod<span class=\"j2-item-secondary\"><\/span>"
+                "html" : "<span class=\"j2-item-secondary\">- (void)<\/span>jmlBathroomCupboardMethod<span class=\"j2-item-secondary\"><\/span>"
               }
             }
           ],

@@ -3,7 +3,12 @@
 @import Foundation;
 
 /// Un-renamed class to check normal things still work
+///
+/// See `-objcNormalMethod`.
 @interface NormalClass : NSObject
+/// See `JMLKitchen`.
+///
+/// See `-[JMLKitchen jmlKitchenMethod]`
 - (void)objcNormalMethod;
 @end
 
@@ -22,5 +27,6 @@ NS_SWIFT_NAME(Kitchen.Cupboard)
 /// Type with a different shape in Swift - parent does not exist
 NS_SWIFT_NAME(Bathroom.Cupboard)
 @interface JMLBathroomCupboard : NSObject
+/// See `Cupboard.jmlKitchenCupboardMethod()`
 -(void)jmlBathroomCupboardMethod;
 @end

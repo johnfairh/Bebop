@@ -985,7 +985,7 @@
           "kind" : "sourceMark",
           "title" : {
             "markdown" : {
-              "en" : "_Nested_ strúctures"
+              "en" : "_Nested_ strúctures ``"
             }
           }
         },
@@ -1033,7 +1033,7 @@
           "kind" : "sourceMark",
           "title" : {
             "markdown" : {
-              "en" : "_Nested_ strúctures"
+              "en" : "_Nested_ strúctures ``"
             }
           }
         },

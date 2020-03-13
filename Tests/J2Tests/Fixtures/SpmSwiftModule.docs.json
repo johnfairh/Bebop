@@ -444,8 +444,8 @@
         "title_html" : "CustomStringConvertible"
       },
       {
-        "anchor_id" : "tpc_available-where-t-equatable-t-firstprotocol",
-        "dash_name" : "Available%20where%20%60T%60%3A%20%60Equatable%60,%20%60T%60%3A%20%60FirstProtocol%60",
+        "anchor_id" : "tpc_available-where-t-equatable-t-firstprotocoltypesfirstprotocol1md",
+        "dash_name" : "Available%20where%20%60T%60%3A%20%60Equatable%60,%20%60T%60%3A%0A%5B%60FirstProtocol%60%5D(..\/types\/firstprotocol1.md)",
         "items" : [
           {
             "anchor_id" : "dofirstmagic",
@@ -475,7 +475,7 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Available where <code>T<\/code>: <code>Equatable<\/code>, <code>T<\/code>: <a href=\"..\/types\/firstprotocol1.html\"><code>FirstProtocol<\/code><\/a>"
+        "title_html" : "Available where <code>T<\/code>: <code>Equatable<\/code>, <code>T<\/code>: <a href=\"..\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>"
       },
       {
         "anchor_id" : "tpc_usercustom-mark",
@@ -534,8 +534,8 @@
             "title" : "CustomStringConvertible"
           },
           {
-            "anchor_id" : "tpc_available-where-t-equatable-t-firstprotocol",
-            "title" : "…where T: Equatable, T: FirstProtocol"
+            "anchor_id" : "tpc_available-where-t-equatable-t-firstprotocoltypesfirstprotocol1md",
+            "title" : "…where T: Equatable, T: [FirstProtocol](..\/types\/firstprotocol1.md)"
           },
           {
             "anchor_id" : "tpc_usercustom-mark",
@@ -765,8 +765,8 @@
         "primary_language" : "j2-swift"
       },
       {
-        "anchor_id" : "tpc_available-where-assoctype-hashable",
-        "dash_name" : "Available%20where%20%60AssocType%60%3A%20%60Hashable%60",
+        "anchor_id" : "tpc_available-where-assoctypetypesfirstprotocol1mdassoctype-hashable",
+        "dash_name" : "Available%20where%20%5B%60AssocType%60%5D(..\/types\/firstprotocol1.md%23assoctype):%20%60Hashable%60",
         "items" : [
           {
             "anchor_id" : "exthashablemethod",
@@ -798,7 +798,7 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Available where <a href=\"..\/types\/firstprotocol1.html#assoctype\"><code>AssocType<\/code><\/a>: <code>Hashable<\/code>"
+        "title_html" : "Available where <a href=\"..\/types\/firstprotocol1.html?swift#assoctype\"><code>AssocType<\/code><\/a>: <code>Hashable<\/code>"
       }
     ],
     "topics_language" : "j2-swift",
@@ -811,8 +811,8 @@
             "title" : "Declaration"
           },
           {
-            "anchor_id" : "tpc_available-where-assoctype-hashable",
-            "title" : "…where AssocType: Hashable"
+            "anchor_id" : "tpc_available-where-assoctypetypesfirstprotocol1mdassoctype-hashable",
+            "title" : "…where [AssocType](..\/types\/firstprotocol1.md#assoctype): Hashable"
           }
         ]
       }
@@ -984,8 +984,8 @@
         "title_html" : "Fields"
       },
       {
-        "anchor_id" : "tpc__nested_-strúctures",
-        "dash_name" : "_Nested_%20str%C3%BActures",
+        "anchor_id" : "tpc_nested-strúctures-",
+        "dash_name" : "*Nested*%20str%C3%BActures%20%5C%60%5C%60",
         "items" : [
           {
             "anchor_id" : "nested1",
@@ -1016,7 +1016,7 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "<em>Nested<\/em> strúctures"
+        "title_html" : "<em>Nested<\/em> strúctures ``"
       }
     ],
     "topics_language" : "j2-swift",
@@ -1033,8 +1033,8 @@
             "title" : "Fields"
           },
           {
-            "anchor_id" : "tpc__nested_-str%C3%BActures",
-            "title" : "Nested strúctures"
+            "anchor_id" : "tpc_nested-str%C3%BActures-",
+            "title" : "Nested strúctures \\\\"
           }
         ]
       }
@@ -1417,7 +1417,7 @@
             "dash_name" : "case%20third",
             "dash_type" : "Case",
             "def" : {
-              "abstract_html" : "<p>Third &amp; Fourth cases - <a href=\"..\/types\/anenum.html#second\"><code>second<\/code><\/a><\/p>",
+              "abstract_html" : "<p>Third &amp; Fourth cases - <a href=\"..\/types\/anenum.html?swift#second\"><code>second<\/code><\/a><\/p>",
               "swift_declaration_html" : "case third"
             },
             "primary_language" : "j2-swift",
@@ -1851,7 +1851,7 @@
             "dash_name" : "func%20method(param%3A%20Int)%20-%3E%20String",
             "dash_type" : "Method",
             "def" : {
-              "abstract_html" : "<p>See <a href=\"..\/types\/abaseclass.html#methodparam\"><code>ABaseClass.method(...)<\/code><\/a>.<\/p>",
+              "abstract_html" : "<p>See <a href=\"..\/types\/abaseclass.html?swift#methodparam\"><code>method(param:)<\/code><\/a>.<\/p>",
               "swift_declaration_html" : "public override func method(param: Int) -&gt; String"
             },
             "primary_language" : "j2-swift",
@@ -2036,7 +2036,7 @@
             "dash_name" : "func%20functionA(arg1%3A%20Int,%20Int,%20arg3%3A%20Int)",
             "dash_type" : "Global",
             "def" : {
-              "abstract_html" : "<p>See <a href=\"types\/spmswiftmodule.html\"><code>SpmSwiftModule<\/code><\/a> – or <a href=\"types\/abaseclass.html\"><code>SpmSwiftModule.ABaseClass<\/code><\/a>.<\/p>",
+              "abstract_html" : "<p>See <a href=\"types\/spmswiftmodule.html?swift\"><code>SpmSwiftModule<\/code><\/a> – or <a href=\"types\/abaseclass.html?swift\"><code>ABaseClass<\/code><\/a>.<\/p>",
               "availability" : [
                 "iOS 9+",
                 "macOS 10.12+"
@@ -2421,8 +2421,8 @@
     ],
     "topics" : [
       {
-        "anchor_id" : "tpc_available-where-element-firstprotocol",
-        "dash_name" : "Available%20where%20%60Element%60%3A%20%60FirstProtocol%60",
+        "anchor_id" : "tpc_available-where-element-firstprotocoltypesfirstprotocol1md",
+        "dash_name" : "Available%20where%20%60Element%60%3A%20%5B%60FirstProtocol%60%5D(..\/types\/firstprotocol1.md)",
         "items" : [
           {
             "anchor_id" : "collectemall",
@@ -2439,11 +2439,11 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Available where <code>Element<\/code>: <a href=\"..\/types\/firstprotocol1.html\"><code>FirstProtocol<\/code><\/a>"
+        "title_html" : "Available where <code>Element<\/code>: <a href=\"..\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>"
       },
       {
-        "anchor_id" : "tpc_available-where-element-spmswiftmodulenested1",
-        "dash_name" : "Available%20where%20%60Element%60%20==%20%60SpmSwiftModule.Nested1%60",
+        "anchor_id" : "tpc_available-where-element-spmswiftmodulenested1typesspmswiftmodulenested1md",
+        "dash_name" : "Available%20where%20%60Element%60%20==%0A%5B%60SpmSwiftModule.Nested1%60%5D(..\/types\/spmswiftmodule\/nested1.md)",
         "items" : [
           {
             "anchor_id" : "nestemall",
@@ -2460,7 +2460,7 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Available where <code>Element<\/code> == <a href=\"..\/types\/spmswiftmodule\/nested1.html\"><code>SpmSwiftModule.Nested1<\/code><\/a>"
+        "title_html" : "Available where <code>Element<\/code> == <a href=\"..\/types\/spmswiftmodule\/nested1.html?swift\"><code>Nested1<\/code><\/a>"
       }
     ],
     "topics_language" : "j2-swift",
@@ -2473,12 +2473,12 @@
             "title" : "Declaration"
           },
           {
-            "anchor_id" : "tpc_available-where-element-firstprotocol",
-            "title" : "…where Element: FirstProtocol"
+            "anchor_id" : "tpc_available-where-element-firstprotocoltypesfirstprotocol1md",
+            "title" : "…where Element: [FirstProtocol](..\/types\/firstprotocol1.md)"
           },
           {
-            "anchor_id" : "tpc_available-where-element-spmswiftmodulenested1",
-            "title" : "…where Element == SpmSwiftModule.Nested1"
+            "anchor_id" : "tpc_available-where-element-spmswiftmodulenested1typesspmswiftmodulenested1md",
+            "title" : "…where Element ==\n[SpmSwiftModule.Nested1](..\/types\/spmswiftmodule\/nested1.md)"
           }
         ]
       }

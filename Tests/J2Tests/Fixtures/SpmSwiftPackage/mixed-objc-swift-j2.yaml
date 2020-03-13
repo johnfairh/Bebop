@@ -1,3 +1,4 @@
+min_acl: private
 custom_modules:
   - module: SpmSwiftModule4
   - module: SpmObjCModule

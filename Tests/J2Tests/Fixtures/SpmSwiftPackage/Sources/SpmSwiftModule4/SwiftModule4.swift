@@ -1,7 +1,9 @@
 import SpmObjCModule
 
 extension NormalClass {
-  /// normal class swift method
+  /// Normal class swift method
+  ///
+  /// See `Kitchen`
   func normal() {}
 }
 

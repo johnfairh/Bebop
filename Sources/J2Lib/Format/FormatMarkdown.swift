@@ -78,13 +78,17 @@ final class MarkdownFormatter: ItemVisitorProtocol {
             return (md, Html(""))
         }
 
+        autolink(doc: doc)
+
+        let mdOut = doc.node.renderMarkdown()
+
         customizeForHtml(doc: doc)
 
         let html = doc.node.renderHtml()
 
         Stats.inc(.formatMarkdown)
 
-        return (md, html)
+        return (mdOut, html)
     }
 
     /// Render for some inline html, stripping the outer paragraph element.
@@ -94,41 +98,68 @@ final class MarkdownFormatter: ItemVisitorProtocol {
         return (md, Html(inlineHtml))
     }
 
+    /// 2 - autolink pass
+    ///   spot `code` sections that resolve to identifiers and wrap in links.
+    func autolink(doc: CMDocument) {
+        let iterator = CMIterator(doc: doc)
+
+        iterator.forEach { node, iter in
+            guard node.type == .code else {
+                return
+            }
+
+            guard let autolinkDef = autolink?.def(for: node.literal!,
+                                                  context: visitParentContext) else {
+                return
+            }
+            guard autolinkDef !== visitItemContext else {
+                Stats.inc(.autolinkSelfLink)
+                return
+            }
+            let linkURL = visitItemContext.url.pathToRoot +
+                autolinkDef.url.url(fileExtension: ".md")
+            let linkNode = CMNode.init(type: .link)
+            try! linkNode.setLinkURL(URL(string: linkURL)!)
+            try! linkNode.insertIntoTree(afterNode: node)
+            try! node.insertIntoTree(asFirstChildOf: linkNode)
+            linkNode.setUserData(unretained: autolinkDef)
+            iter.reset(to: linkNode, eventType: .exit)
+        }
+    }
+
     /// 4 - fixup pass for html rendering:
     ///     a) replace headings with custom nodes adding styles and tags
     ///     b) create scaffolding around callouts
     ///     c) code blocks language rewrite for prism / default
-    ///     d) autolinking
+    ///     d) autolinked links to split-language html links
     ///     e) math reformatting [one day]
     ///
     /// All the !s and try!s here are to do with poorly-wrapped cmark interfaces that
     /// are (not) policing node types.
     func customizeForHtml(doc: CMDocument) {
-        let iterator = Iterator(node: doc.node)!
+        let iterator = CMIterator(doc: doc)
 
-        try! iterator.enumerate { node, event in
-            guard event == .enter else {
-                return false // keep going
-            }
+        iterator.forEach { node, iter in
             switch node.type {
             case .heading:
-                customizeHeading(heading: node, iterator: iterator)
+                customizeHeading(heading: node, iterator: iter)
 
             case .codeBlock:
-                customizeCodeBlock(block: node, iterator: iterator)
+                customizeCodeBlock(block: node, iterator: iter)
 
             case .list:
                 if node.maybeCalloutList {
-                    customizeCallouts(listNode: node, iterator: iterator)
+                    customizeCallouts(listNode: node, iterator: iter)
                 }
 
-            case .code:
-                customizeCode(code: node, iterator: iterator)
+            case .link:
+                if let autolinkDef = node.getUserData(kind: DefItem.self) {
+                    customizeAutolink(link: node, def: autolinkDef, iterator: iter)
+                }
 
             default:
                 break
             }
-            return false // keep going
         }
     }
 
@@ -209,23 +240,31 @@ final class MarkdownFormatter: ItemVisitorProtocol {
         }
     }
 
-    func customizeCode(code: CMNode, iterator: Iterator) {
-        let text = code.literal!
-        guard let autolinkDef = autolink?.def(for: text, context: visitParentContext) else {
-            return
+    /// Called for links that refer to defs in our docs.  Replace the markdown link with some html to support
+    /// swift/objc switchable name links.
+    func customizeAutolink(link: CMNode, def: DefItem, iterator: Iterator) {
+        let primaryLanguage = def.primaryLanguage
+        let primaryUrl = visitItemContext.url.pathToRoot +
+            def.url.url(fileExtension: ".html", language: primaryLanguage)
+
+        let html: String
+
+        if let secondaryLanguage = def.secondaryLanguage,
+            let secondaryName = def.otherLanguageName {
+            let secondaryUrl = visitItemContext.url.pathToRoot +
+                def.url.url(fileExtension: ".html", language: secondaryLanguage)
+
+            html = #"<a href="\#(primaryUrl)" class="\#(primaryLanguage.cssName)"><code>\#(def.name.htmlEscaped)</code></a>"# +
+                   #"<a href="\#(secondaryUrl)" class="\#(secondaryLanguage.cssName) j2-secondary"><code>\#(secondaryName.htmlEscaped)</code></a>"#
+        } else {
+            html = #"<a href="\#(primaryUrl)"><code>\#(def.name.htmlEscaped)</code></a>"#
         }
-        guard autolinkDef !== visitItemContext else {
-            Stats.inc(.autolinkSelfLink)
-            return
-        }
-        let linkURL = visitItemContext.url.pathToRoot +
-            autolinkDef.url.url(fileExtension: ".html")
-        let linkNode = CMNode.init(type: .link)
-        try! linkNode.setLinkURL(URL(string: linkURL)!)
-        try! linkNode.insertIntoTree(afterNode: code)
-        try! code.insertIntoTree(asFirstChildOf: linkNode)
-        linkNode.setUserData(unretained: autolinkDef)
-        iterator.reset(to: linkNode, eventType: .exit)
+
+        let htmlNode = CMNode(type: .htmlInline)
+        try! htmlNode.setLiteral(html)
+        try! htmlNode.insertIntoTree(beforeNode: link)
+        link.unlink()
+        iterator.reset(to: htmlNode, eventType: .exit)
     }
 }
 

@@ -82,6 +82,14 @@ public enum DefLanguage: String, Encodable, CaseIterable, Comparable {
         }
     }
 
+    /// CSS-name for the language
+    public var cssName: String {
+        switch self {
+        case .swift: return "j2-swift"
+        case .objc: return "j2-objc"
+        }
+    }
+
     /// Comparable
     public static func < (lhs: DefLanguage, rhs: DefLanguage) -> Bool {
         lhs.humanName < rhs.humanName

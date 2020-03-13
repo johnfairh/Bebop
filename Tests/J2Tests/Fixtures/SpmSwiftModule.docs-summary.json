@@ -381,7 +381,7 @@
           }
         },
         {
-          "anchor_id" : "tpc_available-where-t-equatable-t-firstprotocol",
+          "anchor_id" : "tpc_available-where-t-equatable-t-firstprotocoltypesfirstprotocol1md",
           "items" : [
             {
               "anchor_id" : "dofirstmagic",
@@ -432,18 +432,18 @@
           ],
           "menu_title" : {
             "html" : {
-              "en" : "…where <code>T<\/code>: <code>Equatable<\/code>, <code>T<\/code>: <a href=\"..\/types\/firstprotocol1.html\"><code>FirstProtocol<\/code><\/a>"
+              "en" : "…where <code>T<\/code>: <code>Equatable<\/code>, <code>T<\/code>: <a href=\"..\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>"
             },
             "markdown" : {
-              "en" : "…where `T`: `Equatable`, `T`: `FirstProtocol`"
+              "en" : "…where `T`: `Equatable`, `T`: [`FirstProtocol`](..\/types\/firstprotocol1.md)"
             }
           },
           "title" : {
             "html" : {
-              "en" : "Available where <code>T<\/code>: <code>Equatable<\/code>, <code>T<\/code>: <a href=\"..\/types\/firstprotocol1.html\"><code>FirstProtocol<\/code><\/a>"
+              "en" : "Available where <code>T<\/code>: <code>Equatable<\/code>, <code>T<\/code>: <a href=\"..\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>"
             },
             "markdown" : {
-              "en" : "Available where `T`: `Equatable`, `T`: `FirstProtocol`"
+              "en" : "Available where `T`: `Equatable`, `T`:\n[`FirstProtocol`](..\/types\/firstprotocol1.md)"
             }
           }
         },
@@ -758,7 +758,7 @@
           }
         },
         {
-          "anchor_id" : "tpc_available-where-assoctype-hashable",
+          "anchor_id" : "tpc_available-where-assoctypetypesfirstprotocol1mdassoctype-hashable",
           "items" : [
             {
               "anchor_id" : "exthashablemethod",
@@ -819,18 +819,18 @@
           ],
           "menu_title" : {
             "html" : {
-              "en" : "…where <a href=\"..\/types\/firstprotocol1.html#assoctype\"><code>AssocType<\/code><\/a>: <code>Hashable<\/code>"
+              "en" : "…where <a href=\"..\/types\/firstprotocol1.html?swift#assoctype\"><code>AssocType<\/code><\/a>: <code>Hashable<\/code>"
             },
             "markdown" : {
-              "en" : "…where `AssocType`: `Hashable`"
+              "en" : "…where [`AssocType`](..\/types\/firstprotocol1.md#assoctype): `Hashable`"
             }
           },
           "title" : {
             "html" : {
-              "en" : "Available where <a href=\"..\/types\/firstprotocol1.html#assoctype\"><code>AssocType<\/code><\/a>: <code>Hashable<\/code>"
+              "en" : "Available where <a href=\"..\/types\/firstprotocol1.html?swift#assoctype\"><code>AssocType<\/code><\/a>: <code>Hashable<\/code>"
             },
             "markdown" : {
-              "en" : "Available where `AssocType`: `Hashable`"
+              "en" : "Available where [`AssocType`](..\/types\/firstprotocol1.md#assoctype): `Hashable`"
             }
           }
         }
@@ -921,7 +921,7 @@
           }
         },
         {
-          "anchor_id" : "tpc__nested_-strúctures",
+          "anchor_id" : "tpc_nested-strúctures-",
           "items" : [
             {
               "anchor_id" : "nested1",
@@ -975,18 +975,18 @@
           ],
           "menu_title" : {
             "html" : {
-              "en" : "<em>Nested<\/em> strúctures"
+              "en" : "<em>Nested<\/em> strúctures ``"
             },
             "markdown" : {
-              "en" : "_Nested_ strúctures"
+              "en" : "*Nested* strúctures \\`\\`"
             }
           },
           "title" : {
             "html" : {
-              "en" : "<em>Nested<\/em> strúctures"
+              "en" : "<em>Nested<\/em> strúctures ``"
             },
             "markdown" : {
-              "en" : "_Nested_ strúctures"
+              "en" : "*Nested* strúctures \\`\\`"
             }
           }
         }
@@ -1319,7 +1319,7 @@
               "def" : {
                 "abstract" : {
                   "en" : {
-                    "html" : "<p>Third &amp; Fourth cases - <a href=\"..\/types\/anenum.html#second\"><code>second<\/code><\/a><\/p>"
+                    "html" : "<p>Third &amp; Fourth cases - <a href=\"..\/types\/anenum.html?swift#second\"><code>second<\/code><\/a><\/p>"
                   }
                 },
                 "availability" : [],
@@ -1629,7 +1629,7 @@
               "def" : {
                 "abstract" : {
                   "en" : {
-                    "html" : "<p>See <a href=\"..\/types\/abaseclass.html#methodparam\"><code>ABaseClass.method(...)<\/code><\/a>.<\/p>"
+                    "html" : "<p>See <a href=\"..\/types\/abaseclass.html?swift#methodparam\"><code>method(param:)<\/code><\/a>.<\/p>"
                   }
                 },
                 "availability" : [],
@@ -1721,7 +1721,7 @@
               "def" : {
                 "abstract" : {
                   "en" : {
-                    "html" : "<p>See <a href=\"types\/spmswiftmodule.html\"><code>SpmSwiftModule<\/code><\/a> – or <a href=\"types\/abaseclass.html\"><code>SpmSwiftModule.ABaseClass<\/code><\/a>.<\/p>"
+                    "html" : "<p>See <a href=\"types\/spmswiftmodule.html?swift\"><code>SpmSwiftModule<\/code><\/a> – or <a href=\"types\/abaseclass.html?swift\"><code>ABaseClass<\/code><\/a>.<\/p>"
                   }
                 },
                 "availability" : [
@@ -1985,7 +1985,7 @@
       "tab_title_prefix" : true,
       "topics" : [
         {
-          "anchor_id" : "tpc_available-where-element-firstprotocol",
+          "anchor_id" : "tpc_available-where-element-firstprotocoltypesfirstprotocol1md",
           "items" : [
             {
               "anchor_id" : "collectemall",
@@ -2013,23 +2013,23 @@
           ],
           "menu_title" : {
             "html" : {
-              "en" : "…where <code>Element<\/code>: <a href=\"..\/types\/firstprotocol1.html\"><code>FirstProtocol<\/code><\/a>"
+              "en" : "…where <code>Element<\/code>: <a href=\"..\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>"
             },
             "markdown" : {
-              "en" : "…where `Element`: `FirstProtocol`"
+              "en" : "…where `Element`: [`FirstProtocol`](..\/types\/firstprotocol1.md)"
             }
           },
           "title" : {
             "html" : {
-              "en" : "Available where <code>Element<\/code>: <a href=\"..\/types\/firstprotocol1.html\"><code>FirstProtocol<\/code><\/a>"
+              "en" : "Available where <code>Element<\/code>: <a href=\"..\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>"
             },
             "markdown" : {
-              "en" : "Available where `Element`: `FirstProtocol`"
+              "en" : "Available where `Element`: [`FirstProtocol`](..\/types\/firstprotocol1.md)"
             }
           }
         },
         {
-          "anchor_id" : "tpc_available-where-element-spmswiftmodulenested1",
+          "anchor_id" : "tpc_available-where-element-spmswiftmodulenested1typesspmswiftmodulenested1md",
           "items" : [
             {
               "anchor_id" : "nestemall",
@@ -2057,18 +2057,18 @@
           ],
           "menu_title" : {
             "html" : {
-              "en" : "…where <code>Element<\/code> == <a href=\"..\/types\/spmswiftmodule\/nested1.html\"><code>SpmSwiftModule.Nested1<\/code><\/a>"
+              "en" : "…where <code>Element<\/code> == <a href=\"..\/types\/spmswiftmodule\/nested1.html?swift\"><code>Nested1<\/code><\/a>"
             },
             "markdown" : {
-              "en" : "…where `Element` == `SpmSwiftModule.Nested1`"
+              "en" : "…where `Element` ==\n[`SpmSwiftModule.Nested1`](..\/types\/spmswiftmodule\/nested1.md)"
             }
           },
           "title" : {
             "html" : {
-              "en" : "Available where <code>Element<\/code> == <a href=\"..\/types\/spmswiftmodule\/nested1.html\"><code>SpmSwiftModule.Nested1<\/code><\/a>"
+              "en" : "Available where <code>Element<\/code> == <a href=\"..\/types\/spmswiftmodule\/nested1.html?swift\"><code>Nested1<\/code><\/a>"
             },
             "markdown" : {
-              "en" : "Available where `Element` == `SpmSwiftModule.Nested1`"
+              "en" : "Available where `Element` ==\n[`SpmSwiftModule.Nested1`](..\/types\/spmswiftmodule\/nested1.md)"
             }
           }
         }

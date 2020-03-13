@@ -30,6 +30,24 @@ extension CMNode {
     }
 }
 
+/// Simpler interface to node iterator
+struct CMIterator {
+    private let iterator: Iterator
+
+    init(doc: CMDocument) {
+        iterator = Iterator(node: doc.node)!
+    }
+
+    /// Simple iteration, calls for 'entry' event into every node.
+    func forEach(iter: (CMNode, Iterator) throws -> Void) rethrows {
+        try! iterator.enumerate { node, event in
+            if event == .enter {
+                try iter(node, iterator)
+            }
+            return false // keep going
+        }
+    }
+}
 
 // MARK: `CMDocument` helpers
 
