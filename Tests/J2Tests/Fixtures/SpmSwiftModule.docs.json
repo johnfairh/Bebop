@@ -30,8 +30,6 @@
     "path_to_root" : "",
     "primary_page_title" : "Types",
     "primary_title_language" : "j2-swift",
-    "secondary_page_title" : "Types",
-    "secondary_title_language" : "j2-objc",
     "tab_title_prefix" : true,
     "tocs" : [
       {
@@ -1919,8 +1917,6 @@
     "path_to_root" : "",
     "primary_page_title" : "Functions",
     "primary_title_language" : "j2-swift",
-    "secondary_page_title" : "Functions",
-    "secondary_title_language" : "j2-objc",
     "tab_title_prefix" : true,
     "tocs" : [
       {

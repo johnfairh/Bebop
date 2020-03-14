@@ -22,9 +22,6 @@
       "primary_title" : {
         "en" : "Types"
       },
-      "secondary_title" : {
-        "en" : "Types"
-      },
       "tab_title_prefix" : true,
       "topics" : [
         {
@@ -1705,9 +1702,6 @@
       "is_guide" : false,
       "primary_language" : "swift",
       "primary_title" : {
-        "en" : "Functions"
-      },
-      "secondary_title" : {
         "en" : "Functions"
       },
       "tab_title_prefix" : true,

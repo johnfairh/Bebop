@@ -139,7 +139,7 @@ public final class GenData: Encodable {
         public init(groupURL: URLPieces,
                     primaryTitle: Localized<String>,
                     primaryLanguage: DefLanguage,
-                    secondaryTitle: Localized<String>,
+                    secondaryTitle: Localized<String>?,
                     breadcrumbs: [[Breadcrumb]],
                     content: Localized<Html>?,
                     topics: [Topic] = []) {

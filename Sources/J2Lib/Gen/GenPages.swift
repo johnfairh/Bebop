@@ -131,10 +131,12 @@ final class PageVisitor: ItemVisitorProtocol {
     }
 
     func visit(groupItem: GroupItem, parents: [Item]) {
+        let primaryTitle = groupItem.titlePreferring(language: defaultLanguage)
+        let secondaryTitle = groupItem.titlePreferring(language: defaultLanguage.otherLanguage)
         pages.append(GenData.Page(groupURL: groupItem.url,
-                                  primaryTitle: groupItem.titlePreferring(language: defaultLanguage),
+                                  primaryTitle: primaryTitle,
                                   primaryLanguage: defaultLanguage,
-                                  secondaryTitle: groupItem.titlePreferring(language: defaultLanguage.otherLanguage),
+                                  secondaryTitle: primaryTitle == secondaryTitle ? nil : secondaryTitle,
                                   breadcrumbs: buildBreadcrumbs(item: groupItem, parents: parents),
                                   content: nil,
                                   topics: buildTopics(item: groupItem)))

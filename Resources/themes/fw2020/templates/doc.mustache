@@ -62,11 +62,13 @@ Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
             {{> params_returns}}
           </div>
           {{/def}}
+          {{^hide_article_title}}
           <nav class="j2-item-nav" aria-label="item details">
             {{#github_token_url}}
             <span class="j2-item-nav-item"><a href="{{{.}}}">Show on GitHub</a></span>
             {{/github_token_url}}
           </nav>
+          {{/hide_article_title}}
           {{{content_html}}}
         </section>
 
