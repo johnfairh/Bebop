@@ -74,8 +74,26 @@ class TestRegex: XCTestCase {
         XCTAssertEqual("or", matches["join"])
     }
 
+    func testMultiMatch() {
+        let str = "Fish or FISH"
+        let matches = str.re_matches("fish", options: .i)
+        XCTAssertEqual(2, matches.count)
+        XCTAssertEqual("Fish", matches[0][0])
+        XCTAssertEqual("FISH", matches[1][0])
+    }
+
     func testCheck() {
         initResources()
         AssertThrows(try "a(".re_check(), OptionsError.self)
+    }
+
+    func testInteractiveSub() {
+        let str = "abc"
+        XCTAssertEqual("aBc", str.re_sub("b", replacer: { _ in "B"}))
+        XCTAssertEqual("BBB", str.re_sub(".", replacer: { _ in "B"}))
+    }
+
+    func testEscaped() {
+        XCTAssertEqual(#"\*"#, "*".re_escapedPattern)
     }
 }

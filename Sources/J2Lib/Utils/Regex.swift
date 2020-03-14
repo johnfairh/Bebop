@@ -85,6 +85,31 @@ public extension String {
         return re.stringByReplacingMatches(in: self, range: nsRange, withTemplate: template)
     }
 
+    /// Search & replace using a regular expression and a closure to provide replacements
+    ///
+    /// - Parameter searchPattern: pattern to search for
+    /// - Parameter options: regex options
+    /// - Parameter replacer: callback to provide the replacement for each match
+    func re_sub(_ searchPattern: String,
+                options: NSRegularExpression.Options = [],
+                replacer: (String) -> String) -> String {
+
+        let re = cache.get(pattern: searchPattern, options: options)
+        let matches = re.matches(in: self, range: nsRange).map { Range($0.range, in: self)! }
+
+        var nextIndex = startIndex
+        var output = ""
+
+        // Handle each match and the unmatched portion preceding it
+        matches.forEach { match in
+            output += self[nextIndex..<match.lowerBound]
+            output += replacer(String(self[match.lowerBound..<match.upperBound]))
+            nextIndex = match.upperBound
+        }
+        // Stuff after the final match
+        return output + self[nextIndex..<endIndex]
+    }
+
     /// Check if the string matches a regular expression.
     ///
     /// See `String.re_match` to find out what is in the match.
