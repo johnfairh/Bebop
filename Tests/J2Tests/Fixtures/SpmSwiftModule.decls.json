@@ -12,7 +12,7 @@
             }
           },
           "parameters" : [],
-          "source" : "fabricated"
+          "source" : "undocumented"
         },
         "kind" : "source.lang.swift.decl.var.instance",
         "location" : {
@@ -55,7 +55,7 @@
             }
           },
           "parameters" : [],
-          "source" : "fabricated"
+          "source" : "undocumented"
         },
         "kind" : "source.lang.swift.decl.function.constructor",
         "location" : {
@@ -101,7 +101,7 @@
             }
           },
           "parameters" : [],
-          "source" : "fabricated"
+          "source" : "undocumented"
         },
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
@@ -144,7 +144,7 @@
             }
           },
           "parameters" : [],
-          "source" : "fabricated"
+          "source" : "undocumented"
         },
         "kind" : "source.lang.swift.decl.var.instance",
         "location" : {
@@ -195,7 +195,7 @@
             }
           },
           "parameters" : [],
-          "source" : "fabricated"
+          "source" : "undocumented"
         },
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
@@ -251,7 +251,7 @@
             }
           },
           "parameters" : [],
-          "source" : "fabricated"
+          "source" : "undocumented"
         },
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
@@ -294,7 +294,7 @@
             }
           },
           "parameters" : [],
-          "source" : "fabricated"
+          "source" : "undocumented"
         },
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
@@ -345,7 +345,7 @@
             }
           },
           "parameters" : [],
-          "source" : "fabricated"
+          "source" : "undocumented"
         },
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
@@ -399,7 +399,7 @@
         }
       },
       "parameters" : [],
-      "source" : "fabricated"
+      "source" : "undocumented"
     },
     "generic_type_parameters" : [
       "T"
@@ -531,7 +531,7 @@
             }
           },
           "parameters" : [],
-          "source" : "fabricated"
+          "source" : "undocumented"
         },
         "kind" : "source.lang.swift.decl.associatedtype",
         "location" : {
@@ -571,7 +571,7 @@
             }
           },
           "parameters" : [],
-          "source" : "fabricated"
+          "source" : "undocumented"
         },
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
@@ -667,7 +667,7 @@
             }
           },
           "parameters" : [],
-          "source" : "fabricated"
+          "source" : "undocumented"
         },
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
@@ -818,7 +818,7 @@
             }
           },
           "parameters" : [],
-          "source" : "fabricated"
+          "source" : "undocumented"
         },
         "kind" : "source.lang.swift.decl.var.instance",
         "location" : {
@@ -872,7 +872,7 @@
                 }
               },
               "parameters" : [],
-              "source" : "fabricated"
+              "source" : "undocumented"
             },
             "kind" : "source.lang.swift.decl.struct",
             "location" : {
@@ -912,7 +912,7 @@
                 }
               },
               "parameters" : [],
-              "source" : "fabricated"
+              "source" : "undocumented"
             },
             "kind" : "source.lang.swift.decl.struct",
             "location" : {
@@ -953,7 +953,7 @@
             }
           },
           "parameters" : [],
-          "source" : "fabricated"
+          "source" : "undocumented"
         },
         "kind" : "source.lang.swift.decl.struct",
         "location" : {
@@ -1001,7 +1001,7 @@
             }
           },
           "parameters" : [],
-          "source" : "fabricated"
+          "source" : "undocumented"
         },
         "kind" : "source.lang.swift.decl.struct",
         "location" : {
@@ -1213,7 +1213,7 @@
             }
           },
           "parameters" : [],
-          "source" : "fabricated"
+          "source" : "undocumented"
         },
         "kind" : "source.lang.swift.decl.enumelement",
         "location" : {
@@ -1492,7 +1492,7 @@
             }
           },
           "parameters" : [],
-          "source" : "fabricated"
+          "source" : "undocumented"
         },
         "kind" : "source.lang.swift.decl.function.constructor",
         "location" : {
@@ -1532,7 +1532,7 @@
             }
           },
           "parameters" : [],
-          "source" : "fabricated"
+          "source" : "undocumented"
         },
         "kind" : "source.lang.swift.decl.function.destructor",
         "location" : {
@@ -1618,7 +1618,7 @@
             }
           },
           "parameters" : [],
-          "source" : "fabricated"
+          "source" : "undocumented"
         },
         "kind" : "source.lang.swift.decl.function.subscript",
         "location" : {
@@ -1705,7 +1705,7 @@
             }
           },
           "parameters" : [],
-          "source" : "fabricated"
+          "source" : "undocumented"
         },
         "kind" : "source.lang.swift.decl.var.instance",
         "location" : {
@@ -1797,7 +1797,7 @@
             }
           },
           "parameters" : [],
-          "source" : "fabricated"
+          "source" : "undocumented"
         },
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
@@ -1893,7 +1893,7 @@
             }
           },
           "parameters" : [],
-          "source" : "fabricated"
+          "source" : "undocumented"
         },
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
@@ -1949,7 +1949,7 @@
             }
           },
           "parameters" : [],
-          "source" : "fabricated"
+          "source" : "undocumented"
         },
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
@@ -2089,7 +2089,7 @@
             }
           },
           "parameters" : [],
-          "source" : "fabricated"
+          "source" : "undocumented"
         },
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {

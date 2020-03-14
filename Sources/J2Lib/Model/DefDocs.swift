@@ -12,8 +12,10 @@ public enum DefDocSource: String, Encodable {
     case docComment
     /// Figured out by Swift from some parent protocol or class
     case inherited
-    /// Made up by this program
-    case fabricated
+    /// Made up by this program for an uninitialized container
+    case empty
+    /// Made up by this program for an undocumented def
+    case undocumented
 }
 
 /// Broken-down documentation for some definition in some format
@@ -37,7 +39,7 @@ public struct DefDocs<T>: Encodable where T: Encodable & Equatable {
                 defaultDiscussion: T? = nil,
                 returns: T? = nil,
                 parameters: [Param] = [],
-                source: DefDocSource = .fabricated) {
+                source: DefDocSource = .empty) {
         self.abstract = abstract
         self.discussion = discussion
         self.defaultAbstract = defaultAbstract

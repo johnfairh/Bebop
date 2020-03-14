@@ -205,7 +205,7 @@ public struct MergeFilter: Configurable {
             return false
         }
 
-        item.documentation = .init(abstract: RichText(undocumentedText), source: .fabricated)
+        item.documentation = .init(abstract: RichText(undocumentedText), source: .undocumented)
         return true
     }
 }
