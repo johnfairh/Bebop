@@ -444,8 +444,8 @@
         "title_html" : "CustomStringConvertible"
       },
       {
-        "anchor_id" : "tpc_available-where-t-equatable-t-firstprotocoltypesfirstprotocol1md",
-        "dash_name" : "Available%20where%20%60T%60%3A%20%60Equatable%60,%20%60T%60%3A%0A%5B%60FirstProtocol%60%5D(..\/types\/firstprotocol1.md)",
+        "anchor_id" : "tpc_available-where-t-equatable-t-firstprotocol",
+        "dash_name" : "Available%20where%20T%3A%20Equatable,%20T%3A%20FirstProtocol",
         "items" : [
           {
             "anchor_id" : "dofirstmagic",
@@ -500,7 +500,7 @@
       },
       {
         "anchor_id" : "tpc_available-where-t-codable",
-        "dash_name" : "Available%20where%20%60T%60%3A%20%60Codable%60",
+        "dash_name" : "Available%20where%20T%3A%20Codable",
         "items" : [
           {
             "anchor_id" : "docodability",
@@ -534,8 +534,8 @@
             "title" : "CustomStringConvertible"
           },
           {
-            "anchor_id" : "tpc_available-where-t-equatable-t-firstprotocoltypesfirstprotocol1md",
-            "title" : "…where T: Equatable, T: [FirstProtocol](..\/types\/firstprotocol1.md)"
+            "anchor_id" : "tpc_available-where-t-equatable-t-firstprotocol",
+            "title" : "…where T: Equatable, T: FirstProtocol"
           },
           {
             "anchor_id" : "tpc_usercustom-mark",
@@ -765,8 +765,8 @@
         "primary_language" : "j2-swift"
       },
       {
-        "anchor_id" : "tpc_available-where-assoctypetypesfirstprotocol1mdassoctype-hashable",
-        "dash_name" : "Available%20where%20%5B%60AssocType%60%5D(..\/types\/firstprotocol1.md%23assoctype):%20%60Hashable%60",
+        "anchor_id" : "tpc_available-where-assoctype-hashable",
+        "dash_name" : "Available%20where%20AssocType%3A%20Hashable",
         "items" : [
           {
             "anchor_id" : "exthashablemethod",
@@ -811,8 +811,8 @@
             "title" : "Declaration"
           },
           {
-            "anchor_id" : "tpc_available-where-assoctypetypesfirstprotocol1mdassoctype-hashable",
-            "title" : "…where [AssocType](..\/types\/firstprotocol1.md#assoctype): Hashable"
+            "anchor_id" : "tpc_available-where-assoctype-hashable",
+            "title" : "…where AssocType: Hashable"
           }
         ]
       }
@@ -985,7 +985,7 @@
       },
       {
         "anchor_id" : "tpc_nested-strúctures-",
-        "dash_name" : "*Nested*%20str%C3%BActures%20%5C%60%5C%60",
+        "dash_name" : "Nested%20str%C3%BActures%20%60%60",
         "items" : [
           {
             "anchor_id" : "nested1",
@@ -1034,7 +1034,7 @@
           },
           {
             "anchor_id" : "tpc_nested-str%C3%BActures-",
-            "title" : "Nested strúctures \\\\"
+            "title" : "Nested strúctures ``"
           }
         ]
       }
@@ -2421,8 +2421,8 @@
     ],
     "topics" : [
       {
-        "anchor_id" : "tpc_available-where-element-firstprotocoltypesfirstprotocol1md",
-        "dash_name" : "Available%20where%20%60Element%60%3A%20%5B%60FirstProtocol%60%5D(..\/types\/firstprotocol1.md)",
+        "anchor_id" : "tpc_available-where-element-firstprotocol",
+        "dash_name" : "Available%20where%20Element%3A%20FirstProtocol",
         "items" : [
           {
             "anchor_id" : "collectemall",
@@ -2442,8 +2442,8 @@
         "title_html" : "Available where <code>Element<\/code>: <a href=\"..\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>"
       },
       {
-        "anchor_id" : "tpc_available-where-element-spmswiftmodulenested1typesspmswiftmodulenested1md",
-        "dash_name" : "Available%20where%20%60Element%60%20==%0A%5B%60SpmSwiftModule.Nested1%60%5D(..\/types\/spmswiftmodule\/nested1.md)",
+        "anchor_id" : "tpc_available-where-element-spmswiftmodulenested1",
+        "dash_name" : "Available%20where%20Element%20==%20SpmSwiftModule.Nested1",
         "items" : [
           {
             "anchor_id" : "nestemall",
@@ -2473,12 +2473,12 @@
             "title" : "Declaration"
           },
           {
-            "anchor_id" : "tpc_available-where-element-firstprotocoltypesfirstprotocol1md",
-            "title" : "…where Element: [FirstProtocol](..\/types\/firstprotocol1.md)"
+            "anchor_id" : "tpc_available-where-element-firstprotocol",
+            "title" : "…where Element: FirstProtocol"
           },
           {
-            "anchor_id" : "tpc_available-where-element-spmswiftmodulenested1typesspmswiftmodulenested1md",
-            "title" : "…where Element ==\n[SpmSwiftModule.Nested1](..\/types\/spmswiftmodule\/nested1.md)"
+            "anchor_id" : "tpc_available-where-element-spmswiftmodulenested1",
+            "title" : "…where Element == SpmSwiftModule.Nested1"
           }
         ]
       }

@@ -381,7 +381,7 @@
           }
         },
         {
-          "anchor_id" : "tpc_available-where-t-equatable-t-firstprotocoltypesfirstprotocol1md",
+          "anchor_id" : "tpc_available-where-t-equatable-t-firstprotocol",
           "items" : [
             {
               "anchor_id" : "dofirstmagic",
@@ -758,7 +758,7 @@
           }
         },
         {
-          "anchor_id" : "tpc_available-where-assoctypetypesfirstprotocol1mdassoctype-hashable",
+          "anchor_id" : "tpc_available-where-assoctype-hashable",
           "items" : [
             {
               "anchor_id" : "exthashablemethod",
@@ -1985,7 +1985,7 @@
       "tab_title_prefix" : true,
       "topics" : [
         {
-          "anchor_id" : "tpc_available-where-element-firstprotocoltypesfirstprotocol1md",
+          "anchor_id" : "tpc_available-where-element-firstprotocol",
           "items" : [
             {
               "anchor_id" : "collectemall",
@@ -2029,7 +2029,7 @@
           }
         },
         {
-          "anchor_id" : "tpc_available-where-element-spmswiftmodulenested1typesspmswiftmodulenested1md",
+          "anchor_id" : "tpc_available-where-element-spmswiftmodulenested1",
           "items" : [
             {
               "anchor_id" : "nestemall",

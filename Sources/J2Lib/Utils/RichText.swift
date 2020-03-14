@@ -117,6 +117,19 @@ public enum RichText: Encodable, Equatable {
     }
 }
 
+import Maaku
+
+extension RichText {
+    public var plainText: Localized<String> {
+        markdown.mapValues { md in
+            guard let doc = CMDocument(markdown: md) else {
+                return md.md
+            }
+            return doc.node.renderPlainText()
+        }
+    }
+}
+
 /// Wrap up declarations and their formatting behaviour.
 ///
 /// Declarations are different: not localized, fixed line format, and we need

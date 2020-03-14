@@ -431,7 +431,7 @@ extension GenData.Topic: SoloLanguageProtocol {
     ///           primary_language - if set then topic is only valid in that language
     ///           items - items array of [String: Any]
     func generateTopic(languageTag: String, fileExt: String) -> MustacheDict {
-        let titleText = title.markdown.get(languageTag).md
+        let titleText = title.plainText.get(languageTag)
         let dashName = titleText.urlPathEncoded
         var dict = MH([.anchorId: anchorId, .dashName: dashName])
         if !titleText.isEmpty {
@@ -449,7 +449,7 @@ extension GenData.Topic: SoloLanguageProtocol {
 
     /// Build the topics menu item - nil if no title or only in the other language
     func generateMenuItem(language: DefLanguage, languageTag: String) -> MustacheDict? {
-        let titleText = menuTitle.markdown.get(languageTag).md
+        let titleText = menuTitle.plainText.get(languageTag)
         if titleText.isEmpty {
             return nil
         }
@@ -458,7 +458,7 @@ extension GenData.Topic: SoloLanguageProtocol {
             return nil
         }
 
-        return MH([.title: titleText.re_sub("[_`*]+", with: ""),
+        return MH([.title: titleText,
                    .anchorId: anchorId.urlFragmentEncoded])
     }
 }

@@ -182,7 +182,7 @@ final class PageVisitor: ItemVisitorProtocol {
 
         func endTopic() {
             if let currentTopic = currentTopic {
-                let slugRoot = currentTopic.title.markdown.get(Localizations.shared.main.tag).md
+                let slugRoot = currentTopic.title.plainText.get(Localizations.shared.main.tag)
                 topics.append(GenData.Topic(title: currentTopic.title,
                                             menuTitle: currentTopic.menuTitle,
                                             anchorId: uniquer.unique("tpc_" + slugRoot.slugged),
