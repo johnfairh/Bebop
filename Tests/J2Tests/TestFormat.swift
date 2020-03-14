@@ -144,4 +144,74 @@ class TestFormat: XCTestCase {
             XCTAssertTrue(md.contains("### Authors\n\nBarney"))
         }
     }
+
+    // Autolink
+
+    func testAutolinkNames() {
+        ["+method", "- method", "-method:argname"].forEach { m in
+            XCTAssertTrue(m.isObjCMethodName, m)
+            XCTAssertFalse(m.isObjCClassMethodName, m)
+        }
+
+        XCTAssertFalse("+".isObjCMethodName)
+
+        ["+[Class method:name]",
+         "+ [Class (category) method:name]",
+         "+ [Class(category) method:name]",
+        ].forEach { m in
+            XCTAssertTrue(m.isObjCClassMethodName, m)
+            XCTAssertEqual("Class.+method:name", m.hierarchical, m)
+        }
+
+        let malformed = "+[Class incomplete"
+        XCTAssertTrue(malformed.isObjCClassMethodName)
+        XCTAssertEqual(malformed, malformed.hierarchical)
+    }
+
+    func testAutoLinkLookupSwift() throws {
+        let swMethod = SourceKittenDict.mkMethod(name: "method(arg:)")
+        let swField = SourceKittenDict.mkInstanceVar(name: "variable")
+        let swClass = SourceKittenDict.mkClass(name: "SwiftClass").with(children: [swMethod, swField])
+
+        let swFile = SourceKittenDict.mkFile().with(children: [swClass])
+        let swPass = swFile.asGatherDef().asPass(moduleName: "SwModule")
+
+        let system = System()
+        let filtered = try system.run([swPass])
+        XCTAssertEqual(2, filtered.count)
+
+        var swClassDef: DefItem!
+        ["SwiftClass", "SwModule.SwiftClass"].forEach { n in
+            guard let (classDef, lang) = system.format.autolink.def(for: n, context: filtered[0]) else {
+                XCTFail("Couldn't look up class")
+                return
+            }
+            XCTAssertEqual(DefLanguage.swift, lang)
+            XCTAssertEqual("SwiftClass", classDef.name)
+            swClassDef = classDef
+        }
+
+        // relative failure
+        let res = system.format.autolink.def(for: "variable", context: swClassDef)
+        XCTAssertNil(res)
+        guard let (varDef, _) = system.format.autolink.def(for: "SwiftClass.variable", context: swClassDef) else {
+            XCTFail("Couldn't look up var")
+            return
+        }
+        XCTAssertEqual("variable", varDef.name)
+
+        // relative success
+        guard let (meth1, _) = system.format.autolink.def(for: "method(arg:)", context: varDef) else {
+            XCTFail("Couldn't look up method")
+            return
+        }
+        XCTAssertEqual("method(arg:)", meth1.name)
+
+        // abbreviated lookup
+        guard let (meth2, _) = system.format.autolink.def(for: "SwiftClass.method(...)", context: filtered[0]) else {
+            XCTFail("Couldn't look up abbreviated method")
+            return
+        }
+        XCTAssertEqual("method(arg:)", meth2.name)
+    }
 }
