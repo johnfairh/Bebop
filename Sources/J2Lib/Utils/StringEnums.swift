@@ -90,10 +90,10 @@ internal enum L10n {
     case wrnCfgIgnored = "wrn-cfg-ignored"
     /// Language tags missing for '%1': %2.
     case wrnCfgLanguageMissing = "wrn-cfg-language-missing"
-    /// Duplicate guide name '%1', ignoring '%2'.
-    case wrnDuplicateGuide = "wrn-duplicate-guide"
-    /// No guides matching '*.md' found expanding '%1'.
-    case wrnEmptyGuideGlob = "wrn-empty-guide-glob"
+    /// Duplicate filename '%1', ignoring '%2'.
+    case wrnDuplicateGlobfile = "wrn-duplicate-globfile"
+    /// No files matching '*.md' found expanding '%1'.
+    case wrnEmptyGlob = "wrn-empty-glob"
     /// Swift compiler error for '%1' %2, ignoring.  Check build flags and import statements?
     case wrnErrorType = "wrn-error-type"
     /// fnmatch(3) failed, pattern '%1', path '%2', errno %3/%4.

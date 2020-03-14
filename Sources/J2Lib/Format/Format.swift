@@ -12,11 +12,13 @@ public final class Format: Configurable {
     let readmeOpt = PathOpt(l: "readme").help("FILEPATH")
 
     let autolink: FormatAutolink
+    let abstract: FormatAbstracts
 
     private var configPublished: Config.Published
 
     public init(config: Config) {
         autolink = FormatAutolink(config: config)
+        abstract = FormatAbstracts(config: config)
         configPublished = config.published
         config.register(self)
     }
@@ -29,6 +31,8 @@ public final class Format: Configurable {
         let allItems = items + [try createReadme()]
         logDebug("Format: Assigning URLs")
         URLFormatter(childItemStyle: configPublished.childItemStyle).walk(items: allItems)
+        logDebug("Format: Attach custom abstracts")
+        abstract.attach(items: allItems)
         logDebug("Format: Building autolink index")
         autolink.populate(defs: allItems)
         logDebug("Format: Formatting declarations")

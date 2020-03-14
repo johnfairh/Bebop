@@ -109,6 +109,37 @@ extension Array where Element == Localized<String> {
 
 // MARK: Read localized files
 
+extension Array where Element == Glob.Pattern {
+    /// Interpret the globs and seek out localized markdown files.
+    /// Key of returned dictionary is the basename of the localized file, ending ".md".
+    func readLocalizedMarkdownFiles() throws -> [String : Localized<Markdown>] {
+        var files = [String: Localized<Markdown>]()
+        try forEach { globPattern in
+            logDebug("Glob: Searching for files using '\(globPattern)'")
+            var count = 0
+            try Glob.files(globPattern).forEach { url in
+                let filename = url.lastPathComponent
+                guard filename.lowercased().hasSuffix(".md") else {
+                    logDebug("Glob: Ignoring \(url.path), wrong suffix.")
+                    return
+                }
+                guard files[filename] == nil else {
+                    logWarning(.localized(.wrnDuplicateGlobfile, filename, url.path))
+                    return
+                }
+                files[filename] = try Localized<Markdown>(localizingFile: url)
+                count += 1
+            }
+            if count == 0 {
+                logWarning(.localized(.wrnEmptyGlob, globPattern))
+            } else {
+                logDebug("Glob: Found \(count) files.")
+            }
+        }
+        return files
+    }
+}
+
 extension Dictionary where Key == String, Value == Markdown {
     /// Helper to grab a localized version of a markdown file.
     /// `url` is supposed to be a markdown file, whose contents get used for the default localization.

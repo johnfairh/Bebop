@@ -131,4 +131,11 @@ Default: Include all source files.";
 "ignore-inherited-docs" = "If a definition only has documentation that it has inherited then treat
 it as undocumented instead of using the inheritance.";
 "exclude-names" = "Regular expressions of definition names to omit from documentation.
-Default: Include all the definitions.";"
+Default: Include all the definitions.";
+"custom-abstracts" = "Filenames of markdown (.md) documents to augment or replace the content at
+the start of the page that shares its name.  Supports wildcards.  Can be
+localized by creating a version with the same filename in a subdirectory
+named after the language tag.
+Default: Do not use any custom abstracts.";
+"custom-abstract-overwrite" = "Replace any existing content with a custom abstract.
+Default: Insert the custom abstract before existing content.";

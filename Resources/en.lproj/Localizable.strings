@@ -58,8 +58,8 @@ Options:";
 
 "msg-generating-docs" = "Generating documentation.";
 
-"wrn-duplicate-guide" = "Duplicate guide name '%1', ignoring '%2'.";
-"wrn-empty-guide-glob" = "No guides matching '*.md' found expanding '%1'.";
+"wrn-duplicate-globfile" = "Duplicate filename '%1', ignoring '%2'.";
+"wrn-empty-glob" = "No files matching '*.md' found expanding '%1'.";
 
 "err-objc-build-tools" = "Both --objc-direct and --build-tool are set: choose just one.";
 "err-objc-no-header" = "Some Objective-C options are set but --objc-header-file is not.";
