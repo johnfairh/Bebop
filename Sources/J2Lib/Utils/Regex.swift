@@ -134,6 +134,19 @@ public extension String {
         return ReMatchResult(string: self, textCheckingResult: match)
     }
 
+    /// Match the regular expression against the string and return info about all matches
+    ///
+    /// - parameter pattern: pattern to match against
+    /// - parameter options: regex options
+    /// - returns: `ReMatchResult` objects, one per match.
+    func re_matches(_ pattern: String,
+                  options: NSRegularExpression.Options = []) -> [ReMatchResult] {
+        let re = cache.get(pattern: pattern, options: options)
+        return re.matches(in: self, range: nsRange).map {
+            ReMatchResult(string: self, textCheckingResult: $0)
+        }
+    }
+
     /// Feel like this exists somewhere already...
     private var nsRange: NSRange {
         NSRange(startIndex..<endIndex, in: self)

@@ -152,10 +152,16 @@ extension SourceKittenDict {
     func with(okind: ObjCDeclarationKind) -> Self {
         with(field: .kind, value: okind.rawValue)
     }
+
+    func with(swiftName: String?) -> Self {
+        guard let swiftName = swiftName else { return self }
+        return with(field: .swiftName, value: swiftName)
+    }
     #endif
 
     func with(decl: String) -> Self {
         with(field: "key.fully_annotated_decl", value: "<o>\(decl)</o>")
+            .with(field: "key.parsed_declaration", value: decl)
     }
 
     func with(comment: String) -> Self {
@@ -244,6 +250,33 @@ extension SourceKittenDict {
         SourceKittenDict()
             .with(okind: .mark)
             .with(name: text)
+    }
+
+    static func mkObjCClass(name: String, swiftName: String? = nil) -> Self {
+        SourceKittenDict()
+            .with(okind: .class)
+            .with(name: name)
+            .with(decl: "@interface \(name)")
+            .with(usr: name)
+            .with(swiftName: swiftName)
+    }
+
+    static func mkObjCProperty(name: String, swiftName: String? = nil) -> Self {
+        SourceKittenDict()
+            .with(okind: .property)
+            .with(name: name)
+            .with(decl: "@property (atomic) \(name)")
+            .with(usr: name)
+            .with(swiftName: swiftName)
+    }
+
+    static func mkObjCMethod(name: String, swiftName: String? = nil) -> Self {
+        SourceKittenDict()
+            .with(okind: .methodInstance)
+            .with(name: name)
+            .with(decl: "- (void) \(name.dropFirst())")
+            .with(usr: name)
+            .with(swiftName: swiftName)
     }
     #endif
 

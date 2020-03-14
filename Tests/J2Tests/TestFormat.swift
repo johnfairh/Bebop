@@ -214,4 +214,125 @@ class TestFormat: XCTestCase {
         }
         XCTAssertEqual("method(arg:)", meth2.name)
     }
+
+    #if os(macOS)
+    func testAutoLinkLookupObjC() throws {
+        let oMethod = SourceKittenDict.mkObjCMethod(name: "-method:param", swiftName: "method(param:)")
+        let oProperty = SourceKittenDict.mkObjCProperty(name: "value", swiftName: "value")
+        let oClass = SourceKittenDict.mkObjCClass(name: "OClass", swiftName: "SClass")
+            .with(children: [oMethod, oProperty])
+        let oClass2 = SourceKittenDict.mkObjCClass(name: "OClass").with(usr: "OClass2") // dup name
+
+        let passes = SourceKittenDict.mkFile().with(children: [oClass, oClass2]).asGatherPasses
+        let system = System()
+        let filtered = try system.run(passes)
+        XCTAssertEqual(2, filtered.count)
+
+        guard let (classDef, lang) = system.format.autolink.def(for: "OClass", context: filtered[0]),
+            lang == .objc,
+            classDef.name == "OClass" else {
+            XCTFail("Couldn't look up OClass")
+            return
+        }
+
+        guard let (classDef2, lang2) = system.format.autolink.def(for: "SClass", context: filtered[0]),
+            lang2 == .swift,
+            classDef2.name == "OClass" else {
+            XCTFail("Couldn't look up SClass")
+            return
+        }
+
+        guard let (mDef, _) = system.format.autolink.def(for: "-[OClass method:param]", context: filtered[0]),
+            mDef.name == "-method:param" else {
+            XCTFail("Couldn't look up full method")
+            return
+        }
+        XCTAssertEqual("-[OClass method:param]", mDef.fullyQualifiedName(for: .objc))
+        XCTAssertEqual("SClass.method(param:)", mDef.fullyQualifiedName(for: .swift))
+
+        guard let (mDef2, _) = system.format.autolink.def(for: "SClass.method(...)", context: filtered[0]),
+            mDef2.name == "-method:param" else {
+            XCTFail("Couldn't look up Swift method")
+            return
+        }
+
+        guard let (mDef3, _) = system.format.autolink.def(for: "-method:param", context: classDef),
+            mDef3.name == "-method:param" else {
+            XCTFail("Couldn't look up nested name")
+            return
+        }
+
+        if let (pDef2, _) = system.format.autolink.def(for: "value", context: classDef) {
+            XCTFail("Managed to resolve relative name from wrong place: \(pDef2)")
+            return
+        }
+
+        if let (mDef4, _) = system.format.autolink.def(for: "-badmethod", context: classDef) {
+            XCTFail("Managed to resolve relative method from wrong place: \(mDef4)")
+            return
+        }
+
+        guard let (pDef, _) = system.format.autolink.def(for: "value", context: mDef3),
+            pDef.name == "value" else {
+            XCTFail("Couldn't look up sibling name")
+            return
+        }
+        XCTAssertEqual("OClass.value", pDef.fullyQualifiedName(for: .objc))
+        XCTAssertEqual("SClass.value", pDef.fullyQualifiedName(for: .swift))
+    }
+
+    private func getLinkNames(html: String) -> [String] {
+        html.re_matches("<code>(.*?)</code>").map { $0[1] }
+    }
+
+    func testAutolinkLinks() throws {
+        let oMethod = SourceKittenDict.mkObjCMethod(name: "-method:param", swiftName: "method(param:)")
+        let oClass = SourceKittenDict.mkObjCClass(name: "OClass", swiftName: "SClass")
+            .with(children: [oMethod])
+        let swClass = SourceKittenDict.mkClass(name: "SwiftClass")
+        let passes = SourceKittenDict.mkFile().with(children: [oClass, swClass]).asGatherPasses
+        let system = System()
+        let filtered = try system.run(passes)
+        XCTAssertEqual(2, filtered.count)
+
+        guard let link1 = system.format.autolink.link(for: "OClass", context: filtered[0]) else {
+            XCTFail("Couldn't resolve OClass")
+            return
+        }
+        XCTAssertEqual(["OClass", "SClass"], getLinkNames(html: link1.html))
+
+        guard let link2 = system.format.autolink.link(for: "SwiftClass", context: filtered[0]) else {
+            XCTFail("Couldn't resolve SwiftClass")
+            return
+        }
+        XCTAssertEqual(["SwiftClass"], getLinkNames(html: link2.html))
+
+        guard let (classDef, _) = system.format.autolink.def(for: "OClass", context: filtered[0]) else {
+            XCTFail("Couldn't resolve OClass to def")
+            return
+        }
+        guard let link3 = system.format.autolink.link(for: "-method:param", context: classDef) else {
+            XCTFail("Couldn't resolve child method link")
+            return
+        }
+        XCTAssertEqual(["-method:param", "method(param:)"], getLinkNames(html: link3.html))
+
+        guard let link4 = system.format.autolink.link(for: "SClass.method(param:)", context: filtered[0]) else {
+            XCTFail("Couldn't resolve method link")
+            return
+        }
+        XCTAssertEqual(["SClass.method(param:)", "-[OClass method:param]"], getLinkNames(html: link4.html))
+
+        // errors
+        if let link5 = system.format.autolink.link(for: "NotAThing", context: filtered[0]) {
+            XCTFail("Managed result for NotAThing: \(link5)")
+            return
+        }
+
+        if let link6 = system.format.autolink.link(for: "OClass", context: classDef) {
+            XCTFail("Did self-link: \(link6)")
+            return
+        }
+    }
+    #endif
 }

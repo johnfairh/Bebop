@@ -201,12 +201,10 @@ extension DefItem {
     ///
     /// For Objective-C this expresses methods like "+[ClassName method:name]".
     func fullyQualifiedName(for language: DefLanguage) -> String {
-        if language == .objc && name(for: .objc).isObjCMethodName {
+        if language == .objc && name(for: .objc).isObjCMethodName,
+            let parent = self.parent as? DefItem {
             var methodName = name(for: .objc)
             let prefix = methodName.removeFirst()
-            guard let parent = self.parent as? DefItem else {
-                return name(for: .objc)
-            }
             return "\(prefix)[\(parent.name(for: .objc)) \(methodName)]"
         }
         let items = parentsFromRoot + [self]
