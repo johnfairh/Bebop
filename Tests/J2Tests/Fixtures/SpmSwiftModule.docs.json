@@ -218,7 +218,7 @@
             "dash_type" : "Class",
             "def" : {
               "abstract_html" : "<p>A derived class<\/p>",
-              "swift_declaration_html" : "public class ADerivedClass&lt;T, Q&gt; : ABaseClass where Q : Sequence"
+              "swift_declaration_html" : "public class ADerivedClass&lt;T, Q&gt; : <a href=\"..\/types\/abaseclass.html?swift\">ABaseClass<\/a> where Q : Sequence"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">class <\/span>ADerivedClass",
@@ -741,7 +741,7 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
-              "swift_declaration_html" : "func assocFunc() -&gt; AssocType"
+              "swift_declaration_html" : "func assocFunc() -&gt; <a href=\"..\/types\/firstprotocol1.html?swift#assoctype\">AssocType<\/a>"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>assocFunc<span class=\"j2-item-secondary\">() -> AssocType<\/span>",
@@ -1703,7 +1703,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "def" : {
       "abstract_html" : "<p>A derived class<\/p>",
-      "swift_declaration_html" : "public class ADerivedClass&lt;T, Q&gt; : ABaseClass where Q : Sequence"
+      "swift_declaration_html" : "public class ADerivedClass&lt;T, Q&gt; : <a href=\"..\/types\/abaseclass.html?swift\">ABaseClass<\/a> where Q : Sequence"
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
@@ -2238,7 +2238,7 @@
             "dash_name" : "extension%20Collection",
             "dash_type" : "Extension",
             "def" : {
-              "swift_declaration_html" : "extension Collection where Element: FirstProtocol\n\nextension Collection where Element == SpmSwiftModule.Nested1"
+              "swift_declaration_html" : "extension Collection where Element: <a href=\"..\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>\n\nextension Collection where Element == <a href=\"..\/types\/spmswiftmodule\/nested1.html?swift\">SpmSwiftModule.Nested1<\/a>"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">extension <\/span>Collection",
@@ -2295,7 +2295,7 @@
     "breadcrumbs_root" : "SpmSwiftModule",
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "def" : {
-      "swift_declaration_html" : "extension Collection where Element: FirstProtocol\n\nextension Collection where Element == SpmSwiftModule.Nested1"
+      "swift_declaration_html" : "extension Collection where Element: <a href=\"..\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>\n\nextension Collection where Element == <a href=\"..\/types\/spmswiftmodule\/nested1.html?swift\">SpmSwiftModule.Nested1<\/a>"
     },
     "default_language" : "j2-swift",
     "disable_search" : false,

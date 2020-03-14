@@ -12,11 +12,14 @@
 final class Autolink {
     /// A URL suitable for a markdown link to wrap whatever the user typed
     let markdownURL: String
+    /// A URL (href) for simple use in declarations
+    let primaryURL: String
     /// Some html suitable for replacing whatever the user typed
     let html: String
 
-    init(markdownURL: String, html: String) {
+    init(markdownURL: String, primaryURL: String, html: String) {
         self.markdownURL = markdownURL
+        self.primaryURL = primaryURL
         self.html = html
     }
 }
@@ -62,7 +65,7 @@ final class FormatAutolink: Configurable {
         guard def.dualLanguage else {
             // simple case
             let html = #"<a href="\#(primaryURL)"><code>\#(name.htmlEscaped)</code></a>"#
-            return Autolink(markdownURL: markdownURL, html: html)
+            return Autolink(markdownURL: markdownURL, primaryURL: primaryURL, html: html)
         }
 
         // dual-language def.
@@ -81,7 +84,7 @@ final class FormatAutolink: Configurable {
         }
         let secHTML = #"<a href="\#(secURL)" class="\#(secLanguage.cssName) j2-secondary"><code>\#(secName.htmlEscaped)</code></a>"#
 
-        return Autolink(markdownURL: markdownURL, html: primHTML + secHTML)
+        return Autolink(markdownURL: markdownURL, primaryURL: primaryURL, html: primHTML + secHTML)
     }
 
     /// Search for a def that matches the name in its context.

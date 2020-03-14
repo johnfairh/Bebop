@@ -13,9 +13,28 @@
 /// 2) Do autolinking, wrapping typerefs in <a href=> links
 /// 3) Do HTML escaping (most obviously <> from generics)
 struct DeclarationFormatter: ItemVisitorProtocol {
+    let autolink: FormatAutolink
+
+    init(autolink: FormatAutolink) {
+        self.autolink = autolink
+    }
+
     func visit(defItem: DefItem, parents: [Item]) {
         defItem.formatDeclarations { text in
-            Html(text.htmlEscaped)
+            // Must escape _first_ because autolink introduces actual HTML that
+            // does not want to be escaped.
+            // Means if we decide to handle generic expressions Foo<Bar>.Baz then
+            // will need to expect for "&lt;"...
+            let escaped = text.htmlEscaped
+
+            // veery approximate...
+            let linked = escaped.re_sub(#"\b\p{Lu}[\w.]*"#) { name in
+                guard let link = autolink.link(for: name, context: defItem) else {
+                    return name
+                }
+                return #"<a href="\#(link.primaryURL)">\#(name)</a>"#
+            }
+            return Html(linked)
         }
     }
 }

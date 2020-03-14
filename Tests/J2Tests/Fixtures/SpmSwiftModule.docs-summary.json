@@ -172,7 +172,7 @@
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public class ADerivedClass&lt;T, Q&gt; : ABaseClass where Q : Sequence"
+                  "html" : "public class ADerivedClass&lt;T, Q&gt; : <a href=\"..\/types\/abaseclass.html?swift\">ABaseClass<\/a> where Q : Sequence"
                 }
               },
               "flat_title" : {
@@ -672,7 +672,7 @@
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "func assocFunc() -&gt; AssocType"
+                  "html" : "func assocFunc() -&gt; <a href=\"..\/types\/firstprotocol1.html?swift#assoctype\">AssocType<\/a>"
                 }
               },
               "flat_title" : {
@@ -1587,7 +1587,7 @@
         "availability" : [],
         "params" : [],
         "swift_declaration" : {
-          "html" : "public class ADerivedClass&lt;T, Q&gt; : ABaseClass where Q : Sequence"
+          "html" : "public class ADerivedClass&lt;T, Q&gt; : <a href=\"..\/types\/abaseclass.html?swift\">ABaseClass<\/a> where Q : Sequence"
         }
       },
       "is_guide" : false,
@@ -1889,7 +1889,7 @@
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "extension Collection where Element: FirstProtocol\n\nextension Collection where Element == SpmSwiftModule.Nested1"
+                  "html" : "extension Collection where Element: <a href=\"..\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>\n\nextension Collection where Element == <a href=\"..\/types\/spmswiftmodule\/nested1.html?swift\">SpmSwiftModule.Nested1<\/a>"
                 }
               },
               "flat_title" : {
@@ -1974,7 +1974,7 @@
         "availability" : [],
         "params" : [],
         "swift_declaration" : {
-          "html" : "extension Collection where Element: FirstProtocol\n\nextension Collection where Element == SpmSwiftModule.Nested1"
+          "html" : "extension Collection where Element: <a href=\"..\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>\n\nextension Collection where Element == <a href=\"..\/types\/spmswiftmodule\/nested1.html?swift\">SpmSwiftModule.Nested1<\/a>"
         }
       },
       "is_guide" : false,

@@ -32,7 +32,7 @@ public final class Format: Configurable {
         logDebug("Format: Building autolink index")
         autolink.populate(defs: allItems)
         logDebug("Format: Formatting declarations")
-        DeclarationFormatter().walk(items: allItems)
+        DeclarationFormatter(autolink: autolink).walk(items: allItems)
         logDebug("Format: Generating HTML")
         MarkdownFormatter(language: configPublished.defaultLanguage,
                           autolink: autolink).walk(items: allItems)
