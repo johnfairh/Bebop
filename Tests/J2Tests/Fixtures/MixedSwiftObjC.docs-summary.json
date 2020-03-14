@@ -304,7 +304,7 @@
                 "availability" : [],
                 "discussion" : {
                   "en" : {
-                    "html" : "<p>See <code>Kitchen<\/code><\/p>"
+                    "html" : "<p>See <a href=\"..\/types\/jmlkitchen.html?swift\" class=\"j2-swift\"><code>Kitchen<\/code><\/a><a href=\"..\/types\/jmlkitchen.html?objc\" class=\"j2-objc j2-secondary\"><code>JMLKitchen<\/code><\/a><\/p>"
                   }
                 },
                 "notes" : {
@@ -665,7 +665,7 @@
               "def" : {
                 "abstract" : {
                   "en" : {
-                    "html" : "<p>See <code>Cupboard.jmlKitchenCupboardMethod()<\/code><\/p>"
+                    "html" : "<p>See <a href=\"..\/types\/jmlkitchencupboard.html?swift#jmlkitchencupboardmethod\" class=\"j2-swift\"><code>Cupboard.jmlKitchenCupboardMethod()<\/code><\/a><a href=\"..\/types\/jmlkitchencupboard.html?objc#jmlkitchencupboardmethod\" class=\"j2-objc j2-secondary\"><code>-[JMLKitchenCupboard jmlKitchenCupboardMethod]<\/code><\/a><\/p>"
                   }
                 },
                 "availability" : [],

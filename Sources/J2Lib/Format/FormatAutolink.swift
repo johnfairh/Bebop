@@ -144,19 +144,21 @@ private final class AutolinkIndexer: ItemVisitorProtocol {
 
     /// Calculate names that should look up to the def
     func visit(defItem: DefItem, parents: [Item]) {
-        if defItem.defKind.isSwift {
-            addWithModule(item: defItem, parents: parents, name: defItem.name)
+        // Swift name of the def
+        if let swiftName = defItem.swiftName {
+            addWithModule(item: defItem, parents: parents, name: swiftName)
 
             // Allow func/etc args elision with `funcName(...)`
-            if defItem.name.contains("(") {
-                let shortName = defItem.name.re_sub(#"\(.*\)"#, with: "(...)")
+            if swiftName.contains("(") {
+                let shortName = swiftName.re_sub(#"\(.*\)"#, with: "(...)")
                 addWithModule(item: defItem, parents: parents, name: shortName)
             }
-        } else {
-            objCNameToDef.add(defItem.name.fullyQualified(context: parents, for: .objc), defItem)
         }
 
-        // look up in other language (if different)
+        // ObjC name of the def
+        if let objCName = defItem.objCName {
+            objCNameToDef.add(objCName.fullyQualified(context: parents, for: .objc), defItem)
+        }
     }
 }
 
