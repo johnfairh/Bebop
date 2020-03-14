@@ -420,7 +420,7 @@
                 },
                 "availability" : [],
                 "obj_c_declaration" : {
-                  "html" : "- (void)jmlKitchenMethod NS_SWIFT_NAME(kitchenMethod())"
+                  "html" : "- (void)jmlKitchenMethod"
                 },
                 "params" : [],
                 "swift_declaration" : {
@@ -428,11 +428,11 @@
                 }
               },
               "flat_title" : {
-                "en" : "- (void)jmlKitchenMethod "
+                "en" : "- (void)jmlKitchenMethod"
               },
               "primary_language" : "objc",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">- (void)<\/span>jmlKitchenMethod<span class=\"j2-item-secondary\"> <\/span>"
+                "html" : "<span class=\"j2-item-secondary\">- (void)<\/span>jmlKitchenMethod<span class=\"j2-item-secondary\"><\/span>"
               },
               "secondary_language" : "swift",
               "secondary_title_html" : {

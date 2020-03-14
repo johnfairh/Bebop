@@ -59,6 +59,7 @@ class ObjCDeclarationBuilder {
         var decl = input
             .trimmingCharacters(in: .whitespacesAndNewlines)
             .re_sub(#"__\w+"#, with: "")
+            .re_sub(#"NS_SWIFT_NAME\(.*\)"#, with: "") // this is scary but seems to only show up on 1-line decls at the end....
         if kind.isObjCStructural {
             // Strip trailing content that can show up: ivar blocks, random {}, etc.
             decl = decl.re_sub(#"(?:\s*)[{\n].*\z"#, with: "", options: [.s])
