@@ -173,10 +173,10 @@ extension SwiftDeclarationBuilder {
             depText = .localizedOutput(.platUnavailable, platform)
         }
         if let message = message {
-            depText = depText.append(" \(message).")
+            depText = depText + " \(message)."
         }
         if let renamed = renamed {
-            depText = depText.append(.localizedOutput(.renamedTo, renamed))
+            depText = depText + .localizedOutput(.renamedTo, renamed)
         }
         if !depText.isEmpty {
             deprecations.append(depText)
@@ -215,10 +215,10 @@ extension SwiftDeclarationBuilder {
             text = .localizedOutput(.deprecated)
         }
         if let message = message {
-            text = text.append(" \(message).")
+            text = text + " \(message)."
         }
         if let renamed = renamed {
-            text = text.append(.localizedOutput(.renamedTo, renamed))
+            text = text + .localizedOutput(.renamedTo, renamed)
         }
         if !text.isEmpty {
             deprecations.append(text)

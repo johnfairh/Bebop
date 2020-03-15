@@ -83,3 +83,5 @@ Ignoring the second.";
 "msg-coverage" = "%1% documentation coverage with %2 undocumented symbols.";
 "msg-swift-acl" = "Skipped %1 %2 symbols.";
 "err-cfg-regexp" = "Invalid ICU regular expression '%1'.  Original error: '%2'.";
+"wrn-unmatched-abstracts" = "%1 unmatched custom abstracts: '%2'.";
+"wrn-guide-abstract" = "Found custom abstract for guide '%1', ignoring.  Add content directly to the guide.";

@@ -148,6 +148,10 @@ struct StatsDb {
         case autolinkSelfLink
         /// Autolink candidate not resolved
         case autolinkNotAutolinked
+        /// Custom abstracts applied to defs
+        case customAbstractDef
+        /// Custom abstracts applied to groups
+        case customAbstractGroup
     }
     private var counters = [String : Int]()
 

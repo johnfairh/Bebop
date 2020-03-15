@@ -98,7 +98,7 @@ class ObjCDeclarationBuilder {
             guard let message = dict[message.rawValue] as? String else {
                 return output
             }
-            return output.append(" \(message)")
+            return output + " \(message)"
         }
 
         return (parse(.deprecated, always: .alwaysDeprecated, message: .deprecationMessage),

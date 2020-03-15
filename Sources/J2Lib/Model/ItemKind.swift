@@ -19,12 +19,12 @@ public enum ItemKind: String, CaseIterable {
     /// The name of the kind, unambiguous and not shown in docs.
     var name: String {
         switch self {
-        case .guide: return "guides"
-        case .type: return "types"
-        case .variable: return "variables"
-        case .function: return "functions"
-        case .extension: return "extensions"
-        default: return "others"
+        case .guide: return "Guides"
+        case .type: return "Types"
+        case .variable: return "Variables"
+        case .function: return "Functions"
+        case .extension: return "Extensions"
+        default: return "Others"
         }
     }
 

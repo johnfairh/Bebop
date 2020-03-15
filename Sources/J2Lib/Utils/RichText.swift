@@ -19,6 +19,14 @@ public struct Markdown: CustomStringConvertible, Hashable, Encodable {
     public var description: String {
         md
     }
+
+    static func +(lhs: Self, rhs: Self) -> Self {
+        Markdown(lhs.md + rhs.md)
+    }
+
+    static func +(lhs: Self, rhs: String) -> Self {
+        Markdown(lhs.md + rhs)
+    }
 }
 
 /// Strongly-typed wrapper for html
@@ -31,6 +39,14 @@ public struct Html: CustomStringConvertible, Hashable, Encodable {
 
     public var description: String {
         html
+    }
+
+    static func +(lhs: Self, rhs: Self) -> Self {
+        Html(lhs.html + rhs.html)
+    }
+
+    static func +(lhs: Self, rhs: String) -> Self {
+        Html(lhs.html + rhs)
     }
 }
 

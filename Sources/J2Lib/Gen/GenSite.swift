@@ -160,8 +160,7 @@ public struct GenSite: Configurable {
         if let moduleVersion = moduleVersionOpt.value {
             flat += "\(moduleVersion) "
         }
-        return Localized<String>(unlocalized: flat)
-            .append(.localizedOutput(.docs))
+        return Localized<String>(unlocalized: flat) + .localizedOutput(.docs)
     }
 
     /// Figure out the breadcrumbs-root for the docs

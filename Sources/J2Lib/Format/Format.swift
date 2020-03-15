@@ -32,7 +32,7 @@ public final class Format: Configurable {
         logDebug("Format: Assigning URLs")
         URLFormatter(childItemStyle: configPublished.childItemStyle).walk(items: allItems)
         logDebug("Format: Attach custom abstracts")
-        abstract.attach(items: allItems)
+        try abstract.attach(items: allItems)
         logDebug("Format: Building autolink index")
         autolink.populate(defs: allItems)
         logDebug("Format: Formatting declarations")
@@ -63,10 +63,10 @@ public final class Format: Configurable {
         var readmeMd = Localized<String>(unlocalized: "# \(readmeModule)")
         if let readmeAuthor = configPublished.authorName {
             readmeMd = readmeMd
-                .append("\n### ")
-                .append(.localizedOutput(.authors))
-                .append("\n\n")
-                .append(readmeAuthor)
+                + "\n### "
+                + .localizedOutput(.authors)
+                + "\n\n"
+                + readmeAuthor
         }
         return ReadmeItem(content: readmeMd.mapValues { Markdown($0) })
     }

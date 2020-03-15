@@ -102,6 +102,8 @@ internal enum L10n {
     case wrnGlobErrno = "wrn-glob-errno"
     /// glob(3) error with paths for pattern '%1'.
     case wrnGlobPattern = "wrn-glob-pattern"
+    /// Found custom abstract for guide '%1', ignoring.  Add content directly to the guide.
+    case wrnGuideAbstract = "wrn-guide-abstract"
     /// Bad file json data for '%1' pass %2: missing 'key.diagnostic_stage' key.  Ignoring this file.
     case wrnMergeMissingRoot = "wrn-merge-missing-root"
     /// Doc comments will not be localized because --doc-comment-languages-directory is not set.
@@ -118,6 +120,8 @@ internal enum L10n {
     case wrnSktnIncomplete = "wrn-sktn-incomplete"
     /// Unsupported definition kind '%1', ignoring.
     case wrnSktnKind = "wrn-sktn-kind"
+    /// %1 unmatched custom abstracts: '%2'.
+    case wrnUnmatchedAbstracts = "wrn-unmatched-abstracts"
     /// Confused by different types sharing a USR.\n1: %1\n2: %2\nIgnoring the second.
     case wrnUsrCollision = "wrn-usr-collision"
   }

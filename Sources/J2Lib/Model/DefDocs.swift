@@ -49,6 +49,11 @@ public struct DefDocs<T>: Encodable where T: Encodable & Equatable {
         self.source = source
     }
 
+    public init(undocumented: T) {
+        self.init(abstract: undocumented,
+                  source: .undocumented)
+    }
+
     /// Is there any content?
     public var isEmpty: Bool {
         abstract == nil &&

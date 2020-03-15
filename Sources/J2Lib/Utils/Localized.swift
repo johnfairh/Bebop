@@ -57,9 +57,14 @@ protocol NulInitializable {
     init()
 }
 
-extension String : NulInitializable {}
-extension Markdown: NulInitializable { init() { md = "" } }
-extension Html: NulInitializable { init() { html = "" } }
+protocol Appendable {
+    static func +(lhs: Self, rhs: Self) -> Self
+    static func +(lhs: Self, rhs: String) -> Self
+}
+
+extension String : NulInitializable, Appendable {}
+extension Markdown: NulInitializable, Appendable { init() { md = "" } }
+extension Html: NulInitializable, Appendable { init() { html = "" } }
 
 extension Dictionary where Key == String, Value == String {
     /// Helper to grab a piece of localized output text and do substitutions %1 .... %n
@@ -77,17 +82,17 @@ extension Dictionary where Key == String, Value: NulInitializable {
 
 // MARK: String-like utilities
 
-extension Dictionary where Key == String, Value == String {
-    public func append(_ str: Localized<String>) -> Self {
-        var out = Localized<String>()
-        forEach { key, val in
-            out[key] = val + str.get(key)
+extension Dictionary: Appendable where Key == String, Value: Appendable & NulInitializable {
+    static func +(lhs: Self, rhs: Self) -> Self {
+        var out = Localized<Value>()
+        lhs.forEach { key, val in
+            out[key] = val + rhs.get(key)
         }
         return out
     }
 
-    public func append(_ str: String) -> Self {
-        mapValues { $0 + str }
+    static func +(lhs: Self, rhs: String) -> Self {
+        lhs.mapValues { $0 + rhs }
     }
 }
 

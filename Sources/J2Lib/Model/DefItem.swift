@@ -136,6 +136,22 @@ public class DefItem: Item, CustomStringConvertible {
         visitor.visit(defItem: self, parents: parents)
     }
 
+    /// Custom abstract injection
+    public func setCustomAbstract(markdown: Localized<Markdown>, overwrite: Bool) {
+        let newAbstract: Localized<Markdown>
+
+        if !overwrite,
+            documentation.source != .undocumented,
+            let currentAbstract = documentation.abstract {
+            newAbstract = markdown + "\n\n" + currentAbstract.markdown
+        } else {
+            newAbstract = markdown
+        }
+
+        documentation.abstract = RichText(newAbstract)
+        // (docsource is unchanged...)
+    }
+
     // Swift/ObjC personality
 
     /// Does the def have Swift + ObjC versions?

@@ -36,7 +36,7 @@ struct GenCopyright: Configurable {
                     #" <a href="\#(authorURL)" target="_blank" rel="external">\#(name)</a>"#
                 }
             }
-            return Localized<String>(unlocalized: " ").append(authorName)
+            return Localized<String>(unlocalized: " ") + authorName
         }
         return .init(unlocalized: "")
     }

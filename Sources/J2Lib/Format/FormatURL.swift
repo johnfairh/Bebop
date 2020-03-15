@@ -142,7 +142,7 @@ struct URLFormatter: ItemVisitorProtocol {
             // a top-level def, place according to kind
             // NOT THE PARENT!  PARENT MAY BE A NESTED CUSTOM CATEGORY.
             // XXX need to understand multi-module here
-            defItem.setURLPath(parentURLPath: defItem.defKind.metaKind.name)
+            defItem.setURLPath(parentURLPath: defItem.defKind.metaKind.name.slugged)
         } else {
             // we're a nested def with children, we go in our parent's directory
             defItem.setURLPath(parentURLPath: parent.url.urlPath)
@@ -156,7 +156,7 @@ struct URLFormatter: ItemVisitorProtocol {
 
     /// Guides in the guides directory.
     func visit(guideItem: GuideItem, parents: [Item]) {
-        guideItem.setURLPath(parentURLPath: ItemKind.guide.name)
+        guideItem.setURLPath(parentURLPath: ItemKind.guide.name.slugged)
     }
 
     /// Readme at the top
