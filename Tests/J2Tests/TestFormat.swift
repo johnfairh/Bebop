@@ -217,7 +217,7 @@ class TestFormat: XCTestCase {
 
     #if os(macOS)
     func testAutoLinkLookupObjC() throws {
-        let oMethod = SourceKittenDict.mkObjCMethod(name: "-method:param", swiftName: "method(param:)")
+        let oMethod = SourceKittenDict.mkObjCMethod(name: "-method:param:", swiftName: "method(param:)")
         let oProperty = SourceKittenDict.mkObjCProperty(name: "value", swiftName: "value")
         let oClass = SourceKittenDict.mkObjCClass(name: "OClass", swiftName: "SClass")
             .with(children: [oMethod, oProperty])
@@ -242,22 +242,22 @@ class TestFormat: XCTestCase {
             return
         }
 
-        guard let (mDef, _) = system.format.autolink.def(for: "-[OClass method:param]", context: filtered[0]),
-            mDef.name == "-method:param" else {
+        guard let (mDef, _) = system.format.autolink.def(for: "-[OClass method:param:]", context: filtered[0]),
+            mDef.name == "-method:param:" else {
             XCTFail("Couldn't look up full method")
             return
         }
-        XCTAssertEqual("-[OClass method:param]", mDef.fullyQualifiedName(for: .objc))
+        XCTAssertEqual("-[OClass method:param:]", mDef.fullyQualifiedName(for: .objc))
         XCTAssertEqual("SClass.method(param:)", mDef.fullyQualifiedName(for: .swift))
 
         guard let (mDef2, _) = system.format.autolink.def(for: "SClass.method(...)", context: filtered[0]),
-            mDef2.name == "-method:param" else {
+            mDef2.name == "-method:param:" else {
             XCTFail("Couldn't look up Swift method")
             return
         }
 
-        guard let (mDef3, _) = system.format.autolink.def(for: "-method:param", context: classDef),
-            mDef3.name == "-method:param" else {
+        guard let (mDef3, _) = system.format.autolink.def(for: "-method:param:", context: classDef),
+            mDef3.name == "-method:param:" else {
             XCTFail("Couldn't look up nested name")
             return
         }
@@ -286,7 +286,7 @@ class TestFormat: XCTestCase {
     }
 
     func testAutolinkLinks() throws {
-        let oMethod = SourceKittenDict.mkObjCMethod(name: "-method:param", swiftName: "method(param:)")
+        let oMethod = SourceKittenDict.mkObjCMethod(name: "-method:param:", swiftName: "method(param:)")
         let oClass = SourceKittenDict.mkObjCClass(name: "OClass", swiftName: "SClass")
             .with(children: [oMethod])
         let swClass = SourceKittenDict.mkClass(name: "SwiftClass")
@@ -311,17 +311,17 @@ class TestFormat: XCTestCase {
             XCTFail("Couldn't resolve OClass to def")
             return
         }
-        guard let link3 = system.format.autolink.link(for: "-method:param", context: classDef) else {
+        guard let link3 = system.format.autolink.link(for: "-method:param:", context: classDef) else {
             XCTFail("Couldn't resolve child method link")
             return
         }
-        XCTAssertEqual(["-method:param", "method(param:)"], getLinkNames(html: link3.html))
+        XCTAssertEqual(["-method:param:", "method(param:)"], getLinkNames(html: link3.html))
 
         guard let link4 = system.format.autolink.link(for: "SClass.method(param:)", context: filtered[0]) else {
             XCTFail("Couldn't resolve method link")
             return
         }
-        XCTAssertEqual(["SClass.method(param:)", "-[OClass method:param]"], getLinkNames(html: link4.html))
+        XCTAssertEqual(["SClass.method(param:)", "-[OClass method:param:]"], getLinkNames(html: link4.html))
 
         // errors
         if let link5 = system.format.autolink.link(for: "NotAThing", context: filtered[0]) {
@@ -335,4 +335,51 @@ class TestFormat: XCTestCase {
         }
     }
     #endif
+
+    func testCustomAbstract() throws {
+        TestLogger.uninstall()
+        let swClass1 = SourceKittenDict.mkClass(name: "SwiftClass1")
+        let swClass2 = SourceKittenDict.mkClass(name: "SwiftClass2").with(docs: "SwiftClass2 builtin")
+        let passes = SourceKittenDict.mkFile().with(children: [swClass1, swClass2]).asGatherPasses
+
+        let mdDir = try TemporaryDirectory()
+        let guideURL = try mdDir.createFile(name: "Guide.md")
+        try "I am the guide".write(to: guideURL)
+        let class1AbstractURL = try mdDir.createFile(name: "SwiftClass1.md")
+        try "SwiftClass1 CustomAbstract".write(to: class1AbstractURL)
+        let class2AbstractURL = try mdDir.createFile(name: "SwiftClass2.md")
+        try "SwiftClass2 CustomAbstract".write(to: class2AbstractURL)
+        let typesAbstractURL = try mdDir.createFile(name: "Types.md")
+        try "Types CustomAbstract".write(to: typesAbstractURL)
+
+        let system = System(cliArgs: [
+            "--guides=\(guideURL.path)",
+            "--custom-abstracts=\(mdDir.directoryURL.appendingPathComponent("*.md").path)"
+            ])
+
+        let items = try system.run(passes)
+        XCTAssertEqual(3, items.count)
+        XCTAssertEqual("Types", items[1].name)
+        XCTAssertTrue((items[1] as! GroupItem).customAbstract != nil)
+
+        let class1Def = items[1].children[0] as! DefItem
+        XCTAssertEqual("SwiftClass1", class1Def.name)
+        XCTAssertEqual("SwiftClass1 CustomAbstract", class1Def.documentation.abstract!.plainText.get("en"))
+
+        let class2Def = items[1].children[1] as! DefItem
+        XCTAssertEqual("SwiftClass2", class2Def.name)
+        XCTAssertEqual("SwiftClass2 CustomAbstract\n\nSwiftClass2 builtin", class2Def.documentation.abstract!.plainText.get("en"))
+
+        // Overwrite
+        let system2 = System(cliArgs: [
+            "--guides=\(guideURL.path)",
+            "--custom-abstracts=\(mdDir.directoryURL.appendingPathComponent("*.md").path)",
+            "--custom-abstract-overwrite"
+            ])
+        let items2 = try system2.run(passes)
+
+        let class2Def2 = items2[1].children[1] as! DefItem
+        XCTAssertEqual("SwiftClass2", class2Def2.name)
+        XCTAssertEqual("SwiftClass2 CustomAbstract", class2Def2.documentation.abstract!.plainText.get("en"))
+    }
 }

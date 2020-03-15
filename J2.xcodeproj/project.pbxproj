@@ -401,10 +401,10 @@
 			children = (
 				0233D52823EF1582004DCD89 /* Format.swift */,
 				0259E199241A5902006435A1 /* FormatAutolink.swift */,
-				0259E19B241D74CD006435A1 /* FormatAbstracts.swift */,
 				0233D52C23EF2997004DCD89 /* FormatURL.swift */,
-				0233D54823F6F2ED004DCD89 /* FormatMarkdown.swift */,
+				0259E19B241D74CD006435A1 /* FormatAbstracts.swift */,
 				02D00C812407D70800DD93C5 /* FormatDeclaration.swift */,
+				0233D54823F6F2ED004DCD89 /* FormatMarkdown.swift */,
 			);
 			path = Format;
 			sourceTree = "<group>";

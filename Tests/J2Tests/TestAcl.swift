@@ -21,13 +21,11 @@ class TestAcl: XCTestCase {
             let includedBy = DefAcl.includedBy(acl: acl)
             let excludedBy = DefAcl.excludedBy(acl: acl)
             for incl in list[0..<idx] {
-                print("\(acl) < \(incl)")
                 XCTAssertTrue(acl < incl)
                 XCTAssertNotNil(includedBy.firstIndex(of: incl))
                 XCTAssertNil(excludedBy.firstIndex(of: incl))
             }
             for incl in list[(idx + 1)...] {
-                print("\(acl) >= \(incl)")
                 XCTAssertTrue(acl >= incl)
                 XCTAssertNotNil(excludedBy.firstIndex(of: incl))
                 XCTAssertNil(includedBy.firstIndex(of: incl))
