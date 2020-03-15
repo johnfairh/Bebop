@@ -74,7 +74,7 @@ class ObjCDeclarationBuilder {
                 // 2) Don't show readwrite: it's the default
                 // 3) Don't show 'assign': that's a default
                 // 3a) Don't show 'assign, unsafe_unretained': that's the same default in Xcode11.4+
-                let badProperties = ["atomic", "readwrite", "assign", "unsafe_retained"]
+                let badProperties = ["atomic", "readwrite", "assign", "unsafe_unretained"]
 
                 let newProperties = propertyMatch[1].split(separator: ",")
                     .map { $0.trimmingCharacters(in: .whitespaces) }

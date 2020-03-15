@@ -49,12 +49,12 @@ class TestGroup: XCTestCase {
         let groups = try system.run(file.asGatherPasses)
 
         XCTAssertEqual(2, groups.count)
-        XCTAssertEqual(ItemKind.type.name, groups[0].slug)
+        XCTAssertEqual(ItemKind.type.name.slugged, groups[0].slug)
         XCTAssertEqual("Types", groups[0].titlePreferring(language: .swift).get("en"))
         XCTAssertEqual(2, groups[0].children.count)
         XCTAssertEqual("C1", groups[0].children[0].name)
         XCTAssertEqual("c1", groups[0].children[0].slug)
-        XCTAssertEqual(ItemKind.variable.name, groups[1].slug)
+        XCTAssertEqual(ItemKind.variable.name.slugged, groups[1].slug)
         XCTAssertEqual(1, groups[1].children.count)
     }
 
