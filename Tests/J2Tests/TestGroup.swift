@@ -104,8 +104,8 @@ class TestGroup: XCTestCase {
         let system = System(cliArgs: ["--guides", "\(tmpDir1.directoryURL.path)/*,\(tmpDir2.directoryURL.path)/*.md,/*"])
         let guides = try system.group.groupGuides.discoverGuides()
         XCTAssertEqual(2, guides.count)
-        XCTAssertEqual("GuideA.md", guides[0].name)
+        XCTAssertEqual("GuideA", guides[0].name)
         XCTAssertEqual(Markdown("A1"), guides[0].content.markdown["en"])
-        XCTAssertEqual("GuideB.md", guides[1].name)
+        XCTAssertEqual("GuideB", guides[1].name)
     }
 }

@@ -24,9 +24,8 @@ final class GroupGuides: Configurable {
         let guides = try guidesOpt.value.readLocalizedMarkdownFiles()
         let uniquer = StringUniquer()
         return guides.map { kv in
-            let fileBasename = String(kv.key.dropLast(3 /*.md*/))
-            let slug = uniquer.unique(fileBasename.slugged)
-            let title = Localized<String>(unlocalized: fileBasename)
+            let slug = uniquer.unique(kv.key.slugged)
+            let title = Localized<String>(unlocalized: kv.key)
             return GuideItem(name: kv.key, slug: slug, title: title, content: kv.value)
         }.sorted { $0.name < $1.name }
     }

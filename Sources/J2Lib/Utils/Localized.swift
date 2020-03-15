@@ -123,11 +123,12 @@ extension Array where Element == Glob.Pattern {
                     logDebug("Glob: Ignoring \(url.path), wrong suffix.")
                     return
                 }
-                guard files[filename] == nil else {
+                let basename = String(filename.dropLast(3 /*.md*/))
+                guard files[basename] == nil else {
                     logWarning(.localized(.wrnDuplicateGlobfile, filename, url.path))
                     return
                 }
-                files[filename] = try Localized<Markdown>(localizingFile: url)
+                files[basename] = try Localized<Markdown>(localizingFile: url)
                 count += 1
             }
             if count == 0 {
