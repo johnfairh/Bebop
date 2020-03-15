@@ -14,7 +14,7 @@ public final class GroupItem: Item {
     public let swiftTitle: Localized<String>?
     public let objCTitle: Localized<String>?
 
-    public private(set) var customAbstract: RichText?
+    public internal(set) var customAbstract: RichText?
 
     /// Create a new group based on the type of content, eg. 'All guides'.
     public init(kind: ItemKind, contents: [Item]) {
@@ -22,17 +22,6 @@ public final class GroupItem: Item {
         self.objCTitle = kind.objCTitle
         self.customAbstract = nil
         super.init(name: kind.name, slug: kind.name.slugged, children: contents)
-    }
-
-    /// Custom abstract injection
-    public func setCustomAbstract(markdown: Localized<Markdown>, overwrite: Bool) {
-        let newMarkdown: Localized<Markdown>
-        if !overwrite, let current = customAbstract {
-            newMarkdown = current.markdown + "\n\n" + markdown
-        } else {
-            newMarkdown = markdown
-        }
-        self.customAbstract = RichText(newMarkdown)
     }
 
     /// Visitor

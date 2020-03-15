@@ -368,7 +368,8 @@ class TestFormat: XCTestCase {
 
         let class2Def = items[1].children[1] as! DefItem
         XCTAssertEqual("SwiftClass2", class2Def.name)
-        XCTAssertEqual("SwiftClass2 CustomAbstract\n\nSwiftClass2 builtin", class2Def.documentation.abstract!.plainText.get("en"))
+        XCTAssertEqual("SwiftClass2 CustomAbstract", class2Def.documentation.abstract!.plainText.get("en"))
+        XCTAssertEqual("SwiftClass2 builtin", class2Def.documentation.discussion!.plainText.get("en"))
 
         // Overwrite
         let system2 = System(cliArgs: [
@@ -381,5 +382,13 @@ class TestFormat: XCTestCase {
         let class2Def2 = items2[1].children[1] as! DefItem
         XCTAssertEqual("SwiftClass2", class2Def2.name)
         XCTAssertEqual("SwiftClass2 CustomAbstract", class2Def2.documentation.abstract!.plainText.get("en"))
+        XCTAssertEqual("", class2Def2.documentation.discussion!.plainText.get("en"))
+
+        // Markdown munging
+        class2Def2.documentation.abstract = RichText("Orig Abstract")
+        class2Def2.documentation.discussion = RichText("Orig Discussion")
+        class2Def2.setCustomAbstract(markdown: .init(unlocalized: Markdown("- bullet")), overwrite: false)
+        XCTAssertEqual("  - bullet\n\nOrig Abstract\n\nOrig Discussion", class2Def2.documentation.abstract!.plainText.get("en"))
+        XCTAssertEqual("", class2Def2.documentation.discussion!.plainText.get("en"))
     }
 }

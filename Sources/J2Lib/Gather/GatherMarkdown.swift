@@ -36,9 +36,7 @@ public class MarkdownBuilder {
         doc.forEachCallout { processCallout(list: $0, listItem: $1, text: $2, callout: $3) }
 
         // Take any first paragraph as the 'abstract'
-        if let firstPara = doc.node.firstChild,
-            firstPara.type == .paragraph {
-            firstPara.unlink()
+        if let firstPara = doc.removeFirstParagraph() {
             abstract = firstPara.renderMarkdown()
         }
 

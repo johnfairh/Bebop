@@ -36,6 +36,16 @@ extension CMDocument {
         }
         return (md, doc.node.renderHtml())
     }
+
+    /// Remove and return any lede paragraph
+    func removeFirstParagraph() -> CMNode? {
+        if let firstPara = node.firstChild,
+            firstPara.type == .paragraph {
+            firstPara.unlink()
+            return firstPara
+        }
+        return nil
+    }
 }
 
 // MARK: Base `CMNode` helpers

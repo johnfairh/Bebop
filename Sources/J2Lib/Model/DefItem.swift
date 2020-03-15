@@ -9,6 +9,8 @@
 import Foundation
 import SourceKittenFramework
 
+import Maaku
+
 /// Base class of definition items -- those that correspond to a definition in
 /// some source code.
 public class DefItem: Item, CustomStringConvertible {
@@ -134,22 +136,6 @@ public class DefItem: Item, CustomStringConvertible {
     /// Visitor
     public override func accept(visitor: ItemVisitorProtocol, parents: [Item]) {
         visitor.visit(defItem: self, parents: parents)
-    }
-
-    /// Custom abstract injection
-    public func setCustomAbstract(markdown: Localized<Markdown>, overwrite: Bool) {
-        let newAbstract: Localized<Markdown>
-
-        if !overwrite,
-            documentation.source != .undocumented,
-            let currentAbstract = documentation.abstract {
-            newAbstract = markdown + "\n\n" + currentAbstract.markdown
-        } else {
-            newAbstract = markdown
-        }
-
-        documentation.abstract = RichText(newAbstract)
-        // (docsource is unchanged...)
     }
 
     // Swift/ObjC personality
