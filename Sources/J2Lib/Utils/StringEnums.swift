@@ -16,6 +16,10 @@ internal enum L10n {
     case errCfgBadKey = "err-cfg-bad-key"
     /// Unexpected config shape, found mapping for key '%1'.
     case errCfgBadMapping = "err-cfg-bad-mapping"
+    /// Module merging is disabled for '%1' but `merge_module_group` is set.
+    case errCfgBadModMerge = "err-cfg-bad-mod-merge"
+    /// Module merge policy is set both outside and inside `custom_modules`: choose just one.
+    case errCfgDupModMerge = "err-cfg-dup-mod-merge"
     /// Unexpected multiple values '%1' for config key '%2', expecting just one.
     case errCfgMultiSeq = "err-cfg-multi-seq"
     /// Unexpected YAML, mapping key is '%1', expected scalar.

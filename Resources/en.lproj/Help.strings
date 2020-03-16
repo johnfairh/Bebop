@@ -139,3 +139,5 @@ named after the language tag.
 Default: Do not use any custom abstracts.";
 "custom-abstract-overwrite" = "Replace any existing content with a custom abstract.
 Default: Insert the custom abstract before existing content.";
+"merge-modules" = "Merge definitions from all the modules being documented into one section.
+Default: Keep module definitions in their own sections.";

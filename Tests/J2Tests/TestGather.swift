@@ -65,7 +65,11 @@ class TestGather: XCTestCase {
     }
 
     func testModule() throws {
-        try OptsSystem().test(["--module", "Test"], jobs: [.init(swiftTitle: "", moduleName: "Test")])
+        let system = OptsSystem()
+        try system.test(["--module", "Test"], jobs: [.init(swiftTitle: "", moduleName: "Test")])
+
+        system.gatherOpts.publishModules(names: ["Test"])
+        XCTAssertEqual(ModuleGroupPolicy.separate, system.config.published.moduleGroupPolicy["Test"])
     }
 
     func testBuildToolArgs() throws {
@@ -174,10 +178,13 @@ class TestGather: XCTestCase {
 
     func testMultiModule() throws {
         let system = OptsSystem()
-        try system.test(["--modules=M1,M2"], jobs: [
+        try system.test(["--modules=M1,M2", "--merge-modules"], jobs: [
             .init(swiftTitle: "", moduleName: "M1"),
             .init(swiftTitle: "", moduleName: "M2")
         ])
+
+        system.gatherOpts.publishModules(names: ["M1", "M2"])
+        XCTAssertEqual(ModuleGroupPolicy.global, system.config.published.moduleGroupPolicy["M2"])
     }
 
     func testRepeatedMultiModule() throws {
@@ -199,6 +206,8 @@ class TestGather: XCTestCase {
             .init(swiftTitle: "", moduleName: "M1"),
             .init(swiftTitle: "", moduleName: "M2")
         ])
+        system.gatherOpts.publishModules(names: [])
+        XCTAssertEqual(ModuleGroupPolicy.separate, system.config.published.moduleGroupPolicy["M2"])
     }
 
     // Passes, cascade and override
@@ -207,8 +216,10 @@ class TestGather: XCTestCase {
         let yaml = """
                    debug: true
                    build_tool_arguments: [f1]
+                   merge_modules: true
                    custom_modules:
                     - module: M1
+                      merge_module_group: Cheese
                     - module: M2
                       ignore_availability_attr: true
                       passes:
@@ -223,6 +234,11 @@ class TestGather: XCTestCase {
             .init(swiftTitle: "", moduleName: "M2", buildToolArgs: ["f2"], availability: modifiedAvail),
             .init(swiftTitle: "", moduleName: "M2", buildToolArgs: ["f3"], availability: modifiedAvail)
         ])
+        system.gatherOpts.publishModules(names: [])
+        XCTAssertEqual(ModuleGroupPolicy.group(.init(unlocalized: "Cheese")),
+                       system.config.published.moduleGroupPolicy["M1"])
+        XCTAssertEqual(ModuleGroupPolicy.global,
+                       system.config.published.moduleGroupPolicy["M2"])
     }
 
     // Error cases
@@ -241,5 +257,18 @@ class TestGather: XCTestCase {
         let yaml3 = "custom_modules: whaat"
         let system3 = OptsSystem()
         AssertThrows(try system3.useConfigFile(yaml3), OptionsError.self)
+    }
+
+    // Module group errors
+    func testCustomModuleGroupErrors() throws {
+        // Inside and Outside
+        let yaml1 = "merge_modules: no\ncustom_modules:\n - module: M1\n   merge_module: yes"
+        let system1 = OptsSystem()
+        AssertThrows(try system1.useConfigFile(yaml1), OptionsError.self)
+
+        // Group while off
+        let yaml2 = "custom_modules:\n - module: M1\n   merge_module: no\n   merge_module_group: Fish"
+        let system2 = OptsSystem()
+        AssertThrows(try system2.useConfigFile(yaml2), OptionsError.self)
     }
 }

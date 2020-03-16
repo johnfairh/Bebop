@@ -8,7 +8,7 @@
 
 /// The common option set that can be set at outer, module, or module-pass level.
 /// These are the options that fundamentally generate `GatherJob`s.
-struct GatherJobOpts: Configurable, CustomStringConvertible {
+final class GatherJobOpts: Configurable, CustomStringConvertible {
     let srcDirOpt = PathOpt(l: "source-directory").help("DIRPATH")
     let buildToolOpt = EnumOpt<Gather.BuildTool>(l: "build-tool")
     let buildToolArgsOpt = StringListOpt(s: "b", l: "build-tool-arguments").help("ARG1,ARG2...")

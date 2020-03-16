@@ -74,3 +74,24 @@ extension Item {
         }
     }
 }
+
+/// How the defs from a module are supposed to be organized in the docs
+public enum ModuleGroupPolicy: Hashable {
+    /// Merge this module into a default group with others that share the setting
+    case global
+    /// Keep this module separate from all the others
+    case separate
+    /// Merge this module into a named group along with others that share the setting
+    case group(Localized<String>)
+
+    init(merge: Bool, name: Localized<String>? = nil) {
+        if let name = name {
+            precondition(merge)
+            self = .group(name)
+        } else if merge {
+            self = .global
+        } else {
+            self = .separate
+        }
+    }
+}

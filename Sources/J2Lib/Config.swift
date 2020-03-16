@@ -59,7 +59,10 @@ public final class Config {
         // Published by GatherOpts
         public var sourceDirectoryURL: URL?
         // Published by GatherOpts
-        public var moduleNames: [String] = []
+        public var moduleGroupPolicy = [String : ModuleGroupPolicy]()
+        public var moduleNames: [String] {
+            moduleGroupPolicy.keys.sorted(by: <)
+        }
         // Published by GatherOpts
         public var defaultLanguage = DefLanguage.swift
         // Published by GenCopyright

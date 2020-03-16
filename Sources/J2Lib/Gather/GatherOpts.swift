@@ -18,6 +18,7 @@ import Foundation
 final class GatherOpts : Configurable {
     let moduleNamesOpt = StringListOpt(s: "m", l: "modules").help("MODULE_NAME,...")
     let customModulesOpts = YamlOpt(y: "custom_modules")
+    let mergeModulesOpt = BoolOpt(l: "merge-modules")
 
     let rootPassOpts = GatherJobOpts()
     private(set) var customModules = [GatherCustomModule]()
@@ -76,6 +77,22 @@ final class GatherOpts : Configurable {
         }
     }
 
+    /// Publish module names & grouping policies.  This is a bit contorted:
+    /// - if we used --modules then we've just discovered the names, and have a global option
+    /// - if we used custom_modules then we can ignore what we've discovered and use the
+    ///   configured list and individual module policies.
+    func publishModules(names: Set<String>) {
+        if customModules.isEmpty {
+            let groupPolicy = ModuleGroupPolicy(merge: mergeModulesOpt.value)
+            names.forEach { published.moduleGroupPolicy[$0] = groupPolicy }
+        } else {
+            customModules.forEach {
+                let (name, groupPolicy) = $0.moduleGroupPolicy
+                published.moduleGroupPolicy[name] = groupPolicy
+            }
+        }
+    }
+
     func processCustomModules() throws {
         logDebug("Gather: Parsing custom_modules")
         let modulesSequence = try customModulesOpts.value!.checkSequence(context: "custom_modules")
@@ -85,8 +102,9 @@ final class GatherOpts : Configurable {
                                           relativePathBaseURL: published.configRelativePathBaseURL)
         }
 
+        let rootOpts = GatherCustomModule.RootOpts(jobOpts: rootPassOpts, mergeModulesOpt: mergeModulesOpt)
         try customModules.forEach {
-            try $0.cascadeOptions(from: rootPassOpts)
+            try $0.cascadeOptions(from: rootOpts)
         }
         logDebug("Gather: Finished custom_modules: \(customModules)")
     }
@@ -110,6 +128,8 @@ final class GatherOpts : Configurable {
 /// Either a job in itself, or a wrapper of 'passes'.
 struct GatherCustomModule: CustomStringConvertible {
     let moduleNameOpt = StringOpt(y: "module")
+    let mergeModuleOpt = BoolOpt(y: "merge_module")
+    let mergeModuleGroupOpt = LocStringOpt(y: "merge_module_group")
     let passesOpt = YamlOpt(y: "passes")
     let moduleOpts = GatherJobOpts()
     private(set) var passes: [GatherJobOpts] = []
@@ -140,17 +160,34 @@ struct GatherCustomModule: CustomStringConvertible {
         }
     }
 
+    struct RootOpts {
+        let jobOpts: GatherJobOpts
+        let mergeModulesOpt: BoolOpt
+    }
+
     /// Cascade options down the tree.
-    func cascadeOptions(from: GatherJobOpts) throws {
+    func cascadeOptions(from rootOpts: RootOpts) throws {
         // Cascade from root level to the module settings
-        try moduleOpts.cascade(from: from)
+        try moduleOpts.cascade(from: rootOpts.jobOpts)
         try moduleOpts.checkCascadedOptions()
+
+        if rootOpts.mergeModulesOpt.configured && mergeModuleOpt.configured {
+            throw OptionsError(.localized(.errCfgDupModMerge))
+        }
+        mergeModuleOpt.cascade(from: rootOpts.mergeModulesOpt)
+        if !mergeModuleOpt.value && mergeModuleGroupOpt.configured {
+            throw OptionsError(.localized(.errCfgBadModMerge, moduleNameOpt.value!))
+        }
 
         // Cascade from module settings down to each pass
         try passes.forEach { pass in
             try pass.cascade(from: moduleOpts)
             try pass.checkCascadedOptions()
         }
+    }
+
+    var moduleGroupPolicy: (String, ModuleGroupPolicy) {
+        (moduleNameOpt.value!, ModuleGroupPolicy(merge: mergeModuleOpt.value, name: mergeModuleGroupOpt.value))
     }
 
     /// Generate jobs

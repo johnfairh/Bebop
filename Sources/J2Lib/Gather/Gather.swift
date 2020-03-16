@@ -49,19 +49,13 @@ public struct Gather {
     public func gather() throws -> [GatherModulePass] {
         try localize.initialize()
 
-        // have opts separately figure out the module->mergepolicy.
-        // that way we don't get incredible tramp data with mergepolicy.
-        // we can't have it figure out module names because of implicit
-        // top-level, and multi-module-import.
-        // ooh no, it has an API mapping module-name to merge-policy, defaults
-        // to something for unknown.  Fine.
-        // no - actually going to have to publish this stuff.
-
-
         let jobs = opts.jobs
         publishJobFacts(jobs: jobs)
 
+        // Sometimes we discover the module name from running the job, so have
+        // wait until the jobs are done to publish them.
         var moduleNames = Set<String>()
+
         let passes = try jobs.flatMap { job -> [GatherModulePass] in
             if jobs.count > 1 {
                 logInfo(.localized(.msgGatherHeading, job.title))
@@ -72,7 +66,7 @@ public struct Gather {
         }
 
         // Publish stuff based on the passes resulting from the jobs
-        published.moduleNames = Array(moduleNames).sorted(by: <)
+        opts.publishModules(names: moduleNames)
 
         // Garnishes
         logDebug("Gather: start doc-comment localization pass.")
@@ -103,11 +97,6 @@ public struct GatherModulePass {
     public let files: [(pathname: String, GatherDef)]
 }
 
-//public enum MergeModulePolicy {
-//    case yes
-//    case no
-//    case group(name: String) // should be localized map
-//}
 
 protocol GatherGarnish {
     func garnish(def: GatherDef) throws

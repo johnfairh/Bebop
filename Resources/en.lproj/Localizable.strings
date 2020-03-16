@@ -85,3 +85,5 @@ Ignoring the second.";
 "err-cfg-regexp" = "Invalid ICU regular expression '%1'.  Original error: '%2'.";
 "wrn-unmatched-abstracts" = "%1 unmatched custom abstracts: '%2'.";
 "wrn-guide-abstract" = "Found custom abstract for guide '%1', ignoring.  Add content directly to the guide.";
+"err-cfg-dup-mod-merge" = "Module merge policy is set both outside and inside `custom_modules`: choose just one.";
+"err-cfg-bad-mod-merge" = "Module merging is disabled for '%1' but `merge_module_group` is set.";

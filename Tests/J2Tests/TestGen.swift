@@ -147,7 +147,9 @@ class TestGen: XCTestCase {
                              _ title: String?, _ bcRoot: String, line: UInt = #line) throws {
         let system = System()
         try system.configure(cliOpts: cliOpts)
-        system.config.published.moduleNames = modules
+        modules.forEach { m in
+            system.config.published.moduleGroupPolicy[m] = .separate
+        }
         let atitle = system.gen.buildDocsTitle()
         let abreadcrumbsRoot = system.gen.buildBreadcrumbsRoot()
         if let title = title {
