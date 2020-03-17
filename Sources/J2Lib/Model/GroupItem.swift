@@ -8,20 +8,47 @@
 
 import Foundation
 
+/// Kinds of groups
+public enum GroupKind: Hashable {
+    /// All items of a particular kind.  Named after that kind.
+    case allItems(ItemKind)
+    /// Some items of a particular kind, with a name to differentiate them
+    case someItems(ItemKind, Localized<String>)
+    /// Some collection of items with a name
+    case custom(Localized<String>)
+
+    /// The kind of the group, if it is known
+    var kind: ItemKind? {
+        switch self {
+        case .allItems(let k): return k
+        case .someItems(let k, _): return k
+        case .custom(_): return nil
+        }
+    }
+
+    func title(in language: DefLanguage) -> Localized<String> {
+        switch self {
+        case .allItems(let k): return k.title(in: language)
+        case .someItems(let k, let n): return k.title(in: language, affix: n)
+        case .custom(let t): return t
+        }
+    }
+}
+
 // A list-of-things group page in the docs
 
 public final class GroupItem: Item {
-    public let swiftTitle: Localized<String>?
-    public let objCTitle: Localized<String>?
-
+    public let groupKind: GroupKind
     public internal(set) var customAbstract: RichText?
 
     /// Create a new group based on the type of content, eg. 'All guides'.
-    public init(kind: ItemKind, contents: [Item]) {
-        self.swiftTitle = kind.swiftTitle
-        self.objCTitle = kind.objCTitle
+    public init(kind: GroupKind, contents: [Item], uniquer: StringUniquer) {
+        self.groupKind = kind
         self.customAbstract = nil
-        super.init(name: kind.name, slug: kind.name.slugged, children: contents)
+        let name = groupKind.title(in: .swift).get(Localizations.shared.main.tag)
+        super.init(name: name,
+                   slug: uniquer.unique(name.slugged),
+                   children: contents)
     }
 
     /// Visitor
@@ -31,11 +58,8 @@ public final class GroupItem: Item {
 
     public override var kind: ItemKind { .group }
 
-    public override func title(for language: DefLanguage) -> Localized<String>? {
-        switch language {
-        case .swift: return swiftTitle
-        case .objc: return objCTitle
-        }
+    public override func title(for language: DefLanguage) -> Localized<String> {
+        groupKind.title(in: language)
     }
 
     public override var showInToc: ShowInToc { .yes }

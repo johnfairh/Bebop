@@ -125,7 +125,8 @@ class TestProducts: XCTestCase {
     func testPageGenSwift() throws {
         try compareSwift(product: "docs-summary-json",
                          cliArgs: ["--modules=SpmSwiftModule,SpmSwiftModule2,SpmSwiftModule3",
-                                   "--min-acl=private"],
+                                   "--min-acl=private",
+                                   "--merge-modules"],
                          against: "SpmSwiftModule.docs-summary.json")
     }
 

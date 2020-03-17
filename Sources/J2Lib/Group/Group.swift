@@ -14,33 +14,86 @@ import Foundation
 /// unique custom groups alongside kind-groups if present....
 public struct Group: Configurable {
     let groupGuides: GroupGuides
+    let published: Config.Published
 
     public init(config: Config) {
         groupGuides = GroupGuides(config: config)
+        published = config.published
         config.register(self)
     }
 
     public func group(merged: [DefItem]) throws -> [Item] {
-        // Cache kind:def while preserving order
-        var kindToDefs = [ItemKind : [Item]]()
-        merged.forEach { def in
-            kindToDefs.reduceKey(def.defKind.metaKind, [def], { $0 + [def] })
-        }
+        logDebug("Group: Discovering guides")
         let guides = try groupGuides.discoverGuides()
-        if !guides.isEmpty {
-            kindToDefs[.guide] = guides
+        logDebug("Group: Discovered \(guides.count) guides.")
+
+        let allItems = merged + guides
+
+        let groupUniquer = StringUniquer()
+
+        return createKindGroups(items: allItems, uniquer: groupUniquer)
+    }
+
+    public func createKindGroups(items: [Item], uniquer: StringUniquer) -> [GroupItem] {
+        // Cache kind:def while preserving order
+        var kindToDefs = [GroupKind : [Item]]()
+        items.forEach { item in
+            if let def = item as? DefItem {
+                let moduleName = def.location.moduleName
+                let groupPolicy = published.moduleGroupPolicy[moduleName] ?? .separate
+                let groupName = GroupKind(kind: def.defKind.metaKind, moduleName: moduleName, policy: groupPolicy)
+
+                kindToDefs.reduceKey(groupName, [def], { $0 + [def] })
+            } else if let guide = item as? GuideItem {
+                kindToDefs.reduceKey(.allItems(.guide), [guide], { $0 + [guide] })
+            }
         }
 
         // Create the groups
-        let kindGroups = ItemKind.allCases.compactMap { kind -> GroupItem? in
-            guard let defsToGroup = kindToDefs[kind] else {
-                return nil
+        return ItemKind.allCases.flatMap { kind -> [GroupItem] in
+            let groupsForKind = kindToDefs
+                .filter { $0.key.kind == kind }
+                .sorted { $0.key < $1.key }
+
+            return groupsForKind.map { kv in
+                let groupKind = kv.key
+                let items = kv.value
+                let group = GroupItem(kind: groupKind, contents: items, uniquer: uniquer)
+                group.rationalizeTopics()
+                return group
             }
-            let group = GroupItem(kind: kind, contents: defsToGroup)
-            group.rationalizeTopics()
-            return group
         }
-        return kindGroups
+    }
+}
+
+extension GroupKind: Comparable {
+    private var sortKey: String {
+        switch self {
+        case .allItems: return ""
+        case .someItems(_, let name): return name.get(Localizations.shared.main.tag)
+        case .custom(let title): return title.get(Localizations.shared.main.tag)
+        }
+    }
+
+    public static func < (lhs: GroupKind, rhs: GroupKind) -> Bool {
+        switch (lhs, rhs) {
+        case (.allItems, _): return false
+        case (_, .allItems): return true
+        default: return lhs.sortKey < rhs.sortKey
+        }
+    }
+}
+
+extension GroupKind {
+    init(kind: ItemKind, moduleName: String, policy: ModuleGroupPolicy) {
+        switch policy {
+        case .global:
+            self = .allItems(kind)
+        case .separate:
+            self = .someItems(kind, Localized<String>(unlocalized: moduleName))
+        case .group(let title):
+            self = .someItems(kind, title)
+        }
     }
 }
 

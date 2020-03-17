@@ -28,26 +28,23 @@ public enum ItemKind: String, CaseIterable {
         }
     }
 
-    /// The title of the kind, shown in docs, for Swift language
-    var swiftTitle: Localized<String> {
+    /// The title of the kind, shown in docs, for Swift/ObjC
+    func title(in language: DefLanguage, affix: Localized<String>? = nil) -> Localized<String> {
         switch self {
         case .guide: return .localizedOutput(.guides)
         case .type: return .localizedOutput(.types)
         case .variable: return .localizedOutput(.variables)
         case .function: return .localizedOutput(.functions)
-        case .extension: return .localizedOutput(.extensions)
+        case .extension:
+            switch language {
+            case .swift: return .localizedOutput(.extensions)
+            case .objc: return .localizedOutput(.categories)
+            }
         default: return .localizedOutput(.others)
         }
     }
 
-    /// The title of the kind, shown in docs, for Objective-C language
-    var objCTitle: Localized<String> {
-        switch self {
-        case .extension: return .localizedOutput(.categories)
-        default: return swiftTitle
-        }
-    }
-
+    /// Is this kind to do with code (matches/will match/did match a DefItem)
     var isCode: Bool {
         switch self {
         case .guide, .group: return false
