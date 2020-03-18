@@ -185,11 +185,12 @@ struct StatsDb {
     }
 
     func coverageReport(aclExcludedNames: String) -> [String] {
-        var report = [String.localized(.msgCoverage, coverage,  self[.missingDocumentation])]
+        var report = [String]()
         let aclSkipped = self[.filterMinAclExcluded]
         if aclSkipped > 0 {
             report.append(.localized(.msgSwiftAcl, aclSkipped, aclExcludedNames))
         }
+        report.append(.localized(.msgCoverage, coverage,  self[.missingDocumentation]))
         return report
     }
 

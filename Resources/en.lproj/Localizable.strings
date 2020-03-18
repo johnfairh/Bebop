@@ -35,7 +35,7 @@
 "wrn-glob-pattern" = "glob(3) error with paths for pattern '%1'.";
 "wrn-fnmatch-errno" = "fnmatch(3) failed, pattern '%1', path '%2', errno %3/%4.";
 
-"msg-config-file" = "Using config file '%1'.";
+"msg-config-file" = "Using config file '%1'";
 
 "msg-help-intro" = "j2: Generate API documentation for Swift or Objective-C code.
 
@@ -56,7 +56,7 @@ Options:";
 
 "wrn-cfg-language-missing" = "Language tags missing for '%1': %2.";
 
-"msg-generating-docs" = "Generating documentation.";
+"msg-generating-docs" = "Generating documentation...";
 
 "wrn-duplicate-globfile" = "Duplicate filename '%1', ignoring '%2'.";
 "wrn-empty-glob" = "No files matching '*.md' found expanding '%1'.";
@@ -79,9 +79,9 @@ Ignoring the second.";
 "err-modules-overlap" = "Both --module and custom_modules are set: choose just one.";
 "err-missing-module" = "Missing key 'module' in a custom_modules stanza -- you have to set this.";
 "err-repeated-module" = "Module name '%1' repeated in --modules.";
-"msg-gather-heading" = "Gathering info for %1.";
-"msg-coverage" = "%1% documentation coverage with %2 undocumented symbols.";
-"msg-swift-acl" = "Skipped %1 %2 symbols.";
+"msg-gather-heading" = "Gathering info for %1...";
+"msg-swift-acl" = "Skipped %1 %2 symbols";
+"msg-coverage" = "%1% documentation coverage with %2 undocumented symbols";
 "err-cfg-regexp" = "Invalid ICU regular expression '%1'.  Original error: '%2'.";
 "wrn-unmatched-abstracts" = "%1 unmatched custom abstracts: '%2'.";
 "wrn-guide-abstract" = "Found custom abstract for guide '%1', ignoring.  Add content directly to the guide.";

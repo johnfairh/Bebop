@@ -99,13 +99,13 @@ final class GatherJobOpts: Configurable, CustomStringConvertible {
 
         var jobs = [GatherJob]()
 
-        let passStr = passIndex.flatMap { "pass \($0)" } ?? ""
+        let passStr = passIndex.flatMap { " pass \($0)" } ?? ""
 
         if objcHeaderFileOpt.configured {
             precondition(objcDirectOpt.configured)
             precondition(moduleName != nil)
             #if os(macOS)
-            jobs.append(GatherJob(objcTitle: "Objective-C module \(moduleName!) \(passStr)",
+            jobs.append(GatherJob(objcTitle: "Objective-C module \(moduleName!)\(passStr)",
                                   moduleName: moduleName!,
                                   headerFile: objcHeaderFileOpt.value!,
                                   includePaths: objcIncludePathsOpt.value,
@@ -114,7 +114,7 @@ final class GatherJobOpts: Configurable, CustomStringConvertible {
                                   availability: availability))
             #endif
         } else {
-            jobs.append(GatherJob(swiftTitle: "Swift module \(moduleName ?? "(default)") \(passStr)",
+            jobs.append(GatherJob(swiftTitle: "Swift module \(moduleName ?? "(default)")\(passStr)",
                                   moduleName: moduleName,
                                   srcDir: srcDirOpt.value,
                                   buildTool: buildToolOpt.value,
