@@ -201,7 +201,7 @@
           },
           {
             "title" : {
-              "en" : "NormalClass"
+              "en" : "SpmObjCModule.NormalClass"
             }
           }
         ],
@@ -216,7 +216,7 @@
           },
           {
             "title" : {
-              "en" : "NormalClass"
+              "en" : "SpmObjCModule.NormalClass"
             }
           }
         ]
@@ -358,7 +358,7 @@
           },
           {
             "title" : {
-              "en" : "JMLKitchen"
+              "en" : "SpmObjCModule.JMLKitchen"
             }
           }
         ],
@@ -373,7 +373,7 @@
           },
           {
             "title" : {
-              "en" : "Kitchen"
+              "en" : "SpmObjCModule.Kitchen"
             }
           }
         ]
@@ -500,7 +500,7 @@
           },
           {
             "title" : {
-              "en" : "JMLKitchenCupboard"
+              "en" : "SpmObjCModule.JMLKitchenCupboard"
             }
           }
         ],
@@ -515,7 +515,7 @@
           },
           {
             "title" : {
-              "en" : "Cupboard"
+              "en" : "SpmObjCModule.Cupboard"
             }
           }
         ]
@@ -614,7 +614,7 @@
           },
           {
             "title" : {
-              "en" : "JMLBathroomCupboard"
+              "en" : "SpmObjCModule.JMLBathroomCupboard"
             }
           }
         ],
@@ -629,7 +629,7 @@
           },
           {
             "title" : {
-              "en" : "JMLBathroomCupboard"
+              "en" : "SpmObjCModule.JMLBathroomCupboard"
             }
           }
         ]

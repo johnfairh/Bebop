@@ -27,7 +27,9 @@ public struct GenPages: Configurable {
         let languages = languageVisitor.languages
         let defaultLanguage = pickDefaultLanguage(from: languages)
 
-        let pageVisitor = PageVisitor(languages: languages, defaultLanguage: defaultLanguage)
+        let pageVisitor = PageVisitor(languages: languages,
+                                      defaultLanguage: defaultLanguage,
+                                      isMultiModule: published.isMultiModule)
         pageVisitor.walk(items: items)
         let meta = GenData.Meta(version: Version.j2libVersion,
                                 languages: languages,
@@ -108,10 +110,12 @@ final class LanguageVisitor: ItemVisitorProtocol {
 final class PageVisitor: ItemVisitorProtocol {
     let languages: [DefLanguage]
     let defaultLanguage: DefLanguage
+    let isMultiModule: Bool
 
-    init(languages: [DefLanguage], defaultLanguage: DefLanguage) {
+    init(languages: [DefLanguage], defaultLanguage: DefLanguage, isMultiModule: Bool) {
         self.languages = languages
         self.defaultLanguage = defaultLanguage
+        self.isMultiModule = isMultiModule
     }
 
     /// All pages
@@ -168,11 +172,29 @@ final class PageVisitor: ItemVisitorProtocol {
     }
 
     func buildBreadcrumbs(for language: DefLanguage, item: Item, parents: [Item]) -> [GenData.Breadcrumb] {
-        var crumbs = parents.map {
-            GenData.Breadcrumb(title: $0.titlePreferring(language: language), url: $0.url)
+        let allItems = parents + [item]
+        var prevItemIsCode = false
+        var needQualifiedName = true
+        let titles = allItems.map { item -> Localized<String> in
+            let itemIsCode = item is DefItem
+            defer { prevItemIsCode = itemIsCode }
+
+            if let groupItem = item as? GroupItem {
+                needQualifiedName = isMultiModule && !groupItem.groupKind.includesModuleName
+            }
+
+            guard let defItem = item as? DefItem,
+                !prevItemIsCode,
+                needQualifiedName || defItem.defKind.isSwiftExtension else {
+                return item.titlePreferring(language: language)
+            }
+            return defItem.extendedBreadcrumbTitle(language: language, qualified: needQualifiedName)
         }
-        crumbs.append(GenData.Breadcrumb(title: item.titlePreferring(language: language), url: nil))
-        return crumbs
+
+        let crumbs = zip(titles, parents).map {
+            GenData.Breadcrumb(title: $0, url: $1.url)
+        }
+        return crumbs + [GenData.Breadcrumb(title: titles.last!, url: nil)]
     }
 
     func buildTopics(item: Item) -> [GenData.Topic] {
@@ -229,6 +251,15 @@ extension DefItem {
 
     var secondaryTitle: Localized<String>? {
         secondaryLanguage.flatMap { title(for: $0) }
+    }
+
+    func extendedBreadcrumbTitle(language: DefLanguage, qualified: Bool) -> Localized<String> {
+        let baseTitle = titlePreferring(language: language)
+        let modTitle = baseTitle.mapValues { "\(typeModuleName).\($0)" }
+        guard defKind.isSwiftExtension && qualified else {
+            return modTitle
+        }
+        return modTitle + " (\(location.moduleName))"
     }
 }
 

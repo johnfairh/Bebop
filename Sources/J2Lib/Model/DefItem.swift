@@ -179,6 +179,15 @@ public class DefItem: Item, CustomStringConvertible {
         }
     }
 
+    /// A module name for the def - usually where it is written but for an extension, the type's module.
+    public var typeModuleName: String {
+        if let swiftDecl = swiftDeclaration,
+            let typeModuleName = swiftDecl.typeModuleName {
+            return typeModuleName
+        }
+        return location.moduleName
+    }
+
     public override var kind: ItemKind { defKind.metaKind }
 
     public override var showInToc: ShowInToc {

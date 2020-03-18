@@ -94,7 +94,8 @@ extension GroupKind: Comparable {
     private var sortKey: String {
         switch self {
         case .allItems: return ""
-        case .someItems(_, let name): return name.get(Localizations.shared.main.tag)
+        case .someItems(_, let name),
+             .moduleItems(_, let name): return name.get(Localizations.shared.main.tag)
         case .custom(let title): return title.get(Localizations.shared.main.tag)
         }
     }
@@ -115,7 +116,7 @@ extension GroupKind {
         case .global:
             self = .allItems(kind)
         case .separate:
-            self = .someItems(kind, Localized<String>(unlocalized: moduleName))
+            self = .moduleItems(kind, Localized<String>(unlocalized: moduleName))
         case .group(let title):
             self = .someItems(kind, title)
         }

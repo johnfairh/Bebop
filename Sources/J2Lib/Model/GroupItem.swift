@@ -6,12 +6,12 @@
 //  Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
 //
 
-import Foundation
-
 /// Kinds of groups
 public enum GroupKind: Hashable {
     /// All items of a particular kind.  Named after that kind.
     case allItems(ItemKind)
+    /// Items of a particular kind from a module
+    case moduleItems(ItemKind, Localized<String>)
     /// Some items of a particular kind, with a name to differentiate them
     case someItems(ItemKind, Localized<String>)
     /// Some collection of items with a name
@@ -20,16 +20,25 @@ public enum GroupKind: Hashable {
     /// The kind of the group, if it is known
     var kind: ItemKind? {
         switch self {
-        case .allItems(let k): return k
-        case .someItems(let k, _): return k
+        case .allItems(let k),
+             .moduleItems(let k, _),
+             .someItems(let k, _): return k
         case .custom(_): return nil
+        }
+    }
+
+    var includesModuleName: Bool {
+        switch self {
+        case .moduleItems(_): return true
+        default: return false
         }
     }
 
     func title(in language: DefLanguage) -> Localized<String> {
         switch self {
         case .allItems(let k): return k.title(in: language)
-        case .someItems(let k, let n): return k.title(in: language, affix: n)
+        case .moduleItems(let k, let n),
+             .someItems(let k, let n): return k.title(in: language, affix: n)
         case .custom(let t): return t
         }
     }

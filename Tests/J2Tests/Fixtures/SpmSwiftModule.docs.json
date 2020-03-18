@@ -2282,7 +2282,7 @@
             "url" : "extensions.html?swift"
           },
           {
-            "title" : "Collection"
+            "title" : "Swift.Collection"
           }
         ],
         "language" : "j2-swift"
@@ -2489,7 +2489,7 @@
             "url" : "extensions.html?swift"
           },
           {
-            "title" : "String.Element"
+            "title" : "Swift.String.Element"
           }
         ],
         "language" : "j2-swift"

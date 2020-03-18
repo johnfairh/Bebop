@@ -219,7 +219,7 @@
           },
           {
             "title" : {
-              "en" : "GenericBase"
+              "en" : "SpmSwiftModule.GenericBase"
             }
           }
         ]
@@ -550,7 +550,7 @@
           },
           {
             "title" : {
-              "en" : "FirstProtocol"
+              "en" : "SpmSwiftModule.FirstProtocol"
             }
           }
         ]
@@ -849,7 +849,7 @@
           },
           {
             "title" : {
-              "en" : "SpmSwiftModule"
+              "en" : "SpmSwiftModule.SpmSwiftModule"
             }
           }
         ]
@@ -1005,7 +1005,7 @@
           },
           {
             "title" : {
-              "en" : "SpmSwiftModule"
+              "en" : "SpmSwiftModule.SpmSwiftModule"
             },
             "url" : {
               "url_path" : "types\/spmswiftmodule"
@@ -1130,7 +1130,7 @@
           },
           {
             "title" : {
-              "en" : "SpmSwiftModule"
+              "en" : "SpmSwiftModule.SpmSwiftModule"
             },
             "url" : {
               "url_path" : "types\/spmswiftmodule"
@@ -1237,7 +1237,7 @@
           },
           {
             "title" : {
-              "en" : "AnEnum"
+              "en" : "SpmSwiftModule.AnEnum"
             }
           }
         ]
@@ -1415,7 +1415,7 @@
           },
           {
             "title" : {
-              "en" : "ABaseClass"
+              "en" : "SpmSwiftModule.ABaseClass"
             }
           }
         ]
@@ -1570,7 +1570,7 @@
           },
           {
             "title" : {
-              "en" : "ADerivedClass"
+              "en" : "SpmSwiftModule.ADerivedClass"
             }
           }
         ]
@@ -1959,7 +1959,7 @@
           },
           {
             "title" : {
-              "en" : "Collection"
+              "en" : "Swift.Collection (SpmSwiftModule)"
             }
           }
         ]
@@ -2084,7 +2084,7 @@
           },
           {
             "title" : {
-              "en" : "String.Element"
+              "en" : "Swift.String.Element (SpmSwiftModule)"
             }
           }
         ]
