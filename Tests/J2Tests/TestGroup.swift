@@ -58,6 +58,59 @@ class TestGroup: XCTestCase {
         XCTAssertEqual(1, groups[1].children.count)
     }
 
+    // Multi-module
+
+    func testMultiModule() throws {
+        let system = System()
+
+        let class1 = SourceKittenDict.mkClass(name: "C1")
+        let moduleA = SourceKittenDict.mkFile().with(children: [class1]).asGatherDef().asPass(moduleName: "ModuleA")
+        let class2 = SourceKittenDict.mkClass(name: "C2")
+        let moduleB = SourceKittenDict.mkFile().with(children: [class2]).asGatherDef().asPass(moduleName: "ModuleB")
+        let class3 = SourceKittenDict.mkClass(name: "C3")
+        let moduleC = SourceKittenDict.mkFile().with(children: [class3]).asGatherDef().asPass(moduleName: "ModuleC")
+
+        // separate
+
+        system.config.published.moduleGroupPolicy = ["ModuleA": .separate, "ModuleB": .separate]
+        let groups = try system.run([moduleA, moduleB])
+
+        XCTAssertEqual(2, groups.count)
+        XCTAssertEqual("ModuleA Types", groups[0].titlePreferring(language: .swift).get("en"))
+        XCTAssertEqual("ModuleB Types", groups[1].titlePreferring(language: .swift).get("en"))
+
+        // global
+
+        system.config.published.moduleGroupPolicy = ["ModuleA": .global, "ModuleB": .global]
+        let groups2 = try system.run([moduleA, moduleB])
+
+        XCTAssertEqual(1, groups2.count)
+        XCTAssertEqual("Types", groups2[0].titlePreferring(language: .swift).get("en"))
+
+        // separate + global (requires custom categories in reality)
+
+        system.config.published.moduleGroupPolicy = ["ModuleA": .global, "ModuleB": .separate]
+        let groups3 = try system.run([moduleA, moduleB])
+
+        XCTAssertEqual(2, groups3.count)
+        XCTAssertEqual("ModuleB Types", groups3[0].titlePreferring(language: .swift).get("en"))
+        XCTAssertEqual("Types", groups3[1].titlePreferring(language: .swift).get("en"))
+
+        // custom
+
+        system.config.published.moduleGroupPolicy = [
+            "ModuleA" : .group(.init(unlocalized: "Fred")),
+            "ModuleB": .group(.init(unlocalized: "Fred")),
+            "ModuleC": .group(.init(unlocalized: "Barney"))
+        ]
+        let groups4 = try system.run([moduleA, moduleB, moduleC])
+
+        XCTAssertEqual(2, groups4.count)
+        XCTAssertEqual("Barney Types", groups4[0].titlePreferring(language: .swift).get("en"))
+        XCTAssertEqual("Fred Types", groups4[1].titlePreferring(language: .swift).get("en"))
+    }
+
+
     // Guides
 
     func testGuides() throws {

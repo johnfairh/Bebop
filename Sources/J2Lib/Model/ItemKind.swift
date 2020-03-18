@@ -30,25 +30,24 @@ public enum ItemKind: String, CaseIterable {
 
     /// The title of the kind, shown in docs, for Swift/ObjC
     func title(in language: DefLanguage, affix: Localized<String>? = nil) -> Localized<String> {
+        func l(_ regular: L10n.Output, _ custom: L10n.Output) -> Localized<String> {
+            if let affix = affix {
+                return .localizedOutput(custom, affix)
+            }
+            return .localizedOutput(regular)
+        }
+
         switch self {
-        case .guide: return .localizedOutput(.guides)
-        case .type: return .localizedOutput(.types)
-        case .variable: return .localizedOutput(.variables)
-        case .function: return .localizedOutput(.functions)
+        case .guide: return l(.guides, .guides)
+        case .type: return l(.types, .typesCustom)
+        case .variable: return l(.variables, .variablesCustom)
+        case .function: return l(.functions, .functionsCustom)
         case .extension:
             switch language {
-            case .swift: return .localizedOutput(.extensions)
-            case .objc: return .localizedOutput(.categories)
+            case .swift: return l(.extensions, .extensionsCustom)
+            case .objc: return l(.categories, .categoriesCustom)
             }
-        default: return .localizedOutput(.others)
-        }
-    }
-
-    /// Is this kind to do with code (matches/will match/did match a DefItem)
-    var isCode: Bool {
-        switch self {
-        case .guide, .group: return false
-        case .type, .variable, .function, .extension, .other: return true
+        default: return l(.others, .othersCustom)
         }
     }
 }

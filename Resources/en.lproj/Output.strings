@@ -17,14 +17,20 @@
 "unavailable" = "Unavailable.";
 "deprecated" = "Deprecated.";
 
-/* Left-nav default groups */
+/* Left-nav default/customized groups */
 "guides" = "Guides";
 "types" = "Types";
+"types-custom" = "%1 Types";
 "variables" = "Variables";
+"variables-custom" = "%1 Variables";
 "functions" = "Functions";
+"functions-custom" = "%1 Functions";
 "extensions" = "Extensions";
+"extensions-custom" = "%1 Extensions";
 "categories" = "Categories";
+"categories-custom" = "%1 Categories";
 "others" = "Others";
+"others-custom" = "%1 Others";
 
 /* Title */
 "docs" = "docs";

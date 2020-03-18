@@ -6,15 +6,33 @@
 //  Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
 //
 
-import Foundation
+/// How the defs from a module are supposed to be organized in the docs
+public enum ModuleGroupPolicy: Hashable {
+    /// Merge this module into a default group with others that share the setting
+    case global
+    /// Keep this module separate from all the others
+    case separate
+    /// Merge this module into a named group along with others that share the setting
+    case group(Localized<String>)
+
+    init(merge: Bool, name: Localized<String>? = nil) {
+        if let name = name {
+            precondition(merge)
+            self = .group(name)
+        } else if merge {
+            self = .global
+        } else {
+            self = .separate
+        }
+    }
+}
 
 /// `Group` arranges `DefItems` into a hierarchy of `Items` suitable for documentation generation
-///  by injecting guides and creating sections.
+///  by injecting guides and creating groups.
 ///
-/// unique custom groups alongside kind-groups if present....
 public struct Group: Configurable {
     let groupGuides: GroupGuides
-    let published: Config.Published
+    let published: Config.Published // need the modulename -> grouppolicy map
 
     public init(config: Config) {
         groupGuides = GroupGuides(config: config)
@@ -29,6 +47,7 @@ public struct Group: Configurable {
 
         let allItems = merged + guides
 
+        // This is the uniquer for the group page names, which all end up in the root of the site
         let groupUniquer = StringUniquer()
 
         return createKindGroups(items: allItems, uniquer: groupUniquer)
@@ -40,8 +59,13 @@ public struct Group: Configurable {
         items.forEach { item in
             if let def = item as? DefItem {
                 let moduleName = def.location.moduleName
-                let groupPolicy = published.moduleGroupPolicy[moduleName] ?? .separate
-                let groupName = GroupKind(kind: def.defKind.metaKind, moduleName: moduleName, policy: groupPolicy)
+                var groupPolicy = published.moduleGroupPolicy[moduleName] ?? .separate
+                if groupPolicy == .separate && !published.isMultiModule {
+                    groupPolicy = .global
+                }
+                let groupName = GroupKind(kind: def.defKind.metaKind,
+                                          moduleName: moduleName,
+                                          policy: groupPolicy)
 
                 kindToDefs.reduceKey(groupName, [def], { $0 + [def] })
             } else if let guide = item as? GuideItem {
@@ -56,9 +80,7 @@ public struct Group: Configurable {
                 .sorted { $0.key < $1.key }
 
             return groupsForKind.map { kv in
-                let groupKind = kv.key
-                let items = kv.value
-                let group = GroupItem(kind: groupKind, contents: items, uniquer: uniquer)
+                let group = GroupItem(kind: kv.key, contents: kv.value, uniquer: uniquer)
                 group.rationalizeTopics()
                 return group
             }
@@ -66,6 +88,8 @@ public struct Group: Configurable {
     }
 }
 
+/// Sort order for groups.  Specific before generic.
+/// Sorting by kind itself is outside of this, according to the ItemKind enum order.
 extension GroupKind: Comparable {
     private var sortKey: String {
         switch self {
@@ -85,6 +109,7 @@ extension GroupKind: Comparable {
 }
 
 extension GroupKind {
+    /// Convert from module info to group kind.
     init(kind: ItemKind, moduleName: String, policy: ModuleGroupPolicy) {
         switch policy {
         case .global:
@@ -128,23 +153,3 @@ extension Item {
     }
 }
 
-/// How the defs from a module are supposed to be organized in the docs
-public enum ModuleGroupPolicy: Hashable {
-    /// Merge this module into a default group with others that share the setting
-    case global
-    /// Keep this module separate from all the others
-    case separate
-    /// Merge this module into a named group along with others that share the setting
-    case group(Localized<String>)
-
-    init(merge: Bool, name: Localized<String>? = nil) {
-        if let name = name {
-            precondition(merge)
-            self = .group(name)
-        } else if merge {
-            self = .global
-        } else {
-            self = .separate
-        }
-    }
-}

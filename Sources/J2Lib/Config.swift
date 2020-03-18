@@ -63,6 +63,9 @@ public final class Config {
         public var moduleNames: [String] {
             moduleGroupPolicy.keys.sorted(by: <)
         }
+        public var isMultiModule: Bool {
+            moduleGroupPolicy.count > 1
+        }
         // Published by GatherOpts
         public var defaultLanguage = DefLanguage.swift
         // Published by GenCopyright

@@ -138,6 +138,8 @@ internal enum L10n {
     case availableWhereShort = "available-where-short"
     /// Categories
     case categories = "categories"
+    /// %1 Categories
+    case categoriesCustom = "categories-custom"
     /// &copy; %1%2. All rights reserved. (Last updated: %3).
     case copyright = "copyright"
     /// Declaration
@@ -148,8 +150,12 @@ internal enum L10n {
     case docs = "docs"
     /// Extensions
     case extensions = "extensions"
+    /// %1 Extensions
+    case extensionsCustom = "extensions-custom"
     /// Functions
     case functions = "functions"
+    /// %1 Functions
+    case functionsCustom = "functions-custom"
     /// Guides
     case guides = "guides"
     /// Provided by module `%1`.
@@ -162,6 +168,8 @@ internal enum L10n {
     case notSwift = "not-swift"
     /// Others
     case others = "others"
+    /// %1 Others
+    case othersCustom = "others-custom"
     /// %1 - deprecated.
     case platDeprecated = "plat-deprecated"
     /// %1 - deprecated in %2.
@@ -184,10 +192,14 @@ internal enum L10n {
     case renamedTo = "renamed-to"
     /// Types
     case types = "types"
+    /// %1 Types
+    case typesCustom = "types-custom"
     /// Unavailable.
     case unavailable = "unavailable"
     /// Variables
     case variables = "variables"
+    /// %1 Variables
+    case variablesCustom = "variables-custom"
   }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
