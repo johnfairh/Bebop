@@ -27,12 +27,29 @@ public enum ModuleGroupPolicy: Hashable {
     }
 }
 
+/// How to arrange child items on each page
+public enum TopicStyle: String, CaseIterable {
+    /// In a group, alphabetical.  In a def, a topic per kind (method, property, etc.) and alphabetical within,
+    /// with conditional extensions in their own topic.
+    case logical
+    /// According to the source code order, using MARK comments/pragmas to create topics.
+    /// LIke jazzy does.
+    case source_order
+    /// Like `sourceOrder` for def pages.  Like `logical` for group pages.
+    case source_order_defs
+}
+
 /// `Group` arranges `DefItems` into a hierarchy of `Items` suitable for documentation generation
 ///  by injecting guides and creating groups.
 ///
 public struct Group: Configurable {
+    let topicStyleOpt = EnumOpt<TopicStyle>(l: "topic-style").def(.source_order)
+    var topicStyle: TopicStyle {
+        topicStyleOpt.value!
+    }
+
     let groupGuides: GroupGuides
-    let published: Config.Published // need the modulename -> grouppolicy map
+    let published: Config.Published // modulename -> grouppolicy
 
     public init(config: Config) {
         groupGuides = GroupGuides(config: config)
@@ -74,6 +91,7 @@ public struct Group: Configurable {
         }
 
         // Create the groups
+        let topicVisitor = TopicCreationVisitor(style: topicStyle)
         return ItemKind.allCases.flatMap { kind -> [GroupItem] in
             let groupsForKind = kindToDefs
                 .filter { $0.key.kind == kind }
@@ -81,7 +99,7 @@ public struct Group: Configurable {
 
             return groupsForKind.map { kv in
                 let group = GroupItem(kind: kv.key, contents: kv.value, uniquer: uniquer)
-                group.rationalizeTopics()
+                topicVisitor.walk(item: group)
                 return group
             }
         }
@@ -123,34 +141,49 @@ extension GroupKind {
     }
 }
 
-extension Item {
-    /// Sort out the topics of items to get rid of dups or weird gaps and make sure everything
-    /// has a topic.  Probably only needed when the topics come from MARK comments in jazzy mode.
-    func rationalizeTopics() {
-        guard let firstChild = children.first else {
-            return
+/// Visitor to assign topics to a group and its descendents
+struct TopicCreationVisitor: ItemVisitorProtocol {
+    let style: TopicStyle
+
+    func visit(defItem: DefItem, parents: [Item]) {
+        switch style {
+        case .logical:
+            preconditionFailure()
+        case .source_order, .source_order_defs:
+            cleanUpSourceOrderTopics(items: defItem.children)
         }
-        // Start an empty topic if there is none
-        var currentTopic = firstChild.topic ?? Topic()
-        children.forEach { child in
-            child.rationalizeTopics()
-            guard let childTopic = child.topic else {
+    }
+
+    func visit(groupItem: GroupItem, parents: [Item]) {
+        switch style {
+        case .logical, .source_order_defs:
+            preconditionFailure()
+        case .source_order:
+            cleanUpSourceOrderTopics(items: groupItem.children)
+        }
+    }
+
+    /// Massage existing topics created from MARK comments or pragmas, jazzy-style,
+    /// so that every item has a topic and consecutive topics are merged.
+    func cleanUpSourceOrderTopics(items: [Item]) {
+        var currentTopic = items.first?.topic ?? Topic()
+        items.forEach { item in
+            guard let itemTopic = item.topic else {
                 // add to current topic
-                child.topic = currentTopic
+                item.topic = currentTopic
                 return
             }
-            if childTopic === currentTopic {
+            if itemTopic === currentTopic {
                 // already there
                 return
             }
-            if childTopic == currentTopic {
+            if itemTopic == currentTopic {
                 // textual dup (different file origin/sorting artefact?), merge
-                child.topic = currentTopic
+                item.topic = currentTopic
                 return
             }
             // New topic!
-            currentTopic = childTopic
+            currentTopic = itemTopic
         }
     }
 }
-

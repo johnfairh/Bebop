@@ -141,3 +141,5 @@ Default: Do not use any custom abstracts.";
 Default: Insert the custom abstract before existing content.";
 "merge-modules" = "Merge definitions from all the modules being documented into one section.
 Default: Keep module definitions in their own sections.";
+"topic-style" = "How to organize definitions on a page.
+Default: 'logical'";

@@ -344,7 +344,7 @@ fileprivate extension DefItem {
     /// Swift exts with generic requirements - use them
     /// Other Swift exts - any topic that we have
     ///
-    /// This info is mostly discarded by Group unless source-order grouping is enabled.
+    /// This info is mostly discarded by Group unless source-order topic style is enabled.
     func cascadeTopic() {
         precondition(defKind.isExtension)
         guard let firstChild = children.first else {

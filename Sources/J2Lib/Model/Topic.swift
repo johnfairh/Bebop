@@ -6,8 +6,6 @@
 //  Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
 //
 
-import Foundation
-
 public final class Topic: Equatable, Encodable {
     public private(set) var title: RichText
     public private(set) var _menuTitle: RichText?
@@ -63,7 +61,8 @@ public final class Topic: Equatable, Encodable {
     /// Not sure what stops this from being auto-generated.
     public static func == (lhs: Topic, rhs: Topic) -> Bool {
         lhs.title == rhs.title &&
-            lhs.body == rhs.body
+            lhs.body == rhs.body &&
+            lhs.kind == rhs.kind
     }
 }
 
@@ -72,5 +71,4 @@ public enum TopicKind: String, Equatable, Encodable {
     case category
     case genericRequirements
     case custom
-    case defKind
 }
