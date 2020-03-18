@@ -209,7 +209,7 @@ final class PageVisitor: ItemVisitorProtocol {
                 let slugRoot = currentTopic.title.plainText.get(Localizations.shared.main.tag)
                 topics.append(GenData.Topic(title: currentTopic.title,
                                             menuTitle: currentTopic.menuTitle,
-                                            anchorId: uniquer.unique("tpc_" + slugRoot.slugged),
+                                            anchorId: uniquer.unique("tpc-" + slugRoot.slugged),
                                             body: currentTopic.body?.html,
                                             items: itemVisitor.resetItems()))
             }

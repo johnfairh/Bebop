@@ -33,7 +33,7 @@
       "tab_title_prefix" : true,
       "topics" : [
         {
-          "anchor_id" : "tpc_",
+          "anchor_id" : "tpc-",
           "items" : [
             {
               "anchor_id" : "normalclass1",
@@ -252,7 +252,7 @@
       "tab_title_prefix" : true,
       "topics" : [
         {
-          "anchor_id" : "tpc_",
+          "anchor_id" : "tpc-",
           "items" : [
             {
               "anchor_id" : "objcnormalmethod",
@@ -404,7 +404,7 @@
       "tab_title_prefix" : true,
       "topics" : [
         {
-          "anchor_id" : "tpc_",
+          "anchor_id" : "tpc-",
           "items" : [
             {
               "anchor_id" : "jmlkitchenmethod",
@@ -546,7 +546,7 @@
       "tab_title_prefix" : true,
       "topics" : [
         {
-          "anchor_id" : "tpc_",
+          "anchor_id" : "tpc-",
           "items" : [
             {
               "anchor_id" : "jmlkitchencupboardmethod",
@@ -654,7 +654,7 @@
       "tab_title_prefix" : true,
       "topics" : [
         {
-          "anchor_id" : "tpc_",
+          "anchor_id" : "tpc-",
           "items" : [
             {
               "anchor_id" : "jmlbathroomcupboardmethod",

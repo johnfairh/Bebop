@@ -136,7 +136,7 @@
     ],
     "topics" : [
       {
-        "anchor_id" : "tpc_",
+        "anchor_id" : "tpc-",
         "dash_name" : "",
         "items" : [
           {
@@ -375,7 +375,7 @@
     ],
     "topics" : [
       {
-        "anchor_id" : "tpc_",
+        "anchor_id" : "tpc-",
         "dash_name" : "",
         "items" : [
           {
@@ -421,7 +421,7 @@
         "primary_language" : "j2-swift"
       },
       {
-        "anchor_id" : "tpc_customstringconvertible",
+        "anchor_id" : "tpc-customstringconvertible",
         "dash_name" : "CustomStringConvertible",
         "items" : [
           {
@@ -442,7 +442,7 @@
         "title_html" : "CustomStringConvertible"
       },
       {
-        "anchor_id" : "tpc_available-where-t-equatable-t-firstprotocol",
+        "anchor_id" : "tpc-available-where-t-equatable-t-firstprotocol",
         "dash_name" : "Available%20where%20T%3A%20Equatable,%20T%3A%20FirstProtocol",
         "items" : [
           {
@@ -476,7 +476,7 @@
         "title_html" : "Available where <code>T<\/code>: <code>Equatable<\/code>, <code>T<\/code>: <a href=\"..\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>"
       },
       {
-        "anchor_id" : "tpc_usercustom-mark",
+        "anchor_id" : "tpc-usercustom-mark",
         "dash_name" : "User-custom%20mark",
         "items" : [
           {
@@ -497,7 +497,7 @@
         "title_html" : "User-custom mark"
       },
       {
-        "anchor_id" : "tpc_available-where-t-codable",
+        "anchor_id" : "tpc-available-where-t-codable",
         "dash_name" : "Available%20where%20T%3A%20Codable",
         "items" : [
           {
@@ -528,19 +528,19 @@
             "title" : "Declaration"
           },
           {
-            "anchor_id" : "tpc_customstringconvertible",
+            "anchor_id" : "tpc-customstringconvertible",
             "title" : "CustomStringConvertible"
           },
           {
-            "anchor_id" : "tpc_available-where-t-equatable-t-firstprotocol",
+            "anchor_id" : "tpc-available-where-t-equatable-t-firstprotocol",
             "title" : "…where T: Equatable, T: FirstProtocol"
           },
           {
-            "anchor_id" : "tpc_usercustom-mark",
+            "anchor_id" : "tpc-usercustom-mark",
             "title" : "User-custom mark"
           },
           {
-            "anchor_id" : "tpc_available-where-t-codable",
+            "anchor_id" : "tpc-available-where-t-codable",
             "title" : "…where T: Codable"
           }
         ]
@@ -692,7 +692,7 @@
     ],
     "topics" : [
       {
-        "anchor_id" : "tpc_",
+        "anchor_id" : "tpc-",
         "dash_name" : "",
         "items" : [
           {
@@ -763,7 +763,7 @@
         "primary_language" : "j2-swift"
       },
       {
-        "anchor_id" : "tpc_available-where-assoctype-hashable",
+        "anchor_id" : "tpc-available-where-assoctype-hashable",
         "dash_name" : "Available%20where%20AssocType%3A%20Hashable",
         "items" : [
           {
@@ -809,7 +809,7 @@
             "title" : "Declaration"
           },
           {
-            "anchor_id" : "tpc_available-where-assoctype-hashable",
+            "anchor_id" : "tpc-available-where-assoctype-hashable",
             "title" : "…where AssocType: Hashable"
           }
         ]
@@ -961,7 +961,7 @@
     ],
     "topics" : [
       {
-        "anchor_id" : "tpc_fields",
+        "anchor_id" : "tpc-fields",
         "dash_name" : "Fields",
         "items" : [
           {
@@ -982,7 +982,7 @@
         "title_html" : "Fields"
       },
       {
-        "anchor_id" : "tpc_nested-strúctures-",
+        "anchor_id" : "tpc-nested-strúctures-",
         "dash_name" : "Nested%20str%C3%BActures%20%60%60",
         "items" : [
           {
@@ -1027,11 +1027,11 @@
             "title" : "Declaration"
           },
           {
-            "anchor_id" : "tpc_fields",
+            "anchor_id" : "tpc-fields",
             "title" : "Fields"
           },
           {
-            "anchor_id" : "tpc_nested-str%C3%BActures-",
+            "anchor_id" : "tpc-nested-str%C3%BActures-",
             "title" : "Nested strúctures ``"
           }
         ]
@@ -1187,7 +1187,7 @@
     ],
     "topics" : [
       {
-        "anchor_id" : "tpc_",
+        "anchor_id" : "tpc-",
         "dash_name" : "",
         "items" : [
           {
@@ -1380,7 +1380,7 @@
     ],
     "topics" : [
       {
-        "anchor_id" : "tpc_",
+        "anchor_id" : "tpc-",
         "dash_name" : "",
         "items" : [
           {
@@ -1610,7 +1610,7 @@
     ],
     "topics" : [
       {
-        "anchor_id" : "tpc_",
+        "anchor_id" : "tpc-",
         "dash_name" : "",
         "items" : [
           {
@@ -1827,7 +1827,7 @@
     ],
     "topics" : [
       {
-        "anchor_id" : "tpc_",
+        "anchor_id" : "tpc-",
         "dash_name" : "",
         "items" : [
           {
@@ -2023,7 +2023,7 @@
     ],
     "topics" : [
       {
-        "anchor_id" : "tpc_",
+        "anchor_id" : "tpc-",
         "dash_name" : "",
         "items" : [
           {
@@ -2225,7 +2225,7 @@
     ],
     "topics" : [
       {
-        "anchor_id" : "tpc_customstringconvertible",
+        "anchor_id" : "tpc-customstringconvertible",
         "dash_name" : "CustomStringConvertible",
         "items" : [
           {
@@ -2266,7 +2266,7 @@
         "language" : "j2-swift",
         "topics_menu" : [
           {
-            "anchor_id" : "tpc_customstringconvertible",
+            "anchor_id" : "tpc-customstringconvertible",
             "title" : "CustomStringConvertible"
           }
         ]
@@ -2417,7 +2417,7 @@
     ],
     "topics" : [
       {
-        "anchor_id" : "tpc_available-where-element-firstprotocol",
+        "anchor_id" : "tpc-available-where-element-firstprotocol",
         "dash_name" : "Available%20where%20Element%3A%20FirstProtocol",
         "items" : [
           {
@@ -2438,7 +2438,7 @@
         "title_html" : "Available where <code>Element<\/code>: <a href=\"..\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>"
       },
       {
-        "anchor_id" : "tpc_available-where-element-spmswiftmodulenested1",
+        "anchor_id" : "tpc-available-where-element-spmswiftmodulenested1",
         "dash_name" : "Available%20where%20Element%20==%20SpmSwiftModule.Nested1",
         "items" : [
           {
@@ -2469,11 +2469,11 @@
             "title" : "Declaration"
           },
           {
-            "anchor_id" : "tpc_available-where-element-firstprotocol",
+            "anchor_id" : "tpc-available-where-element-firstprotocol",
             "title" : "…where Element: FirstProtocol"
           },
           {
-            "anchor_id" : "tpc_available-where-element-spmswiftmodulenested1",
+            "anchor_id" : "tpc-available-where-element-spmswiftmodulenested1",
             "title" : "…where Element == SpmSwiftModule.Nested1"
           }
         ]
@@ -2625,7 +2625,7 @@
     ],
     "topics" : [
       {
-        "anchor_id" : "tpc_",
+        "anchor_id" : "tpc-",
         "dash_name" : "",
         "items" : [
           {

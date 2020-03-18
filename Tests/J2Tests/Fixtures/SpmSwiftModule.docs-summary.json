@@ -25,7 +25,7 @@
       "tab_title_prefix" : true,
       "topics" : [
         {
-          "anchor_id" : "tpc_",
+          "anchor_id" : "tpc-",
           "items" : [
             {
               "anchor_id" : "genericbase",
@@ -244,7 +244,7 @@
       "tab_title_prefix" : true,
       "topics" : [
         {
-          "anchor_id" : "tpc_",
+          "anchor_id" : "tpc-",
           "items" : [
             {
               "anchor_id" : "boxed",
@@ -334,7 +334,7 @@
           }
         },
         {
-          "anchor_id" : "tpc_customstringconvertible",
+          "anchor_id" : "tpc-customstringconvertible",
           "items" : [
             {
               "anchor_id" : "description",
@@ -378,7 +378,7 @@
           }
         },
         {
-          "anchor_id" : "tpc_available-where-t-equatable-t-firstprotocol",
+          "anchor_id" : "tpc-available-where-t-equatable-t-firstprotocol",
           "items" : [
             {
               "anchor_id" : "dofirstmagic",
@@ -445,7 +445,7 @@
           }
         },
         {
-          "anchor_id" : "tpc_usercustom-mark",
+          "anchor_id" : "tpc-usercustom-mark",
           "items" : [
             {
               "anchor_id" : "dohashable",
@@ -489,7 +489,7 @@
           }
         },
         {
-          "anchor_id" : "tpc_available-where-t-codable",
+          "anchor_id" : "tpc-available-where-t-codable",
           "items" : [
             {
               "anchor_id" : "docodability",
@@ -575,7 +575,7 @@
       "tab_title_prefix" : true,
       "topics" : [
         {
-          "anchor_id" : "tpc_",
+          "anchor_id" : "tpc-",
           "items" : [
             {
               "anchor_id" : "marg1",
@@ -755,7 +755,7 @@
           }
         },
         {
-          "anchor_id" : "tpc_available-where-assoctype-hashable",
+          "anchor_id" : "tpc-available-where-assoctype-hashable",
           "items" : [
             {
               "anchor_id" : "exthashablemethod",
@@ -874,7 +874,7 @@
       "tab_title_prefix" : true,
       "topics" : [
         {
-          "anchor_id" : "tpc_fields",
+          "anchor_id" : "tpc-fields",
           "items" : [
             {
               "anchor_id" : "text",
@@ -918,7 +918,7 @@
           }
         },
         {
-          "anchor_id" : "tpc_nested-strúctures-",
+          "anchor_id" : "tpc-nested-strúctures-",
           "items" : [
             {
               "anchor_id" : "nested1",
@@ -1038,7 +1038,7 @@
       "tab_title_prefix" : true,
       "topics" : [
         {
-          "anchor_id" : "tpc_",
+          "anchor_id" : "tpc-",
           "items" : [
             {
               "anchor_id" : "nested2a",
@@ -1171,7 +1171,7 @@
       "tab_title_prefix" : true,
       "topics" : [
         {
-          "anchor_id" : "tpc_",
+          "anchor_id" : "tpc-",
           "items" : [
             {
               "anchor_id" : "module3nestedfunc",
@@ -1262,7 +1262,7 @@
       "tab_title_prefix" : true,
       "topics" : [
         {
-          "anchor_id" : "tpc_",
+          "anchor_id" : "tpc-",
           "items" : [
             {
               "anchor_id" : "first_",
@@ -1440,7 +1440,7 @@
       "tab_title_prefix" : true,
       "topics" : [
         {
-          "anchor_id" : "tpc_",
+          "anchor_id" : "tpc-",
           "items" : [
             {
               "anchor_id" : "init",
@@ -1595,7 +1595,7 @@
       "tab_title_prefix" : true,
       "topics" : [
         {
-          "anchor_id" : "tpc_",
+          "anchor_id" : "tpc-",
           "items" : [
             {
               "anchor_id" : "t2",
@@ -1707,7 +1707,7 @@
       "tab_title_prefix" : true,
       "topics" : [
         {
-          "anchor_id" : "tpc_",
+          "anchor_id" : "tpc-",
           "items" : [
             {
               "anchor_id" : "functionaarg1_arg3",
@@ -1874,7 +1874,7 @@
       "tab_title_prefix" : true,
       "topics" : [
         {
-          "anchor_id" : "tpc_customstringconvertible",
+          "anchor_id" : "tpc-customstringconvertible",
           "items" : [
             {
               "anchor_id" : "collection",
@@ -1979,7 +1979,7 @@
       "tab_title_prefix" : true,
       "topics" : [
         {
-          "anchor_id" : "tpc_available-where-element-firstprotocol",
+          "anchor_id" : "tpc-available-where-element-firstprotocol",
           "items" : [
             {
               "anchor_id" : "collectemall",
@@ -2023,7 +2023,7 @@
           }
         },
         {
-          "anchor_id" : "tpc_available-where-element-spmswiftmodulenested1",
+          "anchor_id" : "tpc-available-where-element-spmswiftmodulenested1",
           "items" : [
             {
               "anchor_id" : "nestemall",
@@ -2109,7 +2109,7 @@
       "tab_title_prefix" : true,
       "topics" : [
         {
-          "anchor_id" : "tpc_",
+          "anchor_id" : "tpc-",
           "items" : [
             {
               "anchor_id" : "method1",
