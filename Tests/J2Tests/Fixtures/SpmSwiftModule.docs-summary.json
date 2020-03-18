@@ -50,7 +50,7 @@
                 "html" : "<span class=\"j2-item-secondary\">class <\/span>GenericBase"
               },
               "url" : {
-                "url_path" : "types\/genericbase"
+                "url_path" : "spmswiftmodule\/types\/genericbase"
               }
             },
             {
@@ -76,7 +76,7 @@
                 "html" : "<span class=\"j2-item-secondary\">protocol <\/span>FirstProtocol"
               },
               "url" : {
-                "url_path" : "types\/firstprotocol1"
+                "url_path" : "spmswiftmodule\/types\/firstprotocol1"
               }
             },
             {
@@ -102,7 +102,7 @@
                 "html" : "<span class=\"j2-item-secondary\">struct <\/span>SpmSwiftModule"
               },
               "url" : {
-                "url_path" : "types\/spmswiftmodule"
+                "url_path" : "spmswiftmodule\/types\/spmswiftmodule"
               }
             },
             {
@@ -128,7 +128,7 @@
                 "html" : "<span class=\"j2-item-secondary\">enum <\/span>AnEnum"
               },
               "url" : {
-                "url_path" : "types\/anenum"
+                "url_path" : "spmswiftmodule\/types\/anenum"
               }
             },
             {
@@ -154,7 +154,7 @@
                 "html" : "<span class=\"j2-item-secondary\">class <\/span>ABaseClass"
               },
               "url" : {
-                "url_path" : "types\/abaseclass"
+                "url_path" : "spmswiftmodule\/types\/abaseclass"
               }
             },
             {
@@ -169,7 +169,7 @@
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public class ADerivedClass&lt;T, Q&gt; : <a href=\"..\/types\/abaseclass.html?swift\">ABaseClass<\/a> where Q : Sequence"
+                  "html" : "public class ADerivedClass&lt;T, Q&gt; : <a href=\"..\/..\/spmswiftmodule\/types\/abaseclass.html?swift\">ABaseClass<\/a> where Q : Sequence"
                 }
               },
               "flat_title" : {
@@ -180,7 +180,7 @@
                 "html" : "<span class=\"j2-item-secondary\">class <\/span>ADerivedClass"
               },
               "url" : {
-                "url_path" : "types\/aderivedclass"
+                "url_path" : "spmswiftmodule\/types\/aderivedclass"
               }
             }
           ],
@@ -429,18 +429,18 @@
           ],
           "menu_title" : {
             "html" : {
-              "en" : "…where <code>T<\/code>: <code>Equatable<\/code>, <code>T<\/code>: <a href=\"..\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>"
+              "en" : "…where <code>T<\/code>: <code>Equatable<\/code>, <code>T<\/code>: <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>"
             },
             "markdown" : {
-              "en" : "…where `T`: `Equatable`, `T`: [`FirstProtocol`](..\/types\/firstprotocol1.md)"
+              "en" : "…where `T`: `Equatable`, `T`:\n[`FirstProtocol`](..\/..\/spmswiftmodule\/types\/firstprotocol1.md)"
             }
           },
           "title" : {
             "html" : {
-              "en" : "Available where <code>T<\/code>: <code>Equatable<\/code>, <code>T<\/code>: <a href=\"..\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>"
+              "en" : "Available where <code>T<\/code>: <code>Equatable<\/code>, <code>T<\/code>: <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>"
             },
             "markdown" : {
-              "en" : "Available where `T`: `Equatable`, `T`:\n[`FirstProtocol`](..\/types\/firstprotocol1.md)"
+              "en" : "Available where `T`: `Equatable`, `T`:\n[`FirstProtocol`](..\/..\/spmswiftmodule\/types\/firstprotocol1.md)"
             }
           }
         },
@@ -534,7 +534,7 @@
         }
       ],
       "url" : {
-        "url_path" : "types\/genericbase"
+        "url_path" : "spmswiftmodule\/types\/genericbase"
       }
     },
     {
@@ -669,7 +669,7 @@
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "func assocFunc() -&gt; <a href=\"..\/types\/firstprotocol1.html?swift#assoctype\">AssocType<\/a>"
+                  "html" : "func assocFunc() -&gt; <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift#assoctype\">AssocType<\/a>"
                 }
               },
               "flat_title" : {
@@ -816,24 +816,24 @@
           ],
           "menu_title" : {
             "html" : {
-              "en" : "…where <a href=\"..\/types\/firstprotocol1.html?swift#assoctype\"><code>AssocType<\/code><\/a>: <code>Hashable<\/code>"
+              "en" : "…where <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift#assoctype\"><code>AssocType<\/code><\/a>: <code>Hashable<\/code>"
             },
             "markdown" : {
-              "en" : "…where [`AssocType`](..\/types\/firstprotocol1.md#assoctype): `Hashable`"
+              "en" : "…where [`AssocType`](..\/..\/spmswiftmodule\/types\/firstprotocol1.md#assoctype):\n`Hashable`"
             }
           },
           "title" : {
             "html" : {
-              "en" : "Available where <a href=\"..\/types\/firstprotocol1.html?swift#assoctype\"><code>AssocType<\/code><\/a>: <code>Hashable<\/code>"
+              "en" : "Available where <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift#assoctype\"><code>AssocType<\/code><\/a>: <code>Hashable<\/code>"
             },
             "markdown" : {
-              "en" : "Available where [`AssocType`](..\/types\/firstprotocol1.md#assoctype): `Hashable`"
+              "en" : "Available where\n[`AssocType`](..\/..\/spmswiftmodule\/types\/firstprotocol1.md#assoctype):\n`Hashable`"
             }
           }
         }
       ],
       "url" : {
-        "url_path" : "types\/firstprotocol1"
+        "url_path" : "spmswiftmodule\/types\/firstprotocol1"
       }
     },
     {
@@ -943,7 +943,7 @@
                 "html" : "<span class=\"j2-item-secondary\">struct <\/span>Nested1"
               },
               "url" : {
-                "url_path" : "types\/spmswiftmodule\/nested1"
+                "url_path" : "spmswiftmodule\/types\/spmswiftmodule\/nested1"
               }
             },
             {
@@ -989,7 +989,7 @@
         }
       ],
       "url" : {
-        "url_path" : "types\/spmswiftmodule"
+        "url_path" : "spmswiftmodule\/types\/spmswiftmodule"
       }
     },
     {
@@ -1008,7 +1008,7 @@
               "en" : "SpmSwiftModule.SpmSwiftModule"
             },
             "url" : {
-              "url_path" : "types\/spmswiftmodule"
+              "url_path" : "spmswiftmodule\/types\/spmswiftmodule"
             }
           },
           {
@@ -1063,7 +1063,7 @@
                 "html" : "<span class=\"j2-item-secondary\">struct <\/span>Nested2a"
               },
               "url" : {
-                "url_path" : "types\/spmswiftmodule\/nested1\/nested2a"
+                "url_path" : "spmswiftmodule\/types\/spmswiftmodule\/nested1\/nested2a"
               }
             },
             {
@@ -1114,7 +1114,7 @@
         }
       ],
       "url" : {
-        "url_path" : "types\/spmswiftmodule\/nested1"
+        "url_path" : "spmswiftmodule\/types\/spmswiftmodule\/nested1"
       }
     },
     {
@@ -1133,7 +1133,7 @@
               "en" : "SpmSwiftModule.SpmSwiftModule"
             },
             "url" : {
-              "url_path" : "types\/spmswiftmodule"
+              "url_path" : "spmswiftmodule\/types\/spmswiftmodule"
             }
           },
           {
@@ -1141,7 +1141,7 @@
               "en" : "Nested1"
             },
             "url" : {
-              "url_path" : "types\/spmswiftmodule\/nested1"
+              "url_path" : "spmswiftmodule\/types\/spmswiftmodule\/nested1"
             }
           },
           {
@@ -1221,7 +1221,7 @@
         }
       ],
       "url" : {
-        "url_path" : "types\/spmswiftmodule\/nested1\/nested2a"
+        "url_path" : "spmswiftmodule\/types\/spmswiftmodule\/nested1\/nested2a"
       }
     },
     {
@@ -1316,7 +1316,7 @@
               "def" : {
                 "abstract" : {
                   "en" : {
-                    "html" : "<p>Third &amp; Fourth cases - <a href=\"..\/types\/anenum.html?swift#second\"><code>second<\/code><\/a><\/p>"
+                    "html" : "<p>Third &amp; Fourth cases - <a href=\"..\/..\/spmswiftmodule\/types\/anenum.html?swift#second\"><code>second<\/code><\/a><\/p>"
                   }
                 },
                 "availability" : [],
@@ -1399,7 +1399,7 @@
         }
       ],
       "url" : {
-        "url_path" : "types\/anenum"
+        "url_path" : "spmswiftmodule\/types\/anenum"
       }
     },
     {
@@ -1554,7 +1554,7 @@
         }
       ],
       "url" : {
-        "url_path" : "types\/abaseclass"
+        "url_path" : "spmswiftmodule\/types\/abaseclass"
       }
     },
     {
@@ -1584,7 +1584,7 @@
         "availability" : [],
         "params" : [],
         "swift_declaration" : {
-          "html" : "public class ADerivedClass&lt;T, Q&gt; : <a href=\"..\/types\/abaseclass.html?swift\">ABaseClass<\/a> where Q : Sequence"
+          "html" : "public class ADerivedClass&lt;T, Q&gt; : <a href=\"..\/..\/spmswiftmodule\/types\/abaseclass.html?swift\">ABaseClass<\/a> where Q : Sequence"
         }
       },
       "is_guide" : false,
@@ -1626,7 +1626,7 @@
               "def" : {
                 "abstract" : {
                   "en" : {
-                    "html" : "<p>See <a href=\"..\/types\/abaseclass.html?swift#methodparam\"><code>ABaseClass.method(...)<\/code><\/a>.<\/p>"
+                    "html" : "<p>See <a href=\"..\/..\/spmswiftmodule\/types\/abaseclass.html?swift#methodparam\"><code>ABaseClass.method(...)<\/code><\/a>.<\/p>"
                   }
                 },
                 "availability" : [],
@@ -1686,7 +1686,7 @@
         }
       ],
       "url" : {
-        "url_path" : "types\/aderivedclass"
+        "url_path" : "spmswiftmodule\/types\/aderivedclass"
       }
     },
     {
@@ -1715,7 +1715,7 @@
               "def" : {
                 "abstract" : {
                   "en" : {
-                    "html" : "<p>See <a href=\"types\/spmswiftmodule.html?swift\"><code>SpmSwiftModule<\/code><\/a> – or <a href=\"types\/abaseclass.html?swift\"><code>SpmSwiftModule.ABaseClass<\/code><\/a>.<\/p>"
+                    "html" : "<p>See <a href=\"spmswiftmodule\/types\/spmswiftmodule.html?swift\"><code>SpmSwiftModule<\/code><\/a> – or <a href=\"spmswiftmodule\/types\/abaseclass.html?swift\"><code>SpmSwiftModule.ABaseClass<\/code><\/a>.<\/p>"
                   }
                 },
                 "availability" : [
@@ -1883,7 +1883,7 @@
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "extension Collection where Element: <a href=\"..\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>\n\nextension Collection where Element == <a href=\"..\/types\/spmswiftmodule\/nested1.html?swift\">SpmSwiftModule.Nested1<\/a>"
+                  "html" : "extension Collection where Element: <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>\n\nextension Collection where Element == <a href=\"..\/..\/spmswiftmodule\/types\/spmswiftmodule\/nested1.html?swift\">SpmSwiftModule.Nested1<\/a>"
                 }
               },
               "flat_title" : {
@@ -1894,7 +1894,7 @@
                 "html" : "<span class=\"j2-item-secondary\">extension <\/span>Collection"
               },
               "url" : {
-                "url_path" : "extensions\/collection"
+                "url_path" : "spmswiftmodule\/extensions\/collection"
               }
             },
             {
@@ -1920,7 +1920,7 @@
                 "html" : "<span class=\"j2-item-secondary\">extension <\/span>String.Element"
               },
               "url" : {
-                "url_path" : "extensions\/stringelement"
+                "url_path" : "spmswiftmodule\/extensions\/stringelement"
               }
             }
           ],
@@ -1968,7 +1968,7 @@
         "availability" : [],
         "params" : [],
         "swift_declaration" : {
-          "html" : "extension Collection where Element: <a href=\"..\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>\n\nextension Collection where Element == <a href=\"..\/types\/spmswiftmodule\/nested1.html?swift\">SpmSwiftModule.Nested1<\/a>"
+          "html" : "extension Collection where Element: <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>\n\nextension Collection where Element == <a href=\"..\/..\/spmswiftmodule\/types\/spmswiftmodule\/nested1.html?swift\">SpmSwiftModule.Nested1<\/a>"
         }
       },
       "is_guide" : false,
@@ -2007,18 +2007,18 @@
           ],
           "menu_title" : {
             "html" : {
-              "en" : "…where <code>Element<\/code>: <a href=\"..\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>"
+              "en" : "…where <code>Element<\/code>: <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>"
             },
             "markdown" : {
-              "en" : "…where `Element`: [`FirstProtocol`](..\/types\/firstprotocol1.md)"
+              "en" : "…where `Element`:\n[`FirstProtocol`](..\/..\/spmswiftmodule\/types\/firstprotocol1.md)"
             }
           },
           "title" : {
             "html" : {
-              "en" : "Available where <code>Element<\/code>: <a href=\"..\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>"
+              "en" : "Available where <code>Element<\/code>: <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>"
             },
             "markdown" : {
-              "en" : "Available where `Element`: [`FirstProtocol`](..\/types\/firstprotocol1.md)"
+              "en" : "Available where `Element`:\n[`FirstProtocol`](..\/..\/spmswiftmodule\/types\/firstprotocol1.md)"
             }
           }
         },
@@ -2051,24 +2051,24 @@
           ],
           "menu_title" : {
             "html" : {
-              "en" : "…where <code>Element<\/code> == <a href=\"..\/types\/spmswiftmodule\/nested1.html?swift\"><code>SpmSwiftModule.Nested1<\/code><\/a>"
+              "en" : "…where <code>Element<\/code> == <a href=\"..\/..\/spmswiftmodule\/types\/spmswiftmodule\/nested1.html?swift\"><code>SpmSwiftModule.Nested1<\/code><\/a>"
             },
             "markdown" : {
-              "en" : "…where `Element` ==\n[`SpmSwiftModule.Nested1`](..\/types\/spmswiftmodule\/nested1.md)"
+              "en" : "…where `Element` ==\n[`SpmSwiftModule.Nested1`](..\/..\/spmswiftmodule\/types\/spmswiftmodule\/nested1.md)"
             }
           },
           "title" : {
             "html" : {
-              "en" : "Available where <code>Element<\/code> == <a href=\"..\/types\/spmswiftmodule\/nested1.html?swift\"><code>SpmSwiftModule.Nested1<\/code><\/a>"
+              "en" : "Available where <code>Element<\/code> == <a href=\"..\/..\/spmswiftmodule\/types\/spmswiftmodule\/nested1.html?swift\"><code>SpmSwiftModule.Nested1<\/code><\/a>"
             },
             "markdown" : {
-              "en" : "Available where `Element` ==\n[`SpmSwiftModule.Nested1`](..\/types\/spmswiftmodule\/nested1.md)"
+              "en" : "Available where `Element` ==\n[`SpmSwiftModule.Nested1`](..\/..\/spmswiftmodule\/types\/spmswiftmodule\/nested1.md)"
             }
           }
         }
       ],
       "url" : {
-        "url_path" : "extensions\/collection"
+        "url_path" : "spmswiftmodule\/extensions\/collection"
       }
     },
     {
@@ -2177,7 +2177,7 @@
         }
       ],
       "url" : {
-        "url_path" : "extensions\/stringelement"
+        "url_path" : "spmswiftmodule\/extensions\/stringelement"
       }
     },
     {
@@ -2209,7 +2209,7 @@
               "en" : "GenericBase"
             },
             "url" : {
-              "url_path" : "types\/genericbase"
+              "url_path" : "spmswiftmodule\/types\/genericbase"
             }
           },
           {
@@ -2218,7 +2218,7 @@
               "en" : "FirstProtocol"
             },
             "url" : {
-              "url_path" : "types\/firstprotocol1"
+              "url_path" : "spmswiftmodule\/types\/firstprotocol1"
             }
           },
           {
@@ -2231,7 +2231,7 @@
                       "en" : "Nested2a"
                     },
                     "url" : {
-                      "url_path" : "types\/spmswiftmodule\/nested1\/nested2a"
+                      "url_path" : "spmswiftmodule\/types\/spmswiftmodule\/nested1\/nested2a"
                     }
                   },
                   {
@@ -2241,7 +2241,7 @@
                     },
                     "url" : {
                       "url_hash" : "nested2b",
-                      "url_path" : "types\/spmswiftmodule\/nested1"
+                      "url_path" : "spmswiftmodule\/types\/spmswiftmodule\/nested1"
                     }
                   }
                 ],
@@ -2249,7 +2249,7 @@
                   "en" : "Nested1"
                 },
                 "url" : {
-                  "url_path" : "types\/spmswiftmodule\/nested1"
+                  "url_path" : "spmswiftmodule\/types\/spmswiftmodule\/nested1"
                 }
               },
               {
@@ -2259,7 +2259,7 @@
                 },
                 "url" : {
                   "url_hash" : "nested2",
-                  "url_path" : "types\/spmswiftmodule"
+                  "url_path" : "spmswiftmodule\/types\/spmswiftmodule"
                 }
               }
             ],
@@ -2267,7 +2267,7 @@
               "en" : "SpmSwiftModule"
             },
             "url" : {
-              "url_path" : "types\/spmswiftmodule"
+              "url_path" : "spmswiftmodule\/types\/spmswiftmodule"
             }
           },
           {
@@ -2276,7 +2276,7 @@
               "en" : "AnEnum"
             },
             "url" : {
-              "url_path" : "types\/anenum"
+              "url_path" : "spmswiftmodule\/types\/anenum"
             }
           },
           {
@@ -2285,7 +2285,7 @@
               "en" : "ABaseClass"
             },
             "url" : {
-              "url_path" : "types\/abaseclass"
+              "url_path" : "spmswiftmodule\/types\/abaseclass"
             }
           },
           {
@@ -2294,7 +2294,7 @@
               "en" : "ADerivedClass"
             },
             "url" : {
-              "url_path" : "types\/aderivedclass"
+              "url_path" : "spmswiftmodule\/types\/aderivedclass"
             }
           }
         ],
@@ -2353,7 +2353,7 @@
               "en" : "Collection"
             },
             "url" : {
-              "url_path" : "extensions\/collection"
+              "url_path" : "spmswiftmodule\/extensions\/collection"
             }
           },
           {
@@ -2362,7 +2362,7 @@
               "en" : "String.Element"
             },
             "url" : {
-              "url_path" : "extensions\/stringelement"
+              "url_path" : "spmswiftmodule\/extensions\/stringelement"
             }
           }
         ],

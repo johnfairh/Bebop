@@ -30,21 +30,21 @@ public struct URLPieces: Encodable {
     /// %-encoded URL hash, or `nil` if no hash
     public let urlHash: String?
 
-    /// Initialize for a top-level web page
-    public init(pageName: String) {
-        urlPath = pageName.urlPathEncoded
+    /// Initialize for a sequence of directories and a page name
+    public init(pathComponents: [String]) {
+        urlPath = pathComponents.map { $0.urlPathEncoded }.joined(separator: "/")
         urlHash = nil
     }
 
     /// Initialize for a nested web page
-    public init(parentURLPath: String, pageName: String) {
-        urlPath = parentURLPath + "/" + pageName.urlPathEncoded
+    public init(parentURL: URLPieces, pageName: String) {
+        urlPath = parentURL.urlPath + "/" + pageName.urlPathEncoded
         urlHash = nil
     }
 
     /// Initialize for an anchor on a web page
-    public init(parentURLPath: String, hashName: String) {
-        urlPath = parentURLPath
+    public init(parentURL: URLPieces, hashName: String) {
+        urlPath = parentURL.urlPath
         urlHash = hashName.urlFragmentEncoded
     }
 
@@ -79,19 +79,19 @@ public struct URLPieces: Encodable {
 }
 
 extension Item {
-    /// Set this item to be a top-level page in docs
-    func setURLPath() {
-        url = URLPieces(pageName: slug)
+    /// Set this item to be an absolutely positioned  page in docs
+    func setURLPath(parentPaths: [String] = []) {
+        url = URLPieces(pathComponents: parentPaths + [slug])
     }
 
     /// Set this item to be its own page in docs, nested under some parent page
-    func setURLPath(parentURLPath: String) {
-        url = URLPieces(parentURLPath: parentURLPath, pageName: slug)
+    func setURLPath(parentURL: URLPieces) {
+        url = URLPieces(parentURL: parentURL, pageName: slug)
     }
 
     /// Set this item to be embedded in some parent page
-    func setURLHash(parentURLPath: String) {
-        url = URLPieces(parentURLPath: parentURLPath, hashName: slug)
+    func setURLHash(parentURL: URLPieces) {
+        url = URLPieces(parentURL: parentURL, hashName: slug)
     }
 
     /// Does the item get its own page in the docs?  If not then it is inlined into its parent.
@@ -129,6 +129,7 @@ extension ChildItemStyle {
 
 struct URLFormatter: ItemVisitorProtocol {
     let childItemStyle: ChildItemStyle
+    let multiModule: Bool
 
     func visit(defItem: DefItem, parents: [Item]) {
         guard let parent = parents.last else {
@@ -137,15 +138,20 @@ struct URLFormatter: ItemVisitorProtocol {
 
         if childItemStyle.shouldEmbed(defItem: defItem) {
             // embed on parent page
-            defItem.setURLHash(parentURLPath: parent.url.urlPath)
+            defItem.setURLHash(parentURL: parent.url)
         } else if parent.kind == .group {
             // a top-level def, place according to kind
             // NOT THE PARENT!  PARENT MAY BE A NESTED CUSTOM CATEGORY.
-            // XXX need to understand multi-module here
-            defItem.setURLPath(parentURLPath: defItem.defKind.metaKind.name.slugged)
+            if multiModule {
+                defItem.setURLPath(parentPaths: [
+                    defItem.location.moduleName.slugged,
+                    defItem.defKind.metaKind.name.slugged])
+            } else {
+                defItem.setURLPath(parentPaths: [defItem.defKind.metaKind.name.slugged])
+            }
         } else {
-            // we're a nested def with children, we go in our parent's directory
-            defItem.setURLPath(parentURLPath: parent.url.urlPath)
+            // we're a nested def that does not embed, we go in our parent's directory
+            defItem.setURLPath(parentURL: parent.url)
         }
     }
 
@@ -156,7 +162,7 @@ struct URLFormatter: ItemVisitorProtocol {
 
     /// Guides in the guides directory.
     func visit(guideItem: GuideItem, parents: [Item]) {
-        guideItem.setURLPath(parentURLPath: ItemKind.guide.name.slugged)
+        guideItem.setURLPath(parentPaths: [ItemKind.guide.name.slugged])
     }
 
     /// Readme at the top

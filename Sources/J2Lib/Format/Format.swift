@@ -30,7 +30,8 @@ public final class Format: Configurable {
     public func format(items: [Item]) throws -> [Item] {
         let allItems = items + [try createReadme()]
         logDebug("Format: Assigning URLs")
-        URLFormatter(childItemStyle: configPublished.childItemStyle).walk(items: allItems)
+        URLFormatter(childItemStyle: configPublished.childItemStyle,
+                     multiModule: configPublished.isMultiModule).walk(items: allItems)
         logDebug("Format: Attach custom abstracts")
         try abstract.attach(items: allItems)
         logDebug("Format: Building autolink index")

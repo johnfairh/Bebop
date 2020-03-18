@@ -47,7 +47,7 @@
                 "availability" : [],
                 "discussion" : {
                   "en" : {
-                    "html" : "<p>See <a href=\"..\/types\/normalclass1.html?objc#objcnormalmethod\" class=\"j2-objc\"><code>-objcNormalMethod<\/code><\/a><a href=\"..\/types\/normalclass1.html?swift#objcnormalmethod\" class=\"j2-swift j2-secondary\"><code>objcNormalMethod()<\/code><\/a>.<\/p>"
+                    "html" : "<p>See <a href=\"..\/..\/spmobjcmodule\/types\/normalclass1.html?objc#objcnormalmethod\" class=\"j2-objc\"><code>-objcNormalMethod<\/code><\/a><a href=\"..\/..\/spmobjcmodule\/types\/normalclass1.html?swift#objcnormalmethod\" class=\"j2-swift j2-secondary\"><code>objcNormalMethod()<\/code><\/a>.<\/p>"
                   }
                 },
                 "obj_c_declaration" : {
@@ -70,7 +70,7 @@
                 "html" : "<span class=\"j2-item-secondary\">class <\/span>NormalClass"
               },
               "url" : {
-                "url_path" : "types\/normalclass1"
+                "url_path" : "spmobjcmodule\/types\/normalclass1"
               }
             },
             {
@@ -103,7 +103,7 @@
                 "html" : "<span class=\"j2-item-secondary\">class <\/span>Kitchen"
               },
               "url" : {
-                "url_path" : "types\/jmlkitchen"
+                "url_path" : "spmobjcmodule\/types\/jmlkitchen"
               }
             },
             {
@@ -136,7 +136,7 @@
                 "html" : "<span class=\"j2-item-secondary\">class <\/span>Cupboard"
               },
               "url" : {
-                "url_path" : "types\/jmlkitchencupboard"
+                "url_path" : "spmobjcmodule\/types\/jmlkitchencupboard"
               }
             },
             {
@@ -162,7 +162,7 @@
                 "html" : "<span class=\"j2-item-secondary\">@interface <\/span>JMLBathroomCupboard"
               },
               "url" : {
-                "url_path" : "types\/jmlbathroomcupboard"
+                "url_path" : "spmobjcmodule\/types\/jmlbathroomcupboard"
               }
             }
           ],
@@ -230,7 +230,7 @@
         "availability" : [],
         "discussion" : {
           "en" : {
-            "html" : "<p>See <a href=\"..\/types\/normalclass1.html?objc#objcnormalmethod\" class=\"j2-objc\"><code>-objcNormalMethod<\/code><\/a><a href=\"..\/types\/normalclass1.html?swift#objcnormalmethod\" class=\"j2-swift j2-secondary\"><code>objcNormalMethod()<\/code><\/a>.<\/p>"
+            "html" : "<p>See <a href=\"..\/..\/spmobjcmodule\/types\/normalclass1.html?objc#objcnormalmethod\" class=\"j2-objc\"><code>-objcNormalMethod<\/code><\/a><a href=\"..\/..\/spmobjcmodule\/types\/normalclass1.html?swift#objcnormalmethod\" class=\"j2-swift j2-secondary\"><code>objcNormalMethod()<\/code><\/a>.<\/p>"
           }
         },
         "obj_c_declaration" : {
@@ -260,13 +260,13 @@
               "def" : {
                 "abstract" : {
                   "en" : {
-                    "html" : "<p>See <a href=\"..\/types\/jmlkitchen.html?objc\" class=\"j2-objc\"><code>JMLKitchen<\/code><\/a><a href=\"..\/types\/jmlkitchen.html?swift\" class=\"j2-swift j2-secondary\"><code>Kitchen<\/code><\/a>.<\/p>"
+                    "html" : "<p>See <a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?objc\" class=\"j2-objc\"><code>JMLKitchen<\/code><\/a><a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?swift\" class=\"j2-swift j2-secondary\"><code>Kitchen<\/code><\/a>.<\/p>"
                   }
                 },
                 "availability" : [],
                 "discussion" : {
                   "en" : {
-                    "html" : "<p>See <a href=\"..\/types\/jmlkitchen.html?objc#jmlkitchenmethod\" class=\"j2-objc\"><code>-[JMLKitchen jmlKitchenMethod]<\/code><\/a><a href=\"..\/types\/jmlkitchen.html?swift#jmlkitchenmethod\" class=\"j2-swift j2-secondary\"><code>Kitchen.kitchenMethod()<\/code><\/a><\/p>"
+                    "html" : "<p>See <a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?objc#jmlkitchenmethod\" class=\"j2-objc\"><code>-[JMLKitchen jmlKitchenMethod]<\/code><\/a><a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?swift#jmlkitchenmethod\" class=\"j2-swift j2-secondary\"><code>Kitchen.kitchenMethod()<\/code><\/a><\/p>"
                   }
                 },
                 "obj_c_declaration" : {
@@ -301,7 +301,7 @@
                 "availability" : [],
                 "discussion" : {
                   "en" : {
-                    "html" : "<p>See <a href=\"..\/types\/jmlkitchen.html?swift\" class=\"j2-swift\"><code>Kitchen<\/code><\/a><a href=\"..\/types\/jmlkitchen.html?objc\" class=\"j2-objc j2-secondary\"><code>JMLKitchen<\/code><\/a><\/p>"
+                    "html" : "<p>See <a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?swift\" class=\"j2-swift\"><code>Kitchen<\/code><\/a><a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?objc\" class=\"j2-objc j2-secondary\"><code>JMLKitchen<\/code><\/a><\/p>"
                   }
                 },
                 "notes" : {
@@ -342,7 +342,7 @@
         }
       ],
       "url" : {
-        "url_path" : "types\/normalclass1"
+        "url_path" : "spmobjcmodule\/types\/normalclass1"
       }
     },
     {
@@ -484,7 +484,7 @@
         }
       ],
       "url" : {
-        "url_path" : "types\/jmlkitchen"
+        "url_path" : "spmobjcmodule\/types\/jmlkitchen"
       }
     },
     {
@@ -598,7 +598,7 @@
         }
       ],
       "url" : {
-        "url_path" : "types\/jmlkitchencupboard"
+        "url_path" : "spmobjcmodule\/types\/jmlkitchencupboard"
       }
     },
     {
@@ -662,7 +662,7 @@
               "def" : {
                 "abstract" : {
                   "en" : {
-                    "html" : "<p>See <a href=\"..\/types\/jmlkitchencupboard.html?swift#jmlkitchencupboardmethod\" class=\"j2-swift\"><code>Cupboard.jmlKitchenCupboardMethod()<\/code><\/a><a href=\"..\/types\/jmlkitchencupboard.html?objc#jmlkitchencupboardmethod\" class=\"j2-objc j2-secondary\"><code>-[JMLKitchenCupboard jmlKitchenCupboardMethod]<\/code><\/a><\/p>"
+                    "html" : "<p>See <a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchencupboard.html?swift#jmlkitchencupboardmethod\" class=\"j2-swift\"><code>Cupboard.jmlKitchenCupboardMethod()<\/code><\/a><a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchencupboard.html?objc#jmlkitchencupboardmethod\" class=\"j2-objc j2-secondary\"><code>-[JMLKitchenCupboard jmlKitchenCupboardMethod]<\/code><\/a><\/p>"
                   }
                 },
                 "availability" : [],
@@ -699,7 +699,7 @@
         }
       ],
       "url" : {
-        "url_path" : "types\/jmlbathroomcupboard"
+        "url_path" : "spmobjcmodule\/types\/jmlbathroomcupboard"
       }
     },
     {
@@ -731,7 +731,7 @@
               "en" : "NormalClass"
             },
             "url" : {
-              "url_path" : "types\/normalclass1"
+              "url_path" : "spmobjcmodule\/types\/normalclass1"
             }
           },
           {
@@ -740,7 +740,7 @@
               "en" : "JMLKitchen"
             },
             "url" : {
-              "url_path" : "types\/jmlkitchen"
+              "url_path" : "spmobjcmodule\/types\/jmlkitchen"
             }
           },
           {
@@ -749,7 +749,7 @@
               "en" : "JMLKitchenCupboard"
             },
             "url" : {
-              "url_path" : "types\/jmlkitchencupboard"
+              "url_path" : "spmobjcmodule\/types\/jmlkitchencupboard"
             }
           },
           {
@@ -758,7 +758,7 @@
               "en" : "JMLBathroomCupboard"
             },
             "url" : {
-              "url_path" : "types\/jmlbathroomcupboard"
+              "url_path" : "spmobjcmodule\/types\/jmlbathroomcupboard"
             }
           }
         ],
@@ -779,7 +779,7 @@
               "en" : "NormalClass"
             },
             "url" : {
-              "url_path" : "types\/normalclass1"
+              "url_path" : "spmobjcmodule\/types\/normalclass1"
             }
           },
           {
@@ -788,7 +788,7 @@
               "en" : "Kitchen"
             },
             "url" : {
-              "url_path" : "types\/jmlkitchen"
+              "url_path" : "spmobjcmodule\/types\/jmlkitchen"
             }
           },
           {
@@ -797,7 +797,7 @@
               "en" : "Cupboard"
             },
             "url" : {
-              "url_path" : "types\/jmlkitchencupboard"
+              "url_path" : "spmobjcmodule\/types\/jmlkitchencupboard"
             }
           }
         ],
