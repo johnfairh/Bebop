@@ -102,7 +102,7 @@ class TestProducts: XCTestCase {
             .appendingPathComponent("SpmSwiftPackage")
             .appendingPathComponent("mixed-objc-swift-j2.yaml")
         try compareSwift(product: "docs-summary-json",
-                         cliArgs: ["--config=\(configURL.path)", "--merge-modules"],
+                         cliArgs: ["--config=\(configURL.path)", "--merge-modules", "--topic-style=source-order"],
                          against: "MixedSwiftObjC.docs-summary.json")
     }
     #endif

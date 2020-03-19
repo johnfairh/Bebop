@@ -40,13 +40,28 @@
             "children" : [
               {
                 "same_page" : false,
-                "title" : "GenericBase",
-                "url" : "types\/genericbase.html?swift"
+                "title" : "ABaseClass",
+                "url" : "types\/abaseclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "ADerivedClass",
+                "url" : "types\/aderivedclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "AnEnum",
+                "url" : "types\/anenum.html?swift"
               },
               {
                 "same_page" : false,
                 "title" : "FirstProtocol",
                 "url" : "types\/firstprotocol1.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "GenericBase",
+                "url" : "types\/genericbase.html?swift"
               },
               {
                 "children" : [
@@ -76,21 +91,6 @@
                 "same_page" : false,
                 "title" : "SpmSwiftModule",
                 "url" : "types\/spmswiftmodule.html?swift"
-              },
-              {
-                "same_page" : false,
-                "title" : "AnEnum",
-                "url" : "types\/anenum.html?swift"
-              },
-              {
-                "same_page" : false,
-                "title" : "ABaseClass",
-                "url" : "types\/abaseclass.html?swift"
-              },
-              {
-                "same_page" : false,
-                "title" : "ADerivedClass",
-                "url" : "types\/aderivedclass.html?swift"
               }
             ],
             "same_page" : true,
@@ -101,13 +101,13 @@
             "children" : [
               {
                 "same_page" : false,
-                "title" : "functionA(arg1:_:arg3:)",
-                "url" : "functions.html?swift#functionaarg1_arg3"
+                "title" : "deprecatedFunction(callback:)",
+                "url" : "functions.html?swift#deprecatedfunctioncallback"
               },
               {
                 "same_page" : false,
-                "title" : "deprecatedFunction(callback:)",
-                "url" : "functions.html?swift#deprecatedfunctioncallback"
+                "title" : "functionA(arg1:_:arg3:)",
+                "url" : "functions.html?swift#functionaarg1_arg3"
               }
             ],
             "same_page" : false,
@@ -140,62 +140,6 @@
         "dash_name" : "",
         "items" : [
           {
-            "anchor_id" : "genericbase",
-            "any_declaration" : true,
-            "dash_name" : "class%20GenericBase",
-            "dash_type" : "Class",
-            "def" : {
-              "abstract_html" : "<p>Undocumented<\/p>",
-              "swift_declaration_html" : "class GenericBase&lt;T&gt;\n\nextension GenericBase : CustomStringConvertible"
-            },
-            "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">class <\/span>GenericBase",
-            "primary_url" : "types\/genericbase.html?swift",
-            "title" : "class GenericBase"
-          },
-          {
-            "anchor_id" : "firstprotocol1",
-            "any_declaration" : true,
-            "dash_name" : "protocol%20FirstProtocol",
-            "dash_type" : "Protocol",
-            "def" : {
-              "abstract_html" : "<p>A protocol.<\/p>",
-              "swift_declaration_html" : "public protocol FirstProtocol"
-            },
-            "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">protocol <\/span>FirstProtocol",
-            "primary_url" : "types\/firstprotocol1.html?swift",
-            "title" : "protocol FirstProtocol"
-          },
-          {
-            "anchor_id" : "spmswiftmodule",
-            "any_declaration" : true,
-            "dash_name" : "struct%20SpmSwiftModule",
-            "dash_type" : "Struct",
-            "def" : {
-              "abstract_html" : "<p>Main structure<\/p>",
-              "swift_declaration_html" : "public struct SpmSwiftModule"
-            },
-            "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">struct <\/span>SpmSwiftModule",
-            "primary_url" : "types\/spmswiftmodule.html?swift",
-            "title" : "struct SpmSwiftModule"
-          },
-          {
-            "anchor_id" : "anenum",
-            "any_declaration" : true,
-            "dash_name" : "enum%20AnEnum",
-            "dash_type" : "enum",
-            "def" : {
-              "abstract_html" : "<p>An enum<\/p>",
-              "swift_declaration_html" : "public enum AnEnum"
-            },
-            "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">enum <\/span>AnEnum",
-            "primary_url" : "types\/anenum.html?swift",
-            "title" : "enum AnEnum"
-          },
-          {
             "anchor_id" : "abaseclass",
             "any_declaration" : true,
             "dash_name" : "class%20ABaseClass",
@@ -222,6 +166,62 @@
             "primary_title_html" : "<span class=\"j2-item-secondary\">class <\/span>ADerivedClass",
             "primary_url" : "types\/aderivedclass.html?swift",
             "title" : "class ADerivedClass"
+          },
+          {
+            "anchor_id" : "anenum",
+            "any_declaration" : true,
+            "dash_name" : "enum%20AnEnum",
+            "dash_type" : "enum",
+            "def" : {
+              "abstract_html" : "<p>An enum<\/p>",
+              "swift_declaration_html" : "public enum AnEnum"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">enum <\/span>AnEnum",
+            "primary_url" : "types\/anenum.html?swift",
+            "title" : "enum AnEnum"
+          },
+          {
+            "anchor_id" : "firstprotocol1",
+            "any_declaration" : true,
+            "dash_name" : "protocol%20FirstProtocol",
+            "dash_type" : "Protocol",
+            "def" : {
+              "abstract_html" : "<p>A protocol.<\/p>",
+              "swift_declaration_html" : "public protocol FirstProtocol"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">protocol <\/span>FirstProtocol",
+            "primary_url" : "types\/firstprotocol1.html?swift",
+            "title" : "protocol FirstProtocol"
+          },
+          {
+            "anchor_id" : "genericbase",
+            "any_declaration" : true,
+            "dash_name" : "class%20GenericBase",
+            "dash_type" : "Class",
+            "def" : {
+              "abstract_html" : "<p>Undocumented<\/p>",
+              "swift_declaration_html" : "class GenericBase&lt;T&gt;\n\nextension GenericBase : CustomStringConvertible"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">class <\/span>GenericBase",
+            "primary_url" : "types\/genericbase.html?swift",
+            "title" : "class GenericBase"
+          },
+          {
+            "anchor_id" : "spmswiftmodule",
+            "any_declaration" : true,
+            "dash_name" : "struct%20SpmSwiftModule",
+            "dash_type" : "Struct",
+            "def" : {
+              "abstract_html" : "<p>Main structure<\/p>",
+              "swift_declaration_html" : "public struct SpmSwiftModule"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">struct <\/span>SpmSwiftModule",
+            "primary_url" : "types\/spmswiftmodule.html?swift",
+            "title" : "struct SpmSwiftModule"
           }
         ],
         "primary_language" : "j2-swift"
@@ -229,6 +229,926 @@
     ],
     "topics_language" : "j2-swift",
     "topics_menus" : []
+  },
+  {
+    "breadcrumbs_menus" : [
+      {
+        "breadcrumbs" : [
+          {
+            "title" : "Types",
+            "url" : "types.html?swift"
+          },
+          {
+            "title" : "ABaseClass"
+          }
+        ],
+        "language" : "j2-swift"
+      }
+    ],
+    "breadcrumbs_root" : "SpmSwiftModule",
+    "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
+    "def" : {
+      "abstract_html" : "<p>A base class<\/p>",
+      "swift_declaration_html" : "public class ABaseClass"
+    },
+    "default_language" : "j2-swift",
+    "disable_search" : false,
+    "doc_coverage" : 51,
+    "docs_title" : "SpmSwiftModule docs",
+    "dual_language" : false,
+    "hide_article_title" : false,
+    "hide_attribution" : false,
+    "hide_availability" : false,
+    "item_collapse_never" : false,
+    "item_collapse_open" : false,
+    "item_nest" : true,
+    "j2lib_version" : "0.1",
+    "language_tag" : "en",
+    "path_from_root" : "types\/abaseclass.html",
+    "path_to_assets" : "..\/",
+    "path_to_root" : "..\/",
+    "primary_page_title" : "ABaseClass",
+    "primary_title_language" : "j2-swift",
+    "tab_title_prefix" : true,
+    "tocs" : [
+      {
+        "language" : "j2-swift",
+        "screen_reader_name" : "Swift",
+        "toc" : [
+          {
+            "children" : [
+              {
+                "same_page" : true,
+                "title" : "ABaseClass",
+                "url" : ""
+              },
+              {
+                "same_page" : false,
+                "title" : "ADerivedClass",
+                "url" : "types\/aderivedclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "AnEnum",
+                "url" : "types\/anenum.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "FirstProtocol",
+                "url" : "types\/firstprotocol1.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "GenericBase",
+                "url" : "types\/genericbase.html?swift"
+              },
+              {
+                "children" : [
+                  {
+                    "children" : [
+                      {
+                        "same_page" : false,
+                        "title" : "Nested2a",
+                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2a"
+                      },
+                      {
+                        "same_page" : false,
+                        "title" : "Nested2b",
+                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2b"
+                      }
+                    ],
+                    "same_page" : false,
+                    "title" : "Nested1",
+                    "url" : "types\/spmswiftmodule\/nested1.html?swift"
+                  },
+                  {
+                    "same_page" : false,
+                    "title" : "Nested2",
+                    "url" : "types\/spmswiftmodule.html?swift#nested2"
+                  }
+                ],
+                "same_page" : false,
+                "title" : "SpmSwiftModule",
+                "url" : "types\/spmswiftmodule.html?swift"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Types",
+            "url" : "types.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "deprecatedFunction(callback:)",
+                "url" : "functions.html?swift#deprecatedfunctioncallback"
+              },
+              {
+                "same_page" : false,
+                "title" : "functionA(arg1:_:arg3:)",
+                "url" : "functions.html?swift#functionaarg1_arg3"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Functions",
+            "url" : "functions.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "Collection",
+                "url" : "extensions\/collection.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "String.Element",
+                "url" : "extensions\/stringelement.html?swift"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Extensions",
+            "url" : "extensions.html?swift"
+          }
+        ]
+      }
+    ],
+    "topics" : [
+      {
+        "anchor_id" : "tpc-",
+        "dash_name" : "",
+        "items" : [
+          {
+            "anchor_id" : "init",
+            "any_declaration" : true,
+            "dash_name" : "init()",
+            "dash_type" : "Constructor",
+            "def" : {
+              "abstract_html" : "<p>Undocumented<\/p>",
+              "swift_declaration_html" : "public init()"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "init<span class=\"j2-item-secondary\">()<\/span>",
+            "title" : "init()"
+          },
+          {
+            "anchor_id" : "deinit",
+            "any_declaration" : true,
+            "dash_name" : "deinit",
+            "dash_type" : "Method",
+            "def" : {
+              "abstract_html" : "<p>Undocumented<\/p>",
+              "swift_declaration_html" : "deinit"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "deinit",
+            "title" : "deinit"
+          },
+          {
+            "anchor_id" : "methodparam",
+            "any_declaration" : true,
+            "dash_name" : "func%20method(param%3A%20Int)%20-%3E%20String",
+            "dash_type" : "Method",
+            "def" : {
+              "abstract_html" : "<p>Base class docs for <code>method(param:)<\/code><\/p>",
+              "swift_declaration_html" : "public func method(param: Int) -&gt; String"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>method<span class=\"j2-item-secondary\">(<\/span>param<span class=\"j2-item-secondary\">: Int) -> String<\/span>",
+            "title" : "func method(param: Int) -> String"
+          },
+          {
+            "anchor_id" : "subscript_",
+            "any_declaration" : true,
+            "dash_name" : "subscript(arg%3A%20String)%20-%3E%20Int",
+            "dash_type" : "Method",
+            "def" : {
+              "abstract_html" : "<p>Undocumented<\/p>",
+              "swift_declaration_html" : "public subscript(arg: String) -&gt; Int { get set }"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "subscript<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: String) -> Int<\/span>",
+            "title" : "subscript(arg: String) -> Int"
+          }
+        ],
+        "primary_language" : "j2-swift"
+      }
+    ],
+    "topics_language" : "j2-swift",
+    "topics_menus" : [
+      {
+        "language" : "j2-swift",
+        "topics_menu" : [
+          {
+            "anchor_id" : "",
+            "title" : "Declaration"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "breadcrumbs_menus" : [
+      {
+        "breadcrumbs" : [
+          {
+            "title" : "Types",
+            "url" : "types.html?swift"
+          },
+          {
+            "title" : "ADerivedClass"
+          }
+        ],
+        "language" : "j2-swift"
+      }
+    ],
+    "breadcrumbs_root" : "SpmSwiftModule",
+    "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
+    "def" : {
+      "abstract_html" : "<p>A derived class<\/p>",
+      "swift_declaration_html" : "public class ADerivedClass&lt;T, Q&gt; : <a href=\"..\/types\/abaseclass.html?swift\">ABaseClass<\/a> where Q : Sequence"
+    },
+    "default_language" : "j2-swift",
+    "disable_search" : false,
+    "doc_coverage" : 51,
+    "docs_title" : "SpmSwiftModule docs",
+    "dual_language" : false,
+    "hide_article_title" : false,
+    "hide_attribution" : false,
+    "hide_availability" : false,
+    "item_collapse_never" : false,
+    "item_collapse_open" : false,
+    "item_nest" : true,
+    "j2lib_version" : "0.1",
+    "language_tag" : "en",
+    "path_from_root" : "types\/aderivedclass.html",
+    "path_to_assets" : "..\/",
+    "path_to_root" : "..\/",
+    "primary_page_title" : "ADerivedClass",
+    "primary_title_language" : "j2-swift",
+    "tab_title_prefix" : true,
+    "tocs" : [
+      {
+        "language" : "j2-swift",
+        "screen_reader_name" : "Swift",
+        "toc" : [
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "ABaseClass",
+                "url" : "types\/abaseclass.html?swift"
+              },
+              {
+                "same_page" : true,
+                "title" : "ADerivedClass",
+                "url" : ""
+              },
+              {
+                "same_page" : false,
+                "title" : "AnEnum",
+                "url" : "types\/anenum.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "FirstProtocol",
+                "url" : "types\/firstprotocol1.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "GenericBase",
+                "url" : "types\/genericbase.html?swift"
+              },
+              {
+                "children" : [
+                  {
+                    "children" : [
+                      {
+                        "same_page" : false,
+                        "title" : "Nested2a",
+                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2a"
+                      },
+                      {
+                        "same_page" : false,
+                        "title" : "Nested2b",
+                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2b"
+                      }
+                    ],
+                    "same_page" : false,
+                    "title" : "Nested1",
+                    "url" : "types\/spmswiftmodule\/nested1.html?swift"
+                  },
+                  {
+                    "same_page" : false,
+                    "title" : "Nested2",
+                    "url" : "types\/spmswiftmodule.html?swift#nested2"
+                  }
+                ],
+                "same_page" : false,
+                "title" : "SpmSwiftModule",
+                "url" : "types\/spmswiftmodule.html?swift"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Types",
+            "url" : "types.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "deprecatedFunction(callback:)",
+                "url" : "functions.html?swift#deprecatedfunctioncallback"
+              },
+              {
+                "same_page" : false,
+                "title" : "functionA(arg1:_:arg3:)",
+                "url" : "functions.html?swift#functionaarg1_arg3"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Functions",
+            "url" : "functions.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "Collection",
+                "url" : "extensions\/collection.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "String.Element",
+                "url" : "extensions\/stringelement.html?swift"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Extensions",
+            "url" : "extensions.html?swift"
+          }
+        ]
+      }
+    ],
+    "topics" : [
+      {
+        "anchor_id" : "tpc-",
+        "dash_name" : "",
+        "items" : [
+          {
+            "anchor_id" : "t2",
+            "any_declaration" : true,
+            "dash_name" : "var%20t%3A%20Q%3F",
+            "dash_type" : "Property",
+            "def" : {
+              "abstract_html" : "<p>Undocumented<\/p>",
+              "swift_declaration_html" : "var t: Q?"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">var <\/span>t<span class=\"j2-item-secondary\">: Q?<\/span>",
+            "title" : "var t: Q?"
+          },
+          {
+            "anchor_id" : "methodparam1",
+            "any_declaration" : true,
+            "dash_name" : "func%20method(param%3A%20Int)%20-%3E%20String",
+            "dash_type" : "Method",
+            "def" : {
+              "abstract_html" : "<p>See <a href=\"..\/types\/abaseclass.html?swift#methodparam\"><code>ABaseClass.method(...)<\/code><\/a>.<\/p>",
+              "swift_declaration_html" : "public override func method(param: Int) -&gt; String"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>method<span class=\"j2-item-secondary\">(<\/span>param<span class=\"j2-item-secondary\">: Int) -> String<\/span>",
+            "title" : "func method(param: Int) -> String"
+          },
+          {
+            "anchor_id" : "genericparam",
+            "any_declaration" : true,
+            "dash_name" : "func%20generic(param%3A%20T)%20-%3E%20T",
+            "dash_type" : "Method",
+            "def" : {
+              "abstract_html" : "<p>Undocumented<\/p>",
+              "swift_declaration_html" : "public func generic(param: T) -&gt; T"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>generic<span class=\"j2-item-secondary\">(<\/span>param<span class=\"j2-item-secondary\">: T) -> T<\/span>",
+            "title" : "func generic(param: T) -> T"
+          }
+        ],
+        "primary_language" : "j2-swift"
+      }
+    ],
+    "topics_language" : "j2-swift",
+    "topics_menus" : [
+      {
+        "language" : "j2-swift",
+        "topics_menu" : [
+          {
+            "anchor_id" : "",
+            "title" : "Declaration"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "breadcrumbs_menus" : [
+      {
+        "breadcrumbs" : [
+          {
+            "title" : "Types",
+            "url" : "types.html?swift"
+          },
+          {
+            "title" : "AnEnum"
+          }
+        ],
+        "language" : "j2-swift"
+      }
+    ],
+    "breadcrumbs_root" : "SpmSwiftModule",
+    "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
+    "def" : {
+      "abstract_html" : "<p>An enum<\/p>",
+      "swift_declaration_html" : "public enum AnEnum"
+    },
+    "default_language" : "j2-swift",
+    "disable_search" : false,
+    "doc_coverage" : 51,
+    "docs_title" : "SpmSwiftModule docs",
+    "dual_language" : false,
+    "hide_article_title" : false,
+    "hide_attribution" : false,
+    "hide_availability" : false,
+    "item_collapse_never" : false,
+    "item_collapse_open" : false,
+    "item_nest" : true,
+    "j2lib_version" : "0.1",
+    "language_tag" : "en",
+    "path_from_root" : "types\/anenum.html",
+    "path_to_assets" : "..\/",
+    "path_to_root" : "..\/",
+    "primary_page_title" : "AnEnum",
+    "primary_title_language" : "j2-swift",
+    "tab_title_prefix" : true,
+    "tocs" : [
+      {
+        "language" : "j2-swift",
+        "screen_reader_name" : "Swift",
+        "toc" : [
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "ABaseClass",
+                "url" : "types\/abaseclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "ADerivedClass",
+                "url" : "types\/aderivedclass.html?swift"
+              },
+              {
+                "same_page" : true,
+                "title" : "AnEnum",
+                "url" : ""
+              },
+              {
+                "same_page" : false,
+                "title" : "FirstProtocol",
+                "url" : "types\/firstprotocol1.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "GenericBase",
+                "url" : "types\/genericbase.html?swift"
+              },
+              {
+                "children" : [
+                  {
+                    "children" : [
+                      {
+                        "same_page" : false,
+                        "title" : "Nested2a",
+                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2a"
+                      },
+                      {
+                        "same_page" : false,
+                        "title" : "Nested2b",
+                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2b"
+                      }
+                    ],
+                    "same_page" : false,
+                    "title" : "Nested1",
+                    "url" : "types\/spmswiftmodule\/nested1.html?swift"
+                  },
+                  {
+                    "same_page" : false,
+                    "title" : "Nested2",
+                    "url" : "types\/spmswiftmodule.html?swift#nested2"
+                  }
+                ],
+                "same_page" : false,
+                "title" : "SpmSwiftModule",
+                "url" : "types\/spmswiftmodule.html?swift"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Types",
+            "url" : "types.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "deprecatedFunction(callback:)",
+                "url" : "functions.html?swift#deprecatedfunctioncallback"
+              },
+              {
+                "same_page" : false,
+                "title" : "functionA(arg1:_:arg3:)",
+                "url" : "functions.html?swift#functionaarg1_arg3"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Functions",
+            "url" : "functions.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "Collection",
+                "url" : "extensions\/collection.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "String.Element",
+                "url" : "extensions\/stringelement.html?swift"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Extensions",
+            "url" : "extensions.html?swift"
+          }
+        ]
+      }
+    ],
+    "topics" : [
+      {
+        "anchor_id" : "tpc-",
+        "dash_name" : "",
+        "items" : [
+          {
+            "anchor_id" : "first_",
+            "any_declaration" : true,
+            "dash_name" : "case%20first(Int)",
+            "dash_type" : "Case",
+            "def" : {
+              "abstract_html" : "<p>First case<\/p>",
+              "swift_declaration_html" : "case first(Int)"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">case <\/span>first<span class=\"j2-item-secondary\">(Int)<\/span>",
+            "title" : "case first(Int)"
+          },
+          {
+            "anchor_id" : "second",
+            "any_declaration" : true,
+            "dash_name" : "case%20second",
+            "dash_type" : "Case",
+            "def" : {
+              "abstract_html" : "<p>Second case<\/p>",
+              "swift_declaration_html" : "case second"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">case <\/span>second",
+            "title" : "case second"
+          },
+          {
+            "anchor_id" : "third",
+            "any_declaration" : true,
+            "dash_name" : "case%20third",
+            "dash_type" : "Case",
+            "def" : {
+              "abstract_html" : "<p>Third &amp; Fourth cases - <a href=\"..\/types\/anenum.html?swift#second\"><code>second<\/code><\/a><\/p>",
+              "swift_declaration_html" : "case third"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">case <\/span>third",
+            "title" : "case third"
+          },
+          {
+            "anchor_id" : "fourth",
+            "any_declaration" : true,
+            "dash_name" : "case%20fourth",
+            "dash_type" : "Case",
+            "def" : {
+              "abstract_html" : "<p>Undocumented<\/p>",
+              "swift_declaration_html" : "case fourth"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">case <\/span>fourth",
+            "title" : "case fourth"
+          },
+          {
+            "anchor_id" : "fiftha_",
+            "any_declaration" : true,
+            "dash_name" : "case%20fifth(a%3A%20String,%20Int)",
+            "dash_type" : "Case",
+            "def" : {
+              "abstract_html" : "<p>Fifth case<\/p>",
+              "swift_declaration_html" : "case fifth(a: String, _: Int)"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">case <\/span>fifth<span class=\"j2-item-secondary\">(<\/span>a<span class=\"j2-item-secondary\">: String, Int)<\/span>",
+            "title" : "case fifth(a: String, Int)"
+          }
+        ],
+        "primary_language" : "j2-swift"
+      }
+    ],
+    "topics_language" : "j2-swift",
+    "topics_menus" : [
+      {
+        "language" : "j2-swift",
+        "topics_menu" : [
+          {
+            "anchor_id" : "",
+            "title" : "Declaration"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "breadcrumbs_menus" : [
+      {
+        "breadcrumbs" : [
+          {
+            "title" : "Types",
+            "url" : "types.html?swift"
+          },
+          {
+            "title" : "FirstProtocol"
+          }
+        ],
+        "language" : "j2-swift"
+      }
+    ],
+    "breadcrumbs_root" : "SpmSwiftModule",
+    "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
+    "def" : {
+      "abstract_html" : "<p>A protocol.<\/p>",
+      "swift_declaration_html" : "public protocol FirstProtocol"
+    },
+    "default_language" : "j2-swift",
+    "disable_search" : false,
+    "doc_coverage" : 51,
+    "docs_title" : "SpmSwiftModule docs",
+    "dual_language" : false,
+    "hide_article_title" : false,
+    "hide_attribution" : false,
+    "hide_availability" : false,
+    "item_collapse_never" : false,
+    "item_collapse_open" : false,
+    "item_nest" : true,
+    "j2lib_version" : "0.1",
+    "language_tag" : "en",
+    "path_from_root" : "types\/firstprotocol1.html",
+    "path_to_assets" : "..\/",
+    "path_to_root" : "..\/",
+    "primary_page_title" : "FirstProtocol",
+    "primary_title_language" : "j2-swift",
+    "tab_title_prefix" : true,
+    "tocs" : [
+      {
+        "language" : "j2-swift",
+        "screen_reader_name" : "Swift",
+        "toc" : [
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "ABaseClass",
+                "url" : "types\/abaseclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "ADerivedClass",
+                "url" : "types\/aderivedclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "AnEnum",
+                "url" : "types\/anenum.html?swift"
+              },
+              {
+                "same_page" : true,
+                "title" : "FirstProtocol",
+                "url" : ""
+              },
+              {
+                "same_page" : false,
+                "title" : "GenericBase",
+                "url" : "types\/genericbase.html?swift"
+              },
+              {
+                "children" : [
+                  {
+                    "children" : [
+                      {
+                        "same_page" : false,
+                        "title" : "Nested2a",
+                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2a"
+                      },
+                      {
+                        "same_page" : false,
+                        "title" : "Nested2b",
+                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2b"
+                      }
+                    ],
+                    "same_page" : false,
+                    "title" : "Nested1",
+                    "url" : "types\/spmswiftmodule\/nested1.html?swift"
+                  },
+                  {
+                    "same_page" : false,
+                    "title" : "Nested2",
+                    "url" : "types\/spmswiftmodule.html?swift#nested2"
+                  }
+                ],
+                "same_page" : false,
+                "title" : "SpmSwiftModule",
+                "url" : "types\/spmswiftmodule.html?swift"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Types",
+            "url" : "types.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "deprecatedFunction(callback:)",
+                "url" : "functions.html?swift#deprecatedfunctioncallback"
+              },
+              {
+                "same_page" : false,
+                "title" : "functionA(arg1:_:arg3:)",
+                "url" : "functions.html?swift#functionaarg1_arg3"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Functions",
+            "url" : "functions.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "Collection",
+                "url" : "extensions\/collection.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "String.Element",
+                "url" : "extensions\/stringelement.html?swift"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Extensions",
+            "url" : "extensions.html?swift"
+          }
+        ]
+      }
+    ],
+    "topics" : [
+      {
+        "anchor_id" : "tpc-",
+        "dash_name" : "",
+        "items" : [
+          {
+            "anchor_id" : "marg1",
+            "any_declaration" : true,
+            "dash_name" : "func%20m(arg%3A%20Int)%20-%3E%20String",
+            "dash_type" : "Method",
+            "def" : {
+              "abstract_html" : "<p>Brief note about m<\/p>",
+              "default_abstract_html" : "<p>Return a safe default.<\/p>",
+              "default_discussion_html" : "<p>There’s more: it’s the empty string.<\/p>",
+              "discussion_html" : "<p>What m is all about.<\/p>",
+              "notes_html" : "<p>Has a default implementation.<\/p>\n<p>Has a default implementation for some conforming types.<\/p>",
+              "parameters" : [
+                {
+                  "parameter_html" : "<p>The argument<\/p>",
+                  "title" : "arg"
+                }
+              ],
+              "returns_html" : "<p>The answer<\/p>",
+              "swift_declaration_html" : "func m(arg: Int) -&gt; String"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>m<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: Int) -> String<\/span>",
+            "title" : "func m(arg: Int) -> String"
+          },
+          {
+            "anchor_id" : "assoctype",
+            "any_declaration" : true,
+            "dash_name" : "associatedtype%20AssocType",
+            "dash_type" : "Type",
+            "def" : {
+              "abstract_html" : "<p>Undocumented<\/p>",
+              "swift_declaration_html" : "associatedtype AssocType"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">associatedtype <\/span>AssocType",
+            "title" : "associatedtype AssocType"
+          },
+          {
+            "anchor_id" : "assocfunc",
+            "any_declaration" : true,
+            "dash_name" : "func%20assocFunc()%20-%3E%20AssocType",
+            "dash_type" : "Method",
+            "def" : {
+              "abstract_html" : "<p>Undocumented<\/p>",
+              "swift_declaration_html" : "func assocFunc() -&gt; <a href=\"..\/types\/firstprotocol1.html?swift#assoctype\">AssocType<\/a>"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>assocFunc<span class=\"j2-item-secondary\">() -> AssocType<\/span>",
+            "title" : "func assocFunc() -> AssocType"
+          },
+          {
+            "anchor_id" : "e",
+            "any_declaration" : true,
+            "dash_name" : "func%20e()",
+            "dash_type" : "Method",
+            "def" : {
+              "abstract_html" : "<p>A protocol extension method<\/p>",
+              "notes_html" : "<p>From a protocol extension: not a customization point.<\/p>",
+              "swift_declaration_html" : "func e()"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>e<span class=\"j2-item-secondary\">()<\/span>",
+            "title" : "func e()"
+          }
+        ],
+        "primary_language" : "j2-swift"
+      },
+      {
+        "anchor_id" : "tpc-available-where-assoctype-hashable",
+        "dash_name" : "Available%20where%20AssocType%3A%20Hashable",
+        "items" : [
+          {
+            "anchor_id" : "exthashablemethod",
+            "any_declaration" : true,
+            "dash_name" : "func%20extHashableMethod()",
+            "dash_type" : "Method",
+            "def" : {
+              "abstract_html" : "<p>Undocumented<\/p>",
+              "notes_html" : "<p>From a protocol extension: not a customization point.<\/p>",
+              "swift_declaration_html" : "func extHashableMethod()"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>extHashableMethod<span class=\"j2-item-secondary\">()<\/span>",
+            "title" : "func extHashableMethod()"
+          },
+          {
+            "anchor_id" : "marg",
+            "any_declaration" : true,
+            "dash_name" : "func%20m(arg%3A%20Int)%20-%3E%20String",
+            "dash_type" : "Method",
+            "def" : {
+              "default_abstract_html" : "<p>Special default implementation for m in Hashable case.<\/p>",
+              "notes_html" : "<p>Default implementation only for types that satisfy the constraints.<\/p>",
+              "swift_declaration_html" : "func m(arg: Int) -&gt; String"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>m<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: Int) -> String<\/span>",
+            "title" : "func m(arg: Int) -> String"
+          }
+        ],
+        "primary_language" : "j2-swift",
+        "title_html" : "Available where <a href=\"..\/types\/firstprotocol1.html?swift#assoctype\"><code>AssocType<\/code><\/a>: <code>Hashable<\/code>"
+      }
+    ],
+    "topics_language" : "j2-swift",
+    "topics_menus" : [
+      {
+        "language" : "j2-swift",
+        "topics_menu" : [
+          {
+            "anchor_id" : "",
+            "title" : "Declaration"
+          },
+          {
+            "anchor_id" : "tpc-available-where-assoctype-hashable",
+            "title" : "…where AssocType: Hashable"
+          }
+        ]
+      }
+    ]
   },
   {
     "breadcrumbs_menus" : [
@@ -278,14 +1198,29 @@
           {
             "children" : [
               {
-                "same_page" : true,
-                "title" : "GenericBase",
-                "url" : ""
+                "same_page" : false,
+                "title" : "ABaseClass",
+                "url" : "types\/abaseclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "ADerivedClass",
+                "url" : "types\/aderivedclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "AnEnum",
+                "url" : "types\/anenum.html?swift"
               },
               {
                 "same_page" : false,
                 "title" : "FirstProtocol",
                 "url" : "types\/firstprotocol1.html?swift"
+              },
+              {
+                "same_page" : true,
+                "title" : "GenericBase",
+                "url" : ""
               },
               {
                 "children" : [
@@ -315,21 +1250,6 @@
                 "same_page" : false,
                 "title" : "SpmSwiftModule",
                 "url" : "types\/spmswiftmodule.html?swift"
-              },
-              {
-                "same_page" : false,
-                "title" : "AnEnum",
-                "url" : "types\/anenum.html?swift"
-              },
-              {
-                "same_page" : false,
-                "title" : "ABaseClass",
-                "url" : "types\/abaseclass.html?swift"
-              },
-              {
-                "same_page" : false,
-                "title" : "ADerivedClass",
-                "url" : "types\/aderivedclass.html?swift"
               }
             ],
             "same_page" : false,
@@ -340,13 +1260,13 @@
             "children" : [
               {
                 "same_page" : false,
-                "title" : "functionA(arg1:_:arg3:)",
-                "url" : "functions.html?swift#functionaarg1_arg3"
+                "title" : "deprecatedFunction(callback:)",
+                "url" : "functions.html?swift#deprecatedfunctioncallback"
               },
               {
                 "same_page" : false,
-                "title" : "deprecatedFunction(callback:)",
-                "url" : "functions.html?swift#deprecatedfunctioncallback"
+                "title" : "functionA(arg1:_:arg3:)",
+                "url" : "functions.html?swift#functionaarg1_arg3"
               }
             ],
             "same_page" : false,
@@ -556,275 +1476,6 @@
             "url" : "types.html?swift"
           },
           {
-            "title" : "FirstProtocol"
-          }
-        ],
-        "language" : "j2-swift"
-      }
-    ],
-    "breadcrumbs_root" : "SpmSwiftModule",
-    "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
-    "def" : {
-      "abstract_html" : "<p>A protocol.<\/p>",
-      "swift_declaration_html" : "public protocol FirstProtocol"
-    },
-    "default_language" : "j2-swift",
-    "disable_search" : false,
-    "doc_coverage" : 51,
-    "docs_title" : "SpmSwiftModule docs",
-    "dual_language" : false,
-    "hide_article_title" : false,
-    "hide_attribution" : false,
-    "hide_availability" : false,
-    "item_collapse_never" : false,
-    "item_collapse_open" : false,
-    "item_nest" : true,
-    "j2lib_version" : "0.1",
-    "language_tag" : "en",
-    "path_from_root" : "types\/firstprotocol1.html",
-    "path_to_assets" : "..\/",
-    "path_to_root" : "..\/",
-    "primary_page_title" : "FirstProtocol",
-    "primary_title_language" : "j2-swift",
-    "tab_title_prefix" : true,
-    "tocs" : [
-      {
-        "language" : "j2-swift",
-        "screen_reader_name" : "Swift",
-        "toc" : [
-          {
-            "children" : [
-              {
-                "same_page" : false,
-                "title" : "GenericBase",
-                "url" : "types\/genericbase.html?swift"
-              },
-              {
-                "same_page" : true,
-                "title" : "FirstProtocol",
-                "url" : ""
-              },
-              {
-                "children" : [
-                  {
-                    "children" : [
-                      {
-                        "same_page" : false,
-                        "title" : "Nested2a",
-                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2a"
-                      },
-                      {
-                        "same_page" : false,
-                        "title" : "Nested2b",
-                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2b"
-                      }
-                    ],
-                    "same_page" : false,
-                    "title" : "Nested1",
-                    "url" : "types\/spmswiftmodule\/nested1.html?swift"
-                  },
-                  {
-                    "same_page" : false,
-                    "title" : "Nested2",
-                    "url" : "types\/spmswiftmodule.html?swift#nested2"
-                  }
-                ],
-                "same_page" : false,
-                "title" : "SpmSwiftModule",
-                "url" : "types\/spmswiftmodule.html?swift"
-              },
-              {
-                "same_page" : false,
-                "title" : "AnEnum",
-                "url" : "types\/anenum.html?swift"
-              },
-              {
-                "same_page" : false,
-                "title" : "ABaseClass",
-                "url" : "types\/abaseclass.html?swift"
-              },
-              {
-                "same_page" : false,
-                "title" : "ADerivedClass",
-                "url" : "types\/aderivedclass.html?swift"
-              }
-            ],
-            "same_page" : false,
-            "title" : "Types",
-            "url" : "types.html?swift"
-          },
-          {
-            "children" : [
-              {
-                "same_page" : false,
-                "title" : "functionA(arg1:_:arg3:)",
-                "url" : "functions.html?swift#functionaarg1_arg3"
-              },
-              {
-                "same_page" : false,
-                "title" : "deprecatedFunction(callback:)",
-                "url" : "functions.html?swift#deprecatedfunctioncallback"
-              }
-            ],
-            "same_page" : false,
-            "title" : "Functions",
-            "url" : "functions.html?swift"
-          },
-          {
-            "children" : [
-              {
-                "same_page" : false,
-                "title" : "Collection",
-                "url" : "extensions\/collection.html?swift"
-              },
-              {
-                "same_page" : false,
-                "title" : "String.Element",
-                "url" : "extensions\/stringelement.html?swift"
-              }
-            ],
-            "same_page" : false,
-            "title" : "Extensions",
-            "url" : "extensions.html?swift"
-          }
-        ]
-      }
-    ],
-    "topics" : [
-      {
-        "anchor_id" : "tpc-",
-        "dash_name" : "",
-        "items" : [
-          {
-            "anchor_id" : "marg1",
-            "any_declaration" : true,
-            "dash_name" : "func%20m(arg%3A%20Int)%20-%3E%20String",
-            "dash_type" : "Method",
-            "def" : {
-              "abstract_html" : "<p>Brief note about m<\/p>",
-              "default_abstract_html" : "<p>Return a safe default.<\/p>",
-              "default_discussion_html" : "<p>There’s more: it’s the empty string.<\/p>",
-              "discussion_html" : "<p>What m is all about.<\/p>",
-              "notes_html" : "<p>Has a default implementation.<\/p>\n<p>Has a default implementation for some conforming types.<\/p>",
-              "parameters" : [
-                {
-                  "parameter_html" : "<p>The argument<\/p>",
-                  "title" : "arg"
-                }
-              ],
-              "returns_html" : "<p>The answer<\/p>",
-              "swift_declaration_html" : "func m(arg: Int) -&gt; String"
-            },
-            "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>m<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: Int) -> String<\/span>",
-            "title" : "func m(arg: Int) -> String"
-          },
-          {
-            "anchor_id" : "assoctype",
-            "any_declaration" : true,
-            "dash_name" : "associatedtype%20AssocType",
-            "dash_type" : "Type",
-            "def" : {
-              "abstract_html" : "<p>Undocumented<\/p>",
-              "swift_declaration_html" : "associatedtype AssocType"
-            },
-            "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">associatedtype <\/span>AssocType",
-            "title" : "associatedtype AssocType"
-          },
-          {
-            "anchor_id" : "assocfunc",
-            "any_declaration" : true,
-            "dash_name" : "func%20assocFunc()%20-%3E%20AssocType",
-            "dash_type" : "Method",
-            "def" : {
-              "abstract_html" : "<p>Undocumented<\/p>",
-              "swift_declaration_html" : "func assocFunc() -&gt; <a href=\"..\/types\/firstprotocol1.html?swift#assoctype\">AssocType<\/a>"
-            },
-            "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>assocFunc<span class=\"j2-item-secondary\">() -> AssocType<\/span>",
-            "title" : "func assocFunc() -> AssocType"
-          },
-          {
-            "anchor_id" : "e",
-            "any_declaration" : true,
-            "dash_name" : "func%20e()",
-            "dash_type" : "Method",
-            "def" : {
-              "abstract_html" : "<p>A protocol extension method<\/p>",
-              "notes_html" : "<p>From a protocol extension: not a customization point.<\/p>",
-              "swift_declaration_html" : "func e()"
-            },
-            "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>e<span class=\"j2-item-secondary\">()<\/span>",
-            "title" : "func e()"
-          }
-        ],
-        "primary_language" : "j2-swift"
-      },
-      {
-        "anchor_id" : "tpc-available-where-assoctype-hashable",
-        "dash_name" : "Available%20where%20AssocType%3A%20Hashable",
-        "items" : [
-          {
-            "anchor_id" : "exthashablemethod",
-            "any_declaration" : true,
-            "dash_name" : "func%20extHashableMethod()",
-            "dash_type" : "Method",
-            "def" : {
-              "abstract_html" : "<p>Undocumented<\/p>",
-              "notes_html" : "<p>From a protocol extension: not a customization point.<\/p>",
-              "swift_declaration_html" : "func extHashableMethod()"
-            },
-            "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>extHashableMethod<span class=\"j2-item-secondary\">()<\/span>",
-            "title" : "func extHashableMethod()"
-          },
-          {
-            "anchor_id" : "marg",
-            "any_declaration" : true,
-            "dash_name" : "func%20m(arg%3A%20Int)%20-%3E%20String",
-            "dash_type" : "Method",
-            "def" : {
-              "default_abstract_html" : "<p>Special default implementation for m in Hashable case.<\/p>",
-              "notes_html" : "<p>Default implementation only for types that satisfy the constraints.<\/p>",
-              "swift_declaration_html" : "func m(arg: Int) -&gt; String"
-            },
-            "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>m<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: Int) -> String<\/span>",
-            "title" : "func m(arg: Int) -> String"
-          }
-        ],
-        "primary_language" : "j2-swift",
-        "title_html" : "Available where <a href=\"..\/types\/firstprotocol1.html?swift#assoctype\"><code>AssocType<\/code><\/a>: <code>Hashable<\/code>"
-      }
-    ],
-    "topics_language" : "j2-swift",
-    "topics_menus" : [
-      {
-        "language" : "j2-swift",
-        "topics_menu" : [
-          {
-            "anchor_id" : "",
-            "title" : "Declaration"
-          },
-          {
-            "anchor_id" : "tpc-available-where-assoctype-hashable",
-            "title" : "…where AssocType: Hashable"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "breadcrumbs_menus" : [
-      {
-        "breadcrumbs" : [
-          {
-            "title" : "Types",
-            "url" : "types.html?swift"
-          },
-          {
             "title" : "SpmSwiftModule"
           }
         ],
@@ -865,13 +1516,28 @@
             "children" : [
               {
                 "same_page" : false,
-                "title" : "GenericBase",
-                "url" : "types\/genericbase.html?swift"
+                "title" : "ABaseClass",
+                "url" : "types\/abaseclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "ADerivedClass",
+                "url" : "types\/aderivedclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "AnEnum",
+                "url" : "types\/anenum.html?swift"
               },
               {
                 "same_page" : false,
                 "title" : "FirstProtocol",
                 "url" : "types\/firstprotocol1.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "GenericBase",
+                "url" : "types\/genericbase.html?swift"
               },
               {
                 "children" : [
@@ -901,21 +1567,6 @@
                 "same_page" : true,
                 "title" : "SpmSwiftModule",
                 "url" : ""
-              },
-              {
-                "same_page" : false,
-                "title" : "AnEnum",
-                "url" : "types\/anenum.html?swift"
-              },
-              {
-                "same_page" : false,
-                "title" : "ABaseClass",
-                "url" : "types\/abaseclass.html?swift"
-              },
-              {
-                "same_page" : false,
-                "title" : "ADerivedClass",
-                "url" : "types\/aderivedclass.html?swift"
               }
             ],
             "same_page" : false,
@@ -926,13 +1577,13 @@
             "children" : [
               {
                 "same_page" : false,
-                "title" : "functionA(arg1:_:arg3:)",
-                "url" : "functions.html?swift#functionaarg1_arg3"
+                "title" : "deprecatedFunction(callback:)",
+                "url" : "functions.html?swift#deprecatedfunctioncallback"
               },
               {
                 "same_page" : false,
-                "title" : "deprecatedFunction(callback:)",
-                "url" : "functions.html?swift#deprecatedfunctioncallback"
+                "title" : "functionA(arg1:_:arg3:)",
+                "url" : "functions.html?swift#functionaarg1_arg3"
               }
             ],
             "same_page" : false,
@@ -1091,13 +1742,28 @@
             "children" : [
               {
                 "same_page" : false,
-                "title" : "GenericBase",
-                "url" : "types\/genericbase.html?swift"
+                "title" : "ABaseClass",
+                "url" : "types\/abaseclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "ADerivedClass",
+                "url" : "types\/aderivedclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "AnEnum",
+                "url" : "types\/anenum.html?swift"
               },
               {
                 "same_page" : false,
                 "title" : "FirstProtocol",
                 "url" : "types\/firstprotocol1.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "GenericBase",
+                "url" : "types\/genericbase.html?swift"
               },
               {
                 "children" : [
@@ -1127,21 +1793,6 @@
                 "same_page" : false,
                 "title" : "SpmSwiftModule",
                 "url" : "types\/spmswiftmodule.html?swift"
-              },
-              {
-                "same_page" : false,
-                "title" : "AnEnum",
-                "url" : "types\/anenum.html?swift"
-              },
-              {
-                "same_page" : false,
-                "title" : "ABaseClass",
-                "url" : "types\/abaseclass.html?swift"
-              },
-              {
-                "same_page" : false,
-                "title" : "ADerivedClass",
-                "url" : "types\/aderivedclass.html?swift"
               }
             ],
             "same_page" : false,
@@ -1152,13 +1803,13 @@
             "children" : [
               {
                 "same_page" : false,
-                "title" : "functionA(arg1:_:arg3:)",
-                "url" : "functions.html?swift#functionaarg1_arg3"
+                "title" : "deprecatedFunction(callback:)",
+                "url" : "functions.html?swift#deprecatedfunctioncallback"
               },
               {
                 "same_page" : false,
-                "title" : "deprecatedFunction(callback:)",
-                "url" : "functions.html?swift#deprecatedfunctioncallback"
+                "title" : "functionA(arg1:_:arg3:)",
+                "url" : "functions.html?swift#functionaarg1_arg3"
               }
             ],
             "same_page" : false,
@@ -1240,657 +1891,6 @@
       {
         "breadcrumbs" : [
           {
-            "title" : "Types",
-            "url" : "types.html?swift"
-          },
-          {
-            "title" : "AnEnum"
-          }
-        ],
-        "language" : "j2-swift"
-      }
-    ],
-    "breadcrumbs_root" : "SpmSwiftModule",
-    "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
-    "def" : {
-      "abstract_html" : "<p>An enum<\/p>",
-      "swift_declaration_html" : "public enum AnEnum"
-    },
-    "default_language" : "j2-swift",
-    "disable_search" : false,
-    "doc_coverage" : 51,
-    "docs_title" : "SpmSwiftModule docs",
-    "dual_language" : false,
-    "hide_article_title" : false,
-    "hide_attribution" : false,
-    "hide_availability" : false,
-    "item_collapse_never" : false,
-    "item_collapse_open" : false,
-    "item_nest" : true,
-    "j2lib_version" : "0.1",
-    "language_tag" : "en",
-    "path_from_root" : "types\/anenum.html",
-    "path_to_assets" : "..\/",
-    "path_to_root" : "..\/",
-    "primary_page_title" : "AnEnum",
-    "primary_title_language" : "j2-swift",
-    "tab_title_prefix" : true,
-    "tocs" : [
-      {
-        "language" : "j2-swift",
-        "screen_reader_name" : "Swift",
-        "toc" : [
-          {
-            "children" : [
-              {
-                "same_page" : false,
-                "title" : "GenericBase",
-                "url" : "types\/genericbase.html?swift"
-              },
-              {
-                "same_page" : false,
-                "title" : "FirstProtocol",
-                "url" : "types\/firstprotocol1.html?swift"
-              },
-              {
-                "children" : [
-                  {
-                    "children" : [
-                      {
-                        "same_page" : false,
-                        "title" : "Nested2a",
-                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2a"
-                      },
-                      {
-                        "same_page" : false,
-                        "title" : "Nested2b",
-                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2b"
-                      }
-                    ],
-                    "same_page" : false,
-                    "title" : "Nested1",
-                    "url" : "types\/spmswiftmodule\/nested1.html?swift"
-                  },
-                  {
-                    "same_page" : false,
-                    "title" : "Nested2",
-                    "url" : "types\/spmswiftmodule.html?swift#nested2"
-                  }
-                ],
-                "same_page" : false,
-                "title" : "SpmSwiftModule",
-                "url" : "types\/spmswiftmodule.html?swift"
-              },
-              {
-                "same_page" : true,
-                "title" : "AnEnum",
-                "url" : ""
-              },
-              {
-                "same_page" : false,
-                "title" : "ABaseClass",
-                "url" : "types\/abaseclass.html?swift"
-              },
-              {
-                "same_page" : false,
-                "title" : "ADerivedClass",
-                "url" : "types\/aderivedclass.html?swift"
-              }
-            ],
-            "same_page" : false,
-            "title" : "Types",
-            "url" : "types.html?swift"
-          },
-          {
-            "children" : [
-              {
-                "same_page" : false,
-                "title" : "functionA(arg1:_:arg3:)",
-                "url" : "functions.html?swift#functionaarg1_arg3"
-              },
-              {
-                "same_page" : false,
-                "title" : "deprecatedFunction(callback:)",
-                "url" : "functions.html?swift#deprecatedfunctioncallback"
-              }
-            ],
-            "same_page" : false,
-            "title" : "Functions",
-            "url" : "functions.html?swift"
-          },
-          {
-            "children" : [
-              {
-                "same_page" : false,
-                "title" : "Collection",
-                "url" : "extensions\/collection.html?swift"
-              },
-              {
-                "same_page" : false,
-                "title" : "String.Element",
-                "url" : "extensions\/stringelement.html?swift"
-              }
-            ],
-            "same_page" : false,
-            "title" : "Extensions",
-            "url" : "extensions.html?swift"
-          }
-        ]
-      }
-    ],
-    "topics" : [
-      {
-        "anchor_id" : "tpc-",
-        "dash_name" : "",
-        "items" : [
-          {
-            "anchor_id" : "first_",
-            "any_declaration" : true,
-            "dash_name" : "case%20first(Int)",
-            "dash_type" : "Case",
-            "def" : {
-              "abstract_html" : "<p>First case<\/p>",
-              "swift_declaration_html" : "case first(Int)"
-            },
-            "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">case <\/span>first<span class=\"j2-item-secondary\">(Int)<\/span>",
-            "title" : "case first(Int)"
-          },
-          {
-            "anchor_id" : "second",
-            "any_declaration" : true,
-            "dash_name" : "case%20second",
-            "dash_type" : "Case",
-            "def" : {
-              "abstract_html" : "<p>Second case<\/p>",
-              "swift_declaration_html" : "case second"
-            },
-            "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">case <\/span>second",
-            "title" : "case second"
-          },
-          {
-            "anchor_id" : "third",
-            "any_declaration" : true,
-            "dash_name" : "case%20third",
-            "dash_type" : "Case",
-            "def" : {
-              "abstract_html" : "<p>Third &amp; Fourth cases - <a href=\"..\/types\/anenum.html?swift#second\"><code>second<\/code><\/a><\/p>",
-              "swift_declaration_html" : "case third"
-            },
-            "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">case <\/span>third",
-            "title" : "case third"
-          },
-          {
-            "anchor_id" : "fourth",
-            "any_declaration" : true,
-            "dash_name" : "case%20fourth",
-            "dash_type" : "Case",
-            "def" : {
-              "abstract_html" : "<p>Undocumented<\/p>",
-              "swift_declaration_html" : "case fourth"
-            },
-            "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">case <\/span>fourth",
-            "title" : "case fourth"
-          },
-          {
-            "anchor_id" : "fiftha_",
-            "any_declaration" : true,
-            "dash_name" : "case%20fifth(a%3A%20String,%20Int)",
-            "dash_type" : "Case",
-            "def" : {
-              "abstract_html" : "<p>Fifth case<\/p>",
-              "swift_declaration_html" : "case fifth(a: String, _: Int)"
-            },
-            "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">case <\/span>fifth<span class=\"j2-item-secondary\">(<\/span>a<span class=\"j2-item-secondary\">: String, Int)<\/span>",
-            "title" : "case fifth(a: String, Int)"
-          }
-        ],
-        "primary_language" : "j2-swift"
-      }
-    ],
-    "topics_language" : "j2-swift",
-    "topics_menus" : [
-      {
-        "language" : "j2-swift",
-        "topics_menu" : [
-          {
-            "anchor_id" : "",
-            "title" : "Declaration"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "breadcrumbs_menus" : [
-      {
-        "breadcrumbs" : [
-          {
-            "title" : "Types",
-            "url" : "types.html?swift"
-          },
-          {
-            "title" : "ABaseClass"
-          }
-        ],
-        "language" : "j2-swift"
-      }
-    ],
-    "breadcrumbs_root" : "SpmSwiftModule",
-    "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
-    "def" : {
-      "abstract_html" : "<p>A base class<\/p>",
-      "swift_declaration_html" : "public class ABaseClass"
-    },
-    "default_language" : "j2-swift",
-    "disable_search" : false,
-    "doc_coverage" : 51,
-    "docs_title" : "SpmSwiftModule docs",
-    "dual_language" : false,
-    "hide_article_title" : false,
-    "hide_attribution" : false,
-    "hide_availability" : false,
-    "item_collapse_never" : false,
-    "item_collapse_open" : false,
-    "item_nest" : true,
-    "j2lib_version" : "0.1",
-    "language_tag" : "en",
-    "path_from_root" : "types\/abaseclass.html",
-    "path_to_assets" : "..\/",
-    "path_to_root" : "..\/",
-    "primary_page_title" : "ABaseClass",
-    "primary_title_language" : "j2-swift",
-    "tab_title_prefix" : true,
-    "tocs" : [
-      {
-        "language" : "j2-swift",
-        "screen_reader_name" : "Swift",
-        "toc" : [
-          {
-            "children" : [
-              {
-                "same_page" : false,
-                "title" : "GenericBase",
-                "url" : "types\/genericbase.html?swift"
-              },
-              {
-                "same_page" : false,
-                "title" : "FirstProtocol",
-                "url" : "types\/firstprotocol1.html?swift"
-              },
-              {
-                "children" : [
-                  {
-                    "children" : [
-                      {
-                        "same_page" : false,
-                        "title" : "Nested2a",
-                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2a"
-                      },
-                      {
-                        "same_page" : false,
-                        "title" : "Nested2b",
-                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2b"
-                      }
-                    ],
-                    "same_page" : false,
-                    "title" : "Nested1",
-                    "url" : "types\/spmswiftmodule\/nested1.html?swift"
-                  },
-                  {
-                    "same_page" : false,
-                    "title" : "Nested2",
-                    "url" : "types\/spmswiftmodule.html?swift#nested2"
-                  }
-                ],
-                "same_page" : false,
-                "title" : "SpmSwiftModule",
-                "url" : "types\/spmswiftmodule.html?swift"
-              },
-              {
-                "same_page" : false,
-                "title" : "AnEnum",
-                "url" : "types\/anenum.html?swift"
-              },
-              {
-                "same_page" : true,
-                "title" : "ABaseClass",
-                "url" : ""
-              },
-              {
-                "same_page" : false,
-                "title" : "ADerivedClass",
-                "url" : "types\/aderivedclass.html?swift"
-              }
-            ],
-            "same_page" : false,
-            "title" : "Types",
-            "url" : "types.html?swift"
-          },
-          {
-            "children" : [
-              {
-                "same_page" : false,
-                "title" : "functionA(arg1:_:arg3:)",
-                "url" : "functions.html?swift#functionaarg1_arg3"
-              },
-              {
-                "same_page" : false,
-                "title" : "deprecatedFunction(callback:)",
-                "url" : "functions.html?swift#deprecatedfunctioncallback"
-              }
-            ],
-            "same_page" : false,
-            "title" : "Functions",
-            "url" : "functions.html?swift"
-          },
-          {
-            "children" : [
-              {
-                "same_page" : false,
-                "title" : "Collection",
-                "url" : "extensions\/collection.html?swift"
-              },
-              {
-                "same_page" : false,
-                "title" : "String.Element",
-                "url" : "extensions\/stringelement.html?swift"
-              }
-            ],
-            "same_page" : false,
-            "title" : "Extensions",
-            "url" : "extensions.html?swift"
-          }
-        ]
-      }
-    ],
-    "topics" : [
-      {
-        "anchor_id" : "tpc-",
-        "dash_name" : "",
-        "items" : [
-          {
-            "anchor_id" : "init",
-            "any_declaration" : true,
-            "dash_name" : "init()",
-            "dash_type" : "Constructor",
-            "def" : {
-              "abstract_html" : "<p>Undocumented<\/p>",
-              "swift_declaration_html" : "public init()"
-            },
-            "primary_language" : "j2-swift",
-            "primary_title_html" : "init<span class=\"j2-item-secondary\">()<\/span>",
-            "title" : "init()"
-          },
-          {
-            "anchor_id" : "deinit",
-            "any_declaration" : true,
-            "dash_name" : "deinit",
-            "dash_type" : "Method",
-            "def" : {
-              "abstract_html" : "<p>Undocumented<\/p>",
-              "swift_declaration_html" : "deinit"
-            },
-            "primary_language" : "j2-swift",
-            "primary_title_html" : "deinit",
-            "title" : "deinit"
-          },
-          {
-            "anchor_id" : "methodparam",
-            "any_declaration" : true,
-            "dash_name" : "func%20method(param%3A%20Int)%20-%3E%20String",
-            "dash_type" : "Method",
-            "def" : {
-              "abstract_html" : "<p>Base class docs for <code>method(param:)<\/code><\/p>",
-              "swift_declaration_html" : "public func method(param: Int) -&gt; String"
-            },
-            "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>method<span class=\"j2-item-secondary\">(<\/span>param<span class=\"j2-item-secondary\">: Int) -> String<\/span>",
-            "title" : "func method(param: Int) -> String"
-          },
-          {
-            "anchor_id" : "subscript_",
-            "any_declaration" : true,
-            "dash_name" : "subscript(arg%3A%20String)%20-%3E%20Int",
-            "dash_type" : "Method",
-            "def" : {
-              "abstract_html" : "<p>Undocumented<\/p>",
-              "swift_declaration_html" : "public subscript(arg: String) -&gt; Int { get set }"
-            },
-            "primary_language" : "j2-swift",
-            "primary_title_html" : "subscript<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: String) -> Int<\/span>",
-            "title" : "subscript(arg: String) -> Int"
-          }
-        ],
-        "primary_language" : "j2-swift"
-      }
-    ],
-    "topics_language" : "j2-swift",
-    "topics_menus" : [
-      {
-        "language" : "j2-swift",
-        "topics_menu" : [
-          {
-            "anchor_id" : "",
-            "title" : "Declaration"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "breadcrumbs_menus" : [
-      {
-        "breadcrumbs" : [
-          {
-            "title" : "Types",
-            "url" : "types.html?swift"
-          },
-          {
-            "title" : "ADerivedClass"
-          }
-        ],
-        "language" : "j2-swift"
-      }
-    ],
-    "breadcrumbs_root" : "SpmSwiftModule",
-    "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
-    "def" : {
-      "abstract_html" : "<p>A derived class<\/p>",
-      "swift_declaration_html" : "public class ADerivedClass&lt;T, Q&gt; : <a href=\"..\/types\/abaseclass.html?swift\">ABaseClass<\/a> where Q : Sequence"
-    },
-    "default_language" : "j2-swift",
-    "disable_search" : false,
-    "doc_coverage" : 51,
-    "docs_title" : "SpmSwiftModule docs",
-    "dual_language" : false,
-    "hide_article_title" : false,
-    "hide_attribution" : false,
-    "hide_availability" : false,
-    "item_collapse_never" : false,
-    "item_collapse_open" : false,
-    "item_nest" : true,
-    "j2lib_version" : "0.1",
-    "language_tag" : "en",
-    "path_from_root" : "types\/aderivedclass.html",
-    "path_to_assets" : "..\/",
-    "path_to_root" : "..\/",
-    "primary_page_title" : "ADerivedClass",
-    "primary_title_language" : "j2-swift",
-    "tab_title_prefix" : true,
-    "tocs" : [
-      {
-        "language" : "j2-swift",
-        "screen_reader_name" : "Swift",
-        "toc" : [
-          {
-            "children" : [
-              {
-                "same_page" : false,
-                "title" : "GenericBase",
-                "url" : "types\/genericbase.html?swift"
-              },
-              {
-                "same_page" : false,
-                "title" : "FirstProtocol",
-                "url" : "types\/firstprotocol1.html?swift"
-              },
-              {
-                "children" : [
-                  {
-                    "children" : [
-                      {
-                        "same_page" : false,
-                        "title" : "Nested2a",
-                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2a"
-                      },
-                      {
-                        "same_page" : false,
-                        "title" : "Nested2b",
-                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2b"
-                      }
-                    ],
-                    "same_page" : false,
-                    "title" : "Nested1",
-                    "url" : "types\/spmswiftmodule\/nested1.html?swift"
-                  },
-                  {
-                    "same_page" : false,
-                    "title" : "Nested2",
-                    "url" : "types\/spmswiftmodule.html?swift#nested2"
-                  }
-                ],
-                "same_page" : false,
-                "title" : "SpmSwiftModule",
-                "url" : "types\/spmswiftmodule.html?swift"
-              },
-              {
-                "same_page" : false,
-                "title" : "AnEnum",
-                "url" : "types\/anenum.html?swift"
-              },
-              {
-                "same_page" : false,
-                "title" : "ABaseClass",
-                "url" : "types\/abaseclass.html?swift"
-              },
-              {
-                "same_page" : true,
-                "title" : "ADerivedClass",
-                "url" : ""
-              }
-            ],
-            "same_page" : false,
-            "title" : "Types",
-            "url" : "types.html?swift"
-          },
-          {
-            "children" : [
-              {
-                "same_page" : false,
-                "title" : "functionA(arg1:_:arg3:)",
-                "url" : "functions.html?swift#functionaarg1_arg3"
-              },
-              {
-                "same_page" : false,
-                "title" : "deprecatedFunction(callback:)",
-                "url" : "functions.html?swift#deprecatedfunctioncallback"
-              }
-            ],
-            "same_page" : false,
-            "title" : "Functions",
-            "url" : "functions.html?swift"
-          },
-          {
-            "children" : [
-              {
-                "same_page" : false,
-                "title" : "Collection",
-                "url" : "extensions\/collection.html?swift"
-              },
-              {
-                "same_page" : false,
-                "title" : "String.Element",
-                "url" : "extensions\/stringelement.html?swift"
-              }
-            ],
-            "same_page" : false,
-            "title" : "Extensions",
-            "url" : "extensions.html?swift"
-          }
-        ]
-      }
-    ],
-    "topics" : [
-      {
-        "anchor_id" : "tpc-",
-        "dash_name" : "",
-        "items" : [
-          {
-            "anchor_id" : "t2",
-            "any_declaration" : true,
-            "dash_name" : "var%20t%3A%20Q%3F",
-            "dash_type" : "Property",
-            "def" : {
-              "abstract_html" : "<p>Undocumented<\/p>",
-              "swift_declaration_html" : "var t: Q?"
-            },
-            "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">var <\/span>t<span class=\"j2-item-secondary\">: Q?<\/span>",
-            "title" : "var t: Q?"
-          },
-          {
-            "anchor_id" : "methodparam1",
-            "any_declaration" : true,
-            "dash_name" : "func%20method(param%3A%20Int)%20-%3E%20String",
-            "dash_type" : "Method",
-            "def" : {
-              "abstract_html" : "<p>See <a href=\"..\/types\/abaseclass.html?swift#methodparam\"><code>ABaseClass.method(...)<\/code><\/a>.<\/p>",
-              "swift_declaration_html" : "public override func method(param: Int) -&gt; String"
-            },
-            "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>method<span class=\"j2-item-secondary\">(<\/span>param<span class=\"j2-item-secondary\">: Int) -> String<\/span>",
-            "title" : "func method(param: Int) -> String"
-          },
-          {
-            "anchor_id" : "genericparam",
-            "any_declaration" : true,
-            "dash_name" : "func%20generic(param%3A%20T)%20-%3E%20T",
-            "dash_type" : "Method",
-            "def" : {
-              "abstract_html" : "<p>Undocumented<\/p>",
-              "swift_declaration_html" : "public func generic(param: T) -&gt; T"
-            },
-            "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>generic<span class=\"j2-item-secondary\">(<\/span>param<span class=\"j2-item-secondary\">: T) -> T<\/span>",
-            "title" : "func generic(param: T) -> T"
-          }
-        ],
-        "primary_language" : "j2-swift"
-      }
-    ],
-    "topics_language" : "j2-swift",
-    "topics_menus" : [
-      {
-        "language" : "j2-swift",
-        "topics_menu" : [
-          {
-            "anchor_id" : "",
-            "title" : "Declaration"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "breadcrumbs_menus" : [
-      {
-        "breadcrumbs" : [
-          {
             "title" : "Functions"
           }
         ],
@@ -1927,13 +1927,28 @@
             "children" : [
               {
                 "same_page" : false,
-                "title" : "GenericBase",
-                "url" : "types\/genericbase.html?swift"
+                "title" : "ABaseClass",
+                "url" : "types\/abaseclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "ADerivedClass",
+                "url" : "types\/aderivedclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "AnEnum",
+                "url" : "types\/anenum.html?swift"
               },
               {
                 "same_page" : false,
                 "title" : "FirstProtocol",
                 "url" : "types\/firstprotocol1.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "GenericBase",
+                "url" : "types\/genericbase.html?swift"
               },
               {
                 "children" : [
@@ -1963,21 +1978,6 @@
                 "same_page" : false,
                 "title" : "SpmSwiftModule",
                 "url" : "types\/spmswiftmodule.html?swift"
-              },
-              {
-                "same_page" : false,
-                "title" : "AnEnum",
-                "url" : "types\/anenum.html?swift"
-              },
-              {
-                "same_page" : false,
-                "title" : "ABaseClass",
-                "url" : "types\/abaseclass.html?swift"
-              },
-              {
-                "same_page" : false,
-                "title" : "ADerivedClass",
-                "url" : "types\/aderivedclass.html?swift"
               }
             ],
             "same_page" : false,
@@ -1988,13 +1988,13 @@
             "children" : [
               {
                 "same_page" : true,
-                "title" : "functionA(arg1:_:arg3:)",
-                "url" : "#functionaarg1_arg3"
+                "title" : "deprecatedFunction(callback:)",
+                "url" : "#deprecatedfunctioncallback"
               },
               {
                 "same_page" : true,
-                "title" : "deprecatedFunction(callback:)",
-                "url" : "#deprecatedfunctioncallback"
+                "title" : "functionA(arg1:_:arg3:)",
+                "url" : "#functionaarg1_arg3"
               }
             ],
             "same_page" : true,
@@ -2027,6 +2027,28 @@
         "dash_name" : "",
         "items" : [
           {
+            "anchor_id" : "deprecatedfunctioncallback",
+            "any_declaration" : true,
+            "dash_name" : "func%20deprecatedFunction(callback%3A%20(_%20report%3A%20String)%20-%3E%20Int)%20-%3E%20String",
+            "dash_type" : "Global",
+            "def" : {
+              "abstract_html" : "<p>A deprecated function<\/p>",
+              "deprecation_html" : "<p>iOS - deprecated in 12.0. Deprecated!.<\/p>\n<p>macOS - deprecated in 10.14. Deprecated on <em>macOS<\/em> too.<\/p>",
+              "discouraged" : true,
+              "parameters" : [
+                {
+                  "parameter_html" : "<p>The callback<\/p>",
+                  "title" : "callback"
+                }
+              ],
+              "returns_html" : "<p>A string<\/p>",
+              "swift_declaration_html" : "public func deprecatedFunction(callback: (_ report: String) -&gt; Int) -&gt; String"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>deprecatedFunction<span class=\"j2-item-secondary\">(<\/span>callback<span class=\"j2-item-secondary\">: (_ report: String) -> Int) -> String<\/span>",
+            "title" : "func deprecatedFunction(callback: (_ report: String) -> Int) -> String"
+          },
+          {
             "anchor_id" : "functionaarg1_arg3",
             "any_declaration" : true,
             "dash_name" : "func%20functionA(arg1%3A%20Int,%20Int,%20arg3%3A%20Int)",
@@ -2056,28 +2078,6 @@
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>functionA<span class=\"j2-item-secondary\">(<\/span>arg1<span class=\"j2-item-secondary\">: Int, Int, <\/span>arg3<span class=\"j2-item-secondary\">: Int)<\/span>",
             "title" : "func functionA(arg1: Int, Int, arg3: Int)"
-          },
-          {
-            "anchor_id" : "deprecatedfunctioncallback",
-            "any_declaration" : true,
-            "dash_name" : "func%20deprecatedFunction(callback%3A%20(_%20report%3A%20String)%20-%3E%20Int)%20-%3E%20String",
-            "dash_type" : "Global",
-            "def" : {
-              "abstract_html" : "<p>A deprecated function<\/p>",
-              "deprecation_html" : "<p>iOS - deprecated in 12.0. Deprecated!.<\/p>\n<p>macOS - deprecated in 10.14. Deprecated on <em>macOS<\/em> too.<\/p>",
-              "discouraged" : true,
-              "parameters" : [
-                {
-                  "parameter_html" : "<p>The callback<\/p>",
-                  "title" : "callback"
-                }
-              ],
-              "returns_html" : "<p>A string<\/p>",
-              "swift_declaration_html" : "public func deprecatedFunction(callback: (_ report: String) -&gt; Int) -&gt; String"
-            },
-            "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>deprecatedFunction<span class=\"j2-item-secondary\">(<\/span>callback<span class=\"j2-item-secondary\">: (_ report: String) -> Int) -> String<\/span>",
-            "title" : "func deprecatedFunction(callback: (_ report: String) -> Int) -> String"
           }
         ],
         "primary_language" : "j2-swift"
@@ -2129,13 +2129,28 @@
             "children" : [
               {
                 "same_page" : false,
-                "title" : "GenericBase",
-                "url" : "types\/genericbase.html?swift"
+                "title" : "ABaseClass",
+                "url" : "types\/abaseclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "ADerivedClass",
+                "url" : "types\/aderivedclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "AnEnum",
+                "url" : "types\/anenum.html?swift"
               },
               {
                 "same_page" : false,
                 "title" : "FirstProtocol",
                 "url" : "types\/firstprotocol1.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "GenericBase",
+                "url" : "types\/genericbase.html?swift"
               },
               {
                 "children" : [
@@ -2165,21 +2180,6 @@
                 "same_page" : false,
                 "title" : "SpmSwiftModule",
                 "url" : "types\/spmswiftmodule.html?swift"
-              },
-              {
-                "same_page" : false,
-                "title" : "AnEnum",
-                "url" : "types\/anenum.html?swift"
-              },
-              {
-                "same_page" : false,
-                "title" : "ABaseClass",
-                "url" : "types\/abaseclass.html?swift"
-              },
-              {
-                "same_page" : false,
-                "title" : "ADerivedClass",
-                "url" : "types\/aderivedclass.html?swift"
               }
             ],
             "same_page" : false,
@@ -2190,13 +2190,13 @@
             "children" : [
               {
                 "same_page" : false,
-                "title" : "functionA(arg1:_:arg3:)",
-                "url" : "functions.html?swift#functionaarg1_arg3"
+                "title" : "deprecatedFunction(callback:)",
+                "url" : "functions.html?swift#deprecatedfunctioncallback"
               },
               {
                 "same_page" : false,
-                "title" : "deprecatedFunction(callback:)",
-                "url" : "functions.html?swift#deprecatedfunctioncallback"
+                "title" : "functionA(arg1:_:arg3:)",
+                "url" : "functions.html?swift#functionaarg1_arg3"
               }
             ],
             "same_page" : false,
@@ -2225,8 +2225,8 @@
     ],
     "topics" : [
       {
-        "anchor_id" : "tpc-customstringconvertible",
-        "dash_name" : "CustomStringConvertible",
+        "anchor_id" : "tpc-",
+        "dash_name" : "",
         "items" : [
           {
             "anchor_id" : "collection",
@@ -2256,22 +2256,11 @@
             "title" : "extension String.Element"
           }
         ],
-        "primary_language" : "j2-swift",
-        "title_html" : "CustomStringConvertible"
+        "primary_language" : "j2-swift"
       }
     ],
     "topics_language" : "j2-swift",
-    "topics_menus" : [
-      {
-        "language" : "j2-swift",
-        "topics_menu" : [
-          {
-            "anchor_id" : "tpc-customstringconvertible",
-            "title" : "CustomStringConvertible"
-          }
-        ]
-      }
-    ]
+    "topics_menus" : []
   },
   {
     "breadcrumbs_menus" : [
@@ -2321,13 +2310,28 @@
             "children" : [
               {
                 "same_page" : false,
-                "title" : "GenericBase",
-                "url" : "types\/genericbase.html?swift"
+                "title" : "ABaseClass",
+                "url" : "types\/abaseclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "ADerivedClass",
+                "url" : "types\/aderivedclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "AnEnum",
+                "url" : "types\/anenum.html?swift"
               },
               {
                 "same_page" : false,
                 "title" : "FirstProtocol",
                 "url" : "types\/firstprotocol1.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "GenericBase",
+                "url" : "types\/genericbase.html?swift"
               },
               {
                 "children" : [
@@ -2357,21 +2361,6 @@
                 "same_page" : false,
                 "title" : "SpmSwiftModule",
                 "url" : "types\/spmswiftmodule.html?swift"
-              },
-              {
-                "same_page" : false,
-                "title" : "AnEnum",
-                "url" : "types\/anenum.html?swift"
-              },
-              {
-                "same_page" : false,
-                "title" : "ABaseClass",
-                "url" : "types\/abaseclass.html?swift"
-              },
-              {
-                "same_page" : false,
-                "title" : "ADerivedClass",
-                "url" : "types\/aderivedclass.html?swift"
               }
             ],
             "same_page" : false,
@@ -2382,13 +2371,13 @@
             "children" : [
               {
                 "same_page" : false,
-                "title" : "functionA(arg1:_:arg3:)",
-                "url" : "functions.html?swift#functionaarg1_arg3"
+                "title" : "deprecatedFunction(callback:)",
+                "url" : "functions.html?swift#deprecatedfunctioncallback"
               },
               {
                 "same_page" : false,
-                "title" : "deprecatedFunction(callback:)",
-                "url" : "functions.html?swift#deprecatedfunctioncallback"
+                "title" : "functionA(arg1:_:arg3:)",
+                "url" : "functions.html?swift#functionaarg1_arg3"
               }
             ],
             "same_page" : false,
@@ -2529,13 +2518,28 @@
             "children" : [
               {
                 "same_page" : false,
-                "title" : "GenericBase",
-                "url" : "types\/genericbase.html?swift"
+                "title" : "ABaseClass",
+                "url" : "types\/abaseclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "ADerivedClass",
+                "url" : "types\/aderivedclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "AnEnum",
+                "url" : "types\/anenum.html?swift"
               },
               {
                 "same_page" : false,
                 "title" : "FirstProtocol",
                 "url" : "types\/firstprotocol1.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "GenericBase",
+                "url" : "types\/genericbase.html?swift"
               },
               {
                 "children" : [
@@ -2565,21 +2569,6 @@
                 "same_page" : false,
                 "title" : "SpmSwiftModule",
                 "url" : "types\/spmswiftmodule.html?swift"
-              },
-              {
-                "same_page" : false,
-                "title" : "AnEnum",
-                "url" : "types\/anenum.html?swift"
-              },
-              {
-                "same_page" : false,
-                "title" : "ABaseClass",
-                "url" : "types\/abaseclass.html?swift"
-              },
-              {
-                "same_page" : false,
-                "title" : "ADerivedClass",
-                "url" : "types\/aderivedclass.html?swift"
               }
             ],
             "same_page" : false,
@@ -2590,13 +2579,13 @@
             "children" : [
               {
                 "same_page" : false,
-                "title" : "functionA(arg1:_:arg3:)",
-                "url" : "functions.html?swift#functionaarg1_arg3"
+                "title" : "deprecatedFunction(callback:)",
+                "url" : "functions.html?swift#deprecatedfunctioncallback"
               },
               {
                 "same_page" : false,
-                "title" : "deprecatedFunction(callback:)",
-                "url" : "functions.html?swift#deprecatedfunctioncallback"
+                "title" : "functionA(arg1:_:arg3:)",
+                "url" : "functions.html?swift#functionaarg1_arg3"
               }
             ],
             "same_page" : false,
@@ -2704,13 +2693,28 @@
             "children" : [
               {
                 "same_page" : false,
-                "title" : "GenericBase",
-                "url" : "types\/genericbase.html?swift"
+                "title" : "ABaseClass",
+                "url" : "types\/abaseclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "ADerivedClass",
+                "url" : "types\/aderivedclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "AnEnum",
+                "url" : "types\/anenum.html?swift"
               },
               {
                 "same_page" : false,
                 "title" : "FirstProtocol",
                 "url" : "types\/firstprotocol1.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "GenericBase",
+                "url" : "types\/genericbase.html?swift"
               },
               {
                 "children" : [
@@ -2740,21 +2744,6 @@
                 "same_page" : false,
                 "title" : "SpmSwiftModule",
                 "url" : "types\/spmswiftmodule.html?swift"
-              },
-              {
-                "same_page" : false,
-                "title" : "AnEnum",
-                "url" : "types\/anenum.html?swift"
-              },
-              {
-                "same_page" : false,
-                "title" : "ABaseClass",
-                "url" : "types\/abaseclass.html?swift"
-              },
-              {
-                "same_page" : false,
-                "title" : "ADerivedClass",
-                "url" : "types\/aderivedclass.html?swift"
               }
             ],
             "same_page" : false,
@@ -2765,13 +2754,13 @@
             "children" : [
               {
                 "same_page" : false,
-                "title" : "functionA(arg1:_:arg3:)",
-                "url" : "functions.html?swift#functionaarg1_arg3"
+                "title" : "deprecatedFunction(callback:)",
+                "url" : "functions.html?swift#deprecatedfunctioncallback"
               },
               {
                 "same_page" : false,
-                "title" : "deprecatedFunction(callback:)",
-                "url" : "functions.html?swift#deprecatedfunctioncallback"
+                "title" : "functionA(arg1:_:arg3:)",
+                "url" : "functions.html?swift#functionaarg1_arg3"
               }
             ],
             "same_page" : false,
