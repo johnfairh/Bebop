@@ -78,6 +78,7 @@
 		02CFF92923DE044200FDE5B9 /* GatherJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFF92823DE044200FDE5B9 /* GatherJob.swift */; };
 		02CFF92B23DEF49400FDE5B9 /* GatherJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFF92A23DEF49400FDE5B9 /* GatherJSON.swift */; };
 		02CFF96424237E4400320610 /* GroupTopics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFF96324237E4400320610 /* GroupTopics.swift */; };
+		02CFF9662423820A00320610 /* DefTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFF9652423820A00320610 /* DefTopic.swift */; };
 		02CFF9F923DF158700FDE5B9 /* TestGather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFF9F823DF158700FDE5B9 /* TestGather.swift */; };
 		02CFF9FE23E0A9D100FDE5B9 /* TestResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFF9FD23E0A9D100FDE5B9 /* TestResources.swift */; };
 		02CFFA0123E0B95F00FDE5B9 /* Merge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CFFA0023E0B95F00FDE5B9 /* Merge.swift */; };
@@ -284,6 +285,7 @@
 		02CFF92823DE044200FDE5B9 /* GatherJob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherJob.swift; sourceTree = "<group>"; };
 		02CFF92A23DEF49400FDE5B9 /* GatherJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherJSON.swift; sourceTree = "<group>"; };
 		02CFF96324237E4400320610 /* GroupTopics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTopics.swift; sourceTree = "<group>"; };
+		02CFF9652423820A00320610 /* DefTopic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefTopic.swift; sourceTree = "<group>"; };
 		02CFF9EC23DF0D4300FDE5B9 /* XcodeSwiftModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcodeSwiftModule.swift; sourceTree = "<group>"; };
 		02CFF9F523DF0EB100FDE5B9 /* Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Empty.swift; path = Sources/SpmSwiftModule/Empty.swift; sourceTree = "<group>"; };
 		02CFF9F623DF0EB100FDE5B9 /* SpmSwiftModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpmSwiftModule.swift; path = Sources/SpmSwiftModule/SpmSwiftModule.swift; sourceTree = "<group>"; };
@@ -599,6 +601,7 @@
 				02FDC68C23EB498A00C2F9CD /* DefDeclaration.swift */,
 				0259E1942416686D006435A1 /* DefAcl.swift */,
 				02CFFA3F23E5CFF800FDE5B9 /* DefKind.swift */,
+				02CFF9652423820A00320610 /* DefTopic.swift */,
 				02FDC67923E876D300C2F9CD /* DefDocs.swift */,
 				02CFFA0523E0BD8B00FDE5B9 /* DefItemJSON.swift */,
 			);
@@ -889,6 +892,7 @@
 				0233D54923F6F2ED004DCD89 /* FormatMarkdown.swift in Sources */,
 				0233D53523F067EE004DCD89 /* GenPages.swift in Sources */,
 				029A6F1D23D79AB000D66069 /* Version.swift in Sources */,
+				02CFF9662423820A00320610 /* DefTopic.swift in Sources */,
 				02FDC69123EB617300C2F9CD /* StringEnums.swift in Sources */,
 				02CFF92923DE044200FDE5B9 /* GatherJob.swift in Sources */,
 				029A6F1B23D7838700D66069 /* Pipeline.swift in Sources */,
