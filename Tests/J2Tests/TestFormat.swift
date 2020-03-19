@@ -81,7 +81,7 @@ class TestFormat: XCTestCase {
     }
 
     func testDefaultURLPolicy() throws {
-        let system = System()
+        let system = System(cliArgs: ["--topic-style=source-order"])
         let formatted = try system.run(urlPolicyFile.asGatherPasses)
 
         XCTAssertTrue(formatted[0].renderAsPage)

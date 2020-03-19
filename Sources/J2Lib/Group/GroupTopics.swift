@@ -25,57 +25,89 @@ struct TopicCreationVisitor: ItemVisitorProtocol {
     func visit(defItem: DefItem, parents: [Item]) {
         switch style {
         case .logical:
-            fallthrough
+            defItem.makeLogicalTopics()
         case .source_order, .source_order_defs:
-            cleanUpSourceOrderTopics(items: defItem.children)
+            defItem.makeSourceOrderTopics()
         }
     }
 
     func visit(groupItem: GroupItem, parents: [Item]) {
         switch style {
         case .logical, .source_order_defs:
-            // Erase any source-mark topics and alphabetize
-            let topic = Topic()
-            groupItem.children.forEach { $0.topic = topic }
-            groupItem.children.sort { $0.name < $1.name }
+            groupItem.makeLogicalTopics()
         case .source_order:
-            cleanUpSourceOrderTopics(items: groupItem.children)
-        }
-    }
-
-    /// Massage existing topics created from MARK comments or pragmas, jazzy-style,
-    /// so that every item has a topic and consecutive topics are merged.
-    func cleanUpSourceOrderTopics(items: [Item]) {
-        var currentTopic = items.first?.topic ?? Topic()
-        items.forEach { item in
-            guard let itemTopic = item.topic else {
-                // add to current topic
-                item.topic = currentTopic
-                return
-            }
-            if itemTopic === currentTopic {
-                // already there
-                return
-            }
-            if itemTopic == currentTopic {
-                // textual dup (different file origin/sorting artefact?), merge
-                item.topic = currentTopic
-                return
-            }
-            // New topic!
-            currentTopic = itemTopic
+            groupItem.makeSourceOrderTopics()
         }
     }
 }
 
-// MARK: DefItem
+// MARK: Source-Order Style Topics
+
+private extension Item {
+    func makeSourceOrderTopics() {
+        var currentTopic = children.first?.topic ?? Topic()
+        children.forEach { child in
+            guard let childTopic = child.topic else {
+                // add to current topic
+                child.topic = currentTopic
+                return
+            }
+            if childTopic === currentTopic {
+                // already there
+                return
+            }
+            if childTopic == currentTopic {
+                // textual dup (different file origin/sorting artefact?), merge
+                child.topic = currentTopic
+                return
+            }
+            // New topic!
+            currentTopic = childTopic
+        }
+    }
+}
+
+// MARK: Logical-Style Topics
+
+private extension GroupItem {
+    /// Just sort them and erase any leftover topic
+    func makeLogicalTopics() {
+        let topic = Topic()
+        children.forEach { $0.topic = topic }
+        children.sort { $0.name < $1.name }
+    }
+}
+
+private extension DefItem {
+    /// Group definition members by topic in topic order, then alphabetically (except enum elements!)
+    func makeLogicalTopics() {
+        var topicsToItems = [DefTopic : [Item]]()
+        defChildren.forEach { childItem in
+            topicsToItems.reduceKey(childItem.defTopic, [childItem], {$0 + [childItem]})
+        }
+        var newChildren = [Item]()
+        DefTopic.allCases.forEach { defTopic in
+            guard var items = topicsToItems[defTopic] else {
+                return
+            }
+            let topic = Topic(defTopic: defTopic)
+            items.forEach { $0.topic = topic }
+            if defTopic != .enumElement {
+                items.sort { $0.name < $1.name }
+            }
+            newChildren += items
+        }
+        children = newChildren
+    }
+}
+
+
+// MARK: DefItem to be refactored
 
 /// Helper to figure out the real topic from info, where our Gathered info is incomplete
 /// - objc .property might be a class property
 /// - objc .method might be initializer
 /// - swift .subscript might be class/static subscript
-/// - swift method might be init
-/// - swift method might be deinit
 private extension DefItem {
     /// Topic for the item.  This applies to both languages but we figure it out from the primary
     var defTopic: DefTopic {
@@ -87,18 +119,11 @@ private extension DefItem {
         switch topic {
         case .subscript:
             if let decl = swiftDeclaration {
-                if decl.namePieces.contains(.other("static")) {
+                if decl.declaration.text.contains(" static ") {
                     return .staticSubscript
-                } else if decl.namePieces.contains(.other("class")) {
+                } else if decl.declaration.text.contains(" class ") {
                     return .classSubscript
                 }
-            }
-            return topic
-        case .method:
-            if name == "deinit" {
-                return .deinitializer
-            } else if name.re_isMatch(#"^init[?!]\("#) {
-                return .initializer
             }
             return topic
         default:

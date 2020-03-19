@@ -66,6 +66,14 @@ public class ABaseClass {
     set {
     }
   }
+
+  public static subscript(arg: String) -> Int {
+    return 0
+  }
+
+  public class subscript(arg: Int) -> String {
+    return ""
+  }
 }
 
 /// A derived class

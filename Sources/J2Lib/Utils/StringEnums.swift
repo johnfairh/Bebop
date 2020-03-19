@@ -76,17 +76,17 @@ internal enum L10n {
     case errSktnXcodeDef = "err-sktn-xcode-def"
     /// SourceKitten couldn't find build info from `xcodebuild`.  Check the log above; it was looking for a `swiftc` command that included `-module-name %1`.
     case errSktnXcodeMod = "err-sktn-xcode-mod"
-    /// Using config file '%1'.
+    /// Using config file '%1'
     case msgConfigFile = "msg-config-file"
-    /// %1% documentation coverage with %2 undocumented symbols.
+    /// %1% documentation coverage with %2 undocumented symbols
     case msgCoverage = "msg-coverage"
-    /// Gathering info for %1.
+    /// Gathering info for %1...
     case msgGatherHeading = "msg-gather-heading"
-    /// Generating documentation.
+    /// Generating documentation...
     case msgGeneratingDocs = "msg-generating-docs"
     /// j2: Generate API documentation for Swift or Objective-C code.\n\nUsage: j2 [options]\n\nOptions:
     case msgHelpIntro = "msg-help-intro"
-    /// Skipped %1 %2 symbols.
+    /// Skipped %1 %2 symbols
     case msgSwiftAcl = "msg-swift-acl"
     /// No definitions found in --default-language '%1', using '%2' instead.
     case wrnBadUserLanguage = "wrn-bad-user-language"
@@ -190,6 +190,38 @@ internal enum L10n {
     case protocolExtn = "protocol-extn"
     ///  Renamed: `%1`.
     case renamedTo = "renamed-to"
+    /// Associated Types
+    case tpcAssociatedTypes = "tpc-associated-types"
+    /// Class Methods
+    case tpcClassMethods = "tpc-class-methods"
+    /// Class Properties
+    case tpcClassProperties = "tpc-class-properties"
+    /// Class Subscripts
+    case tpcClassSubscripts = "tpc-class-subscripts"
+    /// Deinitializer
+    case tpcDeinitializer = "tpc-deinitializer"
+    /// Enumeration Cases
+    case tpcEnumElements = "tpc-enum-elements"
+    /// Fields
+    case tpcFields = "tpc-fields"
+    /// Initializers
+    case tpcInitializers = "tpc-initializers"
+    /// Methods
+    case tpcMethods = "tpc-methods"
+    /// Other Members
+    case tpcOthers = "tpc-others"
+    /// Properties
+    case tpcProperties = "tpc-properties"
+    /// Static Methods
+    case tpcStaticMethods = "tpc-static-methods"
+    /// Static Properties
+    case tpcStaticProperties = "tpc-static-properties"
+    /// Static Subscripts
+    case tpcStaticSubscripts = "tpc-static-subscripts"
+    /// Subscripts
+    case tpcSubscripts = "tpc-subscripts"
+    /// Types
+    case tpcTypes = "tpc-types"
     /// Types
     case types = "types"
     /// %1 Types

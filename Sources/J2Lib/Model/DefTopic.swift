@@ -27,7 +27,24 @@ public enum DefTopic: CaseIterable {
     case other
 
     private var nameKey: L10n.Output {
-        .types
+        switch self {
+        case .associatedType: return .tpcAssociatedTypes
+        case .type: return .tpcTypes
+        case .initializer: return .tpcInitializers
+        case .deinitializer: return .tpcDeinitializer
+        case .enumElement: return .tpcEnumElements
+        case .method: return .tpcMethods
+        case .property: return .tpcProperties
+        case .field: return .tpcFields
+        case .subscript: return .tpcSubscripts
+        case .staticMethod: return .tpcStaticMethods
+        case .staticProperty: return .tpcStaticProperties
+        case .staticSubscript: return .tpcStaticSubscripts
+        case .classMethod: return .tpcClassMethods
+        case .classProperty: return .tpcClassProperties
+        case .classSubscript: return .tpcClassSubscripts
+        case .other: return .tpcOthers
+        }
     }
 
     var name: Localized<String> {

@@ -32,6 +32,24 @@
 "others" = "Others";
 "others-custom" = "%1 Others";
 
+/* Logical topic names */
+"tpc-associated-types" = "Associated Types";
+"tpc-types" = "Types";
+"tpc-initializers" = "Initializers";
+"tpc-deinitializer" = "Deinitializer";
+"tpc-enum-elements" = "Cases";
+"tpc-methods" = "Methods";
+"tpc-properties" = "Properties";
+"tpc-fields" = "Fields";
+"tpc-subscripts" = "Subscripts";
+"tpc-static-methods" = "Static Methods";
+"tpc-static-properties" = "Static Properties";
+"tpc-static-subscripts" = "Static Subscripts";
+"tpc-class-methods" = "Class Methods";
+"tpc-class-properties" = "Class Properties";
+"tpc-class-subscripts" = "Class Subscripts";
+"tpc-others" = "Other Members";
+
 /* Title */
 "docs" = "docs";
 /* Breadcrumb root */

@@ -14,7 +14,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 51,
+    "doc_coverage" : 50,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -253,7 +253,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 51,
+    "doc_coverage" : 50,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -375,8 +375,8 @@
     ],
     "topics" : [
       {
-        "anchor_id" : "tpc-",
-        "dash_name" : "",
+        "anchor_id" : "tpc-initializers",
+        "dash_name" : "Initializers",
         "items" : [
           {
             "anchor_id" : "init",
@@ -390,7 +390,15 @@
             "primary_language" : "j2-swift",
             "primary_title_html" : "init<span class=\"j2-item-secondary\">()<\/span>",
             "title" : "init()"
-          },
+          }
+        ],
+        "primary_language" : "j2-swift",
+        "title_html" : "Initializers"
+      },
+      {
+        "anchor_id" : "tpc-deinitializer",
+        "dash_name" : "Deinitializer",
+        "items" : [
           {
             "anchor_id" : "deinit",
             "any_declaration" : true,
@@ -403,7 +411,15 @@
             "primary_language" : "j2-swift",
             "primary_title_html" : "deinit",
             "title" : "deinit"
-          },
+          }
+        ],
+        "primary_language" : "j2-swift",
+        "title_html" : "Deinitializer"
+      },
+      {
+        "anchor_id" : "tpc-methods",
+        "dash_name" : "Methods",
+        "items" : [
           {
             "anchor_id" : "methodparam",
             "any_declaration" : true,
@@ -416,7 +432,15 @@
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>method<span class=\"j2-item-secondary\">(<\/span>param<span class=\"j2-item-secondary\">: Int) -> String<\/span>",
             "title" : "func method(param: Int) -> String"
-          },
+          }
+        ],
+        "primary_language" : "j2-swift",
+        "title_html" : "Methods"
+      },
+      {
+        "anchor_id" : "tpc-subscripts",
+        "dash_name" : "Subscripts",
+        "items" : [
           {
             "anchor_id" : "subscript_",
             "any_declaration" : true,
@@ -431,7 +455,50 @@
             "title" : "subscript(arg: String) -> Int"
           }
         ],
-        "primary_language" : "j2-swift"
+        "primary_language" : "j2-swift",
+        "title_html" : "Subscripts"
+      },
+      {
+        "anchor_id" : "tpc-static-subscripts",
+        "dash_name" : "Static%20Subscripts",
+        "items" : [
+          {
+            "anchor_id" : "subscript_1",
+            "any_declaration" : true,
+            "dash_name" : "subscript(arg%3A%20String)%20-%3E%20Int",
+            "dash_type" : "Method",
+            "def" : {
+              "abstract_html" : "<p>Undocumented<\/p>",
+              "swift_declaration_html" : "public static subscript(arg: String) -&gt; Int { get }"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "subscript<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: String) -> Int<\/span>",
+            "title" : "subscript(arg: String) -> Int"
+          }
+        ],
+        "primary_language" : "j2-swift",
+        "title_html" : "Static Subscripts"
+      },
+      {
+        "anchor_id" : "tpc-class-subscripts",
+        "dash_name" : "Class%20Subscripts",
+        "items" : [
+          {
+            "anchor_id" : "subscript_2",
+            "any_declaration" : true,
+            "dash_name" : "subscript(arg%3A%20Int)%20-%3E%20String",
+            "dash_type" : "Method",
+            "def" : {
+              "abstract_html" : "<p>Undocumented<\/p>",
+              "swift_declaration_html" : "public class subscript(arg: Int) -&gt; String { get }"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "subscript<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: Int) -> String<\/span>",
+            "title" : "subscript(arg: Int) -> String"
+          }
+        ],
+        "primary_language" : "j2-swift",
+        "title_html" : "Class Subscripts"
       }
     ],
     "topics_language" : "j2-swift",
@@ -442,6 +509,30 @@
           {
             "anchor_id" : "",
             "title" : "Declaration"
+          },
+          {
+            "anchor_id" : "tpc-initializers",
+            "title" : "Initializers"
+          },
+          {
+            "anchor_id" : "tpc-deinitializer",
+            "title" : "Deinitializer"
+          },
+          {
+            "anchor_id" : "tpc-methods",
+            "title" : "Methods"
+          },
+          {
+            "anchor_id" : "tpc-subscripts",
+            "title" : "Subscripts"
+          },
+          {
+            "anchor_id" : "tpc-static-subscripts",
+            "title" : "Static Subscripts"
+          },
+          {
+            "anchor_id" : "tpc-class-subscripts",
+            "title" : "Class Subscripts"
           }
         ]
       }
@@ -470,7 +561,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 51,
+    "doc_coverage" : 50,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -592,21 +683,21 @@
     ],
     "topics" : [
       {
-        "anchor_id" : "tpc-",
-        "dash_name" : "",
+        "anchor_id" : "tpc-methods",
+        "dash_name" : "Methods",
         "items" : [
           {
-            "anchor_id" : "t2",
+            "anchor_id" : "genericparam",
             "any_declaration" : true,
-            "dash_name" : "var%20t%3A%20Q%3F",
-            "dash_type" : "Property",
+            "dash_name" : "func%20generic(param%3A%20T)%20-%3E%20T",
+            "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
-              "swift_declaration_html" : "var t: Q?"
+              "swift_declaration_html" : "public func generic(param: T) -&gt; T"
             },
             "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">var <\/span>t<span class=\"j2-item-secondary\">: Q?<\/span>",
-            "title" : "var t: Q?"
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>generic<span class=\"j2-item-secondary\">(<\/span>param<span class=\"j2-item-secondary\">: T) -> T<\/span>",
+            "title" : "func generic(param: T) -> T"
           },
           {
             "anchor_id" : "methodparam1",
@@ -620,22 +711,31 @@
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>method<span class=\"j2-item-secondary\">(<\/span>param<span class=\"j2-item-secondary\">: Int) -> String<\/span>",
             "title" : "func method(param: Int) -> String"
-          },
-          {
-            "anchor_id" : "genericparam",
-            "any_declaration" : true,
-            "dash_name" : "func%20generic(param%3A%20T)%20-%3E%20T",
-            "dash_type" : "Method",
-            "def" : {
-              "abstract_html" : "<p>Undocumented<\/p>",
-              "swift_declaration_html" : "public func generic(param: T) -&gt; T"
-            },
-            "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>generic<span class=\"j2-item-secondary\">(<\/span>param<span class=\"j2-item-secondary\">: T) -> T<\/span>",
-            "title" : "func generic(param: T) -> T"
           }
         ],
-        "primary_language" : "j2-swift"
+        "primary_language" : "j2-swift",
+        "title_html" : "Methods"
+      },
+      {
+        "anchor_id" : "tpc-properties",
+        "dash_name" : "Properties",
+        "items" : [
+          {
+            "anchor_id" : "t2",
+            "any_declaration" : true,
+            "dash_name" : "var%20t%3A%20Q%3F",
+            "dash_type" : "Property",
+            "def" : {
+              "abstract_html" : "<p>Undocumented<\/p>",
+              "swift_declaration_html" : "var t: Q?"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">var <\/span>t<span class=\"j2-item-secondary\">: Q?<\/span>",
+            "title" : "var t: Q?"
+          }
+        ],
+        "primary_language" : "j2-swift",
+        "title_html" : "Properties"
       }
     ],
     "topics_language" : "j2-swift",
@@ -646,6 +746,14 @@
           {
             "anchor_id" : "",
             "title" : "Declaration"
+          },
+          {
+            "anchor_id" : "tpc-methods",
+            "title" : "Methods"
+          },
+          {
+            "anchor_id" : "tpc-properties",
+            "title" : "Properties"
           }
         ]
       }
@@ -674,7 +782,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 51,
+    "doc_coverage" : 50,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -796,8 +904,8 @@
     ],
     "topics" : [
       {
-        "anchor_id" : "tpc-",
-        "dash_name" : "",
+        "anchor_id" : "tpc-cases",
+        "dash_name" : "Cases",
         "items" : [
           {
             "anchor_id" : "first_",
@@ -865,7 +973,8 @@
             "title" : "case fifth(a: String, Int)"
           }
         ],
-        "primary_language" : "j2-swift"
+        "primary_language" : "j2-swift",
+        "title_html" : "Cases"
       }
     ],
     "topics_language" : "j2-swift",
@@ -876,6 +985,10 @@
           {
             "anchor_id" : "",
             "title" : "Declaration"
+          },
+          {
+            "anchor_id" : "tpc-cases",
+            "title" : "Cases"
           }
         ]
       }
@@ -904,7 +1017,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 51,
+    "doc_coverage" : 50,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -1026,33 +1139,9 @@
     ],
     "topics" : [
       {
-        "anchor_id" : "tpc-",
-        "dash_name" : "",
+        "anchor_id" : "tpc-associated-types",
+        "dash_name" : "Associated%20Types",
         "items" : [
-          {
-            "anchor_id" : "marg1",
-            "any_declaration" : true,
-            "dash_name" : "func%20m(arg%3A%20Int)%20-%3E%20String",
-            "dash_type" : "Method",
-            "def" : {
-              "abstract_html" : "<p>Brief note about m<\/p>",
-              "default_abstract_html" : "<p>Return a safe default.<\/p>",
-              "default_discussion_html" : "<p>There’s more: it’s the empty string.<\/p>",
-              "discussion_html" : "<p>What m is all about.<\/p>",
-              "notes_html" : "<p>Has a default implementation.<\/p>\n<p>Has a default implementation for some conforming types.<\/p>",
-              "parameters" : [
-                {
-                  "parameter_html" : "<p>The argument<\/p>",
-                  "title" : "arg"
-                }
-              ],
-              "returns_html" : "<p>The answer<\/p>",
-              "swift_declaration_html" : "func m(arg: Int) -&gt; String"
-            },
-            "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>m<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: Int) -> String<\/span>",
-            "title" : "func m(arg: Int) -> String"
-          },
           {
             "anchor_id" : "assoctype",
             "any_declaration" : true,
@@ -1065,7 +1154,15 @@
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">associatedtype <\/span>AssocType",
             "title" : "associatedtype AssocType"
-          },
+          }
+        ],
+        "primary_language" : "j2-swift",
+        "title_html" : "Associated Types"
+      },
+      {
+        "anchor_id" : "tpc-methods",
+        "dash_name" : "Methods",
+        "items" : [
           {
             "anchor_id" : "assocfunc",
             "any_declaration" : true,
@@ -1092,14 +1189,7 @@
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>e<span class=\"j2-item-secondary\">()<\/span>",
             "title" : "func e()"
-          }
-        ],
-        "primary_language" : "j2-swift"
-      },
-      {
-        "anchor_id" : "tpc-available-where-assoctype-hashable",
-        "dash_name" : "Available%20where%20AssocType%3A%20Hashable",
-        "items" : [
+          },
           {
             "anchor_id" : "exthashablemethod",
             "any_declaration" : true,
@@ -1113,6 +1203,30 @@
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>extHashableMethod<span class=\"j2-item-secondary\">()<\/span>",
             "title" : "func extHashableMethod()"
+          },
+          {
+            "anchor_id" : "marg1",
+            "any_declaration" : true,
+            "dash_name" : "func%20m(arg%3A%20Int)%20-%3E%20String",
+            "dash_type" : "Method",
+            "def" : {
+              "abstract_html" : "<p>Brief note about m<\/p>",
+              "default_abstract_html" : "<p>Return a safe default.<\/p>",
+              "default_discussion_html" : "<p>There’s more: it’s the empty string.<\/p>",
+              "discussion_html" : "<p>What m is all about.<\/p>",
+              "notes_html" : "<p>Has a default implementation.<\/p>\n<p>Has a default implementation for some conforming types.<\/p>",
+              "parameters" : [
+                {
+                  "parameter_html" : "<p>The argument<\/p>",
+                  "title" : "arg"
+                }
+              ],
+              "returns_html" : "<p>The answer<\/p>",
+              "swift_declaration_html" : "func m(arg: Int) -&gt; String"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>m<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: Int) -> String<\/span>",
+            "title" : "func m(arg: Int) -> String"
           },
           {
             "anchor_id" : "marg",
@@ -1130,7 +1244,7 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Available where <a href=\"..\/types\/firstprotocol1.html?swift#assoctype\"><code>AssocType<\/code><\/a>: <code>Hashable<\/code>"
+        "title_html" : "Methods"
       }
     ],
     "topics_language" : "j2-swift",
@@ -1143,8 +1257,12 @@
             "title" : "Declaration"
           },
           {
-            "anchor_id" : "tpc-available-where-assoctype-hashable",
-            "title" : "…where AssocType: Hashable"
+            "anchor_id" : "tpc-associated-types",
+            "title" : "Associated Types"
+          },
+          {
+            "anchor_id" : "tpc-methods",
+            "title" : "Methods"
           }
         ]
       }
@@ -1173,7 +1291,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 51,
+    "doc_coverage" : 50,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -1295,22 +1413,9 @@
     ],
     "topics" : [
       {
-        "anchor_id" : "tpc-",
-        "dash_name" : "",
+        "anchor_id" : "tpc-initializers",
+        "dash_name" : "Initializers",
         "items" : [
-          {
-            "anchor_id" : "boxed",
-            "any_declaration" : true,
-            "dash_name" : "var%20boxed%3A%20T",
-            "dash_type" : "Property",
-            "def" : {
-              "abstract_html" : "<p>Undocumented<\/p>",
-              "swift_declaration_html" : "var boxed: T"
-            },
-            "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">var <\/span>boxed<span class=\"j2-item-secondary\">: T<\/span>",
-            "title" : "var boxed: T"
-          },
           {
             "anchor_id" : "inittype",
             "any_declaration" : true,
@@ -1323,6 +1428,66 @@
             "primary_language" : "j2-swift",
             "primary_title_html" : "init<span class=\"j2-item-secondary\">(<\/span>type<span class=\"j2-item-secondary\">: T)<\/span>",
             "title" : "init(type: T)"
+          }
+        ],
+        "primary_language" : "j2-swift",
+        "title_html" : "Initializers"
+      },
+      {
+        "anchor_id" : "tpc-methods",
+        "dash_name" : "Methods",
+        "items" : [
+          {
+            "anchor_id" : "docodability",
+            "any_declaration" : true,
+            "dash_name" : "func%20doCodability()",
+            "dash_type" : "Method",
+            "def" : {
+              "abstract_html" : "<p>Undocumented<\/p>",
+              "swift_declaration_html" : "func doCodability()"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>doCodability<span class=\"j2-item-secondary\">()<\/span>",
+            "title" : "func doCodability()"
+          },
+          {
+            "anchor_id" : "dofirstmagic",
+            "any_declaration" : true,
+            "dash_name" : "func%20doFirstMagic()",
+            "dash_type" : "Method",
+            "def" : {
+              "abstract_html" : "<p>Undocumented<\/p>",
+              "swift_declaration_html" : "func doFirstMagic()"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>doFirstMagic<span class=\"j2-item-secondary\">()<\/span>",
+            "title" : "func doFirstMagic()"
+          },
+          {
+            "anchor_id" : "dohashable",
+            "any_declaration" : true,
+            "dash_name" : "func%20doHashable()",
+            "dash_type" : "Method",
+            "def" : {
+              "abstract_html" : "<p>Undocumented<\/p>",
+              "swift_declaration_html" : "func doHashable()"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>doHashable<span class=\"j2-item-secondary\">()<\/span>",
+            "title" : "func doHashable()"
+          },
+          {
+            "anchor_id" : "domoremagic",
+            "any_declaration" : true,
+            "dash_name" : "func%20doMoreMagic()",
+            "dash_type" : "Method",
+            "def" : {
+              "abstract_html" : "<p>Undocumented<\/p>",
+              "swift_declaration_html" : "func doMoreMagic()"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>doMoreMagic<span class=\"j2-item-secondary\">()<\/span>",
+            "title" : "func doMoreMagic()"
           },
           {
             "anchor_id" : "mutify",
@@ -1338,12 +1503,26 @@
             "title" : "func mutify() -> T"
           }
         ],
-        "primary_language" : "j2-swift"
+        "primary_language" : "j2-swift",
+        "title_html" : "Methods"
       },
       {
-        "anchor_id" : "tpc-customstringconvertible",
-        "dash_name" : "CustomStringConvertible",
+        "anchor_id" : "tpc-properties",
+        "dash_name" : "Properties",
         "items" : [
+          {
+            "anchor_id" : "boxed",
+            "any_declaration" : true,
+            "dash_name" : "var%20boxed%3A%20T",
+            "dash_type" : "Property",
+            "def" : {
+              "abstract_html" : "<p>Undocumented<\/p>",
+              "swift_declaration_html" : "var boxed: T"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">var <\/span>boxed<span class=\"j2-item-secondary\">: T<\/span>",
+            "title" : "var boxed: T"
+          },
           {
             "anchor_id" : "description",
             "any_declaration" : true,
@@ -1359,83 +1538,7 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "CustomStringConvertible"
-      },
-      {
-        "anchor_id" : "tpc-available-where-t-equatable-t-firstprotocol",
-        "dash_name" : "Available%20where%20T%3A%20Equatable,%20T%3A%20FirstProtocol",
-        "items" : [
-          {
-            "anchor_id" : "dofirstmagic",
-            "any_declaration" : true,
-            "dash_name" : "func%20doFirstMagic()",
-            "dash_type" : "Method",
-            "def" : {
-              "abstract_html" : "<p>Undocumented<\/p>",
-              "swift_declaration_html" : "func doFirstMagic()"
-            },
-            "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>doFirstMagic<span class=\"j2-item-secondary\">()<\/span>",
-            "title" : "func doFirstMagic()"
-          },
-          {
-            "anchor_id" : "domoremagic",
-            "any_declaration" : true,
-            "dash_name" : "func%20doMoreMagic()",
-            "dash_type" : "Method",
-            "def" : {
-              "abstract_html" : "<p>Undocumented<\/p>",
-              "swift_declaration_html" : "func doMoreMagic()"
-            },
-            "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>doMoreMagic<span class=\"j2-item-secondary\">()<\/span>",
-            "title" : "func doMoreMagic()"
-          }
-        ],
-        "primary_language" : "j2-swift",
-        "title_html" : "Available where <code>T<\/code>: <code>Equatable<\/code>, <code>T<\/code>: <a href=\"..\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>"
-      },
-      {
-        "anchor_id" : "tpc-usercustom-mark",
-        "dash_name" : "User-custom%20mark",
-        "items" : [
-          {
-            "anchor_id" : "dohashable",
-            "any_declaration" : true,
-            "dash_name" : "func%20doHashable()",
-            "dash_type" : "Method",
-            "def" : {
-              "abstract_html" : "<p>Undocumented<\/p>",
-              "swift_declaration_html" : "func doHashable()"
-            },
-            "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>doHashable<span class=\"j2-item-secondary\">()<\/span>",
-            "title" : "func doHashable()"
-          }
-        ],
-        "primary_language" : "j2-swift",
-        "title_html" : "User-custom mark"
-      },
-      {
-        "anchor_id" : "tpc-available-where-t-codable",
-        "dash_name" : "Available%20where%20T%3A%20Codable",
-        "items" : [
-          {
-            "anchor_id" : "docodability",
-            "any_declaration" : true,
-            "dash_name" : "func%20doCodability()",
-            "dash_type" : "Method",
-            "def" : {
-              "abstract_html" : "<p>Undocumented<\/p>",
-              "swift_declaration_html" : "func doCodability()"
-            },
-            "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>doCodability<span class=\"j2-item-secondary\">()<\/span>",
-            "title" : "func doCodability()"
-          }
-        ],
-        "primary_language" : "j2-swift",
-        "title_html" : "Available where <code>T<\/code>: <code>Codable<\/code>"
+        "title_html" : "Properties"
       }
     ],
     "topics_language" : "j2-swift",
@@ -1448,20 +1551,16 @@
             "title" : "Declaration"
           },
           {
-            "anchor_id" : "tpc-customstringconvertible",
-            "title" : "CustomStringConvertible"
+            "anchor_id" : "tpc-initializers",
+            "title" : "Initializers"
           },
           {
-            "anchor_id" : "tpc-available-where-t-equatable-t-firstprotocol",
-            "title" : "…where T: Equatable, T: FirstProtocol"
+            "anchor_id" : "tpc-methods",
+            "title" : "Methods"
           },
           {
-            "anchor_id" : "tpc-usercustom-mark",
-            "title" : "User-custom mark"
-          },
-          {
-            "anchor_id" : "tpc-available-where-t-codable",
-            "title" : "…where T: Codable"
+            "anchor_id" : "tpc-properties",
+            "title" : "Properties"
           }
         ]
       }
@@ -1490,7 +1589,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 51,
+    "doc_coverage" : 50,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -1612,29 +1711,8 @@
     ],
     "topics" : [
       {
-        "anchor_id" : "tpc-fields",
-        "dash_name" : "Fields",
-        "items" : [
-          {
-            "anchor_id" : "text",
-            "any_declaration" : true,
-            "dash_name" : "var%20text%3A%20String",
-            "dash_type" : "Property",
-            "def" : {
-              "abstract_html" : "<p>Undocumented<\/p>",
-              "swift_declaration_html" : "public var text: String"
-            },
-            "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">var <\/span>text<span class=\"j2-item-secondary\">: String<\/span>",
-            "title" : "var text: String"
-          }
-        ],
-        "primary_language" : "j2-swift",
-        "title_html" : "Fields"
-      },
-      {
-        "anchor_id" : "tpc-nested-strúctures-",
-        "dash_name" : "Nested%20str%C3%BActures%20%60%60",
+        "anchor_id" : "tpc-types",
+        "dash_name" : "Types",
         "items" : [
           {
             "anchor_id" : "nested1",
@@ -1665,7 +1743,28 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "<em>Nested<\/em> strúctures ``"
+        "title_html" : "Types"
+      },
+      {
+        "anchor_id" : "tpc-properties",
+        "dash_name" : "Properties",
+        "items" : [
+          {
+            "anchor_id" : "text",
+            "any_declaration" : true,
+            "dash_name" : "var%20text%3A%20String",
+            "dash_type" : "Property",
+            "def" : {
+              "abstract_html" : "<p>Undocumented<\/p>",
+              "swift_declaration_html" : "public var text: String"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">var <\/span>text<span class=\"j2-item-secondary\">: String<\/span>",
+            "title" : "var text: String"
+          }
+        ],
+        "primary_language" : "j2-swift",
+        "title_html" : "Properties"
       }
     ],
     "topics_language" : "j2-swift",
@@ -1678,12 +1777,12 @@
             "title" : "Declaration"
           },
           {
-            "anchor_id" : "tpc-fields",
-            "title" : "Fields"
+            "anchor_id" : "tpc-types",
+            "title" : "Types"
           },
           {
-            "anchor_id" : "tpc-nested-str%C3%BActures-",
-            "title" : "Nested strúctures ``"
+            "anchor_id" : "tpc-properties",
+            "title" : "Properties"
           }
         ]
       }
@@ -1716,7 +1815,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 51,
+    "doc_coverage" : 50,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -1838,8 +1937,8 @@
     ],
     "topics" : [
       {
-        "anchor_id" : "tpc-",
-        "dash_name" : "",
+        "anchor_id" : "tpc-types",
+        "dash_name" : "Types",
         "items" : [
           {
             "anchor_id" : "nested2a",
@@ -1870,7 +1969,8 @@
             "title" : "struct Nested2b"
           }
         ],
-        "primary_language" : "j2-swift"
+        "primary_language" : "j2-swift",
+        "title_html" : "Types"
       }
     ],
     "topics_language" : "j2-swift",
@@ -1881,6 +1981,10 @@
           {
             "anchor_id" : "",
             "title" : "Declaration"
+          },
+          {
+            "anchor_id" : "tpc-types",
+            "title" : "Types"
           }
         ]
       }
@@ -1901,7 +2005,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 51,
+    "doc_coverage" : 50,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -2101,7 +2205,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 51,
+    "doc_coverage" : 50,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -2284,7 +2388,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 51,
+    "doc_coverage" : 50,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -2406,8 +2510,8 @@
     ],
     "topics" : [
       {
-        "anchor_id" : "tpc-available-where-element-firstprotocol",
-        "dash_name" : "Available%20where%20Element%3A%20FirstProtocol",
+        "anchor_id" : "tpc-methods",
+        "dash_name" : "Methods",
         "items" : [
           {
             "anchor_id" : "collectemall",
@@ -2421,15 +2525,7 @@
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>collectEmAll<span class=\"j2-item-secondary\">()<\/span>",
             "title" : "func collectEmAll()"
-          }
-        ],
-        "primary_language" : "j2-swift",
-        "title_html" : "Available where <code>Element<\/code>: <a href=\"..\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>"
-      },
-      {
-        "anchor_id" : "tpc-available-where-element-spmswiftmodulenested1",
-        "dash_name" : "Available%20where%20Element%20==%20SpmSwiftModule.Nested1",
-        "items" : [
+          },
           {
             "anchor_id" : "nestemall",
             "any_declaration" : true,
@@ -2445,7 +2541,7 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Available where <code>Element<\/code> == <a href=\"..\/types\/spmswiftmodule\/nested1.html?swift\"><code>SpmSwiftModule.Nested1<\/code><\/a>"
+        "title_html" : "Methods"
       }
     ],
     "topics_language" : "j2-swift",
@@ -2458,12 +2554,8 @@
             "title" : "Declaration"
           },
           {
-            "anchor_id" : "tpc-available-where-element-firstprotocol",
-            "title" : "…where Element: FirstProtocol"
-          },
-          {
-            "anchor_id" : "tpc-available-where-element-spmswiftmodulenested1",
-            "title" : "…where Element == SpmSwiftModule.Nested1"
+            "anchor_id" : "tpc-methods",
+            "title" : "Methods"
           }
         ]
       }
@@ -2492,7 +2584,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 51,
+    "doc_coverage" : 50,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -2614,8 +2706,8 @@
     ],
     "topics" : [
       {
-        "anchor_id" : "tpc-",
-        "dash_name" : "",
+        "anchor_id" : "tpc-methods",
+        "dash_name" : "Methods",
         "items" : [
           {
             "anchor_id" : "method1",
@@ -2644,7 +2736,8 @@
             "title" : "func method2()"
           }
         ],
-        "primary_language" : "j2-swift"
+        "primary_language" : "j2-swift",
+        "title_html" : "Methods"
       }
     ],
     "topics_language" : "j2-swift",
@@ -2655,6 +2748,10 @@
           {
             "anchor_id" : "",
             "title" : "Declaration"
+          },
+          {
+            "anchor_id" : "tpc-methods",
+            "title" : "Methods"
           }
         ]
       }
@@ -2667,7 +2764,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 51,
+    "doc_coverage" : 50,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : true,

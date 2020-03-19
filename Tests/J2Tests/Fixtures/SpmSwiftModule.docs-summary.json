@@ -244,7 +244,7 @@
       "tab_title_prefix" : true,
       "topics" : [
         {
-          "anchor_id" : "tpc-",
+          "anchor_id" : "tpc-initializers",
           "items" : [
             {
               "anchor_id" : "init",
@@ -268,7 +268,28 @@
               "primary_title_html" : {
                 "html" : "init<span class=\"j2-item-secondary\">()<\/span>"
               }
+            }
+          ],
+          "menu_title" : {
+            "html" : {
+              "en" : "Initializers"
             },
+            "markdown" : {
+              "en" : "Initializers"
+            }
+          },
+          "title" : {
+            "html" : {
+              "en" : "Initializers"
+            },
+            "markdown" : {
+              "en" : "Initializers"
+            }
+          }
+        },
+        {
+          "anchor_id" : "tpc-deinitializer",
+          "items" : [
             {
               "anchor_id" : "deinit",
               "dash_type" : "Method",
@@ -291,7 +312,28 @@
               "primary_title_html" : {
                 "html" : "deinit"
               }
+            }
+          ],
+          "menu_title" : {
+            "html" : {
+              "en" : "Deinitializer"
             },
+            "markdown" : {
+              "en" : "Deinitializer"
+            }
+          },
+          "title" : {
+            "html" : {
+              "en" : "Deinitializer"
+            },
+            "markdown" : {
+              "en" : "Deinitializer"
+            }
+          }
+        },
+        {
+          "anchor_id" : "tpc-methods",
+          "items" : [
             {
               "anchor_id" : "methodparam",
               "dash_type" : "Method",
@@ -314,7 +356,28 @@
               "primary_title_html" : {
                 "html" : "<span class=\"j2-item-secondary\">func <\/span>method<span class=\"j2-item-secondary\">(<\/span>param<span class=\"j2-item-secondary\">: Int) -> String<\/span>"
               }
+            }
+          ],
+          "menu_title" : {
+            "html" : {
+              "en" : "Methods"
             },
+            "markdown" : {
+              "en" : "Methods"
+            }
+          },
+          "title" : {
+            "html" : {
+              "en" : "Methods"
+            },
+            "markdown" : {
+              "en" : "Methods"
+            }
+          }
+        },
+        {
+          "anchor_id" : "tpc-subscripts",
+          "items" : [
             {
               "anchor_id" : "subscript_",
               "dash_type" : "Method",
@@ -341,18 +404,106 @@
           ],
           "menu_title" : {
             "html" : {
-              "en" : ""
+              "en" : "Subscripts"
             },
             "markdown" : {
-              "en" : ""
+              "en" : "Subscripts"
             }
           },
           "title" : {
             "html" : {
-              "en" : ""
+              "en" : "Subscripts"
             },
             "markdown" : {
-              "en" : ""
+              "en" : "Subscripts"
+            }
+          }
+        },
+        {
+          "anchor_id" : "tpc-static-subscripts",
+          "items" : [
+            {
+              "anchor_id" : "subscript_1",
+              "dash_type" : "Method",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented<\/p>"
+                  }
+                },
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "public static subscript(arg: String) -&gt; Int { get }"
+                }
+              },
+              "flat_title" : {
+                "en" : "subscript(arg: String) -> Int"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "subscript<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: String) -> Int<\/span>"
+              }
+            }
+          ],
+          "menu_title" : {
+            "html" : {
+              "en" : "Static Subscripts"
+            },
+            "markdown" : {
+              "en" : "Static Subscripts"
+            }
+          },
+          "title" : {
+            "html" : {
+              "en" : "Static Subscripts"
+            },
+            "markdown" : {
+              "en" : "Static Subscripts"
+            }
+          }
+        },
+        {
+          "anchor_id" : "tpc-class-subscripts",
+          "items" : [
+            {
+              "anchor_id" : "subscript_2",
+              "dash_type" : "Method",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented<\/p>"
+                  }
+                },
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "public class subscript(arg: Int) -&gt; String { get }"
+                }
+              },
+              "flat_title" : {
+                "en" : "subscript(arg: Int) -> String"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "subscript<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: Int) -> String<\/span>"
+              }
+            }
+          ],
+          "menu_title" : {
+            "html" : {
+              "en" : "Class Subscripts"
+            },
+            "markdown" : {
+              "en" : "Class Subscripts"
+            }
+          },
+          "title" : {
+            "html" : {
+              "en" : "Class Subscripts"
+            },
+            "markdown" : {
+              "en" : "Class Subscripts"
             }
           }
         }
@@ -399,11 +550,11 @@
       "tab_title_prefix" : true,
       "topics" : [
         {
-          "anchor_id" : "tpc-",
+          "anchor_id" : "tpc-methods",
           "items" : [
             {
-              "anchor_id" : "t2",
-              "dash_type" : "Property",
+              "anchor_id" : "genericparam",
+              "dash_type" : "Method",
               "def" : {
                 "abstract" : {
                   "en" : {
@@ -413,15 +564,15 @@
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "var t: Q?"
+                  "html" : "public func generic(param: T) -&gt; T"
                 }
               },
               "flat_title" : {
-                "en" : "var t: Q?"
+                "en" : "func generic(param: T) -> T"
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">var <\/span>t<span class=\"j2-item-secondary\">: Q?<\/span>"
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>generic<span class=\"j2-item-secondary\">(<\/span>param<span class=\"j2-item-secondary\">: T) -> T<\/span>"
               }
             },
             {
@@ -446,10 +597,31 @@
               "primary_title_html" : {
                 "html" : "<span class=\"j2-item-secondary\">func <\/span>method<span class=\"j2-item-secondary\">(<\/span>param<span class=\"j2-item-secondary\">: Int) -> String<\/span>"
               }
+            }
+          ],
+          "menu_title" : {
+            "html" : {
+              "en" : "Methods"
             },
+            "markdown" : {
+              "en" : "Methods"
+            }
+          },
+          "title" : {
+            "html" : {
+              "en" : "Methods"
+            },
+            "markdown" : {
+              "en" : "Methods"
+            }
+          }
+        },
+        {
+          "anchor_id" : "tpc-properties",
+          "items" : [
             {
-              "anchor_id" : "genericparam",
-              "dash_type" : "Method",
+              "anchor_id" : "t2",
+              "dash_type" : "Property",
               "def" : {
                 "abstract" : {
                   "en" : {
@@ -459,32 +631,32 @@
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public func generic(param: T) -&gt; T"
+                  "html" : "var t: Q?"
                 }
               },
               "flat_title" : {
-                "en" : "func generic(param: T) -> T"
+                "en" : "var t: Q?"
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>generic<span class=\"j2-item-secondary\">(<\/span>param<span class=\"j2-item-secondary\">: T) -> T<\/span>"
+                "html" : "<span class=\"j2-item-secondary\">var <\/span>t<span class=\"j2-item-secondary\">: Q?<\/span>"
               }
             }
           ],
           "menu_title" : {
             "html" : {
-              "en" : ""
+              "en" : "Properties"
             },
             "markdown" : {
-              "en" : ""
+              "en" : "Properties"
             }
           },
           "title" : {
             "html" : {
-              "en" : ""
+              "en" : "Properties"
             },
             "markdown" : {
-              "en" : ""
+              "en" : "Properties"
             }
           }
         }
@@ -531,7 +703,7 @@
       "tab_title_prefix" : true,
       "topics" : [
         {
-          "anchor_id" : "tpc-",
+          "anchor_id" : "tpc-cases",
           "items" : [
             {
               "anchor_id" : "first_",
@@ -651,18 +823,18 @@
           ],
           "menu_title" : {
             "html" : {
-              "en" : ""
+              "en" : "Cases"
             },
             "markdown" : {
-              "en" : ""
+              "en" : "Cases"
             }
           },
           "title" : {
             "html" : {
-              "en" : ""
+              "en" : "Cases"
             },
             "markdown" : {
-              "en" : ""
+              "en" : "Cases"
             }
           }
         }
@@ -709,8 +881,131 @@
       "tab_title_prefix" : true,
       "topics" : [
         {
-          "anchor_id" : "tpc-",
+          "anchor_id" : "tpc-associated-types",
           "items" : [
+            {
+              "anchor_id" : "assoctype",
+              "dash_type" : "Type",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented<\/p>"
+                  }
+                },
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "associatedtype AssocType"
+                }
+              },
+              "flat_title" : {
+                "en" : "associatedtype AssocType"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">associatedtype <\/span>AssocType"
+              }
+            }
+          ],
+          "menu_title" : {
+            "html" : {
+              "en" : "Associated Types"
+            },
+            "markdown" : {
+              "en" : "Associated Types"
+            }
+          },
+          "title" : {
+            "html" : {
+              "en" : "Associated Types"
+            },
+            "markdown" : {
+              "en" : "Associated Types"
+            }
+          }
+        },
+        {
+          "anchor_id" : "tpc-methods",
+          "items" : [
+            {
+              "anchor_id" : "assocfunc",
+              "dash_type" : "Method",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented<\/p>"
+                  }
+                },
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "func assocFunc() -&gt; <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift#assoctype\">AssocType<\/a>"
+                }
+              },
+              "flat_title" : {
+                "en" : "func assocFunc() -> AssocType"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>assocFunc<span class=\"j2-item-secondary\">() -> AssocType<\/span>"
+              }
+            },
+            {
+              "anchor_id" : "e",
+              "dash_type" : "Method",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>A protocol extension method<\/p>"
+                  }
+                },
+                "availability" : [],
+                "notes" : {
+                  "en" : {
+                    "html" : "<p>From a protocol extension: not a customization point.<\/p>"
+                  }
+                },
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "func e()"
+                }
+              },
+              "flat_title" : {
+                "en" : "func e()"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>e<span class=\"j2-item-secondary\">()<\/span>"
+              }
+            },
+            {
+              "anchor_id" : "exthashablemethod",
+              "dash_type" : "Method",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented<\/p>"
+                  }
+                },
+                "availability" : [],
+                "notes" : {
+                  "en" : {
+                    "html" : "<p>From a protocol extension: not a customization point.<\/p>"
+                  }
+                },
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "func extHashableMethod()"
+                }
+              },
+              "flat_title" : {
+                "en" : "func extHashableMethod()"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>extHashableMethod<span class=\"j2-item-secondary\">()<\/span>"
+              }
+            },
             {
               "anchor_id" : "marg1",
               "dash_type" : "Method",
@@ -769,49 +1064,31 @@
               }
             },
             {
-              "anchor_id" : "assoctype",
-              "dash_type" : "Type",
-              "def" : {
-                "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
-                  }
-                },
-                "availability" : [],
-                "params" : [],
-                "swift_declaration" : {
-                  "html" : "associatedtype AssocType"
-                }
-              },
-              "flat_title" : {
-                "en" : "associatedtype AssocType"
-              },
-              "primary_language" : "swift",
-              "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">associatedtype <\/span>AssocType"
-              }
-            },
-            {
-              "anchor_id" : "assocfunc",
+              "anchor_id" : "marg",
               "dash_type" : "Method",
               "def" : {
-                "abstract" : {
+                "availability" : [],
+                "default_abstract" : {
                   "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                    "html" : "<p>Special default implementation for m in Hashable case.<\/p>"
                   }
                 },
-                "availability" : [],
+                "notes" : {
+                  "en" : {
+                    "html" : "<p>Default implementation only for types that satisfy the constraints.<\/p>"
+                  }
+                },
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "func assocFunc() -&gt; <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift#assoctype\">AssocType<\/a>"
+                  "html" : "func m(arg: Int) -&gt; String"
                 }
               },
               "flat_title" : {
-                "en" : "func assocFunc() -> AssocType"
+                "en" : "func m(arg: Int) -> String"
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>assocFunc<span class=\"j2-item-secondary\">() -> AssocType<\/span>"
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>m<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: Int) -> String<\/span>"
               }
             },
             {
@@ -841,127 +1118,22 @@
               "primary_title_html" : {
                 "html" : "<span class=\"j2-item-secondary\">func <\/span>module3func<span class=\"j2-item-secondary\">()<\/span>"
               }
-            },
-            {
-              "anchor_id" : "e",
-              "dash_type" : "Method",
-              "def" : {
-                "abstract" : {
-                  "en" : {
-                    "html" : "<p>A protocol extension method<\/p>"
-                  }
-                },
-                "availability" : [],
-                "notes" : {
-                  "en" : {
-                    "html" : "<p>From a protocol extension: not a customization point.<\/p>"
-                  }
-                },
-                "params" : [],
-                "swift_declaration" : {
-                  "html" : "func e()"
-                }
-              },
-              "flat_title" : {
-                "en" : "func e()"
-              },
-              "primary_language" : "swift",
-              "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>e<span class=\"j2-item-secondary\">()<\/span>"
-              }
             }
           ],
           "menu_title" : {
             "html" : {
-              "en" : ""
+              "en" : "Methods"
             },
             "markdown" : {
-              "en" : ""
+              "en" : "Methods"
             }
           },
           "title" : {
             "html" : {
-              "en" : ""
+              "en" : "Methods"
             },
             "markdown" : {
-              "en" : ""
-            }
-          }
-        },
-        {
-          "anchor_id" : "tpc-available-where-assoctype-hashable",
-          "items" : [
-            {
-              "anchor_id" : "exthashablemethod",
-              "dash_type" : "Method",
-              "def" : {
-                "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
-                  }
-                },
-                "availability" : [],
-                "notes" : {
-                  "en" : {
-                    "html" : "<p>From a protocol extension: not a customization point.<\/p>"
-                  }
-                },
-                "params" : [],
-                "swift_declaration" : {
-                  "html" : "func extHashableMethod()"
-                }
-              },
-              "flat_title" : {
-                "en" : "func extHashableMethod()"
-              },
-              "primary_language" : "swift",
-              "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>extHashableMethod<span class=\"j2-item-secondary\">()<\/span>"
-              }
-            },
-            {
-              "anchor_id" : "marg",
-              "dash_type" : "Method",
-              "def" : {
-                "availability" : [],
-                "default_abstract" : {
-                  "en" : {
-                    "html" : "<p>Special default implementation for m in Hashable case.<\/p>"
-                  }
-                },
-                "notes" : {
-                  "en" : {
-                    "html" : "<p>Default implementation only for types that satisfy the constraints.<\/p>"
-                  }
-                },
-                "params" : [],
-                "swift_declaration" : {
-                  "html" : "func m(arg: Int) -&gt; String"
-                }
-              },
-              "flat_title" : {
-                "en" : "func m(arg: Int) -> String"
-              },
-              "primary_language" : "swift",
-              "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>m<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: Int) -> String<\/span>"
-              }
-            }
-          ],
-          "menu_title" : {
-            "html" : {
-              "en" : "…where <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift#assoctype\"><code>AssocType<\/code><\/a>: <code>Hashable<\/code>"
-            },
-            "markdown" : {
-              "en" : "…where [`AssocType`](..\/..\/spmswiftmodule\/types\/firstprotocol1.md#assoctype):\n`Hashable`"
-            }
-          },
-          "title" : {
-            "html" : {
-              "en" : "Available where <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift#assoctype\"><code>AssocType<\/code><\/a>: <code>Hashable<\/code>"
-            },
-            "markdown" : {
-              "en" : "Available where\n[`AssocType`](..\/..\/spmswiftmodule\/types\/firstprotocol1.md#assoctype):\n`Hashable`"
+              "en" : "Methods"
             }
           }
         }
@@ -1008,31 +1180,8 @@
       "tab_title_prefix" : true,
       "topics" : [
         {
-          "anchor_id" : "tpc-",
+          "anchor_id" : "tpc-initializers",
           "items" : [
-            {
-              "anchor_id" : "boxed",
-              "dash_type" : "Property",
-              "def" : {
-                "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
-                  }
-                },
-                "availability" : [],
-                "params" : [],
-                "swift_declaration" : {
-                  "html" : "var boxed: T"
-                }
-              },
-              "flat_title" : {
-                "en" : "var boxed: T"
-              },
-              "primary_language" : "swift",
-              "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">var <\/span>boxed<span class=\"j2-item-secondary\">: T<\/span>"
-              }
-            },
             {
               "anchor_id" : "inittype",
               "dash_type" : "Constructor",
@@ -1054,6 +1203,119 @@
               "primary_language" : "swift",
               "primary_title_html" : {
                 "html" : "init<span class=\"j2-item-secondary\">(<\/span>type<span class=\"j2-item-secondary\">: T)<\/span>"
+              }
+            }
+          ],
+          "menu_title" : {
+            "html" : {
+              "en" : "Initializers"
+            },
+            "markdown" : {
+              "en" : "Initializers"
+            }
+          },
+          "title" : {
+            "html" : {
+              "en" : "Initializers"
+            },
+            "markdown" : {
+              "en" : "Initializers"
+            }
+          }
+        },
+        {
+          "anchor_id" : "tpc-methods",
+          "items" : [
+            {
+              "anchor_id" : "docodability",
+              "dash_type" : "Method",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented<\/p>"
+                  }
+                },
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "func doCodability()"
+                }
+              },
+              "flat_title" : {
+                "en" : "func doCodability()"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>doCodability<span class=\"j2-item-secondary\">()<\/span>"
+              }
+            },
+            {
+              "anchor_id" : "dofirstmagic",
+              "dash_type" : "Method",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented<\/p>"
+                  }
+                },
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "func doFirstMagic()"
+                }
+              },
+              "flat_title" : {
+                "en" : "func doFirstMagic()"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>doFirstMagic<span class=\"j2-item-secondary\">()<\/span>"
+              }
+            },
+            {
+              "anchor_id" : "dohashable",
+              "dash_type" : "Method",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented<\/p>"
+                  }
+                },
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "func doHashable()"
+                }
+              },
+              "flat_title" : {
+                "en" : "func doHashable()"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>doHashable<span class=\"j2-item-secondary\">()<\/span>"
+              }
+            },
+            {
+              "anchor_id" : "domoremagic",
+              "dash_type" : "Method",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented<\/p>"
+                  }
+                },
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "func doMoreMagic()"
+                }
+              },
+              "flat_title" : {
+                "en" : "func doMoreMagic()"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>doMoreMagic<span class=\"j2-item-secondary\">()<\/span>"
               }
             },
             {
@@ -1082,24 +1344,47 @@
           ],
           "menu_title" : {
             "html" : {
-              "en" : ""
+              "en" : "Methods"
             },
             "markdown" : {
-              "en" : ""
+              "en" : "Methods"
             }
           },
           "title" : {
             "html" : {
-              "en" : ""
+              "en" : "Methods"
             },
             "markdown" : {
-              "en" : ""
+              "en" : "Methods"
             }
           }
         },
         {
-          "anchor_id" : "tpc-customstringconvertible",
+          "anchor_id" : "tpc-properties",
           "items" : [
+            {
+              "anchor_id" : "boxed",
+              "dash_type" : "Property",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented<\/p>"
+                  }
+                },
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "var boxed: T"
+                }
+              },
+              "flat_title" : {
+                "en" : "var boxed: T"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">var <\/span>boxed<span class=\"j2-item-secondary\">: T<\/span>"
+              }
+            },
             {
               "anchor_id" : "description",
               "dash_type" : "Property",
@@ -1126,173 +1411,18 @@
           ],
           "menu_title" : {
             "html" : {
-              "en" : "CustomStringConvertible"
+              "en" : "Properties"
             },
             "markdown" : {
-              "en" : "CustomStringConvertible"
+              "en" : "Properties"
             }
           },
           "title" : {
             "html" : {
-              "en" : "CustomStringConvertible"
+              "en" : "Properties"
             },
             "markdown" : {
-              "en" : "CustomStringConvertible"
-            }
-          }
-        },
-        {
-          "anchor_id" : "tpc-available-where-t-equatable-t-firstprotocol",
-          "items" : [
-            {
-              "anchor_id" : "dofirstmagic",
-              "dash_type" : "Method",
-              "def" : {
-                "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
-                  }
-                },
-                "availability" : [],
-                "params" : [],
-                "swift_declaration" : {
-                  "html" : "func doFirstMagic()"
-                }
-              },
-              "flat_title" : {
-                "en" : "func doFirstMagic()"
-              },
-              "primary_language" : "swift",
-              "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>doFirstMagic<span class=\"j2-item-secondary\">()<\/span>"
-              }
-            },
-            {
-              "anchor_id" : "domoremagic",
-              "dash_type" : "Method",
-              "def" : {
-                "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
-                  }
-                },
-                "availability" : [],
-                "params" : [],
-                "swift_declaration" : {
-                  "html" : "func doMoreMagic()"
-                }
-              },
-              "flat_title" : {
-                "en" : "func doMoreMagic()"
-              },
-              "primary_language" : "swift",
-              "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>doMoreMagic<span class=\"j2-item-secondary\">()<\/span>"
-              }
-            }
-          ],
-          "menu_title" : {
-            "html" : {
-              "en" : "…where <code>T<\/code>: <code>Equatable<\/code>, <code>T<\/code>: <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>"
-            },
-            "markdown" : {
-              "en" : "…where `T`: `Equatable`, `T`:\n[`FirstProtocol`](..\/..\/spmswiftmodule\/types\/firstprotocol1.md)"
-            }
-          },
-          "title" : {
-            "html" : {
-              "en" : "Available where <code>T<\/code>: <code>Equatable<\/code>, <code>T<\/code>: <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>"
-            },
-            "markdown" : {
-              "en" : "Available where `T`: `Equatable`, `T`:\n[`FirstProtocol`](..\/..\/spmswiftmodule\/types\/firstprotocol1.md)"
-            }
-          }
-        },
-        {
-          "anchor_id" : "tpc-usercustom-mark",
-          "items" : [
-            {
-              "anchor_id" : "dohashable",
-              "dash_type" : "Method",
-              "def" : {
-                "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
-                  }
-                },
-                "availability" : [],
-                "params" : [],
-                "swift_declaration" : {
-                  "html" : "func doHashable()"
-                }
-              },
-              "flat_title" : {
-                "en" : "func doHashable()"
-              },
-              "primary_language" : "swift",
-              "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>doHashable<span class=\"j2-item-secondary\">()<\/span>"
-              }
-            }
-          ],
-          "menu_title" : {
-            "html" : {
-              "en" : "User-custom mark"
-            },
-            "markdown" : {
-              "en" : "User-custom mark"
-            }
-          },
-          "title" : {
-            "html" : {
-              "en" : "User-custom mark"
-            },
-            "markdown" : {
-              "en" : "User-custom mark"
-            }
-          }
-        },
-        {
-          "anchor_id" : "tpc-available-where-t-codable",
-          "items" : [
-            {
-              "anchor_id" : "docodability",
-              "dash_type" : "Method",
-              "def" : {
-                "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
-                  }
-                },
-                "availability" : [],
-                "params" : [],
-                "swift_declaration" : {
-                  "html" : "func doCodability()"
-                }
-              },
-              "flat_title" : {
-                "en" : "func doCodability()"
-              },
-              "primary_language" : "swift",
-              "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>doCodability<span class=\"j2-item-secondary\">()<\/span>"
-              }
-            }
-          ],
-          "menu_title" : {
-            "html" : {
-              "en" : "…where <code>T<\/code>: <code>Codable<\/code>"
-            },
-            "markdown" : {
-              "en" : "…where `T`: `Codable`"
-            }
-          },
-          "title" : {
-            "html" : {
-              "en" : "Available where <code>T<\/code>: <code>Codable<\/code>"
-            },
-            "markdown" : {
-              "en" : "Available where `T`: `Codable`"
+              "en" : "Properties"
             }
           }
         }
@@ -1339,51 +1469,7 @@
       "tab_title_prefix" : true,
       "topics" : [
         {
-          "anchor_id" : "tpc-fields",
-          "items" : [
-            {
-              "anchor_id" : "text",
-              "dash_type" : "Property",
-              "def" : {
-                "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
-                  }
-                },
-                "availability" : [],
-                "params" : [],
-                "swift_declaration" : {
-                  "html" : "public var text: String"
-                }
-              },
-              "flat_title" : {
-                "en" : "var text: String"
-              },
-              "primary_language" : "swift",
-              "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">var <\/span>text<span class=\"j2-item-secondary\">: String<\/span>"
-              }
-            }
-          ],
-          "menu_title" : {
-            "html" : {
-              "en" : "Fields"
-            },
-            "markdown" : {
-              "en" : "Fields"
-            }
-          },
-          "title" : {
-            "html" : {
-              "en" : "Fields"
-            },
-            "markdown" : {
-              "en" : "Fields"
-            }
-          }
-        },
-        {
-          "anchor_id" : "tpc-nested-strúctures-",
+          "anchor_id" : "tpc-types",
           "items" : [
             {
               "anchor_id" : "nested1",
@@ -1437,18 +1523,62 @@
           ],
           "menu_title" : {
             "html" : {
-              "en" : "<em>Nested<\/em> strúctures ``"
+              "en" : "Types"
             },
             "markdown" : {
-              "en" : "*Nested* strúctures \\`\\`"
+              "en" : "Types"
             }
           },
           "title" : {
             "html" : {
-              "en" : "<em>Nested<\/em> strúctures ``"
+              "en" : "Types"
             },
             "markdown" : {
-              "en" : "*Nested* strúctures \\`\\`"
+              "en" : "Types"
+            }
+          }
+        },
+        {
+          "anchor_id" : "tpc-properties",
+          "items" : [
+            {
+              "anchor_id" : "text",
+              "dash_type" : "Property",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented<\/p>"
+                  }
+                },
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "public var text: String"
+                }
+              },
+              "flat_title" : {
+                "en" : "var text: String"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">var <\/span>text<span class=\"j2-item-secondary\">: String<\/span>"
+              }
+            }
+          ],
+          "menu_title" : {
+            "html" : {
+              "en" : "Properties"
+            },
+            "markdown" : {
+              "en" : "Properties"
+            }
+          },
+          "title" : {
+            "html" : {
+              "en" : "Properties"
+            },
+            "markdown" : {
+              "en" : "Properties"
             }
           }
         }
@@ -1503,7 +1633,7 @@
       "tab_title_prefix" : true,
       "topics" : [
         {
-          "anchor_id" : "tpc-",
+          "anchor_id" : "tpc-types",
           "items" : [
             {
               "anchor_id" : "nested2a",
@@ -1562,18 +1692,18 @@
           ],
           "menu_title" : {
             "html" : {
-              "en" : ""
+              "en" : "Types"
             },
             "markdown" : {
-              "en" : ""
+              "en" : "Types"
             }
           },
           "title" : {
             "html" : {
-              "en" : ""
+              "en" : "Types"
             },
             "markdown" : {
-              "en" : ""
+              "en" : "Types"
             }
           }
         }
@@ -1636,7 +1766,7 @@
       "tab_title_prefix" : true,
       "topics" : [
         {
-          "anchor_id" : "tpc-",
+          "anchor_id" : "tpc-methods",
           "items" : [
             {
               "anchor_id" : "module3nestedfunc",
@@ -1669,18 +1799,18 @@
           ],
           "menu_title" : {
             "html" : {
-              "en" : ""
+              "en" : "Methods"
             },
             "markdown" : {
-              "en" : ""
+              "en" : "Methods"
             }
           },
           "title" : {
             "html" : {
-              "en" : ""
+              "en" : "Methods"
             },
             "markdown" : {
-              "en" : ""
+              "en" : "Methods"
             }
           }
         }
@@ -1979,7 +2109,7 @@
       "tab_title_prefix" : true,
       "topics" : [
         {
-          "anchor_id" : "tpc-available-where-element-firstprotocol",
+          "anchor_id" : "tpc-methods",
           "items" : [
             {
               "anchor_id" : "collectemall",
@@ -2003,28 +2133,7 @@
               "primary_title_html" : {
                 "html" : "<span class=\"j2-item-secondary\">func <\/span>collectEmAll<span class=\"j2-item-secondary\">()<\/span>"
               }
-            }
-          ],
-          "menu_title" : {
-            "html" : {
-              "en" : "…where <code>Element<\/code>: <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>"
             },
-            "markdown" : {
-              "en" : "…where `Element`:\n[`FirstProtocol`](..\/..\/spmswiftmodule\/types\/firstprotocol1.md)"
-            }
-          },
-          "title" : {
-            "html" : {
-              "en" : "Available where <code>Element<\/code>: <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>"
-            },
-            "markdown" : {
-              "en" : "Available where `Element`:\n[`FirstProtocol`](..\/..\/spmswiftmodule\/types\/firstprotocol1.md)"
-            }
-          }
-        },
-        {
-          "anchor_id" : "tpc-available-where-element-spmswiftmodulenested1",
-          "items" : [
             {
               "anchor_id" : "nestemall",
               "dash_type" : "Method",
@@ -2051,18 +2160,18 @@
           ],
           "menu_title" : {
             "html" : {
-              "en" : "…where <code>Element<\/code> == <a href=\"..\/..\/spmswiftmodule\/types\/spmswiftmodule\/nested1.html?swift\"><code>SpmSwiftModule.Nested1<\/code><\/a>"
+              "en" : "Methods"
             },
             "markdown" : {
-              "en" : "…where `Element` ==\n[`SpmSwiftModule.Nested1`](..\/..\/spmswiftmodule\/types\/spmswiftmodule\/nested1.md)"
+              "en" : "Methods"
             }
           },
           "title" : {
             "html" : {
-              "en" : "Available where <code>Element<\/code> == <a href=\"..\/..\/spmswiftmodule\/types\/spmswiftmodule\/nested1.html?swift\"><code>SpmSwiftModule.Nested1<\/code><\/a>"
+              "en" : "Methods"
             },
             "markdown" : {
-              "en" : "Available where `Element` ==\n[`SpmSwiftModule.Nested1`](..\/..\/spmswiftmodule\/types\/spmswiftmodule\/nested1.md)"
+              "en" : "Methods"
             }
           }
         }
@@ -2109,7 +2218,7 @@
       "tab_title_prefix" : true,
       "topics" : [
         {
-          "anchor_id" : "tpc-",
+          "anchor_id" : "tpc-methods",
           "items" : [
             {
               "anchor_id" : "method1",
@@ -2160,18 +2269,18 @@
           ],
           "menu_title" : {
             "html" : {
-              "en" : ""
+              "en" : "Methods"
             },
             "markdown" : {
-              "en" : ""
+              "en" : "Methods"
             }
           },
           "title" : {
             "html" : {
-              "en" : ""
+              "en" : "Methods"
             },
             "markdown" : {
-              "en" : ""
+              "en" : "Methods"
             }
           }
         }

@@ -24,10 +24,17 @@ public final class Topic: Equatable, Encodable {
     }
 
     /// Initialize from a custom topic definition
-    public init(title: Localized<Markdown>, body: Localized<Markdown>?) {
+    public init(title: Localized<Markdown>, body: Localized<Markdown>? = nil) {
         self.title = RichText(title)
         self.body = body.flatMap { RichText($0) }
         self.kind = .custom
+    }
+
+    /// Initialize from a def-kind topic
+    public init(defTopic: DefTopic) {
+        self.title = RichText(defTopic.name)
+        self.body = nil
+        self.kind = .defTopic
     }
 
     /// Initialize for an ObjC Category
@@ -71,4 +78,5 @@ public enum TopicKind: String, Equatable, Encodable {
     case category
     case genericRequirements
     case custom
+    case defTopic
 }
