@@ -24,15 +24,14 @@ public final class DefKind: CustomStringConvertible {
     public var isSwift: Bool { kindKey.isSwift }
     /// Is this an ObjC definition kind?
     public var isObjC: Bool { kindKey.isObjC }
-    /// The name of the declaration type in the generated docs [translate??]
-    public let uiName: String
     /// The metakind for the definition type
     public let metaKind: ItemKind
+    /// The topic for the definition type
+    public let defTopic: DefTopic
     /// The name of the declaration type per Dash rules, revised Jan 2020
     /// (https://kapeli.com/docsets#supportedentrytypes))
-    public var dashName: String { _dashName ?? uiName }
-    public let _dashName: String?
-    /// The Swift keywords that should precede the declaration name
+    public let dashName: String
+    /// The keywords that should precede the declaration name
     public let declPrefix: String?
 
     /// The underlying sourcekitten key - keep hold of the enum to avoid string comparisons (right?)
@@ -70,41 +69,41 @@ public final class DefKind: CustomStringConvertible {
     }
 
     private init(_ kindKey: Key,
-                 _ uiName: String,
-                 dashName: String? = nil,
+                 dashName: String = "",
                  declPrefix: String? = nil,
-                 metaKind: ItemKind = .other) {
+                 metaKind: ItemKind = .other,
+                 defTopic: DefTopic = .other) {
         self.kindKey = kindKey
-        self.uiName = uiName
-        self._dashName = dashName
+        self.dashName = dashName
         self.declPrefix = declPrefix
         self.metaKind = metaKind
+        self.defTopic = defTopic
     }
 
     private convenience init(o key: ObjCDeclarationKind,
-                             _ uiName: String,
                              s swiftKey: SwiftDeclarationKind? = nil,
-                             dash: String? = nil,
+                             dash: String = "",
                              dp: String? = nil,
-                             meta metaKind: ItemKind = .other) {
+                             meta metaKind: ItemKind = .other,
+                             tpc defTopic: DefTopic = .other) {
         self.init(.objC(key, swiftKey),
-                  uiName,
                   dashName: dash,
                   declPrefix: dp,
-                  metaKind: metaKind)
+                  metaKind: metaKind,
+                  defTopic: defTopic)
     }
 
 
     private convenience init(s key: SwiftDeclarationKind,
-                             _ uiName: String,
-                             dash: String? = nil,
+                             dash: String = "",
                              dp: String? = nil,
-                             meta metaKind: ItemKind = .other) {
+                             meta metaKind: ItemKind = .other,
+                             tpc defTopic: DefTopic = .other) {
         self.init(.swift(key),
-                  uiName,
                   dashName: dash,
                   declPrefix: dp,
-                  metaKind: metaKind)
+                  metaKind: metaKind,
+                  defTopic: defTopic)
     }
 
     public var description: String {
@@ -196,11 +195,6 @@ public final class DefKind: CustomStringConvertible {
         testSwiftKey(keys: [.protocol])
     }
 
-//    /// Is it an enum?
-//    var isSwiftEnum: Bool {
-//        testSwiftKey(keys: [.enum])
-//    }
-
     /// Is this a generic type parameter (The T in `class N<T>`)
     var isGenericParameter: Bool {
         testSwiftKey(keys: [.genericTypeParam])
@@ -287,12 +281,6 @@ public final class DefKind: CustomStringConvertible {
         return map
     }()
 
-    /// Sequence access to kinds list
-    // wtf was this for??
-//    public static var all: [DefKind] { // should be `some Sequence` !
-//        allObjCKinds + allSwiftKinds
-//    }
-
     /// Tweak cockups...
     private func adjust(name: String) -> DefKind {
         if hasSwiftFunctionName {
@@ -311,24 +299,24 @@ public final class DefKind: CustomStringConvertible {
 
     private static let allObjCKinds: [DefKind] = [
         // Objective-C
-        DefKind(o: .unexposedDecl,  "Unexposed",                                    dash: "Type"),
-        DefKind(o: .category,       "Category",         s: .extension,              dash: "Extension", dp: "@interface", meta: .extension),
-        DefKind(o: .class,          "Class",            s: .class,                                     dp: "@interface", meta: .type),
-        DefKind(o: .constant,       "Constant",         s: .varGlobal,                                                   meta: .variable),
-        DefKind(o: .enum,           "Enumeration",      s: .enum, /* or struct */   dash: "Enum",      dp: "enum",       meta: .type),
-        DefKind(o: .enumcase,       "Enumeration Case", s: .enumelement,            dash: "Case",      dp: ""),
-        DefKind(o: .initializer,    "Initializer",      s: .functionConstructor),
-        DefKind(o: .methodClass,    "Class Method",     s: .functionMethodClass,    dash: "Method"),
-        DefKind(o: .methodInstance, "Instance Method",  s: .functionMethodInstance, dash: "Method"),
-        DefKind(o: .property,       "Property",         s: .varInstance), /* or varClass */
-        DefKind(o: .protocol,       "Protocol",         s: .protocol,                                  dp: "@protocol",  meta: .type),
-        DefKind(o: .typedef,        "Type Definition",  s: .typealias,              dash: "Type",      dp: "typedef",    meta: .type),
-        DefKind(o: .mark,           "Mark"),
-        DefKind(o: .function,       "Function",         s: .functionFree,                                                meta: .function),
-        DefKind(o: .struct,         "Structure",        s: .struct,                 dash: "Struct",    dp: "struct",     meta: .type),
-        DefKind(o: .field,          "Field",            s: .varInstance),
-        DefKind(o: .ivar,           "Instance Variable",                            dash: "Variable"),
-        DefKind(o: .moduleImport,   "Module"),
+        DefKind(o: .unexposedDecl,                              dash: "Type"),
+        DefKind(o: .category,       s: .extension,              dash: "Extension", dp: "@interface", meta: .extension),
+        DefKind(o: .class,          s: .class,                  dash: "Class",     dp: "@interface", meta: .type),
+        DefKind(o: .constant,       s: .varGlobal,              dash: "Constant",                    meta: .variable),
+        DefKind(o: .enum,           s: .enum, /* or struct */   dash: "Enum",      dp: "enum",       meta: .type),
+        DefKind(o: .enumcase,       s: .enumelement,            dash: "Case",      dp: "",                             tpc: .enumElement),
+        DefKind(o: .initializer,    s: .functionConstructor,    dash: "Initializer",                                   tpc: .initializer),
+        DefKind(o: .methodClass,    s: .functionMethodClass,    dash: "Method",                                        tpc: .classMethod),
+        DefKind(o: .methodInstance, s: .functionMethodInstance, dash: "Method",                                        tpc: .method),
+        DefKind(o: .property,       s: .varInstance,/* or cls */dash: "Property",                                      tpc: .property),
+        DefKind(o: .protocol,       s: .protocol,               dash: "Protocol",  dp: "@protocol",  meta: .type),
+        DefKind(o: .typedef,        s: .typealias,              dash: "Type",      dp: "typedef",    meta: .type),
+        DefKind(o: .function,       s: .functionFree,           dash: "Function",                    meta: .function),
+        DefKind(o: .struct,         s: .struct,                 dash: "Struct",    dp: "struct",     meta: .type),
+        DefKind(o: .field,          s: .varInstance,            dash: "Field",                                         tpc: .field),
+        DefKind(o: .ivar,                                       dash: "Variable",                                      tpc: .field),
+        DefKind(o: .mark),
+        DefKind(o: .moduleImport)
     ]
 
     private static let allSwiftKinds: [DefKind] = [
@@ -336,51 +324,50 @@ public final class DefKind: CustomStringConvertible {
         // Most of these are inaccessible - generated by other parts of SourceKit (or not
         // at all) or filtered out before we think about documenting them, but it's easier
         // to just list them all.
-        DefKind(s: .functionAccessorAddress,        "Addressor",              dash: "Function"),
-        DefKind(s: .functionAccessorDidset,         "didSet Observer",        dash: "Function"),
-        DefKind(s: .functionAccessorGetter,         "Getter",                 dash: "Function"),
-        DefKind(s: .functionAccessorMutableaddress, "Mutable Addressor",      dash: "Function"),
-        DefKind(s: .functionAccessorSetter,         "Setter",                 dash: "Function"),
-        DefKind(s: .functionAccessorWillset,        "willSet Observer",       dash: "Function"),
-        DefKind(s: .functionAccessorRead,           "Read Accessor",          dash: "Function"),
-        DefKind(s: .functionAccessorModify,         "Modify Accessor",        dash: "Function"),
-        DefKind(s: .functionOperatorInfix,          "Infix Operator",         dash: "Function"),
-        DefKind(s: .functionOperatorPostfix,        "Postfix Operator",       dash: "Function"),
-        DefKind(s: .functionOperatorPrefix,         "Prefix Operator",        dash: "Function"),
-        DefKind(s: .functionMethodClass,            "Class Method",           dash: "Method",      dp: "class func"),
-        DefKind(s: .varClass,                       "Class Variable",         dash: "Variable",    dp: "class var"),
-        DefKind(s: .class,                          "Class",                                       dp: "class",            meta: .type),
-        DefKind(s: .functionConstructor,            "Initializer",            dash: "Constructor"),
-        DefKind(s: .functionDestructor,             "Deinitializer",          dash: "Method"),
-        DefKind(s: .varGlobal,                      "Global Variable",        dash: "Global",      dp: "var",              meta: .variable),
-        DefKind(s: .enumcase,                       "Enumeration Case",       dash: "Case",        dp: "case"),
-        DefKind(s: .enumelement,                    "Enumeration Element",    dash: "Case",        dp: "case"),
-        DefKind(s: .enum,                           "Enumeration",            dash: "enum",        dp: "enum",             meta: .type),
-        DefKind(s: .extension,                      "Extension",                                   dp: "extension",        meta: .extension),
-        DefKind(s: .extensionClass,                 "Extension",                                   dp: "extension",        meta: .extension),
-        DefKind(s: .extensionEnum,                  "Extension",                                   dp: "extension",        meta: .extension),
-        DefKind(s: .extensionProtocol,              "Extension",                                   dp: "extension",        meta: .extension),
-        DefKind(s: .extensionStruct,                "Extension",                                   dp: "extension",        meta: .extension),
-        DefKind(s: .functionFree,                   "Global Function",        dash: "Global",      dp: "func",             meta: .function),
-        DefKind(s: .functionMethodInstance,         "Instance Method",        dash: "Method",      dp: "func"),
-        DefKind(s: .varInstance,                    "Instance Variable",      dash: "Property",    dp: "var"),
-        DefKind(s: .varLocal,                       "Local Variable",         dash: "Variable",    dp: "var"),
-        DefKind(s: .varParameter,                   "Parameter",              dash: "Parameter"),
-        DefKind(s: .protocol,                       "Protocol",                                    dp: "protocol",         meta: .type),
-        DefKind(s: .functionMethodStatic,           "Static Method",          dash: "Method",      dp: "static func"),
-        DefKind(s: .varStatic,                      "Static Variable",        dash: "Variable",    dp: "static var"),
-        DefKind(s: .struct,                         "Structure",              dash: "Struct",      dp: "struct",           meta: .type),
-        DefKind(s: .functionSubscript,              "Subscript",              dash: "Method"),
-        // XXX should we work around the static subscript cockup?
-        DefKind(s: .typealias,                      "Type Alias",             dash: "Alias",       dp: "typealias",        meta: .type),
-        DefKind(s: .genericTypeParam,               "Generic Type Parameter", dash: "Parameter"),
-        DefKind(s: .associatedtype,                 "Associated Type",        dash: "Type",        dp: "associatedtype"),
-        DefKind(s: .opaqueType,                     "Opaque Type",            dash: "Type"),
-        DefKind(s: .module,                         "Module"),
-        DefKind(s: .precedenceGroup,                "Precedence Group",       dash: "Type",        dp: "precedencegroup"),
+        DefKind(s: .functionAccessorAddress,        dash: "Function"),
+        DefKind(s: .functionAccessorDidset,         dash: "Function"),
+        DefKind(s: .functionAccessorGetter,         dash: "Function"),
+        DefKind(s: .functionAccessorMutableaddress, dash: "Function"),
+        DefKind(s: .functionAccessorSetter,         dash: "Function"),
+        DefKind(s: .functionAccessorWillset,        dash: "Function"),
+        DefKind(s: .functionAccessorRead,           dash: "Function"),
+        DefKind(s: .functionAccessorModify,         dash: "Function"),
+        DefKind(s: .functionOperatorInfix,          dash: "Function"),
+        DefKind(s: .functionOperatorPostfix,        dash: "Function"),
+        DefKind(s: .functionOperatorPrefix,         dash: "Function"),
+        DefKind(s: .functionMethodClass,            dash: "Method",      dp: "class func",                        tpc: .classMethod),
+        DefKind(s: .varClass,                       dash: "Variable",    dp: "class var",                         tpc: .classProperty),
+        DefKind(s: .class,                          dash: "Class",       dp: "class",          meta: .type,       tpc: .type),
+        DefKind(s: .functionConstructor,            dash: "Constructor",                                          tpc: .initializer),
+        DefKind(s: .functionDestructor,             dash: "Method",                                               tpc: .deinitializer),
+        DefKind(s: .varGlobal,                      dash: "Global",      dp: "var",            meta: .variable),
+        DefKind(s: .enumcase,                       dash: "Case",        dp: "case",                              tpc: .enumElement),
+        DefKind(s: .enumelement,                    dash: "Case",        dp: "case",                              tpc: .enumElement),
+        DefKind(s: .enum,                           dash: "enum",        dp: "enum",           meta: .type,       tpc: .type),
+        DefKind(s: .extension,                      dash: "Extension",   dp: "extension",      meta: .extension),
+        DefKind(s: .extensionClass,                 dash: "Extension",   dp: "extension",      meta: .extension),
+        DefKind(s: .extensionEnum,                  dash: "Extension",   dp: "extension",      meta: .extension),
+        DefKind(s: .extensionProtocol,              dash: "Extension",   dp: "extension",      meta: .extension),
+        DefKind(s: .extensionStruct,                dash: "Extension",   dp: "extension",      meta: .extension),
+        DefKind(s: .functionFree,                   dash: "Global",      dp: "func",           meta: .function),
+        DefKind(s: .functionMethodInstance,         dash: "Method",      dp: "func",                              tpc: .method),
+        DefKind(s: .varInstance,                    dash: "Property",    dp: "var",                               tpc: .property),
+        DefKind(s: .varLocal,                       dash: "Variable",    dp: "var"),
+        DefKind(s: .varParameter,                   dash: "Parameter"),
+        DefKind(s: .protocol,                       dash: "Protocol",    dp: "protocol",       meta: .type,       tpc: .type),
+        DefKind(s: .functionMethodStatic,           dash: "Method",      dp: "static func",                       tpc: .staticMethod),
+        DefKind(s: .varStatic,                      dash: "Variable",    dp: "static var",                        tpc: .staticProperty),
+        DefKind(s: .struct,                         dash: "Struct",      dp: "struct",         meta: .type,       tpc: .type),
+        DefKind(s: .functionSubscript,              dash: "Method",                                               tpc: .subscript),
+        DefKind(s: .typealias,                      dash: "Alias",       dp: "typealias",      meta: .type,       tpc: .type),
+        DefKind(s: .genericTypeParam,               dash: "Parameter"),
+        DefKind(s: .associatedtype,                 dash: "Type",        dp: "associatedtype",                    tpc: .associatedType),
+        DefKind(s: .opaqueType,                     dash: "Type"),
+        DefKind(s: .module,                         dash: "Module"),
+        DefKind(s: .precedenceGroup,                dash: "Type",        dp: "precedencegroup"),
 
         // not sure what to do with these yet
-        DefKind(.other(key: "source.lang.swift.syntaxtype.comment.mark", isSwift: true), "Mark")
+        DefKind(.other(key: "source.lang.swift.syntaxtype.comment.mark", isSwift: true))
     ]
 }
 

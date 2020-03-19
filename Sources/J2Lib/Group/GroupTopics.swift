@@ -67,3 +67,62 @@ struct TopicCreationVisitor: ItemVisitorProtocol {
         }
     }
 }
+
+// MARK: DefItem
+
+/// Helper to figure out the real topic from info, where our Gathered info is incomplete
+/// - objc .property might be a class property
+/// - objc .method might be initializer
+/// - swift .subscript might be class/static subscript
+/// - swift method might be init
+/// - swift method might be deinit
+private extension DefItem {
+    /// Topic for the item.  This applies to both languages but we figure it out from the primary
+    var defTopic: DefTopic {
+        defKind.isSwift ? improvedSwiftTopic : improvedObjCTopic
+    }
+
+    var improvedSwiftTopic: DefTopic {
+        let topic = defKind.defTopic
+        switch topic {
+        case .subscript:
+            if let decl = swiftDeclaration {
+                if decl.namePieces.contains(.other("static")) {
+                    return .staticSubscript
+                } else if decl.namePieces.contains(.other("class")) {
+                    return .classSubscript
+                }
+            }
+            return topic
+        case .method:
+            if name == "deinit" {
+                return .deinitializer
+            } else if name.re_isMatch(#"^init[?!]\("#) {
+                return .initializer
+            }
+            return topic
+        default:
+            return topic
+        }
+    }
+
+    var improvedObjCTopic: DefTopic {
+        let topic = defKind.defTopic
+        switch topic {
+        case .property:
+            if let decl = objCDeclaration {
+                if decl.declaration.text.re_isMatch(#"\(.*?class.*?\)"#) {
+                    return .classProperty
+                }
+            }
+            return topic
+        case .method:
+            if name.re_isMatch(#"[+-]\s*init"#) {
+                return .initializer
+            }
+            return topic
+        default:
+            return topic
+        }
+    }
+}

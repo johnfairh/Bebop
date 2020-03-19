@@ -7,7 +7,7 @@
 //
 
 /// A piece of a declaration along with its style metadata
-public enum DeclarationPiece {
+public enum DeclarationPiece: Equatable {
     case name(String)
     case other(String)
 

@@ -8,7 +8,7 @@
 
 /// The topics that definitions are automatically split into within a type.
 /// The order of the enum matches the order on the page.
-enum DefTopic: CaseIterable {
+public enum DefTopic: CaseIterable {
     case associatedType
     case type
     case initializer
@@ -16,11 +16,14 @@ enum DefTopic: CaseIterable {
     case enumElement
     case method
     case property
+    case field
     case `subscript`
     case staticMethod
     case staticProperty
+    case staticSubscript
     case classMethod
     case classProperty
+    case classSubscript
     case other
 
     private var nameKey: L10n.Output {
