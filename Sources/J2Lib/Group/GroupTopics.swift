@@ -78,13 +78,59 @@ private extension GroupItem {
     }
 }
 
+extension DefItem {
+    var isStartOfConditionalExtension: Bool {
+        if let topic = topic,
+            topic.kind == .genericRequirements {
+            return true
+        }
+        return false
+    }
+}
+
 private extension DefItem {
     /// Group definition members by topic in topic order, then alphabetically (except enum elements!)
     func makeLogicalTopics() {
         var topicsToItems = [DefTopic : [Item]]()
-        defChildren.forEach { childItem in
-            topicsToItems.reduceKey(childItem.defTopic, [childItem], {$0 + [childItem]})
+
+        let normalChildren = defChildren.prefix { !$0.isStartOfConditionalExtension }
+        let extChildren = defChildren.suffix(from: normalChildren.count)
+
+        normalChildren.forEach { child in
+            topicsToItems.reduceKey(child.defTopic, [child], {$0 + [child]})
         }
+
+        var allExtChildren = [String: [Item]]()
+        var currentTopic: Topic? = nil
+        var currentExtChildren = [DefItem]()
+        func finishTopic() {
+            guard let topic = currentTopic else { return }
+            allExtChildren[topic.genericRequirements] =
+                currentExtChildren.sorted { c1, c2 in
+                    if c1.defTopic == c2.defTopic {
+                        return c1.name < c2.name
+                    }
+                    return c2.defTopic < c2.defTopic
+                }
+            currentTopic = nil
+            currentExtChildren = []
+        }
+        extChildren.forEach { child in
+            if child.isStartOfConditionalExtension {
+                finishTopic()
+                currentTopic = child.topic
+                currentTopic?.useAsGenericRequirement()
+            } else {
+                child.topic = currentTopic
+            }
+            currentExtChildren.append(child)
+        }
+        finishTopic()
+        let sortedExtChildren = allExtChildren
+            .sorted { $0.key < $1.key }
+            .map { $0.value }
+            .joined()
+
         var newChildren = [Item]()
         DefTopic.allCases.forEach { defTopic in
             guard var items = topicsToItems[defTopic] else {
@@ -97,7 +143,7 @@ private extension DefItem {
             }
             newChildren += items
         }
-        children = newChildren
+        children = newChildren + sortedExtChildren
     }
 }
 

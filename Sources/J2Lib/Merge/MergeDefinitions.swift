@@ -357,7 +357,7 @@ fileprivate extension DefItem {
         }
         else if let genericReqs = swiftGenericRequirements {
             if let existingTopic = firstChild.topic {
-                existingTopic.makeGenericRequirement()
+                existingTopic.makeGenericRequirement(requirements: genericReqs)
             } else {
                 firstChild.topic = Topic(requirements: genericReqs)
             }

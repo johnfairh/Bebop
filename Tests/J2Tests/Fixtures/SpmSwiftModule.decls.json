@@ -327,6 +327,7 @@
         "swift_name" : "doHashable()",
         "topic" : {
           "kind" : "genericRequirements",
+          "saved_requirements" : "T: Hashable",
           "title" : {
             "markdown" : {
               "en" : "User-custom mark"

@@ -8,7 +8,7 @@
 
 /// The topics that definitions are automatically split into within a type.
 /// The order of the enum matches the order on the page.
-public enum DefTopic: CaseIterable {
+public enum DefTopic: Int, CaseIterable, Comparable {
     case associatedType
     case type
     case initializer
@@ -49,5 +49,9 @@ public enum DefTopic: CaseIterable {
 
     var name: Localized<String> {
         .localizedOutput(nameKey)
+    }
+
+    public static func < (lhs: DefTopic, rhs: DefTopic) -> Bool {
+        lhs.rawValue < rhs.rawValue
     }
 }

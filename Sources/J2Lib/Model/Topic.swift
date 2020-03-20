@@ -11,6 +11,7 @@ public final class Topic: Equatable, Encodable {
     public private(set) var _menuTitle: RichText?
     public private(set) var body: RichText?
     public private(set) var kind: TopicKind
+    private var savedRequirements: String?
 
     public var menuTitle: RichText {
         _menuTitle ?? title
@@ -45,17 +46,39 @@ public final class Topic: Equatable, Encodable {
     }
 
     /// Initialize from some generic constraints
-    public init(requirements: String) {
-        let markdown = requirements.re_sub(#"[\w\.]+"#, with: #"`$0`"#)
-        self.title = RichText(.localizedOutput(.availableWhere, markdown))
-        self._menuTitle = RichText(.localizedOutput(.availableWhereShort, markdown))
-        self.body = nil
+    public convenience init(requirements: String) {
+        self.init()
         self.kind = .genericRequirements
+        setFrom(requirements: requirements)
     }
 
-    /// Make a user mark to a generic requirements marker
-    public func makeGenericRequirement() {
+    private final func setFrom(requirements: String) {
+        let markdown = requirements.re_sub(#"[\w\.]+"#, with: #"`$0`"#)
+        title = RichText(.localizedOutput(.availableWhere, markdown))
+        _menuTitle = RichText(.localizedOutput(.availableWhereShort, markdown))
+        body = nil
+    }
+
+    /// Make a user mark remember a generic requirements marker
+    public func makeGenericRequirement(requirements: String) {
         kind = .genericRequirements
+        savedRequirements = requirements
+    }
+
+    /// Flip a user mark back to the generic version
+    public func useAsGenericRequirement() {
+        if let savedRequirements = savedRequirements {
+            setFrom(requirements: savedRequirements)
+            self.savedRequirements = nil
+        }
+    }
+
+    var genericRequirements: String {
+        precondition(kind == .genericRequirements)
+        if let savedRequirements = savedRequirements {
+            return savedRequirements
+        }
+        return title.markdown.first!.value.md
     }
 
     /// Format the topic's content
