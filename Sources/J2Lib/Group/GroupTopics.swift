@@ -76,7 +76,7 @@ private extension GroupItem {
     func makeLogicalTopics() {
         let topic = Topic()
         children.forEach { $0.topic = topic }
-        children.sort { $0.name < $1.name }
+        children.sort { $0.sortableName < $1.sortableName }
     }
 }
 
@@ -88,7 +88,7 @@ private extension DefItem {
         let extChildren = defChildren.suffix(from: normalChildren.count)
 
         // Bucket normal children by topic
-        var topicsToItems = [DefTopic : [Item]]()
+        var topicsToItems = [DefTopic : [DefItem]]()
         normalChildren.forEach { child in
             topicsToItems.reduceKey(child.defTopic, [child], {$0 + [child]})
         }
@@ -104,25 +104,15 @@ private extension DefItem {
             items.forEach { $0.topic = topic }
             // Frustrating special case: sorting enum elements looks weird :(
             if defTopic != .enumElement {
-                items.sort { $0.name < $1.name }
+                items.sort { $0.sortableName < $1.sortableName }
             }
             newChildren += items
         }
 
         // Combine topicized normal children with extensions
-        children = newChildren + makeLogicalConditionalExtensions(unsortedItems: extChildren)
+        children = newChildren + extChildren.asLogicalConditionalExtensions
     }
-}
 
-// MARK: Logical conditional extensions
-
-// Possibly a data modelling problem but this is a nightmare.
-//
-// We need to clean up topics left over from source-marks.
-// We need to arrange the extensions alphabetically sorted by their generic reqs
-// We need to sort the extension contents by topic and then by name
-//
-private extension DefItem {
     /// Spot the markers left by group
     var isStartOfConditionalExtension: Bool {
         if let topic = topic,
@@ -133,51 +123,35 @@ private extension DefItem {
     }
 }
 
-/// Sort-order for items in conditional extensions
-typealias SortedDefItemArray = SortedArray<DefItem>
-
-private extension SortedDefItemArray {
-    init() {
-        /// Sort by topic and then by name
-        self.init { lhs, rhs in
-            if lhs.defTopic == rhs.defTopic {
-                return lhs.name < rhs.name
+private extension ArraySlice where Element == DefItem {
+    /// Clean up topics left over from source-marks.
+    /// Arrange the extensions alphabetically sorted by their generic reqs
+    /// Sort the extension contents by topic and then by name
+    var asLogicalConditionalExtensions: [DefItem] {
+        var sortedChildren = SortedArray<(String, DefItem)> { lhs, rhs in
+            if lhs.0 != rhs.0 {
+                return lhs.0 < rhs.0 // sort by generic requirements
             }
-            return lhs.defTopic < rhs.defTopic
+            if lhs.1.defTopic != rhs.1.defTopic {
+                return lhs.1.defTopic < rhs.1.defTopic // then by topic
+            }
+            return lhs.1.sortableName < rhs.1.sortableName // then by name
         }
-    }
-}
 
-private func makeLogicalConditionalExtensions(unsortedItems: ArraySlice<DefItem>) -> [DefItem] {
-    // Summary: item lists sorted by extension name
-    var allExtChildren = SortedArray<(String, SortedDefItemArray)> { $0.0 < $1.0 }
+        var currentTopic: Topic! = nil
 
-    // Reduction state
-    var currentTopic: Topic? = nil
-    var currentExtChildren = SortedDefItemArray()
-
-    // Topic builder
-    func finishTopic() {
-        guard let topic = currentTopic else { return }
-        allExtChildren.insert((topic.genericRequirements, currentExtChildren))
-        currentTopic = nil
-        currentExtChildren.removeAll()
-    }
-
-    unsortedItems.forEach { child in
-        if child.isStartOfConditionalExtension {
-            finishTopic()
-            currentTopic = child.topic
-            currentTopic?.useAsGenericRequirement()
-        } else {
-            child.topic = currentTopic
+        forEach { child in
+            if child.isStartOfConditionalExtension {
+                currentTopic = child.topic
+                currentTopic?.useAsGenericRequirement()
+            } else {
+                child.topic = currentTopic
+            }
+            sortedChildren.insert((currentTopic.genericRequirements, child))
         }
-        currentExtChildren.insert(child)
-    }
-    finishTopic()
 
-    // Everything in order
-    return Array(allExtChildren.map { $0.1 }.joined())
+        return sortedChildren.map { $0.1 }
+    }
 }
 
 // MARK: DefItem to be refactored

@@ -20,11 +20,11 @@ public struct Markdown: CustomStringConvertible, Hashable, Encodable {
         md
     }
 
-    static func +(lhs: Self, rhs: Self) -> Self {
+    public static func +(lhs: Self, rhs: Self) -> Self {
         Markdown(lhs.md + rhs.md)
     }
 
-    static func +(lhs: Self, rhs: String) -> Self {
+    public static func +(lhs: Self, rhs: String) -> Self {
         Markdown(lhs.md + rhs)
     }
 }
@@ -41,11 +41,11 @@ public struct Html: CustomStringConvertible, Hashable, Encodable {
         html
     }
 
-    static func +(lhs: Self, rhs: Self) -> Self {
+    public static func +(lhs: Self, rhs: Self) -> Self {
         Html(lhs.html + rhs.html)
     }
 
-    static func +(lhs: Self, rhs: String) -> Self {
+    public static func +(lhs: Self, rhs: String) -> Self {
         Html(lhs.html + rhs)
     }
 }

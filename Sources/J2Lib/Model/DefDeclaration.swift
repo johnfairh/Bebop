@@ -29,6 +29,13 @@ public enum DeclarationPiece: Equatable {
         case .other(let text): return text
         }
     }
+
+    var nameText: String? {
+        switch self {
+        case .name(let text): return text
+        case .other(_): return nil
+        }
+    }
 }
 
 extension DeclarationPiece: Encodable {
@@ -51,6 +58,10 @@ extension Array where Element == DeclarationPiece {
         map { $0.text }.joined()
     }
 
+    var flattenedName: String {
+        compactMap { $0.nameText }.joined()
+    }
+
     func wrappingOther(before: String, after: String) -> String {
         map {
             switch $0 {
@@ -59,6 +70,7 @@ extension Array where Element == DeclarationPiece {
             }
         }.joined()
     }
+
 }
 
 /// The programming language, Swift or Objective-C.

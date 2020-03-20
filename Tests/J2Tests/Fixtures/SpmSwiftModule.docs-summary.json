@@ -1380,6 +1380,29 @@
               "primary_title_html" : {
                 "html" : "<span class=\"j2-item-secondary\">func <\/span>doCodability<span class=\"j2-item-secondary\">()<\/span>"
               }
+            },
+            {
+              "anchor_id" : "codablecount",
+              "dash_type" : "Property",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented<\/p>"
+                  }
+                },
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "var codableCount: Int { get }"
+                }
+              },
+              "flat_title" : {
+                "en" : "var codableCount: Int"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">var <\/span>codableCount<span class=\"j2-item-secondary\">: Int<\/span>"
+              }
             }
           ],
           "menu_title" : {

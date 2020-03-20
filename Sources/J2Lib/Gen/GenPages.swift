@@ -66,7 +66,7 @@ public struct GenPages: Configurable {
 
     func generateToc(items: [Item], language: DefLanguage) -> [GenData.TocEntry] {
         func doGenerate(items: [Item], depth: Int) -> [GenData.TocEntry] {
-            items.compactMap { item in
+            items.compactMap { item -> GenData.TocEntry? in
                 guard item.showInToc == .yes ||
                     (item.showInToc == .atTopLevel && depth < 2) else {
                     return nil
@@ -79,14 +79,29 @@ public struct GenPages: Configurable {
                     item.children.allSatisfy({ $0.title(for: language) == nil }) {
                     return nil
                 }
+                var children = doGenerate(items: item.children, depth: depth + 1)
+
+                // Jazzy holdover: if we're in source-order mode (jazzy mode) and
+                // this isn't a custom group, then we have to sort the ToC even though
+                // this pulls the order out of sync with the page.
+                if published.sourceOrderDefs && !item.isCustomGroup {
+                    children.sort { $0.title < $1.title }
+                }
+
                 return GenData.TocEntry(url: item.url,
                                         title: title,
-                                        children: doGenerate(items: item.children, depth: depth + 1))
+                                        children: children)
             }
-            // XXX for jazzy compat, sort outside of depth 0 unless custom cats???
         }
 
         return doGenerate(items: items, depth: 0)
+    }
+}
+
+extension Item {
+    var isCustomGroup: Bool {
+        guard let groupItem = self as? GroupItem else { return false }
+        return groupItem.groupKind.isCustom
     }
 }
 
@@ -230,21 +245,6 @@ final class PageVisitor: ItemVisitorProtocol {
 // MARK: Items
 
 extension DefItem {
-    func namePieces(for language: DefLanguage) -> [DeclarationPiece] {
-        switch language {
-        case .swift: return swiftDeclaration!.namePieces
-        case .objc: return objCDeclaration!.namePieces
-        }
-    }
-
-    var primaryNamePieces: [DeclarationPiece] {
-        namePieces(for: primaryLanguage)
-    }
-
-    var secondaryNamePieces: [DeclarationPiece]? {
-        secondaryLanguage.flatMap { namePieces(for: $0) }
-    }
-
     var primaryTitle: Localized<String> {
         title(for: primaryLanguage)!
     }

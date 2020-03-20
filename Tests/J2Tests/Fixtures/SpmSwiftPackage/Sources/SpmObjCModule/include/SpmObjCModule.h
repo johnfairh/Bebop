@@ -21,7 +21,14 @@ NS_SWIFT_NAME(Kitchen)
 /// Type with a different shape in Swift - parent exists
 NS_SWIFT_NAME(Kitchen.Cupboard)
 @interface JMLKitchenCupboard : NSObject
+#pragma mark - ObjC methods
 -(void)jmlKitchenCupboardMethod;
+-(void)jmlKitchenCupboardMethod2;
+// Repeat the mark, should merge
+#pragma mark - ObjC methods
+-(void)jmlKitchenCupboardMethod3;
+#pragma mark - ObjC methods part 2
+-(void)jmlKitchenCupboardMethod4;
 @end
 
 /// Type with a different shape in Swift - parent does not exist

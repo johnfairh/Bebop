@@ -546,7 +546,7 @@
       "tab_title_prefix" : true,
       "topics" : [
         {
-          "anchor_id" : "tpc-",
+          "anchor_id" : "tpc-objc-methods",
           "items" : [
             {
               "anchor_id" : "jmlkitchencupboardmethod",
@@ -577,22 +577,133 @@
               "secondary_title_html" : {
                 "html" : "<span class=\"j2-item-secondary\">func <\/span>jmlKitchenCupboardMethod<span class=\"j2-item-secondary\">()<\/span>"
               }
+            },
+            {
+              "anchor_id" : "jmlkitchencupboardmethod2",
+              "dash_type" : "Method",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented<\/p>"
+                  }
+                },
+                "availability" : [],
+                "obj_c_declaration" : {
+                  "html" : "-(void)jmlKitchenCupboardMethod2"
+                },
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "func jmlKitchenCupboardMethod2()"
+                }
+              },
+              "flat_title" : {
+                "en" : "-(void)jmlKitchenCupboardMethod2"
+              },
+              "primary_language" : "objc",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">-(void)<\/span>jmlKitchenCupboardMethod2<span class=\"j2-item-secondary\"><\/span>"
+              },
+              "secondary_language" : "swift",
+              "secondary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>jmlKitchenCupboardMethod2<span class=\"j2-item-secondary\">()<\/span>"
+              }
+            },
+            {
+              "anchor_id" : "jmlkitchencupboardmethod3",
+              "dash_type" : "Method",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented<\/p>"
+                  }
+                },
+                "availability" : [],
+                "obj_c_declaration" : {
+                  "html" : "-(void)jmlKitchenCupboardMethod3"
+                },
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "func jmlKitchenCupboardMethod3()"
+                }
+              },
+              "flat_title" : {
+                "en" : "-(void)jmlKitchenCupboardMethod3"
+              },
+              "primary_language" : "objc",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">-(void)<\/span>jmlKitchenCupboardMethod3<span class=\"j2-item-secondary\"><\/span>"
+              },
+              "secondary_language" : "swift",
+              "secondary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>jmlKitchenCupboardMethod3<span class=\"j2-item-secondary\">()<\/span>"
+              }
             }
           ],
           "menu_title" : {
             "html" : {
-              "en" : ""
+              "en" : "ObjC methods"
             },
             "markdown" : {
-              "en" : ""
+              "en" : "ObjC methods"
             }
           },
           "title" : {
             "html" : {
-              "en" : ""
+              "en" : "ObjC methods"
             },
             "markdown" : {
-              "en" : ""
+              "en" : "ObjC methods"
+            }
+          }
+        },
+        {
+          "anchor_id" : "tpc-objc-methods-part-2",
+          "items" : [
+            {
+              "anchor_id" : "jmlkitchencupboardmethod4",
+              "dash_type" : "Method",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented<\/p>"
+                  }
+                },
+                "availability" : [],
+                "obj_c_declaration" : {
+                  "html" : "-(void)jmlKitchenCupboardMethod4"
+                },
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "func jmlKitchenCupboardMethod4()"
+                }
+              },
+              "flat_title" : {
+                "en" : "-(void)jmlKitchenCupboardMethod4"
+              },
+              "primary_language" : "objc",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">-(void)<\/span>jmlKitchenCupboardMethod4<span class=\"j2-item-secondary\"><\/span>"
+              },
+              "secondary_language" : "swift",
+              "secondary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>jmlKitchenCupboardMethod4<span class=\"j2-item-secondary\">()<\/span>"
+              }
+            }
+          ],
+          "menu_title" : {
+            "html" : {
+              "en" : "ObjC methods part 2"
+            },
+            "markdown" : {
+              "en" : "ObjC methods part 2"
+            }
+          },
+          "title" : {
+            "html" : {
+              "en" : "ObjC methods part 2"
+            },
+            "markdown" : {
+              "en" : "ObjC methods part 2"
             }
           }
         }
@@ -728,10 +839,10 @@
           {
             "children" : [],
             "title" : {
-              "en" : "NormalClass"
+              "en" : "JMLBathroomCupboard"
             },
             "url" : {
-              "url_path" : "spmobjcmodule\/types\/normalclass1"
+              "url_path" : "spmobjcmodule\/types\/jmlbathroomcupboard"
             }
           },
           {
@@ -755,10 +866,10 @@
           {
             "children" : [],
             "title" : {
-              "en" : "JMLBathroomCupboard"
+              "en" : "NormalClass"
             },
             "url" : {
-              "url_path" : "spmobjcmodule\/types\/jmlbathroomcupboard"
+              "url_path" : "spmobjcmodule\/types\/normalclass1"
             }
           }
         ],
@@ -776,10 +887,10 @@
           {
             "children" : [],
             "title" : {
-              "en" : "NormalClass"
+              "en" : "Cupboard"
             },
             "url" : {
-              "url_path" : "spmobjcmodule\/types\/normalclass1"
+              "url_path" : "spmobjcmodule\/types\/jmlkitchencupboard"
             }
           },
           {
@@ -794,10 +905,10 @@
           {
             "children" : [],
             "title" : {
-              "en" : "Cupboard"
+              "en" : "NormalClass"
             },
             "url" : {
-              "url_path" : "spmobjcmodule\/types\/jmlkitchencupboard"
+              "url_path" : "spmobjcmodule\/types\/normalclass1"
             }
           }
         ],

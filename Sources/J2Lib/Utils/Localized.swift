@@ -53,18 +53,18 @@ extension Dictionary where Key == String {
 
 // MARK: Localized strings
 
-protocol NulInitializable {
+public protocol NulInitializable {
     init()
 }
 
-protocol Appendable {
+public protocol Appendable {
     static func +(lhs: Self, rhs: Self) -> Self
     static func +(lhs: Self, rhs: String) -> Self
 }
 
 extension String : NulInitializable, Appendable {}
-extension Markdown: NulInitializable, Appendable { init() { md = "" } }
-extension Html: NulInitializable, Appendable { init() { html = "" } }
+extension Markdown: NulInitializable, Appendable { public init() { md = "" } }
+extension Html: NulInitializable, Appendable { public init() { html = "" } }
 
 extension Dictionary where Key == String, Value == String {
     /// Helper to grab a piece of localized output text and do substitutions %1 .... %n
@@ -83,7 +83,7 @@ extension Dictionary where Key == String, Value: NulInitializable {
 // MARK: String-like utilities
 
 extension Dictionary: Appendable where Key == String, Value: Appendable & NulInitializable {
-    static func +(lhs: Self, rhs: Self) -> Self {
+    public static func +(lhs: Self, rhs: Self) -> Self {
         var out = Localized<Value>()
         lhs.forEach { key, val in
             out[key] = val + rhs.get(key)
@@ -91,8 +91,15 @@ extension Dictionary: Appendable where Key == String, Value: Appendable & NulIni
         return out
     }
 
-    static func +(lhs: Self, rhs: String) -> Self {
+    public static func +(lhs: Self, rhs: String) -> Self {
         lhs.mapValues { $0 + rhs }
+    }
+}
+
+extension Localized: Comparable where Key == String, Value: Comparable & NulInitializable {
+    public static func < (lhs: Self, rhs: Self) -> Bool {
+        let defaultTag = Localizations.shared.main.tag
+        return lhs.get(defaultTag) < rhs.get(defaultTag)
     }
 }
 

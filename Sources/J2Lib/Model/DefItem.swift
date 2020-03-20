@@ -172,6 +172,25 @@ public class DefItem: Item, CustomStringConvertible {
         }
     }
 
+    func namePieces(for language: DefLanguage) -> [DeclarationPiece] {
+        switch language {
+        case .swift: return swiftDeclaration!.namePieces
+        case .objc: return objCDeclaration!.namePieces
+        }
+    }
+
+    var primaryNamePieces: [DeclarationPiece] {
+        namePieces(for: primaryLanguage)
+    }
+
+    var secondaryNamePieces: [DeclarationPiece]? {
+        secondaryLanguage.flatMap { namePieces(for: $0) }
+    }
+
+    public override var sortableName: String {
+        primaryNamePieces.flattenedName
+    }
+
     public override func title(for language: DefLanguage) -> Localized<String>? {
         switch language {
         case .swift: return swiftName.flatMap { .init(unlocalized: $0) }

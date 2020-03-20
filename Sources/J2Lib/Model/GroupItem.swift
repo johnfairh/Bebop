@@ -27,6 +27,10 @@ public enum GroupKind: Hashable {
         }
     }
 
+    var isCustom: Bool {
+        kind == nil
+    }
+
     var includesModuleName: Bool {
         switch self {
         case .moduleItems(_): return true

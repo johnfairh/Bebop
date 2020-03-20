@@ -1,4 +1,6 @@
 min_acl: private
+merge_modules: yes
+topic_style: source_order
 custom_modules:
   - module: SpmSwiftModule4
   - module: SpmObjCModule

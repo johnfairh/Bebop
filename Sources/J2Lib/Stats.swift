@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SortedArray
 
 public final class Stats: Configurable {
     let outputStatsOpt = PathOpt(l: "output-stats").help("FILEPATH")
@@ -198,10 +199,10 @@ struct StatsDb {
         try JSON.encode(counters) + "\n"
     }
 
-    private var undocumented = [DefItem.UndocInfo]()
+    private var undocumented = SortedArray<DefItem.UndocInfo>()
 
     mutating func addUndocumented(item: DefItem) {
-        undocumented.append(item.asUndocInfo)
+        undocumented.insert(item.asUndocInfo)
         inc(.missingDocumentation)
     }
 
@@ -209,13 +210,12 @@ struct StatsDb {
         guard !undocumented.isEmpty else {
             return nil
         }
-        let undocs = undocumented.sorted(by: <)
-        return try JSON.encode(undocs) + "\n"
+        return try JSON.encode(Array(undocumented)) + "\n"
     }
 
     mutating func reset() {
         Counter.allCases.forEach { counters[$0.rawValue] = 0 }
-        undocumented = []
+        undocumented.removeAll()
     }
 }
 

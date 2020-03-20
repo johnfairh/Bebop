@@ -62,6 +62,11 @@ public class Item: Encodable {
         title(for: language) ?? title(for: language.otherLanguage)!
     }
 
+    /// Get a name that makes sense to sort by - omits syntax and types
+    public var sortableName: String {
+        name
+    }
+
     /// Does the item show in the table of contents?
     public enum ShowInToc {
         /// Alway show in ToC

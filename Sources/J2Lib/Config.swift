@@ -74,6 +74,8 @@ public final class Config {
         public var childItemStyle: ChildItemStyle!
         // Published by MergeFilter
         public var excludedAclList = ""
+        // Published b Group
+        public var sourceOrderDefs = false
     }
     public let published = Published()
 

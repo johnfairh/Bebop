@@ -197,8 +197,10 @@ class SwiftDeclarationBuilder {
     }
 
     /// Grab all the attributes from the associated file.
-    /// SourceKit has a wild view of what counts as an "attribute" so have to check the @
-    /// @available attributes that state multiple facts get reflected multiple times so we have to dedup.
+    ///
+    /// SourceKit has a wild view of what counts as an "attribute" so have to check the @ manually.
+    ///
+    /// @available attributes that state multiple facts get reflected multiple times so we have to dedup with `Set`.
     func parse(attributeDicts: [SourceKittenDict]) -> [String] {
         struct Attr: Hashable {
             let offset: Int

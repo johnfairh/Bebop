@@ -45,6 +45,10 @@ public struct Group: Configurable {
         config.register(self)
     }
 
+    public func checkOptions(published: Config.Published) throws {
+        published.sourceOrderDefs = topicStyle != .logical
+    }
+
     public func group(merged: [DefItem]) throws -> [Item] {
         logDebug("Group: Discovering guides")
         let guides = try groupGuides.discoverGuides()

@@ -10,6 +10,9 @@ class GenericBase<T> {
 }
 
 extension GenericBase where T: Codable {
+  var codableCount: Int {
+    return 22
+  }
   func doCodability() {}
 }
 
