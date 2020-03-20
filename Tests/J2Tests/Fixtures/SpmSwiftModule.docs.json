@@ -14,7 +14,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 49,
+    "doc_coverage" : 47,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -253,7 +253,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 49,
+    "doc_coverage" : 47,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -390,6 +390,19 @@
             "primary_language" : "j2-swift",
             "primary_title_html" : "init<span class=\"j2-item-secondary\">()<\/span>",
             "title" : "init()"
+          },
+          {
+            "anchor_id" : "inita",
+            "any_declaration" : true,
+            "dash_name" : "init(a%3A%20Int)",
+            "dash_type" : "Constructor",
+            "def" : {
+              "abstract_html" : "<p>Undocumented<\/p>",
+              "swift_declaration_html" : "public convenience init(a: Int)"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "init<span class=\"j2-item-secondary\">(<\/span>a<span class=\"j2-item-secondary\">: Int)<\/span>",
+            "title" : "init(a: Int)"
           }
         ],
         "primary_language" : "j2-swift",
@@ -459,21 +472,42 @@
         "title_html" : "Subscripts"
       },
       {
+        "anchor_id" : "tpc-static-methods",
+        "dash_name" : "Static%20Methods",
+        "items" : [
+          {
+            "anchor_id" : "staticmethod",
+            "any_declaration" : true,
+            "dash_name" : "static%20func%20staticMethod()%20-%3E%20Int",
+            "dash_type" : "Method",
+            "def" : {
+              "abstract_html" : "<p>Undocumented<\/p>",
+              "swift_declaration_html" : "public static func staticMethod() -&gt; Int"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">static func <\/span>staticMethod<span class=\"j2-item-secondary\">() -> Int<\/span>",
+            "title" : "static func staticMethod() -> Int"
+          }
+        ],
+        "primary_language" : "j2-swift",
+        "title_html" : "Static Methods"
+      },
+      {
         "anchor_id" : "tpc-static-subscripts",
         "dash_name" : "Static%20Subscripts",
         "items" : [
           {
             "anchor_id" : "subscript_1",
             "any_declaration" : true,
-            "dash_name" : "subscript(arg%3A%20String)%20-%3E%20Int",
+            "dash_name" : "static%20subscript(arg%3A%20String)%20-%3E%20Int",
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
               "swift_declaration_html" : "public static subscript(arg: String) -&gt; Int { get }"
             },
             "primary_language" : "j2-swift",
-            "primary_title_html" : "subscript<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: String) -> Int<\/span>",
-            "title" : "subscript(arg: String) -> Int"
+            "primary_title_html" : "<span class=\"j2-item-secondary\">static <\/span>subscript<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: String) -> Int<\/span>",
+            "title" : "static subscript(arg: String) -> Int"
           }
         ],
         "primary_language" : "j2-swift",
@@ -486,15 +520,15 @@
           {
             "anchor_id" : "subscript_2",
             "any_declaration" : true,
-            "dash_name" : "subscript(arg%3A%20Int)%20-%3E%20String",
+            "dash_name" : "class%20subscript(arg%3A%20Int)%20-%3E%20String",
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
               "swift_declaration_html" : "public class subscript(arg: Int) -&gt; String { get }"
             },
             "primary_language" : "j2-swift",
-            "primary_title_html" : "subscript<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: Int) -> String<\/span>",
-            "title" : "subscript(arg: Int) -> String"
+            "primary_title_html" : "<span class=\"j2-item-secondary\">class <\/span>subscript<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: Int) -> String<\/span>",
+            "title" : "class subscript(arg: Int) -> String"
           }
         ],
         "primary_language" : "j2-swift",
@@ -525,6 +559,10 @@
           {
             "anchor_id" : "tpc-subscripts",
             "title" : "Subscripts"
+          },
+          {
+            "anchor_id" : "tpc-static-methods",
+            "title" : "Static Methods"
           },
           {
             "anchor_id" : "tpc-static-subscripts",
@@ -561,7 +599,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 49,
+    "doc_coverage" : 47,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -782,7 +820,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 49,
+    "doc_coverage" : 47,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -1017,7 +1055,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 49,
+    "doc_coverage" : 47,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -1303,7 +1341,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 49,
+    "doc_coverage" : 47,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -1650,7 +1688,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 49,
+    "doc_coverage" : 47,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -1876,7 +1914,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 49,
+    "doc_coverage" : 47,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -2066,7 +2104,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 49,
+    "doc_coverage" : 47,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -2266,7 +2304,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 49,
+    "doc_coverage" : 47,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -2449,7 +2487,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 49,
+    "doc_coverage" : 47,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -2657,7 +2695,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 49,
+    "doc_coverage" : 47,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -2837,7 +2875,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 49,
+    "doc_coverage" : 47,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : true,

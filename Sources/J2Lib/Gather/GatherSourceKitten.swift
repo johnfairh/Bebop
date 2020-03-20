@@ -10,7 +10,7 @@ import SourceKittenFramework
 
 typealias SourceKittenDict = [String: Any]
 
-// Work around missing doc keys...
+// MARK: Missing Doc Keys
 
 enum SwiftDocKey2: String {
     case fullyAnnotatedDecl = "key.fully_annotated_decl"
@@ -20,7 +20,21 @@ enum SwiftDocKey2: String {
     case overrides = "key.overrides"
 }
 
-// Specific getters
+enum SwiftDeclarationKind2: String {
+    case functionSubscriptStatic = "source.lang.swift.decl.function.subscript.static"
+    case functionSubscriptClass = "source.lang.swift.decl.function.subscript.class"
+    case sourceMark = "source.lang.swift.syntaxtype.comment.mark"
+}
+
+protocol DeclarationKind {
+    var rawValue: String { get }
+}
+
+extension SwiftDeclarationKind: DeclarationKind {}
+extension SwiftDeclarationKind2: DeclarationKind {}
+extension ObjCDeclarationKind: DeclarationKind {}
+
+// MARK: Typed Dict Getters
 
 extension SourceKittenDict {
     private subscript(key: SwiftDocKey) -> Any? {
@@ -121,3 +135,46 @@ extension SourceKittenDict {
         removeValue(forKey: SwiftDocKey.substructure.rawValue) as? [SourceKittenDict] ?? []
     }
 }
+
+// MARK: Linux
+
+#if os(Linux) /* Too exhausting to chop out references to these */
+public enum ObjCDeclarationKind: String {
+    /// `category`.
+    case category = "sourcekitten.source.lang.objc.decl.category"
+    /// `class`.
+    case `class` = "sourcekitten.source.lang.objc.decl.class"
+    /// `constant`.
+    case constant = "sourcekitten.source.lang.objc.decl.constant"
+    /// `enum`.
+    case `enum` = "sourcekitten.source.lang.objc.decl.enum"
+    /// `enumcase`.
+    case enumcase = "sourcekitten.source.lang.objc.decl.enumcase"
+    /// `initializer`.
+    case initializer = "sourcekitten.source.lang.objc.decl.initializer"
+    /// `method.class`.
+    case methodClass = "sourcekitten.source.lang.objc.decl.method.class"
+    /// `method.instance`.
+    case methodInstance = "sourcekitten.source.lang.objc.decl.method.instance"
+    /// `property`.
+    case property = "sourcekitten.source.lang.objc.decl.property"
+    /// `protocol`.
+    case `protocol` = "sourcekitten.source.lang.objc.decl.protocol"
+    /// `typedef`.
+    case typedef = "sourcekitten.source.lang.objc.decl.typedef"
+    /// `function`.
+    case function = "sourcekitten.source.lang.objc.decl.function"
+    /// `mark`.
+    case mark = "sourcekitten.source.lang.objc.mark"
+    /// `struct`
+    case `struct` = "sourcekitten.source.lang.objc.decl.struct"
+    /// `field`
+    case field = "sourcekitten.source.lang.objc.decl.field"
+    /// `ivar`
+    case ivar = "sourcekitten.source.lang.objc.decl.ivar"
+    /// `ModuleImport`
+    case moduleImport = "sourcekitten.source.lang.objc.module.import"
+    /// `UnexposedDecl`
+    case unexposedDecl = "sourcekitten.source.lang.objc.decl.unexposed"
+}
+#endif

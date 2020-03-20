@@ -53,7 +53,7 @@ public final class GatherDef {
             Stats.inc(.gatherDef)
             return
         }
-        guard let kind = DefKind.from(key: kindValue, name: name ?? "") else {
+        guard let kind = DefKind.from(key: kindValue, dict: sourceKittenDict) else {
             logWarning(.localized(.wrnSktnKind, kindValue))
             Stats.inc(.gatherFailure)
             return nil
@@ -114,5 +114,40 @@ public final class GatherDef {
         self.documentation = nil
         self.localizationKey = nil
         Stats.inc(.gatherDef)
+    }
+}
+
+/// Upgraded `DefKind` constructor that works around various omissions and bugs in the
+/// input layer to give a most-correct view of the kind.  Kludgey by its very nature.
+extension DefKind {
+    static func from(key: String, dict: SourceKittenDict) -> DefKind? {
+        DefKind.from(key: key)?.adjust(dict: dict)
+    }
+
+    private func adjust(dict: SourceKittenDict) -> DefKind {
+        isSwift ? adjustSwift(dict: dict) : adjustObjC(dict: dict)
+    }
+
+    private func adjustSwift(dict: SourceKittenDict) -> DefKind {
+        if hasSwiftFunctionName, let name = dict.name {
+            if name.re_isMatch(#"^init[?!]?\("#) {
+                return DefKind.from(kind: SwiftDeclarationKind.functionConstructor)
+            }
+            if name == "deinit" {
+                return DefKind.from(kind: SwiftDeclarationKind.functionDestructor)
+            }
+        }
+        if isSwiftSubscript, let decl = dict.parsedDeclaration {
+            if decl.re_isMatch(#"\bstatic\b"#) {
+                return DefKind.from(kind: SwiftDeclarationKind2.functionSubscriptStatic)
+            } else if decl.re_isMatch(#"\bclass\b"#) {
+                return DefKind.from(kind: SwiftDeclarationKind2.functionSubscriptClass)
+            }
+        }
+        return self
+    }
+
+    private func adjustObjC(dict: SourceKittenDict) -> DefKind {
+        return self
     }
 }

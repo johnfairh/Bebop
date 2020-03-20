@@ -117,7 +117,7 @@ class SwiftDeclarationBuilder {
 
         let pieces: [DeclarationPiece]
 
-        if let name = dict[SwiftDocKey.name.rawValue] as? String,
+        if let name = dict.name,
             let kind = kind,
             let compilerDecl = compilerDecl {
             pieces = parseToPieces(declaration: compilerDecl, name: name, kind: kind)

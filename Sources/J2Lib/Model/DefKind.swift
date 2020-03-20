@@ -34,34 +34,25 @@ public final class DefKind: CustomStringConvertible {
     /// The keywords that should precede the declaration name
     public let declPrefix: String?
 
-    /// The underlying sourcekitten key - keep hold of the enum to avoid string comparisons (right?)
+    /// The underlying sourcekitten key
     private enum Key: CustomStringConvertible {
-        case swift(SwiftDeclarationKind)
-        case objC(ObjCDeclarationKind, SwiftDeclarationKind?)
-        // Only for swift 'MARK' comments rn...
-        case other(key: String, isSwift: Bool)
+        case swift(String)
+        case objC(String, String?)
 
         var isSwift: Bool {
             switch self {
             case .swift(_): return true;
             case .objC(_, _): return false;
-            case .other(_, let isSwift): return isSwift;
             }
         }
 
         var isObjC: Bool {
-            switch self {
-            case .swift(_): return false;
-            case .objC(_, _): return true;
-            case .other(_, let isSwift): return !isSwift;
-            }
+            !isSwift
         }
 
         var key: String {
             switch self {
-            case .swift(let kind): return kind.rawValue
-            case .objC(let kind, _): return kind.rawValue
-            case .other(let key, _): return key
+            case .swift(let kind), .objC(let kind, _): return kind
             }
         }
 
@@ -86,7 +77,7 @@ public final class DefKind: CustomStringConvertible {
                              dp: String? = nil,
                              meta metaKind: ItemKind = .other,
                              tpc defTopic: DefTopic = .other) {
-        self.init(.objC(key, swiftKey),
+        self.init(.objC(key.rawValue, swiftKey?.rawValue),
                   dashName: dash,
                   declPrefix: dp,
                   metaKind: metaKind,
@@ -99,7 +90,19 @@ public final class DefKind: CustomStringConvertible {
                              dp: String? = nil,
                              meta metaKind: ItemKind = .other,
                              tpc defTopic: DefTopic = .other) {
-        self.init(.swift(key),
+        self.init(.swift(key.rawValue),
+                  dashName: dash,
+                  declPrefix: dp,
+                  metaKind: metaKind,
+                  defTopic: defTopic)
+    }
+
+    private convenience init(s key: SwiftDeclarationKind2,
+                             dash: String = "",
+                             dp: String? = nil,
+                             meta metaKind: ItemKind = .other,
+                             tpc defTopic: DefTopic = .other) {
+        self.init(.swift(key.rawValue),
                   dashName: dash,
                   declPrefix: dp,
                   metaKind: metaKind,
@@ -115,23 +118,21 @@ public final class DefKind: CustomStringConvertible {
         guard case let .objC(_, swiftKey) = kindKey else {
             return nil
         }
-        return swiftKey.flatMap { DefKind.from(key: $0.rawValue) }
+        return swiftKey.flatMap { DefKind.from(key: $0) }
     }
 
     // MARK: Predicates
 
     private func testSwiftKey(keys: [SwiftDeclarationKind]) -> Bool {
-        guard case let .swift(swiftKey) = kindKey else {
-            return false
-        }
-        return keys.contains(swiftKey)
+        testKey(keys: keys)
     }
 
     private func testObjCKey(keys: [ObjCDeclarationKind]) -> Bool {
-        guard case let .objC(objcKey, _) = kindKey else {
-            return false
-        }
-        return keys.contains(objcKey)
+        testKey(keys: keys)
+    }
+
+    private func testKey(keys: [DeclarationKind]) -> Bool {
+        return keys.lazy.map { $0.rawValue }.contains(key)
     }
 
     /// Is this def kind supposed to make it into docs?
@@ -177,7 +178,7 @@ public final class DefKind: CustomStringConvertible {
             .functionMethodInstance,
             .functionSubscript,
             .functionConstructor
-        ])
+        ]) || isSwiftSubscript
     }
 
     /// EnumCase is the useless wrapper, we usually want the enumelement[s] within
@@ -195,6 +196,15 @@ public final class DefKind: CustomStringConvertible {
         testSwiftKey(keys: [.protocol])
     }
 
+    /// Is it a Swift subscript?
+    var isSwiftSubscript: Bool {
+        testKey(keys: [
+            SwiftDeclarationKind.functionSubscript,
+            SwiftDeclarationKind2.functionSubscriptClass,
+            SwiftDeclarationKind2.functionSubscriptStatic
+        ])
+    }
+
     /// Is this a generic type parameter (The T in `class N<T>`)
     var isGenericParameter: Bool {
         testSwiftKey(keys: [.genericTypeParam])
@@ -202,13 +212,8 @@ public final class DefKind: CustomStringConvertible {
 
     /// Is this a mark -- an objC `#pragma mark` or a Swift // MARK: - like comment
     var isMark: Bool {
-        if case .other(_) = kindKey {
-            return true
-        }
-        if case let .objC(k, _) = kindKey {
-            return k == .mark
-        }
-        return false
+        testKey(keys: [SwiftDeclarationKind2.sourceMark,
+                       ObjCDeclarationKind.mark])
     }
 
     /// Is this an ObjC decl with a 'body' - like struct or @interface
@@ -268,9 +273,8 @@ public final class DefKind: CustomStringConvertible {
         return kindMap[key]
     }
 
-    /// Find the `Kind` object from a sourcekitten dictionary key and declaration name, or `nil` if it's not supported
-    public static func from(key: String, name: String) -> DefKind? {
-        kindMap[key].flatMap { $0.adjust(name: name) }
+    public static func from<T>(kind: T) -> DefKind where T: RawRepresentable, T.RawValue == String {
+        return kindMap[kind.rawValue]!
     }
 
     /// Cache string -> Kind
@@ -280,19 +284,6 @@ public final class DefKind: CustomStringConvertible {
         allObjCKinds.forEach { map[$0.key] = $0 }
         return map
     }()
-
-    /// Tweak cockups...
-    private func adjust(name: String) -> DefKind {
-        if hasSwiftFunctionName {
-            if name.re_isMatch(#"^init[?!]?\("#) {
-                return DefKind.from(key: SwiftDeclarationKind.functionConstructor.rawValue)!
-            }
-            if name == "deinit" {
-                return DefKind.from(key: SwiftDeclarationKind.functionDestructor.rawValue)!
-            }
-        }
-        return self
-    }
 
     /// Master list of kinds.  I've superstitiously kept the jazzy ordering, which might affect the default
     /// ordering somewhere - tbd.
@@ -359,15 +350,15 @@ public final class DefKind: CustomStringConvertible {
         DefKind(s: .varStatic,                      dash: "Variable",    dp: "static var",                        tpc: .staticProperty),
         DefKind(s: .struct,                         dash: "Struct",      dp: "struct",         meta: .type,       tpc: .type),
         DefKind(s: .functionSubscript,              dash: "Method",                                               tpc: .subscript),
+        DefKind(s: .functionSubscriptClass,         dash: "Method",      dp: "class",                             tpc: .classSubscript),
+        DefKind(s: .functionSubscriptStatic,        dash: "Method",      dp: "static",                            tpc: .staticSubscript),
         DefKind(s: .typealias,                      dash: "Alias",       dp: "typealias",      meta: .type,       tpc: .type),
         DefKind(s: .genericTypeParam,               dash: "Parameter"),
         DefKind(s: .associatedtype,                 dash: "Type",        dp: "associatedtype",                    tpc: .associatedType),
         DefKind(s: .opaqueType,                     dash: "Type"),
         DefKind(s: .module,                         dash: "Module"),
         DefKind(s: .precedenceGroup,                dash: "Type",        dp: "precedencegroup"),
-
-        // not sure what to do with these yet
-        DefKind(.other(key: "source.lang.swift.syntaxtype.comment.mark", isSwift: true))
+        DefKind(s: .sourceMark)
     ]
 }
 
@@ -380,44 +371,3 @@ extension DefKind: Hashable {
         hasher.combine(key)
     }
 }
-
-#if os(Linux) /* Too exhausting to chop out references to these */
-public enum ObjCDeclarationKind: String {
-    /// `category`.
-    case category = "sourcekitten.source.lang.objc.decl.category"
-    /// `class`.
-    case `class` = "sourcekitten.source.lang.objc.decl.class"
-    /// `constant`.
-    case constant = "sourcekitten.source.lang.objc.decl.constant"
-    /// `enum`.
-    case `enum` = "sourcekitten.source.lang.objc.decl.enum"
-    /// `enumcase`.
-    case enumcase = "sourcekitten.source.lang.objc.decl.enumcase"
-    /// `initializer`.
-    case initializer = "sourcekitten.source.lang.objc.decl.initializer"
-    /// `method.class`.
-    case methodClass = "sourcekitten.source.lang.objc.decl.method.class"
-    /// `method.instance`.
-    case methodInstance = "sourcekitten.source.lang.objc.decl.method.instance"
-    /// `property`.
-    case property = "sourcekitten.source.lang.objc.decl.property"
-    /// `protocol`.
-    case `protocol` = "sourcekitten.source.lang.objc.decl.protocol"
-    /// `typedef`.
-    case typedef = "sourcekitten.source.lang.objc.decl.typedef"
-    /// `function`.
-    case function = "sourcekitten.source.lang.objc.decl.function"
-    /// `mark`.
-    case mark = "sourcekitten.source.lang.objc.mark"
-    /// `struct`
-    case `struct` = "sourcekitten.source.lang.objc.decl.struct"
-    /// `field`
-    case field = "sourcekitten.source.lang.objc.decl.field"
-    /// `ivar`
-    case ivar = "sourcekitten.source.lang.objc.decl.ivar"
-    /// `ModuleImport`
-    case moduleImport = "sourcekitten.source.lang.objc.module.import"
-    /// `UnexposedDecl`
-    case unexposedDecl = "sourcekitten.source.lang.objc.decl.unexposed"
-}
-#endif

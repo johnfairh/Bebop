@@ -53,10 +53,17 @@ public func deprecatedFunction(callback: (_ report: String) -> Int) -> String {
 /// A base class
 public class ABaseClass {
   public init() {}
+
+  public convenience init(a: Int) { self.init() }
+
   deinit {}
   /// Base class docs for `method(param:)`
   public func method(param: Int) -> String {
     return ""
+  }
+
+  public static func staticMethod() -> Int {
+    return 2
   }
 
   public subscript(arg: String) -> Int {

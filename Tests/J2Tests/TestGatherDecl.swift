@@ -264,14 +264,20 @@ class TestGatherDecl: XCTestCase {
         let pieces = builder.parseToPieces(declaration: "public subscript(newValue: Int) -> String { get }", name: "subscript", kind: subscriptKind)
         XCTAssertEqual("#subscript#(#newValue#: Int) -> String", pieces.flat)
 
-        let initKind = DefKind.from(key: "source.lang.swift.decl.function.method.instance", name: "init?()")!
+        let staticSubscriptKind = DefKind.from(key: "source.lang.swift.decl.function.subscript",
+                                               dict: [SwiftDocKey.name.rawValue: "subscript",
+                                                      SwiftDocKey.parsedDeclaration.rawValue: "static subscript(a: Int)"])!
+        let pieces1 = builder.parseToPieces(declaration: "public static subscript(newValue: Int) -> String { get }", name: "subscript", kind: staticSubscriptKind)
+        XCTAssertEqual("static #subscript#(#newValue#: Int) -> String", pieces1.flat)
+
+        let initKind = DefKind.from(key: "source.lang.swift.decl.function.method.instance", dict: [SwiftDocKey.name.rawValue:"init?()"])!
         let pieces2 = builder.parseToPieces(declaration: "init()", name: "init()", kind: initKind)
         XCTAssertEqual("#init#()", pieces2.flat)
 
         let pieces3 = builder.parseToPieces(declaration: "init(a b: Int)", name: "init(b:)", kind: initKind)
         XCTAssertEqual("#init#(#a#: Int)", pieces3.flat)
 
-        let deinitKind = DefKind.from(key: "source.lang.swift.decl.function.method.instance", name: "deinit")!
+        let deinitKind = DefKind.from(key: "source.lang.swift.decl.function.method.instance", dict: [SwiftDocKey.name.rawValue:"deinit"])!
         let pieces4 = builder.parseToPieces(declaration: "deinit", name: "deinit", kind: deinitKind)
         XCTAssertEqual("#deinit#", pieces4.flat)
     }

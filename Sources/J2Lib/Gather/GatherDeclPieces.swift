@@ -74,7 +74,8 @@ extension SwiftDeclarationBuilder {
             return [.other(cleanDecl)]
         }
         // Pick out and sort the tokens we want
-        var visitor = FunctionPiecesVisitor(prefix: kind.declPrefix)
+        var visitor = FunctionPiecesVisitor(prefix: kind.declPrefix,
+                                            includeFirstToken: kind.isSwiftSubscript)
         syntax.walk(&visitor)
         return visitor.pieces
     }
@@ -91,10 +92,10 @@ private class FunctionPiecesVisitor: SyntaxVisitor {
     /// Generated output
     internal private(set) var pieces: [DeclarationPiece]
 
-    init(prefix: String?) {
+    init(prefix: String?, includeFirstToken: Bool) {
         if let prefix = prefix {
             pieces = [.other("\(prefix) ")]
-            ignoreNextToken = true
+            ignoreNextToken = !includeFirstToken
         } else {
             pieces = []
             ignoreNextToken = false // subscript/init where name==keyword, don't swallow

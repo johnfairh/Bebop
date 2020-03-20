@@ -1567,6 +1567,52 @@
         "usr" : "s:14SpmSwiftModule10ABaseClassCACycfc"
       },
       {
+        "acl" : "public",
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented"
+            }
+          },
+          "parameters" : [],
+          "source" : "undocumented"
+        },
+        "kind" : "source.lang.swift.decl.function.constructor",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+          "first_line" : 57,
+          "last_line" : 57,
+          "module_name" : "SpmSwiftModule",
+          "pass_index" : 0
+        },
+        "name" : "init(a:)",
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : {
+            "text" : "public convenience init(a: Int)"
+          },
+          "inherited_types" : [],
+          "is_override" : false,
+          "name_pieces" : [
+            {
+              "name" : "init"
+            },
+            {
+              "other" : "("
+            },
+            {
+              "name" : "a"
+            },
+            {
+              "other" : ": Int)"
+            }
+          ]
+        },
+        "swift_name" : "init(a:)",
+        "usr" : "s:14SpmSwiftModule10ABaseClassC1aACSi_tcfc"
+      },
+      {
         "acl" : "internal",
         "children" : [],
         "documentation" : {
@@ -1581,8 +1627,8 @@
         "kind" : "source.lang.swift.decl.function.destructor",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "first_line" : 56,
-          "last_line" : 56,
+          "first_line" : 59,
+          "last_line" : 59,
           "module_name" : "SpmSwiftModule",
           "pass_index" : 0
         },
@@ -1618,8 +1664,8 @@
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "first_line" : 58,
-          "last_line" : 60,
+          "first_line" : 61,
+          "last_line" : 63,
           "module_name" : "SpmSwiftModule",
           "pass_index" : 0
         },
@@ -1664,11 +1710,54 @@
           "parameters" : [],
           "source" : "undocumented"
         },
+        "kind" : "source.lang.swift.decl.function.method.static",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+          "first_line" : 65,
+          "last_line" : 67,
+          "module_name" : "SpmSwiftModule",
+          "pass_index" : 0
+        },
+        "name" : "staticMethod()",
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : {
+            "text" : "public static func staticMethod() -> Int"
+          },
+          "inherited_types" : [],
+          "is_override" : false,
+          "name_pieces" : [
+            {
+              "other" : "static func "
+            },
+            {
+              "name" : "staticMethod"
+            },
+            {
+              "other" : "() -> Int"
+            }
+          ]
+        },
+        "swift_name" : "staticMethod()",
+        "usr" : "s:14SpmSwiftModule10ABaseClassC12staticMethodSiyFZ"
+      },
+      {
+        "acl" : "public",
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented"
+            }
+          },
+          "parameters" : [],
+          "source" : "undocumented"
+        },
         "kind" : "source.lang.swift.decl.function.subscript",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "first_line" : 62,
-          "last_line" : 68,
+          "first_line" : 69,
+          "last_line" : 75,
           "module_name" : "SpmSwiftModule",
           "pass_index" : 0
         },
@@ -1710,11 +1799,11 @@
           "parameters" : [],
           "source" : "undocumented"
         },
-        "kind" : "source.lang.swift.decl.function.subscript",
+        "kind" : "source.lang.swift.decl.function.subscript.static",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "first_line" : 70,
-          "last_line" : 72,
+          "first_line" : 77,
+          "last_line" : 79,
           "module_name" : "SpmSwiftModule",
           "pass_index" : 0
         },
@@ -1727,6 +1816,9 @@
           "inherited_types" : [],
           "is_override" : false,
           "name_pieces" : [
+            {
+              "other" : "static "
+            },
             {
               "name" : "subscript"
             },
@@ -1756,11 +1848,11 @@
           "parameters" : [],
           "source" : "undocumented"
         },
-        "kind" : "source.lang.swift.decl.function.subscript",
+        "kind" : "source.lang.swift.decl.function.subscript.class",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "first_line" : 74,
-          "last_line" : 76,
+          "first_line" : 81,
+          "last_line" : 83,
           "module_name" : "SpmSwiftModule",
           "pass_index" : 0
         },
@@ -1773,6 +1865,9 @@
           "inherited_types" : [],
           "is_override" : false,
           "name_pieces" : [
+            {
+              "other" : "class "
+            },
             {
               "name" : "subscript"
             },
@@ -1804,7 +1899,7 @@
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
       "first_line" : 54,
-      "last_line" : 77,
+      "last_line" : 84,
       "module_name" : "SpmSwiftModule",
       "pass_index" : 0
     },
@@ -1846,8 +1941,8 @@
         "kind" : "source.lang.swift.decl.var.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "first_line" : 81,
-          "last_line" : 81,
+          "first_line" : 88,
+          "last_line" : 88,
           "module_name" : "SpmSwiftModule",
           "pass_index" : 0
         },
@@ -1889,8 +1984,8 @@
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "first_line" : 84,
-          "last_line" : 86,
+          "first_line" : 91,
+          "last_line" : 93,
           "module_name" : "SpmSwiftModule",
           "pass_index" : 0
         },
@@ -1938,8 +2033,8 @@
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "first_line" : 88,
-          "last_line" : 90,
+          "first_line" : 95,
+          "last_line" : 97,
           "module_name" : "SpmSwiftModule",
           "pass_index" : 0
         },
@@ -1989,8 +2084,8 @@
     "kind" : "source.lang.swift.decl.class",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-      "first_line" : 80,
-      "last_line" : 91,
+      "first_line" : 87,
+      "last_line" : 98,
       "module_name" : "SpmSwiftModule",
       "pass_index" : 0
     },
