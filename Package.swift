@@ -22,7 +22,9 @@ let package = Package(
     .package(url: "https://github.com/apple/swift-syntax.git",
              .exact("0.50100.0")),
     .package(url: "https://github.com/johnfairh/Maaku.git",
-             from: "10.9.4")
+             from: "10.9.4"),
+    .package(url: "https://github.com/ole/SortedArray.git",
+             from: "0.7.0")
   ],
   targets: [
     .target(
@@ -33,7 +35,8 @@ let package = Package(
         "Mustache",
         "SWXMLHash",
         "SwiftSyntax",
-        "Maaku"
+        "Maaku",
+        "SortedArray"
       ]),
     .target(
       name: "J2CLI",

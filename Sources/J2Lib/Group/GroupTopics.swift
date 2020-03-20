@@ -6,6 +6,8 @@
 //  Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
 //
 
+import SortedArray
+
 /// How to arrange child items on each page
 public enum TopicStyle: String, CaseIterable {
     /// In a group, alphabetical.  In a def, a topic per kind (method, property, etc.) and alphabetical within,
@@ -88,6 +90,18 @@ extension DefItem {
     }
 }
 
+typealias SortedDefItemArray = SortedArray<DefItem>
+extension SortedDefItemArray {
+    init() {
+        self.init { lhs, rhs in
+            if lhs.defTopic == rhs.defTopic {
+                return lhs.name < rhs.name
+            }
+            return lhs.defTopic < rhs.defTopic
+        }
+    }
+}
+
 private extension DefItem {
     /// Group definition members by topic in topic order, then alphabetically (except enum elements!)
     func makeLogicalTopics() {
@@ -100,20 +114,14 @@ private extension DefItem {
             topicsToItems.reduceKey(child.defTopic, [child], {$0 + [child]})
         }
 
-        var allExtChildren = [String: [Item]]()
+        var allExtChildren = SortedArray<(String, SortedDefItemArray)> { $0.0 < $1.0 }
         var currentTopic: Topic? = nil
-        var currentExtChildren = [DefItem]()
+        var currentExtChildren = SortedDefItemArray()
         func finishTopic() {
             guard let topic = currentTopic else { return }
-            allExtChildren[topic.genericRequirements] =
-                currentExtChildren.sorted { c1, c2 in
-                    if c1.defTopic == c2.defTopic {
-                        return c1.name < c2.name
-                    }
-                    return c2.defTopic < c2.defTopic
-                }
+            allExtChildren.insert((topic.genericRequirements, currentExtChildren))
             currentTopic = nil
-            currentExtChildren = []
+            currentExtChildren.removeAll()
         }
         extChildren.forEach { child in
             if child.isStartOfConditionalExtension {
@@ -123,12 +131,11 @@ private extension DefItem {
             } else {
                 child.topic = currentTopic
             }
-            currentExtChildren.append(child)
+            currentExtChildren.insert(child)
         }
         finishTopic()
         let sortedExtChildren = allExtChildren
-            .sorted { $0.key < $1.key }
-            .map { $0.value }
+            .map { $0.1 }
             .joined()
 
         var newChildren = [Item]()
@@ -143,7 +150,7 @@ private extension DefItem {
             }
             newChildren += items
         }
-        children = newChildren + sortedExtChildren
+        children = newChildren + Array(sortedExtChildren)
     }
 }
 
