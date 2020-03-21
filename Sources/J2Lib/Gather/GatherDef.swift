@@ -121,33 +121,45 @@ public final class GatherDef {
 /// input layer to give a most-correct view of the kind.  Kludgey by its very nature.
 extension DefKind {
     static func from(key: String, dict: SourceKittenDict) -> DefKind? {
-        DefKind.from(key: key)?.adjust(dict: dict)
+        DefKind.from(key: key)?.adjusted(by: dict)
     }
 
-    private func adjust(dict: SourceKittenDict) -> DefKind {
-        isSwift ? adjustSwift(dict: dict) : adjustObjC(dict: dict)
+    private func adjusted(by dict: SourceKittenDict) -> DefKind {
+        guard let newKind = isSwift ? adjustedSwift(dict: dict) : adjustedObjC(dict: dict) else {
+            return self
+        }
+        return DefKind.from(kind: newKind)
     }
 
-    private func adjustSwift(dict: SourceKittenDict) -> DefKind {
+    private func adjustedSwift(dict: SourceKittenDict) -> DeclarationKind? {
         if hasSwiftFunctionName, let name = dict.name {
             if name.re_isMatch(#"^init[?!]?\("#) {
-                return DefKind.from(kind: SwiftDeclarationKind.functionConstructor)
+                return SwiftDeclarationKind.functionConstructor
             }
             if name == "deinit" {
-                return DefKind.from(kind: SwiftDeclarationKind.functionDestructor)
+                return SwiftDeclarationKind.functionDestructor
+            }
+            if isSwiftSubscript, let decl = dict.parsedDeclaration {
+                if decl.re_isMatch(#"\bstatic\b"#) {
+                    return SwiftDeclarationKind2.functionSubscriptStatic
+                } else if decl.re_isMatch(#"\bclass\b"#) {
+                    return SwiftDeclarationKind2.functionSubscriptClass
+                }
             }
         }
-        if isSwiftSubscript, let decl = dict.parsedDeclaration {
-            if decl.re_isMatch(#"\bstatic\b"#) {
-                return DefKind.from(kind: SwiftDeclarationKind2.functionSubscriptStatic)
-            } else if decl.re_isMatch(#"\bclass\b"#) {
-                return DefKind.from(kind: SwiftDeclarationKind2.functionSubscriptClass)
-            }
-        }
-        return self
+        return nil
     }
 
-    private func adjustObjC(dict: SourceKittenDict) -> DefKind {
-        return self
+    private func adjustedObjC(dict: SourceKittenDict) -> DeclarationKind? {
+        if let name = dict.name,
+            isObjCMethod,
+            name.re_isMatch(#"[+-]\s*init"#) {
+            return ObjCDeclarationKind.initializer
+        } else if isObjCProperty,
+            let decl = dict.parsedDeclaration,
+            decl.re_isMatch(#"@property\s+\(.*?class.*?\)"#) {
+            return ObjCDeclarationKind2.propertyClass
+        }
+        return nil
     }
 }

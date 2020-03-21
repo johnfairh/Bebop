@@ -84,6 +84,18 @@ public final class DefKind: CustomStringConvertible {
                   defTopic: defTopic)
     }
 
+    private convenience init(o key: ObjCDeclarationKind2,
+                             s swiftKey: SwiftDeclarationKind? = nil,
+                             dash: String = "",
+                             dp: String? = nil,
+                             meta metaKind: ItemKind = .other,
+                             tpc defTopic: DefTopic = .other) {
+        self.init(.objC(key.rawValue, swiftKey?.rawValue),
+                  dashName: dash,
+                  declPrefix: dp,
+                  metaKind: metaKind,
+                  defTopic: defTopic)
+    }
 
     private convenience init(s key: SwiftDeclarationKind,
                              dash: String = "",
@@ -176,7 +188,6 @@ public final class DefKind: CustomStringConvertible {
             .functionMethodClass,
             .functionMethodStatic,
             .functionMethodInstance,
-            .functionSubscript,
             .functionConstructor
         ]) || isSwiftSubscript
     }
@@ -234,7 +245,10 @@ public final class DefKind: CustomStringConvertible {
 
     /// Is this a @property
     var isObjCProperty: Bool {
-        testObjCKey(keys: [.property])
+        testKey(keys: [
+            ObjCDeclarationKind.property,
+            ObjCDeclarationKind2.propertyClass
+        ])
     }
 
     /// Is this a thing with method syntax
@@ -255,10 +269,9 @@ public final class DefKind: CustomStringConvertible {
     var isObjCVariable: Bool {
         testObjCKey(keys: [
             .constant,
-            .property,
             .field,
             .ivar
-        ])
+        ]) || isObjCProperty
     }
 
     /// Is it an ObjC category
@@ -270,11 +283,12 @@ public final class DefKind: CustomStringConvertible {
 
     /// Find the `Kind` object from a sourcekitten dictionary key, or `nil` if it's not supported
     public static func from(key: String) -> DefKind? {
-        return kindMap[key]
+        kindMap[key]
     }
 
-    public static func from<T>(kind: T) -> DefKind where T: RawRepresentable, T.RawValue == String {
-        return kindMap[kind.rawValue]!
+    /// Find the `DefKind` from an element of one of the kind enums
+    static func from(kind: DeclarationKind) -> DefKind {
+        kindMap[kind.rawValue]!
     }
 
     /// Cache string -> Kind
@@ -299,7 +313,8 @@ public final class DefKind: CustomStringConvertible {
         DefKind(o: .initializer,    s: .functionConstructor,    dash: "Initializer",                                   tpc: .initializer),
         DefKind(o: .methodClass,    s: .functionMethodClass,    dash: "Method",                                        tpc: .classMethod),
         DefKind(o: .methodInstance, s: .functionMethodInstance, dash: "Method",                                        tpc: .method),
-        DefKind(o: .property,       s: .varInstance,/* or cls */dash: "Property",                                      tpc: .property),
+        DefKind(o: .property,       s: .varInstance,            dash: "Property",                                      tpc: .property),
+        DefKind(o: .propertyClass,  s: .varClass,               dash: "Property",                                      tpc: .classProperty),
         DefKind(o: .protocol,       s: .protocol,               dash: "Protocol",  dp: "@protocol",  meta: .type),
         DefKind(o: .typedef,        s: .typealias,              dash: "Type",      dp: "typedef",    meta: .type),
         DefKind(o: .function,       s: .functionFree,           dash: "Function",                    meta: .function),
@@ -327,7 +342,7 @@ public final class DefKind: CustomStringConvertible {
         DefKind(s: .functionOperatorPostfix,        dash: "Function"),
         DefKind(s: .functionOperatorPrefix,         dash: "Function"),
         DefKind(s: .functionMethodClass,            dash: "Method",      dp: "class func",                        tpc: .classMethod),
-        DefKind(s: .varClass,                       dash: "Variable",    dp: "class var",                         tpc: .classProperty),
+        DefKind(s: .varClass,                       dash: "Property",    dp: "class var",                         tpc: .classProperty),
         DefKind(s: .class,                          dash: "Class",       dp: "class",          meta: .type,       tpc: .type),
         DefKind(s: .functionConstructor,            dash: "Constructor",                                          tpc: .initializer),
         DefKind(s: .functionDestructor,             dash: "Method",                                               tpc: .deinitializer),

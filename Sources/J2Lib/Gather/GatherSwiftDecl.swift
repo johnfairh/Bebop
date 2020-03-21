@@ -246,15 +246,7 @@ final class ObjCSwiftDeclarationBuilder : SwiftDeclarationBuilder {
         if let decl = swiftDecl {
             // Enums are imported as structs without NS_ENUM magic...
             if decl.hasPrefix("struct") {
-                swiftKind = DefKind.from(key: SwiftDeclarationKind.struct.rawValue)!
-            }
-            // Properties can map to class vars...
-            else if decl.contains("class var") {
-                swiftKind = DefKind.from(key: SwiftDeclarationKind.varClass.rawValue)!
-            }
-            // ObjC initializer doesn't seem to work
-            else if kind.isObjCMethod && decl.re_isMatch(#"^init[!?]?\("#) {
-                swiftKind = DefKind.from(key: SwiftDeclarationKind.functionConstructor.rawValue)
+                swiftKind = DefKind.from(kind: SwiftDeclarationKind.struct)
             }
         }
         super.init(dict: swiftDict, nameComponents: [], file: nil, kind: swiftKind, availabilityRules: availability)

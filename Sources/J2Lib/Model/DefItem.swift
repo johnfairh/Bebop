@@ -18,6 +18,8 @@ public class DefItem: Item, CustomStringConvertible {
     public let location: DefLocation
     /// Kind of the definition
     public let defKind: DefKind
+    /// Topic for the item.  This applies to both languages but we figure it out from the primary
+    var defTopic: DefTopic { defKind.defTopic }
     /// USR
     public let usr: USR
     /// ACL

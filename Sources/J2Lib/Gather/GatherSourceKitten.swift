@@ -10,7 +10,7 @@ import SourceKittenFramework
 
 typealias SourceKittenDict = [String: Any]
 
-// MARK: Missing Doc Keys
+// MARK: Missing Doc Keys and Kinds
 
 enum SwiftDocKey2: String {
     case fullyAnnotatedDecl = "key.fully_annotated_decl"
@@ -26,6 +26,11 @@ enum SwiftDeclarationKind2: String {
     case sourceMark = "source.lang.swift.syntaxtype.comment.mark"
 }
 
+enum ObjCDeclarationKind2: String {
+    case propertyClass = "sourcekitten.source.lang.objc.decl.property.class"
+}
+
+/// Marker protocol for all enums that define known keys
 protocol DeclarationKind {
     var rawValue: String { get }
 }
@@ -33,6 +38,7 @@ protocol DeclarationKind {
 extension SwiftDeclarationKind: DeclarationKind {}
 extension SwiftDeclarationKind2: DeclarationKind {}
 extension ObjCDeclarationKind: DeclarationKind {}
+extension ObjCDeclarationKind2: DeclarationKind {}
 
 // MARK: Typed Dict Getters
 

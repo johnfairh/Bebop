@@ -130,6 +130,7 @@ class ObjCDeclarationBuilder {
         //
         // DefKind(o: .constant,
         // DefKind(o: .property,
+        // DefKind(o: .propertyClass,
         // DefKind(o: .field,
         // DefKind(o: .ivar,
         if kind.isObjCVariable {

@@ -155,7 +155,7 @@ class TestGatherObjC: XCTestCase {
                                   _ expectDecl: String, _ expectPieces: String, line: UInt = #line) {
         let dict: SourceKittenDict = [SwiftDocKey.parsedDeclaration.rawValue: decl,
                                       SwiftDocKey.name.rawValue: name]
-        let kind = DefKind.from(key: rawKind.rawValue)!
+        let kind = DefKind.from(kind: rawKind)
         let builder = ObjCDeclarationBuilder(dict: dict, kind: kind)
         guard let built = builder.build() else {
             XCTFail("Couldn't build", line: line)
@@ -250,7 +250,7 @@ class TestGatherObjC: XCTestCase {
         if let unav = unav, !unav.isEmpty {
             dict[SwiftDocKey.unavailableMessage.rawValue] = unav
         }
-        let kind = DefKind.from(key: ObjCDeclarationKind.class.rawValue)!
+        let kind = DefKind.from(kind: ObjCDeclarationKind.class)
         let builder = ObjCDeclarationBuilder(dict: dict, kind: kind)
         guard let built = builder.build() else {
             XCTFail("Couldn't build", line: line)
@@ -280,7 +280,7 @@ class TestGatherObjC: XCTestCase {
     // Misc error/weird paths
 
     func testErrorPaths() {
-        let fieldKind = DefKind.from(key: ObjCDeclarationKind.field.rawValue)!
+        let fieldKind = DefKind.from(kind: ObjCDeclarationKind.field)
         let noDecl = ObjCDeclarationBuilder.init(dict: [:], kind: fieldKind)
         XCTAssertNil(noDecl.build())
 
@@ -293,7 +293,7 @@ class TestGatherObjC: XCTestCase {
         XCTAssertEqual("#int confused#", oddField.build()?.namePieces.flat)
 
         // Free function without name
-        let funcKind = DefKind.from(key: ObjCDeclarationKind.function.rawValue)!
+        let funcKind = DefKind.from(kind: ObjCDeclarationKind.function)
         let malformedFuncDict = [
             SwiftDocKey.parsedDeclaration.rawValue: "int confused(void)",
             SwiftDocKey.name.rawValue: "missing"
@@ -302,7 +302,7 @@ class TestGatherObjC: XCTestCase {
         XCTAssertEqual("#int confused(void)#", oddFunc.build()?.namePieces.flat)
 
         // Method that we can't parse
-        let methodKind = DefKind.from(key: ObjCDeclarationKind.methodInstance.rawValue)!
+        let methodKind = DefKind.from(kind: ObjCDeclarationKind.methodInstance)
         let malformedMethodDict = [
             SwiftDocKey.parsedDeclaration.rawValue: "int confused()",
             SwiftDocKey.name.rawValue: "missing"

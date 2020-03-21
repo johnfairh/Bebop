@@ -77,7 +77,7 @@ class TestGatherDecl: XCTestCase {
 
     // Parse preference
     func testParsePreference() {
-        let classKind = DefKind.from(key: SwiftDeclarationKind.class.rawValue)
+        let classKind = DefKind.from(kind: SwiftDeclarationKind.class)
         let dict = ["key.fully_annotated_decl" : "<outer>Inner</outer>",
                     "key.parsed_declaration" : "One\nTwo"]
         let builder = SwiftDeclarationBuilder(dict: dict, kind: classKind)
@@ -90,14 +90,14 @@ class TestGatherDecl: XCTestCase {
         let decl2 = builder2.build()
         XCTAssertEqual("Inner", decl2?.declaration.text)
 
-        let extKind = DefKind.from(key: SwiftDeclarationKind.extension.rawValue)
+        let extKind = DefKind.from(kind: SwiftDeclarationKind.extension)
         let extDict = ["key.fully_annotated_decl" : "<outer>class Fred</outer>",
                        "key.parsed_declaration" : "extension Fred"]
         let extBuilder = SwiftDeclarationBuilder(dict: extDict, kind: extKind)
         let extDecl = extBuilder.build()
         XCTAssertEqual("extension Fred", extDecl?.declaration.text)
 
-        let varKind = DefKind.from(key: SwiftDeclarationKind.varClass.rawValue)
+        let varKind = DefKind.from(kind: SwiftDeclarationKind.varClass)
         let varDict = ["key.fully_annotated_decl" : "<outer>var toast { get set }</outer>",
                        "key.parsed_declaration" : "var toast = { blah\n }()"]
         let varBuilder = SwiftDeclarationBuilder(dict: varDict, kind: varKind)
@@ -106,7 +106,7 @@ class TestGatherDecl: XCTestCase {
     }
 
     func testParentTypes() {
-        let classKind = DefKind.from(key: SwiftDeclarationKind.class.rawValue)
+        let classKind = DefKind.from(kind: SwiftDeclarationKind.class)
         ["Outer.Inner", "Outer&lt;S&gt;.Inner", "Outer&lt;A, B:C&gt;.Inner"].forEach { innerClassName in
             let dict = ["key.fully_annotated_decl" : "<outer>class \(innerClassName)</outer>"]
             let builder = SwiftDeclarationBuilder(dict: dict, nameComponents: ["Outer", "Inner"], kind: classKind)
@@ -225,7 +225,7 @@ class TestGatherDecl: XCTestCase {
     // Swift decl-piece-name
 
     private func checkFuncPieces(_ decl: String, _ name: String, _ expect: String, line: UInt = #line) {
-        let kind = DefKind.from(key: "source.lang.swift.decl.function.method.instance")!
+        let kind = DefKind.from(kind: SwiftDeclarationKind.functionMethodInstance)
         let builder = SwiftDeclarationBuilder(dict: [:], file: nil, kind: nil)
         let pieces = builder.parseToPieces(declaration: decl, name: name, kind: kind)
         XCTAssertEqual(expect, pieces.flat, line: line)
@@ -247,11 +247,11 @@ class TestGatherDecl: XCTestCase {
     func testSimplePieces() {
         let builder = SwiftDeclarationBuilder(dict: [:], file: nil, kind: nil)
 
-        let classKind = DefKind.from(key: "source.lang.swift.decl.class")!
+        let classKind = DefKind.from(kind: SwiftDeclarationKind.class)
         let pieces = builder.parseToPieces(declaration: "class Fred: Barney", name: "Fred", kind: classKind)
         XCTAssertEqual("class #Fred#", pieces.flat)
 
-        let varKind = DefKind.from(key: "source.lang.swift.decl.var.class")!
+        let varKind = DefKind.from(kind: SwiftDeclarationKind.varClass)
         let pieces2 = builder.parseToPieces(declaration: "class var fred: String { get }", name: "fred", kind: varKind)
         XCTAssertEqual("class var #fred#: String", pieces2.flat)
     }
@@ -260,24 +260,24 @@ class TestGatherDecl: XCTestCase {
         let builder = SwiftDeclarationBuilder(dict: [:], file: nil, kind: nil)
 
         // Not entirely sure this is right for subscript!
-        let subscriptKind = DefKind.from(key: "source.lang.swift.decl.function.subscript")!
+        let subscriptKind = DefKind.from(kind: SwiftDeclarationKind.functionSubscript)
         let pieces = builder.parseToPieces(declaration: "public subscript(newValue: Int) -> String { get }", name: "subscript", kind: subscriptKind)
         XCTAssertEqual("#subscript#(#newValue#: Int) -> String", pieces.flat)
 
-        let staticSubscriptKind = DefKind.from(key: "source.lang.swift.decl.function.subscript",
+        let staticSubscriptKind = DefKind.from(key: SwiftDeclarationKind.functionSubscript.rawValue,
                                                dict: [SwiftDocKey.name.rawValue: "subscript",
                                                       SwiftDocKey.parsedDeclaration.rawValue: "static subscript(a: Int)"])!
         let pieces1 = builder.parseToPieces(declaration: "public static subscript(newValue: Int) -> String { get }", name: "subscript", kind: staticSubscriptKind)
         XCTAssertEqual("static #subscript#(#newValue#: Int) -> String", pieces1.flat)
 
-        let initKind = DefKind.from(key: "source.lang.swift.decl.function.method.instance", dict: [SwiftDocKey.name.rawValue:"init?()"])!
+        let initKind = DefKind.from(key: SwiftDeclarationKind.functionMethodInstance.rawValue, dict: [SwiftDocKey.name.rawValue:"init?()"])!
         let pieces2 = builder.parseToPieces(declaration: "init()", name: "init()", kind: initKind)
         XCTAssertEqual("#init#()", pieces2.flat)
 
         let pieces3 = builder.parseToPieces(declaration: "init(a b: Int)", name: "init(b:)", kind: initKind)
         XCTAssertEqual("#init#(#a#: Int)", pieces3.flat)
 
-        let deinitKind = DefKind.from(key: "source.lang.swift.decl.function.method.instance", dict: [SwiftDocKey.name.rawValue:"deinit"])!
+        let deinitKind = DefKind.from(key: SwiftDeclarationKind.functionMethodInstance.rawValue, dict: [SwiftDocKey.name.rawValue:"deinit"])!
         let pieces4 = builder.parseToPieces(declaration: "deinit", name: "deinit", kind: deinitKind)
         XCTAssertEqual("#deinit#", pieces4.flat)
     }
