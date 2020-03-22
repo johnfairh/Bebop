@@ -667,7 +667,7 @@ final class OptsParser {
 
     /// Add some aliases for an existing opt
     private func addAlias(opt: AliasOpt) {
-        guard let realOptLongFlag = opt.realOpt.longFlag,
+        guard let realOptLongFlag = opt.realOpt.longFlag ?? opt.realOpt.yamlKey,
             let tracker = matchTracker(flag: realOptLongFlag) else {
             preconditionFailure("Can't resolve AliasOpt \(opt)")
         }

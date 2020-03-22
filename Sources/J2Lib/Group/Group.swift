@@ -37,10 +37,12 @@ public struct Group: Configurable {
     }
 
     let groupGuides: GroupGuides
+    let groupCustom: GroupCustom
     let published: Config.Published // modulename -> grouppolicy
 
     public init(config: Config) {
         groupGuides = GroupGuides(config: config)
+        groupCustom = GroupCustom(config: config)
         published = config.published
         config.register(self)
     }
