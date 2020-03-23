@@ -61,6 +61,10 @@ public struct Group: Configurable {
         // This is the uniquer for the group page names, which all end up in the root of the site
         let groupUniquer = StringUniquer()
 
+        // if custom_groups
+        //    create_custom_groups to take stuff out of allItems
+        //    pass a flag into createKind indicating we did it - if anything left
+
         return createKindGroups(items: allItems, uniquer: groupUniquer)
     }
 

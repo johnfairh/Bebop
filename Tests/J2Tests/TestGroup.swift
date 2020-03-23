@@ -161,4 +161,112 @@ class TestGroup: XCTestCase {
         XCTAssertEqual(Markdown("A1"), guides[0].content.markdown["en"])
         XCTAssertEqual("GuideB", guides[1].name)
     }
+
+    // Custom
+
+    private func buildCustomGroups(_ yaml: String) throws -> [GroupCustom.Group] {
+        let tmpFileURL = FileManager.default.temporaryFileURL()
+        defer { try? FileManager.default.removeItem(at: tmpFileURL) }
+        try yaml.write(to: tmpFileURL)
+        let config = Config()
+        let group = Group(config: config)
+        try config.processOptions(cliOpts: ["--config=\(tmpFileURL.path)"])
+        return group.groupCustom.groups
+    }
+
+    func testCustomParseGroups() throws {
+        let yaml = """
+                    custom_groups:
+                      - name: Group1
+                        children:
+                          - G1.C1
+                          - G1.C2
+                      - name: Group2
+                        abstract: Group2Abstract
+                      - name: Group3
+                        children:
+                          - name: Group3.SubGroup
+                            children:
+                              - G3.S.C1
+                    """
+        let groups = try buildCustomGroups(yaml)
+        print(groups)
+        XCTAssertEqual(3, groups.count)
+        XCTAssertEqual(.init(unlocalized: "Group1"), groups[0].name)
+        XCTAssertEqual(.init(unlocalized: "Group2"), groups[1].name)
+        XCTAssertEqual(.init(unlocalized: "Group3"), groups[2].name)
+        XCTAssertEqual(GroupCustom.Group.Children.items([.name("G1.C1"), .name("G1.C2")]), groups[0].children)
+        XCTAssertNil(groups[0].abstract)
+        XCTAssertNil(groups[1].children)
+        XCTAssertNotNil(groups[1].abstract)
+        let nestGroup = GroupCustom.Group(name: .init(unlocalized: "Group3.SubGroup"),
+                                          abstract: nil,
+                                          children: .items([.name("G3.S.C1")]))
+        XCTAssertEqual(GroupCustom.Group.Children.items([.group(nestGroup)]), groups[2].children)
+    }
+
+    func testCustomParseTopics() throws {
+        let yaml = """
+                   custom_groups:
+                   - name: Group
+                     skip_unlisted: true
+                     topics:
+                     - name: Tpc1
+                       children:
+                         - G.T.1
+                         - G.T.2
+                     - name: Tpc2
+                       abstract: Empty
+                   """
+        let groups = try buildCustomGroups(yaml)
+        print(groups)
+        XCTAssertEqual(1, groups.count)
+        let topic1 = GroupCustom.Group.Topic(name: .init(unlocalized: "Tpc1"),
+                                             abstract: nil,
+                                             children: [.name("G.T.1"), .name("G.T.2")])
+        let topic2 = GroupCustom.Group.Topic(name: .init(unlocalized: "Tpc2"),
+                                             abstract: .init(unlocalized: "Empty"),
+                                             children: [])
+        XCTAssertEqual(.init(unlocalized: "Group"), groups[0].name)
+        XCTAssertNil(groups[0].abstract)
+        XCTAssertEqual(GroupCustom.Group.Children.topics([topic1, topic2], true), groups[0].children)
+    }
+
+    func checkCustomParseError(_ yaml: String) {
+        AssertThrows(try buildCustomGroups(yaml), OptionsError.self)
+    }
+
+    func testCustomParseErrors() throws {
+        let noNameGroup = "custom_groups:\n - abstract: Fred"
+        checkCustomParseError(noNameGroup)
+
+        let bothChildTypes = """
+                             custom_groups:
+                              - name: G
+                                children:
+                                   - C
+                                topics:
+                                   - C
+                             """
+        checkCustomParseError(bothChildTypes)
+
+        let badSkipUnlisted = """
+                              custom_groups:
+                               - name: G
+                                 skip_unlisted: true
+                                 children:
+                                   - C
+                              """
+       checkCustomParseError(badSkipUnlisted)
+
+        let nestedTopics =  """
+                            custom_groups:
+                             - name: G
+                               topics:
+                                 - name: T
+                                   topics:
+                                    - name: TT
+                            """
+        checkCustomParseError(nestedTopics)
+    }
 }

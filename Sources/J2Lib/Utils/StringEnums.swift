@@ -18,6 +18,14 @@ internal enum L10n {
     case errCfgBadMapping = "err-cfg-bad-mapping"
     /// Module merging is disabled for '%1' but `merge_module_group` is set.
     case errCfgBadModMerge = "err-cfg-bad-mod-merge"
+    /// Custom group/topic has both 'children' and 'topics' config keys: '%1'
+    case errCfgCustomGrpBoth = "err-cfg-custom-grp-both"
+    /// Custom group/topic missing 'name' config key: '%1'
+    case errCfgCustomGrpName = "err-cfg-custom-grp-name"
+    /// Custom topic has nested 'topics' config key: '%1'
+    case errCfgCustomGrpNested = "err-cfg-custom-grp-nested"
+    /// Custom group has 'skip_unlisted' config key without 'topics': '%1'
+    case errCfgCustomGrpUnlisted = "err-cfg-custom-grp-unlisted"
     /// Module merge policy is set both outside and inside `custom_modules`: choose just one.
     case errCfgDupModMerge = "err-cfg-dup-mod-merge"
     /// Unexpected multiple values '%1' for config key '%2', expecting just one.
@@ -200,7 +208,7 @@ internal enum L10n {
     case tpcClassSubscripts = "tpc-class-subscripts"
     /// Deinitializer
     case tpcDeinitializer = "tpc-deinitializer"
-    /// Enumeration Cases
+    /// Cases
     case tpcEnumElements = "tpc-enum-elements"
     /// Fields
     case tpcFields = "tpc-fields"
