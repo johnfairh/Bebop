@@ -58,16 +58,24 @@ public struct Group: Configurable {
 
         let allItems = merged + guides
 
-        // This is the uniquer for the group page names, which all end up in the root of the site
-        let groupUniquer = StringUniquer()
+        // For the group page names, which all end up in site root
+        let uniquer = StringUniquer()
 
-        // if custom_groups
-        //    create_custom_groups to take stuff out of allItems
-        //    pass a flag into createKind indicating we did it - if anything left
+        let (customGroups, ungrouped) = groupCustom.createGroups(items: allItems, uniquer: uniquer)
+        let kindGroups = createKindGroups(items: ungrouped, uniquer: uniquer) /* hasCustomGroups */
 
-        return createKindGroups(items: allItems, uniquer: groupUniquer)
+        // All items now assigned to groups
+        let allGroups = customGroups + kindGroups
+
+        // Sort out topics, arrange items inside defs
+        let topicVisitor = TopicCreationVisitor(style: topicStyle)
+        topicVisitor.walk(items: allGroups)
+        
+        return allGroups
     }
 
+    /// Create groups from the items using default rules, grouping types etc. together
+    /// and taking heed of the multi-module rules governing grouping types from different modules.
     public func createKindGroups(items: [Item], uniquer: StringUniquer) -> [GroupItem] {
         // Cache kind:def while preserving order
         var kindToDefs = [GroupKind : [Item]]()
@@ -89,19 +97,18 @@ public struct Group: Configurable {
         }
 
         // Create the groups
-        let topicVisitor = TopicCreationVisitor(style: topicStyle)
+
         return ItemKind.allCases.flatMap { kind -> [GroupItem] in
             let groupsForKind = kindToDefs
                 .filter { $0.key.kind == kind }
                 .sorted { $0.key < $1.key }
 
             return groupsForKind.map { kv in
-                let group = GroupItem(kind: kv.key, contents: kv.value, uniquer: uniquer)
-                topicVisitor.walk(item: group)
-                return group
+                GroupItem(kind: kv.key, contents: kv.value, uniquer: uniquer)
             }
         }
     }
+
 }
 
 /// Sort order for groups.  Specific before generic.

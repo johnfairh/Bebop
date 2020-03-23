@@ -55,9 +55,9 @@ public final class GroupItem: Item {
     public internal(set) var customAbstract: RichText?
 
     /// Create a new group based on the type of content, eg. 'All guides'.
-    public init(kind: GroupKind, contents: [Item], uniquer: StringUniquer) {
+    public init(kind: GroupKind, abstract: Localized<String>? = nil, contents: [Item], uniquer: StringUniquer) {
         self.groupKind = kind
-        self.customAbstract = nil
+        self.customAbstract = abstract.flatMap { RichText($0) }
         let name = groupKind.title(in: .swift).get(Localizations.shared.main.tag)
         super.init(name: name,
                    slug: uniquer.unique(name.slugged),

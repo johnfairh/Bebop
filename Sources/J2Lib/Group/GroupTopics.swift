@@ -34,6 +34,10 @@ struct TopicCreationVisitor: ItemVisitorProtocol {
     }
 
     func visit(groupItem: GroupItem, parents: [Item]) {
+        guard !groupItem.groupKind.isCustom else {
+            // Don't reorder or topicize custom groups
+            return
+        }
         switch style {
         case .logical, .source_order_defs:
             groupItem.makeLogicalTopics()

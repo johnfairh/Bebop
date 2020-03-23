@@ -6,7 +6,7 @@
 //  Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
 //
 
-public final class Topic: Equatable, Encodable {
+public final class Topic: Equatable, Encodable, CustomStringConvertible {
     public private(set) var title: RichText
     public private(set) var _menuTitle: RichText?
     public private(set) var body: RichText?
@@ -17,6 +17,10 @@ public final class Topic: Equatable, Encodable {
         _menuTitle ?? title
     }
 
+    public var description: String {
+        "[Topic: \(title.plainText.first!.value)]"
+    }
+
     /// Initialize from a pragma/MARK in source code or static string (will be treated as markdown)
     public init(title: String = "") {
         self.title = RichText(title)
@@ -25,7 +29,7 @@ public final class Topic: Equatable, Encodable {
     }
 
     /// Initialize from a custom topic definition
-    public init(title: Localized<Markdown>, body: Localized<Markdown>? = nil) {
+    public init(title: Localized<String>, body: Localized<String>? = nil) {
         self.title = RichText(title)
         self.body = body.flatMap { RichText($0) }
         self.kind = .custom

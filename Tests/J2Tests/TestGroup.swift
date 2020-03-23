@@ -195,14 +195,14 @@ class TestGroup: XCTestCase {
         XCTAssertEqual(.init(unlocalized: "Group1"), groups[0].name)
         XCTAssertEqual(.init(unlocalized: "Group2"), groups[1].name)
         XCTAssertEqual(.init(unlocalized: "Group3"), groups[2].name)
-        XCTAssertEqual(GroupCustom.Group.Children.items([.name("G1.C1"), .name("G1.C2")]), groups[0].children)
+        XCTAssertEqual([.init(topic: Topic(), children: [.name("G1.C1"), .name("G1.C2")])], groups[0].topics)
         XCTAssertNil(groups[0].abstract)
-        XCTAssertNil(groups[1].children)
+        XCTAssertTrue(groups[1].topics.isEmpty)
         XCTAssertNotNil(groups[1].abstract)
         let nestGroup = GroupCustom.Group(name: .init(unlocalized: "Group3.SubGroup"),
                                           abstract: nil,
-                                          children: .items([.name("G3.S.C1")]))
-        XCTAssertEqual(GroupCustom.Group.Children.items([.group(nestGroup)]), groups[2].children)
+                                          topics: [.init(topic: Topic(), children: [.name("G3.S.C1")])])
+        XCTAssertEqual(.init(topic: Topic(), children: [.group(nestGroup)]), groups[2].topics[0])
     }
 
     func testCustomParseTopics() throws {
@@ -221,15 +221,15 @@ class TestGroup: XCTestCase {
         let groups = try buildCustomGroups(yaml)
         print(groups)
         XCTAssertEqual(1, groups.count)
-        let topic1 = GroupCustom.Group.Topic(name: .init(unlocalized: "Tpc1"),
-                                             abstract: nil,
+        let topic1 = GroupCustom.Group.Topic(topic: Topic(title: .init(unlocalized: "Tpc1")),
                                              children: [.name("G.T.1"), .name("G.T.2")])
-        let topic2 = GroupCustom.Group.Topic(name: .init(unlocalized: "Tpc2"),
-                                             abstract: .init(unlocalized: "Empty"),
+        let topic2 = GroupCustom.Group.Topic(topic: Topic(title: .init(unlocalized: "Tpc2"),
+                                                          body: .init(unlocalized: "Empty")),
                                              children: [])
         XCTAssertEqual(.init(unlocalized: "Group"), groups[0].name)
         XCTAssertNil(groups[0].abstract)
-        XCTAssertEqual(GroupCustom.Group.Children.topics([topic1, topic2], true), groups[0].children)
+        XCTAssertEqual(topic1, groups[0].topics[0])
+        XCTAssertEqual(topic2, groups[0].topics[1])
     }
 
     func checkCustomParseError(_ yaml: String) {
@@ -268,5 +268,36 @@ class TestGroup: XCTestCase {
                                     - name: TT
                             """
         checkCustomParseError(nestedTopics)
+    }
+
+    func testCustomGroupBuilder() throws {
+        let class1 = SourceKittenDict.mkClass(name: "Class1")
+        let class2 = SourceKittenDict.mkClass(name: "Class2")
+        let file = SourceKittenDict.mkFile().with(children: [class1, class2])
+
+        let yaml = """
+                    custom_groups:
+                      - name: CGroup
+                        children:
+                          - Class1
+                    """
+        let tmpFileURL = FileManager.default.temporaryFileURL()
+        defer { try? FileManager.default.removeItem(at: tmpFileURL) }
+        try yaml.write(to: tmpFileURL)
+
+        let system = System(cliArgs: ["--config=\(tmpFileURL.path)"])
+        let items = try system.run(file.asGatherPasses)
+
+        XCTAssertEqual(2, items.count)
+        XCTAssertEqual("CGroup", items[0].name)
+        XCTAssertEqual(1, items[0].children.count)
+        XCTAssertEqual("Class1", items[0].children[0].name)
+        XCTAssertEqual("Types", items[1].name)
+        XCTAssertEqual(1, items[1].children.count)
+        XCTAssertEqual("Class2", items[1].children[0].name)
+
+        // TODO
+        // 1 - add an item that doesn't exist
+        // 2 - add another class, nested group, ref by module.name
     }
 }
