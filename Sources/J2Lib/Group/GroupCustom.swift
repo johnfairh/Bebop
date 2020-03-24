@@ -149,7 +149,7 @@ final class GroupCustom: Configurable {
             switch item {
             case .name(let name):
                 guard let theItem = index.find(name: name) else {
-                    logWarning("Can't resolve item name '\(name)' inside 'custom_groups', ignoring.")
+                    logWarning(.localized(.wrnCustomGrpMissing, name))
                     return nil
                 }
                 return theItem

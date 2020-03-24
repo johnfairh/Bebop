@@ -143,3 +143,9 @@ Default: Insert the custom abstract before existing content.";
 Default: Keep module definitions in their own sections.";
 "topic-style" = "How to organize definitions on a page.
 Default: 'logical'";
+"custom_groups" = "Customize how the guides and defs are arranged into a hierarchy.
+See online help.";
+"custom_groups_unlisted_prefix" = "Provide a prefix for the default groups formed from items left over after
+'custom_groups' is applied.  Localizable.
+Default: No prefix.";
+"exclude-unlisted-guides" = "Don't include guides that are not explicitly mentioned in 'custom_groups'.";

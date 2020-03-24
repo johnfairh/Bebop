@@ -99,7 +99,7 @@ class TestGroup: XCTestCase {
         // custom
 
         system.config.published.moduleGroupPolicy = [
-            "ModuleA" : .group(.init(unlocalized: "Fred")),
+            "ModuleA": .group(.init(unlocalized: "Fred")),
             "ModuleB": .group(.init(unlocalized: "Fred")),
             "ModuleC": .group(.init(unlocalized: "Barney"))
         ]
@@ -332,6 +332,32 @@ class TestGroup: XCTestCase {
             XCTAssertEqual(2, items.count)
             XCTAssertEqual("Grp", items[0].name)
             XCTAssertEqual("Other Types", items[1].name)
+        }
+    }
+
+    func testExcludeUnlistedGuides() throws {
+        let tmpDir = try TemporaryDirectory()
+        try "G1".write(to: tmpDir.directoryURL.appendingPathComponent("Guide1.md"))
+        try "G2".write(to: tmpDir.directoryURL.appendingPathComponent("Guide2.md"))
+
+        let yaml = """
+                   custom_groups:
+                    - name: Grp
+                      children:
+                        - Guide1
+
+                   exclude_unlisted_guides: true
+                   """
+
+        try withTempConfigFile(yaml: yaml) { url in
+            let system = System(cliArgs: [
+                "--guides=\(tmpDir.directoryURL.path)/*md",
+                "--config=\(url.path)"
+            ])
+            let items = try system.run(SourceKittenDict.mkFile().asGatherPasses)
+            XCTAssertEqual(1, items.count)
+            XCTAssertEqual(1, items[0].children.count)
+            XCTAssertEqual("Guide1", items[0].children[0].name)
         }
     }
 }

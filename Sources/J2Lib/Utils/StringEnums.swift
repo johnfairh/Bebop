@@ -102,6 +102,8 @@ internal enum L10n {
     case wrnCfgIgnored = "wrn-cfg-ignored"
     /// Language tags missing for '%1': %2.
     case wrnCfgLanguageMissing = "wrn-cfg-language-missing"
+    /// Can't resolve item name '%1' inside 'custom_groups', ignoring.
+    case wrnCustomGrpMissing = "wrn-custom-grp-missing"
     /// Duplicate filename '%1', ignoring '%2'.
     case wrnDuplicateGlobfile = "wrn-duplicate-globfile"
     /// No files matching '*.md' found expanding '%1'.

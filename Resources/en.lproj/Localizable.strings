@@ -91,3 +91,4 @@ Ignoring the second.";
 "err-cfg-custom-grp-both" = "Custom group/topic has both 'children' and 'topics' config keys: '%1'";
 "err-cfg-custom-grp-unlisted" = "Custom group has 'skip_unlisted' config key without 'topics': '%1'";
 "err-cfg-custom-grp-nested" = "Custom topic has nested 'topics' config key: '%1'";
+"wrn-custom-grp-missing" = "Can't resolve item name '%1' inside 'custom_groups', ignoring.";

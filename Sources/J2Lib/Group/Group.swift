@@ -35,16 +35,19 @@ public struct Group: Configurable {
     var topicStyle: TopicStyle {
         topicStyleOpt.value!
     }
-    let customGroupPrefix = LocStringOpt(y: "custom_groups_unlisted_prefix")
+    let customGroupPrefixOpt = LocStringOpt(y: "custom_groups_unlisted_prefix")
+    let excludeUnlistedGuidesOpt = BoolOpt(l: "exclude-unlisted-guides")
 
     let customCatPrefixAlias: AliasOpt
+    let hideUnlistedDocsAlias: AliasOpt
 
     let groupGuides: GroupGuides
     let groupCustom: GroupCustom
     let published: Config.Published // modulename -> grouppolicy
 
     public init(config: Config) {
-        customCatPrefixAlias = AliasOpt(realOpt: customGroupPrefix, l: "custom-categories-unlisted-prefix")
+        customCatPrefixAlias = AliasOpt(realOpt: customGroupPrefixOpt, l: "custom-categories-unlisted-prefix")
+        hideUnlistedDocsAlias = AliasOpt(realOpt: excludeUnlistedGuidesOpt, l: "hide-unlisted-documentation")
         groupGuides = GroupGuides(config: config)
         groupCustom = GroupCustom(config: config)
         published = config.published
@@ -66,8 +69,12 @@ public struct Group: Configurable {
         let uniquer = StringUniquer()
 
         let (customGroups, ungrouped) = groupCustom.createGroups(items: allItems, uniquer: uniquer)
-        let customPrefix = customGroupPrefix.value.flatMap { customGroups.isEmpty ? nil : $0 }
-        let kindGroups = createKindGroups(items: ungrouped, uniquer: uniquer, customPrefix: customPrefix)
+        let customPrefix = customGroupPrefixOpt.value.flatMap { customGroups.isEmpty ? nil : $0 }
+        let excludeGuides = !customGroups.isEmpty && excludeUnlistedGuidesOpt.value
+        let kindGroups = createKindGroups(items: ungrouped,
+                                          uniquer: uniquer,
+                                          customPrefix: customPrefix,
+                                          excludeGuides: excludeGuides)
 
         // All items now assigned to groups
         let allGroups = customGroups + kindGroups
@@ -81,7 +88,9 @@ public struct Group: Configurable {
 
     /// Create groups from the items using default rules, grouping types etc. together
     /// and taking heed of the multi-module rules governing grouping types from different modules.
-    public func createKindGroups(items: [Item], uniquer: StringUniquer, customPrefix: Localized<String>?) -> [GroupItem] {
+    ///
+    /// Why is this such a mess!?
+    public func createKindGroups(items: [Item], uniquer: StringUniquer, customPrefix: Localized<String>?, excludeGuides: Bool) -> [GroupItem] {
         // Cache kind:def while preserving order
         var kindToDefs = [GroupKind : [Item]]()
         items.forEach { item in
@@ -98,8 +107,12 @@ public struct Group: Configurable {
 
                 kindToDefs.reduceKey(groupName, [def], { $0 + [def] })
             } else if let guide = item as? GuideItem {
-                let guideGroupKind = GroupKind(kind: .guide, policy: .global, customPrefix: customPrefix)
-                kindToDefs.reduceKey(guideGroupKind, [guide], { $0 + [guide] })
+                if excludeGuides {
+                    logDebug("Group: Excluding guide \(item.name) due to exclude-unlisted-guides")
+                } else {
+                    let guideGroupKind = GroupKind(kind: .guide, policy: .global, customPrefix: customPrefix)
+                    kindToDefs.reduceKey(guideGroupKind, [guide], { $0 + [guide] })
+                }
             }
         }
 
