@@ -149,3 +149,4 @@ See online help.";
 'custom_groups' is applied.  Localizable.
 Default: No prefix.";
 "exclude-unlisted-guides" = "Don't include guides that are not explicitly mentioned in 'custom_groups'.";
+"custom_defs" = "Customize how members of defs are arranged into topics on a page.";

@@ -215,7 +215,6 @@ class TestGroup: XCTestCase {
         let yaml = """
                    custom_groups:
                    - name: Group
-                     skip_unlisted: true
                      topics:
                      - name: Tpc1
                        children:

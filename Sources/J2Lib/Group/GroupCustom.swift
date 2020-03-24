@@ -8,18 +8,23 @@
 
 import Yams
 
-/// Module to manage custom groups (custom categories as-was).
+/// Module to manage custom groups (custom categories as-was) and custom defs, which turned out
+/// to be a different thing.
 ///
 /// Big syntax validation during `checkOptions` phase, handle all the yaml down to data structures.
 ///
 /// Then run over the simple data structure when it's time, matching up `Item`s from the forest and creating
 /// `GroupItem`s as required.
 ///
+/// For custom-defs, we are invoked by the topic visitor to see if we have an opinion on how a particular
+/// def should be laid out.
 final class GroupCustom: Configurable {
     private let customGroupsOpt = YamlOpt(y: "custom_groups")
+    private let customDefsOpt = YamlOpt(y: "custom_defs")
     private let customCategoriesAlias: AliasOpt
 
     private(set) var groups = [Group]()
+    private(set) var defs = [Def]()
 
     init(config: Config) {
         customCategoriesAlias = AliasOpt(realOpt: customGroupsOpt, l: "custom-categories")
@@ -31,6 +36,11 @@ final class GroupCustom: Configurable {
             logDebug("Group: start parsing custom_groups")
             groups = try GroupParser.groups(yaml: customGroupsYaml)
             logDebug("Group: done parsing custom_groups: \(groups)")
+        }
+        if let customDefsYaml = customDefsOpt.value {
+            logDebug("Group: start parsing custom_defs")
+            defs = try DefParser.defs(yaml: customDefsYaml)
+            logDebug("Group: done parsing custom_defs: \(defs)")
         }
     }
 
@@ -159,7 +169,7 @@ final class GroupCustom: Configurable {
         }
     }
 
-    // MARK: Parser
+    // MARK: Groups Parser
 
     /// Recursive yaml parser for custom groups & topics structure
     private struct GroupParser {
@@ -167,7 +177,6 @@ final class GroupCustom: Configurable {
         let abstractOpt = LocStringOpt(y: "abstract")
         let childrenOpt = YamlOpt(y: "children")
         let topicsOpt = YamlOpt(y: "topics")
-        let skipUnlistedOpt = BoolOpt(y: "skip_unlisted")
 
         private func parse(yaml: Yams.Node, context: String) throws {
             let mapping = try yaml.checkMapping(context: context)
@@ -181,10 +190,6 @@ final class GroupCustom: Configurable {
             }
             if childrenOpt.configured && topicsOpt.configured {
                 throw OptionsError(.localized(.errCfgCustomGrpBoth, try yaml.asDebugString()))
-            }
-            // XXX
-            if skipUnlistedOpt.value && !topicsOpt.configured {
-                throw OptionsError(.localized(.errCfgCustomGrpUnlisted, try yaml.asDebugString()))
             }
         }
 
@@ -231,8 +236,6 @@ final class GroupCustom: Configurable {
             }
         }
 
-        // MARK: Factory
-
         /// Try to parse a list of `Group`s out of the yaml
         static func groups(yaml: Yams.Node) throws -> [Group] {
             try yaml.checkSequence(context: "custom_groups").map { groupYaml in
@@ -242,8 +245,69 @@ final class GroupCustom: Configurable {
 
         /// Try to parse a list of `Group.Topic`s out of the yaml
         static func topics(yaml: Yams.Node) throws -> [Group.Topic] {
-            try yaml.checkSequence(context: "topics").map { topicYaml in
-                try GroupParser().topic(yaml: topicYaml, context: "topics[]")
+            try yaml.checkSequence(context: "custom_groups.topics").map { topicYaml in
+                try GroupParser().topic(yaml: topicYaml, context: "custom_groups.topics[]")
+            }
+        }
+    }
+
+    // MARK: Defs Parser
+
+    /// Yaml parser for custom defs & topics structure
+    private struct DefParser {
+        let nameOpt = StringOpt(y: "name")
+        let skipUnlistedOpt = BoolOpt(y: "skip_unlisted")
+        let topicsOpt = YamlOpt(y: "topics")
+
+        func def(yaml: Yams.Node) throws -> Def {
+            let mapping = try yaml.checkMapping(context: "custom_defs[]")
+            let parser = OptsParser()
+            parser.addOpts(from: self)
+            try parser.apply(mapping: mapping)
+
+            guard let name = nameOpt.value else {
+                throw OptionsError("Missing 'name' for custom_defs: \(try yaml.asDebugString())")
+            }
+            guard let topicsYaml = topicsOpt.value else {
+                throw OptionsError("Missing 'topics' for custom_defs: \(try yaml.asDebugString())")
+            }
+
+            return Def(name: name,
+                       skipUnlisted: skipUnlistedOpt.value,
+                       topics: try TopicParser.topics(yaml: topicsYaml))
+        }
+
+        /// Try to parse a list of `Def`s out of the yaml
+        static func defs(yaml: Yams.Node) throws -> [Def] {
+            try yaml.checkSequence(context: "custom_defs").map { defYaml in
+                try DefParser().def(yaml: defYaml)
+            }
+        }
+
+        struct TopicParser {
+            let nameOpt = LocStringOpt(y: "name")
+            let abstractOpt = LocStringOpt(y: "abstract")
+            let childrenOpt = StringListOpt(y: "children")
+
+            func topic(yaml: Yams.Node) throws -> Def.Topic {
+                let mapping = try yaml.checkMapping(context: "custom_defs.topics[]")
+                let parser = OptsParser()
+                parser.addOpts(from: self)
+                try parser.apply(mapping: mapping)
+
+                guard let name = nameOpt.value else {
+                    throw OptionsError("Missing 'name' for custom_defs.topic")
+                }
+                return Def.Topic(topic: Topic(title: name,
+                                              body: abstractOpt.value),
+                                 children: childrenOpt.value)
+            }
+
+            /// Try to parse a list of `Group.Topic`s out of the yaml
+            static func topics(yaml: Yams.Node) throws -> [Def.Topic] {
+                try yaml.checkSequence(context: "custom_defs.topics").map { topicYaml in
+                    try TopicParser().topic(yaml: topicYaml)
+                }
             }
         }
     }
@@ -280,6 +344,22 @@ extension GroupCustom.Group.Item: CustomStringConvertible {
         case .name(let str): return str
         case .group(let grp): return grp.description
         }
+    }
+}
+
+extension GroupCustom.Def: CustomStringConvertible {
+    var description: String {
+        "Def name=\(name) skipUnlisted=\(skipUnlisted) topics=[\(topics)]"
+    }
+}
+
+extension GroupCustom.Def.Topic: CustomStringConvertible {
+    var description: String {
+        var line = "Tpc \(topic)"
+        if !children.isEmpty {
+            line += " children=[\(children)]"
+        }
+        return line
     }
 }
 
