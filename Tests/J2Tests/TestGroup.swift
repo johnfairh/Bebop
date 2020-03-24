@@ -273,31 +273,37 @@ class TestGroup: XCTestCase {
     func testCustomGroupBuilder() throws {
         let class1 = SourceKittenDict.mkClass(name: "Class1")
         let class2 = SourceKittenDict.mkClass(name: "Class2")
-        let file = SourceKittenDict.mkFile().with(children: [class1, class2])
+        let class3 = SourceKittenDict.mkClass(name: "Class3")
+        let file = SourceKittenDict.mkFile().with(children: [class1, class2, class3])
 
         let yaml = """
                     custom_groups:
                       - name: CGroup
                         children:
                           - Class1
+                          - Closs1
+                          - name: Nested
+                            children:
+                              - Module.Class3
                     """
         let tmpFileURL = FileManager.default.temporaryFileURL()
         defer { try? FileManager.default.removeItem(at: tmpFileURL) }
         try yaml.write(to: tmpFileURL)
 
         let system = System(cliArgs: ["--config=\(tmpFileURL.path)"])
-        let items = try system.run(file.asGatherPasses)
+        TestLogger.install()
+        let items = try system.run([file.asGatherDef().asPass(moduleName: "Module", pathName: "")])
+        XCTAssertEqual(1, TestLogger.shared.diagsBuf.count)
 
         XCTAssertEqual(2, items.count)
         XCTAssertEqual("CGroup", items[0].name)
-        XCTAssertEqual(1, items[0].children.count)
+        XCTAssertEqual(2, items[0].children.count)
         XCTAssertEqual("Class1", items[0].children[0].name)
+        XCTAssertEqual("Nested", items[0].children[1].name)
+        XCTAssertEqual(1, items[0].children[1].children.count)
+        XCTAssertEqual("Class3", items[0].children[1].children[0].name)
         XCTAssertEqual("Types", items[1].name)
         XCTAssertEqual(1, items[1].children.count)
         XCTAssertEqual("Class2", items[1].children[0].name)
-
-        // TODO
-        // 1 - add an item that doesn't exist
-        // 2 - add another class, nested group, ref by module.name
     }
 }
