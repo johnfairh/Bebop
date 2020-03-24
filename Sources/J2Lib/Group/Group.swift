@@ -35,12 +35,16 @@ public struct Group: Configurable {
     var topicStyle: TopicStyle {
         topicStyleOpt.value!
     }
+    let customGroupPrefix = LocStringOpt(y: "custom_groups_unlisted_prefix")
+
+    let customCatPrefixAlias: AliasOpt
 
     let groupGuides: GroupGuides
     let groupCustom: GroupCustom
     let published: Config.Published // modulename -> grouppolicy
 
     public init(config: Config) {
+        customCatPrefixAlias = AliasOpt(realOpt: customGroupPrefix, l: "custom-categories-unlisted-prefix")
         groupGuides = GroupGuides(config: config)
         groupCustom = GroupCustom(config: config)
         published = config.published
@@ -62,7 +66,8 @@ public struct Group: Configurable {
         let uniquer = StringUniquer()
 
         let (customGroups, ungrouped) = groupCustom.createGroups(items: allItems, uniquer: uniquer)
-        let kindGroups = createKindGroups(items: ungrouped, uniquer: uniquer) /* hasCustomGroups */
+        let customPrefix = customGroupPrefix.value.flatMap { customGroups.isEmpty ? nil : $0 }
+        let kindGroups = createKindGroups(items: ungrouped, uniquer: uniquer, customPrefix: customPrefix)
 
         // All items now assigned to groups
         let allGroups = customGroups + kindGroups
@@ -70,13 +75,13 @@ public struct Group: Configurable {
         // Sort out topics, arrange items inside defs
         let topicVisitor = TopicCreationVisitor(style: topicStyle)
         topicVisitor.walk(items: allGroups)
-        
+
         return allGroups
     }
 
     /// Create groups from the items using default rules, grouping types etc. together
     /// and taking heed of the multi-module rules governing grouping types from different modules.
-    public func createKindGroups(items: [Item], uniquer: StringUniquer) -> [GroupItem] {
+    public func createKindGroups(items: [Item], uniquer: StringUniquer, customPrefix: Localized<String>?) -> [GroupItem] {
         // Cache kind:def while preserving order
         var kindToDefs = [GroupKind : [Item]]()
         items.forEach { item in
@@ -88,11 +93,13 @@ public struct Group: Configurable {
                 }
                 let groupName = GroupKind(kind: def.defKind.metaKind,
                                           moduleName: moduleName,
-                                          policy: groupPolicy)
+                                          policy: groupPolicy,
+                                          customPrefix: customPrefix)
 
                 kindToDefs.reduceKey(groupName, [def], { $0 + [def] })
             } else if let guide = item as? GuideItem {
-                kindToDefs.reduceKey(.allItems(.guide), [guide], { $0 + [guide] })
+                let guideGroupKind = GroupKind(kind: .guide, policy: .global, customPrefix: customPrefix)
+                kindToDefs.reduceKey(guideGroupKind, [guide], { $0 + [guide] })
             }
         }
 
@@ -134,10 +141,18 @@ extension GroupKind: Comparable {
 
 private extension GroupKind {
     /// Convert from module info to group kind.
-    init(kind: ItemKind, moduleName: String, policy: ModuleGroupPolicy) {
+    ///
+    /// `customPrefix` support is half-hearted, but I'm not sure it's too useful and the default is more
+    /// sensible (no prefix).  Really the missing combo is module-separate plus custom-prefix where we
+    /// need a new path and localization hell to slot in both terms somehow.
+    init(kind: ItemKind, moduleName: String = "", policy: ModuleGroupPolicy, customPrefix: Localized<String>?) {
         switch policy {
         case .global:
-            self = .allItems(kind)
+            if let customPrefix = customPrefix {
+                self = .someItems(kind, customPrefix)
+            } else {
+                self = .allItems(kind)
+            }
         case .separate:
             self = .moduleItems(kind, Localized<String>(unlocalized: moduleName))
         case .group(let title):

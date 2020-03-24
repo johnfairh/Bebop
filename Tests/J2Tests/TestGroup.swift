@@ -164,14 +164,20 @@ class TestGroup: XCTestCase {
 
     // Custom
 
-    private func buildCustomGroups(_ yaml: String) throws -> [GroupCustom.Group] {
+    private func withTempConfigFile<T>(yaml: String, callback: (URL) throws -> T) throws -> T{
         let tmpFileURL = FileManager.default.temporaryFileURL()
         defer { try? FileManager.default.removeItem(at: tmpFileURL) }
         try yaml.write(to: tmpFileURL)
-        let config = Config()
-        let group = Group(config: config)
-        try config.processOptions(cliOpts: ["--config=\(tmpFileURL.path)"])
-        return group.groupCustom.groups
+        return try callback(tmpFileURL)
+    }
+
+    private func buildCustomGroups(_ yaml: String) throws -> [GroupCustom.Group] {
+        try withTempConfigFile(yaml: yaml) { url in
+            let config = Config()
+            let group = Group(config: config)
+            try config.processOptions(cliOpts: ["--config=\(url.path)"])
+            return group.groupCustom.groups
+        }
     }
 
     func testCustomParseGroups() throws {
@@ -286,24 +292,46 @@ class TestGroup: XCTestCase {
                             children:
                               - Module.Class3
                     """
-        let tmpFileURL = FileManager.default.temporaryFileURL()
-        defer { try? FileManager.default.removeItem(at: tmpFileURL) }
-        try yaml.write(to: tmpFileURL)
+        try withTempConfigFile(yaml: yaml) { url in
+            let system = System(cliArgs: ["--config=\(url.path)"])
+            TestLogger.install()
+            let items = try system.run([file.asGatherDef().asPass(moduleName: "Module", pathName: "")])
+            XCTAssertEqual(1, TestLogger.shared.diagsBuf.count)
 
-        let system = System(cliArgs: ["--config=\(tmpFileURL.path)"])
-        TestLogger.install()
-        let items = try system.run([file.asGatherDef().asPass(moduleName: "Module", pathName: "")])
-        XCTAssertEqual(1, TestLogger.shared.diagsBuf.count)
+            XCTAssertEqual(2, items.count)
+            XCTAssertEqual("CGroup", items[0].name)
+            XCTAssertEqual(2, items[0].children.count)
+            XCTAssertEqual("Class1", items[0].children[0].name)
+            XCTAssertEqual("Nested", items[0].children[1].name)
+            XCTAssertEqual(1, items[0].children[1].children.count)
+            XCTAssertEqual("Class3", items[0].children[1].children[0].name)
+            XCTAssertEqual("Types", items[1].name)
+            XCTAssertEqual(1, items[1].children.count)
+            XCTAssertEqual("Class2", items[1].children[0].name)
+        }
+    }
 
-        XCTAssertEqual(2, items.count)
-        XCTAssertEqual("CGroup", items[0].name)
-        XCTAssertEqual(2, items[0].children.count)
-        XCTAssertEqual("Class1", items[0].children[0].name)
-        XCTAssertEqual("Nested", items[0].children[1].name)
-        XCTAssertEqual(1, items[0].children[1].children.count)
-        XCTAssertEqual("Class3", items[0].children[1].children[0].name)
-        XCTAssertEqual("Types", items[1].name)
-        XCTAssertEqual(1, items[1].children.count)
-        XCTAssertEqual("Class2", items[1].children[0].name)
+    func testCustomPrefix() throws {
+        let class1 = SourceKittenDict.mkClass(name: "Class1")
+        let class2 = SourceKittenDict.mkClass(name: "Class2")
+        let file = SourceKittenDict.mkFile().with(children: [class1, class2])
+
+        let yaml = """
+                   custom_groups:
+                     - name: Grp
+                       children:
+                          - Class1
+
+                   custom_groups_unlisted_prefix: Other
+                   """
+
+        try withTempConfigFile(yaml: yaml) { url in
+            let system = System(cliArgs: ["--config=\(url.path)"])
+            let items = try system.run(file.asGatherPasses)
+
+            XCTAssertEqual(2, items.count)
+            XCTAssertEqual("Grp", items[0].name)
+            XCTAssertEqual("Other Types", items[1].name)
+        }
     }
 }
