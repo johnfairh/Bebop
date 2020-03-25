@@ -196,22 +196,3 @@ extension String {
         re_isMatch(#"^[+-]\s*\["#)
     }
 }
-
-extension DefItem {
-    /// The human-readable fully-qualified name for the def.
-    ///
-    /// For Swift this does not include the module name.
-    ///
-    /// For Objective-C this expresses methods like "+[ClassName method:name]".
-    func fullyQualifiedName(for language: DefLanguage) -> String {
-        if language == .objc && name(for: .objc).isObjCMethodName,
-            let parent = self.parent as? DefItem {
-            var methodName = name(for: .objc)
-            let prefix = methodName.removeFirst()
-            return "\(prefix)[\(parent.name(for: .objc)) \(methodName)]"
-        }
-        let items = parentsFromRoot + [self]
-        let names = items.compactMap { ($0 as? DefItem)?.name(for: language) }
-        return names.joined(separator: ".")
-    }
-}

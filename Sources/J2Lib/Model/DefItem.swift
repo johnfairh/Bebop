@@ -174,6 +174,27 @@ public class DefItem: Item, CustomStringConvertible {
         }
     }
 
+    /// The human-readable fully-qualified name for the def.
+    ///
+    /// For Swift this does not include the module name.
+    ///
+    /// For Objective-C this expresses methods like "+[ClassName method:name]".
+    func fullyQualifiedName(for language: DefLanguage) -> String {
+        if language == .objc && name(for: .objc).isObjCMethodName,
+            let parent = self.parent as? DefItem {
+            var methodName = name(for: .objc)
+            let prefix = methodName.removeFirst()
+            return "\(prefix)[\(parent.name(for: .objc)) \(methodName)]"
+        }
+        let items = parentsFromRoot + [self]
+        let names = items.compactMap { ($0 as? DefItem)?.name(for: language) }
+        return names.joined(separator: ".")
+    }
+
+    var primaryFullyQualifiedName: String {
+        fullyQualifiedName(for: primaryLanguage)
+    }
+
     func namePieces(for language: DefLanguage) -> [DeclarationPiece] {
         switch language {
         case .swift: return swiftDeclaration!.namePieces
@@ -226,7 +247,7 @@ public class DefItem: Item, CustomStringConvertible {
     /// Format the item's associated text data
     public override func format(blockFormatter: RichText.Formatter, inlineFormatter: RichText.Formatter) rethrows {
         try documentation.format(blockFormatter)
-        try topic?.format(inlineFormatter)
+        try topic?.format(inlineFormatter: inlineFormatter, blockFormatter: blockFormatter)
         try deprecationNotice?.format(blockFormatter)
         try unavailableNotice?.format(blockFormatter)
         try declNotesNotice?.format(blockFormatter)

@@ -80,7 +80,9 @@ public struct Group: Configurable {
         let allGroups = customGroups + kindGroups
 
         // Sort out topics, arrange items inside defs
-        let topicVisitor = TopicCreationVisitor(style: topicStyle)
+        let topicVisitor = TopicCreationVisitor(style: topicStyle, customizer: { def in
+            self.groupCustom.customizeTopics(defItem: def)
+        })
         topicVisitor.walk(items: allGroups)
 
         return allGroups

@@ -23,19 +23,21 @@ public enum TopicStyle: String, CaseIterable {
 /// Visitor to assign topics to a group and its descendents
 struct TopicCreationVisitor: ItemVisitorProtocol {
     let style: TopicStyle
+    let customizer: (DefItem) -> [Item]
 
     func visit(defItem: DefItem, parents: [Item]) {
+        let customizedChildren = customizer(defItem)
         switch style {
         case .logical:
-            defItem.makeLogicalTopics()
+            defItem.makeLogicalTopics(customized: customizedChildren)
         case .source_order, .source_order_defs:
-            defItem.makeSourceOrderTopics()
+            defItem.makeSourceOrderTopics(customized: customizedChildren)
         }
     }
 
     func visit(groupItem: GroupItem, parents: [Item]) {
+        // Don't reorder or topicize custom groups
         guard !groupItem.groupKind.isCustom else {
-            // Don't reorder or topicize custom groups
             return
         }
         switch style {
@@ -50,8 +52,14 @@ struct TopicCreationVisitor: ItemVisitorProtocol {
 // MARK: Source-Order Style Topics
 
 private extension Item {
-    func makeSourceOrderTopics() {
-        var currentTopic = children.first?.topic ?? Topic()
+    func makeSourceOrderTopics(customized: [Item] = []) {
+        var currentTopic: Topic
+        if let topic = children.first?.topic {
+            currentTopic = topic
+        } else {
+            currentTopic = Topic(title: customized.isEmpty ? "" : "Other Definitions")
+        }
+
         children.forEach { child in
             guard let childTopic = child.topic else {
                 // add to current topic
@@ -70,6 +78,7 @@ private extension Item {
             // New topic!
             currentTopic = childTopic
         }
+        children = customized + children
     }
 }
 
@@ -86,7 +95,7 @@ private extension GroupItem {
 
 private extension DefItem {
     /// Group definition members by topic in topic order, then alphabetically (except enum elements!)
-    func makeLogicalTopics() {
+    func makeLogicalTopics(customized: [Item]) {
         // Split children into normal and conditional extensions
         let normalChildren = defChildren.prefix { !$0.isStartOfConditionalExtension }
         let extChildren = defChildren.suffix(from: normalChildren.count)
@@ -114,7 +123,7 @@ private extension DefItem {
         }
 
         // Combine topicized normal children with extensions
-        children = newChildren + extChildren.asLogicalConditionalExtensions
+        children = customized + newChildren + extChildren.asLogicalConditionalExtensions
     }
 
     /// Spot the markers left by group

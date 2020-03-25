@@ -239,6 +239,14 @@ extension SourceKittenDict {
             .with(usr: name)
     }
 
+    static func mkMethod(fullName: String, decl: String) -> Self {
+        SourceKittenDict()
+            .with(kind: .functionMethodInstance)
+            .with(name: fullName)
+            .with(decl: decl)
+            .with(usr: decl)
+    }
+
     static func mkSwiftMark(text: String) -> Self {
         SourceKittenDict()
             .with(field: .kind, value: "source.lang.swift.syntaxtype.comment.mark")

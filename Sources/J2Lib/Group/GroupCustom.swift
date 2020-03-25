@@ -24,7 +24,7 @@ final class GroupCustom: Configurable {
     private let customCategoriesAlias: AliasOpt
 
     private(set) var groups = [Group]()
-    private(set) var defs = [Def]()
+    private(set) var defs = [String : Def]()
 
     init(config: Config) {
         customCategoriesAlias = AliasOpt(realOpt: customGroupsOpt, l: "custom-categories")
@@ -39,8 +39,15 @@ final class GroupCustom: Configurable {
         }
         if let customDefsYaml = customDefsOpt.value {
             logDebug("Group: start parsing custom_defs")
-            defs = try DefParser.defs(yaml: customDefsYaml)
-            logDebug("Group: done parsing custom_defs: \(defs)")
+            let defsList = try DefParser.defs(yaml: customDefsYaml)
+            defsList.forEach { def in
+                if defs[def.name] != nil {
+                    logWarning("Duplicate custom def for '\(def.name)', using the first one seen.")
+                } else {
+                    defs[def.name] = def
+                }
+            }
+            logDebug("Group: done parsing custom_defs: \(defsList)")
         }
     }
 
@@ -57,6 +64,21 @@ final class GroupCustom: Configurable {
         let builder = Builder(index: index, uniquer: uniquer)
         return (grouped: groups.map { builder.build(group: $0) },
                 ungrouped: index.remainingItems)
+    }
+
+    /// Implement `custom_defs`.
+    ///
+    /// If the def is covered by `custom_defs` then affected children
+    /// are removed from  `defItem.children` and returned in order
+    /// with topics.
+    func customizeTopics(defItem: DefItem) -> [Item] {
+        let qualifiedName = defItem.primaryFullyQualifiedName
+        let nameInModule = defItem.location.moduleName + "." + qualifiedName
+        guard let def = defs[qualifiedName] ?? defs[nameInModule] else {
+            return []
+        }
+        logDebug("Group: Customizing def \(defItem.name) with \(def)")
+        return def.apply(to: defItem)
     }
 
     // MARK: Model
@@ -313,6 +335,31 @@ final class GroupCustom: Configurable {
     }
 }
 
+// MARK: Custom Def Builder
+
+extension GroupCustom.Def {
+    /// Pull out the contents of an item that match the yaml record.
+    ///
+    /// XXX indexify the defchildren, need to understand name dups
+    func apply(to defItem: DefItem) -> [Item] {
+        let items = topics.flatMap { topic in
+            topic.children.compactMap { name -> Item? in
+                guard let index = defItem.defChildren.firstIndex(where: { name == $0.name || name == $0.primaryNamePieces.flattened }) else {
+                    logWarning("Can't resolve def_item child name \(name) inside \(defItem.name)")
+                    return nil
+                }
+                let item = defItem.children.remove(at: index)
+                item.topic = topic.topic
+                return item
+            }
+        }
+        if skipUnlisted {
+            defItem.children = []
+        }
+        return items
+    }
+}
+
 // MARK: CustomStringConvertible
 
 extension GroupCustom.Group: CustomStringConvertible {
@@ -349,7 +396,7 @@ extension GroupCustom.Group.Item: CustomStringConvertible {
 
 extension GroupCustom.Def: CustomStringConvertible {
     var description: String {
-        "Def name=\(name) skipUnlisted=\(skipUnlisted) topics=[\(topics)]"
+        "Def name=\(name) skipUnlisted=\(skipUnlisted) topics=\(topics)"
     }
 }
 
@@ -357,7 +404,7 @@ extension GroupCustom.Def.Topic: CustomStringConvertible {
     var description: String {
         var line = "Tpc \(topic)"
         if !children.isEmpty {
-            line += " children=[\(children)]"
+            line += " children=\(children)"
         }
         return line
     }

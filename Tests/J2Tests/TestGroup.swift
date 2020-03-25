@@ -359,4 +359,152 @@ class TestGroup: XCTestCase {
             XCTAssertEqual("Guide1", items[0].children[0].name)
         }
     }
+
+    // Custom Defs
+
+    // Leftovers, by-source-order, new topic
+    func testCustomDefs() throws {
+        let method1 = SourceKittenDict.mkMethod(fullName: "fn(a:)", decl: "func fn(a: Int)")
+        let method2 = SourceKittenDict.mkMethod(fullName: "fn(a:)", decl: "func fn(a: String)")
+        let method3 = SourceKittenDict.mkMethod(fullName: "fn2()", decl: "func fn2()")
+        let class1 = SourceKittenDict
+            .mkClass(name: "NestedClass")
+            .with(children: [method1, method2, method3])
+        let class2 = SourceKittenDict.mkClass(name: "ParentClass").with(children: [class1])
+        let file = SourceKittenDict.mkFile().with(children: [class2])
+        let passes = [file.asGatherDef().asPass(moduleName: "Module", pathName: "")]
+
+        // Most goodpath features
+
+        let yaml = """
+                   custom_defs:
+                     - name: ParentClass.NestedClass
+                       topics:
+                         - name: Topic1
+                           abstract: Topic1 Abstract
+                           children:
+                             - fn2()
+                             - "func fn(a: String)"
+                             - missing
+                     - name: ParentClass.NestedClass
+                       topics:
+                         - name: Capricorn
+                     - name: Module.ParentClass
+                       topics:
+                         - name: PTopic1
+                           children:
+                             - NestedClass
+                   """
+        try withTempConfigFile(yaml: yaml) { url in
+            TestLogger.install()
+
+            let system = System(cliArgs: ["--config=\(url.path)"])
+            print(system.group.groupCustom.defs)
+            let tpc1 = Topic(title: .init(unlocalized: "Topic1"), body: .init(unlocalized: "Topic1 Abstract"))
+            let def1 = GroupCustom.Def(name: "ParentClass.NestedClass", skipUnlisted: false, topics: [
+                .init(topic: tpc1, children: ["fn2()", "func fn(a: String)", "missing"])
+                ])
+            let tpc2 = Topic(title: .init(unlocalized: "PTopic1"))
+            let def2 = GroupCustom.Def(name: "Module.ParentClass", skipUnlisted: false, topics: [
+                .init(topic: tpc2, children: ["NestedClass"])
+                ])
+            let parsedDefs = system.group.groupCustom.defs.values.sorted(by: { $0.name >= $1.name })
+            XCTAssertEqual(def1, parsedDefs[0])
+            XCTAssertEqual(def2, parsedDefs[1])
+
+            let items = try system.run(passes)
+
+            // warnings about repeated def & unmatched 'missing'
+            XCTAssertEqual(2, TestLogger.shared.diagsBuf.count)
+
+            XCTAssertEqual(1, items.count)
+            XCTAssertEqual("ParentClass", items[0].children[0].name)
+            let nestedClass = items[0].children[0].children[0] as! DefItem
+            XCTAssertEqual(tpc2, nestedClass.topic)
+            XCTAssertEqual(3, nestedClass.children.count)
+            XCTAssertEqual("func fn2()", nestedClass.defChildren[0].primaryNamePieces.flattened)
+            XCTAssertEqual(tpc1, nestedClass.defChildren[0].topic)
+            XCTAssertEqual("func fn(a: String)", nestedClass.defChildren[1].primaryNamePieces.flattened)
+            XCTAssertEqual(tpc1, nestedClass.defChildren[1].topic)
+            XCTAssertEqual("Methods", nestedClass.defChildren[2].topic?.title.plainText.first!.value)
+            XCTAssertEqual("func fn(a: Int)", nestedClass.defChildren[2].primaryNamePieces.flattened)
+        }
+
+    }
+
+    func testCustomDefSkipUnlisted() throws {
+        let method1 = SourceKittenDict.mkMethod(fullName: "fn(a:)", decl: "func fn(a: Int)")
+        let method2 = SourceKittenDict.mkMethod(fullName: "fn2()", decl: "func fn2()")
+        let class1 = SourceKittenDict
+            .mkClass(name: "Class")
+            .with(children: [method1, method2])
+        let file = SourceKittenDict.mkFile().with(children: [class1])
+
+        let yaml2 = """
+                    custom_defs:
+                      - name: Class
+                        skip_unlisted: true
+                        topics:
+                        - name: Topic1
+                          children:
+                            - fn2()
+                    """
+
+        try withTempConfigFile(yaml: yaml2) { url in
+            let system = System(cliArgs: ["--config=\(url.path)"])
+            let items = try system.run(file.asGatherPasses)
+            XCTAssertEqual(1, items[0].children[0].children.count)
+            XCTAssertEqual("fn2()", items[0].children[0].children[0].name)
+        }
+    }
+
+    func testCustomDefSourceOrder() throws {
+        let method1 = SourceKittenDict.mkMethod(fullName: "fn(a:)", decl: "func fn(a: Int)")
+        let method2 = SourceKittenDict.mkMethod(fullName: "fn2()", decl: "func fn2()")
+        let class1 = SourceKittenDict
+            .mkClass(name: "Class")
+            .with(children: [method1, method2])
+        let file = SourceKittenDict.mkFile().with(children: [class1])
+
+        let yaml2 = """
+                    custom_defs:
+                      - name: Class
+                        topics:
+                        - name: Topic1
+                          children:
+                            - fn2()
+                    """
+
+        try withTempConfigFile(yaml: yaml2) { url in
+            let system = System(cliArgs: ["--config=\(url.path)", "--topic-style=source-order"])
+            let items = try system.run(file.asGatherPasses)
+            XCTAssertEqual(2, items[0].children[0].children.count)
+            XCTAssertEqual("Other Definitions", items[0].children[0].children[1].topic?.title.plainText.first!.value)
+        }
+    }
+
+    func testCustomDefParseErrors() throws {
+
+        let missingDefName = """
+                             custom_defs:
+                              - skip_unlisted: true
+                             """
+        checkCustomParseError(missingDefName)
+
+        let missingTopics = """
+                            custom_defs:
+                              - name: Def1
+                                skip_unlisted: false
+                            """
+        checkCustomParseError(missingTopics)
+
+        let missingTopicName = """
+                               custom_defs:
+                                 - name: Def1
+                                   topics:
+                                     - children:
+                                         - A
+                               """
+        checkCustomParseError(missingTopicName)
+    }
 }

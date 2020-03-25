@@ -86,10 +86,10 @@ public final class Topic: Equatable, Encodable, CustomStringConvertible {
     }
 
     /// Format the topic's content
-    public func format(_ formatter: RichText.Formatter) rethrows {
-        try title.format(formatter)
-        try _menuTitle?.format(formatter)
-        try body?.format(formatter)
+    public func format(inlineFormatter: RichText.Formatter, blockFormatter: RichText.Formatter) rethrows {
+        try title.format(inlineFormatter)
+        try _menuTitle?.format(inlineFormatter)
+        try body?.format(blockFormatter)
     }
 
     /// Not sure what stops this from being auto-generated.
