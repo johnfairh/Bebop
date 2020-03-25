@@ -92,3 +92,7 @@ Ignoring the second.";
 "err-cfg-custom-grp-unlisted" = "Custom group has 'skip_unlisted' config key without 'topics': '%1'";
 "err-cfg-custom-grp-nested" = "Custom topic has nested 'topics' config key: '%1'";
 "wrn-custom-grp-missing" = "Can't resolve item name '%1' inside 'custom_groups', ignoring.";
+"wrn-custom-def-dup" = "Duplicate 'custom_def' entry for '%1', using only the first one seen.";
+"err-cfg-custom-def-name" = "Custom def missing 'name' config key: '%1'";
+"err-cfg-custom-def-topics" = "Custom def missing 'topics' config key: '%1'";
+"err-cfg-custom-def-topic-name" = "Custom def topic missing 'name' config key: '%1'";

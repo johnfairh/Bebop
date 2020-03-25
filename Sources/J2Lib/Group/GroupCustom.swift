@@ -37,12 +37,13 @@ final class GroupCustom: Configurable {
             groups = try GroupParser.groups(yaml: customGroupsYaml)
             logDebug("Group: done parsing custom_groups: \(groups)")
         }
+
         if let customDefsYaml = customDefsOpt.value {
             logDebug("Group: start parsing custom_defs")
             let defsList = try DefParser.defs(yaml: customDefsYaml)
             defsList.forEach { def in
                 if defs[def.name] != nil {
-                    logWarning("Duplicate custom def for '\(def.name)', using the first one seen.")
+                    logWarning(.localized(.wrnCustomDefDup, def.name))
                 } else {
                     defs[def.name] = def
                 }
@@ -288,10 +289,10 @@ final class GroupCustom: Configurable {
             try parser.apply(mapping: mapping)
 
             guard let name = nameOpt.value else {
-                throw OptionsError("Missing 'name' for custom_defs: \(try yaml.asDebugString())")
+                throw OptionsError(.localized(.errCfgCustomDefName, try yaml.asDebugString()))
             }
             guard let topicsYaml = topicsOpt.value else {
-                throw OptionsError("Missing 'topics' for custom_defs: \(try yaml.asDebugString())")
+                throw OptionsError(.localized(.errCfgCustomDefTopics, try yaml.asDebugString()))
             }
 
             return Def(name: name,
@@ -318,7 +319,7 @@ final class GroupCustom: Configurable {
                 try parser.apply(mapping: mapping)
 
                 guard let name = nameOpt.value else {
-                    throw OptionsError("Missing 'name' for custom_defs.topic")
+                    throw OptionsError(.localized(.errCfgCustomDefTopicName, try yaml.asDebugString()))
                 }
                 return Def.Topic(topic: Topic(title: name,
                                               body: abstractOpt.value),

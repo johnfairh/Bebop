@@ -18,6 +18,12 @@ internal enum L10n {
     case errCfgBadMapping = "err-cfg-bad-mapping"
     /// Module merging is disabled for '%1' but `merge_module_group` is set.
     case errCfgBadModMerge = "err-cfg-bad-mod-merge"
+    /// Custom def missing 'name' config key: '%1'
+    case errCfgCustomDefName = "err-cfg-custom-def-name"
+    /// Custom def topic missing 'name' config key: '%1'
+    case errCfgCustomDefTopicName = "err-cfg-custom-def-topic-name"
+    /// Custom def missing 'topics' config key: '%1'
+    case errCfgCustomDefTopics = "err-cfg-custom-def-topics"
     /// Custom group/topic has both 'children' and 'topics' config keys: '%1'
     case errCfgCustomGrpBoth = "err-cfg-custom-grp-both"
     /// Custom group/topic missing 'name' config key: '%1'
@@ -102,6 +108,8 @@ internal enum L10n {
     case wrnCfgIgnored = "wrn-cfg-ignored"
     /// Language tags missing for '%1': %2.
     case wrnCfgLanguageMissing = "wrn-cfg-language-missing"
+    /// Duplicate 'custom_def' entry for '%1', using only the first one seen.
+    case wrnCustomDefDup = "wrn-custom-def-dup"
     /// Can't resolve item name '%1' inside 'custom_groups', ignoring.
     case wrnCustomGrpMissing = "wrn-custom-grp-missing"
     /// Duplicate filename '%1', ignoring '%2'.
