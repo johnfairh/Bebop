@@ -30,7 +30,6 @@ final class MarkdownFormatter: ItemVisitorProtocol {
 
     init(language: DefLanguage, autolink: FormatAutolink? = nil) {
         fallbackLanguage = language
-        currentLanguage = nil
         uniquer = StringUniquer()
         self.autolink = autolink
     }
@@ -38,7 +37,7 @@ final class MarkdownFormatter: ItemVisitorProtocol {
     /// Format the def's markdown.
     /// This both generates HTML versions of everything and also replaces the original markdown
     /// with an auto-linked version for generating markdown output.
-    private func format(item: Item, parents: [Item]) {
+    private func format(item: Item) {
         visitItemContext = item
         item.format(blockFormatter: { format(md: $0) },
                     inlineFormatter: { formatInline(md: $0) })
@@ -46,22 +45,21 @@ final class MarkdownFormatter: ItemVisitorProtocol {
     }
 
     func visit(defItem: DefItem, parents: [Item]) {
-        uniquer.reset() // this isn't right...
+        uniquer.reset() // this isn't right because of all the other stuff on the page.
         currentLanguage = defItem.primaryLanguage
         defItem.finalizeDeclNotes()
-        format(item: defItem, parents: parents)
+        format(item: defItem)
+        currentLanguage = nil
     }
 
     func visit(groupItem: GroupItem, parents: [Item]) {
         uniquer.reset()
-        currentLanguage = nil
-        format(item: groupItem, parents: [])
+        format(item: groupItem)
     }
 
     func visit(guideItem: GuideItem, parents: [Item]) {
         uniquer.reset()
-        currentLanguage = nil
-        format(item: guideItem, parents: [])
+        format(item: guideItem)
     }
 
     /// 1 - build markdown AST

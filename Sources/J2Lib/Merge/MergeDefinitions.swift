@@ -356,11 +356,13 @@ fileprivate extension DefItem {
             firstChild.topic = Topic(categoryName: categoryName)
         }
         else if let genericReqs = swiftGenericRequirements {
+            let genericTopic = Topic(requirements: genericReqs)
             if let existingTopic = firstChild.topic {
                 existingTopic.makeGenericRequirement(requirements: genericReqs)
             } else {
-                firstChild.topic = Topic(requirements: genericReqs)
+                firstChild.topic = genericTopic
             }
+            defChildren.forEach { $0.extensionConstraint = genericTopic.title }
         }
         else if topic != nil && firstChild.topic == nil {
             firstChild.topic = topic

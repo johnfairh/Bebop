@@ -23,6 +23,7 @@ extension DefItem {
         case documentation
         case genericTypeParameters
         case declNotes
+        case extensionConstraint
     }
 
     // I may well have got this wrong, but I am using classes here - can't see
@@ -48,6 +49,7 @@ extension DefItem {
         if !documentation.isEmpty {
             try container.encode(documentation, forKey: .documentation)
         }
+        try container.encodeIfPresent(extensionConstraint, forKey: .extensionConstraint)
     }
 }
 

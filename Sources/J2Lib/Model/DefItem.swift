@@ -42,6 +42,8 @@ public class DefItem: Item, CustomStringConvertible {
     /// Notes to add to the declaration, added during merge and resolved during format
     public private(set) var declNotes: Set<DeclNote>
     public private(set) var declNotesNotice: RichText?
+    /// Any generic constraint on any parent extension
+    public internal(set) var extensionConstraint: RichText?
 
     /// Create from a gathered definition
     public init?(location: DefLocation, gatherDef: GatherDef, uniquer: StringUniquer) {
@@ -306,12 +308,14 @@ public class DefItem: Item, CustomStringConvertible {
 
     /// After merge, collate the decl notes ready for formatting
     func finalizeDeclNotes() {
-        guard !declNotes.isEmpty else {
+        var notes = orderedDeclNotes.map { $0.localized }
+        if renderAsPage, let constraint = extensionConstraint {
+            notes = [constraint.markdown.mapValues { $0.md }] + notes
+        }
+        guard !notes.isEmpty else {
             return
         }
-        declNotesNotice = RichText(orderedDeclNotes
-            .map { $0.localized }
-            .joined(by: "\n\n"))
+        declNotesNotice = RichText(notes.joined(by: "\n\n"))
     }
 }
 
