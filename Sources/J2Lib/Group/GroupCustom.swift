@@ -97,6 +97,7 @@ final class GroupCustom: Configurable {
 
         enum Item: Equatable {
             case name(String)
+            case pattern(String)
             case group(Group)
         }
     }
@@ -134,6 +135,7 @@ final class GroupCustom: Configurable {
 
         /// Remove items from our caches as they are used - no dups
         func find(name: String) -> Item? {
+            // Order important, modules first: A.B defaults to A-is-module
             guard let item = moduleNameMap[name] ?? nameMap[name] else {
                 return nil
             }
@@ -142,6 +144,23 @@ final class GroupCustom: Configurable {
                 moduleNameMap.removeValue(forKey: defItem.nameInModule)
             }
             return item
+        }
+
+        /// Remove all items from our caches that match a regular expression pattern
+        func findAll(matching pattern: String) -> [Item] {
+            var items = [Item]()
+
+            func search(dict: [String:Item]) {
+                let matchingKeys = dict.keys.filter { $0.re_isMatch(pattern) }
+                matchingKeys.forEach { key in
+                    find(name: key).flatMap { items.append($0) }
+                }
+            }
+            // Order important, match a module name first
+            search(dict: moduleNameMap)
+            search(dict: nameMap)
+
+            return items
         }
 
         /// What's left are processed by the 'group-by-kind' path.
@@ -172,22 +191,31 @@ final class GroupCustom: Configurable {
 
         func build(topics: [Group.Topic]) -> [Item] {
             topics.flatMap { topic -> [Item] in
-                let items = topic.children.compactMap { build(item: $0) }
+                let items = topic.children.flatMap { build(item: $0) }
                 items.forEach { $0.topic = topic.topic }
                 return items
             }
         }
 
-        func build(item: Group.Item) -> Item? {
+        func build(item: Group.Item) -> [Item] {
             switch item {
             case .name(let name):
                 guard let theItem = index.find(name: name) else {
                     logWarning(.localized(.wrnCustomGrpMissing, name))
-                    return nil
+                    return []
                 }
-                return theItem
+                return [theItem]
+
+            case .pattern(let pattern):
+                let items = index.findAll(matching: pattern)
+                guard !items.isEmpty else {
+                    logWarning("Regular expression '/\(pattern)/' did not match any items.")
+                    return []
+                }
+                return items.sorted(by: { $0.sortableName < $1.sortableName })
+
             case .group(let group):
-                return build(group: group)
+                return [build(group: group)]
             }
         }
     }
@@ -252,8 +280,13 @@ final class GroupCustom: Configurable {
             }
             let childrenSequence = try childrenYaml.checkSequence(context: "topics.children")
             return try childrenSequence.map { childYaml in
-                if let childScalar = childYaml.scalar {
-                    return .name(childScalar.string)
+                if let childScalar = childYaml.scalar, case let string = childScalar.string {
+                    guard let matches = string.re_match(#"^/(.*)/$"#) else {
+                        return .name(string)
+                    }
+                    let pattern = matches[1]
+                    try pattern.re_check()
+                    return .pattern(pattern)
                 }
                 return .group(try GroupParser().group(yaml: childYaml, context: "topics.children[n]"))
             }
@@ -338,13 +371,13 @@ final class GroupCustom: Configurable {
 
 // MARK: Custom Def Builder
 
-// I'm too dumb to figure out how to index this to be efficient.
+// I'm too dumb to figure out how to index this properly.
 //
 // We've got an ordered def list, and an ordered name list.
 // We need to pull the named defs out of their list, leaving
 // the rest in order.  The implementation here is O(N.M) but the
-// sizes are pretty small.  Need something like a linked list augmented
-// with a hash lookup?
+// sizes are pretty small.  Need something like a linked list for
+// order augmented with a keyed lookup index.
 
 private extension DefItemList {
     mutating func removeFirst(where filter: (DefItem) -> Bool) -> DefItem? {
@@ -427,6 +460,7 @@ extension GroupCustom.Group.Item: CustomStringConvertible {
         switch self {
         case .name(let str): return str
         case .group(let grp): return grp.description
+        case .pattern(let pat): return "/\(pat)/"
         }
     }
 }
