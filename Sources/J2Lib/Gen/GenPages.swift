@@ -261,6 +261,17 @@ extension DefItem {
         }
         return modTitle + " (\(location.moduleName))"
     }
+
+    /// Only print the '(where T: Codable)' thing if we are not inside a topic generated to express that.
+    /// In practice this means when custom_defs has been used to rearrange things.
+    var extensionConstraintMessage: Localized<String>? {
+        guard let constraint = extensionConstraint,
+            let topic = topic,
+            topic.kind != .genericRequirements else {
+                return nil
+        }
+        return constraint.plainText
+    }
 }
 
 /// Visitor to construct an Item that can appear inside a topic on a page.
@@ -292,6 +303,7 @@ class GenItemVisitor: ItemVisitorProtocol {
             secondaryLanguage: defItem.secondaryLanguage,
             primaryTitleHtml: titleHtmls[0],
             secondaryTitleHtml: titleHtmls[1],
+            extensionConstraint: defItem.extensionConstraintMessage,
             dashType: defItem.defKind.dashName,
             url: defItem.renderAsPage ? defItem.url : nil,
             def: defItem.asGenDef))

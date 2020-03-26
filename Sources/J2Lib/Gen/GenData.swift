@@ -53,6 +53,7 @@ public final class GenData: Encodable {
         public let secondaryLanguage: DefLanguage?
         public let primaryTitleHtml: Html?
         public let secondaryTitleHtml: Html?
+        public let extensionConstraint: Localized<String>?
         public let dashType: String?
         public let url: URLPieces?
         public let def: Def?
@@ -65,6 +66,7 @@ public final class GenData: Encodable {
             self.secondaryLanguage = nil
             self.primaryTitleHtml = nil
             self.secondaryTitleHtml = nil
+            self.extensionConstraint = nil
             self.dashType = nil
             self.url = url
             self.def = nil
@@ -77,6 +79,7 @@ public final class GenData: Encodable {
                     secondaryLanguage: DefLanguage?,
                     primaryTitleHtml: Html?,
                     secondaryTitleHtml: Html?,
+                    extensionConstraint: Localized<String>?,
                     dashType: String,
                     url: URLPieces?,
                     def: Def) {
@@ -86,6 +89,7 @@ public final class GenData: Encodable {
             self.secondaryLanguage = secondaryLanguage
             self.primaryTitleHtml = primaryTitleHtml
             self.secondaryTitleHtml = secondaryTitleHtml
+            self.extensionConstraint = extensionConstraint
             self.dashType = dashType
             self.url = url
             self.def = def

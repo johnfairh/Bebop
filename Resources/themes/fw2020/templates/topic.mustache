@@ -21,9 +21,11 @@
     <a name="//apple_ref/cpp/{{dash_type}}/{{dash_name}}" class="dashAnchor"></a>
     <h4 class="sr-only">{{title}}</h4>
     {{^item_nest}}
-      <a class="j2-item-title{{#def.discouraged}}-discouraged{{/def.discouraged}} {{{primary_language}}}" href="{{{path_to_root}}}{{{primary_url}}}"><code>{{{primary_title_html}}}</code>{{#constraint_html}}<span class="j2-item-tertiary">({{{.}}})</span>{{/constraint_html}}</a>
+      <a class="j2-item-title{{#def.discouraged}}-discouraged{{/def.discouraged}} {{{primary_language}}}" href="{{{path_to_root}}}{{{primary_url}}}"><code>{{{primary_title_html}}}</code>
+      {{#extension_constraint}}<span class="j2-item-tertiary">{{.}}</span>{{/extension_constraint}}</a>
       {{#.secondary_title_html}}
-      <a class="j2-item-title{{#def.discouraged}}-discouraged{{/def.discouraged}} {{{secondary_language}}} j2-secondary" href="{{{path_to_root}}}{{{secondary_url}}}"><code>{{{.}}}</code>{{#constraint_html}}<span class="j2-item-tertiary">({{{.}}})</span>{{/constraint_html}}</a>
+      <a class="j2-item-title{{#def.discouraged}}-discouraged{{/def.discouraged}} {{{secondary_language}}} j2-secondary" href="{{{path_to_root}}}{{{secondary_url}}}"><code>{{{.}}}</code>
+      {{#extension_constraint}}<span class="j2-item-tertiary">{{.}}</span>{{/extension_constraint}}</a>
       {{/.secondary_title_html}}
       {{#.def.abstract_html}}
         <div class="j2-item-overview">
@@ -37,7 +39,7 @@
         {{#secondary_title_html}}
         <span class="{{{secondary_language}}} j2-secondary">{{{.}}}</span>
         {{/secondary_title_html}}
-    </code></a>
+      </code>{{#extension_constraint}}<span class="j2-item-tertiary">{{.}}</span>{{/extension_constraint}}</a>
     <div class="collapse {{#item_collapse_open}}show{{/item_collapse_open}} j2-item-popopen-wrapper" id="_{{anchor_id}}">
       <div class="j2-item-popopen">
         <div class="j2-item-popopen-pointer" role="none"></div>

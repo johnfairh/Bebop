@@ -150,6 +150,7 @@ public enum MustacheKey: String {
     case secondaryTitleHtml = "secondary_title_html"
     case primaryLanguage = "primary_language"
     case secondaryLanguage = "secondary_language"
+    case extensionConstraint = "extension_constraint"
     case anyDeclaration = "any_declaration"
     case primaryUrl = "primary_url"
     case secondaryUrl = "secondary_url"
@@ -470,6 +471,7 @@ extension GenData.Item: SoloLanguageProtocol {
     ///     anchor_id
     ///     title -- text title for meta refs & direct-links
     ///     prim|sec_title_html -- language defs, prim/sec is about which to show in dash (etc) mode
+    ///     extension_constraint -- optional text to follow title
     ///     prim|sec_language -- css-appendable class tag for other prim-sec stuff
     ///     any_declaration -- F means direct_link
     ///     dash_type -- for dash links
@@ -488,6 +490,7 @@ extension GenData.Item: SoloLanguageProtocol {
         hash.maybe(.primaryTitleHtml, primaryTitleHtml?.html)
         hash.maybe(.secondaryLanguage, secondaryLanguage?.cssName)
         hash.maybe(.secondaryTitleHtml, secondaryTitleHtml?.html)
+        hash.maybe(.extensionConstraint, extensionConstraint?.get(languageTag))
         hash.maybe(.dashType, dashType)
         hash.maybe(.primaryUrl, url?.url(fileExtension: fileExt, language: primaryLanguage))
         hash.maybe(.secondaryUrl, secondaryLanguage.flatMap { url?.url(fileExtension: fileExt, language: $0) })
