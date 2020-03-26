@@ -6,11 +6,20 @@
 //  Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
 //
 
+/// A section on a page that contains multiple items.
+///
+/// Topics generated from source MARK comments, or by j2 per-kind, or per constrainted extension,
+/// or from a custom_groups config stanza.
 public final class Topic: Equatable, Encodable, CustomStringConvertible {
+    /// Topic title
     public private(set) var title: RichText
+    /// Short version of the title, used for the aux nav menu
     public private(set) var _menuTitle: RichText?
-    public private(set) var body: RichText?
+    /// User-provided blurb about the topic.  From custom_groups.
+    public private(set) var overview: RichText?
+    /// Source of the topic.  Mostly for debug?
     public private(set) var kind: TopicKind
+    /// Constrained extension requirements when the user has overwritten the auto-topic...
     private var savedRequirements: String?
 
     public var menuTitle: RichText {
@@ -24,28 +33,26 @@ public final class Topic: Equatable, Encodable, CustomStringConvertible {
     /// Initialize from a pragma/MARK in source code or static string (will be treated as markdown)
     public init(title: String = "") {
         self.title = RichText(title)
-        self.body = nil
+        self.overview = nil
         self.kind = .sourceMark
     }
 
     /// Initialize from a custom topic definition
-    public init(title: Localized<String>, body: Localized<String>? = nil) {
+    public init(title: Localized<String>, overview: Localized<String>? = nil) {
         self.title = RichText(title)
-        self.body = body.flatMap { RichText($0) }
+        self.overview = overview.flatMap { RichText($0) }
         self.kind = .custom
     }
 
     /// Initialize from a def-kind topic
     public init(defTopic: DefTopic) {
         self.title = RichText(defTopic.name)
-        self.body = nil
         self.kind = .defTopic
     }
 
     /// Initialize for an ObjC Category
     public init(categoryName: ObjCCategoryName) {
         self.title = RichText(categoryName.categoryName)
-        self.body = nil
         self.kind = .category
     }
 
@@ -60,7 +67,6 @@ public final class Topic: Equatable, Encodable, CustomStringConvertible {
         let markdown = requirements.re_sub(#"[\w\.]+"#, with: #"`$0`"#)
         title = RichText(.localizedOutput(.availableWhere, markdown))
         _menuTitle = RichText(.localizedOutput(.availableWhereShort, markdown))
-        body = nil
     }
 
     /// Make a user mark remember a generic requirements marker
@@ -89,21 +95,26 @@ public final class Topic: Equatable, Encodable, CustomStringConvertible {
     public func format(inlineFormatter: RichText.Formatter, blockFormatter: RichText.Formatter) rethrows {
         try title.format(inlineFormatter)
         try _menuTitle?.format(inlineFormatter)
-        try body?.format(blockFormatter)
+        try overview?.format(blockFormatter)
     }
 
     /// Not sure what stops this from being auto-generated.
     public static func == (lhs: Topic, rhs: Topic) -> Bool {
         lhs.title == rhs.title &&
-            lhs.body == rhs.body &&
+            lhs.overview == rhs.overview &&
             lhs.kind == rhs.kind
     }
 }
 
 public enum TopicKind: String, Equatable, Encodable {
+    /// MARK: comment or #pragma mark
     case sourceMark
+    /// ObjC category
     case category
+    /// Swift constrained extension
     case genericRequirements
+    /// custom_groups
     case custom
+    /// 'Types' 'Methods' etc.
     case defTopic
 }

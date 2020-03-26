@@ -437,7 +437,7 @@ extension GenData.Topic: SoloLanguageProtocol {
         if !titleText.isEmpty {
             dict[.titleHtml] = title.html.get(languageTag).html
         }
-        dict.maybe(.overviewHtml, body?.get(languageTag).html)
+        dict.maybe(.overviewHtml, overview?.get(languageTag).html)
         dict.maybe(.primaryLanguage, soloLanguage?.cssName)
         if items.count > 0 {
             dict[.items] = items.map {

@@ -241,7 +241,7 @@ final class GroupCustom: Configurable {
                 throw OptionsError(.localized(.errCfgCustomGrpNested, try yaml.asDebugString()))
             }
             return Group.Topic(topic: Topic(title: nameOpt.value!,
-                                            body: abstractOpt.value),
+                                            overview: abstractOpt.value),
                                children: try items())
         }
 
@@ -322,7 +322,7 @@ final class GroupCustom: Configurable {
                     throw OptionsError(.localized(.errCfgCustomDefTopicName, try yaml.asDebugString()))
                 }
                 return Def.Topic(topic: Topic(title: name,
-                                              body: abstractOpt.value),
+                                              overview: abstractOpt.value),
                                  children: childrenOpt.value)
             }
 

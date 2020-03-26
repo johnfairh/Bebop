@@ -225,7 +225,7 @@ final class PageVisitor: ItemVisitorProtocol {
                 topics.append(GenData.Topic(title: currentTopic.title,
                                             menuTitle: currentTopic.menuTitle,
                                             anchorId: uniquer.unique("tpc-" + slugRoot.slugged),
-                                            body: currentTopic.body?.html,
+                                            overview: currentTopic.overview?.html,
                                             items: itemVisitor.resetItems()))
             }
         }

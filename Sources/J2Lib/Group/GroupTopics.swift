@@ -156,7 +156,7 @@ private extension ArraySlice where Element == DefItem {
         forEach { child in
             if child.isStartOfConditionalExtension {
                 currentTopic = child.topic
-                currentTopic?.useAsGenericRequirement()
+                currentTopic.useAsGenericRequirement()
             } else {
                 child.topic = currentTopic
             }

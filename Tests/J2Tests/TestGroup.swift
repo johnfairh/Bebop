@@ -229,7 +229,7 @@ class TestGroup: XCTestCase {
         let topic1 = GroupCustom.Group.Topic(topic: Topic(title: .init(unlocalized: "Tpc1")),
                                              children: [.name("G.T.1"), .name("G.T.2")])
         let topic2 = GroupCustom.Group.Topic(topic: Topic(title: .init(unlocalized: "Tpc2"),
-                                                          body: .init(unlocalized: "Empty")),
+                                                          overview: .init(unlocalized: "Empty")),
                                              children: [])
         XCTAssertEqual(.init(unlocalized: "Group"), groups[0].name)
         XCTAssertNil(groups[0].abstract)
@@ -400,7 +400,7 @@ class TestGroup: XCTestCase {
 
             let system = System(cliArgs: ["--config=\(url.path)"])
             print(system.group.groupCustom.defs)
-            let tpc1 = Topic(title: .init(unlocalized: "Topic1"), body: .init(unlocalized: "Topic1 Abstract"))
+            let tpc1 = Topic(title: .init(unlocalized: "Topic1"), overview: .init(unlocalized: "Topic1 Abstract"))
             let def1 = GroupCustom.Def(name: "ParentClass.NestedClass", skipUnlisted: false, topics: [
                 .init(topic: tpc1, children: ["fn2()", "func fn(a: String)", "missing"])
                 ])
