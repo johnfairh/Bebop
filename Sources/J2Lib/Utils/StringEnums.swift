@@ -110,6 +110,8 @@ internal enum L10n {
     case wrnCfgLanguageMissing = "wrn-cfg-language-missing"
     /// Duplicate 'custom_def' entry for '%1', using only the first one seen.
     case wrnCustomDefDup = "wrn-custom-def-dup"
+    /// Can't resolve custom_def child '%1' inside '%2'
+    case wrnCustomDefMissing = "wrn-custom-def-missing"
     /// Can't resolve item name '%1' inside 'custom_groups', ignoring.
     case wrnCustomGrpMissing = "wrn-custom-grp-missing"
     /// Duplicate filename '%1', ignoring '%2'.
@@ -150,9 +152,9 @@ internal enum L10n {
   internal enum Output : String {
     /// Authors
     case authors = "authors"
-    /// Available where %1
+    /// Available %1
     case availableWhere = "available-where"
-    /// …where %1
+    /// …%1
     case availableWhereShort = "available-where-short"
     /// Categories
     case categories = "categories"

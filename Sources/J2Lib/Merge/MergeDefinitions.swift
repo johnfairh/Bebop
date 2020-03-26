@@ -362,7 +362,7 @@ fileprivate extension DefItem {
             } else {
                 firstChild.topic = genericTopic
             }
-            defChildren.forEach { $0.extensionConstraint = genericTopic.title }
+            defChildren.forEach { $0.extensionConstraint = genericReqs }
         }
         else if topic != nil && firstChild.topic == nil {
             firstChild.topic = topic

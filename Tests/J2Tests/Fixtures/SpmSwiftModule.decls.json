@@ -197,11 +197,7 @@
           "parameters" : [],
           "source" : "undocumented"
         },
-        "extension_constraint" : {
-          "markdown" : {
-            "en" : "Available where `T`: `Equatable`, `T`: `FirstProtocol`"
-          }
-        },
+        "extension_constraint" : "where T: Equatable, T: FirstProtocol",
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
@@ -258,11 +254,7 @@
           "parameters" : [],
           "source" : "undocumented"
         },
-        "extension_constraint" : {
-          "markdown" : {
-            "en" : "Available where `T`: `Equatable`, `T`: `FirstProtocol`"
-          }
-        },
+        "extension_constraint" : "where T: Equatable, T: FirstProtocol",
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
@@ -306,11 +298,7 @@
           "parameters" : [],
           "source" : "undocumented"
         },
-        "extension_constraint" : {
-          "markdown" : {
-            "en" : "Available where `T`: `Hashable`"
-          }
-        },
+        "extension_constraint" : "where T: Hashable",
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
@@ -342,7 +330,9 @@
         "swift_name" : "doHashable()",
         "topic" : {
           "kind" : "genericRequirements",
-          "saved_requirements" : "T: Hashable",
+          "saved_requirements" : {
+            "reqs" : "T: Hashable"
+          },
           "title" : {
             "markdown" : {
               "en" : "User-custom mark"
@@ -363,11 +353,7 @@
           "parameters" : [],
           "source" : "undocumented"
         },
-        "extension_constraint" : {
-          "markdown" : {
-            "en" : "Available where `T`: `Codable`"
-          }
-        },
+        "extension_constraint" : "where T: Codable",
         "kind" : "source.lang.swift.decl.var.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
@@ -424,11 +410,7 @@
           "parameters" : [],
           "source" : "undocumented"
         },
-        "extension_constraint" : {
-          "markdown" : {
-            "en" : "Available where `T`: `Codable`"
-          }
-        },
+        "extension_constraint" : "where T: Codable",
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
@@ -738,11 +720,7 @@
           "parameters" : [],
           "source" : "undocumented"
         },
-        "extension_constraint" : {
-          "markdown" : {
-            "en" : "Available where `AssocType`: `Hashable`"
-          }
-        },
+        "extension_constraint" : "where AssocType: Hashable",
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
@@ -804,11 +782,7 @@
           "parameters" : [],
           "source" : "docComment"
         },
-        "extension_constraint" : {
-          "markdown" : {
-            "en" : "Available where `AssocType`: `Hashable`"
-          }
-        },
+        "extension_constraint" : "where AssocType: Hashable",
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
@@ -2161,11 +2135,7 @@
           "parameters" : [],
           "source" : "undocumented"
         },
-        "extension_constraint" : {
-          "markdown" : {
-            "en" : "Available where `Element`: `FirstProtocol`"
-          }
-        },
+        "extension_constraint" : "where Element: FirstProtocol",
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
@@ -2222,11 +2192,7 @@
           "parameters" : [],
           "source" : "undocumented"
         },
-        "extension_constraint" : {
-          "markdown" : {
-            "en" : "Available where `Element` == `SpmSwiftModule.Nested1`"
-          }
-        },
+        "extension_constraint" : "where Element == SpmSwiftModule.Nested1",
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",

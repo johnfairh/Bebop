@@ -73,5 +73,5 @@
 "protocol-default-conditional" = "Default implementation only for types that satisfy the constraints.";
 
 /* Generic requirements topic name */
-"available-where" = "Available where %1";
-"available-where-short" = "…where %1";
+"available-where" = "Available %1";
+"available-where-short" = "…%1";

@@ -20,7 +20,7 @@ public final class Topic: Equatable, Encodable, CustomStringConvertible {
     /// Source of the topic.  Mostly for debug?
     public private(set) var kind: TopicKind
     /// Constrained extension requirements when the user has overwritten the auto-topic...
-    private var savedRequirements: String?
+    private var savedRequirements: SwiftGenericReqs?
 
     public var menuTitle: RichText {
         _menuTitle ?? title
@@ -57,20 +57,19 @@ public final class Topic: Equatable, Encodable, CustomStringConvertible {
     }
 
     /// Initialize from some generic constraints
-    public convenience init(requirements: String) {
+    public convenience init(requirements: SwiftGenericReqs) {
         self.init()
         self.kind = .genericRequirements
         setFrom(requirements: requirements)
     }
 
-    private final func setFrom(requirements: String) {
-        let markdown = requirements.re_sub(#"[\w\.]+"#, with: #"`$0`"#)
-        title = RichText(.localizedOutput(.availableWhere, markdown))
-        _menuTitle = RichText(.localizedOutput(.availableWhereShort, markdown))
+    private final func setFrom(requirements: SwiftGenericReqs) {
+        title = requirements.richLong
+        _menuTitle = requirements.richShort
     }
 
     /// Make a user mark remember a generic requirements marker
-    public func makeGenericRequirement(requirements: String) {
+    public func makeGenericRequirement(requirements: SwiftGenericReqs) {
         kind = .genericRequirements
         savedRequirements = requirements
     }
@@ -86,7 +85,7 @@ public final class Topic: Equatable, Encodable, CustomStringConvertible {
     var genericRequirements: String {
         precondition(kind == .genericRequirements)
         if let savedRequirements = savedRequirements {
-            return savedRequirements
+            return savedRequirements.text
         }
         return title.markdown.first!.value.md
     }

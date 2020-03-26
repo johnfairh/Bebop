@@ -49,7 +49,7 @@ extension DefItem {
         if !documentation.isEmpty {
             try container.encode(documentation, forKey: .documentation)
         }
-        try container.encodeIfPresent(extensionConstraint, forKey: .extensionConstraint)
+        try container.encodeIfPresent(extensionConstraint?.text, forKey: .extensionConstraint)
     }
 }
 

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0225D990242D1B75005FF4A2 /* DefLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0225D98F242D1B75005FF4A2 /* DefLocation.swift */; };
+		0225D992242D1BA8005FF4A2 /* DefDeclNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0225D991242D1BA8005FF4A2 /* DefDeclNote.swift */; };
+		0225D994242D1BE8005FF4A2 /* DefLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0225D993242D1BE8005FF4A2 /* DefLanguage.swift */; };
 		022818B823D1C2E00016B0D5 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022818B723D1C2E00016B0D5 /* Options.swift */; };
 		022818BF23D238F30016B0D5 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022818BE23D238F30016B0D5 /* Errors.swift */; };
 		022818C223D23E050016B0D5 /* TestOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022818C023D23DFE0016B0D5 /* TestOptions.swift */; };
@@ -218,6 +221,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0225D98F242D1B75005FF4A2 /* DefLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefLocation.swift; sourceTree = "<group>"; };
+		0225D991242D1BA8005FF4A2 /* DefDeclNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefDeclNote.swift; sourceTree = "<group>"; };
+		0225D993242D1BE8005FF4A2 /* DefLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefLanguage.swift; sourceTree = "<group>"; };
 		022818B723D1C2E00016B0D5 /* Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
 		022818BE23D238F30016B0D5 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		022818C023D23DFE0016B0D5 /* TestOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestOptions.swift; sourceTree = "<group>"; };
@@ -605,7 +611,10 @@
 				0233D51C23EED547004DCD89 /* GroupItem.swift */,
 				0233D53C23F30851004DCD89 /* GuideItem.swift */,
 				02FDC68323E9DED600C2F9CD /* DefItem.swift */,
+				0225D98F242D1B75005FF4A2 /* DefLocation.swift */,
 				02FDC68C23EB498A00C2F9CD /* DefDeclaration.swift */,
+				0225D993242D1BE8005FF4A2 /* DefLanguage.swift */,
+				0225D991242D1BA8005FF4A2 /* DefDeclNote.swift */,
 				0259E1942416686D006435A1 /* DefAcl.swift */,
 				02CFFA3F23E5CFF800FDE5B9 /* DefKind.swift */,
 				02CFF9652423820A00320610 /* DefTopic.swift */,
@@ -852,6 +861,7 @@
 				0233D53D23F30851004DCD89 /* GuideItem.swift in Sources */,
 				0259E1912414F5A5006435A1 /* Stats.swift in Sources */,
 				0259E18F2413C12A006435A1 /* GatherJobObjC.swift in Sources */,
+				0225D990242D1B75005FF4A2 /* DefLocation.swift in Sources */,
 				02CFFA0623E0BD8B00FDE5B9 /* DefItemJSON.swift in Sources */,
 				02FDC68D23EB498A00C2F9CD /* DefDeclaration.swift in Sources */,
 				022818C523D33C2B0016B0D5 /* Regex.swift in Sources */,
@@ -860,6 +870,7 @@
 				02CFF92723DE009900FDE5B9 /* GatherOpts.swift in Sources */,
 				02CFFA1023E1E9A700FDE5B9 /* GenThemes.swift in Sources */,
 				02CFFA0423E0BA2900FDE5B9 /* Item.swift in Sources */,
+				0225D994242D1BE8005FF4A2 /* DefLanguage.swift in Sources */,
 				02CFF96424237E4400320610 /* GroupTopics.swift in Sources */,
 				028321D723FB1F4F00B2C555 /* GatherObjCDecl.swift in Sources */,
 				02FDC68223E997D700C2F9CD /* Markdown.swift in Sources */,
@@ -893,6 +904,7 @@
 				02D064F423EC208200FE11BD /* Group.swift in Sources */,
 				0233D54B23F70CA6004DCD89 /* GenCopyright.swift in Sources */,
 				02CFFA3E23E5A95B00FDE5B9 /* GatherDeclAvailable.swift in Sources */,
+				0225D992242D1BA8005FF4A2 /* DefDeclNote.swift in Sources */,
 				02CFFA0923E0C8AC00FDE5B9 /* GenSite.swift in Sources */,
 				022818B823D1C2E00016B0D5 /* Options.swift in Sources */,
 				0259E18B24111099006435A1 /* GatherJobOpts.swift in Sources */,

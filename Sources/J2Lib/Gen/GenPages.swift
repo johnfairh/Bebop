@@ -270,7 +270,7 @@ extension DefItem {
             topic.kind != .genericRequirements else {
                 return nil
         }
-        return constraint.plainText
+        return constraint.richLong.plainText
     }
 }
 

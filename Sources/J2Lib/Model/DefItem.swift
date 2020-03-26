@@ -43,7 +43,7 @@ public class DefItem: Item, CustomStringConvertible {
     public private(set) var declNotes: Set<DeclNote>
     public private(set) var declNotesNotice: RichText?
     /// Any generic constraint on any parent extension
-    public internal(set) var extensionConstraint: RichText?
+    public internal(set) var extensionConstraint: SwiftGenericReqs?
 
     /// Create from a gathered definition
     public init?(location: DefLocation, gatherDef: GatherDef, uniquer: StringUniquer) {
@@ -261,8 +261,8 @@ public class DefItem: Item, CustomStringConvertible {
         try objCDeclaration?.declaration.format(formatter)
     }
 
-    public var swiftGenericRequirements: String? {
-        swiftDeclaration?.genericRequirements
+    public var swiftGenericRequirements: SwiftGenericReqs? {
+        swiftDeclaration.flatMap { SwiftGenericReqs(declaration: $0.declaration.text) }
     }
 
     /// Is this a constrained Swift extension?
@@ -310,7 +310,7 @@ public class DefItem: Item, CustomStringConvertible {
     func finalizeDeclNotes() {
         var notes = orderedDeclNotes.map { $0.localized }
         if renderAsPage, let constraint = extensionConstraint {
-            notes = [constraint.markdown.mapValues { $0.md }] + notes
+            notes = [constraint.richLong.markdown.mapValues { $0.md }] + notes
         }
         guard !notes.isEmpty else {
             return

@@ -338,25 +338,61 @@ final class GroupCustom: Configurable {
 
 // MARK: Custom Def Builder
 
+// I'm too dumb to figure out how to index this to be efficient.
+//
+// We've got an ordered def list, and an ordered name list.
+// We need to pull the named defs out of their list, leaving
+// the rest in order.  The implementation here is O(N.M) but the
+// sizes are pretty small.  Need something like a linked list augmented
+// with a hash lookup?
+
+private extension DefItemList {
+    mutating func removeFirst(where filter: (DefItem) -> Bool) -> DefItem? {
+        var result: DefItem? = nil
+        var new = [DefItem]()
+        for (i, el) in self.enumerated() {
+            if filter(el) {
+                result = el
+                new += self[index(after: i)..<endIndex]
+                break
+            } else {
+                new.append(el)
+            }
+        }
+        self = new
+        return result
+    }
+
+    mutating func customDefMatch(name: String) -> DefItem? {
+        removeFirst { item in
+            var names = [item.name, item.primaryNamePieces.flattened]
+            if let constraint = item.extensionConstraint {
+                names = names.map { "\($0) \(constraint.text)" }
+            }
+            return names.contains(name)
+        }
+    }
+}
+
 extension GroupCustom.Def {
     /// Pull out the contents of an item that match the yaml record.
-    ///
-    /// XXX indexify the defchildren, need to understand name dups
     func apply(to defItem: DefItem) -> [Item] {
+        var defChildren = defItem.defChildren
+
         let items = topics.flatMap { topic in
             topic.children.compactMap { name -> Item? in
-                guard let index = defItem.defChildren.firstIndex(where: { name == $0.name || name == $0.primaryNamePieces.flattened }) else {
-                    logWarning("Can't resolve def_item child name \(name) inside \(defItem.name)")
+                guard let item = defChildren.customDefMatch(name: name) else {
+                    logWarning(.localized(.wrnCustomDefMissing, name, defItem.name))
                     return nil
                 }
-                let item = defItem.children.remove(at: index)
                 item.topic = topic.topic
                 return item
             }
         }
         if skipUnlisted {
-            defItem.children = []
+            defChildren = []
         }
+        defItem.children = defChildren
         return items
     }
 }

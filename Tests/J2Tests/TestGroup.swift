@@ -507,4 +507,32 @@ class TestGroup: XCTestCase {
                                """
         checkCustomParseError(missingTopicName)
     }
+
+    func testCustomDefConstrainedExtensions() throws {
+        let method1 = SourceKittenDict.mkMethod(fullName: "fn(a:)", decl: "func fn(a: Int)")
+        let method2 = SourceKittenDict.mkMethod(fullName: "fn2(b:)", decl: "func fn2(b: Int)")
+        let ext = SourceKittenDict.mkExtension(name: "Class")
+            .with(decl: "extension Class where T: Decodable")
+            .with(children: [method1, method2])
+        let clas = SourceKittenDict.mkClass(name: "Class")
+        let file = SourceKittenDict.mkFile().with(children: [ext, clas])
+
+        let yaml = """
+                   custom_defs:
+                     - name: Class
+                       skip_unlisted: true
+                       topics:
+                         - name: Things
+                           children:
+                              - "fn(a:) where T: Decodable"
+                              - fn2(b:)
+                   """
+        try withTempConfigFile(yaml: yaml) { url in
+            let system = System(cliArgs: ["--config=\(url.path)"])
+            let items = try system.run(file.asGatherPasses)
+            XCTAssertEqual(1, items.count)
+            XCTAssertEqual(1, items[0].children[0].children.count)
+            XCTAssertEqual("fn(a:)", items[0].children[0].children[0].name)
+        }
+    }
 }
