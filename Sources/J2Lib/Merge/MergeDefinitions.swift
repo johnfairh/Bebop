@@ -134,7 +134,7 @@ struct MergeDefinitions {
     /// Phase 2 - merge  extensions
     ///
     /// This 'just' needs to walk the forest and eliminate the 'extensions' lists dangling
-    /// of some types.
+    /// off some types.
     func mergePhase2(items: DefItemList) -> DefItemList {
         items.forEach { $0.mergePhase2(others: []) }
         return items

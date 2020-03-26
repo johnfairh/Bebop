@@ -449,8 +449,14 @@ $item-overview-indent: 2rem;
     padding: 0;
   }
 
-  .j2-item-secondary {
+  .j2-item-secondary,
+  .j2-item-tertiary {
     color: $j2-article-secondary-color;
+  }
+
+  .j2-item-tertiary {
+    margin-left: -.4rem;
+    font-size: 90%;
   }
 }
 

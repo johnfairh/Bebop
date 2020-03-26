@@ -21,9 +21,9 @@
     <a name="//apple_ref/cpp/{{dash_type}}/{{dash_name}}" class="dashAnchor"></a>
     <h4 class="sr-only">{{title}}</h4>
     {{^item_nest}}
-      <a class="j2-item-title{{#def.discouraged}}-discouraged{{/def.discouraged}} {{{primary_language}}}" href="{{{path_to_root}}}{{{primary_url}}}"><code>{{{primary_title_html}}}</code></a>
+      <a class="j2-item-title{{#def.discouraged}}-discouraged{{/def.discouraged}} {{{primary_language}}}" href="{{{path_to_root}}}{{{primary_url}}}"><code>{{{primary_title_html}}}</code>{{#constraint_html}}<span class="j2-item-tertiary">({{{.}}})</span>{{/constraint_html}}</a>
       {{#.secondary_title_html}}
-      <a class="j2-item-title{{#def.discouraged}}-discouraged{{/def.discouraged}} {{{secondary_language}}} j2-secondary" href="{{{path_to_root}}}{{{secondary_url}}}"><code>{{{.}}}</code></a>
+      <a class="j2-item-title{{#def.discouraged}}-discouraged{{/def.discouraged}} {{{secondary_language}}} j2-secondary" href="{{{path_to_root}}}{{{secondary_url}}}"><code>{{{.}}}</code>{{#constraint_html}}<span class="j2-item-tertiary">({{{.}}})</span>{{/constraint_html}}</a>
       {{/.secondary_title_html}}
       {{#.def.abstract_html}}
         <div class="j2-item-overview">
