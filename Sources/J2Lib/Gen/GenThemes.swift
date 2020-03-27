@@ -107,6 +107,11 @@ struct Theme {
 
         template = try Template(URL: mustacheRootURL)
 
+        let hrefLifter = Filter { rendering -> Rendering in
+            Rendering(rendering.string.htmlHrefLifted, .html)
+        }
+        template.register(hrefLifter, forKey: "hrefLifted")
+
         logDebug("Theme: \(fileExtension) \(mustacheRootURL.path)")
     }
 

@@ -55,6 +55,10 @@ extension String {
     var htmlEscaped: String {
         Mustache.escapeHTML(self)
     }
+
+    var htmlHrefLifted: String {
+        re_sub(##"(?<=href=")../"##, with: "")
+    }
 }
 
 /// Some text manipulated by the program.
