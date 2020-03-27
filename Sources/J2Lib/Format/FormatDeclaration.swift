@@ -9,7 +9,8 @@
 /// Create declaration HTMLs
 ///
 /// The declaration HTML will be wrapped in <pre><code> tags.  We need to:
-/// 1) Do a painful line-wrapping thing.
+/// 1) Do a painful line-wrapping thing
+///     (Not implemented so far - maybe Nathan's work will let SourceKit do it?)
 /// 2) Do autolinking, wrapping typerefs in <a href=> links
 /// 3) Do HTML escaping (most obviously <> from generics)
 struct DeclarationFormatter: ItemVisitorProtocol {
@@ -24,7 +25,7 @@ struct DeclarationFormatter: ItemVisitorProtocol {
             // Must escape _first_ because autolink introduces actual HTML that
             // does not want to be escaped.
             // Means if we decide to handle generic expressions Foo<Bar>.Baz then
-            // will need to expect for "&lt;"...
+            // will need to expect "&lt;"...
             let escaped = text.htmlEscaped
 
             // veery approximate...

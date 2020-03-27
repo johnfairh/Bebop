@@ -46,6 +46,8 @@ class TestFormat: XCTestCase {
         XCTAssertEqual(1, try system.run([]).count) //readme
     }
 
+    // MARK: URLs
+
     // % escaping
     func testURLEscaping() throws {
         let system = System()
@@ -95,7 +97,7 @@ class TestFormat: XCTestCase {
         checkURL(formatted[0].children[0].children[2].children[0], false, "types/top1/nestedchildren.html#instancevar2")
     }
 
-    // README
+    // MARK: README
 
     func testReadmeDetection() throws {
         let tmpdir = try TemporaryDirectory()
@@ -145,7 +147,7 @@ class TestFormat: XCTestCase {
         }
     }
 
-    // Autolink
+    // MARK: Autolink
 
     func testAutolinkNames() {
         ["+method", "- method", "-method:argname"].forEach { m in
@@ -335,6 +337,8 @@ class TestFormat: XCTestCase {
         }
     }
     #endif
+
+    // MARK: Custom abstract
 
     func testCustomAbstract() throws {
         TestLogger.uninstall()

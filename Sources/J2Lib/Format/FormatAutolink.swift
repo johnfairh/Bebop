@@ -50,6 +50,11 @@ final class FormatAutolink: Configurable {
 
     /// Try to match a def from a name, in a particular naming context.
     func link(for name: String, context: Item) -> Autolink? {
+        if let defItem = context as? DefItem,
+            defItem.isGenericTypeParameter(name: name) {
+            return nil
+        }
+
         guard let (def, language) = def(for: name, context: context) else {
             return nil
         }

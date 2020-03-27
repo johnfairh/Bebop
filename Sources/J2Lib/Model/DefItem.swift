@@ -36,7 +36,7 @@ public class DefItem: Item, CustomStringConvertible {
     /// Name in the other language
     public let otherLanguageName: String?
     /// Names of generic type parameters
-    public let genericTypeParameters: [String]
+    public let genericTypeParameters: Set<String>
     /// Extensions on a base type - carried temporarily here and eventually merged
     public internal(set) var extensions: DefItemList
     /// Notes to add to the declaration, added during merge and resolved during format
@@ -124,7 +124,7 @@ public class DefItem: Item, CustomStringConvertible {
             children = []
         }
         let (genericParams, realChildren) = children.splitPartition { $0.defKind.isGenericParameter }
-        self.genericTypeParameters = genericParams.map { $0.name }
+        self.genericTypeParameters = Set(genericParams.map { $0.name })
         self.extensions = []
         self.declNotes = []
         self.declNotesNotice = nil
@@ -316,6 +316,18 @@ public class DefItem: Item, CustomStringConvertible {
             return
         }
         declNotesNotice = RichText(notes.joined(by: "\n\n"))
+    }
+
+    /// Is a name bound in the def's generic context?
+    func isGenericTypeParameter(name: String) -> Bool {
+        var next: DefItem? = self
+        while let item = next {
+            guard !item.genericTypeParameters.contains(name) else {
+                return true
+            }
+            next = item.parent as? DefItem
+        }
+        return false
     }
 }
 

@@ -83,6 +83,9 @@ public class ABaseClass {
   }
 }
 
+struct T {
+}
+
 /// A derived class
 public class ADerivedClass<T, Q: Sequence>: ABaseClass {
   var t: Q? = nil

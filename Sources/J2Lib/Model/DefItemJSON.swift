@@ -41,7 +41,7 @@ extension DefItem {
         try container.encodeIfPresent(swiftDeclaration, forKey: .swiftDeclaration)
         try container.encodeIfPresent(objCDeclaration, forKey: .objCDeclaration)
         if !genericTypeParameters.isEmpty {
-            try container.encode(genericTypeParameters, forKey: .genericTypeParameters)
+            try container.encode(genericTypeParameters.sorted(), forKey: .genericTypeParameters)
         }
         if !declNotes.isEmpty {
             try container.encode(orderedDeclNotes, forKey: .declNotes)

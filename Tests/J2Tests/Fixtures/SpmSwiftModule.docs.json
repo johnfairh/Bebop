@@ -14,7 +14,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 47,
+    "doc_coverage" : 46,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -91,6 +91,11 @@
                 "same_page" : false,
                 "title" : "SpmSwiftModule",
                 "url" : "types\/spmswiftmodule.html?swift"
+              },
+              {
+                "same_page" : true,
+                "title" : "T",
+                "url" : "#t1"
               }
             ],
             "same_page" : true,
@@ -222,6 +227,19 @@
             "primary_title_html" : "<span class=\"j2-item-secondary\">struct <\/span>SpmSwiftModule",
             "primary_url" : "types\/spmswiftmodule.html?swift",
             "title" : "struct SpmSwiftModule"
+          },
+          {
+            "anchor_id" : "t1",
+            "any_declaration" : true,
+            "dash_name" : "struct%20T",
+            "dash_type" : "Struct",
+            "def" : {
+              "abstract_html" : "<p>Undocumented<\/p>",
+              "swift_declaration_html" : "struct T"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">struct <\/span>T",
+            "title" : "struct T"
           }
         ],
         "primary_language" : "j2-swift"
@@ -253,7 +271,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 47,
+    "doc_coverage" : 46,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -330,6 +348,11 @@
                 "same_page" : false,
                 "title" : "SpmSwiftModule",
                 "url" : "types\/spmswiftmodule.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "T",
+                "url" : "types.html?swift#t1"
               }
             ],
             "same_page" : false,
@@ -599,7 +622,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 47,
+    "doc_coverage" : 46,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -676,6 +699,11 @@
                 "same_page" : false,
                 "title" : "SpmSwiftModule",
                 "url" : "types\/spmswiftmodule.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "T",
+                "url" : "types.html?swift#t1"
               }
             ],
             "same_page" : false,
@@ -759,7 +787,7 @@
         "dash_name" : "Properties",
         "items" : [
           {
-            "anchor_id" : "t2",
+            "anchor_id" : "t3",
             "any_declaration" : true,
             "dash_name" : "var%20t%3A%20Q%3F",
             "dash_type" : "Property",
@@ -820,7 +848,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 47,
+    "doc_coverage" : 46,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -897,6 +925,11 @@
                 "same_page" : false,
                 "title" : "SpmSwiftModule",
                 "url" : "types\/spmswiftmodule.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "T",
+                "url" : "types.html?swift#t1"
               }
             ],
             "same_page" : false,
@@ -1055,7 +1088,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 47,
+    "doc_coverage" : 46,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -1132,6 +1165,11 @@
                 "same_page" : false,
                 "title" : "SpmSwiftModule",
                 "url" : "types\/spmswiftmodule.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "T",
+                "url" : "types.html?swift#t1"
               }
             ],
             "same_page" : false,
@@ -1341,7 +1379,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 47,
+    "doc_coverage" : 46,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -1418,6 +1456,11 @@
                 "same_page" : false,
                 "title" : "SpmSwiftModule",
                 "url" : "types\/spmswiftmodule.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "T",
+                "url" : "types.html?swift#t1"
               }
             ],
             "same_page" : false,
@@ -1688,7 +1731,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 47,
+    "doc_coverage" : 46,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -1765,6 +1808,11 @@
                 "same_page" : true,
                 "title" : "SpmSwiftModule",
                 "url" : ""
+              },
+              {
+                "same_page" : false,
+                "title" : "T",
+                "url" : "types.html?swift#t1"
               }
             ],
             "same_page" : false,
@@ -1914,7 +1962,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 47,
+    "doc_coverage" : 46,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -1991,6 +2039,11 @@
                 "same_page" : false,
                 "title" : "SpmSwiftModule",
                 "url" : "types\/spmswiftmodule.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "T",
+                "url" : "types.html?swift#t1"
               }
             ],
             "same_page" : false,
@@ -2104,7 +2157,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 47,
+    "doc_coverage" : 46,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -2181,6 +2234,11 @@
                 "same_page" : false,
                 "title" : "SpmSwiftModule",
                 "url" : "types\/spmswiftmodule.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "T",
+                "url" : "types.html?swift#t1"
               }
             ],
             "same_page" : false,
@@ -2304,7 +2362,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 47,
+    "doc_coverage" : 46,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -2383,6 +2441,11 @@
                 "same_page" : false,
                 "title" : "SpmSwiftModule",
                 "url" : "types\/spmswiftmodule.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "T",
+                "url" : "types.html?swift#t1"
               }
             ],
             "same_page" : false,
@@ -2487,7 +2550,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 47,
+    "doc_coverage" : 46,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -2564,6 +2627,11 @@
                 "same_page" : false,
                 "title" : "SpmSwiftModule",
                 "url" : "types\/spmswiftmodule.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "T",
+                "url" : "types.html?swift#t1"
               }
             ],
             "same_page" : false,
@@ -2695,7 +2763,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 47,
+    "doc_coverage" : 46,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -2772,6 +2840,11 @@
                 "same_page" : false,
                 "title" : "SpmSwiftModule",
                 "url" : "types\/spmswiftmodule.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "T",
+                "url" : "types.html?swift#t1"
               }
             ],
             "same_page" : false,
@@ -2875,7 +2948,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 47,
+    "doc_coverage" : 46,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : true,
@@ -2952,6 +3025,11 @@
                 "same_page" : false,
                 "title" : "SpmSwiftModule",
                 "url" : "types\/spmswiftmodule.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "T",
+                "url" : "types.html?swift#t1"
               }
             ],
             "same_page" : false,
