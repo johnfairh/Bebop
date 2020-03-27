@@ -9,7 +9,7 @@
 import XCTest
 @testable import J2Lib
 
-// Binary-check fixtures for the json products fils
+// Binary-check fixtures for the json & html products files
 
 //private var doFixup = true
 private var doFixup = false
@@ -136,5 +136,53 @@ class TestProducts: XCTestCase {
         try compareSwift(product: "docs-json",
                          cliArgs: ["--min-acl=private"],
                          against: "SpmSwiftModule.docs.json")
+    }
+
+    // Full html tests
+    func testHtmlLayout() throws {
+        setenv("J2_STATIC_DATE", strdup("1") /* leak it */, 1)
+        defer { unsetenv("J2_STATIC_DATE") }
+
+        let layoutRoot = fixturesURL.appendingPathComponent("LayoutTest")
+        let tmpDir = try TemporaryDirectory()
+        var options = [
+            "--config=\(layoutRoot.path)/.j2.yaml",
+            "--source-directory=\(layoutRoot.path)"
+        ]
+        if doFixup {
+            options.append("--output=\(layoutRoot.appendingPathComponent("docs").path)")
+        } else {
+            options.append("--output=\(tmpDir.directoryURL.path)")
+        }
+
+        let pipeline = Pipeline()
+        TestLogger.install()
+        try pipeline.run(argv: options)
+
+        if doFixup {
+            return
+        }
+
+        let goodDocsURL = layoutRoot.appendingPathComponent("docs")
+        let newDocsURL  = tmpDir.directoryURL
+
+        guard let enumerator =
+            FileManager.default.enumerator(atPath: goodDocsURL.path) else {
+            XCTFail("No enumerator?")
+            return
+        }
+        for case let path as String in enumerator {
+            guard path.re_isMatch(#"(html|json)$"#) else {
+                continue
+            }
+            let goodFileURL = goodDocsURL.appendingPathComponent(path)
+            let newFileURL = newDocsURL.appendingPathComponent(path)
+            let goodVersion = try String(contentsOf: goodFileURL)
+            let newVersion = try String(contentsOf: newFileURL)
+            if goodVersion != newVersion {
+                XCTFail("Mismatch on \(path).")
+                print("diff \(goodFileURL.path) \(newFileURL.path)")
+            }
+        }
     }
 }

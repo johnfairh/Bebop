@@ -167,7 +167,14 @@ final class MarkdownFormatter: ItemVisitorProtocol {
     /// with the fixed heading.  (Headings are container elements, can have multiple children
     /// if there is eg. linking/italics in the heading.)
     func customizeHeading(heading: CMNode, iterator: Iterator) {
-        let anchorId = uniquer.unique(heading.renderPlainText().slugged)
+//        let anchorId = uniquer.unique(heading.renderPlainText().slugged)
+//
+// Need to figure out how to unique these properly.
+// Best not to bother right now: the code as written
+// gets horribly confused about scopes, never mind
+// ignoring other sources of anchors.
+//
+        let anchorId = heading.renderPlainText().slugged
         let level = heading.headingLevel
         let replacementNode =
             CMNode(customEnter:

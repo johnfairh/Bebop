@@ -1,0 +1,18 @@
+localizations: fr:🇫🇷:Français
+guide_titles:
+  - name: Guide
+    title:
+      en: The Guide
+      fr: Le Guide
+nested_item_style: start_open
+child_item_style: separate
+availability_defaults: "macOS 10.4+"
+clean: yes
+breadcrumbs_root:
+  en: Bread
+  fr: Pain
+custom_head: "<!-- I am the custom head -->"
+guides: "guides/*"
+title:
+  en: "Layout Test Docset"
+  fr: "FR Layout Test Docset"

@@ -82,7 +82,8 @@ final class GatherLocalize: GatherGarnish, Configurable {
     /// Apply the localization garnishing to the def.
     ///
     /// This means set the `translatedDocs` field according to the config options: at minimum
-    /// this means `{"en": parsedDocs}`.
+    /// this means `{"en": parsedDocs}`.  On output, etither the docs are empty or have something
+    /// for each language tag in the localizations list.
     func garnish(def: GatherDef) throws {
         guard let documentation = def.documentation else {
             return
@@ -91,23 +92,26 @@ final class GatherLocalize: GatherGarnish, Configurable {
         var translatedDocs = LocalizedDefDocs()
         var languagesToDo = targetLanguages
 
+        if def.localizationKey != nil {
+            Stats.inc(.gatherLocalizationKey)
+        }
+
         // Start with what we have already
         if let native = languagesToDo.remove(docCommentLanguage) {
             translatedDocs.set(tag: native, docs: documentation)
         }
 
-        if let localizationKey = def.localizationKey {
-            Stats.inc(.gatherLocalizationKey)
-            languagesToDo.forEach { language in
-                if let md = markdown(forKey: localizationKey, language: language),
-                    case let builder = MarkdownBuilder(markdown: md),
-                    let langDocs = builder.build() {
-                    translatedDocs.set(tag: language, docs: langDocs)
-                    Stats.inc(.gatherLocalizationSuccess)
-                } else {
-                    translatedDocs.set(tag: language, docs: documentation)
-                    Stats.inc(.gatherLocalizationFailure)
-                }
+        // Now try each remaining, substituting native if anything is wrong
+        languagesToDo.forEach { language in
+            if let localizationKey = def.localizationKey,
+                let md = markdown(forKey: localizationKey, language: language),
+                case let builder = MarkdownBuilder(markdown: md),
+                let langDocs = builder.build() {
+                translatedDocs.set(tag: language, docs: langDocs)
+                Stats.inc(.gatherLocalizationSuccess)
+            } else {
+                translatedDocs.set(tag: language, docs: documentation)
+                Stats.inc(.gatherLocalizationFailure)
             }
         }
 

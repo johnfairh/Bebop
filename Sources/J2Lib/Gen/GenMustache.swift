@@ -357,8 +357,6 @@ extension GenData.Page {
         topics.map { $0.generateTopic(languageTag: languageTag, fileExt: fileExt) }
     }
 
-    static let declarationLabel = Localized<String>.localizedOutput(.declaration)
-
     /// topics_menu is array of [String:Any]
     /// keys:  title - plain text title of topic
     ///      anchor_id - href without leading hash of topic on page
@@ -369,7 +367,8 @@ extension GenData.Page {
                                  languageTag: String) -> [MustacheDict] {
         var topicsMenu = [MustacheDict]()
         if def != nil {
-            let declaration = Self.declarationLabel.get(languageTag)
+            let declarationLabel = Localized<String>.localizedOutput(.declaration)
+            let declaration = declarationLabel.get(languageTag)
             topicsMenu.append(MH([.title: declaration, .anchorId: ""]))
         }
         return topicsMenu +
