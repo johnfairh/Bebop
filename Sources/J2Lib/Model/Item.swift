@@ -82,8 +82,7 @@ public class Item: Encodable {
     }
 
     /// Format the item's associated text data
-    public func format(blockFormatter: RichText.Formatter,
-                       inlineFormatter: RichText.Formatter) rethrows {
+    public func format(formatters: RichText.Formatters) {
     }
 
     // Encodable

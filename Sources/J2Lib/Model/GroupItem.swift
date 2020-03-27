@@ -77,8 +77,7 @@ public final class GroupItem: Item {
 
     public override var showInToc: ShowInToc { .yes }
 
-    public override func format(blockFormatter: RichText.Formatter,
-                                inlineFormatter: RichText.Formatter) rethrows {
-        try customAbstract?.format(blockFormatter)
+    public override func format(formatters: RichText.Formatters) {
+        customAbstract?.format(formatters.block)
     }
 }

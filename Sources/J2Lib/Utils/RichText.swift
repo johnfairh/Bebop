@@ -106,14 +106,19 @@ public enum RichText: Encodable, Equatable {
     }
 
     /// Something that knows how to convert Markdown to HTML
-    public typealias Formatter = (Markdown) throws -> (Markdown, Html)
+    public typealias Formatter = (Markdown) -> (Markdown, Html)
+
+    public struct Formatters {
+        public let inline: Formatter
+        public let block: Formatter
+    }
 
     /// Format the text
-    mutating public func format(_ formatter: Formatter) rethrows {
+    mutating public func format(_ formatter: Formatter) {
         switch self {
         case .formatted(_,_): return
         case .unformatted(let locMd):
-            let formatted = try locMd.mapValues { try formatter($0) }
+            let formatted = locMd.mapValues { formatter($0) }
             self = .formatted(formatted.mapValues { $0.0 }, formatted.mapValues { $0.1 })
         }
     }

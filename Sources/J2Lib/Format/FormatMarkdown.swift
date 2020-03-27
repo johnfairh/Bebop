@@ -26,7 +26,8 @@ final class MarkdownFormatter: ItemVisitorProtocol {
     let autolink: FormatAutolink?
 
     /// Context while visiting...
-    var visitItemContext: Item! = nil
+    var visitItemNameContext: Item! = nil
+    var visitItemLinkContext: Item! = nil
 
     init(language: DefLanguage, autolink: FormatAutolink? = nil) {
         fallbackLanguage = language
@@ -38,10 +39,19 @@ final class MarkdownFormatter: ItemVisitorProtocol {
     /// This both generates HTML versions of everything and also replaces the original markdown
     /// with an auto-linked version for generating markdown output.
     private func format(item: Item) {
-        visitItemContext = item
-        item.format(blockFormatter: { format(md: $0) },
-                    inlineFormatter: { formatInline(md: $0) })
-        visitItemContext = nil
+        let formatters = RichText.Formatters(inline: { self.formatInline(md: $0)},
+                                             block: { self.format(md: $0) })
+        visitItemNameContext = item
+        visitItemLinkContext = item
+        item.format(formatters: formatters)
+
+        if let topic = item.topic {
+            visitItemLinkContext = item.parent ?? item
+            topic.format(formatters: formatters)
+        }
+
+        visitItemNameContext = nil
+        visitItemLinkContext = nil
     }
 
     func visit(defItem: DefItem, parents: [Item]) {
@@ -104,7 +114,8 @@ final class MarkdownFormatter: ItemVisitorProtocol {
             }
 
             guard let autolink = autolink?.link(for: node.literal!,
-                                                context: visitItemContext) else {
+                                                nameContext: visitItemNameContext,
+                                                linkContext: visitItemLinkContext) else {
                 return
             }
             let linkNode = CMNode.init(type: .link)

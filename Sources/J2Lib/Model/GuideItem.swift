@@ -38,9 +38,8 @@ public class GuideItem: Item {
 
     public override var showInToc: ShowInToc { .yes }
 
-    public override func format(blockFormatter: RichText.Formatter,
-                                inlineFormatter: RichText.Formatter) rethrows {
-        try content.format(blockFormatter)
+    public override func format(formatters: RichText.Formatters) {
+        content.format(formatters.block)
     }
 }
 

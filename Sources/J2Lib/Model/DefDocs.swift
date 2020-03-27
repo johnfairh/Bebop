@@ -141,15 +141,15 @@ extension RichDefDocs {
         source = ldocs.source
     }
 
-    public mutating func format(_ call: (Markdown) throws -> (Markdown, Html) ) rethrows {
-        try abstract?.format(call)
-        try discussion?.format(call)
-        try defaultAbstract?.format(call)
-        try defaultDiscussion?.format(call)
-        try returns?.format(call)
-        parameters = try parameters.map { param in
+    public mutating func format(_ formatter: RichText.Formatter) {
+        abstract?.format(formatter)
+        discussion?.format(formatter)
+        defaultAbstract?.format(formatter)
+        defaultDiscussion?.format(formatter)
+        returns?.format(formatter)
+        parameters = parameters.map { param in
             var param = param
-            try param.description.format(call)
+            param.description.format(formatter)
             return param
         }
     }

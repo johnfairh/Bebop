@@ -247,12 +247,11 @@ public class DefItem: Item, CustomStringConvertible {
     }
 
     /// Format the item's associated text data
-    public override func format(blockFormatter: RichText.Formatter, inlineFormatter: RichText.Formatter) rethrows {
-        try documentation.format(blockFormatter)
-        try topic?.format(inlineFormatter: inlineFormatter, blockFormatter: blockFormatter)
-        try deprecationNotice?.format(blockFormatter)
-        try unavailableNotice?.format(blockFormatter)
-        try declNotesNotice?.format(blockFormatter)
+    public override func format(formatters: RichText.Formatters) {
+        documentation.format(formatters.block)
+        deprecationNotice?.format(formatters.block)
+        unavailableNotice?.format(formatters.block)
+        declNotesNotice?.format(formatters.block)
     }
 
     /// Format the item's associated declarations

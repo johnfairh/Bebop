@@ -48,24 +48,32 @@ final class FormatAutolink: Configurable {
 
     // MARK: Lookup
 
-    /// Try to match a def from a name, in a particular naming context.
+    /// Try to match a def from a name, in a particular context.
     func link(for name: String, context: Item) -> Autolink? {
-        if let defItem = context as? DefItem,
+        link(for: name, nameContext: context, linkContext: context)
+    }
+
+    /// Try to match a def from a name, in a particular naming and link context.
+    ///
+    /// These are different in practice only for topics, which are evaluated inside the namespace of
+    /// their type, but rendered on the same page as the type.
+    func link(for name: String, nameContext: Item, linkContext: Item) -> Autolink? {
+        if let defItem = nameContext as? DefItem,
             defItem.isGenericTypeParameter(name: name) {
             return nil
         }
 
-        guard let (def, language) = def(for: name, context: context) else {
+        guard let (def, language) = def(for: name, context: nameContext) else {
             return nil
         }
 
-        guard def !== context else {
+        guard def !== linkContext else {
             Stats.inc(.autolinkSelfLink)
             return nil
         }
 
-        let markdownURL = context.url.pathToRoot + def.url.url(fileExtension: ".md")
-        let primaryURL = context.url.pathToRoot + def.url.url(fileExtension: ".html", language: language)
+        let markdownURL = linkContext.url.pathToRoot + def.url.url(fileExtension: ".md")
+        let primaryURL = linkContext.url.pathToRoot + def.url.url(fileExtension: ".html", language: language)
 
         guard def.dualLanguage else {
             // simple case
@@ -80,7 +88,7 @@ final class FormatAutolink: Configurable {
         // the other language - otherwise use the fully qualified name.
         let primHTML = #"<a href="\#(primaryURL)" class="\#(language.cssName)"><code>\#(name.htmlEscaped)</code></a>"#
         let secLanguage = language.otherLanguage
-        let secURL = context.url.pathToRoot + def.url.url(fileExtension: ".html", language: secLanguage)
+        let secURL = linkContext.url.pathToRoot + def.url.url(fileExtension: ".html", language: secLanguage)
         let secName: String
         if name == def.name(for: language) {
             secName = def.name(for: secLanguage)
