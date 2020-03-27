@@ -21,9 +21,9 @@ public enum NestedItemStyle: String, CaseIterable {
 /// Popopen or apple-style
 public enum ChildItemStyle: String, CaseIterable {
     /// Nest children in parent
-    case nest
+    case nested
     /// Types go on separate pages, methods etc. nest
-    case nest_expand_types
+    case nested_separate_types
     /// Page per definition, no nesting
     case separate
 }
@@ -45,7 +45,7 @@ public struct GenSite: Configurable {
     let moduleVersionOpt = StringOpt(l: "module-version").help("VERSION")
     let breadcrumbsRootOpt = LocStringOpt(l: "breadcrumbs-root").help("TITLE")
 
-    let childItemStyleOpt = EnumOpt<ChildItemStyle>(l: "child-item-style").def(.nest)
+    let childItemStyleOpt = EnumOpt<ChildItemStyle>(l: "child-item-style").def(.nested)
     let nestedItemStyleOpt = EnumOpt<NestedItemStyle>(l: "nested-item-style").def(.start_closed)
 
     let oldHideCoverageOpt: AliasOpt

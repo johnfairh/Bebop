@@ -114,10 +114,10 @@ extension ChildItemStyle {
     /// Should we embed the item in its parent given the chance?  Means it has no page of its own.
     func shouldEmbed(defItem: DefItem) -> Bool {
         switch self {
-        case .nest:
+        case .nested:
             // Embed if no children
             return defItem.children.isEmpty
-        case .nest_expand_types:
+        case .nested_separate_types:
             // Always create pages for nominal types even if no members
             return defItem.children.isEmpty && defItem.showInToc == .yes
         case .separate:
