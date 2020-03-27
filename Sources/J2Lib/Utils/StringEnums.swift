@@ -34,6 +34,8 @@ internal enum L10n {
     case errCfgCustomGrpUnlisted = "err-cfg-custom-grp-unlisted"
     /// Module merge policy is set both outside and inside `custom_modules`: choose just one.
     case errCfgDupModMerge = "err-cfg-dup-mod-merge"
+    /// Missing field from guide_title entry, must have both 'name' and 'title': '%1'
+    case errCfgGuideTitleFields = "err-cfg-guide-title-fields"
     /// Unexpected multiple values '%1' for config key '%2', expecting just one.
     case errCfgMultiSeq = "err-cfg-multi-seq"
     /// Unexpected YAML, mapping key is '%1', expected scalar.
@@ -108,9 +110,9 @@ internal enum L10n {
     case wrnCfgIgnored = "wrn-cfg-ignored"
     /// Language tags missing for '%1': %2.
     case wrnCfgLanguageMissing = "wrn-cfg-language-missing"
-    /// Duplicate 'custom_def' entry for '%1', using only the first one seen.
+    /// Duplicate 'custom_defs' entry for '%1', using only the first one seen.
     case wrnCustomDefDup = "wrn-custom-def-dup"
-    /// Can't resolve custom_def child '%1' inside '%2'
+    /// Can't resolve 'custom_defs' child '%1' inside '%2'
     case wrnCustomDefMissing = "wrn-custom-def-missing"
     /// Can't resolve item name '%1' inside 'custom_groups', ignoring.
     case wrnCustomGrpMissing = "wrn-custom-grp-missing"
@@ -128,6 +130,10 @@ internal enum L10n {
     case wrnGlobPattern = "wrn-glob-pattern"
     /// Found custom abstract for guide '%1', ignoring.  Add content directly to the guide.
     case wrnGuideAbstract = "wrn-guide-abstract"
+    /// Duplicate 'guide_titles' entries for '%1', using the first one seen.
+    case wrnGuideTitleDup = "wrn-guide-title-dup"
+    /// Some 'guide_titles' entries did not match any guides: %1.
+    case wrnGuideTitleUnused = "wrn-guide-title-unused"
     /// Bad file json data for '%1' pass %2: missing 'key.diagnostic_stage' key.  Ignoring this file.
     case wrnMergeMissingRoot = "wrn-merge-missing-root"
     /// Doc comments will not be localized because --doc-comment-languages-directory is not set.

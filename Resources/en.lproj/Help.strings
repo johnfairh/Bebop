@@ -150,3 +150,4 @@ See online help.";
 Default: No prefix.";
 "exclude-unlisted-guides" = "Don't include guides that are not explicitly mentioned in 'custom_groups'.";
 "custom_defs" = "Customize how members of defs are arranged into topics on a page.";
+"guide_titles" = "Set the titles used for guides.  Localizable.";

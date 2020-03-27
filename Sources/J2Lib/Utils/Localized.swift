@@ -123,7 +123,7 @@ extension Array where Element == Localized<String> {
 
 extension Array where Element == Glob.Pattern {
     /// Interpret the globs and seek out localized markdown files.
-    /// Key of returned dictionary is the basename of the localized file, ending ".md".
+    /// Key of returned dictionary is the basename of the localized file, without the ".md".
     func readLocalizedMarkdownFiles() throws -> [String : Localized<Markdown>] {
         var files = [String: Localized<Markdown>]()
         try forEach { globPattern in

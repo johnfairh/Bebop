@@ -525,7 +525,9 @@ final class LocStringOpt: Opt, OptHelpers, OptCascadable, CustomStringConvertibl
     lazy var value: Localized<String>? = {
         if var dictConfig = dictConfig {
             let missing = dictConfig.expandLanguages()
-            logWarning(.localized(.wrnCfgLanguageMissing, name(usage: false), missing))
+            if !missing.isEmpty {
+                logWarning(.localized(.wrnCfgLanguageMissing, name(usage: false), missing))
+            }
             return dictConfig
         }
         return (flatConfig ?? defaultValue).flatMap {

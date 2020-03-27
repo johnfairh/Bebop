@@ -609,4 +609,41 @@ class TestGroup: XCTestCase {
                         """
         checkCustomParseError(badRegexp)
     }
+
+    // MARK: Guide titles
+
+    func testGuideTitles() throws {
+        let tmpDir = try TemporaryDirectory()
+        let filename = "Guide.md"
+        try "By guide".write(to: tmpDir.directoryURL.appendingPathComponent(filename))
+
+        let yaml = """
+                   guides: "\(tmpDir.directoryURL.path)/*"
+                   guide_titles:
+                     - name: Guide
+                       title: The Guide
+                     - name: Guide2
+                       title: Missing Guide
+                     - name: Guide
+                       title: Duplicate Guide
+                   """
+
+        try withTempConfigFile(yaml: yaml) { url in
+            TestLogger.install()
+            let system = System(cliArgs: ["--config=\(url.path)"])
+            let items = try system.run([])
+            XCTAssertEqual(2, TestLogger.shared.diagsBuf.count)
+            XCTAssertEqual(1, items.count)
+            XCTAssertEqual("Guide", items[0].children[0].name)
+            XCTAssertEqual("The Guide", items[0].children[0].titlePreferring(language: .swift).first!.value)
+        }
+    }
+
+    func testBadGuideTitles() throws {
+        let badTitle = """
+                       guide_titles:
+                          - name: N
+                       """
+        checkCustomParseError(badTitle)
+    }
 }
