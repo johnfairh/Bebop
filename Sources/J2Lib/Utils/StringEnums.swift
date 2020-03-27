@@ -136,8 +136,6 @@ internal enum L10n {
     case wrnGuideTitleUnused = "wrn-guide-title-unused"
     /// Bad file json data for '%1' pass %2: missing 'key.diagnostic_stage' key.  Ignoring this file.
     case wrnMergeMissingRoot = "wrn-merge-missing-root"
-    /// Doc comments will not be localized because --doc-comment-languages-directory is not set.
-    case wrnNoCommentLanguages = "wrn-no-comment-languages"
     /// Doc comments will not be localized for '%1' because cannot open '%2'.
     case wrnNoCommentMissing = "wrn-no-comment-missing"
     /// Objective-C direct mode requested but --module is not set: using 'Module' for the module name.

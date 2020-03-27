@@ -41,10 +41,11 @@ final class GatherLocalize: GatherGarnish, Configurable {
         var bundleLanguages = targetLanguages
         bundleLanguages.remove(docCommentLanguage)
         guard !bundleLanguages.isEmpty else {
+            logDebug("Gather: No doc comment localization, no alternate localizations.")
             return
         }
         guard let languagesURL = docCommentLanguageDirOpt.value else {
-            logWarning(.localized(.wrnNoCommentLanguages))
+            logDebug("Gather: No doc comment localization, language dir not set.")
             return
         }
 

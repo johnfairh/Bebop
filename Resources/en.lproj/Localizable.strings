@@ -51,7 +51,6 @@ Options:";
 
 "wrn-merge-missing-root" = "Bad file json data for '%1' pass %2: missing 'key.diagnostic_stage' key.  Ignoring this file.";
 
-"wrn-no-comment-languages" = "Doc comments will not be localized because --doc-comment-languages-directory is not set.";
 "wrn-no-comment-missing" = "Doc comments will not be localized for '%1' because cannot open '%2'.";
 
 "wrn-cfg-language-missing" = "Language tags missing for '%1': %2.";
