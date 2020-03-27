@@ -6,8 +6,6 @@
 //  Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
 //
 
-import Foundation
-
 /// The base class of things that appear in the documentation tree.
 ///
 /// Encodable support is for creating the `decls-json` product post-Merge.

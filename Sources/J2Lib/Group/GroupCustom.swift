@@ -257,6 +257,7 @@ final class GroupCustom: Configurable {
             } else {
                 topics = []
             }
+            Stats.inc(.groupCustomDecoded)
             return Group(name: nameOpt.value!,
                          abstract: abstractOpt.value,
                          topics: topics)
@@ -327,7 +328,7 @@ final class GroupCustom: Configurable {
             guard let topicsYaml = topicsOpt.value else {
                 throw OptionsError(.localized(.errCfgCustomDefTopics, try yaml.asDebugString()))
             }
-
+            Stats.inc(.groupCustomDefDecoded)
             return Def(name: name,
                        skipUnlisted: skipUnlistedOpt.value,
                        topics: try TopicParser.topics(yaml: topicsYaml))

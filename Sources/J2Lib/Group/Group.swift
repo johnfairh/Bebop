@@ -108,12 +108,15 @@ public struct Group: Configurable {
                                           customPrefix: customPrefix)
 
                 kindToDefs.reduceKey(groupName, [def], { $0 + [def] })
+                Stats.inc(.groupIncludedDefsByKind)
             } else if let guide = item as? GuideItem {
                 if excludeGuides {
                     logDebug("Group: Excluding guide \(item.name) due to exclude-unlisted-guides")
+                    Stats.inc(.groupExcludedGuidesByKind)
                 } else {
                     let guideGroupKind = GroupKind(kind: .guide, policy: .global, customPrefix: customPrefix)
                     kindToDefs.reduceKey(guideGroupKind, [guide], { $0 + [guide] })
+                    Stats.inc(.groupIncludedGuidesByKind)
                 }
             }
         }
@@ -126,7 +129,8 @@ public struct Group: Configurable {
                 .sorted { $0.key < $1.key }
 
             return groupsForKind.map { kv in
-                GroupItem(kind: kv.key, contents: kv.value, uniquer: uniquer)
+                Stats.inc(.groupsByKind)
+                return GroupItem(kind: kv.key, contents: kv.value, uniquer: uniquer)
             }
         }
     }

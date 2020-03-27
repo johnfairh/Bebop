@@ -153,6 +153,18 @@ struct StatsDb {
         case customAbstractDef
         /// Custom abstracts applied to groups
         case customAbstractGroup
+        /// Guides excluded from guides-by-kind
+        case groupExcludedGuidesByKind
+        /// Guides included in guides-by-kind
+        case groupIncludedGuidesByKind
+        /// Defs included in defs by-kind
+        case groupIncludedDefsByKind
+        /// Kind groups created
+        case groupsByKind
+        /// Custom groups decoded from config
+        case groupCustomDecoded
+        /// Custom defs decoded from config
+        case groupCustomDefDecoded
     }
     private var counters = [String : Int]()
 
