@@ -86,7 +86,9 @@ public struct GenSite: Configurable {
 
         if cleanOpt.value {
             logDebug("Gen: Cleaning output directory \(outputURL.path)")
-            try FileManager.default.removeItem(at: outputURL)
+            if FileManager.default.fileExists(atPath: outputURL.path) {
+                try FileManager.default.removeItem(at: outputURL)
+            }
         }
 
         logDebug("Gen: Creating output directory \(outputURL.path)")
