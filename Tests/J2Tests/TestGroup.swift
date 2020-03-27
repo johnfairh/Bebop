@@ -32,6 +32,8 @@ class TestGroup: XCTestCase {
         initResources()
     }
 
+    // MARK: By Kind
+
     func testEmpty() throws {
         let system = System()
         XCTAssertTrue(try system.run([]).isEmpty)
@@ -58,7 +60,7 @@ class TestGroup: XCTestCase {
         XCTAssertEqual(1, groups[1].children.count)
     }
 
-    // Multi-module
+    // MARK: MultiModule
 
     func testMultiModule() throws {
         let system = System()
@@ -110,8 +112,7 @@ class TestGroup: XCTestCase {
         XCTAssertEqual("Fred Types", groups4[1].titlePreferring(language: .swift).get("en"))
     }
 
-
-    // Guides
+    // MARK: Guides
 
     func testGuides() throws {
         let tmpDir = try TemporaryDirectory()
@@ -162,7 +163,7 @@ class TestGroup: XCTestCase {
         XCTAssertEqual("GuideB", guides[1].name)
     }
 
-    // Custom
+    // MARK: Custom Groups
 
     private func withTempConfigFile<T>(yaml: String, callback: (URL) throws -> T) throws -> T{
         let tmpFileURL = FileManager.default.temporaryFileURL()
@@ -310,6 +311,8 @@ class TestGroup: XCTestCase {
         }
     }
 
+    // MARK: Unlisted Prefix
+
     func testCustomPrefix() throws {
         let class1 = SourceKittenDict.mkClass(name: "Class1")
         let class2 = SourceKittenDict.mkClass(name: "Class2")
@@ -333,6 +336,8 @@ class TestGroup: XCTestCase {
             XCTAssertEqual("Other Types", items[1].name)
         }
     }
+
+    // MARK: Excluded unlisted
 
     func testExcludeUnlistedGuides() throws {
         let tmpDir = try TemporaryDirectory()
@@ -360,7 +365,7 @@ class TestGroup: XCTestCase {
         }
     }
 
-    // Custom Defs
+    // MARK: Custom Defs
 
     // Leftovers, by-source-order, new topic
     func testCustomDefs() throws {
@@ -508,6 +513,8 @@ class TestGroup: XCTestCase {
         checkCustomParseError(missingTopicName)
     }
 
+    // MARK: Constrained Extensions
+
     func testCustomDefConstrainedExtensions() throws {
         let method1 = SourceKittenDict.mkMethod(fullName: "fn(a:)", decl: "func fn(a: Int)")
         let method2 = SourceKittenDict.mkMethod(fullName: "fn2(b:)", decl: "func fn2(b: Int)")
@@ -534,5 +541,72 @@ class TestGroup: XCTestCase {
             XCTAssertEqual(1, items[0].children[0].children.count)
             XCTAssertEqual("fn(a:)", items[0].children[0].children[0].name)
         }
+    }
+
+    // MARK: Regexp
+
+    func testCustomGroupRegexp() throws {
+        let class1 = SourceKittenDict.mkClass(name: "BClass")
+        let class2 = SourceKittenDict.mkClass(name: "AClass")
+        let class3 = SourceKittenDict.mkClass(name: "Classical")
+        let file = SourceKittenDict.mkFile().with(children: [class1, class2, class3])
+
+        let yaml = """
+                   custom_groups:
+                     - name: RegGroup
+                       children:
+                         - /Class$/
+                         - /Flurb/
+                   """
+
+        try withTempConfigFile(yaml: yaml) { url in
+            let system = System(cliArgs: ["--config=\(url.path)"])
+            print(system.group.groupCustom.groups)
+            TestLogger.install()
+            let items = try system.run(file.asGatherPasses)
+            XCTAssertEqual(1, TestLogger.shared.diagsBuf.count)
+            XCTAssertEqual(2, items.count)
+            XCTAssertEqual("RegGroup", items[0].name)
+            XCTAssertEqual(2, items[0].children.count)
+            XCTAssertEqual("AClass", items[0].children[0].name)
+            XCTAssertEqual("BClass", items[0].children[1].name)
+            XCTAssertEqual("Types", items[1].name)
+        }
+    }
+
+    func testCustomGroupModuleRegexp() throws {
+        let class1 = SourceKittenDict.mkClass(name: "AClass")
+        let class2 = SourceKittenDict.mkClass(name: "BClass")
+        let class3 = SourceKittenDict.mkClass(name: "CClass")
+        let pass1 = SourceKittenDict.mkFile()
+            .with(children: [class1, class2])
+            .asGatherDef()
+            .asPass(moduleName: "CMod", pathName: "")
+        let pass2 = SourceKittenDict.mkFile()
+            .with(children: [class3])
+            .asGatherDef()
+            .asPass(moduleName: "BMod", pathName: "")
+
+        let yaml = """
+                   custom_groups:
+                     - name: RegGroup
+                       children:
+                         - /^C.*/
+                   """
+        try withTempConfigFile(yaml: yaml) { url in
+            let system = System(cliArgs: ["--config=\(url.path)"])
+            let items = try system.run([pass1, pass2])
+            XCTAssertEqual(1, items.count)
+        }
+    }
+
+    func testCustomGroupBadRegexp() throws {
+        let badRegexp = """
+                        custom_groups:
+                           - name: N
+                             children:
+                               - /Class(/
+                        """
+        checkCustomParseError(badRegexp)
     }
 }

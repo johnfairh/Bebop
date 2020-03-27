@@ -146,6 +146,8 @@ internal enum L10n {
     case wrnSktnKind = "wrn-sktn-kind"
     /// %1 unmatched custom abstracts: '%2'.
     case wrnUnmatchedAbstracts = "wrn-unmatched-abstracts"
+    /// Custom group regular expression '/%1/' did not match any items.
+    case wrnUnmatchedGrpRegex = "wrn-unmatched-grp-regex"
     /// Confused by different types sharing a USR.\n1: %1\n2: %2\nIgnoring the second.
     case wrnUsrCollision = "wrn-usr-collision"
   }

@@ -209,7 +209,7 @@ final class GroupCustom: Configurable {
             case .pattern(let pattern):
                 let items = index.findAll(matching: pattern)
                 guard !items.isEmpty else {
-                    logWarning("Regular expression '/\(pattern)/' did not match any items.")
+                    logWarning(.localized(.wrnUnmatchedGrpRegex, pattern))
                     return []
                 }
                 return items.sorted(by: { $0.sortableName < $1.sortableName })
@@ -439,7 +439,7 @@ extension GroupCustom.Group: CustomStringConvertible {
             line += " abstract=\(abstract.first!.value)"
         }
         if !topics.isEmpty {
-            line += " topics=[\(topics)]"
+            line += " topics=\(topics)"
         }
         return line
     }
@@ -449,7 +449,7 @@ extension GroupCustom.Group.Topic: CustomStringConvertible {
     var description: String {
         var line = "Tpc \(topic)"
         if !children.isEmpty {
-            line += " children=[\(children)]"
+            line += " children=\(children)"
         }
         return line
     }

@@ -97,3 +97,4 @@ Ignoring the second.";
 "err-cfg-custom-def-topics" = "Custom def missing 'topics' config key: '%1'";
 "err-cfg-custom-def-topic-name" = "Custom def topic missing 'name' config key: '%1'";
 "wrn-custom-def-missing" = "Can't resolve custom_def child '%1' inside '%2'";
+"wrn-unmatched-grp-regex" = "Custom group regular expression '/%1/' did not match any items.";
