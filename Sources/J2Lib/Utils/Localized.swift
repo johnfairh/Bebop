@@ -153,29 +153,35 @@ extension Array where Element == Glob.Pattern {
     }
 }
 
-extension Dictionary where Key == String, Value == Markdown {
-    /// Helper to grab a localized version of a markdown file.
-    /// `url` is supposed to be a markdown file, whose contents get used for the default localization.
-    /// Its directory should contain a subdirectory for each language tag with an identically named file.
+extension Localized where Key == String, Value == Markdown {
+    /// Initialize a full localized hash of URLs for a file, using a localization-specific version
+    /// if available.
     init(localizingFile url: URL) throws {
+        self = try Localized<URL>(localizingFile: url)
+            .mapValues { Markdown(try String(contentsOf: $0)) }
+    }
+}
+
+extension Localized where Key == String, Value == URL {
+    /// Initialize a full localized hash of URLs for a file, using a localization-specific version
+    /// if available.
+    init(localizingFile url: URL) {
         self.init()
         let locs = Localizations.shared
-
-        let defaultContent = Markdown(try String(contentsOf: url))
-        self[locs.main.tag] = defaultContent
+        self[locs.main.tag] = url
 
         let filename = url.lastPathComponent
         let directory = url.deletingLastPathComponent()
 
-        try locs.others.forEach { otherLoc in
+        locs.others.forEach { otherLoc in
             let otherURL = directory
                 .appendingPathComponent(otherLoc.tag)
                 .appendingPathComponent(filename)
             if FileManager.default.fileExists(atPath: otherURL.path) {
-                self[otherLoc.tag] = Markdown(try String(contentsOf: otherURL))
+                self[otherLoc.tag] = otherURL
             } else {
                 logDebug("Missing localization '\(otherLoc.tag)' for \(url.path).")
-                self[otherLoc.tag] = defaultContent
+                self[otherLoc.tag] = url
             }
         }
     }

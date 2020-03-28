@@ -124,6 +124,7 @@
 		02D00C88240940B600DD93C5 /* MergeDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D00C87240940B600DD93C5 /* MergeDefinitions.swift */; };
 		02D00C8A24096E8A00DD93C5 /* MergeFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D00C8924096E8A00DD93C5 /* MergeFilter.swift */; };
 		02D064F423EC208200FE11BD /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D064F323EC208200FE11BD /* Group.swift */; };
+		02EC5B7E242FCB2F00A511B2 /* GenMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EC5B7D242FCB2F00A511B2 /* GenMedia.swift */; };
 		02F2B3C4239A7E2A00397BC6 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C24034239A732200518764 /* main.swift */; };
 		02FDC67A23E876D300C2F9CD /* DefDocs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FDC67923E876D300C2F9CD /* DefDocs.swift */; };
 		02FDC67C23E879E700C2F9CD /* GatherMarkdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FDC67B23E879E700C2F9CD /* GatherMarkdown.swift */; };
@@ -328,6 +329,7 @@
 		02D00C87240940B600DD93C5 /* MergeDefinitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MergeDefinitions.swift; sourceTree = "<group>"; };
 		02D00C8924096E8A00DD93C5 /* MergeFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MergeFilter.swift; sourceTree = "<group>"; };
 		02D064F323EC208200FE11BD /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		02EC5B7D242FCB2F00A511B2 /* GenMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenMedia.swift; sourceTree = "<group>"; };
 		02F2B3B4239A7E0C00397BC6 /* J2CLI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = J2CLI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02F2B3D0239A89D700397BC6 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		02FDC67923E876D300C2F9CD /* DefDocs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefDocs.swift; sourceTree = "<group>"; };
@@ -633,6 +635,7 @@
 				0233D53A23F09E0D004DCD89 /* GenMustache.swift */,
 				02CFFA0823E0C8AC00FDE5B9 /* GenSite.swift */,
 				02CFFA0F23E1E9A700FDE5B9 /* GenThemes.swift */,
+				02EC5B7D242FCB2F00A511B2 /* GenMedia.swift */,
 			);
 			path = Gen;
 			sourceTree = "<group>";
@@ -899,6 +902,7 @@
 				02CFF92323DDFE3000FDE5B9 /* Gather.swift in Sources */,
 				0233D54323F42682004DCD89 /* Topic.swift in Sources */,
 				0233D52423EF0CC3004DCD89 /* Identifiers.swift in Sources */,
+				02EC5B7E242FCB2F00A511B2 /* GenMedia.swift in Sources */,
 				022818CA23D38A0A0016B0D5 /* PrefixMatcher.swift in Sources */,
 				02FDC68F23EB4C1B00C2F9CD /* Lock.swift in Sources */,
 				02D064F423EC208200FE11BD /* Group.swift in Sources */,

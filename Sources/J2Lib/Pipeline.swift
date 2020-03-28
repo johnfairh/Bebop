@@ -53,6 +53,7 @@ public final class Pipeline: Configurable {
     public let merge: Merge
     /// Create sections and guides, sort topics
     public let group: Group
+    /// 
     /// Assign URLs and render autolinked html, markdown
     public let format: Format
     /// Flatten and consolidate docs

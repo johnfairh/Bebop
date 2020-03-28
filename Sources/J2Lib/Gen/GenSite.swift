@@ -59,10 +59,12 @@ public struct GenSite: Configurable {
     var nestedItemStyle: NestedItemStyle { nestedItemStyleOpt.value! }
 
     let themes: GenThemes
+    let media: GenMedia
     let copyright: GenCopyright
 
     public init(config: Config) {
         themes = GenThemes(config: config)
+        media = GenMedia(config: config)
         copyright = GenCopyright(config: config)
 
         oldHideCoverageOpt = AliasOpt(realOpt: hideCoverageOpt, l: "hide-documentation-coverage")
@@ -104,7 +106,19 @@ public struct GenSite: Configurable {
             try rendered.html.write(to: url)
         }
 
-        try theme.copyAssets(to: outputURL)
+        func copier(from: URL, to: URL) throws {
+            if FileManager.default.fileExists(atPath: to.path) {
+                try FileManager.default.removeItem(at: to)
+            }
+            try FileManager.default.copyItem(at: from, to: to)
+        }
+
+        try Localizations.shared.allTags.forEach { tag in
+            let docRoot = outputURL.appendingPathComponent(tag.languageTagPathComponent)
+            try media.copyMedia(docRoot: docRoot, languageTag: tag, copier: copier)
+        }
+
+        try theme.copyAssets(to: outputURL, copier: copier)
     }
 
     /// JSON instead of the website

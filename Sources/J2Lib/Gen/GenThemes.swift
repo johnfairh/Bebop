@@ -119,7 +119,7 @@ struct Theme {
     }
 
     /// Copy everything from the `assets` directory into the root of the docs siet
-    func copyAssets(to docsSiteURL: URL) throws {
+    func copyAssets(to docsSiteURL: URL, copier: (URL, URL) throws -> Void) throws {
         logDebug("Theme: copying assets")
         let assetsURL = url.appendingPathComponent("assets")
         guard FileManager.default.fileExists(atPath: assetsURL.path) else {
@@ -129,10 +129,7 @@ struct Theme {
         try contents.forEach { srcURL in
             let filename = srcURL.lastPathComponent
             let dstURL = docsSiteURL.appendingPathComponent(filename)
-            if FileManager.default.fileExists(atPath: dstURL.path) {
-                try FileManager.default.removeItem(at: dstURL)
-            }
-            try FileManager.default.copyItem(at: srcURL, to: dstURL)
+            try copier(srcURL, dstURL)
         }
     }
 }

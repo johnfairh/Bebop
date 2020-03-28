@@ -134,6 +134,8 @@ internal enum L10n {
     case wrnGuideTitleDup = "wrn-guide-title-dup"
     /// Some 'guide_titles' entries did not match any guides: %1.
     case wrnGuideTitleUnused = "wrn-guide-title-unused"
+    /// No media files found matching '%1'
+    case wrnMediaMissing = "wrn-media-missing"
     /// Bad file json data for '%1' pass %2: missing 'key.diagnostic_stage' key.  Ignoring this file.
     case wrnMergeMissingRoot = "wrn-merge-missing-root"
     /// Doc comments will not be localized for '%1' because cannot open '%2'.
