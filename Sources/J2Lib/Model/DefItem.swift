@@ -271,7 +271,7 @@ public class DefItem: Item, CustomStringConvertible {
 
     /// Is this a Swift extension that adds protocol conformances?
     public var isSwiftExtensionWithConformances: Bool {
-        return swiftDeclaration.flatMap {
+        swiftDeclaration.flatMap {
             defKind.isSwiftExtension && !$0.inheritedTypes.isEmpty
         } ?? false
     }

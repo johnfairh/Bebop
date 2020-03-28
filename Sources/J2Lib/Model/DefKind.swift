@@ -35,7 +35,7 @@ public final class DefKind: CustomStringConvertible {
     public let declPrefix: String?
 
     /// The underlying sourcekitten key
-    private enum Key: CustomStringConvertible {
+    private enum Key {
         case swift(String)
         case objC(String, String?)
 
@@ -55,8 +55,6 @@ public final class DefKind: CustomStringConvertible {
             case .swift(let kind), .objC(let kind, _): return kind
             }
         }
-
-        var description: String { key }
     }
 
     private init(_ kindKey: Key,
