@@ -165,7 +165,7 @@
             "dash_type" : "Class",
             "def" : {
               "abstract_html" : "<p>A derived class<\/p>",
-              "swift_declaration_html" : "public class ADerivedClass&lt;T, Q&gt; : <a href=\"..\/types\/abaseclass.html?swift\">ABaseClass<\/a> where Q : Sequence"
+              "swift_declaration_html" : "public class ADerivedClass&lt;T, Q&gt; : <a href=\"types\/abaseclass.html?swift\">ABaseClass<\/a> where Q : Sequence"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">class <\/span>ADerivedClass",
@@ -1296,7 +1296,7 @@
       },
       {
         "anchor_id" : "tpc-available-where-assoctype-hashable",
-        "dash_name" : "Available%20where%20AssocType%3A%20Hashable",
+        "dash_name" : "%E2%80%A6where%20AssocType%3A%20Hashable",
         "items" : [
           {
             "anchor_id" : "exthashablemethod",
@@ -1583,7 +1583,7 @@
       },
       {
         "anchor_id" : "tpc-available-where-t-codable",
-        "dash_name" : "Available%20where%20T%3A%20Codable",
+        "dash_name" : "%E2%80%A6where%20T%3A%20Codable",
         "items" : [
           {
             "anchor_id" : "docodability",
@@ -1617,7 +1617,7 @@
       },
       {
         "anchor_id" : "tpc-available-where-t-equatable-t-firstprotocol",
-        "dash_name" : "Available%20where%20T%3A%20Equatable,%20T%3A%20FirstProtocol",
+        "dash_name" : "%E2%80%A6where%20T%3A%20Equatable,%20T%3A%20FirstProtocol",
         "items" : [
           {
             "anchor_id" : "dofirstmagic",
@@ -1651,7 +1651,7 @@
       },
       {
         "anchor_id" : "tpc-available-where-t-hashable",
-        "dash_name" : "Available%20where%20T%3A%20Hashable",
+        "dash_name" : "%E2%80%A6where%20T%3A%20Hashable",
         "items" : [
           {
             "anchor_id" : "dohashable",
@@ -2500,7 +2500,7 @@
             "dash_name" : "extension%20Collection",
             "dash_type" : "Extension",
             "def" : {
-              "swift_declaration_html" : "extension Collection where Element: <a href=\"..\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>\n\nextension Collection where Element == <a href=\"..\/types\/spmswiftmodule\/nested1.html?swift\">SpmSwiftModule.Nested1<\/a>"
+              "swift_declaration_html" : "extension Collection where Element: <a href=\"types\/firstprotocol1.html?swift\">FirstProtocol<\/a>\n\nextension Collection where Element == <a href=\"types\/spmswiftmodule\/nested1.html?swift\">SpmSwiftModule.Nested1<\/a>"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">extension <\/span>Collection",
@@ -2678,7 +2678,7 @@
     "topics" : [
       {
         "anchor_id" : "tpc-available-where-element-spmswiftmodulenested1",
-        "dash_name" : "Available%20where%20Element%20==%20SpmSwiftModule.Nested1",
+        "dash_name" : "%E2%80%A6where%20Element%20==%20SpmSwiftModule.Nested1",
         "items" : [
           {
             "anchor_id" : "nestemall",
@@ -2699,7 +2699,7 @@
       },
       {
         "anchor_id" : "tpc-available-where-element-firstprotocol",
-        "dash_name" : "Available%20where%20Element%3A%20FirstProtocol",
+        "dash_name" : "%E2%80%A6where%20Element%3A%20FirstProtocol",
         "items" : [
           {
             "anchor_id" : "collectemall",

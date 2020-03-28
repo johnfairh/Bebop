@@ -47,7 +47,7 @@
                 "availability" : [],
                 "discussion" : {
                   "en" : {
-                    "html" : "<p>See <a href=\"..\/..\/spmobjcmodule\/types\/normalclass1.html?objc#objcnormalmethod\" class=\"j2-objc\"><code>-objcNormalMethod<\/code><\/a><a href=\"..\/..\/spmobjcmodule\/types\/normalclass1.html?swift#objcnormalmethod\" class=\"j2-swift j2-secondary\"><code>objcNormalMethod()<\/code><\/a>.<\/p>"
+                    "html" : "<p>See <a href=\"spmobjcmodule\/types\/normalclass1.html?objc#objcnormalmethod\" class=\"j2-objc\"><code>-objcNormalMethod<\/code><\/a><a href=\"spmobjcmodule\/types\/normalclass1.html?swift#objcnormalmethod\" class=\"j2-swift j2-secondary\"><code>objcNormalMethod()<\/code><\/a>.<\/p>"
                   }
                 },
                 "obj_c_declaration" : {
@@ -167,19 +167,11 @@
             }
           ],
           "menu_title" : {
-            "html" : {
-              "en" : ""
-            },
-            "markdown" : {
-              "en" : ""
-            }
+            "en" : ""
           },
           "title" : {
-            "html" : {
-              "en" : ""
-            },
-            "markdown" : {
-              "en" : ""
+            "en" : {
+              "html" : ""
             }
           }
         }
@@ -324,19 +316,11 @@
             }
           ],
           "menu_title" : {
-            "html" : {
-              "en" : ""
-            },
-            "markdown" : {
-              "en" : ""
-            }
+            "en" : ""
           },
           "title" : {
-            "html" : {
-              "en" : ""
-            },
-            "markdown" : {
-              "en" : ""
+            "en" : {
+              "html" : ""
             }
           }
         }
@@ -466,19 +450,11 @@
             }
           ],
           "menu_title" : {
-            "html" : {
-              "en" : ""
-            },
-            "markdown" : {
-              "en" : ""
-            }
+            "en" : ""
           },
           "title" : {
-            "html" : {
-              "en" : ""
-            },
-            "markdown" : {
-              "en" : ""
+            "en" : {
+              "html" : ""
             }
           }
         }
@@ -640,19 +616,11 @@
             }
           ],
           "menu_title" : {
-            "html" : {
-              "en" : "ObjC methods"
-            },
-            "markdown" : {
-              "en" : "ObjC methods"
-            }
+            "en" : "ObjC methods"
           },
           "title" : {
-            "html" : {
-              "en" : "ObjC methods"
-            },
-            "markdown" : {
-              "en" : "ObjC methods"
+            "en" : {
+              "html" : "ObjC methods"
             }
           }
         },
@@ -691,19 +659,11 @@
             }
           ],
           "menu_title" : {
-            "html" : {
-              "en" : "ObjC methods part 2"
-            },
-            "markdown" : {
-              "en" : "ObjC methods part 2"
-            }
+            "en" : "ObjC methods part 2"
           },
           "title" : {
-            "html" : {
-              "en" : "ObjC methods part 2"
-            },
-            "markdown" : {
-              "en" : "ObjC methods part 2"
+            "en" : {
+              "html" : "ObjC methods part 2"
             }
           }
         }
@@ -792,19 +752,11 @@
             }
           ],
           "menu_title" : {
-            "html" : {
-              "en" : ""
-            },
-            "markdown" : {
-              "en" : ""
-            }
+            "en" : ""
           },
           "title" : {
-            "html" : {
-              "en" : ""
-            },
-            "markdown" : {
-              "en" : ""
+            "en" : {
+              "html" : ""
             }
           }
         }

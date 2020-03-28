@@ -431,11 +431,11 @@ extension GenData.Topic: SoloLanguageProtocol {
     ///           primary_language - if set then topic is only valid in that language
     ///           items - items array of [String: Any]
     func generateTopic(languageTag: String, fileExt: String) -> MustacheDict {
-        let titleText = title.plainText.get(languageTag)
+        let titleText = menuTitle.get(languageTag)
         let dashName = titleText.urlPathEncoded
         var dict = MH([.anchorId: anchorId, .dashName: dashName])
         if !titleText.isEmpty {
-            dict[.titleHtml] = title.html.get(languageTag).html
+            dict[.titleHtml] = title.get(languageTag).html
         }
         dict.maybe(.overviewHtml, overview?.get(languageTag).html)
         dict.maybe(.primaryLanguage, soloLanguage?.cssName)
@@ -449,7 +449,7 @@ extension GenData.Topic: SoloLanguageProtocol {
 
     /// Build the topics menu item - nil if no title or only in the other language
     func generateMenuItem(language: DefLanguage, languageTag: String) -> MustacheDict? {
-        let titleText = menuTitle.plainText.get(languageTag)
+        let titleText = menuTitle.get(languageTag)
         if titleText.isEmpty {
             return nil
         }

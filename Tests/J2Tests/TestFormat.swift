@@ -338,17 +338,6 @@ class TestFormat: XCTestCase {
     }
     #endif
 
-    func testHtmlHrefLifting() {
-        let html = #"<a href="http://google.com/">"#
-        XCTAssertEqual(html, html.htmlHrefLifted)
-
-        let html2 = #"<a href="foop">"#
-        XCTAssertEqual(html2, html2.htmlHrefLifted)
-
-        let html3 = #"<a href="../foop">"#
-        XCTAssertEqual(html2, html3.htmlHrefLifted)
-    }
-
     // MARK: Custom abstract
 
     func testCustomAbstract() throws {

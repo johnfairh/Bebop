@@ -96,8 +96,8 @@ public final class GenData: Encodable {
         }
     }
     public struct Topic: Encodable {
-        public let title: RichText
-        public let menuTitle: RichText
+        public let title: Localized<Html>
+        public let menuTitle: Localized<String>
         public let anchorId: String
         public let overview: Localized<Html>?
         public let items: [Item]

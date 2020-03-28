@@ -6,6 +6,8 @@
 //  Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
 //
 
+import Foundation
+
 /// The result of an autolink lookup.
 ///
 /// (It's a class because we pass it as a ref-counted void * through some C code later on...)
@@ -48,32 +50,46 @@ final class FormatAutolink: Configurable {
 
     // MARK: Lookup
 
-    /// Try to match a def from a name, in a particular context.
-    func link(for name: String, context: Item) -> Autolink? {
-        link(for: name, nameContext: context, linkContext: context)
+    /// HTML autolink fixup.
+    ///
+    /// When we generate autolinks we include a placeholder meaning 'from the current page to the doc root'.
+    /// Then after the entire HTML page is rendered we substitute back.
+    ///
+    /// This is how jazzy did it, and I thought, "ugh how gross".  The thing is, it turns out to be really hard to know
+    /// at the point we are generating the hrefs where the html will eventually end up in the doc hierarchy: because
+    /// of custom groups, because of nesting, because of separate-children ... I tried a bunch of ways and they all
+    /// suck / fail.  So, revert to what works.
+    ///
+    /// In fact it's uglier than jazzy, who manages to do it after mustache has generated the entire page.
+    /// Because we have the intermediate json formats in GenPages/SIte we have to sub as the structured
+    /// page data is being built.  Yuck.
+    private static let AUTOLINK_TOKEN = UUID().uuidString
+
+    static func fixUpAutolinks(html: Html, pathToRoot: String) -> Html {
+        Html(html.html.re_sub(AUTOLINK_TOKEN, with: pathToRoot))
     }
 
     /// Try to match a def from a name, in a particular naming and link context.
     ///
     /// These are different in practice only for topics, which are evaluated inside the namespace of
     /// their type, but rendered on the same page as the type.
-    func link(for name: String, nameContext: Item, linkContext: Item) -> Autolink? {
-        if let defItem = nameContext as? DefItem,
+    func link(for name: String, context: Item) -> Autolink? {
+        if let defItem = context as? DefItem,
             defItem.isGenericTypeParameter(name: name) {
             return nil
         }
 
-        guard let (def, language) = def(for: name, context: nameContext) else {
+        guard let (def, language) = def(for: name, context: context) else {
             return nil
         }
 
-        guard def !== linkContext else {
+        guard def !== context else {
             Stats.inc(.autolinkSelfLink)
             return nil
         }
 
-        let markdownURL = linkContext.url.pathToRoot + def.url.url(fileExtension: ".md")
-        let primaryURL = linkContext.url.pathToRoot + def.url.url(fileExtension: ".html", language: language)
+        let markdownURL = FormatAutolink.AUTOLINK_TOKEN + def.url.url(fileExtension: ".md")
+        let primaryURL = FormatAutolink.AUTOLINK_TOKEN + def.url.url(fileExtension: ".html", language: language)
 
         guard def.dualLanguage else {
             // simple case
@@ -88,7 +104,7 @@ final class FormatAutolink: Configurable {
         // the other language - otherwise use the fully qualified name.
         let primHTML = #"<a href="\#(primaryURL)" class="\#(language.cssName)"><code>\#(name.htmlEscaped)</code></a>"#
         let secLanguage = language.otherLanguage
-        let secURL = linkContext.url.pathToRoot + def.url.url(fileExtension: ".html", language: secLanguage)
+        let secURL = FormatAutolink.AUTOLINK_TOKEN + def.url.url(fileExtension: ".html", language: secLanguage)
         let secName: String
         if name == def.name(for: language) {
             secName = def.name(for: secLanguage)

@@ -122,6 +122,18 @@ final class LanguageVisitor: ItemVisitorProtocol {
     }
 }
 
+private extension Html {
+    func autolinked(_ pageURL: URLPieces) -> Html {
+        FormatAutolink.fixUpAutolinks(html: self, pathToRoot: pageURL.pathToRoot)
+    }
+}
+
+private extension Localized where Value == Html {
+    func autolinked(_ pageURL: URLPieces) -> Self {
+        mapValues { $0.autolinked(pageURL) }
+    }
+}
+
 final class PageVisitor: ItemVisitorProtocol {
     let languages: [DefLanguage]
     let defaultLanguage: DefLanguage
@@ -144,7 +156,7 @@ final class PageVisitor: ItemVisitorProtocol {
                 primaryLanguage: defItem.primaryLanguage,
                 secondaryTitle: defItem.secondaryTitle,
                 breadcrumbs: buildBreadcrumbs(item: defItem, parents: parents),
-                definition: defItem.asGenDef,
+                definition: defItem.asGenDef(pageURL: defItem.url),
                 topics: buildTopics(item: defItem)))
         }
     }
@@ -157,7 +169,7 @@ final class PageVisitor: ItemVisitorProtocol {
                                   primaryLanguage: defaultLanguage,
                                   secondaryTitle: primaryTitle == secondaryTitle ? nil : secondaryTitle,
                                   breadcrumbs: buildBreadcrumbs(item: groupItem, parents: parents),
-                                  content: groupItem.customAbstract?.html,
+                                  content: groupItem.customAbstract?.html.autolinked(groupItem.url),
                                   topics: buildTopics(item: groupItem)))
     }
 
@@ -166,7 +178,7 @@ final class PageVisitor: ItemVisitorProtocol {
                                   title: guideItem.title,
                                   breadcrumbs: buildBreadcrumbs(item: guideItem, parents: parents),
                                   isReadme: false,
-                                  content: guideItem.content.html))
+                                  content: guideItem.content.html.autolinked(guideItem.url)))
     }
 
     func visit(readmeItem: ReadmeItem, parents: [Item]) {
@@ -174,7 +186,7 @@ final class PageVisitor: ItemVisitorProtocol {
                                   title: readmeItem.title,
                                   breadcrumbs: [],
                                   isReadme: true,
-                                  content: readmeItem.content.html))
+                                  content: readmeItem.content.html.autolinked(readmeItem.url)))
     }
 
     /// Breadcrumbs for a page
@@ -214,7 +226,7 @@ final class PageVisitor: ItemVisitorProtocol {
 
     func buildTopics(item: Item) -> [GenData.Topic] {
         var topics = [GenData.Topic]()
-        let itemVisitor = GenItemVisitor(defaultLanguage: defaultLanguage)
+        let itemVisitor = GenItemVisitor(defaultLanguage: defaultLanguage, pageURL: item.url)
         var currentTopic: Topic? = nil
 
         let uniquer = StringUniquer()
@@ -222,10 +234,10 @@ final class PageVisitor: ItemVisitorProtocol {
         func endTopic() {
             if let currentTopic = currentTopic {
                 let slugRoot = currentTopic.title.plainText.get(Localizations.shared.main.tag)
-                topics.append(GenData.Topic(title: currentTopic.title,
-                                            menuTitle: currentTopic.menuTitle,
+                topics.append(GenData.Topic(title: currentTopic.title.html.autolinked(item.url),
+                                            menuTitle: currentTopic.menuTitle.plainText,
                                             anchorId: uniquer.unique("tpc-" + slugRoot.slugged),
-                                            overview: currentTopic.overview?.html,
+                                            overview: currentTopic.overview?.html.autolinked(item.url),
                                             items: itemVisitor.resetItems()))
             }
         }
@@ -277,10 +289,13 @@ extension DefItem {
 /// Visitor to construct an Item that can appear inside a topic on a page.
 class GenItemVisitor: ItemVisitorProtocol {
     let defaultLanguage: DefLanguage
+    let pageURL: URLPieces
+
     var items: [GenData.Item]
 
-    init(defaultLanguage: DefLanguage) {
+    init(defaultLanguage: DefLanguage, pageURL: URLPieces) {
         self.defaultLanguage = defaultLanguage
+        self.pageURL = pageURL
         self.items = []
     }
 
@@ -306,7 +321,7 @@ class GenItemVisitor: ItemVisitorProtocol {
             extensionConstraint: defItem.extensionConstraintMessage,
             dashType: defItem.defKind.dashName,
             url: defItem.renderAsPage ? defItem.url : nil,
-            def: defItem.asGenDef))
+            def: defItem.asGenDef(pageURL: pageURL)))
     }
 
     /// Guides and Groups are simple, just a link really.
@@ -327,20 +342,21 @@ class GenItemVisitor: ItemVisitorProtocol {
 }
 
 extension DefItem {
-    var asGenDef: GenData.Def {
-        GenData.Def(deprecation: deprecationNotice?.html,
-                    unavailability: unavailableNotice?.html,
-                    notes: declNotesNotice?.html,
+    func asGenDef(pageURL: URLPieces) -> GenData.Def {
+        GenData.Def(deprecation: deprecationNotice?.html.autolinked(pageURL),
+                    unavailability: unavailableNotice?.html.autolinked(pageURL),
+                    notes: declNotesNotice?.html.autolinked(pageURL),
                     availability: swiftDeclaration?.availability ?? [],
-                    abstract: documentation.abstract?.html,
-                    discussion: documentation.discussion?.html,
-                    defaultAbstract: documentation.defaultAbstract?.html,
-                    defaultDiscussion: documentation.defaultDiscussion?.html,
-                    swiftDeclaration: swiftDeclaration.flatMap { $0.declaration.html },
-                    objCDeclaration: objCDeclaration.flatMap { $0.declaration.html },
+                    abstract: documentation.abstract?.html.autolinked(pageURL),
+                    discussion: documentation.discussion?.html.autolinked(pageURL),
+                    defaultAbstract: documentation.defaultAbstract?.html.autolinked(pageURL),
+                    defaultDiscussion: documentation.defaultDiscussion?.html.autolinked(pageURL),
+                    swiftDeclaration: swiftDeclaration.flatMap { $0.declaration.html.autolinked(pageURL) },
+                    objCDeclaration: objCDeclaration.flatMap { $0.declaration.html.autolinked(pageURL) },
                     params: documentation.parameters.map { docParam in
-                        GenData.Param(name: docParam.name, description: docParam.description.html)
+                        GenData.Param(name: docParam.name,
+                                      description: docParam.description.html.autolinked(pageURL))
                     },
-                    returns: documentation.returns?.html)
+                    returns: documentation.returns?.html.autolinked(pageURL))
     }
 }

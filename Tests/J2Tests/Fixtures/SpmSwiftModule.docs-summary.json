@@ -65,7 +65,7 @@
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public class ADerivedClass&lt;T, Q&gt; : <a href=\"..\/..\/spmswiftmodule\/types\/abaseclass.html?swift\">ABaseClass<\/a> where Q : Sequence"
+                  "html" : "public class ADerivedClass&lt;T, Q&gt; : <a href=\"spmswiftmodule\/types\/abaseclass.html?swift\">ABaseClass<\/a> where Q : Sequence"
                 }
               },
               "flat_title" : {
@@ -208,19 +208,11 @@
             }
           ],
           "menu_title" : {
-            "html" : {
-              "en" : ""
-            },
-            "markdown" : {
-              "en" : ""
-            }
+            "en" : ""
           },
           "title" : {
-            "html" : {
-              "en" : ""
-            },
-            "markdown" : {
-              "en" : ""
+            "en" : {
+              "html" : ""
             }
           }
         }
@@ -317,19 +309,11 @@
             }
           ],
           "menu_title" : {
-            "html" : {
-              "en" : "Initializers"
-            },
-            "markdown" : {
-              "en" : "Initializers"
-            }
+            "en" : "Initializers"
           },
           "title" : {
-            "html" : {
-              "en" : "Initializers"
-            },
-            "markdown" : {
-              "en" : "Initializers"
+            "en" : {
+              "html" : "Initializers"
             }
           }
         },
@@ -361,19 +345,11 @@
             }
           ],
           "menu_title" : {
-            "html" : {
-              "en" : "Deinitializer"
-            },
-            "markdown" : {
-              "en" : "Deinitializer"
-            }
+            "en" : "Deinitializer"
           },
           "title" : {
-            "html" : {
-              "en" : "Deinitializer"
-            },
-            "markdown" : {
-              "en" : "Deinitializer"
+            "en" : {
+              "html" : "Deinitializer"
             }
           }
         },
@@ -405,19 +381,11 @@
             }
           ],
           "menu_title" : {
-            "html" : {
-              "en" : "Methods"
-            },
-            "markdown" : {
-              "en" : "Methods"
-            }
+            "en" : "Methods"
           },
           "title" : {
-            "html" : {
-              "en" : "Methods"
-            },
-            "markdown" : {
-              "en" : "Methods"
+            "en" : {
+              "html" : "Methods"
             }
           }
         },
@@ -449,19 +417,11 @@
             }
           ],
           "menu_title" : {
-            "html" : {
-              "en" : "Subscripts"
-            },
-            "markdown" : {
-              "en" : "Subscripts"
-            }
+            "en" : "Subscripts"
           },
           "title" : {
-            "html" : {
-              "en" : "Subscripts"
-            },
-            "markdown" : {
-              "en" : "Subscripts"
+            "en" : {
+              "html" : "Subscripts"
             }
           }
         },
@@ -493,19 +453,11 @@
             }
           ],
           "menu_title" : {
-            "html" : {
-              "en" : "Static Methods"
-            },
-            "markdown" : {
-              "en" : "Static Methods"
-            }
+            "en" : "Static Methods"
           },
           "title" : {
-            "html" : {
-              "en" : "Static Methods"
-            },
-            "markdown" : {
-              "en" : "Static Methods"
+            "en" : {
+              "html" : "Static Methods"
             }
           }
         },
@@ -537,19 +489,11 @@
             }
           ],
           "menu_title" : {
-            "html" : {
-              "en" : "Static Subscripts"
-            },
-            "markdown" : {
-              "en" : "Static Subscripts"
-            }
+            "en" : "Static Subscripts"
           },
           "title" : {
-            "html" : {
-              "en" : "Static Subscripts"
-            },
-            "markdown" : {
-              "en" : "Static Subscripts"
+            "en" : {
+              "html" : "Static Subscripts"
             }
           }
         },
@@ -581,19 +525,11 @@
             }
           ],
           "menu_title" : {
-            "html" : {
-              "en" : "Class Subscripts"
-            },
-            "markdown" : {
-              "en" : "Class Subscripts"
-            }
+            "en" : "Class Subscripts"
           },
           "title" : {
-            "html" : {
-              "en" : "Class Subscripts"
-            },
-            "markdown" : {
-              "en" : "Class Subscripts"
+            "en" : {
+              "html" : "Class Subscripts"
             }
           }
         }
@@ -690,19 +626,11 @@
             }
           ],
           "menu_title" : {
-            "html" : {
-              "en" : "Methods"
-            },
-            "markdown" : {
-              "en" : "Methods"
-            }
+            "en" : "Methods"
           },
           "title" : {
-            "html" : {
-              "en" : "Methods"
-            },
-            "markdown" : {
-              "en" : "Methods"
+            "en" : {
+              "html" : "Methods"
             }
           }
         },
@@ -734,19 +662,11 @@
             }
           ],
           "menu_title" : {
-            "html" : {
-              "en" : "Properties"
-            },
-            "markdown" : {
-              "en" : "Properties"
-            }
+            "en" : "Properties"
           },
           "title" : {
-            "html" : {
-              "en" : "Properties"
-            },
-            "markdown" : {
-              "en" : "Properties"
+            "en" : {
+              "html" : "Properties"
             }
           }
         }
@@ -912,19 +832,11 @@
             }
           ],
           "menu_title" : {
-            "html" : {
-              "en" : "Cases"
-            },
-            "markdown" : {
-              "en" : "Cases"
-            }
+            "en" : "Cases"
           },
           "title" : {
-            "html" : {
-              "en" : "Cases"
-            },
-            "markdown" : {
-              "en" : "Cases"
+            "en" : {
+              "html" : "Cases"
             }
           }
         }
@@ -998,19 +910,11 @@
             }
           ],
           "menu_title" : {
-            "html" : {
-              "en" : "Associated Types"
-            },
-            "markdown" : {
-              "en" : "Associated Types"
-            }
+            "en" : "Associated Types"
           },
           "title" : {
-            "html" : {
-              "en" : "Associated Types"
-            },
-            "markdown" : {
-              "en" : "Associated Types"
+            "en" : {
+              "html" : "Associated Types"
             }
           }
         },
@@ -1155,19 +1059,11 @@
             }
           ],
           "menu_title" : {
-            "html" : {
-              "en" : "Methods"
-            },
-            "markdown" : {
-              "en" : "Methods"
-            }
+            "en" : "Methods"
           },
           "title" : {
-            "html" : {
-              "en" : "Methods"
-            },
-            "markdown" : {
-              "en" : "Methods"
+            "en" : {
+              "html" : "Methods"
             }
           }
         },
@@ -1232,19 +1128,11 @@
             }
           ],
           "menu_title" : {
-            "html" : {
-              "en" : "…where <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift#assoctype\"><code>AssocType<\/code><\/a>: <code>Hashable<\/code>"
-            },
-            "markdown" : {
-              "en" : "…where [`AssocType`](..\/..\/spmswiftmodule\/types\/firstprotocol1.md#assoctype):\n`Hashable`"
-            }
+            "en" : "…where AssocType: Hashable"
           },
           "title" : {
-            "html" : {
-              "en" : "Available where <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift#assoctype\"><code>AssocType<\/code><\/a>: <code>Hashable<\/code>"
-            },
-            "markdown" : {
-              "en" : "Available where\n[`AssocType`](..\/..\/spmswiftmodule\/types\/firstprotocol1.md#assoctype):\n`Hashable`"
+            "en" : {
+              "html" : "Available where <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift#assoctype\"><code>AssocType<\/code><\/a>: <code>Hashable<\/code>"
             }
           }
         }
@@ -1318,19 +1206,11 @@
             }
           ],
           "menu_title" : {
-            "html" : {
-              "en" : "Initializers"
-            },
-            "markdown" : {
-              "en" : "Initializers"
-            }
+            "en" : "Initializers"
           },
           "title" : {
-            "html" : {
-              "en" : "Initializers"
-            },
-            "markdown" : {
-              "en" : "Initializers"
+            "en" : {
+              "html" : "Initializers"
             }
           }
         },
@@ -1362,19 +1242,11 @@
             }
           ],
           "menu_title" : {
-            "html" : {
-              "en" : "Methods"
-            },
-            "markdown" : {
-              "en" : "Methods"
-            }
+            "en" : "Methods"
           },
           "title" : {
-            "html" : {
-              "en" : "Methods"
-            },
-            "markdown" : {
-              "en" : "Methods"
+            "en" : {
+              "html" : "Methods"
             }
           }
         },
@@ -1429,19 +1301,11 @@
             }
           ],
           "menu_title" : {
-            "html" : {
-              "en" : "Properties"
-            },
-            "markdown" : {
-              "en" : "Properties"
-            }
+            "en" : "Properties"
           },
           "title" : {
-            "html" : {
-              "en" : "Properties"
-            },
-            "markdown" : {
-              "en" : "Properties"
+            "en" : {
+              "html" : "Properties"
             }
           }
         },
@@ -1496,19 +1360,11 @@
             }
           ],
           "menu_title" : {
-            "html" : {
-              "en" : "…where <code>T<\/code>: <code>Codable<\/code>"
-            },
-            "markdown" : {
-              "en" : "…where `T`: `Codable`"
-            }
+            "en" : "…where T: Codable"
           },
           "title" : {
-            "html" : {
-              "en" : "Available where <code>T<\/code>: <code>Codable<\/code>"
-            },
-            "markdown" : {
-              "en" : "Available where `T`: `Codable`"
+            "en" : {
+              "html" : "Available where <code>T<\/code>: <code>Codable<\/code>"
             }
           }
         },
@@ -1563,19 +1419,11 @@
             }
           ],
           "menu_title" : {
-            "html" : {
-              "en" : "…where <code>T<\/code>: <code>Equatable<\/code>, <code>T<\/code>: <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>"
-            },
-            "markdown" : {
-              "en" : "…where `T`: `Equatable`, `T`:\n[`FirstProtocol`](..\/..\/spmswiftmodule\/types\/firstprotocol1.md)"
-            }
+            "en" : "…where T: Equatable, T: FirstProtocol"
           },
           "title" : {
-            "html" : {
-              "en" : "Available where <code>T<\/code>: <code>Equatable<\/code>, <code>T<\/code>: <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>"
-            },
-            "markdown" : {
-              "en" : "Available where `T`: `Equatable`, `T`:\n[`FirstProtocol`](..\/..\/spmswiftmodule\/types\/firstprotocol1.md)"
+            "en" : {
+              "html" : "Available where <code>T<\/code>: <code>Equatable<\/code>, <code>T<\/code>: <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>"
             }
           }
         },
@@ -1607,19 +1455,11 @@
             }
           ],
           "menu_title" : {
-            "html" : {
-              "en" : "…where <code>T<\/code>: <code>Hashable<\/code>"
-            },
-            "markdown" : {
-              "en" : "…where `T`: `Hashable`"
-            }
+            "en" : "…where T: Hashable"
           },
           "title" : {
-            "html" : {
-              "en" : "Available where <code>T<\/code>: <code>Hashable<\/code>"
-            },
-            "markdown" : {
-              "en" : "Available where `T`: `Hashable`"
+            "en" : {
+              "html" : "Available where <code>T<\/code>: <code>Hashable<\/code>"
             }
           }
         }
@@ -1719,19 +1559,11 @@
             }
           ],
           "menu_title" : {
-            "html" : {
-              "en" : "Types"
-            },
-            "markdown" : {
-              "en" : "Types"
-            }
+            "en" : "Types"
           },
           "title" : {
-            "html" : {
-              "en" : "Types"
-            },
-            "markdown" : {
-              "en" : "Types"
+            "en" : {
+              "html" : "Types"
             }
           }
         },
@@ -1763,19 +1595,11 @@
             }
           ],
           "menu_title" : {
-            "html" : {
-              "en" : "Properties"
-            },
-            "markdown" : {
-              "en" : "Properties"
-            }
+            "en" : "Properties"
           },
           "title" : {
-            "html" : {
-              "en" : "Properties"
-            },
-            "markdown" : {
-              "en" : "Properties"
+            "en" : {
+              "html" : "Properties"
             }
           }
         }
@@ -1888,19 +1712,11 @@
             }
           ],
           "menu_title" : {
-            "html" : {
-              "en" : "Types"
-            },
-            "markdown" : {
-              "en" : "Types"
-            }
+            "en" : "Types"
           },
           "title" : {
-            "html" : {
-              "en" : "Types"
-            },
-            "markdown" : {
-              "en" : "Types"
+            "en" : {
+              "html" : "Types"
             }
           }
         }
@@ -1995,19 +1811,11 @@
             }
           ],
           "menu_title" : {
-            "html" : {
-              "en" : "Methods"
-            },
-            "markdown" : {
-              "en" : "Methods"
-            }
+            "en" : "Methods"
           },
           "title" : {
-            "html" : {
-              "en" : "Methods"
-            },
-            "markdown" : {
-              "en" : "Methods"
+            "en" : {
+              "html" : "Methods"
             }
           }
         }
@@ -2159,19 +1967,11 @@
             }
           ],
           "menu_title" : {
-            "html" : {
-              "en" : ""
-            },
-            "markdown" : {
-              "en" : ""
-            }
+            "en" : ""
           },
           "title" : {
-            "html" : {
-              "en" : ""
-            },
-            "markdown" : {
-              "en" : ""
+            "en" : {
+              "html" : ""
             }
           }
         }
@@ -2210,7 +2010,7 @@
                 "availability" : [],
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "extension Collection where Element: <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>\n\nextension Collection where Element == <a href=\"..\/..\/spmswiftmodule\/types\/spmswiftmodule\/nested1.html?swift\">SpmSwiftModule.Nested1<\/a>"
+                  "html" : "extension Collection where Element: <a href=\"spmswiftmodule\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>\n\nextension Collection where Element == <a href=\"spmswiftmodule\/types\/spmswiftmodule\/nested1.html?swift\">SpmSwiftModule.Nested1<\/a>"
                 }
               },
               "flat_title" : {
@@ -2252,19 +2052,11 @@
             }
           ],
           "menu_title" : {
-            "html" : {
-              "en" : ""
-            },
-            "markdown" : {
-              "en" : ""
-            }
+            "en" : ""
           },
           "title" : {
-            "html" : {
-              "en" : ""
-            },
-            "markdown" : {
-              "en" : ""
+            "en" : {
+              "html" : ""
             }
           }
         }
@@ -2333,19 +2125,11 @@
             }
           ],
           "menu_title" : {
-            "html" : {
-              "en" : "…where <code>Element<\/code> == <a href=\"..\/..\/spmswiftmodule\/types\/spmswiftmodule\/nested1.html?swift\"><code>SpmSwiftModule.Nested1<\/code><\/a>"
-            },
-            "markdown" : {
-              "en" : "…where `Element` ==\n[`SpmSwiftModule.Nested1`](..\/..\/spmswiftmodule\/types\/spmswiftmodule\/nested1.md)"
-            }
+            "en" : "…where Element == SpmSwiftModule.Nested1"
           },
           "title" : {
-            "html" : {
-              "en" : "Available where <code>Element<\/code> == <a href=\"..\/..\/spmswiftmodule\/types\/spmswiftmodule\/nested1.html?swift\"><code>SpmSwiftModule.Nested1<\/code><\/a>"
-            },
-            "markdown" : {
-              "en" : "Available where `Element` ==\n[`SpmSwiftModule.Nested1`](..\/..\/spmswiftmodule\/types\/spmswiftmodule\/nested1.md)"
+            "en" : {
+              "html" : "Available where <code>Element<\/code> == <a href=\"..\/..\/spmswiftmodule\/types\/spmswiftmodule\/nested1.html?swift\"><code>SpmSwiftModule.Nested1<\/code><\/a>"
             }
           }
         },
@@ -2377,19 +2161,11 @@
             }
           ],
           "menu_title" : {
-            "html" : {
-              "en" : "…where <code>Element<\/code>: <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>"
-            },
-            "markdown" : {
-              "en" : "…where `Element`:\n[`FirstProtocol`](..\/..\/spmswiftmodule\/types\/firstprotocol1.md)"
-            }
+            "en" : "…where Element: FirstProtocol"
           },
           "title" : {
-            "html" : {
-              "en" : "Available where <code>Element<\/code>: <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>"
-            },
-            "markdown" : {
-              "en" : "Available where `Element`:\n[`FirstProtocol`](..\/..\/spmswiftmodule\/types\/firstprotocol1.md)"
+            "en" : {
+              "html" : "Available where <code>Element<\/code>: <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>"
             }
           }
         }
@@ -2486,19 +2262,11 @@
             }
           ],
           "menu_title" : {
-            "html" : {
-              "en" : "Methods"
-            },
-            "markdown" : {
-              "en" : "Methods"
-            }
+            "en" : "Methods"
           },
           "title" : {
-            "html" : {
-              "en" : "Methods"
-            },
-            "markdown" : {
-              "en" : "Methods"
+            "en" : {
+              "html" : "Methods"
             }
           }
         }

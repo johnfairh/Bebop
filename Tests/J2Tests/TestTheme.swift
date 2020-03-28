@@ -72,7 +72,7 @@ class TestTheme: XCTestCase {
         XCTAssertEqual(".md", theme.fileExtension)
         let data = ["name" : "Fred", "type" : "Barney"]
         let rendered = try theme.renderTemplate(data: data)
-        XCTAssertEqual("Fred\nBarney\n\n", rendered)
+        XCTAssertEqual("Fred\nBarney\n\n", rendered.html)
     }
 
     private func createThemeDirs() throws -> TemporaryDirectory {

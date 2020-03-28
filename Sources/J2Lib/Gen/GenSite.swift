@@ -99,10 +99,9 @@ public struct GenSite: Configurable {
         try generatePages(genData: genData, fileExt: theme.fileExtension) { location, data in
             logDebug("Gen: Rendering template for \(data[.primaryPageTitle]!)")
             let rendered = try theme.renderTemplate(data: data)
-
             let url = outputURL.appendingPathComponent(location.filePath)
             logDebug("Gen: Creating \(url.path)")
-            try rendered.write(to: url)
+            try rendered.html.write(to: url)
         }
 
         try theme.copyAssets(to: outputURL)

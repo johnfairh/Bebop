@@ -107,11 +107,6 @@ struct Theme {
 
         template = try Template(URL: mustacheRootURL)
 
-        let hrefLifter = Filter { rendering -> Rendering in
-            Rendering(rendering.string.htmlHrefLifted, .html)
-        }
-        template.register(hrefLifter, forKey: "hrefLifted")
-
         logDebug("Theme: \(fileExtension) \(mustacheRootURL.path)")
     }
 
@@ -119,8 +114,8 @@ struct Theme {
         template.extendBaseContext(data)
     }
 
-    func renderTemplate(data: MustacheDict) throws -> String {
-        try template.render(data)
+    func renderTemplate(data: MustacheDict) throws -> Html {
+        try Html(template.render(data))
     }
 
     /// Copy everything from the `assets` directory into the root of the docs siet
