@@ -19,7 +19,7 @@ public class DefItem: Item, CustomStringConvertible {
     /// Kind of the definition
     public let defKind: DefKind
     /// Topic for the item.  This applies to both languages but we figure it out from the primary
-    var defTopic: DefTopic { defKind.defTopic }
+    public var defTopic: DefTopic { defKind.defTopic }
     /// USR
     public let usr: USR
     /// ACL
@@ -46,9 +46,8 @@ public class DefItem: Item, CustomStringConvertible {
     public internal(set) var extensionConstraint: SwiftGenericReqs?
 
     /// Create from a gathered definition
-    public init?(location: DefLocation, gatherDef: GatherDef, uniquer: StringUniquer) {
+    init?(location: DefLocation, gatherDef: GatherDef, uniquer: StringUniquer) {
         // Filter out defs we don't/can't include in docs
-
         guard let usr = gatherDef.sourceKittenDict.usr else {
             if let typename = gatherDef.sourceKittenDict.typeName,
                 typename.contains("<<error-type>>") {
@@ -181,7 +180,7 @@ public class DefItem: Item, CustomStringConvertible {
     /// For Swift this does not include the module name.
     ///
     /// For Objective-C this expresses methods like "+[ClassName method:name]".
-    func fullyQualifiedName(for language: DefLanguage) -> String {
+    public func fullyQualifiedName(for language: DefLanguage) -> String {
         if language == .objc && name(for: .objc).isObjCMethodName,
             let parent = self.parent as? DefItem {
             var methodName = name(for: .objc)
@@ -193,22 +192,22 @@ public class DefItem: Item, CustomStringConvertible {
         return names.joined(separator: ".")
     }
 
-    var primaryFullyQualifiedName: String {
+    public var primaryFullyQualifiedName: String {
         fullyQualifiedName(for: primaryLanguage)
     }
 
-    func namePieces(for language: DefLanguage) -> [DeclarationPiece] {
+    public func namePieces(for language: DefLanguage) -> [DeclarationPiece] {
         switch language {
         case .swift: return swiftDeclaration!.namePieces
         case .objc: return objCDeclaration!.namePieces
         }
     }
 
-    var primaryNamePieces: [DeclarationPiece] {
+    public var primaryNamePieces: [DeclarationPiece] {
         namePieces(for: primaryLanguage)
     }
 
-    var secondaryNamePieces: [DeclarationPiece]? {
+    public var secondaryNamePieces: [DeclarationPiece]? {
         secondaryLanguage.flatMap { namePieces(for: $0) }
     }
 
@@ -247,7 +246,7 @@ public class DefItem: Item, CustomStringConvertible {
     }
 
     /// Format the item's associated text data
-    public override func format(formatters: RichText.Formatters) {
+    override func format(formatters: RichText.Formatters) {
         documentation.format(formatters.block)
         deprecationNotice?.format(formatters.block)
         unavailableNotice?.format(formatters.block)
@@ -255,7 +254,7 @@ public class DefItem: Item, CustomStringConvertible {
     }
 
     /// Format the item's associated declarations
-    public func formatDeclarations(formatter: RichDeclaration.Formatter) rethrows {
+    func formatDeclarations(formatter: RichDeclaration.Formatter) rethrows {
         try swiftDeclaration?.declaration.format(formatter)
         try objCDeclaration?.declaration.format(formatter)
     }
@@ -301,7 +300,7 @@ public class DefItem: Item, CustomStringConvertible {
         declNotes.insert(declNote)
     }
 
-    var orderedDeclNotes: [DeclNote] {
+    public var orderedDeclNotes: [DeclNote] {
         declNotes.sorted(by: <)
     }
 
@@ -318,7 +317,7 @@ public class DefItem: Item, CustomStringConvertible {
     }
 
     /// Is a name bound in the def's generic context?
-    func isGenericTypeParameter(name: String) -> Bool {
+    public func isGenericTypeParameter(name: String) -> Bool {
         var next: DefItem? = self
         while let item = next {
             guard !item.genericTypeParameters.contains(name) else {

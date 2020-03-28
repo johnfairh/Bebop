@@ -13,7 +13,7 @@ import Foundation
 // users were immediately doing the conversion.
 
 /// Provide concise aliases for regexp options
-public extension NSRegularExpression.Options {
+extension NSRegularExpression.Options {
     /// Case insensitive
     static let i = Self.caseInsensitive
     /// Comments
@@ -45,7 +45,7 @@ private struct RegexCache {
 
 private var cache = RegexCache()
 
-public extension String {
+extension String {
     /// Split using a regular expression.
     ///
     /// Returns the pieces of the string, not including separators.  Zero-length pieces are not returned.

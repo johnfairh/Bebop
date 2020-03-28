@@ -17,9 +17,9 @@ import SourceKittenFramework
 ///
 /// This is the end of the sourcekit-style hashes, converted into more well-typed `Item` hierarchy.
 public struct Merge: Configurable {
-    let importer: MergeImport
-    let definitions: MergeDefinitions
-    let filter: MergeFilter
+    private let importer: MergeImport
+    private let definitions: MergeDefinitions
+    private let filter: MergeFilter
 
     // Unit test controls
     var enableFilter = true

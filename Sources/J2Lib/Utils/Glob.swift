@@ -19,10 +19,9 @@ import Darwin
 
 /// Namespace for a set of utilities to deal with matching files and directories in a shell-globbish way.
 /// These are implemented using libc primitives.
-public enum Glob {
-
+enum Glob {
     /// A boxed string to make code a little more obvious
-    public struct Pattern: ExpressibleByStringLiteral, Equatable {
+    struct Pattern: ExpressibleByStringLiteral, Equatable {
         public let value: String
         public init(_ pattern: String) { self.init(stringLiteral: pattern) }
         public init(stringLiteral value: String) { self.value = value }
@@ -31,7 +30,7 @@ public enum Glob {
     /// Return the list of files that match a pattern.
     ///
     /// - parameter pattern: A pattern that may contain simple shell globs, `*` and `?`.
-    public static func files(_ pattern: Pattern) -> [URL] {
+    static func files(_ pattern: Pattern) -> [URL] {
         var globData = glob_t()
 
         // required even if glob(3) fails
@@ -67,7 +66,7 @@ public enum Glob {
     /// Determine if a path matches a glob pattern.
     ///
     /// Slashes are not treated specially: "/f*/bar" will match "/foo/baz/bar", for example.
-    public static func match(_ pattern: Pattern, path: String) -> Bool {
+    static func match(_ pattern: Pattern, path: String) -> Bool {
         let rc = fnmatch(pattern.value, path, 0)
 
         if rc != 0 && rc != FNM_NOMATCH {
@@ -88,7 +87,7 @@ private func strerror_s() -> String {
 
 extension URL {
     /// Return all files in this directory URL that match the pattern[s]
-    public func filesMatching(_ patterns: Glob.Pattern...) -> [URL] {
+    func filesMatching(_ patterns: Glob.Pattern...) -> [URL] {
         patterns.flatMap { pat -> [URL] in
             let globPath = appendingPathComponent(pat.value).path
             return Glob.files(Glob.Pattern(globPath))

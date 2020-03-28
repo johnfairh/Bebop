@@ -9,7 +9,7 @@
 import SortedArray
 
 /// How to arrange child items on each page
-public enum TopicStyle: String, CaseIterable {
+enum TopicStyle: String, CaseIterable {
     /// In a group, alphabetical.  In a def, a topic per kind (method, property, etc.) and alphabetical within,
     /// with conditional extensions in their own topic.
     case logical

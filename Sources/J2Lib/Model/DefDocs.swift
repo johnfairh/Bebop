@@ -33,13 +33,13 @@ public struct DefDocs<T>: Encodable where T: Encodable & Equatable {
     public internal(set) var source: DefDocSource
 
     /// Initialize a new documentation container
-    public init(abstract: T? = nil,
-                discussion: T? = nil,
-                defaultAbstract: T? = nil,
-                defaultDiscussion: T? = nil,
-                returns: T? = nil,
-                parameters: [Param] = [],
-                source: DefDocSource = .empty) {
+    init(abstract: T? = nil,
+         discussion: T? = nil,
+         defaultAbstract: T? = nil,
+         defaultDiscussion: T? = nil,
+         returns: T? = nil,
+         parameters: [Param] = [],
+         source: DefDocSource = .empty) {
         self.abstract = abstract
         self.discussion = discussion
         self.defaultAbstract = defaultAbstract
@@ -49,7 +49,7 @@ public struct DefDocs<T>: Encodable where T: Encodable & Equatable {
         self.source = source
     }
 
-    public init(undocumented: T) {
+    init(undocumented: T) {
         self.init(abstract: undocumented,
                   source: .undocumented)
     }
@@ -65,14 +65,14 @@ public struct DefDocs<T>: Encodable where T: Encodable & Equatable {
     }
 
     /// Move abstract & discussion to defaults leaving them blank
-    public mutating func makeDefaultImplementation() {
+    mutating func makeDefaultImplementation() {
         setDefaultImplementation(from: self)
         self.abstract = nil
         self.discussion = nil
     }
 
     /// Set default abstract/discussion from another docs' primary fields
-    public mutating func setDefaultImplementation(from: Self) {
+    mutating func setDefaultImplementation(from: Self) {
         self.defaultAbstract = from.abstract
         self.defaultDiscussion = from.discussion
     }
@@ -88,7 +88,7 @@ extension LocalizedDefDocs {
     /// Add a translation to the set.
     /// Whichever way I shake these data structures there's always one incredibly ugly piece.
     /// This is the least bad option I've found.
-    public mutating func set(tag: String, docs: FlatDefDocs) {
+    mutating func set(tag: String, docs: FlatDefDocs) {
         func s(mdKeyPath: KeyPath<FlatDefDocs, Markdown?>,
                locKeyPath: WritableKeyPath<Self, Localized<Markdown>?>) {
             if let thing = docs[keyPath: mdKeyPath] {
@@ -129,7 +129,7 @@ extension LocalizedDefDocs {
 public typealias RichDefDocs = DefDocs<RichText>
 
 extension RichDefDocs {
-    public init(_ ldocs: LocalizedDefDocs) {
+    init(_ ldocs: LocalizedDefDocs) {
         abstract = ldocs.abstract.flatMap { RichText($0) }
         discussion = ldocs.discussion.flatMap { RichText($0) }
         defaultAbstract = ldocs.defaultAbstract.flatMap { RichText($0) }
@@ -141,7 +141,7 @@ extension RichDefDocs {
         source = ldocs.source
     }
 
-    public mutating func format(_ formatter: RichText.Formatter) {
+    mutating func format(_ formatter: RichText.Formatter) {
         abstract?.format(formatter)
         discussion?.format(formatter)
         defaultAbstract?.format(formatter)

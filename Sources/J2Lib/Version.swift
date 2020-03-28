@@ -7,5 +7,5 @@
 //
 
 public enum Version {
-    static let j2libVersion = "0.1"
+    public static let j2libVersion = "0.1"
 }

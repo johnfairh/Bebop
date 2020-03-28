@@ -15,18 +15,18 @@ import SourceKittenFramework
 /// garnishings before gather is complete.
 public final class GatherDef {
     /// Child definitions, constructed from the SourceKitten substructure
-    let children: [GatherDef]
+    public let children: [GatherDef]
     /// SourceKitten hash _except_ the substructure key
-    let sourceKittenDict: SourceKittenDict
+    public let sourceKittenDict: SourceKittenDict
     /// Definition type according to sourcekitten hash - `nil` means missing kind.
-    let kind: DefKind?
+    public let kind: DefKind?
     /// Multi-faceted Swift declaration info
-    let swiftDeclaration: SwiftDeclaration?
+    public let swiftDeclaration: SwiftDeclaration?
     /// Multi-faceted ObjC declaration info
-    let objCDeclaration: ObjCDeclaration?
+    public let objCDeclaration: ObjCDeclaration?
     /// Documentation
-    let documentation: FlatDefDocs?
-    let localizationKey: String?
+    public let documentation: FlatDefDocs?
+    public let localizationKey: String?
 
     init?(sourceKittenDict: SourceKittenDict,
           parentNameComponents: [String],
@@ -102,7 +102,7 @@ public final class GatherDef {
     }
 
     // Things calculated after init
-    var translatedDocs = LocalizedDefDocs()
+    public internal(set) var translatedDocs = LocalizedDefDocs()
 
     /// Test helper
     init(sourceKittenDict: SourceKittenDict, children: [GatherDef]) {

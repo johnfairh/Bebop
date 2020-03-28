@@ -7,7 +7,7 @@
 //
 
 /// A data structure to support identifying one of a set of strings from its unique prefix.
-public struct PrefixMatcher {
+struct PrefixMatcher {
     // This is probably a trie
     private enum Tree {
         case stub
@@ -88,7 +88,7 @@ public struct PrefixMatcher {
     /// categorized as an ambiguous prefix of 'aaa' and 'aab'.
     ///
     /// FIx is something like making the dict key a (char, bool) indicating a terminal symbol.
-    public mutating func insert(_ string: String) {
+    mutating func insert(_ string: String) {
         guard !string.isEmpty else { return }
         root.insert(string)
     }
@@ -97,7 +97,7 @@ public struct PrefixMatcher {
     ///
     /// If it is a non-ambiguous prefix of an inserted string then that inserted string is returned.
     /// If it is either an ambiguous prefix or not a prefix at all then `nil` is returned.
-    public func match(_ string: String) -> String? {
+    func match(_ string: String) -> String? {
         guard !string.isEmpty else { return nil }
         return root.match(string)
     }

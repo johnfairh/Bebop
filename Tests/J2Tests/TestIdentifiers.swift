@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import J2Lib
+@testable import J2Lib
 
 class TestIdentifiers: XCTestCase {
 

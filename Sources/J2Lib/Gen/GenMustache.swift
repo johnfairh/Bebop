@@ -13,7 +13,7 @@ import Foundation
 /// Gubbins to generate a sequence of `MustachePage`s from a `GenData`.
 /// This loops over all the pages for every language being produced.
 extension GenData {
-    public struct Iterator: IteratorProtocol {
+     public struct Iterator: IteratorProtocol {
         let genData: GenData
         let fileExt: String
         var locIterator: Array<String>.Iterator
@@ -50,13 +50,13 @@ extension GenData {
     }
 }
 
-typealias MustacheDict = [String: Any]
+public typealias MustacheDict = [String: Any]
 
 /// The type fed to the mustache templates to generate a page
 public struct MustachePage {
-    let languageTag: String
-    let filepath: String
-    let data: MustacheDict
+    public let languageTag: String
+    public let filepath: String
+    public let data: MustacheDict
 }
 
 // MARK: Mustache Keys
@@ -182,7 +182,7 @@ private extension Dictionary where Key == String, Value == Any {
 // MARK: Page
 
 extension GenData {
-    public func generate(page: Int, languageTag: String, fileExt: String) -> MustachePage {
+    func generate(page: Int, languageTag: String, fileExt: String) -> MustachePage {
         var data = MustacheDict()
         let pg = pages[page]
         let filepath = pg.url.filepath(fileExtension: fileExt)

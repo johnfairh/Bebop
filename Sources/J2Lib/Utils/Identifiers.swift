@@ -16,7 +16,7 @@ import Foundation
 extension String {
     /// A simplified version of the string.  May still need %-encoding for URLs etc.
     /// ICU \w is [\p{Ll}\p{Lu}\p{Lt}\p{Lo}\p{Nd}], see how that goes.
-    public var slugged: String {
+    var slugged: String {
         re_sub(#"[^\w\s]"#, with: "")
             .re_sub(#"\s+"#, with: "-")
             .lowercased()
@@ -24,13 +24,13 @@ extension String {
 }
 
 /// A gadget to unique a set of names
-public final class StringUniquer {
+final class StringUniquer {
     private var map = [String : Int]()
 
-    public init() {
+    init() {
     }
 
-    public func unique(_ input: String) -> String {
+    func unique(_ input: String) -> String {
         let dupCount = map.reduceKey(input, 0, { $0 + 1 })
         return dupCount == 0 ? input : input + String(dupCount)
     }
@@ -44,7 +44,7 @@ extension Dictionary {
     /// Reduce a new item into a key.  If key absent, is `initial`, otherwise via `reduceValue`.
     /// Return the new value for the key.
     @discardableResult
-    public mutating func reduceKey(_ key: Key, _ initial: Value, _ reduceValue: (Value) -> Value) -> Value {
+    mutating func reduceKey(_ key: Key, _ initial: Value, _ reduceValue: (Value) -> Value) -> Value {
         let newValue: Value
         if let existing = self[key] {
             newValue = reduceValue(existing)

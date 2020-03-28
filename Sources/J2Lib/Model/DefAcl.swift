@@ -15,7 +15,7 @@ public enum DefAcl: String, Comparable, CaseIterable, Encodable {
     case `open`
 
     // Map from Acl to number, higher number = more open
-    static let indexMap = [DefAcl : Int](
+    private static let indexMap = [DefAcl : Int](
         uniqueKeysWithValues: DefAcl.allCases.enumerated().map { offs, el in (el, offs) }
     )
 
@@ -24,7 +24,7 @@ public enum DefAcl: String, Comparable, CaseIterable, Encodable {
     }
 
     // Map from sourcekit name to Acl
-    static let sourceKitMap = [String : DefAcl](
+    private static let sourceKitMap = [String : DefAcl](
         uniqueKeysWithValues: DefAcl.allCases.map { el in ("source.lang.swift.accessibility.\(el.rawValue)", el) }
     )
 
@@ -58,12 +58,12 @@ public enum DefAcl: String, Comparable, CaseIterable, Encodable {
     }
 
     /// List of ACLs included by one
-    static func includedBy(acl: DefAcl) -> [DefAcl] {
+    public static func includedBy(acl: DefAcl) -> [DefAcl] {
         allCases.filter { $0 >= acl }
     }
 
     /// List of ACLs excluded by one
-    static func excludedBy(acl: DefAcl) -> [DefAcl] {
+    public static func excludedBy(acl: DefAcl) -> [DefAcl] {
         allCases.filter { $0 < acl }
     }
 }

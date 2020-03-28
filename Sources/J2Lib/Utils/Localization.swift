@@ -6,8 +6,6 @@
 //  Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
 //
 
-import Foundation
-
 /// Describe a localization of the eventual docs being generated.
 public struct Localization: CustomStringConvertible, Hashable, Encodable, Comparable {
     /// The language tag.  Used to identify localized doc comment strings files and templates,
@@ -28,7 +26,7 @@ public struct Localization: CustomStringConvertible, Hashable, Encodable, Compar
 
     /// Initialize a new `Localization`.  The descriptor contains the tag, flag, and label,
     /// separated by colons.
-    public init(descriptor: String) {
+    init(descriptor: String) {
         let pieces = descriptor.split(separator: ":", maxSplits: 2)
         tag = String(pieces[0])
         if pieces.count > 1 {
@@ -76,13 +74,13 @@ public struct Localizations {
     }
 
     /// Initialize a new set of localizations
-    public init(main: Localization = .default, others: [Localization] = []) {
+    init(main: Localization = .default, others: [Localization] = []) {
         self.main = main
         self.others = others
     }
 
     /// Initialize a new set of localizations from descriptors
-    public init(mainDescriptor: String?, otherDescriptors: [String]) {
+    init(mainDescriptor: String?, otherDescriptors: [String]) {
         main = Localization(descriptor: mainDescriptor ?? Localization.defaultDescriptor)
 
         // remove dups from the other-list
@@ -96,5 +94,5 @@ public struct Localizations {
 
     /// The current active localization settings.  This is needed in all kinds of leaf places and passing it around
     /// and through often as so much tramp data is really ugly.
-    public static var shared = Localizations()
+    public internal(set) static var shared = Localizations()
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 /// Behaviours for the popopen sections
-public enum NestedItemStyle: String, CaseIterable {
+enum NestedItemStyle: String, CaseIterable {
     /// All items closed on page-load
     case start_closed
     /// All items open on page-load, can be closed
@@ -19,7 +19,7 @@ public enum NestedItemStyle: String, CaseIterable {
 }
 
 /// Popopen or apple-style
-public enum ChildItemStyle: String, CaseIterable {
+enum ChildItemStyle: String, CaseIterable {
     /// Nest children in parent
     case nested
     /// Types go on separate pages, methods etc. nest
@@ -74,7 +74,7 @@ public struct GenSite: Configurable {
         config.register(self)
     }
 
-    public func checkOptions(published: Config.Published) throws {
+    func checkOptions(published: Config.Published) throws {
         published.childItemStyle = childItemStyle
     }
 

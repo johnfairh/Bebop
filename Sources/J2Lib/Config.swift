@@ -10,13 +10,13 @@ import Foundation
 
 /// Protocol for clients that want to register options.
 /// All accessible `Opt` fields are automatically found.
-public protocol Configurable {
+protocol Configurable {
     /// Signal that all user options have been specified.
     /// Perform any in-component cross-option validation.
     func checkOptions(published: Config.Published) throws
 }
 
-public extension Configurable {
+extension Configurable {
     /// Do nothing by default
     func checkOptions(published: Config.Published) throws {
     }
@@ -53,7 +53,7 @@ public final class Config {
 
     /// Published options -- publish during register, read during checkOptions
     /// All slightly broken abstractions....
-    public final class Published {
+    final class Published {
         // Published by Config
         public var configRelativePathBaseURL: URL?
         // Published by GatherOpts
@@ -77,7 +77,7 @@ public final class Config {
         // Published b Group
         public var sourceOrderDefs = false
     }
-    public let published = Published()
+    let published = Published()
 
     /// Create a new `Config` component
     public init() {
@@ -89,7 +89,7 @@ public final class Config {
 
     /// Register a configurable component and its options.
     /// All the `Opt` fields from `configurable` are found and added.
-    public func register(_ configurable: Configurable) {
+    func register(_ configurable: Configurable) {
         configurables.append(configurable)
         optsParser.addOpts(from: configurable)
     }

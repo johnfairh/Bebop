@@ -47,7 +47,7 @@ public enum DefTopic: Int, CaseIterable, Comparable {
         }
     }
 
-    var name: Localized<String> {
+    public var name: Localized<String> {
         .localizedOutput(nameKey)
     }
 

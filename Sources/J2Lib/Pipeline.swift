@@ -9,7 +9,7 @@
 import Foundation
 
 /// The various products that the pipeline can create
-enum PipelineProduct: String, CaseIterable {
+private enum PipelineProduct: String, CaseIterable {
     /// Gather output
     case files_json
     /// Merge output
@@ -67,11 +67,11 @@ public final class Pipeline: Configurable {
     /// Product tracking
     private var productsToDo: Set<PipelineProduct> = []
 
-    func testAndClearProduct(_ product: PipelineProduct) -> Bool {
+    private func testAndClearProduct(_ product: PipelineProduct) -> Bool {
         productsToDo.remove(product) != nil
     }
 
-    var productsAllDone: Bool {
+    private var productsAllDone: Bool {
         productsToDo.isEmpty
     }
 
@@ -167,7 +167,7 @@ public final class Pipeline: Configurable {
 
     /// Callback during options processing.  Important we sort out pipeline mode now to avoid
     /// polluting stdout....
-    public func checkOptions(published: Config.Published) throws {
+    func checkOptions(published: Config.Published) throws {
         productsToDo = Set(productsOpt.value)
         logDebug("Pipeline: products: \(productsToDo)")
         if productsToDo.needsPipelineMode {

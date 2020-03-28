@@ -28,7 +28,7 @@ public class Item: Encodable {
     /// Info about the item's URL relative to the docroot
     public internal(set) var url: URLPieces
 
-    public init(name: String, slug: String, children: [Item] = []) {
+    init(name: String, slug: String, children: [Item] = []) {
         self.name = name
         self.slug = slug
         self.children = children
@@ -80,7 +80,7 @@ public class Item: Encodable {
     }
 
     /// Format the item's associated text data
-    public func format(formatters: RichText.Formatters) {
+    func format(formatters: RichText.Formatters) {
     }
 
     // Encodable

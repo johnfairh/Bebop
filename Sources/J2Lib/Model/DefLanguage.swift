@@ -12,7 +12,7 @@ public enum DefLanguage: String, Encodable, CaseIterable, Comparable {
     case objc
 
     /// The other language
-    var otherLanguage: DefLanguage {
+    public var otherLanguage: DefLanguage {
         switch self {
         case .swift: return .objc
         case .objc: return .swift
@@ -20,7 +20,7 @@ public enum DefLanguage: String, Encodable, CaseIterable, Comparable {
     }
 
     /// Human-readable name for the language
-    var humanName: String {
+    public var humanName: String {
         switch self {
         case .swift: return "Swift"
         case .objc: return "Objective C"

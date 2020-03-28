@@ -23,7 +23,7 @@ public final class Format: Configurable {
         config.register(self)
     }
 
-    public func checkOptions(published: Config.Published) throws {
+    func checkOptions(published: Config.Published) throws {
         try readmeOpt.checkIsFile()
     }
 

@@ -99,7 +99,7 @@ public struct GenPages: Configurable {
 }
 
 extension Item {
-    var isCustomGroup: Bool {
+    public var isCustomGroup: Bool {
         guard let groupItem = self as? GroupItem else { return false }
         return groupItem.groupKind.isCustom
     }

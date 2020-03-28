@@ -10,12 +10,12 @@ import Foundation
 import SortedArray
 
 public final class Stats: Configurable {
-    let outputStatsOpt = PathOpt(l: "output-stats").help("FILEPATH")
-    let outputUndocOpt = PathOpt(l: "output-undocumented").help("FILEPATH")
+    private let outputStatsOpt = PathOpt(l: "output-stats").help("FILEPATH")
+    private let outputUndocOpt = PathOpt(l: "output-undocumented").help("FILEPATH")
 
-    let published: Config.Published
+    private let published: Config.Published
 
-    init(config: Config) {
+    public init(config: Config) {
         Self.db.reset()
         published = config.published
         config.register(self)
@@ -45,18 +45,18 @@ public final class Stats: Configurable {
     }
 
     /// Report summary info to the user
-    func printReport() {
+    public func printReport() {
         Self.db.coverageReport(aclExcludedNames: published.excludedAclList).forEach { logInfo($0 )}
     }
 
     /// Write out the accumulated stats to a file
-    func createStatsFile(outputURL: URL) throws {
+    public func createStatsFile(outputURL: URL) throws {
         let url = try chooseURL(docURL: outputURL, opt: outputStatsOpt, basename: "stats.json")
         try Self.db.buildStatsJSON().write(to: url)
     }
 
     /// Write out the undocumented report to a file - if there are any
-    func createUndocumentedFile(outputURL: URL) throws {
+    public func createUndocumentedFile(outputURL: URL) throws {
         guard let undocJSON = try Self.db.buildUndocumentedJSON() else {
             logDebug("Stats: No undocumented defs, not writing undoc file.")
             return

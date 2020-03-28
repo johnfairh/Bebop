@@ -31,19 +31,19 @@ public struct URLPieces: Encodable {
     public let urlHash: String?
 
     /// Initialize for a sequence of directories and a page name
-    public init(pathComponents: [String]) {
+    init(pathComponents: [String]) {
         urlPath = pathComponents.map { $0.urlPathEncoded }.joined(separator: "/")
         urlHash = nil
     }
 
     /// Initialize for a nested web page
-    public init(parentURL: URLPieces, pageName: String) {
+    init(parentURL: URLPieces, pageName: String) {
         urlPath = parentURL.urlPath + "/" + pageName.urlPathEncoded
         urlHash = nil
     }
 
     /// Initialize for an anchor on a web page
-    public init(parentURL: URLPieces, hashName: String) {
+    init(parentURL: URLPieces, hashName: String) {
         urlPath = parentURL.urlPath
         urlHash = hashName.urlFragmentEncoded
     }
@@ -73,7 +73,7 @@ public struct URLPieces: Encodable {
     }
 
     /// Get a path from this item's page back up to the doc root - either empty string or ends in a slash
-    var pathToRoot: String {
+    public var pathToRoot: String {
         return String(repeating: "../", count: urlPath.directoryNestingDepth)
     }
 }

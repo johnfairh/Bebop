@@ -30,16 +30,16 @@ import Foundation
 /// XXX podspec
 public struct Gather {
     /// Subcomponent for options and config YAML processing
-    let opts: GatherOpts
+    private let opts: GatherOpts
 
     /// Doc comment translation
-    let localize: GatherLocalize
+    private let localize: GatherLocalize
 
     /// Publishing obligations
     private let published: Config.Published
 
     /// Create a new instance
-    init(config: Config) {
+    public init(config: Config) {
         published = config.published
         opts = GatherOpts(config: config)
         localize = GatherLocalize(config: config)
@@ -96,7 +96,6 @@ public struct GatherModulePass {
     public let passIndex: Int
     public let files: [(pathname: String, GatherDef)]
 }
-
 
 protocol GatherGarnish {
     func garnish(def: GatherDef) throws

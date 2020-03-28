@@ -23,7 +23,7 @@ public typealias Localized<T> = [String : T]
 
 extension Dictionary where Key == String {
     /// Create a 'localized' version a value, showing that value for every language tag
-    public init(unlocalized: Value) {
+    init(unlocalized: Value) {
         self.init()
         Localizations.shared.allTags.forEach {
             self[$0] = unlocalized
@@ -35,7 +35,7 @@ extension Dictionary where Key == String {
     /// Shouldn't really be here if empty, does nothing.
     /// - returns: the list of tags that were invented
     @discardableResult
-    public mutating func expandLanguages() -> [String] {
+    mutating func expandLanguages() -> [String] {
         guard let anyValue = self.first?.value else {
             return Localizations.shared.allTags
         }
@@ -104,7 +104,7 @@ extension Localized: Comparable where Key == String, Value: Comparable & NulInit
 }
 
 extension Array where Element == Localized<String> {
-    public func joined(by: String) -> Element {
+    func joined(by: String) -> Element {
         var output = Element()
         forEach { str in
             str.forEach { k, value in
@@ -157,7 +157,7 @@ extension Dictionary where Key == String, Value == Markdown {
     /// Helper to grab a localized version of a markdown file.
     /// `url` is supposed to be a markdown file, whose contents get used for the default localization.
     /// Its directory should contain a subdirectory for each language tag with an identically named file.
-    public init(localizingFile url: URL) throws {
+    init(localizingFile url: URL) throws {
         self.init()
         let locs = Localizations.shared
 

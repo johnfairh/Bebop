@@ -42,7 +42,7 @@ struct MergeImport {
 }
 
 extension Array where Element == GatherDef {
-    public func asDefItems(location: DefLocation, uniquer: StringUniquer) -> [DefItem] {
+    func asDefItems(location: DefLocation, uniquer: StringUniquer) -> [DefItem] {
         var currentTopic: Topic? = nil
         return flatMap { def -> [DefItem] in
             // Spot topic marks and pull them out for subsequent items

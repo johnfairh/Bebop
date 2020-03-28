@@ -124,7 +124,7 @@ public final class DefKind: CustomStringConvertible {
     }
 
     /// Map this kind into the other language.  Currently only maps objc -> swift.
-    var otherLanguageKind: DefKind? {
+    public var otherLanguageKind: DefKind? {
         guard case let .objC(_, swiftKey) = kindKey else {
             return nil
         }
@@ -146,17 +146,17 @@ public final class DefKind: CustomStringConvertible {
     }
 
     /// Is this def kind supposed to make it into docs?
-    var includeInDocs: Bool {
+    public var includeInDocs: Bool {
         !testObjCKey(keys: [.moduleImport])
     }
 
     /// Is this some kind of extension or category?
-    var isExtension: Bool {
+    public var isExtension: Bool {
         isSwiftExtension || isObjCCategory
     }
 
     /// Is this any kind of Swift extension declaration?
-    var isSwiftExtension: Bool {
+    public var isSwiftExtension: Bool {
         testSwiftKey(keys: [
             .extension,
             .extensionClass,
@@ -167,7 +167,7 @@ public final class DefKind: CustomStringConvertible {
     }
 
     /// Is this any kind of Swift property declaration?
-    var isSwiftProperty: Bool {
+    public var isSwiftProperty: Bool {
         testSwiftKey(keys: [
             .varClass,
             .varGlobal,
@@ -179,7 +179,7 @@ public final class DefKind: CustomStringConvertible {
     }
 
     /// Does this have a multipart function-like name?  `func` `init` `subscript`.
-    var hasSwiftFunctionName: Bool {
+    public var hasSwiftFunctionName: Bool {
         testSwiftKey(keys: [
             .functionFree,
             .functionOperator,
@@ -191,22 +191,22 @@ public final class DefKind: CustomStringConvertible {
     }
 
     /// EnumCase is the useless wrapper, we usually want the enumelement[s] within
-    var isSwiftEnumCase: Bool {
+    public var isSwiftEnumCase: Bool {
         testSwiftKey(keys: [.enumcase])
     }
 
     /// EnumElement is the singular enum element
-    var isSwiftEnumElement: Bool {
+    public var isSwiftEnumElement: Bool {
         testSwiftKey(keys: [.enumelement])
     }
 
     /// Is it a Swift protocol?
-    var isSwiftProtocol: Bool {
+    public var isSwiftProtocol: Bool {
         testSwiftKey(keys: [.protocol])
     }
 
     /// Is it a Swift subscript?
-    var isSwiftSubscript: Bool {
+    public var isSwiftSubscript: Bool {
         testKey(keys: [
             SwiftDeclarationKind.functionSubscript,
             SwiftDeclarationKind2.functionSubscriptClass,
@@ -215,18 +215,18 @@ public final class DefKind: CustomStringConvertible {
     }
 
     /// Is this a generic type parameter (The T in `class N<T>`)
-    var isGenericParameter: Bool {
+    public var isGenericParameter: Bool {
         testSwiftKey(keys: [.genericTypeParam])
     }
 
     /// Is this a mark -- an objC `#pragma mark` or a Swift // MARK: - like comment
-    var isMark: Bool {
+    public var isMark: Bool {
         testKey(keys: [SwiftDeclarationKind2.sourceMark,
                        ObjCDeclarationKind.mark])
     }
 
     /// Is this an ObjC decl with a 'body' - like struct or @interface
-    var isObjCStructural: Bool {
+    public var isObjCStructural: Bool {
         testObjCKey(keys: [
             .category,
             .class,
@@ -237,12 +237,12 @@ public final class DefKind: CustomStringConvertible {
     }
 
     /// Is this a typedef
-    var isObjCTypedef: Bool {
+    public var isObjCTypedef: Bool {
         testObjCKey(keys: [.typedef])
     }
 
     /// Is this a @property
-    var isObjCProperty: Bool {
+    public var isObjCProperty: Bool {
         testKey(keys: [
             ObjCDeclarationKind.property,
             ObjCDeclarationKind2.propertyClass
@@ -250,7 +250,7 @@ public final class DefKind: CustomStringConvertible {
     }
 
     /// Is this a thing with method syntax
-    var isObjCMethod: Bool {
+    public var isObjCMethod: Bool {
         testObjCKey(keys: [
             .initializer,
             .methodClass,
@@ -259,12 +259,12 @@ public final class DefKind: CustomStringConvertible {
     }
 
     /// Is a raw C function with C syntax
-    var isObjCCFunction: Bool {
+    public var isObjCCFunction: Bool {
         testObjCKey(keys: [.function])
     }
 
     /// Is basically a C variable
-    var isObjCVariable: Bool {
+    public var isObjCVariable: Bool {
         testObjCKey(keys: [
             .constant,
             .field,
@@ -273,14 +273,14 @@ public final class DefKind: CustomStringConvertible {
     }
 
     /// Is it an ObjC category
-    var isObjCCategory: Bool {
+    public var isObjCCategory: Bool {
         testObjCKey(keys: [.category])
     }
 
     // MARK: Factory
 
     /// Find the `Kind` object from a sourcekitten dictionary key, or `nil` if it's not supported
-    public static func from(key: String) -> DefKind? {
+    static func from(key: String) -> DefKind? {
         kindMap[key]
     }
 
@@ -375,12 +375,8 @@ public final class DefKind: CustomStringConvertible {
     ]
 }
 
-extension DefKind: Hashable {
+extension DefKind: Equatable {
     public static func == (lhs: DefKind, rhs: DefKind) -> Bool {
         lhs.key == rhs.key
-    }
-
-    public func hash(into hasher: inout Hasher) {
-        hasher.combine(key)
     }
 }

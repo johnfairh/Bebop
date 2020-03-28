@@ -59,7 +59,7 @@ public final class GenData: Encodable {
         public let def: Def?
 
         /// Link init
-        public init(anchorId: String, title: Localized<String>, url: URLPieces) {
+        init(anchorId: String, title: Localized<String>, url: URLPieces) {
             self.anchorId = anchorId
             self.flatTitle = title
             self.primaryLanguage = .swift
@@ -73,16 +73,16 @@ public final class GenData: Encodable {
         }
 
         /// Full item init
-        public init(anchorId: String,
-                    flatTitle: Localized<String>,
-                    primaryLanguage: DefLanguage,
-                    secondaryLanguage: DefLanguage?,
-                    primaryTitleHtml: Html?,
-                    secondaryTitleHtml: Html?,
-                    extensionConstraint: Localized<String>?,
-                    dashType: String,
-                    url: URLPieces?,
-                    def: Def) {
+        init(anchorId: String,
+             flatTitle: Localized<String>,
+             primaryLanguage: DefLanguage,
+             secondaryLanguage: DefLanguage?,
+             primaryTitleHtml: Html?,
+             secondaryTitleHtml: Html?,
+             extensionConstraint: Localized<String>?,
+             dashType: String,
+             url: URLPieces?,
+             def: Def) {
             self.anchorId = anchorId
             self.flatTitle = flatTitle
             self.primaryLanguage = primaryLanguage
@@ -120,13 +120,13 @@ public final class GenData: Encodable {
         public let topics: [Topic]
 
         /// Def init
-        public init(defURL: URLPieces,
-                    primaryTitle: Localized<String>,
-                    primaryLanguage: DefLanguage,
-                    secondaryTitle: Localized<String>?,
-                    breadcrumbs: [[Breadcrumb]],
-                    definition: Def,
-                    topics: [Topic] = []) {
+        init(defURL: URLPieces,
+             primaryTitle: Localized<String>,
+             primaryLanguage: DefLanguage,
+             secondaryTitle: Localized<String>?,
+             breadcrumbs: [[Breadcrumb]],
+             definition: Def,
+             topics: [Topic] = []) {
             self.url = defURL
             self.primaryTitle = primaryTitle
             self.primaryLanguage = primaryLanguage
@@ -140,13 +140,13 @@ public final class GenData: Encodable {
         }
 
         /// Group init
-        public init(groupURL: URLPieces,
-                    primaryTitle: Localized<String>,
-                    primaryLanguage: DefLanguage,
-                    secondaryTitle: Localized<String>?,
-                    breadcrumbs: [[Breadcrumb]],
-                    content: Localized<Html>?,
-                    topics: [Topic] = []) {
+        init(groupURL: URLPieces,
+             primaryTitle: Localized<String>,
+             primaryLanguage: DefLanguage,
+             secondaryTitle: Localized<String>?,
+             breadcrumbs: [[Breadcrumb]],
+             content: Localized<Html>?,
+             topics: [Topic] = []) {
             self.url = groupURL
             self.primaryTitle = primaryTitle
             self.primaryLanguage = primaryLanguage
@@ -160,11 +160,11 @@ public final class GenData: Encodable {
         }
 
         /// Guide init
-        public init(guideURL: URLPieces,
-                    title: Localized<String>,
-                    breadcrumbs: [[Breadcrumb]],
-                    isReadme: Bool,
-                    content: Localized<Html>?) {
+        init(guideURL: URLPieces,
+             title: Localized<String>,
+             breadcrumbs: [[Breadcrumb]],
+             isReadme: Bool,
+             content: Localized<Html>?) {
             self.url = guideURL
             self.primaryTitle = title
             self.primaryLanguage = .swift
@@ -179,7 +179,7 @@ public final class GenData: Encodable {
     }
     public let pages: [Page]
 
-    public init(meta: Meta, tocs: [[TocEntry]], pages: [Page]) {
+    init(meta: Meta, tocs: [[TocEntry]], pages: [Page]) {
         self.meta = meta
         self.tocs = tocs
         self.pages = pages

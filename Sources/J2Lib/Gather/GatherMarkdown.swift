@@ -13,7 +13,7 @@ import Maaku
 /// so they can be treated separately.  Port of jazzy callout_scanner.rb.
 ///
 /// Also picks out the `localizationKey`.
-public class MarkdownBuilder {
+final class MarkdownBuilder {
     let input: Markdown
     private var abstract: Markdown?
     private var discussion: Markdown?
@@ -21,13 +21,13 @@ public class MarkdownBuilder {
     private var parameters: [FlatDefDocs.Param] = []
     private(set) var localizationKey: String?
 
-    public init(markdown: Markdown) {
+    init(markdown: Markdown) {
         self.input = markdown
     }
 
     /// Try to destructure this doc comment markdown into pieces.
     /// Also update `localizationKey`
-    public func build() -> FlatDefDocs? {
+    func build() -> FlatDefDocs? {
         guard let doc = CMDocument(markdown: input) else {
             logDebug("Markdown: can't parse as markdown '\(input)'.")
             return nil

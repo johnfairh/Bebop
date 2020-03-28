@@ -19,7 +19,7 @@ public class GuideItem: Item {
     /// - parameter slug: The uniqued filesystem-friendly name for the guide used in URL construction.
     /// - parameter title: The translated title of the guide, used in the navigation.
     /// - parameter content: The translated markdown for the guide, used to generate the guide itself.
-    public init(name: String, slug: String, title: Localized<String>, content: Localized<Markdown>) {
+    init(name: String, slug: String, title: Localized<String>, content: Localized<Markdown>) {
         self.content = RichText(content)
         self.title = title
         super.init(name: name, slug: slug)
@@ -38,7 +38,7 @@ public class GuideItem: Item {
 
     public override var showInToc: ShowInToc { .yes }
 
-    public override func format(formatters: RichText.Formatters) {
+    override func format(formatters: RichText.Formatters) {
         content.format(formatters.block)
     }
 }
@@ -47,7 +47,7 @@ public class GuideItem: Item {
 public final class ReadmeItem : GuideItem {
     private static let index = "index"
 
-    public init(content: Localized<Markdown>) {
+    init(content: Localized<Markdown>) {
         super.init(name: ReadmeItem.index,
                    slug: ReadmeItem.index,
                    title: Localized<String>(unlocalized: ReadmeItem.index),

@@ -21,7 +21,7 @@ extension CMDocument {
     static let extensions = CMExtensionOption.all
 
     /// Create a markdown doc tree from some text
-    public convenience init?(markdown: Markdown) {
+    convenience init?(markdown: Markdown) {
         do {
             try self.init(text: markdown.description, options: CMDocument.options, extensions: CMDocument.extensions)
         } catch {
@@ -52,7 +52,7 @@ extension CMDocument {
 
 extension CMNode {
     /// Render the tree to markdown, standard options and minimal whitespace.
-    public func renderMarkdown() -> Markdown {
+    func renderMarkdown() -> Markdown {
         do {
             let md = try renderCommonMark(CMDocument.options, width: 80)
             return Markdown(md.trimmingTrailingCharacters(in: .whitespacesAndNewlines))
@@ -62,7 +62,7 @@ extension CMNode {
     }
 
     /// Render the tree to html, standard options and minimal whitespace.
-    public func renderHtml() -> Html {
+    func renderHtml() -> Html {
         do {
             let html = try renderHtml(CMDocument.options, extensions: CMDocument.extensions)
             return Html(html.trimmingTrailingCharacters(in: .whitespacesAndNewlines))
@@ -72,7 +72,7 @@ extension CMNode {
     }
 
     /// Render the tree to plaintext, standard options and minimal whitespace.
-    public func renderPlainText() -> String {
+    func renderPlainText() -> String {
         do {
             let text = try renderPlainText(CMDocument.options, width: 80)
             return text.trimmingTrailingCharacters(in: .whitespacesAndNewlines)
@@ -82,14 +82,14 @@ extension CMNode {
     }
 
     /// Move all children from the given node after our children
-    public func moveChildren(from node: CMNode) {
+    func moveChildren(from node: CMNode) {
         while let child = node.firstChild {
             try! child.insertIntoTree(asLastChildOf: self)
         }
     }
 
     /// Replace a node in the tree, taking its children.  The node being replaced ends up unlinked.
-    public func replaceInTree(node: CMNode) {
+    func replaceInTree(node: CMNode) {
         moveChildren(from: node)
         try! insertIntoTree(beforeNode: node)
         node.unlink()
@@ -97,7 +97,7 @@ extension CMNode {
 
     /// Create a new 'custom' node with content that is rendered before & after its children,
     /// independent of the render format requested on the tree.
-    public convenience init(customEnter: String, customExit: String) {
+    convenience init(customEnter: String, customExit: String) {
         self.init(type: .customBlock)
         try! setCustomOnEnter(customEnter)
         try! setCustomOnExit(customExit)
@@ -106,10 +106,10 @@ extension CMNode {
 
 // MARK: Callout matcher
 
-public struct CMCallout {
-    public let title: String
-    public let body: String
-    public let format: Format
+struct CMCallout {
+    let title: String
+    let body: String
+    let format: Format
 
     private var lowerTitle: String {
         title.lowercased()
@@ -119,15 +119,15 @@ public struct CMCallout {
         format == .other && lowerTitle == match
     }
 
-    public var isReturns: Bool { hasTitle("returns") }
+    var isReturns: Bool { hasTitle("returns") }
 
-    public var isLocalizationKey: Bool { hasTitle("localizationkey") }
+    var isLocalizationKey: Bool { hasTitle("localizationkey") }
 
-    public var isParameters: Bool { hasTitle("parameters") }
+    var isParameters: Bool { hasTitle("parameters") }
 
-    public var isParameter: Bool { format == .parameter }
+    var isParameter: Bool { format == .parameter }
 
-    public var isNormalCallout: Bool {
+    var isNormalCallout: Bool {
         format == .custom ||
             (format == .other && CMCallout.knownCallouts.contains(lowerTitle))
     }
@@ -137,7 +137,7 @@ public struct CMCallout {
     ///   Parameter XXXX: YYYY         (Swift)
     ///   Parameter: XXXX YYYY         (ObjC)
     ///   XXXX:YYYYY                         (everything else, covers parameters: nesting)
-    public enum Format {
+    enum Format {
         case parameter
         case other
         case custom
@@ -157,7 +157,7 @@ public struct CMCallout {
         }
     }
 
-    public init?(string: String) {
+    init?(string: String) {
         for format in [Format.custom, Format.parameter, Format.other] { // order dependency here...
             for re in format.regexps {
                 if let matches = string.re_match(re, options: [.i, .m]) {
@@ -176,18 +176,18 @@ public struct CMCallout {
 
 extension CMNode {
     /// Try to interpret this node as a callout
-    public var asCallout: CMCallout? {
+    var asCallout: CMCallout? {
         stringValue.flatMap { CMCallout(string: $0) }
     }
 
     /// Edit this node's text to remove the callout title.
-    public func removeCalloutTitle(_ callout: CMCallout) {
+    func removeCalloutTitle(_ callout: CMCallout) {
         precondition(type == .text)
         try? setStringValue(callout.body)
     }
 
     /// Might this node contain callouts?
-    public var maybeCalloutList: Bool {
+    var maybeCalloutList: Bool {
         type == .list && listType == .unordered
     }
 
@@ -197,7 +197,7 @@ extension CMNode {
     /// A callout may exist when there is a BulletList->ListItem->Para->Text
     /// node hierarchy and the text matches a certain format.
     ///
-    public func forEachCallout(_ call: (_ listItemNode: CMNode, _ textNode: CMNode, CMCallout) -> () ) {
+    func forEachCallout(_ call: (_ listItemNode: CMNode, _ textNode: CMNode, CMCallout) -> () ) {
         precondition(type == .list)
         forEach { listItemNode in
             if listItemNode.type == .item,
@@ -219,7 +219,7 @@ extension CMNode {
 // MARK: CMDocument callout scanner
 
 extension CMDocument {
-    public func forEachCallout(_ call: (_ list: CMNode, _ listItem: CMNode, _ text: CMNode, CMCallout) -> ()) {
+    func forEachCallout(_ call: (_ list: CMNode, _ listItem: CMNode, _ text: CMNode, CMCallout) -> ()) {
         node.forEach { node in
             guard node.maybeCalloutList else {
                 return

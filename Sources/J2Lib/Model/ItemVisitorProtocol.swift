@@ -34,18 +34,18 @@ extension ItemVisitorProtocol {
 
 extension ItemVisitorProtocol {
     /// Visit  an item and its children
-    func walk(item: Item, parents: [Item] = []) {
+    public func walk(item: Item, parents: [Item] = []) {
         item.accept(visitor: self, parents: parents)
         walk(items: item.children, parents: parents + [item])
     }
 
     /// Visit a list of items and their children
-    func walk<S>(items: S, parents: [Item] = []) where S: Sequence, S.Element: Item {
+    public func walk<S>(items: S, parents: [Item] = []) where S: Sequence, S.Element: Item {
         items.forEach { walk(item: $0, parents: parents) }
     }
 
     /// Visit one item only
-    func walkOne(item: Item) {
+    public func walkOne(item: Item) {
         item.accept(visitor: self, parents: [])
     }
 }

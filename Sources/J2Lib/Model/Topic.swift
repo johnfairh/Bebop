@@ -82,7 +82,7 @@ public final class Topic: Equatable, Encodable, CustomStringConvertible {
         }
     }
 
-    var genericRequirements: String {
+    public var genericRequirements: String {
         precondition(kind == .genericRequirements)
         if let savedRequirements = savedRequirements {
             return savedRequirements.text
@@ -91,7 +91,7 @@ public final class Topic: Equatable, Encodable, CustomStringConvertible {
     }
 
     /// Format the topic's content
-    public func format(formatters: RichText.Formatters) {
+    func format(formatters: RichText.Formatters) {
         title.format(formatters.inline)
         _menuTitle?.format(formatters.inline)
         overview?.format(formatters.block)

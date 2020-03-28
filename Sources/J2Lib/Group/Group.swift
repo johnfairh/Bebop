@@ -7,7 +7,7 @@
 //
 
 /// How the defs from a module are supposed to be organized in the docs
-public enum ModuleGroupPolicy: Hashable {
+enum ModuleGroupPolicy: Hashable {
     /// Merge this module into a default group with others that share the setting
     case global
     /// Keep this module separate from all the others
@@ -54,7 +54,7 @@ public struct Group: Configurable {
         config.register(self)
     }
 
-    public func checkOptions(published: Config.Published) throws {
+    func checkOptions(published: Config.Published) throws {
         published.sourceOrderDefs = topicStyle != .logical
     }
 
@@ -92,7 +92,7 @@ public struct Group: Configurable {
     /// and taking heed of the multi-module rules governing grouping types from different modules.
     ///
     /// Why is this such a mess!?
-    public func createKindGroups(items: [Item], uniquer: StringUniquer, customPrefix: Localized<String>?, excludeGuides: Bool) -> [GroupItem] {
+    func createKindGroups(items: [Item], uniquer: StringUniquer, customPrefix: Localized<String>?, excludeGuides: Bool) -> [GroupItem] {
         // Cache kind:def while preserving order
         var kindToDefs = [GroupKind : [Item]]()
         items.forEach { item in

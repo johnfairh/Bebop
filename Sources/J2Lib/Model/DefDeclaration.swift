@@ -18,21 +18,21 @@ public enum DeclarationPiece: Equatable {
         self = .other(flat.re_sub("\\s+", with: " "))
     }
 
-    var isName: Bool {
+    public var isName: Bool {
         switch self {
         case .name(_): return true
         case .other(_): return false
         }
     }
 
-    var text: String {
+    public var text: String {
         switch self {
         case .name(let text): return text
         case .other(let text): return text
         }
     }
 
-    var nameText: String? {
+    public var nameText: String? {
         switch self {
         case .name(let text): return text
         case .other(_): return nil
@@ -56,15 +56,15 @@ extension DeclarationPiece: Encodable {
 }
 
 extension Array where Element == DeclarationPiece {
-    var flattened: String {
+    public var flattened: String {
         map { $0.text }.joined()
     }
 
-    var flattenedName: String {
+    public var flattenedName: String {
         compactMap { $0.nameText }.joined()
     }
 
-    func wrappingOther(before: String, after: String) -> String {
+    public func wrappingOther(before: String, after: String) -> String {
         map {
             switch $0 {
             case .name(let str): return str
@@ -81,10 +81,10 @@ extension Array where Element == DeclarationPiece {
 public struct USR: Encodable, CustomStringConvertible, Hashable {
     public let value: String
     public var description: String { value }
-    public init(_ value: String) { self.value = value }
+    init(_ value: String) { self.value = value }
 
     /// Given the USR of an ObjC category, make the USR for the class
-    public init?(classFromCategoryUSR usr: USR) {
+    init?(classFromCategoryUSR usr: USR) {
         // c:objc(cy)Type@Cat -> c:objc(cs)Type
         guard let match = usr.value.re_match(#"(?<=\(cy\)).*(?=@)"#) else {
             return nil
@@ -144,22 +144,22 @@ public struct SwiftGenericReqs: Encodable {
     }
 
     /// Requirements in plain text with a leading 'where'
-    var text: String {
+    public var text: String {
         "where " + reqs
     }
 
     /// Requirements in markdown, type names code-d
-    var markdown: Markdown {
+    public var markdown: Markdown {
         Markdown("where " + reqs.re_sub(#"[\w\.]+"#, with: #"`$0`"#))
     }
 
     /// Rich text version of constrained, 'Available where ....'
-    var richLong: RichText {
+    public var richLong: RichText {
         RichText(.localizedOutput(.availableWhere, markdown.md))
     }
 
     /// Truncated rich text version of constraint, '&ldots;where ...'
-    var richShort: RichText {
+    public var richShort: RichText {
         RichText(.localizedOutput(.availableWhereShort, markdown.md))
     }
 }
@@ -195,7 +195,7 @@ public struct ObjCCategoryName {
     /// The name of the category (does this have any semantic value?)
     public let categoryName: String
     /// Try to break down a compound category name
-    public init?(_ compound: String) {
+    init?(_ compound: String) {
         guard let matches = compound.re_match(#"(\w*)\((\w*)\)"#) else {
             return nil
         }

@@ -22,7 +22,7 @@ public enum DeclNote: Hashable {
     case importedDefaultImplementation(String)
 
     /// Get the message for the note
-    var localized: Localized<String> {
+    public var localized: Localized<String> {
         switch self {
         case .protocolExtensionMember:
             return .localizedOutput(.protocolExtn)

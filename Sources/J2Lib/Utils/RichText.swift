@@ -12,7 +12,7 @@ import Foundation
 public struct Markdown: CustomStringConvertible, Hashable, Encodable {
     public let md: String
 
-    public init(_ md: String) {
+    init(_ md: String) {
         self.md = md
     }
 
@@ -33,7 +33,7 @@ public struct Markdown: CustomStringConvertible, Hashable, Encodable {
 public struct Html: CustomStringConvertible, Hashable, Encodable {
     public let html: String
 
-    public init(_ html: String) {
+    init(_ html: String) {
         self.html = html
     }
 
@@ -70,22 +70,22 @@ public enum RichText: Encodable, Equatable {
     case formatted(Localized<Markdown>, Localized<Html>)
 
     /// Initialize from a string, presumed to be markdown, used for all localizations
-    public init(_ text: String) {
+    init(_ text: String) {
         self = .unformatted(.init(unlocalized: Markdown(text)))
     }
 
     /// Initialize from some markdown, used for all localizations
-    public init(_ markdown: Markdown) {
+    init(_ markdown: Markdown) {
         self = .unformatted(.init(unlocalized: markdown))
     }
 
     /// Initialize from some localized markdown
-    public init(_ localizedMarkdown: Localized<Markdown>) {
+    init(_ localizedMarkdown: Localized<Markdown>) {
         self = .unformatted(localizedMarkdown)
     }
 
     /// Initialize from some mistyped localized markdown
-    public init(_ localizedText: Localized<String>) {
+    init(_ localizedText: Localized<String>) {
         self = .unformatted(localizedText.mapValues { Markdown($0) })
     }
 
@@ -106,15 +106,15 @@ public enum RichText: Encodable, Equatable {
     }
 
     /// Something that knows how to convert Markdown to HTML
-    public typealias Formatter = (Markdown) -> (Markdown, Html)
+    typealias Formatter = (Markdown) -> (Markdown, Html)
 
-    public struct Formatters {
+    struct Formatters {
         public let inline: Formatter
         public let block: Formatter
     }
 
     /// Format the text
-    mutating public func format(_ formatter: Formatter) {
+    mutating func format(_ formatter: Formatter) {
         switch self {
         case .formatted(_,_): return
         case .unformatted(let locMd):
@@ -165,7 +165,7 @@ public enum RichDeclaration: Encodable, Comparable {
     /// Formatted version of the declaration
     case formatted(String, Html)
 
-    public init(_ declaration: String) {
+    init(_ declaration: String) {
         self = .unformatted(declaration)
     }
 
@@ -186,10 +186,10 @@ public enum RichDeclaration: Encodable, Comparable {
     }
 
     /// Something that knows how to convert declaration text to HTML
-    public typealias Formatter = (String) throws -> Html
+    typealias Formatter = (String) throws -> Html
 
     /// Format the declaration
-    mutating public func format(_ formatter: Formatter) rethrows {
+    mutating func format(_ formatter: Formatter) rethrows {
         switch self {
         case .formatted(_,_): return
         case .unformatted(let text):

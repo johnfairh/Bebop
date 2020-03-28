@@ -18,7 +18,7 @@ public enum GroupKind: Hashable {
     case custom(Localized<String>)
 
     /// The kind of the group, if it is known
-    var kind: ItemKind? {
+    public var kind: ItemKind? {
         switch self {
         case .allItems(let k),
              .moduleItems(let k, _),
@@ -27,18 +27,18 @@ public enum GroupKind: Hashable {
         }
     }
 
-    var isCustom: Bool {
+    public var isCustom: Bool {
         kind == nil
     }
 
-    var includesModuleName: Bool {
+    public var includesModuleName: Bool {
         switch self {
         case .moduleItems(_): return true
         default: return false
         }
     }
 
-    func title(in language: DefLanguage) -> Localized<String> {
+    public func title(in language: DefLanguage) -> Localized<String> {
         switch self {
         case .allItems(let k): return k.title(in: language)
         case .moduleItems(let k, let n),
@@ -55,7 +55,7 @@ public final class GroupItem: Item {
     public internal(set) var customAbstract: RichText?
 
     /// Create a new group based on the type of content, eg. 'All guides'.
-    public init(kind: GroupKind, abstract: Localized<String>? = nil, contents: [Item], uniquer: StringUniquer) {
+    init(kind: GroupKind, abstract: Localized<String>? = nil, contents: [Item], uniquer: StringUniquer) {
         self.groupKind = kind
         self.customAbstract = abstract.flatMap { RichText($0) }
         let name = groupKind.title(in: .swift).get(Localizations.shared.main.tag)
@@ -77,7 +77,7 @@ public final class GroupItem: Item {
 
     public override var showInToc: ShowInToc { .yes }
 
-    public override func format(formatters: RichText.Formatters) {
+    override func format(formatters: RichText.Formatters) {
         customAbstract?.format(formatters.block)
     }
 }

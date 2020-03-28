@@ -8,7 +8,7 @@
 
 import SourceKittenFramework
 
-typealias SourceKittenDict = [String: Any]
+public typealias SourceKittenDict = [String: Any]
 
 // MARK: Missing Doc Keys and Kinds
 

@@ -9,9 +9,9 @@
 import Foundation
 
 // namespace
-public enum JSON {
+enum JSON {
     /// Render an `Encodable` type as JSON using preferred formatting options.
-    public static func encode<T: Encodable>(_ t: T) throws -> String {
+    static func encode<T: Encodable>(_ t: T) throws -> String {
         let encoder = JSONEncoder()
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
         encoder.keyEncodingStrategy = .convertToSnakeCase
@@ -20,7 +20,7 @@ public enum JSON {
     }
 
     /// Render a Foundation "JSON object" using preferred formatting options.
-    public static func encode(data: Any) throws -> String {
+    static func encode(data: Any) throws -> String {
         let jsonData = try JSONSerialization.data(withJSONObject: data, options: [.prettyPrinted, .sortedKeys])
         return from(data: jsonData)
     }
@@ -34,7 +34,7 @@ public enum JSON {
     }
 
     /// Decode JSON to expected format
-    public static func decode<T>(_ json: String, _ type: T.Type) throws -> T {
+    static func decode<T>(_ json: String, _ type: T.Type) throws -> T {
         let object = try JSONSerialization.jsonObject(with: json.data(using: .utf8)!)
         guard let result = object as? T else {
             throw OptionsError("Can't decode json as right type '\(T.self)'.")

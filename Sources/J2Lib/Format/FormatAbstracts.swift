@@ -70,7 +70,7 @@ private final class AbstractVisitor: ItemVisitorProtocol {
 // MARK: GroupItem
 
 extension GroupItem {
-    public func setCustomAbstract(markdown: Localized<Markdown>, overwrite: Bool) {
+    func setCustomAbstract(markdown: Localized<Markdown>, overwrite: Bool) {
         let newMarkdown: Localized<Markdown>
         if !overwrite, let current = customAbstract {
             newMarkdown = current.markdown + "\n\n" + markdown

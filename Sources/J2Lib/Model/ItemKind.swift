@@ -17,7 +17,7 @@ public enum ItemKind: String, CaseIterable {
     case other
 
     /// The name of the kind, unambiguous and not shown in docs.
-    var name: String {
+    public var name: String {
         switch self {
         case .guide: return "Guides"
         case .type: return "Types"
@@ -29,7 +29,7 @@ public enum ItemKind: String, CaseIterable {
     }
 
     /// The title of the kind, shown in docs, for Swift/ObjC
-    func title(in language: DefLanguage, affix: Localized<String>? = nil) -> Localized<String> {
+    public func title(in language: DefLanguage, affix: Localized<String>? = nil) -> Localized<String> {
         func l(_ regular: L10n.Output, _ custom: L10n.Output) -> Localized<String> {
             if let affix = affix {
                 return .localizedOutput(custom, affix)

@@ -18,7 +18,7 @@
 ///
 /// undocumented-text
 ///
-public struct MergeFilter: Configurable {
+struct MergeFilter: Configurable {
     let minAclOpt = EnumOpt<DefAcl>(l: "min-acl").def(.public)
     let skipUndocumentedOpt = BoolOpt(l: "skip-undocumented")
     let undocumentedTextOpt = LocStringOpt(l: "undocumented-text").def("Undocumented")
@@ -40,7 +40,7 @@ public struct MergeFilter: Configurable {
         config.register(self)
     }
 
-    public func checkOptions(published: Config.Published) throws {
+    func checkOptions(published: Config.Published) throws {
         try excludeNamesOpt.value.forEach { try $0.re_check() }
         published.excludedAclList = DefAcl.excludedBy(acl: minAcl).map { $0.rawValue }.joined(separator: ", ")
     }
