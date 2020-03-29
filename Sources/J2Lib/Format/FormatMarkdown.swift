@@ -160,6 +160,8 @@ final class MarkdownFormatter: ItemVisitorProtocol {
                 } else {
                     linkRewriter?.rewriteLinkForHTML(node: node)
                 }
+            case .image:
+                customizeImage(image: node, iterator: iter)
 
             default:
                 break
@@ -254,15 +256,53 @@ final class MarkdownFormatter: ItemVisitorProtocol {
     /// Called for links that refer to defs in our docs.  Replace the markdown link with some html to support
     /// swift/objc switchable name links.
     func customizeAutolink(link: CMNode, autolink: Autolink, iterator: Iterator) {
-        let htmlNode = CMNode(type: .htmlInline)
-        try! htmlNode.setLiteral(autolink.html)
-        try! htmlNode.insertIntoTree(beforeNode: link)
-        link.unlink()
+        let htmlNode = CMNode(inlineHtml: autolink.html, supplanting: link)
+        iterator.reset(to: htmlNode, eventType: .exit)
+    }
+
+    /// Support for image scaling.
+    ///
+    /// ![Alt text|widthxheight](url [title])  [omg xcode has gone nuts again]
+    ///    or
+    /// ![Alt text|widthxheight,scale%](url [title])
+    func customizeImage(image: CMNode, iterator: Iterator) {
+        guard case let altText = image.renderPlainText(),
+            let match = altText.re_match(#"^(.*?)\|(\d+)x(\d+)(?:,(\d+)%)?$"#),
+            let imgURL = image.linkDestination else {
+                return
+        }
+        let newAltText = match[1]
+        var width = Int(match[2])!
+        var height = Int(match[3])!
+        if !match[4].isEmpty {
+            let scale = Int(match[4])!
+            width = (width * scale)/100
+            height = (height * scale)/100
+        }
+        // This is super in need of escaping, need to plumb through houdini from cmark....
+
+        // missing title comes back "", never nil afaict
+        let title = image.linkTitle.flatMap { t -> String in
+            t.isEmpty ? "" : #" title="\#(t)""#
+        } ?? ""
+        let html = #"<img src="\#(imgURL)" alt="\#(newAltText)" width="\#(width)" height="\#(height)"\#(title)/>"#
+
+        let htmlNode = CMNode(inlineHtml: html, supplanting: image)
         iterator.reset(to: htmlNode, eventType: .exit)
     }
 }
 
-extension DefLanguage {
+private extension CMNode {
+    /// Create a HTML node replacing and deleting a given node from a doc tree.
+    convenience init(inlineHtml: String, supplanting node: CMNode) {
+        self.init(type: .htmlInline)
+        try! setLiteral(inlineHtml)
+        try! insertIntoTree(beforeNode: node)
+        node.unlink()
+    }
+}
+
+private extension DefLanguage {
     /// Name of language according to Prism, the code highlighter
     var prismLanguage: String {
         switch self {

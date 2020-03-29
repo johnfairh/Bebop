@@ -51,7 +51,6 @@ final class GenMedia: Configurable {
         try mediaFiles.forEach { file in
             let destinationURL = mediaURL.appendingPathComponent(file.key)
             if let sourceURL = file.value[languageTag] {
-                print("copy \(destinationURL.path)")
                 try copier(sourceURL, destinationURL)
             }
         }

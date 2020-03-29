@@ -96,4 +96,19 @@ class TestRegex: XCTestCase {
     func testEscaped() {
         XCTAssertEqual(#"\*"#, "*".re_escapedPattern)
     }
+
+    func testOptionalMatch() {
+        let imgRe = #"^(.*?)\|(\d+)x(\d+)(?:,(\d+)%)?$"#
+        guard let match = "abc|123x456,20%".re_match(imgRe) else {
+            XCTFail()
+            return
+        }
+        XCTAssertEqual("20", match[4])
+
+        guard let match2 = "abc|123x456".re_match(imgRe) else {
+            XCTFail()
+            return
+        }
+        XCTAssertEqual("", match2[4])
+    }
 }

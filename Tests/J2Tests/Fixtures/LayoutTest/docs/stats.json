@@ -18,7 +18,7 @@
   "filterUselessExtension" : 0,
   "formatMarkdown" : 32,
   "formatRewrittenGuideLinks" : 2,
-  "formatRewrittenMediaLinks" : 4,
+  "formatRewrittenMediaLinks" : 6,
   "formatUnrewrittenLinks" : 0,
   "gatherDef" : 6,
   "gatherFailure" : 0,

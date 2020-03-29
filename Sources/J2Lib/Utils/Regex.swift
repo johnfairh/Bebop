@@ -132,16 +132,17 @@ extension String {
             self.textCheckingResult = textCheckingResult
         }
 
-        /// Get the capture group contents.  0 is the entire match.
+        /// Get the capture group contents.  Index 0 is the entire match.
+        /// Returns the empty string for optional capture groups that were not matched.
         public subscript(rangeIndex: Int) -> String {
             let nsRange = textCheckingResult.range(at: rangeIndex)
-            return String(string.from(nsRange: nsRange))
+            return String(string.from(nsRange: nsRange) ?? "")
         }
 
         /// Get the contents of a named capture group
         public subscript(captureGroupName: String) -> String {
             let nsRange = textCheckingResult.range(withName: captureGroupName)
-            return String(string.from(nsRange: nsRange))
+            return String(string.from(nsRange: nsRange) ?? "")
         }
     }
 
@@ -178,8 +179,8 @@ extension String {
     }
 
     /// And this too...
-    private func from(nsRange: NSRange) -> Substring {
-        self[Range(nsRange, in: self)!]
+    private func from(nsRange: NSRange) -> Substring? {
+        Range(nsRange, in: self).flatMap { self[$0] }
     }
 
     /// A version of the string escaped to retain its literal value when used in a pattern

@@ -21,8 +21,14 @@ public class Layout {
 public class LinkRewrite {
   /// Here is a picture
   ///
+  /// Basic link to media:
+  ///
   /// ![See spot run](bird.jpg)
   ///
-  /// ![See spot run|50%](bird.jpg "is it a plane?")
+  /// Link to media with resize and title:
+  /// ![See spot run|200x200](bird.jpg "is it a plane?")
+  ///
+  /// Link to media with resize, scale, no title:
+  /// ![See spot run|200x200,30%](bird.jpg)
   public func spot() {}
 }
