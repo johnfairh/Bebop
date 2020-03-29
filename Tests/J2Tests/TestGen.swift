@@ -42,7 +42,7 @@ class TestGen: XCTestCase {
         initResources()
     }
 
-    // Output directory
+    // MARK: Output directory
 
     func testCreateOutputDir() throws {
         let fm = FileManager.default
@@ -67,7 +67,7 @@ class TestGen: XCTestCase {
         XCTAssertFalse(fm.fileExists(atPath: markerFileURL.path))
     }
 
-    // Page-Gen iterator
+    // MARK: Page-Gen iterator
 
     private func mkPage(_ name: String) -> GenData.Page {
         var title = Localized<String>()
@@ -123,6 +123,8 @@ class TestGen: XCTestCase {
         XCTAssertNil(it.next())
     }
 
+    // MARK: Global data
+
     // Site-Gen global data
     func testGlobalData() throws {
         let system = System()
@@ -168,6 +170,8 @@ class TestGen: XCTestCase {
         try checkTitles([], ["MM", "M2"], nil, "Index")
     }
 
+    // MARK: Copyright
+
     // Copyright gen
     private func checkCopyright(cliArgs: [String], langMatches: [String:[String]], line: UInt = #line) throws {
         let config = Config()
@@ -195,6 +199,8 @@ class TestGen: XCTestCase {
                            langMatches: ["en": ["<p><em>COPYRIGHT</em></p>"]])
     }
 
+    // MARK: Language
+
     // Default language
     func testAutoDefaultLanguage() throws {
         let system = System()
@@ -216,4 +222,36 @@ class TestGen: XCTestCase {
         XCTAssertEqual(.objc, system.genPages.pickDefaultLanguage(from: [.objc, .swift]))
     }
 
+    // MARK: Media
+
+    func testMedia() throws {
+        let tmpDir = try TemporaryDirectory()
+        try "media1".write(to: tmpDir.directoryURL.appendingPathComponent("one.jpg"))
+        try "media2".write(to: tmpDir.directoryURL.appendingPathComponent("two.png"))
+        let system = System()
+        TestLogger.install()
+        try system.configure(cliOpts: [
+            "--media=\(tmpDir.directoryURL.appendingPathComponent("*jpg"))",
+            "--media=\(tmpDir.directoryURL.appendingPathComponent("*png"))",
+            "--media=\(tmpDir.directoryURL.appendingPathComponent("*png"))",
+            "--media=\(tmpDir.directoryURL.appendingPathComponent("*bmp"))",
+        ])
+        XCTAssertEqual(3, TestLogger.shared.diagsBuf.count)
+        XCTAssertEqual(2, system.gen.media.mediaFiles.count)
+        XCTAssertEqual("media/one.jpg", system.gen.media.urlPathForMedia(filename: "one.jpg"))
+        XCTAssertEqual("media/two.png", system.gen.media.urlPathForMedia(filename: "two.png"))
+        XCTAssertNil(system.gen.media.urlPathForMedia(filename: "one.png"))
+
+        let dstDir = try tmpDir.createDirectory()
+        let dstMediaURL = dstDir.directoryURL.appendingPathComponent("media")
+        var filenames = Set(["one.jpg", "two.png"])
+        try system.gen.media
+            .copyMedia(docRoot: dstDir.directoryURL, languageTag: "en") { from, to in
+                let filename = from.lastPathComponent
+                XCTAssertTrue(FileManager.default.fileExists(atPath: from.path))
+                XCTAssertEqual(filename, filenames.remove(filename))
+                XCTAssertEqual(dstMediaURL.appendingPathComponent(filename).path, to.path)
+        }
+        XCTAssertTrue(filenames.isEmpty)
+    }
 }

@@ -32,7 +32,7 @@ final class GenMedia: Configurable {
 
     /// Test for whether a filename matches a media file and return the url-path-component to link to it
     /// from the doc-root.  Used by Format during smart link resolution.
-    func urlForMedia(filename: String) -> String? {
+    func urlPathForMedia(filename: String) -> String? {
         guard mediaFiles[filename] != nil else {
             return nil
         }
