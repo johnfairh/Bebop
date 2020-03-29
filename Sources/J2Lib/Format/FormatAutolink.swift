@@ -63,7 +63,7 @@ final class FormatAutolink: Configurable {
     /// In fact it's uglier than jazzy, who manages to do it after mustache has generated the entire page.
     /// Because we have the intermediate json formats in GenPages/SIte we have to sub as the structured
     /// page data is being built.  Yuck.
-    private static let AUTOLINK_TOKEN = UUID().uuidString
+    static let AUTOLINK_TOKEN = UUID().uuidString
 
     static func fixUpAutolinks(html: Html, pathToRoot: String) -> Html {
         Html(html.html.re_sub(AUTOLINK_TOKEN, with: pathToRoot))

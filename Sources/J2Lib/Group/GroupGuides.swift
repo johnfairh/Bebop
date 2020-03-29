@@ -18,6 +18,7 @@ final class GroupGuides: Configurable {
 
     typealias Titles = [String : Localized<String>]
     private(set) var titles = Titles()
+    private(set) var guides = [String : GuideItem]()
 
     init(config: Config) {
         documentationAliasOpt = AliasOpt(realOpt: guidesOpt, l: "documentation")
@@ -59,6 +60,7 @@ final class GroupGuides: Configurable {
     }
 
     func checkOptions(published: Config.Published) throws {
+        published.urlPathForGuide = self.urlPathForGuide
         if let titlesYaml = guideTitlesOpt.value {
             logDebug("Guide: start parsing guide_titles")
             titles = try GuideTitleParser.titles(yaml: titlesYaml)
@@ -76,11 +78,22 @@ final class GroupGuides: Configurable {
         let guideItems = guides.map { kv -> GuideItem in
             let slug = uniquer.unique(kv.key.slugged)
             let title = titles.removeValue(forKey: kv.key) ?? Localized<String>(unlocalized: kv.key)
-            return GuideItem(name: kv.key, slug: slug, title: title, content: kv.value)
+            let guide = GuideItem(name: kv.key, slug: slug, title: title, content: kv.value)
+            self.guides["\(kv.key).md"] = guide
+            return guide
         }.sorted { $0.name < $1.name }
         if !titles.isEmpty {
             logWarning(.localized(.wrnGuideTitleUnused, titles.keys))
         }
         return guideItems
+    }
+
+    /// Given the basename of a guide including the file extension, return the path to its resulting
+    /// page from the docroot.
+    func urlPathForGuide(name: String) -> String? {
+        guard let guide = guides[name] else {
+            return nil
+        }
+        return guide.url.filepath(fileExtension: ".md")
     }
 }

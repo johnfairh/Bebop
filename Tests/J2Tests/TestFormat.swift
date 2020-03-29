@@ -7,7 +7,7 @@
 //
 
 import XCTest
-
+import Maaku
 @testable import J2Lib
 
 fileprivate struct System {
@@ -394,5 +394,43 @@ class TestFormat: XCTestCase {
         class2Def2.setCustomAbstract(markdown: .init(unlocalized: Markdown("- bullet")), overwrite: false)
         XCTAssertEqual("  - bullet\n\nOrig Abstract\n\nOrig Discussion", class2Def2.documentation.abstract!.plainText.get("en"))
         XCTAssertEqual("", class2Def2.documentation.discussion!.plainText.get("en"))
+    }
+
+    // MARK: Link rewrite
+    private func mkLink(href: String) -> CMNode {
+        let node = CMNode(type: .link)
+        try! node.setLinkDestination(href)
+        return node
+    }
+
+    func testLinkrewrite() throws {
+        let tmpDir = try TemporaryDirectory()
+        try "Guide".write(to: tmpDir.directoryURL.appendingPathComponent("Guide.md"))
+        let system = System(cliArgs: [
+            "--guides=\(tmpDir.directoryURL.appendingPathComponent("*").path)",
+            "--rewrite-link-urls=http://foo.com"
+        ])
+        let _ = try system.run([])
+
+        func checkRewrite(_ from: String, _ to: String, line: UInt = #line) {
+            let node = mkLink(href: from)
+            system.format.linkRewriter.rewriteLink(node: node)
+            system.format.linkRewriter.rewriteLinkForHTML(node: node)
+            if from != to {
+                XCTAssertEqual(FormatAutolink.AUTOLINK_TOKEN + to, node.linkDestination, line: line)
+            } else {
+                XCTAssertEqual(from, node.linkDestination, line: line)
+            }
+            node.unlink()
+        }
+
+        func checkNoRewrite(_ from: String, line: UInt = #line) {
+            checkRewrite(from, from, line: line)
+        }
+
+        checkRewrite("Guide.md", "guides/guide.html")
+        checkRewrite("http://foo.com/Guide.md", "guides/guide.html")
+        checkNoRewrite("http://bar.com/Guide.md")
+        checkNoRewrite("Fred.md")
     }
 }

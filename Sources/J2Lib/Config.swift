@@ -55,27 +55,31 @@ public final class Config {
     /// All slightly broken abstractions....
     final class Published {
         // Published by Config
-        public var configRelativePathBaseURL: URL?
+        var configRelativePathBaseURL: URL?
         // Published by GatherOpts
-        public var sourceDirectoryURL: URL?
+        var sourceDirectoryURL: URL?
         // Published by GatherOpts
-        public var moduleGroupPolicy = [String : ModuleGroupPolicy]()
-        public var moduleNames: [String] {
+        var moduleGroupPolicy = [String : ModuleGroupPolicy]()
+        var moduleNames: [String] {
             moduleGroupPolicy.keys.sorted(by: <)
         }
-        public var isMultiModule: Bool {
+        var isMultiModule: Bool {
             moduleGroupPolicy.count > 1
         }
         // Published by GatherOpts
-        public var defaultLanguage = DefLanguage.swift
+        var defaultLanguage = DefLanguage.swift
         // Published by GenCopyright
-        public var authorName: Localized<String>?
+        var authorName: Localized<String>?
         // Published by GenSite
-        public var childItemStyle: ChildItemStyle!
+        var childItemStyle: ChildItemStyle!
         // Published by MergeFilter
-        public var excludedAclList = ""
-        // Published b Group
-        public var sourceOrderDefs = false
+        var excludedAclList = ""
+        // Published by Group
+        var sourceOrderDefs = false
+        // Published by GenMedia
+        var urlPathForMedia: ((String) -> String?)?
+        // Published by Group
+        var urlPathForGuide: ((String) -> String?)?
     }
     let published = Published()
 
@@ -143,7 +147,7 @@ public final class Config {
 
         configureLogger(report: true)
 
-        try configurables.forEach { try $0.checkOptions(published: published) } // #1
+        try configurables.reversed().forEach { try $0.checkOptions(published: published) } // #1
     }
 
     /// Find the config file, using a configured path or default rules.

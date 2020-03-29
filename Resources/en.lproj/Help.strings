@@ -153,3 +153,6 @@ Default: No prefix.";
 "guide_titles" = "Set the titles used for guides.  Localizable.";
 "media" = "Filenames of media files (eg. images) to include in the generated website
 to be referenced from markdown docs.";
+"rewrite-link-urls" = "Absolute URL prefixes to rewrite to links to media or guide files
+with the same name.
+Default: Do not rewrite any absolute URLs.";

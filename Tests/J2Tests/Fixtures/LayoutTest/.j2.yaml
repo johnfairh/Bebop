@@ -16,3 +16,4 @@ guides: "guides/*"
 title:
   en: "Layout Test Docset"
   fr: "FR Layout Test Docset"
+media: "img/*"

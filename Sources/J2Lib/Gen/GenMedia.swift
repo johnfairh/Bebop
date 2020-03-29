@@ -26,6 +26,7 @@ final class GenMedia: Configurable {
 
     func checkOptions(published: Config.Published) throws {
         mediaFiles = mediaOpt.value.findMediaFileURLs()
+        published.urlPathForMedia = self.urlPathForMedia
     }
 
     private let MEDIA = "media"
@@ -50,6 +51,7 @@ final class GenMedia: Configurable {
         try mediaFiles.forEach { file in
             let destinationURL = mediaURL.appendingPathComponent(file.key)
             if let sourceURL = file.value[languageTag] {
+                print("copy \(destinationURL.path)")
                 try copier(sourceURL, destinationURL)
             }
         }

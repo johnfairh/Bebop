@@ -18,20 +18,21 @@ final class MarkdownFormatter: ItemVisitorProtocol {
     var defaultLanguage: DefLanguage {
         currentLanguage ?? fallbackLanguage
     }
-
     /// For uniquing heading links
     let uniquer: StringUniquer
-
     /// For resolving autolinks
     let autolink: FormatAutolink?
+    /// For rewriting user links
+    let linkRewriter: FormatLinkRewriter?
 
     /// Context while visiting...
     var visitItemNameContext: Item! = nil
 
-    init(language: DefLanguage, autolink: FormatAutolink? = nil) {
-        fallbackLanguage = language
-        uniquer = StringUniquer()
+    init(language: DefLanguage, autolink: FormatAutolink? = nil, linkRewriter: FormatLinkRewriter? = nil) {
+        self.fallbackLanguage = language
+        self.uniquer = StringUniquer()
         self.autolink = autolink
+        self.linkRewriter = linkRewriter
     }
 
     /// Format the def's markdown.
@@ -101,24 +102,30 @@ final class MarkdownFormatter: ItemVisitorProtocol {
 
     /// 2 - autolink pass
     ///   spot `code` sections that resolve to identifiers and wrap in links.
+    ///   spot image/link sections that resolve to guides or media and rewrite.
     func autolink(doc: CMDocument) {
         let iterator = CMIterator(doc: doc)
 
         try! iterator.forEach { node, iter in
-            guard node.type == .code else {
-                return
-            }
+            switch node.type {
+            case .image, .link:
+                linkRewriter?.rewriteLink(node: node)
 
-            guard let autolink = autolink?.link(for: node.literal!,
-                                                context: visitItemNameContext) else {
-                return
+            case .code:
+                if let autolink =
+                    autolink?.link(for: node.literal!,
+                                   context: visitItemNameContext) {
+                    let linkNode = CMNode.init(type: .link)
+                    try! linkNode.setLinkURL(URL(string: autolink.markdownURL)!)
+                    try! linkNode.insertIntoTree(afterNode: node)
+                    try! node.insertIntoTree(asFirstChildOf: linkNode)
+                    linkNode.setUserData(retained: autolink)
+                    iter.reset(to: linkNode, eventType: .exit)
+                }
+
+            default:
+                break;
             }
-            let linkNode = CMNode.init(type: .link)
-            try! linkNode.setLinkURL(URL(string: autolink.markdownURL)!)
-            try! linkNode.insertIntoTree(afterNode: node)
-            try! node.insertIntoTree(asFirstChildOf: linkNode)
-            linkNode.setUserData(retained: autolink)
-            iter.reset(to: linkNode, eventType: .exit)
         }
     }
 
@@ -150,6 +157,8 @@ final class MarkdownFormatter: ItemVisitorProtocol {
             case .link:
                 if let autolink = node.getUserDataRetained(kind: Autolink.self) {
                     customizeAutolink(link: node, autolink: autolink, iterator: iter)
+                } else {
+                    linkRewriter?.rewriteLinkForHTML(node: node)
                 }
 
             default:

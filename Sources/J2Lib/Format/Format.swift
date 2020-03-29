@@ -13,12 +13,14 @@ public final class Format: Configurable {
 
     let autolink: FormatAutolink
     let abstract: FormatAbstracts
+    let linkRewriter: FormatLinkRewriter
 
-    private var configPublished: Config.Published
+    private let configPublished: Config.Published
 
     public init(config: Config) {
         autolink = FormatAutolink(config: config)
         abstract = FormatAbstracts(config: config)
+        linkRewriter = FormatLinkRewriter(config: config)
         configPublished = config.published
         config.register(self)
     }
@@ -40,7 +42,8 @@ public final class Format: Configurable {
         DeclarationFormatter(autolink: autolink).walk(items: allItems)
         logDebug("Format: Generating HTML")
         MarkdownFormatter(language: configPublished.defaultLanguage,
-                          autolink: autolink).walk(items: allItems)
+                          autolink: autolink,
+                          linkRewriter: linkRewriter).walk(items: allItems)
         return allItems
     }
 

@@ -14,3 +14,15 @@ public class Layout {
   /// Real information about `b()`.
   public func b() {}
 }
+
+/// A class to demonstrate link rewriting.
+///
+/// [See the guide](Guide.md)
+public class LinkRewrite {
+  /// Here is a picture
+  ///
+  /// ![See spot run](bird.jpg)
+  ///
+  /// ![See spot run|50%](bird.jpg "is it a plane?")
+  public func spot() {}
+}

@@ -139,6 +139,12 @@ struct StatsDb {
         case filterIgnoreInheritedDocs
         /// Markdown chunks formatted
         case formatMarkdown
+        /// Links rewritten to media
+        case formatRewrittenMediaLinks
+        /// Links rewritten to guides
+        case formatRewrittenGuideLinks
+        /// Links that couldn't be rewritten
+        case formatUnrewrittenLinks
         /// Autolinks resolved to local docs in local scope
         case autolinkLocalLocalScope
         /// Autolinks resolved to local docs in nested scope

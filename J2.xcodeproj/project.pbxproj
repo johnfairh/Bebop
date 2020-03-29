@@ -20,6 +20,8 @@
 		022818CE23D4E89D0016B0D5 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022818CD23D4E89D0016B0D5 /* TestHelpers.swift */; };
 		022818D123D4F2AE0016B0D5 /* Glob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022818CF23D4EB0E0016B0D5 /* Glob.swift */; };
 		022818D323D4F7CB0016B0D5 /* TestGlob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022818D223D4F7CB0016B0D5 /* TestGlob.swift */; };
+		022BD9B624310B6000FC34D4 /* FormatLinkRewriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022BD9B524310B6000FC34D4 /* FormatLinkRewriter.swift */; };
+		022BD9B724311CC400FC34D4 /* Maaku.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 02CFFA4723E8460400FDE5B9 /* Maaku.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0233D51D23EED547004DCD89 /* GroupItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D51C23EED547004DCD89 /* GroupItem.swift */; };
 		0233D52423EF0CC3004DCD89 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D52323EF0CC3004DCD89 /* Identifiers.swift */; };
 		0233D52623EF11F6004DCD89 /* TestIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D52523EF11F6004DCD89 /* TestIdentifiers.swift */; };
@@ -211,6 +213,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				022BD9B724311CC400FC34D4 /* Maaku.framework in CopyFiles */,
 				02CFFA4423E6CF6900FDE5B9 /* SwiftSyntax.framework in CopyFiles */,
 				02CFFA4323E6CF5700FDE5B9 /* _CSwiftSyntax.framework in CopyFiles */,
 				02CFFA2623E30B3A00FDE5B9 /* Mustache.framework in CopyFiles */,
@@ -236,6 +239,7 @@
 		022818CF23D4EB0E0016B0D5 /* Glob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Glob.swift; sourceTree = "<group>"; };
 		022818D223D4F7CB0016B0D5 /* TestGlob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGlob.swift; sourceTree = "<group>"; };
 		022818D623D61E740016B0D5 /* Yams.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Yams.framework; path = Carthage/Build/Mac/Yams.framework; sourceTree = "<group>"; };
+		022BD9B524310B6000FC34D4 /* FormatLinkRewriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatLinkRewriter.swift; sourceTree = "<group>"; };
 		0233D51C23EED547004DCD89 /* GroupItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupItem.swift; sourceTree = "<group>"; };
 		0233D52323EF0CC3004DCD89 /* Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
 		0233D52523EF11F6004DCD89 /* TestIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestIdentifiers.swift; sourceTree = "<group>"; };
@@ -424,6 +428,7 @@
 				0259E19B241D74CD006435A1 /* FormatAbstracts.swift */,
 				02D00C812407D70800DD93C5 /* FormatDeclaration.swift */,
 				0233D54823F6F2ED004DCD89 /* FormatMarkdown.swift */,
+				022BD9B524310B6000FC34D4 /* FormatLinkRewriter.swift */,
 			);
 			path = Format;
 			sourceTree = "<group>";
@@ -876,6 +881,7 @@
 				0225D994242D1BE8005FF4A2 /* DefLanguage.swift in Sources */,
 				02CFF96424237E4400320610 /* GroupTopics.swift in Sources */,
 				028321D723FB1F4F00B2C555 /* GatherObjCDecl.swift in Sources */,
+				022BD9B624310B6000FC34D4 /* FormatLinkRewriter.swift in Sources */,
 				02FDC68223E997D700C2F9CD /* Markdown.swift in Sources */,
 				022818BF23D238F30016B0D5 /* Errors.swift in Sources */,
 				0233D54523F432A3004DCD89 /* RichText.swift in Sources */,
