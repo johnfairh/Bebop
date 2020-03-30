@@ -42,7 +42,7 @@ final class GatherOpts : Configurable {
         umbrellaHeaderAlias = AliasOpt(realOpt: rootPassOpts.objcHeaderFileOpt, l: "umbrella-header")
         frameworkRootAlias = AliasOpt(realOpt: rootPassOpts.objcIncludePathsOpt, l: "framework-root")
         sdkAlias = AliasOpt(realOpt: rootPassOpts.objcSdkOpt, l: "sdk")
-        sourcekittenSourceFileAlias = AliasOpt(realOpt: rootPassOpts.sourcekittenSourceFilesOpt, l: "sourcekitten-sourcefile")
+        sourcekittenSourceFileAlias = AliasOpt(realOpt: rootPassOpts.sourcekittenJSONFilesOpt, l: "sourcekitten-sourcefile")
         moduleAlias = AliasOpt(realOpt: moduleNamesOpt, l: "module")
         published = config.published
 
@@ -61,7 +61,7 @@ final class GatherOpts : Configurable {
             if moduleNamesOpt.configured {
                 throw OptionsError(.localized(.errModulesOverlap))
             }
-            if rootPassOpts.sourcekittenSourceFilesOpt.configured {
+            if rootPassOpts.sourcekittenJSONFilesOpt.configured {
                 throw OptionsError(.localized(.errCfgSknCustomModules))
             }
             try processCustomModules()
@@ -73,7 +73,7 @@ final class GatherOpts : Configurable {
             }
         }
 
-        if rootPassOpts.sourcekittenSourceFilesOpt.configured {
+        if rootPassOpts.sourcekittenJSONFilesOpt.configured {
             if moduleNamesOpt.value.count > 1 {
                 throw OptionsError(.localized(.errCfgSknMultiModules))
             }

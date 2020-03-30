@@ -14,7 +14,7 @@ final class GatherJobOpts: Configurable, CustomStringConvertible {
     let buildToolArgsOpt = StringListOpt(s: "b", l: "build-tool-arguments").help("ARG1,ARG2...")
     let availabilityDefaultsOpt = StringListOpt(l: "availability-defaults").help("AVAILABILITY1,AVAILABILITY2,...")
     let ignoreAvailabilityAttrOpt = BoolOpt(l: "ignore-availability-attr")
-    let sourcekittenSourceFilesOpt = PathListOpt(s: "s", l: "sourcekitten-sourcefiles").help("FILEPATH1,FILEPATH2,...")
+    let sourcekittenJSONFilesOpt = PathListOpt(s: "s", l: "sourcekitten-json-files").help("FILEPATH1,FILEPATH2,...")
 
     let objcDirectOpt = BoolOpt(l: "objc-direct")
     let objcHeaderFileOpt = PathOpt(l: "objc-header-file").help("FILEPATH")
@@ -22,7 +22,7 @@ final class GatherJobOpts: Configurable, CustomStringConvertible {
     let objcSdkOpt = EnumOpt<Gather.Sdk>(l: "objc-sdk").def(.macosx)
 
     var description: String {
-        "GatherJobOpts {\(srcDirOpt) \(buildToolOpt) \(buildToolArgsOpt) \(availabilityDefaultsOpt) \(ignoreAvailabilityAttrOpt) \(objcDirectOpt) \(objcHeaderFileOpt) \(objcIncludePathsOpt) \(objcSdkOpt)}"
+        "GatherJobOpts {\(srcDirOpt) \(buildToolOpt) \(buildToolArgsOpt) \(availabilityDefaultsOpt) \(ignoreAvailabilityAttrOpt) \(objcDirectOpt) \(objcHeaderFileOpt) \(objcIncludePathsOpt) \(objcSdkOpt)} \(sourcekittenJSONFilesOpt)"
     }
 
     /// First pass of options-checking, that individual things entered are valid
@@ -34,7 +34,7 @@ final class GatherJobOpts: Configurable, CustomStringConvertible {
         try srcDirOpt.checkIsDirectory()
         try objcHeaderFileOpt.checkIsFile()
         try objcIncludePathsOpt.checkAreDirectories()
-        try sourcekittenSourceFilesOpt.checkAreFiles()
+        try sourcekittenJSONFilesOpt.checkAreFiles()
     }
 
     /// Update configuration from a parent set that we're specializing
@@ -43,7 +43,7 @@ final class GatherJobOpts: Configurable, CustomStringConvertible {
         srcDirOpt.cascade(from: from.srcDirOpt)
         // buildtool: don't cascade if objcdirect/sourcekittensrc [mutually exclusive]
         //            don't cascade if objcheaderfile [not implemented]
-        if !objcDirectOpt.configured && !sourcekittenSourceFilesOpt.configured &&
+        if !objcDirectOpt.configured && !sourcekittenJSONFilesOpt.configured &&
             !objcHeaderFileOpt.configured {
             buildToolOpt.cascade(from: from.buildToolOpt)
         }
@@ -53,12 +53,12 @@ final class GatherJobOpts: Configurable, CustomStringConvertible {
         availabilityDefaultsOpt.cascade(from: from.availabilityDefaultsOpt)
         ignoreAvailabilityAttrOpt.cascade(from: from.ignoreAvailabilityAttrOpt)
         // objcdirect: don't cascade if buildtool/sourcekittensrc [mutually exclusive]
-        if !buildToolOpt.configured && !sourcekittenSourceFilesOpt.configured {
+        if !buildToolOpt.configured && !sourcekittenJSONFilesOpt.configured {
             objcDirectOpt.cascade(from: from.objcDirectOpt)
         }
         // objcheaderfile: don't cascade if build tool [not implemented]
         //                 don't cascade if sourcekittensrc [mutually exclusive]
-        if !buildToolOpt.configured && !sourcekittenSourceFilesOpt.configured {
+        if !buildToolOpt.configured && !sourcekittenJSONFilesOpt.configured {
             objcHeaderFileOpt.cascade(from: from.objcHeaderFileOpt)
         }
         // objcincludepaths: always cascade
@@ -80,13 +80,13 @@ final class GatherJobOpts: Configurable, CustomStringConvertible {
             throw OptionsError(.localized(.errObjcNoHeader))
         }
 
-        if sourcekittenSourceFilesOpt.configured &&
+        if sourcekittenJSONFilesOpt.configured &&
             (buildToolOpt.configured || objcDirectOpt.configured || objcHeaderFileOpt.configured) {
             throw OptionsError(.localized(.errCfgSknBuildTool))
         }
 
         if objcHeaderFileOpt.configured && !objcDirectOpt.configured &&
-            !buildToolOpt.configured && !sourcekittenSourceFilesOpt.configured {
+            !buildToolOpt.configured && !sourcekittenJSONFilesOpt.configured {
             logDebug("Gather: ObjcHeaderFile, no BuildTool, no srcfile.  Inferring ObjcDirect")
             objcDirectOpt.set(bool: true)
         }
@@ -124,11 +124,11 @@ final class GatherJobOpts: Configurable, CustomStringConvertible {
                                   buildToolArgs: buildToolArgsOpt.value,
                                   availability: availability))
             #endif
-        } else if sourcekittenSourceFilesOpt.configured {
+        } else if sourcekittenJSONFilesOpt.configured {
             precondition(moduleName != nil)
             jobs.append(GatherJob(sknImportTitle: "SourceKitten import module \(moduleName!)\(passStr)",
                 moduleName: moduleName!,
-                fileURLs: sourcekittenSourceFilesOpt.value,
+                fileURLs: sourcekittenJSONFilesOpt.value,
                 availability: availability))
         } else {
             // Swift
