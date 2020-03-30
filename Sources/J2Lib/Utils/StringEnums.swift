@@ -50,6 +50,12 @@ internal enum L10n {
     case errCfgNotYaml = "err-cfg-not-yaml"
     /// Invalid ICU regular expression '%1'.  Original error: '%2'.
     case errCfgRegexp = "err-cfg-regexp"
+    /// Both --sourcekitten-sourcefiles and some Swift or Objective-C flags are set: choose just one.
+    case errCfgSknBuildTool = "err-cfg-skn-build-tool"
+    /// Both --sourcekitten-sourcefiles and custom_modules are set: choose just one.
+    case errCfgSknCustomModules = "err-cfg-skn-custom-modules"
+    /// Can't use --sourcekitten-sourcefiles with multivalued --modules.
+    case errCfgSknMultiModules = "err-cfg-skn-multi-modules"
     /// Unexpected text '%1' for config key '%2', expected boolean.
     case errCfgTextNotBool = "err-cfg-text-not-bool"
     /// Missing argument for option '%1'.
@@ -76,7 +82,7 @@ internal enum L10n {
     case errObjcNoHeader = "err-objc-no-header"
     /// Couldn't find SDK path.
     case errObjcSdk = "err-objc-sdk"
-    /// Unexpected data shape from SourceKitten json, can't process dict '%1'.
+    /// Unexpected data shape from SourceKitten JSON, can't process dict '%1'.
     case errObjcSourcekitten = "err-objc-sourcekitten"
     /// Path is for a regular file, not a directory: '%1'.
     case errPathNotDir = "err-path-not-dir"
@@ -136,16 +142,18 @@ internal enum L10n {
     case wrnGuideTitleUnused = "wrn-guide-title-unused"
     /// No media files found matching '%1'
     case wrnMediaMissing = "wrn-media-missing"
-    /// Bad file json data for '%1' pass %2: missing 'key.diagnostic_stage' key.  Ignoring this file.
+    /// Bad file JSON data for '%1' pass %2: missing 'key.diagnostic_stage' key.  Ignoring this file.
     case wrnMergeMissingRoot = "wrn-merge-missing-root"
     /// Doc comments will not be localized for '%1' because cannot open '%2'.
     case wrnNoCommentMissing = "wrn-no-comment-missing"
-    /// Objective-C direct mode requested but --module is not set: using 'Module' for the module name.
+    /// Objective-C direct mode requested but --modules is not set: using 'Module' for the module name.
     case wrnObjcModule = "wrn-objc-module"
     /// Cannot chdir back to '%1'.
     case wrnPathNoChdir = "wrn-path-no-chdir"
     /// --quiet and --debug both set, ignoring --quiet.
     case wrnQuietDebug = "wrn-quiet-debug"
+    /// SourceKitten import mode requested but --modules is not set: using 'Module' for the module name.
+    case wrnSknModuleName = "wrn-skn-module-name"
     /// Incomplete definition JSON '%1' %2, ignoring.
     case wrnSktnIncomplete = "wrn-sktn-incomplete"
     /// Unsupported definition kind '%1', ignoring.

@@ -49,7 +49,7 @@ Options:";
 "err-sktn-xcode-def" = "SourceKitten couldn't find build info from `xcodebuild`.  Check the log mentioned above; it was looking for a `swiftc` command that included `-module-name`.";
 "err-sktn-spm" = "SourceKitten couldn't find build info from `swift build`.  Check the log mentioned above.";
 
-"wrn-merge-missing-root" = "Bad file json data for '%1' pass %2: missing 'key.diagnostic_stage' key.  Ignoring this file.";
+"wrn-merge-missing-root" = "Bad file JSON data for '%1' pass %2: missing 'key.diagnostic_stage' key.  Ignoring this file.";
 
 "wrn-no-comment-missing" = "Doc comments will not be localized for '%1' because cannot open '%2'.";
 
@@ -62,9 +62,9 @@ Options:";
 
 "err-objc-build-tools" = "Both --objc-direct and --build-tool are set: choose just one.";
 "err-objc-no-header" = "Some Objective-C options are set but --objc-header-file is not.";
-"wrn-objc-module" = "Objective-C direct mode requested but --module is not set: using 'Module' for the module name.";
+"wrn-objc-module" = "Objective-C direct mode requested but --modules is not set: using 'Module' for the module name.";
 "err-objc-linux" = "Documenting Objective-C modules is supported only on macOS.";
-"err-objc-sourcekitten" = "Unexpected data shape from SourceKitten json, can't process dict '%1'.";
+"err-objc-sourcekitten" = "Unexpected data shape from SourceKitten JSON, can't process dict '%1'.";
 "err-objc-sdk" = "Couldn't find SDK path.";
 "err-enumerator" = "Couldn't create path enumerator starting '%1'.";
 "wrn-sktn-kind" = "Unsupported definition kind '%1', ignoring.";
@@ -101,3 +101,7 @@ Ignoring the second.";
 "wrn-guide-title-dup" = "Duplicate 'guide_titles' entries for '%1', using the first one seen.";
 "wrn-guide-title-unused" = "Some 'guide_titles' entries did not match any guides: %1.";
 "wrn-media-missing" = "No media files found matching '%1'";
+"err-cfg-skn-custom-modules" = "Both --sourcekitten-sourcefiles and custom_modules are set: choose just one.";
+"err-cfg-skn-multi-modules" = "Can't use --sourcekitten-sourcefiles with multivalued --modules.";
+"wrn-skn-module-name" = "SourceKitten import mode requested but --modules is not set: using 'Module' for the module name.";
+"err-cfg-skn-build-tool" = "Both --sourcekitten-sourcefiles and some Swift or Objective-C flags are set: choose just one.";

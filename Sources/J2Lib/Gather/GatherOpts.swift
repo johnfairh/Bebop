@@ -33,6 +33,7 @@ final class GatherOpts : Configurable {
     let frameworkRootAlias: AliasOpt
     let sdkAlias: AliasOpt
     let moduleAlias: AliasOpt
+    let sourcekittenSourceFileAlias: AliasOpt
 
     init(config: Config) {
         xcodeBuildArgsAlias = AliasOpt(realOpt: rootPassOpts.buildToolArgsOpt, s: "x", l: "xcodebuild-arguments")
@@ -41,6 +42,7 @@ final class GatherOpts : Configurable {
         umbrellaHeaderAlias = AliasOpt(realOpt: rootPassOpts.objcHeaderFileOpt, l: "umbrella-header")
         frameworkRootAlias = AliasOpt(realOpt: rootPassOpts.objcIncludePathsOpt, l: "framework-root")
         sdkAlias = AliasOpt(realOpt: rootPassOpts.objcSdkOpt, l: "sdk")
+        sourcekittenSourceFileAlias = AliasOpt(realOpt: rootPassOpts.sourcekittenSourceFilesOpt, l: "sourcekitten-sourcefile")
         moduleAlias = AliasOpt(realOpt: moduleNamesOpt, l: "module")
         published = config.published
 
@@ -59,12 +61,25 @@ final class GatherOpts : Configurable {
             if moduleNamesOpt.configured {
                 throw OptionsError(.localized(.errModulesOverlap))
             }
+            if rootPassOpts.sourcekittenSourceFilesOpt.configured {
+                throw OptionsError(.localized(.errCfgSknCustomModules))
+            }
             try processCustomModules()
         }
 
         if moduleNamesOpt.configured {
             if let dupModule = moduleNamesOpt.value.firstDuplicate {
                 throw OptionsError(.localized(.errRepeatedModule, dupModule))
+            }
+        }
+
+        if rootPassOpts.sourcekittenSourceFilesOpt.configured {
+            if moduleNamesOpt.value.count > 1 {
+                throw OptionsError(.localized(.errCfgSknMultiModules))
+            }
+            if moduleNamesOpt.value.count == 0 {
+                logWarning(.localized(.wrnSknModuleName))
+                moduleNamesOpt.set(string: "Module")
             }
         }
 

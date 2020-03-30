@@ -14,6 +14,7 @@ final class GatherJobOpts: Configurable, CustomStringConvertible {
     let buildToolArgsOpt = StringListOpt(s: "b", l: "build-tool-arguments").help("ARG1,ARG2...")
     let availabilityDefaultsOpt = StringListOpt(l: "availability-defaults").help("AVAILABILITY1,AVAILABILITY2,...")
     let ignoreAvailabilityAttrOpt = BoolOpt(l: "ignore-availability-attr")
+    let sourcekittenSourceFilesOpt = PathListOpt(s: "s", l: "sourcekitten-sourcefiles").help("FILEPATH1,FILEPATH2,...")
 
     let objcDirectOpt = BoolOpt(l: "objc-direct")
     let objcHeaderFileOpt = PathOpt(l: "objc-header-file").help("FILEPATH")
@@ -33,15 +34,17 @@ final class GatherJobOpts: Configurable, CustomStringConvertible {
         try srcDirOpt.checkIsDirectory()
         try objcHeaderFileOpt.checkIsFile()
         try objcIncludePathsOpt.checkAreDirectories()
+        try sourcekittenSourceFilesOpt.checkAreFiles()
     }
 
     /// Update configuration from a parent set that we're specializing
     func cascade(from: GatherJobOpts) throws {
         // srcdir: always cascade
         srcDirOpt.cascade(from: from.srcDirOpt)
-        // buildtool: don't cascade if objcdirect [mutually exclusive]
+        // buildtool: don't cascade if objcdirect/sourcekittensrc [mutually exclusive]
         //            don't cascade if objcheaderfile [not implemented]
-        if !objcDirectOpt.configured && !objcHeaderFileOpt.configured {
+        if !objcDirectOpt.configured && !sourcekittenSourceFilesOpt.configured &&
+            !objcHeaderFileOpt.configured {
             buildToolOpt.cascade(from: from.buildToolOpt)
         }
         // buildtoolargs: always cascade
@@ -49,18 +52,20 @@ final class GatherJobOpts: Configurable, CustomStringConvertible {
         // availability: always cascade
         availabilityDefaultsOpt.cascade(from: from.availabilityDefaultsOpt)
         ignoreAvailabilityAttrOpt.cascade(from: from.ignoreAvailabilityAttrOpt)
-        // objcdirect: don't cascade if buildtool [mutually exclusive]
-        if !buildToolOpt.configured {
+        // objcdirect: don't cascade if buildtool/sourcekittensrc [mutually exclusive]
+        if !buildToolOpt.configured && !sourcekittenSourceFilesOpt.configured {
             objcDirectOpt.cascade(from: from.objcDirectOpt)
         }
         // objcheaderfile: don't cascade if build tool [not implemented]
-        if !buildToolOpt.configured {
+        //                 don't cascade if sourcekittensrc [mutually exclusive]
+        if !buildToolOpt.configured && !sourcekittenSourceFilesOpt.configured {
             objcHeaderFileOpt.cascade(from: from.objcHeaderFileOpt)
         }
         // objcincludepaths: always cascade
         objcIncludePathsOpt.cascade(from: from.objcIncludePathsOpt)
         // objcsdk: always cascade
         objcSdkOpt.cascade(from: from.objcSdkOpt)
+        // sourcekittensourcefiles: never cascade
     }
 
     /// Second pass of options-checking, of inter-option consistency after parent cascade
@@ -75,8 +80,14 @@ final class GatherJobOpts: Configurable, CustomStringConvertible {
             throw OptionsError(.localized(.errObjcNoHeader))
         }
 
-        if objcHeaderFileOpt.configured && !buildToolOpt.configured && !objcDirectOpt.configured {
-            logDebug("Gather: ObjcHeaderFile and no BuildTool.  Inferring ObjcDirect")
+        if sourcekittenSourceFilesOpt.configured &&
+            (buildToolOpt.configured || objcDirectOpt.configured || objcHeaderFileOpt.configured) {
+            throw OptionsError(.localized(.errCfgSknBuildTool))
+        }
+
+        if objcHeaderFileOpt.configured && !objcDirectOpt.configured &&
+            !buildToolOpt.configured && !sourcekittenSourceFilesOpt.configured {
+            logDebug("Gather: ObjcHeaderFile, no BuildTool, no srcfile.  Inferring ObjcDirect")
             objcDirectOpt.set(bool: true)
         }
 
@@ -113,7 +124,14 @@ final class GatherJobOpts: Configurable, CustomStringConvertible {
                                   buildToolArgs: buildToolArgsOpt.value,
                                   availability: availability))
             #endif
+        } else if sourcekittenSourceFilesOpt.configured {
+            precondition(moduleName != nil)
+            jobs.append(GatherJob(sknImportTitle: "SourceKitten import module \(moduleName!)\(passStr)",
+                moduleName: moduleName!,
+                fileURLs: sourcekittenSourceFilesOpt.value,
+                availability: availability))
         } else {
+            // Swift
             jobs.append(GatherJob(swiftTitle: "Swift module \(moduleName ?? "(default)")\(passStr)",
                                   moduleName: moduleName,
                                   srcDir: srcDirOpt.value,

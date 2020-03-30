@@ -16,11 +16,13 @@ import SourceKittenFramework
 enum GatherJob : Equatable {
     case swift(title: String, job: Swift)
     case objcDirect(title: String, job: ObjCDirect)
+    case sourcekitten(title: String, job: SourceKitten)
 
     var title: String {
         switch self {
-        case .swift(let title, _): return title
-        case .objcDirect(let title, _): return title
+        case .swift(let title, _),
+             .objcDirect(let title, _),
+             .sourcekitten(let title, _): return title
         }
     }
 
@@ -28,13 +30,14 @@ enum GatherJob : Equatable {
         switch self {
         case .swift(_, _): return .swift
         case .objcDirect(_, _): return .objc
+        case .sourcekitten(_, _): return .swift // WTF is this for!
         }
     }
 
     var sourceDirectoryURL: URL? {
         switch self {
         case .swift(_, let job): return job.srcDir
-        case .objcDirect(_, _): return nil
+        case .objcDirect(_, _), .sourcekitten(_, _): return nil
         }
     }
 
@@ -52,6 +55,9 @@ enum GatherJob : Equatable {
             #else
             return []
             #endif
+
+        case let .sourcekitten(_, job):
+            return try [job.execute()]
         }
     }
 
@@ -60,6 +66,7 @@ enum GatherJob : Equatable {
         switch (lhs, rhs) {
         case let (.swift(_, l), .swift(_, r)): return l == r
         case let (.objcDirect(_, l), .objcDirect(_, r)): return l == r
+        case let (.sourcekitten(_, l), .sourcekitten(_, r)): return l == r
         default: return false
         }
     }
@@ -97,4 +104,15 @@ enum GatherJob : Equatable {
                                            availability: availability))
     }
     #endif
+
+    /// Init helper for SourceKitten import
+    init(sknImportTitle: String,
+         moduleName: String,
+         fileURLs: [URL],
+         availability: Gather.Availability = Gather.Availability()) {
+        self = .sourcekitten(title: sknImportTitle,
+                             job: SourceKitten(moduleName: moduleName,
+                                               fileURLs: fileURLs,
+                                               availability: availability))
+    }
 }
