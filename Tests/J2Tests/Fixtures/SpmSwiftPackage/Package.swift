@@ -6,7 +6,8 @@ let baseTargetNames = [
   "SpmSwiftModule",
   "SpmSwiftModule2",
   "SpmSwiftModule3",
-  "SpmSwiftModule5"
+  "SpmSwiftModule5",
+  "SpmSwiftModule6"
 ]
 
 #if os(macOS)
@@ -36,7 +37,7 @@ let package = Package(
         ),
     ],
     targets: [
-        /// Main module for throwing in features
+        /// Main module for throwing in code features
         .target(
             name: "SpmSwiftModule",
             dependencies: []),
@@ -51,6 +52,10 @@ let package = Package(
         /// ACL/filtering
         .target(
             name: "SpmSwiftModule5",
+            dependencies: []),
+        /// Skn import
+        .target(
+            name: "SpmSwiftModule6",
             dependencies: [])
     ] +
     osTargets

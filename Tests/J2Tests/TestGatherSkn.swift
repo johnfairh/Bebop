@@ -88,16 +88,18 @@ class TestGatherSkn: XCTestCase {
         }
     }
 
+    private func createSourceKittenJSON(module: String) throws -> URL {
+        let srcDir = fixturesURL.appendingPathComponent("SpmSwiftPackage")
+        let module = Module(spmArguments: [], spmName: module, inPath: srcDir.path)!
+        let sknJSON = module.docs.description
+        let tmpFileURL = FileManager.default.temporaryFileURL()
+        try sknJSON.write(to: tmpFileURL)
+        return tmpFileURL
+    }
+
     func testRoundtrip() throws {
         let srcDir = fixturesURL.appendingPathComponent("SpmSwiftPackage")
-        guard let module = Module(spmArguments: [], spmName: "SpmSwiftModule2", inPath: srcDir.path) else {
-            XCTFail()
-            return
-        }
-        let sknJSON = module.docs.description
-
-        let tmpFile = FileManager.default.temporaryFileURL()
-        try sknJSON.write(to: tmpFile)
+        let tmpFile = try createSourceKittenJSON(module: "SpmSwiftModule2")
 
         let importedJSONDefs = try GatherSystem().gather([
             "-s", tmpFile.path,
@@ -127,5 +129,23 @@ class TestGatherSkn: XCTestCase {
         XCTAssertEqual(1, passes.count)
         XCTAssertTrue(passes[0].files.isEmpty)
         XCTAssertEqual(1, TestLogger.shared.diagsBuf.count)
+    }
+
+    // Hokey attribute resolution without source file...
+
+    func testAttributes() throws {
+        let tmpFileURL = try createSourceKittenJSON(module: "SpmSwiftModule6")
+        let passes = try GatherSystem().gather(["-s", tmpFileURL.path])
+        XCTAssertEqual(1, passes[0].files.count)
+        let file = passes[0].files[0]
+        let func1Def = file.1.children[0]
+        XCTAssertEqual("withoutDocComment()", func1Def.sourceKittenDict.name)
+        XCTAssertTrue(func1Def.swiftDeclaration!.declaration.text.hasPrefix("@discardableResult"))
+        XCTAssertNil(func1Def.swiftDeclaration?.deprecation)
+
+        let func2Def = file.1.children[1]
+        XCTAssertEqual("withDocComment()", func2Def.sourceKittenDict.name)
+        XCTAssertTrue(func2Def.swiftDeclaration!.declaration.text.hasPrefix("@discardableResult"))
+        XCTAssertNotNil(func2Def.swiftDeclaration?.deprecation)
     }
 }

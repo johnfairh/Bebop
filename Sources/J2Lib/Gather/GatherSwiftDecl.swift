@@ -107,7 +107,12 @@ class SwiftDeclarationBuilder {
 
         availability = [] // no more early exits
         if let attributeDicts = dict.attributes {
-            let allAttributes = parse(attributeDicts: attributeDicts)
+            let allAttributes: [String]
+            if let file = file {
+                allAttributes = parseAttributes(dicts: attributeDicts, from: file)
+            } else {
+                allAttributes = parseAttributes(annotatedDecl: annotatedDecl, docDecl: dict.docDeclaration)
+            }
             let (availables, others) = allAttributes.splitPartition { $0.hasPrefix("@available") }
             attributes = others
             parse(availables: availables)
@@ -149,16 +154,7 @@ class SwiftDeclarationBuilder {
     /// Get the compiler declaration out of an 'annotated declaration' xml.
     /// Parse the XML and knock out the declaration attributes.
     func parse(annotatedDecl: String) -> String? {
-        let xml = SWXMLHash.parse(annotatedDecl)
-        if case let .parsingError(error) = xml {
-            // SourceKit bug
-            logDebug("Couldn't parse SourceKit XML.  Error: '\(error)', xml: '\(annotatedDecl)'.")
-            return nil
-        }
-        guard let rootIndexer = xml.children.first,
-            case let .element(rootElement) = rootIndexer else {
-            // SourceKit bug, probably
-            logDebug("Malformed SourceKit XML from '\(annotatedDecl)'.")
+        guard let rootElement = SWXMLHash.parseToRootElement(annotatedDecl) else {
             return nil
         }
 
@@ -185,8 +181,7 @@ class SwiftDeclarationBuilder {
     /// The parsed decl is of entire lines of code, which means we may get a leading @attr if the
     /// user has written that way.  Strip it out and unindent any following lines for alignment.
     func parse(parsedDecl: String) -> String {
-        let qstring_re = #""(?:[^"\\]*|\\.)*""#
-        let attr_re = #"@\w+(?:\s*\((?:[^")]*|\#(qstring_re))*\))?"#
+        let attr_re = attributeRegexp(attrPattern: #"\w+"#)
         let decl_re = #"^((?:\#(attr_re)\s*)*)(.*)$"#
 
         guard let matches = parsedDecl.re_match(decl_re, options: .s) else {
@@ -201,12 +196,15 @@ class SwiftDeclarationBuilder {
     /// SourceKit has a wild view of what counts as an "attribute" so have to check the @ manually.
     ///
     /// @available attributes that state multiple facts get reflected multiple times so we have to dedup with `Set`.
-    func parse(attributeDicts: [SourceKittenDict]) -> [String] {
+    ///
+    /// Despite all this nonsense this is the preferred way of getting the attributes.  If we don't have the File,
+    /// ie. we are importing, then we fall back to `parseAttributes(annotatedDecl:docDecl:)`.
+    func parseAttributes(dicts: [SourceKittenDict], from file: File) -> [String] {
         struct Attr: Hashable {
             let offset: Int
             let length: Int
         }
-        let attrs = attributeDicts.compactMap { dict -> Attr? in
+        let attrs = dicts.compactMap { dict -> Attr? in
             guard let offset = dict.offset,
                 let length = dict.length else {
                 return nil
@@ -219,13 +217,63 @@ class SwiftDeclarationBuilder {
         return sorted.compactMap { attr -> String? in
             let byteRange = ByteRange(location: ByteCount(attr.offset),
                                       length: ByteCount(attr.length))
-            guard let text = file?.stringView.substringWithByteRange(byteRange),
+            guard let text = file.stringView.substringWithByteRange(byteRange),
                 text.hasPrefix("@") else {
                 return nil
             }
 
             return text
         }
+    }
+
+    /// Grab the attributes by reverse-engineering the various SourceKit formats.
+    ///
+    /// This is not preferred because the Swift compiler has random policies about what
+    /// attributes go where if at all.
+    func parseAttributes(annotatedDecl: String, docDecl: String?) -> [String] {
+        var attrs = [String]()
+        if let rootElement = SWXMLHash.parseToRootElement(annotatedDecl) {
+            let flatDecl = rootElement.recursiveText
+            attrs += flatDecl.swiftAttributes(attrPattern: #"\w+"#)
+        }
+        if let docDecl = docDecl {
+            attrs += docDecl.swiftAttributes(attrPattern: "available")
+        }
+        return attrs
+    }
+}
+
+/// Regexp to match attributes.  `attrPattern` is the RE for the attribute name.
+/// Probably fails with raw/multiline strings inside attributes, should SwiftSyntax I suppose...
+private func attributeRegexp(attrPattern: String) -> String {
+    let qstringPattern = #""(?:[^"\\]*|\\.)*""#
+    return #"@\#(attrPattern)(?:\s*\((?:[^")]*|\#(qstringPattern))*\))?"#
+}
+
+private extension String {
+    /// Pull out attributes from a declaration-type string.
+    func swiftAttributes(attrPattern: String) -> [String] {
+        let re = attributeRegexp(attrPattern: attrPattern)
+        return re_matches(re).map { $0[0] }
+    }
+}
+
+private extension SWXMLHash {
+    /// Wrap up the initial parse steps and get down to the useful part of an XML parse.
+    static func parseToRootElement(_ xmlText: String) -> XMLElement? {
+        let xml = SWXMLHash.parse(xmlText)
+        if case let .parsingError(error) = xml {
+            // SourceKit bug
+            logDebug("Couldn't parse SourceKit XML.  Error: '\(error)', xml: '\(xmlText)'.")
+            return nil
+        }
+        guard let rootIndexer = xml.children.first,
+            case let .element(rootElement) = rootIndexer else {
+            // SourceKit bug, probably
+            logDebug("Malformed SourceKit XML from '\(xmlText)'.")
+            return nil
+        }
+        return rootElement
     }
 }
 

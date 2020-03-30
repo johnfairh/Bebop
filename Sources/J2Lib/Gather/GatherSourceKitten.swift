@@ -137,6 +137,10 @@ extension SourceKittenDict {
         self[.fullXMLDocs] as? String
     }
 
+    var docDeclaration: String? {
+        self[.docDeclaration] as? String
+    }
+
     mutating func removeSubstructure() -> [SourceKittenDict] {
         removeValue(forKey: SwiftDocKey.substructure.rawValue) as? [SourceKittenDict] ?? []
     }

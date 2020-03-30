@@ -142,7 +142,7 @@ class TestGatherDecl: XCTestCase {
              "key.fully_annotated_decl": "<outer>public func fred()</outer>"]
         let builder = SwiftDeclarationBuilder(dict: dict, file: file)
         
-        let parsed = builder.parse(attributeDicts: attrDicts)
+        let parsed = builder.parseAttributes(dicts: attrDicts, from: file)
         XCTAssertEqual(["@discardableResult"], parsed)
 
         guard let built = builder.build() else {
