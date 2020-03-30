@@ -23,7 +23,7 @@
 		022BD9B624310B6000FC34D4 /* FormatLinkRewriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022BD9B524310B6000FC34D4 /* FormatLinkRewriter.swift */; };
 		022BD9B724311CC400FC34D4 /* Maaku.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 02CFFA4723E8460400FDE5B9 /* Maaku.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		022BD9B92431F56400FC34D4 /* GatherJobSourceKitten.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022BD9B82431F56400FC34D4 /* GatherJobSourceKitten.swift */; };
-		022BD9BC2431FAD800FC34D4 /* TestGatherSkn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022BD9BA2431FACD00FC34D4 /* TestGatherSkn.swift */; };
+		022BD9BC2431FAD800FC34D4 /* TestGatherImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022BD9BA2431FACD00FC34D4 /* TestGatherImport.swift */; };
 		0233D51D23EED547004DCD89 /* GroupItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D51C23EED547004DCD89 /* GroupItem.swift */; };
 		0233D52423EF0CC3004DCD89 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D52323EF0CC3004DCD89 /* Identifiers.swift */; };
 		0233D52623EF11F6004DCD89 /* TestIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D52523EF11F6004DCD89 /* TestIdentifiers.swift */; };
@@ -243,7 +243,7 @@
 		022818D623D61E740016B0D5 /* Yams.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Yams.framework; path = Carthage/Build/Mac/Yams.framework; sourceTree = "<group>"; };
 		022BD9B524310B6000FC34D4 /* FormatLinkRewriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatLinkRewriter.swift; sourceTree = "<group>"; };
 		022BD9B82431F56400FC34D4 /* GatherJobSourceKitten.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherJobSourceKitten.swift; sourceTree = "<group>"; };
-		022BD9BA2431FACD00FC34D4 /* TestGatherSkn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGatherSkn.swift; sourceTree = "<group>"; };
+		022BD9BA2431FACD00FC34D4 /* TestGatherImport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGatherImport.swift; sourceTree = "<group>"; };
 		0233D51C23EED547004DCD89 /* GroupItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupItem.swift; sourceTree = "<group>"; };
 		0233D52323EF0CC3004DCD89 /* Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
 		0233D52523EF11F6004DCD89 /* TestIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestIdentifiers.swift; sourceTree = "<group>"; };
@@ -517,7 +517,7 @@
 				02CFF9F823DF158700FDE5B9 /* TestGather.swift */,
 				02CFFA2D23E4702700FDE5B9 /* TestGatherDecl.swift */,
 				0233D54C23F9B255004DCD89 /* TestGatherObjC.swift */,
-				022BD9BA2431FACD00FC34D4 /* TestGatherSkn.swift */,
+				022BD9BA2431FACD00FC34D4 /* TestGatherImport.swift */,
 				02FDC67D23E89E8300C2F9CD /* TestMarkdown.swift */,
 				02CFFA1E23E20E7500FDE5B9 /* TestMerge.swift */,
 				0259E1962416A674006435A1 /* TestAcl.swift */,
@@ -952,7 +952,7 @@
 				022818C723D342D50016B0D5 /* TestRegex.swift in Sources */,
 				0233D52623EF11F6004DCD89 /* TestIdentifiers.swift in Sources */,
 				02CFFA2523E2244C00FDE5B9 /* TestTheme.swift in Sources */,
-				022BD9BC2431FAD800FC34D4 /* TestGatherSkn.swift in Sources */,
+				022BD9BC2431FAD800FC34D4 /* TestGatherImport.swift in Sources */,
 				0233D53323EF43A7004DCD89 /* TestFormat.swift in Sources */,
 				02FDC67E23E89E8300C2F9CD /* TestMarkdown.swift in Sources */,
 				0233D53123EF4047004DCD89 /* TestGroup.swift in Sources */,

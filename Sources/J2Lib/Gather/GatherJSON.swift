@@ -151,3 +151,16 @@ extension Array where Element == GatherModulePass {
         return SourceKittenFramework.toJSON(allFiles)
     }
 }
+
+extension GatherJob {
+    struct GatherDecls: Equatable {
+        let moduleName: String?
+        let passIndex: Int?
+        let fileURLs: [URL]
+        let availability: Gather.Availability
+
+        func execute() throws -> [GatherModulePass] {
+            []
+        }
+    }
+}

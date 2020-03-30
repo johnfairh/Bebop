@@ -1,5 +1,5 @@
 //
-//  TestGatherSkn.swift
+//  TestGatherImport.swift
 //  J2Lib
 //
 //  Copyright 2020 J2 Authors
@@ -10,7 +10,7 @@ import XCTest
 @testable import J2Lib
 import SourceKittenFramework
 
-// SourceKitten import tests
+// SourceKitten/GatherDecl import tests
 
 private class System {
     let config: Config
@@ -27,7 +27,23 @@ private class System {
     }
 }
 
-class TestGatherSkn: XCTestCase {
+private class GatherSystem {
+    let config: Config
+    let gather: Gather
+
+    init() {
+        config = Config()
+        gather = Gather(config: config)
+    }
+
+    func gather(_ opts: [String] = []) throws -> [GatherModulePass] {
+        try config.processOptions(cliOpts: opts)
+        return try gather.gather()
+    }
+}
+
+
+class TestGatherImport: XCTestCase {
     override func setUp() {
         initResources()
     }
@@ -37,7 +53,23 @@ class TestGatherSkn: XCTestCase {
         AssertThrows(try system.configure(opts), OptionsError.self, line: line)
     }
 
-    func testCliErrors() throws {
+    private func checkJob(_ cliOpts: [String], _ expectedJob: GatherJob, line: UInt = #line) throws {
+        let system = System()
+        let job = try system.configure(cliOpts)
+        XCTAssertEqual(expectedJob, job, line: line)
+    }
+
+    private func checkJobs(_ cliOpts: [String], _ expectedJobs: [GatherJob], line: UInt = #line) throws {
+        let system = System()
+        try system.config.processOptions(cliOpts: cliOpts)
+        let jobs = system.gatherOpts.jobs
+        XCTAssertEqual(expectedJobs.count, jobs.count, line: line)
+        XCTAssertEqual(expectedJobs, jobs, line: line)
+    }
+
+    // MARK: Sourcekitten Syntax
+
+    func testSknCliErrors() throws {
         checkConfigError(["-s", "badfile"])
 
         let tmpDir = try TemporaryDirectory()
@@ -53,13 +85,7 @@ class TestGatherSkn: XCTestCase {
         checkConfigError(["-s", srcFileURL.path, "--config=\(cfgFileURL.path)"])
     }
 
-    private func checkJob(_ cliOpts: [String], _ expectedJob: GatherJob, line: UInt = #line) throws {
-        let system = System()
-        let job = try system.configure(cliOpts)
-        XCTAssertEqual(expectedJob, job, line: line)
-    }
-
-    func testJobBuilding() throws {
+    func testSknJobBuilding() throws {
         let tmpDir = try TemporaryDirectory()
         let srcFileURL = tmpDir.directoryURL.appendingPathComponent("m.json")
         try "[]".write(to: srcFileURL)
@@ -73,20 +99,51 @@ class TestGatherSkn: XCTestCase {
         XCTAssertEqual(1, TestLogger.shared.diagsBuf.count)
     }
 
-    struct GatherSystem {
-        let config: Config
-        let gather: Gather
+    // MARK: Gather Syntax
 
-        init() {
-            config = Config()
-            gather = Gather(config: config)
-        }
+    func testImportCliErrors() throws {
+        checkConfigError(["--decls-json-files", "badfile"])
 
-        func gather(_ opts: [String] = []) throws -> [GatherModulePass] {
-            try config.processOptions(cliOpts: opts)
-            return try gather.gather()
-        }
+        let tmpDir = try TemporaryDirectory()
+        let srcFileURL = tmpDir.directoryURL.appendingPathComponent("m.json")
+        try "[]".write(to: srcFileURL)
+
+        checkConfigError(["--decls-json-files", srcFileURL.path, "--build-tool=spm"])
+        checkConfigError(["--decls-json-files", srcFileURL.path, "--objc-header-file=\(srcFileURL.path)"])
     }
+
+    func testImportJobBuilding() throws {
+        let tmpDir = try TemporaryDirectory()
+        let srcFileURL = tmpDir.directoryURL.appendingPathComponent("m.json")
+        try "[]".write(to: srcFileURL)
+
+        try checkJob(["--decls-json-files", srcFileURL.path],
+                     .init(declsImportTitle: "", moduleName: nil, passIndex: nil, fileURLs: [srcFileURL]))
+
+        try checkJobs(["--decls-json-files", srcFileURL.path, "--modules=M1,M2,M3"],
+                      [.init(declsImportTitle: "", moduleName: "M1", passIndex: nil, fileURLs: [srcFileURL]),
+                       .init(declsImportTitle: "", moduleName: "M2", passIndex: nil, fileURLs: [srcFileURL]),
+                       .init(declsImportTitle: "", moduleName: "M3", passIndex: nil, fileURLs: [srcFileURL])])
+
+        let yaml = """
+                   custom_modules:
+                    - module: M1
+                    - module: M2
+                      passes:
+                        - build_tool_arguments: [f2]
+                        - build_tool_arguments: [f3]
+                   """
+        let configFileURL = tmpDir.directoryURL.appendingPathComponent("j2.yaml")
+        try yaml.write(to: configFileURL)
+
+        try checkJobs(["--decls-json-files", srcFileURL.path,
+                       "--config", configFileURL.path],
+                      [.init(declsImportTitle: "", moduleName: "M1", passIndex: nil, fileURLs: [srcFileURL]),
+                       .init(declsImportTitle: "", moduleName: "M2", passIndex: 0, fileURLs: [srcFileURL]),
+                       .init(declsImportTitle: "", moduleName: "M2", passIndex: 1, fileURLs: [srcFileURL])])
+    }
+
+    // MARK: SourceKitten JSON
 
     private func createSourceKittenJSON(module: String) throws -> URL {
         let srcDir = fixturesURL.appendingPathComponent("SpmSwiftPackage")
