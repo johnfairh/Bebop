@@ -20,6 +20,7 @@ extension GatherJob {
         func execute() throws -> GatherModulePass {
             try GatherModulePass(moduleName: moduleName,
                                  passIndex: 0,
+                                 imported: false,
                                  files: fileURLs.flatMap { try loadFile(url: $0)})
         }
 

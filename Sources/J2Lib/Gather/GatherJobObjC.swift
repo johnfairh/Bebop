@@ -47,7 +47,7 @@ extension GatherJob {
                 }
                 return (dictEntry.key, def)
             }
-            return GatherModulePass(moduleName: moduleName, passIndex: 0, files: filesInfo)
+            return GatherModulePass(moduleName: moduleName, passIndex: 0, imported: false, files: filesInfo)
         }
 
         /// Figure out the actual args to pass to clang given some options.  Visibility for testing.

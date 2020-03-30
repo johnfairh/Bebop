@@ -58,7 +58,7 @@ extension GatherJob {
                 return (swiftDoc.file.path ?? "(no path)", def)
             }
 
-            return GatherModulePass(moduleName: module!.name, passIndex: 0, files: filesInfo)
+            return GatherModulePass(moduleName: module!.name, passIndex: 0, imported: false, files: filesInfo)
         }
     }
 }

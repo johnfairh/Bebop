@@ -94,6 +94,7 @@ public struct Gather {
 public struct GatherModulePass {
     public let moduleName: String
     public let passIndex: Int
+    public let imported: Bool
     public let files: [(pathname: String, GatherDef)]
 }
 
@@ -105,6 +106,7 @@ protocol GatherGarnish {
 extension Array where Element == GatherModulePass {
     func garnish<T>(with: T) throws where T: GatherGarnish {
         try forEach { pass in
+            guard !pass.imported else { return }
             try pass.files.forEach {
                 func process(def: GatherDef) throws {
                     try with.garnish(def: def)
