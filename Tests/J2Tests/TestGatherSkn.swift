@@ -72,4 +72,60 @@ class TestGatherSkn: XCTestCase {
                      .init(sknImportTitle: "", moduleName: "Module", fileURLs: [srcFileURL]))
         XCTAssertEqual(1, TestLogger.shared.diagsBuf.count)
     }
+
+    struct GatherSystem {
+        let config: Config
+        let gather: Gather
+
+        init() {
+            config = Config()
+            gather = Gather(config: config)
+        }
+
+        func gather(_ opts: [String] = []) throws -> [GatherModulePass] {
+            try config.processOptions(cliOpts: opts)
+            return try gather.gather()
+        }
+    }
+
+    func testRoundtrip() throws {
+        let srcDir = fixturesURL.appendingPathComponent("SpmSwiftPackage")
+        guard let module = Module(spmArguments: [], spmName: "SpmSwiftModule2", inPath: srcDir.path) else {
+            XCTFail()
+            return
+        }
+        let sknJSON = module.docs.description
+
+        let tmpFile = FileManager.default.temporaryFileURL()
+        try sknJSON.write(to: tmpFile)
+
+        let importedJSONDefs = try GatherSystem().gather([
+            "-s", tmpFile.path,
+            "--modules=SpmSwiftModule2"
+        ]).json
+
+        let directJSONDefs = try GatherSystem().gather([
+            "--source-directory=\(srcDir.path)",
+            "--modules=SpmSwiftModule2"
+        ]).json
+
+        XCTAssertEqual(directJSONDefs, importedJSONDefs)
+    }
+
+    func testImportErrors() throws {
+        let tmpFile = FileManager.default.temporaryFileURL()
+
+        try "Not JSON".write(to: tmpFile)
+        AssertThrows(try GatherSystem().gather(["-s", tmpFile.path]), NSError.self)
+
+        try "{}".write(to: tmpFile)
+        AssertThrows(try GatherSystem().gather(["-s", tmpFile.path]), OptionsError.self)
+
+        try "[{}]".write(to: tmpFile)
+        TestLogger.install()
+        let passes = try GatherSystem().gather(["-s", tmpFile.path, "--module=M1"])
+        XCTAssertEqual(1, passes.count)
+        XCTAssertTrue(passes[0].files.isEmpty)
+        XCTAssertEqual(1, TestLogger.shared.diagsBuf.count)
+    }
 }

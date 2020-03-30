@@ -37,7 +37,7 @@ enum JSON {
     static func decode<T>(_ json: String, _ type: T.Type) throws -> T {
         let object = try JSONSerialization.jsonObject(with: json.data(using: .utf8)!)
         guard let result = object as? T else {
-            throw OptionsError("Can't decode json as right type '\(T.self)'.")
+            throw OptionsError(.localized(.errJsonDecode, T.self, json))
         }
         return result
     }

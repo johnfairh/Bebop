@@ -30,7 +30,8 @@ enum GatherJob : Equatable {
         switch self {
         case .swift(_, _): return .swift
         case .objcDirect(_, _): return .objc
-        case .sourcekitten(_, _): return .swift // WTF is this for!
+        // Use --default-language to override this
+        case .sourcekitten(_, _): return .swift
         }
     }
 

@@ -70,6 +70,8 @@ internal enum L10n {
     case errEnumValue = "err-enum-value"
     /// Couldn't create path enumerator starting '%1'.
     case errEnumerator = "err-enumerator"
+    /// Can't decode JSON as type '%1': %2
+    case errJsonDecode = "err-json-decode"
     /// Missing key 'module' in a custom_modules stanza -- you have to set this.
     case errMissingModule = "err-missing-module"
     /// Both --module and custom_modules are set: choose just one.
@@ -152,6 +154,8 @@ internal enum L10n {
     case wrnPathNoChdir = "wrn-path-no-chdir"
     /// --quiet and --debug both set, ignoring --quiet.
     case wrnQuietDebug = "wrn-quiet-debug"
+    /// Can't decode SourceKitten JSON portion: %1
+    case wrnSknDecode = "wrn-skn-decode"
     /// SourceKitten import mode requested but --modules is not set: using 'Module' for the module name.
     case wrnSknModuleName = "wrn-skn-module-name"
     /// Incomplete definition JSON '%1' %2, ignoring.
