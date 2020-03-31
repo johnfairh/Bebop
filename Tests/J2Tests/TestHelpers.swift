@@ -317,6 +317,17 @@ extension SourceKittenDict {
 }
 
 extension GatherDef {
+    /// Test helper
+    convenience init(sourceKittenDict: SourceKittenDict, children: [GatherDef]) {
+        self.init(children: children,
+                  sourceKittenDict: sourceKittenDict,
+                  kind: nil,
+                  swiftDeclaration: nil,
+                  objCDeclaration: nil,
+                  documentation: nil,
+                  localizationKey: nil,
+                  translatedDocs: nil)
+    }
 
     func asPass(moduleName: String = "module", pathName: String = "pathname") -> GatherModulePass {
         GatherModulePass(moduleName: moduleName,

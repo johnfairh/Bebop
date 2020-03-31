@@ -108,8 +108,8 @@ class TestGatherImport: XCTestCase {
         let srcFileURL = tmpDir.directoryURL.appendingPathComponent("m.json")
         try "[]".write(to: srcFileURL)
 
-        checkConfigError(["--decls-json-files", srcFileURL.path, "--build-tool=spm"])
-        checkConfigError(["--decls-json-files", srcFileURL.path, "--objc-header-file=\(srcFileURL.path)"])
+        checkConfigError(["--j2-json-files", srcFileURL.path, "--build-tool=spm"])
+        checkConfigError(["--j2-json-files", srcFileURL.path, "--objc-header-file=\(srcFileURL.path)"])
     }
 
     func testImportJobBuilding() throws {
@@ -117,13 +117,13 @@ class TestGatherImport: XCTestCase {
         let srcFileURL = tmpDir.directoryURL.appendingPathComponent("m.json")
         try "[]".write(to: srcFileURL)
 
-        try checkJob(["--decls-json-files", srcFileURL.path],
-                     .init(declsImportTitle: "", moduleName: nil, passIndex: nil, fileURLs: [srcFileURL]))
+        try checkJob(["--j2-json-files", srcFileURL.path],
+                     .init(importTitle: "", moduleName: nil, passIndex: nil, fileURLs: [srcFileURL]))
 
-        try checkJobs(["--decls-json-files", srcFileURL.path, "--modules=M1,M2,M3"],
-                      [.init(declsImportTitle: "", moduleName: "M1", passIndex: nil, fileURLs: [srcFileURL]),
-                       .init(declsImportTitle: "", moduleName: "M2", passIndex: nil, fileURLs: [srcFileURL]),
-                       .init(declsImportTitle: "", moduleName: "M3", passIndex: nil, fileURLs: [srcFileURL])])
+        try checkJobs(["--j2-json-files", srcFileURL.path, "--modules=M1,M2,M3"],
+                      [.init(importTitle: "", moduleName: "M1", passIndex: nil, fileURLs: [srcFileURL]),
+                       .init(importTitle: "", moduleName: "M2", passIndex: nil, fileURLs: [srcFileURL]),
+                       .init(importTitle: "", moduleName: "M3", passIndex: nil, fileURLs: [srcFileURL])])
 
         let yaml = """
                    custom_modules:
@@ -136,11 +136,11 @@ class TestGatherImport: XCTestCase {
         let configFileURL = tmpDir.directoryURL.appendingPathComponent("j2.yaml")
         try yaml.write(to: configFileURL)
 
-        try checkJobs(["--decls-json-files", srcFileURL.path,
+        try checkJobs(["--j2-json-files", srcFileURL.path,
                        "--config", configFileURL.path],
-                      [.init(declsImportTitle: "", moduleName: "M1", passIndex: nil, fileURLs: [srcFileURL]),
-                       .init(declsImportTitle: "", moduleName: "M2", passIndex: 0, fileURLs: [srcFileURL]),
-                       .init(declsImportTitle: "", moduleName: "M2", passIndex: 1, fileURLs: [srcFileURL])])
+                      [.init(importTitle: "", moduleName: "M1", passIndex: nil, fileURLs: [srcFileURL]),
+                       .init(importTitle: "", moduleName: "M2", passIndex: 0, fileURLs: [srcFileURL]),
+                       .init(importTitle: "", moduleName: "M2", passIndex: 1, fileURLs: [srcFileURL])])
     }
 
     // MARK: SourceKitten JSON
@@ -204,5 +204,38 @@ class TestGatherImport: XCTestCase {
         XCTAssertEqual("withDocComment()", func2Def.sourceKittenDict.name)
         XCTAssertTrue(func2Def.swiftDeclaration!.declaration.text.hasPrefix("@discardableResult"))
         XCTAssertNotNil(func2Def.swiftDeclaration?.deprecation)
+    }
+
+    // MARK: Gather JSON
+
+    func checkRoundTrip(_ cliArgs: [String], line: UInt = #line) throws {
+        let tmpDir = try TemporaryDirectory()
+
+        let realPasses = try GatherSystem().gather(cliArgs)
+        let realJSONURL = tmpDir.directoryURL.appendingPathComponent("files.json")
+        let realJSON = realPasses.json
+        try realJSON.write(to: realJSONURL)
+
+        let importedPasses = try GatherSystem().gather(["--j2-json-files=\(realJSONURL.path)"])
+        let importedJSONURL = tmpDir.directoryURL.appendingPathComponent("imported-decls.json")
+        let importedJSON = importedPasses.json
+        try importedJSON.write(to: importedJSONURL)
+
+        if importedJSON != realJSON {
+            print("diff \(realJSONURL.path) \(importedJSONURL.path)")
+            XCTFail()
+        }
+    }
+
+    func testImportRoundTrip() throws {
+        try checkRoundTrip([
+            "--source-directory=\(fixturesURL.appendingPathComponent("SpmSwiftPackage"))",
+            "--modules=SpmSwiftModule"
+        ])
+
+        let headerURL = fixturesURL
+            .appendingPathComponent("ObjectiveC")
+            .appendingPathComponent("Header.h")
+        try checkRoundTrip(["--objc-header-file", headerURL.path])
     }
 }

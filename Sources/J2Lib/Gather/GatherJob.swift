@@ -16,14 +16,14 @@ enum GatherJob : Equatable {
     case swift(title: String, job: Swift)
     case objcDirect(title: String, job: ObjCDirect)
     case sourcekitten(title: String, job: SourceKitten)
-    case gatherDecls(title: String, job: GatherDecls)
+    case jsonImport(title: String, job: JSONImport)
 
     var title: String {
         switch self {
         case .swift(let title, _),
              .objcDirect(let title, _),
              .sourcekitten(let title, _),
-             .gatherDecls(let title, _): return title
+             .jsonImport(let title, _): return title
         }
     }
 
@@ -32,14 +32,14 @@ enum GatherJob : Equatable {
         case .swift(_, _): return .swift
         case .objcDirect(_, _): return .objc
         // Use --default-language to override this
-        case .sourcekitten(_, _), .gatherDecls(_, _): return .swift
+        case .sourcekitten(_, _), .jsonImport(_, _): return .swift
         }
     }
 
     var sourceDirectoryURL: URL? {
         switch self {
         case .swift(_, let job): return job.srcDir
-        case .objcDirect(_, _), .sourcekitten(_, _), .gatherDecls(_, _): return nil
+        case .objcDirect(_, _), .sourcekitten(_, _), .jsonImport(_, _): return nil
         }
     }
 
@@ -61,7 +61,7 @@ enum GatherJob : Equatable {
         case let .sourcekitten(_, job):
             return try [job.execute()]
 
-        case let .gatherDecls(_, job):
+        case let .jsonImport(_, job):
             return try job.execute()
         }
     }
@@ -72,7 +72,7 @@ enum GatherJob : Equatable {
         case let (.swift(_, l), .swift(_, r)): return l == r
         case let (.objcDirect(_, l), .objcDirect(_, r)): return l == r
         case let (.sourcekitten(_, l), .sourcekitten(_, r)): return l == r
-        case let (.gatherDecls(_, l), .gatherDecls(_, r)): return l == r
+        case let (.jsonImport(_, l), .jsonImport(_, r)): return l == r
         default: return false
         }
     }
@@ -123,15 +123,13 @@ enum GatherJob : Equatable {
     }
 
     /// Init helper for gather import
-    init(declsImportTitle: String,
+    init(importTitle: String,
          moduleName: String?,
          passIndex: Int?,
-         fileURLs: [URL],
-         availability: Gather.Availability = Gather.Availability()) {
-        self = .gatherDecls(title: declsImportTitle,
-                            job: GatherDecls(moduleName: moduleName,
-                                             passIndex: passIndex,
-                                             fileURLs: fileURLs,
-                                             availability: availability))
+         fileURLs: [URL]) {
+        self = .jsonImport(title: importTitle,
+                           job: JSONImport(moduleName: moduleName,
+                                           passIndex: passIndex,
+                                           fileURLs: fileURLs))
     }
 }

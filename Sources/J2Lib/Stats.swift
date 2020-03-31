@@ -87,6 +87,8 @@ struct StatsDb {
     enum Counter: String, Encodable, CaseIterable {
         /// Defs successfully created from some input source
         case gatherDef
+        /// Defs successfully reconstituted from JSON
+        case gatherDefImport
         /// Defs that failed to create from some input source
         case gatherFailure
         /// Markdown chunks processed for localization keys

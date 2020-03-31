@@ -21,6 +21,7 @@
   "formatRewrittenMediaLinks" : 6,
   "formatUnrewrittenLinks" : 0,
   "gatherDef" : 6,
+  "gatherDefImport" : 0,
   "gatherFailure" : 0,
   "gatherLocalizationFailure" : 5,
   "gatherLocalizationKey" : 0,

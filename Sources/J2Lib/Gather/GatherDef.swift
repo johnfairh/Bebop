@@ -24,7 +24,7 @@ public final class GatherDef {
     public let swiftDeclaration: SwiftDeclaration?
     /// Multi-faceted ObjC declaration info
     public let objCDeclaration: ObjCDeclaration?
-    /// Documentation
+    /// Documentation - raw from source, superseded by `translatedDocs` after garnish
     public let documentation: FlatDefDocs?
     public let localizationKey: String?
 
@@ -104,15 +104,23 @@ public final class GatherDef {
     // Things calculated after init
     public internal(set) var translatedDocs = LocalizedDefDocs()
 
-    /// Test helper
-    init(sourceKittenDict: SourceKittenDict, children: [GatherDef]) {
+    /// Piecemeal initializer for json-import and test
+    init(children: [GatherDef],
+         sourceKittenDict: SourceKittenDict,
+         kind: DefKind?,
+         swiftDeclaration: SwiftDeclaration?,
+         objCDeclaration: ObjCDeclaration?,
+         documentation: FlatDefDocs?,
+         localizationKey: String?,
+         translatedDocs: LocalizedDefDocs?) {
         self.children = children
         self.sourceKittenDict = sourceKittenDict
-        self.kind = nil
-        self.swiftDeclaration = nil
-        self.objCDeclaration = nil
-        self.documentation = nil
-        self.localizationKey = nil
+        self.kind = kind
+        self.swiftDeclaration = swiftDeclaration
+        self.objCDeclaration = objCDeclaration
+        self.documentation = documentation
+        self.localizationKey = localizationKey
+        translatedDocs.flatMap { self.translatedDocs = $0 }
         Stats.inc(.gatherDef)
     }
 }

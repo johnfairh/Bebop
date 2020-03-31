@@ -8,4 +8,8 @@
 
 public enum Version {
     public static let j2libVersion = "0.1"
+
+    static func canImport(from: String) -> Bool {
+        from <= j2libVersion
+    }
 }

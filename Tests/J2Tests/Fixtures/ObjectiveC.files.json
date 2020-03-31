@@ -42,8 +42,10 @@
           "key.j2.documentation" : {
             "key.j2.abstract" : {
               "en" : "Class with IVars"
-            }
+            },
+            "key.j2.doc_source" : "docComment"
           },
+          "key.j2.is_override" : false,
           "key.j2.objc_declaration" : "@interface IVarTest : NSObject",
           "key.j2.objc_name_pieces" : [
             {
@@ -112,8 +114,10 @@
               "key.j2.documentation" : {
                 "key.j2.abstract" : {
                   "en" : "Documented property"
-                }
+                },
+                "key.j2.doc_source" : "docComment"
               },
+              "key.j2.is_override" : false,
               "key.j2.objc_declaration" : "@property (strong) NSString *propertyName",
               "key.j2.objc_deprecation_messages" : {
                 "en" : "Deprecated. Is deprecated"
@@ -172,8 +176,10 @@
           "key.j2.documentation" : {
             "key.j2.abstract" : {
               "en" : "Various kinds of property and method"
-            }
+            },
+            "key.j2.doc_source" : "docComment"
           },
+          "key.j2.is_override" : false,
           "key.j2.objc_declaration" : "@interface PropertyKinds : NSObject",
           "key.j2.objc_name_pieces" : [
             {
@@ -215,8 +221,10 @@
               "key.j2.documentation" : {
                 "key.j2.abstract" : {
                   "en" : "doc"
-                }
+                },
+                "key.j2.doc_source" : "docComment"
               },
+              "key.j2.is_override" : false,
               "key.j2.objc_declaration" : "@property (copy, nonatomic, class) NSUUID *identifier",
               "key.j2.objc_name_pieces" : [
                 {
@@ -266,8 +274,10 @@
               "key.j2.documentation" : {
                 "key.j2.abstract" : {
                   "en" : "Nullability"
-                }
+                },
+                "key.j2.doc_source" : "docComment"
               },
+              "key.j2.is_override" : false,
               "key.j2.objc_declaration" : "@property (copy, nonatomic, nullable) NSUUID *uuid",
               "key.j2.objc_name_pieces" : [
                 {
@@ -312,6 +322,7 @@
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
               "key.doc.line" : 22,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
+              "key.j2.is_override" : false,
               "key.j2.objc_declaration" : "+ (instancetype) alloc",
               "key.j2.objc_name_pieces" : [
                 {
@@ -360,6 +371,7 @@
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
               "key.doc.line" : 23,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
+              "key.j2.is_override" : false,
               "key.j2.objc_declaration" : "- (id)init",
               "key.j2.objc_deprecation_messages" : {
                 "en" : "Deprecated. "
@@ -412,8 +424,10 @@
               "key.j2.documentation" : {
                 "key.j2.abstract" : {
                   "en" : "No params"
-                }
+                },
+                "key.j2.doc_source" : "docComment"
               },
+              "key.j2.is_override" : false,
               "key.j2.objc_declaration" : "- (void)method",
               "key.j2.objc_name_pieces" : [
                 {
@@ -467,8 +481,10 @@
               "key.j2.documentation" : {
                 "key.j2.abstract" : {
                   "en" : "params"
-                }
+                },
+                "key.j2.doc_source" : "docComment"
               },
+              "key.j2.is_override" : false,
               "key.j2.objc_declaration" : "- (int)doThingWith:(int)first named:(NSString *)name",
               "key.j2.objc_name_pieces" : [
                 {
@@ -541,6 +557,7 @@
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
               "key.doc.line" : 31,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
+              "key.j2.is_override" : false,
               "key.j2.objc_declaration" : "+ (void)classMethod",
               "key.j2.objc_name_pieces" : [
                 {
@@ -635,6 +652,7 @@
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
           "key.doc.line" : 41,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
+          "key.j2.is_override" : false,
           "key.j2.objc_declaration" : "void global_func(void)",
           "key.j2.objc_name_pieces" : [
             {
@@ -688,8 +706,10 @@
           "key.j2.documentation" : {
             "key.j2.abstract" : {
               "en" : "Structures"
-            }
+            },
+            "key.j2.doc_source" : "docComment"
           },
+          "key.j2.is_override" : false,
           "key.j2.objc_declaration" : "struct AStruct",
           "key.j2.objc_name_pieces" : [
             {
@@ -731,8 +751,10 @@
               "key.j2.documentation" : {
                 "key.j2.abstract" : {
                   "en" : "Field"
-                }
+                },
+                "key.j2.doc_source" : "docComment"
               },
+              "key.j2.is_override" : false,
               "key.j2.objc_declaration" : "int field",
               "key.j2.objc_name_pieces" : [
                 {
@@ -788,7 +810,8 @@
           "key.j2.documentation" : {
             "key.j2.abstract" : {
               "en" : "Enums"
-            }
+            },
+            "key.j2.doc_source" : "docComment"
           },
           "key.j2.objc_declaration" : "typedef enum AEnum AEnum",
           "key.j2.objc_name_pieces" : [
@@ -822,8 +845,10 @@
           "key.j2.documentation" : {
             "key.j2.abstract" : {
               "en" : "Enums"
-            }
+            },
+            "key.j2.doc_source" : "docComment"
           },
+          "key.j2.is_override" : false,
           "key.j2.objc_declaration" : "enum AEnum",
           "key.j2.objc_name_pieces" : [
             {
@@ -865,8 +890,10 @@
               "key.j2.documentation" : {
                 "key.j2.abstract" : {
                   "en" : "Enum element a"
-                }
+                },
+                "key.j2.doc_source" : "docComment"
               },
+              "key.j2.is_override" : false,
               "key.j2.objc_declaration" : "a = 3",
               "key.j2.objc_name_pieces" : [
                 {
@@ -912,8 +939,10 @@
               "key.j2.documentation" : {
                 "key.j2.abstract" : {
                   "en" : "Enum element b"
-                }
+                },
+                "key.j2.doc_source" : "docComment"
               },
+              "key.j2.is_override" : false,
               "key.j2.objc_declaration" : "b = 4",
               "key.j2.objc_name_pieces" : [
                 {
@@ -960,6 +989,7 @@
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
           "key.doc.line" : 57,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
+          "key.j2.is_override" : false,
           "key.j2.objc_declaration" : "enum ASimpleEnum",
           "key.j2.objc_name_pieces" : [
             {
@@ -1061,8 +1091,10 @@
           "key.j2.documentation" : {
             "key.j2.abstract" : {
               "en" : "Typedef"
-            }
+            },
+            "key.j2.doc_source" : "docComment"
           },
+          "key.j2.is_override" : false,
           "key.j2.objc_declaration" : "typedef int Fred",
           "key.j2.objc_name_pieces" : [
             {
@@ -1108,8 +1140,10 @@
           "key.j2.documentation" : {
             "key.j2.abstract" : {
               "en" : "Category"
-            }
+            },
+            "key.j2.doc_source" : "docComment"
           },
+          "key.j2.is_override" : false,
           "key.j2.objc_declaration" : "@interface IVarTest (ACategory)",
           "key.j2.objc_name_pieces" : [
             {
@@ -1146,6 +1180,7 @@
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
               "key.doc.line" : 68,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
+              "key.j2.is_override" : false,
               "key.j2.objc_declaration" : "- (void)categoryMethod",
               "key.j2.objc_name_pieces" : [
                 {
@@ -1205,8 +1240,10 @@
           "key.j2.documentation" : {
             "key.j2.abstract" : {
               "en" : "Protocol"
-            }
+            },
+            "key.j2.doc_source" : "docComment"
           },
+          "key.j2.is_override" : false,
           "key.j2.objc_declaration" : "@protocol SomeProtocol",
           "key.j2.objc_name_pieces" : [
             {
@@ -1243,6 +1280,7 @@
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
               "key.doc.line" : 75,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/ObjectiveC\/Header.h",
+              "key.j2.is_override" : false,
               "key.j2.objc_declaration" : "-(void)protocolMethod",
               "key.j2.objc_name_pieces" : [
                 {
@@ -1302,8 +1340,10 @@
           "key.j2.documentation" : {
             "key.j2.abstract" : {
               "en" : "Lightweight generics"
-            }
+            },
+            "key.j2.doc_source" : "docComment"
           },
+          "key.j2.is_override" : false,
           "key.j2.objc_declaration" : "@interface Stack<ElementType> : NSObject",
           "key.j2.objc_name_pieces" : [
             {
@@ -1345,8 +1385,10 @@
               "key.j2.documentation" : {
                 "key.j2.abstract" : {
                   "en" : "Method with lightweight generic type param"
-                }
+                },
+                "key.j2.doc_source" : "docComment"
               },
+              "key.j2.is_override" : false,
               "key.j2.objc_declaration" : "- (ElementType *)popWith:(NSString *)weight secondValue:(NSInteger)density",
               "key.j2.objc_name_pieces" : [
                 {

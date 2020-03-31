@@ -21,6 +21,10 @@ import SourceKittenFramework
 //
 // If Gather has done multiple passes then each pass contributes all its files.
 // So if it does two passes over one module, we get two lots of files.
+//
+//
+// Rather came to regret this serialization approach when it came to
+// deserializing it!  What a mess.  Rewrite next time I'm really ill.
 
 /// Keys added by J2.
 private enum GatherKey: String {
@@ -38,6 +42,11 @@ private enum GatherKey: String {
     /// List of availability statements
     case availabilities = "key.j2.availabilities"
     case availability = "key.j2.availability"
+    /// Misc declaration facts
+    case swiftTypeModuleName = "key.j2.type_module_name"
+    case swiftInheritedTypes = "key.j2.inherited_types"
+    case swiftInheritedTypeName = "key.j2.type_name"
+    case swiftIsOverride = "key.j2.is_override"
     /// Name piece breakdown
     case swiftNamePieces = "key.j2.swift_name_pieces"
     case objCNamePieces = "key.j2.objc_name_pieces"
@@ -51,6 +60,7 @@ private enum GatherKey: String {
     case parameters = "key.j2.parameters"
     case paramName = "key.j2.param_name"
     case paramDesc = "key.j2.param_desc"
+    case docSource = "key.j2.doc_source"
     /// Children
     case substructure = "key.substructure"
 }
@@ -70,6 +80,23 @@ fileprivate extension SourceKittenDict {
             self[key.rawValue] = value
         }
     }
+    mutating func remove(_ key: GatherKey) -> Any? {
+        self.removeValue(forKey: key.rawValue)
+    }
+    func get(_ key: GatherKey) -> Any? {
+        self[key.rawValue]
+    }
+}
+
+extension SourceKittenDict {
+    mutating func removeMetadata() -> (version: String, moduleName: String, pass: Int)? {
+        guard let j2Version = remove(.version) as? String,
+            let passIndex = remove(.passIndex) as? Int64,
+            let moduleName = remove(.moduleName) as? String else {
+                return nil
+        }
+        return (j2Version, moduleName, Int(passIndex))
+    }
 }
 
 fileprivate extension LocalizedDefDocs {
@@ -79,7 +106,22 @@ fileprivate extension LocalizedDefDocs {
         dict.maybe(.discussion, discussion?.mapValues { $0.md })
         dict.maybe(.returns, returns?.mapValues { $0.md })
         dict.maybe(.parameters, parameters.map { $0.dictForJSON })
+        dict.set(.docSource, source.rawValue)
         return dict
+    }
+
+    init?(dict: SourceKittenDict) {
+        self.abstract =
+            (dict.get(.abstract) as? Localized<String>)?.mapValues { Markdown($0) }
+        self.discussion =
+            (dict.get(.discussion) as? Localized<String>)?.mapValues { Markdown($0) }
+        self.returns =
+            (dict.get(.returns) as? Localized<String>)?.mapValues { Markdown($0) }
+        self.parameters =
+            (dict.get(.parameters) as? [SourceKittenDict])?.compactMap { Param(dict: $0) } ?? []
+        self.defaultAbstract = nil
+        self.defaultDiscussion = nil
+        self.source = (dict.get(.docSource) as? String).flatMap { DefDocSource(rawValue: $0) } ?? .docComment
     }
 }
 
@@ -87,6 +129,15 @@ fileprivate extension DefDocs.Param where T == Localized<Markdown> {
     var dictForJSON: SourceKittenDict {
         [GatherKey.paramName.rawValue : name,
          GatherKey.paramDesc.rawValue : description.mapValues { $0.md }]
+    }
+
+    init?(dict: SourceKittenDict) {
+        guard let name = dict.get(.paramName) as? String,
+            let desc = dict.get(.paramDesc) as? Localized<String> else {
+                return nil
+        }
+        self.name = name
+        self.description = desc.mapValues { Markdown($0) }
     }
 }
 
@@ -97,26 +148,95 @@ fileprivate extension Array where Element == DeclarationPiece {
              GatherKey.namePieceText.rawValue: $0.text]
         }
     }
+
+    init(dicts: [SourceKittenDict]) {
+        self = dicts.compactMap { dict in
+            guard let nameIsName = dict.get(.namePieceIsName) as? Bool,
+                let text = dict.get(.namePieceText) as? String else {
+                    return nil
+            }
+            return nameIsName ? .name(text) : .other(text)
+        }
+    }
+}
+
+extension SwiftDeclaration {
+    func addToJSON(dict: inout SourceKittenDict) {
+        dict.set(.swiftDeclaration, declaration.text)
+        dict.maybe(.swiftDeprecationMessage, deprecation)
+        dict.maybe(.availabilities, availability.map {
+            [GatherKey.availability.rawValue : $0]
+        })
+        dict.maybe(.swiftNamePieces, namePieces.dictsForJSON)
+        dict.maybe(.swiftTypeModuleName, typeModuleName)
+        dict.maybe(.swiftInheritedTypes, inheritedTypes.map {
+            [GatherKey.swiftInheritedTypeName.rawValue: $0]
+        })
+        dict.set(.swiftIsOverride, isOverride)
+    }
+
+    static func fromJSON(dict: inout SourceKittenDict) -> SwiftDeclaration? {
+        guard let declarationText = dict.remove(.swiftDeclaration) as? String,
+            let isOverride = dict.remove(.swiftIsOverride) as? Bool else {
+            return nil
+        }
+        let deprecation = dict.remove(.swiftDeprecationMessage) as? Localized<String>
+        var availability = [String]()
+        if let availDicts = dict.remove(.availabilities) as? [SourceKittenDict] {
+            availability = availDicts.compactMap { $0[GatherKey.availability.rawValue] as? String }
+        }
+        var namePieces = [DeclarationPiece]()
+        if let piecesDicts = dict.remove(.swiftNamePieces) as? [SourceKittenDict] {
+            namePieces = Array<DeclarationPiece>(dicts: piecesDicts)
+        }
+        let typeModule = dict.remove(.swiftTypeModuleName) as? String
+        var inheritedTypes = [String]()
+        if let inheritedDicts = dict.remove(.swiftInheritedTypes) as? [SourceKittenDict] {
+            inheritedTypes = inheritedDicts.compactMap { $0[GatherKey.swiftInheritedTypeName.rawValue] as? String }
+        }
+
+        return SwiftDeclaration(declaration: declarationText,
+                                deprecation: deprecation,
+                                availability: availability,
+                                namePieces: namePieces,
+                                typeModuleName: typeModule,
+                                inheritedTypes: inheritedTypes,
+                                isOverride: isOverride)
+    }
+}
+
+extension ObjCDeclaration {
+    func addToJSON(dict: inout SourceKittenDict) {
+        dict.set(.objCDeclaration, declaration.text)
+        dict.maybe(.objCDeprecationMessage, deprecation)
+        dict.maybe(.objCUnavailableMessage, unavailability)
+        dict.maybe(.objCNamePieces, namePieces.dictsForJSON)
+    }
+
+    static func fromJSON(dict: inout SourceKittenDict) -> ObjCDeclaration? {
+        guard let declaration = dict.remove(.objCDeclaration) as? String else {
+            return nil
+        }
+        let deprecation = dict.remove(.objCDeprecationMessage) as? Localized<String>
+        let unavailability = dict.remove(.objCUnavailableMessage) as? Localized<String>
+        var namePieces = [DeclarationPiece]()
+        if let piecesDicts = dict.remove(.objCNamePieces) as? [SourceKittenDict] {
+            namePieces = Array<DeclarationPiece>(dicts: piecesDicts)
+        }
+
+        return ObjCDeclaration(declaration: declaration,
+                               deprecation: deprecation,
+                               unavailability: unavailability,
+                               namePieces: namePieces)
+    }
 }
 
 extension GatherDef {
     /// Build up the dictionary from children and our garnished values
     var dictForJSON: SourceKittenDict {
         var dict = sourceKittenDict
-        if let swiftDecl = swiftDeclaration {
-            dict.set(.swiftDeclaration, swiftDecl.declaration.text)
-            dict.maybe(.swiftDeprecationMessage, swiftDecl.deprecation)
-            dict.maybe(.availabilities, swiftDecl.availability.map {
-                [GatherKey.availability.rawValue : $0]
-            })
-            dict.maybe(.swiftNamePieces, swiftDecl.namePieces.dictsForJSON)
-        }
-        if let objCDecl = objCDeclaration {
-            dict.set(.objCDeclaration, objCDecl.declaration.text)
-            dict.maybe(.objCDeprecationMessage, objCDecl.deprecation)
-            dict.maybe(.objCUnavailableMessage, objCDecl.unavailability)
-            dict.maybe(.objCNamePieces, objCDecl.namePieces.dictsForJSON)
-        }
+        swiftDeclaration?.addToJSON(dict: &dict)
+        objCDeclaration?.addToJSON(dict: &dict)
         if !translatedDocs.isEmpty {
             dict.set(.documentation, translatedDocs.dictForJSON)
         }
@@ -131,6 +251,31 @@ extension GatherDef {
         dict.set(.moduleName, moduleName)
         dict.set(.passIndex, Int64(passIndex))
         return dict
+    }
+
+    /// Reconstitute a `GatherDef` from a dict (without any root stuff)
+    convenience init(filesDict: SourceKittenDict) {
+        var dict = filesDict
+        var children = [GatherDef]()
+        if let dictChildren = dict.remove(.substructure) as? [SourceKittenDict] {
+            children = dictChildren.compactMap { GatherDef(filesDict: $0) }
+        }
+        let kind = dict.kind.flatMap { DefKind.from(key: $0) }
+        let swiftDeclaration = SwiftDeclaration.fromJSON(dict: &dict)
+        let objCDeclaration = ObjCDeclaration.fromJSON(dict: &dict)
+        var translatedDocs: LocalizedDefDocs?
+        if let docsDict = dict.remove(.documentation) as? SourceKittenDict {
+            translatedDocs = LocalizedDefDocs(dict: docsDict)
+        }
+        Stats.inc(.gatherDefImport)
+        self.init(children: children,
+                  sourceKittenDict: dict,
+                  kind: kind,
+                  swiftDeclaration: swiftDeclaration,
+                  objCDeclaration: objCDeclaration,
+                  documentation: nil,
+                  localizationKey: nil,
+                  translatedDocs: translatedDocs)
     }
 }
 
@@ -147,20 +292,6 @@ fileprivate extension GatherModulePass {
 extension Array where Element == GatherModulePass {
     /// Accumulate the modules and convert
     public var json: String {
-        let allFiles: [NSDictionary] = flatMap { $0.dictsForJSON}
-        return SourceKittenFramework.toJSON(allFiles)
-    }
-}
-
-extension GatherJob {
-    struct GatherDecls: Equatable {
-        let moduleName: String?
-        let passIndex: Int?
-        let fileURLs: [URL]
-        let availability: Gather.Availability
-
-        func execute() throws -> [GatherModulePass] {
-            []
-        }
+        SourceKittenFramework.toJSON(flatMap { $0.dictsForJSON })
     }
 }
