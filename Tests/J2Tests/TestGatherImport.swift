@@ -233,9 +233,20 @@ class TestGatherImport: XCTestCase {
             "--modules=SpmSwiftModule"
         ])
 
+        #if os(macOS)
         let headerURL = fixturesURL
             .appendingPathComponent("ObjectiveC")
             .appendingPathComponent("Header.h")
         try checkRoundTrip(["--objc-header-file", headerURL.path])
+        #endif
     }
+
+    // Filtering.
+    // Make a file using APIs containing module A and two passes over module B,
+    // one differently named class in each.
+    // Then just import, hit the paths.
+
+    // Bad data
+    // manual broken metadata
+    // manual from the future
 }

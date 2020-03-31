@@ -160,7 +160,7 @@ fileprivate extension Array where Element == DeclarationPiece {
     }
 }
 
-extension SwiftDeclaration {
+fileprivate extension SwiftDeclaration {
     func addToJSON(dict: inout SourceKittenDict) {
         dict.set(.swiftDeclaration, declaration.text)
         dict.maybe(.swiftDeprecationMessage, deprecation)
@@ -205,7 +205,7 @@ extension SwiftDeclaration {
     }
 }
 
-extension ObjCDeclaration {
+fileprivate extension ObjCDeclaration {
     func addToJSON(dict: inout SourceKittenDict) {
         dict.set(.objCDeclaration, declaration.text)
         dict.maybe(.objCDeprecationMessage, deprecation)

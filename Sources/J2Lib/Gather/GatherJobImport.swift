@@ -34,7 +34,7 @@ extension GatherJob {
                                               parentNameComponents: [],
                                               file: nil,
                                               availability: availability) else {
-                        logWarning(.localized(.wrnSknDecode, fileDict))
+                        logWarning(.localized(.wrnSknDecode, url.path, fileDict))
                         return nil
                 }
                 return (entry.key, gatherDef)
@@ -55,15 +55,13 @@ extension GatherJob {
         let fileURLs: [URL]
 
         func execute() throws -> [GatherModulePass] {
-            let allPasses = try fileURLs.flatMap { try loadFile(url: $0) }
-            guard let moduleName = moduleName else {
-                return allPasses
-            }
-            let modulePasses = allPasses.filter { $0.moduleName == moduleName }
-            guard let passIndex = passIndex else {
-                return modulePasses
-            }
-            return modulePasses.filter { $0.passIndex == passIndex }
+            try fileURLs
+                .flatMap { try loadFile(url: $0) }
+                .filter { pass in
+                    moduleName == nil ||
+                        (moduleName! == pass.moduleName &&
+                            (passIndex == nil || passIndex! == pass.passIndex))
+                }
         }
 
         func loadFile(url: URL) throws -> [GatherModulePass] {
@@ -84,12 +82,12 @@ extension GatherJob {
                     let first = fileDict.first,
                     var rootDict = first.value as? SourceKittenDict,
                     let meta = rootDict.removeMetadata() else {
-                        logWarning("Can't decode portion of \(url): \(fileDict)")
+                        logWarning(.localized(.wrnJ2jsonDecode, url.path, fileDict))
                         return
                 }
 
                 guard Version.canImport(from: meta.version) else {
-                    logWarning("Can't import files-json \(url), j2 version \(meta.version) is too advanced.")
+                    logWarning(.localized(.wrnJ2jsonFuture, url.path, meta.version))
                     return
                 }
 

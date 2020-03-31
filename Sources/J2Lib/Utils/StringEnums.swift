@@ -70,7 +70,7 @@ internal enum L10n {
     case errEnumValue = "err-enum-value"
     /// Couldn't create path enumerator starting '%1'.
     case errEnumerator = "err-enumerator"
-    /// Can't decode JSON as type '%1': %2
+    /// Can't decode JSON as Swift type '%1': %2
     case errJsonDecode = "err-json-decode"
     /// Missing key 'module' in a custom_modules stanza -- you have to set this.
     case errMissingModule = "err-missing-module"
@@ -142,6 +142,10 @@ internal enum L10n {
     case wrnGuideTitleDup = "wrn-guide-title-dup"
     /// Some 'guide_titles' entries did not match any guides: %1.
     case wrnGuideTitleUnused = "wrn-guide-title-unused"
+    /// Can't decode J2 JSON portion from '%1': %2
+    case wrnJ2jsonDecode = "wrn-j2json-decode"
+    /// Can't import J2 JSON file '%1', version '%2' is from a later version of the program.
+    case wrnJ2jsonFuture = "wrn-j2json-future"
     /// No media files found matching '%1'
     case wrnMediaMissing = "wrn-media-missing"
     /// Bad file JSON data for '%1' pass %2: missing 'key.diagnostic_stage' key.  Ignoring this file.
@@ -154,7 +158,7 @@ internal enum L10n {
     case wrnPathNoChdir = "wrn-path-no-chdir"
     /// --quiet and --debug both set, ignoring --quiet.
     case wrnQuietDebug = "wrn-quiet-debug"
-    /// Can't decode SourceKitten JSON portion: %1
+    /// Can't decode SourceKitten JSON portion from '%1': %2
     case wrnSknDecode = "wrn-skn-decode"
     /// SourceKitten import mode requested but --modules is not set: using 'Module' for the module name.
     case wrnSknModuleName = "wrn-skn-module-name"
