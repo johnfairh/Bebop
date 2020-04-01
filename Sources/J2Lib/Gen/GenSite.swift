@@ -62,12 +62,14 @@ public struct GenSite: Configurable {
     let media: GenMedia
     let copyright: GenCopyright
     let search: GenSearch
+    let badge: GenBadge
 
     public init(config: Config) {
         themes = GenThemes(config: config)
         media = GenMedia(config: config)
         copyright = GenCopyright(config: config)
         search = GenSearch(config: config)
+        badge = GenBadge(config: config)
 
         oldHideCoverageOpt = AliasOpt(realOpt: hideCoverageOpt, l: "hide-documentation-coverage")
         oldCustomHeadOpt = AliasOpt(realOpt: customHeadOpt, l: "head")
@@ -129,6 +131,10 @@ public struct GenSite: Configurable {
 
             if !hideSearchOpt.value {
                 try search.writeIndex(docRootURL: docRoot, languageTag: tag)
+            }
+
+            if !hideCoverageOpt.value {
+                try badge.write(docRootURL: docRoot, languageTag: tag)
             }
         }
 

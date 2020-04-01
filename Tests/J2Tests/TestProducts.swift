@@ -189,7 +189,7 @@ class TestProducts: XCTestCase {
         let enumerator = FileManager.default.enumerator(atPath: url.path)!
         return enumerator.compactMap {
             guard let path = $0 as? String,
-                path.re_isMatch(#"(html|json)$"#) else {
+                path.re_isMatch(#"(html|json|svg)$"#) else {
                     return nil
             }
             return path

@@ -257,6 +257,7 @@ class TestGen: XCTestCase {
 
     // MARK: Search
 
+    #if os(macOS)
     func testSearchGen() throws {
         let clas = SourceKittenDict
             .mkObjCClass(name: "OClass", swiftName: "SClass")
@@ -276,4 +277,5 @@ class TestGen: XCTestCase {
         XCTAssertEqual("OClass", gen.search.entries[0].name)
         XCTAssertEqual("SClass", gen.search.entries[1].name)
     }
+    #endif
 }
