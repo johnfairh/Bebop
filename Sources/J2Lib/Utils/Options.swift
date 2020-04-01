@@ -391,6 +391,16 @@ extension URL {
             throw OptionsError(.localized(.errPathNotDir, path))
         }
     }
+
+    /// Helper: is the URL pointing at an actual directory?
+    var isFilesystemDirectory: Bool {
+        do {
+            try checkIsDirectory()
+            return true
+        } catch {
+            return false
+        }
+    }
 }
 
 /// Type for clients to describe a non-repeating pathname option,

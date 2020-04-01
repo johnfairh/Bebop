@@ -67,6 +67,10 @@ private extension Array where Element == Glob.Pattern {
             logDebug("Media: Searching for files using '\(globPattern)'")
             var count = 0
             Glob.files(globPattern).forEach { url in
+                /// Need to be careful to not match the localization directories themselves
+                guard !url.isFilesystemDirectory else {
+                    return
+                }
                 let filename = url.lastPathComponent
                 guard files[filename] == nil else {
                     logWarning(.localized(.wrnDuplicateGlobfile, filename, url.path))
