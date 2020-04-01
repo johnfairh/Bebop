@@ -174,8 +174,9 @@ class SwiftDeclarationBuilder {
             .joined(separator: #"(?:<.*?>)?\."#)
         let unqualified = nameComponents.last.flatMap { flat.re_sub(namePattern, with: $0) } ?? flat
 
-        // Workaround for SR-9816 (not fixed as of Swift 5.1.3)
-        return unqualified.replacingOccurrences(of: " {\n  get\n  }", with: "")
+        return unqualified
+            .replacingOccurrences(of: " {\n  get\n  }", with: "") // SR-9816 (not fixed as of Swift 5.1.3)
+            .re_sub(#"mutating\s+mutating"#, with: "mutating") // SR-12139 (new in Swift 5.2)
     }
 
     /// The parsed decl is of entire lines of code, which means we may get a leading @attr if the
