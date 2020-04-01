@@ -211,7 +211,7 @@ struct StatsDb {
         if aclSkipped > 0 {
             report.append(.localized(.msgSwiftAcl, aclSkipped, aclExcludedNames))
         }
-        report.append(.localized(.msgCoverage, coverage,  self[.missingDocumentation]))
+        report.append(.localized(.msgCoverage, coverage, self[.documentedDef], self[.missingDocumentation]))
         return report
     }
 
