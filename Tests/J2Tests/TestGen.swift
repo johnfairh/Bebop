@@ -50,7 +50,7 @@ class TestGen: XCTestCase {
         XCTAssertFalse(fm.fileExists(atPath: outputDir.path))
         let system = System()
         try system.configure(cliOpts: ["--output", outputDir.path])
-        try system.gen.generateSite(genData: GenData())
+        try system.gen.generateSite(genData: GenData(), items: [])
         XCTAssertTrue(fm.fileExists(atPath: outputDir.path))
         try fm.removeItem(at: outputDir)
     }
@@ -62,7 +62,7 @@ class TestGen: XCTestCase {
         XCTAssertTrue(fm.createFile(atPath: markerFileURL.path, contents: nil))
         let system = System()
         try system.configure(cliOpts: ["--output", tmp.directoryURL.path, "--clean"])
-        try system.gen.generateSite(genData: GenData())
+        try system.gen.generateSite(genData: GenData(), items: [])
         XCTAssertTrue(fm.fileExists(atPath: tmp.directoryURL.path))
         XCTAssertFalse(fm.fileExists(atPath: markerFileURL.path))
     }

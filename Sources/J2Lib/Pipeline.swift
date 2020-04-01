@@ -151,7 +151,7 @@ public final class Pipeline: Configurable {
 
         if testAndClearProduct(.docs) {
             logDebug("Pipeline: generating site")
-            try genSite.generateSite(genData: genData)
+            try genSite.generateSite(genData: genData, items: formattedItems)
             stats.printReport()
         }
 

@@ -61,11 +61,13 @@ public struct GenSite: Configurable {
     let themes: GenThemes
     let media: GenMedia
     let copyright: GenCopyright
+    let search: GenSearch
 
     public init(config: Config) {
         themes = GenThemes(config: config)
         media = GenMedia(config: config)
         copyright = GenCopyright(config: config)
+        search = GenSearch(config: config)
 
         oldHideCoverageOpt = AliasOpt(realOpt: hideCoverageOpt, l: "hide-documentation-coverage")
         oldCustomHeadOpt = AliasOpt(realOpt: customHeadOpt, l: "head")
@@ -80,8 +82,9 @@ public struct GenSite: Configurable {
         published.childItemStyle = childItemStyle
     }
 
-    /// Final site generation
-    public func generateSite(genData: GenData) throws {
+    /// Final site generation.
+    /// Site is generated from `genData` only; `items` used for search index and docset.
+    public func generateSite(genData: GenData, items: [Item]) throws {
         let theme = try themes.select()
 
         logInfo(.localized(.msgGeneratingDocs))
@@ -113,9 +116,20 @@ public struct GenSite: Configurable {
             try FileManager.default.copyItem(at: from, to: to)
         }
 
+        if !hideSearchOpt.value {
+            logInfo(.localized(.msgSearchProgress))
+            search.buildIndex(items: items)
+        }
+
+        logInfo(.localized(.msgCopyProgress))
+
         try Localizations.shared.allTags.forEach { tag in
             let docRoot = outputURL.appendingPathComponent(tag.languageTagPathComponent)
             try media.copyMedia(docRoot: docRoot, languageTag: tag, copier: copier)
+
+            if !hideSearchOpt.value {
+                try search.writeIndex(docRootURL: docRoot, languageTag: tag)
+            }
         }
 
         try theme.copyAssets(to: outputURL, copier: copier)

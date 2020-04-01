@@ -102,7 +102,9 @@ internal enum L10n {
     case errSktnXcodeMod = "err-sktn-xcode-mod"
     /// Using config file '%1'
     case msgConfigFile = "msg-config-file"
-    /// %1% documentation coverage with %2 undocumented symbols
+    /// Copying up files...
+    case msgCopyProgress = "msg-copy-progress"
+    /// %1% documentation coverage with %2 documented and %3 undocumented definitions
     case msgCoverage = "msg-coverage"
     /// Gathering info for %1...
     case msgGatherHeading = "msg-gather-heading"
@@ -110,7 +112,9 @@ internal enum L10n {
     case msgGeneratingDocs = "msg-generating-docs"
     /// j2: Generate API documentation for Swift or Objective-C code.\n\nUsage: j2 [options]\n\nOptions:
     case msgHelpIntro = "msg-help-intro"
-    /// Skipped %1 %2 symbols
+    /// Building search index...
+    case msgSearchProgress = "msg-search-progress"
+    /// Skipped %1 %2 definitions
     case msgSwiftAcl = "msg-swift-acl"
     /// No definitions found in --default-language '%1', using '%2' instead.
     case wrnBadUserLanguage = "wrn-bad-user-language"

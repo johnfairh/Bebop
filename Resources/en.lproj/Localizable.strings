@@ -109,3 +109,5 @@ Ignoring the second.";
 "wrn-skn-decode" = "Can't decode SourceKitten JSON portion from '%1': %2";
 "wrn-j2json-decode" = "Can't decode J2 JSON portion from '%1': %2";
 "wrn-j2json-future" = "Can't import J2 JSON file '%1', version '%2' is from a later version of the program.";
+"msg-search-progress" = "Building search index...";
+"msg-copy-progress" = "Copying up files...";

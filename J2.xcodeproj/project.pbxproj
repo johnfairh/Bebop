@@ -24,6 +24,7 @@
 		022BD9B724311CC400FC34D4 /* Maaku.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 02CFFA4723E8460400FDE5B9 /* Maaku.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		022BD9B92431F56400FC34D4 /* GatherJobImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022BD9B82431F56400FC34D4 /* GatherJobImport.swift */; };
 		022BD9BC2431FAD800FC34D4 /* TestGatherImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022BD9BA2431FACD00FC34D4 /* TestGatherImport.swift */; };
+		022BE7B22434AEFD005146D1 /* GenSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022BE7B12434AEFD005146D1 /* GenSearch.swift */; };
 		0233D51D23EED547004DCD89 /* GroupItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D51C23EED547004DCD89 /* GroupItem.swift */; };
 		0233D52423EF0CC3004DCD89 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D52323EF0CC3004DCD89 /* Identifiers.swift */; };
 		0233D52623EF11F6004DCD89 /* TestIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D52523EF11F6004DCD89 /* TestIdentifiers.swift */; };
@@ -244,6 +245,7 @@
 		022BD9B524310B6000FC34D4 /* FormatLinkRewriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatLinkRewriter.swift; sourceTree = "<group>"; };
 		022BD9B82431F56400FC34D4 /* GatherJobImport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherJobImport.swift; sourceTree = "<group>"; };
 		022BD9BA2431FACD00FC34D4 /* TestGatherImport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGatherImport.swift; sourceTree = "<group>"; };
+		022BE7B12434AEFD005146D1 /* GenSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenSearch.swift; sourceTree = "<group>"; };
 		0233D51C23EED547004DCD89 /* GroupItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupItem.swift; sourceTree = "<group>"; };
 		0233D52323EF0CC3004DCD89 /* Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
 		0233D52523EF11F6004DCD89 /* TestIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestIdentifiers.swift; sourceTree = "<group>"; };
@@ -647,6 +649,7 @@
 				02CFFA0823E0C8AC00FDE5B9 /* GenSite.swift */,
 				02CFFA0F23E1E9A700FDE5B9 /* GenThemes.swift */,
 				02EC5B7D242FCB2F00A511B2 /* GenMedia.swift */,
+				022BE7B12434AEFD005146D1 /* GenSearch.swift */,
 			);
 			path = Gen;
 			sourceTree = "<group>";
@@ -875,6 +878,7 @@
 				0233D53D23F30851004DCD89 /* GuideItem.swift in Sources */,
 				0259E1912414F5A5006435A1 /* Stats.swift in Sources */,
 				0259E18F2413C12A006435A1 /* GatherJobObjC.swift in Sources */,
+				022BE7B22434AEFD005146D1 /* GenSearch.swift in Sources */,
 				0225D990242D1B75005FF4A2 /* DefLocation.swift in Sources */,
 				02CFFA0623E0BD8B00FDE5B9 /* DefItemJSON.swift in Sources */,
 				022BD9B92431F56400FC34D4 /* GatherJobImport.swift in Sources */,
