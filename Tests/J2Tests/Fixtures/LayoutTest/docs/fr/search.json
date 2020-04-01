@@ -1,0 +1,25 @@
+{
+  "types\/layout.html?swift" : {
+    "abstract" : "A class to demonstrate the separate-child style.",
+    "name" : "Layout"
+  },
+  "types\/layout\/a.html?swift" : {
+    "abstract" : "See b()",
+    "name" : "a()",
+    "parent_name" : "Layout"
+  },
+  "types\/layout\/b.html?swift" : {
+    "abstract" : "See a()",
+    "name" : "b()",
+    "parent_name" : "Layout"
+  },
+  "types\/linkrewrite.html?swift" : {
+    "abstract" : "A class to demonstrate link rewriting.",
+    "name" : "LinkRewrite"
+  },
+  "types\/linkrewrite\/spot.html?swift" : {
+    "abstract" : "Here is a picture",
+    "name" : "spot()",
+    "parent_name" : "LinkRewrite"
+  }
+}

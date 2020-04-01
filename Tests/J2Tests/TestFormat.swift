@@ -219,9 +219,9 @@ class TestFormat: XCTestCase {
 
     #if os(macOS)
     func testAutoLinkLookupObjC() throws {
-        let oMethod = SourceKittenDict.mkObjCMethod(name: "-method:param:", swiftName: "method(param:)")
-        let oProperty = SourceKittenDict.mkObjCProperty(name: "value", swiftName: "value")
-        let oClass = SourceKittenDict.mkObjCClass(name: "OClass", swiftName: "SClass")
+        let oMethod = SourceKittenDict.mkObjCMethod(name: "-method:param:", swiftName: "method(param:)").with(swiftDeclaration: "func method(param: Int)")
+        let oProperty = SourceKittenDict.mkObjCProperty(name: "value", swiftName: "value").with(swiftDeclaration: "var value: Int")
+        let oClass = SourceKittenDict.mkObjCClass(name: "OClass", swiftName: "SClass").with(swiftDeclaration: "class SClass")
             .with(children: [oMethod, oProperty])
         let oClass2 = SourceKittenDict.mkObjCClass(name: "OClass").with(usr: "OClass2") // dup name
 
@@ -288,8 +288,8 @@ class TestFormat: XCTestCase {
     }
 
     func testAutolinkLinks() throws {
-        let oMethod = SourceKittenDict.mkObjCMethod(name: "-method:param:", swiftName: "method(param:)")
-        let oClass = SourceKittenDict.mkObjCClass(name: "OClass", swiftName: "SClass")
+        let oMethod = SourceKittenDict.mkObjCMethod(name: "-method:param:", swiftName: "method(param:)").with(swiftDeclaration: "func method(param: Int)")
+        let oClass = SourceKittenDict.mkObjCClass(name: "OClass", swiftName: "SClass").with(swiftDeclaration: "class SClass")
             .with(children: [oMethod])
         let swClass = SourceKittenDict.mkClass(name: "SwiftClass")
         let passes = SourceKittenDict.mkFile().with(children: [oClass, swClass]).asGatherPasses

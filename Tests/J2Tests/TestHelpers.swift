@@ -157,6 +157,10 @@ extension SourceKittenDict {
         guard let swiftName = swiftName else { return self }
         return with(field: .swiftName, value: swiftName)
     }
+
+    func with(swiftDeclaration: String) -> Self {
+        return with(field: .swiftDeclaration, value: swiftDeclaration)
+    }
     #endif
 
     func with(decl: String) -> Self {

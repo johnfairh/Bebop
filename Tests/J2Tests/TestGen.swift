@@ -254,4 +254,26 @@ class TestGen: XCTestCase {
         }
         XCTAssertTrue(filenames.isEmpty)
     }
+
+    // MARK: Search
+
+    func testSearchGen() throws {
+        let clas = SourceKittenDict
+            .mkObjCClass(name: "OClass", swiftName: "SClass")
+            .with(swiftDeclaration: "class SClass")
+        let passes = SourceKittenDict.mkFile().with(children: [clas]).asGatherPasses
+
+        let config = Config()
+        let merge = Merge(config: config)
+        let group = Group(config: config)
+        let format = Format(config: config)
+        let gen = GenSite(config: config)
+        try config.processOptions(cliOpts: [])
+        let items = try format.format(items: group.group(merged: merge.merge(gathered: passes)))
+        gen.search.buildIndex(items: items)
+        
+        XCTAssertEqual(2, gen.search.entries.count)
+        XCTAssertEqual("OClass", gen.search.entries[0].name)
+        XCTAssertEqual("SClass", gen.search.entries[1].name)
+    }
 }

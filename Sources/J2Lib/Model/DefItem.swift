@@ -91,8 +91,23 @@ public class DefItem: Item, CustomStringConvertible {
         self.defKind = kind
         self.usr = USR(usr)
         self.documentation = RichDefDocs(gatherDef.translatedDocs )
-        self.swiftDeclaration = gatherDef.swiftDeclaration
-        self.objCDeclaration = gatherDef.objCDeclaration
+
+        if kind.isObjC {
+            self.objCDeclaration = gatherDef.objCDeclaration
+            acl = DefAcl.forObjC
+            // police entire Swift personality - name + decl
+            if let swiftName = gatherDef.sourceKittenDict.swiftName,
+                let swiftDecl = gatherDef.swiftDeclaration {
+                otherLanguageName = swiftName
+                self.swiftDeclaration = swiftDecl
+            } else {
+                otherLanguageName = nil
+            }
+        } else {
+            self.swiftDeclaration = gatherDef.swiftDeclaration
+            acl = DefAcl(name: name, dict: gatherDef.sourceKittenDict)
+            otherLanguageName = nil // todo swift->objc
+        }
 
         let deprecations = [objCDeclaration?.deprecation,
                             swiftDeclaration?.deprecation].compactMap { $0 }
@@ -102,14 +117,6 @@ public class DefItem: Item, CustomStringConvertible {
             self.deprecationNotice = nil
         }
         self.unavailableNotice = objCDeclaration?.unavailability.flatMap(RichText.init)
-
-        if kind.isObjC {
-            otherLanguageName = gatherDef.sourceKittenDict.swiftName
-            acl = DefAcl.forObjC
-        } else {
-            otherLanguageName = nil // todo swift->objc
-            acl = DefAcl(name: name, dict: gatherDef.sourceKittenDict)
-        }
 
         // Sort out children.
         // - Generic type params need to be pulled into us for reference later; we don't

@@ -166,15 +166,14 @@ class TestProducts: XCTestCase {
         let goodDocsURL = layoutRoot.appendingPathComponent("docs")
         let newDocsURL  = tmpDir.directoryURL
 
-        guard let enumerator =
-            FileManager.default.enumerator(atPath: goodDocsURL.path) else {
-            XCTFail("No enumerator?")
-            return
+        let goodFiles = enumeratedFiles(under: goodDocsURL).sorted()
+        let newFiles = enumeratedFiles(under: newDocsURL).sorted()
+        if goodFiles != newFiles {
+            let diff = newFiles.difference(from: goodFiles)
+            XCTFail("File manifest difference: \(diff)")
         }
-        for case let path as String in enumerator {
-            guard path.re_isMatch(#"(html|json)$"#) else {
-                continue
-            }
+
+        try newFiles.forEach { path in
             let goodFileURL = goodDocsURL.appendingPathComponent(path)
             let newFileURL = newDocsURL.appendingPathComponent(path)
             let goodVersion = try String(contentsOf: goodFileURL)
@@ -183,6 +182,17 @@ class TestProducts: XCTestCase {
                 XCTFail("Mismatch on \(path).")
                 print("diff \(goodFileURL.path) \(newFileURL.path)")
             }
+        }
+    }
+
+    func enumeratedFiles(under url: URL) -> [String] {
+        let enumerator = FileManager.default.enumerator(atPath: url.path)!
+        return enumerator.compactMap {
+            guard let path = $0 as? String,
+                path.re_isMatch(#"(html|json)$"#) else {
+                    return nil
+            }
+            return path
         }
     }
 }

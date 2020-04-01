@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
   name: "J2",
   platforms: [
-    .macOS("10.13")
+    .macOS("10.15")
   ],
   products: [
     .executable(name: "j2", targets: ["J2Lib", "J2CLI"])

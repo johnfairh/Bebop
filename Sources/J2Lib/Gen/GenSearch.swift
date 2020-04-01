@@ -17,7 +17,7 @@ import Foundation
 /// Could maybe look at including the name-piece-name thing in the index, but a bit
 /// scared of bulking up the json too much.
 ///
-/// - important: all the hard-coded strings here are shared by fw2020.js
+/// - important: All the hard-coded strings here are shared with `fw2020.js`.
 final class GenSearch: Configurable {
     init(config: Config) {
         config.register(self)
