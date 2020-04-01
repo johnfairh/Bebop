@@ -331,7 +331,7 @@ const searchControl = {
     this.failedMessage = $('#text-failed').text()
     this.notFoundMessage = $('#text-notfound').text()
 
-    const $typeaheads = $('input')
+    const $typeaheads = $('[type=search]')
 
     $typeaheads.each((_, entry) => {
       const searchEntryFormat = entry.dataset.searchFormat
