@@ -154,7 +154,7 @@ final class GatherJobOpts: Configurable, CustomStringConvertible {
                                   fileURLs: sourcekittenJSONFilesOpt.value,
                                   availability: availability))
         } else if j2JSONFilesOpt.configured {
-            jobs.append(GatherJob(importTitle: "Decls JSON import module \(moduleName ?? "(all)")\(passStr)",
+            jobs.append(GatherJob(importTitle: "JSON import module \(moduleName ?? "(all)")\(passStr)",
                                   moduleName: moduleName,
                                   passIndex: passIndex,
                                   fileURLs: j2JSONFilesOpt.value))

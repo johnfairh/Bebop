@@ -329,9 +329,9 @@ extension GatherDef {
                   translatedDocs: nil)
     }
 
-    func asPass(moduleName: String = "module", pathName: String = "pathname") -> GatherModulePass {
+    func asPass(moduleName: String = "module", passIndex: Int = 0, pathName: String = "pathname") -> GatherModulePass {
         GatherModulePass(moduleName: moduleName,
-                         passIndex: 0,
+                         passIndex: passIndex,
                          imported: false,
                          files: [(pathName, self)])
     }

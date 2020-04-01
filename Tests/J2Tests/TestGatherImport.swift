@@ -241,12 +241,85 @@ class TestGatherImport: XCTestCase {
         #endif
     }
 
-    // Filtering.
-    // Make a file using APIs containing module A and two passes over module B,
-    // one differently named class in each.
-    // Then just import, hit the paths.
+    func testImportFiltering() throws {
+        let classA = SourceKittenDict.mkClass(name: "ClassA")
+        let moduleA = SourceKittenDict.mkFile()
+            .with(children: [classA])
+            .asGatherDef()
+            .asPass(moduleName: "ModA")
+        let classB = SourceKittenDict.mkClass(name: "ClassB")
+        let moduleBpass0 = SourceKittenDict.mkFile()
+            .with(children: [classB])
+            .asGatherDef()
+            .asPass(moduleName: "ModB", passIndex: 0)
+        let classC = SourceKittenDict.mkClass(name: "ClassC")
+        let moduleBpass1 = SourceKittenDict.mkFile()
+            .with(children: [classC])
+            .asGatherDef()
+            .asPass(moduleName: "ModB", passIndex: 1)
 
-    // Bad data
-    // manual broken metadata
-    // manual from the future
+        let tmpDir = try TemporaryDirectory()
+        let jsonURL = tmpDir.directoryURL.appendingPathComponent("files.json")
+        try [moduleA, moduleBpass0, moduleBpass1].json.write(to: jsonURL)
+
+        // Unfiltered
+        let unfiltered = try GatherSystem().gather(["--j2-json-files=\(jsonURL.path)"])
+        XCTAssertEqual(3, unfiltered.count)
+
+        // Module
+        let moduleFiltered = try GatherSystem().gather([
+            "--j2-json-files=\(jsonURL.path)",
+            "--modules=ModA"
+        ])
+        XCTAssertEqual(1, moduleFiltered.count)
+        XCTAssertEqual("ClassA", moduleFiltered[0].files[0].1.children[0].sourceKittenDict.name)
+
+        // Module + Pass
+        let yaml = """
+                   custom_modules:
+                     - module: ModB
+                       passes:
+                         - j2_json_files: \(jsonURL.path)
+                         - j2_json_files: \(jsonURL.path)
+                   """
+        let configURL = tmpDir.directoryURL.appendingPathComponent("j2.yaml")
+        try yaml.write(to: configURL)
+        let passFiltered = try GatherSystem().gather(["--config=\(configURL.path)"])
+        XCTAssertEqual(2, passFiltered.count)
+    }
+
+    func testBadImportJson() throws {
+        let tmpDir = try TemporaryDirectory()
+
+        // Bad metadata
+        let badMetadata = """
+                          [{
+                            "path" : {
+                             "not" : "metadata"
+                            }
+                          }]
+                          """
+        let badMetaURL = tmpDir.directoryURL.appendingPathComponent("bad.json")
+        try badMetadata.write(to: badMetaURL)
+        TestLogger.install()
+        let passes = try GatherSystem().gather(["--j2-json-files=\(badMetaURL.path)"])
+        XCTAssertEqual(1, TestLogger.shared.diagsBuf.count)
+        XCTAssertTrue(passes.isEmpty)
+
+        // Bad version number
+        let badVersion = """
+                          [{
+                            "path" : {
+                              "key.j2.module_name" : "Mod",
+                              "key.j2.pass_index" : 0,
+                              "key.j2.version" : "10.1",
+                            }
+                          }]
+                          """
+        try badVersion.write(to: badMetaURL)
+        TestLogger.install()
+        let passes2 = try GatherSystem().gather(["--j2-json-files=\(badMetaURL.path)"])
+        XCTAssertEqual(1, TestLogger.shared.diagsBuf.count)
+        XCTAssertTrue(passes2.isEmpty)
+    }
 }
