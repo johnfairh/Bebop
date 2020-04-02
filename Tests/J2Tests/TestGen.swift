@@ -258,6 +258,7 @@ class TestGen: XCTestCase {
     // MARK: Search
 
     #if os(macOS)
+    /// Just an interesting-path test, covered in TestProducts
     func testSearchGen() throws {
         let clas = SourceKittenDict
             .mkObjCClass(name: "OClass", swiftName: "SClass")
@@ -278,4 +279,23 @@ class TestGen: XCTestCase {
         XCTAssertEqual("SClass", gen.search.entries[1].name)
     }
     #endif
+
+    // MARK: Brand
+
+    private func checkConfigError(yaml: String) throws {
+        let system = System()
+        let cfgFileURL = FileManager.default.temporaryFileURL()
+        try yaml.write(to: cfgFileURL)
+        AssertThrows(try system.configure(cliOpts: ["--config=\(cfgFileURL.path)"]), OptionsError.self)
+    }
+
+    /// Bad-path again, covered in LayoutTest
+    func testBrandConfigErrors() throws {
+
+        let missingImg = "custom_brand:\n  alt_text: Fred\n"
+        try checkConfigError(yaml: missingImg)
+
+        let badImg = "custom_brand:\n  image_name: Fred\n"
+        try checkConfigError(yaml: badImg)
+    }
 }
