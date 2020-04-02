@@ -45,6 +45,8 @@ extension GatherJob {
                 if module == nil {
                     throw GatherError(.localized(.errSktnSpm))
                 }
+            default:
+                preconditionFailure("Bad build tool for Swift source: \(actualBuildTool)")
             }
 
             logDebug(" Calling sourcekitten docs generation")

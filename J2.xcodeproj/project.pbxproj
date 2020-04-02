@@ -27,6 +27,7 @@
 		022BE7B22434AEFD005146D1 /* GenSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022BE7B12434AEFD005146D1 /* GenSearch.swift */; };
 		022BE7B42434F33D005146D1 /* GenBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022BE7B32434F33D005146D1 /* GenBadge.swift */; };
 		022BE7B72435215F005146D1 /* GenBrand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022BE7B62435215F005146D1 /* GenBrand.swift */; };
+		022BE7B92436433F005146D1 /* GatherJobSymbolGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022BE7B82436433F005146D1 /* GatherJobSymbolGraph.swift */; };
 		0233D51D23EED547004DCD89 /* GroupItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D51C23EED547004DCD89 /* GroupItem.swift */; };
 		0233D52423EF0CC3004DCD89 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D52323EF0CC3004DCD89 /* Identifiers.swift */; };
 		0233D52623EF11F6004DCD89 /* TestIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D52523EF11F6004DCD89 /* TestIdentifiers.swift */; };
@@ -250,6 +251,7 @@
 		022BE7B12434AEFD005146D1 /* GenSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenSearch.swift; sourceTree = "<group>"; };
 		022BE7B32434F33D005146D1 /* GenBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenBadge.swift; sourceTree = "<group>"; };
 		022BE7B62435215F005146D1 /* GenBrand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenBrand.swift; sourceTree = "<group>"; };
+		022BE7B82436433F005146D1 /* GatherJobSymbolGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherJobSymbolGraph.swift; sourceTree = "<group>"; };
 		0233D51C23EED547004DCD89 /* GroupItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupItem.swift; sourceTree = "<group>"; };
 		0233D52323EF0CC3004DCD89 /* Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
 		0233D52523EF11F6004DCD89 /* TestIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestIdentifiers.swift; sourceTree = "<group>"; };
@@ -569,6 +571,7 @@
 				0259E18C2413C0A7006435A1 /* GatherJobSwift.swift */,
 				0259E18E2413C12A006435A1 /* GatherJobObjC.swift */,
 				022BD9B82431F56400FC34D4 /* GatherJobImport.swift */,
+				022BE7B82436433F005146D1 /* GatherJobSymbolGraph.swift */,
 				02CFF92423DDFFC900FDE5B9 /* GatherDef.swift */,
 				02CFFA2B23E45F4F00FDE5B9 /* GatherSwiftDecl.swift */,
 				028321D623FB1F4F00B2C555 /* GatherObjCDecl.swift */,
@@ -916,6 +919,7 @@
 				02CFFA4023E5CFF800FDE5B9 /* DefKind.swift in Sources */,
 				0233D52B23EF1598004DCD89 /* ItemVisitorProtocol.swift in Sources */,
 				0259E19C241D74CD006435A1 /* FormatAbstracts.swift in Sources */,
+				022BE7B92436433F005146D1 /* GatherJobSymbolGraph.swift in Sources */,
 				02CFFA4623E75DF500FDE5B9 /* GatherDeclPieces.swift in Sources */,
 				02FDC67A23E876D300C2F9CD /* DefDocs.swift in Sources */,
 				02FDC68623E9EEE900C2F9CD /* GatherLocalize.swift in Sources */,

@@ -17,13 +17,15 @@ enum GatherJob : Equatable {
     case objcDirect(title: String, job: ObjCDirect)
     case sourcekitten(title: String, job: SourceKitten)
     case jsonImport(title: String, job: JSONImport)
+    case symbolgraph(title: String, job: SymbolGraph)
 
     var title: String {
         switch self {
         case .swift(let title, _),
              .objcDirect(let title, _),
              .sourcekitten(let title, _),
-             .jsonImport(let title, _): return title
+             .jsonImport(let title, _),
+             .symbolgraph(let title, _): return title
         }
     }
 
@@ -33,6 +35,7 @@ enum GatherJob : Equatable {
         case .objcDirect(_, _): return .objc
         // Use --default-language to override this
         case .sourcekitten(_, _), .jsonImport(_, _): return .swift
+        case .symbolgraph(_, _): return .swift
         }
     }
 
@@ -40,6 +43,7 @@ enum GatherJob : Equatable {
         switch self {
         case .swift(_, let job): return job.srcDir
         case .objcDirect(_, _), .sourcekitten(_, _), .jsonImport(_, _): return nil
+        case .symbolgraph(_, let job): return job.srcDir
         }
     }
 
@@ -63,6 +67,9 @@ enum GatherJob : Equatable {
 
         case let .jsonImport(_, job):
             return try job.execute()
+
+        case let .symbolgraph(_, job):
+            return try [job.execute()]
         }
     }
 
@@ -131,5 +138,22 @@ enum GatherJob : Equatable {
                            job: JSONImport(moduleName: moduleName,
                                            passIndex: passIndex,
                                            fileURLs: fileURLs))
+    }
+
+    /// Init helper for symbolgraph import
+    init(symbolgraphTitle: String,
+         moduleName: String,
+         srcDir: URL?,
+         buildToolArgs: [String],
+         sdk: Gather.Sdk,
+         target: String,
+         availability: Gather.Availability) {
+        self = .symbolgraph(title: symbolgraphTitle,
+                            job: SymbolGraph(moduleName: moduleName,
+                                             srcDir: srcDir,
+                                             buildToolArgs: buildToolArgs,
+                                             sdk: sdk,
+                                             target: target,
+                                             availability: availability))
     }
 }

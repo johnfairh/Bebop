@@ -15,8 +15,10 @@ final class GatherJobOpts: Configurable, CustomStringConvertible {
     let srcDirOpt = PathOpt(l: "source-directory").help("DIRPATH")
     let buildToolOpt = EnumOpt<Gather.BuildTool>(l: "build-tool")
     let buildToolArgsOpt = StringListOpt(s: "b", l: "build-tool-arguments").help("ARG1,ARG2...")
+
     let availabilityDefaultsOpt = StringListOpt(l: "availability-defaults").help("AVAILABILITY1,AVAILABILITY2,...")
     let ignoreAvailabilityAttrOpt = BoolOpt(l: "ignore-availability-attr")
+
     let sourcekittenJSONFilesOpt = PathListOpt(s: "s", l: "sourcekitten-json-files").help("FILEPATH1,FILEPATH2,...")
     let j2JSONFilesOpt = PathListOpt(l: "j2-json-files").help("FILEPATH1,FILEPATH2,...")
 
@@ -24,9 +26,15 @@ final class GatherJobOpts: Configurable, CustomStringConvertible {
     let objcHeaderFileOpt = PathOpt(l: "objc-header-file").help("FILEPATH")
     let objcIncludePathsOpt = PathListOpt(l: "objc-include-paths").help("DIRPATH1,DIRPATH2,...")
     let sdkOpt = EnumOpt<Gather.Sdk>(l: "sdk").def(.macosx)
+    var sdk: Gather.Sdk { sdkOpt.value! }
+
+    let swiftSymbolGraphTargetOpt = StringOpt(l: "swift-symbolgraph-target").def("x86_64-apple-macosx10.15")
+    var swiftSymbolGraphTarget: String { swiftSymbolGraphTargetOpt.value! }
 
     var description: String {
-        "GatherJobOpts {\(srcDirOpt) \(buildToolOpt) \(buildToolArgsOpt) \(availabilityDefaultsOpt) \(ignoreAvailabilityAttrOpt) \(objcDirectOpt) \(objcHeaderFileOpt) \(objcIncludePathsOpt) \(sdkOpt)} \(sourcekittenJSONFilesOpt) \(j2JSONFilesOpt)"
+        "GatherJobOpts {\(srcDirOpt) \(buildToolOpt) \(buildToolArgsOpt) \(availabilityDefaultsOpt) \(ignoreAvailabilityAttrOpt) \(objcDirectOpt) " +
+        "\(objcHeaderFileOpt) \(objcIncludePathsOpt) \(sdkOpt)} \(sourcekittenJSONFilesOpt) \(j2JSONFilesOpt) " +
+        "\(swiftSymbolGraphTargetOpt)} "
     }
 
     /// First pass of options-checking, that individual things entered are valid
@@ -40,6 +48,11 @@ final class GatherJobOpts: Configurable, CustomStringConvertible {
         try objcIncludePathsOpt.checkAreDirectories()
         try sourcekittenJSONFilesOpt.checkAreFiles()
         try j2JSONFilesOpt.checkAreFiles()
+
+        let targetTriple = swiftSymbolGraphTarget.components(separatedBy: "-")
+        if targetTriple.count != 3 {
+            throw OptionsError("Value for --swift-symbolgraph-target does not look like an LLVM target triple: \(swiftSymbolGraphTarget).")
+        }
     }
 
     /// Update configuration from a parent set that we're specializing
@@ -84,6 +97,8 @@ final class GatherJobOpts: Configurable, CustomStringConvertible {
             !objcHeaderFileOpt.configured {
             j2JSONFilesOpt.cascade(from: from.j2JSONFilesOpt)
         }
+        // swift-symbolgraph-target: always cascde, driven by buildtool
+        swiftSymbolGraphTargetOpt.cascade(from: from.swiftSymbolGraphTargetOpt)
     }
 
     /// Second pass of options-checking, of inter-option consistency after parent cascade
@@ -143,7 +158,7 @@ final class GatherJobOpts: Configurable, CustomStringConvertible {
                                   moduleName: moduleName!,
                                   headerFile: objcHeaderFile,
                                   includePaths: objcIncludePathsOpt.value,
-                                  sdk: sdkOpt.value!,
+                                  sdk: sdk,
                                   buildToolArgs: buildToolArgsOpt.value,
                                   availability: availability))
             #endif
@@ -158,8 +173,17 @@ final class GatherJobOpts: Configurable, CustomStringConvertible {
                                   moduleName: moduleName,
                                   passIndex: passIndex,
                                   fileURLs: j2JSONFilesOpt.value))
+        } else if let buildTool = buildToolOpt.value, buildTool == .swift_symbolgraph {
+            // Swift from .swiftmodule
+            jobs.append(GatherJob(symbolgraphTitle: "Swift module (symbolgraph) \(moduleName!)\(passStr)",
+                moduleName: moduleName!,
+                srcDir: srcDirOpt.value,
+                buildToolArgs: buildToolArgsOpt.value,
+                sdk: sdk,
+                target: swiftSymbolGraphTarget,
+                availability: availability))
         } else {
-            // Swift
+            // Swift from source
             jobs.append(GatherJob(swiftTitle: "Swift module \(moduleName ?? "(default)")\(passStr)",
                                   moduleName: moduleName,
                                   srcDir: srcDirOpt.value,
@@ -190,6 +214,7 @@ extension Gather {
     enum BuildTool: String, CaseIterable {
         case spm
         case xcodebuild
+        case swift_symbolgraph
     }
 
     /// Collected availability options

@@ -88,6 +88,12 @@ final class GatherOpts : Configurable {
             logWarning(.localized(.wrnObjcModule))
             moduleNamesOpt.set(string: "Module")
         }
+
+        if let buildTool = rootPassOpts.buildToolOpt.value,
+            buildTool == .swift_symbolgraph,
+            !customModulesOpts.configured && !moduleNamesOpt.configured {
+            throw OptionsError("Must set a module name to use --build-tool=swift-symbolgraph.")
+        }
     }
 
     /// Publish module names & grouping policies.  This is a bit contorted:
