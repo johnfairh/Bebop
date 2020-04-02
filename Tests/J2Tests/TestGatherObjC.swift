@@ -138,7 +138,7 @@ class TestGatherObjC: XCTestCase {
                            sdk: .macosx))
 
         try checkJob(["--objc-header-file=\(tmpFile.path)",
-                      "--objc-sdk=iphoneos",
+                      "--sdk=iphoneos",
                       "--objc-include-paths=\(tmpDir.directoryURL.path)"],
                      .init(objcTitle: "",
                            moduleName: "Module",

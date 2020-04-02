@@ -31,7 +31,6 @@ final class GatherOpts : Configurable {
     let objcJazzyAlias: AliasOpt
     let umbrellaHeaderAlias: AliasOpt
     let frameworkRootAlias: AliasOpt
-    let sdkAlias: AliasOpt
     let moduleAlias: AliasOpt
     let sourcekittenSourceFileAlias: AliasOpt
 
@@ -41,7 +40,6 @@ final class GatherOpts : Configurable {
         objcJazzyAlias = AliasOpt(realOpt: rootPassOpts.objcDirectOpt, l: "objc")
         umbrellaHeaderAlias = AliasOpt(realOpt: rootPassOpts.objcHeaderFileOpt, l: "umbrella-header")
         frameworkRootAlias = AliasOpt(realOpt: rootPassOpts.objcIncludePathsOpt, l: "framework-root")
-        sdkAlias = AliasOpt(realOpt: rootPassOpts.objcSdkOpt, l: "sdk")
         sourcekittenSourceFileAlias = AliasOpt(realOpt: rootPassOpts.sourcekittenJSONFilesOpt, l: "sourcekitten-sourcefile")
         moduleAlias = AliasOpt(realOpt: moduleNamesOpt, l: "module")
         published = config.published

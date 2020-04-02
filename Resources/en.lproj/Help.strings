@@ -102,7 +102,7 @@ guess compiler flags.";
 "objc-include-paths" = "List of directories to add to the Objective-C compiler include search path,
 used to resolve header file inclusions in direct mode.  Adds the given
 directory and all subdirectories en route to header files.";
-"objc-sdk" = "The SDK to compile Objective-C against, used only in direct mode.
+"sdk" = "The SDK to use in Objective-C or Swift SymbolGraph mode.
 Default: 'macosx'";
 "default-language" = "Set the default language for documentation generated from definitions that
 are present in both Objective-C and Swift.

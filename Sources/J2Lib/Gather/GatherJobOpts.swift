@@ -23,10 +23,10 @@ final class GatherJobOpts: Configurable, CustomStringConvertible {
     let objcDirectOpt = BoolOpt(l: "objc-direct")
     let objcHeaderFileOpt = PathOpt(l: "objc-header-file").help("FILEPATH")
     let objcIncludePathsOpt = PathListOpt(l: "objc-include-paths").help("DIRPATH1,DIRPATH2,...")
-    let objcSdkOpt = EnumOpt<Gather.Sdk>(l: "objc-sdk").def(.macosx)
+    let sdkOpt = EnumOpt<Gather.Sdk>(l: "sdk").def(.macosx)
 
     var description: String {
-        "GatherJobOpts {\(srcDirOpt) \(buildToolOpt) \(buildToolArgsOpt) \(availabilityDefaultsOpt) \(ignoreAvailabilityAttrOpt) \(objcDirectOpt) \(objcHeaderFileOpt) \(objcIncludePathsOpt) \(objcSdkOpt)} \(sourcekittenJSONFilesOpt) \(j2JSONFilesOpt)"
+        "GatherJobOpts {\(srcDirOpt) \(buildToolOpt) \(buildToolArgsOpt) \(availabilityDefaultsOpt) \(ignoreAvailabilityAttrOpt) \(objcDirectOpt) \(objcHeaderFileOpt) \(objcIncludePathsOpt) \(sdkOpt)} \(sourcekittenJSONFilesOpt) \(j2JSONFilesOpt)"
     }
 
     /// First pass of options-checking, that individual things entered are valid
@@ -74,8 +74,8 @@ final class GatherJobOpts: Configurable, CustomStringConvertible {
         }
         // objcincludepaths: always cascade
         objcIncludePathsOpt.cascade(from: from.objcIncludePathsOpt)
-        // objcsdk: always cascade
-        objcSdkOpt.cascade(from: from.objcSdkOpt)
+        // sdk: always cascade
+        sdkOpt.cascade(from: from.sdkOpt)
         // sourcekittensourcefiles: never cascade
         // declsjsonfiles: cascade unless some built tool option set (mutually exclusive)
         if !buildToolOpt.configured &&
@@ -93,7 +93,7 @@ final class GatherJobOpts: Configurable, CustomStringConvertible {
             throw OptionsError(.localized(.errObjcBuildTools))
         }
 
-        if (objcDirectOpt.configured || objcIncludePathsOpt.configured || objcSdkOpt.configured) &&
+        if (objcDirectOpt.configured || objcIncludePathsOpt.configured) &&
             !objcHeaderFileOpt.configured {
             throw OptionsError(.localized(.errObjcNoHeader))
         }
@@ -135,15 +135,15 @@ final class GatherJobOpts: Configurable, CustomStringConvertible {
 
         let passStr = passIndex.flatMap { " pass \($0)" } ?? ""
 
-        if objcHeaderFileOpt.configured {
+        if let objcHeaderFile = objcHeaderFileOpt.value {
             precondition(objcDirectOpt.configured)
             precondition(moduleName != nil)
             #if os(macOS)
             jobs.append(GatherJob(objcTitle: "Objective-C module \(moduleName!)\(passStr)",
                                   moduleName: moduleName!,
-                                  headerFile: objcHeaderFileOpt.value!,
+                                  headerFile: objcHeaderFile,
                                   includePaths: objcIncludePathsOpt.value,
-                                  sdk: objcSdkOpt.value!,
+                                  sdk: sdkOpt.value!,
                                   buildToolArgs: buildToolArgsOpt.value,
                                   availability: availability))
             #endif
