@@ -26,6 +26,8 @@ enum Glob {
         public init(_ pattern: String) { self.init(stringLiteral: pattern) }
         public init(stringLiteral value: String) { self.value = value }
         var description: String { value }
+
+        static var all = Self("*")
     }
 
     /// Return the list of files that match a pattern.

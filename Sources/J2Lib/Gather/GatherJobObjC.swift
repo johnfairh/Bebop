@@ -60,11 +60,7 @@ extension GatherJob {
                 return buildToolArgs + includePathArgs
             }
 
-            let sdkPathResults = Exec.run("/usr/bin/env", "xcrun", "--show-sdk-path", "--sdk", sdk.rawValue, stderr: .merge)
-            guard let sdkPath = sdkPathResults.successString else {
-                throw GatherError(.localized(.errObjcSdk) + "\n\(sdkPathResults.failureReport)")
-            }
-            return ["-x", "objective-c", "-isysroot", sdkPath, "-fmodules"] + includePathArgs + buildToolArgs
+            return ["-x", "objective-c", "-isysroot", try sdk.getPath(), "-fmodules"] + includePathArgs + buildToolArgs
         }
 
         /// Given a list of places where header files might be, churn out a list of include options that should

@@ -51,7 +51,7 @@ final class GatherJobOpts: Configurable, CustomStringConvertible {
 
         let targetTriple = swiftSymbolGraphTarget.components(separatedBy: "-")
         if targetTriple.count != 3 {
-            throw OptionsError("Value for --swift-symbolgraph-target does not look like an LLVM target triple: \(swiftSymbolGraphTarget).")
+            throw OptionsError(.localized(.errCfgSsgeTriple, swiftSymbolGraphTarget))
         }
     }
 
@@ -97,7 +97,7 @@ final class GatherJobOpts: Configurable, CustomStringConvertible {
             !objcHeaderFileOpt.configured {
             j2JSONFilesOpt.cascade(from: from.j2JSONFilesOpt)
         }
-        // swift-symbolgraph-target: always cascde, driven by buildtool
+        // swift-symbolgraph-target: always cascade, use driven by buildtool
         swiftSymbolGraphTargetOpt.cascade(from: from.swiftSymbolGraphTargetOpt)
     }
 
@@ -120,7 +120,7 @@ final class GatherJobOpts: Configurable, CustomStringConvertible {
 
         if j2JSONFilesOpt.configured &&
             (sourcekittenJSONFilesOpt.configured || buildToolOpt.configured || objcDirectOpt.configured || objcHeaderFileOpt.configured) {
-            throw OptionsError("decls-json-files set with other incompatible things")
+            throw OptionsError(.localized(.errCfgJ2jsonMutex))
         }
 
         if objcHeaderFileOpt.configured && !objcDirectOpt.configured &&
@@ -208,6 +208,14 @@ extension Gather {
         case appletvsimulator
         case watchos
         case watchsimulator
+
+        func getPath() throws -> String {
+            let sdkPathResults = Exec.run("/usr/bin/env", "xcrun", "--show-sdk-path", "--sdk", rawValue, stderr: .merge)
+            guard let sdkPath = sdkPathResults.successString else {
+                throw GatherError(.localized(.errSdk) + "\n\(sdkPathResults.failureReport)")
+            }
+            return sdkPath
+        }
     }
 
     /// Build tool for Swift/etc building

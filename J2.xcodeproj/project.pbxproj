@@ -28,6 +28,7 @@
 		022BE7B42434F33D005146D1 /* GenBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022BE7B32434F33D005146D1 /* GenBadge.swift */; };
 		022BE7B72435215F005146D1 /* GenBrand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022BE7B62435215F005146D1 /* GenBrand.swift */; };
 		022BE7B92436433F005146D1 /* GatherJobSymbolGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022BE7B82436433F005146D1 /* GatherJobSymbolGraph.swift */; };
+		022BE7BB24367F2F005146D1 /* GatherSymbolGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022BE7BA24367F2F005146D1 /* GatherSymbolGraph.swift */; };
 		0233D51D23EED547004DCD89 /* GroupItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D51C23EED547004DCD89 /* GroupItem.swift */; };
 		0233D52423EF0CC3004DCD89 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D52323EF0CC3004DCD89 /* Identifiers.swift */; };
 		0233D52623EF11F6004DCD89 /* TestIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D52523EF11F6004DCD89 /* TestIdentifiers.swift */; };
@@ -252,6 +253,7 @@
 		022BE7B32434F33D005146D1 /* GenBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenBadge.swift; sourceTree = "<group>"; };
 		022BE7B62435215F005146D1 /* GenBrand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenBrand.swift; sourceTree = "<group>"; };
 		022BE7B82436433F005146D1 /* GatherJobSymbolGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherJobSymbolGraph.swift; sourceTree = "<group>"; };
+		022BE7BA24367F2F005146D1 /* GatherSymbolGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherSymbolGraph.swift; sourceTree = "<group>"; };
 		0233D51C23EED547004DCD89 /* GroupItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupItem.swift; sourceTree = "<group>"; };
 		0233D52323EF0CC3004DCD89 /* Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
 		0233D52523EF11F6004DCD89 /* TestIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestIdentifiers.swift; sourceTree = "<group>"; };
@@ -581,6 +583,7 @@
 				02FDC68523E9EEE900C2F9CD /* GatherLocalize.swift */,
 				02CFF92A23DEF49400FDE5B9 /* GatherJSON.swift */,
 				02D00C7F2406D74700DD93C5 /* GatherSourceKitten.swift */,
+				022BE7BA24367F2F005146D1 /* GatherSymbolGraph.swift */,
 			);
 			path = Gather;
 			sourceTree = "<group>";
@@ -942,6 +945,7 @@
 				022818B823D1C2E00016B0D5 /* Options.swift in Sources */,
 				0259E18B24111099006435A1 /* GatherJobOpts.swift in Sources */,
 				0257280723DB50B40001F510 /* Resources.swift in Sources */,
+				022BE7BB24367F2F005146D1 /* GatherSymbolGraph.swift in Sources */,
 				0233D53B23F09E0D004DCD89 /* GenMustache.swift in Sources */,
 				0233D54923F6F2ED004DCD89 /* FormatMarkdown.swift in Sources */,
 				0233D53523F067EE004DCD89 /* GenPages.swift in Sources */,

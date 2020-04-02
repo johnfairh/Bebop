@@ -92,7 +92,7 @@ final class GatherOpts : Configurable {
         if let buildTool = rootPassOpts.buildToolOpt.value,
             buildTool == .swift_symbolgraph,
             !customModulesOpts.configured && !moduleNamesOpt.configured {
-            throw OptionsError("Must set a module name to use --build-tool=swift-symbolgraph.")
+            throw OptionsError(.localized(.errCfgSsgeModule))
         }
     }
 

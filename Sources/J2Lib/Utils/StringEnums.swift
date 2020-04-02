@@ -40,6 +40,8 @@ internal enum L10n {
     case errCfgDupModMerge = "err-cfg-dup-mod-merge"
     /// Missing field from guide_title entry, must have both 'name' and 'title': '%1'
     case errCfgGuideTitleFields = "err-cfg-guide-title-fields"
+    /// Both --j2-json-files and other data-source options are set: choose just one.
+    case errCfgJ2jsonMutex = "err-cfg-j2json-mutex"
     /// Unexpected multiple values '%1' for config key '%2', expecting just one.
     case errCfgMultiSeq = "err-cfg-multi-seq"
     /// Unexpected YAML, mapping key is '%1', expected scalar.
@@ -60,6 +62,16 @@ internal enum L10n {
     case errCfgSknCustomModules = "err-cfg-skn-custom-modules"
     /// Can't use --sourcekitten-sourcefiles with multivalued --modules.
     case errCfgSknMultiModules = "err-cfg-skn-multi-modules"
+    /// Can't set '%1' as part of custom `swift symbolgraph` arguments.
+    case errCfgSsgeArgs = "err-cfg-ssge-args"
+    /// Running `swift symbolgraph-extract` failed.  Report:
+    case errCfgSsgeExec = "err-cfg-ssge-exec"
+    /// Running `swift symbolgraph-extract` didn't create a main symbols file.
+    case errCfgSsgeMainMissing = "err-cfg-ssge-main-missing"
+    /// Must set a module name to use --build-tool=swift-symbolgraph.
+    case errCfgSsgeModule = "err-cfg-ssge-module"
+    /// Value for --swift-symbolgraph-target does not like an LLVM target triple: '%1'
+    case errCfgSsgeTriple = "err-cfg-ssge-triple"
     /// Unexpected text '%1' for config key '%2', expected boolean.
     case errCfgTextNotBool = "err-cfg-text-not-bool"
     /// Missing argument for option '%1'.
@@ -86,8 +98,6 @@ internal enum L10n {
     case errObjcLinux = "err-objc-linux"
     /// Some Objective-C options are set but --objc-header-file is not.
     case errObjcNoHeader = "err-objc-no-header"
-    /// Couldn't find SDK path.
-    case errObjcSdk = "err-objc-sdk"
     /// Unexpected data shape from SourceKitten JSON, can't process dict '%1'.
     case errObjcSourcekitten = "err-objc-sourcekitten"
     /// Path is for a regular file, not a directory: '%1'.
@@ -98,6 +108,8 @@ internal enum L10n {
     case errPathNotFile = "err-path-not-file"
     /// Module name '%1' repeated in --modules.
     case errRepeatedModule = "err-repeated-module"
+    /// Couldn't find SDK path.
+    case errSdk = "err-sdk"
     /// SourceKitten couldn't find build info from `swift build`.  Check the log mentioned above.
     case errSktnSpm = "err-sktn-spm"
     /// SourceKitten couldn't find build info from `xcodebuild`.  Check the log mentioned above; it was looking for a `swiftc` command that included `-module-name`.
@@ -174,6 +186,8 @@ internal enum L10n {
     case wrnSktnIncomplete = "wrn-sktn-incomplete"
     /// Unsupported definition kind '%1', ignoring.
     case wrnSktnKind = "wrn-sktn-kind"
+    /// Confused by `swift symbolgraph-extract` output filename '%1', ignoring.
+    case wrnSsgeOddFilename = "wrn-ssge-odd-filename"
     /// %1 unmatched custom abstracts: '%2'.
     case wrnUnmatchedAbstracts = "wrn-unmatched-abstracts"
     /// Custom group regular expression '/%1/' did not match any items.
