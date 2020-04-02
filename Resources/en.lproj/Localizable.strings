@@ -111,3 +111,5 @@ Ignoring the second.";
 "wrn-j2json-future" = "Can't import J2 JSON file '%1', version '%2' is from a later version of the program.";
 "msg-search-progress" = "Building search index...";
 "msg-copy-progress" = "Copying up files...";
+"err-cfg-brand-missing-image" = "Config key 'image_name' not set under 'custom_brand'.";
+"err-cfg-brand-bad-image" = "Config key 'custom_brand.image_name' of '%1' did not match any file from --media.";

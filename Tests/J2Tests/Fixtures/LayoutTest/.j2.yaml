@@ -17,3 +17,12 @@ title:
   en: "Layout Test Docset"
   fr: "FR Layout Test Docset"
 media: "img/*"
+custom_brand:
+  image_name: bird.jpg
+  title:
+    en: Ladybird
+    fr: Coccinelle
+  alt_text: Picture
+  url:
+    en: https://en.wikipedia.org/wiki/Coccinellidae
+    fr: https://fr.wikipedia.org/wiki/Coccinellidae

@@ -18,6 +18,10 @@ internal enum L10n {
     case errCfgBadMapping = "err-cfg-bad-mapping"
     /// Module merging is disabled for '%1' but `merge_module_group` is set.
     case errCfgBadModMerge = "err-cfg-bad-mod-merge"
+    /// Config key 'custom_brand.image_name' of '%1' did not match any file from --media.
+    case errCfgBrandBadImage = "err-cfg-brand-bad-image"
+    /// Config key 'image_name' not set under 'custom_brand'.
+    case errCfgBrandMissingImage = "err-cfg-brand-missing-image"
     /// Custom def missing 'name' config key: '%1'
     case errCfgCustomDefName = "err-cfg-custom-def-name"
     /// Custom def topic missing 'name' config key: '%1'

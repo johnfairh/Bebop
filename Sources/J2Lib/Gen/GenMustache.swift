@@ -97,6 +97,11 @@ public enum MustacheKey: String {
     case contentHtml = "content_html"
     case apology = "apology"
     case noApologyLanguage = "no_apology_language"
+    // Brand
+    case brandImagePath = "brand_image_path"
+    case brandAltText = "brand_alt_text"
+    case brandTitle = "brand_title"
+    case brandURL = "brand_url"
     // Global, set by SiteGen
     case pathToAssets = "path_to_assets" // empty string or ends in "/"
     case pathFromRoot = "path_from_root"
@@ -171,7 +176,7 @@ private func MH(_ pairs: KeyValuePairs<MustacheKey, Any>) -> MustacheDict {
     MustacheKey.dict(pairs)
 }
 
-private extension Dictionary where Key == String, Value == Any {
+extension Dictionary where Key == String, Value == Any {
     mutating func maybe(_ k: MustacheKey, _ v: Any?) {
         if let v = v {
             self[k.rawValue] = v

@@ -14,11 +14,16 @@ protocol Configurable {
     /// Signal that all user options have been specified.
     /// Perform any in-component cross-option validation.
     func checkOptions(published: Config.Published) throws
+    /// Perform any cross-component validation.
+    func checkOptionsPhase2(published: Config.Published) throws
 }
 
 extension Configurable {
     /// Do nothing by default
     func checkOptions(published: Config.Published) throws {
+    }
+    /// Do nothing by default
+    func checkOptionsPhase2(published: Config.Published) throws {
     }
 }
 
@@ -148,6 +153,7 @@ public final class Config {
         configureLogger(report: true)
 
         try configurables.reversed().forEach { try $0.checkOptions(published: published) } // #1
+        try configurables.reversed().forEach { try $0.checkOptionsPhase2(published: published) }
     }
 
     /// Find the config file, using a configured path or default rules.

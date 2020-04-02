@@ -6,7 +6,12 @@
 
   <div style="align-items-baseline">
     <div class="navbar-brand mr-1 font-weight-slightly-bold">
-      <a href="{{path_to_root}}index.html">{{docs_title}}</a>
+      {{#brand_url}}<a href="{{{.}}}" rel="external">{{/brand_url}}
+      {{^brand_url}}<a href="{{path_to_root}}index.html">{{/brand_url}}
+      {{#brand_image_path}}
+      <img src="{{path_to_root}}{{{.}}}" {{#brand_alt_text}}alt="{{.}}"{{/brand_alt_text}} {{#brand_title}}title="{{.}}"{{/brand_title}} width=30 height=30 class="d-none d-xxs-inline mr-2 mt-n1">
+      {{/brand_image_path}}
+      {{docs_title}}</a>
     </div>
     {{#doc_coverage}}
     <span class="navbar-text j2-coverage font-weight-slightly-bold small d-none d-lg-inline-block mr-2">({{doc_coverage}}% documented)</span>

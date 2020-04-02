@@ -63,6 +63,7 @@ public struct GenSite: Configurable {
     let copyright: GenCopyright
     let search: GenSearch
     let badge: GenBadge
+    let brand: GenBrand
 
     public init(config: Config) {
         themes = GenThemes(config: config)
@@ -70,6 +71,7 @@ public struct GenSite: Configurable {
         copyright = GenCopyright(config: config)
         search = GenSearch(config: config)
         badge = GenBadge(config: config)
+        brand = GenBrand(config: config)
 
         oldHideCoverageOpt = AliasOpt(realOpt: hideCoverageOpt, l: "hide-documentation-coverage")
         oldCustomHeadOpt = AliasOpt(realOpt: customHeadOpt, l: "head")
@@ -175,6 +177,10 @@ public struct GenSite: Configurable {
             mustacheData[.docsTitle] = docsTitle.get(page.languageTag)
             mustacheData[.copyrightHtml] = copyrightText.html.get(page.languageTag).html
             mustacheData[.breadcrumbsRoot] = breadcrumbsRoot.get(page.languageTag)
+            mustacheData.maybe(.brandImagePath, brand.imagePath?.urlPathEncoded)
+            mustacheData.maybe(.brandTitle, brand.title?.get(page.languageTag))
+            mustacheData.maybe(.brandAltText, brand.altText?.get(page.languageTag))
+            mustacheData.maybe(.brandURL, brand.url?.get(page.languageTag))
 
             if Localizations.shared.all.count > 1 {
                 mustacheData[.pageLocalization] =
