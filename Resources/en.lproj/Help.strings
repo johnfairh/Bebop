@@ -167,4 +167,4 @@ Default: Do not use JSON input.";
 Default: Do not use a brand image.";
 "swift-symbolgraph-target" = "LLVM target triple to use with the .swiftmodule in Swift SymbolGraph
 mode.  Use trial and error if the default doesn't work.
-Default: 'x86_64-apple-macosx10.15'";
+Default: The host's target, for example 'x86_64-apple-darwin19.4.0'";

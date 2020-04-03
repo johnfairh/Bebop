@@ -28,8 +28,8 @@ final class GatherJobOpts: Configurable, CustomStringConvertible {
     let sdkOpt = EnumOpt<Gather.Sdk>(l: "sdk").def(.macosx)
     var sdk: Gather.Sdk { sdkOpt.value! }
 
-    let swiftSymbolGraphTargetOpt = StringOpt(l: "swift-symbolgraph-target").def("x86_64-apple-macosx10.15")
-    var swiftSymbolGraphTarget: String { swiftSymbolGraphTargetOpt.value! }
+    let swiftSymbolGraphTargetOpt = StringOpt(l: "swift-symbolgraph-target")
+    var swiftSymbolGraphTarget: String { swiftSymbolGraphTargetOpt.value ?? hostTargetTriple }
 
     var description: String {
         "GatherJobOpts {\(srcDirOpt) \(buildToolOpt) \(buildToolArgsOpt) \(availabilityDefaultsOpt) \(ignoreAvailabilityAttrOpt) \(objcDirectOpt) " +
@@ -194,6 +194,17 @@ final class GatherJobOpts: Configurable, CustomStringConvertible {
 
         return jobs
     }
+
+    lazy var hostTargetTriple: String = {
+        guard let swiftVersionOutput = Exec.run("/usr/bin/env", "swift", "-version").successString,
+            let target = swiftVersionOutput.re_match("Target: (.*)$")?[1] else {
+                let defaultTarget = "x86_64-apple-macosx10.15"
+                logWarning("Can't figure out host target triple, using default '\(defaultTarget)'")
+                return defaultTarget
+        }
+        logDebug("Using host target from `swift -version`: \(target)")
+        return target
+    }()
 }
 
 // MARK: Useful types
