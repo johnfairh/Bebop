@@ -25,8 +25,12 @@ public enum DefAcl: String, Comparable, CaseIterable, Encodable {
 
     // Map from sourcekit name to Acl
     private static let sourceKitMap = [String : DefAcl](
-        uniqueKeysWithValues: DefAcl.allCases.map { el in ("source.lang.swift.accessibility.\(el.rawValue)", el) }
+        uniqueKeysWithValues: DefAcl.allCases.map { ($0.sourceKitName, $0) }
     )
+
+    var sourceKitName: String {
+        "source.lang.swift.accessibility.\(rawValue)"
+    }
 
     /// Initialize from a sourcekit dictionary
     init(name: String, dict: SourceKittenDict) {
