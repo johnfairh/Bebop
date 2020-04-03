@@ -61,7 +61,13 @@ extension GatherJob {
             logDebug("Calling swift-symbolgraph, args:")
             args.forEach { logDebug("  \($0)") }
 
-            let results = Exec.run("/usr/bin/env", ["swift", "symbolgraph-extract"] + args, stderr: .merge)
+            let results: Exec.Results
+            if let injectedPath = ProcessInfo.processInfo.environment["J2_SWIFT_SYMBOLGRAPH_EXTRACT"] {
+                logDebug("Using injected swift-symbolgraph-extract path: \(injectedPath)")
+                results = Exec.run(injectedPath, args, stderr: .merge)
+            } else {
+                results = Exec.run("/usr/bin/env", ["swift", "symbolgraph-extract"] + args, stderr: .merge)
+            }
             if results.terminationStatus != 0 {
                 throw GatherError(.localized(.errCfgSsgeExec) + "\n\(results.failureReport)")
             }
