@@ -1,0 +1,331 @@
+{
+  "metadata": {
+    "formatVersion": {
+      "major": 0,
+      "minor": 4,
+      "patch": 1
+    },
+    "generator": "Swift version 5.3-dev (LLVM aa70751bec, Swift 1331ac5940)"
+  },
+  "module": {
+    "name": "SpmSwiftModule",
+    "platform": {
+      "architecture": "x86_64",
+      "vendor": "apple",
+      "operatingSystem": {
+        "name": "macosx",
+        "minimumVersion": {
+          "major": 10,
+          "minor": 15,
+          "patch": 0
+        }
+      }
+    }
+  },
+  "symbols": [
+    {
+      "kind": {
+        "identifier": "swift.method",
+        "displayName": "Instance Method"
+      },
+      "identifier": {
+        "precise": "s:Sl14SpmSwiftModuleA2AV7Nested1V7ElementRtzrlE9nestEmAllyyF",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "Collection",
+        "nestEmAll()"
+      ],
+      "names": {
+        "title": "nestEmAll()",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "func"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "nestEmAll"
+          },
+          {
+            "kind": "text",
+            "spelling": "()"
+          }
+        ]
+      },
+      "functionSignature": {
+        "returns": [
+          {
+            "kind": "text",
+            "spelling": "()"
+          }
+        ]
+      },
+      "swiftGenerics": {
+        "parameters": [],
+        "constraints": [
+          {
+            "kind": "conformance",
+            "lhs": "Self",
+            "rhs": "Collection"
+          },
+          {
+            "kind": "sameType",
+            "lhs": "Self.Element",
+            "rhs": "SpmSwiftModule.Nested1"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "func"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "nestEmAll"
+        },
+        {
+          "kind": "text",
+          "spelling": "()"
+        }
+      ],
+      "accessLevel": "internal"
+    },
+    {
+      "kind": {
+        "identifier": "swift.method",
+        "displayName": "Instance Method"
+      },
+      "identifier": {
+        "precise": "s:Sl14SpmSwiftModuleAA13FirstProtocol7ElementRpzrlE12collectEmAllyyF",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "Collection",
+        "collectEmAll()"
+      ],
+      "names": {
+        "title": "collectEmAll()",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "func"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "collectEmAll"
+          },
+          {
+            "kind": "text",
+            "spelling": "()"
+          }
+        ]
+      },
+      "functionSignature": {
+        "returns": [
+          {
+            "kind": "text",
+            "spelling": "()"
+          }
+        ]
+      },
+      "swiftGenerics": {
+        "parameters": [],
+        "constraints": [
+          {
+            "kind": "conformance",
+            "lhs": "Self",
+            "rhs": "Collection"
+          },
+          {
+            "kind": "conformance",
+            "lhs": "Self.Element",
+            "rhs": "FirstProtocol"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "func"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "collectEmAll"
+        },
+        {
+          "kind": "text",
+          "spelling": "()"
+        }
+      ],
+      "accessLevel": "internal"
+    },
+    {
+      "kind": {
+        "identifier": "swift.method",
+        "displayName": "Instance Method"
+      },
+      "identifier": {
+        "precise": "s:SJ14SpmSwiftModuleE7method1yyF",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "Character",
+        "method1()"
+      ],
+      "names": {
+        "title": "method1()",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "func"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "method1"
+          },
+          {
+            "kind": "text",
+            "spelling": "()"
+          }
+        ]
+      },
+      "functionSignature": {
+        "returns": [
+          {
+            "kind": "text",
+            "spelling": "()"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "func"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "method1"
+        },
+        {
+          "kind": "text",
+          "spelling": "()"
+        }
+      ],
+      "accessLevel": "internal"
+    },
+    {
+      "kind": {
+        "identifier": "swift.method",
+        "displayName": "Instance Method"
+      },
+      "identifier": {
+        "precise": "s:SJ14SpmSwiftModuleE7method2yyF",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "Character",
+        "method2()"
+      ],
+      "names": {
+        "title": "method2()",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "func"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "method2"
+          },
+          {
+            "kind": "text",
+            "spelling": "()"
+          }
+        ]
+      },
+      "functionSignature": {
+        "returns": [
+          {
+            "kind": "text",
+            "spelling": "()"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "func"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "method2"
+        },
+        {
+          "kind": "text",
+          "spelling": "()"
+        }
+      ],
+      "accessLevel": "internal"
+    }
+  ],
+  "relationships": [
+    {
+      "kind": "memberOf",
+      "source": "s:SJ14SpmSwiftModuleE7method1yyF",
+      "target": "s:SJ",
+      "targetFallback": "Swift.Character"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:Sl14SpmSwiftModuleAA13FirstProtocol7ElementRpzrlE12collectEmAllyyF",
+      "target": "s:Sl",
+      "targetFallback": "Swift.Collection"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:SJ14SpmSwiftModuleE7method2yyF",
+      "target": "s:SJ",
+      "targetFallback": "Swift.Character"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:Sl14SpmSwiftModuleA2AV7Nested1V7ElementRtzrlE9nestEmAllyyF",
+      "target": "s:Sl",
+      "targetFallback": "Swift.Collection"
+    }
+  ]
+}

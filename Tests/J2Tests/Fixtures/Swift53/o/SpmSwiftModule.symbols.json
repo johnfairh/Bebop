@@ -1,0 +1,5335 @@
+{
+  "metadata": {
+    "formatVersion": {
+      "major": 0,
+      "minor": 4,
+      "patch": 1
+    },
+    "generator": "Swift version 5.3-dev (LLVM aa70751bec, Swift 1331ac5940)"
+  },
+  "module": {
+    "name": "SpmSwiftModule",
+    "platform": {
+      "architecture": "x86_64",
+      "vendor": "apple",
+      "operatingSystem": {
+        "name": "macosx",
+        "minimumVersion": {
+          "major": 10,
+          "minor": 15,
+          "patch": 0
+        }
+      }
+    }
+  },
+  "symbols": [
+    {
+      "kind": {
+        "identifier": "swift.property",
+        "displayName": "Instance Property"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule11GenericBaseC5boxedxvp",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "GenericBase",
+        "boxed"
+      ],
+      "names": {
+        "title": "boxed",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "var"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "boxed"
+          },
+          {
+            "kind": "text",
+            "spelling": ": T"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "var"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "boxed"
+        },
+        {
+          "kind": "text",
+          "spelling": ": T"
+        }
+      ],
+      "accessLevel": "internal"
+    },
+    {
+      "kind": {
+        "identifier": "swift.method",
+        "displayName": "Instance Method"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule11GenericBaseCAASeRzSERzlE12doCodabilityyyF",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "GenericBase",
+        "doCodability()"
+      ],
+      "names": {
+        "title": "doCodability()",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "func"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "doCodability"
+          },
+          {
+            "kind": "text",
+            "spelling": "()"
+          }
+        ]
+      },
+      "functionSignature": {
+        "returns": [
+          {
+            "kind": "text",
+            "spelling": "()"
+          }
+        ]
+      },
+      "swiftGenerics": {
+        "parameters": [],
+        "constraints": [
+          {
+            "kind": "conformance",
+            "lhs": "T",
+            "rhs": "Decodable"
+          },
+          {
+            "kind": "conformance",
+            "lhs": "T",
+            "rhs": "Encodable"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "func"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "doCodability"
+        },
+        {
+          "kind": "text",
+          "spelling": "()"
+        }
+      ],
+      "accessLevel": "internal"
+    },
+    {
+      "kind": {
+        "identifier": "swift.enum.case",
+        "displayName": "Case"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule6AnEnumO5firstyACSicACmF",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "AnEnum",
+        "first(_:)"
+      ],
+      "names": {
+        "title": "first(_:)",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "case"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "first"
+          },
+          {
+            "kind": "text",
+            "spelling": "("
+          },
+          {
+            "kind": "typeIdentifier",
+            "spelling": "Int",
+            "preciseIdentifier": "s:Si"
+          },
+          {
+            "kind": "text",
+            "spelling": ")"
+          }
+        ]
+      },
+      "docComment": {
+        "lines": [
+          {
+            "range": {
+              "start": {
+                "line": 20,
+                "character": 8
+              },
+              "end": {
+                "line": 20,
+                "character": 18
+              }
+            },
+            "text": "First case"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "case"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "first"
+        },
+        {
+          "kind": "text",
+          "spelling": "("
+        },
+        {
+          "kind": "typeIdentifier",
+          "spelling": "Int",
+          "preciseIdentifier": "s:Si"
+        },
+        {
+          "kind": "text",
+          "spelling": ")"
+        }
+      ],
+      "accessLevel": "public",
+      "location": {
+        "uri": "file:///Users/johnf/project/J2/Tests/J2Tests/Fixtures/Swift53/SpmSwiftModule.swift",
+        "position": {
+          "line": 21,
+          "character": 9
+        }
+      }
+    },
+    {
+      "kind": {
+        "identifier": "swift.struct",
+        "displayName": "Structure"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModuleAAV7Nested2V",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "SpmSwiftModule",
+        "Nested2"
+      ],
+      "names": {
+        "title": "Nested2",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "struct"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "Nested2"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "struct"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "Nested2"
+        }
+      ],
+      "accessLevel": "public",
+      "location": {
+        "uri": "file:///Users/johnf/project/J2/Tests/J2Tests/Fixtures/Swift53/SpmSwiftModule.swift",
+        "position": {
+          "line": 15,
+          "character": 18
+        }
+      }
+    },
+    {
+      "kind": {
+        "identifier": "swift.init",
+        "displayName": "Initializer"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule10ABaseClassC1aACSi_tcfc",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "ABaseClass",
+        "init(a:)"
+      ],
+      "names": {
+        "title": "init(a:)",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "convenience"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "keyword",
+            "spelling": "init"
+          },
+          {
+            "kind": "text",
+            "spelling": "("
+          },
+          {
+            "kind": "identifier",
+            "spelling": "a"
+          },
+          {
+            "kind": "text",
+            "spelling": ": "
+          },
+          {
+            "kind": "typeIdentifier",
+            "spelling": "Int",
+            "preciseIdentifier": "s:Si"
+          },
+          {
+            "kind": "text",
+            "spelling": ")"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "convenience"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "keyword",
+          "spelling": "init"
+        },
+        {
+          "kind": "text",
+          "spelling": "("
+        },
+        {
+          "kind": "identifier",
+          "spelling": "a"
+        },
+        {
+          "kind": "text",
+          "spelling": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "spelling": "Int",
+          "preciseIdentifier": "s:Si"
+        },
+        {
+          "kind": "text",
+          "spelling": ")"
+        }
+      ],
+      "accessLevel": "public",
+      "location": {
+        "uri": "file:///Users/johnf/project/J2/Tests/J2Tests/Fixtures/Swift53/SpmSwiftModule.swift",
+        "position": {
+          "line": 56,
+          "character": 21
+        }
+      }
+    },
+    {
+      "kind": {
+        "identifier": "swift.method",
+        "displayName": "Instance Method"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule11GenericBaseCA2A13FirstProtocolRzSQRzlE02doF5MagicyyF",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "GenericBase",
+        "doFirstMagic()"
+      ],
+      "names": {
+        "title": "doFirstMagic()",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "func"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "doFirstMagic"
+          },
+          {
+            "kind": "text",
+            "spelling": "()"
+          }
+        ]
+      },
+      "functionSignature": {
+        "returns": [
+          {
+            "kind": "text",
+            "spelling": "()"
+          }
+        ]
+      },
+      "swiftGenerics": {
+        "parameters": [],
+        "constraints": [
+          {
+            "kind": "conformance",
+            "lhs": "T",
+            "rhs": "FirstProtocol"
+          },
+          {
+            "kind": "conformance",
+            "lhs": "T",
+            "rhs": "Equatable"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "func"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "doFirstMagic"
+        },
+        {
+          "kind": "text",
+          "spelling": "()"
+        }
+      ],
+      "accessLevel": "internal"
+    },
+    {
+      "kind": {
+        "identifier": "swift.method",
+        "displayName": "Instance Method"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule13FirstProtocolP1m3argSSSi_tF",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "FirstProtocol",
+        "m(arg:)"
+      ],
+      "names": {
+        "title": "m(arg:)",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "func"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "m"
+          },
+          {
+            "kind": "text",
+            "spelling": "("
+          },
+          {
+            "kind": "identifier",
+            "spelling": "arg"
+          },
+          {
+            "kind": "text",
+            "spelling": ": "
+          },
+          {
+            "kind": "typeIdentifier",
+            "spelling": "Int",
+            "preciseIdentifier": "s:Si"
+          },
+          {
+            "kind": "text",
+            "spelling": ") -> "
+          },
+          {
+            "kind": "typeIdentifier",
+            "spelling": "String",
+            "preciseIdentifier": "s:SS"
+          }
+        ]
+      },
+      "docComment": {
+        "lines": [
+          {
+            "range": {
+              "start": {
+                "line": 2,
+                "character": 6
+              },
+              "end": {
+                "line": 2,
+                "character": 24
+              }
+            },
+            "text": "Brief note about m"
+          },
+          {
+            "range": {
+              "start": {
+                "line": 4,
+                "character": 0
+              },
+              "end": {
+                "line": 4,
+                "character": 0
+              }
+            },
+            "text": ""
+          },
+          {
+            "range": {
+              "start": {
+                "line": 4,
+                "character": 6
+              },
+              "end": {
+                "line": 4,
+                "character": 26
+              }
+            },
+            "text": "What m is all about."
+          },
+          {
+            "range": {
+              "start": {
+                "line": 5,
+                "character": 6
+              },
+              "end": {
+                "line": 5,
+                "character": 35
+              }
+            },
+            "text": "- parameter arg: The argument"
+          },
+          {
+            "range": {
+              "start": {
+                "line": 6,
+                "character": 6
+              },
+              "end": {
+                "line": 6,
+                "character": 27
+              }
+            },
+            "text": "- returns: The answer"
+          }
+        ]
+      },
+      "functionSignature": {
+        "parameters": [
+          {
+            "name": "arg",
+            "declarationFragments": [
+              {
+                "kind": "identifier",
+                "spelling": "arg"
+              },
+              {
+                "kind": "text",
+                "spelling": ": "
+              },
+              {
+                "kind": "typeIdentifier",
+                "spelling": "Int",
+                "preciseIdentifier": "s:Si"
+              }
+            ]
+          }
+        ],
+        "returns": [
+          {
+            "kind": "typeIdentifier",
+            "spelling": "String",
+            "preciseIdentifier": "s:SS"
+          }
+        ]
+      },
+      "swiftGenerics": {
+        "parameters": [],
+        "constraints": [
+          {
+            "kind": "conformance",
+            "lhs": "Self",
+            "rhs": "FirstProtocol"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "func"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "m"
+        },
+        {
+          "kind": "text",
+          "spelling": "("
+        },
+        {
+          "kind": "identifier",
+          "spelling": "arg"
+        },
+        {
+          "kind": "text",
+          "spelling": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "spelling": "Int",
+          "preciseIdentifier": "s:Si"
+        },
+        {
+          "kind": "text",
+          "spelling": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "spelling": "String",
+          "preciseIdentifier": "s:SS"
+        }
+      ],
+      "accessLevel": "public",
+      "location": {
+        "uri": "file:///Users/johnf/project/J2/Tests/J2Tests/Fixtures/Swift53/Protocols.swift",
+        "position": {
+          "line": 7,
+          "character": 7
+        }
+      }
+    },
+    {
+      "kind": {
+        "identifier": "swift.associatedtype",
+        "displayName": "Associated Type"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule13FirstProtocolP9AssocTypeQa",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "FirstProtocol",
+        "AssocType"
+      ],
+      "names": {
+        "title": "AssocType",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "associatedtype"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "AssocType"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "associatedtype"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "AssocType"
+        }
+      ],
+      "accessLevel": "public",
+      "location": {
+        "uri": "file:///Users/johnf/project/J2/Tests/J2Tests/Fixtures/Swift53/Protocols.swift",
+        "position": {
+          "line": 9,
+          "character": 17
+        }
+      }
+    },
+    {
+      "kind": {
+        "identifier": "swift.type.subscript",
+        "displayName": "Type Subscript"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule10ABaseClassCySiSScipZ",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "ABaseClass",
+        "subscript(_:)"
+      ],
+      "names": {
+        "title": "subscript(_:)",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "static"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "keyword",
+            "spelling": "subscript"
+          },
+          {
+            "kind": "text",
+            "spelling": "("
+          },
+          {
+            "kind": "typeIdentifier",
+            "spelling": "String",
+            "preciseIdentifier": "s:SS"
+          },
+          {
+            "kind": "text",
+            "spelling": ") -> "
+          },
+          {
+            "kind": "typeIdentifier",
+            "spelling": "Int",
+            "preciseIdentifier": "s:Si"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "static"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "keyword",
+          "spelling": "subscript"
+        },
+        {
+          "kind": "text",
+          "spelling": "("
+        },
+        {
+          "kind": "identifier",
+          "spelling": "_"
+        },
+        {
+          "kind": "text",
+          "spelling": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "spelling": "String",
+          "preciseIdentifier": "s:SS"
+        },
+        {
+          "kind": "text",
+          "spelling": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "spelling": "Int",
+          "preciseIdentifier": "s:Si"
+        }
+      ],
+      "accessLevel": "public",
+      "location": {
+        "uri": "file:///Users/johnf/project/J2/Tests/J2Tests/Fixtures/Swift53/SpmSwiftModule.swift",
+        "position": {
+          "line": 76,
+          "character": 16
+        }
+      }
+    },
+    {
+      "kind": {
+        "identifier": "swift.class",
+        "displayName": "Class"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule11GenericBaseC",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "GenericBase"
+      ],
+      "names": {
+        "title": "GenericBase",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "class"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "GenericBase"
+          },
+          {
+            "kind": "text",
+            "spelling": "<"
+          },
+          {
+            "kind": "genericParameter",
+            "spelling": "T"
+          },
+          {
+            "kind": "text",
+            "spelling": ">"
+          }
+        ]
+      },
+      "swiftGenerics": {
+        "parameters": [
+          {
+            "name": "T",
+            "index": 0,
+            "depth": 0
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "class"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "GenericBase"
+        },
+        {
+          "kind": "text",
+          "spelling": "<"
+        },
+        {
+          "kind": "genericParameter",
+          "spelling": "T"
+        },
+        {
+          "kind": "text",
+          "spelling": ">"
+        }
+      ],
+      "accessLevel": "internal"
+    },
+    {
+      "kind": {
+        "identifier": "swift.protocol",
+        "displayName": "Protocol"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule13FirstProtocolP",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "FirstProtocol"
+      ],
+      "names": {
+        "title": "FirstProtocol",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "protocol"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "FirstProtocol"
+          }
+        ]
+      },
+      "docComment": {
+        "lines": [
+          {
+            "range": {
+              "start": {
+                "line": 0,
+                "character": 4
+              },
+              "end": {
+                "line": 0,
+                "character": 15
+              }
+            },
+            "text": "A protocol."
+          }
+        ]
+      },
+      "swiftGenerics": {
+        "parameters": [],
+        "constraints": [
+          {
+            "kind": "conformance",
+            "lhs": "Self",
+            "rhs": "FirstProtocol"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "protocol"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "FirstProtocol"
+        }
+      ],
+      "accessLevel": "public",
+      "location": {
+        "uri": "file:///Users/johnf/project/J2/Tests/J2Tests/Fixtures/Swift53/Protocols.swift",
+        "position": {
+          "line": 1,
+          "character": 16
+        }
+      }
+    },
+    {
+      "kind": {
+        "identifier": "swift.struct",
+        "displayName": "Structure"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule1TV",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "T"
+      ],
+      "names": {
+        "title": "T",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "struct"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "T"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "struct"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "T"
+        }
+      ],
+      "accessLevel": "internal"
+    },
+    {
+      "kind": {
+        "identifier": "swift.type.subscript",
+        "displayName": "Type Subscript"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule10ABaseClassCySiSScipZ::SYNTHESIZED::s:14SpmSwiftModule13ADerivedClassC",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "ADerivedClass",
+        "subscript(_:)"
+      ],
+      "names": {
+        "title": "subscript(_:)",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "static"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "keyword",
+            "spelling": "subscript"
+          },
+          {
+            "kind": "text",
+            "spelling": "("
+          },
+          {
+            "kind": "typeIdentifier",
+            "spelling": "String",
+            "preciseIdentifier": "s:SS"
+          },
+          {
+            "kind": "text",
+            "spelling": ") -> "
+          },
+          {
+            "kind": "typeIdentifier",
+            "spelling": "Int",
+            "preciseIdentifier": "s:Si"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "static"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "keyword",
+          "spelling": "subscript"
+        },
+        {
+          "kind": "text",
+          "spelling": "("
+        },
+        {
+          "kind": "identifier",
+          "spelling": "_"
+        },
+        {
+          "kind": "text",
+          "spelling": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "spelling": "String",
+          "preciseIdentifier": "s:SS"
+        },
+        {
+          "kind": "text",
+          "spelling": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "spelling": "Int",
+          "preciseIdentifier": "s:Si"
+        }
+      ],
+      "accessLevel": "public",
+      "location": {
+        "uri": "file:///Users/johnf/project/J2/Tests/J2Tests/Fixtures/Swift53/SpmSwiftModule.swift",
+        "position": {
+          "line": 76,
+          "character": 16
+        }
+      }
+    },
+    {
+      "kind": {
+        "identifier": "swift.struct",
+        "displayName": "Structure"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModuleAAV",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "SpmSwiftModule"
+      ],
+      "names": {
+        "title": "SpmSwiftModule",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "struct"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "SpmSwiftModule"
+          }
+        ]
+      },
+      "docComment": {
+        "lines": [
+          {
+            "range": {
+              "start": {
+                "line": 0,
+                "character": 4
+              },
+              "end": {
+                "line": 0,
+                "character": 18
+              }
+            },
+            "text": "Main structure"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "struct"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "SpmSwiftModule"
+        }
+      ],
+      "accessLevel": "public",
+      "location": {
+        "uri": "file:///Users/johnf/project/J2/Tests/J2Tests/Fixtures/Swift53/SpmSwiftModule.swift",
+        "position": {
+          "line": 1,
+          "character": 14
+        }
+      }
+    },
+    {
+      "kind": {
+        "identifier": "swift.method",
+        "displayName": "Instance Method"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule13FirstProtocolP9assocFunc9AssocTypeQzyF",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "FirstProtocol",
+        "assocFunc()"
+      ],
+      "names": {
+        "title": "assocFunc()",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "func"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "assocFunc"
+          },
+          {
+            "kind": "text",
+            "spelling": "() -> "
+          },
+          {
+            "kind": "typeIdentifier",
+            "spelling": "Self",
+            "preciseIdentifier": "s:14SpmSwiftModule13FirstProtocolP4Selfxmfp"
+          },
+          {
+            "kind": "text",
+            "spelling": ".AssocType"
+          }
+        ]
+      },
+      "functionSignature": {
+        "returns": [
+          {
+            "kind": "typeIdentifier",
+            "spelling": "Self",
+            "preciseIdentifier": "s:14SpmSwiftModule13FirstProtocolP4Selfxmfp"
+          },
+          {
+            "kind": "text",
+            "spelling": ".AssocType"
+          }
+        ]
+      },
+      "swiftGenerics": {
+        "parameters": [],
+        "constraints": [
+          {
+            "kind": "conformance",
+            "lhs": "Self",
+            "rhs": "FirstProtocol"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "func"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "assocFunc"
+        },
+        {
+          "kind": "text",
+          "spelling": "() -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "spelling": "Self",
+          "preciseIdentifier": "s:14SpmSwiftModule13FirstProtocolP4Selfxmfp"
+        },
+        {
+          "kind": "text",
+          "spelling": ".AssocType"
+        }
+      ],
+      "accessLevel": "public",
+      "location": {
+        "uri": "file:///Users/johnf/project/J2/Tests/J2Tests/Fixtures/Swift53/Protocols.swift",
+        "position": {
+          "line": 10,
+          "character": 7
+        }
+      }
+    },
+    {
+      "kind": {
+        "identifier": "swift.enum.case",
+        "displayName": "Case"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule6AnEnumO6fourthyA2CmF",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "AnEnum",
+        "fourth"
+      ],
+      "names": {
+        "title": "fourth",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "case"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "fourth"
+          }
+        ]
+      },
+      "docComment": {
+        "lines": [
+          {
+            "range": {
+              "start": {
+                "line": 24,
+                "character": 8
+              },
+              "end": {
+                "line": 24,
+                "character": 39
+              }
+            },
+            "text": "Third & Fourth cases - `second`"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "case"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "fourth"
+        }
+      ],
+      "accessLevel": "public",
+      "location": {
+        "uri": "file:///Users/johnf/project/J2/Tests/J2Tests/Fixtures/Swift53/SpmSwiftModule.swift",
+        "position": {
+          "line": 25,
+          "character": 16
+        }
+      }
+    },
+    {
+      "kind": {
+        "identifier": "swift.enum.case",
+        "displayName": "Case"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule6AnEnumO5fifthyACSS_SitcACmF",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "AnEnum",
+        "fifth(a:_:)"
+      ],
+      "names": {
+        "title": "fifth(a:_:)",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "case"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "fifth"
+          },
+          {
+            "kind": "text",
+            "spelling": "("
+          },
+          {
+            "kind": "identifier",
+            "spelling": "a"
+          },
+          {
+            "kind": "text",
+            "spelling": ": "
+          },
+          {
+            "kind": "typeIdentifier",
+            "spelling": "String",
+            "preciseIdentifier": "s:SS"
+          },
+          {
+            "kind": "text",
+            "spelling": ", "
+          },
+          {
+            "kind": "typeIdentifier",
+            "spelling": "Int",
+            "preciseIdentifier": "s:Si"
+          },
+          {
+            "kind": "text",
+            "spelling": ")"
+          }
+        ]
+      },
+      "docComment": {
+        "lines": [
+          {
+            "range": {
+              "start": {
+                "line": 26,
+                "character": 8
+              },
+              "end": {
+                "line": 26,
+                "character": 18
+              }
+            },
+            "text": "Fifth case"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "case"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "fifth"
+        },
+        {
+          "kind": "text",
+          "spelling": "("
+        },
+        {
+          "kind": "identifier",
+          "spelling": "a"
+        },
+        {
+          "kind": "text",
+          "spelling": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "spelling": "String",
+          "preciseIdentifier": "s:SS"
+        },
+        {
+          "kind": "text",
+          "spelling": ", "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "_"
+        },
+        {
+          "kind": "text",
+          "spelling": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "spelling": "Int",
+          "preciseIdentifier": "s:Si"
+        },
+        {
+          "kind": "text",
+          "spelling": ")"
+        }
+      ],
+      "accessLevel": "public",
+      "location": {
+        "uri": "file:///Users/johnf/project/J2/Tests/J2Tests/Fixtures/Swift53/SpmSwiftModule.swift",
+        "position": {
+          "line": 27,
+          "character": 9
+        }
+      }
+    },
+    {
+      "kind": {
+        "identifier": "swift.func",
+        "displayName": "Function"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule9functionA4arg1_4arg3ySi_S2itF",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "functionA(arg1:_:arg3:)"
+      ],
+      "names": {
+        "title": "functionA(arg1:_:arg3:)",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "func"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "functionA"
+          },
+          {
+            "kind": "text",
+            "spelling": "("
+          },
+          {
+            "kind": "identifier",
+            "spelling": "arg1"
+          },
+          {
+            "kind": "text",
+            "spelling": ": "
+          },
+          {
+            "kind": "typeIdentifier",
+            "spelling": "Int",
+            "preciseIdentifier": "s:Si"
+          },
+          {
+            "kind": "text",
+            "spelling": ", "
+          },
+          {
+            "kind": "typeIdentifier",
+            "spelling": "Int",
+            "preciseIdentifier": "s:Si"
+          },
+          {
+            "kind": "text",
+            "spelling": ", "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "arg3"
+          },
+          {
+            "kind": "text",
+            "spelling": ": "
+          },
+          {
+            "kind": "typeIdentifier",
+            "spelling": "Int",
+            "preciseIdentifier": "s:Si"
+          },
+          {
+            "kind": "text",
+            "spelling": ")"
+          }
+        ]
+      },
+      "docComment": {
+        "lines": [
+          {
+            "range": {
+              "start": {
+                "line": 30,
+                "character": 4
+              },
+              "end": {
+                "line": 30,
+                "character": 17
+              }
+            },
+            "text": "- parameters:"
+          },
+          {
+            "range": {
+              "start": {
+                "line": 31,
+                "character": 4
+              },
+              "end": {
+                "line": 31,
+                "character": 25
+              }
+            },
+            "text": "   - arg1: Number one"
+          },
+          {
+            "range": {
+              "start": {
+                "line": 32,
+                "character": 4
+              },
+              "end": {
+                "line": 32,
+                "character": 21
+              }
+            },
+            "text": "   - arg2: Second"
+          },
+          {
+            "range": {
+              "start": {
+                "line": 33,
+                "character": 4
+              },
+              "end": {
+                "line": 33,
+                "character": 20
+              }
+            },
+            "text": "   - arg3: Third"
+          },
+          {
+            "range": {
+              "start": {
+                "line": 35,
+                "character": 0
+              },
+              "end": {
+                "line": 35,
+                "character": 0
+              }
+            },
+            "text": ""
+          },
+          {
+            "range": {
+              "start": {
+                "line": 35,
+                "character": 4
+              },
+              "end": {
+                "line": 35,
+                "character": 59
+              }
+            },
+            "text": "See `SpmSwiftModule` -- or `SpmSwiftModule.ABaseClass`."
+          }
+        ]
+      },
+      "functionSignature": {
+        "parameters": [
+          {
+            "name": "arg1",
+            "declarationFragments": [
+              {
+                "kind": "identifier",
+                "spelling": "arg1"
+              },
+              {
+                "kind": "text",
+                "spelling": ": "
+              },
+              {
+                "kind": "typeIdentifier",
+                "spelling": "Int",
+                "preciseIdentifier": "s:Si"
+              }
+            ]
+          },
+          {
+            "name": "arg2",
+            "declarationFragments": [
+              {
+                "kind": "identifier",
+                "spelling": "arg2"
+              },
+              {
+                "kind": "text",
+                "spelling": ": "
+              },
+              {
+                "kind": "typeIdentifier",
+                "spelling": "Int",
+                "preciseIdentifier": "s:Si"
+              }
+            ]
+          },
+          {
+            "name": "arg3",
+            "internalName": "argMeaning",
+            "declarationFragments": [
+              {
+                "kind": "identifier",
+                "spelling": "argMeaning"
+              },
+              {
+                "kind": "text",
+                "spelling": ": "
+              },
+              {
+                "kind": "typeIdentifier",
+                "spelling": "Int",
+                "preciseIdentifier": "s:Si"
+              }
+            ]
+          }
+        ],
+        "returns": [
+          {
+            "kind": "text",
+            "spelling": "()"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "func"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "functionA"
+        },
+        {
+          "kind": "text",
+          "spelling": "("
+        },
+        {
+          "kind": "identifier",
+          "spelling": "arg1"
+        },
+        {
+          "kind": "text",
+          "spelling": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "spelling": "Int",
+          "preciseIdentifier": "s:Si"
+        },
+        {
+          "kind": "text",
+          "spelling": ", "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "_"
+        },
+        {
+          "kind": "text",
+          "spelling": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "spelling": "Int",
+          "preciseIdentifier": "s:Si"
+        },
+        {
+          "kind": "text",
+          "spelling": ", "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "arg3"
+        },
+        {
+          "kind": "text",
+          "spelling": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "spelling": "Int",
+          "preciseIdentifier": "s:Si"
+        },
+        {
+          "kind": "text",
+          "spelling": ")"
+        }
+      ],
+      "accessLevel": "public",
+      "availability": [
+        {
+          "domain": "macOS",
+          "introduced": {
+            "major": 10,
+            "minor": 12
+          }
+        },
+        {
+          "domain": "iOS",
+          "introduced": {
+            "major": 9
+          }
+        }
+      ],
+      "location": {
+        "uri": "file:///Users/johnf/project/J2/Tests/J2Tests/Fixtures/Swift53/SpmSwiftModule.swift",
+        "position": {
+          "line": 37,
+          "character": 12
+        }
+      }
+    },
+    {
+      "kind": {
+        "identifier": "swift.init",
+        "displayName": "Initializer"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule10ABaseClassC1aACSi_tcfc::SYNTHESIZED::s:14SpmSwiftModule13ADerivedClassC",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "ADerivedClass",
+        "init(a:)"
+      ],
+      "names": {
+        "title": "init(a:)",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "convenience"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "keyword",
+            "spelling": "init"
+          },
+          {
+            "kind": "text",
+            "spelling": "("
+          },
+          {
+            "kind": "identifier",
+            "spelling": "a"
+          },
+          {
+            "kind": "text",
+            "spelling": ": "
+          },
+          {
+            "kind": "typeIdentifier",
+            "spelling": "Int",
+            "preciseIdentifier": "s:Si"
+          },
+          {
+            "kind": "text",
+            "spelling": ")"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "convenience"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "keyword",
+          "spelling": "init"
+        },
+        {
+          "kind": "text",
+          "spelling": "("
+        },
+        {
+          "kind": "identifier",
+          "spelling": "a"
+        },
+        {
+          "kind": "text",
+          "spelling": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "spelling": "Int",
+          "preciseIdentifier": "s:Si"
+        },
+        {
+          "kind": "text",
+          "spelling": ")"
+        }
+      ],
+      "accessLevel": "public",
+      "location": {
+        "uri": "file:///Users/johnf/project/J2/Tests/J2Tests/Fixtures/Swift53/SpmSwiftModule.swift",
+        "position": {
+          "line": 56,
+          "character": 21
+        }
+      }
+    },
+    {
+      "kind": {
+        "identifier": "swift.init",
+        "displayName": "Initializer"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule10ABaseClassCACycfc",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "ABaseClass",
+        "init()"
+      ],
+      "names": {
+        "title": "init()",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "init"
+          },
+          {
+            "kind": "text",
+            "spelling": "()"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "init"
+        },
+        {
+          "kind": "text",
+          "spelling": "()"
+        }
+      ],
+      "accessLevel": "public",
+      "location": {
+        "uri": "file:///Users/johnf/project/J2/Tests/J2Tests/Fixtures/Swift53/SpmSwiftModule.swift",
+        "position": {
+          "line": 54,
+          "character": 9
+        }
+      }
+    },
+    {
+      "kind": {
+        "identifier": "swift.method",
+        "displayName": "Instance Method"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule11GenericBaseCAASHRzlE10doHashableyyF",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "GenericBase",
+        "doHashable()"
+      ],
+      "names": {
+        "title": "doHashable()",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "func"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "doHashable"
+          },
+          {
+            "kind": "text",
+            "spelling": "()"
+          }
+        ]
+      },
+      "functionSignature": {
+        "returns": [
+          {
+            "kind": "text",
+            "spelling": "()"
+          }
+        ]
+      },
+      "swiftGenerics": {
+        "parameters": [],
+        "constraints": [
+          {
+            "kind": "conformance",
+            "lhs": "T",
+            "rhs": "Hashable"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "func"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "doHashable"
+        },
+        {
+          "kind": "text",
+          "spelling": "()"
+        }
+      ],
+      "accessLevel": "internal"
+    },
+    {
+      "kind": {
+        "identifier": "swift.struct",
+        "displayName": "Structure"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModuleAAV7Nested1V",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "SpmSwiftModule",
+        "Nested1"
+      ],
+      "names": {
+        "title": "Nested1",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "struct"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "Nested1"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "struct"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "Nested1"
+        }
+      ],
+      "accessLevel": "public",
+      "location": {
+        "uri": "file:///Users/johnf/project/J2/Tests/J2Tests/Fixtures/Swift53/SpmSwiftModule.swift",
+        "position": {
+          "line": 7,
+          "character": 18
+        }
+      }
+    },
+    {
+      "kind": {
+        "identifier": "swift.method",
+        "displayName": "Instance Method"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule13FirstProtocolPAAE1m3argSSSi_tF",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "FirstProtocol",
+        "m(arg:)"
+      ],
+      "names": {
+        "title": "m(arg:)",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "func"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "m"
+          },
+          {
+            "kind": "text",
+            "spelling": "("
+          },
+          {
+            "kind": "identifier",
+            "spelling": "arg"
+          },
+          {
+            "kind": "text",
+            "spelling": ": "
+          },
+          {
+            "kind": "typeIdentifier",
+            "spelling": "Int",
+            "preciseIdentifier": "s:Si"
+          },
+          {
+            "kind": "text",
+            "spelling": ") -> "
+          },
+          {
+            "kind": "typeIdentifier",
+            "spelling": "String",
+            "preciseIdentifier": "s:SS"
+          }
+        ]
+      },
+      "docComment": {
+        "lines": [
+          {
+            "range": {
+              "start": {
+                "line": 2,
+                "character": 6
+              },
+              "end": {
+                "line": 2,
+                "character": 24
+              }
+            },
+            "text": "Brief note about m"
+          },
+          {
+            "range": {
+              "start": {
+                "line": 4,
+                "character": 0
+              },
+              "end": {
+                "line": 4,
+                "character": 0
+              }
+            },
+            "text": ""
+          },
+          {
+            "range": {
+              "start": {
+                "line": 4,
+                "character": 6
+              },
+              "end": {
+                "line": 4,
+                "character": 26
+              }
+            },
+            "text": "What m is all about."
+          },
+          {
+            "range": {
+              "start": {
+                "line": 5,
+                "character": 6
+              },
+              "end": {
+                "line": 5,
+                "character": 35
+              }
+            },
+            "text": "- parameter arg: The argument"
+          },
+          {
+            "range": {
+              "start": {
+                "line": 6,
+                "character": 6
+              },
+              "end": {
+                "line": 6,
+                "character": 27
+              }
+            },
+            "text": "- returns: The answer"
+          }
+        ]
+      },
+      "functionSignature": {
+        "parameters": [
+          {
+            "name": "arg",
+            "declarationFragments": [
+              {
+                "kind": "identifier",
+                "spelling": "arg"
+              },
+              {
+                "kind": "text",
+                "spelling": ": "
+              },
+              {
+                "kind": "typeIdentifier",
+                "spelling": "Int",
+                "preciseIdentifier": "s:Si"
+              }
+            ]
+          }
+        ],
+        "returns": [
+          {
+            "kind": "typeIdentifier",
+            "spelling": "String",
+            "preciseIdentifier": "s:SS"
+          }
+        ]
+      },
+      "swiftGenerics": {
+        "parameters": [],
+        "constraints": [
+          {
+            "kind": "conformance",
+            "lhs": "Self",
+            "rhs": "FirstProtocol"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "func"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "m"
+        },
+        {
+          "kind": "text",
+          "spelling": "("
+        },
+        {
+          "kind": "identifier",
+          "spelling": "arg"
+        },
+        {
+          "kind": "text",
+          "spelling": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "spelling": "Int",
+          "preciseIdentifier": "s:Si"
+        },
+        {
+          "kind": "text",
+          "spelling": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "spelling": "String",
+          "preciseIdentifier": "s:SS"
+        }
+      ],
+      "accessLevel": "internal"
+    },
+    {
+      "kind": {
+        "identifier": "swift.method",
+        "displayName": "Instance Method"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule13FirstProtocolPAASH9AssocTypeRpzrlE17extHashableMethodyyF",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "FirstProtocol",
+        "extHashableMethod()"
+      ],
+      "names": {
+        "title": "extHashableMethod()",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "func"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "extHashableMethod"
+          },
+          {
+            "kind": "text",
+            "spelling": "()"
+          }
+        ]
+      },
+      "functionSignature": {
+        "returns": [
+          {
+            "kind": "text",
+            "spelling": "()"
+          }
+        ]
+      },
+      "swiftGenerics": {
+        "parameters": [],
+        "constraints": [
+          {
+            "kind": "conformance",
+            "lhs": "Self",
+            "rhs": "FirstProtocol"
+          },
+          {
+            "kind": "conformance",
+            "lhs": "Self.AssocType",
+            "rhs": "Hashable"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "func"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "extHashableMethod"
+        },
+        {
+          "kind": "text",
+          "spelling": "()"
+        }
+      ],
+      "accessLevel": "internal"
+    },
+    {
+      "kind": {
+        "identifier": "swift.struct",
+        "displayName": "Structure"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModuleAAV7Nested1V8Nested2aV",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "SpmSwiftModule",
+        "Nested1",
+        "Nested2a"
+      ],
+      "names": {
+        "title": "Nested2a",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "struct"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "Nested2a"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "struct"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "Nested2a"
+        }
+      ],
+      "accessLevel": "public",
+      "location": {
+        "uri": "file:///Users/johnf/project/J2/Tests/J2Tests/Fixtures/Swift53/SpmSwiftModule.swift",
+        "position": {
+          "line": 8,
+          "character": 20
+        }
+      }
+    },
+    {
+      "kind": {
+        "identifier": "swift.struct",
+        "displayName": "Structure"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModuleAAV7Nested1V8Nested2bV",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "SpmSwiftModule",
+        "Nested1",
+        "Nested2b"
+      ],
+      "names": {
+        "title": "Nested2b",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "struct"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "Nested2b"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "struct"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "Nested2b"
+        }
+      ],
+      "accessLevel": "public",
+      "availability": [
+        {
+          "isUnconditionallyDeprecated": true
+        }
+      ],
+      "location": {
+        "uri": "file:///Users/johnf/project/J2/Tests/J2Tests/Fixtures/Swift53/SpmSwiftModule.swift",
+        "position": {
+          "line": 11,
+          "character": 20
+        }
+      }
+    },
+    {
+      "kind": {
+        "identifier": "swift.method",
+        "displayName": "Instance Method"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule13ADerivedClassC6method5paramSSSi_tF",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "ADerivedClass",
+        "method(param:)"
+      ],
+      "names": {
+        "title": "method(param:)",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "func"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "method"
+          },
+          {
+            "kind": "text",
+            "spelling": "("
+          },
+          {
+            "kind": "identifier",
+            "spelling": "param"
+          },
+          {
+            "kind": "text",
+            "spelling": ": "
+          },
+          {
+            "kind": "typeIdentifier",
+            "spelling": "Int",
+            "preciseIdentifier": "s:Si"
+          },
+          {
+            "kind": "text",
+            "spelling": ") -> "
+          },
+          {
+            "kind": "typeIdentifier",
+            "spelling": "String",
+            "preciseIdentifier": "s:SS"
+          }
+        ]
+      },
+      "docComment": {
+        "lines": [
+          {
+            "range": {
+              "start": {
+                "line": 92,
+                "character": 6
+              },
+              "end": {
+                "line": 92,
+                "character": 35
+              }
+            },
+            "text": "See `ABaseClass.method(...)`."
+          }
+        ]
+      },
+      "functionSignature": {
+        "parameters": [
+          {
+            "name": "param",
+            "declarationFragments": [
+              {
+                "kind": "identifier",
+                "spelling": "param"
+              },
+              {
+                "kind": "text",
+                "spelling": ": "
+              },
+              {
+                "kind": "typeIdentifier",
+                "spelling": "Int",
+                "preciseIdentifier": "s:Si"
+              }
+            ]
+          }
+        ],
+        "returns": [
+          {
+            "kind": "typeIdentifier",
+            "spelling": "String",
+            "preciseIdentifier": "s:SS"
+          }
+        ]
+      },
+      "swiftGenerics": {
+        "parameters": [
+          {
+            "name": "T",
+            "index": 0,
+            "depth": 0
+          },
+          {
+            "name": "Q",
+            "index": 1,
+            "depth": 0
+          }
+        ],
+        "constraints": [
+          {
+            "kind": "conformance",
+            "lhs": "Q",
+            "rhs": "Sequence"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "func"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "method"
+        },
+        {
+          "kind": "text",
+          "spelling": "("
+        },
+        {
+          "kind": "identifier",
+          "spelling": "param"
+        },
+        {
+          "kind": "text",
+          "spelling": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "spelling": "Int",
+          "preciseIdentifier": "s:Si"
+        },
+        {
+          "kind": "text",
+          "spelling": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "spelling": "String",
+          "preciseIdentifier": "s:SS"
+        }
+      ],
+      "accessLevel": "public",
+      "location": {
+        "uri": "file:///Users/johnf/project/J2/Tests/J2Tests/Fixtures/Swift53/SpmSwiftModule.swift",
+        "position": {
+          "line": 93,
+          "character": 23
+        }
+      }
+    },
+    {
+      "kind": {
+        "identifier": "swift.property",
+        "displayName": "Instance Property"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule11GenericBaseCAASeRzSERzlE12codableCountSivp",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "GenericBase",
+        "codableCount"
+      ],
+      "names": {
+        "title": "codableCount",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "var"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "codableCount"
+          },
+          {
+            "kind": "text",
+            "spelling": ": "
+          },
+          {
+            "kind": "typeIdentifier",
+            "spelling": "Int",
+            "preciseIdentifier": "s:Si"
+          }
+        ]
+      },
+      "swiftExtension": {
+        "extendedModule": "SpmSwiftModule",
+        "constraints": [
+          {
+            "kind": "conformance",
+            "lhs": "T",
+            "rhs": "Decodable"
+          },
+          {
+            "kind": "conformance",
+            "lhs": "T",
+            "rhs": "Encodable"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "var"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "codableCount"
+        },
+        {
+          "kind": "text",
+          "spelling": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "spelling": "Int",
+          "preciseIdentifier": "s:Si"
+        }
+      ],
+      "accessLevel": "internal"
+    },
+    {
+      "kind": {
+        "identifier": "swift.property",
+        "displayName": "Instance Property"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule11GenericBaseC11descriptionSSvp",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "GenericBase",
+        "description"
+      ],
+      "names": {
+        "title": "description",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "var"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "description"
+          },
+          {
+            "kind": "text",
+            "spelling": ": "
+          },
+          {
+            "kind": "typeIdentifier",
+            "spelling": "String",
+            "preciseIdentifier": "s:SS"
+          }
+        ]
+      },
+      "docComment": {
+        "lines": [
+          {
+            "text": "A textual representation of this instance."
+          },
+          {
+            "text": ""
+          },
+          {
+            "text": "Calling this property directly is discouraged. Instead, convert an"
+          },
+          {
+            "text": "instance of any type to a string by using the `String(describing:)`"
+          },
+          {
+            "text": "initializer. This initializer works with any type, and uses the custom"
+          },
+          {
+            "text": "`description` property for types that conform to"
+          },
+          {
+            "text": "`CustomStringConvertible`:"
+          },
+          {
+            "text": ""
+          },
+          {
+            "text": "    struct Point: CustomStringConvertible {"
+          },
+          {
+            "text": "        let x: Int, y: Int"
+          },
+          {
+            "text": ""
+          },
+          {
+            "text": "        var description: String {"
+          },
+          {
+            "text": "            return \"(\\(x), \\(y))\""
+          },
+          {
+            "text": "        }"
+          },
+          {
+            "text": "    }"
+          },
+          {
+            "text": ""
+          },
+          {
+            "text": "    let p = Point(x: 21, y: 30)"
+          },
+          {
+            "text": "    let s = String(describing: p)"
+          },
+          {
+            "text": "    print(s)"
+          },
+          {
+            "text": "    // Prints \"(21, 30)\""
+          },
+          {
+            "text": ""
+          },
+          {
+            "text": "The conversion of `p` to a string in the assignment to `s` uses the"
+          },
+          {
+            "text": "`Point` type's `description` property."
+          }
+        ]
+      },
+      "swiftExtension": {
+        "extendedModule": "SpmSwiftModule"
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "var"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "description"
+        },
+        {
+          "kind": "text",
+          "spelling": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "spelling": "String",
+          "preciseIdentifier": "s:SS"
+        }
+      ],
+      "accessLevel": "internal"
+    },
+    {
+      "kind": {
+        "identifier": "swift.method",
+        "displayName": "Instance Method"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule13FirstProtocolPAAE1eyyF",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "FirstProtocol",
+        "e()"
+      ],
+      "names": {
+        "title": "e()",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "func"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "e"
+          },
+          {
+            "kind": "text",
+            "spelling": "()"
+          }
+        ]
+      },
+      "functionSignature": {
+        "returns": [
+          {
+            "kind": "text",
+            "spelling": "()"
+          }
+        ]
+      },
+      "swiftGenerics": {
+        "parameters": [],
+        "constraints": [
+          {
+            "kind": "conformance",
+            "lhs": "Self",
+            "rhs": "FirstProtocol"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "func"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "e"
+        },
+        {
+          "kind": "text",
+          "spelling": "()"
+        }
+      ],
+      "accessLevel": "internal"
+    },
+    {
+      "kind": {
+        "identifier": "swift.init",
+        "displayName": "Initializer"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule11GenericBaseC4typeACyxGx_tcfc",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "GenericBase",
+        "init(type:)"
+      ],
+      "names": {
+        "title": "init(type:)",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "init"
+          },
+          {
+            "kind": "text",
+            "spelling": "("
+          },
+          {
+            "kind": "identifier",
+            "spelling": "type"
+          },
+          {
+            "kind": "text",
+            "spelling": ": T"
+          },
+          {
+            "kind": "text",
+            "spelling": ")"
+          }
+        ]
+      },
+      "swiftGenerics": {
+        "parameters": [
+          {
+            "name": "T",
+            "index": 0,
+            "depth": 0
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "init"
+        },
+        {
+          "kind": "text",
+          "spelling": "("
+        },
+        {
+          "kind": "identifier",
+          "spelling": "type"
+        },
+        {
+          "kind": "text",
+          "spelling": ": T"
+        },
+        {
+          "kind": "text",
+          "spelling": ")"
+        }
+      ],
+      "accessLevel": "internal"
+    },
+    {
+      "kind": {
+        "identifier": "swift.class",
+        "displayName": "Class"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule10ABaseClassC",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "ABaseClass"
+      ],
+      "names": {
+        "title": "ABaseClass",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "class"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "ABaseClass"
+          }
+        ]
+      },
+      "docComment": {
+        "lines": [
+          {
+            "range": {
+              "start": {
+                "line": 52,
+                "character": 4
+              },
+              "end": {
+                "line": 52,
+                "character": 16
+              }
+            },
+            "text": "A base class"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "class"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "ABaseClass"
+        }
+      ],
+      "accessLevel": "public",
+      "location": {
+        "uri": "file:///Users/johnf/project/J2/Tests/J2Tests/Fixtures/Swift53/SpmSwiftModule.swift",
+        "position": {
+          "line": 53,
+          "character": 13
+        }
+      }
+    },
+    {
+      "kind": {
+        "identifier": "swift.type.method",
+        "displayName": "Type Method"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule10ABaseClassC12staticMethodSiyFZ",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "ABaseClass",
+        "staticMethod()"
+      ],
+      "names": {
+        "title": "staticMethod()",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "static"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "keyword",
+            "spelling": "func"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "staticMethod"
+          },
+          {
+            "kind": "text",
+            "spelling": "() -> "
+          },
+          {
+            "kind": "typeIdentifier",
+            "spelling": "Int",
+            "preciseIdentifier": "s:Si"
+          }
+        ]
+      },
+      "functionSignature": {
+        "returns": [
+          {
+            "kind": "typeIdentifier",
+            "spelling": "Int",
+            "preciseIdentifier": "s:Si"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "static"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "keyword",
+          "spelling": "func"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "staticMethod"
+        },
+        {
+          "kind": "text",
+          "spelling": "() -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "spelling": "Int",
+          "preciseIdentifier": "s:Si"
+        }
+      ],
+      "accessLevel": "public",
+      "location": {
+        "uri": "file:///Users/johnf/project/J2/Tests/J2Tests/Fixtures/Swift53/SpmSwiftModule.swift",
+        "position": {
+          "line": 64,
+          "character": 21
+        }
+      }
+    },
+    {
+      "kind": {
+        "identifier": "swift.subscript",
+        "displayName": "Instance Subscript"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule10ABaseClassCySiSScip::SYNTHESIZED::s:14SpmSwiftModule13ADerivedClassC",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "ADerivedClass",
+        "subscript(_:)"
+      ],
+      "names": {
+        "title": "subscript(_:)",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "subscript"
+          },
+          {
+            "kind": "text",
+            "spelling": "("
+          },
+          {
+            "kind": "typeIdentifier",
+            "spelling": "String",
+            "preciseIdentifier": "s:SS"
+          },
+          {
+            "kind": "text",
+            "spelling": ") -> "
+          },
+          {
+            "kind": "typeIdentifier",
+            "spelling": "Int",
+            "preciseIdentifier": "s:Si"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "subscript"
+        },
+        {
+          "kind": "text",
+          "spelling": "("
+        },
+        {
+          "kind": "identifier",
+          "spelling": "_"
+        },
+        {
+          "kind": "text",
+          "spelling": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "spelling": "String",
+          "preciseIdentifier": "s:SS"
+        },
+        {
+          "kind": "text",
+          "spelling": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "spelling": "Int",
+          "preciseIdentifier": "s:Si"
+        }
+      ],
+      "accessLevel": "public",
+      "location": {
+        "uri": "file:///Users/johnf/project/J2/Tests/J2Tests/Fixtures/Swift53/SpmSwiftModule.swift",
+        "position": {
+          "line": 68,
+          "character": 9
+        }
+      }
+    },
+    {
+      "kind": {
+        "identifier": "swift.method",
+        "displayName": "Instance Method"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule13FirstProtocolPAASH9AssocTypeRpzrlE1m3argSSSi_tF",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "FirstProtocol",
+        "m(arg:)"
+      ],
+      "names": {
+        "title": "m(arg:)",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "func"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "m"
+          },
+          {
+            "kind": "text",
+            "spelling": "("
+          },
+          {
+            "kind": "identifier",
+            "spelling": "arg"
+          },
+          {
+            "kind": "text",
+            "spelling": ": "
+          },
+          {
+            "kind": "typeIdentifier",
+            "spelling": "Int",
+            "preciseIdentifier": "s:Si"
+          },
+          {
+            "kind": "text",
+            "spelling": ") -> "
+          },
+          {
+            "kind": "typeIdentifier",
+            "spelling": "String",
+            "preciseIdentifier": "s:SS"
+          }
+        ]
+      },
+      "docComment": {
+        "lines": [
+          {
+            "range": {
+              "start": {
+                "line": 2,
+                "character": 6
+              },
+              "end": {
+                "line": 2,
+                "character": 24
+              }
+            },
+            "text": "Brief note about m"
+          },
+          {
+            "range": {
+              "start": {
+                "line": 4,
+                "character": 0
+              },
+              "end": {
+                "line": 4,
+                "character": 0
+              }
+            },
+            "text": ""
+          },
+          {
+            "range": {
+              "start": {
+                "line": 4,
+                "character": 6
+              },
+              "end": {
+                "line": 4,
+                "character": 26
+              }
+            },
+            "text": "What m is all about."
+          },
+          {
+            "range": {
+              "start": {
+                "line": 5,
+                "character": 6
+              },
+              "end": {
+                "line": 5,
+                "character": 35
+              }
+            },
+            "text": "- parameter arg: The argument"
+          },
+          {
+            "range": {
+              "start": {
+                "line": 6,
+                "character": 6
+              },
+              "end": {
+                "line": 6,
+                "character": 27
+              }
+            },
+            "text": "- returns: The answer"
+          }
+        ]
+      },
+      "functionSignature": {
+        "parameters": [
+          {
+            "name": "arg",
+            "declarationFragments": [
+              {
+                "kind": "identifier",
+                "spelling": "arg"
+              },
+              {
+                "kind": "text",
+                "spelling": ": "
+              },
+              {
+                "kind": "typeIdentifier",
+                "spelling": "Int",
+                "preciseIdentifier": "s:Si"
+              }
+            ]
+          }
+        ],
+        "returns": [
+          {
+            "kind": "typeIdentifier",
+            "spelling": "String",
+            "preciseIdentifier": "s:SS"
+          }
+        ]
+      },
+      "swiftGenerics": {
+        "parameters": [],
+        "constraints": [
+          {
+            "kind": "conformance",
+            "lhs": "Self",
+            "rhs": "FirstProtocol"
+          },
+          {
+            "kind": "conformance",
+            "lhs": "Self.AssocType",
+            "rhs": "Hashable"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "func"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "m"
+        },
+        {
+          "kind": "text",
+          "spelling": "("
+        },
+        {
+          "kind": "identifier",
+          "spelling": "arg"
+        },
+        {
+          "kind": "text",
+          "spelling": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "spelling": "Int",
+          "preciseIdentifier": "s:Si"
+        },
+        {
+          "kind": "text",
+          "spelling": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "spelling": "String",
+          "preciseIdentifier": "s:SS"
+        }
+      ],
+      "accessLevel": "internal"
+    },
+    {
+      "kind": {
+        "identifier": "swift.deinit",
+        "displayName": "Deinitializer"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule10ABaseClassCfd::SYNTHESIZED::s:14SpmSwiftModule13ADerivedClassC",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "ADerivedClass",
+        "deinit"
+      ],
+      "names": {
+        "title": "deinit",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "deinit"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "deinit"
+        }
+      ],
+      "accessLevel": "public",
+      "location": {
+        "uri": "file:///Users/johnf/project/J2/Tests/J2Tests/Fixtures/Swift53/SpmSwiftModule.swift",
+        "position": {
+          "line": 58,
+          "character": 2
+        }
+      }
+    },
+    {
+      "kind": {
+        "identifier": "swift.enum.case",
+        "displayName": "Case"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule6AnEnumO5thirdyA2CmF",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "AnEnum",
+        "third"
+      ],
+      "names": {
+        "title": "third",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "case"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "third"
+          }
+        ]
+      },
+      "docComment": {
+        "lines": [
+          {
+            "range": {
+              "start": {
+                "line": 24,
+                "character": 8
+              },
+              "end": {
+                "line": 24,
+                "character": 39
+              }
+            },
+            "text": "Third & Fourth cases - `second`"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "case"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "third"
+        }
+      ],
+      "accessLevel": "public",
+      "location": {
+        "uri": "file:///Users/johnf/project/J2/Tests/J2Tests/Fixtures/Swift53/SpmSwiftModule.swift",
+        "position": {
+          "line": 25,
+          "character": 9
+        }
+      }
+    },
+    {
+      "kind": {
+        "identifier": "swift.type.subscript",
+        "displayName": "Type Subscript"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule10ABaseClassCySSSicipZ::SYNTHESIZED::s:14SpmSwiftModule13ADerivedClassC",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "ADerivedClass",
+        "subscript(_:)"
+      ],
+      "names": {
+        "title": "subscript(_:)",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "class"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "keyword",
+            "spelling": "subscript"
+          },
+          {
+            "kind": "text",
+            "spelling": "("
+          },
+          {
+            "kind": "typeIdentifier",
+            "spelling": "Int",
+            "preciseIdentifier": "s:Si"
+          },
+          {
+            "kind": "text",
+            "spelling": ") -> "
+          },
+          {
+            "kind": "typeIdentifier",
+            "spelling": "String",
+            "preciseIdentifier": "s:SS"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "class"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "keyword",
+          "spelling": "subscript"
+        },
+        {
+          "kind": "text",
+          "spelling": "("
+        },
+        {
+          "kind": "identifier",
+          "spelling": "_"
+        },
+        {
+          "kind": "text",
+          "spelling": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "spelling": "Int",
+          "preciseIdentifier": "s:Si"
+        },
+        {
+          "kind": "text",
+          "spelling": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "spelling": "String",
+          "preciseIdentifier": "s:SS"
+        }
+      ],
+      "accessLevel": "public",
+      "location": {
+        "uri": "file:///Users/johnf/project/J2/Tests/J2Tests/Fixtures/Swift53/SpmSwiftModule.swift",
+        "position": {
+          "line": 80,
+          "character": 15
+        }
+      }
+    },
+    {
+      "kind": {
+        "identifier": "swift.property",
+        "displayName": "Instance Property"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule13ADerivedClassC1tq_Sgvp",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "ADerivedClass",
+        "t"
+      ],
+      "names": {
+        "title": "t",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "var"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "t"
+          },
+          {
+            "kind": "text",
+            "spelling": ": Q"
+          },
+          {
+            "kind": "text",
+            "spelling": "?"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "var"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "t"
+        },
+        {
+          "kind": "text",
+          "spelling": ": Q"
+        },
+        {
+          "kind": "text",
+          "spelling": "?"
+        }
+      ],
+      "accessLevel": "internal"
+    },
+    {
+      "kind": {
+        "identifier": "swift.type.subscript",
+        "displayName": "Type Subscript"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule10ABaseClassCySSSicipZ",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "ABaseClass",
+        "subscript(_:)"
+      ],
+      "names": {
+        "title": "subscript(_:)",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "class"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "keyword",
+            "spelling": "subscript"
+          },
+          {
+            "kind": "text",
+            "spelling": "("
+          },
+          {
+            "kind": "typeIdentifier",
+            "spelling": "Int",
+            "preciseIdentifier": "s:Si"
+          },
+          {
+            "kind": "text",
+            "spelling": ") -> "
+          },
+          {
+            "kind": "typeIdentifier",
+            "spelling": "String",
+            "preciseIdentifier": "s:SS"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "class"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "keyword",
+          "spelling": "subscript"
+        },
+        {
+          "kind": "text",
+          "spelling": "("
+        },
+        {
+          "kind": "identifier",
+          "spelling": "_"
+        },
+        {
+          "kind": "text",
+          "spelling": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "spelling": "Int",
+          "preciseIdentifier": "s:Si"
+        },
+        {
+          "kind": "text",
+          "spelling": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "spelling": "String",
+          "preciseIdentifier": "s:SS"
+        }
+      ],
+      "accessLevel": "public",
+      "location": {
+        "uri": "file:///Users/johnf/project/J2/Tests/J2Tests/Fixtures/Swift53/SpmSwiftModule.swift",
+        "position": {
+          "line": 80,
+          "character": 15
+        }
+      }
+    },
+    {
+      "kind": {
+        "identifier": "swift.enum",
+        "displayName": "Enumeration"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule6AnEnumO",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "AnEnum"
+      ],
+      "names": {
+        "title": "AnEnum",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "enum"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "AnEnum"
+          }
+        ]
+      },
+      "docComment": {
+        "lines": [
+          {
+            "range": {
+              "start": {
+                "line": 18,
+                "character": 4
+              },
+              "end": {
+                "line": 18,
+                "character": 11
+              }
+            },
+            "text": "An enum"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "enum"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "AnEnum"
+        }
+      ],
+      "accessLevel": "public",
+      "location": {
+        "uri": "file:///Users/johnf/project/J2/Tests/J2Tests/Fixtures/Swift53/SpmSwiftModule.swift",
+        "position": {
+          "line": 19,
+          "character": 12
+        }
+      }
+    },
+    {
+      "kind": {
+        "identifier": "swift.class",
+        "displayName": "Class"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule13ADerivedClassC",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "ADerivedClass"
+      ],
+      "names": {
+        "title": "ADerivedClass",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "class"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "ADerivedClass"
+          },
+          {
+            "kind": "text",
+            "spelling": "<"
+          },
+          {
+            "kind": "genericParameter",
+            "spelling": "T"
+          },
+          {
+            "kind": "text",
+            "spelling": ", "
+          },
+          {
+            "kind": "genericParameter",
+            "spelling": "Q"
+          },
+          {
+            "kind": "text",
+            "spelling": "> : "
+          },
+          {
+            "kind": "typeIdentifier",
+            "spelling": "ABaseClass",
+            "preciseIdentifier": "s:14SpmSwiftModule10ABaseClassC"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "keyword",
+            "spelling": "where"
+          },
+          {
+            "kind": "text",
+            "spelling": " Q"
+          },
+          {
+            "kind": "text",
+            "spelling": " : "
+          },
+          {
+            "kind": "typeIdentifier",
+            "spelling": "Sequence",
+            "preciseIdentifier": "s:ST"
+          }
+        ]
+      },
+      "docComment": {
+        "lines": [
+          {
+            "range": {
+              "start": {
+                "line": 88,
+                "character": 4
+              },
+              "end": {
+                "line": 88,
+                "character": 19
+              }
+            },
+            "text": "A derived class"
+          }
+        ]
+      },
+      "swiftGenerics": {
+        "parameters": [
+          {
+            "name": "T",
+            "index": 0,
+            "depth": 0
+          },
+          {
+            "name": "Q",
+            "index": 1,
+            "depth": 0
+          }
+        ],
+        "constraints": [
+          {
+            "kind": "conformance",
+            "lhs": "Q",
+            "rhs": "Sequence"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "class"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "ADerivedClass"
+        },
+        {
+          "kind": "text",
+          "spelling": "<"
+        },
+        {
+          "kind": "genericParameter",
+          "spelling": "T"
+        },
+        {
+          "kind": "text",
+          "spelling": ", "
+        },
+        {
+          "kind": "genericParameter",
+          "spelling": "Q"
+        },
+        {
+          "kind": "text",
+          "spelling": "> : "
+        },
+        {
+          "kind": "typeIdentifier",
+          "spelling": "ABaseClass",
+          "preciseIdentifier": "s:14SpmSwiftModule10ABaseClassC"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "keyword",
+          "spelling": "where"
+        },
+        {
+          "kind": "text",
+          "spelling": " Q"
+        },
+        {
+          "kind": "text",
+          "spelling": " : "
+        },
+        {
+          "kind": "typeIdentifier",
+          "spelling": "Sequence",
+          "preciseIdentifier": "s:ST"
+        }
+      ],
+      "accessLevel": "public",
+      "location": {
+        "uri": "file:///Users/johnf/project/J2/Tests/J2Tests/Fixtures/Swift53/SpmSwiftModule.swift",
+        "position": {
+          "line": 89,
+          "character": 13
+        }
+      }
+    },
+    {
+      "kind": {
+        "identifier": "swift.subscript",
+        "displayName": "Instance Subscript"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule10ABaseClassCySiSScip",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "ABaseClass",
+        "subscript(_:)"
+      ],
+      "names": {
+        "title": "subscript(_:)",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "subscript"
+          },
+          {
+            "kind": "text",
+            "spelling": "("
+          },
+          {
+            "kind": "typeIdentifier",
+            "spelling": "String",
+            "preciseIdentifier": "s:SS"
+          },
+          {
+            "kind": "text",
+            "spelling": ") -> "
+          },
+          {
+            "kind": "typeIdentifier",
+            "spelling": "Int",
+            "preciseIdentifier": "s:Si"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "subscript"
+        },
+        {
+          "kind": "text",
+          "spelling": "("
+        },
+        {
+          "kind": "identifier",
+          "spelling": "_"
+        },
+        {
+          "kind": "text",
+          "spelling": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "spelling": "String",
+          "preciseIdentifier": "s:SS"
+        },
+        {
+          "kind": "text",
+          "spelling": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "spelling": "Int",
+          "preciseIdentifier": "s:Si"
+        }
+      ],
+      "accessLevel": "public",
+      "location": {
+        "uri": "file:///Users/johnf/project/J2/Tests/J2Tests/Fixtures/Swift53/SpmSwiftModule.swift",
+        "position": {
+          "line": 68,
+          "character": 9
+        }
+      }
+    },
+    {
+      "kind": {
+        "identifier": "swift.type.method",
+        "displayName": "Type Method"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule10ABaseClassC12staticMethodSiyFZ::SYNTHESIZED::s:14SpmSwiftModule13ADerivedClassC",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "ADerivedClass",
+        "staticMethod()"
+      ],
+      "names": {
+        "title": "staticMethod()",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "static"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "keyword",
+            "spelling": "func"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "staticMethod"
+          },
+          {
+            "kind": "text",
+            "spelling": "() -> "
+          },
+          {
+            "kind": "typeIdentifier",
+            "spelling": "Int",
+            "preciseIdentifier": "s:Si"
+          }
+        ]
+      },
+      "functionSignature": {
+        "returns": [
+          {
+            "kind": "typeIdentifier",
+            "spelling": "Int",
+            "preciseIdentifier": "s:Si"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "static"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "keyword",
+          "spelling": "func"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "staticMethod"
+        },
+        {
+          "kind": "text",
+          "spelling": "() -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "spelling": "Int",
+          "preciseIdentifier": "s:Si"
+        }
+      ],
+      "accessLevel": "public",
+      "location": {
+        "uri": "file:///Users/johnf/project/J2/Tests/J2Tests/Fixtures/Swift53/SpmSwiftModule.swift",
+        "position": {
+          "line": 64,
+          "character": 21
+        }
+      }
+    },
+    {
+      "kind": {
+        "identifier": "swift.method",
+        "displayName": "Instance Method"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule11GenericBaseC6mutifyxyF",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "GenericBase",
+        "mutify()"
+      ],
+      "names": {
+        "title": "mutify()",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "func"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "mutify"
+          },
+          {
+            "kind": "text",
+            "spelling": "() -> T"
+          }
+        ]
+      },
+      "functionSignature": {
+        "returns": [
+          {
+            "kind": "text",
+            "spelling": "T"
+          }
+        ]
+      },
+      "swiftGenerics": {
+        "parameters": [
+          {
+            "name": "T",
+            "index": 0,
+            "depth": 0
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "func"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "mutify"
+        },
+        {
+          "kind": "text",
+          "spelling": "() -> T"
+        }
+      ],
+      "accessLevel": "internal"
+    },
+    {
+      "kind": {
+        "identifier": "swift.method",
+        "displayName": "Instance Method"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule11GenericBaseCA2A13FirstProtocolRzSQRzlE11doMoreMagicyyF",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "GenericBase",
+        "doMoreMagic()"
+      ],
+      "names": {
+        "title": "doMoreMagic()",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "func"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "doMoreMagic"
+          },
+          {
+            "kind": "text",
+            "spelling": "()"
+          }
+        ]
+      },
+      "functionSignature": {
+        "returns": [
+          {
+            "kind": "text",
+            "spelling": "()"
+          }
+        ]
+      },
+      "swiftGenerics": {
+        "parameters": [],
+        "constraints": [
+          {
+            "kind": "conformance",
+            "lhs": "T",
+            "rhs": "FirstProtocol"
+          },
+          {
+            "kind": "conformance",
+            "lhs": "T",
+            "rhs": "Equatable"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "func"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "doMoreMagic"
+        },
+        {
+          "kind": "text",
+          "spelling": "()"
+        }
+      ],
+      "accessLevel": "internal"
+    },
+    {
+      "kind": {
+        "identifier": "swift.property",
+        "displayName": "Instance Property"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModuleAAV4textSSvp",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "SpmSwiftModule",
+        "text"
+      ],
+      "names": {
+        "title": "text",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "var"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "text"
+          },
+          {
+            "kind": "text",
+            "spelling": ": "
+          },
+          {
+            "kind": "typeIdentifier",
+            "spelling": "String",
+            "preciseIdentifier": "s:SS"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "var"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "text"
+        },
+        {
+          "kind": "text",
+          "spelling": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "spelling": "String",
+          "preciseIdentifier": "s:SS"
+        }
+      ],
+      "accessLevel": "public",
+      "location": {
+        "uri": "file:///Users/johnf/project/J2/Tests/J2Tests/Fixtures/Swift53/SpmSwiftModule.swift",
+        "position": {
+          "line": 3,
+          "character": 15
+        }
+      }
+    },
+    {
+      "kind": {
+        "identifier": "swift.func",
+        "displayName": "Function"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule18deprecatedFunction8callbackSSSiSSXE_tF",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "deprecatedFunction(callback:)"
+      ],
+      "names": {
+        "title": "deprecatedFunction(callback:)",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "func"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "deprecatedFunction"
+          },
+          {
+            "kind": "text",
+            "spelling": "("
+          },
+          {
+            "kind": "identifier",
+            "spelling": "callback"
+          },
+          {
+            "kind": "text",
+            "spelling": ": ("
+          },
+          {
+            "kind": "typeIdentifier",
+            "spelling": "String",
+            "preciseIdentifier": "s:SS"
+          },
+          {
+            "kind": "text",
+            "spelling": ") -> "
+          },
+          {
+            "kind": "typeIdentifier",
+            "spelling": "Int",
+            "preciseIdentifier": "s:Si"
+          },
+          {
+            "kind": "text",
+            "spelling": ") -> "
+          },
+          {
+            "kind": "typeIdentifier",
+            "spelling": "String",
+            "preciseIdentifier": "s:SS"
+          }
+        ]
+      },
+      "docComment": {
+        "lines": [
+          {
+            "range": {
+              "start": {
+                "line": 42,
+                "character": 4
+              },
+              "end": {
+                "line": 42,
+                "character": 25
+              }
+            },
+            "text": "A deprecated function"
+          },
+          {
+            "range": {
+              "start": {
+                "line": 44,
+                "character": 0
+              },
+              "end": {
+                "line": 44,
+                "character": 0
+              }
+            },
+            "text": ""
+          },
+          {
+            "range": {
+              "start": {
+                "line": 44,
+                "character": 4
+              },
+              "end": {
+                "line": 44,
+                "character": 38
+              }
+            },
+            "text": "- parameter callback: The callback"
+          },
+          {
+            "range": {
+              "start": {
+                "line": 45,
+                "character": 4
+              },
+              "end": {
+                "line": 45,
+                "character": 23
+              }
+            },
+            "text": "- returns: A string"
+          }
+        ]
+      },
+      "functionSignature": {
+        "parameters": [
+          {
+            "name": "callback",
+            "declarationFragments": [
+              {
+                "kind": "identifier",
+                "spelling": "callback"
+              },
+              {
+                "kind": "text",
+                "spelling": ": ("
+              },
+              {
+                "kind": "typeIdentifier",
+                "spelling": "String",
+                "preciseIdentifier": "s:SS"
+              },
+              {
+                "kind": "text",
+                "spelling": ") -> "
+              },
+              {
+                "kind": "typeIdentifier",
+                "spelling": "Int",
+                "preciseIdentifier": "s:Si"
+              }
+            ]
+          }
+        ],
+        "returns": [
+          {
+            "kind": "typeIdentifier",
+            "spelling": "String",
+            "preciseIdentifier": "s:SS"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "func"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "deprecatedFunction"
+        },
+        {
+          "kind": "text",
+          "spelling": "("
+        },
+        {
+          "kind": "identifier",
+          "spelling": "callback"
+        },
+        {
+          "kind": "text",
+          "spelling": ": ("
+        },
+        {
+          "kind": "typeIdentifier",
+          "spelling": "String",
+          "preciseIdentifier": "s:SS"
+        },
+        {
+          "kind": "text",
+          "spelling": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "spelling": "Int",
+          "preciseIdentifier": "s:Si"
+        },
+        {
+          "kind": "text",
+          "spelling": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "spelling": "String",
+          "preciseIdentifier": "s:SS"
+        }
+      ],
+      "accessLevel": "public",
+      "availability": [
+        {
+          "domain": "macOS",
+          "deprecated": {
+            "major": 10,
+            "minor": 14
+          },
+          "message": "Deprecated on *macOS* too"
+        },
+        {
+          "domain": "iOS",
+          "deprecated": {
+            "major": 12,
+            "minor": 0
+          },
+          "message": "Deprecated!"
+        }
+      ],
+      "location": {
+        "uri": "file:///Users/johnf/project/J2/Tests/J2Tests/Fixtures/Swift53/SpmSwiftModule.swift",
+        "position": {
+          "line": 48,
+          "character": 12
+        }
+      }
+    },
+    {
+      "kind": {
+        "identifier": "swift.method",
+        "displayName": "Instance Method"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule13ADerivedClassC7generic5paramxx_tF",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "ADerivedClass",
+        "generic(param:)"
+      ],
+      "names": {
+        "title": "generic(param:)",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "func"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "generic"
+          },
+          {
+            "kind": "text",
+            "spelling": "("
+          },
+          {
+            "kind": "identifier",
+            "spelling": "param"
+          },
+          {
+            "kind": "text",
+            "spelling": ": T"
+          },
+          {
+            "kind": "text",
+            "spelling": ") -> T"
+          }
+        ]
+      },
+      "functionSignature": {
+        "parameters": [
+          {
+            "name": "param",
+            "declarationFragments": [
+              {
+                "kind": "identifier",
+                "spelling": "param"
+              },
+              {
+                "kind": "text",
+                "spelling": ": T"
+              }
+            ]
+          }
+        ],
+        "returns": [
+          {
+            "kind": "text",
+            "spelling": "T"
+          }
+        ]
+      },
+      "swiftGenerics": {
+        "parameters": [
+          {
+            "name": "T",
+            "index": 0,
+            "depth": 0
+          },
+          {
+            "name": "Q",
+            "index": 1,
+            "depth": 0
+          }
+        ],
+        "constraints": [
+          {
+            "kind": "conformance",
+            "lhs": "Q",
+            "rhs": "Sequence"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "func"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "generic"
+        },
+        {
+          "kind": "text",
+          "spelling": "("
+        },
+        {
+          "kind": "identifier",
+          "spelling": "param"
+        },
+        {
+          "kind": "text",
+          "spelling": ": T"
+        },
+        {
+          "kind": "text",
+          "spelling": ") -> T"
+        }
+      ],
+      "accessLevel": "public",
+      "location": {
+        "uri": "file:///Users/johnf/project/J2/Tests/J2Tests/Fixtures/Swift53/SpmSwiftModule.swift",
+        "position": {
+          "line": 97,
+          "character": 14
+        }
+      }
+    },
+    {
+      "kind": {
+        "identifier": "swift.enum.case",
+        "displayName": "Case"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule6AnEnumO6secondyA2CmF",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "AnEnum",
+        "second"
+      ],
+      "names": {
+        "title": "second",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "case"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "second"
+          }
+        ]
+      },
+      "docComment": {
+        "lines": [
+          {
+            "range": {
+              "start": {
+                "line": 22,
+                "character": 8
+              },
+              "end": {
+                "line": 22,
+                "character": 19
+              }
+            },
+            "text": "Second case"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "case"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "second"
+        }
+      ],
+      "accessLevel": "public",
+      "location": {
+        "uri": "file:///Users/johnf/project/J2/Tests/J2Tests/Fixtures/Swift53/SpmSwiftModule.swift",
+        "position": {
+          "line": 23,
+          "character": 9
+        }
+      }
+    },
+    {
+      "kind": {
+        "identifier": "swift.method",
+        "displayName": "Instance Method"
+      },
+      "identifier": {
+        "precise": "s:14SpmSwiftModule10ABaseClassC6method5paramSSSi_tF",
+        "interfaceLanguage": "swift"
+      },
+      "pathComponents": [
+        "ABaseClass",
+        "method(param:)"
+      ],
+      "names": {
+        "title": "method(param:)",
+        "subHeading": [
+          {
+            "kind": "keyword",
+            "spelling": "func"
+          },
+          {
+            "kind": "text",
+            "spelling": " "
+          },
+          {
+            "kind": "identifier",
+            "spelling": "method"
+          },
+          {
+            "kind": "text",
+            "spelling": "("
+          },
+          {
+            "kind": "identifier",
+            "spelling": "param"
+          },
+          {
+            "kind": "text",
+            "spelling": ": "
+          },
+          {
+            "kind": "typeIdentifier",
+            "spelling": "Int",
+            "preciseIdentifier": "s:Si"
+          },
+          {
+            "kind": "text",
+            "spelling": ") -> "
+          },
+          {
+            "kind": "typeIdentifier",
+            "spelling": "String",
+            "preciseIdentifier": "s:SS"
+          }
+        ]
+      },
+      "docComment": {
+        "lines": [
+          {
+            "range": {
+              "start": {
+                "line": 59,
+                "character": 6
+              },
+              "end": {
+                "line": 59,
+                "character": 42
+              }
+            },
+            "text": "Base class docs for `method(param:)`"
+          }
+        ]
+      },
+      "functionSignature": {
+        "parameters": [
+          {
+            "name": "param",
+            "declarationFragments": [
+              {
+                "kind": "identifier",
+                "spelling": "param"
+              },
+              {
+                "kind": "text",
+                "spelling": ": "
+              },
+              {
+                "kind": "typeIdentifier",
+                "spelling": "Int",
+                "preciseIdentifier": "s:Si"
+              }
+            ]
+          }
+        ],
+        "returns": [
+          {
+            "kind": "typeIdentifier",
+            "spelling": "String",
+            "preciseIdentifier": "s:SS"
+          }
+        ]
+      },
+      "declarationFragments": [
+        {
+          "kind": "keyword",
+          "spelling": "func"
+        },
+        {
+          "kind": "text",
+          "spelling": " "
+        },
+        {
+          "kind": "identifier",
+          "spelling": "method"
+        },
+        {
+          "kind": "text",
+          "spelling": "("
+        },
+        {
+          "kind": "identifier",
+          "spelling": "param"
+        },
+        {
+          "kind": "text",
+          "spelling": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "spelling": "Int",
+          "preciseIdentifier": "s:Si"
+        },
+        {
+          "kind": "text",
+          "spelling": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "spelling": "String",
+          "preciseIdentifier": "s:SS"
+        }
+      ],
+      "accessLevel": "public",
+      "location": {
+        "uri": "file:///Users/johnf/project/J2/Tests/J2Tests/Fixtures/Swift53/SpmSwiftModule.swift",
+        "position": {
+          "line": 60,
+          "character": 14
+        }
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "kind": "memberOf",
+      "source": "s:14SpmSwiftModule10ABaseClassCACycfc",
+      "target": "s:14SpmSwiftModule10ABaseClassC"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:14SpmSwiftModule13FirstProtocolPAASH9AssocTypeRpzrlE17extHashableMethodyyF",
+      "target": "s:14SpmSwiftModule13FirstProtocolP"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:14SpmSwiftModule11GenericBaseCAASHRzlE10doHashableyyF",
+      "target": "s:14SpmSwiftModule11GenericBaseC"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:14SpmSwiftModule13FirstProtocolPAAE1m3argSSSi_tF",
+      "target": "s:14SpmSwiftModule13FirstProtocolP"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:14SpmSwiftModule6AnEnumO5firstyACSicACmF",
+      "target": "s:14SpmSwiftModule6AnEnumO"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:14SpmSwiftModule13FirstProtocolPAASH9AssocTypeRpzrlE1m3argSSSi_tF",
+      "target": "s:14SpmSwiftModule13FirstProtocolP"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:14SpmSwiftModule11GenericBaseC11descriptionSSvp",
+      "target": "s:14SpmSwiftModule11GenericBaseC"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:14SpmSwiftModuleAAV7Nested1V",
+      "target": "s:14SpmSwiftModuleAAV"
+    },
+    {
+      "kind": "conformsTo",
+      "source": "s:14SpmSwiftModule11GenericBaseC",
+      "target": "s:s23CustomStringConvertibleP",
+      "targetFallback": "Swift.CustomStringConvertible"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:14SpmSwiftModule11GenericBaseCAASeRzSERzlE12codableCountSivp",
+      "target": "s:14SpmSwiftModule11GenericBaseC"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:14SpmSwiftModule11GenericBaseC4typeACyxGx_tcfc",
+      "target": "s:14SpmSwiftModule11GenericBaseC"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:14SpmSwiftModule13FirstProtocolPAAE1eyyF",
+      "target": "s:14SpmSwiftModule13FirstProtocolP"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:14SpmSwiftModule10ABaseClassCySiSScipZ",
+      "target": "s:14SpmSwiftModule10ABaseClassC"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:14SpmSwiftModuleAAV4textSSvp",
+      "target": "s:14SpmSwiftModuleAAV"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:14SpmSwiftModule10ABaseClassCySiSScipZ::SYNTHESIZED::s:14SpmSwiftModule13ADerivedClassC",
+      "target": "s:14SpmSwiftModule13ADerivedClassC"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:14SpmSwiftModule10ABaseClassC1aACSi_tcfc",
+      "target": "s:14SpmSwiftModule10ABaseClassC"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:14SpmSwiftModule6AnEnumO6fourthyA2CmF",
+      "target": "s:14SpmSwiftModule6AnEnumO"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:14SpmSwiftModule11GenericBaseC6mutifyxyF",
+      "target": "s:14SpmSwiftModule11GenericBaseC"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:14SpmSwiftModule11GenericBaseCA2A13FirstProtocolRzSQRzlE11doMoreMagicyyF",
+      "target": "s:14SpmSwiftModule11GenericBaseC"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:14SpmSwiftModule6AnEnumO5fifthyACSS_SitcACmF",
+      "target": "s:14SpmSwiftModule6AnEnumO"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:14SpmSwiftModule10ABaseClassC1aACSi_tcfc::SYNTHESIZED::s:14SpmSwiftModule13ADerivedClassC",
+      "target": "s:14SpmSwiftModule13ADerivedClassC"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:14SpmSwiftModule10ABaseClassC6method5paramSSSi_tF",
+      "target": "s:14SpmSwiftModule10ABaseClassC"
+    },
+    {
+      "kind": "defaultImplementationOf",
+      "source": "s:14SpmSwiftModule13FirstProtocolPAASH9AssocTypeRpzrlE1m3argSSSi_tF",
+      "target": "s:14SpmSwiftModule13FirstProtocolP1m3argSSSi_tF"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:14SpmSwiftModule13ADerivedClassC6method5paramSSSi_tF",
+      "target": "s:14SpmSwiftModule13ADerivedClassC"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:14SpmSwiftModule11GenericBaseC5boxedxvp",
+      "target": "s:14SpmSwiftModule11GenericBaseC"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:14SpmSwiftModule11GenericBaseCAASeRzSERzlE12doCodabilityyyF",
+      "target": "s:14SpmSwiftModule11GenericBaseC"
+    },
+    {
+      "kind": "overrides",
+      "source": "s:14SpmSwiftModule13ADerivedClassC6method5paramSSSi_tF",
+      "target": "s:14SpmSwiftModule10ABaseClassC6method5paramSSSi_tF"
+    },
+    {
+      "kind": "inheritsFrom",
+      "source": "s:14SpmSwiftModule13ADerivedClassC",
+      "target": "s:14SpmSwiftModule10ABaseClassC"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:14SpmSwiftModule13FirstProtocolP9AssocTypeQa",
+      "target": "s:14SpmSwiftModule13FirstProtocolP"
+    },
+    {
+      "kind": "defaultImplementationOf",
+      "source": "s:14SpmSwiftModule13FirstProtocolPAAE1m3argSSSi_tF",
+      "target": "s:14SpmSwiftModule13FirstProtocolP1m3argSSSi_tF"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:14SpmSwiftModuleAAV7Nested2V",
+      "target": "s:14SpmSwiftModuleAAV"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:14SpmSwiftModule10ABaseClassCySiSScip",
+      "target": "s:14SpmSwiftModule10ABaseClassC"
+    },
+    {
+      "kind": "requirementOf",
+      "source": "s:14SpmSwiftModule13FirstProtocolP9assocFunc9AssocTypeQzyF",
+      "target": "s:14SpmSwiftModule13FirstProtocolP"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:14SpmSwiftModule11GenericBaseCA2A13FirstProtocolRzSQRzlE02doF5MagicyyF",
+      "target": "s:14SpmSwiftModule11GenericBaseC"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:14SpmSwiftModule13FirstProtocolP1m3argSSSi_tF",
+      "target": "s:14SpmSwiftModule13FirstProtocolP"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:14SpmSwiftModule10ABaseClassCfd::SYNTHESIZED::s:14SpmSwiftModule13ADerivedClassC",
+      "target": "s:14SpmSwiftModule13ADerivedClassC"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:14SpmSwiftModule10ABaseClassCySiSScip::SYNTHESIZED::s:14SpmSwiftModule13ADerivedClassC",
+      "target": "s:14SpmSwiftModule13ADerivedClassC"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:14SpmSwiftModuleAAV7Nested1V8Nested2aV",
+      "target": "s:14SpmSwiftModuleAAV7Nested1V"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:14SpmSwiftModule10ABaseClassC12staticMethodSiyFZ",
+      "target": "s:14SpmSwiftModule10ABaseClassC"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:14SpmSwiftModule10ABaseClassCySSSicipZ::SYNTHESIZED::s:14SpmSwiftModule13ADerivedClassC",
+      "target": "s:14SpmSwiftModule13ADerivedClassC"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:14SpmSwiftModuleAAV7Nested1V8Nested2bV",
+      "target": "s:14SpmSwiftModuleAAV7Nested1V"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:14SpmSwiftModule6AnEnumO5thirdyA2CmF",
+      "target": "s:14SpmSwiftModule6AnEnumO"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:14SpmSwiftModule13ADerivedClassC1tq_Sgvp",
+      "target": "s:14SpmSwiftModule13ADerivedClassC"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:14SpmSwiftModule10ABaseClassCySSSicipZ",
+      "target": "s:14SpmSwiftModule10ABaseClassC"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:14SpmSwiftModule10ABaseClassC12staticMethodSiyFZ::SYNTHESIZED::s:14SpmSwiftModule13ADerivedClassC",
+      "target": "s:14SpmSwiftModule13ADerivedClassC"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:14SpmSwiftModule13ADerivedClassC7generic5paramxx_tF",
+      "target": "s:14SpmSwiftModule13ADerivedClassC"
+    },
+    {
+      "kind": "requirementOf",
+      "source": "s:14SpmSwiftModule13FirstProtocolP9AssocTypeQa",
+      "target": "s:14SpmSwiftModule13FirstProtocolP"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:14SpmSwiftModule6AnEnumO6secondyA2CmF",
+      "target": "s:14SpmSwiftModule6AnEnumO"
+    },
+    {
+      "kind": "requirementOf",
+      "source": "s:14SpmSwiftModule13FirstProtocolP1m3argSSSi_tF",
+      "target": "s:14SpmSwiftModule13FirstProtocolP"
+    },
+    {
+      "kind": "memberOf",
+      "source": "s:14SpmSwiftModule13FirstProtocolP9assocFunc9AssocTypeQzyF",
+      "target": "s:14SpmSwiftModule13FirstProtocolP"
+    }
+  ]
+}

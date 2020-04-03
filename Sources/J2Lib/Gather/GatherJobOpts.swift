@@ -49,9 +49,11 @@ final class GatherJobOpts: Configurable, CustomStringConvertible {
         try sourcekittenJSONFilesOpt.checkAreFiles()
         try j2JSONFilesOpt.checkAreFiles()
 
-        let targetTriple = swiftSymbolGraphTarget.components(separatedBy: "-")
-        if targetTriple.count != 3 {
-            throw OptionsError(.localized(.errCfgSsgeTriple, swiftSymbolGraphTarget))
+        if let target = swiftSymbolGraphTargetOpt.value {
+            let targetTriple = target.components(separatedBy: "-")
+            if targetTriple.count < 3 { // "linux-gnu" sob
+                throw OptionsError(.localized(.errCfgSsgeTriple, swiftSymbolGraphTarget))
+            }
         }
     }
 

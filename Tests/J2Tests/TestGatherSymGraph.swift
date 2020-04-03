@@ -50,6 +50,12 @@ class TestGatherSymGraph: XCTestCase {
 
     // MARK: Goodpath end-to-end running, srcdir
 
+    let toolPath = "/Users/johnf/project/swift-source/build/jfdev/swift-macosx-x86_64/bin/swift-symbolgraph-extract"
+
+    var isMyLaptop: Bool {
+        FileManager.default.fileExists(atPath: toolPath)
+    }
+
     func useCustomTool(path: String? = nil) {
         let tool = path ?? "/Users/johnf/project/swift-source/build/jfdev/swift-macosx-x86_64/bin/swift-symbolgraph-extract"
         setenv("J2_SWIFT_SYMBOLGRAPH_EXTRACT", strdup(tool), 1)
@@ -58,7 +64,11 @@ class TestGatherSymGraph: XCTestCase {
         unsetenv("J2_SWIFT_SYMBOLGRAPH_EXTRACT")
     }
 
+    #if os(macOS) // until we have a real toolchain
+
     func testModuleLocation() throws {
+        guard isMyLaptop else { return }
+
         useCustomTool(); defer { resetTool() }
 
 //        let binDirPath = try fixturesURL.appendingPathComponent("SpmSwiftPackage").withCurrentDirectory { () -> String in
@@ -85,6 +95,7 @@ class TestGatherSymGraph: XCTestCase {
 
         XCTAssertEqual(srcDirPasses.json, cwdPasses.json)
     }
+    #endif
 
     // MARK: Tool misbehaviours
 
@@ -104,4 +115,5 @@ class TestGatherSymGraph: XCTestCase {
             "--modules=NotAModule"
         ]), GatherError.self)
     }
+
 }
