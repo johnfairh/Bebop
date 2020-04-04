@@ -27,3 +27,4 @@ node_modules
 dist
 *.profraw
 Tests/J2Tests/Fixtures/SpmSwiftPackage/docs
+Tests/J2Tests/Fixtures/Swift53/docs

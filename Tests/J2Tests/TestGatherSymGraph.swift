@@ -93,7 +93,19 @@ class TestGatherSymGraph: XCTestCase {
             try System().run(["--build-tool=swift-symbolgraph", "--modules=SpmSwiftModule"])
         }
 
-        XCTAssertEqual(srcDirPasses.json, cwdPasses.json)
+        let srcDirJSON = srcDirPasses.json
+        let cwdJSON = cwdPasses.json
+
+        if srcDirJSON != cwdJSON {
+            let srcDirJSONURL = FileManager.default.temporaryFileURL()
+            try srcDirJSON.write(to: srcDirJSONURL)
+
+            let cwdJSONURL = FileManager.default.temporaryFileURL()
+            try cwdJSON.write(to: cwdJSONURL)
+
+            print("diff \(srcDirJSONURL.path) \(cwdJSONURL.path)")
+            XCTFail()
+        }
     }
     #endif
 

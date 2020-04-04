@@ -77,7 +77,7 @@ extension GatherJob {
                 throw GatherError(.localized(.errCfgSsgeMainMissing))
             }
 
-            var defs = [try GatherSymbolGraph.decode(moduleName: moduleName, json: mainSymbolJSON)]
+            var defs = [try GatherSymbolGraph.decode(moduleName: moduleName, json: mainSymbolJSON)!]
 
             // Extensions of things from other modules come in their own files, one per module.
             // Apple have put the foreign module in the filename and not the metadata...

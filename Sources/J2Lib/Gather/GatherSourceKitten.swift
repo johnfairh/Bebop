@@ -43,14 +43,14 @@ extension ObjCDeclarationKind2: DeclarationKind {}
 // MARK: Typed Dict Getters
 
 extension SourceKittenDict {
-    private subscript(key: SwiftDocKey) -> Any? {
+    subscript(key: SwiftDocKey) -> Any? {
         get { self[key.rawValue] }
-        set { self[key.rawValue] = newValue }
+        set { if let newValue = newValue { self[key.rawValue] = newValue } }
     }
 
-    private subscript(key: SwiftDocKey2) -> Any? {
+    subscript(key: SwiftDocKey2) -> Any? {
         get { self[key.rawValue] }
-        set { self[key.rawValue] = newValue }
+        set { if let newValue = newValue { self[key.rawValue] = newValue } }
     }
 
     var name: String? {

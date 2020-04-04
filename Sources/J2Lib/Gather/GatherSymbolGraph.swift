@@ -7,15 +7,16 @@
 //
 
 import Foundation
+import SortedArray
 import SourceKittenFramework
 
 enum GatherSymbolGraph {
 
-    static func decode(moduleName: String, json: String) throws -> GatherDef {
+    static func decode(moduleName: String, json: String) throws -> GatherDef? {
         logDebug("Decoding main symbolgraph JSON for \(moduleName)")
-        try doFile(json: json)
+        let dict = try doFile(json: json)
+        return GatherDef(sourceKittenDict: dict, parentNameComponents: [], file: nil, availability: Gather.Availability())
         //loginfo when done
-        return GatherDef(children: [], sourceKittenDict: SourceKittenDict(), kind: nil, swiftDeclaration: nil, objCDeclaration: nil, documentation: nil, localizationKey: nil, translatedDocs: nil)
     }
 
     static func decode(moduleName: String, otherModuleName: String, json: String) throws -> GatherDef {
@@ -26,9 +27,9 @@ enum GatherSymbolGraph {
         return GatherDef(children: [], sourceKittenDict: SourceKittenDict(), kind: nil, swiftDeclaration: nil, objCDeclaration: nil, documentation: nil, localizationKey: nil, translatedDocs: nil)
     }
 
-    static func doFile(json: String) throws {
+    static func doFile(json: String) throws -> SourceKittenDict {
         let graph = try JSONDecoder().decode(SymbolGraph.self, from: json.data(using: .utf8)!)
-        graph.rebuild()
+        return graph.rebuild()
     }
 }
 
@@ -89,7 +90,7 @@ fileprivate struct NetworkSymbolGraph: Decodable {
 /// Flattened and more normally-named deserialized symbolgraph - all decoding of json happens here.
 fileprivate struct SymbolGraph: Decodable {
     let generator: String
-    struct Symbol {
+    struct Symbol: Equatable {
         let kind: String
         let usr: String
         let name: String
@@ -160,7 +161,7 @@ fileprivate struct SymbolGraph: Decodable {
         "swift.init" : .functionConstructor,
         "swift.deinit" : .functionDestructor,
         "swift.func.op" : .functionOperator,
-        "swift.type.method" : .functionMethodClass,
+        "swift.type.method" : .functionMethodClass, // "what is staticSpelling ..."
         "swift.method" : .functionMethodInstance,
         "swift.func" : .functionFree,
         "swift.type.property" : .varClass,
@@ -180,13 +181,12 @@ fileprivate struct SymbolGraph: Decodable {
     }
 }
 
-/// Layer to reapply the relationships
-
+/// Layer to reapply the relationships and rebuild the AST
+///
 extension SymbolGraph {
-
-    private final class Node {
+    fileprivate final class Node {
         let symbol: Symbol
-        var children: [Node] {
+        var children: SortedArray<Node> {
             didSet {
                 children.forEach { $0.parent = self }
             }
@@ -195,12 +195,29 @@ extension SymbolGraph {
 
         init(symbol: Symbol) {
             self.symbol = symbol
-            self.children = []
+            self.children = SortedArray<Node>()
             self.parent = nil
+        }
+
+        var asSourceKittenDict: SourceKittenDict {
+            var dict = SourceKittenDict()
+            dict[.kind] = symbol.kind
+            dict[.usr] = symbol.usr
+            dict[.name] = symbol.name
+            dict[.accessibility] = symbol.accessLevel
+            dict[.fullyAnnotatedDecl] =
+                "<swift>\(symbol.declaration.htmlEscaped)</swift>"
+            dict[.documentationComment] = symbol.docComment
+            dict[.filePath] = symbol.filename
+            dict[.docLine] = symbol.line.flatMap(Int64.init)
+            if !children.isEmpty {
+                dict[.substructure] = children.map { $0.asSourceKittenDict }
+            }
+            return dict
         }
     }
 
-    func rebuild() {
+    func rebuild() -> SourceKittenDict {
         var nodes = [String: Node]()
         symbols.forEach { nodes[$0.usr] = Node(symbol: $0) }
 
@@ -213,7 +230,7 @@ extension SymbolGraph {
                         logWarning("Can't resolve ends of `memberOf`: \(rel).")
                         break
                 }
-                tgtNode.children.append(srcNode)
+                tgtNode.children.insert(srcNode)
 
             case .conformsTo,
                  .inheritsFrom,
@@ -225,9 +242,40 @@ extension SymbolGraph {
             }
         }
         let rootNodes = nodes.values.filter { $0.parent == nil }
-        rootNodes.forEach { print("\($0.symbol.name): \($0.symbol.declaration)") }
+        var rootDict = SourceKittenDict()
+        rootDict["key.diagnostic_stage"] = "parse"
+        rootDict[.substructure] = rootNodes.sorted().map { $0.asSourceKittenDict }
+        return rootDict
+    }
+}
 
-        // node -> sourcekittendict
-        // 'mkfile' to hold all the rootNodes
+
+extension SymbolGraph.Node: Comparable {
+    static func == (lhs: SymbolGraph.Node, rhs: SymbolGraph.Node) -> Bool {
+        lhs.symbol == rhs.symbol
+    }
+
+    var location: (file: String, line: Int)? {
+        symbol.filename.flatMap { f in symbol.line.flatMap { (f, $0) } }
+    }
+
+    /// Ideally sort by filename and line.  For some reason though swift only gives us locations for
+    /// random symbols, so to give a stable order we put those guys at the end in name/usr order.
+    static func < (lhs: SymbolGraph.Node, rhs: SymbolGraph.Node) -> Bool {
+        if let lhsLocation = lhs.location,
+            let rhsLocation = rhs.location {
+            if lhsLocation.file == rhsLocation.file {
+                return lhsLocation.line < rhsLocation.line
+            }
+            return lhsLocation.file < rhsLocation.file
+        } else if lhs.location == nil && rhs.location != nil {
+            return false
+        } else if lhs.location != nil && rhs.location == nil {
+            return true
+        }
+        if lhs.symbol.name == rhs.symbol.name {
+            return lhs.symbol.usr < rhs.symbol.usr
+        }
+        return lhs.symbol.name < rhs.symbol.name
     }
 }
