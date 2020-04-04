@@ -33,6 +33,8 @@ enum GatherSymbolGraph {
     }
 }
 
+// MARK: Network Model
+
 /// Honest representation of the JSON with stuff we don't want omitted.
 /// About as fragile as hard-coding keys I suppose.
 fileprivate struct NetworkSymbolGraph: Decodable {
@@ -87,6 +89,8 @@ fileprivate struct NetworkSymbolGraph: Decodable {
     let relationships: [Rel]
 }
 
+// MARK: Decoder
+
 /// Flattened and more normally-named deserialized symbolgraph - all decoding of json happens here.
 fileprivate struct SymbolGraph: Decodable {
     let generator: String
@@ -123,7 +127,8 @@ fileprivate struct SymbolGraph: Decodable {
         let network = try NetworkSymbolGraph(from: decoder)
         generator = network.metadata.generator
         symbols = network.symbols.compactMap {
-            guard let kind = Self.mapKind($0.kind.identifier) else {
+            let declaration = $0.declarationFragments.map { $0.spelling }.joined()
+            guard let kind = Self.mapKind($0.kind.identifier, declaration: declaration) else {
                 logWarning("Unknown swift-symbolgraph symbol kind '\($0.kind.identifier)', ignoring.")
                 return nil
             }
@@ -151,7 +156,11 @@ fileprivate struct SymbolGraph: Decodable {
                        targetFallback: $0.targetFallback)
         }
     }
+}
 
+// MARK: Declaration Kinds
+
+extension SymbolGraph {
     static let kindMap1: [String : SwiftDeclarationKind] = [
         "swift.class" : .class,
         "swift.struct" : .struct,
@@ -161,10 +170,12 @@ fileprivate struct SymbolGraph: Decodable {
         "swift.init" : .functionConstructor,
         "swift.deinit" : .functionDestructor,
         "swift.func.op" : .functionOperator,
-        "swift.type.method" : .functionMethodClass, // "what is staticSpelling ..."
+        "swift.type.method" : .functionMethodClass,
+        "swift.static.method": .functionMethodStatic,
         "swift.method" : .functionMethodInstance,
         "swift.func" : .functionFree,
         "swift.type.property" : .varClass,
+        "swift.static.property" : .varStatic,
         "swift.property" : .varInstance,
         "swift.var" : .varGlobal,
         "swift.subscript" : .functionSubscript,
@@ -173,13 +184,30 @@ fileprivate struct SymbolGraph: Decodable {
     ]
 
     static let kindMap2: [String: SwiftDeclarationKind2] = [
-        "swift.type.subscript" : .functionSubscriptClass
+        "swift.type.subscript" : .functionSubscriptClass,
+        "swift.static.subscript" : .functionSubscriptStatic
     ]
 
-    static func mapKind(_ from: String) -> String? {
-        kindMap1[from]?.rawValue ?? kindMap2[from]?.rawValue
+    /// "What is StaticSpelling..."
+    static func fixUpKind(_ kind: String, declaration: String) -> String {
+        guard declaration.re_isMatch(#"\bstatic\b"#) else {
+            return kind
+        }
+        switch kind {
+        case "swift.type.method": return "swift.static.method"
+        case "swift.type.property": return "swift.static.property"
+        case "swift.type.subscript": return "swift.static.subscript"
+        default: return kind
+        }
+    }
+
+    static func mapKind(_ kind: String, declaration: String) -> String? {
+        let fixedKind = fixUpKind(kind, declaration: declaration)
+        return kindMap1[fixedKind]?.rawValue ?? kindMap2[fixedKind]?.rawValue
     }
 }
+
+// MARK: Rebuilder
 
 /// Layer to reapply the relationships and rebuild the AST
 ///
@@ -249,6 +277,7 @@ extension SymbolGraph {
     }
 }
 
+// MARK: Decl Sort Order
 
 extension SymbolGraph.Node: Comparable {
     static func == (lhs: SymbolGraph.Node, rhs: SymbolGraph.Node) -> Bool {
