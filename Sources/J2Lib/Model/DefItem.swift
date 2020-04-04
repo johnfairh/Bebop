@@ -79,15 +79,7 @@ public class DefItem: Item, CustomStringConvertible {
         }
 
         // Populate self
-
-        let line = gatherDef.sourceKittenDict.docLine
-        let startLine = gatherDef.sourceKittenDict.parsedScopeStart
-        let endLine = gatherDef.sourceKittenDict.parsedScopeEnd
-        self.location = DefLocation(moduleName: location.moduleName,
-                                    passIndex: location.passIndex,
-                                    filePathname: location.filePathname,
-                                    firstLine: startLine ?? line,
-                                    lastLine: endLine ?? line)
+        self.location = DefLocation(baseLocation: location, dict: gatherDef.sourceKittenDict)
         self.defKind = kind
         self.usr = USR(usr)
         self.documentation = RichDefDocs(gatherDef.translatedDocs )
@@ -337,3 +329,21 @@ public class DefItem: Item, CustomStringConvertible {
 }
 
 public typealias DefItemList = Array<DefItem>
+
+/// Helper to create the def's location from available info
+private extension DefLocation {
+    init(baseLocation: DefLocation, dict: SourceKittenDict) {
+        let line = dict.docLine
+        let startLine = dict.parsedScopeStart
+        let endLine = dict.parsedScopeEnd
+        let filePathname =
+            baseLocation.filePathname == nil ?
+                dict.filePath :
+                baseLocation.filePathname
+        self.init(moduleName: baseLocation.moduleName,
+                  passIndex: baseLocation.passIndex,
+                  filePathname: filePathname,
+                  firstLine: startLine ?? line,
+                  lastLine: endLine ?? line)
+    }
+}

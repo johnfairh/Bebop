@@ -30,7 +30,7 @@ struct MergeImport {
                 }
                 let baseLocation = DefLocation(moduleName: pass.moduleName,
                                                passIndex: pass.passIndex,
-                                               filePathname: filePathname,
+                                               filePathname: filePathname.isEmpty ? nil : filePathname,
                                                firstLine: nil,
                                                lastLine: nil)
 

@@ -10,25 +10,12 @@ import Foundation
 import SortedArray
 import SourceKittenFramework
 
+// MARK: API
+
+// namespace
 enum GatherSymbolGraph {
-
-    static func decode(moduleName: String, json: String) throws -> GatherDef? {
-        logDebug("Decoding main symbolgraph JSON for \(moduleName)")
-        let dict = try doFile(json: json)
-        return GatherDef(sourceKittenDict: dict, parentNameComponents: [], file: nil, availability: Gather.Availability())
-        //loginfo when done
-    }
-
-    static func decode(moduleName: String, otherModuleName: String, json: String) throws -> GatherDef {
-        logDebug("Decoding extension symbolgraph JSON for \(moduleName) from \(otherModuleName)")
-        try doFile(json: json)
-
-        //loginfo when done
-        return GatherDef(children: [], sourceKittenDict: SourceKittenDict(), kind: nil, swiftDeclaration: nil, objCDeclaration: nil, documentation: nil, localizationKey: nil, translatedDocs: nil)
-    }
-
-    static func doFile(json: String) throws -> SourceKittenDict {
-        let graph = try JSONDecoder().decode(SymbolGraph.self, from: json.data(using: .utf8)!)
+    static func decode(data: Data, extensionModuleName: String) throws -> SourceKittenDict {
+        let graph = try JSONDecoder().decode(SymbolGraph.self, from: data)
         return graph.rebuild()
     }
 }
@@ -69,11 +56,12 @@ fileprivate struct NetworkSymbolGraph: Decodable {
         let accessLevel: String
         struct Location: Decodable {
             let uri: String
-            var file: String? {
-                URL(string: uri)?.path
+            var file: String {
+                URL(string: uri)?.path ?? uri
             }
             struct Position: Decodable {
                 let line: Int
+                let character: Int
             }
             let position: Position
         }
@@ -101,8 +89,12 @@ fileprivate struct SymbolGraph: Decodable {
         let docComment: String?
         let declaration: String
         let accessLevel: String
-        let filename: String?
-        let line: Int?
+        struct Location: Equatable {
+            let filename: String
+            let line: Int
+            let character: Int
+        }
+        let location: Location?
     }
     let symbols: [Symbol]
 
@@ -136,14 +128,17 @@ fileprivate struct SymbolGraph: Decodable {
                 logWarning("Unknown swift-symbolgraph access level '\(sym.accessLevel)', ignoring.")
                 return nil
             }
+            let location = sym.location.flatMap {
+                Symbol.Location(filename: $0.file, line: $0.position.line, character: $0.position.character)
+            }
             return Symbol(kind: kind,
                           usr: sym.identifier.precise,
                           name: sym.names.title,
                           docComment: sym.docComment?.lines.map { $0.text }.joined(separator: "\n"),
                           declaration: declaration,
                           accessLevel: acl,
-                          filename: sym.location?.file,
-                          line: sym.location?.position.line)
+                          location: location)
+
         }
         rels = network.relationships.compactMap { rel in
             guard let kind = Rel.Kind(rawValue: rel.kind) else {
@@ -221,7 +216,7 @@ extension SymbolGraph {
 
 // MARK: Rebuilder
 
-/// Layer to reapply the relationships and rebuild the AST
+/// Layer to reapply the relationships and rebuild the AST shape
 ///
 extension SymbolGraph {
     fileprivate final class Node {
@@ -248,8 +243,9 @@ extension SymbolGraph {
             dict[.fullyAnnotatedDecl] =
                 "<swift>\(symbol.declaration.htmlEscaped)</swift>"
             dict[.documentationComment] = symbol.docComment
-            dict[.filePath] = symbol.filename
-            dict[.docLine] = symbol.line.flatMap(Int64.init)
+            dict[.filePath] = symbol.location?.filename
+            dict[.docLine] = symbol.location.flatMap { Int64($0.line) }
+            dict[.docColumn] = symbol.location.flatMap { Int64($0.character) }
             if !children.isEmpty {
                 dict[.substructure] = children.map { $0.asSourceKittenDict }
             }
@@ -281,10 +277,10 @@ extension SymbolGraph {
                 break
             }
         }
-        let rootNodes = nodes.values.filter { $0.parent == nil }
+        let rootNodes = nodes.values.filter { $0.parent == nil }.sorted()
         var rootDict = SourceKittenDict()
-        rootDict["key.diagnostic_stage"] = "parse"
-        rootDict[.substructure] = rootNodes.sorted().map { $0.asSourceKittenDict }
+        rootDict[.diagnosticStage] = "parse"
+        rootDict[.substructure] = rootNodes.map { $0.asSourceKittenDict }
         return rootDict
     }
 }
@@ -296,22 +292,21 @@ extension SymbolGraph.Node: Comparable {
         lhs.symbol == rhs.symbol
     }
 
-    var location: (file: String, line: Int)? {
-        symbol.filename.flatMap { f in symbol.line.flatMap { (f, $0) } }
-    }
-
     /// Ideally sort by filename and line.  For some reason though swift only gives us locations for
     /// random symbols, so to give a stable order we put those guys at the end in name/usr order.
     static func < (lhs: SymbolGraph.Node, rhs: SymbolGraph.Node) -> Bool {
-        if let lhsLocation = lhs.location,
-            let rhsLocation = rhs.location {
-            if lhsLocation.file == rhsLocation.file {
+        if let lhsLocation = lhs.symbol.location,
+            let rhsLocation = rhs.symbol.location {
+            if lhsLocation.filename == rhsLocation.filename {
+                if lhsLocation.line == rhsLocation.line {
+                    return lhsLocation.character < rhsLocation.character
+                }
                 return lhsLocation.line < rhsLocation.line
             }
-            return lhsLocation.file < rhsLocation.file
-        } else if lhs.location == nil && rhs.location != nil {
+            return lhsLocation.filename < rhsLocation.filename
+        } else if lhs.symbol.location == nil && rhs.symbol.location != nil {
             return false
-        } else if lhs.location != nil && rhs.location == nil {
+        } else if lhs.symbol.location != nil && rhs.symbol.location == nil {
             return true
         }
         if lhs.symbol.name == rhs.symbol.name {

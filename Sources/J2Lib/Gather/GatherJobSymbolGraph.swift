@@ -34,7 +34,8 @@ extension GatherJob {
         let availability: Gather.Availability
 
         /// This layer's job is to manage the CLI args, invoke the program, figure out what it created,
-        /// and pass the JSON over to GatherSymbolGraph utils.
+        /// use `GatherSymbolGraph` to convert the data into `SourceKittenDict`s, and then convert
+        /// that lot into `GatherDef`s.
         func execute() throws -> GatherModulePass {
             let tmpDir = try TemporaryDirectory()
             var args = [
@@ -73,26 +74,38 @@ extension GatherJob {
             }
 
             let mainSymbolFileURL = tmpDir.directoryURL.appendingPathComponent("\(moduleName).symbols.json")
-            guard let mainSymbolJSON = try? String(contentsOf: mainSymbolFileURL) else {
+            guard let mainSymbolData = try? Data(contentsOf: mainSymbolFileURL) else {
                 throw GatherError(.localized(.errCfgSsgeMainMissing))
             }
-
-            var defs = [try GatherSymbolGraph.decode(moduleName: moduleName, json: mainSymbolJSON)!]
+            logDebug("Decoding main symbolgraph JSON for \(moduleName)")
+            var dicts = [try GatherSymbolGraph.decode(data: mainSymbolData, extensionModuleName: moduleName)]
 
             // Extensions of things from other modules come in their own files, one per module.
             // Apple have put the foreign module in the filename and not the metadata...
             try tmpDir.directoryURL.filesMatching("*@*.symbols.json").forEach { url in
                 guard let otherModuleName = url.lastPathComponent.re_match(#"@(.*?)\."#)?[1],
-                    let otherSymbolJSON = try? String(contentsOf: url) else {
+                    let otherSymbolData = try? Data(contentsOf: url) else {
                     logWarning(.localized(.wrnSsgeOddFilename, url.lastPathComponent))
                     return
                 }
-                try defs.append(GatherSymbolGraph.decode(moduleName: moduleName,
-                                                         otherModuleName: otherModuleName,
-                                                         json: otherSymbolJSON))
+                logDebug("Decoding \(moduleName)'s extension symbolgraph JSON for \(otherModuleName)")
+                try dicts.append(GatherSymbolGraph.decode(data: otherSymbolData,
+                                                         extensionModuleName: otherModuleName))
             }
 
-            return GatherModulePass(moduleName: moduleName, passIndex: 0, imported: false, files: defs.map { ("", $0) })
+            logDebug("Gathering sourcekitten defs...")
+
+            let defs = dicts.compactMap {
+                GatherDef(sourceKittenDict: $0,
+                          parentNameComponents: [],
+                          file: nil,
+                          availability: availability)
+            }
+
+            return GatherModulePass(moduleName: moduleName,
+                                    passIndex: 0,
+                                    imported: false,
+                                    files: defs.map { ("", $0) })
         }
     }
 }
