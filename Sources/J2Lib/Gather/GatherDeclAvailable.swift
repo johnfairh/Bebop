@@ -58,12 +58,13 @@ private class FunctionPiecesVisitor: SyntaxVisitor {
         return .visitChildren
     }
 
-    static let qStringTrimSet = CharacterSet(charactersIn: " \"")
-
     /// For a: "b" --- assume we know all the a's and don't want quotes around the b
     func visit(_ node: AvailabilityLabeledArgumentSyntax) -> SyntaxVisitorContinueKind {
         let tok1 = node.label.withoutTrailingTrivia().description
-        let tok2 = node.value.description.trimmingCharacters(in: Self.qStringTrimSet)
+        let tok2 = node.value.description
+            .trimmingCharacters(in: .whitespaces)
+            .trimmingUpToOne("\"")
+        print(tok2)
         if let kw = AvailKeyword(rawValue: tok1) {
             args.append(.keyword(kw, tok2))
         }
@@ -76,6 +77,13 @@ private class FunctionPiecesVisitor: SyntaxVisitor {
         let tok2 = node.version.description.trimmingTrailingCharacters(in: .whitespaces)
         args.append(.doubleToken(tok1, tok2))
         return .skipChildren
+    }
+}
+
+private extension String {
+    /// This fixes a bug where the last character in a "message" was a double-quote...
+    func trimmingUpToOne(_ char: String) -> String {
+        re_match("^\(char)?(.*?)\(char)?$")?[1] ?? self
     }
 }
 

@@ -71,6 +71,21 @@ fileprivate struct NetworkSymbolGraph: Decodable {
         let swiftGenerics: Generics?
         let declarationFragments: [DeclFrag]
         let accessLevel: String
+        struct Availability: Decodable {
+            let domain: String?
+            struct Version: Decodable {
+                let major: Int
+                let minor: Int?
+                let patch: Int?
+            }
+            let introduced: Version?
+            let deprecated: Version?
+            let obsoleted: Version?
+            let message: String?
+            let renamed: String?
+            let isUnconditionallyDeprecated: Bool?
+        }
+        let availability: [Availability]?
         struct Location: Decodable {
             let uri: String
             var file: String {
@@ -136,6 +151,7 @@ fileprivate struct SymbolGraph: Decodable {
         let docComment: String?
         let declaration: String
         let accessLevel: String
+        let availability: [String]
         struct Location: Equatable {
             let filename: String
             let line: Int
@@ -196,6 +212,7 @@ fileprivate struct SymbolGraph: Decodable {
                           docComment: sym.docComment?.lines.map { $0.text }.joined(separator: "\n"),
                           declaration: declaration,
                           accessLevel: acl,
+                          availability: sym.availability?.compactMap { $0.asSwift } ?? [],
                           location: location,
                           genericParameters: sym.swiftGenerics?.parameters?.map { $0.name } ?? [],
                           genericConstraints: SortedArray(unsorted: constraints))
@@ -216,6 +233,54 @@ fileprivate struct SymbolGraph: Decodable {
         }
     }
 }
+
+// MARK: @available
+
+extension NetworkSymbolGraph.Symbol.Availability {
+    /// Reconstitute the "@available" statement so that we can push it through SwiftSyntax.  Good game, good game.
+    var asSwift: String? {
+        var str = "@available("
+
+        if let domain = domain {
+            str += "\(domain)"
+            [("introduced", \Self.introduced),
+             ("deprecated", \Self.deprecated),
+             ("obsoleted", \Self.obsoleted)].forEach { name, kp in
+                if let version = self[keyPath: kp] {
+                    str += ", \(name): \(version.asSwift)"
+                }
+            }
+        } else if isUnconditionallyDeprecated != nil {
+            str += "*, deprecated"
+        } else {
+            logWarning("Found swift-symbolgraph 'availability' missing both domain and isUnconditionallyDeprecated")
+            return nil
+        }
+
+        if let message = message {
+            str += ", message: \"\(message)\""
+        }
+        if let renamed = renamed {
+            str += ", renamed: \"\(renamed)\""
+        }
+        str += ")"
+        return str
+    }
+}
+
+extension NetworkSymbolGraph.Symbol.Availability.Version {
+    var asSwift: String {
+        var str = String(major)
+        if let minor = minor {
+            str += ".\(minor)"
+            if let patch = patch {
+                str += ".\(patch)"
+            }
+        }
+        return str
+    }
+}
+
 
 // MARK: Declaration Fixup
 
@@ -292,11 +357,20 @@ extension SymbolGraph {
             }
         }
         weak var parent: Node?
+        var isOverride: Bool
 
         init(symbol: Symbol) {
             self.symbol = symbol
             self.children = SortedArray<Node>()
             self.parent = nil
+            self.isOverride = false
+        }
+
+        var declarationXml: String {
+            let availabilityXml = symbol.availability.map {
+                "<syntaxtype.attribute.builtin>\($0.htmlEscaped)\n</syntaxtype.attribute.builtin>"
+            }
+            return "<swift>\(availabilityXml.joined())\(symbol.declaration.htmlEscaped)</swift>"
         }
 
         var asSourceKittenDict: SourceKittenDict {
@@ -305,12 +379,17 @@ extension SymbolGraph {
             dict[.usr] = symbol.usr
             dict[.name] = symbol.name
             dict[.accessibility] = symbol.accessLevel
-            dict[.fullyAnnotatedDecl] =
-                "<swift>\(symbol.declaration.htmlEscaped)</swift>"
+            dict[.fullyAnnotatedDecl] = declarationXml
+            if !symbol.availability.isEmpty {
+                dict[.attributes] = [] // marker for GatherSwiftDecl
+            }
             dict[.documentationComment] = symbol.docComment
             dict[.filePath] = symbol.location?.filename
             dict[.docLine] = symbol.location.flatMap { Int64($0.line) }
             dict[.docColumn] = symbol.location.flatMap { Int64($0.character) }
+            if isOverride {
+                dict[.overrides] = [] // marker for GatherSwiftDecl
+            }
             var childDicts = [SourceKittenDict]()
             if !children.isEmpty {
                 childDicts += children.map { $0.asSourceKittenDict }
@@ -340,10 +419,17 @@ extension SymbolGraph {
                 }
                 tgtNode.children.insert(srcNode)
 
+            case .overrides:
+                // "source is overriding target" - only for classes, protocols broken
+                guard let srcNode = nodes[rel.sourceUSR] else {
+                    logWarning("Can't resolve source of `overrides`: \(rel)")
+                    break
+                }
+                srcNode.isOverride = true
+
             case .conformsTo,
                  .inheritsFrom,
                  .defaultImplementationOf,
-                 .overrides,
                  .requirementOf,
                  .optionalRequirementOf:
                 break

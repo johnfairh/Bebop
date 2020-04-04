@@ -212,7 +212,7 @@ class TestGatherDecl: XCTestCase {
         checkAvail("@available(iOS, deprecated: 2, message: \"MSG\")", [], ["iOS - deprecated in 2. MSG."])
         checkAvail("@available(iOS, deprecated, message: \"MSG\")", [], ["iOS - deprecated. MSG."])
         checkAvail("@available(iOS, deprecated, message: \"MSG\", renamed: \"NU\")", [], ["iOS - deprecated. MSG. Renamed: `NU`."])
-        checkAvail("@available(iOS, unavailable, message: \"MSG\", renamed: \"NU\")", [], ["iOS - unavailable. MSG. Renamed: `NU`."])
+        checkAvail("@available(iOS, unavailable, message: \"MSG\\\"\", renamed: \"NU\")", [], ["iOS - unavailable. MSG\\\". Renamed: `NU`."])
 
         // Syntax etc issues
         checkAvail("@available(dasdasd", [], [])
