@@ -126,35 +126,47 @@ fileprivate struct SymbolGraph: Decodable {
     init(from decoder: Decoder) throws {
         let network = try NetworkSymbolGraph(from: decoder)
         generator = network.metadata.generator
-        symbols = network.symbols.compactMap {
-            let declaration = $0.declarationFragments.map { $0.spelling }.joined()
-            guard let kind = Self.mapKind($0.kind.identifier, declaration: declaration) else {
-                logWarning("Unknown swift-symbolgraph symbol kind '\($0.kind.identifier)', ignoring.")
+        symbols = network.symbols.compactMap { sym in
+            let declaration = Self.fixUpDeclaration(sym.declarationFragments.map { $0.spelling }.joined())
+            guard let kind = Self.mapKind(sym.kind.identifier, declaration: declaration) else {
+                logWarning("Unknown swift-symbolgraph symbol kind '\(sym.kind.identifier)', ignoring.")
                 return nil
             }
-            guard let acl = DefAcl(rawValue: $0.accessLevel)?.sourceKitName else {
-                logWarning("Unknown swift-symbolgraph access level '\($0.accessLevel)', ignoring.")
+            guard let acl = DefAcl(rawValue: sym.accessLevel)?.sourceKitName else {
+                logWarning("Unknown swift-symbolgraph access level '\(sym.accessLevel)', ignoring.")
                 return nil
             }
             return Symbol(kind: kind,
-                          usr: $0.identifier.precise,
-                          name: $0.names.title,
-                          docComment: $0.docComment?.lines.map { $0.text }.joined(separator: "\n"),
-                          declaration: $0.declarationFragments.map { $0.spelling }.joined(),
+                          usr: sym.identifier.precise,
+                          name: sym.names.title,
+                          docComment: sym.docComment?.lines.map { $0.text }.joined(separator: "\n"),
+                          declaration: declaration,
                           accessLevel: acl,
-                          filename: $0.location?.file,
-                          line: $0.location?.position.line)
+                          filename: sym.location?.file,
+                          line: sym.location?.position.line)
         }
-        rels = network.relationships.compactMap {
-            guard let kind = Rel.Kind(rawValue: $0.kind) else {
-                logWarning("Unknown swift-symbolgraph relationship kind '\($0.kind)', ignoring.")
+        rels = network.relationships.compactMap { rel in
+            guard let kind = Rel.Kind(rawValue: rel.kind) else {
+                logWarning("Unknown swift-symbolgraph relationship kind '\(rel.kind)', ignoring.")
                 return nil
             }
             return Rel(kind: kind,
-                       sourceUSR: $0.source,
-                       targetUSR: $0.target,
-                       targetFallback: $0.targetFallback)
+                       sourceUSR: rel.source,
+                       targetUSR: rel.target,
+                       targetFallback: rel.targetFallback)
         }
+    }
+}
+
+// MARK: Declaration Fixup
+extension SymbolGraph {
+    /// Work around bugs/bad design in ssge's declprinter
+    static func fixUpDeclaration(_ declaration: String) -> String {
+        declaration
+            // All these Selfs are pointless & I don't want to teach autolink about them
+            .re_sub(#"\bSelf."#, with: "")
+            // Try to fix up `func(_: Int)` stuff
+            .re_sub(#"(?<=\(|, )_: "#, with: "_ arg: ")
     }
 }
 
