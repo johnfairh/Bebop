@@ -29,6 +29,13 @@ fileprivate struct NetworkSymbolGraph: Decodable {
         let generator: String
     }
     let metadata: Metadata
+
+    struct Constraint: Decodable {
+        let kind: String
+        let lhs: String
+        let rhs: String
+    }
+
     struct Symbol: Decodable {
         struct Kind: Decodable {
             let identifier: String
@@ -38,6 +45,7 @@ fileprivate struct NetworkSymbolGraph: Decodable {
             let precise: String
         }
         let identifier: Identifier
+        let pathComponents: [String]
         struct Names: Decodable {
             let title: String
         }
@@ -52,6 +60,15 @@ fileprivate struct NetworkSymbolGraph: Decodable {
         struct DeclFrag: Decodable {
             let spelling: String
         }
+        struct Generics: Decodable {
+            struct Parameter: Decodable {
+                let name: String
+                let depth: Int
+            }
+            let parameters: [Parameter]?
+            let constraints: [Constraint]?
+        }
+        let swiftGenerics: Generics?
         let declarationFragments: [DeclFrag]
         let accessLevel: String
         struct Location: Decodable {
@@ -73,6 +90,7 @@ fileprivate struct NetworkSymbolGraph: Decodable {
         let source: String
         let target: String
         let targetFallback: String?
+        let swiftConstraints: [Constraint]?
     }
     let relationships: [Rel]
 }
@@ -82,6 +100,35 @@ fileprivate struct NetworkSymbolGraph: Decodable {
 /// Flattened and more normally-named deserialized symbolgraph - all decoding of json happens here.
 fileprivate struct SymbolGraph: Decodable {
     let generator: String
+
+    struct Constraint: Comparable {
+        enum Kind: String {
+            case conformance
+            case superclass
+            case sameType
+
+            var swift: String {
+                switch self {
+                case .conformance: return ":"
+                case .superclass: return ":"
+                case .sameType: return "=="
+                }
+            }
+        }
+        let text: String
+
+        init?(_ c: NetworkSymbolGraph.Constraint) {
+            guard let kind = Kind(rawValue: c.kind) else {
+                return nil
+            }
+            text = "\(c.lhs) \(kind.swift) \(c.rhs)"
+        }
+
+        static func < (lhs: Self, rhs: Self) -> Bool {
+            lhs.text < rhs.text
+        }
+    }
+
     struct Symbol: Equatable {
         let kind: String
         let usr: String
@@ -95,6 +142,8 @@ fileprivate struct SymbolGraph: Decodable {
             let character: Int
         }
         let location: Location?
+        let genericParameters: [String]
+        let genericConstraints: SortedArray<Constraint>
     }
     let symbols: [Symbol]
 
@@ -112,12 +161,15 @@ fileprivate struct SymbolGraph: Decodable {
         let sourceUSR: String
         let targetUSR: String
         let targetFallback: String?
+        let constraints: SortedArray<Constraint>
     }
     let rels: [Rel]
 
     init(from decoder: Decoder) throws {
         let network = try NetworkSymbolGraph(from: decoder)
         generator = network.metadata.generator
+
+        // Symbols
         symbols = network.symbols.compactMap { sym in
             let declaration = Self.fixUpDeclaration(sym.declarationFragments.map { $0.spelling }.joined())
             guard let kind = Self.mapKind(sym.kind.identifier, declaration: declaration) else {
@@ -131,29 +183,42 @@ fileprivate struct SymbolGraph: Decodable {
             let location = sym.location.flatMap {
                 Symbol.Location(filename: $0.file, line: $0.position.line, character: $0.position.character)
             }
+            let constraints = sym.swiftGenerics?.constraints?.compactMap { con -> Constraint? in
+                // Drop implementation Self constraint for protocol members
+                if con.lhs == "Self" && con.kind == "conformance" && sym.pathComponents.contains(con.rhs) {
+                    return nil
+                }
+                return Constraint(con)
+            } ?? []
             return Symbol(kind: kind,
                           usr: sym.identifier.precise,
                           name: sym.names.title,
                           docComment: sym.docComment?.lines.map { $0.text }.joined(separator: "\n"),
                           declaration: declaration,
                           accessLevel: acl,
-                          location: location)
-
+                          location: location,
+                          genericParameters: sym.swiftGenerics?.parameters?.map { $0.name } ?? [],
+                          genericConstraints: SortedArray(unsorted: constraints))
         }
+
+        // Relationships
         rels = network.relationships.compactMap { rel in
             guard let kind = Rel.Kind(rawValue: rel.kind) else {
                 logWarning("Unknown swift-symbolgraph relationship kind '\(rel.kind)', ignoring.")
                 return nil
             }
+            let constraints = rel.swiftConstraints?.compactMap(Constraint.init) ?? []
             return Rel(kind: kind,
                        sourceUSR: rel.source,
                        targetUSR: rel.target,
-                       targetFallback: rel.targetFallback)
+                       targetFallback: rel.targetFallback,
+                       constraints: SortedArray(unsorted: constraints))
         }
     }
 }
 
 // MARK: Declaration Fixup
+
 extension SymbolGraph {
     /// Work around bugs/bad design in ssge's declprinter
     static func fixUpDeclaration(_ declaration: String) -> String {
@@ -246,8 +311,15 @@ extension SymbolGraph {
             dict[.filePath] = symbol.location?.filename
             dict[.docLine] = symbol.location.flatMap { Int64($0.line) }
             dict[.docColumn] = symbol.location.flatMap { Int64($0.character) }
+            var childDicts = [SourceKittenDict]()
             if !children.isEmpty {
-                dict[.substructure] = children.map { $0.asSourceKittenDict }
+                childDicts += children.map { $0.asSourceKittenDict }
+            }
+            if !symbol.genericParameters.isEmpty {
+                childDicts += symbol.genericParameters.map { $0.asGenericTypeParam }
+            }
+            if !childDicts.isEmpty {
+                dict[.substructure] = childDicts
             }
             return dict
         }
@@ -282,6 +354,17 @@ extension SymbolGraph {
         rootDict[.diagnosticStage] = "parse"
         rootDict[.substructure] = rootNodes.map { $0.asSourceKittenDict }
         return rootDict
+    }
+}
+
+private extension String {
+    var asGenericTypeParam: SourceKittenDict {
+        var dict = SourceKittenDict()
+        dict[.name] = self
+        dict[.fullyAnnotatedDecl] = "<g>\(self)</g>"
+        dict[.usr] = "::FABRICATED-GENPARAM::\(self)"
+        dict[.kind] = SwiftDeclarationKind.genericTypeParam.rawValue
+        return dict
     }
 }
 
