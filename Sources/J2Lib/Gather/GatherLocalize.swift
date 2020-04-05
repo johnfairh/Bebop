@@ -105,7 +105,7 @@ final class GatherLocalize: GatherGarnish, Configurable {
         languagesToDo.forEach { language in
             if let localizationKey = def.localizationKey,
                 let md = markdown(forKey: localizationKey, language: language),
-                case let builder = MarkdownBuilder(markdown: md),
+                case let builder = MarkdownBuilder(markdown: md, source: .docComment),
                 let langDocs = builder.build() {
                 translatedDocs.set(tag: language, docs: langDocs)
                 Stats.inc(.gatherLocalizationSuccess)

@@ -61,7 +61,13 @@ public final class GatherDef {
         self.kind = kind
 
         if let docComment = sourceKittenDict.documentationComment {
-            let docsBuilder = MarkdownBuilder(markdown: Markdown(docComment))
+            let docSource: DefDocSource
+            if let inherited = sourceKittenDict.inheritedDocs, inherited {
+                docSource = .inherited
+            } else {
+                docSource = .docComment
+            }
+            let docsBuilder = MarkdownBuilder(markdown: Markdown(docComment), source: docSource)
             self.documentation = docsBuilder.build()
             self.localizationKey = docsBuilder.localizationKey
         } else if kind.isSwift, let _ = sourceKittenDict.fullXMLDocs {

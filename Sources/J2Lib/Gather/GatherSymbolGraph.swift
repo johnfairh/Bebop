@@ -50,8 +50,17 @@ fileprivate struct NetworkSymbolGraph: Decodable {
             let title: String
         }
         let names: Names
+        struct Position: Decodable {
+            let line: Int
+            let character: Int
+        }
         struct DocCommentLines: Decodable {
             struct DocCommentLine: Decodable {
+                struct Range: Decodable {
+                    let start: Position
+                    let end: Position
+                }
+                let range: Range?
                 let text: String
             }
             let lines: [DocCommentLine]
@@ -90,10 +99,6 @@ fileprivate struct NetworkSymbolGraph: Decodable {
             let uri: String
             var file: String {
                 URL(string: uri)?.path ?? uri
-            }
-            struct Position: Decodable {
-                let line: Int
-                let character: Int
             }
             let position: Position
         }
@@ -149,6 +154,7 @@ fileprivate struct SymbolGraph: Decodable {
         let usr: String
         let name: String
         let docComment: String?
+        let docCommentHasSourceInfo: Bool
         let declaration: String
         let accessLevel: String
         let availability: [String]
@@ -206,10 +212,16 @@ fileprivate struct SymbolGraph: Decodable {
                 }
                 return Constraint(con)
             } ?? []
+            // distill what the doc comment is, and whether any have range info: use this
+            // as a crap hint that it's been inherited.
+            let docComments = sym.docComment?.lines.reduce((false, [String]())) { r, l in
+                (r.0 || l.range != nil, r.1 + [l.text])
+            }
             return Symbol(kind: kind,
                           usr: sym.identifier.precise,
                           name: sym.names.title,
-                          docComment: sym.docComment?.lines.map { $0.text }.joined(separator: "\n"),
+                          docComment: docComments?.1.joined(separator: "\n"),
+                          docCommentHasSourceInfo: docComments?.0 ?? false,
                           declaration: declaration,
                           accessLevel: acl,
                           availability: sym.availability?.compactMap { $0.asSwift } ?? [],
@@ -384,6 +396,8 @@ extension SymbolGraph {
                 dict[.attributes] = [] // marker for GatherSwiftDecl
             }
             dict[.documentationComment] = symbol.docComment
+            dict[.fullXMLDocs] = symbol.docComment == nil ? "" : nil
+            dict[.inheritedDocs] = !symbol.docCommentHasSourceInfo
             dict[.filePath] = symbol.location?.filename
             dict[.docLine] = symbol.location.flatMap { Int64($0.line) }
             dict[.docColumn] = symbol.location.flatMap { Int64($0.character) }
@@ -462,7 +476,7 @@ extension SymbolGraph.Node: Comparable {
     }
 
     /// Ideally sort by filename and line.  For some reason though swift only gives us locations for
-    /// random symbols, so to give a stable order we put those guys at the end in name/usr order.
+    /// public+ symbols, so to give a stable order we put the others at the end in name/usr order.
     static func < (lhs: SymbolGraph.Node, rhs: SymbolGraph.Node) -> Bool {
         if let lhsLocation = lhs.symbol.location,
             let rhsLocation = rhs.symbol.location {

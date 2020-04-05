@@ -69,7 +69,7 @@ class TestMarkdown: XCTestCase {
     }
 
     func testDestructure1() {
-        let m = MarkdownBuilder(markdown: doc1)
+        let m = MarkdownBuilder(markdown: doc1, source: .docComment)
         guard let results = m.build() else {
             XCTFail("Failed")
             return
@@ -90,7 +90,7 @@ class TestMarkdown: XCTestCase {
     }
 
     func testDestructure2() {
-        let m = MarkdownBuilder(markdown: doc2)
+        let m = MarkdownBuilder(markdown: doc2, source: .docComment)
         guard let results = m.build() else {
             XCTFail("Failed")
             return
@@ -105,7 +105,7 @@ class TestMarkdown: XCTestCase {
     }
 
     func testDestructure3() {
-        let m = MarkdownBuilder(markdown: doc3)
+        let m = MarkdownBuilder(markdown: doc3, source: .docComment)
         guard let results = m.build() else {
             XCTFail("Failed")
             return

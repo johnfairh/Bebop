@@ -64,7 +64,6 @@ private class FunctionPiecesVisitor: SyntaxVisitor {
         let tok2 = node.value.description
             .trimmingCharacters(in: .whitespaces)
             .trimmingUpToOne("\"")
-        print(tok2)
         if let kw = AvailKeyword(rawValue: tok1) {
             args.append(.keyword(kw, tok2))
         }

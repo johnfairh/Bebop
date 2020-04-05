@@ -15,14 +15,16 @@ import Maaku
 /// Also picks out the `localizationKey`.
 final class MarkdownBuilder {
     let input: Markdown
+    private let source: DefDocSource
     private var abstract: Markdown?
     private var discussion: Markdown?
     private var returns: Markdown?
     private var parameters: [FlatDefDocs.Param] = []
     private(set) var localizationKey: String?
 
-    init(markdown: Markdown) {
+    init(markdown: Markdown, source: DefDocSource) {
         self.input = markdown
+        self.source = source // somewhat trampy
     }
 
     /// Try to destructure this doc comment markdown into pieces.
@@ -55,7 +57,7 @@ final class MarkdownBuilder {
                            discussion: discussion,
                            returns: returns,
                            parameters: parameters,
-                           source: .docComment)
+                           source: source)
     }
 
     /// Handle a top-level callout - side-effect `parameters` `returns` `localizationKey`.
