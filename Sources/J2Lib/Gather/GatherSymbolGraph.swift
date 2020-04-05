@@ -78,6 +78,11 @@ fileprivate struct NetworkSymbolGraph: Decodable {
             let constraints: [Constraint]?
         }
         let swiftGenerics: Generics?
+        struct SwiftExtension: Decodable {
+            let extendedModule: String
+            let constraints: [Constraint]?
+        }
+        let swiftExtension: SwiftExtension?
         let declarationFragments: [DeclFrag]
         let accessLevel: String
         struct Availability: Decodable {
@@ -165,7 +170,7 @@ fileprivate struct SymbolGraph: Decodable {
         }
         let location: Location?
         let genericParameters: [String]
-        let genericConstraints: SortedArray<Constraint>
+        let constraints: SortedArray<Constraint>
     }
     let symbols: [Symbol]
 
@@ -205,13 +210,16 @@ fileprivate struct SymbolGraph: Decodable {
             let location = sym.location.flatMap {
                 Symbol.Location(filename: $0.file, line: $0.position.line, character: $0.position.character)
             }
-            let constraints = sym.swiftGenerics?.constraints?.compactMap { con -> Constraint? in
+            // if we're a generic context (includes funcs) then we get a 'swiftGenerics'.
+            // if we're not, but are in an extension (with constraints) we get a 'swiftExtension'...
+            let constraintList = sym.swiftGenerics?.constraints ?? sym.swiftExtension?.constraints
+            let constraints = constraintList?.compactMap { con -> Constraint? in
                 // Drop implementation Self constraint for protocol members
                 if con.lhs == "Self" && con.kind == "conformance" && sym.pathComponents.contains(con.rhs) {
                     return nil
                 }
                 return Constraint(con)
-            } ?? []
+            }
             // distill what the doc comment is, and whether any have range info: use this
             // as a crap hint that it's been inherited.
             let docComments = sym.docComment?.lines.reduce((false, [String]())) { r, l in
@@ -227,7 +235,7 @@ fileprivate struct SymbolGraph: Decodable {
                           availability: sym.availability?.compactMap { $0.asSwift } ?? [],
                           location: location,
                           genericParameters: sym.swiftGenerics?.parameters?.map { $0.name } ?? [],
-                          genericConstraints: SortedArray(unsorted: constraints))
+                          constraints: SortedArray(unsorted: constraints ?? []))
         }
 
         // Relationships
