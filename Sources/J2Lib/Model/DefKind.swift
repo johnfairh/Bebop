@@ -147,7 +147,7 @@ public final class DefKind: CustomStringConvertible {
 
     /// Is this def kind supposed to make it into docs?
     public var includeInDocs: Bool {
-        !testObjCKey(keys: [.moduleImport])
+        !testObjCKey(keys: [.moduleImport]) && !testSwiftKey(keys: [.varParameter])
     }
 
     /// Is this some kind of extension or category?
@@ -336,6 +336,7 @@ public final class DefKind: CustomStringConvertible {
         DefKind(s: .functionAccessorWillset,        dash: "Function"),
         DefKind(s: .functionAccessorRead,           dash: "Function"),
         DefKind(s: .functionAccessorModify,         dash: "Function"),
+        DefKind(s: .functionOperator,               dash: "Function",    dp: "static func",    meta: .operator,   tpc: .operator),
         DefKind(s: .functionOperatorInfix,          dash: "Function"),
         DefKind(s: .functionOperatorPostfix,        dash: "Function"),
         DefKind(s: .functionOperatorPrefix,         dash: "Function"),

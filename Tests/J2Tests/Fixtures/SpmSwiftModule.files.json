@@ -1714,7 +1714,7 @@
       "key.j2.module_name" : "SpmSwiftModule",
       "key.j2.pass_index" : 0,
       "key.j2.version" : "0.1",
-      "key.length" : 1980,
+      "key.length" : 2159,
       "key.offset" : 0,
       "key.substructure" : [
         {
@@ -2590,7 +2590,7 @@
               "key.offset" : 1193
             }
           ],
-          "key.bodylength" : 478,
+          "key.bodylength" : 592,
           "key.bodyoffset" : 1218,
           "key.doc.column" : 14,
           "key.doc.comment" : "A base class",
@@ -2623,13 +2623,13 @@
             }
           ],
           "key.kind" : "source.lang.swift.decl.class",
-          "key.length" : 497,
+          "key.length" : 611,
           "key.name" : "ABaseClass",
           "key.namelength" : 10,
           "key.nameoffset" : 1206,
           "key.offset" : 1200,
           "key.parsed_declaration" : "public class ABaseClass",
-          "key.parsed_scope.end" : 84,
+          "key.parsed_scope.end" : 89,
           "key.parsed_scope.start" : 54,
           "key.runtime_name" : "_TtC4main10ABaseClass",
           "key.substructure" : [
@@ -3045,6 +3045,197 @@
               "key.typename" : "(Int) -> String",
               "key.typeusr" : "$sySSSicD",
               "key.usr" : "s:14SpmSwiftModule10ABaseClassCySSSicipZ"
+            },
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.public",
+              "key.annotated_decl" : "<Declaration>public static func + (lhs: <Type usr=\"s:14SpmSwiftModule10ABaseClassC\">ABaseClass<\/Type>, rhs: <Type usr=\"s:14SpmSwiftModule10ABaseClassC\">ABaseClass<\/Type>) -&gt; <Type usr=\"s:14SpmSwiftModule10ABaseClassC\">ABaseClass<\/Type><\/Declaration>",
+              "key.attributes" : [
+                {
+                  "key.attribute" : "source.decl.attribute.public",
+                  "key.length" : 6,
+                  "key.offset" : 1718
+                }
+              ],
+              "key.bodylength" : 20,
+              "key.bodyoffset" : 1788,
+              "key.doc.column" : 22,
+              "key.doc.comment" : "An operator!",
+              "key.doc.declaration" : "public static func + (lhs: ABaseClass, rhs: ABaseClass) -> ABaseClass",
+              "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+              "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"86\" column=\"22\"><Name>+(_:_:)<\/Name><USR>s:14SpmSwiftModule10ABaseClassC1poiyA2C_ACtFZ<\/USR><Declaration>public static func + (lhs: ABaseClass, rhs: ABaseClass) -&gt; ABaseClass<\/Declaration><CommentParts><Abstract><Para>An operator!<\/Para><\/Abstract><\/CommentParts><\/Function>",
+              "key.doc.line" : 86,
+              "key.doc.name" : "+(_:_:)",
+              "key.doc.type" : "Function",
+              "key.doclength" : 17,
+              "key.docoffset" : 1699,
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+              "key.fully_annotated_decl" : "<decl.function.operator.infix><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>static<\/syntaxtype.keyword> <syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>+ <\/decl.name>(<decl.var.parameter><decl.var.parameter.name>lhs<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.class usr=\"s:14SpmSwiftModule10ABaseClassC\">ABaseClass<\/ref.class><\/decl.var.parameter.type><\/decl.var.parameter>, <decl.var.parameter><decl.var.parameter.name>rhs<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.class usr=\"s:14SpmSwiftModule10ABaseClassC\">ABaseClass<\/ref.class><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.class usr=\"s:14SpmSwiftModule10ABaseClassC\">ABaseClass<\/ref.class><\/decl.function.returntype><\/decl.function.operator.infix>",
+              "key.j2.documentation" : {
+                "key.j2.abstract" : {
+                  "en" : "An operator\\!"
+                },
+                "key.j2.doc_source" : "docComment"
+              },
+              "key.j2.is_override" : false,
+              "key.j2.swift_declaration" : "public static func + (lhs: ABaseClass, rhs: ABaseClass) -> ABaseClass",
+              "key.j2.swift_name_pieces" : [
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "static func "
+                },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "+"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "("
+                },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "lhs"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : ": ABaseClass, "
+                },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "rhs"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : ": ABaseClass) -> ABaseClass"
+                }
+              ],
+              "key.kind" : "source.lang.swift.decl.function.method.static",
+              "key.length" : 84,
+              "key.name" : "+(_:_:)",
+              "key.namelength" : 35,
+              "key.nameoffset" : 1737,
+              "key.offset" : 1725,
+              "key.parsed_declaration" : "public static func +(lhs: ABaseClass, rhs: ABaseClass) -> ABaseClass",
+              "key.parsed_scope.end" : 88,
+              "key.parsed_scope.start" : 86,
+              "key.related_decls" : [
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule1poiySSAA1TV_ADtF\">+ (_: T, _: T) -&gt; String<\/RelatedName>"
+                },
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:Sa1poiySayxGAB_ABtFZ\">+ (_: Array&lt;Element&gt;, _: Array&lt;Element&gt;) -&gt; Array&lt;Element&gt;<\/RelatedName>"
+                },
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:SF1poiyxx_xtFZ\">+ (_: Self, _: Self) -&gt; Self<\/RelatedName>"
+                },
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:Sf1poiyS2f_SftFZ\">+ (_: Float, _: Float) -&gt; Float<\/RelatedName>"
+                },
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:Sd1poiyS2d_SdtFZ\">+ (_: Double, _: Double) -&gt; Double<\/RelatedName>"
+                },
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:s7Float80V1poiyA2B_ABtFZ\">+ (_: Float80, _: Float80) -&gt; Float80<\/RelatedName>"
+                },
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:s18AdditiveArithmeticP1poiyxx_xtFZ\">+ (_: Self, _: Self) -&gt; Self<\/RelatedName>"
+                },
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:s18AdditiveArithmeticPsE1popyxxFZ\">+(_:)<\/RelatedName>"
+                },
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:Sz1poiyxx_xtFZ\">+ (_: Self, _: Self) -&gt; Self<\/RelatedName>"
+                },
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:s5UInt8V1poiyA2B_ABtFZ\">+ (_: UInt8, _: UInt8) -&gt; UInt8<\/RelatedName>"
+                },
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:s4Int8V1poiyA2B_ABtFZ\">+ (_: Int8, _: Int8) -&gt; Int8<\/RelatedName>"
+                },
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:s6UInt16V1poiyA2B_ABtFZ\">+ (_: UInt16, _: UInt16) -&gt; UInt16<\/RelatedName>"
+                },
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:s5Int16V1poiyA2B_ABtFZ\">+ (_: Int16, _: Int16) -&gt; Int16<\/RelatedName>"
+                },
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:s6UInt32V1poiyA2B_ABtFZ\">+ (_: UInt32, _: UInt32) -&gt; UInt32<\/RelatedName>"
+                },
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:s5Int32V1poiyA2B_ABtFZ\">+ (_: Int32, _: Int32) -&gt; Int32<\/RelatedName>"
+                },
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:s6UInt64V1poiyA2B_ABtFZ\">+ (_: UInt64, _: UInt64) -&gt; UInt64<\/RelatedName>"
+                },
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:s5Int64V1poiyA2B_ABtFZ\">+ (_: Int64, _: Int64) -&gt; Int64<\/RelatedName>"
+                },
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:Su1poiyS2u_SutFZ\">+ (_: UInt, _: UInt) -&gt; UInt<\/RelatedName>"
+                },
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:Si1poiyS2i_SitFZ\">+ (_: Int, _: Int) -&gt; Int<\/RelatedName>"
+                },
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:Sxss8_PointerRzrlE1poiyxx_6StrideQztFZ\">+ (_: Self, _: Self.Stride) -&gt; Self<\/RelatedName>"
+                },
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:Sxss8_PointerRzrlE1poiyx6StrideQz_xtFZ\">+ (_: Self.Stride, _: Self) -&gt; Self<\/RelatedName>"
+                },
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:SmsE1poiyxx_qd__tSTRd__7ElementQyd__ABRtzlFZ\">+ &lt;Other&gt;(_: Self, _: Other) -&gt; Self where Other : Sequence, Self.Element == Other.Element<\/RelatedName>"
+                },
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:SmsE1poiyxqd___xtSTRd__7ElementQyd__ABRtzlFZ\">+ &lt;Other&gt;(_: Other, _: Self) -&gt; Self where Other : Sequence, Self.Element == Other.Element<\/RelatedName>"
+                },
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:SmsE1poiyxx_qd__tSmRd__7ElementQyd__ABRtzlFZ\">+ &lt;Other&gt;(_: Self, _: Other) -&gt; Self where Other : RangeReplaceableCollection, Self.Element == Other.Element<\/RelatedName>"
+                },
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:SS1poiyS2S_SStFZ\">+ (_: String, _: String) -&gt; String<\/RelatedName>"
+                },
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:s4SIMDPsSF6ScalarRpzrlE1poiyxx_xtFZ\">+ (_: Self, _: Self) -&gt; Self<\/RelatedName>"
+                },
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:s4SIMDPsSF6ScalarRpzrlE1poiyxAD_xtFZ\">+ (_: Self.Scalar, _: Self) -&gt; Self<\/RelatedName>"
+                },
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:s4SIMDPsSF6ScalarRpzrlE1poiyxx_ADtFZ\">+ (_: Self, _: Self.Scalar) -&gt; Self<\/RelatedName>"
+                }
+              ],
+              "key.substructure" : [
+                {
+                  "key.annotated_decl" : "<Declaration>let lhs: <Type usr=\"s:14SpmSwiftModule10ABaseClassC\">ABaseClass<\/Type><\/Declaration>",
+                  "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+                  "key.fully_annotated_decl" : "<decl.var.parameter><syntaxtype.keyword>let<\/syntaxtype.keyword> <decl.var.parameter.name>lhs<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.class usr=\"s:14SpmSwiftModule10ABaseClassC\">ABaseClass<\/ref.class><\/decl.var.parameter.type><\/decl.var.parameter>",
+                  "key.j2.is_override" : false,
+                  "key.j2.swift_declaration" : "let lhs: ABaseClass",
+                  "key.j2.swift_name_pieces" : [
+                    {
+                      "key.j2.name_piece_is_name" : true,
+                      "key.j2.name_piece_text" : "lhs"
+                    },
+                    {
+                      "key.j2.name_piece_is_name" : false,
+                      "key.j2.name_piece_text" : ": ABaseClass"
+                    }
+                  ],
+                  "key.kind" : "source.lang.swift.decl.var.parameter",
+                  "key.length" : 3,
+                  "key.name" : "lhs",
+                  "key.offset" : 1739,
+                  "key.parent_loc" : 1737,
+                  "key.parsed_declaration" : "public static func +(lhs",
+                  "key.parsed_scope.end" : 86,
+                  "key.parsed_scope.start" : 86,
+                  "key.typename" : "ABaseClass",
+                  "key.typeusr" : "$s14SpmSwiftModule10ABaseClassCD",
+                  "key.usr" : "s:14SpmSwiftModule10ABaseClassC1poiyA2C_ACtFZ3lhsL_ACvp"
+                }
+              ],
+              "key.typename" : "(ABaseClass.Type) -> (ABaseClass, ABaseClass) -> ABaseClass",
+              "key.typeusr" : "$sy14SpmSwiftModule10ABaseClassCAC_ACtcD",
+              "key.usr" : "s:14SpmSwiftModule10ABaseClassC1poiyA2C_ACtFZ"
             }
           ],
           "key.typename" : "ABaseClass.Type",
@@ -3055,7 +3246,7 @@
           "key.accessibility" : "source.lang.swift.accessibility.internal",
           "key.annotated_decl" : "<Declaration>struct T<\/Declaration>",
           "key.bodylength" : 1,
-          "key.bodyoffset" : 1709,
+          "key.bodyoffset" : 1823,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
           "key.fully_annotated_decl" : "<decl.struct><syntaxtype.keyword>struct<\/syntaxtype.keyword> <decl.name>T<\/decl.name><\/decl.struct>",
           "key.j2.is_override" : false,
@@ -3074,14 +3265,198 @@
           "key.length" : 12,
           "key.name" : "T",
           "key.namelength" : 1,
-          "key.nameoffset" : 1706,
-          "key.offset" : 1699,
+          "key.nameoffset" : 1820,
+          "key.offset" : 1813,
           "key.parsed_declaration" : "struct T",
-          "key.parsed_scope.end" : 87,
-          "key.parsed_scope.start" : 86,
+          "key.parsed_scope.end" : 92,
+          "key.parsed_scope.start" : 91,
           "key.typename" : "T.Type",
           "key.typeusr" : "$s14SpmSwiftModule1TVmD",
           "key.usr" : "s:14SpmSwiftModule1TV"
+        },
+        {
+          "key.accessibility" : "source.lang.swift.accessibility.internal",
+          "key.annotated_decl" : "<Declaration>func + (lhs: <Type usr=\"s:14SpmSwiftModule1TV\">T<\/Type>, rhs: <Type usr=\"s:14SpmSwiftModule1TV\">T<\/Type>) -&gt; <Type usr=\"s:SS\">String<\/Type><\/Declaration>",
+          "key.bodylength" : 6,
+          "key.bodyoffset" : 1883,
+          "key.doc.column" : 6,
+          "key.doc.comment" : "Unscoped operator",
+          "key.doc.declaration" : "func + (lhs: T, rhs: T) -> String",
+          "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+          "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"95\" column=\"6\"><Name>+(_:_:)<\/Name><USR>s:14SpmSwiftModule1poiySSAA1TV_ADtF<\/USR><Declaration>func + (lhs: T, rhs: T) -&gt; String<\/Declaration><CommentParts><Abstract><Para>Unscoped operator<\/Para><\/Abstract><\/CommentParts><\/Function>",
+          "key.doc.line" : 95,
+          "key.doc.name" : "+(_:_:)",
+          "key.doc.type" : "Function",
+          "key.doclength" : 22,
+          "key.docoffset" : 1827,
+          "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+          "key.fully_annotated_decl" : "<decl.function.operator.infix><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>+ <\/decl.name>(<decl.var.parameter><decl.var.parameter.name>lhs<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.struct usr=\"s:14SpmSwiftModule1TV\">T<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>, <decl.var.parameter><decl.var.parameter.name>rhs<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.struct usr=\"s:14SpmSwiftModule1TV\">T<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.function.returntype><\/decl.function.operator.infix>",
+          "key.j2.documentation" : {
+            "key.j2.abstract" : {
+              "en" : "Unscoped operator"
+            },
+            "key.j2.doc_source" : "docComment"
+          },
+          "key.j2.is_override" : false,
+          "key.j2.swift_declaration" : "func + (lhs: T, rhs: T) -> String",
+          "key.j2.swift_name_pieces" : [
+            {
+              "key.j2.name_piece_is_name" : false,
+              "key.j2.name_piece_text" : "static func "
+            },
+            {
+              "key.j2.name_piece_is_name" : true,
+              "key.j2.name_piece_text" : "+"
+            },
+            {
+              "key.j2.name_piece_is_name" : false,
+              "key.j2.name_piece_text" : "("
+            },
+            {
+              "key.j2.name_piece_is_name" : true,
+              "key.j2.name_piece_text" : "lhs"
+            },
+            {
+              "key.j2.name_piece_is_name" : false,
+              "key.j2.name_piece_text" : ": T, "
+            },
+            {
+              "key.j2.name_piece_is_name" : true,
+              "key.j2.name_piece_text" : "rhs"
+            },
+            {
+              "key.j2.name_piece_is_name" : false,
+              "key.j2.name_piece_text" : ": T) -> String"
+            }
+          ],
+          "key.kind" : "source.lang.swift.decl.function.free",
+          "key.length" : 41,
+          "key.name" : "+(_:_:)",
+          "key.namelength" : 17,
+          "key.nameoffset" : 1854,
+          "key.offset" : 1849,
+          "key.parsed_declaration" : "func +(lhs: T, rhs: T) -> String",
+          "key.parsed_scope.end" : 97,
+          "key.parsed_scope.start" : 95,
+          "key.related_decls" : [
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule10ABaseClassC1poiyA2C_ACtFZ\">+ (_: ABaseClass, _: ABaseClass) -&gt; ABaseClass<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:Sa1poiySayxGAB_ABtFZ\">+ (_: Array&lt;Element&gt;, _: Array&lt;Element&gt;) -&gt; Array&lt;Element&gt;<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:SF1poiyxx_xtFZ\">+ (_: Self, _: Self) -&gt; Self<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:Sf1poiyS2f_SftFZ\">+ (_: Float, _: Float) -&gt; Float<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:Sd1poiyS2d_SdtFZ\">+ (_: Double, _: Double) -&gt; Double<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:s7Float80V1poiyA2B_ABtFZ\">+ (_: Float80, _: Float80) -&gt; Float80<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:s18AdditiveArithmeticP1poiyxx_xtFZ\">+ (_: Self, _: Self) -&gt; Self<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:s18AdditiveArithmeticPsE1popyxxFZ\">+(_:)<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:Sz1poiyxx_xtFZ\">+ (_: Self, _: Self) -&gt; Self<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:s5UInt8V1poiyA2B_ABtFZ\">+ (_: UInt8, _: UInt8) -&gt; UInt8<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:s4Int8V1poiyA2B_ABtFZ\">+ (_: Int8, _: Int8) -&gt; Int8<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:s6UInt16V1poiyA2B_ABtFZ\">+ (_: UInt16, _: UInt16) -&gt; UInt16<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:s5Int16V1poiyA2B_ABtFZ\">+ (_: Int16, _: Int16) -&gt; Int16<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:s6UInt32V1poiyA2B_ABtFZ\">+ (_: UInt32, _: UInt32) -&gt; UInt32<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:s5Int32V1poiyA2B_ABtFZ\">+ (_: Int32, _: Int32) -&gt; Int32<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:s6UInt64V1poiyA2B_ABtFZ\">+ (_: UInt64, _: UInt64) -&gt; UInt64<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:s5Int64V1poiyA2B_ABtFZ\">+ (_: Int64, _: Int64) -&gt; Int64<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:Su1poiyS2u_SutFZ\">+ (_: UInt, _: UInt) -&gt; UInt<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:Si1poiyS2i_SitFZ\">+ (_: Int, _: Int) -&gt; Int<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:Sxss8_PointerRzrlE1poiyxx_6StrideQztFZ\">+ (_: Self, _: Self.Stride) -&gt; Self<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:Sxss8_PointerRzrlE1poiyx6StrideQz_xtFZ\">+ (_: Self.Stride, _: Self) -&gt; Self<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:SmsE1poiyxx_qd__tSTRd__7ElementQyd__ABRtzlFZ\">+ &lt;Other&gt;(_: Self, _: Other) -&gt; Self where Other : Sequence, Self.Element == Other.Element<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:SmsE1poiyxqd___xtSTRd__7ElementQyd__ABRtzlFZ\">+ &lt;Other&gt;(_: Other, _: Self) -&gt; Self where Other : Sequence, Self.Element == Other.Element<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:SmsE1poiyxx_qd__tSmRd__7ElementQyd__ABRtzlFZ\">+ &lt;Other&gt;(_: Self, _: Other) -&gt; Self where Other : RangeReplaceableCollection, Self.Element == Other.Element<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:SS1poiyS2S_SStFZ\">+ (_: String, _: String) -&gt; String<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:s4SIMDPsSF6ScalarRpzrlE1poiyxx_xtFZ\">+ (_: Self, _: Self) -&gt; Self<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:s4SIMDPsSF6ScalarRpzrlE1poiyxAD_xtFZ\">+ (_: Self.Scalar, _: Self) -&gt; Self<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:s4SIMDPsSF6ScalarRpzrlE1poiyxx_ADtFZ\">+ (_: Self, _: Self.Scalar) -&gt; Self<\/RelatedName>"
+            }
+          ],
+          "key.substructure" : [
+            {
+              "key.annotated_decl" : "<Declaration>let lhs: <Type usr=\"s:14SpmSwiftModule1TV\">T<\/Type><\/Declaration>",
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+              "key.fully_annotated_decl" : "<decl.var.parameter><syntaxtype.keyword>let<\/syntaxtype.keyword> <decl.var.parameter.name>lhs<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.struct usr=\"s:14SpmSwiftModule1TV\">T<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>",
+              "key.j2.is_override" : false,
+              "key.j2.swift_declaration" : "let lhs: T",
+              "key.j2.swift_name_pieces" : [
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "lhs"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : ": T"
+                }
+              ],
+              "key.kind" : "source.lang.swift.decl.var.parameter",
+              "key.length" : 3,
+              "key.name" : "lhs",
+              "key.offset" : 1856,
+              "key.parent_loc" : 1854,
+              "key.parsed_declaration" : "func +(lhs",
+              "key.parsed_scope.end" : 95,
+              "key.parsed_scope.start" : 95,
+              "key.typename" : "T",
+              "key.typeusr" : "$s14SpmSwiftModule1TVD",
+              "key.usr" : "s:14SpmSwiftModule1poiySSAA1TV_ADtF3lhsL_ADvp"
+            }
+          ],
+          "key.typename" : "(T, T) -> String",
+          "key.typeusr" : "$sySS14SpmSwiftModule1TV_ACtcD",
+          "key.usr" : "s:14SpmSwiftModule1poiySSAA1TV_ADtF"
         },
         {
           "key.accessibility" : "source.lang.swift.accessibility.public",
@@ -3090,26 +3465,26 @@
             {
               "key.attribute" : "source.decl.attribute.public",
               "key.length" : 6,
-              "key.offset" : 1733
+              "key.offset" : 1912
             }
           ],
           "key.bodylength" : 189,
-          "key.bodyoffset" : 1789,
+          "key.bodyoffset" : 1968,
           "key.doc.column" : 14,
           "key.doc.comment" : "A derived class",
           "key.doc.declaration" : "public class ADerivedClass<T, Q> : ABaseClass where Q : Sequence",
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "key.doc.full_as_xml" : "<Class file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"90\" column=\"14\"><Name>ADerivedClass<\/Name><USR>s:14SpmSwiftModule13ADerivedClassC<\/USR><Declaration>public class ADerivedClass&lt;T, Q&gt; : ABaseClass where Q : Sequence<\/Declaration><CommentParts><Abstract><Para>A derived class<\/Para><\/Abstract><\/CommentParts><\/Class>",
-          "key.doc.line" : 90,
+          "key.doc.full_as_xml" : "<Class file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"100\" column=\"14\"><Name>ADerivedClass<\/Name><USR>s:14SpmSwiftModule13ADerivedClassC<\/USR><Declaration>public class ADerivedClass&lt;T, Q&gt; : ABaseClass where Q : Sequence<\/Declaration><CommentParts><Abstract><Para>A derived class<\/Para><\/Abstract><\/CommentParts><\/Class>",
+          "key.doc.line" : 100,
           "key.doc.name" : "ADerivedClass",
           "key.doc.type" : "Class",
           "key.doclength" : 20,
-          "key.docoffset" : 1713,
+          "key.docoffset" : 1892,
           "key.elements" : [
             {
               "key.kind" : "source.lang.swift.structure.elem.typeref",
               "key.length" : 10,
-              "key.offset" : 1777
+              "key.offset" : 1956
             }
           ],
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -3146,11 +3521,11 @@
           "key.length" : 239,
           "key.name" : "ADerivedClass",
           "key.namelength" : 13,
-          "key.nameoffset" : 1746,
-          "key.offset" : 1740,
+          "key.nameoffset" : 1925,
+          "key.offset" : 1919,
           "key.parsed_declaration" : "public class ADerivedClass<T, Q: Sequence>: ABaseClass",
-          "key.parsed_scope.end" : 101,
-          "key.parsed_scope.start" : 90,
+          "key.parsed_scope.end" : 111,
+          "key.parsed_scope.start" : 100,
           "key.substructure" : [
             {
               "key.annotated_decl" : "<Declaration>T<\/Declaration>",
@@ -3168,11 +3543,11 @@
               "key.length" : 1,
               "key.name" : "T",
               "key.namelength" : 1,
-              "key.nameoffset" : 1760,
-              "key.offset" : 1760,
+              "key.nameoffset" : 1939,
+              "key.offset" : 1939,
               "key.parsed_declaration" : "public class ADerivedClass<T",
-              "key.parsed_scope.end" : 90,
-              "key.parsed_scope.start" : 90,
+              "key.parsed_scope.end" : 100,
+              "key.parsed_scope.start" : 100,
               "key.typename" : "T.Type",
               "key.typeusr" : "$sxmD",
               "key.usr" : "s:14SpmSwiftModule13ADerivedClassC1Txmfp"
@@ -3183,7 +3558,7 @@
                 {
                   "key.kind" : "source.lang.swift.structure.elem.typeref",
                   "key.length" : 8,
-                  "key.offset" : 1766
+                  "key.offset" : 1945
                 }
               ],
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -3210,11 +3585,11 @@
               "key.length" : 11,
               "key.name" : "Q",
               "key.namelength" : 1,
-              "key.nameoffset" : 1763,
-              "key.offset" : 1763,
+              "key.nameoffset" : 1942,
+              "key.offset" : 1942,
               "key.parsed_declaration" : "public class ADerivedClass<T, Q: Sequence",
-              "key.parsed_scope.end" : 90,
-              "key.parsed_scope.start" : 90,
+              "key.parsed_scope.end" : 100,
+              "key.parsed_scope.start" : 100,
               "key.typename" : "Q.Type",
               "key.typeusr" : "$sq_mD",
               "key.usr" : "s:14SpmSwiftModule13ADerivedClassC1Qq_mfp"
@@ -3244,11 +3619,11 @@
               "key.length" : 15,
               "key.name" : "t",
               "key.namelength" : 1,
-              "key.nameoffset" : 1796,
-              "key.offset" : 1792,
+              "key.nameoffset" : 1975,
+              "key.offset" : 1971,
               "key.parsed_declaration" : "var t: Q? = nil",
-              "key.parsed_scope.end" : 91,
-              "key.parsed_scope.start" : 91,
+              "key.parsed_scope.end" : 101,
+              "key.parsed_scope.start" : 101,
               "key.setter_accessibility" : "source.lang.swift.accessibility.internal",
               "key.typename" : "Q?",
               "key.typeusr" : "$sq_SgD",
@@ -3261,26 +3636,26 @@
                 {
                   "key.attribute" : "source.decl.attribute.override",
                   "key.length" : 8,
-                  "key.offset" : 1854
+                  "key.offset" : 2033
                 },
                 {
                   "key.attribute" : "source.decl.attribute.public",
                   "key.length" : 6,
-                  "key.offset" : 1847
+                  "key.offset" : 2026
                 }
               ],
               "key.bodylength" : 17,
-              "key.bodyoffset" : 1898,
+              "key.bodyoffset" : 2077,
               "key.doc.column" : 24,
               "key.doc.comment" : "See `ABaseClass.method(...)`.",
               "key.doc.declaration" : "public override func method(param: Int) -> String",
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-              "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"94\" column=\"24\"><Name>method(param:)<\/Name><USR>s:14SpmSwiftModule13ADerivedClassC6method5paramSSSi_tF<\/USR><Declaration>public override func method(param: Int) -&gt; String<\/Declaration><CommentParts><Abstract><Para>See <codeVoice>ABaseClass.method(...)<\/codeVoice>.<\/Para><\/Abstract><\/CommentParts><\/Function>",
-              "key.doc.line" : 94,
+              "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"104\" column=\"24\"><Name>method(param:)<\/Name><USR>s:14SpmSwiftModule13ADerivedClassC6method5paramSSSi_tF<\/USR><Declaration>public override func method(param: Int) -&gt; String<\/Declaration><CommentParts><Abstract><Para>See <codeVoice>ABaseClass.method(...)<\/codeVoice>.<\/Para><\/Abstract><\/CommentParts><\/Function>",
+              "key.doc.line" : 104,
               "key.doc.name" : "method(param:)",
               "key.doc.type" : "Function",
               "key.doclength" : 34,
-              "key.docoffset" : 1811,
+              "key.docoffset" : 1990,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>override<\/syntaxtype.keyword> <syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>method<\/decl.name>(<decl.var.parameter><decl.var.parameter.argument_label>param<\/decl.var.parameter.argument_label>: <decl.var.parameter.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.function.returntype><\/decl.function.method.instance>",
               "key.j2.documentation" : {
@@ -3317,16 +3692,16 @@
               "key.length" : 53,
               "key.name" : "method(param:)",
               "key.namelength" : 18,
-              "key.nameoffset" : 1868,
-              "key.offset" : 1863,
+              "key.nameoffset" : 2047,
+              "key.offset" : 2042,
               "key.overrides" : [
                 {
                   "key.usr" : "s:14SpmSwiftModule10ABaseClassC6method5paramSSSi_tF"
                 }
               ],
               "key.parsed_declaration" : "public override func method(param: Int) -> String",
-              "key.parsed_scope.end" : 96,
-              "key.parsed_scope.start" : 94,
+              "key.parsed_scope.end" : 106,
+              "key.parsed_scope.start" : 104,
               "key.typename" : "<T, Q where Q : Sequence> (ADerivedClass<T, Q>) -> (Int) -> String",
               "key.typeusr" : "$s5paramSSSi_tcD",
               "key.usr" : "s:14SpmSwiftModule13ADerivedClassC6method5paramSSSi_tF"
@@ -3338,11 +3713,11 @@
                 {
                   "key.attribute" : "source.decl.attribute.public",
                   "key.length" : 6,
-                  "key.offset" : 1920
+                  "key.offset" : 2099
                 }
               ],
               "key.bodylength" : 20,
-              "key.bodyoffset" : 1956,
+              "key.bodyoffset" : 2135,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>generic<\/decl.name>(<decl.var.parameter><decl.var.parameter.argument_label>param<\/decl.var.parameter.argument_label>: <decl.var.parameter.type><ref.generic_type_param usr=\"s:14SpmSwiftModule13ADerivedClassC1Txmfp\">T<\/ref.generic_type_param><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.generic_type_param usr=\"s:14SpmSwiftModule13ADerivedClassC1Txmfp\">T<\/ref.generic_type_param><\/decl.function.returntype><\/decl.function.method.instance>",
               "key.j2.is_override" : false,
@@ -3373,11 +3748,11 @@
               "key.length" : 50,
               "key.name" : "generic(param:)",
               "key.namelength" : 17,
-              "key.nameoffset" : 1932,
-              "key.offset" : 1927,
+              "key.nameoffset" : 2111,
+              "key.offset" : 2106,
               "key.parsed_declaration" : "public func generic(param: T) -> T",
-              "key.parsed_scope.end" : 100,
-              "key.parsed_scope.start" : 98,
+              "key.parsed_scope.end" : 110,
+              "key.parsed_scope.start" : 108,
               "key.typename" : "<T, Q where Q : Sequence> (ADerivedClass<T, Q>) -> (T) -> T",
               "key.typeusr" : "$s5paramxx_tcD",
               "key.usr" : "s:14SpmSwiftModule13ADerivedClassC7generic5paramxx_tF"

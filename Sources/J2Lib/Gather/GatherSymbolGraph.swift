@@ -345,7 +345,7 @@ extension SymbolGraph {
         "swift.static.subscript" : .functionSubscriptStatic
     ]
 
-    /// "What is StaticSpelling..."
+    /// We prefer to differentiate on 'static spelling' - TSPL papers over the distinction.
     static func fixUpKind(_ kind: String, declaration: String) -> String {
         guard declaration.re_isMatch(#"\bstatic\b"#) else {
             return kind

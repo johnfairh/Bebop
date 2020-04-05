@@ -390,6 +390,42 @@
           }
         },
         {
+          "anchor_id" : "tpc-operators",
+          "items" : [
+            {
+              "anchor_id" : "__",
+              "dash_type" : "Function",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>An operator!<\/p>"
+                  }
+                },
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "public static func + (lhs: <a href=\"..\/..\/spmswiftmodule\/types\/abaseclass.html?swift\">ABaseClass<\/a>, rhs: <a href=\"..\/..\/spmswiftmodule\/types\/abaseclass.html?swift\">ABaseClass<\/a>) -&gt; <a href=\"..\/..\/spmswiftmodule\/types\/abaseclass.html?swift\">ABaseClass<\/a>"
+                }
+              },
+              "flat_title" : {
+                "en" : "static func +(lhs: ABaseClass, rhs: ABaseClass) -> ABaseClass"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">static func <\/span>+<span class=\"j2-item-secondary\">(<\/span>lhs<span class=\"j2-item-secondary\">: ABaseClass, <\/span>rhs<span class=\"j2-item-secondary\">: ABaseClass) -> ABaseClass<\/span>"
+              }
+            }
+          ],
+          "menu_title" : {
+            "en" : "Operators"
+          },
+          "title" : {
+            "en" : {
+              "html" : "Operators"
+            }
+          }
+        },
+        {
           "anchor_id" : "tpc-subscripts",
           "items" : [
             {
@@ -1985,6 +2021,64 @@
         [
           {
             "title" : {
+              "en" : "Operators"
+            }
+          }
+        ]
+      ],
+      "is_guide" : false,
+      "primary_language" : "swift",
+      "primary_title" : {
+        "en" : "Operators"
+      },
+      "tab_title_prefix" : true,
+      "topics" : [
+        {
+          "anchor_id" : "tpc-",
+          "items" : [
+            {
+              "anchor_id" : "__1",
+              "dash_type" : "Function",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Unscoped operator<\/p>"
+                  }
+                },
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "func + (lhs: <a href=\"types.html?swift#t1\">T<\/a>, rhs: <a href=\"types.html?swift#t1\">T<\/a>) -&gt; String"
+                }
+              },
+              "flat_title" : {
+                "en" : "static func +(lhs: T, rhs: T) -> String"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">static func <\/span>+<span class=\"j2-item-secondary\">(<\/span>lhs<span class=\"j2-item-secondary\">: T, <\/span>rhs<span class=\"j2-item-secondary\">: T) -> String<\/span>"
+              }
+            }
+          ],
+          "menu_title" : {
+            "en" : ""
+          },
+          "title" : {
+            "en" : {
+              "html" : ""
+            }
+          }
+        }
+      ],
+      "url" : {
+        "url_path" : "operators"
+      }
+    },
+    {
+      "breadcrumbs" : [
+        [
+          {
+            "title" : {
               "en" : "Extensions"
             }
           }
@@ -2448,6 +2542,26 @@
         },
         "url" : {
           "url_path" : "functions"
+        }
+      },
+      {
+        "children" : [
+          {
+            "children" : [],
+            "title" : {
+              "en" : "+(_:_:)"
+            },
+            "url" : {
+              "url_hash" : "__1",
+              "url_path" : "operators"
+            }
+          }
+        ],
+        "title" : {
+          "en" : "Operators"
+        },
+        "url" : {
+          "url_path" : "operators"
         }
       },
       {

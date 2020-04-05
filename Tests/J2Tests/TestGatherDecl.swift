@@ -280,6 +280,13 @@ class TestGatherDecl: XCTestCase {
         let deinitKind = DefKind.from(key: SwiftDeclarationKind.functionMethodInstance.rawValue, dict: [SwiftDocKey.name.rawValue:"deinit"])!
         let pieces4 = builder.parseToPieces(declaration: "deinit", name: "deinit", kind: deinitKind)
         XCTAssertEqual("#deinit#", pieces4.flat)
+
+        let operatorKind = DefKind.from(key: SwiftDeclarationKind.functionOperator.rawValue, dict: [
+            SwiftDocKey.name.rawValue: "+(_:_)",
+            SwiftDocKey2.fullyAnnotatedDecl.rawValue: "<decl.function.operator.infix>func +(lhs: T, rhs: T) -&gt; T</decl.function.operator.infix>"
+        ])!
+        let pieces5 = builder.parseToPieces(declaration: "func +(lhs: T, rhs: T) -> T", name: "+(_:_)", kind: operatorKind)
+        XCTAssertEqual("static func #+#(#lhs#: T, #rhs#: T) -> T", pieces5.flat)
     }
 
     // Localization

@@ -12,6 +12,7 @@ public enum ItemKind: String, CaseIterable {
     case type
     case variable
     case function
+    case `operator`
     case `extension`
     case group
     case other
@@ -23,8 +24,9 @@ public enum ItemKind: String, CaseIterable {
         case .type: return "Types"
         case .variable: return "Variables"
         case .function: return "Functions"
+        case .operator: return "Operators"
         case .extension: return "Extensions"
-        default: return "Others"
+        case .group, .other: return "Others"
         }
     }
 
@@ -42,12 +44,13 @@ public enum ItemKind: String, CaseIterable {
         case .type: return l(.types, .typesCustom)
         case .variable: return l(.variables, .variablesCustom)
         case .function: return l(.functions, .functionsCustom)
+        case .operator: return l(.operators, .operatorsCustom)
         case .extension:
             switch language {
             case .swift: return l(.extensions, .extensionsCustom)
             case .objc: return l(.categories, .categoriesCustom)
             }
-        default: return l(.others, .othersCustom)
+        case .group, .other: return l(.others, .othersCustom)
         }
     }
 }

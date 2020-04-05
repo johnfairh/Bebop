@@ -14,7 +14,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 46,
+    "doc_coverage" : 48,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -118,6 +118,18 @@
             "same_page" : false,
             "title" : "Functions",
             "url" : "functions.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "+(_:_:)",
+                "url" : "operators.html?swift#__1"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Operators",
+            "url" : "operators.html?swift"
           },
           {
             "children" : [
@@ -271,7 +283,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 46,
+    "doc_coverage" : 48,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -380,6 +392,18 @@
             "children" : [
               {
                 "same_page" : false,
+                "title" : "+(_:_:)",
+                "url" : "operators.html?swift#__1"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Operators",
+            "url" : "operators.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
                 "title" : "Collection",
                 "url" : "extensions\/collection.html?swift"
               },
@@ -472,6 +496,27 @@
         ],
         "primary_language" : "j2-swift",
         "title_html" : "Methods"
+      },
+      {
+        "anchor_id" : "tpc-operators",
+        "dash_name" : "Operators",
+        "items" : [
+          {
+            "anchor_id" : "__",
+            "any_declaration" : true,
+            "dash_name" : "static%20func%20+(lhs%3A%20ABaseClass,%20rhs%3A%20ABaseClass)%20-%3E%20ABaseClass",
+            "dash_type" : "Function",
+            "def" : {
+              "abstract_html" : "<p>An operator!<\/p>",
+              "swift_declaration_html" : "public static func + (lhs: <a href=\"..\/types\/abaseclass.html?swift\">ABaseClass<\/a>, rhs: <a href=\"..\/types\/abaseclass.html?swift\">ABaseClass<\/a>) -&gt; <a href=\"..\/types\/abaseclass.html?swift\">ABaseClass<\/a>"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">static func <\/span>+<span class=\"j2-item-secondary\">(<\/span>lhs<span class=\"j2-item-secondary\">: ABaseClass, <\/span>rhs<span class=\"j2-item-secondary\">: ABaseClass) -> ABaseClass<\/span>",
+            "title" : "static func +(lhs: ABaseClass, rhs: ABaseClass) -> ABaseClass"
+          }
+        ],
+        "primary_language" : "j2-swift",
+        "title_html" : "Operators"
       },
       {
         "anchor_id" : "tpc-subscripts",
@@ -580,6 +625,10 @@
             "title" : "Methods"
           },
           {
+            "anchor_id" : "tpc-operators",
+            "title" : "Operators"
+          },
+          {
             "anchor_id" : "tpc-subscripts",
             "title" : "Subscripts"
           },
@@ -622,7 +671,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 46,
+    "doc_coverage" : 48,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -726,6 +775,18 @@
             "same_page" : false,
             "title" : "Functions",
             "url" : "functions.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "+(_:_:)",
+                "url" : "operators.html?swift#__1"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Operators",
+            "url" : "operators.html?swift"
           },
           {
             "children" : [
@@ -848,7 +909,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 46,
+    "doc_coverage" : 48,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -952,6 +1013,18 @@
             "same_page" : false,
             "title" : "Functions",
             "url" : "functions.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "+(_:_:)",
+                "url" : "operators.html?swift#__1"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Operators",
+            "url" : "operators.html?swift"
           },
           {
             "children" : [
@@ -1088,7 +1161,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 46,
+    "doc_coverage" : 48,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -1192,6 +1265,18 @@
             "same_page" : false,
             "title" : "Functions",
             "url" : "functions.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "+(_:_:)",
+                "url" : "operators.html?swift#__1"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Operators",
+            "url" : "operators.html?swift"
           },
           {
             "children" : [
@@ -1379,7 +1464,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 46,
+    "doc_coverage" : 48,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -1483,6 +1568,18 @@
             "same_page" : false,
             "title" : "Functions",
             "url" : "functions.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "+(_:_:)",
+                "url" : "operators.html?swift#__1"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Operators",
+            "url" : "operators.html?swift"
           },
           {
             "children" : [
@@ -1731,7 +1828,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 46,
+    "doc_coverage" : 48,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -1835,6 +1932,18 @@
             "same_page" : false,
             "title" : "Functions",
             "url" : "functions.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "+(_:_:)",
+                "url" : "operators.html?swift#__1"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Operators",
+            "url" : "operators.html?swift"
           },
           {
             "children" : [
@@ -1962,7 +2071,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 46,
+    "doc_coverage" : 48,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -2071,6 +2180,18 @@
             "children" : [
               {
                 "same_page" : false,
+                "title" : "+(_:_:)",
+                "url" : "operators.html?swift#__1"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Operators",
+            "url" : "operators.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
                 "title" : "Collection",
                 "url" : "extensions\/collection.html?swift"
               },
@@ -2157,7 +2278,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 46,
+    "doc_coverage" : 48,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -2266,6 +2387,18 @@
             "children" : [
               {
                 "same_page" : false,
+                "title" : "+(_:_:)",
+                "url" : "operators.html?swift#__1"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Operators",
+            "url" : "operators.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
                 "title" : "Collection",
                 "url" : "extensions\/collection.html?swift"
               },
@@ -2352,6 +2485,183 @@
       {
         "breadcrumbs" : [
           {
+            "title" : "Operators"
+          }
+        ],
+        "language" : "j2-swift"
+      }
+    ],
+    "breadcrumbs_root" : "SpmSwiftModule",
+    "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
+    "default_language" : "j2-swift",
+    "disable_search" : false,
+    "doc_coverage" : 48,
+    "docs_title" : "SpmSwiftModule docs",
+    "dual_language" : false,
+    "hide_article_title" : false,
+    "hide_attribution" : false,
+    "hide_availability" : false,
+    "item_collapse_never" : false,
+    "item_collapse_open" : false,
+    "item_nest" : true,
+    "j2lib_version" : "0.1",
+    "language_tag" : "en",
+    "path_from_root" : "operators.html",
+    "path_to_assets" : "",
+    "path_to_root" : "",
+    "primary_page_title" : "Operators",
+    "primary_title_language" : "j2-swift",
+    "tab_title_prefix" : true,
+    "tocs" : [
+      {
+        "language" : "j2-swift",
+        "screen_reader_name" : "Swift",
+        "toc" : [
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "ABaseClass",
+                "url" : "types\/abaseclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "ADerivedClass",
+                "url" : "types\/aderivedclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "AnEnum",
+                "url" : "types\/anenum.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "FirstProtocol",
+                "url" : "types\/firstprotocol1.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "GenericBase",
+                "url" : "types\/genericbase.html?swift"
+              },
+              {
+                "children" : [
+                  {
+                    "children" : [
+                      {
+                        "same_page" : false,
+                        "title" : "Nested2a",
+                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2a"
+                      },
+                      {
+                        "same_page" : false,
+                        "title" : "Nested2b",
+                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2b"
+                      }
+                    ],
+                    "same_page" : false,
+                    "title" : "Nested1",
+                    "url" : "types\/spmswiftmodule\/nested1.html?swift"
+                  },
+                  {
+                    "same_page" : false,
+                    "title" : "Nested2",
+                    "url" : "types\/spmswiftmodule.html?swift#nested2"
+                  }
+                ],
+                "same_page" : false,
+                "title" : "SpmSwiftModule",
+                "url" : "types\/spmswiftmodule.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "T",
+                "url" : "types.html?swift#t1"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Types",
+            "url" : "types.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "deprecatedFunction(callback:)",
+                "url" : "functions.html?swift#deprecatedfunctioncallback"
+              },
+              {
+                "same_page" : false,
+                "title" : "functionA(arg1:_:arg3:)",
+                "url" : "functions.html?swift#functionaarg1_arg3"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Functions",
+            "url" : "functions.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : true,
+                "title" : "+(_:_:)",
+                "url" : "#__1"
+              }
+            ],
+            "same_page" : true,
+            "title" : "Operators",
+            "url" : ""
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "Collection",
+                "url" : "extensions\/collection.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "String.Element",
+                "url" : "extensions\/stringelement.html?swift"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Extensions",
+            "url" : "extensions.html?swift"
+          }
+        ]
+      }
+    ],
+    "topics" : [
+      {
+        "anchor_id" : "tpc-",
+        "dash_name" : "",
+        "items" : [
+          {
+            "anchor_id" : "__1",
+            "any_declaration" : true,
+            "dash_name" : "static%20func%20+(lhs%3A%20T,%20rhs%3A%20T)%20-%3E%20String",
+            "dash_type" : "Function",
+            "def" : {
+              "abstract_html" : "<p>Unscoped operator<\/p>",
+              "swift_declaration_html" : "func + (lhs: <a href=\"types.html?swift#t1\">T<\/a>, rhs: <a href=\"types.html?swift#t1\">T<\/a>) -&gt; String"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">static func <\/span>+<span class=\"j2-item-secondary\">(<\/span>lhs<span class=\"j2-item-secondary\">: T, <\/span>rhs<span class=\"j2-item-secondary\">: T) -> String<\/span>",
+            "title" : "static func +(lhs: T, rhs: T) -> String"
+          }
+        ],
+        "primary_language" : "j2-swift"
+      }
+    ],
+    "topics_language" : "j2-swift",
+    "topics_menus" : []
+  },
+  {
+    "breadcrumbs_menus" : [
+      {
+        "breadcrumbs" : [
+          {
             "title" : "Extensions"
           }
         ],
@@ -2362,7 +2672,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 46,
+    "doc_coverage" : 48,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -2473,6 +2783,18 @@
             "children" : [
               {
                 "same_page" : false,
+                "title" : "+(_:_:)",
+                "url" : "operators.html?swift#__1"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Operators",
+            "url" : "operators.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
                 "title" : "Collection",
                 "url" : "extensions\/collection.html?swift"
               },
@@ -2550,7 +2872,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 46,
+    "doc_coverage" : 48,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -2654,6 +2976,18 @@
             "same_page" : false,
             "title" : "Functions",
             "url" : "functions.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "+(_:_:)",
+                "url" : "operators.html?swift#__1"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Operators",
+            "url" : "operators.html?swift"
           },
           {
             "children" : [
@@ -2763,7 +3097,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 46,
+    "doc_coverage" : 48,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -2872,6 +3206,18 @@
             "children" : [
               {
                 "same_page" : false,
+                "title" : "+(_:_:)",
+                "url" : "operators.html?swift#__1"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Operators",
+            "url" : "operators.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
                 "title" : "Collection",
                 "url" : "extensions\/collection.html?swift"
               },
@@ -2948,7 +3294,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 46,
+    "doc_coverage" : 48,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : true,
@@ -3052,6 +3398,18 @@
             "same_page" : false,
             "title" : "Functions",
             "url" : "functions.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "+(_:_:)",
+                "url" : "operators.html?swift#__1"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Operators",
+            "url" : "operators.html?swift"
           },
           {
             "children" : [

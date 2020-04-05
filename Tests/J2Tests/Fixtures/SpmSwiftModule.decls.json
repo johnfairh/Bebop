@@ -1893,6 +1893,61 @@
         },
         "swift_name" : "subscript(_:)",
         "usr" : "s:14SpmSwiftModule10ABaseClassCySSSicipZ"
+      },
+      {
+        "acl" : "public",
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "An operator\\!"
+            }
+          },
+          "parameters" : [],
+          "source" : "docComment"
+        },
+        "kind" : "source.lang.swift.decl.function.operator",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+          "first_line" : 86,
+          "last_line" : 88,
+          "module_name" : "SpmSwiftModule",
+          "pass_index" : 0
+        },
+        "name" : "+(_:_:)",
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : {
+            "text" : "public static func + (lhs: ABaseClass, rhs: ABaseClass) -> ABaseClass"
+          },
+          "inherited_types" : [],
+          "is_override" : false,
+          "name_pieces" : [
+            {
+              "other" : "static func "
+            },
+            {
+              "name" : "+"
+            },
+            {
+              "other" : "("
+            },
+            {
+              "name" : "lhs"
+            },
+            {
+              "other" : ": ABaseClass, "
+            },
+            {
+              "name" : "rhs"
+            },
+            {
+              "other" : ": ABaseClass) -> ABaseClass"
+            }
+          ]
+        },
+        "swift_name" : "+(_:_:)",
+        "usr" : "s:14SpmSwiftModule10ABaseClassC1poiyA2C_ACtFZ"
       }
     ],
     "documentation" : {
@@ -1908,7 +1963,7 @@
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
       "first_line" : 54,
-      "last_line" : 84,
+      "last_line" : 89,
       "module_name" : "SpmSwiftModule",
       "pass_index" : 0
     },
@@ -1947,8 +2002,8 @@
     "kind" : "source.lang.swift.decl.struct",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-      "first_line" : 86,
-      "last_line" : 87,
+      "first_line" : 91,
+      "last_line" : 92,
       "module_name" : "SpmSwiftModule",
       "pass_index" : 0
     },
@@ -1973,6 +2028,61 @@
     "usr" : "s:14SpmSwiftModule1TV"
   },
   {
+    "acl" : "internal",
+    "children" : [],
+    "documentation" : {
+      "abstract" : {
+        "markdown" : {
+          "en" : "Unscoped operator"
+        }
+      },
+      "parameters" : [],
+      "source" : "docComment"
+    },
+    "kind" : "source.lang.swift.decl.function.operator",
+    "location" : {
+      "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+      "first_line" : 95,
+      "last_line" : 97,
+      "module_name" : "SpmSwiftModule",
+      "pass_index" : 0
+    },
+    "name" : "+(_:_:)",
+    "swift_declaration" : {
+      "availability" : [],
+      "declaration" : {
+        "text" : "func + (lhs: T, rhs: T) -> String"
+      },
+      "inherited_types" : [],
+      "is_override" : false,
+      "name_pieces" : [
+        {
+          "other" : "static func "
+        },
+        {
+          "name" : "+"
+        },
+        {
+          "other" : "("
+        },
+        {
+          "name" : "lhs"
+        },
+        {
+          "other" : ": T, "
+        },
+        {
+          "name" : "rhs"
+        },
+        {
+          "other" : ": T) -> String"
+        }
+      ]
+    },
+    "swift_name" : "+(_:_:)",
+    "usr" : "s:14SpmSwiftModule1poiySSAA1TV_ADtF"
+  },
+  {
     "acl" : "public",
     "children" : [
       {
@@ -1990,8 +2100,8 @@
         "kind" : "source.lang.swift.decl.var.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "first_line" : 91,
-          "last_line" : 91,
+          "first_line" : 101,
+          "last_line" : 101,
           "module_name" : "SpmSwiftModule",
           "pass_index" : 0
         },
@@ -2033,8 +2143,8 @@
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "first_line" : 94,
-          "last_line" : 96,
+          "first_line" : 104,
+          "last_line" : 106,
           "module_name" : "SpmSwiftModule",
           "pass_index" : 0
         },
@@ -2082,8 +2192,8 @@
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "first_line" : 98,
-          "last_line" : 100,
+          "first_line" : 108,
+          "last_line" : 110,
           "module_name" : "SpmSwiftModule",
           "pass_index" : 0
         },
@@ -2133,8 +2243,8 @@
     "kind" : "source.lang.swift.decl.class",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-      "first_line" : 90,
-      "last_line" : 101,
+      "first_line" : 100,
+      "last_line" : 111,
       "module_name" : "SpmSwiftModule",
       "pass_index" : 0
     },

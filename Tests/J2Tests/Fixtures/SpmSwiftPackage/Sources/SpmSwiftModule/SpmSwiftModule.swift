@@ -81,9 +81,19 @@ public class ABaseClass {
   public class subscript(arg: Int) -> String {
     return ""
   }
+
+  /// An operator!
+  public static func +(lhs: ABaseClass, rhs: ABaseClass) -> ABaseClass {
+    ABaseClass()
+  }
 }
 
 struct T {
+}
+
+/// Unscoped operator
+func +(lhs: T, rhs: T) -> String {
+  ""
 }
 
 /// A derived class

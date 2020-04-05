@@ -153,6 +153,10 @@ extension DefKind {
             if name == "deinit" {
                 return SwiftDeclarationKind.functionDestructor
             }
+            if let annotatedDecl = dict.fullyAnnotatedDecl,
+                annotatedDecl.hasPrefix("<decl.function.operator") {
+                return SwiftDeclarationKind.functionOperator
+            }
             if isSwiftSubscript, let decl = dict.parsedDeclaration {
                 if decl.re_isMatch(#"\bstatic\b"#) {
                     return SwiftDeclarationKind2.functionSubscriptStatic

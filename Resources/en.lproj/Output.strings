@@ -25,6 +25,8 @@
 "variables-custom" = "%1 Variables";
 "functions" = "Functions";
 "functions-custom" = "%1 Functions";
+"operators" = "Operators";
+"operators-custom" = "%1 Operators";
 "extensions" = "Extensions";
 "extensions-custom" = "%1 Extensions";
 "categories" = "Categories";
@@ -39,6 +41,7 @@
 "tpc-deinitializer" = "Deinitializer";
 "tpc-enum-elements" = "Cases";
 "tpc-methods" = "Methods";
+"tpc-operators" = "Operators";
 "tpc-properties" = "Properties";
 "tpc-fields" = "Fields";
 "tpc-subscripts" = "Subscripts";

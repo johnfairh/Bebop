@@ -232,6 +232,10 @@ internal enum L10n {
     case notObjc = "not-objc"
     /// Not available in Swift.
     case notSwift = "not-swift"
+    /// Operators
+    case operators = "operators"
+    /// %1 Operators
+    case operatorsCustom = "operators-custom"
     /// Others
     case others = "others"
     /// %1 Others
@@ -274,6 +278,8 @@ internal enum L10n {
     case tpcInitializers = "tpc-initializers"
     /// Methods
     case tpcMethods = "tpc-methods"
+    /// Operators
+    case tpcOperators = "tpc-operators"
     /// Other Members
     case tpcOthers = "tpc-others"
     /// Properties

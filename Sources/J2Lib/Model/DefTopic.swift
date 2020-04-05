@@ -15,6 +15,7 @@ public enum DefTopic: Int, CaseIterable, Comparable {
     case deinitializer
     case enumElement
     case method
+    case `operator`
     case property
     case field
     case `subscript`
@@ -34,6 +35,7 @@ public enum DefTopic: Int, CaseIterable, Comparable {
         case .deinitializer: return .tpcDeinitializer
         case .enumElement: return .tpcEnumElements
         case .method: return .tpcMethods
+        case .operator: return .tpcOperators
         case .property: return .tpcProperties
         case .field: return .tpcFields
         case .subscript: return .tpcSubscripts
