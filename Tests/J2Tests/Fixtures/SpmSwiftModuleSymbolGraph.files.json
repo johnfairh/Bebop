@@ -198,84 +198,6 @@
               "key.kind" : "source.lang.swift.decl.var.instance",
               "key.name" : "setAndGet",
               "key.usr" : "s:14SpmSwiftModule13FirstProtocolP9setAndGetSivp"
-            },
-            {
-              "key.accessibility" : "source.lang.swift.accessibility.internal",
-              "key.doc.full_as_xml" : "",
-              "key.fully_annotated_decl" : "<swift>func e()<\/swift>",
-              "key.inherited_docs" : true,
-              "key.j2.is_override" : false,
-              "key.j2.swift_declaration" : "func e()",
-              "key.j2.swift_name_pieces" : [
-                {
-                  "key.j2.name_piece_is_name" : false,
-                  "key.j2.name_piece_text" : "func "
-                },
-                {
-                  "key.j2.name_piece_is_name" : true,
-                  "key.j2.name_piece_text" : "e"
-                },
-                {
-                  "key.j2.name_piece_is_name" : false,
-                  "key.j2.name_piece_text" : "()"
-                }
-              ],
-              "key.kind" : "source.lang.swift.decl.function.method.instance",
-              "key.name" : "e()",
-              "key.usr" : "s:14SpmSwiftModule13FirstProtocolPAAE1eyyF"
-            },
-            {
-              "key.accessibility" : "source.lang.swift.accessibility.internal",
-              "key.doc.comment" : "Brief note about m\n\nWhat m is all about.\n- parameter arg: The argument\n- returns: The answer",
-              "key.fully_annotated_decl" : "<swift>func m(arg: Int) -&gt; String<\/swift>",
-              "key.inherited_docs" : false,
-              "key.j2.documentation" : {
-                "key.j2.abstract" : {
-                  "en" : "Brief note about m"
-                },
-                "key.j2.discussion" : {
-                  "en" : "What m is all about."
-                },
-                "key.j2.doc_source" : "docComment",
-                "key.j2.parameters" : [
-                  {
-                    "key.j2.param_desc" : {
-                      "en" : "The argument"
-                    },
-                    "key.j2.param_name" : "arg"
-                  }
-                ],
-                "key.j2.returns" : {
-                  "en" : "The answer"
-                }
-              },
-              "key.j2.is_override" : false,
-              "key.j2.swift_declaration" : "func m(arg: Int) -> String",
-              "key.j2.swift_name_pieces" : [
-                {
-                  "key.j2.name_piece_is_name" : false,
-                  "key.j2.name_piece_text" : "func "
-                },
-                {
-                  "key.j2.name_piece_is_name" : true,
-                  "key.j2.name_piece_text" : "m"
-                },
-                {
-                  "key.j2.name_piece_is_name" : false,
-                  "key.j2.name_piece_text" : "("
-                },
-                {
-                  "key.j2.name_piece_is_name" : true,
-                  "key.j2.name_piece_text" : "arg"
-                },
-                {
-                  "key.j2.name_piece_is_name" : false,
-                  "key.j2.name_piece_text" : ": Int) -> String"
-                }
-              ],
-              "key.kind" : "source.lang.swift.decl.function.method.instance",
-              "key.name" : "m(arg:)",
-              "key.usr" : "s:14SpmSwiftModule13FirstProtocolPAAE1m3argSSSi_tF"
             }
           ],
           "key.usr" : "s:14SpmSwiftModule13FirstProtocolP"
@@ -1697,6 +1619,106 @@
             }
           ],
           "key.usr" : "s:14SpmSwiftModule13ADerivedClassC"
+        },
+        {
+          "key.fully_annotated_decl" : "<swift>extension FirstProtocol<\/swift>",
+          "key.j2.is_override" : false,
+          "key.j2.swift_declaration" : "extension FirstProtocol",
+          "key.j2.swift_name_pieces" : [
+            {
+              "key.j2.name_piece_is_name" : false,
+              "key.j2.name_piece_text" : "extension "
+            },
+            {
+              "key.j2.name_piece_is_name" : true,
+              "key.j2.name_piece_text" : "FirstProtocol"
+            }
+          ],
+          "key.j2.type_module_name" : "SpmSwiftModule",
+          "key.kind" : "source.lang.swift.decl.extension",
+          "key.modulename" : "SpmSwiftModule",
+          "key.name" : "FirstProtocol",
+          "key.substructure" : [
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.internal",
+              "key.doc.full_as_xml" : "",
+              "key.fully_annotated_decl" : "<swift>func e()<\/swift>",
+              "key.inherited_docs" : true,
+              "key.j2.is_override" : false,
+              "key.j2.swift_declaration" : "func e()",
+              "key.j2.swift_name_pieces" : [
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "func "
+                },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "e"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "()"
+                }
+              ],
+              "key.kind" : "source.lang.swift.decl.function.method.instance",
+              "key.name" : "e()",
+              "key.usr" : "s:14SpmSwiftModule13FirstProtocolPAAE1eyyF"
+            },
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.internal",
+              "key.doc.comment" : "Brief note about m\n\nWhat m is all about.\n- parameter arg: The argument\n- returns: The answer",
+              "key.fully_annotated_decl" : "<swift>func m(arg: Int) -&gt; String<\/swift>",
+              "key.inherited_docs" : false,
+              "key.j2.documentation" : {
+                "key.j2.abstract" : {
+                  "en" : "Brief note about m"
+                },
+                "key.j2.discussion" : {
+                  "en" : "What m is all about."
+                },
+                "key.j2.doc_source" : "docComment",
+                "key.j2.parameters" : [
+                  {
+                    "key.j2.param_desc" : {
+                      "en" : "The argument"
+                    },
+                    "key.j2.param_name" : "arg"
+                  }
+                ],
+                "key.j2.returns" : {
+                  "en" : "The answer"
+                }
+              },
+              "key.j2.is_override" : false,
+              "key.j2.swift_declaration" : "func m(arg: Int) -> String",
+              "key.j2.swift_name_pieces" : [
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "func "
+                },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "m"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "("
+                },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "arg"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : ": Int) -> String"
+                }
+              ],
+              "key.kind" : "source.lang.swift.decl.function.method.instance",
+              "key.name" : "m(arg:)",
+              "key.usr" : "s:14SpmSwiftModule13FirstProtocolPAAE1m3argSSSi_tF"
+            }
+          ],
+          "key.usr" : "s:14SpmSwiftModule13FirstProtocolP"
         },
         {
           "key.fully_annotated_decl" : "<swift>extension FirstProtocol where AssocType : Hashable<\/swift>",

@@ -395,15 +395,21 @@ extension SymbolGraph {
         let symbol: Symbol
         weak var parent: ParentNode?
         var isOverride: Bool
+        var isProtocolReq: Bool
 
         init(symbol: Symbol) {
             self.symbol = symbol
             self.parent = nil
             self.isOverride = false
+            self.isProtocolReq = false
         }
 
         var qualifiedName: String {
             symbol.pathComponents.joined(separator: ".")
+        }
+
+        var isProtocol: Bool {
+            symbol.kind == SwiftDeclarationKind.protocol.rawValue
         }
 
         func hasConformance(to protoName: String) -> Bool {
@@ -564,7 +570,22 @@ extension SymbolGraph {
 
         logDebug("SymbolGraph: start rebuilding AST shape")
 
-        rels.forEach { rel in
+        // We have to mark up protocol requirements before handling their memberOfs.
+        // Just split them out and process.
+        let (protoReqs, otherRels) = rels.splitPartition {
+            $0.kind == .requirementOf || $0.kind == .optionalRequirementOf
+        }
+
+        protoReqs.forEach { rel in
+            // "source is a requirement of protocol target"
+            guard let srcNode = nodes[rel.sourceUSR] else {
+                logWarning("Can't resolve source=\(rel.sourceUSR) for \(rel.kind).")
+                return
+            }
+            srcNode.isProtocolReq = true
+        }
+
+        otherRels.forEach { rel in
             switch rel.kind {
             case .memberOf:
                 // "source is a member of target"
@@ -573,7 +594,9 @@ extension SymbolGraph {
                     break
                 }
                 if let tgtNode = nodes[rel.targetUSR],
-                    tgtNode.symbol.constraints == srcNode.symbol.constraints {
+                    tgtNode.symbol.constraints == srcNode.symbol.constraints,
+                    // don't put default impls/extn methods in the protocol
+                    !tgtNode.isProtocol || srcNode.isProtocolReq {
                     tgtNode.children.insert(srcNode)
                 } else {
                     extensionMap.addMemberOf(member: srcNode, typeUSR: rel.targetUSR)
@@ -615,10 +638,13 @@ extension SymbolGraph {
                                             where: rel.constraints)
                 break
 
+            case .requirementOf, .optionalRequirementOf:
+                // already processed
+                break
+
             case .inheritsFrom,
-                 .defaultImplementationOf,
-                 .requirementOf,
-                 .optionalRequirementOf:
+                 .defaultImplementationOf:
+                // don't care
                 break
             }
         }
