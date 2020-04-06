@@ -9,11 +9,11 @@
   the theme that gets used.
 */
 /* Deprecation callouts */
-"plat-obsoleted-ver" = "%1 - obsoleted in %2.";
+"plat-obsoleted-ver" = "%1 - obsoleted since %2.";
 "plat-deprecated" = "%1 - deprecated.";
-"plat-deprecated-ver" = "%1 - deprecated in %2.";
+"plat-deprecated-ver" = "%1 - deprecated since %2.";
 "plat-unavailable" = "%1 - unavailable.";
-"renamed-to" = " Renamed: `%1`."; /* Leading space! */
+"renamed-to" = " Renamed to `%1`."; /* Leading space! */
 "unavailable" = "Unavailable.";
 "deprecated" = "Deprecated.";
 

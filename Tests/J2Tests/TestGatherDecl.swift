@@ -201,18 +201,18 @@ class TestGatherDecl: XCTestCase {
         checkAvail("@available(*, unavailable)", [], ["Unavailable."])
         checkAvail("@available(*, unavailable, message: \"MSG\" )", [], ["Unavailable. MSG."])
         checkAvail("@available(*, unavailable, message: \"MSG\", renamed: \"NU\" )",
-                   [], ["Unavailable. MSG. Renamed: `NU`."])
+                   [], ["Unavailable. MSG. Renamed to `NU`."])
         checkAvail("@available(*, deprecated, renamed: \"NU\" )",
-                   [], ["Deprecated. Renamed: `NU`."])
+                   [], ["Deprecated. Renamed to `NU`."])
         checkAvail("@available(iOS, introduced: 1)", ["iOS 1+"], [])
-        checkAvail("@available(iOS, introduced: 1, obsoleted: 2)", ["iOS 1-2"], ["iOS - obsoleted in 2."])
-        checkAvail("@available(iOS, obsoleted: 2)", ["iOS ?-2"], ["iOS - obsoleted in 2."])
-        checkAvail("@available(iOS, introduced: 1, deprecated: 2)", ["iOS 1+"], ["iOS - deprecated in 2."])
-        checkAvail("@available(iOS, introduced: 1, deprecated: 2, obsoleted: 3)", ["iOS 1-3"], ["iOS - obsoleted in 3."])
-        checkAvail("@available(iOS, deprecated: 2, message: \"MSG\")", [], ["iOS - deprecated in 2. MSG."])
+        checkAvail("@available(iOS, introduced: 1, obsoleted: 2)", ["iOS 1-2"], ["iOS - obsoleted since 2."])
+        checkAvail("@available(iOS, obsoleted: 2)", ["iOS ?-2"], ["iOS - obsoleted since 2."])
+        checkAvail("@available(iOS, introduced: 1, deprecated: 2)", ["iOS 1+"], ["iOS - deprecated since 2."])
+        checkAvail("@available(iOS, introduced: 1, deprecated: 2, obsoleted: 3)", ["iOS 1-3"], ["iOS - obsoleted since 3."])
+        checkAvail("@available(iOS, deprecated: 2, message: \"MSG\")", [], ["iOS - deprecated since 2. MSG."])
         checkAvail("@available(iOS, deprecated, message: \"MSG\")", [], ["iOS - deprecated. MSG."])
-        checkAvail("@available(iOS, deprecated, message: \"MSG\", renamed: \"NU\")", [], ["iOS - deprecated. MSG. Renamed: `NU`."])
-        checkAvail("@available(iOS, unavailable, message: \"MSG\\\"\", renamed: \"NU\")", [], ["iOS - unavailable. MSG\\\". Renamed: `NU`."])
+        checkAvail("@available(iOS, deprecated, message: \"MSG\", renamed: \"NU\")", [], ["iOS - deprecated. MSG. Renamed to `NU`."])
+        checkAvail("@available(iOS, unavailable, message: \"MSG\\\"\", renamed: \"NU\")", [], ["iOS - unavailable. MSG\\\". Renamed to `NU`."])
 
         // Syntax etc issues
         checkAvail("@available(dasdasd", [], [])

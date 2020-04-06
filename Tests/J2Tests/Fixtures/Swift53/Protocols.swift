@@ -9,6 +9,10 @@ public protocol FirstProtocol {
 
   associatedtype AssocType
   func assocFunc() -> AssocType
+
+  var getOnly: Int { get }
+
+  var setAndGet: Int { get set }
 }
 
 extension FirstProtocol {

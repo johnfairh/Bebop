@@ -81,6 +81,10 @@ public class ABaseClass {
   public class subscript(arg: Int) -> String {
     return ""
   }
+
+  static var aStaticVar: Int {
+    3
+  }
 }
 
 struct T {
@@ -98,4 +102,5 @@ public class ADerivedClass<T, Q: Sequence>: ABaseClass {
   public func generic(param: T) -> T {
     return param
   }
+
 }

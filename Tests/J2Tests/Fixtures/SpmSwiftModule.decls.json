@@ -1507,7 +1507,7 @@
         "text" : "public func deprecatedFunction(callback: (_ report: String) -> Int) -> String"
       },
       "deprecation" : {
-        "en" : "iOS - deprecated in 12.0. Deprecated!.\n\nmacOS - deprecated in 10.14. Deprecated on *macOS* too."
+        "en" : "iOS - deprecated since 12.0. Deprecated!.\n\nmacOS - deprecated since 10.14. Deprecated on *macOS* too."
       },
       "inherited_types" : [],
       "is_override" : false,

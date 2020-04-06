@@ -2543,7 +2543,7 @@
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "public func deprecatedFunction(callback: (_ report: String) -> Int) -> String",
           "key.j2.swift_deprecation_messages" : {
-            "en" : "iOS - deprecated in 12.0. Deprecated!.\n\nmacOS - deprecated in 10.14. Deprecated on *macOS* too."
+            "en" : "iOS - deprecated since 12.0. Deprecated!.\n\nmacOS - deprecated since 10.14. Deprecated on *macOS* too."
           },
           "key.j2.swift_name_pieces" : [
             {

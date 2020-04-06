@@ -2427,7 +2427,7 @@
             "dash_type" : "Global",
             "def" : {
               "abstract_html" : "<p>A deprecated function<\/p>",
-              "deprecation_html" : "<p>iOS - deprecated in 12.0. Deprecated!.<\/p>\n<p>macOS - deprecated in 10.14. Deprecated on <em>macOS<\/em> too.<\/p>",
+              "deprecation_html" : "<p>iOS - deprecated since 12.0. Deprecated!.<\/p>\n<p>macOS - deprecated since 10.14. Deprecated on <em>macOS<\/em> too.<\/p>",
               "discouraged" : true,
               "parameters" : [
                 {
