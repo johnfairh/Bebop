@@ -59,3 +59,7 @@ extension String.Element {
   // undocumented method
   func method2() {}
 }
+
+extension StringProtocol {
+  func f() {}
+}

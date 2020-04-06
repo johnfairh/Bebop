@@ -2420,6 +2420,53 @@
           "key.modulename" : "Swift",
           "key.name" : "Dictionary",
           "key.usr" : "s:SD"
+        },
+        {
+          "key.fully_annotated_decl" : "<swift>extension StringProtocol<\/swift>",
+          "key.j2.is_override" : false,
+          "key.j2.swift_declaration" : "extension StringProtocol",
+          "key.j2.swift_name_pieces" : [
+            {
+              "key.j2.name_piece_is_name" : false,
+              "key.j2.name_piece_text" : "extension "
+            },
+            {
+              "key.j2.name_piece_is_name" : true,
+              "key.j2.name_piece_text" : "StringProtocol"
+            }
+          ],
+          "key.j2.type_module_name" : "Swift",
+          "key.kind" : "source.lang.swift.decl.extension",
+          "key.modulename" : "Swift",
+          "key.name" : "StringProtocol",
+          "key.substructure" : [
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.internal",
+              "key.doc.full_as_xml" : "",
+              "key.fully_annotated_decl" : "<swift>func f()<\/swift>",
+              "key.inherited_docs" : true,
+              "key.j2.is_override" : false,
+              "key.j2.swift_declaration" : "func f()",
+              "key.j2.swift_name_pieces" : [
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "func "
+                },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "f"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "()"
+                }
+              ],
+              "key.kind" : "source.lang.swift.decl.function.method.instance",
+              "key.name" : "f()",
+              "key.usr" : "s:Sy14SpmSwiftModuleE1fyyF"
+            }
+          ],
+          "key.usr" : "s:Sy"
         }
       ]
     }
