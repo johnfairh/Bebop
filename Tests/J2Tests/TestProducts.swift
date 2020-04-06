@@ -107,6 +107,23 @@ class TestProducts: XCTestCase {
     }
     #endif
 
+    #if os(macOS)
+    func testFilesJsonSymbolGraph() throws {
+        guard TestSymbolGraph.isMyLaptop else { return }
+        TestSymbolGraph.useCustom(); defer { TestSymbolGraph.reset() }
+
+        let binDirURL = fixturesURL.appendingPathComponent("Swift53")
+
+        try compare([
+            "--source-directory", binDirURL.path,
+            "--modules=SpmSwiftModule",
+            "--build-tool=swift-symbolgraph"
+            ],
+            "files-json",
+            against: "SpmSwiftModuleSymbolGraph.files.json")
+    }
+    #endif
+
     func testAclFiltering() throws {
         let rootDir = fixturesURL.appendingPathComponent("SpmSwiftPackage")
         try rootDir.withCurrentDirectory { // test relative file glob

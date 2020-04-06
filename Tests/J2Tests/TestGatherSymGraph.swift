@@ -50,26 +50,12 @@ class TestGatherSymGraph: XCTestCase {
 
     // MARK: Goodpath end-to-end running, srcdir
 
-    let toolPath = "/Users/johnf/project/swift-source/build/jfdev/swift-macosx-x86_64/bin/swift-symbolgraph-extract"
-
-    var isMyLaptop: Bool {
-        FileManager.default.fileExists(atPath: toolPath)
-    }
-
-    func useCustomTool(path: String? = nil) {
-        let tool = path ?? "/Users/johnf/project/swift-source/build/jfdev/swift-macosx-x86_64/bin/swift-symbolgraph-extract"
-        setenv("J2_SWIFT_SYMBOLGRAPH_EXTRACT", strdup(tool), 1)
-    }
-    func resetTool() {
-        unsetenv("J2_SWIFT_SYMBOLGRAPH_EXTRACT")
-    }
-
     #if os(macOS) // until we have a real toolchain
 
     func testModuleLocation() throws {
-        guard isMyLaptop else { return }
+        guard TestSymbolGraph.isMyLaptop else { return }
 
-        useCustomTool(); defer { resetTool() }
+        TestSymbolGraph.useCustom(); defer { TestSymbolGraph.reset() }
 
 //        let binDirPath = try fixturesURL.appendingPathComponent("SpmSwiftPackage").withCurrentDirectory { () -> String in
 //            let buildResult = Exec.run("/usr/bin/env", "swift", "build")
@@ -112,7 +98,7 @@ class TestGatherSymGraph: XCTestCase {
     // MARK: Tool misbehaviours
 
     func testToolFailures() throws {
-        useCustomTool(); defer { resetTool() }
+        TestSymbolGraph.useCustom(); defer { TestSymbolGraph.reset() }
 
         // Straight failure
         AssertThrows(try System().run([
@@ -121,11 +107,10 @@ class TestGatherSymGraph: XCTestCase {
         ]), GatherError.self)
 
         // No main symbols file
-        useCustomTool(path: "/usr/bin/true")
+        TestSymbolGraph.useCustom(path: "/usr/bin/true")
         AssertThrows(try System().run([
             "--build-tool=swift-symbolgraph",
             "--modules=NotAModule"
         ]), GatherError.self)
     }
-
 }
