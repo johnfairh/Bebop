@@ -15,8 +15,9 @@ import SourceKittenFramework
 // namespace
 enum GatherSymbolGraph {
     static func decode(data: Data, extensionModuleName: String) throws -> SourceKittenDict {
+        logDebug("SymbolGraph: decoding data for module \(extensionModuleName)")
         let graph = try JSONDecoder().decode(SymbolGraph.self, from: data)
-        return graph.rebuild()
+        return graph.rebuild(moduleName: extensionModuleName)
     }
 }
 
@@ -124,39 +125,12 @@ fileprivate struct NetworkSymbolGraph: Decodable {
 
 /// Flattened and more normally-named deserialized symbolgraph - all decoding of json happens here.
 fileprivate struct SymbolGraph: Decodable {
-    let generator: String
-
-    struct Constraint: Comparable {
-        enum Kind: String {
-            case conformance
-            case superclass
-            case sameType
-
-            var swift: String {
-                switch self {
-                case .conformance: return ":"
-                case .superclass: return ":"
-                case .sameType: return "=="
-                }
-            }
-        }
-        let text: String
-
-        init?(_ c: NetworkSymbolGraph.Constraint) {
-            guard let kind = Kind(rawValue: c.kind) else {
-                return nil
-            }
-            text = "\(c.lhs) \(kind.swift) \(c.rhs)"
-        }
-
-        static func < (lhs: Self, rhs: Self) -> Bool {
-            lhs.text < rhs.text
-        }
-    }
+    typealias Constraint = String
 
     struct Symbol: Equatable {
         let kind: String
         let usr: String
+        let pathComponents: [String]
         let name: String
         let docComment: String?
         let docCommentHasSourceInfo: Bool
@@ -194,7 +168,7 @@ fileprivate struct SymbolGraph: Decodable {
 
     init(from decoder: Decoder) throws {
         let network = try NetworkSymbolGraph(from: decoder)
-        generator = network.metadata.generator
+        logDebug("SymbolGraph: decoded JSON, generator: \(network.metadata.generator)")
 
         // Symbols
         symbols = network.symbols.compactMap { sym in
@@ -218,7 +192,7 @@ fileprivate struct SymbolGraph: Decodable {
                 if con.lhs == "Self" && con.kind == "conformance" && sym.pathComponents.contains(con.rhs) {
                     return nil
                 }
-                return Constraint(con)
+                return con.asSwift
             }
             // distill what the doc comment is, and whether any have range info: use this
             // as a crap hint that it's been inherited.
@@ -227,6 +201,7 @@ fileprivate struct SymbolGraph: Decodable {
             }
             return Symbol(kind: kind,
                           usr: sym.identifier.precise,
+                          pathComponents: sym.pathComponents,
                           name: sym.names.title,
                           docComment: docComments?.1.joined(separator: "\n"),
                           docCommentHasSourceInfo: docComments?.0 ?? false,
@@ -244,13 +219,14 @@ fileprivate struct SymbolGraph: Decodable {
                 logWarning("Unknown swift-symbolgraph relationship kind '\(rel.kind)', ignoring.")
                 return nil
             }
-            let constraints = rel.swiftConstraints?.compactMap(Constraint.init) ?? []
+            let constraints = rel.swiftConstraints?.compactMap { $0.asSwift } ?? []
             return Rel(kind: kind,
                        sourceUSR: rel.source,
                        targetUSR: rel.target,
                        targetFallback: rel.targetFallback,
                        constraints: SortedArray(unsorted: constraints))
         }
+        logDebug("SymbolGraph: further decoded JSON, \(symbols.count) symbols, \(rels.count) rels")
     }
 }
 
@@ -301,6 +277,37 @@ extension NetworkSymbolGraph.Symbol.Availability.Version {
     }
 }
 
+// MARK: Constraint
+
+private extension String {
+    var unselfed: String {
+        re_sub(#"^Self\."#, with: "")
+    }
+}
+
+extension NetworkSymbolGraph.Constraint {
+    var asSwift: String? {
+        enum Kind: String {
+            case conformance
+            case superclass
+            case sameType
+
+            var swift: String {
+                switch self {
+                case .conformance: return ":"
+                case .superclass: return ":"
+                case .sameType: return "=="
+                }
+            }
+        }
+
+        guard let kindVal = Kind(rawValue: kind) else {
+            logWarning("Can't decode generic constraint kind \(kind), ignoring")
+            return nil
+        }
+        return "\(lhs.unselfed) \(kindVal.swift) \(rhs.unselfed)"
+    }
+}
 
 // MARK: Declaration Fixup
 
@@ -369,21 +376,33 @@ extension SymbolGraph {
 /// Layer to reapply the relationships and rebuild the AST shape
 ///
 extension SymbolGraph {
-    fileprivate final class Node {
-        let symbol: Symbol
+    class ParentNode {
         var children: SortedArray<Node> {
             didSet {
                 children.forEach { $0.parent = self }
             }
         }
-        weak var parent: Node?
+
+        init() {
+            self.children = SortedArray()
+        }
+    }
+
+    // MARK: Types
+
+    final class Node: ParentNode {
+        let symbol: Symbol
+        weak var parent: ParentNode?
         var isOverride: Bool
 
         init(symbol: Symbol) {
             self.symbol = symbol
-            self.children = SortedArray<Node>()
             self.parent = nil
             self.isOverride = false
+        }
+
+        var qualifiedName: String {
+            symbol.pathComponents.joined(separator: ".")
         }
 
         var declarationXml: String {
@@ -426,41 +445,190 @@ extension SymbolGraph {
         }
     }
 
-    func rebuild() -> SourceKittenDict {
+    // MARK: Extensions
+
+    final class ExtNode: ParentNode {
+        let typeUSR: String
+        let name: String
+        let constraints: SortedArray<Constraint>
+        var conformances: SortedArray<String>
+
+        /// Deduce an extension from a member of an unknown type
+        init(forMember member: Node, typeUSR: String) {
+            self.typeUSR = typeUSR
+            self.name = member.symbol.pathComponents.dropLast().joined(separator: ".")
+            self.constraints = member.symbol.constraints
+            self.conformances = SortedArray()
+            super.init()
+            children.insert(member)
+            logDebug("SymbolGraph: deduced extension for \(name) (\(constraints))")
+        }
+
+        /// Deduce an extension from a protocol conformance for one of our own types
+        convenience init(forType type: Node, constraints: SortedArray<Constraint>, proto: String) {
+            self.init(forTypeUSR: type.symbol.usr, typeName: type.qualifiedName, constraints: constraints, proto: proto)
+        }
+
+        /// Deduce an extension from a protocol conformance for one of our own types
+        init(forTypeUSR typeUSR: String, typeName: String? = nil, constraints: SortedArray<Constraint>, proto: String) {
+            self.typeUSR = typeUSR
+            self.name = typeName ?? USR(typeUSR).swiftDemangled ?? typeUSR // sadface
+            self.constraints = constraints
+            self.conformances = SortedArray(unsorted:[proto])
+            super.init()
+            logDebug("SymbolGraph: deduced extension for \(name): \(proto) (\(constraints))")
+        }
+
+        func add(member: Node) {
+            children.insert(member)
+        }
+
+        func add(conformance: String) {
+            conformances.insert(conformance)
+        }
+
+        var declarationXml: String {
+            var decl = "extension \(name)"
+            if !conformances.isEmpty {
+                decl += ": " + conformances.joined(separator: ", ")
+            }
+            if !constraints.isEmpty {
+                decl += " where " + constraints.joined(separator: ", ")
+            }
+            return "<swift>\(decl.htmlEscaped)</swift>"
+        }
+
+        func asSourceKittenDict(moduleName: String) -> SourceKittenDict {
+            var dict = SourceKittenDict()
+            dict[.kind] = SwiftDeclarationKind.extension.rawValue
+            dict[.usr] = typeUSR
+            dict[.name] = name
+            dict[.moduleName] = moduleName
+            dict[.fullyAnnotatedDecl] = declarationXml
+            if !conformances.isEmpty {
+                dict[.inheritedtypes] = conformances.map { [SwiftDocKey.name.rawValue: $0] }
+            }
+            var childDicts = [SourceKittenDict]()
+            if !children.isEmpty {
+                childDicts += children.map { $0.asSourceKittenDict }
+            }
+            if !childDicts.isEmpty {
+                dict[.substructure] = childDicts
+            }
+            return dict
+        }
+    }
+
+    struct ExtNodeKey: Hashable {
+        let typeUSR: String
+        let constraints: SortedArray<Constraint>
+    }
+
+    struct ExtensionMap {
+        var map = [ExtNodeKey : ExtNode]()
+
+        mutating func addMemberOf(member: Node, typeUSR: String) {
+            let key = ExtNodeKey(typeUSR: typeUSR, constraints: member.symbol.constraints)
+            if let extNode = map[key] {
+                extNode.add(member: member)
+            } else {
+                map[key] = ExtNode(forMember: member, typeUSR: typeUSR)
+            }
+        }
+
+        mutating func addConformance(type: Node, constraints: SortedArray<Constraint>, proto: String) {
+            let key = ExtNodeKey(typeUSR: type.symbol.usr, constraints: constraints)
+            if let extNode = map[key] {
+                extNode.add(conformance: proto)
+            } else {
+                map[key] = ExtNode(forType: type, constraints: constraints, proto: proto)
+            }
+        }
+
+        mutating func addConformance(typeUSR: String, constraints: SortedArray<Constraint>, proto: String) {
+            let key = ExtNodeKey(typeUSR: typeUSR, constraints: constraints)
+            if let extNode = map[key] {
+                extNode.add(conformance: proto)
+            } else {
+                map[key] = ExtNode(forTypeUSR: typeUSR, constraints: constraints, proto: proto)
+            }
+        }
+    }
+
+    // MARK: Builder
+
+    func rebuild(moduleName: String) -> SourceKittenDict {
         var nodes = [String: Node]()
         symbols.forEach { nodes[$0.usr] = Node(symbol: $0) }
+
+        var extensionMap = ExtensionMap()
+
+        logDebug("SymbolGraph: start rebuilding AST shape")
 
         rels.forEach { rel in
             switch rel.kind {
             case .memberOf:
                 // "source is a member of target"
-                guard let srcNode = nodes[rel.sourceUSR],
-                    let tgtNode = nodes[rel.targetUSR] else {
-                        logWarning("Can't resolve ends of `memberOf`: \(rel).")
-                        break
+                guard let srcNode = nodes[rel.sourceUSR] else {
+                    logWarning("Can't resolve source=\(rel.sourceUSR) for \(rel.kind).")
+                    break
                 }
-                tgtNode.children.insert(srcNode)
+                if let tgtNode = nodes[rel.targetUSR],
+                    tgtNode.symbol.constraints == srcNode.symbol.constraints {
+                    tgtNode.children.insert(srcNode)
+                } else {
+                    extensionMap.addMemberOf(member: srcNode, typeUSR: rel.targetUSR)
+                }
 
             case .overrides:
                 // "source is overriding target" - only for classes, protocols broken
                 guard let srcNode = nodes[rel.sourceUSR] else {
-                    logWarning("Can't resolve source of `overrides`: \(rel)")
+                    logWarning("Can't resolve source=\(rel.sourceUSR) for \(rel.kind).")
                     break
                 }
                 srcNode.isOverride = true
 
-            case .conformsTo,
-                 .inheritsFrom,
+            case .conformsTo:
+                let srcNode = nodes[rel.sourceUSR]
+                let tgtNode = nodes[rel.targetUSR]
+                let protocolName = tgtNode?.symbol.name ??
+                    rel.targetFallback?.re_sub(#"^.*?\."#, with: "") ??
+                    USR(rel.targetUSR).swiftDemangled ??
+                    rel.targetUSR
+
+                // "source : target" either from type decl or ext decl
+                if !rel.constraints.isEmpty {
+                    // constrained conformance: must be an extension
+                    if let srcNode = srcNode {
+                        // Conformance of one of our types to some protocol
+                        extensionMap.addConformance(type: srcNode,
+                                                    constraints: rel.constraints,
+                                                    proto: protocolName)
+                    } else {
+                        // Conformance of an external module's type to some protocol
+                        extensionMap.addConformance(typeUSR: rel.sourceUSR,
+                                                    constraints: rel.constraints,
+                                                    proto: protocolName)
+                    }
+                }
+                break
+
+            case .inheritsFrom,
                  .defaultImplementationOf,
                  .requirementOf,
                  .optionalRequirementOf:
                 break
             }
         }
-        let rootNodes = nodes.values.filter { $0.parent == nil }.sorted()
+        let rootTypeNodes = nodes.values.filter { $0.parent == nil }.sorted()
+        let rootExtNodes = extensionMap.map.values.sorted()
+        logDebug("SymbolGraph: after rebuild, \(rootTypeNodes.count) root types, \(rootExtNodes.count) root exts.")
+
         var rootDict = SourceKittenDict()
         rootDict[.diagnosticStage] = "parse"
-        rootDict[.substructure] = rootNodes.map { $0.asSourceKittenDict }
+        rootDict[.substructure] =
+            rootTypeNodes.map { $0.asSourceKittenDict } +
+            rootExtNodes.map { $0.asSourceKittenDict(moduleName: moduleName) }
         return rootDict
     }
 }
@@ -479,13 +647,13 @@ private extension String {
 // MARK: Decl Sort Order
 
 extension SymbolGraph.Node: Comparable {
-    static func == (lhs: SymbolGraph.Node, rhs: SymbolGraph.Node) -> Bool {
+    fileprivate static func == (lhs: SymbolGraph.Node, rhs: SymbolGraph.Node) -> Bool {
         lhs.symbol == rhs.symbol
     }
 
     /// Ideally sort by filename and line.  For some reason though swift only gives us locations for
     /// public+ symbols, so to give a stable order we put the others at the end in name/usr order.
-    static func < (lhs: SymbolGraph.Node, rhs: SymbolGraph.Node) -> Bool {
+    fileprivate static func < (lhs: SymbolGraph.Node, rhs: SymbolGraph.Node) -> Bool {
         if let lhsLocation = lhs.symbol.location,
             let rhsLocation = rhs.symbol.location {
             if lhsLocation.filename == rhsLocation.filename {
@@ -504,5 +672,20 @@ extension SymbolGraph.Node: Comparable {
             return lhs.symbol.usr < rhs.symbol.usr
         }
         return lhs.symbol.name < rhs.symbol.name
+    }
+}
+
+// Fabricated extensions go afterwards, no source location
+
+extension SymbolGraph.ExtNode: Comparable {
+    fileprivate static func == (lhs: SymbolGraph.ExtNode, rhs: SymbolGraph.ExtNode) -> Bool {
+        lhs.name == rhs.name && lhs.constraints == rhs.constraints
+    }
+
+    fileprivate static func < (lhs: SymbolGraph.ExtNode, rhs: SymbolGraph.ExtNode) -> Bool {
+        if lhs.name == rhs.name {
+            return lhs.constraints.joined() < rhs.constraints.joined()
+        }
+        return lhs.name < rhs.name
     }
 }

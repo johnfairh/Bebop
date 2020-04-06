@@ -91,6 +91,13 @@ public struct USR: Encodable, CustomStringConvertible, Hashable {
         }
         value = "c:objc(cs)" + match[0]
     }
+
+    var swiftDemangled: String? {
+        Exec.run("/usr/bin/env",
+                 "swift", "demangle", "-simplified", "-compact",
+                 value.re_sub("^s:", with: "s"))
+            .successString
+    }
 }
 
 // MARK: Swift Specific
