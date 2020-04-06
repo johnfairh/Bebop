@@ -1,0 +1,3 @@
+TOOLCHAINS=swift-dev swiftc -emit-module Extensions.swift Protocols.swift SpmSwiftModule.swift -module-name SpmSwiftModule -sdk $(xcrun --show-sdk-path --sdk macosx)
+
+TOOLCHAINS=swift-dev /usr/bin/env xcrun swift symbolgraph-extract -I . --module-name=SpmSwiftModule -target x86_64-apple-darwin19.4.0 --output-dir=o --pretty-print --minimum-access-level=private

@@ -28,3 +28,4 @@ dist
 *.profraw
 Tests/J2Tests/Fixtures/SpmSwiftPackage/docs
 Tests/J2Tests/Fixtures/Swift53/docs
+Tests/J2Tests/Fixtures/Swift53/o

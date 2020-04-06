@@ -24,3 +24,30 @@ extension FirstProtocol {
     ""
   }
 }
+
+protocol P1 {}
+protocol P2 {}
+
+struct S1: P1 {}
+
+extension S1: CustomStringConvertible {
+  var description: String { "" }
+}
+
+struct S2<T>: P1 where T: Equatable {
+  func equatables2() {}
+}
+
+extension S2: P2 where T: Comparable {
+  func comparables2() {}
+}
+
+extension S2: Equatable where T: Equatable {
+  func equatables22() {}
+}
+
+extension Dictionary: P2 {}
+
+extension Array: P1 where Element: Comparable {
+  func arrayFunc() {}
+}

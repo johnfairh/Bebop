@@ -126,6 +126,7 @@ fileprivate struct NetworkSymbolGraph: Decodable {
 /// Flattened and more normally-named deserialized symbolgraph - all decoding of json happens here.
 fileprivate struct SymbolGraph: Decodable {
     typealias Constraint = String
+    typealias Constraints = SortedArray<Constraint>
 
     struct Symbol: Equatable {
         let kind: String
@@ -144,7 +145,7 @@ fileprivate struct SymbolGraph: Decodable {
         }
         let location: Location?
         let genericParameters: [String]
-        let constraints: SortedArray<Constraint>
+        let constraints: Constraints
     }
     let symbols: [Symbol]
 
@@ -162,7 +163,7 @@ fileprivate struct SymbolGraph: Decodable {
         let sourceUSR: String
         let targetUSR: String
         let targetFallback: String?
-        let constraints: SortedArray<Constraint>
+        let constraints: Constraints
     }
     let rels: [Rel]
 
@@ -210,7 +211,7 @@ fileprivate struct SymbolGraph: Decodable {
                           availability: sym.availability?.compactMap { $0.asSwift } ?? [],
                           location: location,
                           genericParameters: sym.swiftGenerics?.parameters?.map { $0.name } ?? [],
-                          constraints: SortedArray(unsorted: constraints ?? []))
+                          constraints: Constraints(unsorted: constraints ?? []))
         }
 
         // Relationships
@@ -224,7 +225,7 @@ fileprivate struct SymbolGraph: Decodable {
                        sourceUSR: rel.source,
                        targetUSR: rel.target,
                        targetFallback: rel.targetFallback,
-                       constraints: SortedArray(unsorted: constraints))
+                       constraints: Constraints(unsorted: constraints))
         }
         logDebug("SymbolGraph: further decoded JSON, \(symbols.count) symbols, \(rels.count) rels")
     }
@@ -405,6 +406,14 @@ extension SymbolGraph {
             symbol.pathComponents.joined(separator: ".")
         }
 
+        func hasConformance(to protoName: String) -> Bool {
+            if let declConformances = symbol.declaration.re_match("(?<=:).*?(?=(where|$))")?[0],
+                declConformances.re_isMatch(#"\b\#(protoName)\b"#) {
+                return true
+            }
+            return false
+        }
+
         var declarationXml: String {
             let availabilityXml = symbol.availability.map {
                 "<syntaxtype.attribute.builtin>\($0.htmlEscaped)\n</syntaxtype.attribute.builtin>"
@@ -450,7 +459,7 @@ extension SymbolGraph {
     final class ExtNode: ParentNode {
         let typeUSR: String
         let name: String
-        let constraints: SortedArray<Constraint>
+        let constraints: Constraints
         var conformances: SortedArray<String>
 
         /// Deduce an extension from a member of an unknown type
@@ -460,22 +469,18 @@ extension SymbolGraph {
             self.constraints = member.symbol.constraints
             self.conformances = SortedArray()
             super.init()
-            children.insert(member)
+            add(member: member)
             logDebug("SymbolGraph: deduced extension for \(name) (\(constraints))")
         }
 
-        /// Deduce an extension from a protocol conformance for one of our own types
-        convenience init(forType type: Node, constraints: SortedArray<Constraint>, proto: String) {
-            self.init(forTypeUSR: type.symbol.usr, typeName: type.qualifiedName, constraints: constraints, proto: proto)
-        }
-
-        /// Deduce an extension from a protocol conformance for one of our own types
-        init(forTypeUSR typeUSR: String, typeName: String? = nil, constraints: SortedArray<Constraint>, proto: String) {
+        /// Deduce an extension from a protocol conformance for some type
+        init(forTypeUSR typeUSR: String, typeName: String, constraints: Constraints, proto: String) {
             self.typeUSR = typeUSR
-            self.name = typeName ?? USR(typeUSR).swiftDemangled ?? typeUSR // sadface
+            self.name = typeName
             self.constraints = constraints
-            self.conformances = SortedArray(unsorted:[proto])
+            self.conformances = SortedArray()
             super.init()
+            add(conformance: proto)
             logDebug("SymbolGraph: deduced extension for \(name): \(proto) (\(constraints))")
         }
 
@@ -490,7 +495,7 @@ extension SymbolGraph {
         var declarationXml: String {
             var decl = "extension \(name)"
             if !conformances.isEmpty {
-                decl += ": " + conformances.joined(separator: ", ")
+                decl += " : " + conformances.joined(separator: ", ")
             }
             if !constraints.isEmpty {
                 decl += " where " + constraints.joined(separator: ", ")
@@ -521,7 +526,7 @@ extension SymbolGraph {
 
     struct ExtNodeKey: Hashable {
         let typeUSR: String
-        let constraints: SortedArray<Constraint>
+        let constraints: Constraints
     }
 
     struct ExtensionMap {
@@ -536,21 +541,15 @@ extension SymbolGraph {
             }
         }
 
-        mutating func addConformance(type: Node, constraints: SortedArray<Constraint>, proto: String) {
-            let key = ExtNodeKey(typeUSR: type.symbol.usr, constraints: constraints)
-            if let extNode = map[key] {
-                extNode.add(conformance: proto)
-            } else {
-                map[key] = ExtNode(forType: type, constraints: constraints, proto: proto)
-            }
-        }
-
-        mutating func addConformance(typeUSR: String, constraints: SortedArray<Constraint>, proto: String) {
+        mutating func addConformance(fromUSR typeUSR: String,
+                                     fromName typeName: String,
+                                     to protoName: String,
+                                     where constraints: Constraints = Constraints()) {
             let key = ExtNodeKey(typeUSR: typeUSR, constraints: constraints)
             if let extNode = map[key] {
-                extNode.add(conformance: proto)
+                extNode.add(conformance: protoName)
             } else {
-                map[key] = ExtNode(forTypeUSR: typeUSR, constraints: constraints, proto: proto)
+                map[key] = ExtNode(forTypeUSR: typeUSR, typeName: typeName, constraints: constraints, proto: protoName)
             }
         }
     }
@@ -589,28 +588,31 @@ extension SymbolGraph {
                 srcNode.isOverride = true
 
             case .conformsTo:
+                // "source : target" either from type decl or ext decl
                 let srcNode = nodes[rel.sourceUSR]
                 let tgtNode = nodes[rel.targetUSR]
+
                 let protocolName = tgtNode?.symbol.name ??
-                    rel.targetFallback?.re_sub(#"^.*?\."#, with: "") ??
+                    rel.targetFallback?.re_sub(#"^.*?\."#, with: "") ?? // drop module name
                     USR(rel.targetUSR).swiftDemangled ??
                     rel.targetUSR
 
-                // "source : target" either from type decl or ext decl
-                if !rel.constraints.isEmpty {
-                    // constrained conformance: must be an extension
-                    if let srcNode = srcNode {
-                        // Conformance of one of our types to some protocol
-                        extensionMap.addConformance(type: srcNode,
-                                                    constraints: rel.constraints,
-                                                    proto: protocolName)
-                    } else {
-                        // Conformance of an external module's type to some protocol
-                        extensionMap.addConformance(typeUSR: rel.sourceUSR,
-                                                    constraints: rel.constraints,
-                                                    proto: protocolName)
-                    }
+                // Special case: if the conformance is unconditional from one of our types
+                // then it may already be written down in the type's decl: if so do nothing.
+                if let srcNode = srcNode,
+                    rel.constraints.isEmpty,
+                    srcNode.hasConformance(to: protocolName) {
+                    break
                 }
+
+                let srcName = srcNode?.qualifiedName ??
+                    USR(rel.sourceUSR).swiftDemangled ?? // where my sourceFallback at bra
+                    rel.sourceUSR
+
+                extensionMap.addConformance(fromUSR: rel.sourceUSR,
+                                            fromName: srcName,
+                                            to: protocolName,
+                                            where: rel.constraints)
                 break
 
             case .inheritsFrom,

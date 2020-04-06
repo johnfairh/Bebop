@@ -92,6 +92,7 @@ public struct USR: Encodable, CustomStringConvertible, Hashable {
         value = "c:objc(cs)" + match[0]
     }
 
+    /// Attempt to demangle the USR using the swift tool.  Module name not included.
     var swiftDemangled: String? {
         Exec.run("/usr/bin/env",
                  "swift", "demangle", "-simplified", "-compact",

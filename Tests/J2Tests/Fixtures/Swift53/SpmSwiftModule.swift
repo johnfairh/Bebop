@@ -44,7 +44,7 @@ public func functionA(arg1: Int,
 ///
 /// - parameter callback: The callback
 /// - returns: A string
-@available(iOS, deprecated: 12.0, message: "Deprecated!")
+@available(iOS, deprecated: 12.0.1, message: "Deprecated!", renamed: "functionA(arg1:_:arg3:)")
 @available(macOS, deprecated: 10.14, message: "Deprecated on *macOS* too")
 public func deprecatedFunction(callback: (_ report: String) -> Int) -> String {
   return ""
