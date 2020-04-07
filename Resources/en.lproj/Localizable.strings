@@ -120,3 +120,8 @@ Ignoring the second.";
 "err-cfg-ssge-exec" = "Running `swift symbolgraph-extract` failed.  Report:";
 "err-cfg-ssge-main-missing" = "Running `swift symbolgraph-extract` didn't create a main symbols file.";
 "wrn-ssge-odd-filename" = "Confused by `swift symbolgraph-extract` output filename '%1', ignoring.";
+"wrn-ssge-symbol-kind" = "Unknown swift-symbolgraph symbol kind '%1', ignoring.";
+"wrn-ssge-symbol-acl" = "Unknown swift-symbolgraph access level '%1', ignoring.";
+"wrn-ssge-rel-kind" = "Unknown swift-symbolgraph relationship kind '%1', ignoring.";
+"wrn-ssge-availability" = "Undecodable swift-symbolgraph availability, missing both 'domain' and 'isUnconditionallyDeprecated'.";
+"wrn-ssge-const-kind" = "Unknown swift-symbolgraph constraint kind '%1', ignoring.";

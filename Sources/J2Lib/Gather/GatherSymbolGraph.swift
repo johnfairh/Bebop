@@ -175,11 +175,11 @@ fileprivate struct SymbolGraph: Decodable {
         symbols = network.symbols.compactMap { sym in
             let declaration = Self.fixUpDeclaration(sym.declarationFragments.map { $0.spelling }.joined())
             guard let kind = Self.mapKind(sym.kind.identifier, declaration: declaration) else {
-                logWarning("Unknown swift-symbolgraph symbol kind '\(sym.kind.identifier)', ignoring.")
+                logWarning(.localized(.wrnSsgeSymbolKind, sym.kind.identifier))
                 return nil
             }
             guard let acl = DefAcl(rawValue: sym.accessLevel)?.sourceKitName else {
-                logWarning("Unknown swift-symbolgraph access level '\(sym.accessLevel)', ignoring.")
+                logWarning(.localized(.wrnSsgeSymbolAcl, sym.accessLevel))
                 return nil
             }
             let location = sym.location.flatMap {
@@ -217,7 +217,7 @@ fileprivate struct SymbolGraph: Decodable {
         // Relationships
         rels = network.relationships.compactMap { rel in
             guard let kind = Rel.Kind(rawValue: rel.kind) else {
-                logWarning("Unknown swift-symbolgraph relationship kind '\(rel.kind)', ignoring.")
+                logWarning(.localized(.wrnSsgeRelKind, rel.kind))
                 return nil
             }
             let constraints = rel.swiftConstraints?.compactMap { $0.asSwift } ?? []
@@ -250,7 +250,7 @@ extension NetworkSymbolGraph.Symbol.Availability {
         } else if isUnconditionallyDeprecated != nil {
             str += "*, deprecated"
         } else {
-            logWarning("Found swift-symbolgraph 'availability' missing both domain and isUnconditionallyDeprecated")
+            logWarning(.localized(.wrnSsgeAvailability))
             return nil
         }
 
@@ -303,7 +303,7 @@ extension NetworkSymbolGraph.Constraint {
         }
 
         guard let kindVal = Kind(rawValue: kind) else {
-            logWarning("Can't decode generic constraint kind \(kind), ignoring")
+            logWarning(.localized(.wrnSsgeConstKind, kind))
             return nil
         }
         return "\(lhs.unselfed) \(kindVal.swift) \(rhs.unselfed)"
@@ -576,21 +576,24 @@ extension SymbolGraph {
             $0.kind == .requirementOf || $0.kind == .optionalRequirementOf
         }
 
-        protoReqs.forEach { rel in
-            // "source is a requirement of protocol target"
+        func resolveSource(rel: Rel) -> Node? {
             guard let srcNode = nodes[rel.sourceUSR] else {
                 logWarning("Can't resolve source=\(rel.sourceUSR) for \(rel.kind).")
-                return
+                return nil
             }
-            srcNode.isProtocolReq = true
+            return srcNode
+        }
+
+        protoReqs.forEach {
+            // "source is a requirement of protocol target"
+            resolveSource(rel: $0)?.isProtocolReq = true
         }
 
         otherRels.forEach { rel in
             switch rel.kind {
             case .memberOf:
                 // "source is a member of target"
-                guard let srcNode = nodes[rel.sourceUSR] else {
-                    logWarning("Can't resolve source=\(rel.sourceUSR) for \(rel.kind).")
+                guard let srcNode = resolveSource(rel: rel) else {
                     break
                 }
                 if let tgtNode = nodes[rel.targetUSR],
@@ -604,11 +607,7 @@ extension SymbolGraph {
 
             case .overrides:
                 // "source is overriding target" - only for classes, protocols broken
-                guard let srcNode = nodes[rel.sourceUSR] else {
-                    logWarning("Can't resolve source=\(rel.sourceUSR) for \(rel.kind).")
-                    break
-                }
-                srcNode.isOverride = true
+                resolveSource(rel: rel)?.isOverride = true
 
             case .conformsTo:
                 // "source : target" either from type decl or ext decl
@@ -638,13 +637,10 @@ extension SymbolGraph {
                                             where: rel.constraints)
                 break
 
-            case .requirementOf, .optionalRequirementOf:
-                // already processed
-                break
-
-            case .inheritsFrom,
-                 .defaultImplementationOf:
-                // don't care
+            case .inheritsFrom, // don't care
+                 .defaultImplementationOf, // don't care
+                 .requirementOf, // already processed
+                 .optionalRequirementOf: // already processed
                 break
             }
         }

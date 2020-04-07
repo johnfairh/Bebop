@@ -50,6 +50,8 @@ class TestGatherSymGraph: XCTestCase {
 
     // MARK: Goodpath end-to-end running, srcdir
 
+    // Actual output stability test in TestProducts
+
     #if os(macOS) // until we have a real toolchain
 
     func testModuleLocation() throws {
@@ -112,5 +114,94 @@ class TestGatherSymGraph: XCTestCase {
             "--build-tool=swift-symbolgraph",
             "--modules=NotAModule"
         ]), GatherError.self)
+    }
+
+    // MARK: Bad data detection
+
+    func testDecodeFailure() throws {
+        let json = "{}"
+        let data = json.data(using: .utf8)!
+        AssertThrows(try GatherSymbolGraph.decode(data: data, extensionModuleName: "Mod"),
+                     Swift.DecodingError.self)
+    }
+
+    private func checkBadData(_ json: String, warningCount: Int) throws {
+        let data = json.data(using: .utf8)!
+        TestLogger.install()
+        let _ = try GatherSymbolGraph.decode(data: data, extensionModuleName: "Module")
+        XCTAssertEqual(warningCount, TestLogger.shared.diagsBuf.count)
+    }
+
+    private func makeSymbolJSON(kindOuter: String = "swift.struct",
+                                kindInner: String = "swift.method",
+                                accessLevel: String = "internal",
+                                availabilityKey: String = "isUnconditionallyDeprecated",
+                                relKind: String = "memberOf",
+                                constraintKind: String = "conformance",
+                                relSourceUSR: String = "s:4ModA1SV1f1aSix_tSQRzlF") -> String {
+        """
+        {
+          "metadata": { "generator": "Swift version 5.3-dev (LLVM aa70751bec, Swift 1331ac5940)" },
+          "symbols": [{
+              "kind": { "identifier": "\(kindOuter)" },
+              "identifier": { "precise": "s:4ModA1SV" },
+              "pathComponents": [ "S" ],
+              "names": { "title": "S" },
+              "declarationFragments": [
+                { "spelling": "struct" },
+                { "spelling": " " },
+                { "spelling": "S" }
+              ],
+              "accessLevel": "\(accessLevel)",
+              "availability": [ { "\(availabilityKey)": true } ],
+              "swiftGenerics": {
+                "constraints": [{
+                  "kind": "\(constraintKind)",
+                  "lhs": "T",
+                  "rhs": "Equatable"
+                }]
+              }
+          },{
+              "kind": { "identifier": "\(kindInner)" },
+              "identifier": { "precise": "s:4ModA1SV1f1aSix_tSQRzlF" },
+              "pathComponents": [ "S", "f" ],
+              "names": { "title": "f()" },
+              "declarationFragments": [
+                { "spelling": "func" },
+                { "spelling": " " },
+                { "spelling": "f()" }
+              ],
+              "accessLevel": "internal"
+          }],
+          "relationships": [{
+              "kind": "\(relKind)",
+              "source": "\(relSourceUSR)",
+              "target": "s:4ModA1SV"
+          }]
+        }
+        """
+    }
+
+    func testBadData() throws {
+        // fine by default
+        try checkBadData(makeSymbolJSON(), warningCount: 0)
+
+        // bad sym kind
+        try checkBadData(makeSymbolJSON(kindOuter: "special"), warningCount: 1)
+
+        // bad access level
+        try checkBadData(makeSymbolJSON(accessLevel: "special"), warningCount: 1)
+
+        // bad rel kind
+        try checkBadData(makeSymbolJSON(relKind: "partner"), warningCount: 1)
+
+        // bad availability object
+        try checkBadData(makeSymbolJSON(availabilityKey: "wibble"), warningCount: 1)
+
+        // bad generic constraint object
+        try checkBadData(makeSymbolJSON(constraintKind: "banana"), warningCount: 1)
+
+        // bad relationship source
+        try checkBadData(makeSymbolJSON(relSourceUSR: "missing"), warningCount: 1)
     }
 }

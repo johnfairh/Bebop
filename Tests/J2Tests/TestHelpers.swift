@@ -20,13 +20,15 @@ public func AssertThrows<Err, Ret>(_ expression: @autoclosure () throws -> Ret,
                                    _ expectedError: Err.Type,
                                    _ message: String = "",
                                    file: StaticString = #file,
-                                   line: UInt = #line) where Err: CustomDebugStringConvertible {
+                                   line: UInt = #line) {
     XCTAssertThrowsError(try expression(), message, file: file, line: line, { actualError in
         guard let j2Error = actualError as? Err else {
             XCTFail("\(actualError) is not \(expectedError)", file: file, line: line)
             return
         }
-        print(j2Error.debugDescription)
+        if let dbgErr = j2Error as? CustomDebugStringConvertible {
+            print(dbgErr.debugDescription)
+        }
     })
 }
 

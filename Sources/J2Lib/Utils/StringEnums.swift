@@ -186,8 +186,18 @@ internal enum L10n {
     case wrnSktnIncomplete = "wrn-sktn-incomplete"
     /// Unsupported definition kind '%1', ignoring.
     case wrnSktnKind = "wrn-sktn-kind"
+    /// Undecodable swift-symbolgraph availability, missing both 'domain' and 'isUnconditionallyDeprecated'.
+    case wrnSsgeAvailability = "wrn-ssge-availability"
+    /// Unknown swift-symbolgraph constraint kind '%1', ignoring.
+    case wrnSsgeConstKind = "wrn-ssge-const-kind"
     /// Confused by `swift symbolgraph-extract` output filename '%1', ignoring.
     case wrnSsgeOddFilename = "wrn-ssge-odd-filename"
+    /// Unknown swift-symbolgraph relationship kind '%1', ignoring.
+    case wrnSsgeRelKind = "wrn-ssge-rel-kind"
+    /// Unknown swift-symbolgraph access level '%1', ignoring.
+    case wrnSsgeSymbolAcl = "wrn-ssge-symbol-acl"
+    /// Unknown swift-symbolgraph symbol kind '%1', ignoring.
+    case wrnSsgeSymbolKind = "wrn-ssge-symbol-kind"
     /// %1 unmatched custom abstracts: '%2'.
     case wrnUnmatchedAbstracts = "wrn-unmatched-abstracts"
     /// Custom group regular expression '/%1/' did not match any items.
@@ -242,9 +252,9 @@ internal enum L10n {
     case othersCustom = "others-custom"
     /// %1 - deprecated.
     case platDeprecated = "plat-deprecated"
-    /// %1 - deprecated in %2.
+    /// %1 - deprecated since %2.
     case platDeprecatedVer = "plat-deprecated-ver"
-    /// %1 - obsoleted in %2.
+    /// %1 - obsoleted since %2.
     case platObsoletedVer = "plat-obsoleted-ver"
     /// %1 - unavailable.
     case platUnavailable = "plat-unavailable"
@@ -258,7 +268,7 @@ internal enum L10n {
     case protocolDefaultImported = "protocol-default-imported"
     /// From a protocol extension: not a customization point.
     case protocolExtn = "protocol-extn"
-    ///  Renamed: `%1`.
+    ///  Renamed to `%1`.
     case renamedTo = "renamed-to"
     /// Associated Types
     case tpcAssociatedTypes = "tpc-associated-types"
