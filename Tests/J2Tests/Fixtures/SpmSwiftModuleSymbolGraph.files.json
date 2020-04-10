@@ -1531,9 +1531,9 @@
           "key.usr" : "s:14SpmSwiftModule13ADerivedClassC"
         },
         {
-          "key.fully_annotated_decl" : "<swift>extension ADerivedClass where Q : Sequence, R : Sequence, R.Element : FirstProtocol<\/swift>",
+          "key.fully_annotated_decl" : "<swift>extension ADerivedClass where R : Sequence, R.Element : FirstProtocol<\/swift>",
           "key.j2.is_override" : false,
-          "key.j2.swift_declaration" : "extension ADerivedClass where Q : Sequence, R : Sequence, R.Element : FirstProtocol",
+          "key.j2.swift_declaration" : "extension ADerivedClass where R : Sequence, R.Element : FirstProtocol",
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -1641,9 +1641,9 @@
           "key.usr" : "s:14SpmSwiftModule13ADerivedClassC"
         },
         {
-          "key.fully_annotated_decl" : "<swift>extension ADerivedClass where Q : Sequence, T : Equatable<\/swift>",
+          "key.fully_annotated_decl" : "<swift>extension ADerivedClass where T : Equatable<\/swift>",
           "key.j2.is_override" : false,
-          "key.j2.swift_declaration" : "extension ADerivedClass where Q : Sequence, T : Equatable",
+          "key.j2.swift_declaration" : "extension ADerivedClass where T : Equatable",
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -2180,6 +2180,36 @@
           "key.usr" : "s:14SpmSwiftModule2S1V"
         },
         {
+          "key.fully_annotated_decl" : "<swift>extension S2 : Equatable<\/swift>",
+          "key.inheritedtypes" : [
+            {
+              "key.name" : "Equatable"
+            }
+          ],
+          "key.j2.inherited_types" : [
+            {
+              "key.j2.type_name" : "Equatable"
+            }
+          ],
+          "key.j2.is_override" : false,
+          "key.j2.swift_declaration" : "extension S2 : Equatable",
+          "key.j2.swift_name_pieces" : [
+            {
+              "key.j2.name_piece_is_name" : false,
+              "key.j2.name_piece_text" : "extension "
+            },
+            {
+              "key.j2.name_piece_is_name" : true,
+              "key.j2.name_piece_text" : "S2"
+            }
+          ],
+          "key.j2.type_module_name" : "SpmSwiftModule",
+          "key.kind" : "source.lang.swift.decl.extension",
+          "key.modulename" : "SpmSwiftModule",
+          "key.name" : "S2",
+          "key.usr" : "s:14SpmSwiftModule2S2V"
+        },
+        {
           "key.fully_annotated_decl" : "<swift>extension S2 : P2 where T : Comparable<\/swift>",
           "key.inheritedtypes" : [
             {
@@ -2234,36 +2264,6 @@
               "key.usr" : "s:14SpmSwiftModule2S2VAASLRzrlE12comparables2yyF"
             }
           ],
-          "key.usr" : "s:14SpmSwiftModule2S2V"
-        },
-        {
-          "key.fully_annotated_decl" : "<swift>extension S2 : Equatable where T : Equatable<\/swift>",
-          "key.inheritedtypes" : [
-            {
-              "key.name" : "Equatable"
-            }
-          ],
-          "key.j2.inherited_types" : [
-            {
-              "key.j2.type_name" : "Equatable"
-            }
-          ],
-          "key.j2.is_override" : false,
-          "key.j2.swift_declaration" : "extension S2 : Equatable where T : Equatable",
-          "key.j2.swift_name_pieces" : [
-            {
-              "key.j2.name_piece_is_name" : false,
-              "key.j2.name_piece_text" : "extension "
-            },
-            {
-              "key.j2.name_piece_is_name" : true,
-              "key.j2.name_piece_text" : "S2"
-            }
-          ],
-          "key.j2.type_module_name" : "SpmSwiftModule",
-          "key.kind" : "source.lang.swift.decl.extension",
-          "key.modulename" : "SpmSwiftModule",
-          "key.name" : "S2",
           "key.usr" : "s:14SpmSwiftModule2S2V"
         },
         {

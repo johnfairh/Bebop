@@ -123,12 +123,23 @@ fileprivate struct NetworkSymbolGraph: Decodable {
 
 // MARK: Decoder
 
+fileprivate protocol Constrained {
+    var constraints: SymbolGraph.Constraints { get }
+}
+
+extension Constrained {
+    func constraintsRemoving(other: Constrained?) -> SymbolGraph.Constraints {
+        guard let other = other else { return constraints }
+        return constraints.removing(other: other.constraints)
+    }
+}
+
 /// Flattened and more normally-named deserialized symbolgraph - all decoding of json happens here.
 fileprivate struct SymbolGraph: Decodable {
     typealias Constraint = String
     typealias Constraints = SortedArray<Constraint>
 
-    struct Symbol: Equatable {
+    struct Symbol: Equatable, Constrained {
         let kind: String
         let usr: String
         let pathComponents: [String]
@@ -149,7 +160,7 @@ fileprivate struct SymbolGraph: Decodable {
     }
     let symbols: [Symbol]
 
-    struct Rel {
+    struct Rel: Constrained {
         enum Kind: String {
             case memberOf
             case conformsTo
@@ -310,6 +321,13 @@ extension NetworkSymbolGraph.Constraint {
     }
 }
 
+extension SymbolGraph.Constraints {
+    /// These constraints except anything in `other`
+    func removing(other: Self) -> Self {
+        filter { !other.contains($0) }
+    }
+}
+
 // MARK: Declaration Fixup
 
 extension SymbolGraph {
@@ -391,11 +409,12 @@ extension SymbolGraph {
 
     // MARK: Types
 
-    final class Node: ParentNode {
+    final class Node: ParentNode, Constrained {
         let symbol: Symbol
         weak var parent: ParentNode?
         var isOverride: Bool
         var isProtocolReq: Bool
+        var constraints: Constraints { symbol.constraints }
 
         init(symbol: Symbol) {
             self.symbol = symbol
@@ -418,6 +437,17 @@ extension SymbolGraph {
                 return true
             }
             return false
+        }
+
+        /// Add a member if possible: must have the same constraints, careful about
+        /// protocols though.
+        func tryAdd(member: Node) -> Bool {
+            guard symbol.constraints == member.symbol.constraints,
+                !isProtocol || member.isProtocolReq else {
+                return false
+            }
+            children.insert(member)
+            return true
         }
 
         var declarationXml: String {
@@ -469,10 +499,10 @@ extension SymbolGraph {
         var conformances: SortedArray<String>
 
         /// Deduce an extension from a member of an unknown type
-        init(forMember member: Node, typeUSR: String) {
+        init(forMember member: Node, typeUSR: String, constraints: Constraints) {
             self.typeUSR = typeUSR
             self.name = member.symbol.pathComponents.dropLast().joined(separator: ".")
-            self.constraints = member.symbol.constraints
+            self.constraints = constraints
             self.conformances = SortedArray()
             super.init()
             add(member: member)
@@ -534,19 +564,19 @@ extension SymbolGraph {
     struct ExtensionMap {
         var map = [ExtNodeKey : ExtNode]()
 
-        mutating func addMemberOf(member: Node, typeUSR: String) {
-            let key = ExtNodeKey(typeUSR: typeUSR, constraints: member.symbol.constraints)
+        mutating func addMemberOf(member: Node, typeUSR: String, where constraints: Constraints) {
+            let key = ExtNodeKey(typeUSR: typeUSR, constraints: constraints)
             if let extNode = map[key] {
                 extNode.add(member: member)
             } else {
-                map[key] = ExtNode(forMember: member, typeUSR: typeUSR)
+                map[key] = ExtNode(forMember: member, typeUSR: typeUSR, constraints: constraints)
             }
         }
 
         mutating func addConformance(fromUSR typeUSR: String,
                                      fromName typeName: String,
                                      to protoName: String,
-                                     where constraints: Constraints = Constraints()) {
+                                     where constraints: Constraints) {
             let key = ExtNodeKey(typeUSR: typeUSR, constraints: constraints)
             if let extNode = map[key] {
                 extNode.add(conformance: protoName)
@@ -592,14 +622,14 @@ extension SymbolGraph {
                 guard let srcNode = resolveSource(rel: rel) else {
                     break
                 }
-                if let tgtNode = nodes[rel.targetUSR],
-                    tgtNode.symbol.constraints == srcNode.symbol.constraints,
-                    // don't put default impls/extn methods in the protocol
-                    !tgtNode.isProtocol || srcNode.isProtocolReq {
-                    tgtNode.children.insert(srcNode)
-                } else {
-                    extensionMap.addMemberOf(member: srcNode, typeUSR: rel.targetUSR)
+                let tgtNode = nodes[rel.targetUSR]
+                if tgtNode?.tryAdd(member: srcNode) ?? false {
+                    break
                 }
+
+                extensionMap.addMemberOf(member: srcNode,
+                                         typeUSR: rel.targetUSR,
+                                         where: srcNode.constraintsRemoving(other: tgtNode))
 
             case .overrides:
                 // "source is overriding target" - only for classes, protocols broken
@@ -630,7 +660,7 @@ extension SymbolGraph {
                 extensionMap.addConformance(fromUSR: rel.sourceUSR,
                                             fromName: srcName,
                                             to: protocolName,
-                                            where: rel.constraints)
+                                            where: rel.constraintsRemoving(other: srcNode))
                 break
 
             case .inheritsFrom, // don't care
