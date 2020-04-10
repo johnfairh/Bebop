@@ -14,7 +14,7 @@ public enum DeclNote: Hashable {
     case defaultImplementation
     /// A protocol method with default implementations provided by conditional extensions
     case conditionalDefaultImplementationExists
-    /// A default implementation of a protocl method in a conditional extension
+    /// A default implementation of a protocol method in a conditional extension
     case conditionalDefaultImplementation
     /// An extension member imported from a different module to the type
     case imported(String)

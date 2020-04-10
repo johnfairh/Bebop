@@ -13,7 +13,7 @@ public struct SpmSwiftModule {
       }
     }
 
-    public struct Nested2 {}
+    public struct Nested2<T: Equatable> {}
 }
 
 /// An enum
@@ -99,8 +99,10 @@ public class ADerivedClass<T, Q: Sequence>: ABaseClass {
     return ""
   }
 
-  public func generic(param: T) -> T {
+  public func generic<R>(param: T, my param2: R) -> T
+    where R: Sequence, R.Element: FirstProtocol {
     return param
   }
 
+  public func generic2(param: T) where T: Equatable {}
 }

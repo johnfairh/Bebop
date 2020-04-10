@@ -40,7 +40,7 @@ extension SwiftDeclarationBuilder {
         pieces.append(.name(name))
         // grab the type for properties but not any {get set}
         if kind.isSwiftProperty,
-            let match = declaration.re_match(#"(?<=\#(name)).*?(?=$|\s*\{)"#) {
+            let match = declaration.re_match(#"(?<=\b`?\#(name)`?\b).*?(?=$|\s*\{)"#) {
             pieces.append(.other(match[0]))
         }
         return pieces
