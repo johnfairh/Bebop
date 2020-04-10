@@ -52,8 +52,9 @@ extension GatherJob {
                 let includeDir = (srcDir ?? FileManager.default.currentDirectory).path
                 args += ["-F=\(includeDir)", "-I=\(includeDir)"]
             } else {
+                let joinedArgs = buildToolArgs.joined(separator: " ")
                 try ["--module", "--minimum-access-level", "--output-dir"].forEach { arg in
-                    if buildToolArgs.joined(separator: " ").contains(arg) {
+                    if joinedArgs.contains(arg) {
                         throw OptionsError(.localized(.errCfgSsgeArgs, arg))
                     }
                 }

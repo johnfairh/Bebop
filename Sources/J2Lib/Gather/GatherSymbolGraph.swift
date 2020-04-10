@@ -187,8 +187,8 @@ fileprivate struct SymbolGraph: Decodable {
             }
             // if we're a generic context (includes funcs) then we get a 'swiftGenerics'.
             // if we're not, but are in an extension (with constraints) we get a 'swiftExtension'...
-            let constraintList = sym.swiftGenerics?.constraints ?? sym.swiftExtension?.constraints
-            let constraints = constraintList?.compactMap { con -> Constraint? in
+            let constraintList = sym.swiftGenerics?.constraints ?? sym.swiftExtension?.constraints ?? []
+            let constraints = constraintList.compactMap { con -> Constraint? in
                 // Drop implementation Self constraint for protocol members
                 if con.lhs == "Self" && con.kind == "conformance" && sym.pathComponents.contains(con.rhs) {
                     return nil
@@ -211,7 +211,7 @@ fileprivate struct SymbolGraph: Decodable {
                           availability: sym.availability?.compactMap { $0.asSwift } ?? [],
                           location: location,
                           genericParameters: sym.swiftGenerics?.parameters?.map { $0.name } ?? [],
-                          constraints: Constraints(unsorted: constraints ?? []))
+                          constraints: Constraints(unsorted: constraints))
         }
 
         // Relationships
@@ -224,7 +224,7 @@ fileprivate struct SymbolGraph: Decodable {
             return Rel(kind: kind,
                        sourceUSR: rel.source,
                        targetUSR: rel.target,
-                       targetFallback: rel.targetFallback,
+                       targetFallback: rel.targetFallback?.re_sub(#"^.*?\."#, with: ""), // drop module name,
                        constraints: Constraints(unsorted: constraints))
         }
         logDebug("SymbolGraph: further decoded JSON, \(symbols.count) symbols, \(rels.count) rels")
@@ -239,7 +239,7 @@ extension NetworkSymbolGraph.Symbol.Availability {
         var str = "@available("
 
         if let domain = domain {
-            str += "\(domain)"
+            str += domain
             [("introduced", \Self.introduced),
              ("deprecated", \Self.deprecated),
              ("obsoleted", \Self.obsoleted)].forEach { name, kp in
@@ -255,10 +255,10 @@ extension NetworkSymbolGraph.Symbol.Availability {
         }
 
         if let message = message {
-            str += ", message: \"\(message)\""
+            str += #", message: "\#(message)""#
         }
         if let renamed = renamed {
-            str += ", renamed: \"\(renamed)\""
+            str += #", renamed: "\#(renamed)""#
         }
         str += ")"
         return str
@@ -317,7 +317,7 @@ extension SymbolGraph {
     static func fixUpDeclaration(_ declaration: String) -> String {
         declaration
             // All these Selfs are pointless & I don't want to teach autolink about them
-            .re_sub(#"\bSelf."#, with: "")
+            .re_sub(#"\bSelf\."#, with: "")
             // Try to fix up `func(_: Int)` stuff
             .re_sub(#"(?<=\(|, )_: "#, with: "_ arg: ")
     }
@@ -519,12 +519,8 @@ extension SymbolGraph {
             if !conformances.isEmpty {
                 dict[.inheritedtypes] = conformances.map { [SwiftDocKey.name.rawValue: $0] }
             }
-            var childDicts = [SourceKittenDict]()
             if !children.isEmpty {
-                childDicts += children.map { $0.asSourceKittenDict }
-            }
-            if !childDicts.isEmpty {
-                dict[.substructure] = childDicts
+                dict[.substructure] = children.map { $0.asSourceKittenDict }
             }
             return dict
         }
@@ -615,7 +611,7 @@ extension SymbolGraph {
                 let tgtNode = nodes[rel.targetUSR]
 
                 let protocolName = tgtNode?.symbol.name ??
-                    rel.targetFallback?.re_sub(#"^.*?\."#, with: "") ?? // drop module name
+                    rel.targetFallback ??
                     USR(rel.targetUSR).swiftDemangled ??
                     rel.targetUSR
 
@@ -687,9 +683,11 @@ extension SymbolGraph.Node: Comparable {
                 return lhsLocation.line < rhsLocation.line
             }
             return lhsLocation.filename < rhsLocation.filename
-        } else if lhs.symbol.location == nil && rhs.symbol.location != nil {
+        }
+        if lhs.symbol.location == nil && rhs.symbol.location != nil {
             return false
-        } else if lhs.symbol.location != nil && rhs.symbol.location == nil {
+        }
+        if lhs.symbol.location != nil && rhs.symbol.location == nil {
             return true
         }
         if lhs.symbol.name == rhs.symbol.name {
