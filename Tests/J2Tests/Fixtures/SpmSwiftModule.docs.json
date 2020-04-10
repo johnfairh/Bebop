@@ -490,7 +490,7 @@
               "swift_declaration_html" : "public func method(param: Int) -&gt; String"
             },
             "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>method<span class=\"j2-item-secondary\">(<\/span>param<span class=\"j2-item-secondary\">: Int) -> String<\/span>",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>method<span class=\"j2-item-secondary\">(<\/span>param<span class=\"j2-item-secondary\">: Int) -&gt; String<\/span>",
             "title" : "func method(param: Int) -> String"
           }
         ],
@@ -511,7 +511,7 @@
               "swift_declaration_html" : "public static func + (lhs: <a href=\"..\/types\/abaseclass.html?swift\">ABaseClass<\/a>, rhs: <a href=\"..\/types\/abaseclass.html?swift\">ABaseClass<\/a>) -&gt; <a href=\"..\/types\/abaseclass.html?swift\">ABaseClass<\/a>"
             },
             "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">static func <\/span>+<span class=\"j2-item-secondary\">(<\/span>lhs<span class=\"j2-item-secondary\">: ABaseClass, <\/span>rhs<span class=\"j2-item-secondary\">: ABaseClass) -> ABaseClass<\/span>",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">static func <\/span>+<span class=\"j2-item-secondary\">(<\/span>lhs<span class=\"j2-item-secondary\">: ABaseClass, <\/span>rhs<span class=\"j2-item-secondary\">: ABaseClass) -&gt; ABaseClass<\/span>",
             "title" : "static func +(lhs: ABaseClass, rhs: ABaseClass) -> ABaseClass"
           }
         ],
@@ -532,7 +532,7 @@
               "swift_declaration_html" : "public subscript(arg: String) -&gt; Int { get set }"
             },
             "primary_language" : "j2-swift",
-            "primary_title_html" : "subscript<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: String) -> Int<\/span>",
+            "primary_title_html" : "subscript<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: String) -&gt; Int<\/span>",
             "title" : "subscript(arg: String) -> Int"
           }
         ],
@@ -553,7 +553,7 @@
               "swift_declaration_html" : "public static func staticMethod() -&gt; Int"
             },
             "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">static func <\/span>staticMethod<span class=\"j2-item-secondary\">() -> Int<\/span>",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">static func <\/span>staticMethod<span class=\"j2-item-secondary\">() -&gt; Int<\/span>",
             "title" : "static func staticMethod() -> Int"
           }
         ],
@@ -574,7 +574,7 @@
               "swift_declaration_html" : "public static subscript(arg: String) -&gt; Int { get }"
             },
             "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">static <\/span>subscript<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: String) -> Int<\/span>",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">static <\/span>subscript<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: String) -&gt; Int<\/span>",
             "title" : "static subscript(arg: String) -> Int"
           }
         ],
@@ -595,7 +595,7 @@
               "swift_declaration_html" : "public class subscript(arg: Int) -&gt; String { get }"
             },
             "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">class <\/span>subscript<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: Int) -> String<\/span>",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">class <\/span>subscript<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: Int) -&gt; String<\/span>",
             "title" : "class subscript(arg: Int) -> String"
           }
         ],
@@ -823,7 +823,7 @@
               "swift_declaration_html" : "public func generic(param: T) -&gt; T"
             },
             "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>generic<span class=\"j2-item-secondary\">(<\/span>param<span class=\"j2-item-secondary\">: T) -> T<\/span>",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>generic<span class=\"j2-item-secondary\">(<\/span>param<span class=\"j2-item-secondary\">: T) -&gt; T<\/span>",
             "title" : "func generic(param: T) -> T"
           },
           {
@@ -836,7 +836,7 @@
               "swift_declaration_html" : "public override func method(param: Int) -&gt; String"
             },
             "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>method<span class=\"j2-item-secondary\">(<\/span>param<span class=\"j2-item-secondary\">: Int) -> String<\/span>",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>method<span class=\"j2-item-secondary\">(<\/span>param<span class=\"j2-item-secondary\">: Int) -&gt; String<\/span>",
             "title" : "func method(param: Int) -> String"
           }
         ],
@@ -1334,7 +1334,7 @@
               "swift_declaration_html" : "func assocFunc() -&gt; <a href=\"..\/types\/firstprotocol1.html?swift#assoctype\">AssocType<\/a>"
             },
             "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>assocFunc<span class=\"j2-item-secondary\">() -> AssocType<\/span>",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>assocFunc<span class=\"j2-item-secondary\">() -&gt; AssocType<\/span>",
             "title" : "func assocFunc() -> AssocType"
           },
           {
@@ -1372,7 +1372,7 @@
               "swift_declaration_html" : "func m(arg: Int) -&gt; String"
             },
             "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>m<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: Int) -> String<\/span>",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>m<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: Int) -&gt; String<\/span>",
             "title" : "func m(arg: Int) -> String"
           }
         ],
@@ -1408,7 +1408,7 @@
               "swift_declaration_html" : "func m(arg: Int) -&gt; String"
             },
             "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>m<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: Int) -> String<\/span>",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>m<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: Int) -&gt; String<\/span>",
             "title" : "func m(arg: Int) -> String"
           }
         ],
@@ -1637,7 +1637,7 @@
               "swift_declaration_html" : "func mutify() -&gt; T"
             },
             "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>mutify<span class=\"j2-item-secondary\">() -> T<\/span>",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>mutify<span class=\"j2-item-secondary\">() -&gt; T<\/span>",
             "title" : "func mutify() -> T"
           }
         ],
@@ -2439,7 +2439,7 @@
               "swift_declaration_html" : "public func deprecatedFunction(callback: (_ report: String) -&gt; Int) -&gt; String"
             },
             "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>deprecatedFunction<span class=\"j2-item-secondary\">(<\/span>callback<span class=\"j2-item-secondary\">: (_ report: String) -> Int) -> String<\/span>",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>deprecatedFunction<span class=\"j2-item-secondary\">(<\/span>callback<span class=\"j2-item-secondary\">: (_ report: String) -&gt; Int) -&gt; String<\/span>",
             "title" : "func deprecatedFunction(callback: (_ report: String) -> Int) -> String"
           },
           {
@@ -2647,7 +2647,7 @@
               "swift_declaration_html" : "func + (lhs: <a href=\"types.html?swift#t1\">T<\/a>, rhs: <a href=\"types.html?swift#t1\">T<\/a>) -&gt; String"
             },
             "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">static func <\/span>+<span class=\"j2-item-secondary\">(<\/span>lhs<span class=\"j2-item-secondary\">: T, <\/span>rhs<span class=\"j2-item-secondary\">: T) -> String<\/span>",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">static func <\/span>+<span class=\"j2-item-secondary\">(<\/span>lhs<span class=\"j2-item-secondary\">: T, <\/span>rhs<span class=\"j2-item-secondary\">: T) -&gt; String<\/span>",
             "title" : "static func +(lhs: T, rhs: T) -> String"
           }
         ],

@@ -338,6 +338,46 @@
                 }
               ],
               "key.usr" : "s:14SpmSwiftModuleAAV7Nested1V"
+            },
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.public",
+              "key.doc.column" : 18,
+              "key.doc.full_as_xml" : "",
+              "key.doc.line" : 15,
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/Swift53\/SpmSwiftModule.swift",
+              "key.fully_annotated_decl" : "<swift>struct Nested2&lt;T&gt; where T : Equatable<\/swift>",
+              "key.inherited_docs" : true,
+              "key.j2.is_override" : false,
+              "key.j2.swift_declaration" : "struct Nested2<T> where T : Equatable",
+              "key.j2.swift_name_pieces" : [
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "struct "
+                },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "Nested2"
+                }
+              ],
+              "key.kind" : "source.lang.swift.decl.struct",
+              "key.name" : "Nested2",
+              "key.substructure" : [
+                {
+                  "key.fully_annotated_decl" : "<g>T<\/g>",
+                  "key.j2.is_override" : false,
+                  "key.j2.swift_declaration" : "T",
+                  "key.j2.swift_name_pieces" : [
+                    {
+                      "key.j2.name_piece_is_name" : true,
+                      "key.j2.name_piece_text" : "T"
+                    }
+                  ],
+                  "key.kind" : "source.lang.swift.decl.generic_type_param",
+                  "key.name" : "T",
+                  "key.usr" : "::FABRICATED-GENPARAM::T"
+                }
+              ],
+              "key.usr" : "s:14SpmSwiftModuleAAV7Nested2V"
             }
           ],
           "key.usr" : "s:14SpmSwiftModuleAAV"
@@ -1017,6 +1057,20 @@
               ],
               "key.substructure" : [
                 {
+                  "key.fully_annotated_decl" : "<g>Q<\/g>",
+                  "key.j2.is_override" : false,
+                  "key.j2.swift_declaration" : "Q",
+                  "key.j2.swift_name_pieces" : [
+                    {
+                      "key.j2.name_piece_is_name" : true,
+                      "key.j2.name_piece_text" : "Q"
+                    }
+                  ],
+                  "key.kind" : "source.lang.swift.decl.generic_type_param",
+                  "key.name" : "Q",
+                  "key.usr" : "::FABRICATED-GENPARAM::Q"
+                },
+                {
                   "key.fully_annotated_decl" : "<g>T<\/g>",
                   "key.j2.is_override" : false,
                   "key.j2.swift_declaration" : "T",
@@ -1029,7 +1083,53 @@
                   "key.kind" : "source.lang.swift.decl.generic_type_param",
                   "key.name" : "T",
                   "key.usr" : "::FABRICATED-GENPARAM::T"
+                }
+              ],
+              "key.usr" : "s:14SpmSwiftModule13ADerivedClassC6method5paramSSSi_tF"
+            },
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.public",
+              "key.doc.column" : 14,
+              "key.doc.full_as_xml" : "",
+              "key.doc.line" : 101,
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/Swift53\/SpmSwiftModule.swift",
+              "key.fully_annotated_decl" : "<swift>func generic&lt;R&gt;(param: T, my: R) -&gt; T where R : Sequence, R.Element : FirstProtocol<\/swift>",
+              "key.inherited_docs" : true,
+              "key.j2.is_override" : false,
+              "key.j2.swift_declaration" : "func generic<R>(param: T, my: R) -> T where R : Sequence, R.Element : FirstProtocol",
+              "key.j2.swift_name_pieces" : [
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "func "
                 },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "generic"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "<R>("
+                },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "param"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : ": T, "
+                },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "my"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : ": R) -> T"
+                }
+              ],
+              "key.kind" : "source.lang.swift.decl.function.method.instance",
+              "key.name" : "generic(param:my:)",
+              "key.substructure" : [
                 {
                   "key.fully_annotated_decl" : "<g>Q<\/g>",
                   "key.j2.is_override" : false,
@@ -1043,23 +1143,62 @@
                   "key.kind" : "source.lang.swift.decl.generic_type_param",
                   "key.name" : "Q",
                   "key.usr" : "::FABRICATED-GENPARAM::Q"
+                },
+                {
+                  "key.fully_annotated_decl" : "<g>R<\/g>",
+                  "key.j2.is_override" : false,
+                  "key.j2.swift_declaration" : "R",
+                  "key.j2.swift_name_pieces" : [
+                    {
+                      "key.j2.name_piece_is_name" : true,
+                      "key.j2.name_piece_text" : "R"
+                    }
+                  ],
+                  "key.kind" : "source.lang.swift.decl.generic_type_param",
+                  "key.name" : "R",
+                  "key.usr" : "::FABRICATED-GENPARAM::R"
+                },
+                {
+                  "key.fully_annotated_decl" : "<g>T<\/g>",
+                  "key.j2.is_override" : false,
+                  "key.j2.swift_declaration" : "T",
+                  "key.j2.swift_name_pieces" : [
+                    {
+                      "key.j2.name_piece_is_name" : true,
+                      "key.j2.name_piece_text" : "T"
+                    }
+                  ],
+                  "key.kind" : "source.lang.swift.decl.generic_type_param",
+                  "key.name" : "T",
+                  "key.usr" : "::FABRICATED-GENPARAM::T"
                 }
               ],
-              "key.usr" : "s:14SpmSwiftModule13ADerivedClassC6method5paramSSSi_tF"
+              "key.usr" : "s:14SpmSwiftModule13ADerivedClassC7generic5param2myxx_qd__tSTRd__AA13FirstProtocol7ElementRpd__lF"
             },
             {
-              "key.fully_annotated_decl" : "<g>T<\/g>",
+              "key.accessibility" : "source.lang.swift.accessibility.internal",
+              "key.doc.full_as_xml" : "",
+              "key.fully_annotated_decl" : "<swift>var t: Q?<\/swift>",
+              "key.inherited_docs" : true,
               "key.j2.is_override" : false,
-              "key.j2.swift_declaration" : "T",
+              "key.j2.swift_declaration" : "var t: Q?",
               "key.j2.swift_name_pieces" : [
                 {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "var "
+                },
+                {
                   "key.j2.name_piece_is_name" : true,
-                  "key.j2.name_piece_text" : "T"
+                  "key.j2.name_piece_text" : "t"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : ": Q?"
                 }
               ],
-              "key.kind" : "source.lang.swift.decl.generic_type_param",
-              "key.name" : "T",
-              "key.usr" : "::FABRICATED-GENPARAM::T"
+              "key.kind" : "source.lang.swift.decl.var.instance",
+              "key.name" : "t",
+              "key.usr" : "s:14SpmSwiftModule13ADerivedClassC1tq_Sgvp"
             },
             {
               "key.fully_annotated_decl" : "<g>Q<\/g>",
@@ -1074,6 +1213,20 @@
               "key.kind" : "source.lang.swift.decl.generic_type_param",
               "key.name" : "Q",
               "key.usr" : "::FABRICATED-GENPARAM::Q"
+            },
+            {
+              "key.fully_annotated_decl" : "<g>T<\/g>",
+              "key.j2.is_override" : false,
+              "key.j2.swift_declaration" : "T",
+              "key.j2.swift_name_pieces" : [
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "T"
+                }
+              ],
+              "key.kind" : "source.lang.swift.decl.generic_type_param",
+              "key.name" : "T",
+              "key.usr" : "::FABRICATED-GENPARAM::T"
             }
           ],
           "key.usr" : "s:14SpmSwiftModule13ADerivedClassC"
@@ -1484,163 +1637,6 @@
           "key.usr" : "s:14SpmSwiftModule1TV"
         },
         {
-          "key.fully_annotated_decl" : "<swift>extension ADerivedClass<\/swift>",
-          "key.j2.is_override" : false,
-          "key.j2.swift_declaration" : "extension ADerivedClass",
-          "key.j2.swift_name_pieces" : [
-            {
-              "key.j2.name_piece_is_name" : false,
-              "key.j2.name_piece_text" : "extension "
-            },
-            {
-              "key.j2.name_piece_is_name" : true,
-              "key.j2.name_piece_text" : "ADerivedClass"
-            }
-          ],
-          "key.j2.type_module_name" : "SpmSwiftModule",
-          "key.kind" : "source.lang.swift.decl.extension",
-          "key.modulename" : "SpmSwiftModule",
-          "key.name" : "ADerivedClass",
-          "key.substructure" : [
-            {
-              "key.accessibility" : "source.lang.swift.accessibility.internal",
-              "key.doc.full_as_xml" : "",
-              "key.fully_annotated_decl" : "<swift>var t: Q?<\/swift>",
-              "key.inherited_docs" : true,
-              "key.j2.is_override" : false,
-              "key.j2.swift_declaration" : "var t: Q?",
-              "key.j2.swift_name_pieces" : [
-                {
-                  "key.j2.name_piece_is_name" : false,
-                  "key.j2.name_piece_text" : "var "
-                },
-                {
-                  "key.j2.name_piece_is_name" : true,
-                  "key.j2.name_piece_text" : "t"
-                },
-                {
-                  "key.j2.name_piece_is_name" : false,
-                  "key.j2.name_piece_text" : ": Q?"
-                }
-              ],
-              "key.kind" : "source.lang.swift.decl.var.instance",
-              "key.name" : "t",
-              "key.usr" : "s:14SpmSwiftModule13ADerivedClassC1tq_Sgvp"
-            }
-          ],
-          "key.usr" : "s:14SpmSwiftModule13ADerivedClassC"
-        },
-        {
-          "key.fully_annotated_decl" : "<swift>extension ADerivedClass where R : Sequence, R.Element : FirstProtocol<\/swift>",
-          "key.j2.is_override" : false,
-          "key.j2.swift_declaration" : "extension ADerivedClass where R : Sequence, R.Element : FirstProtocol",
-          "key.j2.swift_name_pieces" : [
-            {
-              "key.j2.name_piece_is_name" : false,
-              "key.j2.name_piece_text" : "extension "
-            },
-            {
-              "key.j2.name_piece_is_name" : true,
-              "key.j2.name_piece_text" : "ADerivedClass"
-            }
-          ],
-          "key.j2.type_module_name" : "SpmSwiftModule",
-          "key.kind" : "source.lang.swift.decl.extension",
-          "key.modulename" : "SpmSwiftModule",
-          "key.name" : "ADerivedClass",
-          "key.substructure" : [
-            {
-              "key.accessibility" : "source.lang.swift.accessibility.public",
-              "key.doc.column" : 14,
-              "key.doc.full_as_xml" : "",
-              "key.doc.line" : 101,
-              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/Swift53\/SpmSwiftModule.swift",
-              "key.fully_annotated_decl" : "<swift>func generic&lt;R&gt;(param: T, my: R) -&gt; T where R : Sequence, R.Element : FirstProtocol<\/swift>",
-              "key.inherited_docs" : true,
-              "key.j2.is_override" : false,
-              "key.j2.swift_declaration" : "func generic<R>(param: T, my: R) -> T where R : Sequence, R.Element : FirstProtocol",
-              "key.j2.swift_name_pieces" : [
-                {
-                  "key.j2.name_piece_is_name" : false,
-                  "key.j2.name_piece_text" : "func "
-                },
-                {
-                  "key.j2.name_piece_is_name" : true,
-                  "key.j2.name_piece_text" : "generic"
-                },
-                {
-                  "key.j2.name_piece_is_name" : false,
-                  "key.j2.name_piece_text" : "<R>("
-                },
-                {
-                  "key.j2.name_piece_is_name" : true,
-                  "key.j2.name_piece_text" : "param"
-                },
-                {
-                  "key.j2.name_piece_is_name" : false,
-                  "key.j2.name_piece_text" : ": T, "
-                },
-                {
-                  "key.j2.name_piece_is_name" : true,
-                  "key.j2.name_piece_text" : "my"
-                },
-                {
-                  "key.j2.name_piece_is_name" : false,
-                  "key.j2.name_piece_text" : ": R) -> T"
-                }
-              ],
-              "key.kind" : "source.lang.swift.decl.function.method.instance",
-              "key.name" : "generic(param:my:)",
-              "key.substructure" : [
-                {
-                  "key.fully_annotated_decl" : "<g>T<\/g>",
-                  "key.j2.is_override" : false,
-                  "key.j2.swift_declaration" : "T",
-                  "key.j2.swift_name_pieces" : [
-                    {
-                      "key.j2.name_piece_is_name" : true,
-                      "key.j2.name_piece_text" : "T"
-                    }
-                  ],
-                  "key.kind" : "source.lang.swift.decl.generic_type_param",
-                  "key.name" : "T",
-                  "key.usr" : "::FABRICATED-GENPARAM::T"
-                },
-                {
-                  "key.fully_annotated_decl" : "<g>Q<\/g>",
-                  "key.j2.is_override" : false,
-                  "key.j2.swift_declaration" : "Q",
-                  "key.j2.swift_name_pieces" : [
-                    {
-                      "key.j2.name_piece_is_name" : true,
-                      "key.j2.name_piece_text" : "Q"
-                    }
-                  ],
-                  "key.kind" : "source.lang.swift.decl.generic_type_param",
-                  "key.name" : "Q",
-                  "key.usr" : "::FABRICATED-GENPARAM::Q"
-                },
-                {
-                  "key.fully_annotated_decl" : "<g>R<\/g>",
-                  "key.j2.is_override" : false,
-                  "key.j2.swift_declaration" : "R",
-                  "key.j2.swift_name_pieces" : [
-                    {
-                      "key.j2.name_piece_is_name" : true,
-                      "key.j2.name_piece_text" : "R"
-                    }
-                  ],
-                  "key.kind" : "source.lang.swift.decl.generic_type_param",
-                  "key.name" : "R",
-                  "key.usr" : "::FABRICATED-GENPARAM::R"
-                }
-              ],
-              "key.usr" : "s:14SpmSwiftModule13ADerivedClassC7generic5param2myxx_qd__tSTRd__AA13FirstProtocol7ElementRpd__lF"
-            }
-          ],
-          "key.usr" : "s:14SpmSwiftModule13ADerivedClassC"
-        },
-        {
           "key.fully_annotated_decl" : "<swift>extension ADerivedClass where T : Equatable<\/swift>",
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "extension ADerivedClass where T : Equatable",
@@ -1695,20 +1691,6 @@
               "key.name" : "generic2(param:)",
               "key.substructure" : [
                 {
-                  "key.fully_annotated_decl" : "<g>T<\/g>",
-                  "key.j2.is_override" : false,
-                  "key.j2.swift_declaration" : "T",
-                  "key.j2.swift_name_pieces" : [
-                    {
-                      "key.j2.name_piece_is_name" : true,
-                      "key.j2.name_piece_text" : "T"
-                    }
-                  ],
-                  "key.kind" : "source.lang.swift.decl.generic_type_param",
-                  "key.name" : "T",
-                  "key.usr" : "::FABRICATED-GENPARAM::T"
-                },
-                {
                   "key.fully_annotated_decl" : "<g>Q<\/g>",
                   "key.j2.is_override" : false,
                   "key.j2.swift_declaration" : "Q",
@@ -1721,6 +1703,20 @@
                   "key.kind" : "source.lang.swift.decl.generic_type_param",
                   "key.name" : "Q",
                   "key.usr" : "::FABRICATED-GENPARAM::Q"
+                },
+                {
+                  "key.fully_annotated_decl" : "<g>T<\/g>",
+                  "key.j2.is_override" : false,
+                  "key.j2.swift_declaration" : "T",
+                  "key.j2.swift_name_pieces" : [
+                    {
+                      "key.j2.name_piece_is_name" : true,
+                      "key.j2.name_piece_text" : "T"
+                    }
+                  ],
+                  "key.kind" : "source.lang.swift.decl.generic_type_param",
+                  "key.name" : "T",
+                  "key.usr" : "::FABRICATED-GENPARAM::T"
                 }
               ],
               "key.usr" : "s:14SpmSwiftModule13ADerivedClassC8generic25paramyx_tSQRzrlF"
@@ -2265,68 +2261,6 @@
             }
           ],
           "key.usr" : "s:14SpmSwiftModule2S2V"
-        },
-        {
-          "key.fully_annotated_decl" : "<swift>extension SpmSwiftModule where T : Equatable<\/swift>",
-          "key.j2.is_override" : false,
-          "key.j2.swift_declaration" : "extension SpmSwiftModule where T : Equatable",
-          "key.j2.swift_name_pieces" : [
-            {
-              "key.j2.name_piece_is_name" : false,
-              "key.j2.name_piece_text" : "extension "
-            },
-            {
-              "key.j2.name_piece_is_name" : true,
-              "key.j2.name_piece_text" : "SpmSwiftModule"
-            }
-          ],
-          "key.j2.type_module_name" : "SpmSwiftModule",
-          "key.kind" : "source.lang.swift.decl.extension",
-          "key.modulename" : "SpmSwiftModule",
-          "key.name" : "SpmSwiftModule",
-          "key.substructure" : [
-            {
-              "key.accessibility" : "source.lang.swift.accessibility.public",
-              "key.doc.column" : 18,
-              "key.doc.full_as_xml" : "",
-              "key.doc.line" : 15,
-              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/Swift53\/SpmSwiftModule.swift",
-              "key.fully_annotated_decl" : "<swift>struct Nested2&lt;T&gt; where T : Equatable<\/swift>",
-              "key.inherited_docs" : true,
-              "key.j2.is_override" : false,
-              "key.j2.swift_declaration" : "struct Nested2<T> where T : Equatable",
-              "key.j2.swift_name_pieces" : [
-                {
-                  "key.j2.name_piece_is_name" : false,
-                  "key.j2.name_piece_text" : "struct "
-                },
-                {
-                  "key.j2.name_piece_is_name" : true,
-                  "key.j2.name_piece_text" : "Nested2"
-                }
-              ],
-              "key.kind" : "source.lang.swift.decl.struct",
-              "key.name" : "Nested2",
-              "key.substructure" : [
-                {
-                  "key.fully_annotated_decl" : "<g>T<\/g>",
-                  "key.j2.is_override" : false,
-                  "key.j2.swift_declaration" : "T",
-                  "key.j2.swift_name_pieces" : [
-                    {
-                      "key.j2.name_piece_is_name" : true,
-                      "key.j2.name_piece_text" : "T"
-                    }
-                  ],
-                  "key.kind" : "source.lang.swift.decl.generic_type_param",
-                  "key.name" : "T",
-                  "key.usr" : "::FABRICATED-GENPARAM::T"
-                }
-              ],
-              "key.usr" : "s:14SpmSwiftModuleAAV7Nested2V"
-            }
-          ],
-          "key.usr" : "s:14SpmSwiftModuleAAV"
         }
       ]
     }

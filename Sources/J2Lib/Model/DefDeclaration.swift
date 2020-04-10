@@ -64,11 +64,11 @@ extension Array where Element == DeclarationPiece {
         compactMap { $0.nameText }.joined()
     }
 
-    public func wrappingOther(before: String, after: String) -> String {
+    public func wrappingOther(before: String, after: String, xform: (String) -> String = { $0 }) -> String {
         map {
             switch $0 {
-            case .name(let str): return str
-            case .other(let str): return before + str + after
+            case .name(let str): return xform(str)
+            case .other(let str): return before + xform(str) + after
             }
         }.joined()
     }

@@ -136,7 +136,16 @@ extension Constrained {
 
 /// Flattened and more normally-named deserialized symbolgraph - all decoding of json happens here.
 fileprivate struct SymbolGraph: Decodable {
-    typealias Constraint = String
+    struct Constraint: Equatable {
+        enum Kind: String {
+            case conformance
+            case superclass
+            case sameType
+        }
+        let kind: Kind
+        let lhs: String
+        let rhs: String
+    }
     typealias Constraints = SortedArray<Constraint>
 
     struct Symbol: Equatable, Constrained {
@@ -155,7 +164,7 @@ fileprivate struct SymbolGraph: Decodable {
             let character: Int
         }
         let location: Location?
-        let genericParameters: [String]
+        let genericTypeParameters: Set<String>
         let constraints: Constraints
     }
     let symbols: [Symbol]
@@ -204,7 +213,7 @@ fileprivate struct SymbolGraph: Decodable {
                 if con.lhs == "Self" && con.kind == "conformance" && sym.pathComponents.contains(con.rhs) {
                     return nil
                 }
-                return con.asSwift
+                return Constraint(con)
             }
             // distill what the doc comment is, and whether any have range info: use this
             // as a crap hint that it's been inherited.
@@ -221,7 +230,7 @@ fileprivate struct SymbolGraph: Decodable {
                           accessLevel: acl,
                           availability: sym.availability?.compactMap { $0.asSwift } ?? [],
                           location: location,
-                          genericParameters: sym.swiftGenerics?.parameters?.map { $0.name } ?? [],
+                          genericTypeParameters: Set(sym.swiftGenerics?.parameters?.map { $0.name } ?? []),
                           constraints: Constraints(unsorted: constraints))
         }
 
@@ -231,7 +240,7 @@ fileprivate struct SymbolGraph: Decodable {
                 logWarning(.localized(.wrnSsgeRelKind, rel.kind))
                 return nil
             }
-            let constraints = rel.swiftConstraints?.compactMap { $0.asSwift } ?? []
+            let constraints = rel.swiftConstraints?.compactMap(Constraint.init) ?? []
             return Rel(kind: kind,
                        sourceUSR: rel.source,
                        targetUSR: rel.target,
@@ -291,33 +300,48 @@ extension NetworkSymbolGraph.Symbol.Availability.Version {
 
 // MARK: Constraint
 
-private extension String {
-    var unselfed: String {
-        re_sub(#"^Self\."#, with: "")
+fileprivate extension SymbolGraph.Constraint.Kind {
+    var asSwift: String {
+        switch self {
+        case .conformance: return ":"
+        case .superclass: return ":"
+        case .sameType: return "=="
+        }
     }
 }
 
-extension NetworkSymbolGraph.Constraint {
-    var asSwift: String? {
-        enum Kind: String {
-            case conformance
-            case superclass
-            case sameType
+extension SymbolGraph.Constraint: Comparable {
+    fileprivate static func < (lhs: SymbolGraph.Constraint, rhs: SymbolGraph.Constraint) -> Bool {
+        lhs.asSwift < rhs.asSwift
+    }
 
-            var swift: String {
-                switch self {
-                case .conformance: return ":"
-                case .superclass: return ":"
-                case .sameType: return "=="
-                }
-            }
-        }
-
-        guard let kindVal = Kind(rawValue: kind) else {
-            logWarning(.localized(.wrnSsgeConstKind, kind))
+    fileprivate init?(_ con: NetworkSymbolGraph.Constraint) {
+        guard let kindVal = Kind(rawValue: con.kind) else {
+            logWarning(.localized(.wrnSsgeConstKind, con.kind))
             return nil
         }
-        return "\(lhs.unselfed) \(kindVal.swift) \(rhs.unselfed)"
+        self.lhs = con.lhs.unselfed
+        self.kind = kindVal
+        self.rhs = con.rhs.unselfed
+    }
+
+    var asSwift: String {
+        "\(lhs) \(kind.asSwift) \(rhs)"
+    }
+
+    var typeNames: Set<String> {
+        [lhs.firstComponent, rhs.firstComponent]
+    }
+}
+
+private extension String {
+    /// Remove any leading `Self.`
+    var unselfed: String {
+        re_sub(#"^Self\."#, with: "")
+    }
+    /// Remove any dot and after
+    var firstComponent: String {
+        re_sub(#"\..*$"#, with: "")
     }
 }
 
@@ -325,6 +349,10 @@ extension SymbolGraph.Constraints {
     /// These constraints except anything in `other`
     func removing(other: Self) -> Self {
         filter { !other.contains($0) }
+    }
+
+    var asKey: String {
+        map { $0.asSwift }.joined()
     }
 }
 
@@ -442,9 +470,18 @@ extension SymbolGraph {
         /// Add a member if possible: must have the same constraints, careful about
         /// protocols though.
         func tryAdd(member: Node) -> Bool {
-            guard symbol.constraints == member.symbol.constraints,
-                !isProtocol || member.isProtocolReq else {
+            guard !isProtocol || member.isProtocolReq else {
                 return false
+            }
+
+            for con in member.constraintsRemoving(other: self) {
+                if con.typeNames
+                    .intersection(member.symbol.genericTypeParameters)
+                    .isSubset(of: symbol.genericTypeParameters) {
+                    // Constraint is introduced by the member, and its type params
+                    // are entirely our (the parent's) parameters: put it in an extension.
+                    return false
+                }
             }
             children.insert(member)
             return true
@@ -480,8 +517,8 @@ extension SymbolGraph {
             if !children.isEmpty {
                 childDicts += children.map { $0.asSourceKittenDict }
             }
-            if !symbol.genericParameters.isEmpty {
-                childDicts += symbol.genericParameters.map { $0.asGenericTypeParam }
+            if !symbol.genericTypeParameters.isEmpty {
+                childDicts += symbol.genericTypeParameters.sorted().map { $0.asGenericTypeParam }
             }
             if !childDicts.isEmpty {
                 dict[.substructure] = childDicts
@@ -534,7 +571,7 @@ extension SymbolGraph {
                 decl += " : " + conformances.joined(separator: ", ")
             }
             if !constraints.isEmpty {
-                decl += " where " + constraints.joined(separator: ", ")
+                decl += " where " + constraints.map { $0.asSwift }.joined(separator: ", ")
             }
             return "<swift>\(decl.htmlEscaped)</swift>"
         }
@@ -558,7 +595,11 @@ extension SymbolGraph {
 
     struct ExtNodeKey: Hashable {
         let typeUSR: String
-        let constraints: Constraints
+        let constraints: String
+        init(typeUSR: String, constraints: Constraints) {
+            self.typeUSR = typeUSR
+            self.constraints = constraints.asKey
+        }
     }
 
     struct ExtensionMap {
@@ -731,12 +772,12 @@ extension SymbolGraph.Node: Comparable {
 
 extension SymbolGraph.ExtNode: Comparable {
     fileprivate static func == (lhs: SymbolGraph.ExtNode, rhs: SymbolGraph.ExtNode) -> Bool {
-        lhs.name == rhs.name && lhs.constraints == rhs.constraints
+        lhs.name == rhs.name && lhs.constraints.asKey == rhs.constraints.asKey
     }
 
     fileprivate static func < (lhs: SymbolGraph.ExtNode, rhs: SymbolGraph.ExtNode) -> Bool {
         if lhs.name == rhs.name {
-            return lhs.constraints.joined() < rhs.constraints.joined()
+            return lhs.constraints.asKey < rhs.constraints.asKey
         }
         return lhs.name < rhs.name
     }

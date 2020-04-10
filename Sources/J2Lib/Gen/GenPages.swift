@@ -308,7 +308,9 @@ class GenItemVisitor: ItemVisitorProtocol {
         // not masochistic enough to do this in templates...
         let titleHtmls = [defItem.primaryNamePieces, defItem.secondaryNamePieces].map {
             $0.flatMap {
-                Html($0.wrappingOther(before: #"<span class="j2-item-secondary">"#, after: "</span>"))
+                Html($0.wrappingOther(before: #"<span class="j2-item-secondary">"#,
+                                      after: "</span>",
+                                      xform: { $0.htmlEscaped }))
             }
         }
         items.append(GenData.Item(
