@@ -123,17 +123,6 @@ fileprivate struct NetworkSymbolGraph: Decodable {
 
 // MARK: Decoder
 
-fileprivate protocol Constrained {
-    var constraints: SymbolGraph.Constraints { get }
-}
-
-extension Constrained {
-    func constraintsRemoving(other: Constrained?) -> SymbolGraph.Constraints {
-        guard let other = other else { return constraints }
-        return constraints.removing(other: other.constraints)
-    }
-}
-
 /// Flattened and more normally-named deserialized symbolgraph - all decoding of json happens here.
 fileprivate struct SymbolGraph: Decodable {
     struct Constraint: Equatable {
@@ -148,7 +137,7 @@ fileprivate struct SymbolGraph: Decodable {
     }
     typealias Constraints = SortedArray<Constraint>
 
-    struct Symbol: Equatable, Constrained {
+    struct Symbol: Equatable {
         let kind: String
         let usr: String
         let pathComponents: [String]
@@ -169,7 +158,7 @@ fileprivate struct SymbolGraph: Decodable {
     }
     let symbols: [Symbol]
 
-    struct Rel: Constrained {
+    struct Rel {
         enum Kind: String {
             case memberOf
             case conformsTo
@@ -347,7 +336,7 @@ private extension String {
 
 extension SymbolGraph.Constraints {
     /// These constraints except anything in `other`
-    func removing(other: Self) -> Self {
+    func subtracting(_ other: Self) -> Self {
         filter { !other.contains($0) }
     }
 
@@ -437,12 +426,11 @@ extension SymbolGraph {
 
     // MARK: Types
 
-    final class Node: ParentNode, Constrained {
+    final class Node: ParentNode {
         let symbol: Symbol
         weak var parent: ParentNode?
         var isOverride: Bool
         var isProtocolReq: Bool
-        var constraints: Constraints { symbol.constraints }
 
         init(symbol: Symbol) {
             self.symbol = symbol
@@ -467,24 +455,29 @@ extension SymbolGraph {
             return false
         }
 
-        /// Add a member if possible: must have the same constraints, careful about
-        /// protocols though.
-        func tryAdd(member: Node) -> Bool {
-            guard !isProtocol || member.isProtocolReq else {
+        /// Add a member if possible: must not further constrain our generic parameters.
+        /// And  careful with protocols.
+        func tryAdd(member: Node, uniqueContextConstraints: Constraints) -> Bool {
+            guard uniqueContextConstraints.isEmpty,
+                !isProtocol || member.isProtocolReq else {
                 return false
-            }
-
-            for con in member.constraintsRemoving(other: self) {
-                if con.typeNames
-                    .intersection(member.symbol.genericTypeParameters)
-                    .isSubset(of: symbol.genericTypeParameters) {
-                    // Constraint is introduced by the member, and its type params
-                    // are entirely our (the parent's) parameters: put it in an extension.
-                    return false
-                }
             }
             children.insert(member)
             return true
+        }
+
+        /// The constraints on this declaration that are both:
+        /// 1. Unique to the declaration, ie. not just inherited wholesale from the parent; and
+        /// 2. Constraining the parent's generic parameters, rather than our own.
+        func uniqueContextConstraints(context: Node?) -> Constraints {
+            guard let context = context else { return symbol.constraints }
+
+            let newGenericTypeParameters =
+                symbol.genericTypeParameters
+                    .subtracting(context.symbol.genericTypeParameters)
+
+            return symbol.constraints.subtracting(context.symbol.constraints)
+                .filter { $0.typeNames.intersection(newGenericTypeParameters).isEmpty }
         }
 
         var declarationXml: String {
@@ -664,13 +657,14 @@ extension SymbolGraph {
                     break
                 }
                 let tgtNode = nodes[rel.targetUSR]
-                if tgtNode?.tryAdd(member: srcNode) ?? false {
+                let contextConstraints = srcNode.uniqueContextConstraints(context: tgtNode)
+                if tgtNode?.tryAdd(member: srcNode, uniqueContextConstraints: contextConstraints) ?? false {
                     break
                 }
 
                 extensionMap.addMemberOf(member: srcNode,
                                          typeUSR: rel.targetUSR,
-                                         where: srcNode.constraintsRemoving(other: tgtNode))
+                                         where: contextConstraints)
 
             case .overrides:
                 // "source is overriding target" - only for classes, protocols broken
@@ -698,10 +692,14 @@ extension SymbolGraph {
                     USR(rel.sourceUSR).swiftDemangled ?? // where my sourceFallback at bra
                     rel.sourceUSR
 
+                let constraints = rel.constraints.subtracting(
+                    srcNode?.symbol.constraints ?? .init()
+                )
+
                 extensionMap.addConformance(fromUSR: rel.sourceUSR,
                                             fromName: srcName,
                                             to: protocolName,
-                                            where: rel.constraintsRemoving(other: srcNode))
+                                            where: constraints)
                 break
 
             case .inheritsFrom, // don't care

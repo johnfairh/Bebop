@@ -21,6 +21,11 @@ extension FirstProtocol {
 }
 
 extension FirstProtocol {
+  /// A generic protocol extension method
+  func e<C>(a: C) where C: FirstProtocol {}
+}
+
+extension FirstProtocol {
   /// Return a safe default.
   ///
   /// There's more: it's the empty string.

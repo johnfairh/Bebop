@@ -1770,6 +1770,55 @@
             },
             {
               "key.accessibility" : "source.lang.swift.accessibility.internal",
+              "key.doc.full_as_xml" : "",
+              "key.fully_annotated_decl" : "<swift>func e&lt;C&gt;(a: C) where C : FirstProtocol<\/swift>",
+              "key.inherited_docs" : true,
+              "key.j2.is_override" : false,
+              "key.j2.swift_declaration" : "func e<C>(a: C) where C : FirstProtocol",
+              "key.j2.swift_name_pieces" : [
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "func "
+                },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "e"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "<C>("
+                },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "a"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : ": C)"
+                }
+              ],
+              "key.kind" : "source.lang.swift.decl.function.method.instance",
+              "key.name" : "e(a:)",
+              "key.substructure" : [
+                {
+                  "key.fully_annotated_decl" : "<g>C<\/g>",
+                  "key.j2.is_override" : false,
+                  "key.j2.swift_declaration" : "C",
+                  "key.j2.swift_name_pieces" : [
+                    {
+                      "key.j2.name_piece_is_name" : true,
+                      "key.j2.name_piece_text" : "C"
+                    }
+                  ],
+                  "key.kind" : "source.lang.swift.decl.generic_type_param",
+                  "key.name" : "C",
+                  "key.usr" : "::FABRICATED-GENPARAM::C"
+                }
+              ],
+              "key.usr" : "s:14SpmSwiftModule13FirstProtocolPAAE1e1ayqd___tAaBRd__lF"
+            },
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.internal",
               "key.doc.comment" : "Brief note about m\n\nWhat m is all about.\n- parameter arg: The argument\n- returns: The answer",
               "key.fully_annotated_decl" : "<swift>func m(arg: Int) -&gt; String<\/swift>",
               "key.inherited_docs" : false,
