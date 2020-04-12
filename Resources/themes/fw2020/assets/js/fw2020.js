@@ -168,11 +168,18 @@ const collapseControl = {
 
   // Helper to uncollapse at the current anchor
   ensureUncollapsed () {
-    const decodedHash = decodeURIComponent(window.location.hash)
-    const $el = $(decodedHash)
+    const $el = $(':target')
+    let collapseId
     if ($el.hasClass('j2-item')) {
-      const $collapse = $('#_' + $el.attr('id'))
-      $collapse.collapse('show')
+      collapseId = $el.attr('id')
+    } else if ($el.is('.dashAnchor.j2-item-dash-anchor')) {
+      collapseId = $el.data('item-id')
+    }
+    if (collapseId) {
+      const $collapse = $('#_' + collapseId)
+      if ($collapse) {
+        $collapse.collapse('show')
+      }
     }
   },
 

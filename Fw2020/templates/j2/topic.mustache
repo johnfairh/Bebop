@@ -18,7 +18,7 @@
   {{/any_declaration}}
   {{#any_declaration}}
     <section id="{{anchor_id}}" class="j2-item {{^secondary_language}}{{{primary_language}}}{{/secondary_language}}">
-    <a name="//apple_ref/cpp/{{dash_type}}/{{dash_name}}" class="dashAnchor"></a>
+    <a name="//apple_ref/cpp/{{dash_type}}/{{dash_name}}" class="dashAnchor j2-item-dash-anchor" data-item-id="{{anchor_id}}"></a>
     <h4 class="sr-only">{{title}}</h4>
     {{^item_nest}}
       <a class="j2-item-title{{#def.discouraged}}-discouraged{{/def.discouraged}} {{{primary_language}}}" href="{{{path_to_root}}}{{{primary_url}}}"><code>{{{primary_title_html}}}</code>
