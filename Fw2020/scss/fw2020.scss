@@ -243,11 +243,6 @@ $j2-breadcrumbs-height: 37px;
   max-width: none;
 }
 
-@mixin j2-nav-item-border() {
-  @include border-radius(.4rem);
-  background: $j2-navigation-highlight-bg;
-}
-
 .j2-nav-list {
   width: max-content;
   padding-top: .5rem;
@@ -276,17 +271,13 @@ $j2-breadcrumbs-height: 37px;
     padding-right: 4px;
     color: $j2-navigation-secondary-color;
 
+    &.active,
     &:not(.active):hover {
-      @include j2-nav-item-border();
+      @include border-radius(.4rem);
       padding-left: 4px;
       margin-left: -4px;
+      background: $j2-navigation-highlight-bg;
       opacity: 1;
-    }
-
-    &.active {
-      @include j2-nav-item-border();
-      padding: 2px 4px;
-      margin: 1px 0 1px -4px;
     }
   }
 }

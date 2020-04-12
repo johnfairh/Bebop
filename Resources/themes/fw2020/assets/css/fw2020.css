@@ -7000,19 +7000,12 @@ pre {
   color: var(--navigation-secondary-color);
 }
 
-.j2-nav-list .j2-nav-item:not(.active):hover {
+.j2-nav-list .j2-nav-item.active, .j2-nav-list .j2-nav-item:not(.active):hover {
   border-radius: 0.4rem;
-  background: var(--navigation-highlight-bg);
   padding-left: 4px;
   margin-left: -4px;
-  opacity: 1;
-}
-
-.j2-nav-list .j2-nav-item.active {
-  border-radius: 0.4rem;
   background: var(--navigation-highlight-bg);
-  padding: 2px 4px;
-  margin: 1px 0 1px -4px;
+  opacity: 1;
 }
 
 .j2-article {
