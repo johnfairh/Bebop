@@ -138,6 +138,16 @@ open public class MyClass {
     }
 
     let revised4 = sorted(names) { $0 &gt; $1 }
+
+    var a, b: Int
+
+    enum AnEnum: String {
+    case one
+    case two, three
+    case four(String)
+    case five(a: String)
+    case six(a: String), seven, eight
+    }
 }
 
 extension Some.Nested.Class {
@@ -145,6 +155,8 @@ extension Some.Nested.Class {
         return "Bang"
     }
 }
+
+func topLevel(swift: Int)
 
 </code></pre>
 
@@ -155,7 +167,7 @@ extension Some.Nested.Class {
 @interface MyObject : NSObject
 
 /// A property
-@property (nonatomic, readonly) int routeRequestInterval;
+@property (nonatomic, class, readonly) int routeRequestInterval;
 
 @property (nonatomic, readonly, getter=isAttached) BOOL attached;
 
@@ -179,6 +191,9 @@ extension Some.Nested.Class {
 }];
 
 @end
+
+void aTopLevelCFunction()
+void aTopLevelCFunction(int a);
 </code></pre>
 
 <p>Create objects using <code><a href="Classes/RbObject.html#/s:11RubyGateway8RbObjectC7ofClass4args6kwArgsACSgSS_SayAA0cD11Convertible_pSgGs13KeyValuePairsVySSAIGtcfc">RbObject.init(ofClass:args:kwArgs:)</a></code>.  Pass Swift types

@@ -64,7 +64,7 @@ Prism.languages.insertBefore('swift', 'function', {
 
   // Declarations.
   Prism.languages.swift['class-name'] = {
-    pattern: new RegExp(`(\\b(?:associatedtype|class|enum|extension|func|let|operator|protocol|precedencegroup|struct|typealias|var)\\s+)${id}`, 'u'),
+    pattern: new RegExp(`(\\b(?:associatedtype|case|class|enum|extension|func|let|operator|protocol|precedencegroup|struct|typealias|var)\\s+)${id}`, 'u'),
     lookbehind: true
   }
 
@@ -83,7 +83,7 @@ delete Prism.languages.swift.atrule
  */
 Prism.languages.objectivec.keyword = [
   /\b(?:asm|typeof|inline|auto|break|case|char|const|continue|default|do|double|else|enum|extern|float|for|goto|if|int|long|register|return|short|signed|sizeof|static|struct|switch|typedef|union|unsigned|void|volatile|while|id|in|instancetype|self|super)\b|(?:@interface|@end|@implementation|@protocol|@class|@public|@protected|@private|@property|@try|@catch|@finally|@throw|@synthesize|@dynamic|@selector)\b/,
-  /\b(?:(non)?atomic|readonly|readwrite|strong|weak|assign|copy)\b/,
+  /\b(?:(non)?atomic|class|readonly|readwrite|strong|weak|assign|copy)\b/,
   /\b(?:nonnull|nullable|_Nullable|_Nonnull)\b/,
   /\b(?:getter=|setter=)/
 ]
@@ -136,5 +136,12 @@ delete Prism.languages.objectivec.function
     ],
     // Things that are probably types
     builtin: /\b[A-Z]\w*/
+  })
+
+  Prism.languages.insertBefore('objectivec', 'punctuation', {
+    c_function: {
+      pattern: new RegExp(`\\b${id}(?=\\s*\\()`),
+      alias: 'function'
+    }
   })
 }
