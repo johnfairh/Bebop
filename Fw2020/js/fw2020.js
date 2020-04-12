@@ -144,6 +144,8 @@ const langControl = {
 const collapseControl = {
   // Global disable
   alwaysDisabled: false,
+  // Count of collapses
+  collapseCount: 0,
   // State of global collapse
   allCollapsed: false,
   // Distinguish user-uncollapse from global
@@ -190,7 +192,8 @@ const collapseControl = {
       return
     }
 
-    // Default collapse toggle state (from a body style?)
+    // Initial collapse toggle state
+    this.collapseCount = $('.collapse').length
     this.allCollapsed = $('.collapse.show').length === 0
 
     this.actionCollapseSpan = $('#action-collapse-collapse')
@@ -215,6 +218,18 @@ const collapseControl = {
       const title = $(e.target).attr('id')
       window.history.replaceState({}, document.title, '#' + title.substr(1))
     })
+
+    // If the user manually opens or closes everything then
+    // toggle the button to make it do the opposite.
+    $('.j2-item-popopen-wrapper')
+      .on('shown.bs.collapse hidden.bs.collapse', (e) => {
+        const actualUncollapsed = $('.collapse.show').length
+        if (((actualUncollapsed === this.collapseCount) && this.allCollapsed) ||
+            (actualUncollapsed === 0 && !this.allCollapsed)) {
+          this.allCollapsed = !this.allCollapsed
+          this.updateChrome()
+        }
+      })
 
     $('#action-collapse').click(() => { this.toggle(); return false })
 
