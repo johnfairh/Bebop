@@ -51,6 +51,9 @@ const navControl = {
       return false
     })
 
+    $(window).on('hashchange', () => this.pickBestActive())
+    this.pickBestActive()
+
     this.scrollToCurrent()
   },
 
@@ -60,6 +63,25 @@ const navControl = {
 
     if (activeNavItem) {
       activeNavItem.scrollIntoViewIfNeeded()
+    }
+  },
+
+  // If there are nav entries for items on the page then
+  // highlight them as current when we go there.
+  pickBestActive () {
+    this.pickBestActiveForId($(':target').attr('id') || '')
+  },
+
+  pickBestActiveForId (id) {
+    for (const lang of ['swift', 'objc']) {
+      const $currentActive = $(`.j2-${lang} .j2-nav-item.active`)
+      const $bestActive = $(`.j2-${lang} .j2-nav-list [href='#${id}']`)
+      if ($bestActive[0] && $currentActive[0] !== $bestActive[0]) {
+        $currentActive.removeClass('active')
+        $currentActive.removeAttr('aria-current')
+        $bestActive.addClass('active')
+        $bestActive.attr('aria-current', 'page')
+      }
     }
   }
 }
@@ -224,6 +246,7 @@ const collapseControl = {
       if (this.toggling) return
       const title = $(e.target).attr('id')
       window.history.replaceState({}, document.title, '#' + title.substr(1))
+      navControl.pickBestActiveForId(title.substr(1))
     })
 
     // If the user manually opens or closes everything then
