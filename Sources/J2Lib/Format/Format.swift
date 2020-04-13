@@ -31,11 +31,14 @@ public final class Format: Configurable {
 
     public func format(items: [Item]) throws -> [Item] {
         let readme = try createReadme()
-        setLinearlinks(readme: readme, to: items)
         let allItems = items + [readme]
         logDebug("Format: Assigning URLs")
         URLFormatter(childItemStyle: configPublished.childItemStyle,
                      multiModule: configPublished.isMultiModule).walk(items: allItems)
+        let linearVisitor = LinearItemVisitor()
+        linearVisitor.walk(items: allItems)
+        readme.linearNext = items.first
+        readme.linearPrev = linearVisitor.visited
         logDebug("Format: Attach custom abstracts")
         try abstract.attach(items: allItems)
         logDebug("Format: Building autolink index")
@@ -76,17 +79,22 @@ public final class Format: Configurable {
         }
         return ReadmeItem(content: readmeMd.mapValues { Markdown($0) })
     }
+}
 
-    /// Add the readme into the total order - but no links pointing back to it, naming is tricky
-    /// so we do it in mustache.
-    private func setLinearlinks(readme: Item, to items: [Item]) {
-        if let first = items.first {
-            readme.linearNext = first
-            var last = items.last!
-            while let nextLast = last.children.last {
-                last = nextLast
+/// Pass to assign the 'linear' total order for next/prev navigation
+fileprivate final class LinearItemVisitor: ItemVisitorProtocol {
+    var visited: Item?
+    func visit(item: Item) {
+        if item.renderAsPage {
+            if let visited = visited {
+                visited.linearNext = item
+                item.linearPrev = visited
             }
-            readme.linearPrev = last
+            visited = item
         }
     }
+    func visit(defItem: DefItem, parents: [Item]) { visit(item: defItem) }
+    func visit(groupItem: GroupItem, parents: [Item]) { visit(item: groupItem) }
+    func visit(guideItem: GuideItem, parents: [Item]) { visit(item: guideItem) }
+    func visit(readmeItem: ReadmeItem, parents: [Item]) {}
 }

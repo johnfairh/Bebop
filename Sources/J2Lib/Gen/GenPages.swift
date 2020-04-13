@@ -161,7 +161,8 @@ final class PageVisitor: ItemVisitorProtocol {
                 secondaryTitle: defItem.secondaryTitle,
                 breadcrumbs: buildBreadcrumbs(item: defItem, parents: parents),
                 definition: defItem.asGenDef(pageURL: defItem.url),
-                topics: buildTopics(item: defItem)))
+                topics: buildTopics(item: defItem),
+                pagination: buildPagination(item: defItem)))
         }
     }
 
@@ -174,7 +175,8 @@ final class PageVisitor: ItemVisitorProtocol {
                                   secondaryTitle: primaryTitle == secondaryTitle ? nil : secondaryTitle,
                                   breadcrumbs: buildBreadcrumbs(item: groupItem, parents: parents),
                                   content: groupItem.customAbstract?.html.autolinked(groupItem.url),
-                                  topics: buildTopics(item: groupItem)))
+                                  topics: buildTopics(item: groupItem),
+                                  pagination: buildPagination(item: groupItem)))
     }
 
     func visit(guideItem: GuideItem, parents: [Item]) {
@@ -182,7 +184,8 @@ final class PageVisitor: ItemVisitorProtocol {
                                   title: guideItem.title,
                                   breadcrumbs: buildBreadcrumbs(item: guideItem, parents: parents),
                                   isReadme: false,
-                                  content: guideItem.content.html.autolinked(guideItem.url)))
+                                  content: guideItem.content.html.autolinked(guideItem.url),
+                                  pagination: buildPagination(item: guideItem)))
     }
 
     func visit(readmeItem: ReadmeItem, parents: [Item]) {
@@ -190,7 +193,8 @@ final class PageVisitor: ItemVisitorProtocol {
                                   title: readmeItem.title,
                                   breadcrumbs: [],
                                   isReadme: true,
-                                  content: readmeItem.content.html.autolinked(readmeItem.url)))
+                                  content: readmeItem.content.html.autolinked(readmeItem.url),
+                                  pagination: buildPagination(item: readmeItem)))
     }
 
     /// Breadcrumbs for a page
@@ -255,6 +259,23 @@ final class PageVisitor: ItemVisitorProtocol {
         }
         endTopic()
         return topics
+    }
+
+    /// Pagination links for a page
+    func buildPagination(item: Item) -> GenData.Pagination {
+        GenData.Pagination(prev: buildPaginationLink(to: item.linearPrev),
+                           next: buildPaginationLink(to: item.linearNext))
+    }
+
+    func buildPaginationLink(to item: Item?) -> GenData.PaginationLink? {
+        guard let item = item else {
+            return nil
+        }
+        let primaryLanguage = (item as? DefItem).flatMap { $0.primaryLanguage } ?? defaultLanguage
+        return GenData.PaginationLink(url: item.url,
+                                      primaryTitle: item.titlePreferring(language: primaryLanguage),
+                                      secondaryTitle: item.titlePreferring(language: primaryLanguage.otherLanguage),
+                                      primaryLanguage: primaryLanguage)
     }
 }
 

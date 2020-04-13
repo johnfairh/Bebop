@@ -26,6 +26,20 @@
         ]
       ],
       "is_guide" : false,
+      "pagination" : {
+        "next" : {
+          "primary_language" : "objc",
+          "primary_title" : {
+            "en" : "NormalClass"
+          },
+          "secondary_title" : {
+            "en" : "NormalClass"
+          },
+          "url" : {
+            "url_path" : "spmobjcmodule\/types\/normalclass1"
+          }
+        }
+      },
       "primary_language" : "swift",
       "primary_title" : {
         "en" : "Types"
@@ -234,6 +248,32 @@
         }
       },
       "is_guide" : false,
+      "pagination" : {
+        "next" : {
+          "primary_language" : "objc",
+          "primary_title" : {
+            "en" : "JMLKitchen"
+          },
+          "secondary_title" : {
+            "en" : "Kitchen"
+          },
+          "url" : {
+            "url_path" : "spmobjcmodule\/types\/jmlkitchen"
+          }
+        },
+        "prev" : {
+          "primary_language" : "swift",
+          "primary_title" : {
+            "en" : "Types"
+          },
+          "secondary_title" : {
+            "en" : "Types"
+          },
+          "url" : {
+            "url_path" : "types"
+          }
+        }
+      },
       "primary_language" : "objc",
       "primary_title" : {
         "en" : "NormalClass"
@@ -378,6 +418,32 @@
         }
       },
       "is_guide" : false,
+      "pagination" : {
+        "next" : {
+          "primary_language" : "objc",
+          "primary_title" : {
+            "en" : "JMLKitchenCupboard"
+          },
+          "secondary_title" : {
+            "en" : "Cupboard"
+          },
+          "url" : {
+            "url_path" : "spmobjcmodule\/types\/jmlkitchencupboard"
+          }
+        },
+        "prev" : {
+          "primary_language" : "objc",
+          "primary_title" : {
+            "en" : "NormalClass"
+          },
+          "secondary_title" : {
+            "en" : "NormalClass"
+          },
+          "url" : {
+            "url_path" : "spmobjcmodule\/types\/normalclass1"
+          }
+        }
+      },
       "primary_language" : "objc",
       "primary_title" : {
         "en" : "JMLKitchen"
@@ -512,6 +578,32 @@
         }
       },
       "is_guide" : false,
+      "pagination" : {
+        "next" : {
+          "primary_language" : "objc",
+          "primary_title" : {
+            "en" : "JMLBathroomCupboard"
+          },
+          "secondary_title" : {
+            "en" : "JMLBathroomCupboard"
+          },
+          "url" : {
+            "url_path" : "spmobjcmodule\/types\/jmlbathroomcupboard"
+          }
+        },
+        "prev" : {
+          "primary_language" : "objc",
+          "primary_title" : {
+            "en" : "JMLKitchen"
+          },
+          "secondary_title" : {
+            "en" : "Kitchen"
+          },
+          "url" : {
+            "url_path" : "spmobjcmodule\/types\/jmlkitchen"
+          }
+        }
+      },
       "primary_language" : "objc",
       "primary_title" : {
         "en" : "JMLKitchenCupboard"
@@ -718,6 +810,20 @@
         "params" : []
       },
       "is_guide" : false,
+      "pagination" : {
+        "prev" : {
+          "primary_language" : "objc",
+          "primary_title" : {
+            "en" : "JMLKitchenCupboard"
+          },
+          "secondary_title" : {
+            "en" : "Cupboard"
+          },
+          "url" : {
+            "url_path" : "spmobjcmodule\/types\/jmlkitchencupboard"
+          }
+        }
+      },
       "primary_language" : "objc",
       "primary_title" : {
         "en" : "JMLBathroomCupboard"
@@ -773,6 +879,32 @@
         }
       },
       "is_guide" : true,
+      "pagination" : {
+        "next" : {
+          "primary_language" : "swift",
+          "primary_title" : {
+            "en" : "Types"
+          },
+          "secondary_title" : {
+            "en" : "Types"
+          },
+          "url" : {
+            "url_path" : "types"
+          }
+        },
+        "prev" : {
+          "primary_language" : "objc",
+          "primary_title" : {
+            "en" : "JMLBathroomCupboard"
+          },
+          "secondary_title" : {
+            "en" : "JMLBathroomCupboard"
+          },
+          "url" : {
+            "url_path" : "spmobjcmodule\/types\/jmlbathroomcupboard"
+          }
+        }
+      },
       "primary_language" : "swift",
       "primary_title" : {
         "en" : "index"

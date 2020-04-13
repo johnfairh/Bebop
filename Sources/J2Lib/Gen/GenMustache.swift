@@ -117,6 +117,10 @@ public enum MustacheKey: String {
     // Breadcrumbs
     case breadcrumbsMenus = "breadcrumbs_menus"
     case breadcrumbs = "breadcrumbs"
+    // Pagination
+    case pagination = "pagination"
+    case prev = "prev"
+    case next = "next"
 
     // Definitions
     case def = "def"
@@ -151,6 +155,8 @@ public enum MustacheKey: String {
     // Items
     case items = "items"
     case dashType = "dash_type"
+    case primaryTitle = "primary_title"
+    case secondaryTitle = "secondary_title"
     case primaryTitleHtml = "primary_title_html"
     case secondaryTitleHtml = "secondary_title_html"
     case primaryLanguage = "primary_language"
@@ -214,6 +220,7 @@ extension GenData {
         }
 
         data[.tocs] = generateTocs(page: pg, languageTag: languageTag, fileExt: fileExt)
+        data[.pagination] = pg.generatePagination(languageTag: languageTag, fileExt: fileExt)
 
         return MustachePage(languageTag: languageTag, filepath: filepath, data: data)
     }
@@ -358,6 +365,29 @@ extension GenData.Breadcrumb {
         var dict = MH([.title: title.get(languageTag)])
         dict.maybe(.url, url?.url(fileExtension: fileExt, language: language))
         return dict
+    }
+}
+
+// MARK: Pagination
+
+extension GenData.Page {
+    func generatePagination(languageTag: String, fileExt: String) -> MustacheDict {
+        var dict = MustacheDict()
+        dict.maybe(.prev, pagination.prev?.generatePaginationLink(languageTag: languageTag, fileExt: fileExt))
+        dict.maybe(.next, pagination.next?.generatePaginationLink(languageTag: languageTag, fileExt: fileExt))
+        return dict
+    }
+}
+
+extension GenData.PaginationLink {
+    func generatePaginationLink(languageTag: String, fileExt: String) -> MustacheDict {
+        MH([.primaryLanguage: primaryLanguage.cssName,
+            .primaryUrl: url.url(fileExtension: fileExt, language: primaryLanguage),
+            .primaryTitle: primaryTitle.get(languageTag),
+            .secondaryLanguage: primaryLanguage.otherLanguage.cssName,
+            .secondaryUrl: url.url(fileExtension: fileExt, language: primaryLanguage.otherLanguage),
+            .secondaryTitle: secondaryTitle.get(languageTag)
+        ])
     }
 }
 

@@ -85,9 +85,6 @@ public struct Group: Configurable {
         })
         topicVisitor.walk(items: allGroups)
 
-        // Assign total order
-        LinearItemVisitor().walk(items: allGroups)
-
         return allGroups
     }
 
@@ -181,19 +178,4 @@ private extension GroupKind {
             self = .someItems(kind, title)
         }
     }
-}
-
-/// Pass to assign the 'linear' total order for next/prev navigation
-fileprivate final class LinearItemVisitor: ItemVisitorProtocol {
-    var visited: Item?
-    func visit(item: Item) {
-        if let visited = visited {
-            visited.linearNext = item
-            item.linearPrev = visited
-        }
-        visited = item
-    }
-    func visit(defItem: DefItem, parents: [Item]) { visit(item: defItem) }
-    func visit(groupItem: GroupItem, parents: [Item]) { visit(item: groupItem) }
-    func visit(guideItem: GuideItem, parents: [Item]) { visit(item: guideItem) }
 }

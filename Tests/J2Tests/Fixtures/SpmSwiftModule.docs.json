@@ -25,6 +25,16 @@
     "item_nest" : true,
     "j2lib_version" : "0.1",
     "language_tag" : "en",
+    "pagination" : {
+      "next" : {
+        "primary_language" : "j2-swift",
+        "primary_title" : "ABaseClass",
+        "primary_url" : "types\/abaseclass.html?swift",
+        "secondary_language" : "j2-objc",
+        "secondary_title" : "ABaseClass",
+        "secondary_url" : "types\/abaseclass.html?objc"
+      }
+    },
     "path_from_root" : "types.html",
     "path_to_assets" : "",
     "path_to_root" : "",
@@ -294,6 +304,24 @@
     "item_nest" : true,
     "j2lib_version" : "0.1",
     "language_tag" : "en",
+    "pagination" : {
+      "next" : {
+        "primary_language" : "j2-swift",
+        "primary_title" : "ADerivedClass",
+        "primary_url" : "types\/aderivedclass.html?swift",
+        "secondary_language" : "j2-objc",
+        "secondary_title" : "ADerivedClass",
+        "secondary_url" : "types\/aderivedclass.html?objc"
+      },
+      "prev" : {
+        "primary_language" : "j2-swift",
+        "primary_title" : "Types",
+        "primary_url" : "types.html?swift",
+        "secondary_language" : "j2-objc",
+        "secondary_title" : "Types",
+        "secondary_url" : "types.html?objc"
+      }
+    },
     "path_from_root" : "types\/abaseclass.html",
     "path_to_assets" : "..\/",
     "path_to_root" : "..\/",
@@ -682,6 +710,24 @@
     "item_nest" : true,
     "j2lib_version" : "0.1",
     "language_tag" : "en",
+    "pagination" : {
+      "next" : {
+        "primary_language" : "j2-swift",
+        "primary_title" : "AnEnum",
+        "primary_url" : "types\/anenum.html?swift",
+        "secondary_language" : "j2-objc",
+        "secondary_title" : "AnEnum",
+        "secondary_url" : "types\/anenum.html?objc"
+      },
+      "prev" : {
+        "primary_language" : "j2-swift",
+        "primary_title" : "ABaseClass",
+        "primary_url" : "types\/abaseclass.html?swift",
+        "secondary_language" : "j2-objc",
+        "secondary_title" : "ABaseClass",
+        "secondary_url" : "types\/abaseclass.html?objc"
+      }
+    },
     "path_from_root" : "types\/aderivedclass.html",
     "path_to_assets" : "..\/",
     "path_to_root" : "..\/",
@@ -920,6 +966,24 @@
     "item_nest" : true,
     "j2lib_version" : "0.1",
     "language_tag" : "en",
+    "pagination" : {
+      "next" : {
+        "primary_language" : "j2-swift",
+        "primary_title" : "FirstProtocol",
+        "primary_url" : "types\/firstprotocol1.html?swift",
+        "secondary_language" : "j2-objc",
+        "secondary_title" : "FirstProtocol",
+        "secondary_url" : "types\/firstprotocol1.html?objc"
+      },
+      "prev" : {
+        "primary_language" : "j2-swift",
+        "primary_title" : "ADerivedClass",
+        "primary_url" : "types\/aderivedclass.html?swift",
+        "secondary_language" : "j2-objc",
+        "secondary_title" : "ADerivedClass",
+        "secondary_url" : "types\/aderivedclass.html?objc"
+      }
+    },
     "path_from_root" : "types\/anenum.html",
     "path_to_assets" : "..\/",
     "path_to_root" : "..\/",
@@ -1172,6 +1236,24 @@
     "item_nest" : true,
     "j2lib_version" : "0.1",
     "language_tag" : "en",
+    "pagination" : {
+      "next" : {
+        "primary_language" : "j2-swift",
+        "primary_title" : "GenericBase",
+        "primary_url" : "types\/genericbase.html?swift",
+        "secondary_language" : "j2-objc",
+        "secondary_title" : "GenericBase",
+        "secondary_url" : "types\/genericbase.html?objc"
+      },
+      "prev" : {
+        "primary_language" : "j2-swift",
+        "primary_title" : "AnEnum",
+        "primary_url" : "types\/anenum.html?swift",
+        "secondary_language" : "j2-objc",
+        "secondary_title" : "AnEnum",
+        "secondary_url" : "types\/anenum.html?objc"
+      }
+    },
     "path_from_root" : "types\/firstprotocol1.html",
     "path_to_assets" : "..\/",
     "path_to_root" : "..\/",
@@ -1475,6 +1557,24 @@
     "item_nest" : true,
     "j2lib_version" : "0.1",
     "language_tag" : "en",
+    "pagination" : {
+      "next" : {
+        "primary_language" : "j2-swift",
+        "primary_title" : "SpmSwiftModule",
+        "primary_url" : "types\/spmswiftmodule.html?swift",
+        "secondary_language" : "j2-objc",
+        "secondary_title" : "SpmSwiftModule",
+        "secondary_url" : "types\/spmswiftmodule.html?objc"
+      },
+      "prev" : {
+        "primary_language" : "j2-swift",
+        "primary_title" : "FirstProtocol",
+        "primary_url" : "types\/firstprotocol1.html?swift",
+        "secondary_language" : "j2-objc",
+        "secondary_title" : "FirstProtocol",
+        "secondary_url" : "types\/firstprotocol1.html?objc"
+      }
+    },
     "path_from_root" : "types\/genericbase.html",
     "path_to_assets" : "..\/",
     "path_to_root" : "..\/",
@@ -1839,6 +1939,24 @@
     "item_nest" : true,
     "j2lib_version" : "0.1",
     "language_tag" : "en",
+    "pagination" : {
+      "next" : {
+        "primary_language" : "j2-swift",
+        "primary_title" : "Nested1",
+        "primary_url" : "types\/spmswiftmodule\/nested1.html?swift",
+        "secondary_language" : "j2-objc",
+        "secondary_title" : "Nested1",
+        "secondary_url" : "types\/spmswiftmodule\/nested1.html?objc"
+      },
+      "prev" : {
+        "primary_language" : "j2-swift",
+        "primary_title" : "GenericBase",
+        "primary_url" : "types\/genericbase.html?swift",
+        "secondary_language" : "j2-objc",
+        "secondary_title" : "GenericBase",
+        "secondary_url" : "types\/genericbase.html?objc"
+      }
+    },
     "path_from_root" : "types\/spmswiftmodule.html",
     "path_to_assets" : "..\/",
     "path_to_root" : "..\/",
@@ -2082,6 +2200,24 @@
     "item_nest" : true,
     "j2lib_version" : "0.1",
     "language_tag" : "en",
+    "pagination" : {
+      "next" : {
+        "primary_language" : "j2-swift",
+        "primary_title" : "Functions",
+        "primary_url" : "functions.html?swift",
+        "secondary_language" : "j2-objc",
+        "secondary_title" : "Functions",
+        "secondary_url" : "functions.html?objc"
+      },
+      "prev" : {
+        "primary_language" : "j2-swift",
+        "primary_title" : "SpmSwiftModule",
+        "primary_url" : "types\/spmswiftmodule.html?swift",
+        "secondary_language" : "j2-objc",
+        "secondary_title" : "SpmSwiftModule",
+        "secondary_url" : "types\/spmswiftmodule.html?objc"
+      }
+    },
     "path_from_root" : "types\/spmswiftmodule\/nested1.html",
     "path_to_assets" : "..\/..\/",
     "path_to_root" : "..\/..\/",
@@ -2289,6 +2425,24 @@
     "item_nest" : true,
     "j2lib_version" : "0.1",
     "language_tag" : "en",
+    "pagination" : {
+      "next" : {
+        "primary_language" : "j2-swift",
+        "primary_title" : "Operators",
+        "primary_url" : "operators.html?swift",
+        "secondary_language" : "j2-objc",
+        "secondary_title" : "Operators",
+        "secondary_url" : "operators.html?objc"
+      },
+      "prev" : {
+        "primary_language" : "j2-swift",
+        "primary_title" : "Nested1",
+        "primary_url" : "types\/spmswiftmodule\/nested1.html?swift",
+        "secondary_language" : "j2-objc",
+        "secondary_title" : "Nested1",
+        "secondary_url" : "types\/spmswiftmodule\/nested1.html?objc"
+      }
+    },
     "path_from_root" : "functions.html",
     "path_to_assets" : "",
     "path_to_root" : "",
@@ -2506,6 +2660,24 @@
     "item_nest" : true,
     "j2lib_version" : "0.1",
     "language_tag" : "en",
+    "pagination" : {
+      "next" : {
+        "primary_language" : "j2-swift",
+        "primary_title" : "Extensions",
+        "primary_url" : "extensions.html?swift",
+        "secondary_language" : "j2-objc",
+        "secondary_title" : "Categories",
+        "secondary_url" : "extensions.html?objc"
+      },
+      "prev" : {
+        "primary_language" : "j2-swift",
+        "primary_title" : "Functions",
+        "primary_url" : "functions.html?swift",
+        "secondary_language" : "j2-objc",
+        "secondary_title" : "Functions",
+        "secondary_url" : "functions.html?objc"
+      }
+    },
     "path_from_root" : "operators.html",
     "path_to_assets" : "",
     "path_to_root" : "",
@@ -2683,6 +2855,24 @@
     "item_nest" : true,
     "j2lib_version" : "0.1",
     "language_tag" : "en",
+    "pagination" : {
+      "next" : {
+        "primary_language" : "j2-swift",
+        "primary_title" : "Collection",
+        "primary_url" : "extensions\/collection.html?swift",
+        "secondary_language" : "j2-objc",
+        "secondary_title" : "Collection",
+        "secondary_url" : "extensions\/collection.html?objc"
+      },
+      "prev" : {
+        "primary_language" : "j2-swift",
+        "primary_title" : "Operators",
+        "primary_url" : "operators.html?swift",
+        "secondary_language" : "j2-objc",
+        "secondary_title" : "Operators",
+        "secondary_url" : "operators.html?objc"
+      }
+    },
     "path_from_root" : "extensions.html",
     "path_to_assets" : "",
     "path_to_root" : "",
@@ -2883,6 +3073,24 @@
     "item_nest" : true,
     "j2lib_version" : "0.1",
     "language_tag" : "en",
+    "pagination" : {
+      "next" : {
+        "primary_language" : "j2-swift",
+        "primary_title" : "String.Element",
+        "primary_url" : "extensions\/stringelement.html?swift",
+        "secondary_language" : "j2-objc",
+        "secondary_title" : "String.Element",
+        "secondary_url" : "extensions\/stringelement.html?objc"
+      },
+      "prev" : {
+        "primary_language" : "j2-swift",
+        "primary_title" : "Extensions",
+        "primary_url" : "extensions.html?swift",
+        "secondary_language" : "j2-objc",
+        "secondary_title" : "Categories",
+        "secondary_url" : "extensions.html?objc"
+      }
+    },
     "path_from_root" : "extensions\/collection.html",
     "path_to_assets" : "..\/",
     "path_to_root" : "..\/",
@@ -3108,6 +3316,16 @@
     "item_nest" : true,
     "j2lib_version" : "0.1",
     "language_tag" : "en",
+    "pagination" : {
+      "prev" : {
+        "primary_language" : "j2-swift",
+        "primary_title" : "Collection",
+        "primary_url" : "extensions\/collection.html?swift",
+        "secondary_language" : "j2-objc",
+        "secondary_title" : "Collection",
+        "secondary_url" : "extensions\/collection.html?objc"
+      }
+    },
     "path_from_root" : "extensions\/stringelement.html",
     "path_to_assets" : "..\/",
     "path_to_root" : "..\/",
@@ -3305,6 +3523,24 @@
     "item_nest" : true,
     "j2lib_version" : "0.1",
     "language_tag" : "en",
+    "pagination" : {
+      "next" : {
+        "primary_language" : "j2-swift",
+        "primary_title" : "Types",
+        "primary_url" : "types.html?swift",
+        "secondary_language" : "j2-objc",
+        "secondary_title" : "Types",
+        "secondary_url" : "types.html?objc"
+      },
+      "prev" : {
+        "primary_language" : "j2-swift",
+        "primary_title" : "String.Element",
+        "primary_url" : "extensions\/stringelement.html?swift",
+        "secondary_language" : "j2-objc",
+        "secondary_title" : "String.Element",
+        "secondary_url" : "extensions\/stringelement.html?objc"
+      }
+    },
     "path_from_root" : "index.html",
     "path_to_assets" : "",
     "path_to_root" : "",

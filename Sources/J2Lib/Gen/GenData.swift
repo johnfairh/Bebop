@@ -106,6 +106,16 @@ public final class GenData: Encodable {
         public let title: Localized<String>
         public let url: URLPieces?
     }
+    public struct PaginationLink: Encodable {
+        public let url: URLPieces
+        public let primaryTitle: Localized<String>
+        public let secondaryTitle: Localized<String>
+        public let primaryLanguage: DefLanguage
+    }
+    public struct Pagination: Encodable {
+        public let prev: PaginationLink?
+        public let next: PaginationLink?
+    }
     public struct Page: Encodable {
         public let url: URLPieces
         public let tocActiveURL: URLPieces?
@@ -119,6 +129,7 @@ public final class GenData: Encodable {
         public let breadcrumbs: [[Breadcrumb]]
         public let def: Def?
         public let topics: [Topic]
+        public let pagination: Pagination
 
         /// Def init
         init(defURL: URLPieces,
@@ -128,7 +139,8 @@ public final class GenData: Encodable {
              secondaryTitle: Localized<String>?,
              breadcrumbs: [[Breadcrumb]],
              definition: Def,
-             topics: [Topic] = []) {
+             topics: [Topic],
+             pagination: Pagination) {
             self.url = defURL
             self.tocActiveURL = tocActiveURL
             self.primaryTitle = primaryTitle
@@ -140,6 +152,7 @@ public final class GenData: Encodable {
             self.breadcrumbs = breadcrumbs
             self.def = definition
             self.topics = topics
+            self.pagination = pagination
         }
 
         /// Group init
@@ -149,7 +162,8 @@ public final class GenData: Encodable {
              secondaryTitle: Localized<String>?,
              breadcrumbs: [[Breadcrumb]],
              content: Localized<Html>?,
-             topics: [Topic] = []) {
+             topics: [Topic],
+             pagination: Pagination) {
             self.url = groupURL
             self.tocActiveURL = nil
             self.primaryTitle = primaryTitle
@@ -161,6 +175,7 @@ public final class GenData: Encodable {
             self.breadcrumbs = breadcrumbs
             self.def = nil
             self.topics = topics
+            self.pagination = pagination
         }
 
         /// Guide init
@@ -168,7 +183,8 @@ public final class GenData: Encodable {
              title: Localized<String>,
              breadcrumbs: [[Breadcrumb]],
              isReadme: Bool,
-             content: Localized<Html>?) {
+             content: Localized<Html>?,
+             pagination: Pagination) {
             self.url = guideURL
             self.tocActiveURL = nil
             self.primaryTitle = title
@@ -180,6 +196,7 @@ public final class GenData: Encodable {
             self.breadcrumbs = breadcrumbs
             self.def = nil
             self.topics = []
+            self.pagination = pagination
         }
     }
     public let pages: [Page]
