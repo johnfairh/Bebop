@@ -286,6 +286,7 @@ extension Array where Element == GenData.TocEntry {
     ///     screen_reader_name: describe the `nav` element for accessibility
     func generateToc(page: GenData.Page, language: DefLanguage, languageTag: String, fileExt: String) -> MustacheDict {
         MH([.toc: generateTocEntries(pageURLPath: page.url.url(fileExtension: fileExt),
+                                     tocActiveURLPath: page.tocActiveURL?.url(fileExtension: fileExt),
                                      language: language,
                                      languageTag: languageTag,
                                      fileExt: fileExt),
@@ -294,8 +295,12 @@ extension Array where Element == GenData.TocEntry {
     }
 
     /// Helper to generate a list of toc entries
-    func generateTocEntries(pageURLPath: String, language: DefLanguage, languageTag: String, fileExt: String) -> [MustacheDict] {
-        map { $0.generateTocEntry(pageURLPath: pageURLPath, language: language, languageTag: languageTag, fileExt: fileExt)}
+    func generateTocEntries(pageURLPath: String, tocActiveURLPath: String?, language: DefLanguage, languageTag: String, fileExt: String) -> [MustacheDict] {
+        map { $0.generateTocEntry(pageURLPath: pageURLPath,
+                                  tocActiveURLPath: tocActiveURLPath,
+                                  language: language,
+                                  languageTag: languageTag,
+                                  fileExt: fileExt) }
     }
 }
 
@@ -306,25 +311,27 @@ extension GenData.TocEntry {
     ///   children: option array of this same format
     ///   url: optional href to the entry [not set if we're already there]
     ///   same_page: true if 'url' is a #href on the same page we're on
-    func generateTocEntry(pageURLPath: String, language: DefLanguage, languageTag: String, fileExt: String) -> MustacheDict {
+    ///   active: true if this should be marked active *even though* it's for a different page
+    func generateTocEntry(pageURLPath: String, tocActiveURLPath: String?, language: DefLanguage, languageTag: String, fileExt: String) -> MustacheDict {
         let entryURLPath = url.url(fileExtension: fileExt, language: language)
         var dict = MH([.title: title.get(languageTag)])
         let entries = children.generateTocEntries(pageURLPath: pageURLPath,
+                                                  tocActiveURLPath: tocActiveURLPath,
                                                   language: language,
                                                   languageTag: languageTag,
                                                   fileExt: fileExt)
         if !entries.isEmpty {
             dict[.children] = entries
         }
-        if entryURLPath != pageURLPath {
-            // no url for the page we're currently on.
-            if entryURLPath.hasPrefix(pageURLPath) {
-                // #link to something on the same page
-                dict[.url] = url.hashURL
-                dict[.samePage] = true
-            } else {
-                dict[.url] = entryURLPath
-                dict[.samePage] = false
+        if entryURLPath.hasPrefix(pageURLPath) {
+            // #link to something on the same page
+            dict[.url] = url.hashURL
+            dict[.samePage] = true
+        } else {
+            dict[.url] = entryURLPath
+            dict[.samePage] = false
+            if let tocActiveURLPath = tocActiveURLPath, entryURLPath.hasPrefix(tocActiveURLPath) {
+                dict[.active] = true
             }
         }
         return dict

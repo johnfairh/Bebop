@@ -108,6 +108,7 @@ public final class GenData: Encodable {
     }
     public struct Page: Encodable {
         public let url: URLPieces
+        public let tocActiveURL: URLPieces?
         public let primaryTitle: Localized<String>
         public let primaryLanguage: DefLanguage
         public let secondaryTitle: Localized<String>?
@@ -121,6 +122,7 @@ public final class GenData: Encodable {
 
         /// Def init
         init(defURL: URLPieces,
+             tocActiveURL: URLPieces?,
              primaryTitle: Localized<String>,
              primaryLanguage: DefLanguage,
              secondaryTitle: Localized<String>?,
@@ -128,6 +130,7 @@ public final class GenData: Encodable {
              definition: Def,
              topics: [Topic] = []) {
             self.url = defURL
+            self.tocActiveURL = tocActiveURL
             self.primaryTitle = primaryTitle
             self.primaryLanguage = primaryLanguage
             self.secondaryTitle = secondaryTitle
@@ -148,6 +151,7 @@ public final class GenData: Encodable {
              content: Localized<Html>?,
              topics: [Topic] = []) {
             self.url = groupURL
+            self.tocActiveURL = nil
             self.primaryTitle = primaryTitle
             self.primaryLanguage = primaryLanguage
             self.secondaryTitle = secondaryTitle
@@ -166,6 +170,7 @@ public final class GenData: Encodable {
              isReadme: Bool,
              content: Localized<Html>?) {
             self.url = guideURL
+            self.tocActiveURL = nil
             self.primaryTitle = title
             self.primaryLanguage = .swift
             self.secondaryTitle = nil

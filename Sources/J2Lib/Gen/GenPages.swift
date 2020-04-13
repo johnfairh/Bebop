@@ -152,6 +152,10 @@ final class PageVisitor: ItemVisitorProtocol {
         if defItem.renderAsPage {
             pages.append(GenData.Page(
                 defURL: defItem.url,
+                // This thing is about child-style=separate, where we have pages that do not
+                // appear in the nav at all.  It looks weird, so we highlight the parent def.
+                // So this is valid only in that case 'highlight this thing instead of trying to find me'.
+                tocActiveURL: defItem.showInToc != .yes ? (defItem.parent as? DefItem)?.url : nil,
                 primaryTitle: defItem.primaryTitle,
                 primaryLanguage: defItem.primaryLanguage,
                 secondaryTitle: defItem.secondaryTitle,

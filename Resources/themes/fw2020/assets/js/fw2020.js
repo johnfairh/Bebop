@@ -73,12 +73,9 @@ const navControl = {
   },
 
   pickBestActiveForId (id) {
-    console.log(`id=${id}`)
     for (const lang of ['swift', 'objc']) {
       const $currentActive = $(`.j2-${lang} .j2-nav-item.active`)
-      console.log(`current=${$currentActive}`)
       const $bestActive = $(`.j2-${lang} .j2-nav-list [href='#${id}']`)
-      console.log(`best=${$bestActive}`)
       if ($bestActive[0] && $currentActive[0] !== $bestActive[0]) {
         $currentActive.removeClass('active')
         $currentActive.removeAttr('aria-current')
