@@ -30,7 +30,9 @@ public final class Format: Configurable {
     }
 
     public func format(items: [Item]) throws -> [Item] {
-        let allItems = items + [try createReadme()]
+        let readme = try createReadme()
+        setLinearlinks(readme: readme, to: items)
+        let allItems = items + [readme]
         logDebug("Format: Assigning URLs")
         URLFormatter(childItemStyle: configPublished.childItemStyle,
                      multiModule: configPublished.isMultiModule).walk(items: allItems)
@@ -73,5 +75,18 @@ public final class Format: Configurable {
                 + readmeAuthor
         }
         return ReadmeItem(content: readmeMd.mapValues { Markdown($0) })
+    }
+
+    /// Add the readme into the total order - but no links pointing back to it, naming is tricky
+    /// so we do it in mustache.
+    private func setLinearlinks(readme: Item, to items: [Item]) {
+        if let first = items.first {
+            readme.linearNext = first
+            var last = items.last!
+            while let nextLast = last.children.last {
+                last = nextLast
+            }
+            readme.linearPrev = last
+        }
     }
 }

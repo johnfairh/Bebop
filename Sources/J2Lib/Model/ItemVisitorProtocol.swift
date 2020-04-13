@@ -33,7 +33,7 @@ extension ItemVisitorProtocol {
 }
 
 extension ItemVisitorProtocol {
-    /// Visit  an item and its children
+    /// Visit an item followed by its children.  Depth-first, preorder.
     public func walk(item: Item, parents: [Item] = []) {
         item.accept(visitor: self, parents: parents)
         walk(items: item.children, parents: parents + [item])

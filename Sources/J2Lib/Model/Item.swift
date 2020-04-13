@@ -24,6 +24,9 @@ public class Item: Encodable {
     public private(set) weak var parent: Item?
     /// Topic the item belongs to
     public internal(set) var topic: Topic?
+    /// Linear next and previous nodes in the documentation tree
+    public internal(set) weak var linearNext: Item?
+    public internal(set) weak var linearPrev: Item?
 
     /// Info about the item's URL relative to the docroot
     public internal(set) var url: URLPieces
