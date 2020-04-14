@@ -7149,6 +7149,11 @@ pre {
   list-style-type: none;
 }
 
+h3 code {
+  font-size: 85%;
+  letter-spacing: -1px;
+}
+
 .j2-topic-overview p:last-child {
   margin-bottom: .5rem;
 }

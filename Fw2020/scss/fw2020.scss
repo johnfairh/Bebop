@@ -417,6 +417,12 @@ $j2-breadcrumbs-height: 37px;
 
 // Topics and Items
 
+// Fixed-font looks real bad as it gets big...
+h3 code {
+  font-size: 85%;
+  letter-spacing: -1px;
+}
+
 .j2-topic-overview {
   p:last-child {
     margin-bottom: .5rem;
