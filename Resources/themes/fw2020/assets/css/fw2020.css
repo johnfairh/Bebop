@@ -7025,7 +7025,10 @@ pre {
 }
 
 .j2-article-wrapper {
+  display: flex;
+  flex-direction: column;
   max-width: 800px;
+  height: 100%;
   margin: auto;
 }
 
@@ -7241,6 +7244,11 @@ pre {
 
 .j2-never-collapse .collapse:not(.show) {
   display: block;
+}
+
+.j2-pagination {
+  display: flex;
+  font-size: 95%;
 }
 
 .j2-aux-nav {

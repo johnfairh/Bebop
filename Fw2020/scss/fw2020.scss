@@ -299,7 +299,10 @@ $j2-breadcrumbs-height: 37px;
 }
 
 .j2-article-wrapper {
+  display: flex;
+  flex-direction: column;
   max-width: 800px;
+  height: 100%;
   @media (min-width: 1400px) {
     max-width: 56vw;
   }
@@ -518,6 +521,15 @@ $item-overview-indent: 2rem;
   .collapse:not(.show) {
     display: block;
   }
+}
+
+//
+// Pagination
+//
+
+.j2-pagination {
+  display: flex;
+  font-size: 95%;
 }
 
 //
