@@ -459,7 +459,16 @@ const keysControl = {
         case 'a': collapseControl.toggle(); break
         case 'l': langControl.toggle(); break
         case 'd': $('#size-debug').toggleClass('d-flex d-none'); break
+        case 'n': this.paginationLink('next'); break
+        case 'p': this.paginationLink('prev'); break
       }
+    }
+  },
+
+  paginationLink (label) {
+    const $linkElement = $(`#pagination-${label} a`).filter(':visible')
+    if ($linkElement) {
+      window.location = $linkElement.attr('href')
     }
   }
 }

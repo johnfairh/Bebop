@@ -1,28 +1,32 @@
 <nav aria-label="paging" class="j2-pagination pb-3 pt-2">
+  <div id="pagination-prev" class="flex-fill">
   {{#prev}}
-    <a class="flex-fill {{{primary_language}}}" href="{{{path_to_root}}}{{{primary_url}}}">
+    <a class="{{{primary_language}}}" href="{{{path_to_root}}}{{{primary_url}}}">
       <span aria-hidden="true">&laquo </span>{{primary_title}}
     </a>
-    <a class="flex-fill {{{secondary_language}}} j2-secondary" href="{{{path_to_root}}}{{{secondary_url}}}">
+    <a class="{{{secondary_language}}} j2-secondary" href="{{{path_to_root}}}{{{secondary_url}}}">
       <span aria-hidden="true">&laquo </span>{{secondary_title}}
     </a>
   {{/prev}}
   {{^prev}}
-    <a class="flex-fill" href="{{{path_to_root}}}index.html">
+    <a href="{{{path_to_root}}}index.html">
       <span aria-hidden="true">&laquo </span>{{breadcrumbs_root}}
     </a>
   {{/prev}}
+  </div>
+  <div id="pagination-next" class="flex-fill text-right">
   {{#next}}
-    <a class="flex-fill text-right {{{primary_language}}}" href="{{{path_to_root}}}{{{primary_url}}}">
+    <a class="{{{primary_language}}}" href="{{{path_to_root}}}{{{primary_url}}}">
       {{primary_title}}<span aria-hidden="true"> &raquo </span>
     </a>
-    <a class="flex-fill text-right {{{secondary_language}}} j2-secondary" href="{{{path_to_root}}}{{{secondary_url}}}">
+    <a class="{{{secondary_language}}} j2-secondary" href="{{{path_to_root}}}{{{secondary_url}}}">
       {{secondary_title}}<span aria-hidden="true"> &raquo</span>
     </a>
   {{/next}}
   {{^next}}
-    <a class="flex-fill text-right" href="{{{path_to_root}}}index.html">
+    <a href="{{{path_to_root}}}index.html">
       {{breadcrumbs_root}}<span aria-hidden="true"> &raquo</span>
     </a>
   {{/next}}
+  </div>
 </nav>
