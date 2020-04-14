@@ -257,6 +257,33 @@ class TestGen: XCTestCase {
 
     // MARK: Search
 
+    struct FullSystem {
+        let config: Config
+        let merge: Merge
+        let group: Group
+        let format: Format
+        let pageGen: GenPages
+        let gen: GenSite
+
+        init() {
+            config = Config()
+            merge = Merge(config: config)
+            group = Group(config: config)
+            format = Format(config: config)
+            pageGen = GenPages(config: config)
+            gen = GenSite(config: config)
+        }
+
+        func makeItems(cliOpts: [String] = [], passes: [GatherModulePass] = []) throws -> [Item] {
+            try config.processOptions(cliOpts: cliOpts)
+            return try format.format(items: group.group(merged: merge.merge(gathered: passes)))
+        }
+
+        func makePageData(cliOpts: [String] = [], passes: [GatherModulePass] = []) throws -> GenData {
+            return try pageGen.generatePages(items: makeItems(cliOpts: cliOpts, passes: passes))
+        }
+    }
+
     #if os(macOS)
     /// Just an interesting-path test, covered in TestProducts
     func testSearchGen() throws {
@@ -265,20 +292,25 @@ class TestGen: XCTestCase {
             .with(swiftDeclaration: "class SClass")
         let passes = SourceKittenDict.mkFile().with(children: [clas]).asGatherPasses
 
-        let config = Config()
-        let merge = Merge(config: config)
-        let group = Group(config: config)
-        let format = Format(config: config)
-        let gen = GenSite(config: config)
-        try config.processOptions(cliOpts: [])
-        let items = try format.format(items: group.group(merged: merge.merge(gathered: passes)))
-        gen.search.buildIndex(items: items)
+        let system = FullSystem()
+        let items = try system.makeItems(passes: passes)
+        system.gen.search.buildIndex(items: items)
         
-        XCTAssertEqual(2, gen.search.entries.count)
-        XCTAssertEqual("OClass", gen.search.entries[0].name)
-        XCTAssertEqual("SClass", gen.search.entries[1].name)
+        XCTAssertEqual(2, system.gen.search.entries.count)
+        XCTAssertEqual("OClass", system.gen.search.entries[0].name)
+        XCTAssertEqual("SClass", system.gen.search.entries[1].name)
     }
     #endif
+
+    // MARK: Pagination
+
+    func testPagination() throws {
+        let system = FullSystem()
+        let data = try system.makePageData(cliOpts: ["--hide-pagination"])
+        system.gen.generatePages(genData: data, fileExt: ".html") { loc, dict in
+            XCTAssertNil(dict[MustacheKey.pagination.rawValue])
+        }
+    }
 
     // MARK: Brand
 
@@ -291,7 +323,6 @@ class TestGen: XCTestCase {
 
     /// Bad-path again, covered in LayoutTest
     func testBrandConfigErrors() throws {
-
         let missingImg = "custom_brand:\n  alt_text: Fred\n"
         try checkConfigError(yaml: missingImg)
 

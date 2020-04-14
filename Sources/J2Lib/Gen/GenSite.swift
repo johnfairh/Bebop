@@ -39,6 +39,7 @@ public struct GenSite: Configurable {
     let hideAttributionOpt = BoolOpt(l: "hide-attribution")
     let hideCoverageOpt = BoolOpt(l: "hide-coverage")
     let hideAvailabilityOpt = BoolOpt(l: "hide-availability")
+    let hidePaginationOpt = BoolOpt(l: "hide-pagination")
     let customHeadOpt = StringOpt(l: "custom-head").help("HTML")
 
     let titleOpt = LocStringOpt(l: "title").help("TITLE")
@@ -157,10 +158,10 @@ public struct GenSite: Configurable {
         return try JSON.encode(data: siteData)
     }
 
-    /// Factored out page generation
-    private func generatePages(genData: GenData,
-                               fileExt: String,
-                               callback: (MustachePageLocation, MustacheDict) throws -> ()) rethrows {
+    /// Factored out page generation.  Internal for tests.
+    func generatePages(genData: GenData,
+                       fileExt: String,
+                       callback: (MustachePageLocation, MustacheDict) throws -> ()) rethrows {
         let docsTitle = buildDocsTitle()
         let breadcrumbsRoot = buildBreadcrumbsRoot()
 
@@ -181,6 +182,10 @@ public struct GenSite: Configurable {
             mustacheData.maybe(.brandTitle, brand.title?.get(page.languageTag))
             mustacheData.maybe(.brandAltText, brand.altText?.get(page.languageTag))
             mustacheData.maybe(.brandURL, brand.url?.get(page.languageTag))
+
+            if hidePaginationOpt.value {
+                mustacheData.removeValue(forKey: MustacheKey.pagination.rawValue)
+            }
 
             if Localizations.shared.all.count > 1 {
                 mustacheData[.pageLocalization] =
