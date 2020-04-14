@@ -1,32 +1,32 @@
 <nav aria-label="paging" class="j2-pagination pb-3 pt-2">
   <div id="pagination-prev" class="flex-fill">
   {{#prev}}
-    <a class="{{{primary_language}}}" href="{{{path_to_root}}}{{{primary_url}}}" aria-keyshortcuts="p">
-      <span aria-hidden="true">&laquo </span>{{primary_title}}
-    </a>
-    <a class="{{{secondary_language}}} j2-secondary" href="{{{path_to_root}}}{{{secondary_url}}}" aria-keyshortcuts="p">
-      <span aria-hidden="true">&laquo </span>{{secondary_title}}
-    </a>
+    {{<pagination_prev}}
+    {{$class}}{{{primary_language}}}{{/class}}{{$url}}{{{primary_url}}}{{/url}}{{$title}}{{primary_title}}{{/title}}
+    {{/pagination_prev}}
+    {{<pagination_prev}}
+    {{$class}}{{{secondary_language}}} j2-secondary{{/class}}{{$url}}{{{secondary_url}}}{{/url}}{{$title}}{{secondary_title}}{{/title}}
+    {{/pagination_prev}}
   {{/prev}}
   {{^prev}}
-    <a href="{{{path_to_root}}}index.html" aria-keyshortcuts="p">
-      <span aria-hidden="true">&laquo </span>{{breadcrumbs_root}}
-    </a>
+    {{<pagination_prev}}
+    {{$url}}index.html{{/url}}{{$title}}{{breadcrumbs_root}}{{/title}}
+    {{/pagination_prev}}
   {{/prev}}
   </div>
   <div id="pagination-next" class="flex-fill text-right">
   {{#next}}
-    <a class="{{{primary_language}}}" href="{{{path_to_root}}}{{{primary_url}}}" aria-keyshortcuts="n">
-      {{primary_title}}<span aria-hidden="true"> &raquo </span>
-    </a>
-    <a class="{{{secondary_language}}} j2-secondary" href="{{{path_to_root}}}{{{secondary_url}}}" aria-keyshortcuts="n">
-      {{secondary_title}}<span aria-hidden="true"> &raquo</span>
-    </a>
+    {{<pagination_next}}
+    {{$class}}{{{primary_language}}}{{/class}}{{$url}}{{{primary_url}}}{{/url}}{{$title}}{{primary_title}}{{/title}}
+    {{/pagination_next}}
+    {{<pagination_next}}
+    {{$class}}{{{secondary_language}}} j2-secondary{{/class}}{{$url}}{{{secondary_url}}}{{/url}}{{$title}}{{secondary_title}}{{/title}}
+    {{/pagination_next}}
   {{/next}}
   {{^next}}
-    <a href="{{{path_to_root}}}index.html" aria-keyshortcuts="n">
-      {{breadcrumbs_root}}<span aria-hidden="true"> &raquo</span>
-    </a>
+    {{<pagination_next}}
+    {{$url}}index.html{{/url}}{{$title}}{{breadcrumbs_root}}{{/title}}
+    {{/pagination_next}}
   {{/next}}
   </div>
 </nav>
