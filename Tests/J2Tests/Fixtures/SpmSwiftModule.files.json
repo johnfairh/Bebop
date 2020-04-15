@@ -1714,7 +1714,7 @@
       "key.j2.module_name" : "SpmSwiftModule",
       "key.j2.pass_index" : 0,
       "key.j2.version" : "0.1",
-      "key.length" : 2159,
+      "key.length" : 2379,
       "key.offset" : 0,
       "key.substructure" : [
         {
@@ -3761,6 +3761,214 @@
           "key.typename" : "ADerivedClass<T, Q>.Type",
           "key.typeusr" : "$s14SpmSwiftModule13ADerivedClassCyxq_GmD",
           "key.usr" : "s:14SpmSwiftModule13ADerivedClassC"
+        },
+        {
+          "key.accessibility" : "source.lang.swift.accessibility.internal",
+          "key.annotated_decl" : "<Declaration>@propertyWrapper struct Nop<\/Declaration>",
+          "key.attributes" : [
+            {
+              "key.attribute" : "source.decl.attribute.propertyWrapper",
+              "key.length" : 16,
+              "key.offset" : 2160
+            }
+          ],
+          "key.bodylength" : 111,
+          "key.bodyoffset" : 2189,
+          "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+          "key.fully_annotated_decl" : "<decl.struct><syntaxtype.attribute.builtin><syntaxtype.attribute.name>@propertyWrapper<\/syntaxtype.attribute.name><\/syntaxtype.attribute.builtin> <syntaxtype.keyword>struct<\/syntaxtype.keyword> <decl.name>Nop<\/decl.name><\/decl.struct>",
+          "key.j2.is_override" : false,
+          "key.j2.swift_declaration" : "@propertyWrapper\nstruct Nop",
+          "key.j2.swift_name_pieces" : [
+            {
+              "key.j2.name_piece_is_name" : false,
+              "key.j2.name_piece_text" : "struct "
+            },
+            {
+              "key.j2.name_piece_is_name" : true,
+              "key.j2.name_piece_text" : "Nop"
+            }
+          ],
+          "key.kind" : "source.lang.swift.decl.struct",
+          "key.length" : 124,
+          "key.name" : "Nop",
+          "key.namelength" : 3,
+          "key.nameoffset" : 2184,
+          "key.offset" : 2177,
+          "key.parsed_declaration" : "struct Nop",
+          "key.parsed_scope.end" : 120,
+          "key.parsed_scope.start" : 114,
+          "key.substructure" : [
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.internal",
+              "key.annotated_decl" : "<Declaration>var wrappedValue: <Type usr=\"s:SS\">String<\/Type><\/Declaration>",
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+              "key.fully_annotated_decl" : "<decl.var.instance><syntaxtype.keyword>var<\/syntaxtype.keyword> <decl.name>wrappedValue<\/decl.name>: <decl.var.type><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.var.type><\/decl.var.instance>",
+              "key.j2.is_override" : false,
+              "key.j2.swift_declaration" : "var wrappedValue: String",
+              "key.j2.swift_name_pieces" : [
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "var "
+                },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "wrappedValue"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : ": String"
+                }
+              ],
+              "key.kind" : "source.lang.swift.decl.var.instance",
+              "key.length" : 24,
+              "key.name" : "wrappedValue",
+              "key.namelength" : 12,
+              "key.nameoffset" : 2198,
+              "key.offset" : 2194,
+              "key.parsed_declaration" : "var wrappedValue: String",
+              "key.parsed_scope.end" : 115,
+              "key.parsed_scope.start" : 115,
+              "key.setter_accessibility" : "source.lang.swift.accessibility.internal",
+              "key.typename" : "String",
+              "key.typeusr" : "$sSSD",
+              "key.usr" : "s:14SpmSwiftModule3NopV12wrappedValueSSvp"
+            },
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.internal",
+              "key.annotated_decl" : "<Declaration>init(wrappedValue: <Type usr=\"s:SS\">String<\/Type>)<\/Declaration>",
+              "key.bodylength" : 46,
+              "key.bodyoffset" : 2252,
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+              "key.fully_annotated_decl" : "<decl.function.constructor><syntaxtype.keyword>init<\/syntaxtype.keyword>(<decl.var.parameter><decl.var.parameter.argument_label>wrappedValue<\/decl.var.parameter.argument_label>: <decl.var.parameter.type><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>)<\/decl.function.constructor>",
+              "key.j2.is_override" : false,
+              "key.j2.swift_declaration" : "init(wrappedValue: String)",
+              "key.j2.swift_name_pieces" : [
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "init"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "("
+                },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "wrappedValue"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : ": String)"
+                }
+              ],
+              "key.kind" : "source.lang.swift.decl.function.method.instance",
+              "key.length" : 75,
+              "key.name" : "init(wrappedValue:)",
+              "key.namelength" : 26,
+              "key.nameoffset" : 2224,
+              "key.offset" : 2224,
+              "key.parsed_declaration" : "init(wrappedValue: String)",
+              "key.parsed_scope.end" : 119,
+              "key.parsed_scope.start" : 117,
+              "key.typename" : "(Nop.Type) -> (String) -> Nop",
+              "key.typeusr" : "$s12wrappedValue14SpmSwiftModule3NopVSS_tcD",
+              "key.usr" : "s:14SpmSwiftModule3NopV12wrappedValueACSS_tcfc"
+            }
+          ],
+          "key.typename" : "Nop.Type",
+          "key.typeusr" : "$s14SpmSwiftModule3NopVmD",
+          "key.usr" : "s:14SpmSwiftModule3NopV"
+        },
+        {
+          "key.accessibility" : "source.lang.swift.accessibility.internal",
+          "key.annotated_decl" : "<Declaration>struct PropertyWrapperClient<\/Declaration>",
+          "key.bodylength" : 28,
+          "key.bodyoffset" : 2349,
+          "key.doc.column" : 8,
+          "key.doc.comment" : "See `@Nop`.",
+          "key.doc.declaration" : "struct PropertyWrapperClient",
+          "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+          "key.doc.full_as_xml" : "<Class file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"123\" column=\"8\"><Name>PropertyWrapperClient<\/Name><USR>s:14SpmSwiftModule21PropertyWrapperClientV<\/USR><Declaration>struct PropertyWrapperClient<\/Declaration><CommentParts><Abstract><Para>See <codeVoice>@Nop<\/codeVoice>.<\/Para><\/Abstract><\/CommentParts><\/Class>",
+          "key.doc.line" : 123,
+          "key.doc.name" : "PropertyWrapperClient",
+          "key.doc.type" : "Class",
+          "key.doclength" : 16,
+          "key.docoffset" : 2303,
+          "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+          "key.fully_annotated_decl" : "<decl.struct><syntaxtype.keyword>struct<\/syntaxtype.keyword> <decl.name>PropertyWrapperClient<\/decl.name><\/decl.struct>",
+          "key.j2.documentation" : {
+            "key.j2.abstract" : {
+              "en" : "See `@Nop`."
+            },
+            "key.j2.doc_source" : "docComment"
+          },
+          "key.j2.is_override" : false,
+          "key.j2.swift_declaration" : "struct PropertyWrapperClient",
+          "key.j2.swift_name_pieces" : [
+            {
+              "key.j2.name_piece_is_name" : false,
+              "key.j2.name_piece_text" : "struct "
+            },
+            {
+              "key.j2.name_piece_is_name" : true,
+              "key.j2.name_piece_text" : "PropertyWrapperClient"
+            }
+          ],
+          "key.kind" : "source.lang.swift.decl.struct",
+          "key.length" : 59,
+          "key.name" : "PropertyWrapperClient",
+          "key.namelength" : 21,
+          "key.nameoffset" : 2326,
+          "key.offset" : 2319,
+          "key.parsed_declaration" : "struct PropertyWrapperClient",
+          "key.parsed_scope.end" : 126,
+          "key.parsed_scope.start" : 123,
+          "key.substructure" : [
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.internal",
+              "key.annotated_decl" : "<Declaration>@<Type usr=\"s:14SpmSwiftModule3NopV\">Nop<\/Type> var v: <Type usr=\"s:SS\">String<\/Type> { get set }<\/Declaration>",
+              "key.attributes" : [
+                {
+                  "key.attribute" : "source.decl.attribute._custom",
+                  "key.length" : 4,
+                  "key.offset" : 2354
+                }
+              ],
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+              "key.fully_annotated_decl" : "<decl.var.instance><syntaxtype.attribute.builtin><syntaxtype.attribute.name>@<\/syntaxtype.attribute.name><ref.struct usr=\"s:14SpmSwiftModule3NopV\">Nop<\/ref.struct><\/syntaxtype.attribute.builtin> <syntaxtype.keyword>var<\/syntaxtype.keyword> <decl.name>v<\/decl.name>: <decl.var.type><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.var.type> { <syntaxtype.keyword>get<\/syntaxtype.keyword> <syntaxtype.keyword>set<\/syntaxtype.keyword> }<\/decl.var.instance>",
+              "key.j2.is_override" : false,
+              "key.j2.swift_declaration" : "@Nop\nvar v: String { get set }",
+              "key.j2.swift_name_pieces" : [
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "var "
+                },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "v"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : ": String"
+                }
+              ],
+              "key.kind" : "source.lang.swift.decl.var.instance",
+              "key.length" : 13,
+              "key.name" : "v",
+              "key.namelength" : 1,
+              "key.nameoffset" : 2367,
+              "key.offset" : 2363,
+              "key.parsed_declaration" : "var v: String",
+              "key.parsed_scope.end" : 125,
+              "key.parsed_scope.start" : 125,
+              "key.setter_accessibility" : "source.lang.swift.accessibility.internal",
+              "key.typename" : "String",
+              "key.typeusr" : "$sSSD",
+              "key.usr" : "s:14SpmSwiftModule21PropertyWrapperClientV1vSSvp"
+            }
+          ],
+          "key.typename" : "PropertyWrapperClient.Type",
+          "key.typeusr" : "$s14SpmSwiftModule21PropertyWrapperClientVmD",
+          "key.usr" : "s:14SpmSwiftModule21PropertyWrapperClientV"
         }
       ]
     }

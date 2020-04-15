@@ -303,11 +303,11 @@ class TestFormat: XCTestCase {
         }
         XCTAssertEqual(["OClass", "SClass"], getLinkNames(html: link1.html))
 
-        guard let link2 = system.format.autolink.link(for: "SwiftClass", context: filtered[0]) else {
+        guard let link2 = system.format.autolink.link(for: "@SwiftClass", context: filtered[0]) else {
             XCTFail("Couldn't resolve SwiftClass")
             return
         }
-        XCTAssertEqual(["SwiftClass"], getLinkNames(html: link2.html))
+        XCTAssertEqual(["@SwiftClass"], getLinkNames(html: link2.html))
 
         guard let (classDef, _) = system.format.autolink.def(for: "OClass", context: filtered[0]) else {
             XCTFail("Couldn't resolve OClass to def")

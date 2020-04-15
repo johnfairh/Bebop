@@ -2285,6 +2285,220 @@
           "parameters" : [],
           "source" : "undocumented"
         },
+        "kind" : "source.lang.swift.decl.var.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+          "first_line" : 115,
+          "last_line" : 115,
+          "module_name" : "SpmSwiftModule",
+          "pass_index" : 0
+        },
+        "name" : "wrappedValue",
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : {
+            "text" : "var wrappedValue: String"
+          },
+          "inherited_types" : [],
+          "is_override" : false,
+          "name_pieces" : [
+            {
+              "other" : "var "
+            },
+            {
+              "name" : "wrappedValue"
+            },
+            {
+              "other" : ": String"
+            }
+          ]
+        },
+        "swift_name" : "wrappedValue",
+        "usr" : "s:14SpmSwiftModule3NopV12wrappedValueSSvp"
+      },
+      {
+        "acl" : "internal",
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented"
+            }
+          },
+          "parameters" : [],
+          "source" : "undocumented"
+        },
+        "kind" : "source.lang.swift.decl.function.constructor",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+          "first_line" : 117,
+          "last_line" : 119,
+          "module_name" : "SpmSwiftModule",
+          "pass_index" : 0
+        },
+        "name" : "init(wrappedValue:)",
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : {
+            "text" : "init(wrappedValue: String)"
+          },
+          "inherited_types" : [],
+          "is_override" : false,
+          "name_pieces" : [
+            {
+              "name" : "init"
+            },
+            {
+              "other" : "("
+            },
+            {
+              "name" : "wrappedValue"
+            },
+            {
+              "other" : ": String)"
+            }
+          ]
+        },
+        "swift_name" : "init(wrappedValue:)",
+        "usr" : "s:14SpmSwiftModule3NopV12wrappedValueACSS_tcfc"
+      }
+    ],
+    "documentation" : {
+      "abstract" : {
+        "markdown" : {
+          "en" : "Undocumented"
+        }
+      },
+      "parameters" : [],
+      "source" : "undocumented"
+    },
+    "kind" : "source.lang.swift.decl.struct",
+    "location" : {
+      "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+      "first_line" : 114,
+      "last_line" : 120,
+      "module_name" : "SpmSwiftModule",
+      "pass_index" : 0
+    },
+    "name" : "Nop",
+    "swift_declaration" : {
+      "availability" : [],
+      "declaration" : {
+        "text" : "@propertyWrapper\nstruct Nop"
+      },
+      "inherited_types" : [],
+      "is_override" : false,
+      "name_pieces" : [
+        {
+          "other" : "struct "
+        },
+        {
+          "name" : "Nop"
+        }
+      ]
+    },
+    "swift_name" : "Nop",
+    "usr" : "s:14SpmSwiftModule3NopV"
+  },
+  {
+    "acl" : "internal",
+    "children" : [
+      {
+        "acl" : "internal",
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented"
+            }
+          },
+          "parameters" : [],
+          "source" : "undocumented"
+        },
+        "kind" : "source.lang.swift.decl.var.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+          "first_line" : 125,
+          "last_line" : 125,
+          "module_name" : "SpmSwiftModule",
+          "pass_index" : 0
+        },
+        "name" : "v",
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : {
+            "text" : "@Nop\nvar v: String { get set }"
+          },
+          "inherited_types" : [],
+          "is_override" : false,
+          "name_pieces" : [
+            {
+              "other" : "var "
+            },
+            {
+              "name" : "v"
+            },
+            {
+              "other" : ": String"
+            }
+          ]
+        },
+        "swift_name" : "v",
+        "usr" : "s:14SpmSwiftModule21PropertyWrapperClientV1vSSvp"
+      }
+    ],
+    "documentation" : {
+      "abstract" : {
+        "markdown" : {
+          "en" : "See `@Nop`."
+        }
+      },
+      "parameters" : [],
+      "source" : "docComment"
+    },
+    "kind" : "source.lang.swift.decl.struct",
+    "location" : {
+      "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+      "first_line" : 123,
+      "last_line" : 126,
+      "module_name" : "SpmSwiftModule",
+      "pass_index" : 0
+    },
+    "name" : "PropertyWrapperClient",
+    "swift_declaration" : {
+      "availability" : [],
+      "declaration" : {
+        "text" : "struct PropertyWrapperClient"
+      },
+      "inherited_types" : [],
+      "is_override" : false,
+      "name_pieces" : [
+        {
+          "other" : "struct "
+        },
+        {
+          "name" : "PropertyWrapperClient"
+        }
+      ]
+    },
+    "swift_name" : "PropertyWrapperClient",
+    "usr" : "s:14SpmSwiftModule21PropertyWrapperClientV"
+  },
+  {
+    "acl" : "internal",
+    "children" : [
+      {
+        "acl" : "internal",
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented"
+            }
+          },
+          "parameters" : [],
+          "source" : "undocumented"
+        },
         "extension_constraint" : "where Element: FirstProtocol",
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {

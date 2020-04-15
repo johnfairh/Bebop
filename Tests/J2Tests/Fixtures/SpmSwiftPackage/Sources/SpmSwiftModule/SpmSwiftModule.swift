@@ -109,3 +109,18 @@ public class ADerivedClass<T, Q: Sequence>: ABaseClass {
     return param
   }
 }
+
+@propertyWrapper
+struct Nop {
+    var wrappedValue: String
+
+    init(wrappedValue: String) {
+        self.wrappedValue = wrappedValue
+    }
+}
+
+/// See `@Nop`.
+struct PropertyWrapperClient {
+    @Nop
+    var v: String
+}

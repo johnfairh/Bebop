@@ -79,7 +79,8 @@ final class FormatAutolink: Configurable {
             return nil
         }
 
-        guard let (def, language) = def(for: name, context: context) else {
+        let declName = name.hasPrefix("@") ? String(name.dropFirst()) : name
+        guard let (def, language) = def(for: declName, context: context) else {
             return nil
         }
 

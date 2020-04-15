@@ -29,7 +29,7 @@ struct DeclarationFormatter: ItemVisitorProtocol {
             let escaped = text.htmlEscaped
 
             // veery approximate...
-            let linked = escaped.re_sub(#"\b\p{Lu}[\w.]*"#) { name in
+            let linked = escaped.re_sub(#"(?:\b|@)\p{Lu}[\w.]*"#) { name in
                 guard let link = autolink.link(for: name, context: defItem) else {
                     return name
                 }

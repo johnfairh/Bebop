@@ -14,7 +14,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 48,
+    "doc_coverage" : 46,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -72,6 +72,16 @@
                 "same_page" : false,
                 "title" : "GenericBase",
                 "url" : "types\/genericbase.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "Nop",
+                "url" : "types\/nop.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "PropertyWrapperClient",
+                "url" : "types\/propertywrapperclient.html?swift"
               },
               {
                 "children" : [
@@ -237,6 +247,34 @@
             "title" : "class GenericBase"
           },
           {
+            "anchor_id" : "nop",
+            "any_declaration" : true,
+            "dash_name" : "struct%20Nop",
+            "dash_type" : "Struct",
+            "def" : {
+              "abstract_html" : "<p>Undocumented<\/p>",
+              "swift_declaration_html" : "@propertyWrapper\nstruct Nop"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">struct <\/span>Nop",
+            "primary_url" : "types\/nop.html?swift",
+            "title" : "struct Nop"
+          },
+          {
+            "anchor_id" : "propertywrapperclient",
+            "any_declaration" : true,
+            "dash_name" : "struct%20PropertyWrapperClient",
+            "dash_type" : "Struct",
+            "def" : {
+              "abstract_html" : "<p>See <a href=\"types\/nop.html?swift\"><code>@Nop<\/code><\/a>.<\/p>",
+              "swift_declaration_html" : "struct PropertyWrapperClient"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">struct <\/span>PropertyWrapperClient",
+            "primary_url" : "types\/propertywrapperclient.html?swift",
+            "title" : "struct PropertyWrapperClient"
+          },
+          {
             "anchor_id" : "spmswiftmodule",
             "any_declaration" : true,
             "dash_name" : "struct%20SpmSwiftModule",
@@ -293,7 +331,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 48,
+    "doc_coverage" : 46,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -359,6 +397,16 @@
                 "same_page" : false,
                 "title" : "GenericBase",
                 "url" : "types\/genericbase.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "Nop",
+                "url" : "types\/nop.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "PropertyWrapperClient",
+                "url" : "types\/propertywrapperclient.html?swift"
               },
               {
                 "children" : [
@@ -699,7 +747,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 48,
+    "doc_coverage" : 46,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -765,6 +813,16 @@
                 "same_page" : false,
                 "title" : "GenericBase",
                 "url" : "types\/genericbase.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "Nop",
+                "url" : "types\/nop.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "PropertyWrapperClient",
+                "url" : "types\/propertywrapperclient.html?swift"
               },
               {
                 "children" : [
@@ -955,7 +1013,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 48,
+    "doc_coverage" : 46,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -1021,6 +1079,16 @@
                 "same_page" : false,
                 "title" : "GenericBase",
                 "url" : "types\/genericbase.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "Nop",
+                "url" : "types\/nop.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "PropertyWrapperClient",
+                "url" : "types\/propertywrapperclient.html?swift"
               },
               {
                 "children" : [
@@ -1225,7 +1293,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 48,
+    "doc_coverage" : 46,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -1291,6 +1359,16 @@
                 "same_page" : false,
                 "title" : "GenericBase",
                 "url" : "types\/genericbase.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "Nop",
+                "url" : "types\/nop.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "PropertyWrapperClient",
+                "url" : "types\/propertywrapperclient.html?swift"
               },
               {
                 "children" : [
@@ -1546,7 +1624,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 48,
+    "doc_coverage" : 46,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -1560,11 +1638,11 @@
     "pagination" : {
       "next" : {
         "primary_language" : "j2-swift",
-        "primary_title" : "SpmSwiftModule",
-        "primary_url" : "types\/spmswiftmodule.html?swift",
+        "primary_title" : "Nop",
+        "primary_url" : "types\/nop.html?swift",
         "secondary_language" : "j2-objc",
-        "secondary_title" : "SpmSwiftModule",
-        "secondary_url" : "types\/spmswiftmodule.html?objc"
+        "secondary_title" : "Nop",
+        "secondary_url" : "types\/nop.html?objc"
       },
       "prev" : {
         "primary_language" : "j2-swift",
@@ -1612,6 +1690,16 @@
                 "same_page" : true,
                 "title" : "GenericBase",
                 "url" : ""
+              },
+              {
+                "same_page" : false,
+                "title" : "Nop",
+                "url" : "types\/nop.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "PropertyWrapperClient",
+                "url" : "types\/propertywrapperclient.html?swift"
               },
               {
                 "children" : [
@@ -1914,6 +2002,487 @@
             "url" : "types.html?swift"
           },
           {
+            "title" : "Nop"
+          }
+        ],
+        "language" : "j2-swift"
+      }
+    ],
+    "breadcrumbs_root" : "SpmSwiftModule",
+    "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
+    "def" : {
+      "abstract_html" : "<p>Undocumented<\/p>",
+      "swift_declaration_html" : "@propertyWrapper\nstruct Nop"
+    },
+    "default_language" : "j2-swift",
+    "disable_search" : false,
+    "doc_coverage" : 46,
+    "docs_title" : "SpmSwiftModule docs",
+    "dual_language" : false,
+    "hide_article_title" : false,
+    "hide_attribution" : false,
+    "hide_availability" : false,
+    "item_collapse_never" : false,
+    "item_collapse_open" : false,
+    "item_nest" : true,
+    "j2lib_version" : "0.1",
+    "language_tag" : "en",
+    "pagination" : {
+      "next" : {
+        "primary_language" : "j2-swift",
+        "primary_title" : "PropertyWrapperClient",
+        "primary_url" : "types\/propertywrapperclient.html?swift",
+        "secondary_language" : "j2-objc",
+        "secondary_title" : "PropertyWrapperClient",
+        "secondary_url" : "types\/propertywrapperclient.html?objc"
+      },
+      "prev" : {
+        "primary_language" : "j2-swift",
+        "primary_title" : "GenericBase",
+        "primary_url" : "types\/genericbase.html?swift",
+        "secondary_language" : "j2-objc",
+        "secondary_title" : "GenericBase",
+        "secondary_url" : "types\/genericbase.html?objc"
+      }
+    },
+    "path_from_root" : "types\/nop.html",
+    "path_to_assets" : "..\/",
+    "path_to_root" : "..\/",
+    "primary_page_title" : "Nop",
+    "primary_title_language" : "j2-swift",
+    "tab_title_prefix" : true,
+    "tocs" : [
+      {
+        "language" : "j2-swift",
+        "screen_reader_name" : "Swift",
+        "toc" : [
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "ABaseClass",
+                "url" : "types\/abaseclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "ADerivedClass",
+                "url" : "types\/aderivedclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "AnEnum",
+                "url" : "types\/anenum.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "FirstProtocol",
+                "url" : "types\/firstprotocol1.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "GenericBase",
+                "url" : "types\/genericbase.html?swift"
+              },
+              {
+                "same_page" : true,
+                "title" : "Nop",
+                "url" : ""
+              },
+              {
+                "same_page" : false,
+                "title" : "PropertyWrapperClient",
+                "url" : "types\/propertywrapperclient.html?swift"
+              },
+              {
+                "children" : [
+                  {
+                    "children" : [
+                      {
+                        "same_page" : false,
+                        "title" : "Nested2a",
+                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2a"
+                      },
+                      {
+                        "same_page" : false,
+                        "title" : "Nested2b",
+                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2b"
+                      }
+                    ],
+                    "same_page" : false,
+                    "title" : "Nested1",
+                    "url" : "types\/spmswiftmodule\/nested1.html?swift"
+                  },
+                  {
+                    "same_page" : false,
+                    "title" : "Nested2",
+                    "url" : "types\/spmswiftmodule.html?swift#nested2"
+                  }
+                ],
+                "same_page" : false,
+                "title" : "SpmSwiftModule",
+                "url" : "types\/spmswiftmodule.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "T",
+                "url" : "types.html?swift#t1"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Types",
+            "url" : "types.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "deprecatedFunction(callback:)",
+                "url" : "functions.html?swift#deprecatedfunctioncallback"
+              },
+              {
+                "same_page" : false,
+                "title" : "functionA(arg1:_:arg3:)",
+                "url" : "functions.html?swift#functionaarg1_arg3"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Functions",
+            "url" : "functions.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "+(_:_:)",
+                "url" : "operators.html?swift#__1"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Operators",
+            "url" : "operators.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "Collection",
+                "url" : "extensions\/collection.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "String.Element",
+                "url" : "extensions\/stringelement.html?swift"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Extensions",
+            "url" : "extensions.html?swift"
+          }
+        ]
+      }
+    ],
+    "topics" : [
+      {
+        "anchor_id" : "tpc-initializers",
+        "dash_name" : "Initializers",
+        "items" : [
+          {
+            "anchor_id" : "initwrappedvalue",
+            "any_declaration" : true,
+            "dash_name" : "init(wrappedValue%3A%20String)",
+            "dash_type" : "Constructor",
+            "def" : {
+              "abstract_html" : "<p>Undocumented<\/p>",
+              "swift_declaration_html" : "init(wrappedValue: String)"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "init<span class=\"j2-item-secondary\">(<\/span>wrappedValue<span class=\"j2-item-secondary\">: String)<\/span>",
+            "title" : "init(wrappedValue: String)"
+          }
+        ],
+        "primary_language" : "j2-swift",
+        "title_html" : "Initializers"
+      },
+      {
+        "anchor_id" : "tpc-properties",
+        "dash_name" : "Properties",
+        "items" : [
+          {
+            "anchor_id" : "wrappedvalue",
+            "any_declaration" : true,
+            "dash_name" : "var%20wrappedValue%3A%20String",
+            "dash_type" : "Property",
+            "def" : {
+              "abstract_html" : "<p>Undocumented<\/p>",
+              "swift_declaration_html" : "var wrappedValue: String"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">var <\/span>wrappedValue<span class=\"j2-item-secondary\">: String<\/span>",
+            "title" : "var wrappedValue: String"
+          }
+        ],
+        "primary_language" : "j2-swift",
+        "title_html" : "Properties"
+      }
+    ],
+    "topics_language" : "j2-swift",
+    "topics_menus" : [
+      {
+        "language" : "j2-swift",
+        "topics_menu" : [
+          {
+            "anchor_id" : "",
+            "title" : "Declaration"
+          },
+          {
+            "anchor_id" : "tpc-initializers",
+            "title" : "Initializers"
+          },
+          {
+            "anchor_id" : "tpc-properties",
+            "title" : "Properties"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "breadcrumbs_menus" : [
+      {
+        "breadcrumbs" : [
+          {
+            "title" : "Types",
+            "url" : "types.html?swift"
+          },
+          {
+            "title" : "PropertyWrapperClient"
+          }
+        ],
+        "language" : "j2-swift"
+      }
+    ],
+    "breadcrumbs_root" : "SpmSwiftModule",
+    "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
+    "def" : {
+      "abstract_html" : "<p>See <a href=\"..\/types\/nop.html?swift\"><code>@Nop<\/code><\/a>.<\/p>",
+      "swift_declaration_html" : "struct PropertyWrapperClient"
+    },
+    "default_language" : "j2-swift",
+    "disable_search" : false,
+    "doc_coverage" : 46,
+    "docs_title" : "SpmSwiftModule docs",
+    "dual_language" : false,
+    "hide_article_title" : false,
+    "hide_attribution" : false,
+    "hide_availability" : false,
+    "item_collapse_never" : false,
+    "item_collapse_open" : false,
+    "item_nest" : true,
+    "j2lib_version" : "0.1",
+    "language_tag" : "en",
+    "pagination" : {
+      "next" : {
+        "primary_language" : "j2-swift",
+        "primary_title" : "SpmSwiftModule",
+        "primary_url" : "types\/spmswiftmodule.html?swift",
+        "secondary_language" : "j2-objc",
+        "secondary_title" : "SpmSwiftModule",
+        "secondary_url" : "types\/spmswiftmodule.html?objc"
+      },
+      "prev" : {
+        "primary_language" : "j2-swift",
+        "primary_title" : "Nop",
+        "primary_url" : "types\/nop.html?swift",
+        "secondary_language" : "j2-objc",
+        "secondary_title" : "Nop",
+        "secondary_url" : "types\/nop.html?objc"
+      }
+    },
+    "path_from_root" : "types\/propertywrapperclient.html",
+    "path_to_assets" : "..\/",
+    "path_to_root" : "..\/",
+    "primary_page_title" : "PropertyWrapperClient",
+    "primary_title_language" : "j2-swift",
+    "tab_title_prefix" : true,
+    "tocs" : [
+      {
+        "language" : "j2-swift",
+        "screen_reader_name" : "Swift",
+        "toc" : [
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "ABaseClass",
+                "url" : "types\/abaseclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "ADerivedClass",
+                "url" : "types\/aderivedclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "AnEnum",
+                "url" : "types\/anenum.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "FirstProtocol",
+                "url" : "types\/firstprotocol1.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "GenericBase",
+                "url" : "types\/genericbase.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "Nop",
+                "url" : "types\/nop.html?swift"
+              },
+              {
+                "same_page" : true,
+                "title" : "PropertyWrapperClient",
+                "url" : ""
+              },
+              {
+                "children" : [
+                  {
+                    "children" : [
+                      {
+                        "same_page" : false,
+                        "title" : "Nested2a",
+                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2a"
+                      },
+                      {
+                        "same_page" : false,
+                        "title" : "Nested2b",
+                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2b"
+                      }
+                    ],
+                    "same_page" : false,
+                    "title" : "Nested1",
+                    "url" : "types\/spmswiftmodule\/nested1.html?swift"
+                  },
+                  {
+                    "same_page" : false,
+                    "title" : "Nested2",
+                    "url" : "types\/spmswiftmodule.html?swift#nested2"
+                  }
+                ],
+                "same_page" : false,
+                "title" : "SpmSwiftModule",
+                "url" : "types\/spmswiftmodule.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "T",
+                "url" : "types.html?swift#t1"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Types",
+            "url" : "types.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "deprecatedFunction(callback:)",
+                "url" : "functions.html?swift#deprecatedfunctioncallback"
+              },
+              {
+                "same_page" : false,
+                "title" : "functionA(arg1:_:arg3:)",
+                "url" : "functions.html?swift#functionaarg1_arg3"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Functions",
+            "url" : "functions.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "+(_:_:)",
+                "url" : "operators.html?swift#__1"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Operators",
+            "url" : "operators.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "Collection",
+                "url" : "extensions\/collection.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "String.Element",
+                "url" : "extensions\/stringelement.html?swift"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Extensions",
+            "url" : "extensions.html?swift"
+          }
+        ]
+      }
+    ],
+    "topics" : [
+      {
+        "anchor_id" : "tpc-properties",
+        "dash_name" : "Properties",
+        "items" : [
+          {
+            "anchor_id" : "v",
+            "any_declaration" : true,
+            "dash_name" : "var%20v%3A%20String",
+            "dash_type" : "Property",
+            "def" : {
+              "abstract_html" : "<p>Undocumented<\/p>",
+              "swift_declaration_html" : "<a href=\"..\/types\/nop.html?swift\">@Nop<\/a>\nvar v: String { get set }"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">var <\/span>v<span class=\"j2-item-secondary\">: String<\/span>",
+            "title" : "var v: String"
+          }
+        ],
+        "primary_language" : "j2-swift",
+        "title_html" : "Properties"
+      }
+    ],
+    "topics_language" : "j2-swift",
+    "topics_menus" : [
+      {
+        "language" : "j2-swift",
+        "topics_menu" : [
+          {
+            "anchor_id" : "",
+            "title" : "Declaration"
+          },
+          {
+            "anchor_id" : "tpc-properties",
+            "title" : "Properties"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "breadcrumbs_menus" : [
+      {
+        "breadcrumbs" : [
+          {
+            "title" : "Types",
+            "url" : "types.html?swift"
+          },
+          {
             "title" : "SpmSwiftModule"
           }
         ],
@@ -1928,7 +2497,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 48,
+    "doc_coverage" : 46,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -1950,11 +2519,11 @@
       },
       "prev" : {
         "primary_language" : "j2-swift",
-        "primary_title" : "GenericBase",
-        "primary_url" : "types\/genericbase.html?swift",
+        "primary_title" : "PropertyWrapperClient",
+        "primary_url" : "types\/propertywrapperclient.html?swift",
         "secondary_language" : "j2-objc",
-        "secondary_title" : "GenericBase",
-        "secondary_url" : "types\/genericbase.html?objc"
+        "secondary_title" : "PropertyWrapperClient",
+        "secondary_url" : "types\/propertywrapperclient.html?objc"
       }
     },
     "path_from_root" : "types\/spmswiftmodule.html",
@@ -1994,6 +2563,16 @@
                 "same_page" : false,
                 "title" : "GenericBase",
                 "url" : "types\/genericbase.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "Nop",
+                "url" : "types\/nop.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "PropertyWrapperClient",
+                "url" : "types\/propertywrapperclient.html?swift"
               },
               {
                 "children" : [
@@ -2189,7 +2768,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 48,
+    "doc_coverage" : 46,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -2255,6 +2834,16 @@
                 "same_page" : false,
                 "title" : "GenericBase",
                 "url" : "types\/genericbase.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "Nop",
+                "url" : "types\/nop.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "PropertyWrapperClient",
+                "url" : "types\/propertywrapperclient.html?swift"
               },
               {
                 "children" : [
@@ -2414,7 +3003,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 48,
+    "doc_coverage" : 46,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -2480,6 +3069,16 @@
                 "same_page" : false,
                 "title" : "GenericBase",
                 "url" : "types\/genericbase.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "Nop",
+                "url" : "types\/nop.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "PropertyWrapperClient",
+                "url" : "types\/propertywrapperclient.html?swift"
               },
               {
                 "children" : [
@@ -2649,7 +3248,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 48,
+    "doc_coverage" : 46,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -2715,6 +3314,16 @@
                 "same_page" : false,
                 "title" : "GenericBase",
                 "url" : "types\/genericbase.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "Nop",
+                "url" : "types\/nop.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "PropertyWrapperClient",
+                "url" : "types\/propertywrapperclient.html?swift"
               },
               {
                 "children" : [
@@ -2844,7 +3453,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 48,
+    "doc_coverage" : 46,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -2912,6 +3521,16 @@
                 "same_page" : false,
                 "title" : "GenericBase",
                 "url" : "types\/genericbase.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "Nop",
+                "url" : "types\/nop.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "PropertyWrapperClient",
+                "url" : "types\/propertywrapperclient.html?swift"
               },
               {
                 "children" : [
@@ -3062,7 +3681,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 48,
+    "doc_coverage" : 46,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -3128,6 +3747,16 @@
                 "same_page" : false,
                 "title" : "GenericBase",
                 "url" : "types\/genericbase.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "Nop",
+                "url" : "types\/nop.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "PropertyWrapperClient",
+                "url" : "types\/propertywrapperclient.html?swift"
               },
               {
                 "children" : [
@@ -3305,7 +3934,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 48,
+    "doc_coverage" : 46,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -3363,6 +3992,16 @@
                 "same_page" : false,
                 "title" : "GenericBase",
                 "url" : "types\/genericbase.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "Nop",
+                "url" : "types\/nop.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "PropertyWrapperClient",
+                "url" : "types\/propertywrapperclient.html?swift"
               },
               {
                 "children" : [
@@ -3512,7 +4151,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 48,
+    "doc_coverage" : 46,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : true,
@@ -3578,6 +4217,16 @@
                 "same_page" : false,
                 "title" : "GenericBase",
                 "url" : "types\/genericbase.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "Nop",
+                "url" : "types\/nop.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "PropertyWrapperClient",
+                "url" : "types\/propertywrapperclient.html?swift"
               },
               {
                 "children" : [

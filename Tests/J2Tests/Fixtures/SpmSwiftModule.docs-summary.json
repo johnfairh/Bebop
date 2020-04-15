@@ -172,6 +172,58 @@
               }
             },
             {
+              "anchor_id" : "nop",
+              "dash_type" : "Struct",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented<\/p>"
+                  }
+                },
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "@propertyWrapper\nstruct Nop"
+                }
+              },
+              "flat_title" : {
+                "en" : "struct Nop"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">struct <\/span>Nop"
+              },
+              "url" : {
+                "url_path" : "spmswiftmodule\/types\/nop"
+              }
+            },
+            {
+              "anchor_id" : "propertywrapperclient",
+              "dash_type" : "Struct",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>See <a href=\"spmswiftmodule\/types\/nop.html?swift\"><code>@Nop<\/code><\/a>.<\/p>"
+                  }
+                },
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "struct PropertyWrapperClient"
+                }
+              },
+              "flat_title" : {
+                "en" : "struct PropertyWrapperClient"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">struct <\/span>PropertyWrapperClient"
+              },
+              "url" : {
+                "url_path" : "spmswiftmodule\/types\/propertywrapperclient"
+              }
+            },
+            {
               "anchor_id" : "spmswiftmodule",
               "dash_type" : "Struct",
               "def" : {
@@ -1330,13 +1382,13 @@
         "next" : {
           "primary_language" : "swift",
           "primary_title" : {
-            "en" : "SpmSwiftModule"
+            "en" : "Nop"
           },
           "secondary_title" : {
-            "en" : "SpmSwiftModule"
+            "en" : "Nop"
           },
           "url" : {
-            "url_path" : "spmswiftmodule\/types\/spmswiftmodule"
+            "url_path" : "spmswiftmodule\/types\/nop"
           }
         },
         "prev" : {
@@ -1661,6 +1713,250 @@
           },
           {
             "title" : {
+              "en" : "SpmSwiftModule.Nop"
+            }
+          }
+        ]
+      ],
+      "def" : {
+        "abstract" : {
+          "en" : {
+            "html" : "<p>Undocumented<\/p>"
+          }
+        },
+        "availability" : [],
+        "params" : [],
+        "swift_declaration" : {
+          "html" : "@propertyWrapper\nstruct Nop"
+        }
+      },
+      "is_guide" : false,
+      "pagination" : {
+        "next" : {
+          "primary_language" : "swift",
+          "primary_title" : {
+            "en" : "PropertyWrapperClient"
+          },
+          "secondary_title" : {
+            "en" : "PropertyWrapperClient"
+          },
+          "url" : {
+            "url_path" : "spmswiftmodule\/types\/propertywrapperclient"
+          }
+        },
+        "prev" : {
+          "primary_language" : "swift",
+          "primary_title" : {
+            "en" : "GenericBase"
+          },
+          "secondary_title" : {
+            "en" : "GenericBase"
+          },
+          "url" : {
+            "url_path" : "spmswiftmodule\/types\/genericbase"
+          }
+        }
+      },
+      "primary_language" : "swift",
+      "primary_title" : {
+        "en" : "Nop"
+      },
+      "tab_title_prefix" : true,
+      "topics" : [
+        {
+          "anchor_id" : "tpc-initializers",
+          "items" : [
+            {
+              "anchor_id" : "initwrappedvalue",
+              "dash_type" : "Constructor",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented<\/p>"
+                  }
+                },
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "init(wrappedValue: String)"
+                }
+              },
+              "flat_title" : {
+                "en" : "init(wrappedValue: String)"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "init<span class=\"j2-item-secondary\">(<\/span>wrappedValue<span class=\"j2-item-secondary\">: String)<\/span>"
+              }
+            }
+          ],
+          "menu_title" : {
+            "en" : "Initializers"
+          },
+          "title" : {
+            "en" : {
+              "html" : "Initializers"
+            }
+          }
+        },
+        {
+          "anchor_id" : "tpc-properties",
+          "items" : [
+            {
+              "anchor_id" : "wrappedvalue",
+              "dash_type" : "Property",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented<\/p>"
+                  }
+                },
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "var wrappedValue: String"
+                }
+              },
+              "flat_title" : {
+                "en" : "var wrappedValue: String"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">var <\/span>wrappedValue<span class=\"j2-item-secondary\">: String<\/span>"
+              }
+            }
+          ],
+          "menu_title" : {
+            "en" : "Properties"
+          },
+          "title" : {
+            "en" : {
+              "html" : "Properties"
+            }
+          }
+        }
+      ],
+      "url" : {
+        "url_path" : "spmswiftmodule\/types\/nop"
+      }
+    },
+    {
+      "breadcrumbs" : [
+        [
+          {
+            "title" : {
+              "en" : "Types"
+            },
+            "url" : {
+              "url_path" : "types"
+            }
+          },
+          {
+            "title" : {
+              "en" : "SpmSwiftModule.PropertyWrapperClient"
+            }
+          }
+        ]
+      ],
+      "def" : {
+        "abstract" : {
+          "en" : {
+            "html" : "<p>See <a href=\"..\/..\/spmswiftmodule\/types\/nop.html?swift\"><code>@Nop<\/code><\/a>.<\/p>"
+          }
+        },
+        "availability" : [],
+        "params" : [],
+        "swift_declaration" : {
+          "html" : "struct PropertyWrapperClient"
+        }
+      },
+      "is_guide" : false,
+      "pagination" : {
+        "next" : {
+          "primary_language" : "swift",
+          "primary_title" : {
+            "en" : "SpmSwiftModule"
+          },
+          "secondary_title" : {
+            "en" : "SpmSwiftModule"
+          },
+          "url" : {
+            "url_path" : "spmswiftmodule\/types\/spmswiftmodule"
+          }
+        },
+        "prev" : {
+          "primary_language" : "swift",
+          "primary_title" : {
+            "en" : "Nop"
+          },
+          "secondary_title" : {
+            "en" : "Nop"
+          },
+          "url" : {
+            "url_path" : "spmswiftmodule\/types\/nop"
+          }
+        }
+      },
+      "primary_language" : "swift",
+      "primary_title" : {
+        "en" : "PropertyWrapperClient"
+      },
+      "tab_title_prefix" : true,
+      "topics" : [
+        {
+          "anchor_id" : "tpc-properties",
+          "items" : [
+            {
+              "anchor_id" : "v",
+              "dash_type" : "Property",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented<\/p>"
+                  }
+                },
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "<a href=\"..\/..\/spmswiftmodule\/types\/nop.html?swift\">@Nop<\/a>\nvar v: String { get set }"
+                }
+              },
+              "flat_title" : {
+                "en" : "var v: String"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">var <\/span>v<span class=\"j2-item-secondary\">: String<\/span>"
+              }
+            }
+          ],
+          "menu_title" : {
+            "en" : "Properties"
+          },
+          "title" : {
+            "en" : {
+              "html" : "Properties"
+            }
+          }
+        }
+      ],
+      "url" : {
+        "url_path" : "spmswiftmodule\/types\/propertywrapperclient"
+      }
+    },
+    {
+      "breadcrumbs" : [
+        [
+          {
+            "title" : {
+              "en" : "Types"
+            },
+            "url" : {
+              "url_path" : "types"
+            }
+          },
+          {
+            "title" : {
               "en" : "SpmSwiftModule.SpmSwiftModule"
             }
           }
@@ -1695,13 +1991,13 @@
         "prev" : {
           "primary_language" : "swift",
           "primary_title" : {
-            "en" : "GenericBase"
+            "en" : "PropertyWrapperClient"
           },
           "secondary_title" : {
-            "en" : "GenericBase"
+            "en" : "PropertyWrapperClient"
           },
           "url" : {
-            "url_path" : "spmswiftmodule\/types\/genericbase"
+            "url_path" : "spmswiftmodule\/types\/propertywrapperclient"
           }
         }
       },
@@ -2801,6 +3097,24 @@
             },
             "url" : {
               "url_path" : "spmswiftmodule\/types\/genericbase"
+            }
+          },
+          {
+            "children" : [],
+            "title" : {
+              "en" : "Nop"
+            },
+            "url" : {
+              "url_path" : "spmswiftmodule\/types\/nop"
+            }
+          },
+          {
+            "children" : [],
+            "title" : {
+              "en" : "PropertyWrapperClient"
+            },
+            "url" : {
+              "url_path" : "spmswiftmodule\/types\/propertywrapperclient"
             }
           },
           {
