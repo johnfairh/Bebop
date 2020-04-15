@@ -171,6 +171,12 @@ class TestFormat: XCTestCase {
     }
 
     func testAutoLinkLookupSwift() throws {
+        // module SwModule
+        //
+        // class SwiftClass {
+        //    func method(arg:) {}
+        //    var variable: T
+        // }
         let swMethod = SourceKittenDict.mkMethod(name: "method(arg:)")
         let swField = SourceKittenDict.mkInstanceVar(name: "variable")
         let swClass = SourceKittenDict.mkClass(name: "SwiftClass").with(children: [swMethod, swField])
@@ -194,16 +200,19 @@ class TestFormat: XCTestCase {
         }
 
         // relative failure
-        let res = system.format.autolink.def(for: "variable", context: swClassDef)
-        XCTAssertNil(res)
-        guard let (varDef, _) = system.format.autolink.def(for: "SwiftClass.variable", context: swClassDef) else {
-            XCTFail("Couldn't look up var")
+        guard let (varDef1, _) = system.format.autolink.def(for: "variable", context: swClassDef) else {
+            XCTFail("Couldn't look up var (1)")
             return
         }
-        XCTAssertEqual("variable", varDef.name)
+        guard let (varDef2, _) = system.format.autolink.def(for: "SwiftClass.variable", context: swClassDef) else {
+            XCTFail("Couldn't look up var (2)")
+            return
+        }
+        XCTAssertTrue(varDef1 === varDef2)
+        XCTAssertEqual("variable", varDef1.name)
 
         // relative success
-        guard let (meth1, _) = system.format.autolink.def(for: "method(arg:)", context: varDef) else {
+        guard let (meth1, _) = system.format.autolink.def(for: "method(arg:)", context: varDef1) else {
             XCTFail("Couldn't look up method")
             return
         }
@@ -219,6 +228,11 @@ class TestFormat: XCTestCase {
 
     #if os(macOS)
     func testAutoLinkLookupObjC() throws {
+        // NS_SWIFT_NAME(SClass)
+        // @interface OClass
+        //   - method:param:
+        //   @property value
+        // @ned
         let oMethod = SourceKittenDict.mkObjCMethod(name: "-method:param:", swiftName: "method(param:)").with(swiftDeclaration: "func method(param: Int)")
         let oProperty = SourceKittenDict.mkObjCProperty(name: "value", swiftName: "value").with(swiftDeclaration: "var value: Int")
         let oClass = SourceKittenDict.mkObjCClass(name: "OClass", swiftName: "SClass").with(swiftDeclaration: "class SClass")
@@ -264,8 +278,8 @@ class TestFormat: XCTestCase {
             return
         }
 
-        if let (pDef2, _) = system.format.autolink.def(for: "value", context: classDef) {
-            XCTFail("Managed to resolve relative name from wrong place: \(pDef2)")
+        guard system.format.autolink.def(for: "value", context: classDef) != nil else {
+            XCTFail("Couldn't look up nested value.")
             return
         }
 

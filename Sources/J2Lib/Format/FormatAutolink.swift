@@ -129,13 +129,11 @@ final class FormatAutolink: Configurable {
                     Stats.inc(.autolinkLocalLocalScope)
                     return (localDef, db.language)
                 }
-                // Special case for nested ObjC method references
-                if name.isObjCMethodName && defContext.defKind.isObjCStructural && db.language == .objc {
-                    let nestedName = "\(defContext.name).\(name)"
-                    if let nestedDef = db.db[nestedName] {
-                        Stats.inc(.autolinkLocalNestedScope)
-                        return (nestedDef, db.language)
-                    }
+
+                // Try local scope, nested
+                if let nestedDef = db.db["\(defContext.name).\(name)"] {
+                    Stats.inc(.autolinkLocalNestedScope)
+                    return (nestedDef, db.language)
                 }
             }
         }
