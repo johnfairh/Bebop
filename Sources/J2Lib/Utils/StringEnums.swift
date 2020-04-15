@@ -22,23 +22,35 @@ internal enum L10n {
     case errCfgBrandBadImage = "err-cfg-brand-bad-image"
     /// Config key 'image_name' not set under 'custom_brand'.
     case errCfgBrandMissingImage = "err-cfg-brand-missing-image"
-    /// Custom def missing 'name' config key: '%1'
+    /// Config key 'custom_code_host.image_name' of '%1' did not match any file from --media.
+    case errCfgChostBadImage = "err-cfg-chost-bad-image"
+    /// Both --code-host and custom_code_host are set: choose just one.
+    case errCfgChostBoth = "err-cfg-chost-both"
+    /// Config key 'image_name' not set under 'custom_code_host'.
+    case errCfgChostMissingImage = "err-cfg-chost-missing-image"
+    /// --code-host is set but --code-host-url is not.
+    case errCfgChostMissingUrl = "err-cfg-chost-missing-url"
+    /// Config key 'custom_code_host.multi_line_format' does not contain both '%1' and '%2'.
+    case errCfgChostMultiFmt = "err-cfg-chost-multi-fmt"
+    /// Config key 'custom_code_host.single_line_format' does not contain '%1'.
+    case errCfgChostSingleFmt = "err-cfg-chost-single-fmt"
+    /// Custom def missing 'name' config key: '%1'.
     case errCfgCustomDefName = "err-cfg-custom-def-name"
-    /// Custom def topic missing 'name' config key: '%1'
+    /// Custom def topic missing 'name' config key: '%1'.
     case errCfgCustomDefTopicName = "err-cfg-custom-def-topic-name"
-    /// Custom def missing 'topics' config key: '%1'
+    /// Custom def missing 'topics' config key: '%1'.
     case errCfgCustomDefTopics = "err-cfg-custom-def-topics"
-    /// Custom group/topic has both 'children' and 'topics' config keys: '%1'
+    /// Custom group/topic has both 'children' and 'topics' config keys: '%1'.
     case errCfgCustomGrpBoth = "err-cfg-custom-grp-both"
-    /// Custom group/topic missing 'name' config key: '%1'
+    /// Custom group/topic missing 'name' config key: '%1'.
     case errCfgCustomGrpName = "err-cfg-custom-grp-name"
-    /// Custom topic has nested 'topics' config key: '%1'
+    /// Custom topic has nested 'topics' config key: '%1'.
     case errCfgCustomGrpNested = "err-cfg-custom-grp-nested"
-    /// Custom group has 'skip_unlisted' config key without 'topics': '%1'
+    /// Custom group has 'skip_unlisted' config key without 'topics': '%1'.
     case errCfgCustomGrpUnlisted = "err-cfg-custom-grp-unlisted"
     /// Module merge policy is set both outside and inside `custom_modules`: choose just one.
     case errCfgDupModMerge = "err-cfg-dup-mod-merge"
-    /// Missing field from guide_title entry, must have both 'name' and 'title': '%1'
+    /// Missing field from guide_title entry, must have both 'name' and 'title': '%1'.
     case errCfgGuideTitleFields = "err-cfg-guide-title-fields"
     /// Both --j2-json-files and other data-source options are set: choose just one.
     case errCfgJ2jsonMutex = "err-cfg-j2json-mutex"
@@ -86,7 +98,7 @@ internal enum L10n {
     case errEnumValue = "err-enum-value"
     /// Couldn't create path enumerator starting '%1'.
     case errEnumerator = "err-enumerator"
-    /// Can't decode JSON as Swift type '%1': %2
+    /// Can't decode JSON as Swift type '%1': %2.
     case errJsonDecode = "err-json-decode"
     /// Missing key 'module' in a custom_modules stanza -- you have to set this.
     case errMissingModule = "err-missing-module"
@@ -140,7 +152,7 @@ internal enum L10n {
     case wrnCfgLanguageMissing = "wrn-cfg-language-missing"
     /// Duplicate 'custom_defs' entry for '%1', using only the first one seen.
     case wrnCustomDefDup = "wrn-custom-def-dup"
-    /// Can't resolve 'custom_defs' child '%1' inside '%2'
+    /// Can't resolve 'custom_defs' child '%1' inside '%2'.
     case wrnCustomDefMissing = "wrn-custom-def-missing"
     /// Can't resolve item name '%1' inside 'custom_groups', ignoring.
     case wrnCustomGrpMissing = "wrn-custom-grp-missing"
@@ -162,11 +174,11 @@ internal enum L10n {
     case wrnGuideTitleDup = "wrn-guide-title-dup"
     /// Some 'guide_titles' entries did not match any guides: %1.
     case wrnGuideTitleUnused = "wrn-guide-title-unused"
-    /// Can't decode J2 JSON portion from '%1': %2
+    /// Can't decode J2 JSON portion from '%1': %2.
     case wrnJ2jsonDecode = "wrn-j2json-decode"
     /// Can't import J2 JSON file '%1', version '%2' is from a later version of the program.
     case wrnJ2jsonFuture = "wrn-j2json-future"
-    /// No media files found matching '%1'
+    /// No media files found matching '%1'.
     case wrnMediaMissing = "wrn-media-missing"
     /// Bad file JSON data for '%1' pass %2: missing 'key.diagnostic_stage' key.  Ignoring this file.
     case wrnMergeMissingRoot = "wrn-merge-missing-root"
@@ -178,7 +190,7 @@ internal enum L10n {
     case wrnPathNoChdir = "wrn-path-no-chdir"
     /// --quiet and --debug both set, ignoring --quiet.
     case wrnQuietDebug = "wrn-quiet-debug"
-    /// Can't decode SourceKitten JSON portion from '%1': %2
+    /// Can't decode SourceKitten JSON portion from '%1': %2.
     case wrnSknDecode = "wrn-skn-decode"
     /// SourceKitten import mode requested but --modules is not set: using 'Module' for the module name.
     case wrnSknModuleName = "wrn-skn-module-name"

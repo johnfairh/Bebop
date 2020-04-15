@@ -23,7 +23,7 @@ final class GenBrand: Configurable {
         let titleOpt = LocStringOpt(y: "title")
         let urlOpt = LocStringOpt(y: "url")
 
-        init(yaml: Yams.Node, published: Config.Published) throws {
+        init(yaml: Yams.Node) throws {
             let parser = OptsParser()
             parser.addOpts(from: self)
             try parser.apply(mapping: yaml.checkMapping(context: "custom_brand"))
@@ -52,7 +52,7 @@ final class GenBrand: Configurable {
         guard let customBrandYaml = customBrandOpt.value else {
             return
         }
-        parser = try Parser(yaml: customBrandYaml, published: published)
+        parser = try Parser(yaml: customBrandYaml)
         imagePath = try parser?.findMediaPath(published: published)
     }
 }

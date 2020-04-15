@@ -85,6 +85,8 @@ public final class Config {
         var urlPathForMedia: ((String) -> String?)?
         // Published by Group
         var urlPathForGuide: ((String) -> String?)?
+        // Publised by GenCodeHost
+        var codeHostURLForLocation: ((DefLocation) -> String?)?
     }
     let published = Published()
 

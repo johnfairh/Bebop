@@ -28,7 +28,7 @@ final class GatherJobOpts: Configurable, CustomStringConvertible {
     let sdkOpt = EnumOpt<Gather.Sdk>(l: "sdk").def(.macosx)
     var sdk: Gather.Sdk { sdkOpt.value! }
 
-    let swiftSymbolGraphTargetOpt = StringOpt(l: "swift-symbolgraph-target")
+    let swiftSymbolGraphTargetOpt = StringOpt(l: "swift-symbolgraph-target").help("LLVMTARGET")
     var swiftSymbolGraphTarget: String { swiftSymbolGraphTargetOpt.value ?? hostTargetTriple }
 
     var description: String {

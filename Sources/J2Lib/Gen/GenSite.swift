@@ -65,6 +65,7 @@ public struct GenSite: Configurable {
     let search: GenSearch
     let badge: GenBadge
     let brand: GenBrand
+    let codeHost: GenCodeHost
 
     public init(config: Config) {
         themes = GenThemes(config: config)
@@ -73,6 +74,7 @@ public struct GenSite: Configurable {
         search = GenSearch(config: config)
         badge = GenBadge(config: config)
         brand = GenBrand(config: config)
+        codeHost = GenCodeHost(config: config)
 
         oldHideCoverageOpt = AliasOpt(realOpt: hideCoverageOpt, l: "hide-documentation-coverage")
         oldCustomHeadOpt = AliasOpt(realOpt: customHeadOpt, l: "head")
@@ -182,6 +184,7 @@ public struct GenSite: Configurable {
             mustacheData.maybe(.brandTitle, brand.title?.get(page.languageTag))
             mustacheData.maybe(.brandAltText, brand.altText?.get(page.languageTag))
             mustacheData.maybe(.brandURL, brand.url?.get(page.languageTag))
+            mustacheData.maybe(.codehostURL, codeHost.url(languageTag: page.languageTag))
 
             if hidePaginationOpt.value {
                 mustacheData.removeValue(forKey: MustacheKey.pagination.rawValue)
@@ -258,6 +261,14 @@ public struct GenSite: Configurable {
                         .tagPath: loc.tag.languageTagPathComponent
                     ])
             }
+        }
+
+        if codeHost.isGitHub {
+            dict[.codehostGitHub] = true
+        } else if codeHost.isGitLab {
+            dict[.codehostGitLab] = true
+        } else if codeHost.isBitBucket {
+            dict[.codehostBitBucket] = true
         }
 
         return dict

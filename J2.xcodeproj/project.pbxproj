@@ -136,6 +136,7 @@
 		02D064F423EC208200FE11BD /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D064F323EC208200FE11BD /* Group.swift */; };
 		02EC5B7E242FCB2F00A511B2 /* GenMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EC5B7D242FCB2F00A511B2 /* GenMedia.swift */; };
 		02F2B3C4239A7E2A00397BC6 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C24034239A732200518764 /* main.swift */; };
+		02F61DEF2447651500266575 /* GenCodeHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F61DEE2447651500266575 /* GenCodeHost.swift */; };
 		02FDC67A23E876D300C2F9CD /* DefDocs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FDC67923E876D300C2F9CD /* DefDocs.swift */; };
 		02FDC67C23E879E700C2F9CD /* GatherMarkdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FDC67B23E879E700C2F9CD /* GatherMarkdown.swift */; };
 		02FDC67E23E89E8300C2F9CD /* TestMarkdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FDC67D23E89E8300C2F9CD /* TestMarkdown.swift */; };
@@ -352,6 +353,7 @@
 		02EC5B7D242FCB2F00A511B2 /* GenMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenMedia.swift; sourceTree = "<group>"; };
 		02F2B3B4239A7E0C00397BC6 /* J2CLI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = J2CLI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02F2B3D0239A89D700397BC6 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		02F61DEE2447651500266575 /* GenCodeHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenCodeHost.swift; sourceTree = "<group>"; };
 		02FDC67923E876D300C2F9CD /* DefDocs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefDocs.swift; sourceTree = "<group>"; };
 		02FDC67B23E879E700C2F9CD /* GatherMarkdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherMarkdown.swift; sourceTree = "<group>"; };
 		02FDC67D23E89E8300C2F9CD /* TestMarkdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMarkdown.swift; sourceTree = "<group>"; };
@@ -665,6 +667,7 @@
 				022BE7B12434AEFD005146D1 /* GenSearch.swift */,
 				022BE7B32434F33D005146D1 /* GenBadge.swift */,
 				022BE7B62435215F005146D1 /* GenBrand.swift */,
+				02F61DEE2447651500266575 /* GenCodeHost.swift */,
 			);
 			path = Gen;
 			sourceTree = "<group>";
@@ -897,6 +900,7 @@
 				0225D990242D1B75005FF4A2 /* DefLocation.swift in Sources */,
 				02CFFA0623E0BD8B00FDE5B9 /* DefItemJSON.swift in Sources */,
 				022BE7B42434F33D005146D1 /* GenBadge.swift in Sources */,
+				02F61DEF2447651500266575 /* GenCodeHost.swift in Sources */,
 				022BE7B72435215F005146D1 /* GenBrand.swift in Sources */,
 				022BD9B92431F56400FC34D4 /* GatherJobImport.swift in Sources */,
 				02FDC68D23EB498A00C2F9CD /* DefDeclaration.swift in Sources */,

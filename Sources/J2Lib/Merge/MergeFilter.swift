@@ -21,7 +21,7 @@
 struct MergeFilter: Configurable {
     let minAclOpt = EnumOpt<DefAcl>(l: "min-acl").def(.public)
     let skipUndocumentedOpt = BoolOpt(l: "skip-undocumented")
-    let undocumentedTextOpt = LocStringOpt(l: "undocumented-text").def("Undocumented")
+    let undocumentedTextOpt = LocStringOpt(l: "undocumented-text").def("Undocumented").help("UNDOCTEXT")
     let skipUndocumentedOverrideOpt = BoolOpt(l: "skip-undocumented-override")
     let ignoreInheritedDocsOpt = BoolOpt(l: "ignore-inherited-docs")
     let includeFilesOpt = GlobListOpt(l: "include-source-files").help("FILEPATHGLOB1,FILEPATHGLOB2,...")
