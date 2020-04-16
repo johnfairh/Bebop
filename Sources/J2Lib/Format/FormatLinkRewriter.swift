@@ -12,7 +12,7 @@ import Maaku
 final class FormatLinkRewriter: Configurable {
     private let rewriteLinkURLs = StringListOpt(l: "rewrite-link-urls").help("SERVERURL1,SERVERURL2,...")
 
-    private let published: Config.Published
+    private let published: Published
 
     init(config: Config) {
         self.published = config.published
@@ -38,11 +38,11 @@ final class FormatLinkRewriter: Configurable {
             return
         }
 
-        if let mediaURL = published.urlPathForMedia?(basename) {
+        if let mediaURL = published.urlPathForMedia(basename) {
             logDebug("Format: Rewrote link to media '\(mediaURL)'")
             Stats.inc(.formatRewrittenMediaLinks)
             try! node.setLinkDestination(FormatAutolink.AUTOLINK_TOKEN + mediaURL)
-        } else if node.type == .link, let guideURL = published.urlPathForGuide?(basename) {
+        } else if node.type == .link, let guideURL = published.urlPathForGuide(basename) {
             logDebug("Format: Rewrote link to guide '\(guideURL)'")
             Stats.inc(.formatRewrittenGuideLinks)
             try! node.setLinkDestination(FormatAutolink.AUTOLINK_TOKEN + guideURL)

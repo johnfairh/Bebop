@@ -13,7 +13,7 @@ public final class Stats: Configurable {
     private let outputStatsOpt = PathOpt(l: "output-stats").help("FILEPATH")
     private let outputUndocOpt = PathOpt(l: "output-undocumented").help("FILEPATH")
 
-    private let published: Config.Published
+    private let published: Published
 
     public init(config: Config) {
         Self.db.reset()
@@ -46,7 +46,7 @@ public final class Stats: Configurable {
 
     /// Report summary info to the user
     public func printReport() {
-        Self.db.coverageReport(aclExcludedNames: published.excludedAclList).forEach { logInfo($0 )}
+        Self.db.coverageReport(aclExcludedNames: published.excludedACLs).forEach { logInfo($0 )}
     }
 
     /// Write out the accumulated stats to a file

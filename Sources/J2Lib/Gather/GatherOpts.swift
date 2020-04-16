@@ -23,7 +23,7 @@ final class GatherOpts : Configurable {
     let rootPassOpts = GatherJobOpts()
     private(set) var customModules = [GatherCustomModule]()
 
-    private let published: Config.Published
+    private let published: Published
 
     // Top-level aliases for jazzy compatibility
     let xcodeBuildArgsAlias: AliasOpt
@@ -49,9 +49,9 @@ final class GatherOpts : Configurable {
         config.register(self)
     }
 
-    func checkOptions(published: Config.Published) throws {
+    func checkOptions() throws {
         // Check root pass options
-        try rootPassOpts.checkOptions(published: published)
+        try rootPassOpts.checkOptions()
         try rootPassOpts.checkCascadedOptions()
 
         // Check our own options
@@ -100,14 +100,23 @@ final class GatherOpts : Configurable {
     /// - if we used --modules then we've just discovered the names, and have a global option
     /// - if we used custom_modules then we can ignore what we've discovered and use the
     ///   configured list and individual module policies.
-    func publishModules(names: Set<String>) {
+    func modulesToPublish(names: Set<String>) -> [PublishedModule] {
         if customModules.isEmpty {
             let groupPolicy = ModuleGroupPolicy(merge: mergeModulesOpt.value)
-            names.forEach { published.moduleGroupPolicy[$0] = groupPolicy }
+            return names.map {
+                PublishedModule(name: $0,
+                                groupPolicy: groupPolicy,
+                                sourceDirectory: rootPassOpts.srcDirOpt.value,
+                                codeHostURL: nil,
+                                codeHostFilePrefix: nil)
+            }
         } else {
-            customModules.forEach {
-                let (name, groupPolicy) = $0.moduleGroupPolicy
-                published.moduleGroupPolicy[name] = groupPolicy
+            return customModules.map {
+                PublishedModule(name: $0.name,
+                                groupPolicy: $0.groupPolicy,
+                                sourceDirectory: $0.moduleOpts.srcDirOpt.value,
+                                codeHostURL: nil,
+                                codeHostFilePrefix: nil)
             }
         }
     }
@@ -147,6 +156,7 @@ final class GatherOpts : Configurable {
 /// Either a job in itself, or a wrapper of 'passes'.
 struct GatherCustomModule: CustomStringConvertible {
     let moduleNameOpt = StringOpt(y: "module")
+    var name: String { moduleNameOpt.value! }
     let mergeModuleOpt = BoolOpt(y: "merge_module")
     let mergeModuleGroupOpt = LocStringOpt(y: "merge_module_group")
     let passesOpt = YamlOpt(y: "passes")
@@ -195,7 +205,7 @@ struct GatherCustomModule: CustomStringConvertible {
         }
         mergeModuleOpt.cascade(from: rootOpts.mergeModulesOpt)
         if !mergeModuleOpt.value && mergeModuleGroupOpt.configured {
-            throw OptionsError(.localized(.errCfgBadModMerge, moduleNameOpt.value!))
+            throw OptionsError(.localized(.errCfgBadModMerge, name))
         }
 
         // Cascade from module settings down to each pass
@@ -205,8 +215,8 @@ struct GatherCustomModule: CustomStringConvertible {
         }
     }
 
-    var moduleGroupPolicy: (String, ModuleGroupPolicy) {
-        (moduleNameOpt.value!, ModuleGroupPolicy(merge: mergeModuleOpt.value, name: mergeModuleGroupOpt.value))
+    var groupPolicy: ModuleGroupPolicy {
+        ModuleGroupPolicy(merge: mergeModuleOpt.value, name: mergeModuleGroupOpt.value)
     }
 
     /// Generate jobs

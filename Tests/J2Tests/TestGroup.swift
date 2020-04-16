@@ -22,6 +22,9 @@ fileprivate struct System {
     }
 
     func run(_ passes: [GatherModulePass]) throws -> [Item] {
+        if config.published.modules.isEmpty {
+            config.test_publishStore.modules = passes.map { PublishedModule(name: $0.moduleName) }
+        }
         let merged = try merge.merge(gathered: passes)
         return try group.group(merged: merged)
     }
@@ -74,7 +77,10 @@ class TestGroup: XCTestCase {
 
         // separate
 
-        system.config.published.moduleGroupPolicy = ["ModuleA": .separate, "ModuleB": .separate]
+        system.config.test_publishStore.modules = [
+            PublishedModule(name: "ModuleA", groupPolicy: .separate),
+            PublishedModule(name: "ModuleB", groupPolicy: .separate),
+        ]
         let groups = try system.run([moduleA, moduleB])
 
         XCTAssertEqual(2, groups.count)
@@ -83,7 +89,10 @@ class TestGroup: XCTestCase {
 
         // global
 
-        system.config.published.moduleGroupPolicy = ["ModuleA": .global, "ModuleB": .global]
+        system.config.test_publishStore.modules = [
+            PublishedModule(name: "ModuleA", groupPolicy: .global),
+            PublishedModule(name: "ModuleB", groupPolicy: .global),
+        ]
         let groups2 = try system.run([moduleA, moduleB])
 
         XCTAssertEqual(1, groups2.count)
@@ -91,7 +100,10 @@ class TestGroup: XCTestCase {
 
         // separate + global (requires custom categories in reality)
 
-        system.config.published.moduleGroupPolicy = ["ModuleA": .global, "ModuleB": .separate]
+        system.config.test_publishStore.modules = [
+            PublishedModule(name: "ModuleA", groupPolicy: .global),
+            PublishedModule(name: "ModuleB", groupPolicy: .separate),
+        ]
         let groups3 = try system.run([moduleA, moduleB])
 
         XCTAssertEqual(2, groups3.count)
@@ -100,10 +112,10 @@ class TestGroup: XCTestCase {
 
         // custom
 
-        system.config.published.moduleGroupPolicy = [
-            "ModuleA": .group(.init(unlocalized: "Fred")),
-            "ModuleB": .group(.init(unlocalized: "Fred")),
-            "ModuleC": .group(.init(unlocalized: "Barney"))
+        system.config.test_publishStore.modules = [
+            PublishedModule(name: "ModuleA", groupPolicy: .group(.init(unlocalized: "Fred"))),
+            PublishedModule(name: "ModuleB", groupPolicy: .group(.init(unlocalized: "Fred"))),
+            PublishedModule(name: "ModuleC", groupPolicy: .group(.init(unlocalized: "Barney")))
         ]
         let groups4 = try system.run([moduleA, moduleB, moduleC])
 

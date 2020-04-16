@@ -23,8 +23,8 @@ struct GenCopyright: Configurable {
         config.register(self)
     }
 
-    public func checkOptions(published: Config.Published) throws {
-        published.authorName = authorNameOpt.value
+    public func checkOptions(publish: PublishStore) throws {
+        publish.authorName = authorNameOpt.value
     }
 
     /// Figure out some text for the author details depending on what they supplied.

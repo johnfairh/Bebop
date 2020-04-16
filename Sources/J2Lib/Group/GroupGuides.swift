@@ -59,8 +59,8 @@ final class GroupGuides: Configurable {
         }
     }
 
-    func checkOptions(published: Config.Published) throws {
-        published.urlPathForGuide = self.urlPathForGuide
+    func checkOptions(publish: PublishStore) throws {
+        publish.registerURLPathForGuide(self.urlPathForGuide)
         if let titlesYaml = guideTitlesOpt.value {
             logDebug("Guide: start parsing guide_titles")
             titles = try GuideTitleParser.titles(yaml: titlesYaml)

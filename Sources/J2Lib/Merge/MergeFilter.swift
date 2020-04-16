@@ -40,9 +40,9 @@ struct MergeFilter: Configurable {
         config.register(self)
     }
 
-    func checkOptions(published: Config.Published) throws {
+    func checkOptions(publish: PublishStore) throws {
         try excludeNamesOpt.value.forEach { try $0.re_check() }
-        published.excludedAclList = DefAcl.excludedBy(acl: minAcl).map { $0.rawValue }.joined(separator: ", ")
+        publish.excludedACLs = DefAcl.excludedBy(acl: minAcl).map { $0.rawValue }.joined(separator: ", ")
     }
 
     /// State carried around while filtering defs

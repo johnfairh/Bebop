@@ -29,6 +29,9 @@ fileprivate struct System {
     }
 
     func run(_ passes: [GatherModulePass]) throws -> [Item] {
+        config.test_publishStore.modules = passes.map {
+            PublishedModule(name: $0.moduleName)
+        }
         let merged = try merge.merge(gathered: passes)
         let grouped = try group.group(merged: merged)
         return try format.format(items: grouped)
@@ -121,7 +124,13 @@ class TestFormat: XCTestCase {
                     FileManager.default.changeCurrentDirectoryPath(tmpdir.directoryURL.path)
                 } else {
                     FileManager.default.changeCurrentDirectoryPath("/")
-                    system.config.published.sourceDirectoryURL = tmpdir.directoryURL
+                    system.config.test_publishStore.modules = [
+                        PublishedModule(name: "Module",
+                                        groupPolicy: .global,
+                                        sourceDirectory: tmpdir.directoryURL,
+                                        codeHostURL: nil,
+                                        codeHostFilePrefix: nil)
+                    ]
                 }
                 let readme = try system.format.createReadme()
                 XCTAssertEqual(Markdown("RR"), readme.content.markdown["en"])

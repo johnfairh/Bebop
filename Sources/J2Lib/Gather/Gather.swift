@@ -28,21 +28,26 @@ import Foundation
 /// or an original `sourcekitten doc` json file.
 ///
 /// XXX podspec
-public struct Gather {
+public final class Gather: Configurable {
     /// Subcomponent for options and config YAML processing
     private let opts: GatherOpts
 
     /// Doc comment translation
     private let localize: GatherLocalize
 
-    /// Publishing obligations
-    private let published: Config.Published
+    /// Publishing obligations - we have to retain the writable version because
+    /// we publish module info much later than the config phase.
+    private var publish: PublishStore!
 
     /// Create a new instance
     public init(config: Config) {
-        published = config.published
         opts = GatherOpts(config: config)
         localize = GatherLocalize(config: config)
+        config.register(self)
+    }
+
+    func checkOptions(publish: PublishStore) throws {
+        self.publish = publish
     }
 
     /// Gather information from the configured modules.
@@ -66,7 +71,7 @@ public struct Gather {
         }
 
         // Publish stuff based on the passes resulting from the jobs
-        opts.publishModules(names: moduleNames)
+        publish.modules = opts.modulesToPublish(names: moduleNames)
 
         // Garnishes
         logDebug("Gather: start doc-comment localization pass.")
@@ -78,15 +83,7 @@ public struct Gather {
 
     /// Put up things that other components need to know
     private func publishJobFacts(jobs: [GatherJob]) {
-        jobs.first.flatMap { published.defaultLanguage = $0.language }
-
-        for job in jobs {
-            if let sourceDirectoryURL = job.sourceDirectoryURL {
-                logDebug("Using \(sourceDirectoryURL.path) as main source directory.")
-                published.sourceDirectoryURL = sourceDirectoryURL
-                break
-            }
-        }
+        jobs.first.flatMap { publish.defaultLanguage = $0.language }
     }
 }
 

@@ -13,17 +13,23 @@ import Foundation
 protocol Configurable {
     /// Signal that all user options have been specified.
     /// Perform any in-component cross-option validation.
-    func checkOptions(published: Config.Published) throws
+    /// Publish anything that needs to be.
+    func checkOptions(publish: PublishStore) throws
+    func checkOptions() throws
     /// Perform any cross-component validation.
-    func checkOptionsPhase2(published: Config.Published) throws
+    func checkOptionsPhase2(published: Published) throws
 }
 
 extension Configurable {
     /// Do nothing by default
-    func checkOptions(published: Config.Published) throws {
+    func checkOptions() throws {
+    }
+    /// By default call the no-publish-store version
+    func checkOptions(publish: PublishStore) throws {
+        try checkOptions()
     }
     /// Do nothing by default
-    func checkOptionsPhase2(published: Config.Published) throws {
+    func checkOptionsPhase2(published: Published) throws {
     }
 }
 
@@ -56,39 +62,9 @@ public final class Config {
     private var configurables: [Configurable]
     private var srcDirOpt: PathOpt?
 
-    /// Published options -- publish during register, read during checkOptions
-    /// All slightly broken abstractions....
-    final class Published {
-        // Published by Config
-        var configRelativePathBaseURL: URL?
-        // Published by GatherOpts
-        var sourceDirectoryURL: URL?
-        // Published by GatherOpts
-        var moduleGroupPolicy = [String : ModuleGroupPolicy]()
-        var moduleNames: [String] {
-            moduleGroupPolicy.keys.sorted(by: <)
-        }
-        var isMultiModule: Bool {
-            moduleGroupPolicy.count > 1
-        }
-        // Published by GatherOpts
-        var defaultLanguage = DefLanguage.swift
-        // Published by GenCopyright
-        var authorName: Localized<String>?
-        // Published by GenSite
-        var childItemStyle: ChildItemStyle!
-        // Published by MergeFilter
-        var excludedAclList = ""
-        // Published by Group
-        var sourceOrderDefs = false
-        // Published by GenMedia
-        var urlPathForMedia: ((String) -> String?)?
-        // Published by Group
-        var urlPathForGuide: ((String) -> String?)?
-        // Publised by GenCodeHost
-        var codeHostURLForLocation: ((DefLocation) -> String?)?
-    }
-    let published = Published()
+    /// Publishing empire
+    private var publishStore = PublishStore()
+    var published: Published { publishStore }
 
     /// Create a new `Config` component
     public init() {
@@ -145,16 +121,16 @@ public final class Config {
             infoLog = .localized(.msgConfigFile, configFileURL.path)
 
             let configFile = try String(contentsOf: configFileURL)
-            let configFileDir = configFileURL.deletingLastPathComponent()
-            optsParser.relativePathBase = configFileDir
-            published.configRelativePathBaseURL = configFileDir
+            let configFileDirURL = configFileURL.deletingLastPathComponent()
+            optsParser.relativePathBase = configFileDirURL
+            publishStore.setConfigRelativePathBaseURL(configFileDirURL)
 
             try optsParser.apply(yaml: configFile)
         }
 
         configureLogger(report: true)
 
-        try configurables.reversed().forEach { try $0.checkOptions(published: published) } // #1
+        try configurables.reversed().forEach { try $0.checkOptions(publish: publishStore) } // #1
         try configurables.reversed().forEach { try $0.checkOptionsPhase2(published: published) }
     }
 
@@ -266,4 +242,8 @@ public final class Config {
             Logger.shared.activeLevels = Logger.quietLevels
         }
     }
+}
+
+extension Config {
+    var test_publishStore: PublishStore { publishStore }
 }

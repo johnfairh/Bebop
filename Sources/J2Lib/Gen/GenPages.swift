@@ -14,7 +14,7 @@ import Foundation
 public struct GenPages: Configurable {
     let defaultLanguageOpt = EnumOpt<DefLanguage>(l: "default-language")
 
-    private let published: Config.Published
+    private let published: Published
 
     public init(config: Config) {
         published = config.published

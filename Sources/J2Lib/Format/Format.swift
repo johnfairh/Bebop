@@ -15,17 +15,17 @@ public final class Format: Configurable {
     let abstract: FormatAbstracts
     let linkRewriter: FormatLinkRewriter
 
-    private let configPublished: Config.Published
+    private let published: Published
 
     public init(config: Config) {
         autolink = FormatAutolink(config: config)
         abstract = FormatAbstracts(config: config)
         linkRewriter = FormatLinkRewriter(config: config)
-        configPublished = config.published
+        published = config.published
         config.register(self)
     }
 
-    func checkOptions(published: Config.Published) throws {
+    func checkOptions() throws {
         try readmeOpt.checkIsFile()
     }
 
@@ -33,8 +33,8 @@ public final class Format: Configurable {
         let readme = try createReadme()
         let allItems = items + [readme]
         logDebug("Format: Assigning URLs")
-        URLFormatter(childItemStyle: configPublished.childItemStyle,
-                     multiModule: configPublished.isMultiModule).walk(items: allItems)
+        URLFormatter(childItemStyle: published.childItemStyle,
+                     multiModule: published.isMultiModule).walk(items: allItems)
         let linearVisitor = LinearItemVisitor()
         linearVisitor.walk(items: allItems)
         readme.linearNext = items.first
@@ -46,7 +46,7 @@ public final class Format: Configurable {
         logDebug("Format: Formatting declarations")
         DeclarationFormatter(autolink: autolink).walk(items: allItems)
         logDebug("Format: Generating HTML")
-        MarkdownFormatter(language: configPublished.defaultLanguage,
+        MarkdownFormatter(language: published.defaultLanguage,
                           autolink: autolink,
                           linkRewriter: linkRewriter).walk(items: allItems)
         return allItems
@@ -59,7 +59,7 @@ public final class Format: Configurable {
             return ReadmeItem(content: try Localized<Markdown>(localizingFile: readmeURL))
         }
 
-        let srcDirURL = configPublished.sourceDirectoryURL ?? FileManager.default.currentDirectory
+        let srcDirURL = published.someSourceDirectoryURL ?? FileManager.default.currentDirectory
         for guess in ["README.md", "README.markdown", "README.mdown", "README"] {
             let guessURL = srcDirURL.appendingPathComponent(guess)
             if FileManager.default.fileExists(atPath: guessURL.path) {
@@ -68,9 +68,9 @@ public final class Format: Configurable {
             }
         }
         logDebug("Format: Can't find anything that looks like a readme, making something up.")
-        let readmeModule = configPublished.moduleNames.first ?? "Module"
+        let readmeModule = published.moduleNames.first ?? "Module"
         var readmeMd = Localized<String>(unlocalized: "# \(readmeModule)")
-        if let readmeAuthor = configPublished.authorName {
+        if let readmeAuthor = published.authorName {
             readmeMd = readmeMd
                 + "\n### "
                 + .localizedOutput(.authors)
@@ -78,6 +78,12 @@ public final class Format: Configurable {
                 + readmeAuthor
         }
         return ReadmeItem(content: readmeMd.mapValues { Markdown($0) })
+    }
+}
+
+extension Published {
+    var someSourceDirectoryURL: URL? {
+        modules.first(where: { $0.sourceDirectory != nil })?.sourceDirectory
     }
 }
 

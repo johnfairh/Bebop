@@ -46,7 +46,7 @@ struct GenThemes: Configurable {
     }
 
     /// Quick check upfront that the theme directory looks sort of plausable
-    func checkOptions(published: Config.Published) throws {
+    func checkOptions() throws {
         let themeURL = themeURLFromOpt
         try themeURL.checkIsDirectory()
         try themeURL.appendingPathComponent("templates").checkIsDirectory()

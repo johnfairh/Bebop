@@ -75,6 +75,7 @@
 		029A717923D9A46300D66069 /* TestLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029A717823D9A46300D66069 /* TestLogger.swift */; };
 		029A717B23D9B2AC00D66069 /* TestConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029A717A23D9B2AC00D66069 /* TestConfig.swift */; };
 		029A717F23D9F91200D66069 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029A717E23D9F91200D66069 /* FileManager.swift */; };
+		02AE7ED624485B5500B4A566 /* Published.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AE7ED524485B5500B4A566 /* Published.swift */; };
 		02C2401C239A6F0700518764 /* J2Lib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C24012239A6F0700518764 /* J2Lib.framework */; };
 		02CFF91723DDFB0100FDE5B9 /* SourceKittenFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02CFF90A23DDF9DF00FDE5B9 /* SourceKittenFramework.framework */; };
 		02CFF91823DDFB0100FDE5B9 /* SourceKittenFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02CFF90A23DDF9DF00FDE5B9 /* SourceKittenFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -302,6 +303,7 @@
 		029A717E23D9F91200D66069 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		029A718423DB04F300D66069 /* J2Resources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = J2Resources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		029A718623DB04F300D66069 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02AE7ED524485B5500B4A566 /* Published.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Published.swift; sourceTree = "<group>"; };
 		02C24012239A6F0700518764 /* J2Lib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = J2Lib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		02C24016239A6F0700518764 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02C2401B239A6F0700518764 /* J2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = J2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -507,6 +509,7 @@
 			children = (
 				029A6F1A23D7838700D66069 /* Pipeline.swift */,
 				029A6F1823D77F7C00D66069 /* Config.swift */,
+				02AE7ED524485B5500B4A566 /* Published.swift */,
 				0259E1902414F5A5006435A1 /* Stats.swift */,
 				029A6F1C23D79AB000D66069 /* Version.swift */,
 				02CFF92123DDFE1400FDE5B9 /* Gather */,
@@ -930,6 +933,7 @@
 				02FDC67A23E876D300C2F9CD /* DefDocs.swift in Sources */,
 				02FDC68623E9EEE900C2F9CD /* GatherLocalize.swift in Sources */,
 				029A6F1923D77F7C00D66069 /* Config.swift in Sources */,
+				02AE7ED624485B5500B4A566 /* Published.swift in Sources */,
 				028321F92403F40200B2C555 /* Exec.swift in Sources */,
 				029A6F1F23D880F700D66069 /* Logger.swift in Sources */,
 				02FDC67C23E879E700C2F9CD /* GatherMarkdown.swift in Sources */,

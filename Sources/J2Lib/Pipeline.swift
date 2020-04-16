@@ -168,7 +168,7 @@ public final class Pipeline: Configurable {
 
     /// Callback during options processing.  Important we sort out pipeline mode now to avoid
     /// polluting stdout....
-    func checkOptions(published: Config.Published) throws {
+    func checkOptions(publish: PublishStore) throws {
         productsToDo = Set(productsOpt.value)
         logDebug("Pipeline: products: \(productsToDo)")
         if productsToDo.needsPipelineMode {

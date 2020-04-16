@@ -53,7 +53,7 @@ public struct GenSite: Configurable {
     let oldCustomHeadOpt: AliasOpt
     let oldDisableSearchOpt: AliasOpt
 
-    private let published: Config.Published
+    private let published: Published
 
     var outputURL: URL { outputOpt.value! }
     var childItemStyle: ChildItemStyle { childItemStyleOpt.value! }
@@ -85,8 +85,8 @@ public struct GenSite: Configurable {
         config.register(self)
     }
 
-    func checkOptions(published: Config.Published) throws {
-        published.childItemStyle = childItemStyle
+    func checkOptions(publish: PublishStore) throws {
+        publish.childItemStyle = childItemStyle
     }
 
     /// Final site generation.

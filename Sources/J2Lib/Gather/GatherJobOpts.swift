@@ -38,7 +38,7 @@ final class GatherJobOpts: Configurable, CustomStringConvertible {
     }
 
     /// First pass of options-checking, that individual things entered are valid
-    func checkOptions(published: Config.Published) throws {
+    func checkOptions() throws {
         try checkBaseOptions()
     }
 

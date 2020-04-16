@@ -42,7 +42,7 @@ final class GenCodeHost: Configurable {
         config.register(self)
     }
 
-    func checkOptions(published: Config.Published) throws {
+    func checkOptions(publish: PublishStore) throws {
         if codeHostOpt.configured {
             if codeHostCustomOpt.configured {
                 throw OptionsError(.localized(.errCfgChostBoth))
@@ -51,7 +51,7 @@ final class GenCodeHost: Configurable {
                 throw OptionsError(.localized(.errCfgChostMissingUrl))
             }
         }
-        published.codeHostURLForLocation = self.locationURL
+        publish.registerCodeHostItemURLForLocation(self.locationURL)
     }
 
     private static let CUSTOM_SUB_LINE = "%LINE"
@@ -84,12 +84,12 @@ final class GenCodeHost: Configurable {
             }
         }
 
-        func findMediaPath(published: Config.Published) throws -> String {
+        func findMediaPath(published: Published) throws -> String {
             guard let imageName = imageNameOpt.value else {
                 throw OptionsError(.localized(.errCfgChostMissingImage))
             }
 
-            guard let mediaPath = published.urlPathForMedia?(imageName) else {
+            guard let mediaPath = published.urlPathForMedia(imageName) else {
                 throw OptionsError(.localized(.errCfgChostBadImage, imageName))
             }
             return mediaPath
@@ -99,7 +99,7 @@ final class GenCodeHost: Configurable {
     private var parser: Parser?
     private var customImagePath: String?
 
-    func checkOptionsPhase2(published: Config.Published) throws {
+    func checkOptionsPhase2(published: Published) throws {
         guard let customYaml = codeHostCustomOpt.value else {
             return
         }

@@ -43,7 +43,7 @@ public struct Group: Configurable {
 
     let groupGuides: GroupGuides
     let groupCustom: GroupCustom
-    let published: Config.Published // modulename -> grouppolicy
+    let published: Published // modulename -> grouppolicy
 
     public init(config: Config) {
         customCatPrefixAlias = AliasOpt(realOpt: customGroupPrefixOpt, l: "custom-categories-unlisted-prefix")
@@ -54,8 +54,8 @@ public struct Group: Configurable {
         config.register(self)
     }
 
-    func checkOptions(published: Config.Published) throws {
-        published.sourceOrderDefs = topicStyle != .logical
+    func checkOptions(publish: PublishStore) throws {
+        publish.sourceOrderDefs = topicStyle != .logical
     }
 
     public func group(merged: [DefItem]) throws -> [Item] {
@@ -98,7 +98,7 @@ public struct Group: Configurable {
         items.forEach { item in
             if let def = item as? DefItem {
                 let moduleName = def.location.moduleName
-                var groupPolicy = published.moduleGroupPolicy[moduleName] ?? .separate
+                var groupPolicy = published.module(moduleName).groupPolicy
                 if groupPolicy == .separate && !published.isMultiModule {
                     groupPolicy = .global
                 }

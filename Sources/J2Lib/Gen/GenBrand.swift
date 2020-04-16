@@ -29,12 +29,12 @@ final class GenBrand: Configurable {
             try parser.apply(mapping: yaml.checkMapping(context: "custom_brand"))
         }
 
-        func findMediaPath(published: Config.Published) throws -> String {
+        func findMediaPath(published: Published) throws -> String {
             guard let imageName = imageNameOpt.value else {
                 throw OptionsError(.localized(.errCfgBrandMissingImage))
             }
 
-            guard let mediaPath = published.urlPathForMedia?(imageName) else {
+            guard let mediaPath = published.urlPathForMedia(imageName) else {
                 throw OptionsError(.localized(.errCfgBrandBadImage, imageName))
             }
             return mediaPath
@@ -48,7 +48,7 @@ final class GenBrand: Configurable {
     var title: Localized<String>?   { parser?.titleOpt.value }
     var url: Localized<String>?     { parser?.urlOpt.value }
 
-    func checkOptionsPhase2(published: Config.Published) throws {
+    func checkOptionsPhase2(published: Published) throws {
         guard let customBrandYaml = customBrandOpt.value else {
             return
         }

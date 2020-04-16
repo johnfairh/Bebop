@@ -22,18 +22,23 @@ final class GenMedia: Configurable {
 
     public init(config: Config) {
         config.register(self)
-        config.published.urlPathForMedia = self.urlPathForMedia
     }
 
-    func checkOptions(published: Config.Published) throws {
+    func checkOptions(publish: PublishStore) throws {
+        publish.registerURLPathForMedia(self.urlPathForMedia)
         mediaFiles = mediaOpt.value.findMediaFileURLs()
     }
 
     private let MEDIA = "media"
 
+    /// Unit test support
+    var fakeMediaLookup = false
+
     /// Test for whether a filename matches a media file and return the url-path-component to link to it
     /// from the doc-root.  Used by Format during smart link resolution.
     func urlPathForMedia(filename: String) -> String? {
+        if fakeMediaLookup { return "FAKE" }
+
         guard mediaFiles[filename] != nil else {
             return nil
         }

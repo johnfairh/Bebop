@@ -19,7 +19,7 @@ fileprivate struct System {
         genPages = GenPages(config: config)
         gen = GenSite(config: config)
         if fakeMedia {
-            config.published.urlPathForMedia = { $0 }
+            gen.media.fakeMediaLookup = true
         }
     }
 
@@ -152,8 +152,8 @@ class TestGen: XCTestCase {
                              _ title: String?, _ bcRoot: String, line: UInt = #line) throws {
         let system = System()
         try system.configure(cliOpts: cliOpts)
-        modules.forEach { m in
-            system.config.published.moduleGroupPolicy[m] = .separate
+        system.config.test_publishStore.modules = modules.map {
+            PublishedModule(name: $0, groupPolicy: .separate)
         }
         let atitle = system.gen.buildDocsTitle()
         let abreadcrumbsRoot = system.gen.buildBreadcrumbsRoot()
@@ -212,7 +212,7 @@ class TestGen: XCTestCase {
         XCTAssertEqual(.swift, system.genPages.pickDefaultLanguage(from: [.swift]))
         XCTAssertEqual(.swift, system.genPages.pickDefaultLanguage(from: [.swift, .objc]))
         XCTAssertEqual(.swift, system.genPages.pickDefaultLanguage(from: [.objc, .swift]))
-        system.config.published.defaultLanguage = .objc
+        system.config.test_publishStore.defaultLanguage = .objc
         XCTAssertEqual(.objc, system.genPages.pickDefaultLanguage(from: [.objc, .swift]))
     }
 
@@ -279,6 +279,7 @@ class TestGen: XCTestCase {
 
         func makeItems(cliOpts: [String] = [], passes: [GatherModulePass] = []) throws -> [Item] {
             try config.processOptions(cliOpts: cliOpts)
+            config.test_publishStore.modules = passes.map { PublishedModule(name: $0.moduleName) }
             return try format.format(items: group.group(merged: merge.merge(gathered: passes)))
         }
 

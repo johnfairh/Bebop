@@ -31,7 +31,7 @@ final class GroupCustom: Configurable {
         config.register(self)
     }
 
-    func checkOptions(published: Config.Published) throws {
+    func checkOptions() throws {
         if let customGroupsYaml = customGroupsOpt.value {
             logDebug("Group: start parsing custom_groups")
             groups = try GroupParser.groups(yaml: customGroupsYaml)
