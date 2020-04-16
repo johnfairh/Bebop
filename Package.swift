@@ -1,4 +1,4 @@
-// swift-tools-version:5.1
+// swift-tools-version:5.2
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -14,15 +14,17 @@ let package = Package(
   dependencies: [
     .package(url: "https://github.com/jpsim/Yams.git", from: "2.0.0"),
     .package(url: "https://github.com/jpsim/SourceKitten.git", from: "0.29.0"),
-    .package(url: "https://github.com/johnfairh/GRMustache.swift.git",
+    .package(name: "Mustache",
+             url: "https://github.com/johnfairh/GRMustache.swift.git",
              from: "14.0.1"),
     // Duplicate SourceKitten's requirement for general sanity
     .package(url: "https://github.com/drmohundro/SWXMLHash.git",
              .upToNextMinor(from: "5.0.1")),
-    .package(url: "https://github.com/apple/swift-syntax.git",
-             .exact("0.50100.0")),
+    .package(name: "SwiftSyntax",
+             url: "https://github.com/apple/swift-syntax.git",
+             .exact("0.50200.0")),
     .package(url: "https://github.com/johnfairh/Maaku.git",
-             from: "10.9.4"),
+             from: "10.9.5"),
     .package(url: "https://github.com/ole/SortedArray.git",
              from: "0.7.0")
   ],
@@ -31,7 +33,7 @@ let package = Package(
       name: "J2Lib",
       dependencies: [
         "Yams",
-        "SourceKittenFramework",
+        .product(name: "SourceKittenFramework", package: "SourceKitten"),
         "Mustache",
         "SWXMLHash",
         "SwiftSyntax",

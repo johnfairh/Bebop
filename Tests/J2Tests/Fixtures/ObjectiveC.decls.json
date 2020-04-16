@@ -245,7 +245,7 @@
         "name" : "identifier",
         "obj_c_declaration" : {
           "declaration" : {
-            "text" : "@property (copy, nonatomic, class) NSUUID *identifier"
+            "text" : "@property (class, nonatomic, copy) NSUUID *identifier"
           },
           "name_pieces" : [
             {
@@ -302,7 +302,7 @@
         "name" : "uuid",
         "obj_c_declaration" : {
           "declaration" : {
-            "text" : "@property (copy, nonatomic, nullable) NSUUID *uuid"
+            "text" : "@property (nonatomic, copy, nullable) NSUUID *uuid"
           },
           "name_pieces" : [
             {

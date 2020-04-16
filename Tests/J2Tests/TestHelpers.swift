@@ -303,7 +303,7 @@ extension SourceKittenDict {
     func asGatherDef(availability: String? = nil) -> GatherDef {
         let rules = Gather.Availability(defaults: availability.flatMap { [$0] } ?? [],
                                         ignoreAttr: false)
-        var rootDef = GatherDef(sourceKittenDict: self,
+        let rootDef = GatherDef(sourceKittenDict: self,
                                 parentNameComponents: [],
                                 file: nil,
                                 availability: rules)!

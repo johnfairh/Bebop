@@ -33,7 +33,7 @@ public enum GroupKind: Hashable {
 
     public var includesModuleName: Bool {
         switch self {
-        case .moduleItems(_): return true
+        case .moduleItems(_, _): return true
         default: return false
         }
     }

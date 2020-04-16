@@ -189,7 +189,6 @@
           "key.usr" : "s:14SpmSwiftModule11GenericBaseC"
         },
         {
-          "key.accessibility" : "source.lang.swift.accessibility.internal",
           "key.annotated_decl" : "<Declaration>class GenericBase&lt;T&gt;<\/Declaration>",
           "key.bodylength" : 70,
           "key.bodyoffset" : 165,
@@ -218,7 +217,6 @@
           "key.parsed_scope.start" : 12,
           "key.substructure" : [
             {
-              "key.accessibility" : "source.lang.swift.accessibility.internal",
               "key.annotated_decl" : "<Declaration>var codableCount: <Type usr=\"s:Si\">Int<\/Type> { get }<\/Declaration>",
               "key.bodylength" : 17,
               "key.bodyoffset" : 191,
@@ -254,7 +252,6 @@
               "key.usr" : "s:14SpmSwiftModule11GenericBaseCAASeRzSERzlE12codableCountSivp"
             },
             {
-              "key.accessibility" : "source.lang.swift.accessibility.internal",
               "key.annotated_decl" : "<Declaration>func doCodability()<\/Declaration>",
               "key.bodylength" : 0,
               "key.bodyoffset" : 233,
@@ -295,7 +292,6 @@
           "key.usr" : "s:14SpmSwiftModule11GenericBaseC"
         },
         {
-          "key.accessibility" : "source.lang.swift.accessibility.internal",
           "key.annotated_decl" : "<Declaration>class GenericBase&lt;T&gt;<\/Declaration>",
           "key.bodylength" : 51,
           "key.bodyoffset" : 326,
@@ -324,7 +320,6 @@
           "key.parsed_scope.start" : 19,
           "key.substructure" : [
             {
-              "key.accessibility" : "source.lang.swift.accessibility.internal",
               "key.annotated_decl" : "<Declaration>func doFirstMagic()<\/Declaration>",
               "key.bodylength" : 0,
               "key.bodyoffset" : 350,
@@ -360,7 +355,6 @@
               "key.usr" : "s:14SpmSwiftModule11GenericBaseCA2A13FirstProtocolRzSQRzlE02doF5MagicyyF"
             },
             {
-              "key.accessibility" : "source.lang.swift.accessibility.internal",
               "key.annotated_decl" : "<Declaration>func doMoreMagic()<\/Declaration>",
               "key.bodylength" : 0,
               "key.bodyoffset" : 375,
@@ -401,7 +395,6 @@
           "key.usr" : "s:14SpmSwiftModule11GenericBaseC"
         },
         {
-          "key.accessibility" : "source.lang.swift.accessibility.internal",
           "key.annotated_decl" : "<Declaration>class GenericBase&lt;T&gt;<\/Declaration>",
           "key.bodylength" : 52,
           "key.bodyoffset" : 421,
@@ -438,7 +431,6 @@
               "key.offset" : 427
             },
             {
-              "key.accessibility" : "source.lang.swift.accessibility.internal",
               "key.annotated_decl" : "<Declaration>func doHashable()<\/Declaration>",
               "key.bodylength" : 0,
               "key.bodyoffset" : 471,
@@ -487,7 +479,6 @@
           "key.offset" : 479
         },
         {
-          "key.accessibility" : "source.lang.swift.accessibility.internal",
           "key.annotated_decl" : "<Declaration>class GenericBase&lt;T&gt;<\/Declaration>",
           "key.bodylength" : 47,
           "key.bodyoffset" : 558,
@@ -533,7 +524,6 @@
           "key.parsed_scope.start" : 32,
           "key.substructure" : [
             {
-              "key.accessibility" : "source.lang.swift.accessibility.internal",
               "key.annotated_decl" : "<Declaration>var description: <Type usr=\"s:SS\">String<\/Type> { get }<\/Declaration>",
               "key.bodylength" : 17,
               "key.bodyoffset" : 586,
@@ -597,7 +587,6 @@
           "key.usr" : "s:14SpmSwiftModule11GenericBaseC"
         },
         {
-          "key.accessibility" : "source.lang.swift.accessibility.internal",
           "key.annotated_decl" : "<Declaration>protocol Collection : <Type usr=\"s:ST\">Sequence<\/Type><\/Declaration>",
           "key.bodylength" : 26,
           "key.bodyoffset" : 659,
@@ -737,7 +726,6 @@
           "key.parsed_scope.start" : 38,
           "key.substructure" : [
             {
-              "key.accessibility" : "source.lang.swift.accessibility.internal",
               "key.annotated_decl" : "<Declaration>func collectEmAll()<\/Declaration>",
               "key.bodylength" : 0,
               "key.bodyoffset" : 683,
@@ -779,7 +767,6 @@
           "key.usr" : "s:Sl"
         },
         {
-          "key.accessibility" : "source.lang.swift.accessibility.internal",
           "key.annotated_decl" : "<Declaration>protocol Collection : <Type usr=\"s:ST\">Sequence<\/Type><\/Declaration>",
           "key.bodylength" : 23,
           "key.bodyoffset" : 750,
@@ -919,7 +906,6 @@
           "key.parsed_scope.start" : 42,
           "key.substructure" : [
             {
-              "key.accessibility" : "source.lang.swift.accessibility.internal",
               "key.annotated_decl" : "<Declaration>func nestEmAll()<\/Declaration>",
               "key.bodylength" : 0,
               "key.bodyoffset" : 771,
@@ -961,7 +947,6 @@
           "key.usr" : "s:Sl"
         },
         {
-          "key.accessibility" : "source.lang.swift.accessibility.internal",
           "key.annotated_decl" : "<Declaration>public protocol FirstProtocol<\/Declaration>",
           "key.bodylength" : 142,
           "key.bodyoffset" : 827,
@@ -997,7 +982,6 @@
           "key.parsed_scope.start" : 46,
           "key.substructure" : [
             {
-              "key.accessibility" : "source.lang.swift.accessibility.internal",
               "key.annotated_decl" : "<Declaration>func extHashableMethod()<\/Declaration>",
               "key.bodylength" : 0,
               "key.bodyoffset" : 856,
@@ -1033,7 +1017,6 @@
               "key.usr" : "s:14SpmSwiftModule13FirstProtocolPAASH9AssocTypeRpzrlE17extHashableMethodyyF"
             },
             {
-              "key.accessibility" : "source.lang.swift.accessibility.internal",
               "key.annotated_decl" : "<Declaration>func m(arg: <Type usr=\"s:Si\">Int<\/Type>) -&gt; <Type usr=\"s:SS\">String<\/Type><\/Declaration>",
               "key.bodylength" : 17,
               "key.bodyoffset" : 950,
@@ -1106,7 +1089,6 @@
           "key.usr" : "s:14SpmSwiftModule13FirstProtocolP"
         },
         {
-          "key.accessibility" : "source.lang.swift.accessibility.internal",
           "key.annotated_decl" : "<Declaration>typealias Element = <Type usr=\"s:SJ\">Character<\/Type><\/Declaration>",
           "key.bodylength" : 91,
           "key.bodyoffset" : 1053,
@@ -1167,7 +1149,6 @@
           "key.parsed_scope.start" : 56,
           "key.substructure" : [
             {
-              "key.accessibility" : "source.lang.swift.accessibility.internal",
               "key.annotated_decl" : "<Declaration>func method1()<\/Declaration>",
               "key.bodylength" : 0,
               "key.bodyoffset" : 1097,
@@ -1220,7 +1201,6 @@
               "key.usr" : "s:SJ14SpmSwiftModuleE7method1yyF"
             },
             {
-              "key.accessibility" : "source.lang.swift.accessibility.internal",
               "key.annotated_decl" : "<Declaration>func method2()<\/Declaration>",
               "key.bodylength" : 0,
               "key.bodyoffset" : 1142,
@@ -1496,7 +1476,6 @@
           "key.usr" : "s:14SpmSwiftModule13FirstProtocolP"
         },
         {
-          "key.accessibility" : "source.lang.swift.accessibility.internal",
           "key.annotated_decl" : "<Declaration>public protocol FirstProtocol<\/Declaration>",
           "key.bodylength" : 49,
           "key.bodyoffset" : 287,
@@ -1532,7 +1511,6 @@
           "key.parsed_scope.start" : 14,
           "key.substructure" : [
             {
-              "key.accessibility" : "source.lang.swift.accessibility.internal",
               "key.annotated_decl" : "<Declaration>func e()<\/Declaration>",
               "key.bodylength" : 0,
               "key.bodyoffset" : 334,
@@ -1589,7 +1567,6 @@
           "key.usr" : "s:14SpmSwiftModule13FirstProtocolP"
         },
         {
-          "key.accessibility" : "source.lang.swift.accessibility.internal",
           "key.annotated_decl" : "<Declaration>public protocol FirstProtocol<\/Declaration>",
           "key.bodylength" : 121,
           "key.bodyoffset" : 364,
@@ -1625,7 +1602,6 @@
           "key.parsed_scope.start" : 19,
           "key.substructure" : [
             {
-              "key.accessibility" : "source.lang.swift.accessibility.internal",
               "key.annotated_decl" : "<Declaration>func m(arg: <Type usr=\"s:Si\">Int<\/Type>) -&gt; <Type usr=\"s:SS\">String<\/Type><\/Declaration>",
               "key.bodylength" : 10,
               "key.bodyoffset" : 473,
@@ -3128,15 +3104,6 @@
                   "key.annotated_decl" : "<RelatedName usr=\"s:SF1poiyxx_xtFZ\">+ (_: Self, _: Self) -&gt; Self<\/RelatedName>"
                 },
                 {
-                  "key.annotated_decl" : "<RelatedName usr=\"s:Sf1poiyS2f_SftFZ\">+ (_: Float, _: Float) -&gt; Float<\/RelatedName>"
-                },
-                {
-                  "key.annotated_decl" : "<RelatedName usr=\"s:Sd1poiyS2d_SdtFZ\">+ (_: Double, _: Double) -&gt; Double<\/RelatedName>"
-                },
-                {
-                  "key.annotated_decl" : "<RelatedName usr=\"s:s7Float80V1poiyA2B_ABtFZ\">+ (_: Float80, _: Float80) -&gt; Float80<\/RelatedName>"
-                },
-                {
                   "key.annotated_decl" : "<RelatedName usr=\"s:s18AdditiveArithmeticP1poiyxx_xtFZ\">+ (_: Self, _: Self) -&gt; Self<\/RelatedName>"
                 },
                 {
@@ -3144,6 +3111,42 @@
                 },
                 {
                   "key.annotated_decl" : "<RelatedName usr=\"s:Sz1poiyxx_xtFZ\">+ (_: Self, _: Self) -&gt; Self<\/RelatedName>"
+                },
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:Sxss8_PointerRzrlE1poiyxx_6StrideQztFZ\">+ (_: Self, _: Self.Stride) -&gt; Self<\/RelatedName>"
+                },
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:Sxss8_PointerRzrlE1poiyx6StrideQz_xtFZ\">+ (_: Self.Stride, _: Self) -&gt; Self<\/RelatedName>"
+                },
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:SmsE1poiyxx_qd__tSTRd__7ElementQyd__ABRtzlFZ\">+ &lt;Other&gt;(_: Self, _: Other) -&gt; Self where Other : Sequence, Self.Element == Other.Element<\/RelatedName>"
+                },
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:SmsE1poiyxqd___xtSTRd__7ElementQyd__ABRtzlFZ\">+ &lt;Other&gt;(_: Other, _: Self) -&gt; Self where Other : Sequence, Self.Element == Other.Element<\/RelatedName>"
+                },
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:SmsE1poiyxx_qd__tSmRd__7ElementQyd__ABRtzlFZ\">+ &lt;Other&gt;(_: Self, _: Other) -&gt; Self where Other : RangeReplaceableCollection, Self.Element == Other.Element<\/RelatedName>"
+                },
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:SS1poiyS2S_SStFZ\">+ (_: String, _: String) -&gt; String<\/RelatedName>"
+                },
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:s4SIMDPsSF6ScalarRpzrlE1poiyxx_xtFZ\">+ (_: Self, _: Self) -&gt; Self<\/RelatedName>"
+                },
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:s4SIMDPsSF6ScalarRpzrlE1poiyxAD_xtFZ\">+ (_: Self.Scalar, _: Self) -&gt; Self<\/RelatedName>"
+                },
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:s4SIMDPsSF6ScalarRpzrlE1poiyxx_ADtFZ\">+ (_: Self, _: Self.Scalar) -&gt; Self<\/RelatedName>"
+                },
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:Sf1poiyS2f_SftFZ\">+ (_: Float, _: Float) -&gt; Float<\/RelatedName>"
+                },
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:Sd1poiyS2d_SdtFZ\">+ (_: Double, _: Double) -&gt; Double<\/RelatedName>"
+                },
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:s7Float80V1poiyA2B_ABtFZ\">+ (_: Float80, _: Float80) -&gt; Float80<\/RelatedName>"
                 },
                 {
                   "key.annotated_decl" : "<RelatedName usr=\"s:s5UInt8V1poiyA2B_ABtFZ\">+ (_: UInt8, _: UInt8) -&gt; UInt8<\/RelatedName>"
@@ -3174,33 +3177,6 @@
                 },
                 {
                   "key.annotated_decl" : "<RelatedName usr=\"s:Si1poiyS2i_SitFZ\">+ (_: Int, _: Int) -&gt; Int<\/RelatedName>"
-                },
-                {
-                  "key.annotated_decl" : "<RelatedName usr=\"s:Sxss8_PointerRzrlE1poiyxx_6StrideQztFZ\">+ (_: Self, _: Self.Stride) -&gt; Self<\/RelatedName>"
-                },
-                {
-                  "key.annotated_decl" : "<RelatedName usr=\"s:Sxss8_PointerRzrlE1poiyx6StrideQz_xtFZ\">+ (_: Self.Stride, _: Self) -&gt; Self<\/RelatedName>"
-                },
-                {
-                  "key.annotated_decl" : "<RelatedName usr=\"s:SmsE1poiyxx_qd__tSTRd__7ElementQyd__ABRtzlFZ\">+ &lt;Other&gt;(_: Self, _: Other) -&gt; Self where Other : Sequence, Self.Element == Other.Element<\/RelatedName>"
-                },
-                {
-                  "key.annotated_decl" : "<RelatedName usr=\"s:SmsE1poiyxqd___xtSTRd__7ElementQyd__ABRtzlFZ\">+ &lt;Other&gt;(_: Other, _: Self) -&gt; Self where Other : Sequence, Self.Element == Other.Element<\/RelatedName>"
-                },
-                {
-                  "key.annotated_decl" : "<RelatedName usr=\"s:SmsE1poiyxx_qd__tSmRd__7ElementQyd__ABRtzlFZ\">+ &lt;Other&gt;(_: Self, _: Other) -&gt; Self where Other : RangeReplaceableCollection, Self.Element == Other.Element<\/RelatedName>"
-                },
-                {
-                  "key.annotated_decl" : "<RelatedName usr=\"s:SS1poiyS2S_SStFZ\">+ (_: String, _: String) -&gt; String<\/RelatedName>"
-                },
-                {
-                  "key.annotated_decl" : "<RelatedName usr=\"s:s4SIMDPsSF6ScalarRpzrlE1poiyxx_xtFZ\">+ (_: Self, _: Self) -&gt; Self<\/RelatedName>"
-                },
-                {
-                  "key.annotated_decl" : "<RelatedName usr=\"s:s4SIMDPsSF6ScalarRpzrlE1poiyxAD_xtFZ\">+ (_: Self.Scalar, _: Self) -&gt; Self<\/RelatedName>"
-                },
-                {
-                  "key.annotated_decl" : "<RelatedName usr=\"s:s4SIMDPsSF6ScalarRpzrlE1poiyxx_ADtFZ\">+ (_: Self, _: Self.Scalar) -&gt; Self<\/RelatedName>"
                 }
               ],
               "key.substructure" : [
@@ -3349,15 +3325,6 @@
               "key.annotated_decl" : "<RelatedName usr=\"s:SF1poiyxx_xtFZ\">+ (_: Self, _: Self) -&gt; Self<\/RelatedName>"
             },
             {
-              "key.annotated_decl" : "<RelatedName usr=\"s:Sf1poiyS2f_SftFZ\">+ (_: Float, _: Float) -&gt; Float<\/RelatedName>"
-            },
-            {
-              "key.annotated_decl" : "<RelatedName usr=\"s:Sd1poiyS2d_SdtFZ\">+ (_: Double, _: Double) -&gt; Double<\/RelatedName>"
-            },
-            {
-              "key.annotated_decl" : "<RelatedName usr=\"s:s7Float80V1poiyA2B_ABtFZ\">+ (_: Float80, _: Float80) -&gt; Float80<\/RelatedName>"
-            },
-            {
               "key.annotated_decl" : "<RelatedName usr=\"s:s18AdditiveArithmeticP1poiyxx_xtFZ\">+ (_: Self, _: Self) -&gt; Self<\/RelatedName>"
             },
             {
@@ -3365,6 +3332,42 @@
             },
             {
               "key.annotated_decl" : "<RelatedName usr=\"s:Sz1poiyxx_xtFZ\">+ (_: Self, _: Self) -&gt; Self<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:Sxss8_PointerRzrlE1poiyxx_6StrideQztFZ\">+ (_: Self, _: Self.Stride) -&gt; Self<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:Sxss8_PointerRzrlE1poiyx6StrideQz_xtFZ\">+ (_: Self.Stride, _: Self) -&gt; Self<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:SmsE1poiyxx_qd__tSTRd__7ElementQyd__ABRtzlFZ\">+ &lt;Other&gt;(_: Self, _: Other) -&gt; Self where Other : Sequence, Self.Element == Other.Element<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:SmsE1poiyxqd___xtSTRd__7ElementQyd__ABRtzlFZ\">+ &lt;Other&gt;(_: Other, _: Self) -&gt; Self where Other : Sequence, Self.Element == Other.Element<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:SmsE1poiyxx_qd__tSmRd__7ElementQyd__ABRtzlFZ\">+ &lt;Other&gt;(_: Self, _: Other) -&gt; Self where Other : RangeReplaceableCollection, Self.Element == Other.Element<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:SS1poiyS2S_SStFZ\">+ (_: String, _: String) -&gt; String<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:s4SIMDPsSF6ScalarRpzrlE1poiyxx_xtFZ\">+ (_: Self, _: Self) -&gt; Self<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:s4SIMDPsSF6ScalarRpzrlE1poiyxAD_xtFZ\">+ (_: Self.Scalar, _: Self) -&gt; Self<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:s4SIMDPsSF6ScalarRpzrlE1poiyxx_ADtFZ\">+ (_: Self, _: Self.Scalar) -&gt; Self<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:Sf1poiyS2f_SftFZ\">+ (_: Float, _: Float) -&gt; Float<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:Sd1poiyS2d_SdtFZ\">+ (_: Double, _: Double) -&gt; Double<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:s7Float80V1poiyA2B_ABtFZ\">+ (_: Float80, _: Float80) -&gt; Float80<\/RelatedName>"
             },
             {
               "key.annotated_decl" : "<RelatedName usr=\"s:s5UInt8V1poiyA2B_ABtFZ\">+ (_: UInt8, _: UInt8) -&gt; UInt8<\/RelatedName>"
@@ -3395,33 +3398,6 @@
             },
             {
               "key.annotated_decl" : "<RelatedName usr=\"s:Si1poiyS2i_SitFZ\">+ (_: Int, _: Int) -&gt; Int<\/RelatedName>"
-            },
-            {
-              "key.annotated_decl" : "<RelatedName usr=\"s:Sxss8_PointerRzrlE1poiyxx_6StrideQztFZ\">+ (_: Self, _: Self.Stride) -&gt; Self<\/RelatedName>"
-            },
-            {
-              "key.annotated_decl" : "<RelatedName usr=\"s:Sxss8_PointerRzrlE1poiyx6StrideQz_xtFZ\">+ (_: Self.Stride, _: Self) -&gt; Self<\/RelatedName>"
-            },
-            {
-              "key.annotated_decl" : "<RelatedName usr=\"s:SmsE1poiyxx_qd__tSTRd__7ElementQyd__ABRtzlFZ\">+ &lt;Other&gt;(_: Self, _: Other) -&gt; Self where Other : Sequence, Self.Element == Other.Element<\/RelatedName>"
-            },
-            {
-              "key.annotated_decl" : "<RelatedName usr=\"s:SmsE1poiyxqd___xtSTRd__7ElementQyd__ABRtzlFZ\">+ &lt;Other&gt;(_: Other, _: Self) -&gt; Self where Other : Sequence, Self.Element == Other.Element<\/RelatedName>"
-            },
-            {
-              "key.annotated_decl" : "<RelatedName usr=\"s:SmsE1poiyxx_qd__tSmRd__7ElementQyd__ABRtzlFZ\">+ &lt;Other&gt;(_: Self, _: Other) -&gt; Self where Other : RangeReplaceableCollection, Self.Element == Other.Element<\/RelatedName>"
-            },
-            {
-              "key.annotated_decl" : "<RelatedName usr=\"s:SS1poiyS2S_SStFZ\">+ (_: String, _: String) -&gt; String<\/RelatedName>"
-            },
-            {
-              "key.annotated_decl" : "<RelatedName usr=\"s:s4SIMDPsSF6ScalarRpzrlE1poiyxx_xtFZ\">+ (_: Self, _: Self) -&gt; Self<\/RelatedName>"
-            },
-            {
-              "key.annotated_decl" : "<RelatedName usr=\"s:s4SIMDPsSF6ScalarRpzrlE1poiyxAD_xtFZ\">+ (_: Self.Scalar, _: Self) -&gt; Self<\/RelatedName>"
-            },
-            {
-              "key.annotated_decl" : "<RelatedName usr=\"s:s4SIMDPsSF6ScalarRpzrlE1poiyxx_ADtFZ\">+ (_: Self, _: Self.Scalar) -&gt; Self<\/RelatedName>"
             }
           ],
           "key.substructure" : [
@@ -3596,9 +3572,9 @@
             },
             {
               "key.accessibility" : "source.lang.swift.accessibility.internal",
-              "key.annotated_decl" : "<Declaration>var t: Q?<\/Declaration>",
+              "key.annotated_decl" : "<Declaration>var t: <Type usr=\"s:14SpmSwiftModule13ADerivedClassC1Qq_mfp\">Q<\/Type>?<\/Declaration>",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-              "key.fully_annotated_decl" : "<decl.var.instance><syntaxtype.keyword>var<\/syntaxtype.keyword> <decl.name>t<\/decl.name>: <decl.var.type>Q?<\/decl.var.type><\/decl.var.instance>",
+              "key.fully_annotated_decl" : "<decl.var.instance><syntaxtype.keyword>var<\/syntaxtype.keyword> <decl.name>t<\/decl.name>: <decl.var.type><ref.generic_type_param usr=\"s:14SpmSwiftModule13ADerivedClassC1Qq_mfp\">Q<\/ref.generic_type_param>?<\/decl.var.type><\/decl.var.instance>",
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "var t: Q?",
               "key.j2.swift_name_pieces" : [

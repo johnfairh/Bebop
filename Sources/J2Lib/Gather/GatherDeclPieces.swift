@@ -74,9 +74,9 @@ extension SwiftDeclarationBuilder {
             return [.other(cleanDecl)]
         }
         // Pick out and sort the tokens we want
-        var visitor = FunctionPiecesVisitor(prefix: kind.declPrefix,
+        let visitor = FunctionPiecesVisitor(prefix: kind.declPrefix,
                                             includeFirstToken: kind.isSwiftSubscript)
-        syntax.walk(&visitor)
+        visitor.walk(syntax)
         return visitor.pieces
     }
 }
@@ -129,7 +129,7 @@ private class FunctionPiecesVisitor: SyntaxVisitor {
     }
 
     /// Token - either `func`, the initial identifier, or some non-name stuff
-    func visit(_ token: TokenSyntax) -> SyntaxVisitorContinueKind {
+    override func visit(_ token: TokenSyntax) -> SyntaxVisitorContinueKind {
         if ignoreNextToken {
             ignoreNextToken = false
         } else if !seenName {
@@ -142,7 +142,7 @@ private class FunctionPiecesVisitor: SyntaxVisitor {
     }
 
     /// A parameter - don't descend, figure out what parts we want and feed them directly
-    func visit(_ node: FunctionParameterSyntax) -> SyntaxVisitorContinueKind {
+    override func visit(_ node: FunctionParameterSyntax) -> SyntaxVisitorContinueKind {
         if let firstName = node.firstName {
             if firstName.text != "_" {
                 addName(firstName.description)
@@ -157,7 +157,7 @@ private class FunctionPiecesVisitor: SyntaxVisitor {
     }
 
     /// Called at the end of everything, finish our current accumulator
-    func visitPost(_ node: CodeBlockItemSyntax) {
+    override func visitPost(_ node: CodeBlockItemSyntax) {
         finishCurrentOther()
     }
 }

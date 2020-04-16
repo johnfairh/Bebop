@@ -43,7 +43,7 @@ private class FunctionPiecesVisitor: SyntaxVisitor {
 
     /// Messy SwiftSyntax here --- this is for ALL types of arg, we need to spot the ones where there is just one token
     /// underneath and figure out what it is.
-    func visit(_ node: AvailabilityArgumentSyntax) -> SyntaxVisitorContinueKind {
+    override func visit(_ node: AvailabilityArgumentSyntax) -> SyntaxVisitorContinueKind {
         if node.entry.isToken, let tok = node.entry.firstToken {
             if tok.text == "*" {
                 args.append(.star)
@@ -59,7 +59,7 @@ private class FunctionPiecesVisitor: SyntaxVisitor {
     }
 
     /// For a: "b" --- assume we know all the a's and don't want quotes around the b
-    func visit(_ node: AvailabilityLabeledArgumentSyntax) -> SyntaxVisitorContinueKind {
+    override func visit(_ node: AvailabilityLabeledArgumentSyntax) -> SyntaxVisitorContinueKind {
         let tok1 = node.label.withoutTrailingTrivia().description
         let tok2 = node.value.description
             .trimmingCharacters(in: .whitespaces)
@@ -71,7 +71,7 @@ private class FunctionPiecesVisitor: SyntaxVisitor {
     }
 
     /// For "a b"
-    func visit(_ node: AvailabilityVersionRestrictionSyntax) -> SyntaxVisitorContinueKind {
+    override func visit(_ node: AvailabilityVersionRestrictionSyntax) -> SyntaxVisitorContinueKind {
         let tok1 = node.platform.withoutTrailingTrivia().description
         let tok2 = node.version.description.trimmingTrailingCharacters(in: .whitespaces)
         args.append(.doubleToken(tok1, tok2))
@@ -90,11 +90,11 @@ private extension String {
 
 private extension String {
     func parseAvailable() -> [AvailArg] {
-        var visitor = FunctionPiecesVisitor()
+        let visitor = FunctionPiecesVisitor()
         guard let syntax = try? SyntaxParser.parse(source: self) else {
             return []
         }
-        syntax.walk(&visitor)
+        visitor.walk(syntax)
         return visitor.args
     }
 }

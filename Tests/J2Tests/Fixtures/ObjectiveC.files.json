@@ -149,7 +149,7 @@
               ],
               "key.kind" : "sourcekitten.source.lang.objc.decl.property",
               "key.name" : "propertyName",
-              "key.parsed_declaration" : "@property (readwrite, strong, atomic) NSString *propertyName;",
+              "key.parsed_declaration" : "@property (atomic, strong, readwrite) NSString *propertyName;",
               "key.parsed_scope.end" : 9,
               "key.parsed_scope.start" : 9,
               "key.swift_declaration" : "var propertyName: String! { get set }",
@@ -225,7 +225,7 @@
                 "key.j2.doc_source" : "docComment"
               },
               "key.j2.is_override" : false,
-              "key.j2.objc_declaration" : "@property (copy, nonatomic, class) NSUUID *identifier",
+              "key.j2.objc_declaration" : "@property (class, nonatomic, copy) NSUUID *identifier",
               "key.j2.objc_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -253,7 +253,7 @@
               ],
               "key.kind" : "sourcekitten.source.lang.objc.decl.property",
               "key.name" : "identifier",
-              "key.parsed_declaration" : "@property (readwrite, copy, nonatomic, class) NSUUID *identifier;",
+              "key.parsed_declaration" : "@property (class, nonatomic, copy, readwrite) NSUUID *identifier;",
               "key.parsed_scope.end" : 17,
               "key.parsed_scope.start" : 17,
               "key.swift_declaration" : "class var identifier: UUID! { get set }",
@@ -278,7 +278,7 @@
                 "key.j2.doc_source" : "docComment"
               },
               "key.j2.is_override" : false,
-              "key.j2.objc_declaration" : "@property (copy, nonatomic, nullable) NSUUID *uuid",
+              "key.j2.objc_declaration" : "@property (nonatomic, copy, nullable) NSUUID *uuid",
               "key.j2.objc_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -306,7 +306,7 @@
               ],
               "key.kind" : "sourcekitten.source.lang.objc.decl.property",
               "key.name" : "uuid",
-              "key.parsed_declaration" : "@property (readwrite, copy, nonatomic, nullable) NSUUID *uuid;",
+              "key.parsed_declaration" : "@property (nonatomic, copy, readwrite, nullable) NSUUID *uuid;",
               "key.parsed_scope.end" : 20,
               "key.parsed_scope.start" : 20,
               "key.swift_declaration" : "var uuid: UUID? { get set }",
