@@ -29,8 +29,10 @@ enum CodeHost: String, CaseIterable {
 final class GenCodeHost: Configurable {
     let codeHostOpt = EnumOpt<CodeHost>(l: "code-host")
     let codeHostCustomOpt = YamlOpt(y: "custom_code_host")
+    let published: Published
 
     init(config: Config) {
+        published = config.published
         config.register(self)
     }
 
@@ -103,7 +105,10 @@ final class GenCodeHost: Configurable {
 
     // Site-builder getters
 
-    var isGitHub: Bool    { codeHostOpt.value.flatMap { $0 == .github } ?? false }
+    /// Special case: --code-host-url without --code-host means 'github'
+    var isGitHub: Bool {
+        codeHostOpt.value.flatMap { $0 == .github } ?? (published.codeHostFallbackURL != nil)
+    }
     var isGitLab: Bool    { codeHostOpt.value.flatMap { $0 == .gitlab } ?? false }
     var isBitBucket: Bool { codeHostOpt.value.flatMap { $0 == .bitbucket } ?? false }
 
