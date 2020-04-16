@@ -62,4 +62,6 @@ extension String.Element {
 
 extension StringProtocol {
   func f() {}
+  // Default impl that we can't decode
+  func hasSuffix(_ prefix: String) -> Bool { false }
 }

@@ -204,6 +204,60 @@
         },
         {
           "key.accessibility" : "source.lang.swift.accessibility.public",
+          "key.doc.column" : 16,
+          "key.doc.full_as_xml" : "",
+          "key.doc.line" : 17,
+          "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/Swift53\/Protocols.swift",
+          "key.fully_annotated_decl" : "<swift>protocol SecondProtocol : FirstProtocol<\/swift>",
+          "key.inherited_docs" : true,
+          "key.j2.is_override" : false,
+          "key.j2.swift_declaration" : "protocol SecondProtocol : FirstProtocol",
+          "key.j2.swift_name_pieces" : [
+            {
+              "key.j2.name_piece_is_name" : false,
+              "key.j2.name_piece_text" : "protocol "
+            },
+            {
+              "key.j2.name_piece_is_name" : true,
+              "key.j2.name_piece_text" : "SecondProtocol"
+            }
+          ],
+          "key.kind" : "source.lang.swift.decl.protocol",
+          "key.name" : "SecondProtocol",
+          "key.substructure" : [
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.public",
+              "key.doc.column" : 7,
+              "key.doc.full_as_xml" : "",
+              "key.doc.line" : 18,
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/Swift53\/Protocols.swift",
+              "key.fully_annotated_decl" : "<swift>func secondProtocolMethod() -&gt; String<\/swift>",
+              "key.inherited_docs" : true,
+              "key.j2.is_override" : false,
+              "key.j2.swift_declaration" : "func secondProtocolMethod() -> String",
+              "key.j2.swift_name_pieces" : [
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "func "
+                },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "secondProtocolMethod"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "() -> String"
+                }
+              ],
+              "key.kind" : "source.lang.swift.decl.function.method.instance",
+              "key.name" : "secondProtocolMethod()",
+              "key.usr" : "s:14SpmSwiftModule14SecondProtocolP06secondE6MethodSSyF"
+            }
+          ],
+          "key.usr" : "s:14SpmSwiftModule14SecondProtocolP"
+        },
+        {
+          "key.accessibility" : "source.lang.swift.accessibility.public",
           "key.doc.column" : 14,
           "key.doc.comment" : "Main structure",
           "key.doc.line" : 1,
@@ -1816,6 +1870,31 @@
                 }
               ],
               "key.usr" : "s:14SpmSwiftModule13FirstProtocolPAAE1e1ayqd___tAaBRd__lF"
+            },
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.internal",
+              "key.doc.full_as_xml" : "",
+              "key.fully_annotated_decl" : "<swift>var getOnly: Int<\/swift>",
+              "key.inherited_docs" : true,
+              "key.j2.is_override" : false,
+              "key.j2.swift_declaration" : "var getOnly: Int",
+              "key.j2.swift_name_pieces" : [
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "var "
+                },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "getOnly"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : ": Int"
+                }
+              ],
+              "key.kind" : "source.lang.swift.decl.var.instance",
+              "key.name" : "getOnly",
+              "key.usr" : "s:14SpmSwiftModule14SecondProtocolPAAE7getOnlySivp"
             },
             {
               "key.accessibility" : "source.lang.swift.accessibility.internal",

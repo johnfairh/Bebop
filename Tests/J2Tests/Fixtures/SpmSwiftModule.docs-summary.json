@@ -224,6 +224,32 @@
               }
             },
             {
+              "anchor_id" : "secondprotocol",
+              "dash_type" : "Protocol",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented<\/p>"
+                  }
+                },
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "public protocol SecondProtocol : <a href=\"spmswiftmodule\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>"
+                }
+              },
+              "flat_title" : {
+                "en" : "protocol SecondProtocol"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">protocol <\/span>SecondProtocol"
+              },
+              "url" : {
+                "url_path" : "spmswiftmodule\/types\/secondprotocol"
+              }
+            },
+            {
               "anchor_id" : "spmswiftmodule",
               "dash_type" : "Struct",
               "def" : {
@@ -1274,6 +1300,42 @@
           }
         },
         {
+          "anchor_id" : "tpc-properties",
+          "items" : [
+            {
+              "anchor_id" : "getonly",
+              "dash_type" : "Property",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented<\/p>"
+                  }
+                },
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "var getOnly: Int { get }"
+                }
+              },
+              "flat_title" : {
+                "en" : "var getOnly: Int"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">var <\/span>getOnly<span class=\"j2-item-secondary\">: Int<\/span>"
+              }
+            }
+          ],
+          "menu_title" : {
+            "en" : "Properties"
+          },
+          "title" : {
+            "en" : {
+              "html" : "Properties"
+            }
+          }
+        },
+        {
           "anchor_id" : "tpc-available-where-assoctype-hashable",
           "items" : [
             {
@@ -1875,13 +1937,13 @@
         "next" : {
           "primary_language" : "swift",
           "primary_title" : {
-            "en" : "SpmSwiftModule"
+            "en" : "SecondProtocol"
           },
           "secondary_title" : {
-            "en" : "SpmSwiftModule"
+            "en" : "SecondProtocol"
           },
           "url" : {
-            "url_path" : "spmswiftmodule\/types\/spmswiftmodule"
+            "url_path" : "spmswiftmodule\/types\/secondprotocol"
           }
         },
         "prev" : {
@@ -1957,6 +2019,151 @@
           },
           {
             "title" : {
+              "en" : "SpmSwiftModule.SecondProtocol"
+            }
+          }
+        ]
+      ],
+      "def" : {
+        "abstract" : {
+          "en" : {
+            "html" : "<p>Undocumented<\/p>"
+          }
+        },
+        "availability" : [],
+        "params" : [],
+        "swift_declaration" : {
+          "html" : "public protocol SecondProtocol : <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>"
+        }
+      },
+      "is_guide" : false,
+      "pagination" : {
+        "next" : {
+          "primary_language" : "swift",
+          "primary_title" : {
+            "en" : "SpmSwiftModule"
+          },
+          "secondary_title" : {
+            "en" : "SpmSwiftModule"
+          },
+          "url" : {
+            "url_path" : "spmswiftmodule\/types\/spmswiftmodule"
+          }
+        },
+        "prev" : {
+          "primary_language" : "swift",
+          "primary_title" : {
+            "en" : "PropertyWrapperClient"
+          },
+          "secondary_title" : {
+            "en" : "PropertyWrapperClient"
+          },
+          "url" : {
+            "url_path" : "spmswiftmodule\/types\/propertywrapperclient"
+          }
+        }
+      },
+      "primary_language" : "swift",
+      "primary_title" : {
+        "en" : "SecondProtocol"
+      },
+      "tab_title_prefix" : true,
+      "topics" : [
+        {
+          "anchor_id" : "tpc-methods",
+          "items" : [
+            {
+              "anchor_id" : "secondprotocolmethod",
+              "dash_type" : "Method",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented<\/p>"
+                  }
+                },
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "func secondProtocolMethod() -&gt; String"
+                }
+              },
+              "flat_title" : {
+                "en" : "func secondProtocolMethod() -> String"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>secondProtocolMethod<span class=\"j2-item-secondary\">() -&gt; String<\/span>"
+              }
+            }
+          ],
+          "menu_title" : {
+            "en" : "Methods"
+          },
+          "title" : {
+            "en" : {
+              "html" : "Methods"
+            }
+          }
+        },
+        {
+          "anchor_id" : "tpc-properties",
+          "items" : [
+            {
+              "anchor_id" : "getonly1",
+              "dash_type" : "Property",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>A default implementation for a method of <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a> provided by\n<a href=\"..\/..\/spmswiftmodule\/types\/secondprotocol.html?swift\"><code>SecondProtocol<\/code><\/a>. From source we mess this up as an extension method. From\nsymbolgraph we mess this up as being part of <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>.<\/p>"
+                  }
+                },
+                "availability" : [],
+                "notes" : {
+                  "en" : {
+                    "html" : "<p>From a protocol extension: not a customization point.<\/p>"
+                  }
+                },
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "var getOnly: Int { get }"
+                }
+              },
+              "flat_title" : {
+                "en" : "var getOnly: Int"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">var <\/span>getOnly<span class=\"j2-item-secondary\">: Int<\/span>"
+              }
+            }
+          ],
+          "menu_title" : {
+            "en" : "Properties"
+          },
+          "title" : {
+            "en" : {
+              "html" : "Properties"
+            }
+          }
+        }
+      ],
+      "url" : {
+        "url_path" : "spmswiftmodule\/types\/secondprotocol"
+      }
+    },
+    {
+      "breadcrumbs" : [
+        [
+          {
+            "title" : {
+              "en" : "Types"
+            },
+            "url" : {
+              "url_path" : "types"
+            }
+          },
+          {
+            "title" : {
               "en" : "SpmSwiftModule.SpmSwiftModule"
             }
           }
@@ -1991,13 +2198,13 @@
         "prev" : {
           "primary_language" : "swift",
           "primary_title" : {
-            "en" : "PropertyWrapperClient"
+            "en" : "SecondProtocol"
           },
           "secondary_title" : {
-            "en" : "PropertyWrapperClient"
+            "en" : "SecondProtocol"
           },
           "url" : {
-            "url_path" : "spmswiftmodule\/types\/propertywrapperclient"
+            "url_path" : "spmswiftmodule\/types\/secondprotocol"
           }
         }
       },
@@ -3115,6 +3322,15 @@
             },
             "url" : {
               "url_path" : "spmswiftmodule\/types\/propertywrapperclient"
+            }
+          },
+          {
+            "children" : [],
+            "title" : {
+              "en" : "SecondProtocol"
+            },
+            "url" : {
+              "url_path" : "spmswiftmodule\/types\/secondprotocol"
             }
           },
           {

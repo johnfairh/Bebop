@@ -28,8 +28,6 @@ internal enum L10n {
     case errCfgChostBoth = "err-cfg-chost-both"
     /// Config key 'image_name' not set under 'custom_code_host'.
     case errCfgChostMissingImage = "err-cfg-chost-missing-image"
-    /// --code-host is set but --code-host-url is not.
-    case errCfgChostMissingUrl = "err-cfg-chost-missing-url"
     /// Config key 'custom_code_host.multi_line_format' does not contain both '%1' and '%2'.
     case errCfgChostMultiFmt = "err-cfg-chost-multi-fmt"
     /// Config key 'custom_code_host.single_line_format' does not contain '%1'.
@@ -200,6 +198,10 @@ internal enum L10n {
     case wrnSktnKind = "wrn-sktn-kind"
     /// Undecodable swift-symbolgraph availability, missing both 'domain' and 'isUnconditionallyDeprecated'.
     case wrnSsgeAvailability = "wrn-ssge-availability"
+    /// Can't figure out the type to which default protocol requirement '%1' belongs, ignoring.
+    case wrnSsgeBadDefaultReq = "wrn-ssge-bad-default-req"
+    /// Can't resolve source USR '%1' for relationship kind '%2', ignoring.
+    case wrnSsgeBadSrcUsr = "wrn-ssge-bad-src-usr"
     /// Unknown swift-symbolgraph constraint kind '%1', ignoring.
     case wrnSsgeConstKind = "wrn-ssge-const-kind"
     /// Confused by `swift symbolgraph-extract` output filename '%1', ignoring.

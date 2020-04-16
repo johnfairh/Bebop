@@ -205,7 +205,7 @@ fileprivate struct SymbolGraph: Decodable {
                                  (sym.swiftExtension?.constraints ?? [])
             let constraints = constraintList.compactMap { con -> Constraint? in
                 // Drop implementation Self constraint for protocol members
-                // Apr16: These are supposed to be gone, but, guess what....
+                // Apr16: These are supposed to be gone but some remain.
                 if con.lhs == "Self" && con.kind == "conformance" && sym.pathComponents.contains(con.rhs) {
                     return nil
                 }
@@ -445,12 +445,14 @@ extension SymbolGraph {
         weak var parent: ParentNode?
         var isOverride: Bool
         var isProtocolReq: Bool
+        var isBad: Bool
 
         init(symbol: Symbol) {
             self.symbol = symbol
             self.parent = nil
             self.isOverride = false
             self.isProtocolReq = false
+            self.isBad = false
         }
 
         var qualifiedName: String {
@@ -459,6 +461,10 @@ extension SymbolGraph {
 
         var isProtocol: Bool {
             symbol.kind == SwiftDeclarationKind.protocol.rawValue
+        }
+
+        var isRootDecl: Bool {
+            parent == nil && !isBad
         }
 
         func hasConformance(to protoName: String) -> Bool {
@@ -652,7 +658,7 @@ extension SymbolGraph {
 
         func resolveSource(rel: Rel) -> Node? {
             guard let srcNode = nodes[rel.sourceUSR] else {
-                logWarning("Can't resolve source=\(rel.sourceUSR) for \(rel.kind).")
+                logWarning(.localized(.wrnSsgeBadSrcUsr, rel.sourceUSR, rel.kind))
                 return nil
             }
             return srcNode
@@ -676,10 +682,6 @@ extension SymbolGraph {
                 extensionMap.addMemberOf(member: srcNode,
                                          typeUSR: rel.targetUSR,
                                          where: contextConstraints)
-
-            case .defaultImplementationOf:
-                // Do these later.
-                break
 
             case .overrides:
                 // "source is overriding target" - only for classes, protocols broken
@@ -717,8 +719,8 @@ extension SymbolGraph {
                                             where: constraints)
                 break
 
-            case .inheritsFrom:
-                // don't care
+            case .inheritsFrom, .defaultImplementationOf:
+                // don't care / do later
                 break
             }
         }
@@ -732,7 +734,11 @@ extension SymbolGraph {
             }
             guard let tgtNode = nodes[rel.targetUSR],
                 let tgtNodeParent = tgtNode.parent as? Node else {
-                logWarning("Found a default requirement but don't know what to do with it: \(rel)")
+                logWarning(.localized(.wrnSsgeBadDefaultReq, rel.targetUSR))
+                // Don't include this weird thing in docs
+                // (OK we could probably decode the tgtNode USR or something, but this
+                // is a weird case and is swift's fault to fix.)
+                srcNode.isBad = true
                 return
             }
 
@@ -740,7 +746,7 @@ extension SymbolGraph {
             extensionMap.addMemberOf(member: srcNode, typeUSR: tgtNodeParent.symbol.usr, where: contextConstraints)
         }
 
-        let rootTypeNodes = nodes.values.filter { $0.parent == nil }.sorted()
+        let rootTypeNodes = nodes.values.filter(\.isRootDecl).sorted()
         let rootExtNodes = extensionMap.map.values.sorted()
         logDebug("SymbolGraph: after rebuild, \(rootTypeNodes.count) root types, \(rootExtNodes.count) root exts.")
 

@@ -15,6 +15,18 @@ public protocol FirstProtocol {
   var setAndGet: Int { get set }
 }
 
+public protocol SecondProtocol: FirstProtocol {
+  func secondProtocolMethod() -> String
+}
+
+extension SecondProtocol {
+  /// A default implementation for a method of `FirstProtocol`
+  /// provided by `SecondProtocol`.
+  /// From source we mess this up as an extension method.
+  /// From symbolgraph we mess this up as being part of `FirstProtocol`.
+  var getOnly: Int { 3 }
+}
+
 extension FirstProtocol {
   /// A protocol extension method
   func e() {}

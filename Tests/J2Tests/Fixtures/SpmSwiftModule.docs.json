@@ -14,7 +14,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 46,
+    "doc_coverage" : 45,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -82,6 +82,11 @@
                 "same_page" : false,
                 "title" : "PropertyWrapperClient",
                 "url" : "types\/propertywrapperclient.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "SecondProtocol",
+                "url" : "types\/secondprotocol.html?swift"
               },
               {
                 "children" : [
@@ -275,6 +280,20 @@
             "title" : "struct PropertyWrapperClient"
           },
           {
+            "anchor_id" : "secondprotocol",
+            "any_declaration" : true,
+            "dash_name" : "protocol%20SecondProtocol",
+            "dash_type" : "Protocol",
+            "def" : {
+              "abstract_html" : "<p>Undocumented<\/p>",
+              "swift_declaration_html" : "public protocol SecondProtocol : <a href=\"types\/firstprotocol1.html?swift\">FirstProtocol<\/a>"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">protocol <\/span>SecondProtocol",
+            "primary_url" : "types\/secondprotocol.html?swift",
+            "title" : "protocol SecondProtocol"
+          },
+          {
             "anchor_id" : "spmswiftmodule",
             "any_declaration" : true,
             "dash_name" : "struct%20SpmSwiftModule",
@@ -331,7 +350,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 46,
+    "doc_coverage" : 45,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -407,6 +426,11 @@
                 "same_page" : false,
                 "title" : "PropertyWrapperClient",
                 "url" : "types\/propertywrapperclient.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "SecondProtocol",
+                "url" : "types\/secondprotocol.html?swift"
               },
               {
                 "children" : [
@@ -747,7 +771,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 46,
+    "doc_coverage" : 45,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -823,6 +847,11 @@
                 "same_page" : false,
                 "title" : "PropertyWrapperClient",
                 "url" : "types\/propertywrapperclient.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "SecondProtocol",
+                "url" : "types\/secondprotocol.html?swift"
               },
               {
                 "children" : [
@@ -1013,7 +1042,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 46,
+    "doc_coverage" : 45,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -1089,6 +1118,11 @@
                 "same_page" : false,
                 "title" : "PropertyWrapperClient",
                 "url" : "types\/propertywrapperclient.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "SecondProtocol",
+                "url" : "types\/secondprotocol.html?swift"
               },
               {
                 "children" : [
@@ -1293,7 +1327,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 46,
+    "doc_coverage" : 45,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -1369,6 +1403,11 @@
                 "same_page" : false,
                 "title" : "PropertyWrapperClient",
                 "url" : "types\/propertywrapperclient.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "SecondProtocol",
+                "url" : "types\/secondprotocol.html?swift"
               },
               {
                 "children" : [
@@ -1540,6 +1579,27 @@
         "title_html" : "Methods"
       },
       {
+        "anchor_id" : "tpc-properties",
+        "dash_name" : "Properties",
+        "items" : [
+          {
+            "anchor_id" : "getonly",
+            "any_declaration" : true,
+            "dash_name" : "var%20getOnly%3A%20Int",
+            "dash_type" : "Property",
+            "def" : {
+              "abstract_html" : "<p>Undocumented<\/p>",
+              "swift_declaration_html" : "var getOnly: Int { get }"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">var <\/span>getOnly<span class=\"j2-item-secondary\">: Int<\/span>",
+            "title" : "var getOnly: Int"
+          }
+        ],
+        "primary_language" : "j2-swift",
+        "title_html" : "Properties"
+      },
+      {
         "anchor_id" : "tpc-available-where-assoctype-hashable",
         "dash_name" : "%E2%80%A6where%20AssocType%3A%20Hashable",
         "items" : [
@@ -1594,6 +1654,10 @@
             "title" : "Methods"
           },
           {
+            "anchor_id" : "tpc-properties",
+            "title" : "Properties"
+          },
+          {
             "anchor_id" : "tpc-available-where-assoctype-hashable",
             "title" : "…where AssocType: Hashable"
           }
@@ -1624,7 +1688,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 46,
+    "doc_coverage" : 45,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -1700,6 +1764,11 @@
                 "same_page" : false,
                 "title" : "PropertyWrapperClient",
                 "url" : "types\/propertywrapperclient.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "SecondProtocol",
+                "url" : "types\/secondprotocol.html?swift"
               },
               {
                 "children" : [
@@ -2016,7 +2085,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 46,
+    "doc_coverage" : 45,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -2092,6 +2161,11 @@
                 "same_page" : false,
                 "title" : "PropertyWrapperClient",
                 "url" : "types\/propertywrapperclient.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "SecondProtocol",
+                "url" : "types\/secondprotocol.html?swift"
               },
               {
                 "children" : [
@@ -2269,7 +2343,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 46,
+    "doc_coverage" : 45,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -2283,11 +2357,11 @@
     "pagination" : {
       "next" : {
         "primary_language" : "j2-swift",
-        "primary_title" : "SpmSwiftModule",
-        "primary_url" : "types\/spmswiftmodule.html?swift",
+        "primary_title" : "SecondProtocol",
+        "primary_url" : "types\/secondprotocol.html?swift",
         "secondary_language" : "j2-objc",
-        "secondary_title" : "SpmSwiftModule",
-        "secondary_url" : "types\/spmswiftmodule.html?objc"
+        "secondary_title" : "SecondProtocol",
+        "secondary_url" : "types\/secondprotocol.html?objc"
       },
       "prev" : {
         "primary_language" : "j2-swift",
@@ -2345,6 +2419,11 @@
                 "same_page" : true,
                 "title" : "PropertyWrapperClient",
                 "url" : ""
+              },
+              {
+                "same_page" : false,
+                "title" : "SecondProtocol",
+                "url" : "types\/secondprotocol.html?swift"
               },
               {
                 "children" : [
@@ -2483,6 +2562,265 @@
             "url" : "types.html?swift"
           },
           {
+            "title" : "SecondProtocol"
+          }
+        ],
+        "language" : "j2-swift"
+      }
+    ],
+    "breadcrumbs_root" : "SpmSwiftModule",
+    "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
+    "def" : {
+      "abstract_html" : "<p>Undocumented<\/p>",
+      "swift_declaration_html" : "public protocol SecondProtocol : <a href=\"..\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>"
+    },
+    "default_language" : "j2-swift",
+    "disable_search" : false,
+    "doc_coverage" : 45,
+    "docs_title" : "SpmSwiftModule docs",
+    "dual_language" : false,
+    "hide_article_title" : false,
+    "hide_attribution" : false,
+    "hide_availability" : false,
+    "item_collapse_never" : false,
+    "item_collapse_open" : false,
+    "item_nest" : true,
+    "j2lib_version" : "0.1",
+    "language_tag" : "en",
+    "pagination" : {
+      "next" : {
+        "primary_language" : "j2-swift",
+        "primary_title" : "SpmSwiftModule",
+        "primary_url" : "types\/spmswiftmodule.html?swift",
+        "secondary_language" : "j2-objc",
+        "secondary_title" : "SpmSwiftModule",
+        "secondary_url" : "types\/spmswiftmodule.html?objc"
+      },
+      "prev" : {
+        "primary_language" : "j2-swift",
+        "primary_title" : "PropertyWrapperClient",
+        "primary_url" : "types\/propertywrapperclient.html?swift",
+        "secondary_language" : "j2-objc",
+        "secondary_title" : "PropertyWrapperClient",
+        "secondary_url" : "types\/propertywrapperclient.html?objc"
+      }
+    },
+    "path_from_root" : "types\/secondprotocol.html",
+    "path_to_assets" : "..\/",
+    "path_to_root" : "..\/",
+    "primary_page_title" : "SecondProtocol",
+    "primary_title_language" : "j2-swift",
+    "tab_title_prefix" : true,
+    "tocs" : [
+      {
+        "language" : "j2-swift",
+        "screen_reader_name" : "Swift",
+        "toc" : [
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "ABaseClass",
+                "url" : "types\/abaseclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "ADerivedClass",
+                "url" : "types\/aderivedclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "AnEnum",
+                "url" : "types\/anenum.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "FirstProtocol",
+                "url" : "types\/firstprotocol1.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "GenericBase",
+                "url" : "types\/genericbase.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "Nop",
+                "url" : "types\/nop.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "PropertyWrapperClient",
+                "url" : "types\/propertywrapperclient.html?swift"
+              },
+              {
+                "same_page" : true,
+                "title" : "SecondProtocol",
+                "url" : ""
+              },
+              {
+                "children" : [
+                  {
+                    "children" : [
+                      {
+                        "same_page" : false,
+                        "title" : "Nested2a",
+                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2a"
+                      },
+                      {
+                        "same_page" : false,
+                        "title" : "Nested2b",
+                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2b"
+                      }
+                    ],
+                    "same_page" : false,
+                    "title" : "Nested1",
+                    "url" : "types\/spmswiftmodule\/nested1.html?swift"
+                  },
+                  {
+                    "same_page" : false,
+                    "title" : "Nested2",
+                    "url" : "types\/spmswiftmodule.html?swift#nested2"
+                  }
+                ],
+                "same_page" : false,
+                "title" : "SpmSwiftModule",
+                "url" : "types\/spmswiftmodule.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "T",
+                "url" : "types.html?swift#t1"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Types",
+            "url" : "types.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "deprecatedFunction(callback:)",
+                "url" : "functions.html?swift#deprecatedfunctioncallback"
+              },
+              {
+                "same_page" : false,
+                "title" : "functionA(arg1:_:arg3:)",
+                "url" : "functions.html?swift#functionaarg1_arg3"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Functions",
+            "url" : "functions.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "+(_:_:)",
+                "url" : "operators.html?swift#__1"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Operators",
+            "url" : "operators.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "Collection",
+                "url" : "extensions\/collection.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "String.Element",
+                "url" : "extensions\/stringelement.html?swift"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Extensions",
+            "url" : "extensions.html?swift"
+          }
+        ]
+      }
+    ],
+    "topics" : [
+      {
+        "anchor_id" : "tpc-methods",
+        "dash_name" : "Methods",
+        "items" : [
+          {
+            "anchor_id" : "secondprotocolmethod",
+            "any_declaration" : true,
+            "dash_name" : "func%20secondProtocolMethod()%20-%3E%20String",
+            "dash_type" : "Method",
+            "def" : {
+              "abstract_html" : "<p>Undocumented<\/p>",
+              "swift_declaration_html" : "func secondProtocolMethod() -&gt; String"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>secondProtocolMethod<span class=\"j2-item-secondary\">() -&gt; String<\/span>",
+            "title" : "func secondProtocolMethod() -> String"
+          }
+        ],
+        "primary_language" : "j2-swift",
+        "title_html" : "Methods"
+      },
+      {
+        "anchor_id" : "tpc-properties",
+        "dash_name" : "Properties",
+        "items" : [
+          {
+            "anchor_id" : "getonly1",
+            "any_declaration" : true,
+            "dash_name" : "var%20getOnly%3A%20Int",
+            "dash_type" : "Property",
+            "def" : {
+              "abstract_html" : "<p>A default implementation for a method of <a href=\"..\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a> provided by\n<a href=\"..\/types\/secondprotocol.html?swift\"><code>SecondProtocol<\/code><\/a>. From source we mess this up as an extension method. From\nsymbolgraph we mess this up as being part of <a href=\"..\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>.<\/p>",
+              "notes_html" : "<p>From a protocol extension: not a customization point.<\/p>",
+              "swift_declaration_html" : "var getOnly: Int { get }"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">var <\/span>getOnly<span class=\"j2-item-secondary\">: Int<\/span>",
+            "title" : "var getOnly: Int"
+          }
+        ],
+        "primary_language" : "j2-swift",
+        "title_html" : "Properties"
+      }
+    ],
+    "topics_language" : "j2-swift",
+    "topics_menus" : [
+      {
+        "language" : "j2-swift",
+        "topics_menu" : [
+          {
+            "anchor_id" : "",
+            "title" : "Declaration"
+          },
+          {
+            "anchor_id" : "tpc-methods",
+            "title" : "Methods"
+          },
+          {
+            "anchor_id" : "tpc-properties",
+            "title" : "Properties"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "breadcrumbs_menus" : [
+      {
+        "breadcrumbs" : [
+          {
+            "title" : "Types",
+            "url" : "types.html?swift"
+          },
+          {
             "title" : "SpmSwiftModule"
           }
         ],
@@ -2497,7 +2835,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 46,
+    "doc_coverage" : 45,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -2519,11 +2857,11 @@
       },
       "prev" : {
         "primary_language" : "j2-swift",
-        "primary_title" : "PropertyWrapperClient",
-        "primary_url" : "types\/propertywrapperclient.html?swift",
+        "primary_title" : "SecondProtocol",
+        "primary_url" : "types\/secondprotocol.html?swift",
         "secondary_language" : "j2-objc",
-        "secondary_title" : "PropertyWrapperClient",
-        "secondary_url" : "types\/propertywrapperclient.html?objc"
+        "secondary_title" : "SecondProtocol",
+        "secondary_url" : "types\/secondprotocol.html?objc"
       }
     },
     "path_from_root" : "types\/spmswiftmodule.html",
@@ -2573,6 +2911,11 @@
                 "same_page" : false,
                 "title" : "PropertyWrapperClient",
                 "url" : "types\/propertywrapperclient.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "SecondProtocol",
+                "url" : "types\/secondprotocol.html?swift"
               },
               {
                 "children" : [
@@ -2768,7 +3111,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 46,
+    "doc_coverage" : 45,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -2844,6 +3187,11 @@
                 "same_page" : false,
                 "title" : "PropertyWrapperClient",
                 "url" : "types\/propertywrapperclient.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "SecondProtocol",
+                "url" : "types\/secondprotocol.html?swift"
               },
               {
                 "children" : [
@@ -3003,7 +3351,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 46,
+    "doc_coverage" : 45,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -3079,6 +3427,11 @@
                 "same_page" : false,
                 "title" : "PropertyWrapperClient",
                 "url" : "types\/propertywrapperclient.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "SecondProtocol",
+                "url" : "types\/secondprotocol.html?swift"
               },
               {
                 "children" : [
@@ -3248,7 +3601,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 46,
+    "doc_coverage" : 45,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -3324,6 +3677,11 @@
                 "same_page" : false,
                 "title" : "PropertyWrapperClient",
                 "url" : "types\/propertywrapperclient.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "SecondProtocol",
+                "url" : "types\/secondprotocol.html?swift"
               },
               {
                 "children" : [
@@ -3453,7 +3811,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 46,
+    "doc_coverage" : 45,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -3531,6 +3889,11 @@
                 "same_page" : false,
                 "title" : "PropertyWrapperClient",
                 "url" : "types\/propertywrapperclient.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "SecondProtocol",
+                "url" : "types\/secondprotocol.html?swift"
               },
               {
                 "children" : [
@@ -3681,7 +4044,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 46,
+    "doc_coverage" : 45,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -3757,6 +4120,11 @@
                 "same_page" : false,
                 "title" : "PropertyWrapperClient",
                 "url" : "types\/propertywrapperclient.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "SecondProtocol",
+                "url" : "types\/secondprotocol.html?swift"
               },
               {
                 "children" : [
@@ -3934,7 +4302,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 46,
+    "doc_coverage" : 45,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -4002,6 +4370,11 @@
                 "same_page" : false,
                 "title" : "PropertyWrapperClient",
                 "url" : "types\/propertywrapperclient.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "SecondProtocol",
+                "url" : "types\/secondprotocol.html?swift"
               },
               {
                 "children" : [
@@ -4151,7 +4524,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 46,
+    "doc_coverage" : 45,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : true,
@@ -4227,6 +4600,11 @@
                 "same_page" : false,
                 "title" : "PropertyWrapperClient",
                 "url" : "types\/propertywrapperclient.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "SecondProtocol",
+                "url" : "types\/secondprotocol.html?swift"
               },
               {
                 "children" : [
