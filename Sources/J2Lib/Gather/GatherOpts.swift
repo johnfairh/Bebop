@@ -33,6 +33,8 @@ final class GatherOpts : Configurable {
     let frameworkRootAlias: AliasOpt
     let moduleAlias: AliasOpt
     let sourcekittenSourceFileAlias: AliasOpt
+    let githubURLAlias: AliasOpt
+    let githubFilePrefixAlias: AliasOpt
 
     init(config: Config) {
         xcodeBuildArgsAlias = AliasOpt(realOpt: rootPassOpts.buildToolArgsOpt, s: "x", l: "xcodebuild-arguments")
@@ -42,6 +44,8 @@ final class GatherOpts : Configurable {
         frameworkRootAlias = AliasOpt(realOpt: rootPassOpts.objcIncludePathsOpt, l: "framework-root")
         sourcekittenSourceFileAlias = AliasOpt(realOpt: rootPassOpts.sourcekittenJSONFilesOpt, l: "sourcekitten-sourcefile")
         moduleAlias = AliasOpt(realOpt: moduleNamesOpt, l: "module")
+        githubURLAlias = AliasOpt(realOpt: rootPassOpts.codeHostURLOpt, l: "github_url") // underscore intentional!
+        githubFilePrefixAlias = AliasOpt(realOpt: rootPassOpts.codeHostFilePrefixOpt, l: "github-file-prefix")
         published = config.published
 
         config.register(rootPassOpts)
@@ -49,10 +53,11 @@ final class GatherOpts : Configurable {
         config.register(self)
     }
 
-    func checkOptions() throws {
+    func checkOptions(publish: PublishStore) throws {
         // Check root pass options
         try rootPassOpts.checkOptions()
         try rootPassOpts.checkCascadedOptions()
+        publish.setRootCodeHostURL(url: rootPassOpts.codeHostURLOpt.value)
 
         // Check our own options
         if customModulesOpts.configured {
@@ -107,16 +112,16 @@ final class GatherOpts : Configurable {
                 PublishedModule(name: $0,
                                 groupPolicy: groupPolicy,
                                 sourceDirectory: rootPassOpts.srcDirOpt.value,
-                                codeHostURL: nil,
-                                codeHostFilePrefix: nil)
+                                codeHostURL: rootPassOpts.codeHostURLOpt.value,
+                                codeHostFilePrefix: rootPassOpts.codeHostFilePrefixOpt.value)
             }
         } else {
             return customModules.map {
                 PublishedModule(name: $0.name,
                                 groupPolicy: $0.groupPolicy,
                                 sourceDirectory: $0.moduleOpts.srcDirOpt.value,
-                                codeHostURL: nil,
-                                codeHostFilePrefix: nil)
+                                codeHostURL: $0.moduleOpts.codeHostURLOpt.value,
+                                codeHostFilePrefix: $0.moduleOpts.codeHostFilePrefixOpt.value)
             }
         }
     }

@@ -29,7 +29,7 @@ public struct GenPages: Configurable {
 
         let pageVisitor = PageVisitor(languages: languages,
                                       defaultLanguage: defaultLanguage,
-                                      isMultiModule: published.isMultiModule)
+                                      published: published)
         pageVisitor.walk(items: items)
         let meta = GenData.Meta(version: Version.j2libVersion,
                                 languages: languages,
@@ -137,12 +137,12 @@ private extension Localized where Value == Html {
 final class PageVisitor: ItemVisitorProtocol {
     let languages: [DefLanguage]
     let defaultLanguage: DefLanguage
-    let isMultiModule: Bool
+    let published: Published
 
-    init(languages: [DefLanguage], defaultLanguage: DefLanguage, isMultiModule: Bool) {
+    init(languages: [DefLanguage], defaultLanguage: DefLanguage, published: Published) {
         self.languages = languages
         self.defaultLanguage = defaultLanguage
-        self.isMultiModule = isMultiModule
+        self.published = published
     }
 
     /// All pages
@@ -162,7 +162,8 @@ final class PageVisitor: ItemVisitorProtocol {
                 breadcrumbs: buildBreadcrumbs(item: defItem, parents: parents),
                 definition: defItem.asGenDef(pageURL: defItem.url),
                 topics: buildTopics(item: defItem),
-                pagination: buildPagination(item: defItem)))
+                pagination: buildPagination(item: defItem),
+                codeHostURL: published.module(defItem.location.moduleName).codeHostURL))
         }
     }
 
@@ -176,7 +177,8 @@ final class PageVisitor: ItemVisitorProtocol {
                                   breadcrumbs: buildBreadcrumbs(item: groupItem, parents: parents),
                                   content: groupItem.customAbstract?.html.autolinked(groupItem.url),
                                   topics: buildTopics(item: groupItem),
-                                  pagination: buildPagination(item: groupItem)))
+                                  pagination: buildPagination(item: groupItem),
+                                  codeHostURL: published.codeHostFallbackURL))
     }
 
     func visit(guideItem: GuideItem, parents: [Item]) {
@@ -185,7 +187,8 @@ final class PageVisitor: ItemVisitorProtocol {
                                   breadcrumbs: buildBreadcrumbs(item: guideItem, parents: parents),
                                   isReadme: false,
                                   content: guideItem.content.html.autolinked(guideItem.url),
-                                  pagination: buildPagination(item: guideItem)))
+                                  pagination: buildPagination(item: guideItem),
+                                  codeHostURL: published.codeHostFallbackURL))
     }
 
     func visit(readmeItem: ReadmeItem, parents: [Item]) {
@@ -194,7 +197,8 @@ final class PageVisitor: ItemVisitorProtocol {
                                   breadcrumbs: [],
                                   isReadme: true,
                                   content: readmeItem.content.html.autolinked(readmeItem.url),
-                                  pagination: buildPagination(item: readmeItem)))
+                                  pagination: buildPagination(item: readmeItem),
+                                  codeHostURL: published.codeHostFallbackURL))
     }
 
     /// Breadcrumbs for a page
@@ -215,7 +219,7 @@ final class PageVisitor: ItemVisitorProtocol {
             defer { prevItemIsCode = itemIsCode }
 
             if let groupItem = item as? GroupItem {
-                needQualifiedName = isMultiModule && !groupItem.groupKind.includesModuleName
+                needQualifiedName = published.isMultiModule && !groupItem.groupKind.includesModuleName
             }
 
             guard let defItem = item as? DefItem,

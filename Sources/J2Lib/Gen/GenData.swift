@@ -130,6 +130,7 @@ public final class GenData: Encodable {
         public let def: Def?
         public let topics: [Topic]
         public let pagination: Pagination
+        public let codeHostURL: Localized<String>?
 
         /// Def init
         init(defURL: URLPieces,
@@ -140,7 +141,8 @@ public final class GenData: Encodable {
              breadcrumbs: [[Breadcrumb]],
              definition: Def,
              topics: [Topic],
-             pagination: Pagination) {
+             pagination: Pagination,
+             codeHostURL: Localized<String>?) {
             self.url = defURL
             self.tocActiveURL = tocActiveURL
             self.primaryTitle = primaryTitle
@@ -153,6 +155,7 @@ public final class GenData: Encodable {
             self.def = definition
             self.topics = topics
             self.pagination = pagination
+            self.codeHostURL = codeHostURL
         }
 
         /// Group init
@@ -163,7 +166,8 @@ public final class GenData: Encodable {
              breadcrumbs: [[Breadcrumb]],
              content: Localized<Html>?,
              topics: [Topic],
-             pagination: Pagination) {
+             pagination: Pagination,
+             codeHostURL: Localized<String>?) {
             self.url = groupURL
             self.tocActiveURL = nil
             self.primaryTitle = primaryTitle
@@ -176,6 +180,7 @@ public final class GenData: Encodable {
             self.def = nil
             self.topics = topics
             self.pagination = pagination
+            self.codeHostURL = codeHostURL
         }
 
         /// Guide init
@@ -184,7 +189,8 @@ public final class GenData: Encodable {
              breadcrumbs: [[Breadcrumb]],
              isReadme: Bool,
              content: Localized<Html>?,
-             pagination: Pagination) {
+             pagination: Pagination,
+             codeHostURL: Localized<String>?) {
             self.url = guideURL
             self.tocActiveURL = nil
             self.primaryTitle = title
@@ -197,6 +203,7 @@ public final class GenData: Encodable {
             self.def = nil
             self.topics = []
             self.pagination = pagination
+            self.codeHostURL = codeHostURL
         }
     }
     public let pages: [Page]

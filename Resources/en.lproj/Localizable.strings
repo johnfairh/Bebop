@@ -126,7 +126,6 @@ Ignoring the second.";
 "wrn-ssge-availability" = "Undecodable swift-symbolgraph availability, missing both 'domain' and 'isUnconditionallyDeprecated'.";
 "wrn-ssge-const-kind" = "Unknown swift-symbolgraph constraint kind '%1', ignoring.";
 "err-cfg-chost-both" = "Both --code-host and custom_code_host are set: choose just one.";
-"err-cfg-chost-missing-url" = "--code-host is set but --code-host-url is not.";
 "err-cfg-chost-single-fmt" = "Config key 'custom_code_host.single_line_format' does not contain '%1'.";
 "err-cfg-chost-multi-fmt" = "Config key 'custom_code_host.multi_line_format' does not contain both '%1' and '%2'.";
 "err-cfg-chost-missing-image" = "Config key 'image_name' not set under 'custom_code_host'.";

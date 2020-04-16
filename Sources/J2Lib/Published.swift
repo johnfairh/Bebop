@@ -57,6 +57,9 @@ protocol Published {
     /// Modules - valid post-Gather
     var modules: [PublishedModule] { get }
 
+    /// Code-host URL for non-modular pages
+    var codeHostFallbackURL: Localized<String>? { get }
+
     /// The doc-root relative path of a named piece of media, or `nil` if there is none.
     func urlPathForMedia(_ name: String) -> String?
 
@@ -105,6 +108,20 @@ final class PublishStore: Published {
         didSet {
             modules.sort(by: { $0.name < $1.name })
         }
+    }
+
+    private var rootCodeHostURL: Localized<String>? // spose its an href rather than a url...
+    func setRootCodeHostURL(url: Localized<String>?) {
+        rootCodeHostURL = url
+    }
+    var codeHostFallbackURL: Localized<String>? {
+        if let rootCodeHostURL = rootCodeHostURL {
+            return rootCodeHostURL
+        }
+        if let someModuleCodeHostURL = modules.compactMap(\.codeHostURL).first {
+            return someModuleCodeHostURL
+        }
+        return nil
     }
 
     func urlPathForMedia(_ name: String) -> String? { _urlPathForMedia(name) }

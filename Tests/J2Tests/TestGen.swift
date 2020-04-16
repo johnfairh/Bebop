@@ -77,7 +77,12 @@ class TestGen: XCTestCase {
         Localizations.shared.allTags.forEach {
             title[$0] = "\($0)-\(name)"
         }
-        return GenData.Page(guideURL: URLPieces(pathComponents: [name]), title: title, breadcrumbs: [], isReadme: false, content: nil, pagination: GenData.Pagination(prev: nil, next: nil))
+        return GenData.Page(guideURL: URLPieces(pathComponents: [name]),
+                            title: title, breadcrumbs: [],
+                            isReadme: false,
+                            content: nil,
+                            pagination: GenData.Pagination(prev: nil, next: nil),
+                            codeHostURL: nil)
     }
 
     func testPageGenIterator() throws {

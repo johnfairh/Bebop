@@ -226,6 +226,7 @@ extension GenData {
 
         data[.tocs] = generateTocs(page: pg, languageTag: languageTag, fileExt: fileExt)
         data[.pagination] = pg.generatePagination(languageTag: languageTag, fileExt: fileExt)
+        data[.codehostURL] = pg.codeHostURL?.get(languageTag)
 
         return MustachePage(languageTag: languageTag, filepath: filepath, data: data)
     }

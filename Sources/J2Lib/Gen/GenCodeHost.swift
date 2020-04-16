@@ -27,29 +27,16 @@ enum CodeHost: String, CaseIterable {
 /// The per-item URL generation is a bit complicated because of the
 /// different formats.
 final class GenCodeHost: Configurable {
-    let codeHostOpt = EnumOpt<CodeHost>(l: "code-host").def(.github)
-    var codeHost: CodeHost { codeHostOpt.value! }
-    let codeHostURLOpt = LocStringOpt(l: "code-host-url").help("SITEURL")
-    let codeHostFilePrefixOpt = StringOpt(l: "code-host-file-prefix").help("FILEURLPREFIX")
+    let codeHostOpt = EnumOpt<CodeHost>(l: "code-host")
     let codeHostCustomOpt = YamlOpt(y: "custom_code_host")
 
-    let githubURLAlias: AliasOpt
-    let githubFilePrefixAlias: AliasOpt
-
     init(config: Config) {
-        githubURLAlias = AliasOpt(realOpt: codeHostURLOpt, l: "github_url") // underscore intentional!
-        githubFilePrefixAlias = AliasOpt(realOpt: codeHostFilePrefixOpt, l: "github-file-prefix")
         config.register(self)
     }
 
     func checkOptions(publish: PublishStore) throws {
-        if codeHostOpt.configured {
-            if codeHostCustomOpt.configured {
-                throw OptionsError(.localized(.errCfgChostBoth))
-            }
-            if !codeHostURLOpt.configured {
-                throw OptionsError(.localized(.errCfgChostMissingUrl))
-            }
+        if codeHostOpt.configured && codeHostCustomOpt.configured {
+            throw OptionsError(.localized(.errCfgChostBoth))
         }
         publish.registerCodeHostItemURLForLocation(self.locationURL)
     }
@@ -116,19 +103,18 @@ final class GenCodeHost: Configurable {
 
     // Site-builder getters
 
-    var isGitHub: Bool    { codeHost == .github && codeHostURLOpt.configured }
-    var isGitLab: Bool    { codeHost == .gitlab && codeHostURLOpt.configured }
-    var isBitBucket: Bool { codeHost == .bitbucket && codeHostURLOpt.configured }
+    var isGitHub: Bool    { codeHostOpt.value.flatMap { $0 == .github } ?? false }
+    var isGitLab: Bool    { codeHostOpt.value.flatMap { $0 == .gitlab } ?? false }
+    var isBitBucket: Bool { codeHostOpt.value.flatMap { $0 == .bitbucket } ?? false }
 
     // todo: item menu text
 
-    func url(languageTag: String) -> String? { codeHostURLOpt.value?.get(languageTag) }
-
     var custom: MustacheDict? {
-        guard let parser = parser, let customImagePath = customImagePath else {
-            return nil
-        }
-        var dict = MustacheDict()
-        return dict
+        nil
+//        guard let parser = parser, let customImagePath = customImagePath else {
+//            return nil
+//        }
+//        var dict = MustacheDict()
+//        return dict
     }
 }
