@@ -115,7 +115,7 @@ class TestProducts: XCTestCase {
         let binDirURL = fixturesURL.appendingPathComponent("Swift53")
 
         try compare([
-            "--source-directory", binDirURL.path,
+            "--symbolgraph-search-paths", binDirURL.path,
             "--modules=SpmSwiftModule",
             "--build-tool=swift-symbolgraph"
             ],

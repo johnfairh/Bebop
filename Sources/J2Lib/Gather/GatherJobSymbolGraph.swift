@@ -19,15 +19,15 @@ import Foundation
 // --sdk=<sdkpath>
 // --target=<target>
 // --skip-synthesized-members
-// -F=<srcDir ?? pwd>
-// -I=<srcDir ?? pwd>
+// -F=<searchPaths ?? pwd>
+// -I=<searchPaths ?? pwd>
 
 extension GatherJob {
     /// Job to run `swift symbolgraph-extract` on some module and massage the created JSON
     /// into something approximating what SourceKit would create, so that we can feed into that codepath.
     struct SymbolGraph: Equatable {
         let moduleName: String
-        let srcDir: URL?
+        let searchURLs: [URL]
         let buildToolArgs: [String]
         let sdk: Gather.Sdk
         let target: String
@@ -49,8 +49,10 @@ extension GatherJob {
                     "--target=\(target)",
                     "--skip-synthesized-members"
                 ]
-                let includeDir = (srcDir ?? FileManager.default.currentDirectory).path
-                args += ["-F=\(includeDir)", "-I=\(includeDir)"]
+                let searchPaths = searchURLs.isEmpty ?
+                    [FileManager.default.currentDirectory.path] :
+                    searchURLs.map { $0.path }
+                args += searchPaths.flatMap { ["-F=\($0)", "-I=\($0)"] }
             } else {
                 let joinedArgs = buildToolArgs.joined(separator: " ")
                 try ["--module", "--minimum-access-level", "--output-dir"].forEach { arg in

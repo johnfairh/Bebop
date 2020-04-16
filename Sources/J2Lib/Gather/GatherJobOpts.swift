@@ -11,7 +11,7 @@
 
 /// The common option set that can be set at outer, module, or module-pass level.
 /// These are the options that fundamentally generate `GatherJob`s.
-final class GatherJobOpts: Configurable, CustomStringConvertible {
+final class GatherJobOpts: Configurable {
     let srcDirOpt = PathOpt(l: "source-directory").help("DIRPATH")
     let buildToolOpt = EnumOpt<Gather.BuildTool>(l: "build-tool")
     let buildToolArgsOpt = StringListOpt(s: "b", l: "build-tool-arguments").help("ARG1,ARG2...")
@@ -28,14 +28,9 @@ final class GatherJobOpts: Configurable, CustomStringConvertible {
     let sdkOpt = EnumOpt<Gather.Sdk>(l: "sdk").def(.macosx)
     var sdk: Gather.Sdk { sdkOpt.value! }
 
-    let swiftSymbolGraphTargetOpt = StringOpt(l: "swift-symbolgraph-target").help("LLVMTARGET")
-    var swiftSymbolGraphTarget: String { swiftSymbolGraphTargetOpt.value ?? hostTargetTriple }
-
-    var description: String {
-        "GatherJobOpts {\(srcDirOpt) \(buildToolOpt) \(buildToolArgsOpt) \(availabilityDefaultsOpt) \(ignoreAvailabilityAttrOpt) \(objcDirectOpt) " +
-        "\(objcHeaderFileOpt) \(objcIncludePathsOpt) \(sdkOpt)} \(sourcekittenJSONFilesOpt) \(j2JSONFilesOpt) " +
-        "\(swiftSymbolGraphTargetOpt)} "
-    }
+    let symbolGraphTargetOpt = StringOpt(l: "symbolgraph-target").help("LLVMTARGET")
+    var symbolGraphTarget: String { symbolGraphTargetOpt.value ?? hostTargetTriple }
+    let symbolGraphSearchPathsOpt = PathListOpt(l: "symbolgraph-search-paths").help("DIRPATH1,DIRPATH2,...")
 
     /// First pass of options-checking, that individual things entered are valid
     func checkOptions() throws {
@@ -48,11 +43,12 @@ final class GatherJobOpts: Configurable, CustomStringConvertible {
         try objcIncludePathsOpt.checkAreDirectories()
         try sourcekittenJSONFilesOpt.checkAreFiles()
         try j2JSONFilesOpt.checkAreFiles()
+        try symbolGraphSearchPathsOpt.checkAreDirectories()
 
-        if let target = swiftSymbolGraphTargetOpt.value {
+        if let target = symbolGraphTargetOpt.value {
             let targetTriple = target.components(separatedBy: "-")
             if targetTriple.count < 3 { // "linux-gnu" sob
-                throw OptionsError(.localized(.errCfgSsgeTriple, swiftSymbolGraphTarget))
+                throw OptionsError(.localized(.errCfgSsgeTriple, symbolGraphTarget))
             }
         }
     }
@@ -99,8 +95,9 @@ final class GatherJobOpts: Configurable, CustomStringConvertible {
             !objcHeaderFileOpt.configured {
             j2JSONFilesOpt.cascade(from: from.j2JSONFilesOpt)
         }
-        // swift-symbolgraph-target: always cascade, use driven by buildtool
-        swiftSymbolGraphTargetOpt.cascade(from: from.swiftSymbolGraphTargetOpt)
+        // symbolgraph-target, -searchpaths: always cascade, use driven by buildtool
+        symbolGraphTargetOpt.cascade(from: from.symbolGraphTargetOpt)
+        symbolGraphSearchPathsOpt.cascade(from: from.symbolGraphSearchPathsOpt)
     }
 
     /// Second pass of options-checking, of inter-option consistency after parent cascade
@@ -179,10 +176,10 @@ final class GatherJobOpts: Configurable, CustomStringConvertible {
             // Swift from .swiftmodule
             jobs.append(GatherJob(symbolgraphTitle: "Swift module (symbolgraph) \(moduleName!)\(passStr)",
                 moduleName: moduleName!,
-                srcDir: srcDirOpt.value,
+                searchURLs: symbolGraphSearchPathsOpt.value,
                 buildToolArgs: buildToolArgsOpt.value,
                 sdk: sdk,
-                target: swiftSymbolGraphTarget,
+                target: symbolGraphTarget,
                 availability: availability))
         } else {
             // Swift from source

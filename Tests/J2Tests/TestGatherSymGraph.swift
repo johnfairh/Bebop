@@ -38,7 +38,7 @@ class TestGatherSymGraph: XCTestCase {
         AssertThrows(try System().run(["--build-tool=swift-symbolgraph"]), OptionsError.self)
 
         // bad triple
-        AssertThrows(try System().run(["--swift-symbolgraph-target=not-triple"]), OptionsError.self)
+        AssertThrows(try System().run(["--symbolgraph-target=not-triple"]), OptionsError.self)
 
         // invalid override
         AssertThrows(try System().run([
@@ -74,7 +74,7 @@ class TestGatherSymGraph: XCTestCase {
         let srcDirPasses = try System().run([
             "--build-tool=swift-symbolgraph",
             "--modules=SpmSwiftModule",
-            "--source-directory=\(binDirPath)"
+            "--symbolgraph-search-paths=\(binDirPath)"
         ])
 
         let cwdPasses = try URL(fileURLWithPath: binDirPath).withCurrentDirectory {

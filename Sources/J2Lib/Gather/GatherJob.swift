@@ -39,14 +39,6 @@ enum GatherJob : Equatable {
         }
     }
 
-    var sourceDirectoryURL: URL? {
-        switch self {
-        case .swift(_, let job): return job.srcDir
-        case .objcDirect(_, _), .sourcekitten(_, _), .jsonImport(_, _): return nil
-        case .symbolgraph(_, let job): return job.srcDir
-        }
-    }
-
     func execute() throws -> [GatherModulePass] {
         logDebug("Gather: starting job \(self)")
         defer { logDebug("Gather: finished job") }
@@ -143,14 +135,14 @@ enum GatherJob : Equatable {
     /// Init helper for symbolgraph import
     init(symbolgraphTitle: String,
          moduleName: String,
-         srcDir: URL?,
+         searchURLs: [URL],
          buildToolArgs: [String],
          sdk: Gather.Sdk,
          target: String,
          availability: Gather.Availability) {
         self = .symbolgraph(title: symbolgraphTitle,
                             job: SymbolGraph(moduleName: moduleName,
-                                             srcDir: srcDir,
+                                             searchURLs: searchURLs,
                                              buildToolArgs: buildToolArgs,
                                              sdk: sdk,
                                              target: target,

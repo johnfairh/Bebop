@@ -165,9 +165,12 @@ using '--products files-json'.
 Default: Do not use JSON input.";
 "custom_brand" = "Configure a 'brand' image on the titlebar of each page.  See the docs.
 Default: Do not use a brand image.";
-"swift-symbolgraph-target" = "LLVM target triple to use with the .swiftmodule in Swift SymbolGraph
+"symbolgraph-target" = "LLVM target triple to use with the .swiftmodule in Swift SymbolGraph
 mode.  Use trial and error if the default doesn't work.
 Default: The host's target, for example 'x86_64-apple-darwin19.4.0'";
+"symbolgraph-search-paths" = "Paths to search for .swiftmodule or .framework files for the module
+to be documented.
+Default: The current directory.";
 "hide-pagination" = "Do not display 'next' and 'previous' links on each page of the generated
 documentation.";
 "code-host" = "The service hosting the source code.  Customize with custom_code_host.
