@@ -11,8 +11,8 @@ import XCTest
 
 // Binary-check fixtures for the json & html products files
 
-private var doFixup = true
-//private var doFixup = false
+//private var doFixup = true
+private var doFixup = false
 
 class TestProducts: XCTestCase {
     override func setUp() {

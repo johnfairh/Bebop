@@ -589,7 +589,7 @@
           "key.doc.comment" : "- parameters:\n   - arg1: Number one\n   - arg2: Second\n   - arg3: Third\n\nSee `SpmSwiftModule` -- or `SpmSwiftModule.ABaseClass`.",
           "key.doc.line" : 37,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/Swift53\/SpmSwiftModule.swift",
-          "key.fully_annotated_decl" : "<swift><syntaxtype.attribute.builtin>@available(macOS, introduced: 10.12)\n<\/syntaxtype.attribute.builtin><syntaxtype.attribute.builtin>@available(iOS, introduced: 9)\n<\/syntaxtype.attribute.builtin>func functionA(arg1: Int, _ arg: Int, arg3: Int)<\/swift>",
+          "key.fully_annotated_decl" : "<swift><syntaxtype.attribute.builtin>@available(macOS, introduced: 10.12)\n<\/syntaxtype.attribute.builtin><syntaxtype.attribute.builtin>@available(iOS, introduced: 9)\n<\/syntaxtype.attribute.builtin>func functionA(arg1: Int, _ arg2: Int, arg3 argMeaning: Int)<\/swift>",
           "key.inherited_docs" : false,
           "key.j2.availabilities" : [
             {
@@ -626,7 +626,7 @@
             ]
           },
           "key.j2.is_override" : false,
-          "key.j2.swift_declaration" : "func functionA(arg1: Int, _ arg: Int, arg3: Int)",
+          "key.j2.swift_declaration" : "func functionA(arg1: Int, _ arg2: Int, arg3 argMeaning: Int)",
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -1093,10 +1093,10 @@
               "key.doc.full_as_xml" : "",
               "key.doc.line" : 101,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/Swift53\/SpmSwiftModule.swift",
-              "key.fully_annotated_decl" : "<swift>func generic&lt;R&gt;(param: T, my: R) -&gt; T where R : Sequence, R.Element : FirstProtocol<\/swift>",
+              "key.fully_annotated_decl" : "<swift>func generic&lt;R&gt;(param: T, my param2: R) -&gt; T where R : Sequence, R.Element : FirstProtocol<\/swift>",
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
-              "key.j2.swift_declaration" : "func generic<R>(param: T, my: R) -> T where R : Sequence, R.Element : FirstProtocol",
+              "key.j2.swift_declaration" : "func generic<R>(param: T, my param2: R) -> T where R : Sequence, R.Element : FirstProtocol",
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,

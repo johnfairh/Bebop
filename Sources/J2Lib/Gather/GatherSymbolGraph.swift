@@ -167,6 +167,10 @@ fileprivate struct SymbolGraph: Decodable {
             case inheritsFrom
             case requirementOf
             case optionalRequirementOf
+
+            var isProtocolReq: Bool {
+                self == .requirementOf || self == .optionalRequirementOf
+            }
         }
         let kind: Kind
         let sourceUSR: String
@@ -196,9 +200,12 @@ fileprivate struct SymbolGraph: Decodable {
             }
             // if we're a generic context (includes funcs) then we get a 'swiftGenerics'.
             // if we're not, but are in an extension (with constraints) we get a 'swiftExtension'...
-            let constraintList = sym.swiftGenerics?.constraints ?? sym.swiftExtension?.constraints ?? []
+            // Apr16: now we can get both!  And there can be repetitions!
+            let constraintList = (sym.swiftGenerics?.constraints ?? []) +
+                                 (sym.swiftExtension?.constraints ?? [])
             let constraints = constraintList.compactMap { con -> Constraint? in
                 // Drop implementation Self constraint for protocol members
+                // Apr16: These are supposed to be gone, but, guess what....
                 if con.lhs == "Self" && con.kind == "conformance" && sym.pathComponents.contains(con.rhs) {
                     return nil
                 }
@@ -220,7 +227,7 @@ fileprivate struct SymbolGraph: Decodable {
                           availability: sym.availability?.compactMap { $0.asSwift } ?? [],
                           location: location,
                           genericTypeParameters: Set(sym.swiftGenerics?.parameters?.map { $0.name } ?? []),
-                          constraints: Constraints(unsorted: constraints))
+                          constraints: Constraints(sorted: constraints.sorted().uniqued()))
         }
 
         // Relationships
@@ -350,11 +357,18 @@ extension SymbolGraph.Constraints {
 extension SymbolGraph {
     /// Work around bugs/bad design in ssge's declprinter
     static func fixUpDeclaration(_ declaration: String) -> String {
-        declaration
+        var fixed = declaration
             // All these Selfs are pointless & I don't want to teach autolink about them
             .re_sub(#"\bSelf\."#, with: "")
             // Try to fix up `func(_: Int)` stuff
+            // Apr16: fixed for funcs, still broken for enums...
             .re_sub(#"(?<=\(|, )_: "#, with: "_ arg: ")
+
+        if fixed.re_isMatch(#"\bsubscript\b"#) {
+            // ...and broken in the other direction for subscripts
+            fixed = fixed.re_sub(#"(?<=\(|, )(\w+:)"#, with: "_ $1")
+        }
+        return fixed
     }
 }
 
@@ -630,10 +644,10 @@ extension SymbolGraph {
 
         logDebug("SymbolGraph: start rebuilding AST shape")
 
-        // We have to mark up protocol requirements before handling their memberOfs.
-        // Just split them out and process.
-        let (protoReqs, otherRels) = rels.splitPartition {
-            $0.kind == .requirementOf || $0.kind == .optionalRequirementOf
+        // Apr16: protocol requirements are fixed to go single-pass, but
+        // now we have to process default implementation rels after everything else.
+        let (defaultImpls, otherRels) = rels.splitPartition {
+            $0.kind == .defaultImplementationOf
         }
 
         func resolveSource(rel: Rel) -> Node? {
@@ -644,18 +658,15 @@ extension SymbolGraph {
             return srcNode
         }
 
-        protoReqs.forEach {
-            // "source is a requirement of protocol target"
-            resolveSource(rel: $0)?.isProtocolReq = true
-        }
-
         otherRels.forEach { rel in
             switch rel.kind {
-            case .memberOf:
-                // "source is a member of target"
+            case .memberOf, .optionalRequirementOf, .requirementOf:
+                // "source is a member/requirement of target"
                 guard let srcNode = resolveSource(rel: rel) else {
                     break
                 }
+                srcNode.isProtocolReq = rel.kind.isProtocolReq
+
                 let tgtNode = nodes[rel.targetUSR]
                 let contextConstraints = srcNode.uniqueContextConstraints(context: tgtNode)
                 if tgtNode?.tryAdd(member: srcNode, uniqueContextConstraints: contextConstraints) ?? false {
@@ -665,6 +676,10 @@ extension SymbolGraph {
                 extensionMap.addMemberOf(member: srcNode,
                                          typeUSR: rel.targetUSR,
                                          where: contextConstraints)
+
+            case .defaultImplementationOf:
+                // Do these later.
+                break
 
             case .overrides:
                 // "source is overriding target" - only for classes, protocols broken
@@ -702,13 +717,29 @@ extension SymbolGraph {
                                             where: constraints)
                 break
 
-            case .inheritsFrom, // don't care
-                 .defaultImplementationOf, // don't care
-                 .requirementOf, // already processed
-                 .optionalRequirementOf: // already processed
+            case .inheritsFrom:
+                // don't care
                 break
             }
         }
+
+        // Now we've mapped requirements to their types we have a chance of figuring
+        // out default implementations.
+        defaultImpls.forEach { rel in
+            // "'source' is a default implementation of protocol requirement 'target'"
+            guard let srcNode = resolveSource(rel: rel) else {
+                return
+            }
+            guard let tgtNode = nodes[rel.targetUSR],
+                let tgtNodeParent = tgtNode.parent as? Node else {
+                logWarning("Found a default requirement but don't know what to do with it: \(rel)")
+                return
+            }
+
+            let contextConstraints = srcNode.uniqueContextConstraints(context: tgtNodeParent)
+            extensionMap.addMemberOf(member: srcNode, typeUSR: tgtNodeParent.symbol.usr, where: contextConstraints)
+        }
+
         let rootTypeNodes = nodes.values.filter { $0.parent == nil }.sorted()
         let rootExtNodes = extensionMap.map.values.sorted()
         logDebug("SymbolGraph: after rebuild, \(rootTypeNodes.count) root types, \(rootExtNodes.count) root exts.")
