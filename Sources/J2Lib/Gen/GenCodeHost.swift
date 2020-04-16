@@ -6,7 +6,6 @@
 //  Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
 //
 
-
 import Yams
 
 enum CodeHost: String, CaseIterable {

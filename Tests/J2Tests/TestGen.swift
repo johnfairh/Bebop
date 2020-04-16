@@ -14,10 +14,13 @@ fileprivate struct System {
     let genPages: GenPages
     let gen: GenSite
 
-    init() {
+    init(fakeMedia: Bool = false) {
         config = Config()
         genPages = GenPages(config: config)
         gen = GenSite(config: config)
+        if fakeMedia {
+            config.published.urlPathForMedia = { $0 }
+        }
     }
 
     func configure(cliOpts: [String]) throws {
@@ -314,11 +317,11 @@ class TestGen: XCTestCase {
 
     // MARK: Brand
 
-    private func checkConfigError(yaml: String) throws {
-        let system = System()
+    private func checkConfigError(yaml: String, fakeMedia: Bool = false, args: [String] = []) throws {
+        let system = System(fakeMedia: fakeMedia)
         let cfgFileURL = FileManager.default.temporaryFileURL()
         try yaml.write(to: cfgFileURL)
-        AssertThrows(try system.configure(cliOpts: ["--config=\(cfgFileURL.path)"]), OptionsError.self)
+        AssertThrows(try system.configure(cliOpts: ["--config=\(cfgFileURL.path)"] + args), OptionsError.self)
     }
 
     /// Bad-path again, covered in LayoutTest
@@ -328,5 +331,51 @@ class TestGen: XCTestCase {
 
         let badImg = "custom_brand:\n  image_name: Fred\n"
         try checkConfigError(yaml: badImg)
+    }
+
+    // MARK: CodeHost
+
+    // full yaml
+    func testCodeHostYaml() throws {
+        let yaml =
+        """
+        custom_code_host:
+          image_name: fred
+          alt_text:
+            en: barney
+            fr: le rubble
+          title:
+            en: wilma
+            fr: la rubble
+          single_line_format: "L%LINE"
+          multi_line_format: "LL%LINE1:%LINE2"
+          item_menu_text:
+            en: See the code
+        """
+        let system = System(fakeMedia: true)
+        let cfgFileURL = FileManager.default.temporaryFileURL()
+        try yaml.write(to: cfgFileURL)
+        try system.configure(cliOpts: ["--config=\(cfgFileURL.path)"])
+    }
+
+    /// Yaml config errors
+    func testCodeHostConfigErrors() throws {
+        let missingImg = "custom_code_host:\n  alt_text: fred"
+        try checkConfigError(yaml: missingImg)
+
+        let badImg = "custom_code_host:\n  image_name: fred"
+        try checkConfigError(yaml: badImg)
+
+        let badSingle = "custom_code_host:\n  image_name: fred\n  single_line_format: line"
+        try checkConfigError(yaml: badSingle, fakeMedia: true)
+
+        let badMulti1 = "custom_code_host:\n  image_name: fred\n  multi_line_format: L%LINE1"
+        try checkConfigError(yaml: badMulti1, fakeMedia: true)
+
+        let badMulti2 = "custom_code_host:\n  image_name: fred\n  multi_line_format: L%LINE2"
+        try checkConfigError(yaml: badMulti2, fakeMedia: true)
+
+        let minimal = "custom_code_host:\n  image_name: fred"
+        try checkConfigError(yaml: minimal, fakeMedia: true, args: ["--code-host=bitbucket"])
     }
 }

@@ -22,11 +22,11 @@ final class GenMedia: Configurable {
 
     public init(config: Config) {
         config.register(self)
+        config.published.urlPathForMedia = self.urlPathForMedia
     }
 
     func checkOptions(published: Config.Published) throws {
         mediaFiles = mediaOpt.value.findMediaFileURLs()
-        published.urlPathForMedia = self.urlPathForMedia
     }
 
     private let MEDIA = "media"
