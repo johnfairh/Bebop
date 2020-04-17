@@ -39,9 +39,6 @@ jobs:
     
     steps:
       - uses: actions/checkout@v1
-      - uses: fwal/setup-swift@master
-        with:
-          swift-version: "5.2.0"
       - name: Run tests
-        run: swift test --enable-test-discovery
-        
+        run: |
+          docker run -v `pwd`:`pwd` -w `pwd` --name j2 --rm swift:5.2 /bin/bash -c "apt-get update; apt-get install libsqlite3-dev; swift test --parallel --enable-test-discovery"
