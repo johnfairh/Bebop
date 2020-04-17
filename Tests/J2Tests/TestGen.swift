@@ -151,15 +151,6 @@ class TestGen: XCTestCase {
         XCTAssertNil(globalData[.docCoverage])
     }
 
-    func testCodehosts() throws {
-        try CodeHost.allCases.forEach { codehost in
-            let system = System()
-            try system.configure(cliOpts: ["--code-host=\(codehost.rawValue)"])
-            let globalData = system.gen.buildGlobalData(genData: GenData())
-            XCTAssertEqual(true, globalData["codehost_\(codehost.rawValue)"] as? Bool)
-        }
-    }
-
     func testHideActions() throws {
         let system = System()
         try system.configure(cliOpts: ["--hide-search", "--nested-item-style=always-open"])
@@ -376,6 +367,7 @@ class TestGen: XCTestCase {
         let cfgFileURL = FileManager.default.temporaryFileURL()
         try yaml.write(to: cfgFileURL)
         try system.configure(cliOpts: ["--config=\(cfgFileURL.path)"])
+        XCTAssertEqual("See the code", system.gen.codeHost.defLinkText.get("en"))
     }
 
     /// Yaml config errors
@@ -395,7 +387,36 @@ class TestGen: XCTestCase {
         let badMulti2 = "custom_code_host:\n  image_name: fred\n  multi_line_format: L%LINE2"
         try checkConfigError(yaml: badMulti2, fakeMedia: true)
 
+        let badCustom = "custom_code_host:\n  image_name: fred\n  multi_line_format: L%LINE1-L%LINE2"
+        try checkConfigError(yaml: badCustom, fakeMedia: true)
+
         let minimal = "custom_code_host:\n  image_name: fred"
         try checkConfigError(yaml: minimal, fakeMedia: true, args: ["--code-host=bitbucket"])
+    }
+
+    func testCodehosts() throws {
+        try CodeHost.allCases.forEach { codehost in
+            let system = System()
+            try system.configure(cliOpts: ["--code-host=\(codehost.rawValue)"])
+            let globalData = system.gen.buildGlobalData(genData: GenData())
+            XCTAssertEqual(true, globalData["codehost_\(codehost.rawValue)"] as? Bool)
+            let linkText = system.gen.codeHost.defLinkText.get("en")
+            XCTAssertTrue(linkText.lowercased().contains(codehost.rawValue))
+        }
+    }
+
+    func testCodeHostLineFormatter() throws {
+        let ghFormatter = GitHubLineFormatter()
+        XCTAssertNil(ghFormatter.format(startLine: nil, endLine: 5))
+
+        XCTAssertEqual("L100", ghFormatter.format(startLine: 100, endLine: nil))
+        XCTAssertEqual("L100", ghFormatter.format(startLine: 100, endLine: 100))
+        XCTAssertEqual("L100-L105", ghFormatter.format(startLine: 100, endLine: 105))
+
+        let bbFormatter = BitBucketLineFormatter()
+        XCTAssertEqual("line-100", bbFormatter.format(startLine: 100, endLine: nil))
+        XCTAssertEqual("line-100", bbFormatter.format(startLine: 100, endLine: 100))
+        XCTAssertEqual("line-100:105", bbFormatter.format(startLine: 100, endLine: 105))
+
     }
 }
