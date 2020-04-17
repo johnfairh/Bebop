@@ -36,7 +36,7 @@ final class GatherJobOpts: Configurable {
     let symbolGraphSearchPathsOpt = PathListOpt(l: "symbolgraph-search-paths").help("DIRPATH1,DIRPATH2,...")
 
     let codeHostURLOpt = LocStringOpt(l: "code-host-url").help("CODEHOSTURL")
-    let codeHostFilePrefixOpt = StringOpt(l: "code-host-file-prefix").help("FILEURLPREFIX")
+    let codeHostFileURLOpt = StringOpt(l: "code-host-file-url").help("CODEHOSTFILEURL")
 
     /// First pass of options-checking, that individual things entered are valid
     func checkOptions() throws {
@@ -106,7 +106,7 @@ final class GatherJobOpts: Configurable {
         symbolGraphSearchPathsOpt.cascade(from: from.symbolGraphSearchPathsOpt)
         // codehost: cascade, no effect on build process
         codeHostURLOpt.cascade(from: from.codeHostURLOpt)
-        codeHostFilePrefixOpt.cascade(from: from.codeHostFilePrefixOpt)
+        codeHostFileURLOpt.cascade(from: from.codeHostFileURLOpt)
     }
 
     /// Second pass of options-checking, of inter-option consistency after parent cascade

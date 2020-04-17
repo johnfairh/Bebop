@@ -45,7 +45,7 @@ final class GatherOpts : Configurable {
         sourcekittenSourceFileAlias = AliasOpt(realOpt: rootPassOpts.sourcekittenJSONFilesOpt, l: "sourcekitten-sourcefile")
         moduleAlias = AliasOpt(realOpt: moduleNamesOpt, l: "module")
         githubURLAlias = AliasOpt(realOpt: rootPassOpts.codeHostURLOpt, l: "github_url") // underscore intentional!
-        githubFilePrefixAlias = AliasOpt(realOpt: rootPassOpts.codeHostFilePrefixOpt, l: "github-file-prefix")
+        githubFilePrefixAlias = AliasOpt(realOpt: rootPassOpts.codeHostFileURLOpt, l: "github-file-prefix")
         published = config.published
 
         config.register(rootPassOpts)
@@ -113,7 +113,7 @@ final class GatherOpts : Configurable {
                                 groupPolicy: groupPolicy,
                                 sourceDirectory: rootPassOpts.effectiveSrcDir,
                                 codeHostURL: rootPassOpts.codeHostURLOpt.value,
-                                codeHostFilePrefix: rootPassOpts.codeHostFilePrefixOpt.value)
+                                codeHostFilePrefix: rootPassOpts.codeHostFileURLOpt.value)
             }
         } else {
             return customModules.map {
@@ -121,7 +121,7 @@ final class GatherOpts : Configurable {
                                 groupPolicy: $0.groupPolicy,
                                 sourceDirectory: $0.moduleOpts.effectiveSrcDir,
                                 codeHostURL: $0.moduleOpts.codeHostURLOpt.value,
-                                codeHostFilePrefix: $0.moduleOpts.codeHostFilePrefixOpt.value)
+                                codeHostFilePrefix: $0.moduleOpts.codeHostFileURLOpt.value)
             }
         }
     }

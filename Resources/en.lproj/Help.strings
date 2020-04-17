@@ -174,11 +174,11 @@ Default: The current directory.";
 "hide-pagination" = "Do not display 'next' and 'previous' links on each page of the generated
 documentation.";
 "code-host" = "The service hosting the source code.  Customize with custom_code_host.
-Default: 'github' with either --code-host-url or --code-host-file-prefix.";
+Default: 'github' with either --code-host-url or --code-host-file-url.";
 "code-host-url" = "A URL on the source-code hosting service to link to from the titlebar
 of the generated documentation.  Localizable.
 Default: Do not link to a code hosting service.";
-"code-host-file-prefix" = "A base URL to use for generating deep links to source code from each
+"code-host-file-url" = "The base URL to use for generating deep links to source code from each
 item definition.
 Default: Do not deep-link to a code hosting service.";
 "custom_code_host" = "Use a source-code hosting service other than the built-in options.";

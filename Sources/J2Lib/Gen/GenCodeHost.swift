@@ -70,7 +70,7 @@ final class GenCodeHost: Configurable {
             }
 
             if singleLineFormatOpt.configured != multiLineFormatOpt.configured {
-                throw OptionsError("A custom code host line formatter config key is missing: you must set both 'single_line_format' and 'multi_line_format'.")
+                throw OptionsError(.localized(.errCfgChostMissingFmt))
             }
         }
 

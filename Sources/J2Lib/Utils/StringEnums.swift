@@ -24,8 +24,10 @@ internal enum L10n {
     case errCfgBrandMissingImage = "err-cfg-brand-missing-image"
     /// Config key 'custom_code_host.image_name' of '%1' did not match any file from --media.
     case errCfgChostBadImage = "err-cfg-chost-bad-image"
-    /// Both --code-host and custom_code_host are set: choose just one.
+    /// Both --code-host and config key 'custom_code_host' are set: choose just one.
     case errCfgChostBoth = "err-cfg-chost-both"
+    /// One of the custom code-host line format keys is missing: you must supply both or neither of 'single_line_format' and 'multi_line_format'.
+    case errCfgChostMissingFmt = "err-cfg-chost-missing-fmt"
     /// Config key 'image_name' not set under 'custom_code_host'.
     case errCfgChostMissingImage = "err-cfg-chost-missing-image"
     /// Config key 'custom_code_host.multi_line_format' does not contain both '%1' and '%2'.
