@@ -20,6 +20,8 @@ private enum PipelineProduct: String, CaseIterable {
     case docs_json
     /// Produce docs
     case docs
+    /// Produce docset
+    case docset
     /// Produce stats
     case stats_json
     /// Produce undocumented report
@@ -30,7 +32,7 @@ private enum PipelineProduct: String, CaseIterable {
     var needsPipelineMode: Bool {
         switch self {
         case .files_json, .decls_json, .docs_summary_json, .docs_json: return true
-        case .docs, .stats_json, .undocumented_json: return false
+        case .docs, .docset, .stats_json, .undocumented_json: return false
         }
     }
 }
@@ -60,6 +62,8 @@ public final class Pipeline: Configurable {
     public let genPages: GenPages
     /// Generate final site
     public let genSite: GenSite
+    /// Generate docset version of final site
+    public let genDocset: GenDocset
 
     /// User product config
     private let productsOpt = EnumListOpt<PipelineProduct>(l: "products")
@@ -99,6 +103,7 @@ public final class Pipeline: Configurable {
         format = Format(config: config)
         genPages = GenPages(config: config)
         genSite = GenSite(config: config)
+        genDocset = GenDocset(config: config)
         config.register(self)
     }
 
@@ -149,9 +154,13 @@ public final class Pipeline: Configurable {
             if productsAllDone { return }
         }
 
-        if testAndClearProduct(.docs) {
+        if testAndClearProduct(.docs) || productsToDo.contains(.docset) {
             logDebug("Pipeline: generating site")
             try genSite.generateSite(genData: genData, items: formattedItems)
+            if testAndClearProduct(.docset) {
+                logDebug("Pipeline: generating docset")
+                try genDocset.generate(outputURL: genSite.outputURL, items: formattedItems)
+            }
             stats.printReport()
         }
 

@@ -148,6 +148,9 @@
 		02FDC68D23EB498A00C2F9CD /* DefDeclaration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FDC68C23EB498A00C2F9CD /* DefDeclaration.swift */; };
 		02FDC68F23EB4C1B00C2F9CD /* Lock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FDC68E23EB4C1B00C2F9CD /* Lock.swift */; };
 		02FDC69123EB617300C2F9CD /* StringEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FDC69023EB617200C2F9CD /* StringEnums.swift */; };
+		02FFA85D244A099800192BF5 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02FFA85C244A099800192BF5 /* SQLite.framework */; };
+		02FFA85E244A099800192BF5 /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02FFA85C244A099800192BF5 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		02FFA860244A0A2200192BF5 /* GenDocset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FFA85F244A0A2200192BF5 /* GenDocset.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -200,6 +203,7 @@
 				02CFF91B23DDFB0500FDE5B9 /* SWXMLHash.framework in Embed Frameworks */,
 				02CFFA3C23E4B1F100FDE5B9 /* _CSwiftSyntax.framework in Embed Frameworks */,
 				02CFF91823DDFB0100FDE5B9 /* SourceKittenFramework.framework in Embed Frameworks */,
+				02FFA85E244A099800192BF5 /* SQLite.framework in Embed Frameworks */,
 				02CFFA3923E4B1EE00FDE5B9 /* SwiftSyntax.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -366,6 +370,8 @@
 		02FDC68C23EB498A00C2F9CD /* DefDeclaration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefDeclaration.swift; sourceTree = "<group>"; };
 		02FDC68E23EB4C1B00C2F9CD /* Lock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lock.swift; sourceTree = "<group>"; };
 		02FDC69023EB617200C2F9CD /* StringEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringEnums.swift; sourceTree = "<group>"; };
+		02FFA85C244A099800192BF5 /* SQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SQLite.framework; path = Carthage/Build/Mac/SQLite.framework; sourceTree = "<group>"; };
+		02FFA85F244A0A2200192BF5 /* GenDocset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenDocset.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -388,6 +394,7 @@
 				02CFF91723DDFB0100FDE5B9 /* SourceKittenFramework.framework in Frameworks */,
 				02CFFA3B23E4B1F100FDE5B9 /* _CSwiftSyntax.framework in Frameworks */,
 				02CFF91A23DDFB0500FDE5B9 /* SWXMLHash.framework in Frameworks */,
+				02FFA85D244A099800192BF5 /* SQLite.framework in Frameworks */,
 				02CFFA3823E4B1EE00FDE5B9 /* SwiftSyntax.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -668,6 +675,7 @@
 				022BE7B32434F33D005146D1 /* GenBadge.swift */,
 				022BE7B62435215F005146D1 /* GenBrand.swift */,
 				02F61DEE2447651500266575 /* GenCodeHost.swift */,
+				02FFA85F244A0A2200192BF5 /* GenDocset.swift */,
 			);
 			path = Gen;
 			sourceTree = "<group>";
@@ -686,6 +694,7 @@
 		02F2B3C7239A804100397BC6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				02FFA85C244A099800192BF5 /* SQLite.framework */,
 				02CFF9672424CD4900320610 /* SortedArray.framework */,
 				02CFFA4923E8460700FDE5B9 /* libcmark_gfm.framework */,
 				02CFFA4723E8460400FDE5B9 /* Maaku.framework */,
@@ -934,6 +943,7 @@
 				02FDC68623E9EEE900C2F9CD /* GatherLocalize.swift in Sources */,
 				029A6F1923D77F7C00D66069 /* Config.swift in Sources */,
 				02AE7ED624485B5500B4A566 /* Published.swift in Sources */,
+				02FFA860244A0A2200192BF5 /* GenDocset.swift in Sources */,
 				028321F92403F40200B2C555 /* Exec.swift in Sources */,
 				029A6F1F23D880F700D66069 /* Logger.swift in Sources */,
 				02FDC67C23E879E700C2F9CD /* GatherMarkdown.swift in Sources */,
