@@ -529,13 +529,18 @@ $item-overview-indent: 2rem;
   }
 }
 
+.j2-main-item-nav {
+  padding-bottom: .5rem;
+  font-size: .95rem;
+}
+
 //
 // Pagination
 //
 
 .j2-pagination {
   display: flex;
-  font-size: 95%;
+  font-size: .95rem;
 }
 
 //

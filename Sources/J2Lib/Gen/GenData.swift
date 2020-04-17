@@ -45,6 +45,7 @@ public final class GenData: Encodable {
         public let objCDeclaration: Html?
         public let params: [Param]
         public let returns: Localized<Html>?
+        public let codeHostURL: String?
     }
     public struct Item: Encodable {
         public let anchorId: String

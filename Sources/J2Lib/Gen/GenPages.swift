@@ -160,7 +160,7 @@ final class PageVisitor: ItemVisitorProtocol {
                 primaryLanguage: defItem.primaryLanguage,
                 secondaryTitle: defItem.secondaryTitle,
                 breadcrumbs: buildBreadcrumbs(item: defItem, parents: parents),
-                definition: defItem.asGenDef(pageURL: defItem.url),
+                definition: defItem.asGenDef(pageURL: defItem.url, published: published),
                 topics: buildTopics(item: defItem),
                 pagination: buildPagination(item: defItem),
                 codeHostURL: published.module(defItem.location.moduleName).codeHostURL))
@@ -238,7 +238,9 @@ final class PageVisitor: ItemVisitorProtocol {
 
     func buildTopics(item: Item) -> [GenData.Topic] {
         var topics = [GenData.Topic]()
-        let itemVisitor = GenItemVisitor(defaultLanguage: defaultLanguage, pageURL: item.url)
+        let itemVisitor = GenItemVisitor(defaultLanguage: defaultLanguage,
+                                         pageURL: item.url,
+                                         published: published)
         var currentTopic: Topic? = nil
 
         let uniquer = StringUniquer()
@@ -319,12 +321,14 @@ extension DefItem {
 class GenItemVisitor: ItemVisitorProtocol {
     let defaultLanguage: DefLanguage
     let pageURL: URLPieces
+    let published: Published
 
     var items: [GenData.Item]
 
-    init(defaultLanguage: DefLanguage, pageURL: URLPieces) {
+    init(defaultLanguage: DefLanguage, pageURL: URLPieces, published: Published) {
         self.defaultLanguage = defaultLanguage
         self.pageURL = pageURL
+        self.published = published
         self.items = []
     }
 
@@ -352,7 +356,7 @@ class GenItemVisitor: ItemVisitorProtocol {
             extensionConstraint: defItem.extensionConstraintMessage,
             dashType: defItem.defKind.dashName,
             url: defItem.renderAsPage ? defItem.url : nil,
-            def: defItem.asGenDef(pageURL: pageURL)))
+            def: defItem.asGenDef(pageURL: pageURL, published: published)))
     }
 
     /// Guides and Groups are simple, just a link really.
@@ -373,7 +377,7 @@ class GenItemVisitor: ItemVisitorProtocol {
 }
 
 extension DefItem {
-    func asGenDef(pageURL: URLPieces) -> GenData.Def {
+    func asGenDef(pageURL: URLPieces, published: Published) -> GenData.Def {
         GenData.Def(deprecation: deprecationNotice?.html.autolinked(pageURL),
                     unavailability: unavailableNotice?.html.autolinked(pageURL),
                     notes: declNotesNotice?.html.autolinked(pageURL),
@@ -388,6 +392,7 @@ extension DefItem {
                         GenData.Param(name: docParam.name,
                                       description: docParam.description.html.autolinked(pageURL))
                     },
-                    returns: documentation.returns?.html.autolinked(pageURL))
+                    returns: documentation.returns?.html.autolinked(pageURL),
+                    codeHostURL: published.codeHostItemURLForLocation(location))
     }
 }

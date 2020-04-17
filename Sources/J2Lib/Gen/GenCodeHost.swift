@@ -7,6 +7,7 @@
 //
 
 import Yams
+import Foundation
 
 enum CodeHost: String, CaseIterable {
     case github
@@ -43,10 +44,6 @@ final class GenCodeHost: Configurable {
         publish.registerCodeHostItemURLForLocation(self.locationURL)
     }
 
-    private static let CUSTOM_SUB_LINE = "%LINE"
-    private static let CUSTOM_SUB_START_LINE = "%LINE1"
-    private static let CUSTOM_SUB_END_LINE = "%LINE2"
-
     private struct Parser {
         let imageNameOpt = StringOpt(y: "image_name")
         let altTextOpt = LocStringOpt(y: "alt_text")
@@ -61,15 +58,19 @@ final class GenCodeHost: Configurable {
             try parser.apply(mapping: yaml.checkMapping(context: "custom_code_host"))
 
             if let singleLineFormat = singleLineFormatOpt.value,
-                !singleLineFormat.contains(CUSTOM_SUB_LINE) {
-                throw OptionsError(.localized(.errCfgChostSingleFmt, CUSTOM_SUB_LINE))
+                !singleLineFormat.contains(CustomLineFormatter.LINE_PATTERN) {
+                throw OptionsError(.localized(.errCfgChostSingleFmt, CustomLineFormatter.LINE_PATTERN))
             }
             if let multiLineFormat = multiLineFormatOpt.value,
-                !multiLineFormat.contains(CUSTOM_SUB_START_LINE) ||
-                    !multiLineFormat.contains(CUSTOM_SUB_END_LINE) {
+                !multiLineFormat.contains(CustomLineFormatter.START_LINE_PATTERN) ||
+                    !multiLineFormat.contains(CustomLineFormatter.END_LINE_PATTERN) {
                 throw OptionsError(.localized(.errCfgChostMultiFmt,
-                                              CUSTOM_SUB_START_LINE,
-                                              CUSTOM_SUB_END_LINE))
+                                              CustomLineFormatter.START_LINE_PATTERN,
+                                              CustomLineFormatter.END_LINE_PATTERN))
+            }
+
+            if singleLineFormatOpt.configured != multiLineFormatOpt.configured {
+                throw OptionsError("A custom code host line formatter config key is missing: you must set both 'single_line_format' and 'multi_line_format'.")
             }
         }
 
@@ -87,23 +88,53 @@ final class GenCodeHost: Configurable {
 
     private var parser: Parser?
     private var customImagePath: String?
+    private var lineFormatter: LineFormatter?
 
     func checkOptionsPhase2(published: Published) throws {
-        guard let customYaml = codeHostCustomOpt.value else {
-            return
+        if let customYaml = codeHostCustomOpt.value {
+            parser = try Parser(yaml: customYaml)
+            customImagePath = try parser?.findMediaPath(published: published)
         }
-        parser = try Parser(yaml: customYaml)
-        customImagePath = try parser?.findMediaPath(published: published)
+        lineFormatter = createLineFormatter()
     }
 
-    /// Item codehost link builder, invoked from GenPages
+    // MARK: Item Link Builder
+
+    // How is this so much code!
+
+    private func createLineFormatter() -> LineFormatter {
+        if let singleLineTemplate = parser?.singleLineFormatOpt.value,
+            let multiLineTemplate = parser?.multiLineFormatOpt.value {
+            return CustomLineFormatter(singleLineTemplate: singleLineTemplate,
+                                       multiLineTemplate: multiLineTemplate)
+        }
+        if isBitBucket {
+            return BitBucketLineFormatter()
+        }
+        return GitHubLineFormatter()
+    }
+
+    /// Item codehost link builder, invoked from `GenPages` via `Publish`
     /// Haven't localized this because it just glues URL text together - need a more templately solution
     /// and a real-world implementation.
     func locationURL(location: DefLocation) -> String? {
-        nil
+        let module = published.module(location.moduleName)
+
+        guard let filePathname = location.filePathname,
+            let codeHostFilePrefix = module.codeHostFilePrefix,
+            let moduleSourceDirPath = module.sourceDirectory?.path,
+            filePathname.hasPrefix(moduleSourceDirPath) else {
+            return nil
+        }
+        var url = codeHostFilePrefix +
+            String(filePathname.dropFirst(moduleSourceDirPath.count)).urlPathEncoded
+        if let lineSuffix = lineFormatter?.format(startLine: location.firstLine, endLine: location.lastLine) {
+            url += "#\(lineSuffix)"
+        }
+        return url
     }
 
-    // Site-builder getters
+    // MARK: Site-builder
 
     /// Special case: --code-host-url without --code-host or custom means 'github'
     var isGitHub: Bool {
@@ -127,5 +158,76 @@ final class GenCodeHost: Configurable {
         return dict
     }
 
-    // todo: item menu text
+    var defLinkText: Localized<String> {
+        if let customText = parser?.itemMenuTextOpt.value {
+            return customText
+        }
+        if isBitBucket {
+            return .localizedOutput(.showOnBitBucket)
+        }
+        if isGitLab {
+            return .localizedOutput(.showOnGitLab)
+        }
+        return .localizedOutput(.showOnGitHub)
+    }
+}
+
+// MARK: LineFormatter empire
+
+protocol LineFormatter {
+    func formatOne(line: Int) -> String
+    func formatRange(startLine: Int, endLine: Int) -> String
+}
+
+extension LineFormatter {
+    /// Handle the cases and return the right format
+    func format(startLine: Int?, endLine: Int?) -> String? {
+        guard let startLine = startLine else {
+            return nil
+        }
+        if let endLine = endLine,
+            endLine != startLine {
+            return formatRange(startLine: startLine, endLine: endLine)
+        }
+        return formatOne(line: startLine)
+    }
+}
+
+struct GitHubLineFormatter: LineFormatter {
+    func formatOne(line: Int) -> String {
+        "L\(line)"
+    }
+
+    func formatRange(startLine: Int, endLine: Int) -> String {
+        "L\(startLine)-L\(endLine)"
+    }
+}
+
+struct BitBucketLineFormatter: LineFormatter {
+    func formatOne(line: Int) -> String {
+        "line-\(line)"
+    }
+
+    func formatRange(startLine: Int, endLine: Int) -> String {
+        "line-\(startLine):\(endLine)"
+    }
+}
+
+struct CustomLineFormatter: LineFormatter {
+    let singleLineTemplate: String
+    let multiLineTemplate: String
+
+    static let LINE_PATTERN = "%LINE"
+    static let START_LINE_PATTERN = "%LINE1"
+    static let END_LINE_PATTERN = "%LINE2"
+
+    func formatOne(line: Int) -> String {
+        singleLineTemplate.replacingOccurrences(of: Self.LINE_PATTERN, with: String(line))
+    }
+
+    func formatRange(startLine: Int, endLine: Int) -> String {
+        multiLineTemplate
+            .replacingOccurrences(of: Self.START_LINE_PATTERN, with: String(startLine))
+            .replacingOccurrences(of: Self.END_LINE_PATTERN, with: String(endLine))
+    }
 }

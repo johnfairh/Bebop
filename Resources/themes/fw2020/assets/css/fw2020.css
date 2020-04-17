@@ -7251,9 +7251,14 @@ h3 code {
   display: block;
 }
 
+.j2-main-item-nav {
+  padding-bottom: .5rem;
+  font-size: .95rem;
+}
+
 .j2-pagination {
   display: flex;
-  font-size: 95%;
+  font-size: .95rem;
 }
 
 .j2-aux-nav {

@@ -78,3 +78,8 @@
 /* Generic requirements topic name */
 "available-where" = "Available %1";
 "available-where-short" = "…%1";
+
+/* Item menu links */
+"show-on-bit-bucket" = "Show on BitBucket";
+"show-on-git-lab" = "Show on GitLab";
+"show-on-git-hub" = "Show on GitHub";

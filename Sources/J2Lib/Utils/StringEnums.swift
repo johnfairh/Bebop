@@ -284,6 +284,12 @@ internal enum L10n {
     case protocolExtn = "protocol-extn"
     ///  Renamed to `%1`.
     case renamedTo = "renamed-to"
+    /// Show on BitBucket
+    case showOnBitBucket = "show-on-bit-bucket"
+    /// Show on GitHub
+    case showOnGitHub = "show-on-git-hub"
+    /// Show on GitLab
+    case showOnGitLab = "show-on-git-lab"
     /// Associated Types
     case tpcAssociatedTypes = "tpc-associated-types"
     /// Class Methods

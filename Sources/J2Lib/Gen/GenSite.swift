@@ -185,6 +185,7 @@ public struct GenSite: Configurable {
             mustacheData.maybe(.brandAltText, brand.altText?.get(page.languageTag))
             mustacheData.maybe(.brandURL, brand.url?.get(page.languageTag))
             mustacheData.maybe(.codehostCustom, codeHost.custom(languageTag: page.languageTag))
+            mustacheData.maybe(.codehostDefLink, codeHost.defLinkText.get(page.languageTag))
 
             if hidePaginationOpt.value {
                 mustacheData.removeValue(forKey: MustacheKey.pagination.rawValue)

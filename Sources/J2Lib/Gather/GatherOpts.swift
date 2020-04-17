@@ -111,7 +111,7 @@ final class GatherOpts : Configurable {
             return names.map {
                 PublishedModule(name: $0,
                                 groupPolicy: groupPolicy,
-                                sourceDirectory: rootPassOpts.srcDirOpt.value,
+                                sourceDirectory: rootPassOpts.effectiveSrcDir,
                                 codeHostURL: rootPassOpts.codeHostURLOpt.value,
                                 codeHostFilePrefix: rootPassOpts.codeHostFilePrefixOpt.value)
             }
@@ -119,7 +119,7 @@ final class GatherOpts : Configurable {
             return customModules.map {
                 PublishedModule(name: $0.name,
                                 groupPolicy: $0.groupPolicy,
-                                sourceDirectory: $0.moduleOpts.srcDirOpt.value,
+                                sourceDirectory: $0.moduleOpts.effectiveSrcDir,
                                 codeHostURL: $0.moduleOpts.codeHostURLOpt.value,
                                 codeHostFilePrefix: $0.moduleOpts.codeHostFilePrefixOpt.value)
             }

@@ -6,6 +6,8 @@
 //  Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
 //
 
+import Foundation
+
 // when we have all the build options known, refactor all the mutex checks
 // and cascade logic -- no point now as we keep adding/discovering things.
 
@@ -13,6 +15,7 @@
 /// These are the options that fundamentally generate `GatherJob`s.
 final class GatherJobOpts: Configurable {
     let srcDirOpt = PathOpt(l: "source-directory").help("DIRPATH")
+    var effectiveSrcDir: URL { srcDirOpt.value ?? FileManager.default.currentDirectory }
     let buildToolOpt = EnumOpt<Gather.BuildTool>(l: "build-tool")
     let buildToolArgsOpt = StringListOpt(s: "b", l: "build-tool-arguments").help("ARG1,ARG2...")
 

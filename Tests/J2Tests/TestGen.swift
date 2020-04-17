@@ -133,7 +133,6 @@ class TestGen: XCTestCase {
 
     // MARK: Global data
 
-    // Site-Gen global data
     func testGlobalData() throws {
         let system = System()
         try system.configure(cliOpts: ["--hide-attribution", "--no-hide-search"])
@@ -145,12 +144,27 @@ class TestGen: XCTestCase {
         XCTAssertNil(globalData[.customHead])
     }
 
-    // Site-Gen global data
     func testHideCoverage() throws {
         let system = System()
         try system.configure(cliOpts: ["--hide-documentation-coverage"])
         let globalData = system.gen.buildGlobalData(genData: GenData())
         XCTAssertNil(globalData[.docCoverage])
+    }
+
+    func testCodehosts() throws {
+        try CodeHost.allCases.forEach { codehost in
+            let system = System()
+            try system.configure(cliOpts: ["--code-host=\(codehost.rawValue)"])
+            let globalData = system.gen.buildGlobalData(genData: GenData())
+            XCTAssertEqual(true, globalData["codehost_\(codehost.rawValue)"] as? Bool)
+        }
+    }
+
+    func testHideActions() throws {
+        let system = System()
+        try system.configure(cliOpts: ["--hide-search", "--nested-item-style=always-open"])
+        let globalData = system.gen.buildGlobalData(genData: GenData())
+        XCTAssertEqual(true, globalData[.hideActions] as? Bool)
     }
 
     private func checkTitles(_ cliOpts: [String], _ modules: [String],

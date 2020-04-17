@@ -111,6 +111,7 @@ public enum MustacheKey: String {
     case codehostImagePath = "codehost_image_path"
     case codehostAltText = "codehost_alt_text"
     case codehostTitle = "codehost_title"
+    case codehostDefLink = "codehost_def_link"
     // Global, set by SiteGen
     case pathToAssets = "path_to_assets" // empty string or ends in "/"
     case pathFromRoot = "path_from_root"
@@ -230,7 +231,7 @@ extension GenData {
 
         data[.tocs] = generateTocs(page: pg, languageTag: languageTag, fileExt: fileExt)
         data[.pagination] = pg.generatePagination(languageTag: languageTag, fileExt: fileExt)
-        data[.codehostURL] = pg.codeHostURL?.get(languageTag)
+        data.maybe(.codehostURL, pg.codeHostURL?.get(languageTag))
 
         return MustachePage(languageTag: languageTag, filepath: filepath, data: data)
     }
@@ -596,6 +597,7 @@ extension GenData.Def: SoloLanguageProtocol {
             }
         }
         dict.maybe(.returnsHtml, returns?.get(languageTag).html)
+        dict.maybe(.codehostURL, codeHostURL)
         return dict
     }
 

@@ -27,8 +27,12 @@ custom_brand:
     en: https://en.wikipedia.org/wiki/Coccinellidae
     fr: https://fr.wikipedia.org/wiki/Coccinellidae
 code_host_url: http://www.google.com/
+code_host_file_prefix: http://www.foo.bar/baz/
 custom_code_host:
   image_name: bird.jpg
   title:
     en: Another Ladybird
   alt_text: chost
+  single_line_format: START=%LINE
+  multi_line_format: START=%LINE1,END=%LINE2
+  item_menu_text: Go see it!
