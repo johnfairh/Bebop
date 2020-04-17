@@ -26,3 +26,9 @@ custom_brand:
   url:
     en: https://en.wikipedia.org/wiki/Coccinellidae
     fr: https://fr.wikipedia.org/wiki/Coccinellidae
+code_host_url: http://www.google.com/
+custom_code_host:
+  image_name: bird.jpg
+  title:
+    en: Another Ladybird
+  alt_text: chost

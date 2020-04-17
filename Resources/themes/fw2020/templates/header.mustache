@@ -79,6 +79,11 @@
       </svg>
     </a>
     {{/codehost_bitbucket}}
+    {{#codehost_custom}}
+      <a class="nav-item nav-link d-none d-sm-inline" rel="external" href="{{{codehost_url}}}">
+        <img src="{{path_to_root}}{{{codehost_image_path}}}" {{#codehost_alt_text}}alt="{{.}}"{{/codehost_alt_text}} {{#codehost_title}}title="{{.}}"{{/codehost_title}} width="22" height="22" class="mt-n1">
+      </a>
+    {{/codehost_custom}}
 
     {{#dash_url}}
     <a class="nav-item nav-link d-none d-sm-inline" rel="alternate" href="{{dash_url}}">

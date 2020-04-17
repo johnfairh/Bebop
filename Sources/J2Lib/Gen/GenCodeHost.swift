@@ -105,21 +105,27 @@ final class GenCodeHost: Configurable {
 
     // Site-builder getters
 
-    /// Special case: --code-host-url without --code-host means 'github'
+    /// Special case: --code-host-url without --code-host or custom means 'github'
     var isGitHub: Bool {
-        codeHostOpt.value.flatMap { $0 == .github } ?? (published.codeHostFallbackURL != nil)
+        if let codeHost = codeHostOpt.value {
+            return codeHost == .github
+        }
+        return !codeHostCustomOpt.configured && published.codeHostFallbackURL != nil
     }
+
     var isGitLab: Bool    { codeHostOpt.value.flatMap { $0 == .gitlab } ?? false }
     var isBitBucket: Bool { codeHostOpt.value.flatMap { $0 == .bitbucket } ?? false }
 
-    // todo: item menu text
-
-    var custom: MustacheDict? {
-        nil
-//        guard let parser = parser, let customImagePath = customImagePath else {
-//            return nil
-//        }
-//        var dict = MustacheDict()
-//        return dict
+    func custom(languageTag: String) -> MustacheDict? {
+        guard let parser = parser, let customImagePath = customImagePath else {
+            return nil
+        }
+        var dict = MustacheDict()
+        dict.maybe(.codehostImagePath, customImagePath.urlPathEncoded)
+        dict.maybe(.codehostAltText, parser.altTextOpt.value?.get(languageTag))
+        dict.maybe(.codehostTitle, parser.titleOpt.value?.get(languageTag))
+        return dict
     }
+
+    // todo: item menu text
 }

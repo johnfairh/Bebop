@@ -85,6 +85,7 @@ public enum MustacheKey: String {
     case codehostGitHub = "codehost_github"
     case codehostGitLab = "codehost_gitlab"
     case codehostBitBucket = "codehost_bitbucket"
+    case codehostCustom = "codehost_custom"
 
     // Global, per-page
     case languageTag = "language_tag"
@@ -107,6 +108,9 @@ public enum MustacheKey: String {
     case brandURL = "brand_url"
     // Codehost
     case codehostURL = "codehost_url"
+    case codehostImagePath = "codehost_image_path"
+    case codehostAltText = "codehost_alt_text"
+    case codehostTitle = "codehost_title"
     // Global, set by SiteGen
     case pathToAssets = "path_to_assets" // empty string or ends in "/"
     case pathFromRoot = "path_from_root"
