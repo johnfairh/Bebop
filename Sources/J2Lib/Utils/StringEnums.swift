@@ -156,6 +156,8 @@ internal enum L10n {
     case wrnCustomDefMissing = "wrn-custom-def-missing"
     /// Can't resolve item name '%1' inside 'custom_groups', ignoring.
     case wrnCustomGrpMissing = "wrn-custom-grp-missing"
+    /// The --docset-path option is ignored: docset is created under '<output>/docsets'.
+    case wrnDocsetPath = "wrn-docset-path"
     /// Duplicate filename '%1', ignoring '%2'.
     case wrnDuplicateGlobfile = "wrn-duplicate-globfile"
     /// No files matching '*.md' found expanding '%1'.

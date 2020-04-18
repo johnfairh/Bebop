@@ -133,3 +133,4 @@ Ignoring the second.";
 "err-cfg-chost-missing-image" = "Config key 'image_name' not set under 'custom_code_host'.";
 "err-cfg-chost-bad-image" = "Config key 'custom_code_host.image_name' of '%1' did not match any file from --media.";
 "err-cfg-chost-missing-fmt" = "One of the custom code-host line format keys is missing: you must supply both or neither of 'single_line_format' and 'multi_line_format'.";
+"wrn-docset-path" = "The --docset-path option is ignored: the docset is created under '<output>/docsets'.";

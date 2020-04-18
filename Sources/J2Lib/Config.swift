@@ -191,6 +191,7 @@ public final class Config {
             var first = true
             optsParser.allOpts
                 .sorted { $0.sortKey < $1.sortKey }
+                .filter { !$0.isHidden }
                 .forEach { opt in
                 if first {
                     first = false

@@ -122,6 +122,8 @@ class Opt {
     /// Boolean options with long flag names are invertable by default
     var isInvertable: Bool { type == .bool }
 
+    private(set) var isHidden = false
+
     /// CLI options that may have yaml as well.
     /// Don't include "-" at the start of flag names.
     init(s shortFlagName: String? = nil, l longFlagName: String, yaml: OptYaml = .auto) {
@@ -174,6 +176,11 @@ class Opt {
     /// Help text stored in strings file, keyed by the `sortKey`
     var help: String {
         Resources.shared.helpText(optionName: sortKey)
+    }
+
+    var hidden: Self {
+        isHidden = true
+        return self
     }
 
     /// To be overridden

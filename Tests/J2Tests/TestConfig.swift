@@ -15,6 +15,7 @@ fileprivate class System: Configurable {
     let config = Config()
     let dummy = DummyComponent()
     let nameOpt = StringOpt(l: "name")
+    let hiddenOpt = StringOpt(l: "eyecatcher").hidden
     var checkOptionsCalled = false
 
     func configure(cliOpts: String...) throws {
@@ -126,6 +127,9 @@ class TestConfig: XCTestCase {
         try system.configure(cliOpts: "--help")
         XCTAssertTrue(system.config.performConfigCommand())
         XCTAssertNotEqual([], TestLogger.shared.messageBuf)
+        TestLogger.shared.messageBuf.forEach { msg in
+            XCTAssertFalse(msg.contains("eyecatcher"))
+        }
     }
 
     // 5. quiet & debug update shared logger settings
