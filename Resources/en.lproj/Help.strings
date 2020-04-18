@@ -182,3 +182,5 @@ Default: Do not link to a code hosting service.";
 item definition.
 Default: Do not deep-link to a code hosting service.";
 "custom_code_host" = "Use a source-code hosting service other than the built-in options.";
+"docset-module-name" = "Module name to use in the docset.
+Default: Use one of the source module names.";
