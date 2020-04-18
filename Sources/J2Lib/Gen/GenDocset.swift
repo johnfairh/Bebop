@@ -43,16 +43,17 @@ public final class GenDocset: Configurable {
         try? FileManager.default.removeItem(at: docsetTopURL)
 
         try copyDocs(outputURL: outputURL, docsetDirURL: docsetDirURL)
+        try createPList(docsetDirURL: docsetDirURL)
     }
 
     /// Copy over the files
     func copyDocs(outputURL: URL, docsetDirURL: URL) throws {
+        logDebug("Docset: copying up site")
+
         let docsTargetURL = docsetDirURL
             .appendingPathComponent("Contents")
             .appendingPathComponent("Resources")
             .appendingPathComponent("Documents")
-
-        logDebug("Docset: copying up docs")
 
         try FileManager.default.createDirectory(atPath: docsTargetURL.path, withIntermediateDirectories: true)
 
@@ -66,5 +67,40 @@ public final class GenDocset: Configurable {
                 try FileManager.default.copyItem(at: sourceURL, to: targetURL)
             }
         }
+    }
+
+    /// Create the plist
+    func createPList(docsetDirURL: URL) throws {
+        logDebug("Docset: creating plist")
+
+        let lcModuleName = moduleName.lowercased()
+        let plist = """
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+                    <plist version="1.0">
+                      <dict>
+                        <key>CFBundleIdentifier</key>
+                          <string>com.bebop.\(lcModuleName)</string>
+                        <key>CFBundleName</key>
+                          <string>\(moduleName)</string>
+                        <key>DocSetPlatformFamily</key>
+                          <string>\(lcModuleName)</string>
+                        <key>isDashDocset</key>
+                          <true/>
+                        <key>dashIndexFilePath</key>
+                          <string>index.html</string>
+                        <key>isJavaScriptEnabled</key>
+                          <true/>
+                      </dict>
+                    </plist>
+                    """
+//        <key>DashDocSetFamily</key>
+//          <string>dashtoc</string>
+//        <key>DashDocSetPlayUrl</key>
+//          <string>url</string>
+        let url = docsetDirURL
+            .appendingPathComponent("Contents")
+            .appendingPathComponent("Info.plist")
+        try plist.write(to: url)
     }
 }
