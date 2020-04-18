@@ -36,3 +36,8 @@ custom_code_host:
   single_line_format: START=%LINE
   multi_line_format: START=%LINE1,END=%LINE2
   item_menu_text: Go see it!
+products:
+  - docs
+  - docset
+  - stats-json
+  - undocumented-json
