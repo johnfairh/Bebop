@@ -7443,4 +7443,10 @@ h3 code {
 .dash .j2-item-declaration {
   margin-top: .5rem;
 }
+
+.dash body,
+.dash html {
+  height: 100%;
+  background-color: var(--article-bg);
+}
 /*# sourceMappingURL=fw2020.css.map */

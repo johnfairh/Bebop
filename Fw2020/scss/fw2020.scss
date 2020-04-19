@@ -729,4 +729,11 @@ $j2-header-height: add($j2-titlebar-height, $j2-breadcrumbs-height);
   .j2-item-declaration {
     margin-top: .5rem;
   }
+
+  // Fill the whole screen with the right colour
+  body,
+  html {
+    height: 100%;
+    background-color: $j2-article-bg;
+  }
 }
