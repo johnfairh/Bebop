@@ -458,19 +458,27 @@ class TestGen: XCTestCase {
         }
     }
 
-    func testDocsetPlayground() throws {
-        let urlString = "https://foo.com/"
-        try createDocset(["--docset-playground-url", urlString]) { url in
+    func testDocsetPlist() throws {
+        let playURLString = "https://foo.com/"
+        let extURLString = "https://bar.com/"
+        try createDocset(["--docset-playground-url", playURLString,
+                          "--deployment-url", extURLString]) { url in
             let plistURL = url.appendingPathComponent("docsets/SpmSwiftModule2.docset/Contents/Info.plist")
             guard let plist = NSDictionary(contentsOfFile: plistURL.path) else {
                 XCTFail("Couldn't load plist: \(plistURL.path)")
                 return
             }
-            guard let keyVal = plist["DashDocSetPlayURL"] as? String else {
-                XCTFail("Couldn't find key in plist: \(plist)")
+            guard let playKeyVal = plist["DashDocSetPlayURL"] as? String else {
+                XCTFail("Couldn't find play key in plist: \(plist)")
                 return
             }
-            XCTAssertEqual(urlString, keyVal)
+            XCTAssertEqual(playURLString, playKeyVal)
+
+            guard let extKeyVal = plist["DashDocSetFallbackURL"] as? String else {
+                XCTFail("Couldn't find ext key in plist: \(plist)")
+                return
+            }
+            XCTAssertEqual(extURLString, extKeyVal)
         }
     }
 

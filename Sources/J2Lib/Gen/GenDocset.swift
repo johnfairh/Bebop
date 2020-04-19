@@ -15,6 +15,7 @@ public final class GenDocset: Configurable {
     let playgroundURLOpt = StringOpt(l: "docset-playground-url").help("PLAYGROUNDURL")
     let iconPathOpt = PathOpt(l: "docset-icon").help("ICONPATH")
     let icon2xPathOpt = PathOpt(l: "docset-icon-2x").help("ICONPATH")
+    let deploymentURLOpt = StringOpt(l: "deployment-url").help("URL")
     let published: Published
 
     /// Module Name to use for the docset - defaults to one of the source modules
@@ -50,7 +51,7 @@ public final class GenDocset: Configurable {
 
     func generate(outputURL: URL, items: [Item]) throws {
         let docsetName = moduleName + Self.DOCSET_SUFFIX
-        logInfo(.localized(.msgDocsetProgress))
+        logInfo(.localized(.msgDocsetProgress, docsetName))
 
         let docsetTopURL = outputURL.appendingPathComponent(Self.DOCSET_TOP)
         let docsetDirURL = docsetTopURL.appendingPathComponent(docsetName)
@@ -104,17 +105,18 @@ public final class GenDocset: Configurable {
 
         let lcModuleName = moduleName.lowercased()
 
-        let playgroundKey: String
-        if let playgroundURL = playgroundURLOpt.value {
-            playgroundKey = """
-                            <key>DashDocSetPlayURL</key>
-                              <string>\(playgroundURL)</string>
-                            """
-        } else {
-            playgroundKey = ""
+        func itemXML(key: String, for opt: StringOpt) -> String {
+            guard let configured = opt.value else {
+                return ""
+            }
+            return """
+                   <key>\(key)</key>
+                      <string>\(configured)</string>
+                   """
         }
 
-        //DashDocSetFallbackURL
+        let playgroundKey = itemXML(key: "DashDocSetPlayURL", for: playgroundURLOpt)
+        let deploymentKey = itemXML(key: "DashDocSetFallbackURL", for: deploymentURLOpt)
 
         let plist = """
                     <?xml version="1.0" encoding="UTF-8"?>
@@ -136,6 +138,7 @@ public final class GenDocset: Configurable {
                         <key>DashDocSetFamily</key>
                           <string>dashtoc</string>
                         \(playgroundKey)
+                        \(deploymentKey)
                       </dict>
                     </plist>
                     """

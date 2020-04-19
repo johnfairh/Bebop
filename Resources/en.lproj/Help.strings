@@ -191,3 +191,6 @@ Default: Do not use a docset icon.";
 "docset-icon-2x" = "Path to a hi-res .png icon for retina displays, 32x32.  Only needed
 if --docset-icon is used for a 16x16 version.
 Default: Do not use a docset icon.";
+"deployment-url" = "The URL on the web where you will publish the generated docs.  For linking
+out from docsets and configuring a Dash docset feed.
+Default: Do not reference a deployment URL.";
