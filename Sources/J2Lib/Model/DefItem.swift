@@ -231,6 +231,7 @@ public class DefItem: Item, CustomStringConvertible {
     }
 
     public override var kind: ItemKind { defKind.metaKind }
+    public override var dashKind: String { defKind.dashName }
 
     public override var showInToc: ShowInToc {
         // Always show nominal types/extensions, however nested.

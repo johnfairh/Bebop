@@ -52,6 +52,7 @@ public class Item: Encodable {
     /// Overridden
     public func accept(visitor: ItemVisitorProtocol, parents: [Item]) { preconditionFailure() }
     public var  kind: ItemKind { .other }
+    public var  dashKind: String { "" }
 
     /// The item's title, translated, for objc or swift.
     public func title(for language: DefLanguage) -> Localized<String>? {

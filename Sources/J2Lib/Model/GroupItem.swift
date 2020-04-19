@@ -70,6 +70,7 @@ public final class GroupItem: Item {
     }
 
     public override var kind: ItemKind { .group }
+    public override var dashKind: String { "Category" }
 
     public override func title(for language: DefLanguage) -> Localized<String> {
         groupKind.title(in: language)

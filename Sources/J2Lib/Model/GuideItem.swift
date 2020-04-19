@@ -31,6 +31,7 @@ public class GuideItem: Item {
     }
 
     public override var kind: ItemKind { .guide }
+    public override var dashKind: String { "Guide" }
 
     public override func title(for language: DefLanguage) -> Localized<String>? {
         return title

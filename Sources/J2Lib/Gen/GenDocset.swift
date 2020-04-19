@@ -44,6 +44,7 @@ public final class GenDocset: Configurable {
 
         try copyDocs(outputURL: outputURL, docsetDirURL: docsetDirURL)
         try createPList(docsetDirURL: docsetDirURL)
+        try createIndex(docsetDirURL: docsetDirURL, items: items)
     }
 
     /// Copy over the files
@@ -91,16 +92,80 @@ public final class GenDocset: Configurable {
                           <string>index.html</string>
                         <key>isJavaScriptEnabled</key>
                           <true/>
+                        <key>DashDocSetFamily</key>
+                          <string>dashtoc</string>
                       </dict>
                     </plist>
                     """
-//        <key>DashDocSetFamily</key>
-//          <string>dashtoc</string>
 //        <key>DashDocSetPlayUrl</key>
 //          <string>url</string>
         let url = docsetDirURL
             .appendingPathComponent("Contents")
             .appendingPathComponent("Info.plist")
         try plist.write(to: url)
+    }
+
+    /// Create the index database
+    func createIndex(docsetDirURL: URL, items: [Item]) throws {
+        let url = docsetDirURL
+            .appendingPathComponent("Contents")
+            .appendingPathComponent("Resources")
+            .appendingPathComponent("docSet.dsidx")
+
+        let db = try DocsetDb(filepath: url.path)
+        let visitor = DocsetVisitor(db: db)
+        visitor.walk(items: items)
+    }
+}
+
+// MARK: Index DB
+
+struct DocsetVisitor: ItemVisitorProtocol {
+    let db: DocsetDb
+
+    func visit(defItem: DefItem, parents: [Item]) {
+        try! db.add(item: defItem)
+    }
+
+    func visit(groupItem: GroupItem, parents: [Item]) {
+        try! db.add(item: groupItem)
+    }
+
+    func visit(guideItem: GuideItem, parents: [Item]) {
+        try! db.add(item: guideItem)
+    }
+}
+
+struct DocsetDb {
+    let db: Connection
+    let id: Expression<Int64>
+    let name, type, path: Expression<String>
+    let table: Table
+
+    init(filepath: String) throws {
+        db = try Connection(filepath)
+        id = Expression<Int64>("id")
+        name = Expression<String>("name")
+        type = Expression<String>("type")
+        path = Expression<String>("path")
+        table = Table("searchIndex")
+
+        try db.run(table.create { t in
+            t.column(id, primaryKey: true)
+            t.column(name)
+            t.column(type)
+            t.column(path)
+        })
+
+        try db.run(table.createIndex(name, type, path, unique: true))
+    }
+
+    func add(item: Item) throws {
+        try db.run(
+            table.insert(or: .ignore,
+                         name <- item.name,
+                         type <- item.dashKind,
+                         path <- item.url.dashFilepath)
+        )
     }
 }

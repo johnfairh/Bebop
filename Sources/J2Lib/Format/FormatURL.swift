@@ -72,6 +72,11 @@ public struct URLPieces: Encodable {
         return url(fileExtension: fileExtension).removingPercentEncoding
     }
 
+    /// For Dash docset, the filesystem (unescaped) path with any fragment (presumably unescaped?)
+    public var dashFilepath: String {
+        "\(urlPath).html\(hashURL)"
+    }
+
     /// Get a path from this item's page back up to the doc root - either empty string or ends in a slash
     public var pathToRoot: String {
         return String(repeating: "../", count: urlPath.directoryNestingDepth)
