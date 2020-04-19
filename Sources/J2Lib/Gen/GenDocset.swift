@@ -38,7 +38,7 @@ public final class GenDocset: Configurable {
             try opt.checkIsFile()
             if let url = opt.value,
                 !url.path.hasSuffix(".png") {
-                throw OptionsError("Docset icons must be in .png format -- \(url.path).")
+                throw OptionsError(.localized(.errCfgDocsetIcon, url.path))
             }
         }
         try checkIconPathOpt(iconPathOpt)
@@ -49,9 +49,11 @@ public final class GenDocset: Configurable {
     static let DOCSET_SUFFIX = ".docset"
 
     func generate(outputURL: URL, items: [Item]) throws {
+        let docsetName = moduleName + Self.DOCSET_SUFFIX
+        logInfo(.localized(.msgDocsetProgress))
+
         let docsetTopURL = outputURL.appendingPathComponent(Self.DOCSET_TOP)
-        let docsetDirURL = docsetTopURL.appendingPathComponent("\(moduleName)\(Self.DOCSET_SUFFIX)")
-        logDebug("Docset: cleaning any old content")
+        let docsetDirURL = docsetTopURL.appendingPathComponent(docsetName)
         try? FileManager.default.removeItem(at: docsetTopURL)
 
         try copyDocs(outputURL: outputURL, docsetDirURL: docsetDirURL)
@@ -111,6 +113,8 @@ public final class GenDocset: Configurable {
         } else {
             playgroundKey = ""
         }
+
+        //DashDocSetFallbackURL
 
         let plist = """
                     <?xml version="1.0" encoding="UTF-8"?>

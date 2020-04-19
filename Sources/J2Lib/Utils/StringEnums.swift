@@ -48,6 +48,8 @@ internal enum L10n {
     case errCfgCustomGrpNested = "err-cfg-custom-grp-nested"
     /// Custom group has 'skip_unlisted' config key without 'topics': '%1'.
     case errCfgCustomGrpUnlisted = "err-cfg-custom-grp-unlisted"
+    /// Docset icons must be in .png format.  '%1' has the wrong file extension.
+    case errCfgDocsetIcon = "err-cfg-docset-icon"
     /// Module merge policy is set both outside and inside `custom_modules`: choose just one.
     case errCfgDupModMerge = "err-cfg-dup-mod-merge"
     /// Missing field from guide_title entry, must have both 'name' and 'title': '%1'.
@@ -134,6 +136,8 @@ internal enum L10n {
     case msgCopyProgress = "msg-copy-progress"
     /// %1% documentation coverage with %2 documented and %3 undocumented definitions
     case msgCoverage = "msg-coverage"
+    /// Generating %1...
+    case msgDocsetProgress = "msg-docset-progress"
     /// Gathering info for %1...
     case msgGatherHeading = "msg-gather-heading"
     /// Generating documentation...
@@ -156,7 +160,7 @@ internal enum L10n {
     case wrnCustomDefMissing = "wrn-custom-def-missing"
     /// Can't resolve item name '%1' inside 'custom_groups', ignoring.
     case wrnCustomGrpMissing = "wrn-custom-grp-missing"
-    /// The --docset-path option is ignored: docset is created under '<output>/docsets'.
+    /// The --docset-path option is ignored: the docset is created under '<output>/docsets'.
     case wrnDocsetPath = "wrn-docset-path"
     /// Duplicate filename '%1', ignoring '%2'.
     case wrnDuplicateGlobfile = "wrn-duplicate-globfile"

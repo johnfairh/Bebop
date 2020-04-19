@@ -6,6 +6,7 @@
 //  Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
 //
 
+import Foundation
 import XCTest
 @testable import J2Lib
 
@@ -13,11 +14,13 @@ fileprivate struct System {
     let config: Config
     let genPages: GenPages
     let gen: GenSite
+    let ds: GenDocset
 
     init(fakeMedia: Bool = false) {
         config = Config()
         genPages = GenPages(config: config)
         gen = GenSite(config: config)
+        ds = GenDocset(config: config)
         if fakeMedia {
             gen.media.fakeMediaLookup = true
         }
@@ -417,6 +420,76 @@ class TestGen: XCTestCase {
         XCTAssertEqual("line-100", bbFormatter.format(startLine: 100, endLine: nil))
         XCTAssertEqual("line-100", bbFormatter.format(startLine: 100, endLine: 100))
         XCTAssertEqual("line-100:105", bbFormatter.format(startLine: 100, endLine: 105))
+    }
 
+    // Docset
+
+    private func createDocset(_ args: [String], verify: (URL) throws -> ()) throws {
+        let tempDir = try TemporaryDirectory()
+        let fullArgs = [
+            "--source-directory", fixturesURL.appendingPathComponent("SpmSwiftPackage").path,
+            "--module=SpmSwiftModule2",
+            "--output", tempDir.directoryURL.path,
+            "--products=docs,docset"
+        ]
+        try Pipeline().run(argv: fullArgs + args)
+        try verify(tempDir.directoryURL)
+    }
+
+    func testDocsetErrors() throws {
+        let badIcon = """
+                      docset_icon_2x: \(fixturesURL.appendingPathComponent("SpmSwiftModule.files.json"))
+                      """
+        try checkConfigError(yaml: badIcon)
+    }
+
+    func testDocsetWarning() throws {
+        TestLogger.install()
+        try createDocset(["--docset-path=Fred"]) { _ in
+        }
+        XCTAssertEqual(1, TestLogger.shared.diagsBuf.count)
+    }
+
+    func testDocsetModule() throws {
+        try createDocset(["--docset-module-name=GoodName"]) { url in
+            let expectedURL = url.appendingPathComponent("docsets")
+                .appendingPathComponent("GoodName.docset")
+            XCTAssertTrue(FileManager.default.fileExists(atPath: expectedURL.path))
+        }
+    }
+
+    func testDocsetPlayground() throws {
+        let urlString = "https://foo.com/"
+        try createDocset(["--docset-playground-url", urlString]) { url in
+            let plistURL = url.appendingPathComponent("docsets/SpmSwiftModule2.docset/Contents/Info.plist")
+            guard let plist = NSDictionary(contentsOfFile: plistURL.path) else {
+                XCTFail("Couldn't load plist: \(plistURL.path)")
+                return
+            }
+            guard let keyVal = plist["DashDocSetPlayURL"] as? String else {
+                XCTFail("Couldn't find key in plist: \(plist)")
+                return
+            }
+            XCTAssertEqual(urlString, keyVal)
+        }
+    }
+
+    func testDocsetIcons() throws {
+        let tmpDir = try TemporaryDirectory()
+        let icon1URL = tmpDir.directoryURL.appendingPathComponent("inputicon1.png")
+        let icon2URL = tmpDir.directoryURL.appendingPathComponent("inputicon2.png")
+        try "icon1".write(to: icon1URL)
+        try "icon2".write(to: icon2URL)
+        try createDocset([
+            "--docset-icon", icon1URL.path,
+            "--docset-icon-2x", icon2URL.path
+        ]) { url in
+            func check(_ url: URL, _ expected: String) throws {
+                let actual = try String(contentsOf: url)
+                XCTAssertEqual(expected, actual)
+            }
+            try check(url.appendingPathComponent("docsets/SpmSwiftModule2.docset/icon.png"), "icon1")
+            try check(url.appendingPathComponent("docsets/SpmSwiftModule2.docset/icon@2x.png"), "icon2")
+        }
     }
 }
