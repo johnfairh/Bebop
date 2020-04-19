@@ -15,8 +15,10 @@ public final class GenDocset: Configurable {
     let playgroundURLOpt = StringOpt(l: "docset-playground-url").help("PLAYGROUNDURL")
     let iconPathOpt = PathOpt(l: "docset-icon").help("ICONPATH")
     let icon2xPathOpt = PathOpt(l: "docset-icon-2x").help("ICONPATH")
-    let deploymentURLOpt = StringOpt(l: "deployment-url").help("URL")
+    let deploymentURLOpt = StringOpt(l: "deployment-url").help("SITEURL")
     let published: Published
+
+    let rootURLAlias: AliasOpt
 
     /// Module Name to use for the docset - defaults to one of the source modules
     var moduleName: String {
@@ -28,6 +30,7 @@ public final class GenDocset: Configurable {
 
     init(config: Config) {
         published = config.published
+        rootURLAlias = AliasOpt(realOpt: deploymentURLOpt, l: "root-url")
         config.register(self)
     }
 
@@ -61,6 +64,14 @@ public final class GenDocset: Configurable {
         try copyIcons(docsetDirURL: docsetDirURL)
         try createPList(docsetDirURL: docsetDirURL)
         try createIndex(docsetDirURL: docsetDirURL, items: items)
+        createArchive(docsetTopURL: docsetTopURL, docsetName: docsetName)
+        if let deploymentURLString = deploymentURLOpt.value,
+            let deploymentURL = URL(string: deploymentURLString),
+            let version = published.moduleVersion {
+            try createFeedXML(docsetTopURL: docsetTopURL, deploymentURL: deploymentURL, version: version)
+        } else {
+            logDebug("Docset: skipping feed XML creation, not enough metadata.")
+        }
     }
 
     /// Copy over the files
@@ -161,6 +172,38 @@ public final class GenDocset: Configurable {
         let visitor = DocsetVisitor(db: db)
         try visitor.walk(items: items)
     }
+
+    /// Create the tgz
+    func createArchive(docsetTopURL: URL, docsetName: String) {
+        logDebug("Docset: creating tarfile")
+
+        let tarArgs = ["tar", "--exclude='.DS_Store'", "-czf", moduleName + ".tgz", docsetName]
+        let results = Exec.run("/usr/bin/env", tarArgs,
+                               currentDirectory: docsetTopURL.path,
+                               stderr: .merge)
+        if results.terminationStatus != 0 {
+            logWarning(.localized(.wrnDocsetTarfile, results.failureReport))
+        }
+    }
+
+    /// Create the feed doc
+    func createFeedXML(docsetTopURL: URL, deploymentURL: URL, version: String) throws {
+        logDebug("Docset: creating feed XML")
+
+        let feedURL = deploymentURL
+            .appendingPathComponent("docsets")
+            .appendingPathComponent("\(moduleName).tgz")
+
+        let xml = """
+                  <entry>
+                    <version>\(version)</version>
+                    <url>\(feedURL.absoluteString)</url>
+                  </entry>
+                  """
+
+        let xmlFileURL = docsetTopURL.appendingPathComponent("\(moduleName).xml")
+        try xml.write(to: xmlFileURL)
+    }
 }
 
 // MARK: Index DB
@@ -178,6 +221,10 @@ struct DocsetVisitor: ItemVisitorProtocol {
 
     func visit(guideItem: GuideItem, parents: [Item]) throws {
         try db.add(item: guideItem)
+    }
+
+    func visit(readmeItem: ReadmeItem, parents: [Item]) throws {
+        // don't put the readme in the index
     }
 }
 

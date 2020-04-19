@@ -7,6 +7,9 @@
 //
 
 import Foundation
+#if canImport(FoundationXML)
+import FoundationXML
+#endif // wtf
 import XCTest
 @testable import J2Lib
 
@@ -422,7 +425,7 @@ class TestGen: XCTestCase {
         XCTAssertEqual("line-100:105", bbFormatter.format(startLine: 100, endLine: 105))
     }
 
-    // Docset
+    // MARK: Docset
 
     private func createDocset(_ args: [String], verify: (URL) throws -> ()) throws {
         let tempDir = try TemporaryDirectory()
@@ -464,7 +467,9 @@ class TestGen: XCTestCase {
         try createDocset(["--docset-playground-url", playURLString,
                           "--deployment-url", extURLString]) { url in
             let plistURL = url.appendingPathComponent("docsets/SpmSwiftModule2.docset/Contents/Info.plist")
-            guard let plist = NSDictionary(contentsOfFile: plistURL.path) else {
+            let plistData = try Data(contentsOf: plistURL)
+
+            guard let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as? [String:Any] else {
                 XCTFail("Couldn't load plist: \(plistURL.path)")
                 return
             }
@@ -498,6 +503,22 @@ class TestGen: XCTestCase {
             }
             try check(url.appendingPathComponent("docsets/SpmSwiftModule2.docset/icon.png"), "icon1")
             try check(url.appendingPathComponent("docsets/SpmSwiftModule2.docset/icon@2x.png"), "icon2")
+        }
+    }
+
+    func testDocsetXml() throws {
+        let version = "2.4"
+        let deploymentURLString = "http://www.foo.com/docs"
+        try createDocset([
+            "--deployment-url", deploymentURLString,
+            "--module-version", version
+        ]) { url in
+            let xmlURL = url.appendingPathComponent("docsets/SpmSwiftModule2.xml")
+            let xml = try String(contentsOf: xmlURL)
+            let parser = XMLParser(data: xml.data(using: .utf8)!)
+            XCTAssertTrue(parser.parse())
+            XCTAssertTrue(xml.contains("<version>\(version)</version>"))
+            XCTAssertTrue(xml.contains("<url>\(deploymentURLString)/docsets/SpmSwiftModule2.tgz</url>"))
         }
     }
 }

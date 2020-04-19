@@ -48,7 +48,9 @@ public struct GenSite: Configurable {
 
     let childItemStyleOpt = EnumOpt<ChildItemStyle>(l: "child-item-style").def(.nested)
     let nestedItemStyleOpt = EnumOpt<NestedItemStyle>(l: "nested-item-style").def(.start_closed)
+    let docsetFeedURLOpt = StringOpt(l: "docset-feed-url").help("XMLFEEDURL")
 
+    let oldDashURLAlias: AliasOpt
     let oldHideCoverageOpt: AliasOpt
     let oldCustomHeadOpt: AliasOpt
     let oldDisableSearchOpt: AliasOpt
@@ -79,6 +81,7 @@ public struct GenSite: Configurable {
         oldHideCoverageOpt = AliasOpt(realOpt: hideCoverageOpt, l: "hide-documentation-coverage")
         oldCustomHeadOpt = AliasOpt(realOpt: customHeadOpt, l: "head")
         oldDisableSearchOpt = AliasOpt(realOpt: hideSearchOpt, l: "disable-search")
+        oldDashURLAlias = AliasOpt(realOpt: docsetFeedURLOpt, l: "dash_url") // _ intentional ...
 
         published = config.published
 
@@ -87,6 +90,7 @@ public struct GenSite: Configurable {
 
     func checkOptions(publish: PublishStore) throws {
         publish.childItemStyle = childItemStyle
+        publish.moduleVersion = moduleVersionOpt.value
     }
 
     /// Final site generation.
@@ -249,9 +253,7 @@ public struct GenSite: Configurable {
             dict[.docCoverage] = Stats.coverage
         }
 
-        if let customHead = customHeadOpt.value {
-            dict[.customHead] = customHead
-        }
+        dict.maybe(.customHead, customHeadOpt.value)
 
         if Localizations.shared.all.count > 1 {
             dict[.localizations] =
@@ -271,6 +273,8 @@ public struct GenSite: Configurable {
         } else if codeHost.isBitBucket {
             dict[.codehostBitBucket] = true
         }
+
+        dict.maybe(.docsetURL, docsetFeedURLOpt.value?.addingPercentEncoding(withAllowedCharacters: .alphanumerics))
 
         return dict
     }

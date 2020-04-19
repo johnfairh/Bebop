@@ -86,6 +86,7 @@ public enum MustacheKey: String {
     case codehostGitLab = "codehost_gitlab"
     case codehostBitBucket = "codehost_bitbucket"
     case codehostCustom = "codehost_custom"
+    case docsetURL = "docset_url"
 
     // Global, per-page
     case languageTag = "language_tag"

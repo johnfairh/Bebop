@@ -162,6 +162,8 @@ internal enum L10n {
     case wrnCustomGrpMissing = "wrn-custom-grp-missing"
     /// The --docset-path option is ignored: the docset is created under '<output>/docsets'.
     case wrnDocsetPath = "wrn-docset-path"
+    /// Couldn't create docset tarfile.\n%1
+    case wrnDocsetTarfile = "wrn-docset-tarfile"
     /// Duplicate filename '%1', ignoring '%2'.
     case wrnDuplicateGlobfile = "wrn-duplicate-globfile"
     /// No files matching '*.md' found expanding '%1'.

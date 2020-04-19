@@ -136,3 +136,5 @@ Ignoring the second.";
 "wrn-docset-path" = "The --docset-path option is ignored: the docset is created under '<output>/docsets'.";
 "err-cfg-docset-icon" = "Docset icons must be in .png format.  '%1' has the wrong file extension.";
 "msg-docset-progress" = "Generating %1...";
+"wrn-docset-tarfile" = "Couldn't create docset tarfile.
+%1";

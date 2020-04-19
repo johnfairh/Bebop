@@ -60,6 +60,9 @@ protocol Published {
     /// Code-host URL for non-modular pages
     var codeHostFallbackURL: Localized<String>? { get }
 
+    /// Overall version number string
+    var moduleVersion: String? { get }
+
     /// The doc-root relative path of a named piece of media, or `nil` if there is none.
     func urlPathForMedia(_ name: String) -> String?
 
@@ -109,6 +112,8 @@ final class PublishStore: Published {
             modules.sort(by: { $0.name < $1.name })
         }
     }
+
+    var moduleVersion: String?
 
     private var rootCodeHostURL: Localized<String>? // spose its an href rather than a url...
     func setRootCodeHostURL(url: Localized<String>?) {

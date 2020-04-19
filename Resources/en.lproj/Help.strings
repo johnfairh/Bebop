@@ -64,7 +64,7 @@ Default: None.";
 of every page.  Can be localized using the config file.
 Default: Generated from the name of a source module and its version.";
 "module-version" = "The version of the module to document.  Used to generate a title
-in the generated documentation.
+in the generated documentation and in the docset feed.
 Default: Do not use a version number in the documentation title.";
 "breadcrumbs-root" = "The text for the left-most breadcrumb in the generated documentation.
 Can be localized using the config file.
@@ -194,3 +194,6 @@ Default: Do not use a docset icon.";
 "deployment-url" = "The URL on the web where you will publish the generated docs.  For linking
 out from docsets and configuring a Dash docset feed.
 Default: Do not reference a deployment URL.";
+"docset-feed-url" = "The URL of a docset feed XML file for the documentation, linked to from the
+Dash icon in the titlebar of the generated docs.  See documentation!
+Default: Do not link to a Dash docset feed.";
