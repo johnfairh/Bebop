@@ -47,10 +47,10 @@ final class GenSearch: Configurable {
     private(set) var entries = [Entry]()
 
     /// Build the index from the item forest
-    func buildIndex(items: [Item]) {
+    func buildIndex(items: [Item]) throws {
         logDebug("Gen: start building search index")
         let visitor = Visitor()
-        visitor.walk(items: items)
+        try visitor.walk(items: items)
         entries = visitor.entries
         logDebug("Gen: done building search index: \(entries.count) entries")
     }

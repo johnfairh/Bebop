@@ -136,8 +136,8 @@ public class DefItem: Item, CustomStringConvertible {
     }
 
     /// Visitor
-    public override func accept(visitor: ItemVisitorProtocol, parents: [Item]) {
-        visitor.visit(defItem: self, parents: parents)
+    public override func accept(visitor: ItemVisitorProtocol, parents: [Item]) throws {
+        try visitor.visit(defItem: self, parents: parents)
     }
 
     // Swift/ObjC personality

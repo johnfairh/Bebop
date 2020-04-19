@@ -272,7 +272,7 @@ fileprivate extension DefItem {
         }
         extensions.forEach { ext in
             if ext.location.moduleName != location.moduleName {
-                MarkVisitor().walk(item: ext)
+                try! MarkVisitor().walk(item: ext)
             }
         }
     }

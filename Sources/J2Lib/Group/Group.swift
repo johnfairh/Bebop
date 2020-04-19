@@ -83,7 +83,7 @@ public struct Group: Configurable {
         let topicVisitor = TopicCreationVisitor(style: topicStyle, customizer: { def in
             self.groupCustom.customizeTopics(defItem: def)
         })
-        topicVisitor.walk(items: allGroups)
+        try topicVisitor.walk(items: allGroups)
 
         return allGroups
     }

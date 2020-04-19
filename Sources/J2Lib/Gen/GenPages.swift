@@ -23,14 +23,14 @@ public struct GenPages: Configurable {
 
     public func generatePages(items: [Item]) throws -> GenData {
         let languageVisitor = LanguageVisitor()
-        languageVisitor.walk(items: items)
+        try languageVisitor.walk(items: items)
         let languages = languageVisitor.languages
         let defaultLanguage = pickDefaultLanguage(from: languages)
 
         let pageVisitor = PageVisitor(languages: languages,
                                       defaultLanguage: defaultLanguage,
                                       published: published)
-        pageVisitor.walk(items: items)
+       try  pageVisitor.walk(items: items)
         let meta = GenData.Meta(version: Version.j2libVersion,
                                 languages: languages,
                                 defaultLanguage: defaultLanguage)
@@ -261,7 +261,7 @@ final class PageVisitor: ItemVisitorProtocol {
                 endTopic()
                 currentTopic = child.topic
             }
-            itemVisitor.walkOne(item: child)
+            try! itemVisitor.walkOne(item: child)
         }
         endTopic()
         return topics

@@ -27,7 +27,7 @@ final class FormatAbstracts: Configurable {
     func attach(items: [Item]) throws {
         let abstracts = try customAbstractsOpt.value.readLocalizedMarkdownFiles()
         let visitor = AbstractVisitor(abstracts: abstracts, overwrite: customAbstractOverwriteOpt.value)
-        visitor.walk(items: items)
+        try visitor.walk(items: items)
         if !visitor.abstracts.isEmpty {
             let unmatched = visitor.abstracts.keys
             logWarning(.localized(.wrnUnmatchedAbstracts, unmatched.count, unmatched.joined(separator: ",")))

@@ -65,8 +65,8 @@ public final class GroupItem: Item {
     }
 
     /// Visitor
-    public override func accept(visitor: ItemVisitorProtocol, parents: [Item]) {
-        visitor.visit(groupItem: self, parents: parents)
+    public override func accept(visitor: ItemVisitorProtocol, parents: [Item]) throws {
+        try visitor.visit(groupItem: self, parents: parents)
     }
 
     public override var kind: ItemKind { .group }

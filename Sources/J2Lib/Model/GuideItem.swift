@@ -26,8 +26,8 @@ public class GuideItem: Item {
     }
 
     /// Visitor
-    public override func accept(visitor: ItemVisitorProtocol, parents: [Item]) {
-        visitor.visit(guideItem: self, parents: parents)
+    public override func accept(visitor: ItemVisitorProtocol, parents: [Item]) throws {
+        try visitor.visit(guideItem: self, parents: parents)
     }
 
     public override var kind: ItemKind { .guide }
@@ -56,8 +56,8 @@ public final class ReadmeItem : GuideItem {
     }
 
     /// Visitor
-    public override func accept(visitor: ItemVisitorProtocol, parents: [Item]) {
-        visitor.visit(readmeItem: self, parents: parents)
+    public override func accept(visitor: ItemVisitorProtocol, parents: [Item]) throws {
+        try visitor.visit(readmeItem: self, parents: parents)
     }
 
     public override var showInToc: ShowInToc { .no }

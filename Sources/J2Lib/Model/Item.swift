@@ -50,7 +50,7 @@ public class Item: Encodable {
     }
 
     /// Overridden
-    public func accept(visitor: ItemVisitorProtocol, parents: [Item]) { preconditionFailure() }
+    public func accept(visitor: ItemVisitorProtocol, parents: [Item]) throws { preconditionFailure() }
     public var  kind: ItemKind { .other }
     public var  dashKind: String { "" }
 

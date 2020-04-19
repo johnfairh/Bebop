@@ -308,7 +308,7 @@ class TestGen: XCTestCase {
 
         let system = FullSystem()
         let items = try system.makeItems(passes: passes)
-        system.gen.search.buildIndex(items: items)
+        try system.gen.search.buildIndex(items: items)
         
         XCTAssertEqual(2, system.gen.search.entries.count)
         XCTAssertEqual("OClass", system.gen.search.entries[0].name)

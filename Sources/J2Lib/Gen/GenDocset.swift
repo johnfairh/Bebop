@@ -10,13 +10,14 @@ import Foundation
 import SQLite
 
 public final class GenDocset: Configurable {
-    let docsetPathOpt = PathOpt(l: "docset-path").help("PATH").hidden
-    let docsetModuleNameOpt = StringOpt(l: "docset-module-name").help("MODULENAME")
+    let pathOpt = PathOpt(l: "docset-path").help("PATH").hidden
+    let moduleNameOpt = StringOpt(l: "docset-module-name").help("MODULENAME")
+    let playgroundURLOpt = StringOpt(l: "docset-playground-url").help("PLAYGROUNDURL")
     let published: Published
 
     /// Module Name to use for the docset - defaults to one of the source modules
     var moduleName: String {
-        if let docsetModuleName = docsetModuleNameOpt.value {
+        if let docsetModuleName = moduleNameOpt.value {
             return docsetModuleName
         }
         return published.moduleNames.first!
@@ -28,7 +29,7 @@ public final class GenDocset: Configurable {
     }
 
     func checkOptions() throws {
-        if docsetPathOpt.configured {
+        if pathOpt.configured {
             logWarning(.localized(.wrnDocsetPath))
         }
     }
@@ -75,6 +76,17 @@ public final class GenDocset: Configurable {
         logDebug("Docset: creating plist")
 
         let lcModuleName = moduleName.lowercased()
+
+        let playgroundKey: String
+        if let playgroundURL = playgroundURLOpt.value {
+            playgroundKey = """
+                            <key>DashDocSetPlayURL</key>
+                              <string>\(playgroundURL)</string>
+                            """
+        } else {
+            playgroundKey = ""
+        }
+
         let plist = """
                     <?xml version="1.0" encoding="UTF-8"?>
                     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -94,11 +106,11 @@ public final class GenDocset: Configurable {
                           <true/>
                         <key>DashDocSetFamily</key>
                           <string>dashtoc</string>
+                        \(playgroundKey)
                       </dict>
                     </plist>
                     """
-//        <key>DashDocSetPlayUrl</key>
-//          <string>url</string>
+
         let url = docsetDirURL
             .appendingPathComponent("Contents")
             .appendingPathComponent("Info.plist")
@@ -107,14 +119,15 @@ public final class GenDocset: Configurable {
 
     /// Create the index database
     func createIndex(docsetDirURL: URL, items: [Item]) throws {
+        logDebug("Docset: creating index DB")
+
         let url = docsetDirURL
             .appendingPathComponent("Contents")
             .appendingPathComponent("Resources")
             .appendingPathComponent("docSet.dsidx")
-
         let db = try DocsetDb(filepath: url.path)
         let visitor = DocsetVisitor(db: db)
-        visitor.walk(items: items)
+        try visitor.walk(items: items)
     }
 }
 
@@ -123,16 +136,16 @@ public final class GenDocset: Configurable {
 struct DocsetVisitor: ItemVisitorProtocol {
     let db: DocsetDb
 
-    func visit(defItem: DefItem, parents: [Item]) {
-        try! db.add(item: defItem)
+    func visit(defItem: DefItem, parents: [Item]) throws {
+        try db.add(item: defItem)
     }
 
-    func visit(groupItem: GroupItem, parents: [Item]) {
-        try! db.add(item: groupItem)
+    func visit(groupItem: GroupItem, parents: [Item]) throws {
+        try db.add(item: groupItem)
     }
 
-    func visit(guideItem: GuideItem, parents: [Item]) {
-        try! db.add(item: guideItem)
+    func visit(guideItem: GuideItem, parents: [Item]) throws {
+        try db.add(item: guideItem)
     }
 }
 

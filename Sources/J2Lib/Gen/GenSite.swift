@@ -125,7 +125,7 @@ public struct GenSite: Configurable {
 
         if !hideSearchOpt.value {
             logInfo(.localized(.msgSearchProgress))
-            search.buildIndex(items: items)
+            try search.buildIndex(items: items)
         }
 
         logInfo(.localized(.msgCopyProgress))

@@ -43,7 +43,7 @@ final class FormatAutolink: Configurable {
     /// Set up the name database
     func populate(defs: [Item]) {
         let indexer = AutolinkIndexer()
-        indexer.walk(items: defs)
+        try! indexer.walk(items: defs)
         nameDBs.append(NameDB(language: .swift, db: indexer.swiftNameToDef))
         nameDBs.append(NameDB(language: .objc, db: indexer.objCNameToDef))
     }

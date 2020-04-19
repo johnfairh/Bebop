@@ -33,10 +33,10 @@ public final class Format: Configurable {
         let readme = try createReadme()
         let allItems = items + [readme]
         logDebug("Format: Assigning URLs")
-        URLFormatter(childItemStyle: published.childItemStyle,
+        try URLFormatter(childItemStyle: published.childItemStyle,
                      multiModule: published.isMultiModule).walk(items: allItems)
         let linearVisitor = LinearItemVisitor()
-        linearVisitor.walk(items: allItems)
+        try linearVisitor.walk(items: allItems)
         readme.linearNext = items.first
         readme.linearPrev = linearVisitor.visited
         logDebug("Format: Attach custom abstracts")
@@ -44,11 +44,11 @@ public final class Format: Configurable {
         logDebug("Format: Building autolink index")
         autolink.populate(defs: allItems)
         logDebug("Format: Formatting declarations")
-        DeclarationFormatter(autolink: autolink).walk(items: allItems)
+        try DeclarationFormatter(autolink: autolink).walk(items: allItems)
         logDebug("Format: Generating HTML")
-        MarkdownFormatter(language: published.defaultLanguage,
-                          autolink: autolink,
-                          linkRewriter: linkRewriter).walk(items: allItems)
+        try MarkdownFormatter(language: published.defaultLanguage,
+                              autolink: autolink,
+                              linkRewriter: linkRewriter).walk(items: allItems)
         return allItems
     }
 
