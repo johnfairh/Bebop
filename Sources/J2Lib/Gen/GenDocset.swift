@@ -13,6 +13,8 @@ public final class GenDocset: Configurable {
     let pathOpt = PathOpt(l: "docset-path").help("PATH").hidden
     let moduleNameOpt = StringOpt(l: "docset-module-name").help("MODULENAME")
     let playgroundURLOpt = StringOpt(l: "docset-playground-url").help("PLAYGROUNDURL")
+    let iconPathOpt = PathOpt(l: "docset-icon").help("ICONPATH")
+    let icon2xPathOpt = PathOpt(l: "docset-icon-2x").help("ICONPATH")
     let published: Published
 
     /// Module Name to use for the docset - defaults to one of the source modules
@@ -32,6 +34,15 @@ public final class GenDocset: Configurable {
         if pathOpt.configured {
             logWarning(.localized(.wrnDocsetPath))
         }
+        func checkIconPathOpt(_ opt: PathOpt) throws {
+            try opt.checkIsFile()
+            if let url = opt.value,
+                !url.path.hasSuffix(".png") {
+                throw OptionsError("Docset icons must be in .png format -- \(url.path).")
+            }
+        }
+        try checkIconPathOpt(iconPathOpt)
+        try checkIconPathOpt(icon2xPathOpt)
     }
 
     static let DOCSET_TOP = "docsets"
@@ -44,6 +55,7 @@ public final class GenDocset: Configurable {
         try? FileManager.default.removeItem(at: docsetTopURL)
 
         try copyDocs(outputURL: outputURL, docsetDirURL: docsetDirURL)
+        try copyIcons(docsetDirURL: docsetDirURL)
         try createPList(docsetDirURL: docsetDirURL)
         try createIndex(docsetDirURL: docsetDirURL, items: items)
     }
@@ -69,6 +81,19 @@ public final class GenDocset: Configurable {
                 try FileManager.default.copyItem(at: sourceURL, to: targetURL)
             }
         }
+    }
+
+    /// Optional icons
+    func copyIcons(docsetDirURL: URL) throws {
+        func doCopyIcon(opt: PathOpt, name: String) throws {
+            guard let sourceURL = opt.value else {
+                return
+            }
+            let destURL = docsetDirURL.appendingPathComponent(name)
+            try FileManager.default.copyItem(at: sourceURL, to: destURL)
+        }
+        try doCopyIcon(opt: iconPathOpt, name: "icon.png")
+        try doCopyIcon(opt: icon2xPathOpt, name: "icon@2x.png")
     }
 
     /// Create the plist

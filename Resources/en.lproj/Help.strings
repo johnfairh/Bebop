@@ -186,3 +186,8 @@ Default: Do not deep-link to a code hosting service.";
 Default: Use one of the source module names.";
 "docset-playground-url" = "URL to online demo playground for the docset, linked to from the Dash UI.
 Default: Do not link to an online playground.";
+"docset-icon" = "Path to a .png icon for the docset, 16x16 or 32x32.
+Default: Do not use a docset icon.";
+"docset-icon-2x" = "Path to a hi-res .png icon for retina displays, 32x32.  Only needed
+if --docset-icon is used for a 16x16 version.
+Default: Do not use a docset icon.";
