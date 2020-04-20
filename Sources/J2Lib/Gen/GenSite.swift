@@ -49,8 +49,8 @@ public struct GenSite: Configurable {
     let childItemStyleOpt = EnumOpt<ChildItemStyle>(l: "child-item-style").def(.nested)
     let nestedItemStyleOpt = EnumOpt<NestedItemStyle>(l: "nested-item-style").def(.start_closed)
 
-    let deploymentURLOpt = StringOpt(l: "deployment-url").help("SITEURL")
-    let docsetFeedURLOpt = StringOpt(l: "docset-feed-url").help("XMLFEEDURL")
+    let deploymentURLOpt = URLOpt(l: "deployment-url").help("SITEURL")
+    let docsetFeedURLOpt = URLOpt(l: "docset-feed-url").help("XMLFEEDURL")
 
     let oldDashURLAlias: AliasOpt
     let oldRootURLAlias: AliasOpt
@@ -97,12 +97,6 @@ public struct GenSite: Configurable {
     func checkOptions(publish: PublishStore) throws {
         publish.childItemStyle = childItemStyle
         publish.moduleVersion = moduleVersionOpt.value
-        if let deploymentURLString = deploymentURLOpt.value {
-            guard let deploymentURL = URL(string: deploymentURLString) else {
-                throw OptionsError("Can't make a URL out of \(deploymentURLString)")
-            }
-            publish.deploymentURL = deploymentURL
-        }
     }
 
     /// Final site generation.
@@ -178,7 +172,7 @@ public struct GenSite: Configurable {
 
     /// Passthrough to generate the docset
     public func generateDocset(items: [Item]) throws {
-        try docset.generate(outputURL: outputURL, deploymentURL: published.deploymentURL, items: items)
+        try docset.generate(outputURL: outputURL, deploymentURL: deploymentURLOpt.value, items: items)
     }
 
     /// Factored out page generation.  Internal for tests.
@@ -294,9 +288,9 @@ public struct GenSite: Configurable {
         // Put the docset feed at either (a) where they asked for it, or
         //                               (b) figured out relative to deployment URL
         let docsetFeedURL = docsetFeedURLOpt.value ??
-            (published.deploymentURL.flatMap { docset.feedURLFrom(deploymentURL: $0).absoluteString })
+            (deploymentURLOpt.value.flatMap { docset.feedURLFrom(deploymentURL: $0) })
 
-        dict.maybe(.docsetURL, docsetFeedURL?.addingPercentEncoding(withAllowedCharacters: .alphanumerics))
+        dict.maybe(.docsetURL, docsetFeedURL?.absoluteString.addingPercentEncoding(withAllowedCharacters: .alphanumerics))
 
         return dict
     }

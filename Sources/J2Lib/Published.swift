@@ -63,9 +63,6 @@ protocol Published {
     /// Overall version number string
     var moduleVersion: String? { get }
 
-    /// The place the online version of the docs will be published
-    var deploymentURL: URL? { get }
-
     /// The doc-root relative path of a named piece of media, or `nil` if there is none.
     func urlPathForMedia(_ name: String) -> String?
 
@@ -117,8 +114,6 @@ final class PublishStore: Published {
     }
 
     var moduleVersion: String?
-
-    var deploymentURL: URL?
 
     private var rootCodeHostURL: Localized<String>? // spose its an href rather than a url...
     func setRootCodeHostURL(url: Localized<String>?) {

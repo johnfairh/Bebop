@@ -12,7 +12,7 @@ import SQLite
 public final class GenDocset: Configurable {
     let pathOpt = PathOpt(l: "docset-path").help("PATH").hidden
     let moduleNameOpt = StringOpt(l: "docset-module-name").help("MODULENAME")
-    let playgroundURLOpt = StringOpt(l: "docset-playground-url").help("PLAYGROUNDURL")
+    let playgroundURLOpt = URLOpt(l: "docset-playground-url").help("PLAYGROUNDURL")
     let iconPathOpt = PathOpt(l: "docset-icon").help("ICONPATH")
     let icon2xPathOpt = PathOpt(l: "docset-icon-2x").help("ICONPATH")
     let published: Published
@@ -111,8 +111,8 @@ public final class GenDocset: Configurable {
 
         let lcModuleName = moduleName.lowercased()
 
-        func itemXML(key: String, for value: String?) -> String {
-            guard let value = value else {
+        func itemXML(key: String, for value: URL?) -> String {
+            guard let value = value?.absoluteString else {
                 return ""
             }
             return """
@@ -124,7 +124,7 @@ public final class GenDocset: Configurable {
         let playgroundKey = itemXML(key: "DashDocSetPlayURL",
                                     for: playgroundURLOpt.value)
         let deploymentKey = itemXML(key: "DashDocSetFallbackURL",
-                                    for: deploymentURL?.absoluteString)
+                                    for: deploymentURL)
 
         let plist = """
                     <?xml version="1.0" encoding="UTF-8"?>
