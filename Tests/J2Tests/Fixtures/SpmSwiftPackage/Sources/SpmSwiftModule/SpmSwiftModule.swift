@@ -14,6 +14,10 @@ public struct SpmSwiftModule {
     }
 
     public struct Nested2 {}
+
+    /// A pair of Ints
+    var a: Int,
+        b: Int
 }
 
 /// An enum

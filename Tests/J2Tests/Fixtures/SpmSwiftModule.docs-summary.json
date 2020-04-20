@@ -996,7 +996,7 @@
               "def" : {
                 "abstract" : {
                   "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                    "html" : "<p>Third &amp; Fourth cases - <a href=\"..\/..\/spmswiftmodule\/types\/anenum.html?swift#second\"><code>second<\/code><\/a><\/p>"
                   }
                 },
                 "availability" : [],
@@ -2279,6 +2279,52 @@
         {
           "anchor_id" : "tpc-properties",
           "items" : [
+            {
+              "anchor_id" : "a",
+              "dash_type" : "Property",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>A pair of Ints<\/p>"
+                  }
+                },
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "var a: Int"
+                }
+              },
+              "flat_title" : {
+                "en" : "var a: Int"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">var <\/span>a<span class=\"j2-item-secondary\">: Int<\/span>"
+              }
+            },
+            {
+              "anchor_id" : "b",
+              "dash_type" : "Property",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>A pair of Ints<\/p>"
+                  }
+                },
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "var b: Int"
+                }
+              },
+              "flat_title" : {
+                "en" : "var b: Int"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">var <\/span>b<span class=\"j2-item-secondary\">: Int<\/span>"
+              }
+            },
             {
               "anchor_id" : "text",
               "dash_type" : "Property",

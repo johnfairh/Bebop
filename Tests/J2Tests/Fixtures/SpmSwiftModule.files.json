@@ -1908,7 +1908,7 @@
       "key.j2.module_name" : "SpmSwiftModule",
       "key.j2.pass_index" : 0,
       "key.j2.version" : "0.1",
-      "key.length" : 2379,
+      "key.length" : 2434,
       "key.offset" : 0,
       "key.substructure" : [
         {
@@ -1921,7 +1921,7 @@
               "key.offset" : 19
             }
           ],
-          "key.bodylength" : 273,
+          "key.bodylength" : 328,
           "key.bodyoffset" : 49,
           "key.doc.column" : 15,
           "key.doc.comment" : "Main structure",
@@ -1954,13 +1954,13 @@
             }
           ],
           "key.kind" : "source.lang.swift.decl.struct",
-          "key.length" : 297,
+          "key.length" : 352,
           "key.name" : "SpmSwiftModule",
           "key.namelength" : 14,
           "key.nameoffset" : 33,
           "key.offset" : 26,
           "key.parsed_declaration" : "public struct SpmSwiftModule",
-          "key.parsed_scope.end" : 17,
+          "key.parsed_scope.end" : 21,
           "key.parsed_scope.start" : 2,
           "key.substructure" : [
             {
@@ -2186,6 +2186,107 @@
               "key.typename" : "SpmSwiftModule.Nested2.Type",
               "key.typeusr" : "$s14SpmSwiftModuleAAV7Nested2VmD",
               "key.usr" : "s:14SpmSwiftModuleAAV7Nested2V"
+            },
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.internal",
+              "key.annotated_decl" : "<Declaration>var a: <Type usr=\"s:Si\">Int<\/Type><\/Declaration>",
+              "key.doc.column" : 9,
+              "key.doc.comment" : "A pair of Ints",
+              "key.doc.declaration" : "var a: Int",
+              "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+              "key.doc.full_as_xml" : "<Other file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"19\" column=\"9\"><Name>a<\/Name><USR>s:14SpmSwiftModuleAAV1aSivp<\/USR><Declaration>var a: Int<\/Declaration><CommentParts><Abstract><Para>A pair of Ints<\/Para><\/Abstract><\/CommentParts><\/Other>",
+              "key.doc.line" : 19,
+              "key.doc.name" : "a",
+              "key.doc.type" : "Other",
+              "key.doclength" : 19,
+              "key.docoffset" : 327,
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+              "key.fully_annotated_decl" : "<decl.var.instance><syntaxtype.keyword>var<\/syntaxtype.keyword> <decl.name>a<\/decl.name>: <decl.var.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.type><\/decl.var.instance>",
+              "key.j2.documentation" : {
+                "key.j2.abstract" : {
+                  "en" : "A pair of Ints"
+                },
+                "key.j2.doc_source" : "docComment"
+              },
+              "key.j2.is_override" : false,
+              "key.j2.swift_declaration" : "var a: Int",
+              "key.j2.swift_name_pieces" : [
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "var "
+                },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "a"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : ": Int"
+                }
+              ],
+              "key.kind" : "source.lang.swift.decl.var.instance",
+              "key.length" : 26,
+              "key.name" : "a",
+              "key.namelength" : 1,
+              "key.nameoffset" : 354,
+              "key.offset" : 350,
+              "key.parsed_declaration" : "var a: Int,\n    b: Int",
+              "key.parsed_scope.end" : 19,
+              "key.parsed_scope.start" : 19,
+              "key.setter_accessibility" : "source.lang.swift.accessibility.internal",
+              "key.typename" : "Int",
+              "key.typeusr" : "$sSiD",
+              "key.usr" : "s:14SpmSwiftModuleAAV1aSivp"
+            },
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.internal",
+              "key.annotated_decl" : "<Declaration>var b: <Type usr=\"s:Si\">Int<\/Type><\/Declaration>",
+              "key.doc.column" : 9,
+              "key.doc.declaration" : "var b: Int",
+              "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+              "key.doc.full_as_xml" : "<Other file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"20\" column=\"9\"><Name>b<\/Name><USR>s:14SpmSwiftModuleAAV1bSivp<\/USR><Declaration>var b: Int<\/Declaration><CommentParts><Abstract><Para>A pair of Ints<\/Para><\/Abstract><\/CommentParts><\/Other>",
+              "key.doc.line" : 20,
+              "key.doc.name" : "b",
+              "key.doc.type" : "Other",
+              "key.doclength" : 19,
+              "key.docoffset" : 327,
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+              "key.fully_annotated_decl" : "<decl.var.instance><syntaxtype.keyword>var<\/syntaxtype.keyword> <decl.name>b<\/decl.name>: <decl.var.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.type><\/decl.var.instance>",
+              "key.j2.documentation" : {
+                "key.j2.abstract" : {
+                  "en" : "A pair of Ints"
+                },
+                "key.j2.doc_source" : "docComment"
+              },
+              "key.j2.is_override" : false,
+              "key.j2.swift_declaration" : "var b: Int",
+              "key.j2.swift_name_pieces" : [
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "var "
+                },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "b"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : ": Int"
+                }
+              ],
+              "key.kind" : "source.lang.swift.decl.var.instance",
+              "key.length" : 26,
+              "key.name" : "b",
+              "key.namelength" : 1,
+              "key.nameoffset" : 370,
+              "key.offset" : 350,
+              "key.parsed_declaration" : "var a: Int,\n    b: Int",
+              "key.parsed_scope.end" : 19,
+              "key.parsed_scope.start" : 19,
+              "key.setter_accessibility" : "source.lang.swift.accessibility.internal",
+              "key.typename" : "Int",
+              "key.typeusr" : "$sSiD",
+              "key.usr" : "s:14SpmSwiftModuleAAV1bSivp"
             }
           ],
           "key.typename" : "SpmSwiftModule.Type",
@@ -2199,21 +2300,21 @@
             {
               "key.attribute" : "source.decl.attribute.public",
               "key.length" : 6,
-              "key.offset" : 337
+              "key.offset" : 392
             }
           ],
           "key.bodylength" : 193,
-          "key.bodyoffset" : 357,
+          "key.bodyoffset" : 412,
           "key.doc.column" : 13,
           "key.doc.comment" : "An enum",
           "key.doc.declaration" : "public enum AnEnum",
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "key.doc.full_as_xml" : "<Other file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"20\" column=\"13\"><Name>AnEnum<\/Name><USR>s:14SpmSwiftModule6AnEnumO<\/USR><Declaration>public enum AnEnum<\/Declaration><CommentParts><Abstract><Para>An enum<\/Para><\/Abstract><\/CommentParts><\/Other>",
-          "key.doc.line" : 20,
+          "key.doc.full_as_xml" : "<Other file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"24\" column=\"13\"><Name>AnEnum<\/Name><USR>s:14SpmSwiftModule6AnEnumO<\/USR><Declaration>public enum AnEnum<\/Declaration><CommentParts><Abstract><Para>An enum<\/Para><\/Abstract><\/CommentParts><\/Other>",
+          "key.doc.line" : 24,
           "key.doc.name" : "AnEnum",
           "key.doc.type" : "Other",
           "key.doclength" : 12,
-          "key.docoffset" : 325,
+          "key.docoffset" : 380,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
           "key.fully_annotated_decl" : "<decl.enum><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>enum<\/syntaxtype.keyword> <decl.name>AnEnum<\/decl.name><\/decl.enum>",
           "key.j2.documentation" : {
@@ -2238,18 +2339,18 @@
           "key.length" : 207,
           "key.name" : "AnEnum",
           "key.namelength" : 6,
-          "key.nameoffset" : 349,
-          "key.offset" : 344,
+          "key.nameoffset" : 404,
+          "key.offset" : 399,
           "key.parsed_declaration" : "public enum AnEnum",
-          "key.parsed_scope.end" : 29,
-          "key.parsed_scope.start" : 20,
+          "key.parsed_scope.end" : 33,
+          "key.parsed_scope.start" : 24,
           "key.substructure" : [
             {
               "key.kind" : "source.lang.swift.decl.enumcase",
               "key.length" : 15,
               "key.namelength" : 0,
               "key.nameoffset" : 0,
-              "key.offset" : 381,
+              "key.offset" : 436,
               "key.substructure" : [
                 {
                   "key.accessibility" : "source.lang.swift.accessibility.public",
@@ -2258,12 +2359,12 @@
                   "key.doc.comment" : "First case",
                   "key.doc.declaration" : "",
                   "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-                  "key.doc.full_as_xml" : "<Other file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"22\" column=\"10\"><Name>first(_:)<\/Name><USR>s:14SpmSwiftModule6AnEnumO5firstyACSicACmF<\/USR><Declaration><\/Declaration><CommentParts><Abstract><Para>First case<\/Para><\/Abstract><\/CommentParts><\/Other>",
-                  "key.doc.line" : 22,
+                  "key.doc.full_as_xml" : "<Other file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"26\" column=\"10\"><Name>first(_:)<\/Name><USR>s:14SpmSwiftModule6AnEnumO5firstyACSicACmF<\/USR><Declaration><\/Declaration><CommentParts><Abstract><Para>First case<\/Para><\/Abstract><\/CommentParts><\/Other>",
+                  "key.doc.line" : 26,
                   "key.doc.name" : "first(_:)",
                   "key.doc.type" : "Other",
                   "key.doclength" : 15,
-                  "key.docoffset" : 362,
+                  "key.docoffset" : 417,
                   "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
                   "key.fully_annotated_decl" : "<decl.enumelement><syntaxtype.keyword>case<\/syntaxtype.keyword> <decl.name>first<\/decl.name>(<decl.var.parameter><decl.var.parameter.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>)<\/decl.enumelement>",
                   "key.j2.documentation" : {
@@ -2292,11 +2393,11 @@
                   "key.length" : 10,
                   "key.name" : "first(_:)",
                   "key.namelength" : 10,
-                  "key.nameoffset" : 386,
-                  "key.offset" : 386,
+                  "key.nameoffset" : 441,
+                  "key.offset" : 441,
                   "key.parsed_declaration" : "case first(Int)",
-                  "key.parsed_scope.end" : 22,
-                  "key.parsed_scope.start" : 22,
+                  "key.parsed_scope.end" : 26,
+                  "key.parsed_scope.start" : 26,
                   "key.typename" : "(AnEnum.Type) -> (Int) -> AnEnum",
                   "key.typeusr" : "$sy14SpmSwiftModule6AnEnumOSicACmcD",
                   "key.usr" : "s:14SpmSwiftModule6AnEnumO5firstyACSicACmF"
@@ -2308,7 +2409,7 @@
               "key.length" : 11,
               "key.namelength" : 0,
               "key.nameoffset" : 0,
-              "key.offset" : 421,
+              "key.offset" : 476,
               "key.substructure" : [
                 {
                   "key.accessibility" : "source.lang.swift.accessibility.public",
@@ -2317,12 +2418,12 @@
                   "key.doc.comment" : "Second case",
                   "key.doc.declaration" : "",
                   "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-                  "key.doc.full_as_xml" : "<Other file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"24\" column=\"10\"><Name>second<\/Name><USR>s:14SpmSwiftModule6AnEnumO6secondyA2CmF<\/USR><Declaration><\/Declaration><CommentParts><Abstract><Para>Second case<\/Para><\/Abstract><\/CommentParts><\/Other>",
-                  "key.doc.line" : 24,
+                  "key.doc.full_as_xml" : "<Other file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"28\" column=\"10\"><Name>second<\/Name><USR>s:14SpmSwiftModule6AnEnumO6secondyA2CmF<\/USR><Declaration><\/Declaration><CommentParts><Abstract><Para>Second case<\/Para><\/Abstract><\/CommentParts><\/Other>",
+                  "key.doc.line" : 28,
                   "key.doc.name" : "second",
                   "key.doc.type" : "Other",
                   "key.doclength" : 16,
-                  "key.docoffset" : 401,
+                  "key.docoffset" : 456,
                   "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
                   "key.fully_annotated_decl" : "<decl.enumelement><syntaxtype.keyword>case<\/syntaxtype.keyword> <decl.name>second<\/decl.name><\/decl.enumelement>",
                   "key.j2.documentation" : {
@@ -2347,11 +2448,11 @@
                   "key.length" : 6,
                   "key.name" : "second",
                   "key.namelength" : 6,
-                  "key.nameoffset" : 426,
-                  "key.offset" : 426,
+                  "key.nameoffset" : 481,
+                  "key.offset" : 481,
                   "key.parsed_declaration" : "case second",
-                  "key.parsed_scope.end" : 24,
-                  "key.parsed_scope.start" : 24,
+                  "key.parsed_scope.end" : 28,
+                  "key.parsed_scope.start" : 28,
                   "key.typename" : "(AnEnum.Type) -> AnEnum",
                   "key.typeusr" : "$sy14SpmSwiftModule6AnEnumOACmcD",
                   "key.usr" : "s:14SpmSwiftModule6AnEnumO6secondyA2CmF"
@@ -2363,7 +2464,7 @@
               "key.length" : 18,
               "key.namelength" : 0,
               "key.nameoffset" : 0,
-              "key.offset" : 477,
+              "key.offset" : 532,
               "key.substructure" : [
                 {
                   "key.accessibility" : "source.lang.swift.accessibility.public",
@@ -2372,12 +2473,12 @@
                   "key.doc.comment" : "Third & Fourth cases - `second`",
                   "key.doc.declaration" : "",
                   "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-                  "key.doc.full_as_xml" : "<Other file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"26\" column=\"10\"><Name>third<\/Name><USR>s:14SpmSwiftModule6AnEnumO5thirdyA2CmF<\/USR><Declaration><\/Declaration><CommentParts><Abstract><Para>Third &amp; Fourth cases - <codeVoice>second<\/codeVoice><\/Para><\/Abstract><\/CommentParts><\/Other>",
-                  "key.doc.line" : 26,
+                  "key.doc.full_as_xml" : "<Other file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"30\" column=\"10\"><Name>third<\/Name><USR>s:14SpmSwiftModule6AnEnumO5thirdyA2CmF<\/USR><Declaration><\/Declaration><CommentParts><Abstract><Para>Third &amp; Fourth cases - <codeVoice>second<\/codeVoice><\/Para><\/Abstract><\/CommentParts><\/Other>",
+                  "key.doc.line" : 30,
                   "key.doc.name" : "third",
                   "key.doc.type" : "Other",
                   "key.doclength" : 36,
-                  "key.docoffset" : 437,
+                  "key.docoffset" : 492,
                   "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
                   "key.fully_annotated_decl" : "<decl.enumelement><syntaxtype.keyword>case<\/syntaxtype.keyword> <decl.name>third<\/decl.name><\/decl.enumelement>",
                   "key.j2.documentation" : {
@@ -2402,11 +2503,11 @@
                   "key.length" : 5,
                   "key.name" : "third",
                   "key.namelength" : 5,
-                  "key.nameoffset" : 482,
-                  "key.offset" : 482,
+                  "key.nameoffset" : 537,
+                  "key.offset" : 537,
                   "key.parsed_declaration" : "case third",
-                  "key.parsed_scope.end" : 26,
-                  "key.parsed_scope.start" : 26,
+                  "key.parsed_scope.end" : 30,
+                  "key.parsed_scope.start" : 30,
                   "key.typename" : "(AnEnum.Type) -> AnEnum",
                   "key.typeusr" : "$sy14SpmSwiftModule6AnEnumOACmcD",
                   "key.usr" : "s:14SpmSwiftModule6AnEnumO5thirdyA2CmF"
@@ -2417,14 +2518,20 @@
                   "key.doc.column" : 17,
                   "key.doc.declaration" : "",
                   "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-                  "key.doc.full_as_xml" : "<Other file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"26\" column=\"17\"><Name>fourth<\/Name><USR>s:14SpmSwiftModule6AnEnumO6fourthyA2CmF<\/USR><Declaration><\/Declaration><CommentParts><Abstract><Para>Third &amp; Fourth cases - <codeVoice>second<\/codeVoice><\/Para><\/Abstract><\/CommentParts><\/Other>",
-                  "key.doc.line" : 26,
+                  "key.doc.full_as_xml" : "<Other file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"30\" column=\"17\"><Name>fourth<\/Name><USR>s:14SpmSwiftModule6AnEnumO6fourthyA2CmF<\/USR><Declaration><\/Declaration><CommentParts><Abstract><Para>Third &amp; Fourth cases - <codeVoice>second<\/codeVoice><\/Para><\/Abstract><\/CommentParts><\/Other>",
+                  "key.doc.line" : 30,
                   "key.doc.name" : "fourth",
                   "key.doc.type" : "Other",
                   "key.doclength" : 36,
-                  "key.docoffset" : 437,
+                  "key.docoffset" : 492,
                   "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
                   "key.fully_annotated_decl" : "<decl.enumelement><syntaxtype.keyword>case<\/syntaxtype.keyword> <decl.name>fourth<\/decl.name><\/decl.enumelement>",
+                  "key.j2.documentation" : {
+                    "key.j2.abstract" : {
+                      "en" : "Third & Fourth cases - `second`"
+                    },
+                    "key.j2.doc_source" : "docComment"
+                  },
                   "key.j2.is_override" : false,
                   "key.j2.swift_declaration" : "case fourth",
                   "key.j2.swift_name_pieces" : [
@@ -2441,11 +2548,11 @@
                   "key.length" : 6,
                   "key.name" : "fourth",
                   "key.namelength" : 6,
-                  "key.nameoffset" : 489,
-                  "key.offset" : 489,
+                  "key.nameoffset" : 544,
+                  "key.offset" : 544,
                   "key.parsed_declaration" : "case third, fourth",
-                  "key.parsed_scope.end" : 26,
-                  "key.parsed_scope.start" : 26,
+                  "key.parsed_scope.end" : 30,
+                  "key.parsed_scope.start" : 30,
                   "key.typename" : "(AnEnum.Type) -> AnEnum",
                   "key.typeusr" : "$sy14SpmSwiftModule6AnEnumOACmcD",
                   "key.usr" : "s:14SpmSwiftModule6AnEnumO6fourthyA2CmF"
@@ -2457,7 +2564,7 @@
               "key.length" : 30,
               "key.namelength" : 0,
               "key.nameoffset" : 0,
-              "key.offset" : 519,
+              "key.offset" : 574,
               "key.substructure" : [
                 {
                   "key.accessibility" : "source.lang.swift.accessibility.public",
@@ -2466,12 +2573,12 @@
                   "key.doc.comment" : "Fifth case",
                   "key.doc.declaration" : "",
                   "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-                  "key.doc.full_as_xml" : "<Other file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"28\" column=\"10\"><Name>fifth(a:_:)<\/Name><USR>s:14SpmSwiftModule6AnEnumO5fifthyACSS_SitcACmF<\/USR><Declaration><\/Declaration><CommentParts><Abstract><Para>Fifth case<\/Para><\/Abstract><\/CommentParts><\/Other>",
-                  "key.doc.line" : 28,
+                  "key.doc.full_as_xml" : "<Other file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"32\" column=\"10\"><Name>fifth(a:_:)<\/Name><USR>s:14SpmSwiftModule6AnEnumO5fifthyACSS_SitcACmF<\/USR><Declaration><\/Declaration><CommentParts><Abstract><Para>Fifth case<\/Para><\/Abstract><\/CommentParts><\/Other>",
+                  "key.doc.line" : 32,
                   "key.doc.name" : "fifth(a:_:)",
                   "key.doc.type" : "Other",
                   "key.doclength" : 15,
-                  "key.docoffset" : 500,
+                  "key.docoffset" : 555,
                   "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
                   "key.fully_annotated_decl" : "<decl.enumelement><syntaxtype.keyword>case<\/syntaxtype.keyword> <decl.name>fifth<\/decl.name>(<decl.var.parameter><decl.var.parameter.argument_label>a<\/decl.var.parameter.argument_label>: <decl.var.parameter.type><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>, <decl.var.parameter><decl.var.parameter.argument_label>_<\/decl.var.parameter.argument_label>: <decl.var.parameter.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>)<\/decl.enumelement>",
                   "key.j2.documentation" : {
@@ -2508,11 +2615,11 @@
                   "key.length" : 25,
                   "key.name" : "fifth(a:_:)",
                   "key.namelength" : 25,
-                  "key.nameoffset" : 524,
-                  "key.offset" : 524,
+                  "key.nameoffset" : 579,
+                  "key.offset" : 579,
                   "key.parsed_declaration" : "case fifth(a: String,_ b: Int)",
-                  "key.parsed_scope.end" : 28,
-                  "key.parsed_scope.start" : 28,
+                  "key.parsed_scope.end" : 32,
+                  "key.parsed_scope.start" : 32,
                   "key.typename" : "(AnEnum.Type) -> (String, Int) -> AnEnum",
                   "key.typeusr" : "$sy14SpmSwiftModule6AnEnumOSS_SitcACmcD",
                   "key.usr" : "s:14SpmSwiftModule6AnEnumO5fifthyACSS_SitcACmF"
@@ -2531,21 +2638,21 @@
             {
               "key.attribute" : "source.decl.attribute.public",
               "key.length" : 6,
-              "key.offset" : 738
+              "key.offset" : 793
             },
             {
               "key.attribute" : "source.decl.attribute.available",
               "key.length" : 33,
-              "key.offset" : 704
+              "key.offset" : 759
             },
             {
               "key.attribute" : "source.decl.attribute.available",
               "key.length" : 33,
-              "key.offset" : 704
+              "key.offset" : 759
             }
           ],
           "key.bodylength" : 1,
-          "key.bodyoffset" : 851,
+          "key.bodyoffset" : 906,
           "key.doc.column" : 13,
           "key.doc.comment" : "- parameters:\n   - arg1: Number one\n   - arg2: Second\n   - arg3: Third\n\nSee `SpmSwiftModule` -- or `SpmSwiftModule.ABaseClass`.",
           "key.doc.declaration" : "@available(iOS 9, OSX 10.12, *)\npublic func functionA(arg1: Int, _ arg2: Int, arg3 argMeaning: Int)",
@@ -2555,8 +2662,8 @@
             }
           ],
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"38\" column=\"13\"><Name>functionA(arg1:_:arg3:)<\/Name><USR>s:14SpmSwiftModule9functionA4arg1_4arg3ySi_S2itF<\/USR><Declaration>@available(iOS 9, OSX 10.12, *)\npublic func functionA(arg1: Int, _ arg2: Int, arg3 argMeaning: Int)<\/Declaration><CommentParts><Parameters><Parameter><Name>arg1<\/Name><Direction isExplicit=\"0\">in<\/Direction><Discussion><Para>Number one<\/Para><\/Discussion><\/Parameter><Parameter><Name>arg2<\/Name><Direction isExplicit=\"0\">in<\/Direction><Discussion><Para>Second<\/Para><\/Discussion><\/Parameter><Parameter><Name>arg3<\/Name><Direction isExplicit=\"0\">in<\/Direction><Discussion><Para>Third<\/Para><\/Discussion><\/Parameter><\/Parameters><Discussion><Para>See <codeVoice>SpmSwiftModule<\/codeVoice> – or <codeVoice>SpmSwiftModule.ABaseClass<\/codeVoice>.<\/Para><\/Discussion><\/CommentParts><\/Function>",
-          "key.doc.line" : 38,
+          "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"42\" column=\"13\"><Name>functionA(arg1:_:arg3:)<\/Name><USR>s:14SpmSwiftModule9functionA4arg1_4arg3ySi_S2itF<\/USR><Declaration>@available(iOS 9, OSX 10.12, *)\npublic func functionA(arg1: Int, _ arg2: Int, arg3 argMeaning: Int)<\/Declaration><CommentParts><Parameters><Parameter><Name>arg1<\/Name><Direction isExplicit=\"0\">in<\/Direction><Discussion><Para>Number one<\/Para><\/Discussion><\/Parameter><Parameter><Name>arg2<\/Name><Direction isExplicit=\"0\">in<\/Direction><Discussion><Para>Second<\/Para><\/Discussion><\/Parameter><Parameter><Name>arg3<\/Name><Direction isExplicit=\"0\">in<\/Direction><Discussion><Para>Third<\/Para><\/Discussion><\/Parameter><\/Parameters><Discussion><Para>See <codeVoice>SpmSwiftModule<\/codeVoice> – or <codeVoice>SpmSwiftModule.ABaseClass<\/codeVoice>.<\/Para><\/Discussion><\/CommentParts><\/Function>",
+          "key.doc.line" : 42,
           "key.doc.name" : "functionA(arg1:_:arg3:)",
           "key.doc.parameters" : [
             {
@@ -2586,7 +2693,7 @@
           ],
           "key.doc.type" : "Function",
           "key.doclength" : 151,
-          "key.docoffset" : 553,
+          "key.docoffset" : 608,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
           "key.fully_annotated_decl" : "<decl.function.free><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>functionA<\/decl.name>(<decl.var.parameter><decl.var.parameter.argument_label>arg1<\/decl.var.parameter.argument_label>: <decl.var.parameter.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>, <decl.var.parameter><decl.var.parameter.argument_label>_<\/decl.var.parameter.argument_label> <decl.var.parameter.name>arg2<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>, <decl.var.parameter><decl.var.parameter.argument_label>arg3<\/decl.var.parameter.argument_label> <decl.var.parameter.name>argMeaning<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>)<\/decl.function.free>",
           "key.j2.availabilities" : [
@@ -2659,11 +2766,11 @@
           "key.length" : 108,
           "key.name" : "functionA(arg1:_:arg3:)",
           "key.namelength" : 99,
-          "key.nameoffset" : 750,
-          "key.offset" : 745,
+          "key.nameoffset" : 805,
+          "key.offset" : 800,
           "key.parsed_declaration" : "public func functionA(arg1: Int,\n                      _ arg2: Int,\n                      arg3 argMeaning: Int)",
-          "key.parsed_scope.end" : 41,
-          "key.parsed_scope.start" : 38,
+          "key.parsed_scope.end" : 45,
+          "key.parsed_scope.start" : 42,
           "key.typename" : "(Int, Int, Int) -> ()",
           "key.typeusr" : "$s4arg1_4arg3ySi_S2itcD",
           "key.usr" : "s:14SpmSwiftModule9functionA4arg1_4arg3ySi_S2itF"
@@ -2675,27 +2782,27 @@
             {
               "key.attribute" : "source.decl.attribute.public",
               "key.length" : 6,
-              "key.offset" : 1081
+              "key.offset" : 1136
             },
             {
               "key.attribute" : "source.decl.attribute.available",
               "key.length" : 74,
-              "key.offset" : 1006
+              "key.offset" : 1061
             },
             {
               "key.attribute" : "source.decl.attribute.available",
               "key.length" : 57,
-              "key.offset" : 948
+              "key.offset" : 1003
             }
           ],
           "key.bodylength" : 13,
-          "key.bodyoffset" : 1160,
+          "key.bodyoffset" : 1215,
           "key.doc.column" : 13,
           "key.doc.comment" : "A deprecated function\n\n- parameter callback: The callback\n- returns: A string",
           "key.doc.declaration" : "@available(iOS, deprecated: 12.0, message: \"Deprecated!\")\n@available(OSX, deprecated: 10.14, message: \"Deprecated on *macOS* too\")\npublic func deprecatedFunction(callback: (_ report: String) -> Int) -> String",
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"49\" column=\"13\"><Name>deprecatedFunction(callback:)<\/Name><USR>s:14SpmSwiftModule18deprecatedFunction8callbackSSSiSSXE_tF<\/USR><Declaration>@available(iOS, deprecated: 12.0, message: &quot;Deprecated!&quot;)\n@available(OSX, deprecated: 10.14, message: &quot;Deprecated on *macOS* too&quot;)\npublic func deprecatedFunction(callback: (_ report: String) -&gt; Int) -&gt; String<\/Declaration><CommentParts><Abstract><Para>A deprecated function<\/Para><\/Abstract><Parameters><Parameter><Name>callback<\/Name><Direction isExplicit=\"0\">in<\/Direction><Discussion><Para>The callback<\/Para><\/Discussion><\/Parameter><\/Parameters><ResultDiscussion><Para>A string<\/Para><\/ResultDiscussion><\/CommentParts><\/Function>",
-          "key.doc.line" : 49,
+          "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"53\" column=\"13\"><Name>deprecatedFunction(callback:)<\/Name><USR>s:14SpmSwiftModule18deprecatedFunction8callbackSSSiSSXE_tF<\/USR><Declaration>@available(iOS, deprecated: 12.0, message: &quot;Deprecated!&quot;)\n@available(OSX, deprecated: 10.14, message: &quot;Deprecated on *macOS* too&quot;)\npublic func deprecatedFunction(callback: (_ report: String) -&gt; Int) -&gt; String<\/Declaration><CommentParts><Abstract><Para>A deprecated function<\/Para><\/Abstract><Parameters><Parameter><Name>callback<\/Name><Direction isExplicit=\"0\">in<\/Direction><Discussion><Para>The callback<\/Para><\/Discussion><\/Parameter><\/Parameters><ResultDiscussion><Para>A string<\/Para><\/ResultDiscussion><\/CommentParts><\/Function>",
+          "key.doc.line" : 53,
           "key.doc.name" : "deprecatedFunction(callback:)",
           "key.doc.parameters" : [
             {
@@ -2714,7 +2821,7 @@
           ],
           "key.doc.type" : "Function",
           "key.doclength" : 93,
-          "key.docoffset" : 855,
+          "key.docoffset" : 910,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
           "key.fully_annotated_decl" : "<decl.function.free><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>deprecatedFunction<\/decl.name>(<decl.var.parameter><decl.var.parameter.argument_label>callback<\/decl.var.parameter.argument_label>: <decl.var.parameter.type>(<decl.var.parameter><decl.var.parameter.argument_label>_<\/decl.var.parameter.argument_label> <decl.var.parameter.name>report<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.function.returntype><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.function.returntype><\/decl.function.free>",
           "key.j2.documentation" : {
@@ -2765,11 +2872,11 @@
           "key.length" : 86,
           "key.name" : "deprecatedFunction(callback:)",
           "key.namelength" : 55,
-          "key.nameoffset" : 1093,
-          "key.offset" : 1088,
+          "key.nameoffset" : 1148,
+          "key.offset" : 1143,
           "key.parsed_declaration" : "public func deprecatedFunction(callback: (_ report: String) -> Int) -> String",
-          "key.parsed_scope.end" : 51,
-          "key.parsed_scope.start" : 49,
+          "key.parsed_scope.end" : 55,
+          "key.parsed_scope.start" : 53,
           "key.typename" : "((String) -> Int) -> String",
           "key.typeusr" : "$s8callbackSSSiSSXE_tcD",
           "key.usr" : "s:14SpmSwiftModule18deprecatedFunction8callbackSSSiSSXE_tF"
@@ -2781,21 +2888,21 @@
             {
               "key.attribute" : "source.decl.attribute.public",
               "key.length" : 6,
-              "key.offset" : 1193
+              "key.offset" : 1248
             }
           ],
           "key.bodylength" : 592,
-          "key.bodyoffset" : 1218,
+          "key.bodyoffset" : 1273,
           "key.doc.column" : 14,
           "key.doc.comment" : "A base class",
           "key.doc.declaration" : "public class ABaseClass",
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "key.doc.full_as_xml" : "<Class file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"54\" column=\"14\"><Name>ABaseClass<\/Name><USR>s:14SpmSwiftModule10ABaseClassC<\/USR><Declaration>public class ABaseClass<\/Declaration><CommentParts><Abstract><Para>A base class<\/Para><\/Abstract><\/CommentParts><\/Class>",
-          "key.doc.line" : 54,
+          "key.doc.full_as_xml" : "<Class file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"58\" column=\"14\"><Name>ABaseClass<\/Name><USR>s:14SpmSwiftModule10ABaseClassC<\/USR><Declaration>public class ABaseClass<\/Declaration><CommentParts><Abstract><Para>A base class<\/Para><\/Abstract><\/CommentParts><\/Class>",
+          "key.doc.line" : 58,
           "key.doc.name" : "ABaseClass",
           "key.doc.type" : "Class",
           "key.doclength" : 17,
-          "key.docoffset" : 1176,
+          "key.docoffset" : 1231,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
           "key.fully_annotated_decl" : "<decl.class><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>class<\/syntaxtype.keyword> <decl.name>ABaseClass<\/decl.name><\/decl.class>",
           "key.j2.documentation" : {
@@ -2820,11 +2927,11 @@
           "key.length" : 611,
           "key.name" : "ABaseClass",
           "key.namelength" : 10,
-          "key.nameoffset" : 1206,
-          "key.offset" : 1200,
+          "key.nameoffset" : 1261,
+          "key.offset" : 1255,
           "key.parsed_declaration" : "public class ABaseClass",
-          "key.parsed_scope.end" : 89,
-          "key.parsed_scope.start" : 54,
+          "key.parsed_scope.end" : 93,
+          "key.parsed_scope.start" : 58,
           "key.runtime_name" : "_TtC4main10ABaseClass",
           "key.substructure" : [
             {
@@ -2834,11 +2941,11 @@
                 {
                   "key.attribute" : "source.decl.attribute.public",
                   "key.length" : 6,
-                  "key.offset" : 1221
+                  "key.offset" : 1276
                 }
               ],
               "key.bodylength" : 0,
-              "key.bodyoffset" : 1236,
+              "key.bodyoffset" : 1291,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.function.constructor><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>init<\/syntaxtype.keyword>()<\/decl.function.constructor>",
               "key.j2.is_override" : false,
@@ -2857,11 +2964,11 @@
               "key.length" : 9,
               "key.name" : "init()",
               "key.namelength" : 6,
-              "key.nameoffset" : 1228,
-              "key.offset" : 1228,
+              "key.nameoffset" : 1283,
+              "key.offset" : 1283,
               "key.parsed_declaration" : "public init()",
-              "key.parsed_scope.end" : 55,
-              "key.parsed_scope.start" : 55,
+              "key.parsed_scope.end" : 59,
+              "key.parsed_scope.start" : 59,
               "key.related_decls" : [
                 {
                   "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule10ABaseClassC1aACSi_tcfc\">init(a:)<\/RelatedName>"
@@ -2878,16 +2985,16 @@
                 {
                   "key.attribute" : "source.decl.attribute.convenience",
                   "key.length" : 11,
-                  "key.offset" : 1248
+                  "key.offset" : 1303
                 },
                 {
                   "key.attribute" : "source.decl.attribute.public",
                   "key.length" : 6,
-                  "key.offset" : 1241
+                  "key.offset" : 1296
                 }
               ],
               "key.bodylength" : 13,
-              "key.bodyoffset" : 1274,
+              "key.bodyoffset" : 1329,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.function.constructor><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>convenience<\/syntaxtype.keyword> <syntaxtype.keyword>init<\/syntaxtype.keyword>(<decl.var.parameter><decl.var.parameter.argument_label>a<\/decl.var.parameter.argument_label>: <decl.var.parameter.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>)<\/decl.function.constructor>",
               "key.j2.is_override" : false,
@@ -2914,11 +3021,11 @@
               "key.length" : 28,
               "key.name" : "init(a:)",
               "key.namelength" : 12,
-              "key.nameoffset" : 1260,
-              "key.offset" : 1260,
+              "key.nameoffset" : 1315,
+              "key.offset" : 1315,
               "key.parsed_declaration" : "public convenience init(a: Int)",
-              "key.parsed_scope.end" : 57,
-              "key.parsed_scope.start" : 57,
+              "key.parsed_scope.end" : 61,
+              "key.parsed_scope.start" : 61,
               "key.related_decls" : [
                 {
                   "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule10ABaseClassCACycfc\">init()<\/RelatedName>"
@@ -2932,7 +3039,7 @@
               "key.accessibility" : "source.lang.swift.accessibility.public",
               "key.annotated_decl" : "<Declaration>deinit<\/Declaration>",
               "key.bodylength" : 0,
-              "key.bodyoffset" : 1300,
+              "key.bodyoffset" : 1355,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.function.destructor><syntaxtype.keyword>deinit<\/syntaxtype.keyword><\/decl.function.destructor>",
               "key.j2.is_override" : false,
@@ -2947,11 +3054,11 @@
               "key.length" : 9,
               "key.name" : "deinit",
               "key.namelength" : 6,
-              "key.nameoffset" : 1292,
-              "key.offset" : 1292,
+              "key.nameoffset" : 1347,
+              "key.offset" : 1347,
               "key.parsed_declaration" : "deinit",
-              "key.parsed_scope.end" : 59,
-              "key.parsed_scope.start" : 59,
+              "key.parsed_scope.end" : 63,
+              "key.parsed_scope.start" : 63,
               "key.typename" : "(ABaseClass) -> () -> ()",
               "key.typeusr" : "$syycD",
               "key.usr" : "s:14SpmSwiftModule10ABaseClassCfd"
@@ -2963,21 +3070,21 @@
                 {
                   "key.attribute" : "source.decl.attribute.public",
                   "key.length" : 6,
-                  "key.offset" : 1347
+                  "key.offset" : 1402
                 }
               ],
               "key.bodylength" : 17,
-              "key.bodyoffset" : 1389,
+              "key.bodyoffset" : 1444,
               "key.doc.column" : 15,
               "key.doc.comment" : "Base class docs for `method(param:)`",
               "key.doc.declaration" : "public func method(param: Int) -> String",
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-              "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"61\" column=\"15\"><Name>method(param:)<\/Name><USR>s:14SpmSwiftModule10ABaseClassC6method5paramSSSi_tF<\/USR><Declaration>public func method(param: Int) -&gt; String<\/Declaration><CommentParts><Abstract><Para>Base class docs for <codeVoice>method(param:)<\/codeVoice><\/Para><\/Abstract><\/CommentParts><\/Function>",
-              "key.doc.line" : 61,
+              "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"65\" column=\"15\"><Name>method(param:)<\/Name><USR>s:14SpmSwiftModule10ABaseClassC6method5paramSSSi_tF<\/USR><Declaration>public func method(param: Int) -&gt; String<\/Declaration><CommentParts><Abstract><Para>Base class docs for <codeVoice>method(param:)<\/codeVoice><\/Para><\/Abstract><\/CommentParts><\/Function>",
+              "key.doc.line" : 65,
               "key.doc.name" : "method(param:)",
               "key.doc.type" : "Function",
               "key.doclength" : 41,
-              "key.docoffset" : 1304,
+              "key.docoffset" : 1359,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>method<\/decl.name>(<decl.var.parameter><decl.var.parameter.argument_label>param<\/decl.var.parameter.argument_label>: <decl.var.parameter.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.function.returntype><\/decl.function.method.instance>",
               "key.j2.documentation" : {
@@ -3014,11 +3121,11 @@
               "key.length" : 53,
               "key.name" : "method(param:)",
               "key.namelength" : 18,
-              "key.nameoffset" : 1359,
-              "key.offset" : 1354,
+              "key.nameoffset" : 1414,
+              "key.offset" : 1409,
               "key.parsed_declaration" : "public func method(param: Int) -> String",
-              "key.parsed_scope.end" : 63,
-              "key.parsed_scope.start" : 61,
+              "key.parsed_scope.end" : 67,
+              "key.parsed_scope.start" : 65,
               "key.typename" : "(ABaseClass) -> (Int) -> String",
               "key.typeusr" : "$s5paramSSSi_tcD",
               "key.usr" : "s:14SpmSwiftModule10ABaseClassC6method5paramSSSi_tF"
@@ -3030,11 +3137,11 @@
                 {
                   "key.attribute" : "source.decl.attribute.public",
                   "key.length" : 6,
-                  "key.offset" : 1411
+                  "key.offset" : 1466
                 }
               ],
               "key.bodylength" : 16,
-              "key.bodyoffset" : 1453,
+              "key.bodyoffset" : 1508,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.function.method.static><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>static<\/syntaxtype.keyword> <syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>staticMethod<\/decl.name>() -&gt; <decl.function.returntype><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.function.returntype><\/decl.function.method.static>",
               "key.j2.is_override" : false,
@@ -3057,11 +3164,11 @@
               "key.length" : 52,
               "key.name" : "staticMethod()",
               "key.namelength" : 14,
-              "key.nameoffset" : 1430,
-              "key.offset" : 1418,
+              "key.nameoffset" : 1485,
+              "key.offset" : 1473,
               "key.parsed_declaration" : "public static func staticMethod() -> Int",
-              "key.parsed_scope.end" : 67,
-              "key.parsed_scope.start" : 65,
+              "key.parsed_scope.end" : 71,
+              "key.parsed_scope.start" : 69,
               "key.typename" : "(ABaseClass.Type) -> () -> Int",
               "key.typeusr" : "$sSiycD",
               "key.usr" : "s:14SpmSwiftModule10ABaseClassC12staticMethodSiyFZ"
@@ -3073,11 +3180,11 @@
                 {
                   "key.attribute" : "source.decl.attribute.public",
                   "key.length" : 6,
-                  "key.offset" : 1474
+                  "key.offset" : 1529
                 }
               ],
               "key.bodylength" : 50,
-              "key.bodyoffset" : 1512,
+              "key.bodyoffset" : 1567,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.function.subscript><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>subscript<\/syntaxtype.keyword>(<decl.var.parameter><decl.var.parameter.name>arg<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.function.returntype> { <syntaxtype.keyword>get<\/syntaxtype.keyword> <syntaxtype.keyword>set<\/syntaxtype.keyword> }<\/decl.function.subscript>",
               "key.j2.is_override" : false,
@@ -3104,11 +3211,11 @@
               "key.length" : 82,
               "key.name" : "subscript(_:)",
               "key.namelength" : 22,
-              "key.nameoffset" : 1481,
-              "key.offset" : 1481,
+              "key.nameoffset" : 1536,
+              "key.offset" : 1536,
               "key.parsed_declaration" : "public subscript(arg: String) -> Int",
-              "key.parsed_scope.end" : 75,
-              "key.parsed_scope.start" : 69,
+              "key.parsed_scope.end" : 79,
+              "key.parsed_scope.start" : 73,
               "key.related_decls" : [
                 {
                   "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule10ABaseClassCySiSScipZ\">subscript(_:)<\/RelatedName>"
@@ -3129,11 +3236,11 @@
                 {
                   "key.attribute" : "source.decl.attribute.public",
                   "key.length" : 6,
-                  "key.offset" : 1567
+                  "key.offset" : 1622
                 }
               ],
               "key.bodylength" : 16,
-              "key.bodyoffset" : 1612,
+              "key.bodyoffset" : 1667,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.function.subscript><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>static<\/syntaxtype.keyword> <syntaxtype.keyword>subscript<\/syntaxtype.keyword>(<decl.var.parameter><decl.var.parameter.name>arg<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.function.returntype> { <syntaxtype.keyword>get<\/syntaxtype.keyword> }<\/decl.function.subscript>",
               "key.j2.is_override" : false,
@@ -3164,11 +3271,11 @@
               "key.length" : 48,
               "key.name" : "subscript(_:)",
               "key.namelength" : 22,
-              "key.nameoffset" : 1581,
-              "key.offset" : 1581,
+              "key.nameoffset" : 1636,
+              "key.offset" : 1636,
               "key.parsed_declaration" : "public static subscript(arg: String) -> Int",
-              "key.parsed_scope.end" : 79,
-              "key.parsed_scope.start" : 77,
+              "key.parsed_scope.end" : 83,
+              "key.parsed_scope.start" : 81,
               "key.related_decls" : [
                 {
                   "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule10ABaseClassCySiSScip\">subscript(_:)<\/RelatedName>"
@@ -3188,11 +3295,11 @@
                 {
                   "key.attribute" : "source.decl.attribute.public",
                   "key.length" : 6,
-                  "key.offset" : 1633
+                  "key.offset" : 1688
                 }
               ],
               "key.bodylength" : 17,
-              "key.bodyoffset" : 1677,
+              "key.bodyoffset" : 1732,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.function.subscript><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>class<\/syntaxtype.keyword> <syntaxtype.keyword>subscript<\/syntaxtype.keyword>(<decl.var.parameter><decl.var.parameter.name>arg<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.function.returntype> { <syntaxtype.keyword>get<\/syntaxtype.keyword> }<\/decl.function.subscript>",
               "key.j2.is_override" : false,
@@ -3223,11 +3330,11 @@
               "key.length" : 49,
               "key.name" : "subscript(_:)",
               "key.namelength" : 19,
-              "key.nameoffset" : 1646,
-              "key.offset" : 1646,
+              "key.nameoffset" : 1701,
+              "key.offset" : 1701,
               "key.parsed_declaration" : "public class subscript(arg: Int) -> String",
-              "key.parsed_scope.end" : 83,
-              "key.parsed_scope.start" : 81,
+              "key.parsed_scope.end" : 87,
+              "key.parsed_scope.start" : 85,
               "key.related_decls" : [
                 {
                   "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule10ABaseClassCySiSScip\">subscript(_:)<\/RelatedName>"
@@ -3247,21 +3354,21 @@
                 {
                   "key.attribute" : "source.decl.attribute.public",
                   "key.length" : 6,
-                  "key.offset" : 1718
+                  "key.offset" : 1773
                 }
               ],
               "key.bodylength" : 20,
-              "key.bodyoffset" : 1788,
+              "key.bodyoffset" : 1843,
               "key.doc.column" : 22,
               "key.doc.comment" : "An operator!",
               "key.doc.declaration" : "public static func + (lhs: ABaseClass, rhs: ABaseClass) -> ABaseClass",
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-              "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"86\" column=\"22\"><Name>+(_:_:)<\/Name><USR>s:14SpmSwiftModule10ABaseClassC1poiyA2C_ACtFZ<\/USR><Declaration>public static func + (lhs: ABaseClass, rhs: ABaseClass) -&gt; ABaseClass<\/Declaration><CommentParts><Abstract><Para>An operator!<\/Para><\/Abstract><\/CommentParts><\/Function>",
-              "key.doc.line" : 86,
+              "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"90\" column=\"22\"><Name>+(_:_:)<\/Name><USR>s:14SpmSwiftModule10ABaseClassC1poiyA2C_ACtFZ<\/USR><Declaration>public static func + (lhs: ABaseClass, rhs: ABaseClass) -&gt; ABaseClass<\/Declaration><CommentParts><Abstract><Para>An operator!<\/Para><\/Abstract><\/CommentParts><\/Function>",
+              "key.doc.line" : 90,
               "key.doc.name" : "+(_:_:)",
               "key.doc.type" : "Function",
               "key.doclength" : 17,
-              "key.docoffset" : 1699,
+              "key.docoffset" : 1754,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.function.operator.infix><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>static<\/syntaxtype.keyword> <syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>+ <\/decl.name>(<decl.var.parameter><decl.var.parameter.name>lhs<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.class usr=\"s:14SpmSwiftModule10ABaseClassC\">ABaseClass<\/ref.class><\/decl.var.parameter.type><\/decl.var.parameter>, <decl.var.parameter><decl.var.parameter.name>rhs<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.class usr=\"s:14SpmSwiftModule10ABaseClassC\">ABaseClass<\/ref.class><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.class usr=\"s:14SpmSwiftModule10ABaseClassC\">ABaseClass<\/ref.class><\/decl.function.returntype><\/decl.function.operator.infix>",
               "key.j2.documentation" : {
@@ -3306,11 +3413,11 @@
               "key.length" : 84,
               "key.name" : "+(_:_:)",
               "key.namelength" : 35,
-              "key.nameoffset" : 1737,
-              "key.offset" : 1725,
+              "key.nameoffset" : 1792,
+              "key.offset" : 1780,
               "key.parsed_declaration" : "public static func +(lhs: ABaseClass, rhs: ABaseClass) -> ABaseClass",
-              "key.parsed_scope.end" : 88,
-              "key.parsed_scope.start" : 86,
+              "key.parsed_scope.end" : 92,
+              "key.parsed_scope.start" : 90,
               "key.related_decls" : [
                 {
                   "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule1poiySSAA1TV_ADtF\">+ (_: T, _: T) -&gt; String<\/RelatedName>"
@@ -3417,11 +3524,11 @@
                   "key.kind" : "source.lang.swift.decl.var.parameter",
                   "key.length" : 3,
                   "key.name" : "lhs",
-                  "key.offset" : 1739,
-                  "key.parent_loc" : 1737,
+                  "key.offset" : 1794,
+                  "key.parent_loc" : 1792,
                   "key.parsed_declaration" : "public static func +(lhs",
-                  "key.parsed_scope.end" : 86,
-                  "key.parsed_scope.start" : 86,
+                  "key.parsed_scope.end" : 90,
+                  "key.parsed_scope.start" : 90,
                   "key.typename" : "ABaseClass",
                   "key.typeusr" : "$s14SpmSwiftModule10ABaseClassCD",
                   "key.usr" : "s:14SpmSwiftModule10ABaseClassC1poiyA2C_ACtFZ3lhsL_ACvp"
@@ -3440,7 +3547,7 @@
           "key.accessibility" : "source.lang.swift.accessibility.internal",
           "key.annotated_decl" : "<Declaration>struct T<\/Declaration>",
           "key.bodylength" : 1,
-          "key.bodyoffset" : 1823,
+          "key.bodyoffset" : 1878,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
           "key.fully_annotated_decl" : "<decl.struct><syntaxtype.keyword>struct<\/syntaxtype.keyword> <decl.name>T<\/decl.name><\/decl.struct>",
           "key.j2.is_override" : false,
@@ -3459,11 +3566,11 @@
           "key.length" : 12,
           "key.name" : "T",
           "key.namelength" : 1,
-          "key.nameoffset" : 1820,
-          "key.offset" : 1813,
+          "key.nameoffset" : 1875,
+          "key.offset" : 1868,
           "key.parsed_declaration" : "struct T",
-          "key.parsed_scope.end" : 92,
-          "key.parsed_scope.start" : 91,
+          "key.parsed_scope.end" : 96,
+          "key.parsed_scope.start" : 95,
           "key.typename" : "T.Type",
           "key.typeusr" : "$s14SpmSwiftModule1TVmD",
           "key.usr" : "s:14SpmSwiftModule1TV"
@@ -3472,17 +3579,17 @@
           "key.accessibility" : "source.lang.swift.accessibility.internal",
           "key.annotated_decl" : "<Declaration>func + (lhs: <Type usr=\"s:14SpmSwiftModule1TV\">T<\/Type>, rhs: <Type usr=\"s:14SpmSwiftModule1TV\">T<\/Type>) -&gt; <Type usr=\"s:SS\">String<\/Type><\/Declaration>",
           "key.bodylength" : 6,
-          "key.bodyoffset" : 1883,
+          "key.bodyoffset" : 1938,
           "key.doc.column" : 6,
           "key.doc.comment" : "Unscoped operator",
           "key.doc.declaration" : "func + (lhs: T, rhs: T) -> String",
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"95\" column=\"6\"><Name>+(_:_:)<\/Name><USR>s:14SpmSwiftModule1poiySSAA1TV_ADtF<\/USR><Declaration>func + (lhs: T, rhs: T) -&gt; String<\/Declaration><CommentParts><Abstract><Para>Unscoped operator<\/Para><\/Abstract><\/CommentParts><\/Function>",
-          "key.doc.line" : 95,
+          "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"99\" column=\"6\"><Name>+(_:_:)<\/Name><USR>s:14SpmSwiftModule1poiySSAA1TV_ADtF<\/USR><Declaration>func + (lhs: T, rhs: T) -&gt; String<\/Declaration><CommentParts><Abstract><Para>Unscoped operator<\/Para><\/Abstract><\/CommentParts><\/Function>",
+          "key.doc.line" : 99,
           "key.doc.name" : "+(_:_:)",
           "key.doc.type" : "Function",
           "key.doclength" : 22,
-          "key.docoffset" : 1827,
+          "key.docoffset" : 1882,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
           "key.fully_annotated_decl" : "<decl.function.operator.infix><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>+ <\/decl.name>(<decl.var.parameter><decl.var.parameter.name>lhs<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.struct usr=\"s:14SpmSwiftModule1TV\">T<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>, <decl.var.parameter><decl.var.parameter.name>rhs<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.struct usr=\"s:14SpmSwiftModule1TV\">T<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.function.returntype><\/decl.function.operator.infix>",
           "key.j2.documentation" : {
@@ -3527,11 +3634,11 @@
           "key.length" : 41,
           "key.name" : "+(_:_:)",
           "key.namelength" : 17,
-          "key.nameoffset" : 1854,
-          "key.offset" : 1849,
+          "key.nameoffset" : 1909,
+          "key.offset" : 1904,
           "key.parsed_declaration" : "func +(lhs: T, rhs: T) -> String",
-          "key.parsed_scope.end" : 97,
-          "key.parsed_scope.start" : 95,
+          "key.parsed_scope.end" : 101,
+          "key.parsed_scope.start" : 99,
           "key.related_decls" : [
             {
               "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule10ABaseClassC1poiyA2C_ACtFZ\">+ (_: ABaseClass, _: ABaseClass) -&gt; ABaseClass<\/RelatedName>"
@@ -3638,11 +3745,11 @@
               "key.kind" : "source.lang.swift.decl.var.parameter",
               "key.length" : 3,
               "key.name" : "lhs",
-              "key.offset" : 1856,
-              "key.parent_loc" : 1854,
+              "key.offset" : 1911,
+              "key.parent_loc" : 1909,
               "key.parsed_declaration" : "func +(lhs",
-              "key.parsed_scope.end" : 95,
-              "key.parsed_scope.start" : 95,
+              "key.parsed_scope.end" : 99,
+              "key.parsed_scope.start" : 99,
               "key.typename" : "T",
               "key.typeusr" : "$s14SpmSwiftModule1TVD",
               "key.usr" : "s:14SpmSwiftModule1poiySSAA1TV_ADtF3lhsL_ADvp"
@@ -3659,26 +3766,26 @@
             {
               "key.attribute" : "source.decl.attribute.public",
               "key.length" : 6,
-              "key.offset" : 1912
+              "key.offset" : 1967
             }
           ],
           "key.bodylength" : 189,
-          "key.bodyoffset" : 1968,
+          "key.bodyoffset" : 2023,
           "key.doc.column" : 14,
           "key.doc.comment" : "A derived class",
           "key.doc.declaration" : "public class ADerivedClass<T, Q> : ABaseClass where Q : Sequence",
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "key.doc.full_as_xml" : "<Class file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"100\" column=\"14\"><Name>ADerivedClass<\/Name><USR>s:14SpmSwiftModule13ADerivedClassC<\/USR><Declaration>public class ADerivedClass&lt;T, Q&gt; : ABaseClass where Q : Sequence<\/Declaration><CommentParts><Abstract><Para>A derived class<\/Para><\/Abstract><\/CommentParts><\/Class>",
-          "key.doc.line" : 100,
+          "key.doc.full_as_xml" : "<Class file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"104\" column=\"14\"><Name>ADerivedClass<\/Name><USR>s:14SpmSwiftModule13ADerivedClassC<\/USR><Declaration>public class ADerivedClass&lt;T, Q&gt; : ABaseClass where Q : Sequence<\/Declaration><CommentParts><Abstract><Para>A derived class<\/Para><\/Abstract><\/CommentParts><\/Class>",
+          "key.doc.line" : 104,
           "key.doc.name" : "ADerivedClass",
           "key.doc.type" : "Class",
           "key.doclength" : 20,
-          "key.docoffset" : 1892,
+          "key.docoffset" : 1947,
           "key.elements" : [
             {
               "key.kind" : "source.lang.swift.structure.elem.typeref",
               "key.length" : 10,
-              "key.offset" : 1956
+              "key.offset" : 2011
             }
           ],
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -3715,11 +3822,11 @@
           "key.length" : 239,
           "key.name" : "ADerivedClass",
           "key.namelength" : 13,
-          "key.nameoffset" : 1925,
-          "key.offset" : 1919,
+          "key.nameoffset" : 1980,
+          "key.offset" : 1974,
           "key.parsed_declaration" : "public class ADerivedClass<T, Q: Sequence>: ABaseClass",
-          "key.parsed_scope.end" : 111,
-          "key.parsed_scope.start" : 100,
+          "key.parsed_scope.end" : 115,
+          "key.parsed_scope.start" : 104,
           "key.substructure" : [
             {
               "key.annotated_decl" : "<Declaration>T<\/Declaration>",
@@ -3737,11 +3844,11 @@
               "key.length" : 1,
               "key.name" : "T",
               "key.namelength" : 1,
-              "key.nameoffset" : 1939,
-              "key.offset" : 1939,
+              "key.nameoffset" : 1994,
+              "key.offset" : 1994,
               "key.parsed_declaration" : "public class ADerivedClass<T",
-              "key.parsed_scope.end" : 100,
-              "key.parsed_scope.start" : 100,
+              "key.parsed_scope.end" : 104,
+              "key.parsed_scope.start" : 104,
               "key.typename" : "T.Type",
               "key.typeusr" : "$sxmD",
               "key.usr" : "s:14SpmSwiftModule13ADerivedClassC1Txmfp"
@@ -3752,7 +3859,7 @@
                 {
                   "key.kind" : "source.lang.swift.structure.elem.typeref",
                   "key.length" : 8,
-                  "key.offset" : 1945
+                  "key.offset" : 2000
                 }
               ],
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -3779,11 +3886,11 @@
               "key.length" : 11,
               "key.name" : "Q",
               "key.namelength" : 1,
-              "key.nameoffset" : 1942,
-              "key.offset" : 1942,
+              "key.nameoffset" : 1997,
+              "key.offset" : 1997,
               "key.parsed_declaration" : "public class ADerivedClass<T, Q: Sequence",
-              "key.parsed_scope.end" : 100,
-              "key.parsed_scope.start" : 100,
+              "key.parsed_scope.end" : 104,
+              "key.parsed_scope.start" : 104,
               "key.typename" : "Q.Type",
               "key.typeusr" : "$sq_mD",
               "key.usr" : "s:14SpmSwiftModule13ADerivedClassC1Qq_mfp"
@@ -3813,11 +3920,11 @@
               "key.length" : 15,
               "key.name" : "t",
               "key.namelength" : 1,
-              "key.nameoffset" : 1975,
-              "key.offset" : 1971,
+              "key.nameoffset" : 2030,
+              "key.offset" : 2026,
               "key.parsed_declaration" : "var t: Q? = nil",
-              "key.parsed_scope.end" : 101,
-              "key.parsed_scope.start" : 101,
+              "key.parsed_scope.end" : 105,
+              "key.parsed_scope.start" : 105,
               "key.setter_accessibility" : "source.lang.swift.accessibility.internal",
               "key.typename" : "Q?",
               "key.typeusr" : "$sq_SgD",
@@ -3830,26 +3937,26 @@
                 {
                   "key.attribute" : "source.decl.attribute.override",
                   "key.length" : 8,
-                  "key.offset" : 2033
+                  "key.offset" : 2088
                 },
                 {
                   "key.attribute" : "source.decl.attribute.public",
                   "key.length" : 6,
-                  "key.offset" : 2026
+                  "key.offset" : 2081
                 }
               ],
               "key.bodylength" : 17,
-              "key.bodyoffset" : 2077,
+              "key.bodyoffset" : 2132,
               "key.doc.column" : 24,
               "key.doc.comment" : "See `ABaseClass.method(...)`.",
               "key.doc.declaration" : "public override func method(param: Int) -> String",
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-              "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"104\" column=\"24\"><Name>method(param:)<\/Name><USR>s:14SpmSwiftModule13ADerivedClassC6method5paramSSSi_tF<\/USR><Declaration>public override func method(param: Int) -&gt; String<\/Declaration><CommentParts><Abstract><Para>See <codeVoice>ABaseClass.method(...)<\/codeVoice>.<\/Para><\/Abstract><\/CommentParts><\/Function>",
-              "key.doc.line" : 104,
+              "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"108\" column=\"24\"><Name>method(param:)<\/Name><USR>s:14SpmSwiftModule13ADerivedClassC6method5paramSSSi_tF<\/USR><Declaration>public override func method(param: Int) -&gt; String<\/Declaration><CommentParts><Abstract><Para>See <codeVoice>ABaseClass.method(...)<\/codeVoice>.<\/Para><\/Abstract><\/CommentParts><\/Function>",
+              "key.doc.line" : 108,
               "key.doc.name" : "method(param:)",
               "key.doc.type" : "Function",
               "key.doclength" : 34,
-              "key.docoffset" : 1990,
+              "key.docoffset" : 2045,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>override<\/syntaxtype.keyword> <syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>method<\/decl.name>(<decl.var.parameter><decl.var.parameter.argument_label>param<\/decl.var.parameter.argument_label>: <decl.var.parameter.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.function.returntype><\/decl.function.method.instance>",
               "key.j2.documentation" : {
@@ -3886,16 +3993,16 @@
               "key.length" : 53,
               "key.name" : "method(param:)",
               "key.namelength" : 18,
-              "key.nameoffset" : 2047,
-              "key.offset" : 2042,
+              "key.nameoffset" : 2102,
+              "key.offset" : 2097,
               "key.overrides" : [
                 {
                   "key.usr" : "s:14SpmSwiftModule10ABaseClassC6method5paramSSSi_tF"
                 }
               ],
               "key.parsed_declaration" : "public override func method(param: Int) -> String",
-              "key.parsed_scope.end" : 106,
-              "key.parsed_scope.start" : 104,
+              "key.parsed_scope.end" : 110,
+              "key.parsed_scope.start" : 108,
               "key.typename" : "<T, Q where Q : Sequence> (ADerivedClass<T, Q>) -> (Int) -> String",
               "key.typeusr" : "$s5paramSSSi_tcD",
               "key.usr" : "s:14SpmSwiftModule13ADerivedClassC6method5paramSSSi_tF"
@@ -3907,11 +4014,11 @@
                 {
                   "key.attribute" : "source.decl.attribute.public",
                   "key.length" : 6,
-                  "key.offset" : 2099
+                  "key.offset" : 2154
                 }
               ],
               "key.bodylength" : 20,
-              "key.bodyoffset" : 2135,
+              "key.bodyoffset" : 2190,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>generic<\/decl.name>(<decl.var.parameter><decl.var.parameter.argument_label>param<\/decl.var.parameter.argument_label>: <decl.var.parameter.type><ref.generic_type_param usr=\"s:14SpmSwiftModule13ADerivedClassC1Txmfp\">T<\/ref.generic_type_param><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.generic_type_param usr=\"s:14SpmSwiftModule13ADerivedClassC1Txmfp\">T<\/ref.generic_type_param><\/decl.function.returntype><\/decl.function.method.instance>",
               "key.j2.is_override" : false,
@@ -3942,11 +4049,11 @@
               "key.length" : 50,
               "key.name" : "generic(param:)",
               "key.namelength" : 17,
-              "key.nameoffset" : 2111,
-              "key.offset" : 2106,
+              "key.nameoffset" : 2166,
+              "key.offset" : 2161,
               "key.parsed_declaration" : "public func generic(param: T) -> T",
-              "key.parsed_scope.end" : 110,
-              "key.parsed_scope.start" : 108,
+              "key.parsed_scope.end" : 114,
+              "key.parsed_scope.start" : 112,
               "key.typename" : "<T, Q where Q : Sequence> (ADerivedClass<T, Q>) -> (T) -> T",
               "key.typeusr" : "$s5paramxx_tcD",
               "key.usr" : "s:14SpmSwiftModule13ADerivedClassC7generic5paramxx_tF"
@@ -3963,11 +4070,11 @@
             {
               "key.attribute" : "source.decl.attribute.propertyWrapper",
               "key.length" : 16,
-              "key.offset" : 2160
+              "key.offset" : 2215
             }
           ],
           "key.bodylength" : 111,
-          "key.bodyoffset" : 2189,
+          "key.bodyoffset" : 2244,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
           "key.fully_annotated_decl" : "<decl.struct><syntaxtype.attribute.builtin><syntaxtype.attribute.name>@propertyWrapper<\/syntaxtype.attribute.name><\/syntaxtype.attribute.builtin> <syntaxtype.keyword>struct<\/syntaxtype.keyword> <decl.name>Nop<\/decl.name><\/decl.struct>",
           "key.j2.is_override" : false,
@@ -3986,11 +4093,11 @@
           "key.length" : 124,
           "key.name" : "Nop",
           "key.namelength" : 3,
-          "key.nameoffset" : 2184,
-          "key.offset" : 2177,
+          "key.nameoffset" : 2239,
+          "key.offset" : 2232,
           "key.parsed_declaration" : "struct Nop",
-          "key.parsed_scope.end" : 120,
-          "key.parsed_scope.start" : 114,
+          "key.parsed_scope.end" : 124,
+          "key.parsed_scope.start" : 118,
           "key.substructure" : [
             {
               "key.accessibility" : "source.lang.swift.accessibility.internal",
@@ -4017,11 +4124,11 @@
               "key.length" : 24,
               "key.name" : "wrappedValue",
               "key.namelength" : 12,
-              "key.nameoffset" : 2198,
-              "key.offset" : 2194,
+              "key.nameoffset" : 2253,
+              "key.offset" : 2249,
               "key.parsed_declaration" : "var wrappedValue: String",
-              "key.parsed_scope.end" : 115,
-              "key.parsed_scope.start" : 115,
+              "key.parsed_scope.end" : 119,
+              "key.parsed_scope.start" : 119,
               "key.setter_accessibility" : "source.lang.swift.accessibility.internal",
               "key.typename" : "String",
               "key.typeusr" : "$sSSD",
@@ -4031,7 +4138,7 @@
               "key.accessibility" : "source.lang.swift.accessibility.internal",
               "key.annotated_decl" : "<Declaration>init(wrappedValue: <Type usr=\"s:SS\">String<\/Type>)<\/Declaration>",
               "key.bodylength" : 46,
-              "key.bodyoffset" : 2252,
+              "key.bodyoffset" : 2307,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.function.constructor><syntaxtype.keyword>init<\/syntaxtype.keyword>(<decl.var.parameter><decl.var.parameter.argument_label>wrappedValue<\/decl.var.parameter.argument_label>: <decl.var.parameter.type><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>)<\/decl.function.constructor>",
               "key.j2.is_override" : false,
@@ -4058,11 +4165,11 @@
               "key.length" : 75,
               "key.name" : "init(wrappedValue:)",
               "key.namelength" : 26,
-              "key.nameoffset" : 2224,
-              "key.offset" : 2224,
+              "key.nameoffset" : 2279,
+              "key.offset" : 2279,
               "key.parsed_declaration" : "init(wrappedValue: String)",
-              "key.parsed_scope.end" : 119,
-              "key.parsed_scope.start" : 117,
+              "key.parsed_scope.end" : 123,
+              "key.parsed_scope.start" : 121,
               "key.typename" : "(Nop.Type) -> (String) -> Nop",
               "key.typeusr" : "$s12wrappedValue14SpmSwiftModule3NopVSS_tcD",
               "key.usr" : "s:14SpmSwiftModule3NopV12wrappedValueACSS_tcfc"
@@ -4076,17 +4183,17 @@
           "key.accessibility" : "source.lang.swift.accessibility.internal",
           "key.annotated_decl" : "<Declaration>struct PropertyWrapperClient<\/Declaration>",
           "key.bodylength" : 28,
-          "key.bodyoffset" : 2349,
+          "key.bodyoffset" : 2404,
           "key.doc.column" : 8,
           "key.doc.comment" : "See `@Nop`.",
           "key.doc.declaration" : "struct PropertyWrapperClient",
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "key.doc.full_as_xml" : "<Class file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"123\" column=\"8\"><Name>PropertyWrapperClient<\/Name><USR>s:14SpmSwiftModule21PropertyWrapperClientV<\/USR><Declaration>struct PropertyWrapperClient<\/Declaration><CommentParts><Abstract><Para>See <codeVoice>@Nop<\/codeVoice>.<\/Para><\/Abstract><\/CommentParts><\/Class>",
-          "key.doc.line" : 123,
+          "key.doc.full_as_xml" : "<Class file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"127\" column=\"8\"><Name>PropertyWrapperClient<\/Name><USR>s:14SpmSwiftModule21PropertyWrapperClientV<\/USR><Declaration>struct PropertyWrapperClient<\/Declaration><CommentParts><Abstract><Para>See <codeVoice>@Nop<\/codeVoice>.<\/Para><\/Abstract><\/CommentParts><\/Class>",
+          "key.doc.line" : 127,
           "key.doc.name" : "PropertyWrapperClient",
           "key.doc.type" : "Class",
           "key.doclength" : 16,
-          "key.docoffset" : 2303,
+          "key.docoffset" : 2358,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
           "key.fully_annotated_decl" : "<decl.struct><syntaxtype.keyword>struct<\/syntaxtype.keyword> <decl.name>PropertyWrapperClient<\/decl.name><\/decl.struct>",
           "key.j2.documentation" : {
@@ -4111,11 +4218,11 @@
           "key.length" : 59,
           "key.name" : "PropertyWrapperClient",
           "key.namelength" : 21,
-          "key.nameoffset" : 2326,
-          "key.offset" : 2319,
+          "key.nameoffset" : 2381,
+          "key.offset" : 2374,
           "key.parsed_declaration" : "struct PropertyWrapperClient",
-          "key.parsed_scope.end" : 126,
-          "key.parsed_scope.start" : 123,
+          "key.parsed_scope.end" : 130,
+          "key.parsed_scope.start" : 127,
           "key.substructure" : [
             {
               "key.accessibility" : "source.lang.swift.accessibility.internal",
@@ -4124,7 +4231,7 @@
                 {
                   "key.attribute" : "source.decl.attribute._custom",
                   "key.length" : 4,
-                  "key.offset" : 2354
+                  "key.offset" : 2409
                 }
               ],
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -4149,11 +4256,11 @@
               "key.length" : 13,
               "key.name" : "v",
               "key.namelength" : 1,
-              "key.nameoffset" : 2367,
-              "key.offset" : 2363,
+              "key.nameoffset" : 2422,
+              "key.offset" : 2418,
               "key.parsed_declaration" : "var v: String",
-              "key.parsed_scope.end" : 125,
-              "key.parsed_scope.start" : 125,
+              "key.parsed_scope.end" : 129,
+              "key.parsed_scope.start" : 129,
               "key.setter_accessibility" : "source.lang.swift.accessibility.internal",
               "key.typename" : "String",
               "key.typeusr" : "$sSSD",

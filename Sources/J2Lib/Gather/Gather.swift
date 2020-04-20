@@ -97,10 +97,10 @@ public struct GatherModulePass {
 
 protocol GatherGarnish {
     func garnish(def: GatherDef) throws
-    func initialize() throws
 }
 
 extension Array where Element == GatherModulePass {
+    /// Visit each GatherDef. Depth-first, preorder.
     func garnish<T>(with: T) throws where T: GatherGarnish {
         try forEach { pass in
             guard !pass.imported else { return }

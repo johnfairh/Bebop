@@ -31,16 +31,21 @@ public final class GatherDef {
     init?(sourceKittenDict: SourceKittenDict,
           parentNameComponents: [String],
           file: SourceKittenFramework.File?,
-          availability: Gather.Availability) {
+          availability: Gather.Availability,
+          previousSiblingDef: GatherDef? = nil) {
         var dict = sourceKittenDict
         let name = sourceKittenDict.name
         let nameComponents = name.flatMap { parentNameComponents + [$0] } ?? parentNameComponents
         let substructure = dict.removeSubstructure()
+        var prevChild: GatherDef? = nil
         self.children = substructure.compactMap {
-            GatherDef(sourceKittenDict: $0,
-                      parentNameComponents: nameComponents,
-                      file: file,
-                      availability: availability)
+            let def = GatherDef(sourceKittenDict: $0,
+                                parentNameComponents: nameComponents,
+                                file: file,
+                                availability: availability,
+                                previousSiblingDef: prevChild)
+            prevChild = def
+            return def
         }
 
         guard let kindValue = dict.kind else {
@@ -70,6 +75,11 @@ public final class GatherDef {
             let docsBuilder = MarkdownBuilder(markdown: Markdown(docComment), source: docSource)
             self.documentation = docsBuilder.build()
             self.localizationKey = docsBuilder.localizationKey
+        } else if let previousSiblingDef = previousSiblingDef,
+                  let previousSiblingDocs = previousSiblingDef.documentation,
+            previousSiblingDef.canShareDocsWithSibling(offset: sourceKittenDict.offset) {
+            self.documentation = previousSiblingDocs
+            self.localizationKey = previousSiblingDef.localizationKey
         } else if kind.isSwift, let _ = sourceKittenDict.fullXMLDocs {
             self.documentation = nil //FlatDefDocs(abstract: Markdown("xml"), source: .inherited)
             self.localizationKey = nil
@@ -105,6 +115,26 @@ public final class GatherDef {
         }
         self.sourceKittenDict = dict
         Stats.inc(.gatherDef)
+    }
+
+    /// Work around SourceKitten not associating doc comments with multiple declarations
+    func canShareDocsWithSibling(offset: Int?) -> Bool {
+        precondition(documentation != nil)
+
+        // Match "var a = 3, b = 4"
+        if let myOffset = sourceKittenDict.offset,
+            let offset = offset,
+            offset == myOffset {
+            return true
+        }
+
+        // Match "case a, b, c" -- only enum elems share a container
+        if let myKind = kind,
+            myKind.isSwiftEnumElement {
+            return true
+        }
+
+        return false
     }
 
     // Things calculated after init
