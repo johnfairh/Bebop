@@ -105,6 +105,7 @@ public final class Config {
             throw optsError
         }
 
+        StderrHusher.shared.enabled = quietOpt.value
         configureLogger(report: false)
         // More spaghetti.  We normally want to dump the config file location to stdout
         // but mustn't if we're in pipeline mode, but we don't know if we're in pipeline

@@ -21,7 +21,23 @@ extension GatherJob {
         let buildToolArgs: [String]
         let availability: Gather.Availability
 
+        /// Invoke sourcekitten with stderr suppressed to stop spam when --quiet is set
+        /// ...but still print out the error messages if thats what they turn out to be.
         func execute() throws -> GatherModulePass {
+            StderrHusher.shared.hush()
+            do {
+                let result = try execute2()
+                StderrHusher.shared.unhush()
+                return result
+            } catch {
+                if let hushedStderr = StderrHusher.shared.unhush() {
+                    logError(hushedStderr)
+                }
+                throw error
+            }
+        }
+
+        private func execute2() throws -> GatherModulePass {
             let actualSrcDir = srcDir ?? FileManager.default.currentDirectory
             let actualBuildTool = buildTool ?? inferBuildTool(in: actualSrcDir, buildToolArgs: buildToolArgs)
 

@@ -122,7 +122,7 @@ class TestGather: XCTestCase {
     // Run gather in a fake directory, check errors.
     func testSwiftJobFailure() throws {
         let cliOpts = [ [],
-                        ["--build-tool", "xcodebuild"],
+                        ["--build-tool", "xcodebuild", "--quiet"],
                         ["--build-tool", "xcodebuild", "--module", "Butter"]]
         try cliOpts.forEach { opts in
             try TemporaryDirectory.withNew {
