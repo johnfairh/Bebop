@@ -233,6 +233,15 @@ class TestOptions: XCTestCase {
         AssertThrows(try opt.checkAreDirectories(), OptionsError.self)
     }
 
+    // URLs
+    func testURLValidation() throws {
+        let opt = URLOpt(l: "uuu")
+        let ss = SimpleSystem(opt)
+        try ss.parse(["--uuu=https://www.google.com/"])
+        try ss.parse(["--uuu=https://www.go%2Ee.com/"])
+        AssertThrows(try ss.parse(["--uuu=ffffff"]), OptionsError.self)
+    }
+
     // Globs
     func testGlob() throws {
         let opt = GlobOpt(s: "g", l: "g")

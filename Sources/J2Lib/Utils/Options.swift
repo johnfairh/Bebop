@@ -15,7 +15,7 @@ import Yams
 // - don't touch my stderr/communicate in English/crash the program
 //
 // All very custom for what we need.  Provides:
-// - bool / string / enum / path / glob decode and validate
+// - bool / string / enum / path / glob / url decode and validate
 // - lists via repeated opts or inline
 // - short/long/yaml opts
 // - auto-gen of --[no-] -style longopts
@@ -450,6 +450,18 @@ final class PathListOpt: ArrayOpt<URL> {
     func checkAreDirectories() throws {
         try value.forEach { try $0.checkIsDirectory() }
     }
+}
+
+/// Absolute URLs
+final class URLOpt: TypedOpt<URL> {
+    override func set(string: String) throws {
+        guard let url = URL(string: string),
+            url.scheme != nil else {
+                throw OptionsError(.localized(.errCfgBadUrl, string))
+        }
+        configValue = url
+    }
+    override var type: OptType { .string }
 }
 
 // MARK: Glob Pattern Options

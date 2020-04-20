@@ -31,6 +31,8 @@
 "err-path-not-dir" = "Path is for a regular file, not a directory: '%1'.";
 "wrn-path-no-chdir" = "Cannot chdir back to '%1'.";
 
+"err-cfg-bad-url" = "Could not recognize absolute URL: '%1'.";
+
 "wrn-glob-errno" = "glob(3) failed, pattern '%1', errno %2/%3.";
 "wrn-glob-pattern" = "glob(3) error with paths for pattern '%1'.";
 "wrn-fnmatch-errno" = "fnmatch(3) failed, pattern '%1', path '%2', errno %3/%4.";
