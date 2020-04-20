@@ -148,11 +148,11 @@ final class GatherOpts : Configurable {
             return customModules.flatMap { $0.jobs }
         }
         if moduleNamesOpt.configured {
-            return moduleNamesOpt.value.flatMap { moduleName in
-                rootPassOpts.makeJobs(moduleName: moduleName)
+            return moduleNamesOpt.value.compactMap { moduleName in
+                rootPassOpts.makeJob(moduleName: moduleName)
             }
         }
-        return rootPassOpts.makeJobs(moduleName: nil)
+        return rootPassOpts.makeJob(moduleName: nil).flatMap { [$0] } ?? []
     }
 }
 
@@ -230,10 +230,10 @@ struct GatherCustomModule: CustomStringConvertible {
             preconditionFailure()
         }
         if passes.isEmpty {
-            return moduleOpts.makeJobs(moduleName: moduleName)
+            return moduleOpts.makeJob(moduleName: moduleName).flatMap { [$0] } ?? []
         }
-        return passes.enumerated().flatMap { index, opts in
-            opts.makeJobs(moduleName: moduleName, passIndex: index)
+        return passes.enumerated().compactMap { index, opts in
+            opts.makeJob(moduleName: moduleName, passIndex: index)
         }
     }
 

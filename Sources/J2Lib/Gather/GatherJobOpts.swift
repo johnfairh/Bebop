@@ -44,7 +44,7 @@ final class GatherJobOpts: Configurable {
     }
 
     func checkBaseOptions() throws {
-        try srcDirOpt.checkIsDirectory()
+        // don't check srcdir until we know if it's supposed to exist
         try objcHeaderFileOpt.checkIsFile()
         try objcIncludePathsOpt.checkAreDirectories()
         try sourcekittenJSONFilesOpt.checkAreFiles()
@@ -146,15 +146,23 @@ final class GatherJobOpts: Configurable {
         if objcHeaderFileOpt.configured && buildToolOpt.configured {
             throw NotImplementedError("Objective-C with build-tool")
         }
+
+        // SrcDir -- used for calculating relative code-host links *and* for swift
+        // source builds to locate the actual sources.  Only needs to be a real directory
+        // in the second case.
+        if !objcHeaderFileOpt.configured &&
+            !sourcekittenJSONFilesOpt.configured &&
+            !j2JSONFilesOpt.configured &&
+            buildToolOpt.value != .some(.swift_symbolgraph) {
+            try srcDirOpt.checkIsDirectory()
+        }
     }
 
-    /// Generate jobs from the options
-    func makeJobs(moduleName: String?, passIndex: Int? = nil) -> [GatherJob] {
+    /// Generate a job from the options
+    func makeJob(moduleName: String?, passIndex: Int? = nil) -> GatherJob? {
         let availability =
             Gather.Availability(defaults: availabilityDefaultsOpt.value,
                                 ignoreAttr: ignoreAvailabilityAttrOpt.value)
-
-        var jobs = [GatherJob]()
 
         let passStr = passIndex.flatMap { " pass \($0)" } ?? ""
 
@@ -162,45 +170,45 @@ final class GatherJobOpts: Configurable {
             precondition(objcDirectOpt.configured)
             precondition(moduleName != nil)
             #if os(macOS)
-            jobs.append(GatherJob(objcTitle: "Objective-C module \(moduleName!)\(passStr)",
-                                  moduleName: moduleName!,
-                                  headerFile: objcHeaderFile,
-                                  includePaths: objcIncludePathsOpt.value,
-                                  sdk: sdk,
-                                  buildToolArgs: buildToolArgsOpt.value,
-                                  availability: availability))
+            return GatherJob(objcTitle: "Objective-C module \(moduleName!)\(passStr)",
+                             moduleName: moduleName!,
+                             headerFile: objcHeaderFile,
+                             includePaths: objcIncludePathsOpt.value,
+                             sdk: sdk,
+                             buildToolArgs: buildToolArgsOpt.value,
+                             availability: availability)
+            #else
+            return nil
             #endif
         } else if sourcekittenJSONFilesOpt.configured {
             precondition(moduleName != nil)
-            jobs.append(GatherJob(sknImportTitle: "SourceKitten import module \(moduleName!)\(passStr)",
-                                  moduleName: moduleName!,
-                                  fileURLs: sourcekittenJSONFilesOpt.value,
-                                  availability: availability))
+            return GatherJob(sknImportTitle: "SourceKitten import module \(moduleName!)\(passStr)",
+                             moduleName: moduleName!,
+                             fileURLs: sourcekittenJSONFilesOpt.value,
+                             availability: availability)
         } else if j2JSONFilesOpt.configured {
-            jobs.append(GatherJob(importTitle: "JSON import module \(moduleName ?? "(all)")\(passStr)",
-                                  moduleName: moduleName,
-                                  passIndex: passIndex,
-                                  fileURLs: j2JSONFilesOpt.value))
+            return GatherJob(importTitle: "JSON import module \(moduleName ?? "(all)")\(passStr)",
+                             moduleName: moduleName,
+                             passIndex: passIndex,
+                             fileURLs: j2JSONFilesOpt.value)
         } else if let buildTool = buildToolOpt.value, buildTool == .swift_symbolgraph {
             // Swift from .swiftmodule
-            jobs.append(GatherJob(symbolgraphTitle: "Swift module (symbolgraph) \(moduleName!)\(passStr)",
-                moduleName: moduleName!,
-                searchURLs: symbolGraphSearchPathsOpt.value,
-                buildToolArgs: buildToolArgsOpt.value,
-                sdk: sdk,
-                target: symbolGraphTarget,
-                availability: availability))
+            return GatherJob(symbolgraphTitle: "Swift module (symbolgraph) \(moduleName!)\(passStr)",
+                             moduleName: moduleName!,
+                             searchURLs: symbolGraphSearchPathsOpt.value,
+                             buildToolArgs: buildToolArgsOpt.value,
+                             sdk: sdk,
+                             target: symbolGraphTarget,
+                             availability: availability)
         } else {
             // Swift from source
-            jobs.append(GatherJob(swiftTitle: "Swift module \(moduleName ?? "(default)")\(passStr)",
-                                  moduleName: moduleName,
-                                  srcDir: srcDirOpt.value,
-                                  buildTool: buildToolOpt.value,
-                                  buildToolArgs: buildToolArgsOpt.value,
-                                  availability: availability))
+            return GatherJob(swiftTitle: "Swift module \(moduleName ?? "(default)")\(passStr)",
+                             moduleName: moduleName,
+                             srcDir: srcDirOpt.value,
+                             buildTool: buildToolOpt.value,
+                             buildToolArgs: buildToolArgsOpt.value,
+                             availability: availability)
         }
-
-        return jobs
     }
 
     lazy var hostTargetTriple: String = {

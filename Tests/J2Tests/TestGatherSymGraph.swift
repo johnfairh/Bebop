@@ -74,6 +74,7 @@ class TestGatherSymGraph: XCTestCase {
         let srcDirPasses = try System().run([
             "--build-tool=swift-symbolgraph",
             "--modules=SpmSwiftModule",
+            "--source-directory=/Does/Not/Exist",
             "--symbolgraph-search-paths=\(binDirPath)"
         ])
 
