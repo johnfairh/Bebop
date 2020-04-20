@@ -17,6 +17,9 @@ class TestIdentifiers: XCTestCase {
         XCTAssertEqual("aa-a", "aA a".slugged)
         XCTAssertEqual("beginners-guide", "Beginner's guide".slugged)
         XCTAssertEqual("名词说明", "名词说明".slugged)
+        XCTAssertEqual("", "".slugged)
+        XCTAssertEqual("😀", "😀".slugged)
+        XCTAssertEqual("e", "!".slugged)
     }
 
     func testUnique() {

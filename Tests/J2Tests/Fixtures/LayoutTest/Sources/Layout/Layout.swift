@@ -32,3 +32,11 @@ public class LinkRewrite {
   /// ![See spot run|200x200,30%](bird.jpg)
   public func spot() {}
 }
+
+/// A class to check character encodings and slugging
+///
+public class 🐽 {
+  /// Method of name
+  public func 🐗(a: Int, 👻: String) {
+  }
+}

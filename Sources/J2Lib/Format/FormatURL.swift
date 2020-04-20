@@ -72,9 +72,10 @@ public struct URLPieces: Encodable {
         return url(fileExtension: fileExtension).removingPercentEncoding
     }
 
-    /// For Dash docset, the filesystem (unescaped) path with any fragment (presumably unescaped?)
+    /// For Dash docset, seems like this requires the filesystem path, ie. not encoded, and then
+    /// any hash fragment *with* %-encoding.  Dash 5 latest, 20th April 2020.
     public var dashFilepath: String {
-        "\(urlPath).html\(hashURL)"
+        "\(urlPath.removingPercentEncoding).html\(hashURL)"
     }
 
     /// Get a path from this item's page back up to the doc root - either empty string or ends in a slash

@@ -17,9 +17,13 @@ extension String {
     /// A simplified version of the string.  May still need %-encoding for URLs etc.
     /// ICU \w is [\p{Ll}\p{Lu}\p{Lt}\p{Lo}\p{Nd}], see how that goes.
     var slugged: String {
-        re_sub(#"[^\w\s]"#, with: "")
-            .re_sub(#"\s+"#, with: "-")
-            .lowercased()
+        let str = re_sub(#"[^\w\s\p{So}]"#, with: "")
+                     .re_sub(#"\s+"#, with: "-")
+                     .lowercased()
+        if str.isEmpty && !isEmpty {
+            return "e"
+        }
+        return str
     }
 }
 

@@ -1,4 +1,13 @@
 {
+  "types\/%F0%9F%90%BD.html?swift" : {
+    "abstract" : "A class to check character encodings and slugging",
+    "name" : "🐽"
+  },
+  "types\/%F0%9F%90%BD\/%F0%9F%90%97a%F0%9F%91%BB.html?swift" : {
+    "abstract" : "Method of name",
+    "name" : "🐗(a:👻:)",
+    "parent_name" : "🐽"
+  },
   "types\/layout.html?swift" : {
     "abstract" : "A class to demonstrate the separate-child style.",
     "name" : "Layout"
