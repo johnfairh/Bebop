@@ -17,13 +17,11 @@ fileprivate struct System {
     let config: Config
     let genPages: GenPages
     let gen: GenSite
-    let ds: GenDocset
 
     init(fakeMedia: Bool = false) {
         config = Config()
         genPages = GenPages(config: config)
         gen = GenSite(config: config)
-        ds = GenDocset(config: config)
         if fakeMedia {
             gen.media.fakeMediaLookup = true
         }
@@ -520,5 +518,13 @@ class TestGen: XCTestCase {
             XCTAssertTrue(xml.contains("<version>\(version)</version>"))
             XCTAssertTrue(xml.contains("<url>\(deploymentURLString)/docsets/SpmSwiftModule2.tgz</url>"))
         }
+    }
+
+    func testDocsetURL() throws {
+        let system = System()
+        try system.configure(cliOpts: ["--deployment-url=https://www.google.com/docs/", "--docset-module-name=Fred"])
+        let globalData = system.gen.buildGlobalData(genData: GenData())
+        XCTAssertEqual("https://www.google.com/docs/docsets/Fred.xml",
+                       (globalData[.docsetURL] as? String)?.removingPercentEncoding)
     }
 }

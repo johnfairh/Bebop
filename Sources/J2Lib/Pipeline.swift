@@ -55,19 +55,16 @@ public final class Pipeline: Configurable {
     public let merge: Merge
     /// Create sections and guides, sort topics
     public let group: Group
-    /// 
     /// Assign URLs and render autolinked html, markdown
     public let format: Format
     /// Flatten and consolidate docs
     public let genPages: GenPages
     /// Generate final site
     public let genSite: GenSite
-    /// Generate docset version of final site
-    public let genDocset: GenDocset
 
     /// User product config
     private let productsOpt = EnumListOpt<PipelineProduct>(l: "products")
-        .def([.docs, .stats_json, .undocumented_json])
+        .def([.docs, .docset, .stats_json, .undocumented_json])
 
     /// Product tracking
     private var productsToDo: Set<PipelineProduct> = []
@@ -103,7 +100,6 @@ public final class Pipeline: Configurable {
         format = Format(config: config)
         genPages = GenPages(config: config)
         genSite = GenSite(config: config)
-        genDocset = GenDocset(config: config)
         config.register(self)
     }
 
@@ -159,7 +155,7 @@ public final class Pipeline: Configurable {
             try genSite.generateSite(genData: genData, items: formattedItems)
             if testAndClearProduct(.docset) {
                 logDebug("Pipeline: generating docset")
-                try genDocset.generate(outputURL: genSite.outputURL, items: formattedItems)
+                try genSite.generateDocset(items: formattedItems)
             }
             stats.printReport()
         }

@@ -48,9 +48,12 @@ public struct GenSite: Configurable {
 
     let childItemStyleOpt = EnumOpt<ChildItemStyle>(l: "child-item-style").def(.nested)
     let nestedItemStyleOpt = EnumOpt<NestedItemStyle>(l: "nested-item-style").def(.start_closed)
+
+    let deploymentURLOpt = StringOpt(l: "deployment-url").help("SITEURL")
     let docsetFeedURLOpt = StringOpt(l: "docset-feed-url").help("XMLFEEDURL")
 
     let oldDashURLAlias: AliasOpt
+    let oldRootURLAlias: AliasOpt
     let oldHideCoverageOpt: AliasOpt
     let oldCustomHeadOpt: AliasOpt
     let oldDisableSearchOpt: AliasOpt
@@ -68,6 +71,7 @@ public struct GenSite: Configurable {
     let badge: GenBadge
     let brand: GenBrand
     let codeHost: GenCodeHost
+    let docset: GenDocset
 
     public init(config: Config) {
         themes = GenThemes(config: config)
@@ -77,11 +81,13 @@ public struct GenSite: Configurable {
         badge = GenBadge(config: config)
         brand = GenBrand(config: config)
         codeHost = GenCodeHost(config: config)
+        docset = GenDocset(config: config)
 
         oldHideCoverageOpt = AliasOpt(realOpt: hideCoverageOpt, l: "hide-documentation-coverage")
         oldCustomHeadOpt = AliasOpt(realOpt: customHeadOpt, l: "head")
         oldDisableSearchOpt = AliasOpt(realOpt: hideSearchOpt, l: "disable-search")
         oldDashURLAlias = AliasOpt(realOpt: docsetFeedURLOpt, l: "dash_url") // _ intentional ...
+        oldRootURLAlias = AliasOpt(realOpt: deploymentURLOpt, l: "root-url")
 
         published = config.published
 
@@ -91,6 +97,12 @@ public struct GenSite: Configurable {
     func checkOptions(publish: PublishStore) throws {
         publish.childItemStyle = childItemStyle
         publish.moduleVersion = moduleVersionOpt.value
+        if let deploymentURLString = deploymentURLOpt.value {
+            guard let deploymentURL = URL(string: deploymentURLString) else {
+                throw OptionsError("Can't make a URL out of \(deploymentURLString)")
+            }
+            publish.deploymentURL = deploymentURL
+        }
     }
 
     /// Final site generation.
@@ -162,6 +174,11 @@ public struct GenSite: Configurable {
         }
 
         return try JSON.encode(data: siteData)
+    }
+
+    /// Passthrough to generate the docset
+    public func generateDocset(items: [Item]) throws {
+        try docset.generate(outputURL: outputURL, deploymentURL: published.deploymentURL, items: items)
     }
 
     /// Factored out page generation.  Internal for tests.
@@ -274,7 +291,12 @@ public struct GenSite: Configurable {
             dict[.codehostBitBucket] = true
         }
 
-        dict.maybe(.docsetURL, docsetFeedURLOpt.value?.addingPercentEncoding(withAllowedCharacters: .alphanumerics))
+        // Put the docset feed at either (a) where they asked for it, or
+        //                               (b) figured out relative to deployment URL
+        let docsetFeedURL = docsetFeedURLOpt.value ??
+            (published.deploymentURL.flatMap { docset.feedURLFrom(deploymentURL: $0).absoluteString })
+
+        dict.maybe(.docsetURL, docsetFeedURL?.addingPercentEncoding(withAllowedCharacters: .alphanumerics))
 
         return dict
     }

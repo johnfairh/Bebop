@@ -15,10 +15,7 @@ public final class GenDocset: Configurable {
     let playgroundURLOpt = StringOpt(l: "docset-playground-url").help("PLAYGROUNDURL")
     let iconPathOpt = PathOpt(l: "docset-icon").help("ICONPATH")
     let icon2xPathOpt = PathOpt(l: "docset-icon-2x").help("ICONPATH")
-    let deploymentURLOpt = StringOpt(l: "deployment-url").help("SITEURL")
     let published: Published
-
-    let rootURLAlias: AliasOpt
 
     /// Module Name to use for the docset - defaults to one of the source modules
     var moduleName: String {
@@ -30,7 +27,6 @@ public final class GenDocset: Configurable {
 
     init(config: Config) {
         published = config.published
-        rootURLAlias = AliasOpt(realOpt: deploymentURLOpt, l: "root-url")
         config.register(self)
     }
 
@@ -52,7 +48,7 @@ public final class GenDocset: Configurable {
     static let DOCSET_TOP = "docsets"
     static let DOCSET_SUFFIX = ".docset"
 
-    func generate(outputURL: URL, items: [Item]) throws {
+    func generate(outputURL: URL, deploymentURL: URL?, items: [Item]) throws {
         let docsetName = moduleName + Self.DOCSET_SUFFIX
         logInfo(.localized(.msgDocsetProgress, docsetName))
 
@@ -62,11 +58,10 @@ public final class GenDocset: Configurable {
 
         try copyDocs(outputURL: outputURL, docsetDirURL: docsetDirURL)
         try copyIcons(docsetDirURL: docsetDirURL)
-        try createPList(docsetDirURL: docsetDirURL)
+        try createPList(docsetDirURL: docsetDirURL, deploymentURL: deploymentURL)
         try createIndex(docsetDirURL: docsetDirURL, items: items)
         createArchive(docsetTopURL: docsetTopURL, docsetName: docsetName)
-        if let deploymentURLString = deploymentURLOpt.value,
-            let deploymentURL = URL(string: deploymentURLString),
+        if let deploymentURL = deploymentURL,
             let version = published.moduleVersion {
             try createFeedXML(docsetTopURL: docsetTopURL, deploymentURL: deploymentURL, version: version)
         } else {
@@ -111,23 +106,25 @@ public final class GenDocset: Configurable {
     }
 
     /// Create the plist
-    func createPList(docsetDirURL: URL) throws {
+    func createPList(docsetDirURL: URL, deploymentURL: URL?) throws {
         logDebug("Docset: creating plist")
 
         let lcModuleName = moduleName.lowercased()
 
-        func itemXML(key: String, for opt: StringOpt) -> String {
-            guard let configured = opt.value else {
+        func itemXML(key: String, for value: String?) -> String {
+            guard let value = value else {
                 return ""
             }
             return """
                    <key>\(key)</key>
-                      <string>\(configured)</string>
+                      <string>\(value)</string>
                    """
         }
 
-        let playgroundKey = itemXML(key: "DashDocSetPlayURL", for: playgroundURLOpt)
-        let deploymentKey = itemXML(key: "DashDocSetFallbackURL", for: deploymentURLOpt)
+        let playgroundKey = itemXML(key: "DashDocSetPlayURL",
+                                    for: playgroundURLOpt.value)
+        let deploymentKey = itemXML(key: "DashDocSetFallbackURL",
+                                    for: deploymentURL?.absoluteString)
 
         let plist = """
                     <?xml version="1.0" encoding="UTF-8"?>
@@ -190,19 +187,26 @@ public final class GenDocset: Configurable {
     func createFeedXML(docsetTopURL: URL, deploymentURL: URL, version: String) throws {
         logDebug("Docset: creating feed XML")
 
-        let feedURL = deploymentURL
+        let tarFileURL = deploymentURL
             .appendingPathComponent("docsets")
             .appendingPathComponent("\(moduleName).tgz")
 
         let xml = """
                   <entry>
                     <version>\(version)</version>
-                    <url>\(feedURL.absoluteString)</url>
+                    <url>\(tarFileURL.absoluteString)</url>
                   </entry>
                   """
 
         let xmlFileURL = docsetTopURL.appendingPathComponent("\(moduleName).xml")
         try xml.write(to: xmlFileURL)
+    }
+
+    /// Where the feed XML file will be given a docs deployment URL
+    func feedURLFrom(deploymentURL: URL) -> URL {
+        deploymentURL
+            .appendingPathComponent("docsets")
+            .appendingPathComponent("\(moduleName).xml")
     }
 }
 
