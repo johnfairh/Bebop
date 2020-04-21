@@ -2193,7 +2193,7 @@
           "module_name" : "SpmSwiftModule",
           "pass_index" : 0
         },
-        "name" : "+(_:_:)",
+        "name" : "+(ABaseClass, ABaseClass)",
         "swift_declaration" : {
           "availability" : [],
           "declaration" : {
@@ -2225,7 +2225,7 @@
             }
           ]
         },
-        "swift_name" : "+(_:_:)",
+        "swift_name" : "+(ABaseClass, ABaseClass)",
         "usr" : "s:14SpmSwiftModule10ABaseClassC1poiyA2C_ACtFZ"
       }
     ],
@@ -2326,7 +2326,7 @@
       "module_name" : "SpmSwiftModule",
       "pass_index" : 0
     },
-    "name" : "+(_:_:)",
+    "name" : "+(T, T)",
     "swift_declaration" : {
       "availability" : [],
       "declaration" : {
@@ -2358,7 +2358,7 @@
         }
       ]
     },
-    "swift_name" : "+(_:_:)",
+    "swift_name" : "+(T, T)",
     "usr" : "s:14SpmSwiftModule1poiySSAA1TV_ADtF"
   },
   {

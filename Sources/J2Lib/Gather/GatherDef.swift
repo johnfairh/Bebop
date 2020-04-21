@@ -88,6 +88,8 @@ public final class GatherDef {
             self.localizationKey = nil
         }
 
+        dict.improve(kind: kind)
+
         if kind.isSwift {
             self.swiftDeclaration =
                 SwiftDeclarationBuilder(dict: dict,
@@ -97,15 +99,6 @@ public final class GatherDef {
                                         availabilityRules: availability).build()
             self.objCDeclaration = nil
         } else {
-            // Work around missing declarations for categories
-            if kind.isObjCCategory,
-                dict.swiftDeclaration == nil,
-                let name = dict.name,
-                let brokenName = ObjCCategoryName(name) {
-                dict[SwiftDocKey.swiftDeclaration.rawValue] = "extension \(brokenName.className)"
-                dict[SwiftDocKey.swiftName.rawValue] = brokenName.className
-            }
-
             self.swiftDeclaration =
                 ObjCSwiftDeclarationBuilder(objCDict: dict,
                                             kind: kind,
@@ -209,5 +202,29 @@ extension DefKind {
             return ObjCDeclarationKind2.propertyClass
         }
         return nil
+    }
+}
+
+extension SourceKittenDict {
+    /// Cosmetic patchups of various dict fields
+    mutating func improve(kind: DefKind) {
+        // Sub type names into operators to stop them all looking like `+(_:_:)`
+        if kind.isSwiftOperator,
+            let annotatedDecl = self.annotatedDecl,
+            let baseName = self.name,
+            case let typeNames = annotatedDecl.re_matches(#"<Type.*?>(.*?)(?=</Type)"#).map({ $0[1] }),
+            typeNames.count > 1 {
+            let newArgs = typeNames.dropLast().joined(separator: ", ")
+            self[.name] = baseName.re_sub("(_:)+", with: newArgs)
+        }
+
+        // Patch up ObjC categories in Swift
+        else if kind.isObjCCategory,
+            swiftDeclaration == nil,
+            let name = name,
+            let brokenName = ObjCCategoryName(name) {
+            self[.swiftDeclaration] = "extension \(brokenName.className)"
+            self[.swiftName] = brokenName.className
+        }
     }
 }

@@ -182,12 +182,21 @@ public final class DefKind: CustomStringConvertible {
     public var hasSwiftFunctionName: Bool {
         testSwiftKey(keys: [
             .functionFree,
-            .functionOperator,
             .functionMethodClass,
             .functionMethodStatic,
             .functionMethodInstance,
             .functionConstructor
-        ]) || isSwiftSubscript
+        ]) || isSwiftSubscript || isSwiftOperator
+    }
+
+    /// Is it a Swift operator?
+    public var isSwiftOperator: Bool {
+        testSwiftKey(keys: [
+            .functionOperator,
+            .functionOperatorPostfix,
+            .functionOperatorPrefix,
+            .functionOperatorInfix
+        ])
     }
 
     /// EnumCase is the useless wrapper, we usually want the enumelement[s] within

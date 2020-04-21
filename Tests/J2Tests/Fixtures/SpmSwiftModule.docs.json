@@ -149,8 +149,8 @@
             "children" : [
               {
                 "same_page" : false,
-                "title" : "+(_:_:)",
-                "url" : "operators.html?swift#__1"
+                "title" : "+(T, T)",
+                "url" : "operators.html?swift#t-t"
               }
             ],
             "same_page" : false,
@@ -494,8 +494,8 @@
             "children" : [
               {
                 "same_page" : false,
-                "title" : "+(_:_:)",
-                "url" : "operators.html?swift#__1"
+                "title" : "+(T, T)",
+                "url" : "operators.html?swift#t-t"
               }
             ],
             "same_page" : false,
@@ -604,7 +604,7 @@
         "dash_name" : "Operators",
         "items" : [
           {
-            "anchor_id" : "__",
+            "anchor_id" : "abaseclass-abaseclass",
             "any_declaration" : true,
             "dash_name" : "static%20func%20+(lhs%3A%20ABaseClass,%20rhs%3A%20ABaseClass)%20-%3E%20ABaseClass",
             "dash_type" : "Function",
@@ -916,8 +916,8 @@
             "children" : [
               {
                 "same_page" : false,
-                "title" : "+(_:_:)",
-                "url" : "operators.html?swift#__1"
+                "title" : "+(T, T)",
+                "url" : "operators.html?swift#t-t"
               }
             ],
             "same_page" : false,
@@ -1188,8 +1188,8 @@
             "children" : [
               {
                 "same_page" : false,
-                "title" : "+(_:_:)",
-                "url" : "operators.html?swift#__1"
+                "title" : "+(T, T)",
+                "url" : "operators.html?swift#t-t"
               }
             ],
             "same_page" : false,
@@ -1474,8 +1474,8 @@
             "children" : [
               {
                 "same_page" : false,
-                "title" : "+(_:_:)",
-                "url" : "operators.html?swift#__1"
+                "title" : "+(T, T)",
+                "url" : "operators.html?swift#t-t"
               }
             ],
             "same_page" : false,
@@ -1836,8 +1836,8 @@
             "children" : [
               {
                 "same_page" : false,
-                "title" : "+(_:_:)",
-                "url" : "operators.html?swift#__1"
+                "title" : "+(T, T)",
+                "url" : "operators.html?swift#t-t"
               }
             ],
             "same_page" : false,
@@ -2234,8 +2234,8 @@
             "children" : [
               {
                 "same_page" : false,
-                "title" : "+(_:_:)",
-                "url" : "operators.html?swift#__1"
+                "title" : "+(T, T)",
+                "url" : "operators.html?swift#t-t"
               }
             ],
             "same_page" : false,
@@ -2493,8 +2493,8 @@
             "children" : [
               {
                 "same_page" : false,
-                "title" : "+(_:_:)",
-                "url" : "operators.html?swift#__1"
+                "title" : "+(T, T)",
+                "url" : "operators.html?swift#t-t"
               }
             ],
             "same_page" : false,
@@ -2727,8 +2727,8 @@
             "children" : [
               {
                 "same_page" : false,
-                "title" : "+(_:_:)",
-                "url" : "operators.html?swift#__1"
+                "title" : "+(T, T)",
+                "url" : "operators.html?swift#t-t"
               }
             ],
             "same_page" : false,
@@ -2987,8 +2987,8 @@
             "children" : [
               {
                 "same_page" : false,
-                "title" : "+(_:_:)",
-                "url" : "operators.html?swift#__1"
+                "title" : "+(T, T)",
+                "url" : "operators.html?swift#t-t"
               }
             ],
             "same_page" : false,
@@ -3290,8 +3290,8 @@
             "children" : [
               {
                 "same_page" : false,
-                "title" : "+(_:_:)",
-                "url" : "operators.html?swift#__1"
+                "title" : "+(T, T)",
+                "url" : "operators.html?swift#t-t"
               }
             ],
             "same_page" : false,
@@ -3531,8 +3531,8 @@
             "children" : [
               {
                 "same_page" : false,
-                "title" : "+(_:_:)",
-                "url" : "operators.html?swift#__1"
+                "title" : "+(T, T)",
+                "url" : "operators.html?swift#t-t"
               }
             ],
             "same_page" : false,
@@ -3782,8 +3782,8 @@
             "children" : [
               {
                 "same_page" : true,
-                "title" : "+(_:_:)",
-                "url" : "#__1"
+                "title" : "+(T, T)",
+                "url" : "#t-t"
               }
             ],
             "same_page" : true,
@@ -3816,7 +3816,7 @@
         "dash_name" : "",
         "items" : [
           {
-            "anchor_id" : "__1",
+            "anchor_id" : "t-t",
             "any_declaration" : true,
             "dash_name" : "static%20func%20+(lhs%3A%20T,%20rhs%3A%20T)%20-%3E%20String",
             "dash_type" : "Function",
@@ -3995,8 +3995,8 @@
             "children" : [
               {
                 "same_page" : false,
-                "title" : "+(_:_:)",
-                "url" : "operators.html?swift#__1"
+                "title" : "+(T, T)",
+                "url" : "operators.html?swift#t-t"
               }
             ],
             "same_page" : false,
@@ -4227,8 +4227,8 @@
             "children" : [
               {
                 "same_page" : false,
-                "title" : "+(_:_:)",
-                "url" : "operators.html?swift#__1"
+                "title" : "+(T, T)",
+                "url" : "operators.html?swift#t-t"
               }
             ],
             "same_page" : false,
@@ -4478,8 +4478,8 @@
             "children" : [
               {
                 "same_page" : false,
-                "title" : "+(_:_:)",
-                "url" : "operators.html?swift#__1"
+                "title" : "+(T, T)",
+                "url" : "operators.html?swift#t-t"
               }
             ],
             "same_page" : false,
@@ -4709,8 +4709,8 @@
             "children" : [
               {
                 "same_page" : false,
-                "title" : "+(_:_:)",
-                "url" : "operators.html?swift#__1"
+                "title" : "+(T, T)",
+                "url" : "operators.html?swift#t-t"
               }
             ],
             "same_page" : false,

@@ -511,7 +511,7 @@
           "anchor_id" : "tpc-operators",
           "items" : [
             {
-              "anchor_id" : "__",
+              "anchor_id" : "abaseclass-abaseclass",
               "dash_type" : "Function",
               "def" : {
                 "abstract" : {
@@ -2860,7 +2860,7 @@
           "anchor_id" : "tpc-",
           "items" : [
             {
-              "anchor_id" : "__1",
+              "anchor_id" : "t-t",
               "dash_type" : "Function",
               "def" : {
                 "abstract" : {
@@ -3491,10 +3491,10 @@
           {
             "children" : [],
             "title" : {
-              "en" : "+(_:_:)"
+              "en" : "+(T, T)"
             },
             "url" : {
-              "url_hash" : "__1",
+              "url_hash" : "t-t",
               "url_path" : "operators"
             }
           }

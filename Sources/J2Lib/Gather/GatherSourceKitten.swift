@@ -13,6 +13,7 @@ public typealias SourceKittenDict = [String: Any]
 // MARK: Missing Doc Keys and Kinds
 
 enum SwiftDocKey2: String {
+    case annotatedDecl = "key.annotated_decl"
     case fullyAnnotatedDecl = "key.fully_annotated_decl"
     case attributes = "key.attributes"
     case moduleName = "key.modulename"
@@ -64,6 +65,10 @@ extension SourceKittenDict {
 
     var documentationComment: String? {
         self[.documentationComment] as? String
+    }
+
+    var annotatedDecl: String? {
+        self[.annotatedDecl] as? String
     }
 
     var fullyAnnotatedDecl: String? {
