@@ -64,7 +64,7 @@
                 },
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "@objc\npublic class ExposedSwiftClass : NSObject"
+                  "html" : "public class ExposedSwiftClass : NSObject"
                 }
               },
               "flat_title" : {
@@ -97,7 +97,7 @@
                 },
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "@objc(RenamedForObjC)\npublic class RenamedExposedSwiftClass : NSObject"
+                  "html" : "public class RenamedExposedSwiftClass : NSObject"
                 }
               },
               "flat_title" : {
@@ -305,7 +305,7 @@
         },
         "params" : [],
         "swift_declaration" : {
-          "html" : "@objc\npublic class ExposedSwiftClass : NSObject"
+          "html" : "public class ExposedSwiftClass : NSObject"
         }
       },
       "is_guide" : false,
@@ -362,7 +362,7 @@
                 },
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "@objc\npublic func exposedMethod(a: Int, b: String?) -&gt; String"
+                  "html" : "public func exposedMethod(a: Int, b: String?) -&gt; String"
                 }
               },
               "flat_title" : {
@@ -392,7 +392,7 @@
                 },
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "@objc\npublic var exposedProperty: Int"
+                  "html" : "public var exposedProperty: Int"
                 }
               },
               "flat_title" : {
@@ -422,7 +422,7 @@
                 },
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "@objc\npublic override init()"
+                  "html" : "public override init()"
                 }
               },
               "flat_title" : {
@@ -452,7 +452,7 @@
                 },
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "@objc\npublic init(value: Int)"
+                  "html" : "public init(value: Int)"
                 }
               },
               "flat_title" : {
@@ -527,7 +527,7 @@
         },
         "params" : [],
         "swift_declaration" : {
-          "html" : "@objc(RenamedForObjC)\npublic class RenamedExposedSwiftClass : NSObject"
+          "html" : "public class RenamedExposedSwiftClass : NSObject"
         }
       },
       "is_guide" : false,
@@ -584,7 +584,7 @@
                 },
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "@objc(property)\npublic var theProperty: Int"
+                  "html" : "public var theProperty: Int"
                 }
               },
               "flat_title" : {
@@ -614,7 +614,7 @@
                 },
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "@objc(action:param:)\npublic func doAction(a: Int, parm: Int)"
+                  "html" : "public func doAction(a: Int, parm: Int)"
                 }
               },
               "flat_title" : {

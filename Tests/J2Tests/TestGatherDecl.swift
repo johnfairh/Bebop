@@ -14,7 +14,7 @@ import SourceKittenFramework
 
 extension SwiftDeclarationBuilder {
     convenience init(dict: SourceKittenDict, nameComponents: [String] = [], file: File? = nil, kind: DefKind? = nil) {
-        self.init(dict: dict, nameComponents: nameComponents, file: file, kind: kind, availabilityRules: Gather.Availability())
+        self.init(dict: dict, nameComponents: nameComponents, file: file, kind: kind, stripObjC: false, availabilityRules: Gather.Availability())
     }
 }
 
@@ -162,7 +162,7 @@ class TestGatherDecl: XCTestCase {
         let dict: SourceKittenDict = [
             "key.attributes": attrDicts,
             "key.fully_annotated_decl": "<outer>func fred()</outer>"]
-        let builder = SwiftDeclarationBuilder(dict: dict, nameComponents: [], file: file, kind: nil, availabilityRules: availabilityRules)
+        let builder = SwiftDeclarationBuilder(dict: dict, nameComponents: [], file: file, kind: nil, stripObjC: false, availabilityRules: availabilityRules)
         guard let built = builder.build() else {
             XCTFail("Couldn't build decl-info", line: line)
             return

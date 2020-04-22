@@ -91,14 +91,16 @@ public final class GatherDef {
         dict.improve(kind: kind)
 
         if kind.isSwift {
+            self.objCDeclaration =
+                SwiftObjCDeclarationBuilder(dict: &dict, kind: kind)?.build()
+
             self.swiftDeclaration =
                 SwiftDeclarationBuilder(dict: dict,
                                         nameComponents: nameComponents,
                                         file: file,
                                         kind: kind,
+                                        stripObjC: self.objCDeclaration != nil,
                                         availabilityRules: availability).build()
-            self.objCDeclaration =
-                SwiftObjCDeclarationBuilder(dict: &dict, kind: kind)?.build()
         } else {
             self.swiftDeclaration =
                 ObjCSwiftDeclarationBuilder(objCDict: dict,

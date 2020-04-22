@@ -56,6 +56,7 @@ class SwiftDeclarationBuilder {
     let nameComponents: [String]
     let file: File?
     let kind: DefKind?
+    let stripObjC: Bool
     let availabilityRules: Gather.Availability
 
     var compilerDecl: String?
@@ -68,11 +69,13 @@ class SwiftDeclarationBuilder {
          nameComponents: [String],
          file: File?,
          kind: DefKind?,
+         stripObjC: Bool,
          availabilityRules: Gather.Availability) {
         self.dict = dict
         self.nameComponents = nameComponents
         self.file = file
         self.kind = kind
+        self.stripObjC = stripObjC
         self.availabilityRules = availabilityRules
     }
 
@@ -223,6 +226,11 @@ class SwiftDeclarationBuilder {
                 return nil
             }
 
+            // We drop @objc if we've generated the ObjC version of the declaration
+            if stripObjC && text.hasPrefix("@objc") {
+                return nil
+            }
+
             return text
         }
     }
@@ -298,6 +306,11 @@ final class ObjCSwiftDeclarationBuilder : SwiftDeclarationBuilder {
                 swiftKind = DefKind.from(kind: SwiftDeclarationKind.struct)
             }
         }
-        super.init(dict: swiftDict, nameComponents: [], file: nil, kind: swiftKind, availabilityRules: availability)
+        super.init(dict: swiftDict,
+                   nameComponents: [],
+                   file: nil,
+                   kind: swiftKind,
+                   stripObjC: false,
+                   availabilityRules: availability)
     }
 }
