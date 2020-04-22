@@ -28,15 +28,15 @@
       "is_guide" : false,
       "pagination" : {
         "next" : {
-          "primary_language" : "objc",
+          "primary_language" : "swift",
           "primary_title" : {
-            "en" : "NormalClass"
+            "en" : "ExposedSwiftClass"
           },
           "secondary_title" : {
-            "en" : "NormalClass"
+            "en" : "ExposedSwiftClass"
           },
           "url" : {
-            "url_path" : "spmobjcmodule\/types\/normalclass1"
+            "url_path" : "spmswiftmodule4\/types\/exposedswiftclass"
           }
         }
       },
@@ -49,6 +49,58 @@
         {
           "anchor_id" : "tpc-",
           "items" : [
+            {
+              "anchor_id" : "exposedswiftclass",
+              "dash_type" : "Class",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented<\/p>"
+                  }
+                },
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "@objc\nclass ExposedSwiftClass : NSObject"
+                }
+              },
+              "flat_title" : {
+                "en" : "class ExposedSwiftClass"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">class <\/span>ExposedSwiftClass"
+              },
+              "url" : {
+                "url_path" : "spmswiftmodule4\/types\/exposedswiftclass"
+              }
+            },
+            {
+              "anchor_id" : "renamedexposedswiftclass",
+              "dash_type" : "Class",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented<\/p>"
+                  }
+                },
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "@objc(RenamedForObjC)\nclass RenamedExposedSwiftClass : NSObject"
+                }
+              },
+              "flat_title" : {
+                "en" : "class RenamedExposedSwiftClass"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">class <\/span>RenamedExposedSwiftClass"
+              },
+              "url" : {
+                "url_path" : "spmswiftmodule4\/types\/renamedexposedswiftclass"
+              }
+            },
             {
               "anchor_id" : "normalclass1",
               "dash_type" : "Class",
@@ -207,6 +259,359 @@
           },
           {
             "title" : {
+              "en" : "SpmSwiftModule4.ExposedSwiftClass"
+            }
+          }
+        ],
+        [
+          {
+            "title" : {
+              "en" : "Types"
+            },
+            "url" : {
+              "url_path" : "types"
+            }
+          },
+          {
+            "title" : {
+              "en" : "SpmSwiftModule4.ExposedSwiftClass"
+            }
+          }
+        ]
+      ],
+      "def" : {
+        "abstract" : {
+          "en" : {
+            "html" : "<p>Undocumented<\/p>"
+          }
+        },
+        "availability" : [],
+        "params" : [],
+        "swift_declaration" : {
+          "html" : "@objc\nclass ExposedSwiftClass : NSObject"
+        }
+      },
+      "is_guide" : false,
+      "pagination" : {
+        "next" : {
+          "primary_language" : "swift",
+          "primary_title" : {
+            "en" : "RenamedExposedSwiftClass"
+          },
+          "secondary_title" : {
+            "en" : "RenamedExposedSwiftClass"
+          },
+          "url" : {
+            "url_path" : "spmswiftmodule4\/types\/renamedexposedswiftclass"
+          }
+        },
+        "prev" : {
+          "primary_language" : "swift",
+          "primary_title" : {
+            "en" : "Types"
+          },
+          "secondary_title" : {
+            "en" : "Types"
+          },
+          "url" : {
+            "url_path" : "types"
+          }
+        }
+      },
+      "primary_language" : "swift",
+      "primary_title" : {
+        "en" : "ExposedSwiftClass"
+      },
+      "tab_title_prefix" : true,
+      "topics" : [
+        {
+          "anchor_id" : "tpc-",
+          "items" : [
+            {
+              "anchor_id" : "exposedmethodab",
+              "dash_type" : "Method",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented<\/p>"
+                  }
+                },
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "@objc\nfunc exposedMethod(a: Int, b: String?) -&gt; String"
+                }
+              },
+              "flat_title" : {
+                "en" : "func exposedMethod(a: Int, b: String?) -> String"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>exposedMethod<span class=\"j2-item-secondary\">(<\/span>a<span class=\"j2-item-secondary\">: Int, <\/span>b<span class=\"j2-item-secondary\">: String?) -&gt; String<\/span>"
+              }
+            },
+            {
+              "anchor_id" : "exposedproperty",
+              "dash_type" : "Property",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented<\/p>"
+                  }
+                },
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "@objc\nvar exposedProperty: Int"
+                }
+              },
+              "flat_title" : {
+                "en" : "var exposedProperty: Int"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">var <\/span>exposedProperty<span class=\"j2-item-secondary\">: Int<\/span>"
+              }
+            },
+            {
+              "anchor_id" : "init",
+              "dash_type" : "Constructor",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented<\/p>"
+                  }
+                },
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "@objc\noverride init()"
+                }
+              },
+              "flat_title" : {
+                "en" : "init()"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "init<span class=\"j2-item-secondary\">()<\/span>"
+              }
+            },
+            {
+              "anchor_id" : "initvalue",
+              "dash_type" : "Constructor",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented<\/p>"
+                  }
+                },
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "@objc\ninit(value: Int)"
+                }
+              },
+              "flat_title" : {
+                "en" : "init(value: Int)"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "init<span class=\"j2-item-secondary\">(<\/span>value<span class=\"j2-item-secondary\">: Int)<\/span>"
+              }
+            }
+          ],
+          "menu_title" : {
+            "en" : ""
+          },
+          "title" : {
+            "en" : {
+              "html" : ""
+            }
+          }
+        }
+      ],
+      "url" : {
+        "url_path" : "spmswiftmodule4\/types\/exposedswiftclass"
+      }
+    },
+    {
+      "breadcrumbs" : [
+        [
+          {
+            "title" : {
+              "en" : "Types"
+            },
+            "url" : {
+              "url_path" : "types"
+            }
+          },
+          {
+            "title" : {
+              "en" : "SpmSwiftModule4.RenamedExposedSwiftClass"
+            }
+          }
+        ],
+        [
+          {
+            "title" : {
+              "en" : "Types"
+            },
+            "url" : {
+              "url_path" : "types"
+            }
+          },
+          {
+            "title" : {
+              "en" : "SpmSwiftModule4.RenamedExposedSwiftClass"
+            }
+          }
+        ]
+      ],
+      "def" : {
+        "abstract" : {
+          "en" : {
+            "html" : "<p>Undocumented<\/p>"
+          }
+        },
+        "availability" : [],
+        "params" : [],
+        "swift_declaration" : {
+          "html" : "@objc(RenamedForObjC)\nclass RenamedExposedSwiftClass : NSObject"
+        }
+      },
+      "is_guide" : false,
+      "pagination" : {
+        "next" : {
+          "primary_language" : "objc",
+          "primary_title" : {
+            "en" : "NormalClass"
+          },
+          "secondary_title" : {
+            "en" : "NormalClass"
+          },
+          "url" : {
+            "url_path" : "spmobjcmodule\/types\/normalclass1"
+          }
+        },
+        "prev" : {
+          "primary_language" : "swift",
+          "primary_title" : {
+            "en" : "ExposedSwiftClass"
+          },
+          "secondary_title" : {
+            "en" : "ExposedSwiftClass"
+          },
+          "url" : {
+            "url_path" : "spmswiftmodule4\/types\/exposedswiftclass"
+          }
+        }
+      },
+      "primary_language" : "swift",
+      "primary_title" : {
+        "en" : "RenamedExposedSwiftClass"
+      },
+      "tab_title_prefix" : true,
+      "topics" : [
+        {
+          "anchor_id" : "tpc-",
+          "items" : [
+            {
+              "anchor_id" : "theproperty",
+              "dash_type" : "Property",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented<\/p>"
+                  }
+                },
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "@objc(property)\nvar theProperty: Int"
+                }
+              },
+              "flat_title" : {
+                "en" : "var theProperty: Int"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">var <\/span>theProperty<span class=\"j2-item-secondary\">: Int<\/span>"
+              }
+            },
+            {
+              "anchor_id" : "doactionaparm",
+              "dash_type" : "Method",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented<\/p>"
+                  }
+                },
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "@objc(action:param:)\nfunc doAction(a: Int, parm: Int)"
+                }
+              },
+              "flat_title" : {
+                "en" : "func doAction(a: Int, parm: Int)"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>doAction<span class=\"j2-item-secondary\">(<\/span>a<span class=\"j2-item-secondary\">: Int, <\/span>parm<span class=\"j2-item-secondary\">: Int)<\/span>"
+              }
+            },
+            {
+              "anchor_id" : "init1",
+              "dash_type" : "Constructor",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented<\/p>"
+                  }
+                },
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "override init()"
+                }
+              },
+              "flat_title" : {
+                "en" : "init()"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "init<span class=\"j2-item-secondary\">()<\/span>"
+              }
+            }
+          ],
+          "menu_title" : {
+            "en" : ""
+          },
+          "title" : {
+            "en" : {
+              "html" : ""
+            }
+          }
+        }
+      ],
+      "url" : {
+        "url_path" : "spmswiftmodule4\/types\/renamedexposedswiftclass"
+      }
+    },
+    {
+      "breadcrumbs" : [
+        [
+          {
+            "title" : {
+              "en" : "Types"
+            },
+            "url" : {
+              "url_path" : "types"
+            }
+          },
+          {
+            "title" : {
               "en" : "SpmObjCModule.NormalClass"
             }
           }
@@ -264,13 +669,13 @@
         "prev" : {
           "primary_language" : "swift",
           "primary_title" : {
-            "en" : "Types"
+            "en" : "RenamedExposedSwiftClass"
           },
           "secondary_title" : {
-            "en" : "Types"
+            "en" : "RenamedExposedSwiftClass"
           },
           "url" : {
-            "url_path" : "types"
+            "url_path" : "spmswiftmodule4\/types\/renamedexposedswiftclass"
           }
         }
       },
@@ -980,6 +1385,15 @@
           {
             "children" : [],
             "title" : {
+              "en" : "ExposedSwiftClass"
+            },
+            "url" : {
+              "url_path" : "spmswiftmodule4\/types\/exposedswiftclass"
+            }
+          },
+          {
+            "children" : [],
+            "title" : {
               "en" : "Kitchen"
             },
             "url" : {
@@ -993,6 +1407,15 @@
             },
             "url" : {
               "url_path" : "spmobjcmodule\/types\/normalclass1"
+            }
+          },
+          {
+            "children" : [],
+            "title" : {
+              "en" : "RenamedExposedSwiftClass"
+            },
+            "url" : {
+              "url_path" : "spmswiftmodule4\/types\/renamedexposedswiftclass"
             }
           }
         ],

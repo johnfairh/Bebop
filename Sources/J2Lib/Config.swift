@@ -219,7 +219,7 @@ public final class Config {
             Logger.shared.activeLevels = Logger.verboseLevels
 
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "HH:mm:SS"
+            dateFormatter.dateFormat = "HH:mm:ss"
             Logger.shared.messagePrefix = { level in
                 let timestamp = dateFormatter.string(from: Date())
                 let levelStr: String

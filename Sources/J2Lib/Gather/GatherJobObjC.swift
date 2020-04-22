@@ -32,20 +32,15 @@ extension GatherJob {
             clangArgs.forEach { logDebug("  \($0)") }
             let translationUnit = ClangTranslationUnit(headerFiles: [headerFile.path], compilerArguments: clangArgs)
             logDebug(" Found \(translationUnit.declarations.count) top-level declarations.")
-            let dicts = try JSON.decode(translationUnit.description, [[String: Any]].self)
-            let filesInfo = try dicts.compactMap { dict -> (String, GatherDef)? in
-                guard let dictEntry = dict.first,
-                    dict.count == 1,
-                    let fileDict = dictEntry.value as? SourceKittenDict else {
-                        throw GatherError(.localized(.errObjcSourcekitten, dict))
-                }
-                guard let def = GatherDef(sourceKittenDict: fileDict,
+
+            let filesInfo = try translationUnit.asFiles().compactMap { file -> (String, GatherDef)? in
+                guard let def = GatherDef(sourceKittenDict: file.dict,
                                           parentNameComponents: [],
                                           file: nil,
                                           availability: availability) else {
-                                            return nil
+                     return nil
                 }
-                return (dictEntry.key, def)
+                return (file.path, def)
             }
             return GatherModulePass(moduleName: moduleName, passIndex: 0, imported: false, files: filesInfo)
         }
@@ -101,3 +96,27 @@ extension GatherJob {
     typealias ObjCDirect = Int
     #endif
 }
+
+#if os(macOS)
+
+/// Pull out re-undecoding of the Clang JSON...
+extension ClangTranslationUnit {
+    struct File {
+        let path: String
+        let dict: SourceKittenDict
+    }
+
+    func asFiles() throws -> [File] {
+        let dicts = try JSON.decode(description, [[String: Any]].self)
+        return try dicts.map { dict in
+            guard let dictEntry = dict.first,
+                dict.count == 1,
+                let fileDict = dictEntry.value as? SourceKittenDict else {
+                throw GatherError(.localized(.errObjcSourcekitten, dict))
+            }
+            return File(path: dictEntry.key, dict: fileDict)
+        }
+    }
+}
+
+#endif
