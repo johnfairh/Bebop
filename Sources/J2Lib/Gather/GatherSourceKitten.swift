@@ -20,6 +20,7 @@ enum SwiftDocKey2: String {
     case accessibility = "key.accessibility"
     case overrides = "key.overrides"
     case inheritedDocs = "key.inherited_docs"
+    case objcName = "key.objc_name"
 }
 
 enum SwiftDeclarationKind2: String {
@@ -153,6 +154,14 @@ extension SourceKittenDict {
 
     var inheritedDocs: Bool? {
         self[.inheritedDocs] as? Bool
+    }
+
+    var substructure: [SourceKittenDict]? {
+        self[.substructure] as? [SourceKittenDict]
+    }
+
+    var objcName: String? {
+        self[.objcName] as? String
     }
 
     mutating func removeSubstructure() -> [SourceKittenDict] {

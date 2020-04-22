@@ -26,6 +26,7 @@
   "gatherLocalizationFailure" : 7,
   "gatherLocalizationKey" : 0,
   "gatherLocalizationSuccess" : 0,
+  "gatherSwiftToObjC" : 0,
   "groupCustomDecoded" : 0,
   "groupCustomDefDecoded" : 0,
   "groupExcludedGuidesByKind" : 0,

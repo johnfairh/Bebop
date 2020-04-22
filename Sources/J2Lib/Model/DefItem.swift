@@ -98,7 +98,14 @@ public class DefItem: Item, CustomStringConvertible {
         } else {
             self.swiftDeclaration = gatherDef.swiftDeclaration
             acl = DefAcl(name: name, dict: gatherDef.sourceKittenDict)
-            otherLanguageName = nil // todo swift->objc
+            // police entire ObjC personality - name + decl
+            if let objcDecl = gatherDef.objCDeclaration,
+                let objcName = gatherDef.sourceKittenDict.objcName {
+                otherLanguageName = objcName
+                self.objCDeclaration = objcDecl
+            } else {
+                otherLanguageName = nil
+            }
         }
 
         let deprecations = [objCDeclaration?.deprecation,
@@ -164,7 +171,7 @@ public class DefItem: Item, CustomStringConvertible {
 
     /// Name of the def in ObjC, or `nil` if unavailable
     public var objCName: String? {
-        defKind.isObjC ? name : nil
+        defKind.isObjC ? name : otherLanguageName
     }
 
     public func name(for language: DefLanguage) -> String {

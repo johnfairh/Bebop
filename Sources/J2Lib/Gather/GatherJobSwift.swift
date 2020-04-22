@@ -71,7 +71,6 @@ extension GatherJob {
 
             logDebug(" Calling sourcekitten docs generation")
             let filesInfo = try module!.docs.compactMap { swiftDoc -> (String, GatherDef)? in
-                logDebug(" Interpreting sourcekitten docs")
                 guard let def = GatherDef(sourceKittenDict: swiftDoc.docsDictionary,
                                           file: swiftDoc.file,
                                           availability: availability) else {

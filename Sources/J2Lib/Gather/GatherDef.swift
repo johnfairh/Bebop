@@ -17,13 +17,13 @@ public final class GatherDef {
     /// Child definitions, constructed from the SourceKitten substructure
     public let children: [GatherDef]
     /// SourceKitten hash _except_ the substructure key
-    public let sourceKittenDict: SourceKittenDict
+    public private(set) var sourceKittenDict: SourceKittenDict
     /// Definition type according to sourcekitten hash - `nil` means missing kind.
     public let kind: DefKind?
     /// Multi-faceted Swift declaration info
     public let swiftDeclaration: SwiftDeclaration?
     /// Multi-faceted ObjC declaration info
-    public let objCDeclaration: ObjCDeclaration?
+    public private(set) var objCDeclaration: ObjCDeclaration?
     /// Documentation - raw from source, superseded by `translatedDocs` after garnish
     public let documentation: FlatDefDocs?
     public let localizationKey: String?
@@ -97,6 +97,7 @@ public final class GatherDef {
                                         file: file,
                                         kind: kind,
                                         availabilityRules: availability).build()
+            // This happens later because we need parent chain to be completely built
             self.objCDeclaration = nil
         } else {
             self.swiftDeclaration =
@@ -131,7 +132,20 @@ public final class GatherDef {
     }
 
     // Things calculated after init
+
+    /// Localized doc comments
     public internal(set) var translatedDocs = LocalizedDefDocs()
+
+    /// Update the ObjC declaration
+    func updateObjCDeclaration(info: GatherSwiftToObjC.Info) {
+        precondition(objCDeclaration == nil)
+        precondition(kind != nil)
+        objCDeclaration =
+            SwiftObjCDeclarationBuilder(name: info.name,
+                                        declaration: info.declaration,
+                                        swiftKind: kind!).build()
+        sourceKittenDict[.objcName] = info.name
+    }
 
     /// Piecemeal initializer for json-import and test
     init(children: [GatherDef],

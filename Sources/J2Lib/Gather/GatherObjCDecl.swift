@@ -190,3 +190,18 @@ private extension String {
         return prefix
     }
 }
+
+/// An adapter to build ObjC declaration info from the pieces we may have got from a Swift build
+final class SwiftObjCDeclarationBuilder : ObjCDeclarationBuilder {
+    /// Take an ObjC name, an ObjC declaration from a Swift decl and build the ObjC info
+    init(name: String, declaration: String, swiftKind: DefKind) {
+        var dict = SourceKittenDict()
+        dict[.parsedDeclaration] = declaration
+        dict[.name] = name
+
+        precondition(swiftKind.isSwift)
+        let objcKind = swiftKind.otherLanguageKind
+        precondition(objcKind != nil)
+        super.init(dict: dict, kind: objcKind!)
+    }
+}

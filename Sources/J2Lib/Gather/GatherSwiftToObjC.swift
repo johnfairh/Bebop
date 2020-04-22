@@ -25,25 +25,6 @@ final class GatherSwiftToObjC: GatherDefVisitor {
 
     private var usrToInfo = [String: Info]()
 
-    /// Look up ObjC decl info from a USR
-    func infoFrom(usr: String) -> Info? {
-        usrToInfo[usr]
-    }
-
-    /// Look up ObjC decl info for a member with an @objc rename - we don't have
-    /// the right USR so have to guess.
-    func infoFrom(parentName: String, name: String) -> Info? {
-        let pattern = #"@objc(cs)\(parentName)\(.*?\)\(name)$"#
-        for item in usrToInfo {
-            if item.key.re_isMatch(pattern) {
-                return item.value
-            }
-        }
-        return nil
-    }
-
-    private(set) var nameToInfo = [String: Info]()
-
     init?(module: Module) {
         self.module = module
 
@@ -71,11 +52,25 @@ final class GatherSwiftToObjC: GatherDefVisitor {
         clangArgs.forEach { logDebug("  \($0)") }
         let translationUnit = ClangTranslationUnit(headerFiles: [objcHeaderPath], compilerArguments: clangArgs)
         logDebug(" Found \(translationUnit.declarations.count) top-level declarations.")
+        try? translationUnit.asFiles().forEach { file in
+            func process(dict: SourceKittenDict) {
+                if let usr = dict.usr,
+                    let parsedDeclaration = dict.parsedDeclaration,
+                    let name = dict.name {
+                    usrToInfo[usr] = Info(name: name, declaration: parsedDeclaration)
+                }
+                if let children = dict.substructure {
+                    children.forEach { process(dict: $0) }
+                }
+            }
+            process(dict: file.dict)
+        }
     }
     #else
     func build() {}
     #endif
 
+    /// Sketchily translate swift compiler args to clang.  Basically only accept stuff we understand.
     func translateArgs() -> [String] {
         var copyNext = false
         var clangArgs = ["-x", "objective-c", "-fmodules"]
@@ -107,6 +102,15 @@ final class GatherSwiftToObjC: GatherDefVisitor {
         return clangArgs
     }
 
+    /// Try to augment Swift decls with their ObjC peers
     func visit(def: GatherDef, parents: [GatherDef]) throws {
+        if def.objCDeclaration == nil,
+            let usr = def.sourceKittenDict.usr,
+            let kind = def.kind,
+            !kind.isSwiftExtension,
+            let info = usrToInfo[usr] {
+            Stats.inc(.gatherSwiftToObjC)
+            def.updateObjCDeclaration(info: info)
+        }
     }
 }

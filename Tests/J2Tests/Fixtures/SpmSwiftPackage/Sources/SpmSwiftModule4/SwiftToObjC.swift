@@ -1,38 +1,38 @@
 import Foundation
 
 @objc
-class ExposedSwiftClass: NSObject {
+public class ExposedSwiftClass: NSObject {
 
   @objc
-  func exposedMethod(a: Int, b: String?) -> String {
+  public func exposedMethod(a: Int, b: String?) -> String {
     ""
   }
 
   @objc
-  var exposedProperty: Int
+  public var exposedProperty: Int
 
   @objc
-  override init() {
+  public override init() {
     exposedProperty = 2
   }
 
   @objc
-  init(value: Int) {
+  public init(value: Int) {
     exposedProperty = value
   }
 }
 
 @objc(RenamedForObjC)
-class RenamedExposedSwiftClass: NSObject {
+public class RenamedExposedSwiftClass: NSObject {
 
   @objc(property)
-  var theProperty: Int
+  public var theProperty: Int
 
   @objc(action:param:)
-  func doAction(a: Int, parm: Int) {
+  public func doAction(a: Int, parm: Int) {
   }
 
-  override init() {
+  public override init() {
     theProperty = 2
   }
 }

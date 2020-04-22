@@ -97,6 +97,8 @@ struct StatsDb {
         case gatherLocalizationSuccess
         /// Markdown localization failures
         case gatherLocalizationFailure
+        /// ObjC decls matched to Swift decls
+        case gatherSwiftToObjC
         /// Defs rejected because of a missing root
         case importFailureNoRoot
         /// Defs rejected because of a definite compilation error
