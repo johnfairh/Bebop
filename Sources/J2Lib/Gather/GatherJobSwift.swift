@@ -43,7 +43,7 @@ extension GatherJob {
 
             logDebug(" Using srcdir '\(actualSrcDir)', build tool '\(actualBuildTool)'")
 
-            let module: Module?
+            let module: Module!
 
             switch actualBuildTool {
             case .xcodebuild:
@@ -66,18 +66,16 @@ extension GatherJob {
             }
 
             logDebug(" Building ObjC translation table")
-            let objcTranslation = GatherSwiftToObjC(module: module!)
-            objcTranslation?.build()
-
-            logDebug(" Calling sourcekitten docs generation")
-            let filesInfo = try module!.docs.compactMap { swiftDoc -> (String, GatherDef)? in
-                guard let def = GatherDef(sourceKittenDict: swiftDoc.docsDictionary,
-                                          file: swiftDoc.file,
-                                          availability: availability) else {
-                    return nil
+            let filesInfo = GatherSwiftToObjC.session(module: module) { () -> [(String, GatherDef)] in
+                logDebug(" Calling sourcekitten docs generation")
+                return module.docs.compactMap { swiftDoc -> (String, GatherDef)? in
+                    guard let def = GatherDef(sourceKittenDict: swiftDoc.docsDictionary,
+                                              file: swiftDoc.file,
+                                              availability: availability) else {
+                        return nil
+                    }
+                    return (swiftDoc.file.path ?? "(no path)", def)
                 }
-                try objcTranslation?.walk(def)
-                return (swiftDoc.file.path ?? "(no path)", def)
             }
 
             return GatherModulePass(moduleName: module!.name, passIndex: 0, imported: false, files: filesInfo)

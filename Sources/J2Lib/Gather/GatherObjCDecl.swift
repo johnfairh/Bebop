@@ -193,15 +193,21 @@ private extension String {
 
 /// An adapter to build ObjC declaration info from the pieces we may have got from a Swift build
 final class SwiftObjCDeclarationBuilder : ObjCDeclarationBuilder {
-    /// Take an ObjC name, an ObjC declaration from a Swift decl and build the ObjC info
-    init(name: String, declaration: String, swiftKind: DefKind) {
-        var dict = SourceKittenDict()
-        dict[.parsedDeclaration] = declaration
-        dict[.name] = name
+    /// Try to build the ObjC version of an @objc Swift decl
+    init?(dict: inout SourceKittenDict, kind: DefKind) {
+        guard let usr = dict.usr,
+            !kind.isSwiftExtension,
+            let objcKind = kind.otherLanguageKind,
+            let info = GatherSwiftToObjC.current?.usrToInfo[usr] else {
+            return nil
+        }
 
-        precondition(swiftKind.isSwift)
-        let objcKind = swiftKind.otherLanguageKind
-        precondition(objcKind != nil)
-        super.init(dict: dict, kind: objcKind!)
+        dict[.objcName] = info.name // ahem
+
+        var objcDict = SourceKittenDict()
+        objcDict[.parsedDeclaration] = info.declaration
+        objcDict[.name] = info.name
+
+        super.init(dict: objcDict, kind: objcKind)
     }
 }

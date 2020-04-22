@@ -14,7 +14,7 @@ import SourceKittenFramework
 /// Fish out the bridging header and run it through libclang.
 /// Then match its contents against Swift decls.
 ///
-final class GatherSwiftToObjC: GatherDefVisitor {
+final class GatherSwiftToObjC {
     private let module: Module
     private let objcHeaderPath: String
 
@@ -23,9 +23,9 @@ final class GatherSwiftToObjC: GatherDefVisitor {
         let declaration: String
     }
 
-    private var usrToInfo = [String: Info]()
+    private(set) var usrToInfo = [String: Info]()
 
-    init?(module: Module) {
+    private init?(module: Module) {
         self.module = module
 
         guard let emitOptIndex = module.compilerArguments.firstIndex(of: "-emit-objc-header-path"),
@@ -46,7 +46,7 @@ final class GatherSwiftToObjC: GatherDefVisitor {
 
     /// This is all gravy so we don't throw from here if things go wrong.
     #if os(macOS)
-    func build() {
+    private func build() {
         let clangArgs = translateArgs()
         logDebug(" Invoking libclang with computed args:")
         clangArgs.forEach { logDebug("  \($0)") }
@@ -71,7 +71,7 @@ final class GatherSwiftToObjC: GatherDefVisitor {
     #endif
 
     /// Sketchily translate swift compiler args to clang.  Basically only accept stuff we understand.
-    func translateArgs() -> [String] {
+    private func translateArgs() -> [String] {
         var copyNext = false
         var clangArgs = ["-x", "objective-c", "-fmodules"]
         for swiftArg in module.compilerArguments {
@@ -102,15 +102,17 @@ final class GatherSwiftToObjC: GatherDefVisitor {
         return clangArgs
     }
 
-    /// Try to augment Swift decls with their ObjC peers
-    func visit(def: GatherDef, parents: [GatherDef]) throws {
-        if def.objCDeclaration == nil,
-            let usr = def.sourceKittenDict.usr,
-            let kind = def.kind,
-            !kind.isSwiftExtension,
-            let info = usrToInfo[usr] {
-            Stats.inc(.gatherSwiftToObjC)
-            def.updateObjCDeclaration(info: info)
-        }
+    // Session invocation.
+    // This is so GatherDef can pick up any active translation session
+    // from a deeply nested place without having to carry it around.
+
+    static private(set) var current: GatherSwiftToObjC?
+
+    static func session<T>(module: Module, run: () throws -> T) rethrows -> T {
+        precondition(current == nil)
+        defer { current = nil }
+        current = GatherSwiftToObjC(module: module)
+        current?.build()
+        return try run()
     }
 }
