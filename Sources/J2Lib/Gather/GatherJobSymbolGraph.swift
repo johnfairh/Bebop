@@ -100,8 +100,6 @@ extension GatherJob {
 
             let defs = dicts.compactMap {
                 GatherDef(sourceKittenDict: $0,
-                          parentNameComponents: [],
-                          file: nil,
                           availability: availability)
             }
 

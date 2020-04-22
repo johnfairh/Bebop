@@ -31,8 +31,6 @@ extension GatherJob {
                 guard let entry = fileDict.first,
                     let topDict = entry.value as? SourceKittenDict,
                     let gatherDef = GatherDef(sourceKittenDict: topDict,
-                                              parentNameComponents: [],
-                                              file: nil,
                                               availability: availability) else {
                         logWarning(.localized(.wrnSknDecode, url.path, fileDict))
                         return nil

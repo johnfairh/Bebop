@@ -35,8 +35,6 @@ extension GatherJob {
 
             let filesInfo = try translationUnit.asFiles().compactMap { file -> (String, GatherDef)? in
                 guard let def = GatherDef(sourceKittenDict: file.dict,
-                                          parentNameComponents: [],
-                                          file: nil,
                                           availability: availability) else {
                      return nil
                 }

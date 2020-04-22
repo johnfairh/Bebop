@@ -29,9 +29,9 @@ public final class GatherDef {
     public let localizationKey: String?
 
     init?(sourceKittenDict: SourceKittenDict,
-          parentNameComponents: [String],
-          file: SourceKittenFramework.File?,
-          availability: Gather.Availability,
+          parentNameComponents: [String] = [],
+          file: SourceKittenFramework.File? = nil,
+          availability: Gather.Availability = .init(),
           previousSiblingDef: GatherDef? = nil) {
         var dict = sourceKittenDict
         let name = sourceKittenDict.name

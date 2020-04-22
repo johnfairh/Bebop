@@ -75,7 +75,7 @@ public final class Gather: Configurable {
 
         // Garnishes
         logDebug("Gather: start doc-comment localization pass.")
-        try passes.garnish(with: localize)
+        try localize.walk(passes)
         logDebug("Gather: end doc-comment localization pass.")
 
         return passes
@@ -95,21 +95,28 @@ public struct GatherModulePass {
     public let files: [(pathname: String, GatherDef)]
 }
 
-protocol GatherGarnish {
-    func garnish(def: GatherDef) throws
+protocol GatherDefVisitor {
+    func visit(def: GatherDef, parents: [GatherDef]) throws
 }
 
-extension Array where Element == GatherModulePass {
-    /// Visit each GatherDef. Depth-first, preorder.
-    func garnish<T>(with: T) throws where T: GatherGarnish {
-        try forEach { pass in
+extension GatherDefVisitor {
+    /// Visit an item followed by its children.  Depth-first, preorder.
+    func walk(_ def: GatherDef, parents: [GatherDef] = []) throws {
+        try visit(def: def, parents: parents)
+        try walk(def.children, parents: parents + [def])
+    }
+
+    /// Visit a list of items and their children
+    func walk<S>(_ defs: S, parents: [GatherDef] = []) throws where S: Sequence, S.Element == GatherDef {
+        try defs.forEach { try walk($0, parents: parents) }
+    }
+
+    /// Visit a list of passes
+    func walk(_ passes: [GatherModulePass]) throws {
+        try passes.forEach { pass in
             guard !pass.imported else { return }
             try pass.files.forEach {
-                func process(def: GatherDef) throws {
-                    try with.garnish(def: def)
-                    try def.children.forEach(process)
-                }
-                try process(def: $0.1)
+                try walk($0.1)
             }
         }
     }

@@ -9,7 +9,7 @@
 import Foundation
 
 /// A type to localize doc comments
-final class GatherLocalize: GatherGarnish, Configurable {
+final class GatherLocalize: GatherDefVisitor, Configurable {
     let docCommentLanguageOpt = StringOpt(l: "doc-comment-language").help("LANGUAGETAG")
     let docCommentLanguageDirOpt = PathOpt(l: "doc-comment-languages-directory").help("DIRPATH")
 
@@ -84,7 +84,7 @@ final class GatherLocalize: GatherGarnish, Configurable {
     /// This means set the `translatedDocs` field according to the config options: at minimum
     /// this means `{"en": parsedDocs}`.  On output, etither the docs are empty or have something
     /// for each language tag in the localizations list.
-    func garnish(def: GatherDef) throws {
+    func visit(def: GatherDef, parents: [GatherDef]) throws {
         guard let documentation = def.documentation else {
             return
         }
