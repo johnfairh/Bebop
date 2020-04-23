@@ -4,7 +4,7 @@
  * Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
  */
 
-/* global $ Prism anchors lunr */
+/* global $ Prism anchors lunr katex */
 
 'use strict'
 
@@ -33,6 +33,20 @@ Prism.plugins.customClass.map((className, language) => {
  * Prism customization for autoloading missing languages.
  */
 Prism.plugins.autoloader.languages_path = 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/components/'
+
+/*
+ * KaTeX rendering
+ */
+// KaTeX rendering
+if ('katex' in window) {
+  $($('.math').each((_, element) => {
+    katex.render(element.textContent, element, {
+      displayMode: $(element).hasClass('m-block'),
+      throwOnError: false,
+      trust: true
+    })
+  }))
+}
 
 //
 // Narrow-mode nav collapse

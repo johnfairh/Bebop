@@ -10,6 +10,9 @@ Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
  
     <link rel="stylesheet" href="{{path_to_assets}}css/fw2020.css">
+    {{#enable_katex}}
+    <link rel="stylesheet" type="text/css" href="{{path_to_root}}css/katex.min.css"/>
+    {{/enable_katex}}
     
    <title>{{#tab_title_prefix}}{{primary_page_title}} - {{/tab_title_prefix}}{{docs_title}}</title>
     {{{custom_head}}}
@@ -88,6 +91,9 @@ Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
   </div> <!-- container -->
 
   <script src="{{path_to_assets}}js/dependencies.min.js"></script>
+  {{#enable_katex}}
+  <script src="{{path_to_root}}js/katex.min.js"></script>
+  {{/enable_katex}}
   <script src="{{path_to_assets}}js/fw2020.js"></script>
   </body>
 </html>

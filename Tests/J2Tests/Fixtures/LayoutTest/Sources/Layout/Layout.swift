@@ -41,7 +41,7 @@ public class 🐽 {
   }
 }
 
-/// A class to demonstrate KaTex
+/// A class to demonstrate KaTeX
 ///
 /// `$$f(x) = \int_{-\infty}^\infty\hat f(\xi)\,e^{2 \pi i \xi x}\,d\xi$$`
 ///

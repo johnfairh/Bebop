@@ -9,7 +9,7 @@
     "parent_name" : "🐽"
   },
   "types\/integration.html?swift" : {
-    "abstract" : "A class to demonstrate KaTex",
+    "abstract" : "A class to demonstrate KaTeX",
     "name" : "Integration"
   },
   "types\/integration\/phi.html?swift" : {
