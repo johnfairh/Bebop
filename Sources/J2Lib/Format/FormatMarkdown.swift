@@ -18,8 +18,6 @@ final class MarkdownFormatter: ItemVisitorProtocol {
     var defaultLanguage: DefLanguage {
         currentLanguage ?? fallbackLanguage
     }
-    /// For uniquing heading links
-    let uniquer: StringUniquer
     /// For resolving autolinks
     let autolink: FormatAutolink?
     /// For rewriting user links
@@ -33,7 +31,6 @@ final class MarkdownFormatter: ItemVisitorProtocol {
 
     init(language: DefLanguage, autolink: FormatAutolink? = nil, linkRewriter: FormatLinkRewriter? = nil) {
         self.fallbackLanguage = language
-        self.uniquer = StringUniquer()
         self.autolink = autolink
         self.linkRewriter = linkRewriter
     }
@@ -55,7 +52,6 @@ final class MarkdownFormatter: ItemVisitorProtocol {
     }
 
     func visit(defItem: DefItem, parents: [Item]) {
-        uniquer.reset() // this isn't right because of all the other stuff on the page.
         currentLanguage = defItem.primaryLanguage
         defItem.finalizeDeclNotes()
         format(item: defItem)
@@ -63,12 +59,10 @@ final class MarkdownFormatter: ItemVisitorProtocol {
     }
 
     func visit(groupItem: GroupItem, parents: [Item]) {
-        uniquer.reset()
         format(item: groupItem)
     }
 
     func visit(guideItem: GuideItem, parents: [Item]) {
-        uniquer.reset()
         format(item: guideItem)
     }
 
@@ -180,13 +174,6 @@ final class MarkdownFormatter: ItemVisitorProtocol {
     /// with the fixed heading.  (Headings are container elements, can have multiple children
     /// if there is eg. linking/italics in the heading.)
     func customizeHeading(heading: CMNode, iterator: Iterator) {
-//        let anchorId = uniquer.unique(heading.renderPlainText().slugged)
-//
-// Need to figure out how to unique these properly.
-// Best not to bother right now: the code as written
-// gets horribly confused about scopes, never mind
-// ignoring other sources of anchors.
-//
         let anchorId = heading.renderPlainText().slugged
         let level = heading.headingLevel
         let replacementNode =
