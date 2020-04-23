@@ -13,7 +13,7 @@ final class MarkdownFormatter: ItemVisitorProtocol {
     /// What (programming) language to use if the user doesn't specify and there's no way to guess.
     let fallbackLanguage: DefLanguage
     /// Current opinion about code language
-    var currentLanguage: DefLanguage?
+    private var currentLanguage: DefLanguage?
     /// Language to use if user doesn't specify
     var defaultLanguage: DefLanguage {
         currentLanguage ?? fallbackLanguage
@@ -26,7 +26,10 @@ final class MarkdownFormatter: ItemVisitorProtocol {
     let linkRewriter: FormatLinkRewriter?
 
     /// Context while visiting...
-    var visitItemNameContext: Item! = nil
+    private var visitItemNameContext: Item! = nil
+
+    /// Indicate whether math expressions seen
+    private(set) var hasMath = false
 
     init(language: DefLanguage, autolink: FormatAutolink? = nil, linkRewriter: FormatLinkRewriter? = nil) {
         self.fallbackLanguage = language
@@ -134,7 +137,7 @@ final class MarkdownFormatter: ItemVisitorProtocol {
     ///     b) create scaffolding around callouts
     ///     c) code blocks language rewrite for prism / default
     ///     d) autolinked links to split-language html links
-    ///     e) math reformatting [one day]
+    ///     e) math reformatting
     ///
     /// All the !s and try!s here are to do with poorly-wrapped cmark interfaces that
     /// are (not) policing node types.
@@ -145,6 +148,9 @@ final class MarkdownFormatter: ItemVisitorProtocol {
             switch node.type {
             case .heading:
                 customizeHeading(heading: node, iterator: iter)
+
+            case .code:
+                customizeCode(code: node, iterator: iter)
 
             case .codeBlock:
                 customizeCodeBlock(block: node, iterator: iter)
@@ -160,6 +166,7 @@ final class MarkdownFormatter: ItemVisitorProtocol {
                 } else {
                     linkRewriter?.rewriteLinkForHTML(node: node)
                 }
+
             case .image:
                 customizeImage(image: node, iterator: iter)
 
@@ -289,6 +296,29 @@ final class MarkdownFormatter: ItemVisitorProtocol {
 
         let htmlNode = CMNode(inlineHtml: html, supplanting: image)
         iterator.reset(to: htmlNode, eventType: .exit)
+    }
+
+    /// Support for inline mathematical expressions.
+    /// `$$foo$$` does block-style; `$foo$` inline.
+    func customizeCode(code: CMNode, iterator: Iterator) {
+        let content = code.literal!
+
+        func replace(html: String) {
+            let htmlNode = CMNode(inlineHtml: html, supplanting: code)
+            iterator.reset(to: htmlNode, eventType: .exit)
+            Stats.inc(.formatMathExpression)
+            hasMath = true // signal down the line that katex extension is required
+        }
+
+        if let blockMaths = content.re_match(#"^\$\$(.*)\$\$$"#) {
+            replace(html: "<div class='math m-block'>" +
+                          blockMaths[1].htmlEscaped +
+                          "</div>")
+        } else if let inlineMaths = content.re_match(#"^\$(.*)\$$"#) {
+            replace(html: "<span class='math m-inline'>" +
+                          inlineMaths[1].htmlEscaped +
+                          "</span>")
+        }
     }
 }
 

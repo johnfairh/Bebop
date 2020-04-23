@@ -149,6 +149,8 @@ struct StatsDb {
         case formatRewrittenGuideLinks
         /// Links that couldn't be rewritten
         case formatUnrewrittenLinks
+        /// Mathematical expressions formatted
+        case formatMathExpression
         /// Autolinks resolved to local docs in local scope
         case autolinkLocalLocalScope
         /// Autolinks resolved to local docs in nested scope

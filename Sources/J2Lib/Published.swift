@@ -63,6 +63,10 @@ protocol Published {
     /// Overall version number string
     var moduleVersion: String? { get }
 
+    /// MathML rendering required
+    var usesMath: Bool { get }
+    func setUsesMath()
+
     /// The doc-root relative path of a named piece of media, or `nil` if there is none.
     func urlPathForMedia(_ name: String) -> String?
 
@@ -114,6 +118,11 @@ final class PublishStore: Published {
     }
 
     var moduleVersion: String?
+
+    var usesMath: Bool = false
+    func setUsesMath() {
+        usesMath = true
+    }
 
     private var rootCodeHostURL: Localized<String>? // spose its an href rather than a url...
     func setRootCodeHostURL(url: Localized<String>?) {

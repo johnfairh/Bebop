@@ -40,3 +40,14 @@ public class 🐽 {
   public func 🐗(a: Int, 👻: String) {
   }
 }
+
+/// A class to demonstrate KaTex
+///
+/// `$$f(x) = \int_{-\infty}^\infty\hat f(\xi)\,e^{2 \pi i \xi x}\,d\xi$$`
+///
+public class Integration {
+  /// Who remembers `$\phi$`?
+  ///
+  /// - returns: The value of `$phi$`.
+  public func phi() -> Int { 2 }
+}

@@ -83,7 +83,7 @@ public final class GenDocset: Configurable {
         // Exclude ourselves and any secondary localizations
         let skipFiles = Set([Self.DOCSET_TOP] + Localizations.shared.others.map(\.tag))
 
-        try Glob.files(.init(outputURL.appendingPathComponent("*").path)).forEach { sourceURL in
+        try outputURL.filesMatching(.all).forEach { sourceURL in
             let filename = sourceURL.lastPathComponent
             if !skipFiles.contains(filename) {
                 let targetURL = docsTargetURL.appendingPathComponent(filename)

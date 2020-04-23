@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		021F71C62451BDE600B73472 /* extensions in Resources */ = {isa = PBXBuildFile; fileRef = 021F71C42451BD9800B73472 /* extensions */; };
 		0225D990242D1B75005FF4A2 /* DefLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0225D98F242D1B75005FF4A2 /* DefLocation.swift */; };
 		0225D992242D1BA8005FF4A2 /* DefDeclNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0225D991242D1BA8005FF4A2 /* DefDeclNote.swift */; };
 		0225D994242D1BE8005FF4A2 /* DefLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0225D993242D1BE8005FF4A2 /* DefLanguage.swift */; };
@@ -240,6 +241,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		021F71C42451BD9800B73472 /* extensions */ = {isa = PBXFileReference; lastKnownFileType = folder; path = extensions; sourceTree = "<group>"; };
 		0225D98F242D1B75005FF4A2 /* DefLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefLocation.swift; sourceTree = "<group>"; };
 		0225D991242D1BA8005FF4A2 /* DefDeclNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefDeclNote.swift; sourceTree = "<group>"; };
 		0225D993242D1BE8005FF4A2 /* DefLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefLanguage.swift; sourceTree = "<group>"; };
@@ -483,6 +485,7 @@
 		029A718523DB04F300D66069 /* J2Resources */ = {
 			isa = PBXGroup;
 			children = (
+				021F71C42451BD9800B73472 /* extensions */,
 				02CFFA1C23E20AB400FDE5B9 /* themes */,
 				025727FD23DB50270001F510 /* en.lproj */,
 				0257280123DB503C0001F510 /* qq.lproj */,
@@ -855,6 +858,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02CFFA1D23E20AB400FDE5B9 /* themes in Resources */,
+				021F71C62451BDE600B73472 /* extensions in Resources */,
 				02FDC68B23EB2A7300C2F9CD /* Output.strings in Resources */,
 				0257280023DB50270001F510 /* Localizable.strings in Resources */,
 				0257281423DC78820001F510 /* Help.strings in Resources */,

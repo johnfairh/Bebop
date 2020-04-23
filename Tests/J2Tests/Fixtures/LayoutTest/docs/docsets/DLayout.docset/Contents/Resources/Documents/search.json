@@ -8,6 +8,15 @@
     "name" : "🐗(a:👻:)",
     "parent_name" : "🐽"
   },
+  "types\/integration.html?swift" : {
+    "abstract" : "A class to demonstrate KaTex",
+    "name" : "Integration"
+  },
+  "types\/integration\/phi.html?swift" : {
+    "abstract" : "Who remembers $\\phi$?",
+    "name" : "phi()",
+    "parent_name" : "Integration"
+  },
   "types\/layout.html?swift" : {
     "abstract" : "A class to demonstrate the separate-child style.",
     "name" : "Layout"

@@ -26,7 +26,7 @@ struct GenThemes: Configurable {
             preconditionFailure("Resources corrupt, can't find resource URL")
         }
         builtInURL = resourceURL.appendingPathComponent("themes")
-        let themeURLs = builtInURL.filesMatching("*")
+        let themeURLs = builtInURL.filesMatching(.all)
         builtInNames = themeURLs.map { $0.lastPathComponent }
 
         themeOpt = PathOpt(l: "theme")
@@ -55,6 +55,36 @@ struct GenThemes: Configurable {
     /// Resolve the theme
     func select() throws -> Theme {
         try Theme(url: themeURLFromOpt)
+    }
+
+    /// Extensions - bundles of stuff we don't want to always include but apply cross-theme
+    enum Extension: String {
+        case katex
+    }
+
+    /// Install a theme extension
+    ///
+    /// Far too complex because NSFIleManager doesn't natively support a /bin/cp type directory merge copy or copy-overwrite.
+    func installExtension(_ ext: Extension, to docsSiteURL: URL, copier: (URL, URL) throws -> Void) throws {
+        let extensionURL = builtInURL
+            .deletingLastPathComponent()
+            .appendingPathComponent("extensions")
+            .appendingPathComponent(ext.rawValue)
+        logDebug("Theme: Installing extension \(ext)")
+        precondition(extensionURL.isFilesystemDirectory, "Installation broken, can't find \(extensionURL.path).")
+
+        // This is enough to deal with a top-level merge (js, css) but no more...
+        try extensionURL.filesMatching(.all).forEach { srcURL in
+            let dstURL = docsSiteURL.appendingPathComponent(srcURL.lastPathComponent)
+            if !srcURL.isFilesystemDirectory || !dstURL.isFilesystemDirectory {
+                try copier(srcURL, dstURL)
+                return
+            }
+            try srcURL.filesMatching(.all).forEach { srcFileURL in
+                let dstFileURL = dstURL.appendingPathComponent(srcFileURL.lastPathComponent)
+                try copier(srcFileURL, dstFileURL)
+            }
+        }
     }
 }
 
@@ -118,15 +148,14 @@ struct Theme {
         try Html(template.render(data))
     }
 
-    /// Copy everything from the `assets` directory into the root of the docs siet
+    /// Copy everything from the `assets` directory into the root of the docs site
     func copyAssets(to docsSiteURL: URL, copier: (URL, URL) throws -> Void) throws {
         logDebug("Theme: copying assets")
         let assetsURL = url.appendingPathComponent("assets")
         guard FileManager.default.fileExists(atPath: assetsURL.path) else {
             return
         }
-        let contents = try FileManager.default.contentsOfDirectory(at: assetsURL, includingPropertiesForKeys: [])
-        try contents.forEach { srcURL in
+        try assetsURL.filesMatching(.all).forEach { srcURL in
             let filename = srcURL.lastPathComponent
             let dstURL = docsSiteURL.appendingPathComponent(filename)
             try copier(srcURL, dstURL)

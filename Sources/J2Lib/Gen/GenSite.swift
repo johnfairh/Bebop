@@ -126,19 +126,20 @@ public struct GenSite: Configurable {
             try rendered.html.write(to: url)
         }
 
-        func copier(from: URL, to: URL) throws {
-            if FileManager.default.fileExists(atPath: to.path) {
-                try FileManager.default.removeItem(at: to)
-            }
-            try FileManager.default.copyItem(at: from, to: to)
-        }
-
         if !hideSearchOpt.value {
             logInfo(.localized(.msgSearchProgress))
             try search.buildIndex(items: items)
         }
 
         logInfo(.localized(.msgCopyProgress))
+
+        func copier(from: URL, to: URL) throws {
+            // we need this because `copyItem` throws if dst exists
+            if FileManager.default.fileExists(atPath: to.path) {
+                try FileManager.default.removeItem(at: to)
+            }
+            try FileManager.default.copyItem(at: from, to: to)
+        }
 
         try Localizations.shared.allTags.forEach { tag in
             let docRoot = outputURL.appendingPathComponent(tag.languageTagPathComponent)
@@ -154,6 +155,9 @@ public struct GenSite: Configurable {
         }
 
         try theme.copyAssets(to: outputURL, copier: copier)
+        if published.usesMath {
+            try themes.installExtension(.katex, to: outputURL, copier: copier)
+        }
     }
 
     /// JSON instead of the website
@@ -265,6 +269,10 @@ public struct GenSite: Configurable {
         }
 
         dict.maybe(.customHead, customHeadOpt.value)
+
+        if published.usesMath {
+            dict[.enableKatex] = true
+        }
 
         if Localizations.shared.all.count > 1 {
             dict[.localizations] =

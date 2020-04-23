@@ -46,9 +46,13 @@ public final class Format: Configurable {
         logDebug("Format: Formatting declarations")
         try DeclarationFormatter(autolink: autolink).walk(items: allItems)
         logDebug("Format: Generating HTML")
-        try MarkdownFormatter(language: published.defaultLanguage,
-                              autolink: autolink,
-                              linkRewriter: linkRewriter).walk(items: allItems)
+        let mdFormatter = MarkdownFormatter(language: published.defaultLanguage,
+                                            autolink: autolink,
+                                            linkRewriter: linkRewriter)
+        try mdFormatter.walk(items: allItems)
+        if mdFormatter.hasMath {
+            published.setUsesMath()
+        }
         return allItems
     }
 
