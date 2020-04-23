@@ -11,6 +11,12 @@ THEMEFILES=fw2020.css \
 
 THEMEPATHS=$(addprefix dist/, ${THEMEFILES})
 
+# Stuff to publish to extensions/katex
+KATEX_CSS_FILES=fonts katex.min.css
+KATEX_CSS_PATHS=$(addprefix node_modules/katex/dist/, ${KATEX_CSS_FILES})
+KATEX_JS_FILES=katex.min.js
+KATEX_JS_PATHS=$(addprefix node_modules/katex/dist/, ${KATEX_JS_FILES})
+
 # Stuff for testing
 DISTFILES=${THEMEFILES} \
 	fw2020.min.css.map \
@@ -85,3 +91,7 @@ j2: dist
 
 publish: j2
 	cp -Rf dist/j2/* ../Resources/themes/fw2020/
+
+katex:
+	cp -Rf ${KATEX_CSS_PATHS} ../Resources/extensions/katex/css/
+	cp -Rf ${KATEX_JS_PATHS} ../Resources/extensions/katex/js/
