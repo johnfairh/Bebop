@@ -353,12 +353,12 @@
               "def" : {
                 "abstract" : {
                   "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                    "html" : "<p>docs<\/p>"
                   }
                 },
                 "availability" : [],
                 "obj_c_declaration" : {
-                  "html" : "- (NSString * _Nonnull)exposedMethodWithA:(NSInteger)a b:(NSString * _Nullable)b SWIFT_WARN_UNUSED_RESULT"
+                  "html" : "- (NSString *_Nonnull)exposedMethodWithA:(NSInteger)a b:(NSString *_Nullable)b"
                 },
                 "params" : [],
                 "swift_declaration" : {
@@ -374,7 +374,7 @@
               },
               "secondary_language" : "objc",
               "secondary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">- (NSString * _Nonnull)<\/span>exposedMethodWithA<span class=\"j2-item-secondary\">:(NSInteger)a <\/span>b<span class=\"j2-item-secondary\">:(NSString * _Nullable)b SWIFT_WARN_UNUSED_RESULT<\/span>"
+                "html" : "<span class=\"j2-item-secondary\">- (NSString *)<\/span>exposedMethodWithA<span class=\"j2-item-secondary\">:(NSInteger)a <\/span>b<span class=\"j2-item-secondary\">:(NSString *)b<\/span>"
               }
             },
             {
@@ -383,7 +383,7 @@
               "def" : {
                 "abstract" : {
                   "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                    "html" : "<p>docs<\/p>"
                   }
                 },
                 "availability" : [],
@@ -408,17 +408,47 @@
               }
             },
             {
+              "anchor_id" : "exposedrefproperty",
+              "dash_type" : "Property",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>ref docs<\/p>"
+                  }
+                },
+                "availability" : [],
+                "obj_c_declaration" : {
+                  "html" : "@property (nonatomic, strong) <a href=\"..\/..\/spmswiftmodule4\/types\/exposedswiftclass.html?swift\">ExposedSwiftClass<\/a> *_Nullable exposedRefProperty"
+                },
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "public var exposedRefProperty: <a href=\"..\/..\/spmswiftmodule4\/types\/exposedswiftclass.html?swift\">ExposedSwiftClass<\/a>?"
+                }
+              },
+              "flat_title" : {
+                "en" : "var exposedRefProperty: ExposedSwiftClass?"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">var <\/span>exposedRefProperty<span class=\"j2-item-secondary\">: ExposedSwiftClass?<\/span>"
+              },
+              "secondary_language" : "objc",
+              "secondary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">ExposedSwiftClass * <\/span>exposedRefProperty"
+              }
+            },
+            {
               "anchor_id" : "init",
               "dash_type" : "Constructor",
               "def" : {
                 "abstract" : {
                   "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                    "html" : "<p>inh init docs<\/p>"
                   }
                 },
                 "availability" : [],
                 "obj_c_declaration" : {
-                  "html" : "- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER"
+                  "html" : "- (nonnull instancetype)init"
                 },
                 "params" : [],
                 "swift_declaration" : {
@@ -434,7 +464,7 @@
               },
               "secondary_language" : "objc",
               "secondary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">- (nonnull instancetype)init <\/span>OBJC_DESIGNATED_INITIALIZER<span class=\"j2-item-secondary\"><\/span>"
+                "html" : "<span class=\"j2-item-secondary\">- (instancetype)<\/span>init<span class=\"j2-item-secondary\"><\/span>"
               }
             },
             {
@@ -443,12 +473,12 @@
               "def" : {
                 "abstract" : {
                   "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                    "html" : "<p>init docs<\/p>"
                   }
                 },
                 "availability" : [],
                 "obj_c_declaration" : {
-                  "html" : "- (nonnull instancetype)initWithValue:(NSInteger)value OBJC_DESIGNATED_INITIALIZER"
+                  "html" : "- (nonnull instancetype)initWithValue:(NSInteger)value"
                 },
                 "params" : [],
                 "swift_declaration" : {
@@ -464,7 +494,7 @@
               },
               "secondary_language" : "objc",
               "secondary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">- (nonnull instancetype)<\/span>initWithValue<span class=\"j2-item-secondary\">:(NSInteger)value OBJC_DESIGNATED_INITIALIZER<\/span>"
+                "html" : "<span class=\"j2-item-secondary\">- (instancetype)<\/span>initWithValue<span class=\"j2-item-secondary\">:(NSInteger)value<\/span>"
               }
             }
           ],
@@ -656,7 +686,7 @@
               },
               "secondary_language" : "objc",
               "secondary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">- (nonnull instancetype)init <\/span>OBJC_DESIGNATED_INITIALIZER<span class=\"j2-item-secondary\"><\/span>"
+                "html" : "<span class=\"j2-item-secondary\">- (instancetype)<\/span>init<span class=\"j2-item-secondary\"><\/span>"
               }
             }
           ],

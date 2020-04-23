@@ -222,9 +222,7 @@ class TestGatherObjC: XCTestCase {
                               finally:(int) param3
                          """,
                          """
-                         - #methodName#:(int) param1
-                                  #and#:(string) param2
-                              #finally#:(int) param3
+                         - #methodName#:(int) param1 #and#:(string) param2 #finally#:(int) param3
                          """)
     }
 

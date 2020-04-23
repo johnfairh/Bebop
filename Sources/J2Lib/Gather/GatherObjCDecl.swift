@@ -56,10 +56,13 @@ class ObjCDeclarationBuilder {
     /// Tidy up the Objective-C declaration to remove stuff that libclang has added
     /// but humans aren't interested in and work around bugs in the stack.
     func parse(declaration input: String) -> String {
+        // Some grotty broken fixup to remove stuff that is expressed elsewhere.
+        // Clang gives us simple trailing attributes but not always?
         var decl = input
             .trimmingCharacters(in: .whitespacesAndNewlines)
-            .re_sub(#"__\w+"#, with: "")
-            .re_sub(#"NS_SWIFT_NAME\(.*\)"#, with: "") // this is scary but seems to only show up on 1-line decls at the end....
+            .re_sub(#"\s+__(deprecated|unavailable)"#, with: "")
+            .re_sub(#"\s+NS_SWIFT_NAME\(.*\)"#, with: "")
+
         if kind.isObjCStructural {
             // Strip trailing content that can show up: ivar blocks, random {}, etc.
             decl = decl.re_sub(#"(?:\s*)[{\n].*\z"#, with: "", options: [.s])
@@ -74,6 +77,9 @@ class ObjCDeclarationBuilder {
                 // 2) Don't show readwrite: it's the default
                 // 3) Don't show 'assign': that's a default
                 // 3a) Don't show 'assign, unsafe_unretained': that's the same default in Xcode11.4+
+                //
+                // Finally undo clang multi-line formatting that is only necessary because
+                // it has printed all this mess.
                 let badProperties = ["atomic", "readwrite", "assign", "unsafe_unretained"]
 
                 let newProperties = propertyMatch[1].split(separator: ",")
@@ -81,7 +87,9 @@ class ObjCDeclarationBuilder {
                     .filter { !badProperties.contains($0) }
                     .joined(separator: ", ")
                 let newPropertyList = newProperties.count > 0 ? " (\(newProperties))" : ""
-                decl = decl.re_sub(#"(?<=@property)\s+\(.*?\)"#, with: newPropertyList)
+                decl = decl
+                    .re_sub(#"(?<=@property)\s+\(.*?\)"#, with: newPropertyList)
+                    .re_sub(#"\s+"#, with: " ")
             }
         }
         // Strip any trailing semicolons/whitespace - inconsistencies somewhere
@@ -105,8 +113,16 @@ class ObjCDeclarationBuilder {
                 parse(.unavailable, always: .alwaysUnavailable, message: .unavailableMessage))
     }
 
-    /// Parse the cleaned-up declaration into a sequence of pieces.
-    func parseToPieces(declaration: String, name: String) -> [DeclarationPiece] {
+    /// Parse the cleaned-up declaration into a sequence of pieces, removing extraneous stuff,
+    /// for an item title.  The full declaration is preserved elsewhere.
+    func parseToPieces(declaration clangDecl: String, name: String) -> [DeclarationPiece] {
+        // Undo clang multi-line formatting.
+        // Drop nullability specifiers from this view
+        let declaration = clangDecl
+            .re_sub(#"\s+"#, with: " ")
+            .re_sub(#"\s*(_?_Nullable|_?_Nonnull|_?_Null_unspecified)\b"#, with: "", options: .i)
+            .re_sub(#"\b(nullable|nonnull|null_unspecified)\s+"#, with: "")
+
         // type: <typekindname> name
         //
         // DefKind(o: .category,
@@ -160,7 +176,14 @@ class ObjCDeclarationBuilder {
     private func parseMethodToPieces(method: String) -> [DeclarationPiece] {
         var pieces = [DeclarationPiece]()
 
-        var decl = method.re_sub("NS_SWIFT_NAME.*", with: "")
+        var decl = method
+        // Very grotty ad-hoc cleanup - maybe there is something in libclang
+        // to help parse out just the core pieces..
+        [#"\s+OBJC_DESIGNATED_INITIALIZER\b"#,
+         #"\s+SWIFT_.*\b"#].forEach {
+            decl = decl.re_sub($0, with: "", options: .i)
+        }
+
         guard let intro = decl.prefixMatch(#".*?(?=\w+\s*($|:))"#) else {
             return [.name(method)] // confused
         }
