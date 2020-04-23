@@ -164,7 +164,7 @@ internal enum L10n {
     case wrnCustomGrpMissing = "wrn-custom-grp-missing"
     /// The --docset-path option is ignored: the docset is created under '<output>/docsets'.
     case wrnDocsetPath = "wrn-docset-path"
-    /// Couldn't create docset tarfile.\n%1
+    /// Can't create docset tarfile.\n%1
     case wrnDocsetTarfile = "wrn-docset-tarfile"
     /// Duplicate filename '%1', ignoring '%2'.
     case wrnDuplicateGlobfile = "wrn-duplicate-globfile"
@@ -224,6 +224,8 @@ internal enum L10n {
     case wrnSsgeSymbolAcl = "wrn-ssge-symbol-acl"
     /// Unknown swift-symbolgraph symbol kind '%1', ignoring.
     case wrnSsgeSymbolKind = "wrn-ssge-symbol-kind"
+    /// Can't find Objective-C header file for module '%1' at '%2'.
+    case wrnSw2objcHeader = "wrn-sw2objc-header"
     /// %1 unmatched custom abstracts: '%2'.
     case wrnUnmatchedAbstracts = "wrn-unmatched-abstracts"
     /// Custom group regular expression '/%1/' did not match any items.

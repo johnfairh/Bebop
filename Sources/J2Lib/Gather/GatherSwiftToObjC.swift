@@ -12,7 +12,9 @@ import SourceKittenFramework
 /// Generate ObjC names and declarations for a Swift module.
 ///
 /// Fish out the bridging header and run it through libclang.
-/// Then match its contents against Swift decls.
+/// Build a table of usr -> {objc info}
+/// Then `GatherDef.init(...)` and `SwiftObjCDeclarationBuilder` will query
+/// the db when processing Swift decls.
 ///
 final class GatherSwiftToObjC {
     private let module: Module
@@ -38,7 +40,7 @@ final class GatherSwiftToObjC {
         objcHeaderPath = module.compilerArguments[pathIndex]
 
         guard FileManager.default.fileExists(atPath: objcHeaderPath) else {
-            logWarning("Can't find Objective-C header file for \(module.name) at \(objcHeaderPath)")
+            logWarning(.localized(.wrnSw2objcHeader, module.name, objcHeaderPath))
             return nil
         }
         logDebug(" Found Obj-C header file \(objcHeaderPath)")
