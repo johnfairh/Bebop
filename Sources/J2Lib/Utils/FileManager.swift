@@ -9,8 +9,8 @@ import Foundation
 
 extension FileManager {
     /// Create a new empty temporary directory.  Caller must delete.
-    func createTemporaryDirectory(inDirectory directory: URL? = nil) throws -> URL {
-        let directoryName = UUID().uuidString
+    func createTemporaryDirectory(inDirectory directory: URL? = nil, name: String? = nil) throws -> URL {
+        let directoryName = name ?? UUID().uuidString
         let parentDirectoryURL = directory ?? temporaryDirectory
         let directoryURL = parentDirectoryURL.appendingPathComponent(directoryName)
         try createDirectory(at: directoryURL, withIntermediateDirectories: false)
@@ -92,8 +92,8 @@ final class TemporaryDirectory {
 
     /// Get a path for a subdirectory in this object's directory.
     /// The new `TemporaryDirectory` is not auto-delete by default.
-    func createDirectory() throws -> TemporaryDirectory {
-        let url = try FileManager.default.createTemporaryDirectory(inDirectory: directoryURL)
+    func createDirectory(name: String? = nil) throws -> TemporaryDirectory {
+        let url = try FileManager.default.createTemporaryDirectory(inDirectory: directoryURL, name: name)
         return TemporaryDirectory(url: url)
     }
 

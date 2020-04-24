@@ -27,12 +27,14 @@ final class FormatAutolinkApple: Configurable {
 
     // MARK: Setup
 
+    static let CONTENTS_MAP_DB_PATH =
+        "SharedFrameworks/DNTDocumentationSupport.framework/Resources/external/map.db"
+
     var databaseURL: URL? {
-        let dbpath = "SharedFrameworks/DNTDocumentationSupport.framework/Resources/external/map.db"
         if let xcodePathURL = xcodePathOpt.value {
             return xcodePathURL
                 .appendingPathComponent("Contents")
-                .appendingPathComponent(dbpath)
+                .appendingPathComponent(Self.CONTENTS_MAP_DB_PATH)
         }
         let xcodeSelectResults = Exec.run("/usr/bin/env", "xcode-select", "-p")
         guard let developerPath = xcodeSelectResults.successString?.trimmingCharacters(in: .newlines) else {
@@ -41,19 +43,18 @@ final class FormatAutolinkApple: Configurable {
         }
         return URL(fileURLWithPath: developerPath)
             .deletingLastPathComponent()
-            .appendingPathComponent(dbpath)
+            .appendingPathComponent(Self.CONTENTS_MAP_DB_PATH)
     }
 
     private(set) lazy var db: AppleDocsDb? = {
-        guard let url = databaseURL else {
-            return nil
+        databaseURL.flatMap { dbURL in
+            do {
+                return try AppleDocsDb(url: dbURL)
+            } catch {
+                logWarning("Can't open Apple docs DB \(dbURL.path): \(error).")
+                return nil
+            }
         }
-        do {
-            return try AppleDocsDb(url: url)
-        } catch {
-            logWarning("Can't open Apple docs DB \(url.path): \(error).")
-        }
-        return nil
     }()
 
     // MARK: Query
@@ -65,6 +66,10 @@ final class FormatAutolinkApple: Configurable {
     private(set) var cacheMisses = Set<String>()
 
     func autolink(text: String) -> Autolink? {
+        #if !os(macOS)
+        return nil
+        #endif
+
         if let cachedResult = cacheHits[text] {
             Stats.inc(.autolinkAppleCacheHitHit)
             return cachedResult
@@ -81,11 +86,12 @@ final class FormatAutolinkApple: Configurable {
         return nil
     }
 
+    static let APPLE_DOCS_BASE_URL = "https://developer.apple.com/documentation/"
+
     func doAutolink(text: String) -> Autolink? {
-        return nil
-//        guard !disableOpt.value else {
-//            return nil
-//        }
+        guard !disableOpt.value else {
+            return nil
+        }
 
         guard let db = db else {
             return nil
@@ -97,7 +103,7 @@ final class FormatAutolinkApple: Configurable {
                 logDebug("AutolinkApple: No db match for '\(text)'.")
                 return nil
             }
-            let url = "https://developer.apple.com/documentation/" +
+            let url = Self.APPLE_DOCS_BASE_URL +
                 row.referencePath +
                 "?language=" +
                 row.language.rawValue
@@ -150,7 +156,7 @@ final class AppleDocsDb {
     /// Exec a query.  Filter out any javascript or whatever rows.
     private func doQuery(_ query: Table) throws -> [Row] {
         try db.prepare(query).compactMap { dbRow in
-            guard let language = DefLanguage(dbRow[sourceLanguage]) else {
+            guard let language = DefLanguage(appleId: dbRow[sourceLanguage]) else {
                 return nil
             }
             return Row(topicId: dbRow[topicId],
@@ -162,8 +168,8 @@ final class AppleDocsDb {
 
 // MARK: DefLanguage mapping
 
-private extension DefLanguage {
-    init?(_ appleId: Int64) {
+extension DefLanguage {
+    init?(appleId: Int64) {
         switch appleId {
         case 0: self = .swift
         case 1: self = .objc

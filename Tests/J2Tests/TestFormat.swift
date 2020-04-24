@@ -316,7 +316,7 @@ class TestFormat: XCTestCase {
             .with(children: [oMethod])
         let swClass = SourceKittenDict.mkClass(name: "SwiftClass")
         let passes = SourceKittenDict.mkFile().with(children: [oClass, swClass]).asGatherPasses
-        let system = System()
+        let system = System(cliArgs: ["--disable-apple-autolink"])
         let filtered = try system.run(passes)
         XCTAssertEqual(2, filtered.count)
 
