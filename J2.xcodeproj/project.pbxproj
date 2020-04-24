@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		021F71C62451BDE600B73472 /* extensions in Resources */ = {isa = PBXBuildFile; fileRef = 021F71C42451BD9800B73472 /* extensions */; };
+		021F71C82452FB5700B73472 /* FormatAutolinkApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021F71C72452FB5700B73472 /* FormatAutolinkApple.swift */; };
 		0225D990242D1B75005FF4A2 /* DefLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0225D98F242D1B75005FF4A2 /* DefLocation.swift */; };
 		0225D992242D1BA8005FF4A2 /* DefDeclNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0225D991242D1BA8005FF4A2 /* DefDeclNote.swift */; };
 		0225D994242D1BE8005FF4A2 /* DefLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0225D993242D1BE8005FF4A2 /* DefLanguage.swift */; };
@@ -242,6 +243,7 @@
 
 /* Begin PBXFileReference section */
 		021F71C42451BD9800B73472 /* extensions */ = {isa = PBXFileReference; lastKnownFileType = folder; path = extensions; sourceTree = "<group>"; };
+		021F71C72452FB5700B73472 /* FormatAutolinkApple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatAutolinkApple.swift; sourceTree = "<group>"; };
 		0225D98F242D1B75005FF4A2 /* DefLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefLocation.swift; sourceTree = "<group>"; };
 		0225D991242D1BA8005FF4A2 /* DefDeclNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefDeclNote.swift; sourceTree = "<group>"; };
 		0225D993242D1BE8005FF4A2 /* DefLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefLanguage.swift; sourceTree = "<group>"; };
@@ -456,6 +458,7 @@
 			children = (
 				0233D52823EF1582004DCD89 /* Format.swift */,
 				0259E199241A5902006435A1 /* FormatAutolink.swift */,
+				021F71C72452FB5700B73472 /* FormatAutolinkApple.swift */,
 				0233D52C23EF2997004DCD89 /* FormatURL.swift */,
 				0259E19B241D74CD006435A1 /* FormatAbstracts.swift */,
 				02D00C812407D70800DD93C5 /* FormatDeclaration.swift */,
@@ -937,6 +940,7 @@
 				0233D54523F432A3004DCD89 /* RichText.swift in Sources */,
 				0233D52F23EF2CCD004DCD89 /* ItemKind.swift in Sources */,
 				02FDC68423E9DED600C2F9CD /* DefItem.swift in Sources */,
+				021F71C82452FB5700B73472 /* FormatAutolinkApple.swift in Sources */,
 				02CFF92523DDFFC900FDE5B9 /* GatherDef.swift in Sources */,
 				0233D52D23EF2997004DCD89 /* FormatURL.swift in Sources */,
 				02D00C822407D70800DD93C5 /* FormatDeclaration.swift in Sources */,

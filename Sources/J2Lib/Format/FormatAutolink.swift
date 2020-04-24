@@ -27,6 +27,8 @@ final class Autolink {
 }
 
 final class FormatAutolink: Configurable {
+    let autolinkApple: FormatAutolinkApple
+
     // Db for language so that we can tell in which language the user wrote their
     // reference to the def.
     struct NameDB {
@@ -37,6 +39,7 @@ final class FormatAutolink: Configurable {
     private var nameDBs = [NameDB]()
 
     init(config: Config) {
+        autolinkApple = FormatAutolinkApple(config: config)
         config.register(self)
     }
 
@@ -81,7 +84,8 @@ final class FormatAutolink: Configurable {
 
         let declName = name.hasPrefix("@") ? String(name.dropFirst()) : name
         guard let (def, language) = def(for: declName, context: context) else {
-            return nil
+            // Fall back to apple docs links
+            return autolinkApple.autolink(text: declName)
         }
 
         guard def !== context else {
