@@ -1,8 +1,8 @@
 {
-  "autolinkAppleCacheHitHit" : 1,
-  "autolinkAppleCacheHitMiss" : 4,
-  "autolinkAppleFailure" : 4,
-  "autolinkAppleSuccess" : 2,
+  "autolinkAppleCacheHitHit" : 0,
+  "autolinkAppleCacheHitMiss" : 5,
+  "autolinkAppleFailure" : 0,
+  "autolinkAppleSuccess" : 0,
   "autolinkLocalGlobalScope" : 0,
   "autolinkLocalLocalScope" : 11,
   "autolinkLocalNestedScope" : 0,

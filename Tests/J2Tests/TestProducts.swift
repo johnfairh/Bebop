@@ -11,8 +11,10 @@ import XCTest
 
 // Binary-check fixtures for the json & html products files
 
-//private var doFixup = true
-private var doFixup = false
+private var doFixup = true
+//private var doFixup = false
+
+// apple autolink disabled for tests that run on linux...
 
 class TestProducts: XCTestCase {
     override func setUp() {
@@ -34,7 +36,7 @@ class TestProducts: XCTestCase {
     func compare(_ args: [String], _ product: String, against: String, line: UInt = #line) throws {
         let pipeline = Pipeline()
         TestLogger.install()
-        try pipeline.run(argv: args + ["--products", product, "--no-apple-autolink"])
+        try pipeline.run(argv: args + ["--products", product])
         XCTAssertEqual(1, TestLogger.shared.outputBuf.count, line: line)
 
         let fixtureJSONURL = fixturesURL.appendingPathComponent(against)
@@ -79,12 +81,14 @@ class TestProducts: XCTestCase {
     }
 
     func testFilesJsonSwift() throws {
-        try compareSwift(product: "files-json", against: "SpmSwiftModule.files.json")
+        try compareSwift(product: "files-json",
+                         cliArgs: ["--no-apple-autolink"],
+                         against: "SpmSwiftModule.files.json")
     }
 
     func testDeclsJsonSwift() throws {
         try compareSwift(product: "decls-json",
-                         cliArgs: ["--min-acl=private"],
+                         cliArgs: ["--min-acl=private", "--no-apple-autolink"],
                          against: "SpmSwiftModule.decls.json")
     }
 
@@ -133,7 +137,8 @@ class TestProducts: XCTestCase {
                                 "--undocumented-text=Undoc",
                                 "--include-source-files=/*/A*.swift",
                                 "--exclude-source-files", "*/Aexclude.swift",
-                                "--exclude-names", "^_"
+                                "--exclude-names", "^_",
+                                "--no-apple-autolink"
                              ],
                              against: "SpmSwiftModule5.decls.json")
         }
@@ -143,7 +148,8 @@ class TestProducts: XCTestCase {
         try compareSwift(product: "docs-summary-json",
                          cliArgs: ["--modules=SpmSwiftModule,SpmSwiftModule2,SpmSwiftModule3",
                                    "--min-acl=private",
-                                   "--merge-modules"],
+                                   "--merge-modules",
+                                   "--no-apple-autolink"],
                          against: "SpmSwiftModule.docs-summary.json")
     }
 
@@ -151,7 +157,7 @@ class TestProducts: XCTestCase {
         setenv("J2_STATIC_DATE", strdup("1") /* leak it */, 1)
         defer { unsetenv("J2_STATIC_DATE") }
         try compareSwift(product: "docs-json",
-                         cliArgs: ["--min-acl=private"],
+                         cliArgs: ["--min-acl=private", "--no-apple-autolink"],
                          against: "SpmSwiftModule.docs.json")
     }
 
@@ -164,7 +170,8 @@ class TestProducts: XCTestCase {
         let tmpDir = try TemporaryDirectory()
         var options = [
             "--config=\(layoutRoot.path)/.j2.yaml",
-            "--source-directory=\(layoutRoot.path)"
+            "--source-directory=\(layoutRoot.path)",
+            "--no-apple-autolink"
         ]
         if doFixup {
             options.append("--output=\(layoutRoot.appendingPathComponent("docs").path)")
