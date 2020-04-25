@@ -262,8 +262,8 @@ public class DefItem: Item, CustomStringConvertible {
 
     /// Format the item's associated declarations
     func formatDeclarations(formatter: RichDeclaration.Formatter) rethrows {
-        try swiftDeclaration?.declaration.format(formatter)
-        try objCDeclaration?.declaration.format(formatter)
+        try swiftDeclaration?.declaration.format(formatter, language: .swift)
+        try objCDeclaration?.declaration.format(formatter, language: .objc)
     }
 
     public var swiftGenericRequirements: SwiftGenericReqs? {

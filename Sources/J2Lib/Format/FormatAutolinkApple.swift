@@ -76,30 +76,36 @@ final class FormatAutolinkApple: Configurable {
 
     // Cache the results to avoid continuously hitting the DB for Bool etc....
 
-    // ok i'm too dumb to write this as one hash...
-    private(set) var cacheHits = [String:Autolink]()
-    private(set) var cacheMisses = Set<String>()
+    struct Key: Hashable {
+        let text: String
+        let language: DefLanguage?
+    }
 
-    func autolink(text: String) -> Autolink? {
-        if let cachedResult = cacheHits[text] {
+    // ok i'm too dumb to write this as one hash...
+    private(set) var cacheHits = [Key:Autolink]()
+    private(set) var cacheMisses = Set<Key>()
+
+    func autolink(text: String, language: DefLanguage? = nil) -> Autolink? {
+        let key = Key(text: text, language: language)
+        if let cachedResult = cacheHits[key] {
             Stats.inc(.autolinkAppleCacheHitHit)
             return cachedResult
         }
-        if cacheMisses.contains(text) {
+        if cacheMisses.contains(key) {
             Stats.inc(.autolinkAppleCacheHitMiss)
             return nil
         }
-        if let newResult = doAutolink(text: text) {
-            cacheHits[text] = newResult
+        if let newResult = doAutolink(text: text, language: language) {
+            cacheHits[key] = newResult
             return newResult
         }
-        cacheMisses.insert(text)
+        cacheMisses.insert(key)
         return nil
     }
 
     static let APPLE_DOCS_BASE_URL = "https://developer.apple.com/documentation/"
 
-    func doAutolink(text: String) -> Autolink? {
+    func doAutolink(text: String, language: DefLanguage?) -> Autolink? {
         guard !disableOpt.value,
             let db = db else {
             return nil
@@ -107,44 +113,37 @@ final class FormatAutolinkApple: Configurable {
 
         do {
             // Massage the autolink text into query strings to persuade the db
-            let refPath = AppleDocsDb.RefPath(autolinkText: text)
-            var rows = try db.query(pathLike: refPath.queryPathInModule)
-            if rows.isEmpty, let asModulePath = refPath.queryPathAsModule {
-                rows = try db.query(pathLike: asModulePath)
+            let refPath = AppleDocsDb.RefPath(autolinkText: text, language: language)
+
+            func findBestRow() throws -> AppleDocsDb.Row? {
+                if let row = try db.query(pathLike: refPath.queryPathInModule,
+                                          language: refPath.language) {
+                    return row
+                }
+                guard let asModulePath = refPath.queryPathAsModule else {
+                    return nil
+                }
+                return try db.query(pathLike: asModulePath,
+                                    language: refPath.language)
             }
 
-            rows = rows.sanitized(refPath: refPath)
-            guard !rows.isEmpty else {
+            guard let row = try findBestRow(), refPath.validate(row: row) else {
                 logDebug("AutolinkApple: failed to match '\(text)'.")
                 Stats.inc(.autolinkAppleFailure)
                 return nil
             }
-            logDebug("AutolinkApple: matched \(text) to \(rows.count) rows")
+            logDebug("AutolinkApple: matched \(text) to \(row.referencePath)")
             Stats.inc(.autolinkAppleSuccess)
 
-            // Guesstimatching means we can get all kinds of results.  Prefer the
-            // shortest match - wildcards done least work.
+            // Try to find the same topic in the other language.
+            let otherRow = try db.query(language: row.language.otherLanguage,
+                                        topicId: row.topicId)
 
-            // Grab the first row of the right language if we guessed it from the text
-            let bestRow = rows
-                .first { row in
-                    refPath.language.flatMap { $0 == row.language} ?? true
-                } ?? rows[0]
-
-            // Try to find the same topic in the other language - we may already have it
-            // but if the names are different in objc/swift we need to hit the db again
-            var otherRow = rows.first { $0.language == bestRow.language.otherLanguage }
-            if otherRow == nil {
-                otherRow = try db.query(language: bestRow.language.otherLanguage,
-                                        topicId: bestRow.topicId)
-                    .sanitized(refPath: refPath)
-                    .first
-            }
             // Finally generate the autolink content
             let secondaryHtml = otherRow.flatMap { $0.htmlLink(text, isSecondary: true) } ?? ""
-            return Autolink(markdownURL: bestRow.urlString,
-                            primaryURL: bestRow.urlString,
-                            html: bestRow.htmlLink(text) + secondaryHtml)
+            return Autolink(markdownURL: row.urlString,
+                            primaryURL: row.urlString,
+                            html: row.htmlLink(text) + secondaryHtml)
         } catch {
             logWarning(.localized(.wrnAppleautoDbq, text, error))
         }
@@ -187,29 +186,39 @@ final class AppleDocsDb {
         }
     }
 
-    /// select all where referencepath like path
-    func query(pathLike path: String) throws -> [Row] {
-        try doQuery(map.select(topicId, sourceLanguage, referencePath)
-            .filter(referencePath.like(path)))
+    /// Return the best fitting row for the path and optionally language.
+    func query(pathLike path: String, language: DefLanguage?) throws -> Row? {
+        let baseQuery = map.select(topicId, sourceLanguage, referencePath)
+            .filter(referencePath.like(path))
+
+        let langQuery = language.flatMap {
+            baseQuery.filter(sourceLanguage == $0.appleId)
+        } ?? baseQuery
+
+        return try doQuery(langQuery)
     }
 
-    /// select all where source_language == language, topic_id == topic_id
-    func query(language: DefLanguage, topicId: Int64) throws -> [Row] {
+    /// Return the best-fitting row for the language & topic ID.
+    func query(language: DefLanguage, topicId: Int64) throws -> Row? {
         try doQuery(map.select(self.topicId, sourceLanguage, referencePath)
             .filter(self.sourceLanguage == language.appleId)
             .filter(self.topicId == topicId))
     }
 
-    /// Exec a query.  Filter out any javascript or whatever rows.
-    private func doQuery(_ query: Table) throws -> [Row] {
-        try db.prepare(query).compactMap { dbRow in
+    /// Exec a query, adding logic to return the matching row with the shortest ref_path.
+    private func doQuery(_ query: Table) throws -> Row? {
+        try db.prepare(query
+            .order(self.referencePath.length)
+            .filter(self.sourceLanguage < 2)
+            .limit(1)
+        ).compactMap { dbRow -> Row? in
             guard let language = DefLanguage(appleId: dbRow[sourceLanguage]) else {
                 return nil
             }
             return Row(topicId: dbRow[topicId],
                        language: language,
                        referencePath: dbRow[referencePath])
-        }
+        }.first
     }
 
     // MARK: RefPath mangling and guessing
@@ -220,20 +229,20 @@ final class AppleDocsDb {
         
         /// Decompose an autolink-syntax identifier into pieces relevant to the DB and a hint
         /// to what language it is.
-        init(autolinkText: String) {
+        init(autolinkText: String, language: DefLanguage?) {
             if autolinkText.contains("(") {
                 // Swift function, only the part of the name before the parens matter
-                pieces = autolinkText.re_sub(#"\(.*$"#, with: "").strsplit(".")
-                language = .swift
+                self.pieces = autolinkText.re_sub(#"\(.*$"#, with: "").strsplit(".")
+                self.language = .swift
             } else if autolinkText.isObjCClassMethodName {
                 // ObjC method.  Want classname.firstpartofname - discard +- and the rest of the name
                 let firstPieces = autolinkText.hierarchical.re_split("[.+-:]")
-                pieces = Array(firstPieces.prefix(2))
-                language = .objc
+                self.pieces = Array(firstPieces.prefix(2))
+                self.language = .objc
             } else {
                 // Some dot-separated identifier
-                pieces = autolinkText.strsplit(".")
-                language = nil
+                self.pieces = autolinkText.strsplit(".")
+                self.language = language
             }
         }
 
@@ -268,25 +277,16 @@ final class AppleDocsDb {
             }
             return asFullQueryPath
         }
-    }
-}
 
-extension Array where Element == AppleDocsDb.Row {
-    /// Polish up the query results.
-    /// 1 - remove accidental matches where we can spot them,
-    ///   eg. stop `after` => `coretext/ctrubyposition/after`
-    ///   (allow one extra component for a module name)
-    /// 2 - order by refpath length, shortest first
-    func sanitized(refPath: AppleDocsDb.RefPath) -> Self {
-        filter { row in
-            row.referencePath.components(separatedBy: "/").count <=
-                (refPath.pieces.count + 1)
-        }.sorted {
-            $0.referencePath.count < $1.referencePath.count
+        /// Validate a query result -- removing accidental matches of stuff that
+        /// really is not intended to link out.
+        /// eg. stop `after` => `coretext/ctrubyposition/after`
+        /// (allow one extra component for a module name)
+        func validate(row: Row) -> Bool {
+            row.referencePath.components(separatedBy: "/").count <= pieces.count + 1
         }
     }
 }
-
 
 // MARK: DefLanguage mapping
 

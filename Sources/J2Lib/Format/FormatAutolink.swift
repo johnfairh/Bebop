@@ -76,7 +76,7 @@ final class FormatAutolink: Configurable {
     ///
     /// These are different in practice only for topics, which are evaluated inside the namespace of
     /// their type, but rendered on the same page as the type.
-    func link(for name: String, context: Item) -> Autolink? {
+    func link(for name: String, context: Item, contextLanguage: DefLanguage? = nil) -> Autolink? {
         if let defItem = context as? DefItem,
             defItem.isGenericTypeParameter(name: name) {
             return nil
@@ -85,7 +85,8 @@ final class FormatAutolink: Configurable {
         let declName = name.hasPrefix("@") ? String(name.dropFirst()) : name
         guard let (def, language) = def(for: declName, context: context) else {
             // Fall back to apple docs links
-            return autolinkApple.autolink(text: declName)
+            let language = contextLanguage ?? (context as? DefItem)?.primaryLanguage
+            return autolinkApple.autolink(text: declName, language: language)
         }
 
         guard def !== context else {

@@ -53,6 +53,10 @@ private extension String {
     }
 
     var withoutFlagPrefix: String {
+        re_sub("^-*", with: "")
+    }
+
+    var withoutFlagPrefixForSort: String {
         re_sub("^-*(no-)?", with: "")
     }
 
@@ -170,7 +174,7 @@ class Opt {
 
     /// A user-sensible string to sort by
     var sortKey: String {
-        longFlag?.withoutFlagPrefix ?? yamlKey!
+        longFlag?.withoutFlagPrefixForSort ?? yamlKey!
     }
 
     /// Help text stored in strings file, keyed by the `sortKey`

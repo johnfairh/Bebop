@@ -21,7 +21,7 @@ struct DeclarationFormatter: ItemVisitorProtocol {
     }
 
     func visit(defItem: DefItem, parents: [Item]) {
-        defItem.formatDeclarations { text in
+        defItem.formatDeclarations { text, language in
             // Must escape _first_ because autolink introduces actual HTML that
             // does not want to be escaped.
             // Means if we decide to handle generic expressions Foo<Bar>.Baz then
@@ -30,7 +30,9 @@ struct DeclarationFormatter: ItemVisitorProtocol {
 
             // veery approximate...
             let linked = escaped.re_sub(#"(?:\b|@)\p{Lu}[\w.]*"#) { name in
-                guard let link = autolink.link(for: name, context: defItem) else {
+                guard let link = autolink.link(for: name,
+                                               context: defItem,
+                                               contextLanguage: language) else {
                     return name
                 }
                 return #"<a href="\#(link.primaryURL)">\#(name)</a>"#

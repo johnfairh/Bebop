@@ -182,14 +182,14 @@ public enum RichDeclaration: Encodable, Comparable {
     }
 
     /// Something that knows how to convert declaration text to HTML
-    typealias Formatter = (String) throws -> Html
+    typealias Formatter = (String, DefLanguage) throws -> Html
 
     /// Format the declaration
-    mutating func format(_ formatter: Formatter) rethrows {
+    mutating func format(_ formatter: Formatter, language: DefLanguage) rethrows {
         switch self {
         case .formatted(_,_): return
         case .unformatted(let text):
-            self = .formatted(text, try formatter(text))
+            self = .formatted(text, try formatter(text, language))
         }
     }
 
