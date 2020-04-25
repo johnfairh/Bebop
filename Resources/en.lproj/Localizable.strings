@@ -141,3 +141,8 @@ Ignoring the second.";
 "wrn-docset-tarfile" = "Can't create docset tarfile.
 %1";
 "wrn-sw2objc-header" = "Can't find Objective-C header file for module '%1' at '%2'.";
+"err-cfg-xcodepath" = "Value for --apple-autolink-xcode-path should be some Xcode.app: '%1'.";
+"wrn-appleauto-xcode" = "Can't find current Xcode path, not linking to Apple documentation.
+%1;";
+"wrn-appleauto-dbo" = "Can't open Apple documentation database '%1': %2";
+"wrn-appleauto-dbq" = "Can't query Apple documentation database for '%1': %2";

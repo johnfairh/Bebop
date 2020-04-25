@@ -34,7 +34,7 @@ class TestProducts: XCTestCase {
     func compare(_ args: [String], _ product: String, against: String, line: UInt = #line) throws {
         let pipeline = Pipeline()
         TestLogger.install()
-        try pipeline.run(argv: args + ["--products", product, "--disable-apple-autolink"])
+        try pipeline.run(argv: args + ["--products", product, "--no-apple-autolink"])
         XCTAssertEqual(1, TestLogger.shared.outputBuf.count, line: line)
 
         let fixtureJSONURL = fixturesURL.appendingPathComponent(against)
@@ -164,8 +164,7 @@ class TestProducts: XCTestCase {
         let tmpDir = try TemporaryDirectory()
         var options = [
             "--config=\(layoutRoot.path)/.j2.yaml",
-            "--source-directory=\(layoutRoot.path)",
-            "--disable-apple-autolink"
+            "--source-directory=\(layoutRoot.path)"
         ]
         if doFixup {
             options.append("--output=\(layoutRoot.appendingPathComponent("docs").path)")

@@ -53,7 +53,7 @@ private extension String {
     }
 
     var withoutFlagPrefix: String {
-        re_sub("^-*", with: "")
+        re_sub("^-*(no-)?", with: "")
     }
 
     var asYamlKey: String {

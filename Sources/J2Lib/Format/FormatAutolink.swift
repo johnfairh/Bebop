@@ -159,9 +159,6 @@ final class FormatAutolink: Configurable {
 
 private extension Dictionary where Key == String, Value == DefItem {
     mutating func add(_ name: String, _ item: DefItem) {
-        if self[name] != nil {
-            logDebug("Colliding autolink name \(name)")
-        }
         self[name] = item
     }
 }

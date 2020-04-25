@@ -56,7 +56,7 @@ class TestAutolinkApple: XCTestCase {
     }
 
     func testGlobalDisable() throws {
-        let system = try System(cliArgs: ["--disable-apple-autolink"])
+        let system = try System(cliArgs: ["--no-apple-autolink"])
         if let link = system.link(text: "String") {
             XCTFail("Got unexpected answer from disabled autolinker: \(link)")
             return
@@ -93,13 +93,55 @@ class TestAutolinkApple: XCTestCase {
 
     func testBasicLookup() throws {
         let system = try System()
-        guard let link = system.link(text: "String") else {
-            XCTFail("Lookup 'String' failed")
+
+        ["String", "Swift.String"].forEach { text in
+            guard let link = system.link(text: text) else {
+                XCTFail("Lookup '\(text)' failed")
+                return
+            }
+            XCTAssertEqual(FormatAutolinkApple.APPLE_DOCS_BASE_URL +
+                           "swift/string?language=swift",
+                           link.primaryURL)
+        }
+    }
+
+    func testFunctionLookup() throws {
+        let system = try System()
+        guard let link = system.link(text: "String.init(repeating:count:)") else {
+            XCTFail("String.init(repeating:count:)")
+            return
+        }
+        XCTAssertTrue(link.primaryURL.re_isMatch(#"swift/string/\d+-init\?language=swift"#))
+    }
+
+    func testObjCFunctionLookup() throws {
+        let system = try System()
+        guard let link = system.link(text: "-[NSWindowDelegate windowWillResize:toSize:]") else {
+            XCTFail("-[NSWindowDelegate windowWillResize:toSize:]")
             return
         }
         XCTAssertEqual(FormatAutolinkApple.APPLE_DOCS_BASE_URL +
-                       "swift/string?language=swift",
+                       "appkit/nswindowdelegate/1419292-windowwillresize?language=objc",
                        link.primaryURL)
+    }
+
+    func testDualLanguageLookup() throws {
+        let system = try System()
+        guard let link = system.link(text: "NSPersonNameComponentsFormatter") else {
+            XCTFail("NSPersonNameComponentsFormatter")
+            return
+        }
+        XCTAssertTrue(link.primaryURL.contains("language=objc"))
+        XCTAssertTrue(link.html.re_isMatch(
+            #"\bnspersonnamecomponentsformatter\b.*j2-objc.*\bpersonnamecomponentsformatter\b.*j2-swift j2-secondary"#))
+    }
+
+    func testLookupFailures() throws {
+        let system = try System()
+        if let link = system.link(text: "after") {
+            XCTFail("Accidental link: \(link.primaryURL)")
+            return
+        }
     }
 
     func testCache() throws {
@@ -113,19 +155,17 @@ class TestAutolinkApple: XCTestCase {
         let _ = system.link(text: "String")
         XCTAssertEqual(1, Stats.db[.autolinkAppleCacheHitHit])
 
-        // CAN'T DO UNTIL WE TEACH IT TO SOMETIMES FAIL!
+        let badName = "NEVEREVERASYMBOLNAME"
 
-//        let badName = "NEVEREVERASYMBOLNAME"
-//
-//        if let badLink = system.link(text: badName) {
-//            XCTFail("Resolved badness: \(badLink)")
-//            return
-//        }
-//        XCTAssertEqual(1, Stats.db[.autolinkAppleCacheHitHit])
-//        XCTAssertEqual(0, Stats.db[.autolinkAppleCacheHitMiss])
-//
-//        let _ = system.link(text: badName)
-//        XCTAssertEqual(1, Stats.db[.autolinkAppleCacheHitMiss])
+        if let badLink = system.link(text: badName) {
+            XCTFail("Resolved badness: \(badLink)")
+            return
+        }
+        XCTAssertEqual(1, Stats.db[.autolinkAppleCacheHitHit])
+        XCTAssertEqual(0, Stats.db[.autolinkAppleCacheHitMiss])
+
+        let _ = system.link(text: badName)
+        XCTAssertEqual(1, Stats.db[.autolinkAppleCacheHitMiss])
     }
 
     #endif

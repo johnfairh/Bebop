@@ -90,6 +90,8 @@ internal enum L10n {
     case errCfgSsgeTriple = "err-cfg-ssge-triple"
     /// Unexpected text '%1' for config key '%2', expected boolean.
     case errCfgTextNotBool = "err-cfg-text-not-bool"
+    /// Value for --apple-autolink-xcode-path should be some Xcode.app: '%1'.
+    case errCfgXcodepath = "err-cfg-xcodepath"
     /// Missing argument for option '%1'.
     case errCliMissingArg = "err-cli-missing-arg"
     /// Unexpected repeated option '%1'.
@@ -150,6 +152,12 @@ internal enum L10n {
     case msgSearchProgress = "msg-search-progress"
     /// Skipped %1 %2 definitions
     case msgSwiftAcl = "msg-swift-acl"
+    /// Can't open Apple documentation database '%1': %2
+    case wrnAppleautoDbo = "wrn-appleauto-dbo"
+    /// Can't query Apple documentation database for '%1': %2
+    case wrnAppleautoDbq = "wrn-appleauto-dbq"
+    /// Can't find current Xcode path, not linking to Apple documentation.\n%1;
+    case wrnAppleautoXcode = "wrn-appleauto-xcode"
     /// No definitions found in --default-language '%1', using '%2' instead.
     case wrnBadUserLanguage = "wrn-bad-user-language"
     /// Config key '%1' ignored, already set on command-line.

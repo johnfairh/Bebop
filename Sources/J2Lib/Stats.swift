@@ -165,6 +165,10 @@ struct StatsDb {
         case autolinkAppleCacheHitHit
         /// Autolink to apple docs failed from cache
         case autolinkAppleCacheHitMiss
+        /// Autolink to apple docs worked
+        case autolinkAppleSuccess
+        /// Autolink to apple docs failed
+        case autolinkAppleFailure
         /// Custom abstracts applied to defs
         case customAbstractDef
         /// Custom abstracts applied to groups
