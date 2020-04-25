@@ -141,9 +141,7 @@ final class FormatAutolinkApple: Configurable {
 
             // Finally generate the autolink content
             let secondaryHtml = otherRow.flatMap { $0.htmlLink(text, isSecondary: true) } ?? ""
-            return Autolink(markdownURL: row.urlString,
-                            primaryURL: row.urlString,
-                            html: row.htmlLink(text) + secondaryHtml)
+            return Autolink(url: row.urlString, html: row.htmlLink(text) + secondaryHtml)
         } catch {
             logWarning(.localized(.wrnAppleautoDbq, text, error))
         }

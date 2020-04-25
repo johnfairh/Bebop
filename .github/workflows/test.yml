@@ -17,21 +17,23 @@ jobs:
         run: |
           sudo xcode-select -s /Applications/Xcode_11.4.app/Contents/Developer
           swift test --enable-code-coverage
-  
-  xcode:
-    name: macOS Xcode unit tests and coverage
-    runs-on: macos-latest
-    
-    steps:
-      - uses: actions/checkout@v1
-      - name: Xcodebuild
-        run: |
-          sudo xcode-select -s /Applications/Xcode_11.4.app/Contents/Developer
-          carthage bootstrap --no-use-binaries --platform macOS --cache-builds
-          touch Package.resolved
-          xcodebuild -scheme J2 build test
-      - name: Coverage upload
-        run: bash <(curl -s https://codecov.io/bash) -J 'J2Lib$' -X gcov -X coveragepy -t 35729115-01be-4d17-8b1f-063fa0892b79
+
+# Somehow SwiftSyntax is broken if Xcode isn't in /Applications/Xcode.app !
+# Shame we lose codecov...
+#  xcode:
+#    name: macOS Xcode unit tests and coverage
+#    runs-on: macos-latest
+#    
+#    steps:
+#      - uses: actions/checkout@v1
+#      - name: Xcodebuild
+#        run: |
+#          sudo xcode-select -s /Applications/Xcode_11.4.app/Contents/Developer
+#          carthage bootstrap --no-use-binaries --platform macOS --cache-builds
+#          touch Package.resolved
+#          xcodebuild -scheme J2 build test
+#      - name: Coverage upload
+#        run: bash <(curl -s https://codecov.io/bash) -J 'J2Lib$' -X gcov -X coveragepy -t 35729115-01be-4d17-8b1f-063fa0892b79
   
   linux:
     name: Linux SPM unit tests

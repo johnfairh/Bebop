@@ -24,6 +24,10 @@ final class Autolink {
         self.primaryURL = primaryURL
         self.html = html
     }
+
+    convenience init(url: String, html: String) {
+        self.init(markdownURL: url, primaryURL: url, html: html)
+    }
 }
 
 final class FormatAutolink: Configurable {
@@ -83,12 +87,22 @@ final class FormatAutolink: Configurable {
         }
 
         let declName = name.hasPrefix("@") ? String(name.dropFirst()) : name
-        guard let (def, language) = def(for: declName, context: context) else {
-            // Fall back to apple docs links
-            let language = contextLanguage ?? (context as? DefItem)?.primaryLanguage
-            return autolinkApple.autolink(text: declName, language: language)
+
+        // First priority: a def in this docset
+        if let (def, language) = def(for: declName, context: context) {
+            return linkTo(defItem: def, language: language, from: name, context: context)
         }
 
+        // Then apple.com docs
+        if case let language = contextLanguage ?? (context as? DefItem)?.primaryLanguage,
+            let appleLink = autolinkApple.autolink(text: declName, language: language) {
+            return appleLink
+        }
+        return nil
+    }
+
+    /// Create the Autolink for a link to one of our defs
+    private func linkTo(defItem def: DefItem, language: DefLanguage, from name: String, context: Item) -> Autolink? {
         guard def !== context else {
             Stats.inc(.autolinkSelfLink)
             return nil
