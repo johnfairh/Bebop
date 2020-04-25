@@ -168,6 +168,16 @@ class TestAutolinkApple: XCTestCase {
         XCTAssertEqual(1, Stats.db[.autolinkAppleCacheHitMiss])
     }
 
+    func testTruncation() throws {
+        let system = try System()
+        let text = "-[NSEntityMigrationPolicy createRelationshipsForDestinationInstance:entityMapping:manager:error:]"
+        guard let link = system.link(text: text) else {
+            XCTFail(text)
+            return
+        }
+        XCTAssertTrue(link.primaryURL.hasSuffix("coredata/nsentitymigrationpolicy/1423783-createrelationshipsfordestinatio?language=objc"))
+    }
+
     #endif
 
 }
