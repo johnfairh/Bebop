@@ -30,7 +30,7 @@ struct DeclarationFormatter: ItemVisitorProtocol {
 
             // veery approximate...
             let linked = escaped.re_sub(#"(?:\b|@)\p{Lu}[\w.]*"#) { name in
-                guard let link = autolink.link(for: name,
+                guard let link = autolink.link(for: defItem.linkName(for: name),
                                                context: defItem,
                                                contextLanguage: language) else {
                     return name
@@ -39,5 +39,22 @@ struct DeclarationFormatter: ItemVisitorProtocol {
             }
             return Html(linked)
         }
+    }
+}
+
+private extension DefItem {
+    /// 'Extensions make everything more complicated' part 92.
+    ///
+    /// When autolinking the declaration of an extension of a type from another
+    /// module, we want to link over to *that* module rather than to ourselves
+    /// which is the naive result of evaluating the name in the current scope.
+    func linkName(for shortName: String) -> String {
+        guard defKind.isSwiftExtension &&
+            shortName == name &&
+            typeModuleName != location.moduleName else {
+            return shortName
+        }
+
+        return "\(typeModuleName).\(shortName)"
     }
 }

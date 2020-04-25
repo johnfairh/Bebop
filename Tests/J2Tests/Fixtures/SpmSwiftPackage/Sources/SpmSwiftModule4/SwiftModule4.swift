@@ -11,3 +11,8 @@ extension Kitchen {
   /// renamed class swift method
   func renamed() {}
 }
+
+extension String {
+  /// From an external type that doesn't exist in ObjC
+  func externalTypeMethod() {}
+}

@@ -362,7 +362,7 @@
                 },
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public func exposedMethod(a: <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/int?language=swift\">Int<\/a>, b: <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/string?language=swift\">String<\/a>?) -&gt; <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/string?language=swift\">String<\/a>"
+                  "html" : "public func exposedMethod(a: <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/int?language=swift\">Int<\/a>, b: <a href=\"..\/..\/spmswiftmodule4\/extensions\/string.html?swift\">String<\/a>?) -&gt; <a href=\"..\/..\/spmswiftmodule4\/extensions\/string.html?swift\">String<\/a>"
                 }
               },
               "flat_title" : {
@@ -1321,6 +1321,18 @@
       },
       "is_guide" : false,
       "pagination" : {
+        "next" : {
+          "primary_language" : "swift",
+          "primary_title" : {
+            "en" : "Extensions"
+          },
+          "secondary_title" : {
+            "en" : "Categories"
+          },
+          "url" : {
+            "url_path" : "extensions"
+          }
+        },
         "prev" : {
           "primary_language" : "objc",
           "primary_title" : {
@@ -1382,6 +1394,200 @@
       }
     },
     {
+      "breadcrumbs" : [
+        [
+          {
+            "title" : {
+              "en" : "Categories"
+            }
+          }
+        ],
+        [
+          {
+            "title" : {
+              "en" : "Extensions"
+            }
+          }
+        ]
+      ],
+      "is_guide" : false,
+      "pagination" : {
+        "next" : {
+          "primary_language" : "swift",
+          "primary_title" : {
+            "en" : "String"
+          },
+          "secondary_title" : {
+            "en" : "String"
+          },
+          "url" : {
+            "url_path" : "spmswiftmodule4\/extensions\/string"
+          }
+        },
+        "prev" : {
+          "primary_language" : "objc",
+          "primary_title" : {
+            "en" : "JMLBathroomCupboard"
+          },
+          "secondary_title" : {
+            "en" : "JMLBathroomCupboard"
+          },
+          "url" : {
+            "url_path" : "spmobjcmodule\/types\/jmlbathroomcupboard"
+          }
+        }
+      },
+      "primary_language" : "swift",
+      "primary_title" : {
+        "en" : "Extensions"
+      },
+      "secondary_title" : {
+        "en" : "Categories"
+      },
+      "tab_title_prefix" : true,
+      "topics" : [
+        {
+          "anchor_id" : "tpc-",
+          "items" : [
+            {
+              "anchor_id" : "string",
+              "dash_type" : "Extension",
+              "def" : {
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "extension <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/string?language=swift\">String<\/a>"
+                }
+              },
+              "flat_title" : {
+                "en" : "extension String"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">extension <\/span>String"
+              },
+              "url" : {
+                "url_path" : "spmswiftmodule4\/extensions\/string"
+              }
+            }
+          ],
+          "menu_title" : {
+            "en" : ""
+          },
+          "title" : {
+            "en" : {
+              "html" : ""
+            }
+          }
+        }
+      ],
+      "url" : {
+        "url_path" : "extensions"
+      }
+    },
+    {
+      "breadcrumbs" : [
+        [
+          {
+            "title" : {
+              "en" : "Categories"
+            },
+            "url" : {
+              "url_path" : "extensions"
+            }
+          },
+          {
+            "title" : {
+              "en" : "Swift.String (SpmSwiftModule4)"
+            }
+          }
+        ],
+        [
+          {
+            "title" : {
+              "en" : "Extensions"
+            },
+            "url" : {
+              "url_path" : "extensions"
+            }
+          },
+          {
+            "title" : {
+              "en" : "Swift.String (SpmSwiftModule4)"
+            }
+          }
+        ]
+      ],
+      "def" : {
+        "availability" : [],
+        "params" : [],
+        "swift_declaration" : {
+          "html" : "extension <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/string?language=swift\">String<\/a>"
+        }
+      },
+      "is_guide" : false,
+      "pagination" : {
+        "prev" : {
+          "primary_language" : "swift",
+          "primary_title" : {
+            "en" : "Extensions"
+          },
+          "secondary_title" : {
+            "en" : "Categories"
+          },
+          "url" : {
+            "url_path" : "extensions"
+          }
+        }
+      },
+      "primary_language" : "swift",
+      "primary_title" : {
+        "en" : "String"
+      },
+      "tab_title_prefix" : true,
+      "topics" : [
+        {
+          "anchor_id" : "tpc-",
+          "items" : [
+            {
+              "anchor_id" : "externaltypemethod",
+              "dash_type" : "Method",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>From an external type that doesn’t exist in ObjC<\/p>"
+                  }
+                },
+                "availability" : [],
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "func externalTypeMethod()"
+                }
+              },
+              "flat_title" : {
+                "en" : "func externalTypeMethod()"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>externalTypeMethod<span class=\"j2-item-secondary\">()<\/span>"
+              }
+            }
+          ],
+          "menu_title" : {
+            "en" : ""
+          },
+          "title" : {
+            "en" : {
+              "html" : ""
+            }
+          }
+        }
+      ],
+      "url" : {
+        "url_path" : "spmswiftmodule4\/extensions\/string"
+      }
+    },
+    {
       "breadcrumbs" : [],
       "content" : {
         "en" : {
@@ -1403,15 +1609,15 @@
           }
         },
         "prev" : {
-          "primary_language" : "objc",
+          "primary_language" : "swift",
           "primary_title" : {
-            "en" : "JMLBathroomCupboard"
+            "en" : "String"
           },
           "secondary_title" : {
-            "en" : "JMLBathroomCupboard"
+            "en" : "String"
           },
           "url" : {
-            "url_path" : "spmobjcmodule\/types\/jmlbathroomcupboard"
+            "url_path" : "spmswiftmodule4\/extensions\/string"
           }
         }
       },
@@ -1547,6 +1753,25 @@
         },
         "url" : {
           "url_path" : "types"
+        }
+      },
+      {
+        "children" : [
+          {
+            "children" : [],
+            "title" : {
+              "en" : "String"
+            },
+            "url" : {
+              "url_path" : "spmswiftmodule4\/extensions\/string"
+            }
+          }
+        ],
+        "title" : {
+          "en" : "Extensions"
+        },
+        "url" : {
+          "url_path" : "extensions"
         }
       }
     ]
