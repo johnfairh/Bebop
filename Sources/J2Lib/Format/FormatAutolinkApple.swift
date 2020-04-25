@@ -36,6 +36,7 @@ final class FormatAutolinkApple: Configurable {
                 .appendingPathComponent("Contents")
                 .appendingPathComponent(Self.CONTENTS_MAP_DB_PATH)
         }
+        #if os(macOS)
         let xcodeSelectResults = Exec.run("/usr/bin/env", "xcode-select", "-p")
         guard let developerPath = xcodeSelectResults.successString?.trimmingCharacters(in: .newlines) else {
             logWarning("Can't find current Xcode, not autolinking to Apple docs.\n\(xcodeSelectResults.failureReport)")
@@ -44,6 +45,10 @@ final class FormatAutolinkApple: Configurable {
         return URL(fileURLWithPath: developerPath)
             .deletingLastPathComponent()
             .appendingPathComponent(Self.CONTENTS_MAP_DB_PATH)
+        #else
+        logDebug("FormatAutolinkApple: Not macOS, --apple-autolink-xcode-path not set, not doing it.")
+        return nil
+        #endif
     }
 
     private(set) lazy var db: AppleDocsDb? = {
@@ -66,10 +71,6 @@ final class FormatAutolinkApple: Configurable {
     private(set) var cacheMisses = Set<String>()
 
     func autolink(text: String) -> Autolink? {
-        #if !os(macOS)
-        return nil
-        #endif
-
         if let cachedResult = cacheHits[text] {
             Stats.inc(.autolinkAppleCacheHitHit)
             return cachedResult
