@@ -184,6 +184,7 @@ class TestProducts: XCTestCase {
             "--module=SpmSwiftModule",
             "--min-acl=private",
             "--guides=\(guideURL.path)",
+            "--clean",
             "--no-apple-autolink"]
 
         try doTestSiteFiles(args: options, goodDocsURL: docsDirURL)

@@ -89,7 +89,7 @@ struct GenThemes: Configurable {
 ///
 /// Knows where it is in the filesystem and how to read its config file.
 /// Owns the mustache template and interface
-struct Theme {
+final class Theme {
     /// Parser for the theme.yaml config file
     private struct Parser {
         let mustacheRootOpt = StringOpt(y: "mustache_root").def("doc.mustache")
@@ -163,4 +163,8 @@ struct Theme {
     func copy(to dstURL: URL) throws {
         try FileManager.default.forceCopyContents(of: url, to: dstURL)
     }
+
+    // Instance stuff for the jazzy extension layer...
+    var defaultLanguage: String = ""
+    var jazzyDocStructureCache: [MustacheDict]?
 }

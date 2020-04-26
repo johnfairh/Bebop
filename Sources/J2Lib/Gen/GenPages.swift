@@ -30,7 +30,7 @@ public struct GenPages: Configurable {
         let pageVisitor = PageVisitor(languages: languages,
                                       defaultLanguage: defaultLanguage,
                                       published: published)
-       try  pageVisitor.walk(items: items)
+        try pageVisitor.walk(items: items)
         let meta = GenData.Meta(version: Version.j2libVersion,
                                 languages: languages,
                                 defaultLanguage: defaultLanguage)

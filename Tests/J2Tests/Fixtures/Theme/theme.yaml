@@ -1,2 +1,3 @@
 mustache_root: main.mustache
 file_extension: .md
+jazzy_theme: false

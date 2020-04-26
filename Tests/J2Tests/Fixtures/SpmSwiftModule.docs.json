@@ -119,11 +119,13 @@
                 "url" : "types\/spmswiftmodule.html?swift"
               },
               {
+                "full_url" : "types.html?swift#t1",
                 "same_page" : true,
                 "title" : "T",
                 "url" : "#t1"
               }
             ],
+            "full_url" : "types.html?swift",
             "same_page" : true,
             "title" : "Types",
             "url" : ""
@@ -395,6 +397,7 @@
           {
             "children" : [
               {
+                "full_url" : "types\/abaseclass.html?swift",
                 "same_page" : true,
                 "title" : "ABaseClass",
                 "url" : ""
@@ -822,6 +825,7 @@
                 "url" : "types\/abaseclass.html?swift"
               },
               {
+                "full_url" : "types\/aderivedclass.html?swift",
                 "same_page" : true,
                 "title" : "ADerivedClass",
                 "url" : ""
@@ -1099,6 +1103,7 @@
                 "url" : "types\/aderivedclass.html?swift"
               },
               {
+                "full_url" : "types\/anenum.html?swift",
                 "same_page" : true,
                 "title" : "AnEnum",
                 "url" : ""
@@ -1390,6 +1395,7 @@
                 "url" : "types\/anenum.html?swift"
               },
               {
+                "full_url" : "types\/firstprotocol1.html?swift",
                 "same_page" : true,
                 "title" : "FirstProtocol",
                 "url" : ""
@@ -1757,6 +1763,7 @@
                 "url" : "types\/firstprotocol1.html?swift"
               },
               {
+                "full_url" : "types\/genericbase.html?swift",
                 "same_page" : true,
                 "title" : "GenericBase",
                 "url" : ""
@@ -2160,6 +2167,7 @@
                 "url" : "types\/genericbase.html?swift"
               },
               {
+                "full_url" : "types\/nop.html?swift",
                 "same_page" : true,
                 "title" : "Nop",
                 "url" : ""
@@ -2424,6 +2432,7 @@
                 "url" : "types\/nop.html?swift"
               },
               {
+                "full_url" : "types\/propertywrapperclient.html?swift",
                 "same_page" : true,
                 "title" : "PropertyWrapperClient",
                 "url" : ""
@@ -2663,6 +2672,7 @@
                 "url" : "types\/propertywrapperclient.html?swift"
               },
               {
+                "full_url" : "types\/secondprotocol.html?swift",
                 "same_page" : true,
                 "title" : "SecondProtocol",
                 "url" : ""
@@ -2947,11 +2957,13 @@
                     "url" : "types\/spmswiftmodule\/nested1.html?swift"
                   },
                   {
+                    "full_url" : "types\/spmswiftmodule.html?swift#nested2",
                     "same_page" : true,
                     "title" : "Nested2",
                     "url" : "#nested2"
                   }
                 ],
+                "full_url" : "types\/spmswiftmodule.html?swift",
                 "same_page" : true,
                 "title" : "SpmSwiftModule",
                 "url" : ""
@@ -3235,16 +3247,19 @@
                   {
                     "children" : [
                       {
+                        "full_url" : "types\/spmswiftmodule\/nested1.html?swift#nested2a",
                         "same_page" : true,
                         "title" : "Nested2a",
                         "url" : "#nested2a"
                       },
                       {
+                        "full_url" : "types\/spmswiftmodule\/nested1.html?swift#nested2b",
                         "same_page" : true,
                         "title" : "Nested2b",
                         "url" : "#nested2b"
                       }
                     ],
+                    "full_url" : "types\/spmswiftmodule\/nested1.html?swift",
                     "same_page" : true,
                     "title" : "Nested1",
                     "url" : ""
@@ -3513,16 +3528,19 @@
           {
             "children" : [
               {
+                "full_url" : "functions.html?swift#deprecatedfunctioncallback",
                 "same_page" : true,
                 "title" : "deprecatedFunction(callback:)",
                 "url" : "#deprecatedfunctioncallback"
               },
               {
+                "full_url" : "functions.html?swift#functionaarg1_arg3",
                 "same_page" : true,
                 "title" : "functionA(arg1:_:arg3:)",
                 "url" : "#functionaarg1_arg3"
               }
             ],
+            "full_url" : "functions.html?swift",
             "same_page" : true,
             "title" : "Functions",
             "url" : ""
@@ -3781,11 +3799,13 @@
           {
             "children" : [
               {
+                "full_url" : "operators.html?swift#t-t",
                 "same_page" : true,
                 "title" : "+(T, T)",
                 "url" : "#t-t"
               }
             ],
+            "full_url" : "operators.html?swift",
             "same_page" : true,
             "title" : "Operators",
             "url" : ""
@@ -4016,6 +4036,7 @@
                 "url" : "extensions\/stringelement.html?swift"
               }
             ],
+            "full_url" : "extensions.html?swift",
             "same_page" : true,
             "title" : "Extensions",
             "url" : ""
@@ -4238,6 +4259,7 @@
           {
             "children" : [
               {
+                "full_url" : "extensions\/collection.html?swift",
                 "same_page" : true,
                 "title" : "Collection",
                 "url" : ""
@@ -4494,6 +4516,7 @@
                 "url" : "extensions\/collection.html?swift"
               },
               {
+                "full_url" : "extensions\/stringelement.html?swift",
                 "same_page" : true,
                 "title" : "String.Element",
                 "url" : ""

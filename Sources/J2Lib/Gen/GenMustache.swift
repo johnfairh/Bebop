@@ -181,6 +181,7 @@ public enum MustacheKey: String {
     // ToC entries
     case title = "title"
     case url = "url"
+    case fullURL = "full_url"
     case samePage = "same_page"
     case children = "children"
     case screenReaderName = "screen_reader_name"
@@ -346,6 +347,7 @@ extension GenData.TocEntry {
         if entryURLPath.hasPrefix(pageURLPath) {
             // #link to something on the same page
             dict[.url] = url.hashURL
+            dict[.fullURL] = entryURLPath // jazzy mode accommodation
             dict[.samePage] = true
         } else {
             dict[.url] = entryURLPath
