@@ -94,7 +94,7 @@ final class Theme {
     private struct Parser {
         let mustacheRootOpt = StringOpt(y: "mustache_root").def("doc.mustache")
         let fileExtensionOpt = StringOpt(y: "file_extension").def(".html")
-        let jazzyModeOpt = BoolOpt(y: "jazzy_theme").def(true)
+        let jazzyModeOpt = BoolOpt(y: "jazzy_theme").def(false)
 
         func parse(themeYaml: String) throws {
             let optsParser = OptsParser()
@@ -128,11 +128,13 @@ final class Theme {
         let themeYamlURL = url.appendingPathComponent("theme.yaml")
         if let themeYaml = try? String(contentsOf: themeYamlURL) {
             try themeParser.parse(themeYaml: themeYaml)
+            jazzyMode = themeParser.jazzyModeOpt.value
+        } else {
+            jazzyMode = true
         }
 
         mustacheRootURL = templatesURL.appendingPathComponent(themeParser.mustacheRootOpt.value!)
         fileExtension = themeParser.fileExtensionOpt.value!
-        jazzyMode = themeParser.jazzyModeOpt.value
 
         logDebug("Theme: loading mustache template")
 
