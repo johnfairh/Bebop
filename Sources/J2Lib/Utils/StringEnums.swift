@@ -152,6 +152,8 @@ internal enum L10n {
     case msgGeneratingDocs = "msg-generating-docs"
     /// j2: Generate API documentation for Swift or Objective-C code.\n\nUsage: j2 [options]\n\nOptions:
     case msgHelpIntro = "msg-help-intro"
+    /// Rendering theme using classic Jazzy mode
+    case msgJazzyTheme = "msg-jazzy-theme"
     /// Building search index...
     case msgSearchProgress = "msg-search-progress"
     /// Skipped %1 %2 definitions

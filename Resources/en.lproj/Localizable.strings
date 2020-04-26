@@ -148,3 +148,4 @@ Ignoring the second.";
 "wrn-appleauto-dbq" = "Can't query Apple documentation database for '%1': %2";
 "msg-copying-theme" = "Copying theme files...";
 "err-cfg-theme-copy" = "Can't use 'theme' along with any other value in --products.";
+"msg-jazzy-theme" = "Rendering theme in classic Jazzy mode";

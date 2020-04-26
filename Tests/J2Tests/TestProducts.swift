@@ -163,20 +163,44 @@ class TestProducts: XCTestCase {
 
     // Full html tests
     func testHtmlLayout() throws {
-        setenv("J2_STATIC_DATE", strdup("1") /* leak it */, 1)
-        defer { unsetenv("J2_STATIC_DATE") }
-
         let layoutRoot = fixturesURL.appendingPathComponent("LayoutTest")
-        let tmpDir = try TemporaryDirectory()
-        var options = [
+        let options = [
             "--config=\(layoutRoot.path)/.j2.yaml",
             "--source-directory=\(layoutRoot.path)",
             "--no-apple-autolink"
         ]
+
+        try doTestSiteFiles(args: options, goodDocsURL: layoutRoot.appendingPathComponent("docs"))
+    }
+
+    func testJazzyHtmlLayout() throws {
+        let themeDirURL = fixturesURL.appendingPathComponent("JazzyAppleTheme")
+        let packageDirURL = fixturesURL.appendingPathComponent("SpmSwiftPackage")
+        let docsDirURL = packageDirURL.appendingPathComponent("jazzy_docs")
+        let guideURL = fixturesURL.appendingPathComponent("LayoutTest/guides/*.md")
+        let options = [
+            "--source-directory=\(packageDirURL.path)",
+            "--theme=\(themeDirURL.path)",
+            "--module=SpmSwiftModule",
+            "--min-acl=private",
+            "--guides=\(guideURL.path)",
+            "--no-apple-autolink"]
+
+        try doTestSiteFiles(args: options, goodDocsURL: docsDirURL)
+    }
+
+    func doTestSiteFiles(args: [String], goodDocsURL: URL) throws {
+        setenv("J2_STATIC_DATE", strdup("1") /* leak it */, 1)
+        defer { unsetenv("J2_STATIC_DATE") }
+
+        let tmpDir = try TemporaryDirectory()
+        let newDocsURL  = tmpDir.directoryURL
+
+        var options = args
         if doFixup {
-            options.append("--output=\(layoutRoot.appendingPathComponent("docs").path)")
+            options.append("--output=\(goodDocsURL.path)")
         } else {
-            options.append("--output=\(tmpDir.directoryURL.path)")
+            options.append("--output=\(newDocsURL.path)")
         }
 
         let pipeline = Pipeline()
@@ -186,9 +210,6 @@ class TestProducts: XCTestCase {
         if doFixup {
             return
         }
-
-        let goodDocsURL = layoutRoot.appendingPathComponent("docs")
-        let newDocsURL  = tmpDir.directoryURL
 
         let goodFiles = enumeratedFiles(under: goodDocsURL).sorted()
         let newFiles = enumeratedFiles(under: newDocsURL).sorted()
@@ -213,7 +234,8 @@ class TestProducts: XCTestCase {
         let enumerator = FileManager.default.enumerator(atPath: url.path)!
         return enumerator.compactMap {
             guard let path = $0 as? String,
-                path.re_isMatch(#"(html|json|svg|plist|xml)$"#) else {
+                path.re_isMatch(#"(html|json|svg|plist|xml)$"#),
+                !path.re_isMatch("undocumented.json$") else {
                     return nil
             }
             return path

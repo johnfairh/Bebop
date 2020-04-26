@@ -125,6 +125,10 @@ public struct GenSite: Configurable {
 
         theme.setGlobalData(buildGlobalData(genData: genData))
 
+        if theme.jazzyMode {
+            logInfo(.localized(.msgJazzyTheme))
+        }
+
         try generatePages(genData: genData, fileExt: theme.fileExtension) { location, data in
             logDebug("Gen: Rendering template for \(data[.primaryPageTitle]!)")
             let rendered = try theme.renderTemplate(data: data)

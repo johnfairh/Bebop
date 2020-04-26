@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		020AC6E92453842200A0E634 /* TestAutolinkApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020AC6E82453842200A0E634 /* TestAutolinkApple.swift */; };
+		020AC6EB2455EE4F00A0E634 /* GenThemesJazzy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020AC6EA2455EE4F00A0E634 /* GenThemesJazzy.swift */; };
 		021F71C62451BDE600B73472 /* extensions in Resources */ = {isa = PBXBuildFile; fileRef = 021F71C42451BD9800B73472 /* extensions */; };
 		021F71C82452FB5700B73472 /* FormatAutolinkApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021F71C72452FB5700B73472 /* FormatAutolinkApple.swift */; };
 		0225D990242D1B75005FF4A2 /* DefLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0225D98F242D1B75005FF4A2 /* DefLocation.swift */; };
@@ -244,6 +245,7 @@
 
 /* Begin PBXFileReference section */
 		020AC6E82453842200A0E634 /* TestAutolinkApple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAutolinkApple.swift; sourceTree = "<group>"; };
+		020AC6EA2455EE4F00A0E634 /* GenThemesJazzy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenThemesJazzy.swift; sourceTree = "<group>"; };
 		021F71C42451BD9800B73472 /* extensions */ = {isa = PBXFileReference; lastKnownFileType = folder; path = extensions; sourceTree = "<group>"; };
 		021F71C72452FB5700B73472 /* FormatAutolinkApple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatAutolinkApple.swift; sourceTree = "<group>"; };
 		0225D98F242D1B75005FF4A2 /* DefLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefLocation.swift; sourceTree = "<group>"; };
@@ -685,6 +687,7 @@
 				0233D53A23F09E0D004DCD89 /* GenMustache.swift */,
 				02CFFA0823E0C8AC00FDE5B9 /* GenSite.swift */,
 				02CFFA0F23E1E9A700FDE5B9 /* GenThemes.swift */,
+				020AC6EA2455EE4F00A0E634 /* GenThemesJazzy.swift */,
 				02EC5B7D242FCB2F00A511B2 /* GenMedia.swift */,
 				022BE7B12434AEFD005146D1 /* GenSearch.swift */,
 				022BE7B32434F33D005146D1 /* GenBadge.swift */,
@@ -984,6 +987,7 @@
 				022BE7BB24367F2F005146D1 /* GatherSymbolGraph.swift in Sources */,
 				0233D53B23F09E0D004DCD89 /* GenMustache.swift in Sources */,
 				0233D54923F6F2ED004DCD89 /* FormatMarkdown.swift in Sources */,
+				020AC6EB2455EE4F00A0E634 /* GenThemesJazzy.swift in Sources */,
 				0233D53523F067EE004DCD89 /* GenPages.swift in Sources */,
 				029A6F1D23D79AB000D66069 /* Version.swift in Sources */,
 				02CFF9662423820A00320610 /* DefTopic.swift in Sources */,

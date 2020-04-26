@@ -1,0 +1,305 @@
+{
+  "extensions\/collection.html?swift" : {
+    "name" : "Collection"
+  },
+  "extensions\/collection.html?swift#collectemall" : {
+    "abstract" : "Undocumented",
+    "name" : "collectEmAll()",
+    "parent_name" : "Collection"
+  },
+  "extensions\/collection.html?swift#nestemall" : {
+    "abstract" : "Undocumented",
+    "name" : "nestEmAll()",
+    "parent_name" : "Collection"
+  },
+  "extensions\/stringelement.html?swift" : {
+    "abstract" : "Extension of a nested type from an external module",
+    "name" : "String.Element"
+  },
+  "extensions\/stringelement.html?swift#method1" : {
+    "abstract" : "documented method",
+    "name" : "method1()",
+    "parent_name" : "String.Element"
+  },
+  "extensions\/stringelement.html?swift#method2" : {
+    "abstract" : "Undocumented",
+    "name" : "method2()",
+    "parent_name" : "String.Element"
+  },
+  "functions.html?swift#deprecatedfunctioncallback" : {
+    "abstract" : "A deprecated function",
+    "name" : "deprecatedFunction(callback:)"
+  },
+  "functions.html?swift#functionaarg1_arg3" : {
+    "abstract" : "See SpmSwiftModule – or SpmSwiftModule.ABaseClass.",
+    "name" : "functionA(arg1:_:arg3:)"
+  },
+  "operators.html?swift#t-t" : {
+    "abstract" : "Unscoped operator",
+    "name" : "+(T, T)"
+  },
+  "types.html?swift#t1" : {
+    "abstract" : "Undocumented",
+    "name" : "T"
+  },
+  "types\/abaseclass.html?swift" : {
+    "abstract" : "A base class",
+    "name" : "ABaseClass"
+  },
+  "types\/abaseclass.html?swift#abaseclass-abaseclass" : {
+    "abstract" : "An operator!",
+    "name" : "+(ABaseClass, ABaseClass)",
+    "parent_name" : "ABaseClass"
+  },
+  "types\/abaseclass.html?swift#deinit" : {
+    "abstract" : "Undocumented",
+    "name" : "deinit",
+    "parent_name" : "ABaseClass"
+  },
+  "types\/abaseclass.html?swift#init" : {
+    "abstract" : "Undocumented",
+    "name" : "init()",
+    "parent_name" : "ABaseClass"
+  },
+  "types\/abaseclass.html?swift#inita" : {
+    "abstract" : "Undocumented",
+    "name" : "init(a:)",
+    "parent_name" : "ABaseClass"
+  },
+  "types\/abaseclass.html?swift#methodparam" : {
+    "abstract" : "Base class docs for method(param:)",
+    "name" : "method(param:)",
+    "parent_name" : "ABaseClass"
+  },
+  "types\/abaseclass.html?swift#staticmethod" : {
+    "abstract" : "Undocumented",
+    "name" : "staticMethod()",
+    "parent_name" : "ABaseClass"
+  },
+  "types\/abaseclass.html?swift#subscript_" : {
+    "abstract" : "Undocumented",
+    "name" : "subscript(_:)",
+    "parent_name" : "ABaseClass"
+  },
+  "types\/abaseclass.html?swift#subscript_1" : {
+    "abstract" : "Undocumented",
+    "name" : "subscript(_:)",
+    "parent_name" : "ABaseClass"
+  },
+  "types\/abaseclass.html?swift#subscript_2" : {
+    "abstract" : "Undocumented",
+    "name" : "subscript(_:)",
+    "parent_name" : "ABaseClass"
+  },
+  "types\/aderivedclass.html?swift" : {
+    "abstract" : "A derived class",
+    "name" : "ADerivedClass"
+  },
+  "types\/aderivedclass.html?swift#genericparam" : {
+    "abstract" : "Undocumented",
+    "name" : "generic(param:)",
+    "parent_name" : "ADerivedClass"
+  },
+  "types\/aderivedclass.html?swift#methodparam1" : {
+    "abstract" : "See ABaseClass.method(...).",
+    "name" : "method(param:)",
+    "parent_name" : "ADerivedClass"
+  },
+  "types\/aderivedclass.html?swift#t3" : {
+    "abstract" : "Undocumented",
+    "name" : "t",
+    "parent_name" : "ADerivedClass"
+  },
+  "types\/anenum.html?swift" : {
+    "abstract" : "An enum",
+    "name" : "AnEnum"
+  },
+  "types\/anenum.html?swift#fiftha_" : {
+    "abstract" : "Fifth case",
+    "name" : "fifth(a:_:)",
+    "parent_name" : "AnEnum"
+  },
+  "types\/anenum.html?swift#first_" : {
+    "abstract" : "First case",
+    "name" : "first(_:)",
+    "parent_name" : "AnEnum"
+  },
+  "types\/anenum.html?swift#fourth" : {
+    "abstract" : "Third & Fourth cases - second",
+    "name" : "fourth",
+    "parent_name" : "AnEnum"
+  },
+  "types\/anenum.html?swift#second" : {
+    "abstract" : "Second case",
+    "name" : "second",
+    "parent_name" : "AnEnum"
+  },
+  "types\/anenum.html?swift#third" : {
+    "abstract" : "Third & Fourth cases - second",
+    "name" : "third",
+    "parent_name" : "AnEnum"
+  },
+  "types\/firstprotocol1.html?swift" : {
+    "abstract" : "A protocol.",
+    "name" : "FirstProtocol"
+  },
+  "types\/firstprotocol1.html?swift#assocfunc" : {
+    "abstract" : "Undocumented",
+    "name" : "assocFunc()",
+    "parent_name" : "FirstProtocol"
+  },
+  "types\/firstprotocol1.html?swift#assoctype" : {
+    "abstract" : "Undocumented",
+    "name" : "AssocType",
+    "parent_name" : "FirstProtocol"
+  },
+  "types\/firstprotocol1.html?swift#e" : {
+    "abstract" : "A protocol extension method",
+    "name" : "e()",
+    "parent_name" : "FirstProtocol"
+  },
+  "types\/firstprotocol1.html?swift#exthashablemethod" : {
+    "abstract" : "Undocumented",
+    "name" : "extHashableMethod()",
+    "parent_name" : "FirstProtocol"
+  },
+  "types\/firstprotocol1.html?swift#getonly" : {
+    "abstract" : "Undocumented",
+    "name" : "getOnly",
+    "parent_name" : "FirstProtocol"
+  },
+  "types\/firstprotocol1.html?swift#marg" : {
+    "name" : "m(arg:)",
+    "parent_name" : "FirstProtocol"
+  },
+  "types\/firstprotocol1.html?swift#marg1" : {
+    "abstract" : "Brief note about m",
+    "name" : "m(arg:)",
+    "parent_name" : "FirstProtocol"
+  },
+  "types\/genericbase.html?swift" : {
+    "abstract" : "Undocumented",
+    "name" : "GenericBase"
+  },
+  "types\/genericbase.html?swift#boxed" : {
+    "abstract" : "Undocumented",
+    "name" : "boxed",
+    "parent_name" : "GenericBase"
+  },
+  "types\/genericbase.html?swift#codablecount" : {
+    "abstract" : "Undocumented",
+    "name" : "codableCount",
+    "parent_name" : "GenericBase"
+  },
+  "types\/genericbase.html?swift#description" : {
+    "abstract" : "Undocumented",
+    "name" : "description",
+    "parent_name" : "GenericBase"
+  },
+  "types\/genericbase.html?swift#docodability" : {
+    "abstract" : "Undocumented",
+    "name" : "doCodability()",
+    "parent_name" : "GenericBase"
+  },
+  "types\/genericbase.html?swift#dofirstmagic" : {
+    "abstract" : "Undocumented",
+    "name" : "doFirstMagic()",
+    "parent_name" : "GenericBase"
+  },
+  "types\/genericbase.html?swift#dohashable" : {
+    "abstract" : "Undocumented",
+    "name" : "doHashable()",
+    "parent_name" : "GenericBase"
+  },
+  "types\/genericbase.html?swift#domoremagic" : {
+    "abstract" : "Undocumented",
+    "name" : "doMoreMagic()",
+    "parent_name" : "GenericBase"
+  },
+  "types\/genericbase.html?swift#inittype" : {
+    "abstract" : "Undocumented",
+    "name" : "init(type:)",
+    "parent_name" : "GenericBase"
+  },
+  "types\/genericbase.html?swift#mutify" : {
+    "abstract" : "Undocumented",
+    "name" : "mutify()",
+    "parent_name" : "GenericBase"
+  },
+  "types\/nop.html?swift" : {
+    "abstract" : "Undocumented",
+    "name" : "Nop"
+  },
+  "types\/nop.html?swift#initwrappedvalue" : {
+    "abstract" : "Undocumented",
+    "name" : "init(wrappedValue:)",
+    "parent_name" : "Nop"
+  },
+  "types\/nop.html?swift#wrappedvalue" : {
+    "abstract" : "Undocumented",
+    "name" : "wrappedValue",
+    "parent_name" : "Nop"
+  },
+  "types\/propertywrapperclient.html?swift" : {
+    "abstract" : "See @Nop.",
+    "name" : "PropertyWrapperClient"
+  },
+  "types\/propertywrapperclient.html?swift#v" : {
+    "abstract" : "Undocumented",
+    "name" : "v",
+    "parent_name" : "PropertyWrapperClient"
+  },
+  "types\/secondprotocol.html?swift" : {
+    "abstract" : "Undocumented",
+    "name" : "SecondProtocol"
+  },
+  "types\/secondprotocol.html?swift#getonly1" : {
+    "abstract" : "A default implementation for a method of FirstProtocol provided by\nSecondProtocol. From source we mess this up as an extension method. From\nsymbolgraph we mess this up as being part of FirstProtocol.",
+    "name" : "getOnly",
+    "parent_name" : "SecondProtocol"
+  },
+  "types\/secondprotocol.html?swift#secondprotocolmethod" : {
+    "abstract" : "Undocumented",
+    "name" : "secondProtocolMethod()",
+    "parent_name" : "SecondProtocol"
+  },
+  "types\/spmswiftmodule.html?swift" : {
+    "abstract" : "Main structure",
+    "name" : "SpmSwiftModule"
+  },
+  "types\/spmswiftmodule.html?swift#a" : {
+    "abstract" : "A pair of Ints",
+    "name" : "a",
+    "parent_name" : "SpmSwiftModule"
+  },
+  "types\/spmswiftmodule.html?swift#b" : {
+    "abstract" : "A pair of Ints",
+    "name" : "b",
+    "parent_name" : "SpmSwiftModule"
+  },
+  "types\/spmswiftmodule.html?swift#nested2" : {
+    "abstract" : "Undocumented",
+    "name" : "Nested2",
+    "parent_name" : "SpmSwiftModule"
+  },
+  "types\/spmswiftmodule.html?swift#text" : {
+    "abstract" : "Undocumented",
+    "name" : "text",
+    "parent_name" : "SpmSwiftModule"
+  },
+  "types\/spmswiftmodule\/nested1.html?swift" : {
+    "abstract" : "Undocumented",
+    "name" : "Nested1",
+    "parent_name" : "SpmSwiftModule"
+  },
+  "types\/spmswiftmodule\/nested1.html?swift#nested2a" : {
+    "abstract" : "Undocumented",
+    "name" : "Nested2a",
+    "parent_name" : "Nested1"
+  },
+  "types\/spmswiftmodule\/nested1.html?swift#nested2b" : {
+    "abstract" : "Undocumented",
+    "name" : "Nested2b",
+    "parent_name" : "Nested1"
+  }
+}

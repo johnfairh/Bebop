@@ -94,6 +94,7 @@ struct Theme {
     private struct Parser {
         let mustacheRootOpt = StringOpt(y: "mustache_root").def("doc.mustache")
         let fileExtensionOpt = StringOpt(y: "file_extension").def(".html")
+        let jazzyModeOpt = BoolOpt(y: "jazzy_theme").def(true)
 
         func parse(themeYaml: String) throws {
             let optsParser = OptsParser()
@@ -108,6 +109,8 @@ struct Theme {
     private let mustacheRootURL: URL
     /// The root mustache template object
     private let template: Template
+    /// Is this a jazzy-compat mode theme
+    let jazzyMode: Bool
 
     /// File extension that the generated output files should be given.  Includes leading period.
     let fileExtension: String
@@ -129,6 +132,7 @@ struct Theme {
 
         mustacheRootURL = templatesURL.appendingPathComponent(themeParser.mustacheRootOpt.value!)
         fileExtension = themeParser.fileExtensionOpt.value!
+        jazzyMode = themeParser.jazzyModeOpt.value
 
         logDebug("Theme: loading mustache template")
 
@@ -138,11 +142,11 @@ struct Theme {
     }
 
     func setGlobalData(_ data: MustacheDict) {
-        template.extendBaseContext(data)
+        template.extendBaseContext(jazzyMode ? jazzyGlobalData(from: data) : data)
     }
 
     func renderTemplate(data: MustacheDict) throws -> Html {
-        try Html(template.render(data))
+        try Html(template.render(jazzyMode ? jazzyPageData(from: data) : data))
     }
 
     /// Copy everything from the `assets` directory into the root of the docs site
