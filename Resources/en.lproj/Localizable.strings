@@ -146,3 +146,5 @@ Ignoring the second.";
 %1;";
 "wrn-appleauto-dbo" = "Can't open Apple documentation database '%1': %2";
 "wrn-appleauto-dbq" = "Can't query Apple documentation database for '%1': %2";
+"msg-copying-theme" = "Copying theme files...";
+"err-cfg-theme-copy" = "Can't use 'theme' along with any other value in --products.";

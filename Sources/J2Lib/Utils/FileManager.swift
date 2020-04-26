@@ -105,6 +105,24 @@ final class TemporaryDirectory {
     }
 }
 
+extension FileManager {
+    /// Copy a file overwriting if necessary
+    public func forceCopyItem(at: URL, to: URL) throws {
+        if fileExists(atPath: to.path) {
+            try removeItem(at: to)
+        }
+        try copyItem(at: at, to: to)
+    }
+
+    /// Beware this overwrites rather than merging copied subdirectories
+    public func forceCopyContents(of srcDirURL: URL, to dstDirURL: URL) throws {
+        try srcDirURL.filesMatching(.all).forEach { srcFileURL in
+            let dstFileURL = dstDirURL.appendingPathComponent(srcFileURL.lastPathComponent)
+            try forceCopyItem(at: srcFileURL, to: dstFileURL)
+        }
+    }
+}
+
 extension String {
     /// Write contents to a file, creating directories along the way if necessary
     func write(to url: URL) throws {

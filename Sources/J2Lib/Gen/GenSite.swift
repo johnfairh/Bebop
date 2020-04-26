@@ -99,22 +99,29 @@ public struct GenSite: Configurable {
         publish.moduleVersion = moduleVersionOpt.value
     }
 
+    private func processCleanOpt() throws {
+        guard cleanOpt.value else {
+            return
+        }
+        logDebug("Gen: Cleaning output directory \(outputURL.path)")
+        if FileManager.default.fileExists(atPath: outputURL.path) {
+            try FileManager.default.removeItem(at: outputURL)
+        }
+    }
+
+    private func prepareOutputDirectory() throws {
+        logDebug("Gen: Creating output directory \(outputURL.path)")
+        try FileManager.default.createDirectory(at: outputURL, withIntermediateDirectories: true)
+    }
+
     /// Final site generation.
     /// Site is generated from `genData` only; `items` used for search index and docset.
     public func generateSite(genData: GenData, items: [Item]) throws {
         let theme = try themes.select()
 
         logInfo(.localized(.msgGeneratingDocs))
-
-        if cleanOpt.value {
-            logDebug("Gen: Cleaning output directory \(outputURL.path)")
-            if FileManager.default.fileExists(atPath: outputURL.path) {
-                try FileManager.default.removeItem(at: outputURL)
-            }
-        }
-
-        logDebug("Gen: Creating output directory \(outputURL.path)")
-        try FileManager.default.createDirectory(at: outputURL, withIntermediateDirectories: true)
+        try processCleanOpt()
+        try prepareOutputDirectory()
 
         theme.setGlobalData(buildGlobalData(genData: genData))
 
@@ -133,17 +140,9 @@ public struct GenSite: Configurable {
 
         logInfo(.localized(.msgCopyProgress))
 
-        func copier(from: URL, to: URL) throws {
-            // we need this because `copyItem` throws if dst exists
-            if FileManager.default.fileExists(atPath: to.path) {
-                try FileManager.default.removeItem(at: to)
-            }
-            try FileManager.default.copyItem(at: from, to: to)
-        }
-
         try Localizations.shared.allTags.forEach { tag in
             let docRoot = outputURL.appendingPathComponent(tag.languageTagPathComponent)
-            try media.copyMedia(docRoot: docRoot, languageTag: tag, copier: copier)
+            try media.copyMedia(docRoot: docRoot, languageTag: tag)
 
             if !hideSearchOpt.value {
                 try search.writeIndex(docRootURL: docRoot, languageTag: tag)
@@ -154,9 +153,9 @@ public struct GenSite: Configurable {
             }
         }
 
-        try theme.copyAssets(to: outputURL, copier: copier)
+        try theme.copyAssets(to: outputURL)
         if published.usesMath {
-            try themes.installExtension(.katex, to: outputURL, copier: copier)
+            try themes.installExtension(.katex, to: outputURL)
         }
     }
 
@@ -301,6 +300,16 @@ public struct GenSite: Configurable {
         dict.maybe(.docsetURL, docsetFeedURL?.absoluteString.addingPercentEncoding(withAllowedCharacters: .alphanumerics))
 
         return dict
+    }
+
+    /// Copy-Theme mode
+    func copyTheme() throws {
+        let theme = try themes.select()
+
+        logInfo(.localized(.msgCopyingTheme))
+        try processCleanOpt()
+        try prepareOutputDirectory()
+        try theme.copy(to: outputURL)
     }
 }
 

@@ -90,6 +90,8 @@ internal enum L10n {
     case errCfgSsgeTriple = "err-cfg-ssge-triple"
     /// Unexpected text '%1' for config key '%2', expected boolean.
     case errCfgTextNotBool = "err-cfg-text-not-bool"
+    /// Can't use 'theme' along with any other value in --products.
+    case errCfgThemeCopy = "err-cfg-theme-copy"
     /// Value for --apple-autolink-xcode-path should be some Xcode.app: '%1'.
     case errCfgXcodepath = "err-cfg-xcodepath"
     /// Missing argument for option '%1'.
@@ -138,6 +140,8 @@ internal enum L10n {
     case msgConfigFile = "msg-config-file"
     /// Copying up files...
     case msgCopyProgress = "msg-copy-progress"
+    /// Copying theme files...
+    case msgCopyingTheme = "msg-copying-theme"
     /// %1% documentation coverage with %2 documented and %3 undocumented definitions
     case msgCoverage = "msg-coverage"
     /// Generating %1...

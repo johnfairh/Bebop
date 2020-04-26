@@ -58,6 +58,11 @@ class TestPipeline: XCTestCase {
         try pipeline.run(argv: ["--source-directory", spmTestURL.path,
                                 "--output", tempDir.directoryURL.path,
                                 "--products", "docs"])
-        // XXX site byte-check
+    }
+
+    func testBadProducts() throws {
+        let pipeline = Pipeline()
+
+        AssertThrows(try pipeline.run(argv: ["--products=theme,stats-json"]), OptionsError.self)
     }
 }

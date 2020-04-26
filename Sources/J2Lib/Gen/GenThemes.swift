@@ -65,7 +65,7 @@ struct GenThemes: Configurable {
     /// Install a theme extension
     ///
     /// Far too complex because NSFIleManager doesn't natively support a /bin/cp type directory merge copy or copy-overwrite.
-    func installExtension(_ ext: Extension, to docsSiteURL: URL, copier: (URL, URL) throws -> Void) throws {
+    func installExtension(_ ext: Extension, to docsSiteURL: URL) throws {
         let extensionURL = builtInURL
             .deletingLastPathComponent()
             .appendingPathComponent("extensions")
@@ -77,13 +77,10 @@ struct GenThemes: Configurable {
         try extensionURL.filesMatching(.all).forEach { srcURL in
             let dstURL = docsSiteURL.appendingPathComponent(srcURL.lastPathComponent)
             if !srcURL.isFilesystemDirectory || !dstURL.isFilesystemDirectory {
-                try copier(srcURL, dstURL)
+                try FileManager.default.forceCopyItem(at: srcURL, to: dstURL)
                 return
             }
-            try srcURL.filesMatching(.all).forEach { srcFileURL in
-                let dstFileURL = dstURL.appendingPathComponent(srcFileURL.lastPathComponent)
-                try copier(srcFileURL, dstFileURL)
-            }
+            try FileManager.default.forceCopyContents(of: srcURL, to: dstURL)
         }
     }
 }
@@ -149,16 +146,17 @@ struct Theme {
     }
 
     /// Copy everything from the `assets` directory into the root of the docs site
-    func copyAssets(to docsSiteURL: URL, copier: (URL, URL) throws -> Void) throws {
+    func copyAssets(to docsSiteURL: URL) throws {
         logDebug("Theme: copying assets")
         let assetsURL = url.appendingPathComponent("assets")
         guard FileManager.default.fileExists(atPath: assetsURL.path) else {
             return
         }
-        try assetsURL.filesMatching(.all).forEach { srcURL in
-            let filename = srcURL.lastPathComponent
-            let dstURL = docsSiteURL.appendingPathComponent(filename)
-            try copier(srcURL, dstURL)
-        }
+        try FileManager.default.forceCopyContents(of: assetsURL, to: docsSiteURL)
+    }
+
+    /// Copy the theme itself to a new place
+    func copy(to dstURL: URL) throws {
+        try FileManager.default.forceCopyContents(of: url, to: dstURL)
     }
 }

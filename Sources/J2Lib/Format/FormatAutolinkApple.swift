@@ -15,7 +15,7 @@ import SQLite
 ///
 /// Very approximate lookups based on portions of names - there could be a better way to do this,
 /// covers 90+% of uses fairly efficiently (though the DB access can go v. slow sometimes which
-/// is weird).
+/// is weird and I fear needs actual sqlite3 admin knowledge to understand).
 ///
 /// This is all [ab]use of undocumented stuff that could break/vanish at any Xcode release...
 ///

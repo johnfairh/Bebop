@@ -261,15 +261,12 @@ class TestGen: XCTestCase {
 
         let dstDir = try tmpDir.createDirectory()
         let dstMediaURL = dstDir.directoryURL.appendingPathComponent("media")
-        var filenames = Set(["one.jpg", "two.png"])
-        try system.gen.media
-            .copyMedia(docRoot: dstDir.directoryURL, languageTag: "en") { from, to in
-                let filename = from.lastPathComponent
-                XCTAssertTrue(FileManager.default.fileExists(atPath: from.path))
-                XCTAssertEqual(filename, filenames.remove(filename))
-                XCTAssertEqual(dstMediaURL.appendingPathComponent(filename).path, to.path)
+
+        try system.gen.media.copyMedia(docRoot: dstDir.directoryURL, languageTag: "en")
+        ["one.jpg", "two.png"].forEach { filename in
+            let dstURL = dstMediaURL.appendingPathComponent(filename)
+            XCTAssertTrue(FileManager.default.fileExists(atPath: dstURL.path))
         }
-        XCTAssertTrue(filenames.isEmpty)
     }
 
     // MARK: Search
@@ -526,5 +523,24 @@ class TestGen: XCTestCase {
         let globalData = system.gen.buildGlobalData(genData: GenData())
         XCTAssertEqual("https://www.google.com/docs/docsets/Fred.xml",
                        (globalData[.docsetURL] as? String)?.removingPercentEncoding)
+    }
+
+    // MARK: Theme copy
+
+    private func doCopyTheme(args: [String] = [], verify: (URL) throws -> ()) throws {
+        let tmpDir = try TemporaryDirectory()
+        let system = System()
+        try system.configure(cliOpts: ["--output", tmpDir.directoryURL.path] + args)
+        try system.gen.copyTheme()
+        try verify(tmpDir.directoryURL)
+    }
+
+    func testThemeCopy() throws {
+        try doCopyTheme { outputURL in
+            // just sniff some
+            ["assets", "templates", "templates/doc.mustache", "assets/css/fw2020.css"].forEach {
+                XCTAssertTrue(FileManager.default.fileExists(atPath: outputURL.appendingPathComponent($0).path), $0)
+            }
+        }
     }
 }

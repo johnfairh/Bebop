@@ -46,7 +46,7 @@ final class GenMedia: Configurable {
     }
 
     /// Populate a docset's media directory with the right files
-    func copyMedia(docRoot: URL, languageTag: String, copier: (URL, URL) throws -> Void) throws {
+    func copyMedia(docRoot: URL, languageTag: String) throws {
         logDebug("Media: Copying up files for \(languageTag)")
         guard !mediaFiles.isEmpty else {
             return
@@ -56,7 +56,7 @@ final class GenMedia: Configurable {
         try mediaFiles.forEach { file in
             let destinationURL = mediaURL.appendingPathComponent(file.key)
             if let sourceURL = file.value[languageTag] {
-                try copier(sourceURL, destinationURL)
+                try FileManager.default.forceCopyItem(at: sourceURL, to: destinationURL)
             }
         }
     }

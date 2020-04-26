@@ -26,13 +26,15 @@ private enum PipelineProduct: String, CaseIterable {
     case stats_json
     /// Produce undocumented report
     case undocumented_json
+    /// Copy a theme
+    case theme
 
     /// Pipeline mode is when the thing behaves fit to go in a shell pipeline -- producing parseable
     /// output only to stdout, everything else to stderr.  Used for the various json-dumping modes.
     var needsPipelineMode: Bool {
         switch self {
         case .files_json, .decls_json, .docs_summary_json, .docs_json: return true
-        case .docs, .docset, .stats_json, .undocumented_json: return false
+        case .docs, .docset, .stats_json, .undocumented_json, .theme: return false
         }
     }
 }
@@ -115,6 +117,12 @@ public final class Pipeline: Configurable {
             return
         }
 
+        if testAndClearProduct(.theme) {
+            logDebug("Pipeline: copy-theme")
+            try genSite.copyTheme()
+            return
+        }
+
         let gatheredData = try gather.gather()
 
         if testAndClearProduct(.files_json) {
@@ -178,6 +186,9 @@ public final class Pipeline: Configurable {
         logDebug("Pipeline: products: \(productsToDo)")
         if productsToDo.needsPipelineMode {
             Logger.shared.diagnosticLevels = Logger.allLevels
+        }
+        if productsToDo.contains(.theme) && productsToDo.count > 1 {
+            throw OptionsError(.localized(.errCfgThemeCopy))
         }
 
         let localizations = Localizations(mainDescriptor: defaultLocalizationOpt.value,
