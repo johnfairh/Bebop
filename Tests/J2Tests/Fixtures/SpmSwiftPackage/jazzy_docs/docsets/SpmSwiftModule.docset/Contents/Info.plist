@@ -17,6 +17,7 @@
     <key>DashDocSetFamily</key>
       <string>dashtoc</string>
     
-    
+    <key>DashDocSetFallbackURL</key>
+   <string>http://www.google.com/</string>
   </dict>
 </plist>

@@ -25,8 +25,6 @@ extension Theme {
         dict["doc_coverage"] = data[.docCoverage]
         // jazzy sets "author_name" but it's not used.  Skip it.
         dict["dash_url"] = data[.docsetURL]
-
-        defaultLanguage = (data[.defaultLanguage] as? String) ?? DefLanguage.swift.cssName
         return dict
     }
 
@@ -40,7 +38,7 @@ extension Theme {
     /// Always need a full URL even if the link is to something on the same page.
     private func buildJazzyDocStructure(from tocBlob: Any?) -> [MustacheDict]? {
         guard let tocDicts = tocBlob as? [MustacheDict],
-            let tocDict = tocDicts.first(where: { $0[.language] as? String == defaultLanguage }),
+            let tocDict = tocDicts.first(where: { $0[.language] as? String == defaultLanguage.cssName }),
             let toc = tocDict[.toc] as? [MustacheDict] else {
             return nil
         }
@@ -77,13 +75,11 @@ extension Theme {
         dict["docs_title"] = data[.docsTitle]
         dict["path_to_root"] = data[.pathToAssets]
         dict["module_name"] = data[.breadcrumbsRoot] // approximately
-        if data[.codehostGitHub] != nil {
-            dict["github_url"] = data[.codehostURL]
-        }
+        dict["github_url"] = data[.codehostURL] // approximately
         dict["structure"] = jazzyDocStructure(from: data[.tocs])
 
         // split path for guide/not
-        if data[.hideArticleTitle] != nil {
+        if let isGuide = data[.hideArticleTitle] as? Bool, isGuide {
             if let title = data[.primaryPageTitle] as? String,
                 title == "index",
                 let moduleName = data[.breadcrumbsRoot] {
@@ -91,23 +87,33 @@ extension Theme {
             } else {
                 dict["name"] = data[.primaryPageTitle]
             }
-            // doc[:overview] = render(doc_model, doc_model.content(source_module))
+            dict["overview"] = data[.contentHtml]
             dict["hide_name"] = true
         } else {
-            dict["name"] = data[.primaryTitle]
-//            doc[:kind] = doc_model.type.name
-//            doc[:dash_type] = doc_model.type.dash_type
-//            doc[:declaration] = doc_model.display_declaration
-//            doc[:overview] = overview
+            dict["name"] = data[.primaryPageTitle]
+            if let defData = data[.def] as? MustacheDict {
+                dict["overview"] =
+                    (defData[.abstractHtml] as? String ?? "") +
+                    (defData[.discussionHtml] as? String ?? "")
+                let langMap = defData.asLangDeclarationMap
+
+                dict["declaration"] =
+                    langMap.jazzyHtmlFor(defaultLanguage) ?? langMap.jazzyHtmlFor(defaultLanguage.otherLanguage)
+                dict["usage_discouraged"] = defData[.discouraged]
+                dict["deprecation_message"] = defData[.deprecationHtml]
+                dict["unavailable_message"] = defData[.unavailableHtml]
+            }
+
+            // omit kind at the page level, don't have it and doesn't add much
+            // omit dash_type at the page level, doesn't make sense
 //            doc[:tasks] = render_tasks(source_module, doc_model.children)
-//            doc[:deprecation_message] = doc_model.deprecation_message
-//            doc[:unavailable_message] = doc_model.unavailable_message
-//            doc[:usage_discouraged] = doc_model.usage_discouraged?
         }
         return dict
     }
 }
 
+
+/// Helper for decoding left-nav entries
 private extension MustacheDict {
     func asJazzyTocBaseDict(name: String, prefix: String = "") -> MustacheDict {
         [name : prefix + (self[.title] as? String ?? ""),
@@ -115,3 +121,28 @@ private extension MustacheDict {
     }
 }
 
+/// Helpers for mapping declaration formats/languages
+
+private typealias DefLanguageDeclMap = [DefLanguage : String]
+
+private extension MustacheDict {
+    var asLangDeclarationMap: DefLanguageDeclMap {
+        var dict = [DefLanguage : String]()
+        if let swiftDecl = self[.swiftDeclarationHtml] as? String {
+            dict[.swift] = swiftDecl
+        }
+        if let objCDecl = self[.objCDeclarationHtml] as? String {
+            dict[.objc] = objCDecl
+        }
+        return dict
+    }
+}
+
+private extension DefLanguageDeclMap {
+    func jazzyHtmlFor(_ language: DefLanguage) -> String? {
+        guard let decl = self[language] else {
+            return nil
+        }
+        return #"<pre><code class="language-\#(language.prismName)">"# + decl + "</code></pre>"
+    }
+}

@@ -126,6 +126,7 @@ public struct GenSite: Configurable {
         theme.setGlobalData(buildGlobalData(genData: genData))
 
         if theme.jazzyMode {
+            theme.setJazzyDefaults(language: genData.meta.defaultLanguage)
             logInfo(.localized(.msgJazzyTheme))
         }
 

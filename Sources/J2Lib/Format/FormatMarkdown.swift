@@ -199,7 +199,7 @@ final class MarkdownFormatter: ItemVisitorProtocol {
                 try! block.setFencedCodeInfo("objectivec")
             }
         } else {
-            try! block.setFencedCodeInfo(defaultLanguage.prismLanguage)
+            try! block.setFencedCodeInfo(defaultLanguage.prismName)
         }
     }
 
@@ -316,15 +316,5 @@ private extension CMNode {
         try! setLiteral(inlineHtml)
         try! insertIntoTree(beforeNode: node)
         node.unlink()
-    }
-}
-
-private extension DefLanguage {
-    /// Name of language according to Prism, the code highlighter
-    var prismLanguage: String {
-        switch self {
-        case .swift: return "swift"
-        case .objc: return "objectivec"
-        }
     }
 }

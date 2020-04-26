@@ -167,6 +167,10 @@ final class Theme {
     }
 
     // Instance stuff for the jazzy extension layer...
-    var defaultLanguage: String = ""
+    private(set) var defaultLanguage: DefLanguage = .swift
+    func setJazzyDefaults(language: DefLanguage) {
+        defaultLanguage = language
+    }
+
     var jazzyDocStructureCache: [MustacheDict]?
 }

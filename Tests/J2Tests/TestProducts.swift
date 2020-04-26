@@ -185,6 +185,8 @@ class TestProducts: XCTestCase {
             "--min-acl=private",
             "--guides=\(guideURL.path)",
             "--clean",
+            "--deployment-url=http://www.google.com/",
+            "--code-host-url=http://www.bbc.co.uk/",
             "--no-apple-autolink"]
 
         try doTestSiteFiles(args: options, goodDocsURL: docsDirURL)

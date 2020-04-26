@@ -35,6 +35,14 @@ public enum DefLanguage: String, Encodable, CaseIterable, Comparable {
         }
     }
 
+    /// Name of language according to Prism, the code highlighter
+    var prismName: String {
+        switch self {
+        case .swift: return "swift"
+        case .objc: return "objectivec"
+        }
+    }
+
     /// Comparable
     public static func < (lhs: DefLanguage, rhs: DefLanguage) -> Bool {
         lhs.humanName < rhs.humanName
