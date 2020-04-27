@@ -21,7 +21,12 @@
 
 // Theme color settings
 @import "colors";
-@import "code-themes";
+@media (prefers-color-scheme: light) {
+  @import "code-theme-light";
+}
+@media (prefers-color-scheme: dark) {
+  @import "code-theme-dark";
+}
 
 /*! Start of Bootstrap CSS */
 // Bootstrap optional modules

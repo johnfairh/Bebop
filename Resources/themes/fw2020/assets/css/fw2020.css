@@ -53,16 +53,14 @@
   }
 }
 
-.pr-interpolation {
-  color: var(--article-color);
-}
-
-.pr-operator,
-.pr-punctuation {
-  color: inherit;
-}
-
 @media (prefers-color-scheme: light) {
+  .pr-interpolation {
+    color: var(--article-color);
+  }
+  .pr-operator,
+  .pr-punctuation {
+    color: inherit;
+  }
   code,
   pre {
     background: #fafafa;
@@ -179,6 +177,13 @@
 }
 
 @media (prefers-color-scheme: dark) {
+  .pr-interpolation {
+    color: var(--article-color);
+  }
+  .pr-operator,
+  .pr-punctuation {
+    color: inherit;
+  }
   code,
   pre {
     background: #1f2427;

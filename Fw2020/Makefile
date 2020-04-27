@@ -112,3 +112,5 @@ katex:
 jazzy_patch:
 	cp -Rf $ ${JAZZY_PATCH_CSS_PATHS} ../Resources/extensions/jazzy_patch/css/
 	cp -Rf $ ${JAZZY_PATCH_JS_PATHS} ../Resources/extensions/jazzy_patch/js/
+
+publish_all: publish katex jazzy_patch
