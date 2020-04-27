@@ -20,19 +20,31 @@
 /// #piaf
 final class JazzyTheme: Theme {
     private var defaultLanguage: DefLanguage = .swift
+    private var userCustomHead = ""
 
     // MARK: Global
+
+    /// Slide in support for our style of syntax highlighting.
+    /// Mustache doesn't do recursive template evaluation so we
+    /// have to customize this per-page to get the href right.
+    func customHead(pathToRoot: String) -> String {
+        userCustomHead +
+        """
+        <link rel="stylesheet" href="\(pathToRoot)css/patch.min.css">
+        <script src="\(pathToRoot)js/patch.min.js" defer></script>
+        """
+    }
 
     func convertGlobalData(from data: MustacheDict) -> MustacheDict {
         var dict = MustacheDict()
         dict["jazzy_version"] = data[.j2libVersion]
         dict["language_stub"] = "cpp"
         dict["enable_katex"] = data[.enableKatex]
-        dict["custom_head"] = data[.customHead]
         dict["disable_search"] = data[.hideSearch]
         dict["doc_coverage"] = data[.docCoverage]
         // jazzy sets "author_name" but it's not used.  Skip it.
         dict["dash_url"] = data[.docsetURL]
+        userCustomHead = (data[.customHead] as? String ?? "")
         return dict
     }
 
@@ -85,7 +97,10 @@ final class JazzyTheme: Theme {
         var dict = MustacheDict()
         dict["copyright"] = data[.copyrightHtml]
         dict["docs_title"] = data[.docsTitle]
-        dict["path_to_root"] = data[.pathToAssets]
+        if let pathToRoot = data[.pathToAssets] as? String {
+            dict["path_to_root"] = pathToRoot
+            dict["custom_head"] = customHead(pathToRoot: pathToRoot)
+        }
         dict["module_name"] = data[.breadcrumbsRoot] // approximately
         dict["github_url"] = data[.codehostURL] // approximately
         dict["structure"] = docStructure(from: data[.tocs])
@@ -206,6 +221,9 @@ final class JazzyTheme: Theme {
         try super.renderTemplate(data: convertPageData(from: data))
     }
 
+    override var extensions: [GenThemes.Extension] {
+        [.jazzy_patch] // prism syntax highlighting support
+    }
 }
 
 // MARK: Helpers

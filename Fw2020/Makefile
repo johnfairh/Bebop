@@ -17,8 +17,17 @@ KATEX_CSS_PATHS=$(addprefix node_modules/katex/dist/, ${KATEX_CSS_FILES})
 KATEX_JS_FILES=katex.min.js
 KATEX_JS_PATHS=$(addprefix node_modules/katex/dist/, ${KATEX_JS_FILES})
 
+# Stuff to publish to extensions/jazzy_patch
+JAZZY_PATCH_CSS_FILES=patch.min.css
+JAZZY_PATCH_CSS_PATHS=$(addprefix dist/, ${JAZZY_PATCH_CSS_FILES})
+JAZZY_PATCH_JS_FILES=patch.min.js
+JAZZY_PATCH_JS_PATHS=$(addprefix dist/, ${JAZZY_PATCH_JS_FILES})
+JAZZY_PATCH_FILES=${JAZZY_PATCH_CSS_FILES} ${JAZZY_PATCH_JS_FILES}
+
 # Stuff for testing
-DISTFILES=${THEMEFILES} \
+DISTFILES= \
+	${THEMEFILES} \
+	${JAZZY_PATCH_FILES}\
 	fw2020.min.css.map \
 	guide.html \
 	class.html \
@@ -59,6 +68,10 @@ dist/dependencies.min.js: ${JS_DEPENDENCIES}
 	node_modules/terser/bin/terser $^ -o $@ \
 		--comments '/@license|^!/'
 
+dist/patch.min.js: prism/prism.min.js js/prism-extras.js js/jazzy-patch.js
+	node_modules/terser/bin/terser $^ -o $@ \
+		--comments '/@license|^!/'
+
 # Build htmls
 dist/%.html: %-article-frag.html template.html
 	sed -e '/<!-- ARTICLE -->/r $<' test/template.html > $@
@@ -86,7 +99,7 @@ j2: dist
 	mkdir -p dist/j2/assets/js
 	mkdir -p dist/j2/assets/css
 	cp -f templates/j2/* dist/j2/templates/
-	cp -f dist/*.js dist/j2/assets/js/
+	cp -f dist/dependencies.min.js dist/fw2020.js dist/j2/assets/js/
 	cp -f dist/fw2020.css dist/j2/assets/css/
 
 publish: j2
@@ -95,3 +108,7 @@ publish: j2
 katex:
 	cp -Rf ${KATEX_CSS_PATHS} ../Resources/extensions/katex/css/
 	cp -Rf ${KATEX_JS_PATHS} ../Resources/extensions/katex/js/
+
+jazzy_patch:
+	cp -Rf $ ${JAZZY_PATCH_CSS_PATHS} ../Resources/extensions/jazzy_patch/css/
+	cp -Rf $ ${JAZZY_PATCH_JS_PATHS} ../Resources/extensions/jazzy_patch/js/

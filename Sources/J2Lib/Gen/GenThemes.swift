@@ -64,7 +64,10 @@ struct GenThemes: Configurable {
 
     /// Extensions - bundles of stuff we don't want to always include but apply cross-theme
     enum Extension: String {
+        /// Client-side rendering of LaTeX
         case katex
+        /// Prism support for legacy jazzy themes
+        case jazzy_patch
     }
 
     /// Install a theme extension
@@ -153,6 +156,11 @@ class Theme {
 
     func renderTemplate(data: MustacheDict) throws -> Html {
         try Html(template.render(data))
+    }
+
+    /// Extensions required by the theme.  Could get from yaml if ever figure out what this means.
+    var extensions: [GenThemes.Extension] {
+        []
     }
 
     /// Copy everything from the `assets` directory into the root of the docs site

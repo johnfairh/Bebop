@@ -155,8 +155,12 @@ public struct GenSite: Configurable {
         }
 
         try theme.copyAssets(to: outputURL)
+        var extensions = Set(theme.extensions)
         if published.usesMath {
-            try themes.installExtension(.katex, to: outputURL)
+            extensions.insert(.katex)
+        }
+        try extensions.forEach {
+            try themes.installExtension($0, to: outputURL)
         }
     }
 
