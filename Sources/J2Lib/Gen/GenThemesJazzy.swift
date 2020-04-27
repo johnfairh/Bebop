@@ -10,6 +10,11 @@
 /// jazzy theme.  Design choice was to completely redo the mustache data design for the 'real' theme
 /// without regard to what jazzy did, and then here just map through brute force to the jazzy structure.
 ///
+/// Main breakages are:
+/// 1) Syntax highlighting -- tbd!
+/// 2) Item-linking.  Jazzy inserts a leading "/" into anchors *in the mustache template* and this messes
+///   up auto-linking and toc links and any kind of ref we generated in code.
+///
 /// Yay, yet more untyped dictionary spelunking.
 ///
 /// #piaf
@@ -103,7 +108,6 @@ final class JazzyTheme: Theme {
                     (defData[.abstractHtml] as? String ?? "") +
                     (defData[.discussionHtml] as? String ?? "")
                 let langMap = defData.asLangDeclarationMap
-
                 dict["declaration"] =
                     langMap.jazzyHtmlFor(defaultLanguage) ?? langMap.jazzyHtmlFor(defaultLanguage.otherLanguage)
                 dict["usage_discouraged"] = defData[.discouraged]
@@ -113,8 +117,78 @@ final class JazzyTheme: Theme {
 
             // omit kind at the page level, don't have it and doesn't add much
             // omit dash_type at the page level, doesn't make sense
-//            doc[:tasks] = render_tasks(source_module, doc_model.children)
+            if let topicsData = data[.topics] as? [MustacheDict] {
+                dict["tasks"] = topicsData.map { convertTask(from: $0) }
+            }
         }
+        return dict
+    }
+
+    func convertTask(from data: MustacheDict) -> MustacheDict {
+        var dict = MustacheDict()
+        dict["name"] = (data[.dashName] as? String)?.removingPercentEncoding
+        dict["name_html"] = data[.titleHtml]
+        dict["uid"] = data[.anchorId]
+        if let itemsData = data[.items] as? [MustacheDict] {
+            dict["items"] = itemsData.map { convertItem(from: $0) }
+        }
+        return dict
+    }
+
+    func convertItem(from data: MustacheDict) -> MustacheDict {
+        var dict = MustacheDict()
+        dict["name"] = data[.title]
+        dict["name_html"] = data[.primaryTitleHtml]
+        dict["usr"] = data[.anchorId]
+        dict["dash_type"] = data[.dashType]
+        dict["direct_link"] = !(data[.anyDeclaration] as? Bool ?? true)
+        dict["url"] = data[.primaryUrl]
+        guard let defData = data[.def] as? MustacheDict else {
+            return dict
+        }
+        dict["abstract"] =
+            (defData[.abstractHtml] as? String ?? "") +
+            (defData[.discussionHtml] as? String ?? "")
+
+        dict["usage_discouraged"] = defData[.discouraged]
+        dict["deprecation_message"] = defData[.deprecationHtml]
+        dict["unavailable_message"] = defData[.unavailableHtml]
+
+        let defaultImpl =
+            (defData[.defaultAbstractHtml] as? String ?? "") +
+            (defData[.defaultDiscussionHtml] as? String ?? "")
+        if !defaultImpl.isEmpty {
+            dict["default_impl_abstract"] = defaultImpl
+        }
+
+        // from_protocol_extension: can't do, buried in declnotes
+        // start_line: can't do, don't have, not used.
+        // end_line: ditto
+
+        dict["github_token_url"] = defData[.codehostURL]
+
+        // Jazzy expresses the multi-lingual declarations in a super-weird
+        // way.  It can't do 'first=objc second=swift'.
+        let langMap = defData.asLangDeclarationMap
+        for lang in [defaultLanguage, defaultLanguage.otherLanguage] {
+            if let langDecl = langMap.jazzyHtmlFor(lang) {
+                dict["declaration"] = langDecl
+                dict["language"] = lang.humanName
+                if lang == .objc, let swiftDecl = langMap.jazzyHtmlFor(.swift) {
+                    dict["other_language_declaration"] = swiftDecl
+                }
+                break
+            }
+        }
+
+        dict["return"] = defData[.returnsHtml]
+
+        if let paramsData = defData[.parameters] as? [MustacheDict] {
+            dict["parameters"] = paramsData.map {
+                ["name": $0[.title], "discussion": $0[.parameterHtml]]
+            }
+        }
+
         return dict
     }
 
