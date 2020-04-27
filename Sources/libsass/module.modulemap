@@ -1,0 +1,5 @@
+module J2Libsass
+{
+  umbrella header "libsass.h"
+  link "sass"
+}

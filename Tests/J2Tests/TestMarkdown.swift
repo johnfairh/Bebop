@@ -136,7 +136,7 @@ class TestMarkdown: XCTestCase {
         let (_, html) = formatter.format(md: md)
         XCTAssertEqual(
             #"""
-            <h1 class="j2-anchor j2-heading" id="heading-text">
+            <h1 class="j2-anchor j2-heading heading" id="heading-text">
             <span data-anchor-id="heading-text">
             Heading Text
             </span></h1>
@@ -171,12 +171,12 @@ class TestMarkdown: XCTestCase {
                           """)
         let (_, html) = formatter.format(md: md)
         XCTAssertEqual("""
-            <div class="j2-callout j2-callout-warning">
-            <div class="j2-callout-title" role="heading" aria-level="6">warning</div>
+            <div class="j2-callout j2-callout-warning aside aside-warning">
+            <div class="j2-callout-title aside-title" role="heading" aria-level="6">warning</div>
             <p>Warning</p>
             </div>
-            <div class="j2-callout j2-callout-custom-callout">
-            <div class="j2-callout-title" role="heading" aria-level="6">Custom Callout</div>
+            <div class="j2-callout j2-callout-custom-callout aside aside-custom-callout">
+            <div class="j2-callout-title aside-title" role="heading" aria-level="6">Custom Callout</div>
             <p>Custom</p>
             </div>
             """, html.html)

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		020AC6E92453842200A0E634 /* TestAutolinkApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020AC6E82453842200A0E634 /* TestAutolinkApple.swift */; };
 		020AC6EB2455EE4F00A0E634 /* GenThemesJazzy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020AC6EA2455EE4F00A0E634 /* GenThemesJazzy.swift */; };
+		020AC6ED2457483A00A0E634 /* Sass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020AC6EC2457483A00A0E634 /* Sass.swift */; };
 		021F71C62451BDE600B73472 /* extensions in Resources */ = {isa = PBXBuildFile; fileRef = 021F71C42451BD9800B73472 /* extensions */; };
 		021F71C82452FB5700B73472 /* FormatAutolinkApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021F71C72452FB5700B73472 /* FormatAutolinkApple.swift */; };
 		0225D990242D1B75005FF4A2 /* DefLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0225D98F242D1B75005FF4A2 /* DefLocation.swift */; };
@@ -246,6 +247,7 @@
 /* Begin PBXFileReference section */
 		020AC6E82453842200A0E634 /* TestAutolinkApple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAutolinkApple.swift; sourceTree = "<group>"; };
 		020AC6EA2455EE4F00A0E634 /* GenThemesJazzy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenThemesJazzy.swift; sourceTree = "<group>"; };
+		020AC6EC2457483A00A0E634 /* Sass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sass.swift; sourceTree = "<group>"; };
 		021F71C42451BD9800B73472 /* extensions */ = {isa = PBXFileReference; lastKnownFileType = folder; path = extensions; sourceTree = "<group>"; };
 		021F71C72452FB5700B73472 /* FormatAutolinkApple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatAutolinkApple.swift; sourceTree = "<group>"; };
 		0225D98F242D1B75005FF4A2 /* DefLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefLocation.swift; sourceTree = "<group>"; };
@@ -447,6 +449,7 @@
 				0257280623DB50B40001F510 /* Resources.swift */,
 				0233D54423F432A3004DCD89 /* RichText.swift */,
 				02FDC68123E997D700C2F9CD /* Markdown.swift */,
+				020AC6EC2457483A00A0E634 /* Sass.swift */,
 				0233D52323EF0CC3004DCD89 /* Identifiers.swift */,
 				028321F82403F40200B2C555 /* Exec.swift */,
 				0233D53823F07E6E004DCD89 /* JSON.swift */,
@@ -916,6 +919,7 @@
 				0233D52923EF1582004DCD89 /* Format.swift in Sources */,
 				02FDC68023E8B25100C2F9CD /* Localization.swift in Sources */,
 				0259E1952416686D006435A1 /* DefAcl.swift in Sources */,
+				020AC6ED2457483A00A0E634 /* Sass.swift in Sources */,
 				0259E19A241A5902006435A1 /* FormatAutolink.swift in Sources */,
 				02D00C802406D74700DD93C5 /* GatherSourceKitten.swift in Sources */,
 				0233D53723F07B1A004DCD89 /* GenData.swift in Sources */,
@@ -1254,6 +1258,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 					"$(PROJECT_DIR)/Syntax",
 				);
+				HEADER_SEARCH_PATHS = /usr/local/include;
 				INFOPLIST_FILE = Sources/J2Lib/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1264,6 +1269,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = j2.J2;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Sources/libsass";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
@@ -1285,6 +1291,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 					"$(PROJECT_DIR)/Syntax",
 				);
+				HEADER_SEARCH_PATHS = /usr/local/include;
 				INFOPLIST_FILE = Sources/J2Lib/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1295,6 +1302,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = j2.J2;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Sources/libsass";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

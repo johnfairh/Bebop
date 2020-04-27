@@ -41,7 +41,8 @@ let package = Package(
         "SwiftSyntax",
         "Maaku",
         "SortedArray",
-        .product(name: "SQLite", package: "SQLite.swift")
+        .product(name: "SQLite", package: "SQLite.swift"),
+        "libsass"
       ]),
     .target(
       name: "J2CLI",
@@ -50,5 +51,11 @@ let package = Package(
       name: "J2Tests",
       dependencies: ["J2Lib"],
       exclude: ["Fixtures"]),
+    .systemLibrary(name: "libsass",
+        pkgConfig: "libsass",
+        providers: [
+            .apt(["libsass-dev"]),
+            .brew(["libsass"])
+    ])
   ]
 )
