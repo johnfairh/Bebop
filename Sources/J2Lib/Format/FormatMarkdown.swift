@@ -179,7 +179,7 @@ final class MarkdownFormatter: ItemVisitorProtocol {
         let replacementNode =
             CMNode(customEnter:
                     #"""
-                    <h\#(level) class="j2-anchor j2-heading" id="\#(anchorId)">
+                    <h\#(level) class="j2-anchor j2-heading heading" id="\#(anchorId)">
                     <span data-anchor-id="\#(anchorId)">
                     """#,
                 customExit: "</span></h\(level)>")
@@ -224,11 +224,13 @@ final class MarkdownFormatter: ItemVisitorProtocol {
                 return
             }
 
+            // Stick in the jazzy classes as well for compatibility
+
             let calloutNode =
                 CMNode(customEnter:
                     #"""
-                    <div class="j2-callout j2-callout-\#(callout.title.slugged)">
-                    <div class="j2-callout-title" role="heading" aria-level="6">\#(callout.title)</div>
+                    <div class="j2-callout j2-callout-\#(callout.title.slugged) aside aside-\#(callout.title.slugged)">
+                    <div class="j2-callout-title aside-title" role="heading" aria-level="6">\#(callout.title)</div>
                     """#,
                     customExit: "</div>")
 

@@ -3262,7 +3262,7 @@
       "breadcrumbs" : [],
       "content" : {
         "en" : {
-          "html" : "<h1 class=\"j2-anchor j2-heading\" id=\"spmswiftmodule\">\n<span data-anchor-id=\"spmswiftmodule\">\nSpmSwiftModule\n<\/span><\/h1>"
+          "html" : "<h1 class=\"j2-anchor j2-heading heading\" id=\"spmswiftmodule\">\n<span data-anchor-id=\"spmswiftmodule\">\nSpmSwiftModule\n<\/span><\/h1>"
         }
       },
       "is_guide" : true,

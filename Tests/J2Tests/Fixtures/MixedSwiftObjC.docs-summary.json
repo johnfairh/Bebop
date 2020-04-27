@@ -1591,7 +1591,7 @@
       "breadcrumbs" : [],
       "content" : {
         "en" : {
-          "html" : "<h1 class=\"j2-anchor j2-heading\" id=\"spmobjcmodule\">\n<span data-anchor-id=\"spmobjcmodule\">\nSpmObjCModule\n<\/span><\/h1>"
+          "html" : "<h1 class=\"j2-anchor j2-heading heading\" id=\"spmobjcmodule\">\n<span data-anchor-id=\"spmobjcmodule\">\nSpmObjCModule\n<\/span><\/h1>"
         }
       },
       "is_guide" : true,

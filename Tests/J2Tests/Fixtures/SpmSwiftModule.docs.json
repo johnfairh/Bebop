@@ -4586,7 +4586,7 @@
     "breadcrumbs_menus" : [],
     "breadcrumbs_root" : "SpmSwiftModule",
     "codehost_def_link" : "Show on GitHub",
-    "content_html" : "<h1 class=\"j2-anchor j2-heading\" id=\"spmswiftmodule\">\n<span data-anchor-id=\"spmswiftmodule\">\nSpmSwiftModule\n<\/span><\/h1>",
+    "content_html" : "<h1 class=\"j2-anchor j2-heading heading\" id=\"spmswiftmodule\">\n<span data-anchor-id=\"spmswiftmodule\">\nSpmSwiftModule\n<\/span><\/h1>",
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "default_language" : "j2-swift",
     "disable_search" : false,
