@@ -124,11 +124,7 @@ public struct GenSite: Configurable {
         try prepareOutputDirectory()
 
         theme.setGlobalData(buildGlobalData(genData: genData))
-
-        if theme.jazzyMode {
-            theme.setJazzyDefaults(language: genData.meta.defaultLanguage)
-            logInfo(.localized(.msgJazzyTheme))
-        }
+        theme.setDefaultLanguage(genData.meta.defaultLanguage)
 
         try generatePages(genData: genData, fileExt: theme.fileExtension) { location, data in
             logDebug("Gen: Rendering template for \(data[.primaryPageTitle]!)")

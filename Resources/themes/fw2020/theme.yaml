@@ -1,3 +1,2 @@
 mustache_root: doc.mustache
 file_extension: ".html"
-jazzy_theme: false

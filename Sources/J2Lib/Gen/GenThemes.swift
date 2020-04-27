@@ -54,7 +54,12 @@ struct GenThemes: Configurable {
 
     /// Resolve the theme
     func select() throws -> Theme {
-        try Theme(url: themeURLFromOpt)
+        let themeURL = themeURLFromOpt
+        if FileManager.default.fileExists(atPath: themeURL.appendingPathComponent(Theme.YAML_FILENAME).path) {
+            return try Theme(url: themeURLFromOpt)
+        }
+        logInfo(.localized(.msgJazzyTheme))
+        return try JazzyTheme(url: themeURL)
     }
 
     /// Extensions - bundles of stuff we don't want to always include but apply cross-theme
@@ -89,12 +94,13 @@ struct GenThemes: Configurable {
 ///
 /// Knows where it is in the filesystem and how to read its config file.
 /// Owns the mustache template and interface
-final class Theme {
+class Theme {
+    static let YAML_FILENAME = "theme.yaml"
+
     /// Parser for the theme.yaml config file
     private struct Parser {
         let mustacheRootOpt = StringOpt(y: "mustache_root").def("doc.mustache")
         let fileExtensionOpt = StringOpt(y: "file_extension").def(".html")
-        let jazzyModeOpt = BoolOpt(y: "jazzy_theme").def(false)
 
         func parse(themeYaml: String) throws {
             let optsParser = OptsParser()
@@ -109,8 +115,6 @@ final class Theme {
     private let mustacheRootURL: URL
     /// The root mustache template object
     private let template: Template
-    /// Is this a jazzy-compat mode theme
-    let jazzyMode: Bool
 
     /// File extension that the generated output files should be given.  Includes leading period.
     let fileExtension: String
@@ -125,12 +129,9 @@ final class Theme {
 
         // May have a yaml - must be valid if exists
         let themeParser = Parser()
-        let themeYamlURL = url.appendingPathComponent("theme.yaml")
+        let themeYamlURL = url.appendingPathComponent(Self.YAML_FILENAME)
         if let themeYaml = try? String(contentsOf: themeYamlURL) {
             try themeParser.parse(themeYaml: themeYaml)
-            jazzyMode = themeParser.jazzyModeOpt.value
-        } else {
-            jazzyMode = true
         }
 
         mustacheRootURL = templatesURL.appendingPathComponent(themeParser.mustacheRootOpt.value!)
@@ -144,11 +145,14 @@ final class Theme {
     }
 
     func setGlobalData(_ data: MustacheDict) {
-        template.extendBaseContext(jazzyMode ? jazzyGlobalData(from: data) : data)
+        template.extendBaseContext(data)
+    }
+
+    func setDefaultLanguage(_ language: DefLanguage) {
     }
 
     func renderTemplate(data: MustacheDict) throws -> Html {
-        try Html(template.render(jazzyMode ? jazzyPageData(from: data) : data))
+        try Html(template.render(data))
     }
 
     /// Copy everything from the `assets` directory into the root of the docs site
@@ -165,12 +169,4 @@ final class Theme {
     func copy(to dstURL: URL) throws {
         try FileManager.default.forceCopyContents(of: url, to: dstURL)
     }
-
-    // Instance stuff for the jazzy extension layer...
-    private(set) var defaultLanguage: DefLanguage = .swift
-    func setJazzyDefaults(language: DefLanguage) {
-        defaultLanguage = language
-    }
-
-    var jazzyDocStructureCache: [MustacheDict]?
 }

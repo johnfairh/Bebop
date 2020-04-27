@@ -10,12 +10,15 @@
 /// jazzy theme.  Design choice was to completely redo the mustache data design for the 'real' theme
 /// without regard to what jazzy did, and then here just map through brute force to the jazzy structure.
 ///
+/// Yay, yet more untyped dictionary spelunking.
+///
 /// #piaf
-extension Theme {
+final class JazzyTheme: Theme {
+    private var defaultLanguage: DefLanguage = .swift
 
     // MARK: Global
 
-    func jazzyGlobalData(from data: MustacheDict) -> MustacheDict {
+    func convertGlobalData(from data: MustacheDict) -> MustacheDict {
         var dict = MustacheDict()
         dict["jazzy_version"] = data[.j2libVersion]
         dict["language_stub"] = "cpp"
@@ -36,7 +39,7 @@ extension Theme {
     /// What a completely unnecessary nightmare.
     ///
     /// Always need a full URL even if the link is to something on the same page.
-    private func buildJazzyDocStructure(from tocBlob: Any?) -> [MustacheDict]? {
+    private func buildDocStructure(from tocBlob: Any?) -> [MustacheDict]? {
         guard let tocDicts = tocBlob as? [MustacheDict],
             let tocDict = tocDicts.first(where: { $0[.language] as? String == defaultLanguage.cssName }),
             let toc = tocDict[.toc] as? [MustacheDict] else {
@@ -62,21 +65,25 @@ extension Theme {
     // Jazzy's simpler view of the doc structure doesn't change across
     // pages so we can cache it.
 
-    func jazzyDocStructure(from tocBlob: Any?) -> [MustacheDict]? {
-        if jazzyDocStructureCache == nil {
-            jazzyDocStructureCache = buildJazzyDocStructure(from: tocBlob)
+    private var docStructureCache: [MustacheDict]?
+
+    func docStructure(from tocBlob: Any?) -> [MustacheDict]? {
+        if docStructureCache == nil {
+            docStructureCache = buildDocStructure(from: tocBlob)
         }
-        return jazzyDocStructureCache
+        return docStructureCache
     }
 
-    func jazzyPageData(from data: MustacheDict) -> MustacheDict {
+    // MARK: Page
+
+    func convertPageData(from data: MustacheDict) -> MustacheDict {
         var dict = MustacheDict()
         dict["copyright"] = data[.copyrightHtml]
         dict["docs_title"] = data[.docsTitle]
         dict["path_to_root"] = data[.pathToAssets]
         dict["module_name"] = data[.breadcrumbsRoot] // approximately
         dict["github_url"] = data[.codehostURL] // approximately
-        dict["structure"] = jazzyDocStructure(from: data[.tocs])
+        dict["structure"] = docStructure(from: data[.tocs])
 
         // split path for guide/not
         if let isGuide = data[.hideArticleTitle] as? Bool, isGuide {
@@ -110,8 +117,24 @@ extension Theme {
         }
         return dict
     }
+
+    // MARK: Overrides
+
+    override func setGlobalData(_ data: MustacheDict) {
+        super.setGlobalData(convertGlobalData(from: data))
+    }
+
+    override func setDefaultLanguage(_ language: DefLanguage) {
+        defaultLanguage = language
+    }
+
+    override func renderTemplate(data: MustacheDict) throws -> Html {
+        try super.renderTemplate(data: convertPageData(from: data))
+    }
+
 }
 
+// MARK: Helpers
 
 /// Helper for decoding left-nav entries
 private extension MustacheDict {
