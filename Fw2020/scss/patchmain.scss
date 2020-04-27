@@ -3,5 +3,22 @@
  * Copyright 2020 J2 Authors
  * Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
  */
-$j2-article-color: #212529;
+
+// This is pretty tricky, we need to set the color to use within string
+// interpolation for stuff that is not matched to a token.  'inherit' is wrong
+// because that inherits from the 'quoted string' context -- we want the base
+// 'text color' really.
+// Go for a dark gray that won't look too amiss with the regular themes.
+// Not that this is common enough for anyone to notice...
+$j2-article-color: #222;
+
+// Bodge in a jazzy style rule to knock out the background when in a
+// declaration context
+.declaration {
+  pre,
+  code {
+    background: inherit;
+  }
+}
+
 @import "code-themes";
