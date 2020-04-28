@@ -38,7 +38,7 @@ final class JazzyTheme: Theme {
 
     func convertGlobalData(from data: MustacheDict) -> MustacheDict {
         var dict = MustacheDict()
-        dict["jazzy_version"] = data[.j2libVersion]
+        dict["jazzy_version"] = "J2 " + (data[.j2libVersion] as? String ?? "")
         dict["language_stub"] = "cpp"
         dict["enable_katex"] = data[.enableKatex]
         dict["disable_search"] = data[.hideSearch]

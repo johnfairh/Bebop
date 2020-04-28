@@ -24,7 +24,7 @@
     "item_collapse_never" : false,
     "item_collapse_open" : false,
     "item_nest" : true,
-    "j2lib_version" : "0.1",
+    "j2lib_version" : "X.Y",
     "language_tag" : "en",
     "pagination" : {
       "next" : {
@@ -363,7 +363,7 @@
     "item_collapse_never" : false,
     "item_collapse_open" : false,
     "item_nest" : true,
-    "j2lib_version" : "0.1",
+    "j2lib_version" : "X.Y",
     "language_tag" : "en",
     "pagination" : {
       "next" : {
@@ -786,7 +786,7 @@
     "item_collapse_never" : false,
     "item_collapse_open" : false,
     "item_nest" : true,
-    "j2lib_version" : "0.1",
+    "j2lib_version" : "X.Y",
     "language_tag" : "en",
     "pagination" : {
       "next" : {
@@ -1059,7 +1059,7 @@
     "item_collapse_never" : false,
     "item_collapse_open" : false,
     "item_nest" : true,
-    "j2lib_version" : "0.1",
+    "j2lib_version" : "X.Y",
     "language_tag" : "en",
     "pagination" : {
       "next" : {
@@ -1346,7 +1346,7 @@
     "item_collapse_never" : false,
     "item_collapse_open" : false,
     "item_nest" : true,
-    "j2lib_version" : "0.1",
+    "j2lib_version" : "X.Y",
     "language_tag" : "en",
     "pagination" : {
       "next" : {
@@ -1709,7 +1709,7 @@
     "item_collapse_never" : false,
     "item_collapse_open" : false,
     "item_nest" : true,
-    "j2lib_version" : "0.1",
+    "j2lib_version" : "X.Y",
     "language_tag" : "en",
     "pagination" : {
       "next" : {
@@ -2108,7 +2108,7 @@
     "item_collapse_never" : false,
     "item_collapse_open" : false,
     "item_nest" : true,
-    "j2lib_version" : "0.1",
+    "j2lib_version" : "X.Y",
     "language_tag" : "en",
     "pagination" : {
       "next" : {
@@ -2368,7 +2368,7 @@
     "item_collapse_never" : false,
     "item_collapse_open" : false,
     "item_nest" : true,
-    "j2lib_version" : "0.1",
+    "j2lib_version" : "X.Y",
     "language_tag" : "en",
     "pagination" : {
       "next" : {
@@ -2603,7 +2603,7 @@
     "item_collapse_never" : false,
     "item_collapse_open" : false,
     "item_nest" : true,
-    "j2lib_version" : "0.1",
+    "j2lib_version" : "X.Y",
     "language_tag" : "en",
     "pagination" : {
       "next" : {
@@ -2864,7 +2864,7 @@
     "item_collapse_never" : false,
     "item_collapse_open" : false,
     "item_nest" : true,
-    "j2lib_version" : "0.1",
+    "j2lib_version" : "X.Y",
     "language_tag" : "en",
     "pagination" : {
       "next" : {
@@ -3169,7 +3169,7 @@
     "item_collapse_never" : false,
     "item_collapse_open" : false,
     "item_nest" : true,
-    "j2lib_version" : "0.1",
+    "j2lib_version" : "X.Y",
     "language_tag" : "en",
     "pagination" : {
       "next" : {
@@ -3413,7 +3413,7 @@
     "item_collapse_never" : false,
     "item_collapse_open" : false,
     "item_nest" : true,
-    "j2lib_version" : "0.1",
+    "j2lib_version" : "X.Y",
     "language_tag" : "en",
     "pagination" : {
       "next" : {
@@ -3667,7 +3667,7 @@
     "item_collapse_never" : false,
     "item_collapse_open" : false,
     "item_nest" : true,
-    "j2lib_version" : "0.1",
+    "j2lib_version" : "X.Y",
     "language_tag" : "en",
     "pagination" : {
       "next" : {
@@ -3880,7 +3880,7 @@
     "item_collapse_never" : false,
     "item_collapse_open" : false,
     "item_nest" : true,
-    "j2lib_version" : "0.1",
+    "j2lib_version" : "X.Y",
     "language_tag" : "en",
     "pagination" : {
       "next" : {
@@ -4115,7 +4115,7 @@
     "item_collapse_never" : false,
     "item_collapse_open" : false,
     "item_nest" : true,
-    "j2lib_version" : "0.1",
+    "j2lib_version" : "X.Y",
     "language_tag" : "en",
     "pagination" : {
       "next" : {
@@ -4375,7 +4375,7 @@
     "item_collapse_never" : false,
     "item_collapse_open" : false,
     "item_nest" : true,
-    "j2lib_version" : "0.1",
+    "j2lib_version" : "X.Y",
     "language_tag" : "en",
     "pagination" : {
       "prev" : {
@@ -4599,7 +4599,7 @@
     "item_collapse_never" : false,
     "item_collapse_open" : false,
     "item_nest" : true,
-    "j2lib_version" : "0.1",
+    "j2lib_version" : "X.Y",
     "language_tag" : "en",
     "pagination" : {
       "next" : {

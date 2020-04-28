@@ -252,8 +252,15 @@ public struct GenSite: Configurable {
         let isDualLanguage = genData.meta.languages.count == 2
         let neverCollapse = nestedItemStyle == .always_open || childItemStyle == .separate
 
+        let version: String
+        if ProcessInfo.processInfo.environment["J2_STATIC_VERSION"] != nil {
+            version = "X.Y"
+        } else {
+            version = Version.j2libVersion
+        }
+
         var dict = MustacheKey.dict([
-            .j2libVersion : Version.j2libVersion,
+            .j2libVersion : version,
             .hideSearch : hideSearchOpt.value,
             .hideAttribution: hideAttributionOpt.value,
             .hideAvailability: hideAvailabilityOpt.value,

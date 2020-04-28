@@ -155,7 +155,11 @@ class TestProducts: XCTestCase {
 
     func testSiteGenSwift() throws {
         setenv("J2_STATIC_DATE", strdup("1") /* leak it */, 1)
-        defer { unsetenv("J2_STATIC_DATE") }
+        setenv("J2_STATIC_VERSION", strdup("1"), 1)
+        defer {
+            unsetenv("J2_STATIC_DATE")
+            unsetenv("J2_STATIC_VERSION")
+        }
         try compareSwift(product: "docs-json",
                          cliArgs: ["--min-acl=private", "--no-apple-autolink"],
                          against: "SpmSwiftModule.docs.json")
@@ -195,7 +199,11 @@ class TestProducts: XCTestCase {
 
     func doTestSiteFiles(args: [String], goodDocsURL: URL) throws {
         setenv("J2_STATIC_DATE", strdup("1") /* leak it */, 1)
-        defer { unsetenv("J2_STATIC_DATE") }
+        setenv("J2_STATIC_VERSION", strdup("1"), 1)
+        defer {
+            unsetenv("J2_STATIC_DATE")
+            unsetenv("J2_STATIC_VERSION")
+        }
 
         let tmpDir = try TemporaryDirectory()
         let newDocsURL  = tmpDir.directoryURL
