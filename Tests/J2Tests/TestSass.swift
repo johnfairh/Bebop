@@ -20,13 +20,13 @@ class TestSass: XCTestCase {
         let tmpFileURL = FileManager.default.temporaryFileURL()
         let sass = "div { a { color: blue; } }"
         try sass.write(to: tmpFileURL)
-        let css = try Sass.render(scssFile: tmpFileURL)
+        let css = try Sass.render(scssFileURL: tmpFileURL)
         let flattened = css.re_sub(#"\s+"#, with: " ")
         XCTAssertEqual("div a { color: blue; } ", flattened)
     }
 
     func testBadFile() throws {
-        AssertThrows(try Sass.render(scssFile: URL(fileURLWithPath: "/Not/real")), Sass.Error.self)
+        AssertThrows(try Sass.render(scssFileURL: URL(fileURLWithPath: "/Not/real")), Sass.Error.self)
     }
 
     func testBadContent() throws {
@@ -34,7 +34,7 @@ class TestSass: XCTestCase {
         let sass = "not sass"
         try sass.write(to: tmpFileURL)
         do {
-            let css = try Sass.render(scssFile: tmpFileURL)
+            let css = try Sass.render(scssFileURL: tmpFileURL)
             XCTFail("Managed to render nonsense as sass: \(css)")
         } catch {
             let str = String(describing: error)
@@ -54,7 +54,20 @@ class TestSass: XCTestCase {
         try sass1.write(to: sass1URL)
         try sass2.write(to: sass2URL)
 
-        let css = try Sass.render(scssFile: sass1URL)
+        let css = try Sass.render(scssFileURL: sass1URL)
         XCTAssertEqual("div {\n  color: red; }\n", css)
+    }
+
+    func testRenderInPlace() throws {
+        try ["sass.scss", "sass.css.scss"].forEach { sassFilename in
+            let tmpDir = try TemporaryDirectory()
+            let sass = "div { color: red; }"
+            let sassURL = tmpDir.directoryURL.appendingPathComponent(sassFilename)
+            try sass.write(to: sassURL)
+            try Sass.renderInPlace(scssFileURL: sassURL)
+            let cssURL = tmpDir.directoryURL.appendingPathComponent("sass.css")
+            let css = try String(contentsOf: cssURL)
+            XCTAssertEqual("div {\n  color: red; }\n", css, sassFilename)
+        }
     }
 }

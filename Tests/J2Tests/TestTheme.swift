@@ -70,9 +70,24 @@ class TestTheme: XCTestCase {
         let themeURL = fixturesURL.appendingPathComponent("Theme")
         let theme = try Theme(url: themeURL)
         XCTAssertEqual(".md", theme.fileExtension)
+        XCTAssertEqual(["top.scss"], theme.scssFilenames)
         let data = ["name" : "Fred", "type" : "Barney"]
         let rendered = try theme.renderTemplate(data: data)
         XCTAssertEqual("Fred\nBarney\n\n", rendered.html)
+    }
+
+    func testThemeYamlSass() throws {
+        let themeURL = fixturesURL.appendingPathComponent("Theme")
+        let theme = try Theme(url: themeURL)
+        let tmpDir = try TemporaryDirectory()
+        try theme.copyAssets(to: tmpDir.directoryURL)
+        let dstCssDirURL = tmpDir.directoryURL.appendingPathComponent("css")
+        let cssFileURL = dstCssDirURL.appendingPathComponent("top.css")
+        XCTAssertTrue(FileManager.default.fileExists(atPath: cssFileURL.path))
+        let scssFiles = dstCssDirURL.filesMatching("*.scss")
+        XCTAssertTrue(scssFiles.isEmpty)
+        let css = try String(contentsOf: cssFileURL)
+        XCTAssertEqual(".j2-article p {\n  color: blue; }\n", css)
     }
 
     private func createThemeDirs() throws -> TemporaryDirectory {

@@ -233,9 +233,7 @@ final class JazzyTheme: Theme {
         let cssDirURL = docsSiteURL.appendingPathComponent("css")
         try cssDirURL.filesMatching("*.scss").forEach { scssURL in
             logDebug("Running sass over \(scssURL.path)")
-            let css = try Sass.render(scssFile: scssURL)
-            let cssFilename = scssURL.lastPathComponent.re_sub(#"\.scss"#, with: "")
-            try css.write(to: cssDirURL.appendingPathComponent(cssFilename))
+            try Sass.renderInPlace(scssFileURL: scssURL)
             try FileManager.default.removeItem(at: scssURL)
         }
     }

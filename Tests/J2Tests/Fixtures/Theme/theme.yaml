@@ -1,2 +1,4 @@
 mustache_root: main.mustache
 file_extension: .md
+scss_filenames:
+  top.scss

@@ -86,12 +86,27 @@ enum Sass {
         }
     }
 
-    static func render(scssFile: URL) throws -> String {
-        let context = try FileContext(file: scssFile)
+    static func render(scssFileURL: URL) throws -> String {
+        let context = try FileContext(file: scssFileURL)
         let options = try Options(context: context)
-        options.set(inputPath: scssFile)
-        options.set(includeDirectories: [scssFile.deletingLastPathComponent()])
+        options.set(inputPath: scssFileURL)
+        options.set(includeDirectories: [scssFileURL.deletingLastPathComponent()])
         options.set(outputStyle: SASS_STYLE_NESTED)
         return try context.compile()
+    }
+
+    /// More useful file->file wrapper with some file-naming defaults
+    static func renderInPlace(scssFileURL: URL) throws {
+        let scssFilename = scssFileURL.lastPathComponent
+        let cssFilename: String
+        if scssFilename.hasSuffix(".css.scss") {
+            cssFilename = String(scssFilename.dropLast(5))
+        } else {
+            cssFilename = scssFilename.re_sub("scss$", with: "css")
+        }
+        let css = try render(scssFileURL: scssFileURL)
+        try css.write(to: scssFileURL
+            .deletingLastPathComponent()
+            .appendingPathComponent(cssFilename))
     }
 }

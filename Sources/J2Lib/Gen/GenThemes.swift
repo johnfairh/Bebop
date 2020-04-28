@@ -104,6 +104,7 @@ class Theme {
     private struct Parser {
         let mustacheRootOpt = StringOpt(y: "mustache_root").def("doc.mustache")
         let fileExtensionOpt = StringOpt(y: "file_extension").def(".html")
+        let scssFilenamesOpt = StringListOpt(y: "scss_filenames")
 
         func parse(themeYaml: String) throws {
             let optsParser = OptsParser()
@@ -122,6 +123,9 @@ class Theme {
     /// File extension that the generated output files should be given.  Includes leading period.
     let fileExtension: String
 
+    /// List of scss files in assets/css
+    let scssFilenames: [String]
+
     init(url: URL) throws {
         self.url = url
         logDebug("Theme: checking theme \(url.path)")
@@ -139,6 +143,7 @@ class Theme {
 
         mustacheRootURL = templatesURL.appendingPathComponent(themeParser.mustacheRootOpt.value!)
         fileExtension = themeParser.fileExtensionOpt.value!
+        scssFilenames = themeParser.scssFilenamesOpt.value
 
         logDebug("Theme: loading mustache template")
 
@@ -171,6 +176,16 @@ class Theme {
             return
         }
         try FileManager.default.forceCopyContents(of: assetsURL, to: docsSiteURL)
+
+        if !scssFilenames.isEmpty {
+            let cssDirURL = docsSiteURL.appendingPathComponent("css")
+            try scssFilenames.forEach {
+                try Sass.renderInPlace(scssFileURL: cssDirURL.appendingPathComponent($0))
+            }
+            try cssDirURL.filesMatching("*.scss").forEach {
+                try FileManager.default.removeItem(at: $0)
+            }
+        }
     }
 
     /// Copy the theme itself to a new place
