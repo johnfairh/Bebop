@@ -8,7 +8,7 @@ TEST_COMMAND=swift test --parallel
 all: build install
 
 build:
-	swift build
+	swift build -c release
 
 test:
 	${TEST_COMMAND}

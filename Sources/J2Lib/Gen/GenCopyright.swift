@@ -32,7 +32,6 @@ struct GenCopyright: Configurable {
         if let authorName = authorNameOpt.value {
             if let authorURL = authorURLOpt.value {
                 return authorName.mapValues { name in
-                    // This needs houdini_escape_href really...
                     #" <a href="\#(authorURL)" target="_blank" rel="external">\#(name)</a>"#
                 }
             }
