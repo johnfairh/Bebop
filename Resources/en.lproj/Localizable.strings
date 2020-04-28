@@ -150,3 +150,4 @@ Ignoring the second.";
 "err-cfg-theme-copy" = "Can't use 'theme' along with any other value in --products.";
 "msg-jazzy-theme" = "Rendering theme in classic Jazzy mode...";
 "err-sass-compile" = "Sass compile failed, rc=%1: %2.";
+"msg-help-aliases" = "Option aliases for jazzy compatibility:";

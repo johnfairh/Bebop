@@ -52,6 +52,7 @@ public final class Config {
 
     /// Command options for help / version / log-control
     private let helpOpt = CmdOpt(l: "help", yaml: .none)
+    private let helpAliasesOpt = CmdOpt(l: "help-aliases", yaml: .none)
     private let versionOpt = CmdOpt(l: "version", yaml: .none)
     private let debugOpt = CmdOpt(l: "debug")
     private let quietOpt = CmdOpt(l: "quiet")
@@ -97,7 +98,7 @@ public final class Config {
             optsError = error
         }
 
-        if versionOpt.value || helpOpt.value {
+        if versionOpt.value || helpOpt.value || helpAliasesOpt.value {
             return
         }
 
@@ -207,7 +208,18 @@ public final class Config {
                     .forEach { logInfo($0) }
             }
         }
-        return versionOpt.value || helpOpt.value
+
+        if helpAliasesOpt.value {
+            logInfo(.localized(.msgHelpAliases))
+            optsParser.allAliasOpts
+                .sorted { $0.aliases.first! < $1.aliases.first! }
+                .forEach { alias in
+                    let aliases = alias.aliases.filter { $0.hasPrefix("-")}.joined(separator: ", ")
+                    logInfo("")
+                    logInfo(" \(aliases) -> \(alias.realOpt.name(usage: false))")
+            }
+        }
+        return versionOpt.value || helpOpt.value || helpAliasesOpt.value
     }
 
     /// Configure the logger per options, reducing or increasing the verbosity.

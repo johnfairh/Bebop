@@ -152,6 +152,8 @@ internal enum L10n {
     case msgGatherHeading = "msg-gather-heading"
     /// Generating documentation...
     case msgGeneratingDocs = "msg-generating-docs"
+    /// Option aliases for jazzy compatibility:
+    case msgHelpAliases = "msg-help-aliases"
     /// j2: Generate API documentation for Swift or Objective-C code.\n\nUsage: j2 [options]\n\nOptions:
     case msgHelpIntro = "msg-help-intro"
     /// Rendering theme in classic Jazzy mode...

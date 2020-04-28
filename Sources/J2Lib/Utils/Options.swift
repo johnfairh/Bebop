@@ -652,6 +652,9 @@ final class OptsParser {
     /// Collection of all the `Opt`s
     private(set) var allOpts = [Opt]()
 
+    /// Collection of all the `AliasOpt`s
+    private(set) var allAliasOpts = [AliasOpt]()
+
     /// The base path for interpreting relative paths in options.
     var relativePathBase: URL
 
@@ -707,6 +710,7 @@ final class OptsParser {
             preconditionFailure("Can't resolve AliasOpt \(opt)")
         }
         opt.aliases.forEach { self.add(flag: $0, tracker: tracker) }
+        allAliasOpts.append(opt)
     }
 
     /// Add all `Opt`s declared as properties of the object to dictionary

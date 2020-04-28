@@ -17,6 +17,11 @@ fileprivate class System: Configurable {
     let nameOpt = StringOpt(l: "name")
     let hiddenOpt = StringOpt(l: "eyecatcher").hidden
     var checkOptionsCalled = false
+    let aliasOpt: AliasOpt
+
+    init() {
+        aliasOpt = AliasOpt(realOpt: nameOpt, l: "moniker")
+    }
 
     func configure(cliOpts: String...) throws {
         config.register(self)
@@ -119,16 +124,18 @@ class TestConfig: XCTestCase {
         XCTAssertEqual([Version.j2libVersion], TestLogger.shared.messageBuf)
     }
 
-    // 4. help cmd (something)
+    // 4. help cmds (something)
     func testHelp() throws {
-        TestLogger.install()
-        TestLogger.shared.expectNoDiags = true
-        let system = System()
-        try system.configure(cliOpts: "--help")
-        XCTAssertTrue(system.config.performConfigCommand())
-        XCTAssertNotEqual([], TestLogger.shared.messageBuf)
-        TestLogger.shared.messageBuf.forEach { msg in
-            XCTAssertFalse(msg.contains("eyecatcher"))
+        try ["--help", "--help-aliases"].forEach { helpCmd in
+            TestLogger.install()
+            TestLogger.shared.expectNoDiags = true
+            let system = System()
+            try system.configure(cliOpts: helpCmd)
+            XCTAssertTrue(system.config.performConfigCommand())
+            XCTAssertNotEqual([], TestLogger.shared.messageBuf)
+            TestLogger.shared.messageBuf.forEach { msg in
+                XCTAssertFalse(msg.contains("eyecatcher"))
+            }
         }
     }
 
