@@ -264,7 +264,7 @@ final class MarkdownFormatter: ItemVisitorProtocol {
     func customizeImage(image: CMNode, iterator: Iterator) {
         guard case let altText = image.renderPlainText(),
             let match = altText.re_match(#"^(.*?)\|(\d+)x(\d+)(?:,(\d+)%)?$"#),
-            let imgURL = image.linkDestination else {
+            var imgURL = image.linkDestination else {
                 return
         }
         let newAltText = match[1]
@@ -275,7 +275,10 @@ final class MarkdownFormatter: ItemVisitorProtocol {
             width = (width * scale)/100
             height = (height * scale)/100
         }
-        // This is super in need of escaping, need to plumb through houdini from cmark....
+
+        if let matches = imgURL.re_match(#"^(https?://)?(.*)$"#) { // ffs apple!
+            imgURL = matches[1] + matches[2].urlPathEncoded
+        }
 
         // missing title comes back "", never nil afaict
         let title = image.linkTitle.flatMap { t -> String in

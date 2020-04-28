@@ -33,10 +33,11 @@ final class FormatLinkRewriter: Configurable {
     func rewriteLink(node: CMNode) {
         // Look for relative URLs or absolute URLs matching user setting
         guard let originalHref = node.linkDestination,
-            !originalHref.re_isMatch("^(https?://|#)") || shouldRewrite(href: originalHref),
-            let basename = URL(string: originalHref)?.lastPathComponent else {
+            !originalHref.re_isMatch("^(https?://|#)") || shouldRewrite(href: originalHref) else {
             return
         }
+        // using fileURL: instead of string: here is less picky about encodings
+        let basename = URL(fileURLWithPath: originalHref).lastPathComponent
 
         if let mediaURL = published.urlPathForMedia(basename) {
             logDebug("Format: Rewrote link to media '\(mediaURL)'")
