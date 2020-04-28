@@ -49,7 +49,7 @@ enum Sass {
                 if let err = sass_context_get_error_message(context) {
                     errMsg = String(cString: err)
                 }
-                throw Error("sass_compile_file_context failed: \(rc) - \(errMsg)")
+                throw Error(.localized(.errSassCompile, rc, errMsg))
             }
             guard let output = sass_context_get_output_string(context) else {
                 throw Error("sass_context_get_output_string failed.")

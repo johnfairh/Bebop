@@ -6,13 +6,14 @@
 //  Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
 //
 
+import Foundation
+
 /// Compatibility mode for jazzy themes - get at least 95% of the way to rendering into an existing
 /// jazzy theme.  Design choice was to completely redo the mustache data design for the 'real' theme
 /// without regard to what jazzy did, and then here just map through brute force to the jazzy structure.
 ///
 /// Main breakages are:
-/// 1) Syntax highlighting -- tbd!
-/// 2) Item-linking.  Jazzy inserts a leading "/" into anchors *in the mustache template* and this messes
+/// 1) Item-linking.  Jazzy inserts a leading "/" into anchors *in the mustache template* and this messes
 ///   up auto-linking and toc links and any kind of ref we generated in code.
 ///
 /// Yay, yet more untyped dictionary spelunking.
@@ -223,6 +224,20 @@ final class JazzyTheme: Theme {
 
     override var extensions: [GenThemes.Extension] {
         [.jazzy_patch] // prism syntax highlighting support
+    }
+
+    override func copyAssets(to docsSiteURL: URL) throws {
+        try super.copyAssets(to: docsSiteURL)
+
+        // Jazzy sass algorithm: take every "*.css.scss" file and convert it.
+        let cssDirURL = docsSiteURL.appendingPathComponent("css")
+        try cssDirURL.filesMatching("*.scss").forEach { scssURL in
+            logDebug("Running sass over \(scssURL.path)")
+            let css = try Sass.render(scssFile: scssURL)
+            let cssFilename = scssURL.lastPathComponent.re_sub(#"\.scss"#, with: "")
+            try css.write(to: cssDirURL.appendingPathComponent(cssFilename))
+            try FileManager.default.removeItem(at: scssURL)
+        }
     }
 }
 

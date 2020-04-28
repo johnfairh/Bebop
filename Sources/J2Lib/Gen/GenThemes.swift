@@ -174,7 +174,7 @@ class Theme {
     }
 
     /// Copy the theme itself to a new place
-    func copy(to dstURL: URL) throws {
+    final func copy(to dstURL: URL) throws {
         try FileManager.default.forceCopyContents(of: url, to: dstURL)
     }
 }

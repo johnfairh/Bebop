@@ -12,6 +12,10 @@ import Foundation
 
 class TestSass: XCTestCase {
 
+    override func setUp() {
+        initResources()
+    }
+
     func testBasic() throws {
         let tmpFileURL = FileManager.default.temporaryFileURL()
         let sass = "div { a { color: blue; } }"

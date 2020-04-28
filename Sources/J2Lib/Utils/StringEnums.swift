@@ -128,6 +128,8 @@ internal enum L10n {
     case errPathNotFile = "err-path-not-file"
     /// Module name '%1' repeated in --modules.
     case errRepeatedModule = "err-repeated-module"
+    /// Sass compile failed, rc=%1: %2.
+    case errSassCompile = "err-sass-compile"
     /// Couldn't find SDK path.
     case errSdk = "err-sdk"
     /// SourceKitten couldn't find build info from `swift build`.  Check the log mentioned above.
@@ -152,7 +154,7 @@ internal enum L10n {
     case msgGeneratingDocs = "msg-generating-docs"
     /// j2: Generate API documentation for Swift or Objective-C code.\n\nUsage: j2 [options]\n\nOptions:
     case msgHelpIntro = "msg-help-intro"
-    /// Rendering theme using classic Jazzy mode
+    /// Rendering theme in classic Jazzy mode...
     case msgJazzyTheme = "msg-jazzy-theme"
     /// Building search index...
     case msgSearchProgress = "msg-search-progress"

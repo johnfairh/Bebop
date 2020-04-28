@@ -149,3 +149,4 @@ Ignoring the second.";
 "msg-copying-theme" = "Copying theme files...";
 "err-cfg-theme-copy" = "Can't use 'theme' along with any other value in --products.";
 "msg-jazzy-theme" = "Rendering theme in classic Jazzy mode...";
+"err-sass-compile" = "Sass compile failed, rc=%1: %2.";
