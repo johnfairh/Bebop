@@ -68,9 +68,9 @@ fileprivate final class System {
         try optsParser.apply(yaml: yaml)
     }
 
-    func applyOptionsError(_ cliOpts: [String]) throws {
+    func applyOptionsError(_ cliOpts: [String], _ key: L10n.Localizable) throws {
         reset()
-        AssertThrows(try apply(cliOpts), OptionsError.self)
+        AssertThrows(try apply(cliOpts), key)
     }
 
     func verify(_ spec: Spec) {
@@ -205,15 +205,15 @@ class TestOptions: XCTestCase {
         let ss = SimpleSystem(opt)
         try ss.parse(["-p", "\(#file)"])
         try opt.checkIsFile()
-        AssertThrows(try opt.checkIsDirectory(), OptionsError.self)
+        AssertThrows(try opt.checkIsDirectory(), .errPathNotDir)
 
         let directory = URL(fileURLWithPath: #file).deletingLastPathComponent()
         try ss.parse(["-p", "\(directory.path)"])
         try opt.checkIsDirectory()
-        AssertThrows(try opt.checkIsFile(), OptionsError.self)
+        AssertThrows(try opt.checkIsFile(), .errPathNotFile)
 
         try ss.parse(["-p", "blargle"])
-        AssertThrows(try opt.checkIsFile(), OptionsError.self)
+        AssertThrows(try opt.checkIsFile(), .errPathNotExist)
     }
 
     func testPathDefault() throws {
@@ -230,7 +230,7 @@ class TestOptions: XCTestCase {
         let ss = SimpleSystem(opt)
         try ss.parse(["-p", "\(#file)", "-p", "\(#file)"])
         try opt.checkAreFiles()
-        AssertThrows(try opt.checkAreDirectories(), OptionsError.self)
+        AssertThrows(try opt.checkAreDirectories(), .errPathNotDir)
     }
 
     // URLs
@@ -239,7 +239,7 @@ class TestOptions: XCTestCase {
         let ss = SimpleSystem(opt)
         try ss.parse(["--uuu=https://www.google.com/"])
         try ss.parse(["--uuu=https://www.go%2Ee.com/"])
-        AssertThrows(try ss.parse(["--uuu=ffffff"]), OptionsError.self)
+        AssertThrows(try ss.parse(["--uuu=ffffff"]), .errCfgBadUrl)
     }
 
     // Globs
@@ -260,26 +260,26 @@ class TestOptions: XCTestCase {
     func testSyntaxErrors() throws {
         let system = System()
 
-        try system.applyOptionsError(["hello"])
+        try system.applyOptionsError(["hello"], .errCliUnexpected)
 
-        try system.applyOptionsError(["--hello"])
-        try system.applyOptionsError(["-h"])
+        try system.applyOptionsError(["--hello"], .errCliUnknownOption)
+        try system.applyOptionsError(["-h"], .errCliUnknownOption)
 
-        try system.applyOptionsError("-b one --bbb two".components(separatedBy: " "))
+        try system.applyOptionsError("-b one --bbb two".components(separatedBy: " "), .errCliRepeated)
 
-        try system.applyOptionsError("--aaa --no-aaa".components(separatedBy: " "))
+        try system.applyOptionsError("--aaa --no-aaa".components(separatedBy: " "), .errCliRepeated)
 
-        try system.applyOptionsError("--no-bbb foo".components(separatedBy: " "))
+        try system.applyOptionsError("--no-bbb foo".components(separatedBy: " "), .errCliUnknownOption)
 
-        try system.applyOptionsError(["--color"])
+        try system.applyOptionsError(["--color"], .errCliMissingArg)
 
-        try system.applyOptionsError(["--aaa=true"])
+        try system.applyOptionsError(["--aaa=true"], .errCliUnknownOption)
     }
 
     // Validation errors
     func testEnumValidation() throws {
         let system = System()
-        try system.applyOptionsError(["--color", "pink"])
+        try system.applyOptionsError(["--color", "pink"], .errEnumValue)
     }
 
     // Basic yaml function
@@ -374,10 +374,21 @@ class TestOptions: XCTestCase {
             """, // non-singular sequence
         ]
 
+        let errors: [L10n.Localizable] = [
+            .errCfgNotYaml,
+            .errCfgNotMapping,
+            .errCfgNonScalarKey,
+            .errCfgBadKey,
+            .errCfgBadMapping,
+            .errCfgTextNotBool,
+            .errCfgNotScalar,
+            .errCfgMultiSeq
+        ]
+
         let system = System()
 
-        try badYamls.forEach { yaml in
-            AssertThrows(try system.apply(yaml), OptionsError.self, "Yaml should be bad: \(yaml)")
+        try zip(badYamls, errors).forEach { yaml in
+            AssertThrows(try system.apply(yaml.0), yaml.1, "Yaml should be bad: \(yaml)")
         }
     }
 

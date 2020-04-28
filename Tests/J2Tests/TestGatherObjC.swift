@@ -37,25 +37,25 @@ class TestGatherObjC: XCTestCase {
         try "extern int fred;".write(to: tmpFile)
 
         let system = System()
-        AssertThrows(try system.configure(["--objc-header-file=\(tmpFile.path)"]), OptionsError.self)
+        AssertThrows(try system.configure(["--objc-header-file=\(tmpFile.path)"]), .errObjcLinux)
     }
     #else
 
-    private func checkError(_ cliOpts: [String], line: UInt = #line) {
+    private func checkError(_ cliOpts: [String], _ key: L10n.Localizable, line: UInt = #line) {
         let system = System()
-        AssertThrows(try system.configure(cliOpts), OptionsError.self, line: line)
+        AssertThrows(try system.configure(cliOpts), key, line: line)
     }
 
     private func checkNotImplemented(_ cliOpts: [String], line: UInt = #line) {
         let system = System()
-        AssertThrows(try system.configure(cliOpts), NotImplementedError.self, line: line)
+        AssertThrows(try system.configure(cliOpts), .errNotImplemented, line: line)
     }
 
     func testBadOptions() {
-        checkError(["--objc", "--build-tool=spm"])
-        checkError(["--objc-direct"])
-        checkError(["--objc-sdk=macosx"])
-        checkError(["--objc-include-paths=/"])
+        checkError(["--objc", "--build-tool=spm"], .errObjcBuildTools)
+        checkError(["--objc-direct"], .errObjcNoHeader)
+        checkError(["--objc-sdk=macosx"], .errCliUnknownOption)
+        checkError(["--objc-include-paths=/"], .errObjcNoHeader)
         let someFilePath = fixturesURL.appendingPathComponent("SpmSwiftModule.files.json")
         checkNotImplemented(["--objc-header=\(someFilePath.path)", "--build-tool=spm"])
     }

@@ -32,6 +32,20 @@ public func AssertThrows<Err, Ret>(_ expression: @autoclosure () throws -> Ret,
     })
 }
 
+public func AssertThrows<Ret>(_ expression: @autoclosure () throws -> Ret,
+                              _ expectedError: L10n.Localizable,
+                              _ message: String = "",
+                              file: StaticString = #file,
+                              line: UInt = #line) {
+    XCTAssertThrowsError(try expression(), message, file: file, line: line, { actualError in
+        guard let j2Error = actualError as? J2Error else {
+            XCTFail("\(actualError) is not a J2Error", file: file, line: line)
+            return
+        }
+        XCTAssertEqual(expectedError, j2Error.key)
+    })
+}
+
 // Logger drop-in to log to string buffers
 //
 final class TestLogger {

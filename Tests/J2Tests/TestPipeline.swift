@@ -63,6 +63,6 @@ class TestPipeline: XCTestCase {
     func testBadProducts() throws {
         let pipeline = Pipeline()
 
-        AssertThrows(try pipeline.run(argv: ["--products=theme,stats-json"]), OptionsError.self)
+        AssertThrows(try pipeline.run(argv: ["--products=theme,stats-json"]), .errCfgThemeCopy)
     }
 }

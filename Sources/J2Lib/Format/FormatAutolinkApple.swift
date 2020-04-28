@@ -31,7 +31,7 @@ final class FormatAutolinkApple: Configurable {
         try xcodePathOpt.checkIsDirectory()
         if let xcodePathURL = xcodePathOpt.value,
             !xcodePathURL.lastPathComponent.hasSuffix(".app") {
-            throw OptionsError(.localized(.errCfgXcodepath, xcodePathURL.path))
+            throw J2Error(.errCfgXcodepath, xcodePathURL.path)
         }
     }
 

@@ -57,7 +57,7 @@ extension GatherJob {
                 let joinedArgs = buildToolArgs.joined(separator: " ")
                 try ["--module", "--minimum-access-level", "--output-dir"].forEach { arg in
                     if joinedArgs.contains(arg) {
-                        throw OptionsError(.localized(.errCfgSsgeArgs, arg))
+                        throw J2Error(.errCfgSsgeArgs, arg)
                     }
                 }
                 args += buildToolArgs
@@ -73,12 +73,12 @@ extension GatherJob {
                 results = Exec.run("/usr/bin/env", ["swift", "symbolgraph-extract"] + args, stderr: .merge)
             }
             if results.terminationStatus != 0 {
-                throw GatherError(.localized(.errCfgSsgeExec) + "\n\(results.failureReport)")
+                throw J2Error(.errCfgSsgeExec, results.failureReport)
             }
 
             let mainSymbolFileURL = tmpDir.directoryURL.appendingPathComponent("\(moduleName).symbols.json")
             guard let mainSymbolData = try? Data(contentsOf: mainSymbolFileURL) else {
-                throw GatherError(.localized(.errCfgSsgeMainMissing))
+                throw J2Error(.errCfgSsgeMainMissing)
             }
             logDebug("Decoding main symbolgraph JSON for \(moduleName)")
             var dicts = [try GatherSymbolGraph.decode(data: mainSymbolData, extensionModuleName: moduleName)]

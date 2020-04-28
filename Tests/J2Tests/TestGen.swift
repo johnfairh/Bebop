@@ -329,20 +329,20 @@ class TestGen: XCTestCase {
 
     // MARK: Brand
 
-    private func checkConfigError(yaml: String, fakeMedia: Bool = false, args: [String] = []) throws {
+    private func checkConfigError(yaml: String, fakeMedia: Bool = false, args: [String] = [], _ key: L10n.Localizable) throws {
         let system = System(fakeMedia: fakeMedia)
         let cfgFileURL = FileManager.default.temporaryFileURL()
         try yaml.write(to: cfgFileURL)
-        AssertThrows(try system.configure(cliOpts: ["--config=\(cfgFileURL.path)"] + args), OptionsError.self)
+        AssertThrows(try system.configure(cliOpts: ["--config=\(cfgFileURL.path)"] + args), key)
     }
 
     /// Bad-path again, covered in LayoutTest
     func testBrandConfigErrors() throws {
         let missingImg = "custom_brand:\n  alt_text: Fred\n"
-        try checkConfigError(yaml: missingImg)
+        try checkConfigError(yaml: missingImg, .errCfgBrandMissingImage)
 
         let badImg = "custom_brand:\n  image_name: Fred\n"
-        try checkConfigError(yaml: badImg)
+        try checkConfigError(yaml: badImg, .errCfgBrandBadImage)
     }
 
     // MARK: CodeHost
@@ -374,25 +374,25 @@ class TestGen: XCTestCase {
     /// Yaml config errors
     func testCodeHostConfigErrors() throws {
         let missingImg = "custom_code_host:\n  alt_text: fred"
-        try checkConfigError(yaml: missingImg)
+        try checkConfigError(yaml: missingImg, .errCfgChostMissingImage)
 
         let badImg = "custom_code_host:\n  image_name: fred"
-        try checkConfigError(yaml: badImg)
+        try checkConfigError(yaml: badImg, .errCfgChostBadImage)
 
         let badSingle = "custom_code_host:\n  image_name: fred\n  single_line_format: line"
-        try checkConfigError(yaml: badSingle, fakeMedia: true)
+        try checkConfigError(yaml: badSingle, fakeMedia: true, .errCfgChostSingleFmt)
 
         let badMulti1 = "custom_code_host:\n  image_name: fred\n  multi_line_format: L%LINE1"
-        try checkConfigError(yaml: badMulti1, fakeMedia: true)
+        try checkConfigError(yaml: badMulti1, fakeMedia: true, .errCfgChostMultiFmt)
 
         let badMulti2 = "custom_code_host:\n  image_name: fred\n  multi_line_format: L%LINE2"
-        try checkConfigError(yaml: badMulti2, fakeMedia: true)
+        try checkConfigError(yaml: badMulti2, fakeMedia: true, .errCfgChostMultiFmt)
 
         let badCustom = "custom_code_host:\n  image_name: fred\n  multi_line_format: L%LINE1-L%LINE2"
-        try checkConfigError(yaml: badCustom, fakeMedia: true)
+        try checkConfigError(yaml: badCustom, fakeMedia: true, .errCfgChostMissingFmt)
 
         let minimal = "custom_code_host:\n  image_name: fred"
-        try checkConfigError(yaml: minimal, fakeMedia: true, args: ["--code-host=bitbucket"])
+        try checkConfigError(yaml: minimal, fakeMedia: true, args: ["--code-host=bitbucket"], .errCfgChostBoth)
     }
 
     func testCodehosts() throws {
@@ -436,9 +436,9 @@ class TestGen: XCTestCase {
 
     func testDocsetErrors() throws {
         let badIcon = """
-                      docset_icon_2x: \(fixturesURL.appendingPathComponent("SpmSwiftModule.files.json"))
+                      docset_icon_2x: \(fixturesURL.appendingPathComponent("SpmSwiftModule.files.json").path)
                       """
-        try checkConfigError(yaml: badIcon)
+        try checkConfigError(yaml: badIcon, .errCfgDocsetIcon)
     }
 
     func testDocsetWarning() throws {

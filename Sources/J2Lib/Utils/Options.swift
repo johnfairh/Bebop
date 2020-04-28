@@ -384,7 +384,7 @@ extension URL {
         var isDir = ObjCBool(false) // !!
         let exists = fm.fileExists(atPath: path, isDirectory: &isDir)
         if !exists {
-            throw OptionsError(.localized(.errPathNotExist, path))
+            throw J2Error(.errPathNotExist, path)
         }
         return isDir.boolValue
     }
@@ -392,14 +392,14 @@ extension URL {
     /// Helper: does a path exist as a regular file?  Throw if not.
     func checkIsFile() throws {
         if try checkExistsTestDir() {
-            throw OptionsError(.localized(.errPathNotFile, path))
+            throw J2Error(.errPathNotFile, path)
         }
     }
 
     /// Helper: does a path exist as a directory?  Throw if not.
     func checkIsDirectory() throws {
         if try !checkExistsTestDir() {
-            throw OptionsError(.localized(.errPathNotDir, path))
+            throw J2Error(.errPathNotDir, path)
         }
     }
 
@@ -461,7 +461,7 @@ final class URLOpt: TypedOpt<URL> {
     override func set(string: String) throws {
         guard let url = URL(string: string),
             url.scheme != nil else {
-                throw OptionsError(.localized(.errCfgBadUrl, string))
+            throw J2Error(.errCfgBadUrl, string)
         }
         configValue = url
     }
@@ -494,7 +494,7 @@ extension String {
         do {
             let _ = try NSRegularExpression(pattern: self)
         } catch {
-            throw OptionsError(.localized(.errCfgRegexp, self, error))
+            throw J2Error(.errCfgRegexp, self, error)
         }
     }
 }
@@ -512,8 +512,8 @@ extension Opt {
     fileprivate func toEnum<E>(_ e: E.Type, from: String) throws -> E
         where E: RawRepresentable & CaseIterable, E.RawValue == String {
         guard let eVal = E(rawValue: from.asSwiftEnumCase) else {
-            throw OptionsError(.localized(.errEnumValue,
-                from, name(usage: false), caseList(E.self, separator: ", ")))
+            throw J2Error(.errEnumValue,
+                from, name(usage: false), caseList(E.self, separator: ", "))
         }
         return eVal
     }
@@ -751,7 +751,7 @@ final class OptsParser {
         var iter = cliOpts.makeIterator()
         while var next = iter.next() {
             guard next.isFlag else {
-                throw OptionsError(.localized(.errCliUnexpected, next))
+                throw J2Error(.errCliUnexpected, next)
             }
 
             var nextArg: String? = nil
@@ -763,13 +763,13 @@ final class OptsParser {
             }
 
             guard let tracker = matchTracker(flag: next) else {
-                throw OptionsError(.localized(.errCliUnknownOption, next))
+                throw J2Error(.errCliUnknownOption, next)
             }
             if let nextArg = nextArg, tracker.opt.type == .bool {
-                throw OptionsError(.localized(.errCliUnknownOption, "\(next)=\(nextArg)"))
+                throw J2Error(.errCliUnknownOption, "\(next)=\(nextArg)")
             }
             guard (!tracker.cliSeen && !tracker.partnerCliSeen) || tracker.opt.repeats else {
-                throw OptionsError(.localized(.errCliRepeated, next))
+                throw J2Error(.errCliRepeated, next)
             }
             tracker.cliSeen = true
 
@@ -779,7 +779,7 @@ final class OptsParser {
             }
 
             guard let data = nextArg ?? iter.next() else {
-                throw OptionsError(.localized(.errCliMissingArg, next))
+                throw J2Error(.errCliMissingArg, next)
             }
 
             let allData = tracker.opt.repeats
@@ -801,7 +801,7 @@ final class OptsParser {
     /// - throws: if the yaml doesn't look exactly as expected or some item validation fails.
     func apply(yaml: String) throws {
         guard let yamlNode = try Yams.compose(yaml: yaml) else {
-            throw OptionsError(.localized(.errCfgNotYaml))
+            throw J2Error(.errCfgNotYaml)
         }
 
         let rootMapping = try yamlNode.checkMapping(context: "(root)")
@@ -813,7 +813,7 @@ final class OptsParser {
         for (key, value) in zip(rootMapping.keys, rootMapping.values) {
             let yamlOptName = try key.checkScalarKey().string
             guard let tracker = flagsDict[yamlOptName] else {
-                throw OptionsError(.localized(.errCfgBadKey, yamlOptName))
+                throw J2Error(.errCfgBadKey, yamlOptName)
             }
             guard !tracker.cliSeen && !tracker.partnerCliSeen else {
                 logWarning(.localized(.wrnCfgIgnored, yamlOptName))
@@ -829,7 +829,7 @@ final class OptsParser {
             switch value {
             case .mapping(let mapping):
                 guard tracker.opt.type == .locstring else {
-                    throw OptionsError(.localized(.errCfgBadMapping, yamlOptName))
+                    throw J2Error(.errCfgBadMapping, yamlOptName)
                 }
                 var locStr = Localized<String>()
                 for (k, v) in zip(mapping.keys, mapping.values) {
@@ -842,7 +842,7 @@ final class OptsParser {
             case .scalar(let scalar):
                 if tracker.opt.type == .bool {
                     guard let yamlBool = Bool.construct(from: scalar) else {
-                        throw OptionsError(.localized(.errCfgTextNotBool, scalar.string, yamlOptName))
+                        throw J2Error(.errCfgTextNotBool, scalar.string, yamlOptName)
                     }
                     tracker.opt.set(bool: yamlBool)
                 } else {
@@ -851,8 +851,7 @@ final class OptsParser {
 
             case .sequence(let sequence):
                 guard sequence.count == 1 || tracker.opt.repeats else {
-                    throw OptionsError(.localized(.errCfgMultiSeq,
-                                                  try value.asDebugString(), yamlOptName))
+                    throw J2Error(.errCfgMultiSeq, try value.asDebugString(), yamlOptName)
                 }
                 let data = try sequence.map { node -> String in
                     try node.checkScalar(context: yamlOptName).string
@@ -874,7 +873,7 @@ extension Yams.Node {
     func checkScalarKey() throws -> Yams.Node.Scalar {
         guard let scalar = scalar else {
             let strSelf = try asDebugString()
-            throw OptionsError(.localized(.errCfgNonScalarKey, strSelf))
+            throw J2Error(.errCfgNonScalarKey, strSelf)
         }
         return scalar
     }
@@ -882,7 +881,7 @@ extension Yams.Node {
     func checkScalar(context: String) throws -> Yams.Node.Scalar {
         guard let scalar = scalar else {
             let strSelf = try asDebugString()
-            throw OptionsError(.localized(.errCfgNotScalar, strSelf, context))
+            throw J2Error(.errCfgNotScalar, strSelf, context)
         }
         return scalar
     }
@@ -890,7 +889,7 @@ extension Yams.Node {
     func checkMapping(context: String) throws -> Yams.Node.Mapping {
         guard let mapping = mapping else {
             let strSelf = try asDebugString()
-            throw OptionsError(.localized(.errCfgNotMapping, strSelf, context))
+            throw J2Error(.errCfgNotMapping, strSelf, context)
         }
         return mapping
     }
@@ -898,7 +897,7 @@ extension Yams.Node {
     func checkSequence(context: String) throws -> Yams.Node.Sequence {
         guard let sequence = sequence else {
             let strSelf = try asDebugString()
-            throw OptionsError(.localized(.errCfgNotSequence, strSelf, context))
+            throw J2Error(.errCfgNotSequence, strSelf, context)
         }
         return sequence
     }

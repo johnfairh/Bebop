@@ -84,7 +84,7 @@ class TestRegex: XCTestCase {
 
     func testCheck() {
         initResources()
-        AssertThrows(try "a(".re_check(), OptionsError.self)
+        AssertThrows(try "a(".re_check(), .errCfgRegexp)
     }
 
     func testInteractiveSub() {

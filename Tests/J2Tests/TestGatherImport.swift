@@ -48,9 +48,9 @@ class TestGatherImport: XCTestCase {
         initResources()
     }
 
-    private func checkConfigError(_ opts: [String], line: UInt = #line) {
+    private func checkConfigError(_ opts: [String], _ key: L10n.Localizable, line: UInt = #line) {
         let system = System()
-        AssertThrows(try system.configure(opts), OptionsError.self, line: line)
+        AssertThrows(try system.configure(opts), key, line: line)
     }
 
     private func checkJob(_ cliOpts: [String], _ expectedJob: GatherJob, line: UInt = #line) throws {
@@ -70,19 +70,19 @@ class TestGatherImport: XCTestCase {
     // MARK: Sourcekitten Syntax
 
     func testSknCliErrors() throws {
-        checkConfigError(["-s", "badfile"])
+        checkConfigError(["-s", "badfile"], .errPathNotExist)
 
         let tmpDir = try TemporaryDirectory()
         let srcFileURL = tmpDir.directoryURL.appendingPathComponent("m.json")
         try "[]".write(to: srcFileURL)
 
-        checkConfigError(["-s", srcFileURL.path, "--build-tool=spm"])
-        checkConfigError(["-s", srcFileURL.path, "--objc-header-file=\(srcFileURL.path)"])
-        checkConfigError(["-s", srcFileURL.path, "--modules=A,B,C"])
+        checkConfigError(["-s", srcFileURL.path, "--build-tool=spm"], .errCfgSknBuildTool)
+        checkConfigError(["-s", srcFileURL.path, "--objc-header-file=\(srcFileURL.path)"], .errCfgSknBuildTool)
+        checkConfigError(["-s", srcFileURL.path, "--modules=A,B,C"], .errCfgSknMultiModules)
 
         let cfgFileURL = tmpDir.directoryURL.appendingPathComponent("j2.yaml")
         try "custom_modules:\n  - name: Fred".write(to: cfgFileURL)
-        checkConfigError(["-s", srcFileURL.path, "--config=\(cfgFileURL.path)"])
+        checkConfigError(["-s", srcFileURL.path, "--config=\(cfgFileURL.path)"], .errCfgSknCustomModules)
     }
 
     func testSknJobBuilding() throws {
@@ -102,14 +102,14 @@ class TestGatherImport: XCTestCase {
     // MARK: Gather Syntax
 
     func testImportCliErrors() throws {
-        checkConfigError(["--decls-json-files", "badfile"])
+        checkConfigError(["--j2-json-files", "badfile"], .errPathNotExist)
 
         let tmpDir = try TemporaryDirectory()
         let srcFileURL = tmpDir.directoryURL.appendingPathComponent("m.json")
         try "[]".write(to: srcFileURL)
 
-        checkConfigError(["--j2-json-files", srcFileURL.path, "--build-tool=spm"])
-        checkConfigError(["--j2-json-files", srcFileURL.path, "--objc-header-file=\(srcFileURL.path)"])
+        checkConfigError(["--j2-json-files", srcFileURL.path, "--build-tool=spm"], .errCfgJ2jsonMutex)
+        checkConfigError(["--j2-json-files", srcFileURL.path, "--objc-header-file=\(srcFileURL.path)"], .errCfgJ2jsonMutex)
     }
 
     func testImportJobBuilding() throws {
@@ -178,7 +178,7 @@ class TestGatherImport: XCTestCase {
         AssertThrows(try GatherSystem().gather(["-s", tmpFile.path]), NSError.self)
 
         try "{}".write(to: tmpFile)
-        AssertThrows(try GatherSystem().gather(["-s", tmpFile.path]), OptionsError.self)
+        AssertThrows(try GatherSystem().gather(["-s", tmpFile.path]), .errJsonDecode)
 
         try "[{}]".write(to: tmpFile)
         TestLogger.install()

@@ -35,17 +35,17 @@ class TestGatherSymGraph: XCTestCase {
 
     func testArgChecks() throws {
         // no implicit module
-        AssertThrows(try System().run(["--build-tool=swift-symbolgraph"]), OptionsError.self)
+        AssertThrows(try System().run(["--build-tool=swift-symbolgraph"]), .errCfgSsgeModule)
 
         // bad triple
-        AssertThrows(try System().run(["--symbolgraph-target=not-triple"]), OptionsError.self)
+        AssertThrows(try System().run(["--symbolgraph-target=not-triple"]), .errCfgSsgeTriple)
 
         // invalid override
         AssertThrows(try System().run([
             "--build-tool=swift-symbolgraph",
             "--modules=Foo",
             "--build-tool-arguments=--minimum-access-level=public"
-        ]), OptionsError.self)
+        ]), .errCfgSsgeArgs)
     }
 
     // MARK: Goodpath end-to-end running, srcdir
@@ -103,18 +103,22 @@ class TestGatherSymGraph: XCTestCase {
     func testToolFailures() throws {
         TestSymbolGraph.useCustom(); defer { TestSymbolGraph.reset() }
 
+        #if os(macOS)
+
         // Straight failure
         AssertThrows(try System().run([
             "--build-tool=swift-symbolgraph",
             "--modules=NotAModule"
-        ]), GatherError.self)
+        ]), .errCfgSsgeExec)
 
         // No main symbols file
         TestSymbolGraph.useCustom(path: "/usr/bin/true")
         AssertThrows(try System().run([
             "--build-tool=swift-symbolgraph",
             "--modules=NotAModule"
-        ]), GatherError.self)
+        ]), .errCfgSsgeMainMissing)
+
+        #endif
     }
 
     // MARK: Bad data detection

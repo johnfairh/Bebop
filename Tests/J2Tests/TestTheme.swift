@@ -51,7 +51,7 @@ class TestTheme: XCTestCase {
     private func checkBadThemeSelection(path: String) {
         let system = System()
         AssertThrows(try system.config.processOptions(cliOpts: ["--theme", path]),
-                     OptionsError.self)
+                     .errPathNotExist)
     }
 
     // bad directory
@@ -101,7 +101,7 @@ class TestTheme: XCTestCase {
     func testBadThemeYaml() throws {
         let tmpDir = try createThemeDirs()
         try "bad_attr: something".write(to: tmpDir.directoryURL.appendingPathComponent("theme.yaml"))
-        AssertThrows(try Theme(url: tmpDir.directoryURL), OptionsError.self)
+        AssertThrows(try Theme(url: tmpDir.directoryURL), .errCfgBadKey)
     }
 
     // test-mustache-failure

@@ -16,28 +16,12 @@ import J2Libsass
 // for now without much study.
 
 enum Sass {
-    struct Error: Swift.Error { // good grief need to rewrite J2Lib.Error
-        let message: String
-
-        init(_ message: String) {
-            self.message = message
-        }
-
-        var description: String {
-            message
-        }
-
-        var debugDescription: String {
-            "[sass] \(description)"
-        }
-    }
-
     final class FileContext {
         let context: OpaquePointer
 
         init(file: URL) throws {
             guard let context = sass_make_file_context(file.path) else {
-                throw Error("sass_make_file_context \(file.path) failed.")
+                throw J2Error("sass_make_file_context \(file.path) failed.")
             }
             self.context = context
         }
@@ -49,10 +33,10 @@ enum Sass {
                 if let err = sass_context_get_error_message(context) {
                     errMsg = String(cString: err)
                 }
-                throw Error(.localized(.errSassCompile, rc, errMsg))
+                throw J2Error(.errSassCompile, rc, errMsg)
             }
             guard let output = sass_context_get_output_string(context) else {
-                throw Error("sass_context_get_output_string failed.")
+                throw J2Error("sass_context_get_output_string failed.")
             }
             return String(cString: output)
         }
@@ -67,7 +51,7 @@ enum Sass {
 
         init(context: FileContext) throws {
             guard let options = sass_file_context_get_options(context.context) else {
-                throw Error("sass_file_context_get_options failed.")
+                throw J2Error("sass_file_context_get_options failed.")
             }
             self.options = options
         }

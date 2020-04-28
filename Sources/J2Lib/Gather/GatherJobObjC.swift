@@ -63,7 +63,7 @@ extension GatherJob {
             let allDirURLs = try includePaths.map { baseURL -> Set<URL> in
                 var dirPaths = Set([baseURL])
                 guard let enumerator = FileManager.default.enumerator(atPath: baseURL.path) else {
-                    throw GatherError(.localized(.errEnumerator, baseURL.path))
+                    throw J2Error(.errEnumerator, baseURL.path)
                 }
                 while let pathname = enumerator.nextObject() as? String {
                     if pathname.re_isMatch(#"\.h(h|pp)?$"#) {
@@ -109,7 +109,7 @@ extension ClangTranslationUnit {
             guard let dictEntry = dict.first,
                 dict.count == 1,
                 let fileDict = dictEntry.value as? SourceKittenDict else {
-                throw GatherError(.localized(.errObjcSourcekitten, dict))
+                throw J2Error(.errObjcSourcekitten, dict)
             }
             return File(path: dictEntry.key, dict: fileDict)
         }

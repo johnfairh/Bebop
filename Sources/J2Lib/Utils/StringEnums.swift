@@ -80,7 +80,7 @@ internal enum L10n {
     case errCfgSknMultiModules = "err-cfg-skn-multi-modules"
     /// Can't set '%1' as part of custom `swift symbolgraph` arguments.
     case errCfgSsgeArgs = "err-cfg-ssge-args"
-    /// Running `swift symbolgraph-extract` failed.  Report:
+    /// Running `swift symbolgraph-extract` failed.  Report:\n%1
     case errCfgSsgeExec = "err-cfg-ssge-exec"
     /// Running `swift symbolgraph-extract` didn't create a main symbols file.
     case errCfgSsgeMainMissing = "err-cfg-ssge-main-missing"
@@ -112,6 +112,8 @@ internal enum L10n {
     case errMissingModule = "err-missing-module"
     /// Both --module and custom_modules are set: choose just one.
     case errModulesOverlap = "err-modules-overlap"
+    /// Not implemented: %1.
+    case errNotImplemented = "err-not-implemented"
     /// Both --objc-direct and --build-tool are set: choose just one.
     case errObjcBuildTools = "err-objc-build-tools"
     /// Documenting Objective-C modules is supported only on macOS.
@@ -130,7 +132,7 @@ internal enum L10n {
     case errRepeatedModule = "err-repeated-module"
     /// Sass compile failed, rc=%1: %2.
     case errSassCompile = "err-sass-compile"
-    /// Couldn't find SDK path.
+    /// Couldn't find SDK path.\n
     case errSdk = "err-sdk"
     /// SourceKitten couldn't find build info from `swift build`.  Check the log mentioned above.
     case errSktnSpm = "err-sktn-spm"

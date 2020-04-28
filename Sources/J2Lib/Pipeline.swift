@@ -188,7 +188,7 @@ public final class Pipeline: Configurable {
             Logger.shared.diagnosticLevels = Logger.allLevels
         }
         if productsToDo.contains(.theme) && productsToDo.count > 1 {
-            throw OptionsError(.localized(.errCfgThemeCopy))
+            throw J2Error(.errCfgThemeCopy)
         }
 
         let localizations = Localizations(mainDescriptor: defaultLocalizationOpt.value,
@@ -216,7 +216,7 @@ public extension Pipeline {
         do {
             try Pipeline().run(argv: argv)
             return 0
-        } catch let error as Error {
+        } catch let error as J2Error {
             // Linux workaround or some bug here, if I call `localizedDescription` on
             // one of my errors through whatever type then it segfaults.
             logError(error.description)

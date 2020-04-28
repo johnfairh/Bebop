@@ -39,7 +39,7 @@ class TestAutolinkApple: XCTestCase {
         let miscDir = try tmpDir.createDirectory()
         let appDir = try tmpDir.createDirectory(name: "Xcode.app")
 
-        AssertThrows(try System(cliArgs: ["--apple-autolink-xcode-path", miscDir.directoryURL.path]), OptionsError.self)
+        AssertThrows(try System(cliArgs: ["--apple-autolink-xcode-path", miscDir.directoryURL.path]), .errCfgXcodepath)
 
         let system = try System(cliArgs: ["--apple-autolink-xcode-path", appDir.directoryURL.path])
         XCTAssertEqual(appDir.directoryURL

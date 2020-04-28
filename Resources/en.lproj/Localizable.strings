@@ -67,7 +67,8 @@ Options:";
 "wrn-objc-module" = "Objective-C direct mode requested but --modules is not set: using 'Module' for the module name.";
 "err-objc-linux" = "Documenting Objective-C modules is supported only on macOS.";
 "err-objc-sourcekitten" = "Unexpected data shape from SourceKitten JSON, can't process dict '%1'.";
-"err-sdk" = "Couldn't find SDK path.";
+"err-sdk" = "Couldn't find SDK path.
+";
 "err-enumerator" = "Couldn't create path enumerator starting '%1'.";
 "wrn-sktn-kind" = "Unsupported definition kind '%1', ignoring.";
 "wrn-sktn-incomplete" = "Incomplete definition JSON '%1' %2, ignoring.";
@@ -119,7 +120,8 @@ Ignoring the second.";
 "err-cfg-ssge-module" = "Must set a module name to use --build-tool=swift-symbolgraph.";
 "err-cfg-ssge-triple" = "Value for --swift-symbolgraph-target does not like an LLVM target triple: '%1'";
 "err-cfg-ssge-args" = "Can't set '%1' as part of custom `swift symbolgraph` arguments.";
-"err-cfg-ssge-exec" = "Running `swift symbolgraph-extract` failed.  Report:";
+"err-cfg-ssge-exec" = "Running `swift symbolgraph-extract` failed.  Report:
+%1";
 "err-cfg-ssge-main-missing" = "Running `swift symbolgraph-extract` didn't create a main symbols file.";
 "wrn-ssge-odd-filename" = "Confused by `swift symbolgraph-extract` output filename '%1', ignoring.";
 "wrn-ssge-symbol-kind" = "Unknown swift-symbolgraph symbol kind '%1', ignoring.";
@@ -151,3 +153,4 @@ Ignoring the second.";
 "msg-jazzy-theme" = "Rendering theme in classic Jazzy mode...";
 "err-sass-compile" = "Sass compile failed, rc=%1: %2.";
 "msg-help-aliases" = "Option aliases for jazzy compatibility:";
+"err-not-implemented" = "Not implemented: %1.";

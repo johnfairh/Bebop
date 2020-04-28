@@ -31,11 +31,11 @@ final class GenBrand: Configurable {
 
         func findMediaPath(published: Published) throws -> String {
             guard let imageName = imageNameOpt.value else {
-                throw OptionsError(.localized(.errCfgBrandMissingImage))
+                throw J2Error(.errCfgBrandMissingImage)
             }
 
             guard let mediaPath = published.urlPathForMedia(imageName) else {
-                throw OptionsError(.localized(.errCfgBrandBadImage, imageName))
+                throw J2Error(.errCfgBrandBadImage, imageName)
             }
             return mediaPath
         }

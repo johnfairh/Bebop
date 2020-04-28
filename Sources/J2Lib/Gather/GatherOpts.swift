@@ -62,23 +62,23 @@ final class GatherOpts : Configurable {
         // Check our own options
         if customModulesOpts.configured {
             if moduleNamesOpt.configured {
-                throw OptionsError(.localized(.errModulesOverlap))
+                throw J2Error(.errModulesOverlap)
             }
             if rootPassOpts.sourcekittenJSONFilesOpt.configured {
-                throw OptionsError(.localized(.errCfgSknCustomModules))
+                throw J2Error(.errCfgSknCustomModules)
             }
             try processCustomModules()
         }
 
         if moduleNamesOpt.configured {
             if let dupModule = moduleNamesOpt.value.firstDuplicate {
-                throw OptionsError(.localized(.errRepeatedModule, dupModule))
+                throw J2Error(.errRepeatedModule, dupModule)
             }
         }
 
         if rootPassOpts.sourcekittenJSONFilesOpt.configured {
             if moduleNamesOpt.value.count > 1 {
-                throw OptionsError(.localized(.errCfgSknMultiModules))
+                throw J2Error(.errCfgSknMultiModules)
             }
             if moduleNamesOpt.value.count == 0 {
                 logWarning(.localized(.wrnSknModuleName))
@@ -97,7 +97,7 @@ final class GatherOpts : Configurable {
         if let buildTool = rootPassOpts.buildToolOpt.value,
             buildTool == .swift_symbolgraph,
             !customModulesOpts.configured && !moduleNamesOpt.configured {
-            throw OptionsError(.localized(.errCfgSsgeModule))
+            throw J2Error(.errCfgSsgeModule)
         }
     }
 
@@ -176,7 +176,7 @@ struct GatherCustomModule: CustomStringConvertible {
         try parser.apply(mapping: yamlMapping)
 
         if !moduleNameOpt.configured {
-            throw OptionsError(.localized(.errMissingModule))
+            throw J2Error(.errMissingModule)
         }
         try moduleOpts.checkBaseOptions()
 
@@ -206,11 +206,11 @@ struct GatherCustomModule: CustomStringConvertible {
         try moduleOpts.checkCascadedOptions()
 
         if rootOpts.mergeModulesOpt.configured && mergeModuleOpt.configured {
-            throw OptionsError(.localized(.errCfgDupModMerge))
+            throw J2Error(.errCfgDupModMerge)
         }
         mergeModuleOpt.cascade(from: rootOpts.mergeModulesOpt)
         if !mergeModuleOpt.value && mergeModuleGroupOpt.configured {
-            throw OptionsError(.localized(.errCfgBadModMerge, name))
+            throw J2Error(.errCfgBadModMerge, name)
         }
 
         // Cascade from module settings down to each pass

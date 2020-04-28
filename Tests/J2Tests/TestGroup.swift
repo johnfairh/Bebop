@@ -250,13 +250,13 @@ class TestGroup: XCTestCase {
         XCTAssertEqual(topic2, groups[0].topics[1])
     }
 
-    func checkCustomParseError(_ yaml: String) {
-        AssertThrows(try buildCustomGroups(yaml), OptionsError.self)
+    func checkCustomParseError(_ yaml: String, _ key: L10n.Localizable) {
+        AssertThrows(try buildCustomGroups(yaml), key)
     }
 
     func testCustomParseErrors() throws {
         let noNameGroup = "custom_groups:\n - abstract: Fred"
-        checkCustomParseError(noNameGroup)
+        checkCustomParseError(noNameGroup, .errCfgCustomGrpName)
 
         let bothChildTypes = """
                              custom_groups:
@@ -266,7 +266,7 @@ class TestGroup: XCTestCase {
                                 topics:
                                    - C
                              """
-        checkCustomParseError(bothChildTypes)
+        checkCustomParseError(bothChildTypes, .errCfgCustomGrpBoth)
 
         let badSkipUnlisted = """
                               custom_groups:
@@ -275,7 +275,7 @@ class TestGroup: XCTestCase {
                                  children:
                                    - C
                               """
-       checkCustomParseError(badSkipUnlisted)
+       checkCustomParseError(badSkipUnlisted, .errCfgBadKey)
 
         let nestedTopics =  """
                             custom_groups:
@@ -285,7 +285,7 @@ class TestGroup: XCTestCase {
                                    topics:
                                     - name: TT
                             """
-        checkCustomParseError(nestedTopics)
+        checkCustomParseError(nestedTopics, .errCfgCustomGrpNested)
     }
 
     func testCustomGroupBuilder() throws {
@@ -506,14 +506,14 @@ class TestGroup: XCTestCase {
                              custom_defs:
                               - skip_unlisted: true
                              """
-        checkCustomParseError(missingDefName)
+        checkCustomParseError(missingDefName, .errCfgCustomDefName)
 
         let missingTopics = """
                             custom_defs:
                               - name: Def1
                                 skip_unlisted: false
                             """
-        checkCustomParseError(missingTopics)
+        checkCustomParseError(missingTopics, .errCfgCustomDefTopics)
 
         let missingTopicName = """
                                custom_defs:
@@ -522,7 +522,7 @@ class TestGroup: XCTestCase {
                                      - children:
                                          - A
                                """
-        checkCustomParseError(missingTopicName)
+        checkCustomParseError(missingTopicName, .errCfgCustomDefTopicName)
     }
 
     // MARK: Constrained Extensions
@@ -619,7 +619,7 @@ class TestGroup: XCTestCase {
                              children:
                                - /Class(/
                         """
-        checkCustomParseError(badRegexp)
+        checkCustomParseError(badRegexp, .errCfgRegexp)
     }
 
     // MARK: Guide titles
@@ -656,6 +656,6 @@ class TestGroup: XCTestCase {
                        guide_titles:
                           - name: N
                        """
-        checkCustomParseError(badTitle)
+        checkCustomParseError(badTitle, .errCfgGuideTitleFields)
     }
 }

@@ -38,7 +38,7 @@ public final class GenDocset: Configurable {
             try opt.checkIsFile()
             if let url = opt.value,
                 !url.path.hasSuffix(".png") {
-                throw OptionsError(.localized(.errCfgDocsetIcon, url.path))
+                throw J2Error(.errCfgDocsetIcon, url.path)
             }
         }
         try checkIconPathOpt(iconPathOpt)

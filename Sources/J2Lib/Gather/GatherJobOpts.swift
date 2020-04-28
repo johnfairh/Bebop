@@ -54,7 +54,7 @@ final class GatherJobOpts: Configurable {
         if let target = symbolGraphTargetOpt.value {
             let targetTriple = target.components(separatedBy: "-")
             if targetTriple.count < 3 { // "linux-gnu" sob
-                throw OptionsError(.localized(.errCfgSsgeTriple, symbolGraphTarget))
+                throw J2Error(.errCfgSsgeTriple, symbolGraphTarget)
             }
         }
     }
@@ -113,22 +113,22 @@ final class GatherJobOpts: Configurable {
     func checkCascadedOptions() throws {
         // Rigorously police the objc options...
         if objcDirectOpt.configured && buildToolOpt.configured {
-            throw OptionsError(.localized(.errObjcBuildTools))
+            throw J2Error(.errObjcBuildTools)
         }
 
         if (objcDirectOpt.configured || objcIncludePathsOpt.configured) &&
             !objcHeaderFileOpt.configured {
-            throw OptionsError(.localized(.errObjcNoHeader))
+            throw J2Error(.errObjcNoHeader)
         }
 
         if sourcekittenJSONFilesOpt.configured &&
             (buildToolOpt.configured || objcDirectOpt.configured || objcHeaderFileOpt.configured) {
-            throw OptionsError(.localized(.errCfgSknBuildTool))
+            throw J2Error(.errCfgSknBuildTool)
         }
 
         if j2JSONFilesOpt.configured &&
             (sourcekittenJSONFilesOpt.configured || buildToolOpt.configured || objcDirectOpt.configured || objcHeaderFileOpt.configured) {
-            throw OptionsError(.localized(.errCfgJ2jsonMutex))
+            throw J2Error(.errCfgJ2jsonMutex)
         }
 
         if objcHeaderFileOpt.configured && !objcDirectOpt.configured &&
@@ -139,12 +139,12 @@ final class GatherJobOpts: Configurable {
 
         if objcDirectOpt.configured {
             #if !os(macOS)
-            throw OptionsError(.localized(.errObjcLinux))
+            throw J2Error(.errObjcLinux)
             #endif
         }
 
         if objcHeaderFileOpt.configured && buildToolOpt.configured {
-            throw NotImplementedError("Objective-C with build-tool")
+            throw J2Error(.errNotImplemented, "Objective-C with build-tool")
         }
 
         // SrcDir -- used for calculating relative code-host links *and* for swift
@@ -239,7 +239,7 @@ extension Gather {
         func getPath() throws -> String {
             let sdkPathResults = Exec.run("/usr/bin/env", "xcrun", "--show-sdk-path", "--sdk", rawValue, stderr: .merge)
             guard let sdkPath = sdkPathResults.successString else {
-                throw GatherError(.localized(.errSdk) + "\n\(sdkPathResults.failureReport)")
+                throw J2Error(.errSdk, sdkPathResults.failureReport)
             }
             return sdkPath
         }

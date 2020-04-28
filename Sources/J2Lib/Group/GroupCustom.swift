@@ -237,10 +237,10 @@ final class GroupCustom: Configurable {
 
             // common error checks
             if !nameOpt.configured {
-                throw OptionsError(.localized(.errCfgCustomGrpName, try yaml.asDebugString()))
+                throw J2Error(.errCfgCustomGrpName, try yaml.asDebugString())
             }
             if childrenOpt.configured && topicsOpt.configured {
-                throw OptionsError(.localized(.errCfgCustomGrpBoth, try yaml.asDebugString()))
+                throw J2Error(.errCfgCustomGrpBoth, try yaml.asDebugString())
             }
         }
 
@@ -267,7 +267,7 @@ final class GroupCustom: Configurable {
         func topic(yaml: Yams.Node, context: String) throws -> Group.Topic {
             try parse(yaml: yaml, context: context)
             if topicsOpt.configured {
-                throw OptionsError(.localized(.errCfgCustomGrpNested, try yaml.asDebugString()))
+                throw J2Error(.errCfgCustomGrpNested, try yaml.asDebugString())
             }
             return Group.Topic(topic: Topic(title: nameOpt.value!,
                                             overview: abstractOpt.value),
@@ -323,10 +323,10 @@ final class GroupCustom: Configurable {
             try parser.apply(mapping: mapping)
 
             guard let name = nameOpt.value else {
-                throw OptionsError(.localized(.errCfgCustomDefName, try yaml.asDebugString()))
+                throw J2Error(.errCfgCustomDefName, try yaml.asDebugString())
             }
             guard let topicsYaml = topicsOpt.value else {
-                throw OptionsError(.localized(.errCfgCustomDefTopics, try yaml.asDebugString()))
+                throw J2Error(.errCfgCustomDefTopics, try yaml.asDebugString())
             }
             Stats.inc(.groupCustomDefDecoded)
             return Def(name: name,
@@ -353,7 +353,7 @@ final class GroupCustom: Configurable {
                 try parser.apply(mapping: mapping)
 
                 guard let name = nameOpt.value else {
-                    throw OptionsError(.localized(.errCfgCustomDefTopicName, try yaml.asDebugString()))
+                    throw J2Error(.errCfgCustomDefTopicName, try yaml.asDebugString())
                 }
                 return Def.Topic(topic: Topic(title: name,
                                               overview: abstractOpt.value),

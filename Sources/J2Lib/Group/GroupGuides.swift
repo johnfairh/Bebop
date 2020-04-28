@@ -39,7 +39,7 @@ final class GroupGuides: Configurable {
 
             guard let name = nameOpt.value,
                 let title = titleOpt.value else {
-                    throw OptionsError(.localized(.errCfgGuideTitleFields, try yaml.asDebugString()))
+                    throw J2Error(.errCfgGuideTitleFields, try yaml.asDebugString())
             }
 
             if titles[name] == nil {

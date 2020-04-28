@@ -26,7 +26,7 @@ class TestSass: XCTestCase {
     }
 
     func testBadFile() throws {
-        AssertThrows(try Sass.render(scssFileURL: URL(fileURLWithPath: "/Not/real")), Sass.Error.self)
+        AssertThrows(try Sass.render(scssFileURL: URL(fileURLWithPath: "/Not/real")), .errSassCompile)
     }
 
     func testBadContent() throws {
@@ -39,8 +39,8 @@ class TestSass: XCTestCase {
         } catch {
             let str = String(describing: error)
             XCTAssertTrue(str.contains("Invalid CSS"))
-            if let e = error as? Sass.Error {
-                print(e.description + e.debugDescription)
+            if let e = error as? J2Error {
+                print(e.description)
             }
         }
     }

@@ -124,11 +124,12 @@ class TestGather: XCTestCase {
         let cliOpts = [ [],
                         ["--build-tool", "xcodebuild", "--quiet"],
                         ["--build-tool", "xcodebuild", "--module", "Butter"]]
-        try cliOpts.forEach { opts in
+        let failures: [L10n.Localizable] = [.errSktnSpm, .errSktnXcodeDef, .errSktnXcodeMod]
+        try zip(cliOpts, failures).forEach { opts in
             try TemporaryDirectory.withNew {
                 let system = System()
-                try system.config.processOptions(cliOpts: opts)
-                AssertThrows(try system.gather.gather(), GatherError.self)
+                try system.config.processOptions(cliOpts: opts.0)
+                AssertThrows(try system.gather.gather(), opts.1)
             }
         }
     }
@@ -146,7 +147,7 @@ class TestGather: XCTestCase {
             do {
                 _ = try system.gather.gather()
                 XCTFail("Can't succeed, no project")
-            } catch let error as GatherError {
+            } catch let error as J2Error {
                 if expectSpm {
                     XCTAssertTrue(error.description.re_isMatch("swift build"))
                 } else {
@@ -189,7 +190,7 @@ class TestGather: XCTestCase {
 
     func testRepeatedMultiModule() throws {
         let system = OptsSystem()
-        AssertThrows(try system.test(["--modules=M1,M1"], jobs: []), OptionsError.self)
+        AssertThrows(try system.test(["--modules=M1,M1"], jobs: []), .errRepeatedModule)
     }
 
     // custom_modules
@@ -249,17 +250,17 @@ class TestGather: XCTestCase {
         // module + custom_modules
         let yaml1 = "module: M1\ncustom_modules:\n - module: M2"
         let system1 = OptsSystem()
-        AssertThrows(try system1.useConfigFile(yaml1), OptionsError.self)
+        AssertThrows(try system1.useConfigFile(yaml1), .errModulesOverlap)
 
         // module missing
         let yaml2 = "custom_modules:\n - build_tool: spm"
         let system2 = OptsSystem()
-        AssertThrows(try system2.useConfigFile(yaml2), OptionsError.self)
+        AssertThrows(try system2.useConfigFile(yaml2), .errMissingModule)
 
         // custom_modules not sequence
         let yaml3 = "custom_modules: whaat"
         let system3 = OptsSystem()
-        AssertThrows(try system3.useConfigFile(yaml3), OptionsError.self)
+        AssertThrows(try system3.useConfigFile(yaml3), .errCfgNotSequence)
     }
 
     // Module group errors
@@ -267,11 +268,11 @@ class TestGather: XCTestCase {
         // Inside and Outside
         let yaml1 = "merge_modules: no\ncustom_modules:\n - module: M1\n   merge_module: yes"
         let system1 = OptsSystem()
-        AssertThrows(try system1.useConfigFile(yaml1), OptionsError.self)
+        AssertThrows(try system1.useConfigFile(yaml1), .errCfgDupModMerge)
 
         // Group while off
         let yaml2 = "custom_modules:\n - module: M1\n   merge_module: no\n   merge_module_group: Fish"
         let system2 = OptsSystem()
-        AssertThrows(try system2.useConfigFile(yaml2), OptionsError.self)
+        AssertThrows(try system2.useConfigFile(yaml2), .errCfgBadModMerge)
     }
 }

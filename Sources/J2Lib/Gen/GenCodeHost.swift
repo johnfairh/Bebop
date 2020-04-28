@@ -39,7 +39,7 @@ final class GenCodeHost: Configurable {
 
     func checkOptions(publish: PublishStore) throws {
         if codeHostOpt.configured && codeHostCustomOpt.configured {
-            throw OptionsError(.localized(.errCfgChostBoth))
+            throw J2Error(.errCfgChostBoth)
         }
         publish.registerCodeHostItemURLForLocation(self.locationURL)
     }
@@ -59,28 +59,28 @@ final class GenCodeHost: Configurable {
 
             if let singleLineFormat = singleLineFormatOpt.value,
                 !singleLineFormat.contains(CustomLineFormatter.LINE_PATTERN) {
-                throw OptionsError(.localized(.errCfgChostSingleFmt, CustomLineFormatter.LINE_PATTERN))
+                throw J2Error(.errCfgChostSingleFmt, CustomLineFormatter.LINE_PATTERN)
             }
             if let multiLineFormat = multiLineFormatOpt.value,
                 !multiLineFormat.contains(CustomLineFormatter.START_LINE_PATTERN) ||
                     !multiLineFormat.contains(CustomLineFormatter.END_LINE_PATTERN) {
-                throw OptionsError(.localized(.errCfgChostMultiFmt,
-                                              CustomLineFormatter.START_LINE_PATTERN,
-                                              CustomLineFormatter.END_LINE_PATTERN))
+                throw J2Error(.errCfgChostMultiFmt,
+                              CustomLineFormatter.START_LINE_PATTERN,
+                              CustomLineFormatter.END_LINE_PATTERN)
             }
 
             if singleLineFormatOpt.configured != multiLineFormatOpt.configured {
-                throw OptionsError(.localized(.errCfgChostMissingFmt))
+                throw J2Error(.errCfgChostMissingFmt)
             }
         }
 
         func findMediaPath(published: Published) throws -> String {
             guard let imageName = imageNameOpt.value else {
-                throw OptionsError(.localized(.errCfgChostMissingImage))
+                throw J2Error(.errCfgChostMissingImage)
             }
 
             guard let mediaPath = published.urlPathForMedia(imageName) else {
-                throw OptionsError(.localized(.errCfgChostBadImage, imageName))
+                throw J2Error(.errCfgChostBadImage, imageName)
             }
             return mediaPath
         }

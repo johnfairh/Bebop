@@ -181,7 +181,7 @@ class TestConfig: XCTestCase {
     // 6. Opts error actually thrown
     func testOptsError() {
         let system = System()
-        AssertThrows(try system.configure(cliOpts: "--bad"), OptionsError.self)
+        AssertThrows(try system.configure(cliOpts: "--bad"), .errCliUnknownOption)
     }
 
     // SrcDir
@@ -194,7 +194,7 @@ class TestConfig: XCTestCase {
             let gather = Gather(config: config)
             try withExtendedLifetime(gather) {
                 AssertThrows(try config.processOptions(cliOpts: ["--source-directory=\(tmpDir.directoryURL.path)"]),
-                             OptionsError.self)
+                             .errCfgBadKey)
             }
         }
     }

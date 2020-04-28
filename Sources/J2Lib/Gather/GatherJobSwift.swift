@@ -51,15 +51,15 @@ extension GatherJob {
                 module = Module(xcodeBuildArguments: buildToolArgs, name: moduleName, inPath: actualSrcDir.path)
                 if module == nil {
                     if let moduleName = moduleName {
-                        throw GatherError(.localized(.errSktnXcodeMod, moduleName))
+                        throw J2Error(.errSktnXcodeMod, moduleName)
                     }
-                    throw GatherError(.localized(.errSktnXcodeDef))
+                    throw J2Error(.errSktnXcodeDef)
                 }
             case .spm:
                 logDebug(" Calling sourcekitten in swift spm mode")
                 module = Module(spmArguments: buildToolArgs, spmName: moduleName, inPath: actualSrcDir.path)
                 if module == nil {
-                    throw GatherError(.localized(.errSktnSpm))
+                    throw J2Error(.errSktnSpm)
                 }
             default:
                 preconditionFailure("Bad build tool for Swift source: \(actualBuildTool)")
