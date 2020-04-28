@@ -427,7 +427,7 @@ final class PathOpt: TypedOpt<URL> {
     /// Smarter default - interpreted as relative to the current directory
     @discardableResult
     func def(_ defaultValue: String) -> Self {
-        def(URL(fileURLWithPath: defaultValue).standardized)
+        def(URL(fileURLWithPath: defaultValue).absoluteURL)
     }
 
     /// Validation helper, throw unless it's a file
@@ -726,10 +726,10 @@ final class OptsParser {
             switch opt.type {
             case .glob:
                 let url = URL(fileURLWithPath: datum, relativeTo: relativePathBase)
-                try opt.set(string: url.standardized.path)
+                try opt.set(string: url.absoluteURL.path)
             case .path:
                 let url = URL(fileURLWithPath: datum, relativeTo: relativePathBase)
-                opt.set(string: datum, path: url.standardized)
+                opt.set(string: datum, path: url.absoluteURL)
             default:
                 try opt.set(string: datum)
             }

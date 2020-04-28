@@ -248,10 +248,10 @@ class TestGen: XCTestCase {
         let system = System()
         TestLogger.install()
         try system.configure(cliOpts: [
-            "--media=\(tmpDir.directoryURL.appendingPathComponent("*jpg"))",
-            "--media=\(tmpDir.directoryURL.appendingPathComponent("*png"))",
-            "--media=\(tmpDir.directoryURL.appendingPathComponent("*png"))",
-            "--media=\(tmpDir.directoryURL.appendingPathComponent("*bmp"))",
+            "--media=\(tmpDir.directoryURL.appendingPathComponent("*jpg").path)",
+            "--media=\(tmpDir.directoryURL.appendingPathComponent("*png").path)",
+            "--media=\(tmpDir.directoryURL.appendingPathComponent("*png").path)",
+            "--media=\(tmpDir.directoryURL.appendingPathComponent("*bmp").path)",
         ])
         XCTAssertEqual(3, TestLogger.shared.diagsBuf.count)
         XCTAssertEqual(2, system.gen.media.mediaFiles.count)

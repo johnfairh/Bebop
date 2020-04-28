@@ -229,7 +229,7 @@ class TestGatherImport: XCTestCase {
 
     func testImportRoundTrip() throws {
         try checkRoundTrip([
-            "--source-directory=\(fixturesURL.appendingPathComponent("SpmSwiftPackage"))",
+            "--source-directory=\(fixturesURL.appendingPathComponent("SpmSwiftPackage").path)",
             "--modules=SpmSwiftModule"
         ])
 

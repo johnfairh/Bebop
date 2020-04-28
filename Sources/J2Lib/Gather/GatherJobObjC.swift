@@ -69,11 +69,10 @@ extension GatherJob {
                     if pathname.re_isMatch(#"\.h(h|pp)?$"#) {
                         // Found a header file?  Add all directories from its directory up to
                         // the base - can't tell if "#import "a/b.h" etc.
-                        var directoryURL = baseURL.appendingPathComponent(pathname).deletingLastPathComponent().standardized
+                        var directoryURL = baseURL.appendingPathComponent(pathname).deletingLastPathComponent()
                         while !dirPaths.contains(directoryURL) {
                             dirPaths.insert(directoryURL)
                             directoryURL.deleteLastPathComponent()
-                            directoryURL.standardize()
                         }
                     }
                 }
