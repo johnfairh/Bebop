@@ -131,6 +131,11 @@ public final class Config {
         }
 
         configureLogger(report: true)
+        logDebug("---- Start Options Summary ----")
+        optsParser.allOpts.forEach { opt in
+            logDebug(String(describing: opt))
+        }
+        logDebug("----- End Options Summary -----")
 
         try configurables.reversed().forEach { try $0.checkOptions(publish: publishStore) } // #1
         try configurables.reversed().forEach { try $0.checkOptionsPhase2(published: published) }

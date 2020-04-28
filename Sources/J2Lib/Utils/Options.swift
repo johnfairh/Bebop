@@ -197,7 +197,7 @@ class Opt {
     var  helpParam: String { "" }
 }
 
-/// Begrudging support for option aliases.  These don't appear in help.
+/// Support for option aliases -- to be compatible with jazzy configs.  These don't appear in the regular help.
 struct AliasOpt {
     let realOpt: Opt
     let aliases: [String]
