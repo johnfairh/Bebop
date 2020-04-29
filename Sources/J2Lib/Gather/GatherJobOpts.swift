@@ -38,6 +38,9 @@ final class GatherJobOpts: Configurable {
     let codeHostURLOpt = LocStringOpt(l: "code-host-url").help("CODEHOSTURL")
     let codeHostFileURLOpt = StringOpt(l: "code-host-file-url").help("CODEHOSTFILEURL")
 
+    let podspecOpt = PathOpt(l: "podspec").help("PODSPECPATH")
+    let podSourcesOpt = StringListOpt(l: "pod-sources").help("PODSOURCE,PODSOURCE,...")
+
     /// First pass of options-checking, that individual things entered are valid
     func checkOptions() throws {
         try checkBaseOptions()
@@ -50,6 +53,7 @@ final class GatherJobOpts: Configurable {
         try sourcekittenJSONFilesOpt.checkAreFiles()
         try j2JSONFilesOpt.checkAreFiles()
         try symbolGraphSearchPathsOpt.checkAreDirectories()
+        try podspecOpt.checkIsFile()
 
         if let target = symbolGraphTargetOpt.value {
             let targetTriple = target.components(separatedBy: "-")
@@ -63,12 +67,13 @@ final class GatherJobOpts: Configurable {
     func cascade(from: GatherJobOpts) throws {
         // srcdir: always cascade
         srcDirOpt.cascade(from: from.srcDirOpt)
-        // buildtool: don't cascade if objcdirect/jsonfiles [mutually exclusive]
+        // buildtool: don't cascade if objcdirect/jsonfiles/podspec [mutually exclusive]
         //            don't cascade if objcheaderfile [not implemented]
         if !objcDirectOpt.configured &&
             !sourcekittenJSONFilesOpt.configured &&
             !j2JSONFilesOpt.configured &&
-            !objcHeaderFileOpt.configured {
+            !objcHeaderFileOpt.configured &&
+            !podspecOpt.configured {
             buildToolOpt.cascade(from: from.buildToolOpt)
         }
         // buildtoolargs: always cascade
@@ -76,17 +81,19 @@ final class GatherJobOpts: Configurable {
         // availability: always cascade
         availabilityDefaultsOpt.cascade(from: from.availabilityDefaultsOpt)
         ignoreAvailabilityAttrOpt.cascade(from: from.ignoreAvailabilityAttrOpt)
-        // objcdirect: don't cascade if buildtool/jsonfiles [mutually exclusive]
+        // objcdirect: don't cascade if buildtool/jsonfiles/podspec [mutually exclusive]
         if !buildToolOpt.configured &&
             !sourcekittenJSONFilesOpt.configured &&
-            !j2JSONFilesOpt.configured {
+            !j2JSONFilesOpt.configured &&
+            !podspecOpt.configured {
             objcDirectOpt.cascade(from: from.objcDirectOpt)
         }
         // objcheaderfile: don't cascade if build tool [not implemented]
-        //                 don't cascade if jsonfiles [mutually exclusive]
+        //                 don't cascade if jsonfiles/podspec [mutually exclusive]
         if !buildToolOpt.configured &&
             !sourcekittenJSONFilesOpt.configured &&
-            !j2JSONFilesOpt.configured {
+            !j2JSONFilesOpt.configured &&
+            !podspecOpt.configured {
             objcHeaderFileOpt.cascade(from: from.objcHeaderFileOpt)
         }
         // objcincludepaths: always cascade
@@ -98,7 +105,8 @@ final class GatherJobOpts: Configurable {
         if !buildToolOpt.configured &&
             !sourcekittenJSONFilesOpt.configured &&
             !objcDirectOpt.configured &&
-            !objcHeaderFileOpt.configured {
+            !objcHeaderFileOpt.configured &&
+            !podspecOpt.configured {
             j2JSONFilesOpt.cascade(from: from.j2JSONFilesOpt)
         }
         // symbolgraph-target, -searchpaths: always cascade, use driven by buildtool
@@ -107,6 +115,9 @@ final class GatherJobOpts: Configurable {
         // codehost: cascade, no effect on build process
         codeHostURLOpt.cascade(from: from.codeHostURLOpt)
         codeHostFileURLOpt.cascade(from: from.codeHostFileURLOpt)
+        // podspec: do not cascade
+        // pod-sources: always cascade
+        podSourcesOpt.cascade(from: from.podSourcesOpt)
     }
 
     /// Second pass of options-checking, of inter-option consistency after parent cascade
@@ -129,6 +140,12 @@ final class GatherJobOpts: Configurable {
         if j2JSONFilesOpt.configured &&
             (sourcekittenJSONFilesOpt.configured || buildToolOpt.configured || objcDirectOpt.configured || objcHeaderFileOpt.configured) {
             throw J2Error(.errCfgJ2jsonMutex)
+        }
+
+        if podspecOpt.configured &&
+            (sourcekittenJSONFilesOpt.configured || buildToolOpt.configured || objcDirectOpt.configured ||
+                objcHeaderFileOpt.configured || j2JSONFilesOpt.configured) {
+            throw J2Error(.errCfgPodspecBuild)
         }
 
         if objcHeaderFileOpt.configured && !objcDirectOpt.configured &&
@@ -155,6 +172,13 @@ final class GatherJobOpts: Configurable {
             !j2JSONFilesOpt.configured &&
             buildToolOpt.value != .some(.swift_symbolgraph) {
             try srcDirOpt.checkIsDirectory()
+        }
+    }
+
+    /// Third pass of options-checking -- called just for passes, not top-level or modules.
+    func checkPassOptions() throws {
+        if podspecOpt.configured {
+            throw J2Error(.errCfgPodspecPass)
         }
     }
 
@@ -200,15 +224,22 @@ final class GatherJobOpts: Configurable {
                              sdk: sdk,
                              target: symbolGraphTarget,
                              availability: availability)
-        } else {
-            // Swift from source
-            return GatherJob(swiftTitle: "Swift module \(moduleName ?? "(default)")\(passStr)",
+        } else if let podspecURL = podspecOpt.value  {
+            // Swift from podspec
+            return GatherJob(podspecTitle: "Podspec  \(moduleName ?? "(default)")\(passStr)",
                              moduleName: moduleName,
-                             srcDir: srcDirOpt.value,
-                             buildTool: buildToolOpt.value,
-                             buildToolArgs: buildToolArgsOpt.value,
+                             podspecURL: podspecURL,
+                             podSources: podSourcesOpt.value,
                              availability: availability)
         }
+
+        // Default: Swift from source
+        return GatherJob(swiftTitle: "Swift module \(moduleName ?? "(default)")\(passStr)",
+                         moduleName: moduleName,
+                         srcDir: srcDirOpt.value,
+                         buildTool: buildToolOpt.value,
+                         buildToolArgs: buildToolArgsOpt.value,
+                         availability: availability)
     }
 
     lazy var hostTargetTriple: String = {

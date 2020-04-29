@@ -145,7 +145,7 @@ Ignoring the second.";
 "wrn-docset-tarfile" = "Can't create docset tarfile.
 %1";
 "wrn-sw2objc-header" = "Can't find Objective-C header file for module '%1' at '%2'.";
-"err-cfg-xcodepath" = "Value for --apple-autolink-xcode-path should be some Xcode.app: '%1'.";
+"err-cfg-xcodepath" = "Value for --apple-autolink-xcode-path should be some Xcode.app, not '%1'.";
 "wrn-appleauto-xcode" = "Can't find current Xcode path, not linking to Apple documentation.
 %1;";
 "wrn-appleauto-dbo" = "Can't open Apple documentation database '%1': %2";
@@ -154,5 +154,8 @@ Ignoring the second.";
 "err-cfg-theme-copy" = "Can't use 'theme' along with any other value in --products.";
 "msg-jazzy-theme" = "Rendering theme in classic Jazzy mode...";
 "err-sass-compile" = "Sass compile failed, rc=%1: %2.";
-"msg-help-aliases" = "Option aliases for jazzy compatibility:";
+"msg-help-aliases" = "Option aliases for Jazzy compatibility:";
 "err-not-implemented" = "Not implemented: %1.";
+"err-cfg-podspec-outer" = "The --podspec option can't be set alongside the 'custom_modules' config key or with multi-valued --modules.";
+"err-cfg-podspec-build" = "Both --podspec and some other build-source option are set: choose just one.";
+"err-cfg-podspec-pass" = "The --podspec option can't be set at the 'module pass' level because it generates multiple passes.";

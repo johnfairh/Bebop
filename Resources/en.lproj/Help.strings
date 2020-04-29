@@ -202,3 +202,9 @@ Default: Resolve identifiers like this when Xcode is available.";
 "apple-autolink-xcode-path" = "Path to the version of `Xcode.app` to use for resolving links to online
 Apple documentation.
 Default: Use `xcode-select -s` to find Xcode.";
+"podspec" = "Path to a CocoaPods .podspec describing a Swift module to generate
+documentation for.
+Default: Do not use a podspec.";
+"pod-sources" = "List of CocoaPods 'source' URLs to find dependencies.  The default public
+pod source is not automatically added.
+Default: Do not use any private pod sources.";

@@ -70,6 +70,12 @@ internal enum L10n {
     case errCfgNotSequence = "err-cfg-not-sequence"
     /// Could not interpret config file as YAML.
     case errCfgNotYaml = "err-cfg-not-yaml"
+    /// Both --podspec and some other build-source option are set: choose just one.
+    case errCfgPodspecBuild = "err-cfg-podspec-build"
+    /// The --podspec option can't be set alongside the 'custom_modules' config key or with multi-valued --modules.
+    case errCfgPodspecOuter = "err-cfg-podspec-outer"
+    /// The --podspec option can't be set at the 'module pass' level because it generates multiple passes.
+    case errCfgPodspecPass = "err-cfg-podspec-pass"
     /// Invalid ICU regular expression '%1'.  Original error: '%2'.
     case errCfgRegexp = "err-cfg-regexp"
     /// Both --sourcekitten-sourcefiles and some Swift or Objective-C flags are set: choose just one.
@@ -92,7 +98,7 @@ internal enum L10n {
     case errCfgTextNotBool = "err-cfg-text-not-bool"
     /// Can't use 'theme' along with any other value in --products.
     case errCfgThemeCopy = "err-cfg-theme-copy"
-    /// Value for --apple-autolink-xcode-path should be some Xcode.app: '%1'.
+    /// Value for --apple-autolink-xcode-path should be some Xcode.app, not '%1'.
     case errCfgXcodepath = "err-cfg-xcodepath"
     /// Missing argument for option '%1'.
     case errCliMissingArg = "err-cli-missing-arg"
@@ -154,7 +160,7 @@ internal enum L10n {
     case msgGatherHeading = "msg-gather-heading"
     /// Generating documentation...
     case msgGeneratingDocs = "msg-generating-docs"
-    /// Option aliases for jazzy compatibility:
+    /// Option aliases for Jazzy compatibility:
     case msgHelpAliases = "msg-help-aliases"
     /// j2: Generate API documentation for Swift or Objective-C code.\n\nUsage: j2 [options]\n\nOptions:
     case msgHelpIntro = "msg-help-intro"

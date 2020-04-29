@@ -8,16 +8,18 @@
 
 import Foundation
 
-/// A recipe to create one pass over a module.
+/// A recipe to create some passes over some module.
 ///
-/// In fact that's a lie because "import a gather.json" is also a job that can vend multiple modules and passes.
-/// That may be a modelling error, tbd pending implementation of import....
+/// It's usually one pass over one module, but:
+/// - podspec generates multiple passes over one module;
+/// - files-json import can generate multiple passes over multiple modules
 enum GatherJob : Equatable {
     case swift(title: String, job: Swift)
     case objcDirect(title: String, job: ObjCDirect)
     case sourcekitten(title: String, job: SourceKitten)
     case jsonImport(title: String, job: JSONImport)
     case symbolgraph(title: String, job: SymbolGraph)
+    case podspec(title: String, job: Podspec)
 
     var title: String {
         switch self {
@@ -25,7 +27,8 @@ enum GatherJob : Equatable {
              .objcDirect(let title, _),
              .sourcekitten(let title, _),
              .jsonImport(let title, _),
-             .symbolgraph(let title, _): return title
+             .symbolgraph(let title, _),
+             .podspec(let title, _): return title
         }
     }
 
@@ -36,6 +39,7 @@ enum GatherJob : Equatable {
         // Use --default-language to override this
         case .sourcekitten(_, _), .jsonImport(_, _): return .swift
         case .symbolgraph(_, _): return .swift
+        case .podspec(_, _): return .swift
         }
     }
 
@@ -62,6 +66,9 @@ enum GatherJob : Equatable {
 
         case let .symbolgraph(_, job):
             return try [job.execute()]
+
+        case let .podspec(_, job):
+            return try job.execute()
         }
     }
 
@@ -72,6 +79,7 @@ enum GatherJob : Equatable {
         case let (.objcDirect(_, l), .objcDirect(_, r)): return l == r
         case let (.sourcekitten(_, l), .sourcekitten(_, r)): return l == r
         case let (.jsonImport(_, l), .jsonImport(_, r)): return l == r
+        case let (.podspec(_, l), .podspec(_, r)): return l == r
         default: return false
         }
     }
@@ -139,7 +147,7 @@ enum GatherJob : Equatable {
          buildToolArgs: [String],
          sdk: Gather.Sdk,
          target: String,
-         availability: Gather.Availability) {
+         availability: Gather.Availability = Gather.Availability()) {
         self = .symbolgraph(title: symbolgraphTitle,
                             job: SymbolGraph(moduleName: moduleName,
                                              searchURLs: searchURLs,
@@ -147,5 +155,18 @@ enum GatherJob : Equatable {
                                              sdk: sdk,
                                              target: target,
                                              availability: availability))
+    }
+
+    /// Init helper for podspec
+    init(podspecTitle: String,
+         moduleName: String?,
+         podspecURL: URL,
+         podSources: [String],
+         availability: Gather.Availability = Gather.Availability()) {
+        self = .podspec(title: podspecTitle,
+                        job: Podspec(moduleName: moduleName,
+                                     podspecURL: podspecURL,
+                                     podSources: podSources,
+                                     availability: availability))
     }
 }

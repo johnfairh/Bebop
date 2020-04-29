@@ -99,6 +99,11 @@ final class GatherOpts : Configurable {
             !customModulesOpts.configured && !moduleNamesOpt.configured {
             throw J2Error(.errCfgSsgeModule)
         }
+
+        if rootPassOpts.podspecOpt.configured &&
+            (customModulesOpts.configured || moduleNamesOpt.value.count > 1) {
+            throw J2Error(.errCfgPodspecOuter)
+        }
     }
 
     /// Publish module names & grouping policies.  This is a bit contorted:
@@ -115,14 +120,13 @@ final class GatherOpts : Configurable {
                                 codeHostURL: rootPassOpts.codeHostURLOpt.value,
                                 codeHostFilePrefix: rootPassOpts.codeHostFileURLOpt.value)
             }
-        } else {
-            return customModules.map {
-                PublishedModule(name: $0.name,
-                                groupPolicy: $0.groupPolicy,
-                                sourceDirectory: $0.moduleOpts.effectiveSrcDir,
-                                codeHostURL: $0.moduleOpts.codeHostURLOpt.value,
-                                codeHostFilePrefix: $0.moduleOpts.codeHostFileURLOpt.value)
-            }
+        }
+        return customModules.map {
+            PublishedModule(name: $0.name,
+                            groupPolicy: $0.groupPolicy,
+                            sourceDirectory: $0.moduleOpts.effectiveSrcDir,
+                            codeHostURL: $0.moduleOpts.codeHostURLOpt.value,
+                            codeHostFilePrefix: $0.moduleOpts.codeHostFileURLOpt.value)
         }
     }
 
@@ -152,7 +156,7 @@ final class GatherOpts : Configurable {
                 rootPassOpts.makeJob(moduleName: moduleName)
             }
         }
-        return rootPassOpts.makeJob(moduleName: nil).flatMap { [$0] } ?? []
+        return [rootPassOpts.makeJob(moduleName: nil)].compactMap { $0 }
     }
 }
 
@@ -217,6 +221,7 @@ struct GatherCustomModule: CustomStringConvertible {
         try passes.forEach { pass in
             try pass.cascade(from: moduleOpts)
             try pass.checkCascadedOptions()
+            try pass.checkPassOptions()
         }
     }
 

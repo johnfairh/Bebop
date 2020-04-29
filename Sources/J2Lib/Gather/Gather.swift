@@ -10,24 +10,24 @@ import Foundation
 /// `Gather` generates code definition data according to rules in the config.
 ///
 /// Fundamentally this means getting SourceKitten to run its docs pass, which means running a bunch of
-/// SourceKit queries or asking libclang, for Objective C.
+/// SourceKit queries or asking libclang, for Objective C.  Or reading in some JSON, or doing some tricks
+/// with symbolgraph-extract
 ///
 /// Gather then adds a bunch of its own garnishes to augment this basic information:
-/// 1) tbd
-///
-/// Gather applies pathname filtering (include/exclude) from the config.
+/// 1) Localized doc comments
+/// 2) Tidied up and formatted declarations
+/// 3) C -> Swift and Swift -> C
+/// 4) XML doc-comment translation
 ///
 /// The `modules` config key allows gather to run over multiple modules to generate their documentation
 /// together.  Further, it allows for multiple passes of each module: building the module multiple times with
 /// different compiler flags, or for different platforms.
 ///
-/// Gather's results can be viewed as an extended `sourcekitten doc` command -- the json for this
-/// can be extracted by running j2 (XXX somehow).
+/// Gather's results can be viewed as an extended `sourcekitten doc` command.  Use
+/// `-products files-json` to actually get this.
 ///
 /// The input to any of the module passes that Gather has to perform can be one of these gather.json files,
 /// or an original `sourcekitten doc` json file.
-///
-/// XXX podspec
 public final class Gather: Configurable {
     /// Subcomponent for options and config YAML processing
     private let opts: GatherOpts
