@@ -399,10 +399,10 @@
               "key.doc.full_as_xml" : "",
               "key.doc.line" : 15,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/Swift53\/SpmSwiftModule.swift",
-              "key.fully_annotated_decl" : "<swift>struct Nested2&lt;T&gt;<\/swift>",
+              "key.fully_annotated_decl" : "<swift>struct Nested2&lt;T&gt; where T : Equatable<\/swift>",
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
-              "key.j2.swift_declaration" : "struct Nested2<T>",
+              "key.j2.swift_declaration" : "struct Nested2<T> where T : Equatable",
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -1043,7 +1043,7 @@
           "key.doc.comment" : "A derived class",
           "key.doc.line" : 93,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/Swift53\/SpmSwiftModule.swift",
-          "key.fully_annotated_decl" : "<swift>class ADerivedClass&lt;T, Q&gt; : ABaseClass<\/swift>",
+          "key.fully_annotated_decl" : "<swift>class ADerivedClass&lt;T, Q&gt; : ABaseClass where Q : Sequence<\/swift>",
           "key.inherited_docs" : false,
           "key.j2.documentation" : {
             "key.j2.abstract" : {
@@ -1052,7 +1052,7 @@
             "key.j2.doc_source" : "docComment"
           },
           "key.j2.is_override" : false,
-          "key.j2.swift_declaration" : "class ADerivedClass<T, Q> : ABaseClass",
+          "key.j2.swift_declaration" : "class ADerivedClass<T, Q> : ABaseClass where Q : Sequence",
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -1147,10 +1147,10 @@
               "key.doc.full_as_xml" : "",
               "key.doc.line" : 101,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/Swift53\/SpmSwiftModule.swift",
-              "key.fully_annotated_decl" : "<swift>func generic&lt;R&gt;(param: T, my param2: R) -&gt; T<\/swift>",
+              "key.fully_annotated_decl" : "<swift>func generic&lt;R&gt;(param: T, my param2: R) -&gt; T where R : Sequence, R.Element : FirstProtocol<\/swift>",
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
-              "key.j2.swift_declaration" : "func generic<R>(param: T, my param2: R) -> T",
+              "key.j2.swift_declaration" : "func generic<R>(param: T, my param2: R) -> T where R : Sequence, R.Element : FirstProtocol",
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -1569,10 +1569,10 @@
         {
           "key.accessibility" : "source.lang.swift.accessibility.internal",
           "key.doc.full_as_xml" : "",
-          "key.fully_annotated_decl" : "<swift>struct S2&lt;T&gt; : P1<\/swift>",
+          "key.fully_annotated_decl" : "<swift>struct S2&lt;T&gt; : P1 where T : Equatable<\/swift>",
           "key.inherited_docs" : true,
           "key.j2.is_override" : false,
-          "key.j2.swift_declaration" : "struct S2<T> : P1",
+          "key.j2.swift_declaration" : "struct S2<T> : P1 where T : Equatable",
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -1825,10 +1825,10 @@
             {
               "key.accessibility" : "source.lang.swift.accessibility.internal",
               "key.doc.full_as_xml" : "",
-              "key.fully_annotated_decl" : "<swift>func e&lt;C&gt;(a: C)<\/swift>",
+              "key.fully_annotated_decl" : "<swift>func e&lt;C&gt;(a: C) where C : FirstProtocol<\/swift>",
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
-              "key.j2.swift_declaration" : "func e<C>(a: C)",
+              "key.j2.swift_declaration" : "func e<C>(a: C) where C : FirstProtocol",
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -2304,36 +2304,6 @@
           "key.usr" : "s:14SpmSwiftModule2S1V"
         },
         {
-          "key.fully_annotated_decl" : "<swift>extension S2 : Equatable<\/swift>",
-          "key.inheritedtypes" : [
-            {
-              "key.name" : "Equatable"
-            }
-          ],
-          "key.j2.inherited_types" : [
-            {
-              "key.j2.type_name" : "Equatable"
-            }
-          ],
-          "key.j2.is_override" : false,
-          "key.j2.swift_declaration" : "extension S2 : Equatable",
-          "key.j2.swift_name_pieces" : [
-            {
-              "key.j2.name_piece_is_name" : false,
-              "key.j2.name_piece_text" : "extension "
-            },
-            {
-              "key.j2.name_piece_is_name" : true,
-              "key.j2.name_piece_text" : "S2"
-            }
-          ],
-          "key.j2.type_module_name" : "SpmSwiftModule",
-          "key.kind" : "source.lang.swift.decl.extension",
-          "key.modulename" : "SpmSwiftModule",
-          "key.name" : "S2",
-          "key.usr" : "s:14SpmSwiftModule2S2V"
-        },
-        {
           "key.fully_annotated_decl" : "<swift>extension S2 : P2 where T : Comparable<\/swift>",
           "key.inheritedtypes" : [
             {
@@ -2388,6 +2358,36 @@
               "key.usr" : "s:14SpmSwiftModule2S2VAASLRzrlE12comparables2yyF"
             }
           ],
+          "key.usr" : "s:14SpmSwiftModule2S2V"
+        },
+        {
+          "key.fully_annotated_decl" : "<swift>extension S2 : Equatable<\/swift>",
+          "key.inheritedtypes" : [
+            {
+              "key.name" : "Equatable"
+            }
+          ],
+          "key.j2.inherited_types" : [
+            {
+              "key.j2.type_name" : "Equatable"
+            }
+          ],
+          "key.j2.is_override" : false,
+          "key.j2.swift_declaration" : "extension S2 : Equatable",
+          "key.j2.swift_name_pieces" : [
+            {
+              "key.j2.name_piece_is_name" : false,
+              "key.j2.name_piece_text" : "extension "
+            },
+            {
+              "key.j2.name_piece_is_name" : true,
+              "key.j2.name_piece_text" : "S2"
+            }
+          ],
+          "key.j2.type_module_name" : "SpmSwiftModule",
+          "key.kind" : "source.lang.swift.decl.extension",
+          "key.modulename" : "SpmSwiftModule",
+          "key.name" : "S2",
           "key.usr" : "s:14SpmSwiftModule2S2V"
         }
       ]

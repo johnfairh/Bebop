@@ -350,6 +350,12 @@ extension SymbolGraph.Constraints {
     var asKey: String {
         map { $0.asSwift }.joined()
     }
+
+    // A 'where' clause for these constraints - includes leading space.  Empty string if no constraints.
+    var asWhereClause: String {
+        guard !isEmpty else { return "" }
+        return " where " + map { $0.asSwift }.joined(separator: ", ")
+    }
 }
 
 // MARK: Declaration Fixup
@@ -433,6 +439,10 @@ extension SymbolGraph {
             }
         }
 
+        var constraints: Constraints {
+            Constraints()
+        }
+
         init() {
             self.children = SortedArray()
         }
@@ -453,6 +463,10 @@ extension SymbolGraph {
             self.isOverride = false
             self.isProtocolReq = false
             self.isBad = false
+        }
+
+        override var constraints: Constraints {
+            symbol.constraints
         }
 
         var qualifiedName: String {
@@ -504,7 +518,9 @@ extension SymbolGraph {
             let availabilityXml = symbol.availability.map {
                 "<syntaxtype.attribute.builtin>\($0.htmlEscaped)\n</syntaxtype.attribute.builtin>"
             }
-            return "<swift>\(availabilityXml.joined())\(symbol.declaration.htmlEscaped)</swift>"
+            let newConstraints = symbol.constraints.subtracting(parent?.constraints ?? Constraints())
+            let declaration = symbol.declaration + newConstraints.asWhereClause
+            return "<swift>\(availabilityXml.joined())\(declaration.htmlEscaped)</swift>"
         }
 
         var asSourceKittenDict: SourceKittenDict {
@@ -545,14 +561,22 @@ extension SymbolGraph {
     final class ExtNode: ParentNode {
         let typeUSR: String
         let name: String
-        let constraints: Constraints
+        let extConstraints: Constraints
+        let typeConstraints: Constraints
         var conformances: SortedArray<String>
 
-        /// Deduce an extension from a member of an unknown type
-        init(forMember member: Node, typeUSR: String, constraints: Constraints) {
+        override var constraints: Constraints {
+            var allConstraints = extConstraints
+            allConstraints.insert(contentsOf: typeConstraints)
+            return allConstraints
+        }
+
+        /// Deduce an extension from a member of a possibly unknown type
+        init(forMember member: Node, typeUSR: String, typeConstraints: Constraints?, extConstraints: Constraints) {
             self.typeUSR = typeUSR
             self.name = member.symbol.pathComponents.dropLast().joined(separator: ".")
-            self.constraints = constraints
+            self.extConstraints = extConstraints
+            self.typeConstraints = typeConstraints ?? Constraints()
             self.conformances = SortedArray()
             super.init()
             add(member: member)
@@ -560,10 +584,11 @@ extension SymbolGraph {
         }
 
         /// Deduce an extension from a protocol conformance for some type
-        init(forTypeUSR typeUSR: String, typeName: String, constraints: Constraints, proto: String) {
+        init(forTypeUSR typeUSR: String, typeName: String, typeConstraints: Constraints?, extConstraints: Constraints, proto: String) {
             self.typeUSR = typeUSR
             self.name = typeName
-            self.constraints = constraints
+            self.extConstraints = extConstraints
+            self.typeConstraints = typeConstraints ?? Constraints()
             self.conformances = SortedArray()
             super.init()
             add(conformance: proto)
@@ -583,9 +608,7 @@ extension SymbolGraph {
             if !conformances.isEmpty {
                 decl += " : " + conformances.joined(separator: ", ")
             }
-            if !constraints.isEmpty {
-                decl += " where " + constraints.map { $0.asSwift }.joined(separator: ", ")
-            }
+            decl += extConstraints.asWhereClause
             return "<swift>\(decl.htmlEscaped)</swift>"
         }
 
@@ -618,24 +641,32 @@ extension SymbolGraph {
     struct ExtensionMap {
         var map = [ExtNodeKey : ExtNode]()
 
-        mutating func addMemberOf(member: Node, typeUSR: String, where constraints: Constraints) {
-            let key = ExtNodeKey(typeUSR: typeUSR, constraints: constraints)
+        mutating func addMemberOf(member: Node, typeUSR: String, where extConstraints: Constraints, typeConstraints: Constraints?) {
+            let key = ExtNodeKey(typeUSR: typeUSR, constraints: extConstraints)
             if let extNode = map[key] {
                 extNode.add(member: member)
             } else {
-                map[key] = ExtNode(forMember: member, typeUSR: typeUSR, constraints: constraints)
+                map[key] = ExtNode(forMember: member,
+                                   typeUSR: typeUSR,
+                                   typeConstraints: typeConstraints,
+                                   extConstraints: extConstraints)
             }
         }
 
         mutating func addConformance(fromUSR typeUSR: String,
                                      fromName typeName: String,
+                                     withTypeConstraints typeConstraints: Constraints?,
                                      to protoName: String,
-                                     where constraints: Constraints) {
-            let key = ExtNodeKey(typeUSR: typeUSR, constraints: constraints)
+                                     where extConstraints: Constraints) {
+            let key = ExtNodeKey(typeUSR: typeUSR, constraints: extConstraints)
             if let extNode = map[key] {
                 extNode.add(conformance: protoName)
             } else {
-                map[key] = ExtNode(forTypeUSR: typeUSR, typeName: typeName, constraints: constraints, proto: protoName)
+                map[key] = ExtNode(forTypeUSR: typeUSR,
+                                   typeName: typeName,
+                                   typeConstraints: typeConstraints,
+                                   extConstraints: extConstraints,
+                                   proto: protoName)
             }
         }
     }
@@ -681,7 +712,8 @@ extension SymbolGraph {
 
                 extensionMap.addMemberOf(member: srcNode,
                                          typeUSR: rel.targetUSR,
-                                         where: contextConstraints)
+                                         where: contextConstraints,
+                                         typeConstraints: tgtNode?.constraints)
 
             case .overrides:
                 // "source is overriding target" - only for classes, protocols broken
@@ -709,14 +741,14 @@ extension SymbolGraph {
                     USR(rel.sourceUSR).swiftDemangled ?? // where my sourceFallback at bra
                     rel.sourceUSR
 
-                let constraints = rel.constraints.subtracting(
-                    srcNode?.symbol.constraints ?? .init()
-                )
+                let typeConstraints = srcNode?.symbol.constraints ?? .init()
+                let extConstraints = rel.constraints.subtracting(typeConstraints)
 
                 extensionMap.addConformance(fromUSR: rel.sourceUSR,
                                             fromName: srcName,
+                                            withTypeConstraints: typeConstraints,
                                             to: protocolName,
-                                            where: constraints)
+                                            where: extConstraints)
                 break
 
             case .inheritsFrom, .defaultImplementationOf:
@@ -743,7 +775,10 @@ extension SymbolGraph {
             }
 
             let contextConstraints = srcNode.uniqueContextConstraints(context: tgtNodeParent)
-            extensionMap.addMemberOf(member: srcNode, typeUSR: tgtNodeParent.symbol.usr, where: contextConstraints)
+            extensionMap.addMemberOf(member: srcNode,
+                                     typeUSR: tgtNodeParent.symbol.usr,
+                                     where: contextConstraints,
+                                     typeConstraints: tgtNodeParent.constraints)
         }
 
         let rootTypeNodes = nodes.values.filter(\.isRootDecl).sorted()
