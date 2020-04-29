@@ -90,32 +90,40 @@ public final class Logger {
 // MARK: Globals
 
 // For ease, avoiding injecting an instance everywhere, will try module-internal globals.
-internal extension Logger {
+extension Logger {
     static var shared = Logger()
 }
 
 /// Log a debug-level message
-internal func logDebug(_ message: @autoclosure () -> String) {
+func logDebug(_ message: @autoclosure () -> String) {
     Logger.shared.log(.debug, message())
 }
 
 /// Log an info-level message
-internal func logInfo(_ message: @autoclosure () -> String) {
+func logInfo(_ message: @autoclosure () -> String) {
     Logger.shared.log(.info, message())
 }
 
+func logInfo(_ key: L10n.Localizable, _ args: Any...) {
+    logInfo(.localized(key, args))
+}
+
 /// Log a warning message
-internal func logWarning(_ message: @autoclosure () -> String) {
+func logWarning(_ message: @autoclosure () -> String) {
     Logger.shared.log(.warning, message())
 }
 
+func logWarning(_ key: L10n.Localizable, _ args: Any...) {
+    logWarning(.localized(key, args))
+}
+
 /// Log an error message
-internal func logError(_ message: @autoclosure () -> String) {
+func logError(_ message: @autoclosure () -> String) {
     Logger.shared.log(.error, message())
 }
 
 /// Make some output
-internal func logOutput(_ data: String) {
+func logOutput(_ data: String) {
     Logger.shared.output(data)
 }
 

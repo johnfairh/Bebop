@@ -43,7 +43,7 @@ final class GroupCustom: Configurable {
             let defsList = try DefParser.defs(yaml: customDefsYaml)
             defsList.forEach { def in
                 if defs[def.name] != nil {
-                    logWarning(.localized(.wrnCustomDefDup, def.name))
+                    logWarning(.wrnCustomDefDup, def.name)
                 } else {
                     defs[def.name] = def
                 }
@@ -201,7 +201,7 @@ final class GroupCustom: Configurable {
             switch item {
             case .name(let name):
                 guard let theItem = index.find(name: name) else {
-                    logWarning(.localized(.wrnCustomGrpMissing, name))
+                    logWarning(.wrnCustomGrpMissing, name)
                     return []
                 }
                 return [theItem]
@@ -209,7 +209,7 @@ final class GroupCustom: Configurable {
             case .pattern(let pattern):
                 let items = index.findAll(matching: pattern)
                 guard !items.isEmpty else {
-                    logWarning(.localized(.wrnUnmatchedGrpRegex, pattern))
+                    logWarning(.wrnUnmatchedGrpRegex, pattern)
                     return []
                 }
                 return items.sorted(by: { $0.sortableName < $1.sortableName })
@@ -416,7 +416,7 @@ extension GroupCustom.Def {
         let items = topics.flatMap { topic in
             topic.children.compactMap { name -> Item? in
                 guard let item = defChildren.customDefMatch(name: name) else {
-                    logWarning(.localized(.wrnCustomDefMissing, name, defItem.name))
+                    logWarning(.wrnCustomDefMissing, name, defItem.name)
                     return nil
                 }
                 item.topic = topic.topic

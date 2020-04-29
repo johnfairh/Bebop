@@ -167,7 +167,7 @@ fileprivate extension DefItem {
                 mergeAvailabilities(from: newItem)
                 Stats.inc(.mergeDupUsr)
             } else {
-                logWarning(.localized(.wrnUsrCollision, self, newItem))
+                logWarning(.wrnUsrCollision, self, newItem)
                 Stats.inc(.mergeDupUsrMismatch)
             }
         }

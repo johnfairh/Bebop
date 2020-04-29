@@ -119,7 +119,7 @@ public struct GenSite: Configurable {
     public func generateSite(genData: GenData, items: [Item]) throws {
         let theme = try themes.select()
 
-        logInfo(.localized(.msgGeneratingDocs))
+        logInfo(.msgGeneratingDocs)
         try processCleanOpt()
         try prepareOutputDirectory()
 
@@ -135,11 +135,11 @@ public struct GenSite: Configurable {
         }
 
         if !hideSearchOpt.value {
-            logInfo(.localized(.msgSearchProgress))
+            logInfo(.msgSearchProgress)
             try search.buildIndex(items: items)
         }
 
-        logInfo(.localized(.msgCopyProgress))
+        logInfo(.msgCopyProgress)
 
         try Localizations.shared.allTags.forEach { tag in
             let docRoot = outputURL.appendingPathComponent(tag.languageTagPathComponent)
@@ -318,7 +318,7 @@ public struct GenSite: Configurable {
     func copyTheme() throws {
         let theme = try themes.select()
 
-        logInfo(.localized(.msgCopyingTheme))
+        logInfo(.msgCopyingTheme)
         try processCleanOpt()
         try prepareOutputDirectory()
         try theme.copy(to: outputURL)

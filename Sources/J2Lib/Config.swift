@@ -193,7 +193,7 @@ public final class Config {
         }
 
         if helpOpt.value {
-            logInfo(.localized(.msgHelpIntro))
+            logInfo(.msgHelpIntro)
 
             var first = true
             optsParser.allOpts
@@ -215,7 +215,7 @@ public final class Config {
         }
 
         if helpAliasesOpt.value {
-            logInfo(.localized(.msgHelpAliases))
+            logInfo(.msgHelpAliases)
             optsParser.allAliasOpts
                 .sorted { $0.aliases.first! < $1.aliases.first! }
                 .forEach { alias in
@@ -254,7 +254,7 @@ public final class Config {
             if report {
                 logDebug("Debug enabled, version \(Version.j2libVersion)")
                 if quietOpt.value {
-                    logWarning(.localized(.wrnQuietDebug))
+                    logWarning(.wrnQuietDebug)
                 }
             }
         } else if quietOpt.value {

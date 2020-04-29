@@ -32,7 +32,7 @@ extension GatherJob {
                     let topDict = entry.value as? SourceKittenDict,
                     let gatherDef = GatherDef(sourceKittenDict: topDict,
                                               availability: availability) else {
-                        logWarning(.localized(.wrnSknDecode, url.path, fileDict))
+                        logWarning(.wrnSknDecode, url.path, fileDict)
                         return nil
                 }
                 return (entry.key, gatherDef)
@@ -80,12 +80,12 @@ extension GatherJob {
                     let first = fileDict.first,
                     var rootDict = first.value as? SourceKittenDict,
                     let meta = rootDict.removeMetadata() else {
-                        logWarning(.localized(.wrnJ2jsonDecode, url.path, fileDict))
+                        logWarning(.wrnJ2jsonDecode, url.path, fileDict)
                         return
                 }
 
                 guard Version.canImport(from: meta.version) else {
-                    logWarning(.localized(.wrnJ2jsonFuture, url.path, meta.version))
+                    logWarning(.wrnJ2jsonFuture, url.path, meta.version)
                     return
                 }
 

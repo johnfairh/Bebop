@@ -32,7 +32,7 @@ public final class GenDocset: Configurable {
 
     func checkOptions() throws {
         if pathOpt.configured {
-            logWarning(.localized(.wrnDocsetPath))
+            logWarning(.wrnDocsetPath)
         }
         func checkIconPathOpt(_ opt: PathOpt) throws {
             try opt.checkIsFile()
@@ -50,7 +50,7 @@ public final class GenDocset: Configurable {
 
     func generate(outputURL: URL, deploymentURL: URL?, items: [Item]) throws {
         let docsetName = moduleName + Self.DOCSET_SUFFIX
-        logInfo(.localized(.msgDocsetProgress, docsetName))
+        logInfo(.msgDocsetProgress, docsetName)
 
         let docsetTopURL = outputURL.appendingPathComponent(Self.DOCSET_TOP)
         let docsetDirURL = docsetTopURL.appendingPathComponent(docsetName)
@@ -179,7 +179,7 @@ public final class GenDocset: Configurable {
                                currentDirectory: docsetTopURL.path,
                                stderr: .merge)
         if results.terminationStatus != 0 {
-            logWarning(.localized(.wrnDocsetTarfile, results.failureReport))
+            logWarning(.wrnDocsetTarfile, results.failureReport)
         }
     }
 

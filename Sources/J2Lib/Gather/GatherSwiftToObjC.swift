@@ -40,7 +40,7 @@ final class GatherSwiftToObjC {
         objcHeaderPath = module.compilerArguments[pathIndex]
 
         guard FileManager.default.fileExists(atPath: objcHeaderPath) else {
-            logWarning(.localized(.wrnSw2objcHeader, module.name, objcHeaderPath))
+            logWarning(.wrnSw2objcHeader, module.name, objcHeaderPath)
             return nil
         }
         logDebug(" Found Obj-C header file \(objcHeaderPath)")

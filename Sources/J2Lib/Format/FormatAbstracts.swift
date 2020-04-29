@@ -30,7 +30,7 @@ final class FormatAbstracts: Configurable {
         try visitor.walk(items: items)
         if !visitor.abstracts.isEmpty {
             let unmatched = visitor.abstracts.keys
-            logWarning(.localized(.wrnUnmatchedAbstracts, unmatched.count, unmatched.joined(separator: ",")))
+            logWarning(.wrnUnmatchedAbstracts, unmatched.count, unmatched.joined(separator: ","))
         }
     }
 }
@@ -62,7 +62,7 @@ private final class AbstractVisitor: ItemVisitorProtocol {
 
     func visit(guideItem: GuideItem, parents: [Item]) {
         if abstracts[guideItem.name] != nil {
-            logWarning(.localized(.wrnGuideAbstract, guideItem.name))
+            logWarning(.wrnGuideAbstract, guideItem.name)
         }
     }
 }

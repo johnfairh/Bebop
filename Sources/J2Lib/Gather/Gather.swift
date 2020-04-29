@@ -63,7 +63,7 @@ public final class Gather: Configurable {
 
         let passes = try jobs.flatMap { job -> [GatherModulePass] in
             if jobs.count > 1 {
-                logInfo(.localized(.msgGatherHeading, job.title))
+                logInfo(.msgGatherHeading, job.title)
             }
             let pass = try job.execute()
             pass.forEach { moduleNames.insert($0.moduleName) }

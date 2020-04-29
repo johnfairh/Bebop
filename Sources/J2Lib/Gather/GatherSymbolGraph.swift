@@ -188,11 +188,11 @@ fileprivate struct SymbolGraph: Decodable {
         symbols = network.symbols.compactMap { sym in
             let declaration = Self.fixUpDeclaration(sym.declarationFragments.map { $0.spelling }.joined())
             guard let kind = Self.mapKind(sym.kind.identifier, declaration: declaration) else {
-                logWarning(.localized(.wrnSsgeSymbolKind, sym.kind.identifier))
+                logWarning(.wrnSsgeSymbolKind, sym.kind.identifier)
                 return nil
             }
             guard let acl = DefAcl(rawValue: sym.accessLevel)?.sourceKitName else {
-                logWarning(.localized(.wrnSsgeSymbolAcl, sym.accessLevel))
+                logWarning(.wrnSsgeSymbolAcl, sym.accessLevel)
                 return nil
             }
             let location = sym.location.flatMap {
@@ -266,7 +266,7 @@ extension NetworkSymbolGraph.Symbol.Availability {
         } else if isUnconditionallyDeprecated != nil {
             str += "*, deprecated"
         } else {
-            logWarning(.localized(.wrnSsgeAvailability))
+            logWarning(.wrnSsgeAvailability)
             return nil
         }
 
@@ -313,7 +313,7 @@ extension SymbolGraph.Constraint: Comparable {
 
     fileprivate init?(_ con: NetworkSymbolGraph.Constraint) {
         guard let kindVal = Kind(rawValue: con.kind) else {
-            logWarning(.localized(.wrnSsgeConstKind, con.kind))
+            logWarning(.wrnSsgeConstKind, con.kind)
             return nil
         }
         self.lhs = con.lhs.unselfed
@@ -658,7 +658,7 @@ extension SymbolGraph {
 
         func resolveSource(rel: Rel) -> Node? {
             guard let srcNode = nodes[rel.sourceUSR] else {
-                logWarning(.localized(.wrnSsgeBadSrcUsr, rel.sourceUSR, rel.kind))
+                logWarning(.wrnSsgeBadSrcUsr, rel.sourceUSR, rel.kind)
                 return nil
             }
             return srcNode
@@ -734,7 +734,7 @@ extension SymbolGraph {
             }
             guard let tgtNode = nodes[rel.targetUSR],
                 let tgtNodeParent = tgtNode.parent as? Node else {
-                logWarning(.localized(.wrnSsgeBadDefaultReq, rel.targetUSR))
+                logWarning(.wrnSsgeBadDefaultReq, rel.targetUSR)
                 // Don't include this weird thing in docs
                 // (OK we could probably decode the tgtNode USR or something, but this
                 // is a weird case and is swift's fault to fix.)

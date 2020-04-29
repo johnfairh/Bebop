@@ -57,7 +57,7 @@ public struct GenPages: Configurable {
             return userDefault
         }
         if fallback != userDefault {
-            logWarning(.localized(.wrnBadUserLanguage, userDefault, fallback))
+            logWarning(.wrnBadUserLanguage, userDefault, fallback)
         }
         return fallback
     }

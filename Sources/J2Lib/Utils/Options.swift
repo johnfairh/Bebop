@@ -559,7 +559,7 @@ final class LocStringOpt: Opt, OptHelpers, OptCascadable, CustomStringConvertibl
         if var dictConfig = dictConfig {
             let missing = dictConfig.expandLanguages()
             if !missing.isEmpty {
-                logWarning(.localized(.wrnCfgLanguageMissing, name(usage: false), missing))
+                logWarning(.wrnCfgLanguageMissing, name(usage: false), missing)
             }
             return dictConfig
         }
@@ -816,7 +816,7 @@ final class OptsParser {
                 throw J2Error(.errCfgBadKey, yamlOptName)
             }
             guard !tracker.cliSeen && !tracker.partnerCliSeen else {
-                logWarning(.localized(.wrnCfgIgnored, yamlOptName))
+                logWarning(.wrnCfgIgnored, yamlOptName)
                 continue
             }
             // Easy life if opt just wants yaml

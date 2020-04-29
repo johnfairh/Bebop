@@ -81,7 +81,7 @@ final class GatherOpts : Configurable {
                 throw J2Error(.errCfgSknMultiModules)
             }
             if moduleNamesOpt.value.count == 0 {
-                logWarning(.localized(.wrnSknModuleName))
+                logWarning(.wrnSknModuleName)
                 moduleNamesOpt.set(string: "Module")
             }
         }
@@ -90,7 +90,7 @@ final class GatherOpts : Configurable {
             rootPassOpts.objcHeaderFileOpt.configured &&
             rootPassOpts.objcDirectOpt.configured &&
             !moduleNamesOpt.configured {
-            logWarning(.localized(.wrnObjcModule))
+            logWarning(.wrnObjcModule)
             moduleNamesOpt.set(string: "Module")
         }
 

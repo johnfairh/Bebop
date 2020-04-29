@@ -51,7 +51,7 @@ public class DefItem: Item, CustomStringConvertible {
         guard let usr = gatherDef.sourceKittenDict.usr else {
             if let typename = gatherDef.sourceKittenDict.typeName,
                 typename.contains("<<error-type>>") {
-                logWarning(.localized(.wrnErrorType, gatherDef.sourceKittenDict, location))
+                logWarning(.wrnErrorType, gatherDef.sourceKittenDict, location)
                 Stats.inc(.importFailureNoType)
             } else {
                 // Usr is special, missing means just not compiled, #if'd out - should be in another pass.
@@ -67,7 +67,7 @@ public class DefItem: Item, CustomStringConvertible {
             let kind = gatherDef.kind,
             ( (kind.isSwift && gatherDef.swiftDeclaration != nil) ||
               (kind.isObjC && gatherDef.objCDeclaration != nil) ) else {
-            logWarning(.localized(.wrnSktnIncomplete, gatherDef.sourceKittenDict, location))
+            logWarning(.wrnSktnIncomplete, gatherDef.sourceKittenDict, location)
             Stats.inc(.importFailureIncomplete)
             return nil
         }

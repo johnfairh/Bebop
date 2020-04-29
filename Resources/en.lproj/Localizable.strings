@@ -115,10 +115,12 @@ Ignoring the second.";
 "err-cfg-j2json-mutex" = "Both --j2-json-files and other data-source options are set: choose just one.";
 "msg-search-progress" = "Building search index...";
 "msg-copy-progress" = "Copying up files...";
+"wrn-unknown-acl" = "Unrecognized accessibility '%1' for '%2', using 'internal'.";
 "err-cfg-brand-missing-image" = "Config key 'image_name' not set under 'custom_brand'.";
 "err-cfg-brand-bad-image" = "Config key 'custom_brand.image_name' of '%1' did not match any file from --media.";
 "err-cfg-ssge-module" = "Must set a module name to use --build-tool=swift-symbolgraph.";
 "err-cfg-ssge-triple" = "Value for --swift-symbolgraph-target does not like an LLVM target triple: '%1'";
+"wrn-ssge-triple" = "Can't figure out host target triple, using default '%1'";
 "err-cfg-ssge-args" = "Can't set '%1' as part of custom `swift symbolgraph` arguments.";
 "err-cfg-ssge-exec" = "Running `swift symbolgraph-extract` failed.  Report:
 %1";

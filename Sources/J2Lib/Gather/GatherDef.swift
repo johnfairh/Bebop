@@ -59,7 +59,7 @@ public final class GatherDef {
             return
         }
         guard let kind = DefKind.from(key: kindValue, dict: sourceKittenDict) else {
-            logWarning(.localized(.wrnSktnKind, kindValue))
+            logWarning(.wrnSktnKind, kindValue)
             Stats.inc(.gatherFailure)
             return nil
         }

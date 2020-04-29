@@ -49,7 +49,7 @@ final class FormatAutolinkApple: Configurable {
         #if os(macOS)
         let xcodeSelectResults = Exec.run("/usr/bin/env", "xcode-select", "-p")
         guard let developerPath = xcodeSelectResults.successString?.trimmingCharacters(in: .newlines) else {
-            logWarning(.localized(.wrnAppleautoXcode, xcodeSelectResults.failureReport))
+            logWarning(.wrnAppleautoXcode, xcodeSelectResults.failureReport)
             return nil
         }
         return URL(fileURLWithPath: developerPath)
@@ -66,7 +66,7 @@ final class FormatAutolinkApple: Configurable {
             do {
                 return try AppleDocsDb(url: dbURL)
             } catch {
-                logWarning(.localized(.wrnAppleautoDbo, dbURL.path, error))
+                logWarning(.wrnAppleautoDbo, dbURL.path, error)
                 return nil
             }
         }
@@ -143,7 +143,7 @@ final class FormatAutolinkApple: Configurable {
             let secondaryHtml = otherRow.flatMap { $0.htmlLink(text, isSecondary: true) } ?? ""
             return Autolink(url: row.urlString, html: row.htmlLink(text) + secondaryHtml)
         } catch {
-            logWarning(.localized(.wrnAppleautoDbq, text, error))
+            logWarning(.wrnAppleautoDbq, text, error)
         }
         return nil
     }

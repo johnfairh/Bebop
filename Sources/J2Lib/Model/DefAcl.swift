@@ -41,7 +41,7 @@ public enum DefAcl: String, Comparable, CaseIterable, Encodable {
             if let acl = Self.sourceKitMap[accessibility] {
                 self = acl
             } else {
-                logWarning("Unrecognized accessibility '\(accessibility)' for '\(name)', using `internal`.")
+                logWarning(.wrnUnknownAcl, accessibility, name)
                 self = .internal
             }
         } else {

@@ -52,7 +52,7 @@ final class GatherLocalize: GatherDefVisitor, Configurable {
         bundleLanguages.forEach { language in
             let bundleURL = languagesURL.appendingPathComponent(language)
             guard let bundle = Bundle(url: bundleURL) else {
-                logWarning(.localized(.wrnNoCommentMissing, language, bundleURL.path))
+                logWarning(.wrnNoCommentMissing, language, bundleURL.path)
                 return
             }
             logDebug("Found doc comment translation bundle for '\(language)'.")

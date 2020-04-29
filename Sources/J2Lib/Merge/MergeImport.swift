@@ -24,7 +24,7 @@ struct MergeImport {
                 let filePathname = fileDef.0
                 let rootDef = fileDef.1
                 guard rootDef.sourceKittenDict.diagnosticStage != nil else {
-                    logWarning(.localized(.wrnMergeMissingRoot, filePathname, pass.passIndex))
+                    logWarning(.wrnMergeMissingRoot, filePathname, pass.passIndex)
                     Stats.inc(.importFailureNoRoot)
                     return []
                 }

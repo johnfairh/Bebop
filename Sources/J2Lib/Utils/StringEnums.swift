@@ -244,8 +244,12 @@ internal enum L10n {
     case wrnSsgeSymbolAcl = "wrn-ssge-symbol-acl"
     /// Unknown swift-symbolgraph symbol kind '%1', ignoring.
     case wrnSsgeSymbolKind = "wrn-ssge-symbol-kind"
+    /// Can't figure out host target triple, using default '%1'
+    case wrnSsgeTriple = "wrn-ssge-triple"
     /// Can't find Objective-C header file for module '%1' at '%2'.
     case wrnSw2objcHeader = "wrn-sw2objc-header"
+    /// Unrecognized accessibility '%1' for '%2', using 'internal'.
+    case wrnUnknownAcl = "wrn-unknown-acl"
     /// %1 unmatched custom abstracts: '%2'.
     case wrnUnmatchedAbstracts = "wrn-unmatched-abstracts"
     /// Custom group regular expression '/%1/' did not match any items.

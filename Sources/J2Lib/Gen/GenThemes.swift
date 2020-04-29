@@ -58,7 +58,7 @@ struct GenThemes: Configurable {
         if FileManager.default.fileExists(atPath: themeURL.appendingPathComponent(Theme.YAML_FILENAME).path) {
             return try Theme(url: themeURLFromOpt)
         }
-        logInfo(.localized(.msgJazzyTheme))
+        logInfo(.msgJazzyTheme)
         return try JazzyTheme(url: themeURL)
     }
 

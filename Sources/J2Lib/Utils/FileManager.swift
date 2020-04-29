@@ -38,7 +38,7 @@ extension FileManager {
             let rc = fileManager.changeCurrentDirectoryPath(cwd)
             if !rc {
                 // this is really bad, original directory deleted?  Struggle on.
-                logWarning(.localized(.wrnPathNoChdir, cwd))
+                logWarning(.wrnPathNoChdir, cwd)
             }
         }
         return try code()

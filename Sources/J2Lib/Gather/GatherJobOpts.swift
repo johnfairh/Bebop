@@ -215,7 +215,7 @@ final class GatherJobOpts: Configurable {
         guard let swiftVersionOutput = Exec.run("/usr/bin/env", "swift", "-version").successString,
             let target = swiftVersionOutput.re_match("Target: (.*)$")?[1] else {
                 let defaultTarget = "x86_64-apple-macosx10.15"
-                logWarning("Can't figure out host target triple, using default '\(defaultTarget)'")
+                logWarning(.wrnSsgeTriple, defaultTarget)
                 return defaultTarget
         }
         logDebug("Using host target from `swift -version`: \(target)")

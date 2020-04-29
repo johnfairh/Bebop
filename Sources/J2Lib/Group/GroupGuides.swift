@@ -45,7 +45,7 @@ final class GroupGuides: Configurable {
             if titles[name] == nil {
                 titles[name] = title
             } else {
-                logWarning(.localized(.wrnGuideTitleDup, name))
+                logWarning(.wrnGuideTitleDup, name)
             }
         }
 
@@ -83,7 +83,7 @@ final class GroupGuides: Configurable {
             return guide
         }.sorted { $0.name < $1.name }
         if !titles.isEmpty {
-            logWarning(.localized(.wrnGuideTitleUnused, titles.keys))
+            logWarning(.wrnGuideTitleUnused, titles.keys)
         }
         return guideItems
     }

@@ -137,14 +137,14 @@ extension Array where Element == Glob.Pattern {
                 }
                 let basename = String(filename.dropLast(3 /*.md*/))
                 guard files[basename] == nil else {
-                    logWarning(.localized(.wrnDuplicateGlobfile, filename, url.path))
+                    logWarning(.wrnDuplicateGlobfile, filename, url.path)
                     return
                 }
                 files[basename] = try Localized<Markdown>(localizingFile: url)
                 count += 1
             }
             if count == 0 {
-                logWarning(.localized(.wrnEmptyGlob, globPattern))
+                logWarning(.wrnEmptyGlob, globPattern)
             } else {
                 logDebug("Glob: Found \(count) files.")
             }

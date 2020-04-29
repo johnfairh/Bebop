@@ -78,14 +78,14 @@ private extension Array where Element == Glob.Pattern {
                 }
                 let filename = url.lastPathComponent
                 guard files[filename] == nil else {
-                    logWarning(.localized(.wrnDuplicateGlobfile, filename, url.path))
+                    logWarning(.wrnDuplicateGlobfile, filename, url.path)
                     return
                 }
                 files[filename] = Localized<URL>(localizingFile: url)
                 count += 1
             }
             if count == 0 {
-                logWarning(.localized(.wrnMediaMissing, globPattern))
+                logWarning(.wrnMediaMissing, globPattern)
             } else {
                 logDebug("Media: Found \(count) files.")
             }

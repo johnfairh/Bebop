@@ -88,7 +88,7 @@ extension GatherJob {
             try tmpDir.directoryURL.filesMatching("*@*.symbols.json").forEach { url in
                 guard let otherModuleName = url.lastPathComponent.re_match(#"@(.*?)\."#)?[1],
                     let otherSymbolData = try? Data(contentsOf: url) else {
-                    logWarning(.localized(.wrnSsgeOddFilename, url.lastPathComponent))
+                    logWarning(.wrnSsgeOddFilename, url.lastPathComponent)
                     return
                 }
                 logDebug("Decoding \(moduleName)'s extension symbolgraph JSON for \(otherModuleName)")
