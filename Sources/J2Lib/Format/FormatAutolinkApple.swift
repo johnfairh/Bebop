@@ -180,7 +180,7 @@ final class AppleDocsDb {
 
         func htmlLink(_ name: String, isSecondary: Bool = false) -> String {
             let classes = language.cssName + (isSecondary ? " j2-secondary" : "")
-            return #"<a href="\#(urlString)" class="\#(classes)">\#(name.htmlEscaped)</a>"#
+            return #"<a href="\#(urlString)" class="\#(classes)"><code>\#(name.htmlEscaped)</code></a>"#
         }
     }
 
