@@ -120,4 +120,22 @@ class TestGatherPodspec: XCTestCase {
     // Good-path covered in TestProducts
 
     #endif
+
+    // MARK: Availability
+
+    func testAvailabilityMapping() throws {
+        let job1 = try JobSystem().run(["--podspec", podspecURL.path])
+        guard case let .podspec(_, podspecJob1) = job1 else {
+            XCTFail()
+            return
+        }
+        XCTAssertEqual(Gather.Availability(defaults: ["V"]), podspecJob1.customizeAvailability(version: "V"))
+
+        let job2 = try JobSystem().run(["--podspec", podspecURL.path, "--availability=Always"])
+        guard case let .podspec(_, podspecJob2) = job2 else {
+            XCTFail()
+            return
+        }
+        XCTAssertEqual(Gather.Availability(defaults: ["Always"]), podspecJob2.customizeAvailability(version: "V"))
+    }
 }

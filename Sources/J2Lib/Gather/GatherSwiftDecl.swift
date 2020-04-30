@@ -63,6 +63,7 @@ class SwiftDeclarationBuilder {
     var neatParsedDecl: String?
     var attributes: [String] = []
     var deprecations: [Localized<String>] = []
+    var unavailables: [Localized<String>] = []
     var availability: [String] = []
 
     init(dict: SourceKittenDict,
@@ -139,6 +140,7 @@ class SwiftDeclarationBuilder {
 
         // Tidy up
         let deprecation = deprecations.isEmpty ? nil : deprecations.joined(by: "\n\n")
+        let unavailable = unavailables.isEmpty ? nil : unavailables.joined(by: "\n\n")
 
         if availabilityRules.ignoreAttr {
             availability = []
@@ -147,6 +149,7 @@ class SwiftDeclarationBuilder {
 
         return SwiftDeclaration(declaration: (attributes + [bestDeclaration]).joined(separator: "\n"),
                                 deprecation: deprecation,
+                                unavailability: unavailable,
                                 availability: availability,
                                 namePieces: pieces,
                                 typeModuleName: dict.moduleName,

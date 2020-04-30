@@ -103,7 +103,7 @@ private extension String {
 // them into the formats we want
 
 extension SwiftDeclarationBuilder {
-    /// Parse the @available attributes and update members 'deprecations' and 'availability'
+    /// Parse the @available attributes and update members 'deprecations' and 'availability' and 'unavailables'
     func parse(availables: [String]) {
         // reset calculated availability
         availability = []
@@ -125,7 +125,7 @@ extension SwiftDeclarationBuilder {
     }
 
     /// @available form #1 - lots of facts about one platform.
-    /// Generate up to one availability clause and one deprecation statement.
+    /// Generate up to one availability clause and one deprecation/unavailables statement.
     fileprivate func parseAvailable(platform: String, args: ArraySlice<AvailArg>) {
         var introduced: String?
         var deprecated: String?
@@ -177,6 +177,17 @@ extension SwiftDeclarationBuilder {
             }
         }
         if isUnavailable {
+            if message == nil && renamed == nil {
+                // If this is just marked unavailable then don't record anything.
+                // The decl won't show up in docs if it really is unavailable.
+                // If it's merged with an available version from another pass then
+                // we just use that straight, relying on --availability processing
+                // to clarify anything.
+                //
+                // If the user's written a message though then we'll keep that and
+                // show in a declnote.
+                return
+            }
             depText = .localizedOutput(.platUnavailable, platform)
         }
         if let message = message {
@@ -186,7 +197,11 @@ extension SwiftDeclarationBuilder {
             depText = depText + .localizedOutput(.renamedTo, renamed)
         }
         if !depText.isEmpty {
-            deprecations.append(depText)
+            if isUnavailable {
+                unavailables.append(depText)
+            } else {
+                deprecations.append(depText)
+            }
         }
     }
 
@@ -216,7 +231,7 @@ extension SwiftDeclarationBuilder {
         }
 
         var text = Localized<String>()
-        if isUnavailable {
+        if isUnavailable && (message != nil || renamed != nil) {
             text = .localizedOutput(.unavailable)
         } else if isDeprecated {
             text = .localizedOutput(.deprecated)
@@ -228,7 +243,11 @@ extension SwiftDeclarationBuilder {
             text = text + .localizedOutput(.renamedTo, renamed)
         }
         if !text.isEmpty {
-            deprecations.append(text)
+            if isDeprecated {
+                deprecations.append(text)
+            } else if isUnavailable {
+                unavailables.append(text)
+            }
         }
     }
 

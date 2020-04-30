@@ -107,8 +107,10 @@ public struct USR: Encodable, CustomStringConvertible, Hashable {
 public final class SwiftDeclaration: Encodable {
     /// Possibly multi-line declaration, for verbatim display
     public internal(set) var declaration: RichDeclaration
-    /// Deprecation messages, or `nil` if not deprecated (XXX Markdown?)
+    /// Deprecation messages, or `nil` if not deprecated
     public let deprecation: Localized<String>?
+    /// Unavailability messages, or `nil` if not unavailable
+    public let unavailability: Localized<String>?
     /// List of availability conditions
     public internal(set) var availability: [String]
     /// Declaration split into name and non-name pieces, for making an item title
@@ -122,6 +124,7 @@ public final class SwiftDeclaration: Encodable {
 
     init(declaration: String = "",
          deprecation: Localized<String>? = nil,
+         unavailability: Localized<String>? = nil,
          availability: [String] = [],
          namePieces: [DeclarationPiece] = [],
          typeModuleName: String? = nil,
@@ -129,6 +132,7 @@ public final class SwiftDeclaration: Encodable {
          isOverride: Bool = false) {
         self.declaration = RichDeclaration(declaration)
         self.deprecation = deprecation
+        self.unavailability = unavailability
         self.availability = availability
         self.namePieces = namePieces
         self.typeModuleName = typeModuleName
@@ -178,9 +182,9 @@ public struct SwiftGenericReqs: Encodable {
 public final class ObjCDeclaration: Encodable {
     /// Possibly multi-line declaration, for verbatim display
     public internal(set) var declaration: RichDeclaration
-    /// Deprecation messages, or `nil` if not deprecated (XXX Markdown?)
+    /// Deprecation messages, or `nil` if not deprecated
     public let deprecation: Localized<String>?
-    /// Unavailability messages, or `nil` if not unavailable (XXX Markdown?)
+    /// Unavailability messages, or `nil` if not unavailable
     public let unavailability: Localized<String>?
     /// Declaration split into name and non-name pieces, for making an item title
     public let namePieces: [DeclarationPiece]
