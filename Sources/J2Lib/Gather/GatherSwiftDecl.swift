@@ -63,6 +63,7 @@ class SwiftDeclarationBuilder {
     var neatParsedDecl: String?
     var attributes: [String] = []
     var deprecations: [Localized<String>] = []
+    var deprecatedEverywhere: Bool = false
     var unavailables: [Localized<String>] = []
     var availability: [String] = []
 
@@ -149,6 +150,7 @@ class SwiftDeclarationBuilder {
 
         return SwiftDeclaration(declaration: (attributes + [bestDeclaration]).joined(separator: "\n"),
                                 deprecation: deprecation,
+                                deprecatedEverywhere: deprecatedEverywhere,
                                 unavailability: unavailable,
                                 availability: availability,
                                 namePieces: pieces,

@@ -58,6 +58,7 @@
             }
           ],
           "key.j2.swift_declaration" : "class IVarTest : NSObject",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -133,6 +134,7 @@
                 }
               ],
               "key.j2.swift_declaration" : "var propertyName: String! { get set }",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -192,6 +194,7 @@
             }
           ],
           "key.j2.swift_declaration" : "class PropertyKinds : NSObject",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -237,6 +240,7 @@
                 }
               ],
               "key.j2.swift_declaration" : "class var identifier: UUID! { get set }",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -290,6 +294,7 @@
                 }
               ],
               "key.j2.swift_declaration" : "var uuid: UUID? { get set }",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -339,6 +344,7 @@
                 }
               ],
               "key.j2.swift_declaration" : "class func alloc() -> Self!",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -391,6 +397,7 @@
                 }
               ],
               "key.j2.swift_declaration" : "init!()",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : true,
@@ -444,6 +451,7 @@
                 }
               ],
               "key.j2.swift_declaration" : "func method()",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -509,6 +517,7 @@
                 }
               ],
               "key.j2.swift_declaration" : "func doThing(with first: Int32, named name: String!) -> Int32",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -574,6 +583,7 @@
                 }
               ],
               "key.j2.swift_declaration" : "class func classMethod()",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -669,6 +679,7 @@
             }
           ],
           "key.j2.swift_declaration" : "func global_func()",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -722,6 +733,7 @@
             }
           ],
           "key.j2.swift_declaration" : "struct AStruct",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -767,6 +779,7 @@
                 }
               ],
               "key.j2.swift_declaration" : "var field: Int32",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -861,6 +874,7 @@
             }
           ],
           "key.j2.swift_declaration" : "enum AEnum : Int",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -906,6 +920,7 @@
                 }
               ],
               "key.j2.swift_declaration" : "case a = 3",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -955,6 +970,7 @@
                 }
               ],
               "key.j2.swift_declaration" : "case b = 4",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -1002,6 +1018,7 @@
             }
           ],
           "key.j2.swift_declaration" : "struct ASimpleEnum : Equatable, RawRepresentable",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -1107,6 +1124,7 @@
             }
           ],
           "key.j2.swift_declaration" : "typealias Fred = Int32",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -1156,6 +1174,7 @@
             }
           ],
           "key.j2.swift_declaration" : "extension IVarTest",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -1197,6 +1216,7 @@
                 }
               ],
               "key.j2.swift_declaration" : "func categoryMethod()",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -1256,6 +1276,7 @@
             }
           ],
           "key.j2.swift_declaration" : "protocol SomeProtocol",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -1297,6 +1318,7 @@
                 }
               ],
               "key.j2.swift_declaration" : "func protocolMethod()",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -1356,6 +1378,7 @@
             }
           ],
           "key.j2.swift_declaration" : "class Stack<ElementType> : NSObject where ElementType : AnyObject",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -1413,6 +1436,7 @@
                 }
               ],
               "key.j2.swift_declaration" : "func pop(with weight: String!, secondValue density: Int) -> AutoreleasingUnsafeMutablePointer<ElementType?>!",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,

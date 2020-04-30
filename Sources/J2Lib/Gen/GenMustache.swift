@@ -566,10 +566,10 @@ extension GenData.Item: SoloLanguageProtocol {
 extension GenData.Def: SoloLanguageProtocol {
     /// Def is split out because shared between top of page and inside items.
     /// Keys:
-    ///   deprecation_html  - optional - is it deprecated
+    ///   deprecation_html  - optional - is it deprecated somewhere
     ///   unavailable_html  - optional - is it unavailable
     ///   notes_html - optional - are there interesting notes
-    ///   discouraged - optional - is it deprecated/unavailable
+    ///   discouraged - optional - is it deprecated/unavailable everywhere
     ///   swift_declaration_html - swift decl
     ///   objc_declaration_html - objc decl --- at least one of these two will be set
     ///   abstract_html - optional - first part of discussion
@@ -583,9 +583,7 @@ extension GenData.Def: SoloLanguageProtocol {
         dict.maybe(.deprecationHtml, deprecation?.get(languageTag).html)
         dict.maybe(.unavailableHtml, unavailability?.get(languageTag).html)
         dict.maybe(.notesHtml, notes?.get(languageTag).html)
-        if deprecation != nil || unavailability != nil {
-            dict[.discouraged] = true
-        }
+        dict[.discouraged] = deprecatedEverywhere
         if !availability.isEmpty {
             dict[.availability] = availability
         }

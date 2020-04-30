@@ -10,4 +10,10 @@ public class PodClass {
 
   @available(iOS, unavailable)
   func onlyForMacOS() {}
+
+  @available(*, deprecated, message: "This is deprecated everywhere")
+  func globallyDeprecated() {}
+
+  @available(iOS, deprecated, message: "Deprecated only on iOS")
+  func iosDeprecated() {}
 }

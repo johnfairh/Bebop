@@ -37,6 +37,7 @@ private enum GatherKey: String {
     case objCDeclaration = "key.j2.objc_declaration"
     /// Computed declaration messages, markdown string
     case swiftDeprecationMessage = "key.j2.swift_deprecation_messages"
+    case swiftDeprecatedEverywhere = "key.j2.swift_deprecated_everywhere"
     case swiftUnavailabilityMessage = "key.j2.swift_unavailable_messages"
     case objCDeprecationMessage = "key.j2.objc_deprecation_messages"
     case objCUnavailableMessage = "key.j2.objc_unavailable_messages"
@@ -165,6 +166,7 @@ fileprivate extension SwiftDeclaration {
     func addToJSON(dict: inout SourceKittenDict) {
         dict.set(.swiftDeclaration, declaration.text)
         dict.maybe(.swiftDeprecationMessage, deprecation)
+        dict.set(.swiftDeprecatedEverywhere, deprecatedEverywhere)
         dict.maybe(.swiftUnavailabilityMessage, unavailability)
         dict.maybe(.availabilities, availability.map {
             [GatherKey.availability.rawValue : $0]
@@ -183,6 +185,7 @@ fileprivate extension SwiftDeclaration {
             return nil
         }
         let deprecation = dict.remove(.swiftDeprecationMessage) as? Localized<String>
+        let deprecatedEverywhere = dict.remove(.swiftDeprecatedEverywhere) as? Bool ?? false
         let unavailability = dict.remove(.swiftUnavailabilityMessage) as? Localized<String>
         var availability = [String]()
         if let availDicts = dict.remove(.availabilities) as? [SourceKittenDict] {
@@ -200,6 +203,7 @@ fileprivate extension SwiftDeclaration {
 
         return SwiftDeclaration(declaration: declarationText,
                                 deprecation: deprecation,
+                                deprecatedEverywhere: deprecatedEverywhere,
                                 unavailability: unavailability,
                                 availability: availability,
                                 namePieces: namePieces,

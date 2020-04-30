@@ -245,6 +245,7 @@ extension SwiftDeclarationBuilder {
         if !text.isEmpty {
             if isDeprecated {
                 deprecations.append(text)
+                deprecatedEverywhere = true
             } else if isUnavailable {
                 unavailables.append(text)
             }

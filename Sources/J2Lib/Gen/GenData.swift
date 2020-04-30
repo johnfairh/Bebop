@@ -34,6 +34,7 @@ public final class GenData: Encodable {
     }
     public struct Def: Encodable {
         public let deprecation: Localized<Html>?
+        public let deprecatedEverywhere: Bool
         public let unavailability: Localized<Html>?
         public let notes: Localized<Html>?
         public let availability: [String]

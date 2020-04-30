@@ -5,7 +5,7 @@
       "key.j2.module_name" : "Pod",
       "key.j2.pass_index" : 0,
       "key.j2.version" : "0.1",
-      "key.length" : 187,
+      "key.length" : 381,
       "key.offset" : 0,
       "key.substructure" : [
         {
@@ -18,7 +18,7 @@
               "key.offset" : 0
             }
           ],
-          "key.bodylength" : 162,
+          "key.bodylength" : 356,
           "key.bodyoffset" : 23,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/Pod\/Sources\/Pod\/Pod.swift",
           "key.fully_annotated_decl" : "<decl.class><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>class<\/syntaxtype.keyword> <decl.name>PodClass<\/decl.name><\/decl.class>",
@@ -29,6 +29,7 @@
           ],
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "public class PodClass",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -40,13 +41,13 @@
             }
           ],
           "key.kind" : "source.lang.swift.decl.class",
-          "key.length" : 179,
+          "key.length" : 373,
           "key.name" : "PodClass",
           "key.namelength" : 8,
           "key.nameoffset" : 13,
           "key.offset" : 7,
           "key.parsed_declaration" : "public class PodClass",
-          "key.parsed_scope.end" : 13,
+          "key.parsed_scope.end" : 19,
           "key.parsed_scope.start" : 1,
           "key.runtime_name" : "_TtC4main8PodClass",
           "key.substructure" : [
@@ -62,6 +63,7 @@
               ],
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "var count: Int",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -104,6 +106,7 @@
               ],
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "init()",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : true,
@@ -148,6 +151,7 @@
               ],
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func onlyForIOS()",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -193,6 +197,110 @@
               "key.namelength" : 14,
               "key.nameoffset" : 167,
               "key.offset" : 162
+            },
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.internal",
+              "key.annotated_decl" : "<Declaration>func globallyDeprecated()<\/Declaration>",
+              "key.attributes" : [
+                {
+                  "key.attribute" : "source.decl.attribute.available",
+                  "key.length" : 67,
+                  "key.offset" : 188
+                }
+              ],
+              "key.bodylength" : 0,
+              "key.bodyoffset" : 285,
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/Pod\/Sources\/Pod\/Pod.swift",
+              "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>globallyDeprecated<\/decl.name>()<\/decl.function.method.instance>",
+              "key.j2.availabilities" : [
+                {
+                  "key.j2.availability" : "iOS 8.0+"
+                }
+              ],
+              "key.j2.is_override" : false,
+              "key.j2.swift_declaration" : "func globallyDeprecated()",
+              "key.j2.swift_deprecated_everywhere" : true,
+              "key.j2.swift_deprecation_messages" : {
+                "en" : "Deprecated. This is deprecated everywhere."
+              },
+              "key.j2.swift_name_pieces" : [
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "func "
+                },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "globallyDeprecated"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "()"
+                }
+              ],
+              "key.kind" : "source.lang.swift.decl.function.method.instance",
+              "key.length" : 28,
+              "key.name" : "globallyDeprecated()",
+              "key.namelength" : 20,
+              "key.nameoffset" : 263,
+              "key.offset" : 258,
+              "key.parsed_declaration" : "func globallyDeprecated()",
+              "key.parsed_scope.end" : 15,
+              "key.parsed_scope.start" : 15,
+              "key.typename" : "(PodClass) -> () -> ()",
+              "key.typeusr" : "$syycD",
+              "key.usr" : "s:3Pod0A5ClassC18globallyDeprecatedyyF"
+            },
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.internal",
+              "key.annotated_decl" : "<Declaration>func iosDeprecated()<\/Declaration>",
+              "key.attributes" : [
+                {
+                  "key.attribute" : "source.decl.attribute.available",
+                  "key.length" : 62,
+                  "key.offset" : 290
+                }
+              ],
+              "key.bodylength" : 0,
+              "key.bodyoffset" : 377,
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/Pod\/Sources\/Pod\/Pod.swift",
+              "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>iosDeprecated<\/decl.name>()<\/decl.function.method.instance>",
+              "key.j2.availabilities" : [
+                {
+                  "key.j2.availability" : "iOS 8.0+"
+                }
+              ],
+              "key.j2.is_override" : false,
+              "key.j2.swift_declaration" : "func iosDeprecated()",
+              "key.j2.swift_deprecated_everywhere" : false,
+              "key.j2.swift_deprecation_messages" : {
+                "en" : "iOS - deprecated. Deprecated only on iOS."
+              },
+              "key.j2.swift_name_pieces" : [
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "func "
+                },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "iosDeprecated"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "()"
+                }
+              ],
+              "key.kind" : "source.lang.swift.decl.function.method.instance",
+              "key.length" : 23,
+              "key.name" : "iosDeprecated()",
+              "key.namelength" : 15,
+              "key.nameoffset" : 360,
+              "key.offset" : 355,
+              "key.parsed_declaration" : "func iosDeprecated()",
+              "key.parsed_scope.end" : 18,
+              "key.parsed_scope.start" : 18,
+              "key.typename" : "(PodClass) -> () -> ()",
+              "key.typeusr" : "$syycD",
+              "key.usr" : "s:3Pod0A5ClassC13iosDeprecatedyyF"
             }
           ],
           "key.typename" : "PodClass.Type",
@@ -208,7 +316,7 @@
       "key.j2.module_name" : "Pod",
       "key.j2.pass_index" : 0,
       "key.j2.version" : "0.1",
-      "key.length" : 187,
+      "key.length" : 381,
       "key.offset" : 0,
       "key.substructure" : [
         {
@@ -221,7 +329,7 @@
               "key.offset" : 0
             }
           ],
-          "key.bodylength" : 162,
+          "key.bodylength" : 356,
           "key.bodyoffset" : 23,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/Pod\/Sources\/Pod\/Pod.swift",
           "key.fully_annotated_decl" : "<decl.class><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>class<\/syntaxtype.keyword> <decl.name>PodClass<\/decl.name><\/decl.class>",
@@ -232,6 +340,7 @@
           ],
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "public class PodClass",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -243,13 +352,13 @@
             }
           ],
           "key.kind" : "source.lang.swift.decl.class",
-          "key.length" : 179,
+          "key.length" : 373,
           "key.name" : "PodClass",
           "key.namelength" : 8,
           "key.nameoffset" : 13,
           "key.offset" : 7,
           "key.parsed_declaration" : "public class PodClass",
-          "key.parsed_scope.end" : 13,
+          "key.parsed_scope.end" : 19,
           "key.parsed_scope.start" : 1,
           "key.runtime_name" : "_TtC4main8PodClass",
           "key.substructure" : [
@@ -265,6 +374,7 @@
               ],
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "var count: Int",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -307,6 +417,7 @@
               ],
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "init()",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : true,
@@ -370,6 +481,7 @@
               ],
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func onlyForMacOS()",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -396,6 +508,110 @@
               "key.typename" : "(PodClass) -> () -> ()",
               "key.typeusr" : "$syycD",
               "key.usr" : "s:3Pod0A5ClassC12onlyForMacOSyyF"
+            },
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.internal",
+              "key.annotated_decl" : "<Declaration>func globallyDeprecated()<\/Declaration>",
+              "key.attributes" : [
+                {
+                  "key.attribute" : "source.decl.attribute.available",
+                  "key.length" : 67,
+                  "key.offset" : 188
+                }
+              ],
+              "key.bodylength" : 0,
+              "key.bodyoffset" : 285,
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/Pod\/Sources\/Pod\/Pod.swift",
+              "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>globallyDeprecated<\/decl.name>()<\/decl.function.method.instance>",
+              "key.j2.availabilities" : [
+                {
+                  "key.j2.availability" : "macOS 10.14+"
+                }
+              ],
+              "key.j2.is_override" : false,
+              "key.j2.swift_declaration" : "func globallyDeprecated()",
+              "key.j2.swift_deprecated_everywhere" : true,
+              "key.j2.swift_deprecation_messages" : {
+                "en" : "Deprecated. This is deprecated everywhere."
+              },
+              "key.j2.swift_name_pieces" : [
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "func "
+                },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "globallyDeprecated"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "()"
+                }
+              ],
+              "key.kind" : "source.lang.swift.decl.function.method.instance",
+              "key.length" : 28,
+              "key.name" : "globallyDeprecated()",
+              "key.namelength" : 20,
+              "key.nameoffset" : 263,
+              "key.offset" : 258,
+              "key.parsed_declaration" : "func globallyDeprecated()",
+              "key.parsed_scope.end" : 15,
+              "key.parsed_scope.start" : 15,
+              "key.typename" : "(PodClass) -> () -> ()",
+              "key.typeusr" : "$syycD",
+              "key.usr" : "s:3Pod0A5ClassC18globallyDeprecatedyyF"
+            },
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.internal",
+              "key.annotated_decl" : "<Declaration>func iosDeprecated()<\/Declaration>",
+              "key.attributes" : [
+                {
+                  "key.attribute" : "source.decl.attribute.available",
+                  "key.length" : 62,
+                  "key.offset" : 290
+                }
+              ],
+              "key.bodylength" : 0,
+              "key.bodyoffset" : 377,
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/Pod\/Sources\/Pod\/Pod.swift",
+              "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>iosDeprecated<\/decl.name>()<\/decl.function.method.instance>",
+              "key.j2.availabilities" : [
+                {
+                  "key.j2.availability" : "macOS 10.14+"
+                }
+              ],
+              "key.j2.is_override" : false,
+              "key.j2.swift_declaration" : "func iosDeprecated()",
+              "key.j2.swift_deprecated_everywhere" : false,
+              "key.j2.swift_deprecation_messages" : {
+                "en" : "iOS - deprecated. Deprecated only on iOS."
+              },
+              "key.j2.swift_name_pieces" : [
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "func "
+                },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "iosDeprecated"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "()"
+                }
+              ],
+              "key.kind" : "source.lang.swift.decl.function.method.instance",
+              "key.length" : 23,
+              "key.name" : "iosDeprecated()",
+              "key.namelength" : 15,
+              "key.nameoffset" : 360,
+              "key.offset" : 355,
+              "key.parsed_declaration" : "func iosDeprecated()",
+              "key.parsed_scope.end" : 18,
+              "key.parsed_scope.start" : 18,
+              "key.typename" : "(PodClass) -> () -> ()",
+              "key.typeusr" : "$syycD",
+              "key.usr" : "s:3Pod0A5ClassC13iosDeprecatedyyF"
             }
           ],
           "key.typename" : "PodClass.Type",

@@ -330,6 +330,11 @@ public class DefItem: Item, CustomStringConvertible {
         declNotesNotice = RichText(notes.joined(by: "\n\n"))
     }
 
+    public var deprecatedEverywhere: Bool {
+        (swiftDeclaration?.deprecatedEverywhere ?? false) ||
+            (objCDeclaration?.deprecation != nil)
+    }
+
     /// Is a name bound in the def's generic context?
     public func isGenericTypeParameter(name: String) -> Bool {
         var next: DefItem? = self

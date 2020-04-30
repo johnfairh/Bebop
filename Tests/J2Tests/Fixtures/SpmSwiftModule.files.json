@@ -27,6 +27,7 @@
           "key.fully_annotated_decl" : "<decl.class><syntaxtype.keyword>class<\/syntaxtype.keyword> <decl.name>GenericBase<\/decl.name>&lt;<decl.generic_type_param usr=\"s:14SpmSwiftModule11GenericBaseC1Txmfp\"><decl.generic_type_param.name>T<\/decl.generic_type_param.name><\/decl.generic_type_param>&gt;<\/decl.class>",
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "class GenericBase<T>",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -53,6 +54,7 @@
               "key.fully_annotated_decl" : "<decl.generic_type_param><decl.generic_type_param.name>T<\/decl.generic_type_param.name><\/decl.generic_type_param>",
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "T",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : true,
@@ -79,6 +81,7 @@
               "key.fully_annotated_decl" : "<decl.var.instance><syntaxtype.keyword>var<\/syntaxtype.keyword> <decl.name>boxed<\/decl.name>: <decl.var.type><ref.generic_type_param usr=\"s:14SpmSwiftModule11GenericBaseC1Txmfp\">T<\/ref.generic_type_param><\/decl.var.type><\/decl.var.instance>",
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "var boxed: T",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -116,6 +119,7 @@
               "key.fully_annotated_decl" : "<decl.function.constructor><syntaxtype.keyword>init<\/syntaxtype.keyword>(<decl.var.parameter><decl.var.parameter.argument_label>type<\/decl.var.parameter.argument_label>: <decl.var.parameter.type><ref.generic_type_param usr=\"s:14SpmSwiftModule11GenericBaseC1Txmfp\">T<\/ref.generic_type_param><\/decl.var.parameter.type><\/decl.var.parameter>)<\/decl.function.constructor>",
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "init(type: T)",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : true,
@@ -156,6 +160,7 @@
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>mutify<\/decl.name>() -&gt; <decl.function.returntype><ref.generic_type_param usr=\"s:14SpmSwiftModule11GenericBaseC1Txmfp\">T<\/ref.generic_type_param><\/decl.function.returntype><\/decl.function.method.instance>",
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func mutify() -> T",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -196,6 +201,7 @@
           "key.fully_annotated_decl" : "<decl.class><syntaxtype.keyword>class<\/syntaxtype.keyword> <decl.name>GenericBase<\/decl.name>&lt;<decl.generic_type_param usr=\"s:14SpmSwiftModule11GenericBaseC1Txmfp\"><decl.generic_type_param.name>T<\/decl.generic_type_param.name><\/decl.generic_type_param>&gt;<\/decl.class>",
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "extension GenericBase where T: Codable",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -224,6 +230,7 @@
               "key.fully_annotated_decl" : "<decl.var.instance><syntaxtype.keyword>var<\/syntaxtype.keyword> <decl.name>codableCount<\/decl.name>: <decl.var.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.type> { <syntaxtype.keyword>get<\/syntaxtype.keyword> }<\/decl.var.instance>",
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "var codableCount: Int { get }",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -259,6 +266,7 @@
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>doCodability<\/decl.name>()<\/decl.function.method.instance>",
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func doCodability()",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -299,6 +307,7 @@
           "key.fully_annotated_decl" : "<decl.class><syntaxtype.keyword>class<\/syntaxtype.keyword> <decl.name>GenericBase<\/decl.name>&lt;<decl.generic_type_param usr=\"s:14SpmSwiftModule11GenericBaseC1Txmfp\"><decl.generic_type_param.name>T<\/decl.generic_type_param.name><\/decl.generic_type_param>&gt;<\/decl.class>",
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "extension GenericBase where T: Equatable,\n                            T: FirstProtocol",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -327,6 +336,7 @@
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>doFirstMagic<\/decl.name>()<\/decl.function.method.instance>",
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func doFirstMagic()",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -362,6 +372,7 @@
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>doMoreMagic<\/decl.name>()<\/decl.function.method.instance>",
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func doMoreMagic()",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -402,6 +413,7 @@
           "key.fully_annotated_decl" : "<decl.class><syntaxtype.keyword>class<\/syntaxtype.keyword> <decl.name>GenericBase<\/decl.name>&lt;<decl.generic_type_param usr=\"s:14SpmSwiftModule11GenericBaseC1Txmfp\"><decl.generic_type_param.name>T<\/decl.generic_type_param.name><\/decl.generic_type_param>&gt;<\/decl.class>",
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "extension GenericBase where T: Hashable",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -438,6 +450,7 @@
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>doHashable<\/decl.name>()<\/decl.function.method.instance>",
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func doHashable()",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -503,6 +516,7 @@
           ],
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "extension GenericBase : CustomStringConvertible",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -549,6 +563,7 @@
               "key.fully_annotated_decl" : "<decl.var.instance><syntaxtype.keyword>var<\/syntaxtype.keyword> <decl.name>description<\/decl.name>: <decl.var.type><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.var.type> { <syntaxtype.keyword>get<\/syntaxtype.keyword> }<\/decl.var.instance>",
               "key.j2.is_override" : true,
               "key.j2.swift_declaration" : "var description: String { get }",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -703,6 +718,7 @@
           "key.is_system" : true,
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "extension Collection where Element: FirstProtocol",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -734,6 +750,7 @@
               "key.groupname" : "Collection",
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func collectEmAll()",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -883,6 +900,7 @@
           "key.is_system" : true,
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "extension Collection where Element == SpmSwiftModule.Nested1",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -914,6 +932,7 @@
               "key.groupname" : "Collection",
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func nestEmAll()",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -961,6 +980,7 @@
           "key.fully_annotated_decl" : "<decl.protocol><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>protocol<\/syntaxtype.keyword> <decl.name>FirstProtocol<\/decl.name><\/decl.protocol>",
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "extension FirstProtocol where AssocType: Hashable",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -989,6 +1009,7 @@
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>extHashableMethod<\/decl.name>()<\/decl.function.method.instance>",
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func extHashableMethod()",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -1040,6 +1061,7 @@
               },
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func m(arg: Int) -> String",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -1115,6 +1137,7 @@
           },
           "key.j2.is_override" : true,
           "key.j2.swift_declaration" : "extension String.Element",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -1173,6 +1196,7 @@
               },
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func method1()",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -1209,6 +1233,7 @@
               "key.groupname" : "String",
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func method2()",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -1285,6 +1310,7 @@
           },
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "public protocol FirstProtocol",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -1363,6 +1389,7 @@
               },
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func m(arg: Int) -> String",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -1413,6 +1440,7 @@
               "key.fully_annotated_decl" : "<decl.associatedtype><syntaxtype.keyword>associatedtype<\/syntaxtype.keyword> <decl.name>AssocType<\/decl.name><\/decl.associatedtype>",
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "associatedtype AssocType",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -1443,6 +1471,7 @@
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>assocFunc<\/decl.name>() -&gt; <decl.function.returntype><ref.associatedtype usr=\"s:14SpmSwiftModule13FirstProtocolP9AssocTypeQa\">AssocType<\/ref.associatedtype><\/decl.function.returntype><\/decl.function.method.instance>",
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func assocFunc() -> AssocType",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -1479,6 +1508,7 @@
               "key.fully_annotated_decl" : "<decl.var.instance><syntaxtype.keyword>var<\/syntaxtype.keyword> <decl.name>getOnly<\/decl.name>: <decl.var.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.type> { <syntaxtype.keyword>get<\/syntaxtype.keyword> }<\/decl.var.instance>",
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "var getOnly: Int { get }",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -1526,6 +1556,7 @@
           "key.fully_annotated_decl" : "<decl.protocol><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>protocol<\/syntaxtype.keyword> <decl.name>FirstProtocol<\/decl.name><\/decl.protocol>",
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "extension FirstProtocol",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -1570,6 +1601,7 @@
               },
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func e()",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -1617,6 +1649,7 @@
           "key.fully_annotated_decl" : "<decl.protocol><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>protocol<\/syntaxtype.keyword> <decl.name>FirstProtocol<\/decl.name><\/decl.protocol>",
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "extension FirstProtocol",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -1669,6 +1702,7 @@
               },
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func m(arg: Int) -> String",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -1750,6 +1784,7 @@
           ],
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "public protocol SecondProtocol : FirstProtocol",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -1778,6 +1813,7 @@
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>secondProtocolMethod<\/decl.name>() -&gt; <decl.function.returntype><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.function.returntype><\/decl.function.method.instance>",
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func secondProtocolMethod() -> String",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -1818,6 +1854,7 @@
           "key.fully_annotated_decl" : "<decl.protocol><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>protocol<\/syntaxtype.keyword> <decl.name>SecondProtocol<\/decl.name> : <ref.protocol usr=\"s:14SpmSwiftModule13FirstProtocolP\">FirstProtocol<\/ref.protocol><\/decl.protocol>",
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "extension SecondProtocol",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -1862,6 +1899,7 @@
               },
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "var getOnly: Int { get }",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -1908,7 +1946,7 @@
       "key.j2.module_name" : "SpmSwiftModule",
       "key.j2.pass_index" : 0,
       "key.j2.version" : "0.1",
-      "key.length" : 2509,
+      "key.length" : 2535,
       "key.offset" : 0,
       "key.substructure" : [
         {
@@ -1943,6 +1981,7 @@
           },
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "public struct SpmSwiftModule",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -1985,6 +2024,7 @@
               "key.fully_annotated_decl" : "<decl.var.instance><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>var<\/syntaxtype.keyword> <decl.name>text<\/decl.name>: <decl.var.type><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.var.type><\/decl.var.instance>",
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "public var text: String",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -2037,6 +2077,7 @@
               "key.fully_annotated_decl" : "<decl.struct><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>struct<\/syntaxtype.keyword> <ref.struct usr=\"s:14SpmSwiftModuleAAV\">SpmSwiftModule<\/ref.struct>.<decl.name>Nested1<\/decl.name><\/decl.struct>",
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "public struct Nested1",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -2073,6 +2114,7 @@
                   "key.fully_annotated_decl" : "<decl.struct><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>struct<\/syntaxtype.keyword> <ref.struct usr=\"s:14SpmSwiftModuleAAV\">SpmSwiftModule<\/ref.struct>.<ref.struct usr=\"s:14SpmSwiftModuleAAV7Nested1V\">Nested1<\/ref.struct>.<decl.name>Nested2a<\/decl.name><\/decl.struct>",
                   "key.j2.is_override" : false,
                   "key.j2.swift_declaration" : "public struct Nested2a",
+                  "key.j2.swift_deprecated_everywhere" : false,
                   "key.j2.swift_name_pieces" : [
                     {
                       "key.j2.name_piece_is_name" : false,
@@ -2117,6 +2159,7 @@
                   "key.fully_annotated_decl" : "<decl.struct><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>struct<\/syntaxtype.keyword> <ref.struct usr=\"s:14SpmSwiftModuleAAV\">SpmSwiftModule<\/ref.struct>.<ref.struct usr=\"s:14SpmSwiftModuleAAV7Nested1V\">Nested1<\/ref.struct>.<decl.name>Nested2b<\/decl.name><\/decl.struct>",
                   "key.j2.is_override" : false,
                   "key.j2.swift_declaration" : "public struct Nested2b",
+                  "key.j2.swift_deprecated_everywhere" : true,
                   "key.j2.swift_deprecation_messages" : {
                     "en" : "Deprecated."
                   },
@@ -2164,6 +2207,7 @@
               "key.fully_annotated_decl" : "<decl.struct><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>struct<\/syntaxtype.keyword> <ref.struct usr=\"s:14SpmSwiftModuleAAV\">SpmSwiftModule<\/ref.struct>.<decl.name>Nested2<\/decl.name><\/decl.struct>",
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "public struct Nested2",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -2210,6 +2254,7 @@
               },
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "var a: Int",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -2260,6 +2305,7 @@
               },
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "var b: Int",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -2325,6 +2371,7 @@
           },
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "public enum AnEnum",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -2375,6 +2422,7 @@
                   },
                   "key.j2.is_override" : false,
                   "key.j2.swift_declaration" : "case first(Int)",
+                  "key.j2.swift_deprecated_everywhere" : false,
                   "key.j2.swift_name_pieces" : [
                     {
                       "key.j2.name_piece_is_name" : false,
@@ -2434,6 +2482,7 @@
                   },
                   "key.j2.is_override" : false,
                   "key.j2.swift_declaration" : "case second",
+                  "key.j2.swift_deprecated_everywhere" : false,
                   "key.j2.swift_name_pieces" : [
                     {
                       "key.j2.name_piece_is_name" : false,
@@ -2489,6 +2538,7 @@
                   },
                   "key.j2.is_override" : false,
                   "key.j2.swift_declaration" : "case third",
+                  "key.j2.swift_deprecated_everywhere" : false,
                   "key.j2.swift_name_pieces" : [
                     {
                       "key.j2.name_piece_is_name" : false,
@@ -2534,6 +2584,7 @@
                   },
                   "key.j2.is_override" : false,
                   "key.j2.swift_declaration" : "case fourth",
+                  "key.j2.swift_deprecated_everywhere" : false,
                   "key.j2.swift_name_pieces" : [
                     {
                       "key.j2.name_piece_is_name" : false,
@@ -2589,6 +2640,7 @@
                   },
                   "key.j2.is_override" : false,
                   "key.j2.swift_declaration" : "case fifth(a: String, _: Int)",
+                  "key.j2.swift_deprecated_everywhere" : false,
                   "key.j2.swift_name_pieces" : [
                     {
                       "key.j2.name_piece_is_name" : false,
@@ -2737,6 +2789,7 @@
           },
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "public func functionA(arg1: Int,\n                      _ arg2: Int,\n                      arg3 argMeaning: Int)",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -2790,6 +2843,11 @@
             {
               "key.attribute" : "source.decl.attribute.public",
               "key.length" : 6,
+              "key.offset" : 1237
+            },
+            {
+              "key.attribute" : "source.decl.attribute.available",
+              "key.length" : 25,
               "key.offset" : 1211
             },
             {
@@ -2804,13 +2862,13 @@
             }
           ],
           "key.bodylength" : 13,
-          "key.bodyoffset" : 1290,
+          "key.bodyoffset" : 1316,
           "key.doc.column" : 13,
           "key.doc.comment" : "A deprecated function\n\n- parameter callback: The callback\n- returns: A string",
-          "key.doc.declaration" : "@available(iOS, deprecated: 12.0, message: \"Deprecated!\")\n@available(OSX, deprecated: 10.14, message: \"Deprecated on *macOS* too\")\npublic func deprecatedFunction(callback: (_ report: String) -> Int) -> String",
+          "key.doc.declaration" : "@available(iOS, deprecated: 12.0, message: \"Deprecated!\")\n@available(OSX, deprecated: 10.14, message: \"Deprecated on *macOS* too\")\n@available(*, deprecated)\npublic func deprecatedFunction(callback: (_ report: String) -> Int) -> String",
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"54\" column=\"13\"><Name>deprecatedFunction(callback:)<\/Name><USR>s:14SpmSwiftModule18deprecatedFunction8callbackSSSiSSXE_tF<\/USR><Declaration>@available(iOS, deprecated: 12.0, message: &quot;Deprecated!&quot;)\n@available(OSX, deprecated: 10.14, message: &quot;Deprecated on *macOS* too&quot;)\npublic func deprecatedFunction(callback: (_ report: String) -&gt; Int) -&gt; String<\/Declaration><CommentParts><Abstract><Para>A deprecated function<\/Para><\/Abstract><Parameters><Parameter><Name>callback<\/Name><Direction isExplicit=\"0\">in<\/Direction><Discussion><Para>The callback<\/Para><\/Discussion><\/Parameter><\/Parameters><ResultDiscussion><Para>A string<\/Para><\/ResultDiscussion><\/CommentParts><\/Function>",
-          "key.doc.line" : 54,
+          "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"55\" column=\"13\"><Name>deprecatedFunction(callback:)<\/Name><USR>s:14SpmSwiftModule18deprecatedFunction8callbackSSSiSSXE_tF<\/USR><Declaration>@available(iOS, deprecated: 12.0, message: &quot;Deprecated!&quot;)\n@available(OSX, deprecated: 10.14, message: &quot;Deprecated on *macOS* too&quot;)\n@available(*, deprecated)\npublic func deprecatedFunction(callback: (_ report: String) -&gt; Int) -&gt; String<\/Declaration><CommentParts><Abstract><Para>A deprecated function<\/Para><\/Abstract><Parameters><Parameter><Name>callback<\/Name><Direction isExplicit=\"0\">in<\/Direction><Discussion><Para>The callback<\/Para><\/Discussion><\/Parameter><\/Parameters><ResultDiscussion><Para>A string<\/Para><\/ResultDiscussion><\/CommentParts><\/Function>",
+          "key.doc.line" : 55,
           "key.doc.name" : "deprecatedFunction(callback:)",
           "key.doc.parameters" : [
             {
@@ -2851,8 +2909,9 @@
           },
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "public func deprecatedFunction(callback: (_ report: String) -> Int) -> String",
+          "key.j2.swift_deprecated_everywhere" : true,
           "key.j2.swift_deprecation_messages" : {
-            "en" : "iOS - deprecated since 12.0. Deprecated!.\n\nmacOS - deprecated since 10.14. Deprecated on *macOS* too."
+            "en" : "iOS - deprecated since 12.0. Deprecated!.\n\nmacOS - deprecated since 10.14. Deprecated on *macOS* too.\n\nDeprecated."
           },
           "key.j2.swift_name_pieces" : [
             {
@@ -2880,11 +2939,11 @@
           "key.length" : 86,
           "key.name" : "deprecatedFunction(callback:)",
           "key.namelength" : 55,
-          "key.nameoffset" : 1223,
-          "key.offset" : 1218,
+          "key.nameoffset" : 1249,
+          "key.offset" : 1244,
           "key.parsed_declaration" : "public func deprecatedFunction(callback: (_ report: String) -> Int) -> String",
-          "key.parsed_scope.end" : 56,
-          "key.parsed_scope.start" : 54,
+          "key.parsed_scope.end" : 57,
+          "key.parsed_scope.start" : 55,
           "key.typename" : "((String) -> Int) -> String",
           "key.typeusr" : "$s8callbackSSSiSSXE_tcD",
           "key.usr" : "s:14SpmSwiftModule18deprecatedFunction8callbackSSSiSSXE_tF"
@@ -2896,21 +2955,21 @@
             {
               "key.attribute" : "source.decl.attribute.public",
               "key.length" : 6,
-              "key.offset" : 1323
+              "key.offset" : 1349
             }
           ],
           "key.bodylength" : 592,
-          "key.bodyoffset" : 1348,
+          "key.bodyoffset" : 1374,
           "key.doc.column" : 14,
           "key.doc.comment" : "A base class",
           "key.doc.declaration" : "public class ABaseClass",
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "key.doc.full_as_xml" : "<Class file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"59\" column=\"14\"><Name>ABaseClass<\/Name><USR>s:14SpmSwiftModule10ABaseClassC<\/USR><Declaration>public class ABaseClass<\/Declaration><CommentParts><Abstract><Para>A base class<\/Para><\/Abstract><\/CommentParts><\/Class>",
-          "key.doc.line" : 59,
+          "key.doc.full_as_xml" : "<Class file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"60\" column=\"14\"><Name>ABaseClass<\/Name><USR>s:14SpmSwiftModule10ABaseClassC<\/USR><Declaration>public class ABaseClass<\/Declaration><CommentParts><Abstract><Para>A base class<\/Para><\/Abstract><\/CommentParts><\/Class>",
+          "key.doc.line" : 60,
           "key.doc.name" : "ABaseClass",
           "key.doc.type" : "Class",
           "key.doclength" : 17,
-          "key.docoffset" : 1306,
+          "key.docoffset" : 1332,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
           "key.fully_annotated_decl" : "<decl.class><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>class<\/syntaxtype.keyword> <decl.name>ABaseClass<\/decl.name><\/decl.class>",
           "key.j2.documentation" : {
@@ -2921,6 +2980,7 @@
           },
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "public class ABaseClass",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -2935,11 +2995,11 @@
           "key.length" : 611,
           "key.name" : "ABaseClass",
           "key.namelength" : 10,
-          "key.nameoffset" : 1336,
-          "key.offset" : 1330,
+          "key.nameoffset" : 1362,
+          "key.offset" : 1356,
           "key.parsed_declaration" : "public class ABaseClass",
-          "key.parsed_scope.end" : 94,
-          "key.parsed_scope.start" : 59,
+          "key.parsed_scope.end" : 95,
+          "key.parsed_scope.start" : 60,
           "key.runtime_name" : "_TtC4main10ABaseClass",
           "key.substructure" : [
             {
@@ -2949,15 +3009,16 @@
                 {
                   "key.attribute" : "source.decl.attribute.public",
                   "key.length" : 6,
-                  "key.offset" : 1351
+                  "key.offset" : 1377
                 }
               ],
               "key.bodylength" : 0,
-              "key.bodyoffset" : 1366,
+              "key.bodyoffset" : 1392,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.function.constructor><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>init<\/syntaxtype.keyword>()<\/decl.function.constructor>",
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "public init()",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : true,
@@ -2972,11 +3033,11 @@
               "key.length" : 9,
               "key.name" : "init()",
               "key.namelength" : 6,
-              "key.nameoffset" : 1358,
-              "key.offset" : 1358,
+              "key.nameoffset" : 1384,
+              "key.offset" : 1384,
               "key.parsed_declaration" : "public init()",
-              "key.parsed_scope.end" : 60,
-              "key.parsed_scope.start" : 60,
+              "key.parsed_scope.end" : 61,
+              "key.parsed_scope.start" : 61,
               "key.related_decls" : [
                 {
                   "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule10ABaseClassC1aACSi_tcfc\">init(a:)<\/RelatedName>"
@@ -2993,20 +3054,21 @@
                 {
                   "key.attribute" : "source.decl.attribute.convenience",
                   "key.length" : 11,
-                  "key.offset" : 1378
+                  "key.offset" : 1404
                 },
                 {
                   "key.attribute" : "source.decl.attribute.public",
                   "key.length" : 6,
-                  "key.offset" : 1371
+                  "key.offset" : 1397
                 }
               ],
               "key.bodylength" : 13,
-              "key.bodyoffset" : 1404,
+              "key.bodyoffset" : 1430,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.function.constructor><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>convenience<\/syntaxtype.keyword> <syntaxtype.keyword>init<\/syntaxtype.keyword>(<decl.var.parameter><decl.var.parameter.argument_label>a<\/decl.var.parameter.argument_label>: <decl.var.parameter.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>)<\/decl.function.constructor>",
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "public convenience init(a: Int)",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : true,
@@ -3029,11 +3091,11 @@
               "key.length" : 28,
               "key.name" : "init(a:)",
               "key.namelength" : 12,
-              "key.nameoffset" : 1390,
-              "key.offset" : 1390,
+              "key.nameoffset" : 1416,
+              "key.offset" : 1416,
               "key.parsed_declaration" : "public convenience init(a: Int)",
-              "key.parsed_scope.end" : 62,
-              "key.parsed_scope.start" : 62,
+              "key.parsed_scope.end" : 63,
+              "key.parsed_scope.start" : 63,
               "key.related_decls" : [
                 {
                   "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule10ABaseClassCACycfc\">init()<\/RelatedName>"
@@ -3047,11 +3109,12 @@
               "key.accessibility" : "source.lang.swift.accessibility.public",
               "key.annotated_decl" : "<Declaration>deinit<\/Declaration>",
               "key.bodylength" : 0,
-              "key.bodyoffset" : 1430,
+              "key.bodyoffset" : 1456,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.function.destructor><syntaxtype.keyword>deinit<\/syntaxtype.keyword><\/decl.function.destructor>",
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "deinit",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : true,
@@ -3062,11 +3125,11 @@
               "key.length" : 9,
               "key.name" : "deinit",
               "key.namelength" : 6,
-              "key.nameoffset" : 1422,
-              "key.offset" : 1422,
+              "key.nameoffset" : 1448,
+              "key.offset" : 1448,
               "key.parsed_declaration" : "deinit",
-              "key.parsed_scope.end" : 64,
-              "key.parsed_scope.start" : 64,
+              "key.parsed_scope.end" : 65,
+              "key.parsed_scope.start" : 65,
               "key.typename" : "(ABaseClass) -> () -> ()",
               "key.typeusr" : "$syycD",
               "key.usr" : "s:14SpmSwiftModule10ABaseClassCfd"
@@ -3078,21 +3141,21 @@
                 {
                   "key.attribute" : "source.decl.attribute.public",
                   "key.length" : 6,
-                  "key.offset" : 1477
+                  "key.offset" : 1503
                 }
               ],
               "key.bodylength" : 17,
-              "key.bodyoffset" : 1519,
+              "key.bodyoffset" : 1545,
               "key.doc.column" : 15,
               "key.doc.comment" : "Base class docs for `method(param:)`",
               "key.doc.declaration" : "public func method(param: Int) -> String",
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-              "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"66\" column=\"15\"><Name>method(param:)<\/Name><USR>s:14SpmSwiftModule10ABaseClassC6method5paramSSSi_tF<\/USR><Declaration>public func method(param: Int) -&gt; String<\/Declaration><CommentParts><Abstract><Para>Base class docs for <codeVoice>method(param:)<\/codeVoice><\/Para><\/Abstract><\/CommentParts><\/Function>",
-              "key.doc.line" : 66,
+              "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"67\" column=\"15\"><Name>method(param:)<\/Name><USR>s:14SpmSwiftModule10ABaseClassC6method5paramSSSi_tF<\/USR><Declaration>public func method(param: Int) -&gt; String<\/Declaration><CommentParts><Abstract><Para>Base class docs for <codeVoice>method(param:)<\/codeVoice><\/Para><\/Abstract><\/CommentParts><\/Function>",
+              "key.doc.line" : 67,
               "key.doc.name" : "method(param:)",
               "key.doc.type" : "Function",
               "key.doclength" : 41,
-              "key.docoffset" : 1434,
+              "key.docoffset" : 1460,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>method<\/decl.name>(<decl.var.parameter><decl.var.parameter.argument_label>param<\/decl.var.parameter.argument_label>: <decl.var.parameter.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.function.returntype><\/decl.function.method.instance>",
               "key.j2.documentation" : {
@@ -3103,6 +3166,7 @@
               },
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "public func method(param: Int) -> String",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -3129,11 +3193,11 @@
               "key.length" : 53,
               "key.name" : "method(param:)",
               "key.namelength" : 18,
-              "key.nameoffset" : 1489,
-              "key.offset" : 1484,
+              "key.nameoffset" : 1515,
+              "key.offset" : 1510,
               "key.parsed_declaration" : "public func method(param: Int) -> String",
-              "key.parsed_scope.end" : 68,
-              "key.parsed_scope.start" : 66,
+              "key.parsed_scope.end" : 69,
+              "key.parsed_scope.start" : 67,
               "key.typename" : "(ABaseClass) -> (Int) -> String",
               "key.typeusr" : "$s5paramSSSi_tcD",
               "key.usr" : "s:14SpmSwiftModule10ABaseClassC6method5paramSSSi_tF"
@@ -3145,15 +3209,16 @@
                 {
                   "key.attribute" : "source.decl.attribute.public",
                   "key.length" : 6,
-                  "key.offset" : 1541
+                  "key.offset" : 1567
                 }
               ],
               "key.bodylength" : 16,
-              "key.bodyoffset" : 1583,
+              "key.bodyoffset" : 1609,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.function.method.static><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>static<\/syntaxtype.keyword> <syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>staticMethod<\/decl.name>() -&gt; <decl.function.returntype><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.function.returntype><\/decl.function.method.static>",
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "public static func staticMethod() -> Int",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -3172,11 +3237,11 @@
               "key.length" : 52,
               "key.name" : "staticMethod()",
               "key.namelength" : 14,
-              "key.nameoffset" : 1560,
-              "key.offset" : 1548,
+              "key.nameoffset" : 1586,
+              "key.offset" : 1574,
               "key.parsed_declaration" : "public static func staticMethod() -> Int",
-              "key.parsed_scope.end" : 72,
-              "key.parsed_scope.start" : 70,
+              "key.parsed_scope.end" : 73,
+              "key.parsed_scope.start" : 71,
               "key.typename" : "(ABaseClass.Type) -> () -> Int",
               "key.typeusr" : "$sSiycD",
               "key.usr" : "s:14SpmSwiftModule10ABaseClassC12staticMethodSiyFZ"
@@ -3188,15 +3253,16 @@
                 {
                   "key.attribute" : "source.decl.attribute.public",
                   "key.length" : 6,
-                  "key.offset" : 1604
+                  "key.offset" : 1630
                 }
               ],
               "key.bodylength" : 50,
-              "key.bodyoffset" : 1642,
+              "key.bodyoffset" : 1668,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.function.subscript><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>subscript<\/syntaxtype.keyword>(<decl.var.parameter><decl.var.parameter.name>arg<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.function.returntype> { <syntaxtype.keyword>get<\/syntaxtype.keyword> <syntaxtype.keyword>set<\/syntaxtype.keyword> }<\/decl.function.subscript>",
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "public subscript(arg: String) -> Int { get set }",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : true,
@@ -3219,11 +3285,11 @@
               "key.length" : 82,
               "key.name" : "subscript(_:)",
               "key.namelength" : 22,
-              "key.nameoffset" : 1611,
-              "key.offset" : 1611,
+              "key.nameoffset" : 1637,
+              "key.offset" : 1637,
               "key.parsed_declaration" : "public subscript(arg: String) -> Int",
-              "key.parsed_scope.end" : 80,
-              "key.parsed_scope.start" : 74,
+              "key.parsed_scope.end" : 81,
+              "key.parsed_scope.start" : 75,
               "key.related_decls" : [
                 {
                   "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule10ABaseClassCySiSScipZ\">subscript(_:)<\/RelatedName>"
@@ -3244,15 +3310,16 @@
                 {
                   "key.attribute" : "source.decl.attribute.public",
                   "key.length" : 6,
-                  "key.offset" : 1697
+                  "key.offset" : 1723
                 }
               ],
               "key.bodylength" : 16,
-              "key.bodyoffset" : 1742,
+              "key.bodyoffset" : 1768,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.function.subscript><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>static<\/syntaxtype.keyword> <syntaxtype.keyword>subscript<\/syntaxtype.keyword>(<decl.var.parameter><decl.var.parameter.name>arg<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.function.returntype> { <syntaxtype.keyword>get<\/syntaxtype.keyword> }<\/decl.function.subscript>",
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "public static subscript(arg: String) -> Int { get }",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -3279,11 +3346,11 @@
               "key.length" : 48,
               "key.name" : "subscript(_:)",
               "key.namelength" : 22,
-              "key.nameoffset" : 1711,
-              "key.offset" : 1711,
+              "key.nameoffset" : 1737,
+              "key.offset" : 1737,
               "key.parsed_declaration" : "public static subscript(arg: String) -> Int",
-              "key.parsed_scope.end" : 84,
-              "key.parsed_scope.start" : 82,
+              "key.parsed_scope.end" : 85,
+              "key.parsed_scope.start" : 83,
               "key.related_decls" : [
                 {
                   "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule10ABaseClassCySiSScip\">subscript(_:)<\/RelatedName>"
@@ -3303,15 +3370,16 @@
                 {
                   "key.attribute" : "source.decl.attribute.public",
                   "key.length" : 6,
-                  "key.offset" : 1763
+                  "key.offset" : 1789
                 }
               ],
               "key.bodylength" : 17,
-              "key.bodyoffset" : 1807,
+              "key.bodyoffset" : 1833,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.function.subscript><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>class<\/syntaxtype.keyword> <syntaxtype.keyword>subscript<\/syntaxtype.keyword>(<decl.var.parameter><decl.var.parameter.name>arg<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.function.returntype> { <syntaxtype.keyword>get<\/syntaxtype.keyword> }<\/decl.function.subscript>",
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "public class subscript(arg: Int) -> String { get }",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -3338,11 +3406,11 @@
               "key.length" : 49,
               "key.name" : "subscript(_:)",
               "key.namelength" : 19,
-              "key.nameoffset" : 1776,
-              "key.offset" : 1776,
+              "key.nameoffset" : 1802,
+              "key.offset" : 1802,
               "key.parsed_declaration" : "public class subscript(arg: Int) -> String",
-              "key.parsed_scope.end" : 88,
-              "key.parsed_scope.start" : 86,
+              "key.parsed_scope.end" : 89,
+              "key.parsed_scope.start" : 87,
               "key.related_decls" : [
                 {
                   "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule10ABaseClassCySiSScip\">subscript(_:)<\/RelatedName>"
@@ -3362,21 +3430,21 @@
                 {
                   "key.attribute" : "source.decl.attribute.public",
                   "key.length" : 6,
-                  "key.offset" : 1848
+                  "key.offset" : 1874
                 }
               ],
               "key.bodylength" : 20,
-              "key.bodyoffset" : 1918,
+              "key.bodyoffset" : 1944,
               "key.doc.column" : 22,
               "key.doc.comment" : "An operator!",
               "key.doc.declaration" : "public static func + (lhs: ABaseClass, rhs: ABaseClass) -> ABaseClass",
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-              "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"91\" column=\"22\"><Name>+(_:_:)<\/Name><USR>s:14SpmSwiftModule10ABaseClassC1poiyA2C_ACtFZ<\/USR><Declaration>public static func + (lhs: ABaseClass, rhs: ABaseClass) -&gt; ABaseClass<\/Declaration><CommentParts><Abstract><Para>An operator!<\/Para><\/Abstract><\/CommentParts><\/Function>",
-              "key.doc.line" : 91,
+              "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"92\" column=\"22\"><Name>+(_:_:)<\/Name><USR>s:14SpmSwiftModule10ABaseClassC1poiyA2C_ACtFZ<\/USR><Declaration>public static func + (lhs: ABaseClass, rhs: ABaseClass) -&gt; ABaseClass<\/Declaration><CommentParts><Abstract><Para>An operator!<\/Para><\/Abstract><\/CommentParts><\/Function>",
+              "key.doc.line" : 92,
               "key.doc.name" : "+(_:_:)",
               "key.doc.type" : "Function",
               "key.doclength" : 17,
-              "key.docoffset" : 1829,
+              "key.docoffset" : 1855,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.function.operator.infix><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>static<\/syntaxtype.keyword> <syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>+ <\/decl.name>(<decl.var.parameter><decl.var.parameter.name>lhs<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.class usr=\"s:14SpmSwiftModule10ABaseClassC\">ABaseClass<\/ref.class><\/decl.var.parameter.type><\/decl.var.parameter>, <decl.var.parameter><decl.var.parameter.name>rhs<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.class usr=\"s:14SpmSwiftModule10ABaseClassC\">ABaseClass<\/ref.class><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.class usr=\"s:14SpmSwiftModule10ABaseClassC\">ABaseClass<\/ref.class><\/decl.function.returntype><\/decl.function.operator.infix>",
               "key.j2.documentation" : {
@@ -3387,6 +3455,7 @@
               },
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "public static func + (lhs: ABaseClass, rhs: ABaseClass) -> ABaseClass",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -3421,11 +3490,11 @@
               "key.length" : 84,
               "key.name" : "+(ABaseClass, ABaseClass)",
               "key.namelength" : 35,
-              "key.nameoffset" : 1867,
-              "key.offset" : 1855,
+              "key.nameoffset" : 1893,
+              "key.offset" : 1881,
               "key.parsed_declaration" : "public static func +(lhs: ABaseClass, rhs: ABaseClass) -> ABaseClass",
-              "key.parsed_scope.end" : 93,
-              "key.parsed_scope.start" : 91,
+              "key.parsed_scope.end" : 94,
+              "key.parsed_scope.start" : 92,
               "key.related_decls" : [
                 {
                   "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule1poiySSAA1TV_ADtF\">+ (_: T, _: T) -&gt; String<\/RelatedName>"
@@ -3519,6 +3588,7 @@
                   "key.fully_annotated_decl" : "<decl.var.parameter><syntaxtype.keyword>let<\/syntaxtype.keyword> <decl.var.parameter.name>lhs<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.class usr=\"s:14SpmSwiftModule10ABaseClassC\">ABaseClass<\/ref.class><\/decl.var.parameter.type><\/decl.var.parameter>",
                   "key.j2.is_override" : false,
                   "key.j2.swift_declaration" : "let lhs: ABaseClass",
+                  "key.j2.swift_deprecated_everywhere" : false,
                   "key.j2.swift_name_pieces" : [
                     {
                       "key.j2.name_piece_is_name" : true,
@@ -3532,11 +3602,11 @@
                   "key.kind" : "source.lang.swift.decl.var.parameter",
                   "key.length" : 3,
                   "key.name" : "lhs",
-                  "key.offset" : 1869,
-                  "key.parent_loc" : 1867,
+                  "key.offset" : 1895,
+                  "key.parent_loc" : 1893,
                   "key.parsed_declaration" : "public static func +(lhs",
-                  "key.parsed_scope.end" : 91,
-                  "key.parsed_scope.start" : 91,
+                  "key.parsed_scope.end" : 92,
+                  "key.parsed_scope.start" : 92,
                   "key.typename" : "ABaseClass",
                   "key.typeusr" : "$s14SpmSwiftModule10ABaseClassCD",
                   "key.usr" : "s:14SpmSwiftModule10ABaseClassC1poiyA2C_ACtFZ3lhsL_ACvp"
@@ -3555,11 +3625,12 @@
           "key.accessibility" : "source.lang.swift.accessibility.internal",
           "key.annotated_decl" : "<Declaration>struct T<\/Declaration>",
           "key.bodylength" : 1,
-          "key.bodyoffset" : 1953,
+          "key.bodyoffset" : 1979,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
           "key.fully_annotated_decl" : "<decl.struct><syntaxtype.keyword>struct<\/syntaxtype.keyword> <decl.name>T<\/decl.name><\/decl.struct>",
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "struct T",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -3574,11 +3645,11 @@
           "key.length" : 12,
           "key.name" : "T",
           "key.namelength" : 1,
-          "key.nameoffset" : 1950,
-          "key.offset" : 1943,
+          "key.nameoffset" : 1976,
+          "key.offset" : 1969,
           "key.parsed_declaration" : "struct T",
-          "key.parsed_scope.end" : 97,
-          "key.parsed_scope.start" : 96,
+          "key.parsed_scope.end" : 98,
+          "key.parsed_scope.start" : 97,
           "key.typename" : "T.Type",
           "key.typeusr" : "$s14SpmSwiftModule1TVmD",
           "key.usr" : "s:14SpmSwiftModule1TV"
@@ -3587,17 +3658,17 @@
           "key.accessibility" : "source.lang.swift.accessibility.internal",
           "key.annotated_decl" : "<Declaration>func + (lhs: <Type usr=\"s:14SpmSwiftModule1TV\">T<\/Type>, rhs: <Type usr=\"s:14SpmSwiftModule1TV\">T<\/Type>) -&gt; <Type usr=\"s:SS\">String<\/Type><\/Declaration>",
           "key.bodylength" : 6,
-          "key.bodyoffset" : 2013,
+          "key.bodyoffset" : 2039,
           "key.doc.column" : 6,
           "key.doc.comment" : "Unscoped operator",
           "key.doc.declaration" : "func + (lhs: T, rhs: T) -> String",
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"100\" column=\"6\"><Name>+(_:_:)<\/Name><USR>s:14SpmSwiftModule1poiySSAA1TV_ADtF<\/USR><Declaration>func + (lhs: T, rhs: T) -&gt; String<\/Declaration><CommentParts><Abstract><Para>Unscoped operator<\/Para><\/Abstract><\/CommentParts><\/Function>",
-          "key.doc.line" : 100,
+          "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"101\" column=\"6\"><Name>+(_:_:)<\/Name><USR>s:14SpmSwiftModule1poiySSAA1TV_ADtF<\/USR><Declaration>func + (lhs: T, rhs: T) -&gt; String<\/Declaration><CommentParts><Abstract><Para>Unscoped operator<\/Para><\/Abstract><\/CommentParts><\/Function>",
+          "key.doc.line" : 101,
           "key.doc.name" : "+(_:_:)",
           "key.doc.type" : "Function",
           "key.doclength" : 22,
-          "key.docoffset" : 1957,
+          "key.docoffset" : 1983,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
           "key.fully_annotated_decl" : "<decl.function.operator.infix><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>+ <\/decl.name>(<decl.var.parameter><decl.var.parameter.name>lhs<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.struct usr=\"s:14SpmSwiftModule1TV\">T<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>, <decl.var.parameter><decl.var.parameter.name>rhs<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.struct usr=\"s:14SpmSwiftModule1TV\">T<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.function.returntype><\/decl.function.operator.infix>",
           "key.j2.documentation" : {
@@ -3608,6 +3679,7 @@
           },
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "func + (lhs: T, rhs: T) -> String",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -3642,11 +3714,11 @@
           "key.length" : 41,
           "key.name" : "+(T, T)",
           "key.namelength" : 17,
-          "key.nameoffset" : 1984,
-          "key.offset" : 1979,
+          "key.nameoffset" : 2010,
+          "key.offset" : 2005,
           "key.parsed_declaration" : "func +(lhs: T, rhs: T) -> String",
-          "key.parsed_scope.end" : 102,
-          "key.parsed_scope.start" : 100,
+          "key.parsed_scope.end" : 103,
+          "key.parsed_scope.start" : 101,
           "key.related_decls" : [
             {
               "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule10ABaseClassC1poiyA2C_ACtFZ\">+ (_: ABaseClass, _: ABaseClass) -&gt; ABaseClass<\/RelatedName>"
@@ -3740,6 +3812,7 @@
               "key.fully_annotated_decl" : "<decl.var.parameter><syntaxtype.keyword>let<\/syntaxtype.keyword> <decl.var.parameter.name>lhs<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.struct usr=\"s:14SpmSwiftModule1TV\">T<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>",
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "let lhs: T",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : true,
@@ -3753,11 +3826,11 @@
               "key.kind" : "source.lang.swift.decl.var.parameter",
               "key.length" : 3,
               "key.name" : "lhs",
-              "key.offset" : 1986,
-              "key.parent_loc" : 1984,
+              "key.offset" : 2012,
+              "key.parent_loc" : 2010,
               "key.parsed_declaration" : "func +(lhs",
-              "key.parsed_scope.end" : 100,
-              "key.parsed_scope.start" : 100,
+              "key.parsed_scope.end" : 101,
+              "key.parsed_scope.start" : 101,
               "key.typename" : "T",
               "key.typeusr" : "$s14SpmSwiftModule1TVD",
               "key.usr" : "s:14SpmSwiftModule1poiySSAA1TV_ADtF3lhsL_ADvp"
@@ -3774,26 +3847,26 @@
             {
               "key.attribute" : "source.decl.attribute.public",
               "key.length" : 6,
-              "key.offset" : 2042
+              "key.offset" : 2068
             }
           ],
           "key.bodylength" : 189,
-          "key.bodyoffset" : 2098,
+          "key.bodyoffset" : 2124,
           "key.doc.column" : 14,
           "key.doc.comment" : "A derived class",
           "key.doc.declaration" : "public class ADerivedClass<T, Q> : ABaseClass where Q : Sequence",
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "key.doc.full_as_xml" : "<Class file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"105\" column=\"14\"><Name>ADerivedClass<\/Name><USR>s:14SpmSwiftModule13ADerivedClassC<\/USR><Declaration>public class ADerivedClass&lt;T, Q&gt; : ABaseClass where Q : Sequence<\/Declaration><CommentParts><Abstract><Para>A derived class<\/Para><\/Abstract><\/CommentParts><\/Class>",
-          "key.doc.line" : 105,
+          "key.doc.full_as_xml" : "<Class file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"106\" column=\"14\"><Name>ADerivedClass<\/Name><USR>s:14SpmSwiftModule13ADerivedClassC<\/USR><Declaration>public class ADerivedClass&lt;T, Q&gt; : ABaseClass where Q : Sequence<\/Declaration><CommentParts><Abstract><Para>A derived class<\/Para><\/Abstract><\/CommentParts><\/Class>",
+          "key.doc.line" : 106,
           "key.doc.name" : "ADerivedClass",
           "key.doc.type" : "Class",
           "key.doclength" : 20,
-          "key.docoffset" : 2022,
+          "key.docoffset" : 2048,
           "key.elements" : [
             {
               "key.kind" : "source.lang.swift.structure.elem.typeref",
               "key.length" : 10,
-              "key.offset" : 2086
+              "key.offset" : 2112
             }
           ],
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -3816,6 +3889,7 @@
           ],
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "public class ADerivedClass<T, Q> : ABaseClass where Q : Sequence",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -3830,11 +3904,11 @@
           "key.length" : 239,
           "key.name" : "ADerivedClass",
           "key.namelength" : 13,
-          "key.nameoffset" : 2055,
-          "key.offset" : 2049,
+          "key.nameoffset" : 2081,
+          "key.offset" : 2075,
           "key.parsed_declaration" : "public class ADerivedClass<T, Q: Sequence>: ABaseClass",
-          "key.parsed_scope.end" : 116,
-          "key.parsed_scope.start" : 105,
+          "key.parsed_scope.end" : 117,
+          "key.parsed_scope.start" : 106,
           "key.substructure" : [
             {
               "key.annotated_decl" : "<Declaration>T<\/Declaration>",
@@ -3842,6 +3916,7 @@
               "key.fully_annotated_decl" : "<decl.generic_type_param><decl.generic_type_param.name>T<\/decl.generic_type_param.name><\/decl.generic_type_param>",
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "T",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : true,
@@ -3852,11 +3927,11 @@
               "key.length" : 1,
               "key.name" : "T",
               "key.namelength" : 1,
-              "key.nameoffset" : 2069,
-              "key.offset" : 2069,
+              "key.nameoffset" : 2095,
+              "key.offset" : 2095,
               "key.parsed_declaration" : "public class ADerivedClass<T",
-              "key.parsed_scope.end" : 105,
-              "key.parsed_scope.start" : 105,
+              "key.parsed_scope.end" : 106,
+              "key.parsed_scope.start" : 106,
               "key.typename" : "T.Type",
               "key.typeusr" : "$sxmD",
               "key.usr" : "s:14SpmSwiftModule13ADerivedClassC1Txmfp"
@@ -3867,7 +3942,7 @@
                 {
                   "key.kind" : "source.lang.swift.structure.elem.typeref",
                   "key.length" : 8,
-                  "key.offset" : 2075
+                  "key.offset" : 2101
                 }
               ],
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -3884,6 +3959,7 @@
               ],
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "Q : Sequence",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : true,
@@ -3894,11 +3970,11 @@
               "key.length" : 11,
               "key.name" : "Q",
               "key.namelength" : 1,
-              "key.nameoffset" : 2072,
-              "key.offset" : 2072,
+              "key.nameoffset" : 2098,
+              "key.offset" : 2098,
               "key.parsed_declaration" : "public class ADerivedClass<T, Q: Sequence",
-              "key.parsed_scope.end" : 105,
-              "key.parsed_scope.start" : 105,
+              "key.parsed_scope.end" : 106,
+              "key.parsed_scope.start" : 106,
               "key.typename" : "Q.Type",
               "key.typeusr" : "$sq_mD",
               "key.usr" : "s:14SpmSwiftModule13ADerivedClassC1Qq_mfp"
@@ -3910,6 +3986,7 @@
               "key.fully_annotated_decl" : "<decl.var.instance><syntaxtype.keyword>var<\/syntaxtype.keyword> <decl.name>t<\/decl.name>: <decl.var.type><ref.generic_type_param usr=\"s:14SpmSwiftModule13ADerivedClassC1Qq_mfp\">Q<\/ref.generic_type_param>?<\/decl.var.type><\/decl.var.instance>",
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "var t: Q?",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -3928,11 +4005,11 @@
               "key.length" : 15,
               "key.name" : "t",
               "key.namelength" : 1,
-              "key.nameoffset" : 2105,
-              "key.offset" : 2101,
+              "key.nameoffset" : 2131,
+              "key.offset" : 2127,
               "key.parsed_declaration" : "var t: Q? = nil",
-              "key.parsed_scope.end" : 106,
-              "key.parsed_scope.start" : 106,
+              "key.parsed_scope.end" : 107,
+              "key.parsed_scope.start" : 107,
               "key.setter_accessibility" : "source.lang.swift.accessibility.internal",
               "key.typename" : "Q?",
               "key.typeusr" : "$sq_SgD",
@@ -3945,26 +4022,26 @@
                 {
                   "key.attribute" : "source.decl.attribute.override",
                   "key.length" : 8,
-                  "key.offset" : 2163
+                  "key.offset" : 2189
                 },
                 {
                   "key.attribute" : "source.decl.attribute.public",
                   "key.length" : 6,
-                  "key.offset" : 2156
+                  "key.offset" : 2182
                 }
               ],
               "key.bodylength" : 17,
-              "key.bodyoffset" : 2207,
+              "key.bodyoffset" : 2233,
               "key.doc.column" : 24,
               "key.doc.comment" : "See `ABaseClass.method(...)`.",
               "key.doc.declaration" : "public override func method(param: Int) -> String",
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-              "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"109\" column=\"24\"><Name>method(param:)<\/Name><USR>s:14SpmSwiftModule13ADerivedClassC6method5paramSSSi_tF<\/USR><Declaration>public override func method(param: Int) -&gt; String<\/Declaration><CommentParts><Abstract><Para>See <codeVoice>ABaseClass.method(...)<\/codeVoice>.<\/Para><\/Abstract><\/CommentParts><\/Function>",
-              "key.doc.line" : 109,
+              "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"110\" column=\"24\"><Name>method(param:)<\/Name><USR>s:14SpmSwiftModule13ADerivedClassC6method5paramSSSi_tF<\/USR><Declaration>public override func method(param: Int) -&gt; String<\/Declaration><CommentParts><Abstract><Para>See <codeVoice>ABaseClass.method(...)<\/codeVoice>.<\/Para><\/Abstract><\/CommentParts><\/Function>",
+              "key.doc.line" : 110,
               "key.doc.name" : "method(param:)",
               "key.doc.type" : "Function",
               "key.doclength" : 34,
-              "key.docoffset" : 2120,
+              "key.docoffset" : 2146,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>override<\/syntaxtype.keyword> <syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>method<\/decl.name>(<decl.var.parameter><decl.var.parameter.argument_label>param<\/decl.var.parameter.argument_label>: <decl.var.parameter.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.function.returntype><\/decl.function.method.instance>",
               "key.j2.documentation" : {
@@ -3975,6 +4052,7 @@
               },
               "key.j2.is_override" : true,
               "key.j2.swift_declaration" : "public override func method(param: Int) -> String",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -4001,16 +4079,16 @@
               "key.length" : 53,
               "key.name" : "method(param:)",
               "key.namelength" : 18,
-              "key.nameoffset" : 2177,
-              "key.offset" : 2172,
+              "key.nameoffset" : 2203,
+              "key.offset" : 2198,
               "key.overrides" : [
                 {
                   "key.usr" : "s:14SpmSwiftModule10ABaseClassC6method5paramSSSi_tF"
                 }
               ],
               "key.parsed_declaration" : "public override func method(param: Int) -> String",
-              "key.parsed_scope.end" : 111,
-              "key.parsed_scope.start" : 109,
+              "key.parsed_scope.end" : 112,
+              "key.parsed_scope.start" : 110,
               "key.typename" : "<T, Q where Q : Sequence> (ADerivedClass<T, Q>) -> (Int) -> String",
               "key.typeusr" : "$s5paramSSSi_tcD",
               "key.usr" : "s:14SpmSwiftModule13ADerivedClassC6method5paramSSSi_tF"
@@ -4022,15 +4100,16 @@
                 {
                   "key.attribute" : "source.decl.attribute.public",
                   "key.length" : 6,
-                  "key.offset" : 2229
+                  "key.offset" : 2255
                 }
               ],
               "key.bodylength" : 20,
-              "key.bodyoffset" : 2265,
+              "key.bodyoffset" : 2291,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>generic<\/decl.name>(<decl.var.parameter><decl.var.parameter.argument_label>param<\/decl.var.parameter.argument_label>: <decl.var.parameter.type><ref.generic_type_param usr=\"s:14SpmSwiftModule13ADerivedClassC1Txmfp\">T<\/ref.generic_type_param><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.generic_type_param usr=\"s:14SpmSwiftModule13ADerivedClassC1Txmfp\">T<\/ref.generic_type_param><\/decl.function.returntype><\/decl.function.method.instance>",
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "public func generic(param: T) -> T",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -4057,11 +4136,11 @@
               "key.length" : 50,
               "key.name" : "generic(param:)",
               "key.namelength" : 17,
-              "key.nameoffset" : 2241,
-              "key.offset" : 2236,
+              "key.nameoffset" : 2267,
+              "key.offset" : 2262,
               "key.parsed_declaration" : "public func generic(param: T) -> T",
-              "key.parsed_scope.end" : 115,
-              "key.parsed_scope.start" : 113,
+              "key.parsed_scope.end" : 116,
+              "key.parsed_scope.start" : 114,
               "key.typename" : "<T, Q where Q : Sequence> (ADerivedClass<T, Q>) -> (T) -> T",
               "key.typeusr" : "$s5paramxx_tcD",
               "key.usr" : "s:14SpmSwiftModule13ADerivedClassC7generic5paramxx_tF"
@@ -4078,15 +4157,16 @@
             {
               "key.attribute" : "source.decl.attribute.propertyWrapper",
               "key.length" : 16,
-              "key.offset" : 2290
+              "key.offset" : 2316
             }
           ],
           "key.bodylength" : 111,
-          "key.bodyoffset" : 2319,
+          "key.bodyoffset" : 2345,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
           "key.fully_annotated_decl" : "<decl.struct><syntaxtype.attribute.builtin><syntaxtype.attribute.name>@propertyWrapper<\/syntaxtype.attribute.name><\/syntaxtype.attribute.builtin> <syntaxtype.keyword>struct<\/syntaxtype.keyword> <decl.name>Nop<\/decl.name><\/decl.struct>",
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "@propertyWrapper\nstruct Nop",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -4101,11 +4181,11 @@
           "key.length" : 124,
           "key.name" : "Nop",
           "key.namelength" : 3,
-          "key.nameoffset" : 2314,
-          "key.offset" : 2307,
+          "key.nameoffset" : 2340,
+          "key.offset" : 2333,
           "key.parsed_declaration" : "struct Nop",
-          "key.parsed_scope.end" : 125,
-          "key.parsed_scope.start" : 119,
+          "key.parsed_scope.end" : 126,
+          "key.parsed_scope.start" : 120,
           "key.substructure" : [
             {
               "key.accessibility" : "source.lang.swift.accessibility.internal",
@@ -4114,6 +4194,7 @@
               "key.fully_annotated_decl" : "<decl.var.instance><syntaxtype.keyword>var<\/syntaxtype.keyword> <decl.name>wrappedValue<\/decl.name>: <decl.var.type><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.var.type><\/decl.var.instance>",
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "var wrappedValue: String",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -4132,11 +4213,11 @@
               "key.length" : 24,
               "key.name" : "wrappedValue",
               "key.namelength" : 12,
-              "key.nameoffset" : 2328,
-              "key.offset" : 2324,
+              "key.nameoffset" : 2354,
+              "key.offset" : 2350,
               "key.parsed_declaration" : "var wrappedValue: String",
-              "key.parsed_scope.end" : 120,
-              "key.parsed_scope.start" : 120,
+              "key.parsed_scope.end" : 121,
+              "key.parsed_scope.start" : 121,
               "key.setter_accessibility" : "source.lang.swift.accessibility.internal",
               "key.typename" : "String",
               "key.typeusr" : "$sSSD",
@@ -4146,11 +4227,12 @@
               "key.accessibility" : "source.lang.swift.accessibility.internal",
               "key.annotated_decl" : "<Declaration>init(wrappedValue: <Type usr=\"s:SS\">String<\/Type>)<\/Declaration>",
               "key.bodylength" : 46,
-              "key.bodyoffset" : 2382,
+              "key.bodyoffset" : 2408,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.function.constructor><syntaxtype.keyword>init<\/syntaxtype.keyword>(<decl.var.parameter><decl.var.parameter.argument_label>wrappedValue<\/decl.var.parameter.argument_label>: <decl.var.parameter.type><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>)<\/decl.function.constructor>",
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "init(wrappedValue: String)",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : true,
@@ -4173,11 +4255,11 @@
               "key.length" : 75,
               "key.name" : "init(wrappedValue:)",
               "key.namelength" : 26,
-              "key.nameoffset" : 2354,
-              "key.offset" : 2354,
+              "key.nameoffset" : 2380,
+              "key.offset" : 2380,
               "key.parsed_declaration" : "init(wrappedValue: String)",
-              "key.parsed_scope.end" : 124,
-              "key.parsed_scope.start" : 122,
+              "key.parsed_scope.end" : 125,
+              "key.parsed_scope.start" : 123,
               "key.typename" : "(Nop.Type) -> (String) -> Nop",
               "key.typeusr" : "$s12wrappedValue14SpmSwiftModule3NopVSS_tcD",
               "key.usr" : "s:14SpmSwiftModule3NopV12wrappedValueACSS_tcfc"
@@ -4191,17 +4273,17 @@
           "key.accessibility" : "source.lang.swift.accessibility.internal",
           "key.annotated_decl" : "<Declaration>struct PropertyWrapperClient<\/Declaration>",
           "key.bodylength" : 28,
-          "key.bodyoffset" : 2479,
+          "key.bodyoffset" : 2505,
           "key.doc.column" : 8,
           "key.doc.comment" : "See `@Nop`.",
           "key.doc.declaration" : "struct PropertyWrapperClient",
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "key.doc.full_as_xml" : "<Class file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"128\" column=\"8\"><Name>PropertyWrapperClient<\/Name><USR>s:14SpmSwiftModule21PropertyWrapperClientV<\/USR><Declaration>struct PropertyWrapperClient<\/Declaration><CommentParts><Abstract><Para>See <codeVoice>@Nop<\/codeVoice>.<\/Para><\/Abstract><\/CommentParts><\/Class>",
-          "key.doc.line" : 128,
+          "key.doc.full_as_xml" : "<Class file=\"\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"129\" column=\"8\"><Name>PropertyWrapperClient<\/Name><USR>s:14SpmSwiftModule21PropertyWrapperClientV<\/USR><Declaration>struct PropertyWrapperClient<\/Declaration><CommentParts><Abstract><Para>See <codeVoice>@Nop<\/codeVoice>.<\/Para><\/Abstract><\/CommentParts><\/Class>",
+          "key.doc.line" : 129,
           "key.doc.name" : "PropertyWrapperClient",
           "key.doc.type" : "Class",
           "key.doclength" : 16,
-          "key.docoffset" : 2433,
+          "key.docoffset" : 2459,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
           "key.fully_annotated_decl" : "<decl.struct><syntaxtype.keyword>struct<\/syntaxtype.keyword> <decl.name>PropertyWrapperClient<\/decl.name><\/decl.struct>",
           "key.j2.documentation" : {
@@ -4212,6 +4294,7 @@
           },
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "struct PropertyWrapperClient",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -4226,11 +4309,11 @@
           "key.length" : 59,
           "key.name" : "PropertyWrapperClient",
           "key.namelength" : 21,
-          "key.nameoffset" : 2456,
-          "key.offset" : 2449,
+          "key.nameoffset" : 2482,
+          "key.offset" : 2475,
           "key.parsed_declaration" : "struct PropertyWrapperClient",
-          "key.parsed_scope.end" : 131,
-          "key.parsed_scope.start" : 128,
+          "key.parsed_scope.end" : 132,
+          "key.parsed_scope.start" : 129,
           "key.substructure" : [
             {
               "key.accessibility" : "source.lang.swift.accessibility.internal",
@@ -4239,13 +4322,14 @@
                 {
                   "key.attribute" : "source.decl.attribute._custom",
                   "key.length" : 4,
-                  "key.offset" : 2484
+                  "key.offset" : 2510
                 }
               ],
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.var.instance><syntaxtype.attribute.builtin><syntaxtype.attribute.name>@<\/syntaxtype.attribute.name><ref.struct usr=\"s:14SpmSwiftModule3NopV\">Nop<\/ref.struct><\/syntaxtype.attribute.builtin> <syntaxtype.keyword>var<\/syntaxtype.keyword> <decl.name>v<\/decl.name>: <decl.var.type><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.var.type> { <syntaxtype.keyword>get<\/syntaxtype.keyword> <syntaxtype.keyword>set<\/syntaxtype.keyword> }<\/decl.var.instance>",
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "@Nop\nvar v: String { get set }",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -4264,11 +4348,11 @@
               "key.length" : 13,
               "key.name" : "v",
               "key.namelength" : 1,
-              "key.nameoffset" : 2497,
-              "key.offset" : 2493,
+              "key.nameoffset" : 2523,
+              "key.offset" : 2519,
               "key.parsed_declaration" : "var v: String",
-              "key.parsed_scope.end" : 130,
-              "key.parsed_scope.start" : 130,
+              "key.parsed_scope.end" : 131,
+              "key.parsed_scope.start" : 131,
               "key.setter_accessibility" : "source.lang.swift.accessibility.internal",
               "key.typename" : "String",
               "key.typeusr" : "$sSSD",

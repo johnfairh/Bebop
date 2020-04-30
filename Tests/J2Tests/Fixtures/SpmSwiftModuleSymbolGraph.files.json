@@ -22,6 +22,7 @@
           },
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "protocol FirstProtocol",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -65,6 +66,7 @@
               },
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func m(arg: Int) -> String",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -101,6 +103,7 @@
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "associatedtype AssocType",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -125,6 +128,7 @@
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func assocFunc() -> AssocType",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -153,6 +157,7 @@
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "var getOnly: Int",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -181,6 +186,7 @@
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "var setAndGet: Int",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -212,6 +218,7 @@
           "key.inherited_docs" : true,
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "protocol SecondProtocol : FirstProtocol",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -235,6 +242,7 @@
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func secondProtocolMethod() -> String",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -272,6 +280,7 @@
           },
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "struct SpmSwiftModule",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -295,6 +304,7 @@
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "var text: String",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -323,6 +333,7 @@
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "struct Nested1",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -346,6 +357,7 @@
                   "key.inherited_docs" : true,
                   "key.j2.is_override" : false,
                   "key.j2.swift_declaration" : "struct Nested2a",
+                  "key.j2.swift_deprecated_everywhere" : false,
                   "key.j2.swift_name_pieces" : [
                     {
                       "key.j2.name_piece_is_name" : false,
@@ -373,6 +385,7 @@
                   "key.inherited_docs" : true,
                   "key.j2.is_override" : false,
                   "key.j2.swift_declaration" : "struct Nested2b",
+                  "key.j2.swift_deprecated_everywhere" : true,
                   "key.j2.swift_deprecation_messages" : {
                     "en" : "Deprecated."
                   },
@@ -403,6 +416,7 @@
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "struct Nested2<T> where T : Equatable",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -420,6 +434,7 @@
                   "key.fully_annotated_decl" : "<g>T<\/g>",
                   "key.j2.is_override" : false,
                   "key.j2.swift_declaration" : "T",
+                  "key.j2.swift_deprecated_everywhere" : false,
                   "key.j2.swift_name_pieces" : [
                     {
                       "key.j2.name_piece_is_name" : true,
@@ -452,6 +467,7 @@
           },
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "enum AnEnum",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -481,6 +497,7 @@
               },
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "case first(Int)",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -515,6 +532,7 @@
               },
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "case second",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -545,6 +563,7 @@
               },
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "case third",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -575,6 +594,7 @@
               },
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "case fourth",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -605,6 +625,7 @@
               },
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "case fifth(a: String, _ arg: Int)",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -681,6 +702,7 @@
           },
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "func functionA(arg1: Int, _ arg2: Int, arg3 argMeaning: Int)",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -745,6 +767,7 @@
           },
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "func deprecatedFunction(callback: (String) -> Int) -> String",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_deprecation_messages" : {
             "en" : "macOS - deprecated since 10.14. Deprecated on *macOS* too.\n\niOS - deprecated since 12.0.1. Deprecated!. Renamed to `functionA(arg1:_:arg3:)`."
           },
@@ -790,6 +813,7 @@
           },
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "class ABaseClass",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -813,6 +837,7 @@
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "init()",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : true,
@@ -837,6 +862,7 @@
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "convenience init(a: Int)",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : true,
@@ -875,6 +901,7 @@
               },
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func method(param: Int) -> String",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -911,6 +938,7 @@
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "static func staticMethod() -> Int",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -939,6 +967,7 @@
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "subscript(_ arg: String) -> Int",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : true,
@@ -963,6 +992,7 @@
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "static subscript(_ arg: String) -> Int",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -991,6 +1021,7 @@
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "class subscript(_ arg: Int) -> String",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -1016,6 +1047,7 @@
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "static var aStaticVar: Int",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -1053,6 +1085,7 @@
           },
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "class ADerivedClass<T, Q> : ABaseClass where Q : Sequence",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -1082,6 +1115,7 @@
               },
               "key.j2.is_override" : true,
               "key.j2.swift_declaration" : "func method(param: Int) -> String",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -1114,6 +1148,7 @@
                   "key.fully_annotated_decl" : "<g>Q<\/g>",
                   "key.j2.is_override" : false,
                   "key.j2.swift_declaration" : "Q",
+                  "key.j2.swift_deprecated_everywhere" : false,
                   "key.j2.swift_name_pieces" : [
                     {
                       "key.j2.name_piece_is_name" : true,
@@ -1128,6 +1163,7 @@
                   "key.fully_annotated_decl" : "<g>T<\/g>",
                   "key.j2.is_override" : false,
                   "key.j2.swift_declaration" : "T",
+                  "key.j2.swift_deprecated_everywhere" : false,
                   "key.j2.swift_name_pieces" : [
                     {
                       "key.j2.name_piece_is_name" : true,
@@ -1151,6 +1187,7 @@
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func generic<R>(param: T, my param2: R) -> T where R : Sequence, R.Element : FirstProtocol",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -1188,6 +1225,7 @@
                   "key.fully_annotated_decl" : "<g>Q<\/g>",
                   "key.j2.is_override" : false,
                   "key.j2.swift_declaration" : "Q",
+                  "key.j2.swift_deprecated_everywhere" : false,
                   "key.j2.swift_name_pieces" : [
                     {
                       "key.j2.name_piece_is_name" : true,
@@ -1202,6 +1240,7 @@
                   "key.fully_annotated_decl" : "<g>R<\/g>",
                   "key.j2.is_override" : false,
                   "key.j2.swift_declaration" : "R",
+                  "key.j2.swift_deprecated_everywhere" : false,
                   "key.j2.swift_name_pieces" : [
                     {
                       "key.j2.name_piece_is_name" : true,
@@ -1216,6 +1255,7 @@
                   "key.fully_annotated_decl" : "<g>T<\/g>",
                   "key.j2.is_override" : false,
                   "key.j2.swift_declaration" : "T",
+                  "key.j2.swift_deprecated_everywhere" : false,
                   "key.j2.swift_name_pieces" : [
                     {
                       "key.j2.name_piece_is_name" : true,
@@ -1236,6 +1276,7 @@
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "var t: Q?",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -1258,6 +1299,7 @@
               "key.fully_annotated_decl" : "<g>Q<\/g>",
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "Q",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : true,
@@ -1272,6 +1314,7 @@
               "key.fully_annotated_decl" : "<g>T<\/g>",
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "T",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : true,
@@ -1292,6 +1335,7 @@
           "key.inherited_docs" : true,
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "class GenericBase<T>",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -1312,6 +1356,7 @@
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "var boxed: T",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -1346,6 +1391,7 @@
               },
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "var description: String",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -1371,6 +1417,7 @@
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "init(type: T)",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : true,
@@ -1396,6 +1443,7 @@
                   "key.fully_annotated_decl" : "<g>T<\/g>",
                   "key.j2.is_override" : false,
                   "key.j2.swift_declaration" : "T",
+                  "key.j2.swift_deprecated_everywhere" : false,
                   "key.j2.swift_name_pieces" : [
                     {
                       "key.j2.name_piece_is_name" : true,
@@ -1416,6 +1464,7 @@
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func mutify() -> T",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -1437,6 +1486,7 @@
                   "key.fully_annotated_decl" : "<g>T<\/g>",
                   "key.j2.is_override" : false,
                   "key.j2.swift_declaration" : "T",
+                  "key.j2.swift_deprecated_everywhere" : false,
                   "key.j2.swift_name_pieces" : [
                     {
                       "key.j2.name_piece_is_name" : true,
@@ -1454,6 +1504,7 @@
               "key.fully_annotated_decl" : "<g>T<\/g>",
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "T",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : true,
@@ -1474,6 +1525,7 @@
           "key.inherited_docs" : true,
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "protocol P1",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -1495,6 +1547,7 @@
           "key.inherited_docs" : true,
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "protocol P2",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -1516,6 +1569,7 @@
           "key.inherited_docs" : true,
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "struct S1 : P1",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -1545,6 +1599,7 @@
               },
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "var description: String",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -1573,6 +1628,7 @@
           "key.inherited_docs" : true,
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "struct S2<T> : P1 where T : Equatable",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -1593,6 +1649,7 @@
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func equatables2()",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -1614,6 +1671,7 @@
                   "key.fully_annotated_decl" : "<g>T<\/g>",
                   "key.j2.is_override" : false,
                   "key.j2.swift_declaration" : "T",
+                  "key.j2.swift_deprecated_everywhere" : false,
                   "key.j2.swift_name_pieces" : [
                     {
                       "key.j2.name_piece_is_name" : true,
@@ -1634,6 +1692,7 @@
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func equatables22()",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -1656,6 +1715,7 @@
               "key.fully_annotated_decl" : "<g>T<\/g>",
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "T",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : true,
@@ -1676,6 +1736,7 @@
           "key.inherited_docs" : true,
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "struct T",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -1694,6 +1755,7 @@
           "key.fully_annotated_decl" : "<swift>extension ADerivedClass where T : Equatable<\/swift>",
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "extension ADerivedClass where T : Equatable",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -1719,6 +1781,7 @@
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func generic2(param: T)",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -1748,6 +1811,7 @@
                   "key.fully_annotated_decl" : "<g>Q<\/g>",
                   "key.j2.is_override" : false,
                   "key.j2.swift_declaration" : "Q",
+                  "key.j2.swift_deprecated_everywhere" : false,
                   "key.j2.swift_name_pieces" : [
                     {
                       "key.j2.name_piece_is_name" : true,
@@ -1762,6 +1826,7 @@
                   "key.fully_annotated_decl" : "<g>T<\/g>",
                   "key.j2.is_override" : false,
                   "key.j2.swift_declaration" : "T",
+                  "key.j2.swift_deprecated_everywhere" : false,
                   "key.j2.swift_name_pieces" : [
                     {
                       "key.j2.name_piece_is_name" : true,
@@ -1782,6 +1847,7 @@
           "key.fully_annotated_decl" : "<swift>extension FirstProtocol<\/swift>",
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "extension FirstProtocol",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -1804,6 +1870,7 @@
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func e()",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -1829,6 +1896,7 @@
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func e<C>(a: C) where C : FirstProtocol",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -1858,6 +1926,7 @@
                   "key.fully_annotated_decl" : "<g>C<\/g>",
                   "key.j2.is_override" : false,
                   "key.j2.swift_declaration" : "C",
+                  "key.j2.swift_deprecated_everywhere" : false,
                   "key.j2.swift_name_pieces" : [
                     {
                       "key.j2.name_piece_is_name" : true,
@@ -1878,6 +1947,7 @@
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "var getOnly: Int",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -1923,6 +1993,7 @@
               },
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func m(arg: Int) -> String",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -1956,6 +2027,7 @@
           "key.fully_annotated_decl" : "<swift>extension FirstProtocol where AssocType : Hashable<\/swift>",
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "extension FirstProtocol where AssocType : Hashable",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -1978,6 +2050,7 @@
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func extHashableMethod()",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -2023,6 +2096,7 @@
               },
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func m(arg: Int) -> String",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -2066,6 +2140,7 @@
           ],
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "extension GenericBase : CustomStringConvertible",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -2086,6 +2161,7 @@
           "key.fully_annotated_decl" : "<swift>extension GenericBase where T : Decodable, T : Encodable<\/swift>",
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "extension GenericBase where T : Decodable, T : Encodable",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -2108,6 +2184,7 @@
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "var codableCount: Int",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -2133,6 +2210,7 @@
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func doCodability()",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -2158,6 +2236,7 @@
           "key.fully_annotated_decl" : "<swift>extension GenericBase where T : Equatable, T : FirstProtocol<\/swift>",
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "extension GenericBase where T : Equatable, T : FirstProtocol",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -2180,6 +2259,7 @@
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func doFirstMagic()",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -2205,6 +2285,7 @@
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func doMoreMagic()",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -2230,6 +2311,7 @@
           "key.fully_annotated_decl" : "<swift>extension GenericBase where T : Hashable<\/swift>",
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "extension GenericBase where T : Hashable",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -2252,6 +2334,7 @@
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func doHashable()",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -2287,6 +2370,7 @@
           ],
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "extension S1 : CustomStringConvertible",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -2317,6 +2401,7 @@
           ],
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "extension S2 : P2 where T : Comparable",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -2339,6 +2424,7 @@
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func comparables2()",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -2374,6 +2460,7 @@
           ],
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "extension S2 : Equatable",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -2414,6 +2501,7 @@
           ],
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "extension Array : P1 where Element : Comparable",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -2436,6 +2524,7 @@
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func arrayFunc()",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -2461,6 +2550,7 @@
           "key.fully_annotated_decl" : "<swift>extension Character<\/swift>",
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "extension Character",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -2483,6 +2573,7 @@
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func method1()",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -2508,6 +2599,7 @@
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func method2()",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -2533,6 +2625,7 @@
           "key.fully_annotated_decl" : "<swift>extension Collection where Element : FirstProtocol<\/swift>",
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "extension Collection where Element : FirstProtocol",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -2555,6 +2648,7 @@
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func collectEmAll()",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -2580,6 +2674,7 @@
           "key.fully_annotated_decl" : "<swift>extension Collection where Element == SpmSwiftModule.Nested1<\/swift>",
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "extension Collection where Element == SpmSwiftModule.Nested1",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -2602,6 +2697,7 @@
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func nestEmAll()",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -2637,6 +2733,7 @@
           ],
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "extension Dictionary : P2 where Key : Hashable",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -2657,6 +2754,7 @@
           "key.fully_annotated_decl" : "<swift>extension StringProtocol<\/swift>",
           "key.j2.is_override" : false,
           "key.j2.swift_declaration" : "extension StringProtocol",
+          "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
               "key.j2.name_piece_is_name" : false,
@@ -2679,6 +2777,7 @@
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func f()",
+              "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,

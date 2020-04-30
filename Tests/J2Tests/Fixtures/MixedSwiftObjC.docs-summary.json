@@ -59,6 +59,7 @@
                   }
                 },
                 "availability" : [],
+                "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
                   "html" : "@interface ExposedSwiftClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
                 },
@@ -92,6 +93,7 @@
                   }
                 },
                 "availability" : [],
+                "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
                   "html" : "@interface RenamedForObjC : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
                 },
@@ -125,6 +127,7 @@
                   }
                 },
                 "availability" : [],
+                "deprecated_everywhere" : false,
                 "discussion" : {
                   "en" : {
                     "html" : "<p>See <a href=\"spmobjcmodule\/types\/normalclass1.html?objc#objcnormalmethod\" class=\"j2-objc\"><code>-objcNormalMethod<\/code><\/a><a href=\"spmobjcmodule\/types\/normalclass1.html?swift#objcnormalmethod\" class=\"j2-swift j2-secondary\"><code>objcNormalMethod()<\/code><\/a>.<\/p>"
@@ -163,6 +166,7 @@
                   }
                 },
                 "availability" : [],
+                "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
                   "html" : "@interface JMLKitchen : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
                 },
@@ -196,6 +200,7 @@
                   }
                 },
                 "availability" : [],
+                "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
                   "html" : "@interface JMLKitchenCupboard : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
                 },
@@ -229,6 +234,7 @@
                   }
                 },
                 "availability" : [],
+                "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
                   "html" : "@interface JMLBathroomCupboard : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
                 },
@@ -300,6 +306,7 @@
           }
         },
         "availability" : [],
+        "deprecated_everywhere" : false,
         "obj_c_declaration" : {
           "html" : "@interface ExposedSwiftClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
         },
@@ -357,6 +364,7 @@
                   }
                 },
                 "availability" : [],
+                "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
                   "html" : "- (<a href=\"https:\/\/developer.apple.com\/documentation\/foundation\/nsstring?language=objc\">NSString<\/a> *_Nonnull)exposedMethodWithA:(<a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsinteger?language=objc\">NSInteger<\/a>)a b:(<a href=\"https:\/\/developer.apple.com\/documentation\/foundation\/nsstring?language=objc\">NSString<\/a> *_Nullable)b"
                 },
@@ -387,6 +395,7 @@
                   }
                 },
                 "availability" : [],
+                "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
                   "html" : "@property (nonatomic) <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsinteger?language=objc\">NSInteger<\/a> exposedProperty"
                 },
@@ -417,6 +426,7 @@
                   }
                 },
                 "availability" : [],
+                "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
                   "html" : "@property (nonatomic, strong) <a href=\"..\/..\/spmswiftmodule4\/types\/exposedswiftclass.html?swift\">ExposedSwiftClass<\/a> *_Nullable exposedRefProperty"
                 },
@@ -447,6 +457,7 @@
                   }
                 },
                 "availability" : [],
+                "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
                   "html" : "- (nonnull instancetype)init"
                 },
@@ -477,6 +488,7 @@
                   }
                 },
                 "availability" : [],
+                "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
                   "html" : "- (nonnull instancetype)initWithValue:(<a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsinteger?language=objc\">NSInteger<\/a>)value"
                 },
@@ -552,6 +564,7 @@
           }
         },
         "availability" : [],
+        "deprecated_everywhere" : false,
         "obj_c_declaration" : {
           "html" : "@interface RenamedForObjC : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
         },
@@ -609,6 +622,7 @@
                   }
                 },
                 "availability" : [],
+                "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
                   "html" : "@property (nonatomic) <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsinteger?language=objc\">NSInteger<\/a> property"
                 },
@@ -639,6 +653,7 @@
                   }
                 },
                 "availability" : [],
+                "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
                   "html" : "- (void)action:(<a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsinteger?language=objc\">NSInteger<\/a>)a param:(<a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsinteger?language=objc\">NSInteger<\/a>)parm"
                 },
@@ -669,6 +684,7 @@
                   }
                 },
                 "availability" : [],
+                "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
                   "html" : "- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER"
                 },
@@ -744,6 +760,7 @@
           }
         },
         "availability" : [],
+        "deprecated_everywhere" : false,
         "discussion" : {
           "en" : {
             "html" : "<p>See <a href=\"..\/..\/spmobjcmodule\/types\/normalclass1.html?objc#objcnormalmethod\" class=\"j2-objc\"><code>-objcNormalMethod<\/code><\/a><a href=\"..\/..\/spmobjcmodule\/types\/normalclass1.html?swift#objcnormalmethod\" class=\"j2-swift j2-secondary\"><code>objcNormalMethod()<\/code><\/a>.<\/p>"
@@ -806,6 +823,7 @@
                   }
                 },
                 "availability" : [],
+                "deprecated_everywhere" : false,
                 "discussion" : {
                   "en" : {
                     "html" : "<p>See <a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?objc#jmlkitchenmethod\" class=\"j2-objc\"><code>-[JMLKitchen jmlKitchenMethod]<\/code><\/a><a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?swift#jmlkitchenmethod\" class=\"j2-swift j2-secondary\"><code>Kitchen.kitchenMethod()<\/code><\/a><\/p>"
@@ -841,6 +859,7 @@
                   }
                 },
                 "availability" : [],
+                "deprecated_everywhere" : false,
                 "discussion" : {
                   "en" : {
                     "html" : "<p>See <a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?swift\" class=\"j2-swift\"><code>Kitchen<\/code><\/a><a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?objc\" class=\"j2-objc j2-secondary\"><code>JMLKitchen<\/code><\/a><\/p>"
@@ -919,6 +938,7 @@
           }
         },
         "availability" : [],
+        "deprecated_everywhere" : false,
         "obj_c_declaration" : {
           "html" : "@interface JMLKitchen : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
         },
@@ -976,6 +996,7 @@
                   }
                 },
                 "availability" : [],
+                "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
                   "html" : "- (void)jmlKitchenMethod"
                 },
@@ -1006,6 +1027,7 @@
                   }
                 },
                 "availability" : [],
+                "deprecated_everywhere" : false,
                 "notes" : {
                   "en" : {
                     "html" : "<p>Provided by module <code>SpmSwiftModule4<\/code>.<\/p>"
@@ -1079,6 +1101,7 @@
           }
         },
         "availability" : [],
+        "deprecated_everywhere" : false,
         "obj_c_declaration" : {
           "html" : "@interface JMLKitchenCupboard : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
         },
@@ -1136,6 +1159,7 @@
                   }
                 },
                 "availability" : [],
+                "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
                   "html" : "-(void)jmlKitchenCupboardMethod"
                 },
@@ -1166,6 +1190,7 @@
                   }
                 },
                 "availability" : [],
+                "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
                   "html" : "-(void)jmlKitchenCupboardMethod2"
                 },
@@ -1196,6 +1221,7 @@
                   }
                 },
                 "availability" : [],
+                "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
                   "html" : "-(void)jmlKitchenCupboardMethod3"
                 },
@@ -1239,6 +1265,7 @@
                   }
                 },
                 "availability" : [],
+                "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
                   "html" : "-(void)jmlKitchenCupboardMethod4"
                 },
@@ -1314,6 +1341,7 @@
           }
         },
         "availability" : [],
+        "deprecated_everywhere" : false,
         "obj_c_declaration" : {
           "html" : "@interface JMLBathroomCupboard : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
         },
@@ -1365,6 +1393,7 @@
                   }
                 },
                 "availability" : [],
+                "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
                   "html" : "- (void)jmlBathroomCupboardMethod"
                 },
@@ -1454,6 +1483,7 @@
               "dash_type" : "Extension",
               "def" : {
                 "availability" : [],
+                "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
                   "html" : "extension <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/string?language=swift\">String<\/a>"
@@ -1520,6 +1550,7 @@
       ],
       "def" : {
         "availability" : [],
+        "deprecated_everywhere" : false,
         "params" : [],
         "swift_declaration" : {
           "html" : "extension <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/string?language=swift\">String<\/a>"
@@ -1559,6 +1590,7 @@
                   }
                 },
                 "availability" : [],
+                "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
                   "html" : "func externalTypeMethod()"

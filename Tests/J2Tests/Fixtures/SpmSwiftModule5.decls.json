@@ -28,6 +28,7 @@
           "declaration" : {
             "text" : "public func not_implementationPublicMethod()"
           },
+          "deprecated_everywhere" : false,
           "inherited_types" : [],
           "is_override" : false,
           "name_pieces" : [
@@ -71,6 +72,7 @@
           "declaration" : {
             "text" : "public func publicProtocolMethod()"
           },
+          "deprecated_everywhere" : false,
           "inherited_types" : [],
           "is_override" : true,
           "name_pieces" : [
@@ -114,6 +116,7 @@
           "declaration" : {
             "text" : "public var description: String { get }"
           },
+          "deprecated_everywhere" : false,
           "inherited_types" : [],
           "is_override" : true,
           "name_pieces" : [
@@ -155,6 +158,7 @@
       "declaration" : {
         "text" : "open class PublicClass\n\nextension PublicClass : PublicProtocol\n\nextension PublicClass: CustomStringConvertible"
       },
+      "deprecated_everywhere" : false,
       "inherited_types" : [],
       "is_override" : false,
       "name_pieces" : [
@@ -198,6 +202,7 @@
           "declaration" : {
             "text" : "func publicProtocolMethod()"
           },
+          "deprecated_everywhere" : false,
           "inherited_types" : [],
           "is_override" : false,
           "name_pieces" : [
@@ -239,6 +244,7 @@
       "declaration" : {
         "text" : "public protocol PublicProtocol"
       },
+      "deprecated_everywhere" : false,
       "inherited_types" : [],
       "is_override" : false,
       "name_pieces" : [

@@ -379,6 +379,7 @@ class GenItemVisitor: ItemVisitorProtocol {
 extension DefItem {
     func asGenDef(pageURL: URLPieces, published: Published) -> GenData.Def {
         GenData.Def(deprecation: deprecationNotice?.html.autolinked(pageURL),
+                    deprecatedEverywhere: deprecatedEverywhere,
                     unavailability: unavailableNotice?.html.autolinked(pageURL),
                     notes: declNotesNotice?.html.autolinked(pageURL),
                     availability: swiftDeclaration?.availability ?? [],

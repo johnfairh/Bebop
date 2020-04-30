@@ -191,6 +191,7 @@
             "dash_type" : "Class",
             "def" : {
               "abstract_html" : "<p>A base class<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "public class ABaseClass"
             },
             "primary_language" : "j2-swift",
@@ -205,6 +206,7 @@
             "dash_type" : "Class",
             "def" : {
               "abstract_html" : "<p>A derived class<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "public class ADerivedClass&lt;T, Q&gt; : <a href=\"types\/abaseclass.html?swift\">ABaseClass<\/a> where Q : Sequence"
             },
             "primary_language" : "j2-swift",
@@ -219,6 +221,7 @@
             "dash_type" : "enum",
             "def" : {
               "abstract_html" : "<p>An enum<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "public enum AnEnum"
             },
             "primary_language" : "j2-swift",
@@ -233,6 +236,7 @@
             "dash_type" : "Protocol",
             "def" : {
               "abstract_html" : "<p>A protocol.<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "public protocol FirstProtocol"
             },
             "primary_language" : "j2-swift",
@@ -247,6 +251,7 @@
             "dash_type" : "Class",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "class GenericBase&lt;T&gt;\n\nextension GenericBase : CustomStringConvertible"
             },
             "primary_language" : "j2-swift",
@@ -261,6 +266,7 @@
             "dash_type" : "Struct",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "@propertyWrapper\nstruct Nop"
             },
             "primary_language" : "j2-swift",
@@ -275,6 +281,7 @@
             "dash_type" : "Struct",
             "def" : {
               "abstract_html" : "<p>See <a href=\"types\/nop.html?swift\"><code>@Nop<\/code><\/a>.<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "struct PropertyWrapperClient"
             },
             "primary_language" : "j2-swift",
@@ -289,6 +296,7 @@
             "dash_type" : "Protocol",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "public protocol SecondProtocol : <a href=\"types\/firstprotocol1.html?swift\">FirstProtocol<\/a>"
             },
             "primary_language" : "j2-swift",
@@ -303,6 +311,7 @@
             "dash_type" : "Struct",
             "def" : {
               "abstract_html" : "<p>Main structure<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "public struct SpmSwiftModule"
             },
             "primary_language" : "j2-swift",
@@ -317,6 +326,7 @@
             "dash_type" : "Struct",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "struct T"
             },
             "primary_language" : "j2-swift",
@@ -350,6 +360,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "def" : {
       "abstract_html" : "<p>A base class<\/p>",
+      "discouraged" : false,
       "swift_declaration_html" : "public class ABaseClass"
     },
     "default_language" : "j2-swift",
@@ -537,6 +548,7 @@
             "dash_type" : "Constructor",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "public init()"
             },
             "primary_language" : "j2-swift",
@@ -550,6 +562,7 @@
             "dash_type" : "Constructor",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "public convenience init(a: Int)"
             },
             "primary_language" : "j2-swift",
@@ -571,6 +584,7 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "deinit"
             },
             "primary_language" : "j2-swift",
@@ -592,6 +606,7 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>Base class docs for <code>method(param:)<\/code><\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "public func method(param: Int) -&gt; String"
             },
             "primary_language" : "j2-swift",
@@ -613,6 +628,7 @@
             "dash_type" : "Function",
             "def" : {
               "abstract_html" : "<p>An operator!<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "public static func + (lhs: <a href=\"..\/types\/abaseclass.html?swift\">ABaseClass<\/a>, rhs: <a href=\"..\/types\/abaseclass.html?swift\">ABaseClass<\/a>) -&gt; <a href=\"..\/types\/abaseclass.html?swift\">ABaseClass<\/a>"
             },
             "primary_language" : "j2-swift",
@@ -634,6 +650,7 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "public subscript(arg: String) -&gt; Int { get set }"
             },
             "primary_language" : "j2-swift",
@@ -655,6 +672,7 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "public static func staticMethod() -&gt; Int"
             },
             "primary_language" : "j2-swift",
@@ -676,6 +694,7 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "public static subscript(arg: String) -&gt; Int { get }"
             },
             "primary_language" : "j2-swift",
@@ -697,6 +716,7 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "public class subscript(arg: Int) -&gt; String { get }"
             },
             "primary_language" : "j2-swift",
@@ -773,6 +793,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "def" : {
       "abstract_html" : "<p>A derived class<\/p>",
+      "discouraged" : false,
       "swift_declaration_html" : "public class ADerivedClass&lt;T, Q&gt; : <a href=\"..\/types\/abaseclass.html?swift\">ABaseClass<\/a> where Q : Sequence"
     },
     "default_language" : "j2-swift",
@@ -960,6 +981,7 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "public func generic(param: T) -&gt; T"
             },
             "primary_language" : "j2-swift",
@@ -973,6 +995,7 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>See <a href=\"..\/types\/abaseclass.html?swift#methodparam\"><code>ABaseClass.method(...)<\/code><\/a>.<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "public override func method(param: Int) -&gt; String"
             },
             "primary_language" : "j2-swift",
@@ -994,6 +1017,7 @@
             "dash_type" : "Property",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "var t: Q?"
             },
             "primary_language" : "j2-swift",
@@ -1046,6 +1070,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "def" : {
       "abstract_html" : "<p>An enum<\/p>",
+      "discouraged" : false,
       "swift_declaration_html" : "public enum AnEnum"
     },
     "default_language" : "j2-swift",
@@ -1233,6 +1258,7 @@
             "dash_type" : "Case",
             "def" : {
               "abstract_html" : "<p>First case<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "case first(Int)"
             },
             "primary_language" : "j2-swift",
@@ -1246,6 +1272,7 @@
             "dash_type" : "Case",
             "def" : {
               "abstract_html" : "<p>Second case<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "case second"
             },
             "primary_language" : "j2-swift",
@@ -1259,6 +1286,7 @@
             "dash_type" : "Case",
             "def" : {
               "abstract_html" : "<p>Third &amp; Fourth cases - <a href=\"..\/types\/anenum.html?swift#second\"><code>second<\/code><\/a><\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "case third"
             },
             "primary_language" : "j2-swift",
@@ -1272,6 +1300,7 @@
             "dash_type" : "Case",
             "def" : {
               "abstract_html" : "<p>Third &amp; Fourth cases - <a href=\"..\/types\/anenum.html?swift#second\"><code>second<\/code><\/a><\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "case fourth"
             },
             "primary_language" : "j2-swift",
@@ -1285,6 +1314,7 @@
             "dash_type" : "Case",
             "def" : {
               "abstract_html" : "<p>Fifth case<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "case fifth(a: String, _: Int)"
             },
             "primary_language" : "j2-swift",
@@ -1333,6 +1363,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "def" : {
       "abstract_html" : "<p>A protocol.<\/p>",
+      "discouraged" : false,
       "swift_declaration_html" : "public protocol FirstProtocol"
     },
     "default_language" : "j2-swift",
@@ -1520,6 +1551,7 @@
             "dash_type" : "Type",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "associatedtype AssocType"
             },
             "primary_language" : "j2-swift",
@@ -1541,6 +1573,7 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "func assocFunc() -&gt; <a href=\"..\/types\/firstprotocol1.html?swift#assoctype\">AssocType<\/a>"
             },
             "primary_language" : "j2-swift",
@@ -1554,6 +1587,7 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>A protocol extension method<\/p>",
+              "discouraged" : false,
               "notes_html" : "<p>From a protocol extension: not a customization point.<\/p>",
               "swift_declaration_html" : "func e()"
             },
@@ -1570,6 +1604,7 @@
               "abstract_html" : "<p>Brief note about m<\/p>",
               "default_abstract_html" : "<p>Return a safe default.<\/p>",
               "default_discussion_html" : "<p>There’s more: it’s the empty string.<\/p>",
+              "discouraged" : false,
               "discussion_html" : "<p>What m is all about.<\/p>",
               "notes_html" : "<p>Has a default implementation.<\/p>\n<p>Has a default implementation for some conforming types.<\/p>",
               "parameters" : [
@@ -1600,6 +1635,7 @@
             "dash_type" : "Property",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "var getOnly: Int { get }"
             },
             "primary_language" : "j2-swift",
@@ -1621,6 +1657,7 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "discouraged" : false,
               "notes_html" : "<p>From a protocol extension: not a customization point.<\/p>",
               "swift_declaration_html" : "func extHashableMethod()"
             },
@@ -1635,6 +1672,7 @@
             "dash_type" : "Method",
             "def" : {
               "default_abstract_html" : "<p>Special default implementation for m in Hashable case.<\/p>",
+              "discouraged" : false,
               "notes_html" : "<p>Default implementation only for types that satisfy the constraints.<\/p>",
               "swift_declaration_html" : "func m(arg: Int) -&gt; String"
             },
@@ -1696,6 +1734,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "def" : {
       "abstract_html" : "<p>Undocumented<\/p>",
+      "discouraged" : false,
       "swift_declaration_html" : "class GenericBase&lt;T&gt;\n\nextension GenericBase : CustomStringConvertible"
     },
     "default_language" : "j2-swift",
@@ -1883,6 +1922,7 @@
             "dash_type" : "Constructor",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "init(type: T)"
             },
             "primary_language" : "j2-swift",
@@ -1904,6 +1944,7 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "func mutify() -&gt; T"
             },
             "primary_language" : "j2-swift",
@@ -1925,6 +1966,7 @@
             "dash_type" : "Property",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "var boxed: T"
             },
             "primary_language" : "j2-swift",
@@ -1938,6 +1980,7 @@
             "dash_type" : "Property",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "var description: String { get }"
             },
             "primary_language" : "j2-swift",
@@ -1959,6 +2002,7 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "func doCodability()"
             },
             "primary_language" : "j2-swift",
@@ -1972,6 +2016,7 @@
             "dash_type" : "Property",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "var codableCount: Int { get }"
             },
             "primary_language" : "j2-swift",
@@ -1993,6 +2038,7 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "func doFirstMagic()"
             },
             "primary_language" : "j2-swift",
@@ -2006,6 +2052,7 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "func doMoreMagic()"
             },
             "primary_language" : "j2-swift",
@@ -2027,6 +2074,7 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "func doHashable()"
             },
             "primary_language" : "j2-swift",
@@ -2095,6 +2143,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "def" : {
       "abstract_html" : "<p>Undocumented<\/p>",
+      "discouraged" : false,
       "swift_declaration_html" : "@propertyWrapper\nstruct Nop"
     },
     "default_language" : "j2-swift",
@@ -2282,6 +2331,7 @@
             "dash_type" : "Constructor",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "init(wrappedValue: String)"
             },
             "primary_language" : "j2-swift",
@@ -2303,6 +2353,7 @@
             "dash_type" : "Property",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "var wrappedValue: String"
             },
             "primary_language" : "j2-swift",
@@ -2355,6 +2406,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "def" : {
       "abstract_html" : "<p>See <a href=\"..\/types\/nop.html?swift\"><code>@Nop<\/code><\/a>.<\/p>",
+      "discouraged" : false,
       "swift_declaration_html" : "struct PropertyWrapperClient"
     },
     "default_language" : "j2-swift",
@@ -2542,6 +2594,7 @@
             "dash_type" : "Property",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "<a href=\"..\/types\/nop.html?swift\">@Nop<\/a>\nvar v: String { get set }"
             },
             "primary_language" : "j2-swift",
@@ -2590,6 +2643,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "def" : {
       "abstract_html" : "<p>Undocumented<\/p>",
+      "discouraged" : false,
       "swift_declaration_html" : "public protocol SecondProtocol : <a href=\"..\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>"
     },
     "default_language" : "j2-swift",
@@ -2777,6 +2831,7 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "func secondProtocolMethod() -&gt; String"
             },
             "primary_language" : "j2-swift",
@@ -2798,6 +2853,7 @@
             "dash_type" : "Property",
             "def" : {
               "abstract_html" : "<p>A default implementation for a method of <a href=\"..\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a> provided by\n<a href=\"..\/types\/secondprotocol.html?swift\"><code>SecondProtocol<\/code><\/a>. From source we mess this up as an extension method. From\nsymbolgraph we mess this up as being part of <a href=\"..\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>.<\/p>",
+              "discouraged" : false,
               "notes_html" : "<p>From a protocol extension: not a customization point.<\/p>",
               "swift_declaration_html" : "var getOnly: Int { get }"
             },
@@ -2851,6 +2907,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "def" : {
       "abstract_html" : "<p>Main structure<\/p>",
+      "discouraged" : false,
       "swift_declaration_html" : "public struct SpmSwiftModule"
     },
     "default_language" : "j2-swift",
@@ -3039,6 +3096,7 @@
             "dash_type" : "Struct",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "public struct Nested1"
             },
             "primary_language" : "j2-swift",
@@ -3053,6 +3111,7 @@
             "dash_type" : "Struct",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "public struct Nested2"
             },
             "primary_language" : "j2-swift",
@@ -3074,6 +3133,7 @@
             "dash_type" : "Property",
             "def" : {
               "abstract_html" : "<p>A pair of Ints<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "var a: Int"
             },
             "primary_language" : "j2-swift",
@@ -3087,6 +3147,7 @@
             "dash_type" : "Property",
             "def" : {
               "abstract_html" : "<p>A pair of Ints<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "var b: Int"
             },
             "primary_language" : "j2-swift",
@@ -3100,6 +3161,7 @@
             "dash_type" : "Property",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "public var text: String"
             },
             "primary_language" : "j2-swift",
@@ -3156,6 +3218,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "def" : {
       "abstract_html" : "<p>Undocumented<\/p>",
+      "discouraged" : false,
       "swift_declaration_html" : "public struct Nested1"
     },
     "default_language" : "j2-swift",
@@ -3345,6 +3408,7 @@
             "dash_type" : "Struct",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "public struct Nested2a"
             },
             "primary_language" : "j2-swift",
@@ -3589,7 +3653,7 @@
             "dash_type" : "Global",
             "def" : {
               "abstract_html" : "<p>A deprecated function<\/p>",
-              "deprecation_html" : "<p>iOS - deprecated since 12.0. Deprecated!.<\/p>\n<p>macOS - deprecated since 10.14. Deprecated on <em>macOS<\/em> too.<\/p>",
+              "deprecation_html" : "<p>iOS - deprecated since 12.0. Deprecated!.<\/p>\n<p>macOS - deprecated since 10.14. Deprecated on <em>macOS<\/em> too.<\/p>\n<p>Deprecated.<\/p>",
               "discouraged" : true,
               "parameters" : [
                 {
@@ -3615,6 +3679,7 @@
                 "iOS 9+",
                 "macOS 10.12+"
               ],
+              "discouraged" : false,
               "notes_html" : "<p>tvOS - unavailable. Not available on the big screen.<\/p>",
               "parameters" : [
                 {
@@ -3843,6 +3908,7 @@
             "dash_type" : "Function",
             "def" : {
               "abstract_html" : "<p>Unscoped operator<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "func + (lhs: <a href=\"types.html?swift#t1\">T<\/a>, rhs: <a href=\"types.html?swift#t1\">T<\/a>) -&gt; String"
             },
             "primary_language" : "j2-swift",
@@ -4056,6 +4122,7 @@
             "dash_name" : "extension%20Collection",
             "dash_type" : "Extension",
             "def" : {
+              "discouraged" : false,
               "swift_declaration_html" : "extension Collection where Element: <a href=\"types\/firstprotocol1.html?swift\">FirstProtocol<\/a>\n\nextension Collection where Element == <a href=\"types\/spmswiftmodule\/nested1.html?swift\">SpmSwiftModule.Nested1<\/a>"
             },
             "primary_language" : "j2-swift",
@@ -4070,6 +4137,7 @@
             "dash_type" : "Extension",
             "def" : {
               "abstract_html" : "<p>Extension of a nested type from an external module<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "extension String.Element"
             },
             "primary_language" : "j2-swift",
@@ -4103,6 +4171,7 @@
     "codehost_def_link" : "Show on GitHub",
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "def" : {
+      "discouraged" : false,
       "swift_declaration_html" : "extension Collection where Element: <a href=\"..\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>\n\nextension Collection where Element == <a href=\"..\/types\/spmswiftmodule\/nested1.html?swift\">SpmSwiftModule.Nested1<\/a>"
     },
     "default_language" : "j2-swift",
@@ -4290,6 +4359,7 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "func nestEmAll()"
             },
             "primary_language" : "j2-swift",
@@ -4311,6 +4381,7 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "func collectEmAll()"
             },
             "primary_language" : "j2-swift",
@@ -4363,6 +4434,7 @@
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
     "def" : {
       "abstract_html" : "<p>Extension of a nested type from an external module<\/p>",
+      "discouraged" : false,
       "swift_declaration_html" : "extension String.Element"
     },
     "default_language" : "j2-swift",
@@ -4542,6 +4614,7 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>documented method<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "func method1()"
             },
             "primary_language" : "j2-swift",
@@ -4555,6 +4628,7 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "discouraged" : false,
               "swift_declaration_html" : "func method2()"
             },
             "primary_language" : "j2-swift",

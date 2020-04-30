@@ -109,6 +109,8 @@ public final class SwiftDeclaration: Encodable {
     public internal(set) var declaration: RichDeclaration
     /// Deprecation messages, or `nil` if not deprecated
     public let deprecation: Localized<String>?
+    /// Deprecated everywhere?
+    public let deprecatedEverywhere: Bool
     /// Unavailability messages, or `nil` if not unavailable
     public let unavailability: Localized<String>?
     /// List of availability conditions
@@ -124,6 +126,7 @@ public final class SwiftDeclaration: Encodable {
 
     init(declaration: String = "",
          deprecation: Localized<String>? = nil,
+         deprecatedEverywhere: Bool = false,
          unavailability: Localized<String>? = nil,
          availability: [String] = [],
          namePieces: [DeclarationPiece] = [],
@@ -132,6 +135,7 @@ public final class SwiftDeclaration: Encodable {
          isOverride: Bool = false) {
         self.declaration = RichDeclaration(declaration)
         self.deprecation = deprecation
+        self.deprecatedEverywhere = deprecatedEverywhere
         self.unavailability = unavailability
         self.availability = availability
         self.namePieces = namePieces

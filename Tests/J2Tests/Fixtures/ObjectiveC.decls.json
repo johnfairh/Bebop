@@ -82,6 +82,7 @@
           "declaration" : {
             "text" : "var propertyName: String! { get set }"
           },
+          "deprecated_everywhere" : false,
           "inherited_types" : [],
           "is_override" : false,
           "name_pieces" : [
@@ -142,6 +143,7 @@
           "declaration" : {
             "text" : "func categoryMethod()"
           },
+          "deprecated_everywhere" : false,
           "inherited_types" : [],
           "is_override" : false,
           "name_pieces" : [
@@ -205,6 +207,7 @@
       "declaration" : {
         "text" : "class IVarTest : NSObject"
       },
+      "deprecated_everywhere" : false,
       "inherited_types" : [],
       "is_override" : false,
       "name_pieces" : [
@@ -262,6 +265,7 @@
           "declaration" : {
             "text" : "class var identifier: UUID! { get set }"
           },
+          "deprecated_everywhere" : false,
           "inherited_types" : [],
           "is_override" : false,
           "name_pieces" : [
@@ -319,6 +323,7 @@
           "declaration" : {
             "text" : "var uuid: UUID? { get set }"
           },
+          "deprecated_everywhere" : false,
           "inherited_types" : [],
           "is_override" : false,
           "name_pieces" : [
@@ -379,6 +384,7 @@
           "declaration" : {
             "text" : "class func alloc() -> Self!"
           },
+          "deprecated_everywhere" : false,
           "inherited_types" : [],
           "is_override" : false,
           "name_pieces" : [
@@ -442,6 +448,7 @@
           "declaration" : {
             "text" : "init!()"
           },
+          "deprecated_everywhere" : false,
           "inherited_types" : [],
           "is_override" : false,
           "name_pieces" : [
@@ -499,6 +506,7 @@
           "declaration" : {
             "text" : "func method()"
           },
+          "deprecated_everywhere" : false,
           "inherited_types" : [],
           "is_override" : false,
           "name_pieces" : [
@@ -565,6 +573,7 @@
           "declaration" : {
             "text" : "func doThing(with first: Int32, named name: String!) -> Int32"
           },
+          "deprecated_everywhere" : false,
           "inherited_types" : [],
           "is_override" : false,
           "name_pieces" : [
@@ -637,6 +646,7 @@
           "declaration" : {
             "text" : "class func classMethod()"
           },
+          "deprecated_everywhere" : false,
           "inherited_types" : [],
           "is_override" : false,
           "name_pieces" : [
@@ -692,6 +702,7 @@
       "declaration" : {
         "text" : "class PropertyKinds : NSObject"
       },
+      "deprecated_everywhere" : false,
       "inherited_types" : [],
       "is_override" : false,
       "name_pieces" : [
@@ -797,6 +808,7 @@
       "declaration" : {
         "text" : "func global_func()"
       },
+      "deprecated_everywhere" : false,
       "inherited_types" : [],
       "is_override" : false,
       "name_pieces" : [
@@ -865,6 +877,7 @@
           "declaration" : {
             "text" : "var field: Int32"
           },
+          "deprecated_everywhere" : false,
           "inherited_types" : [],
           "is_override" : false,
           "name_pieces" : [
@@ -920,6 +933,7 @@
       "declaration" : {
         "text" : "struct AStruct"
       },
+      "deprecated_everywhere" : false,
       "inherited_types" : [],
       "is_override" : false,
       "name_pieces" : [
@@ -1030,6 +1044,7 @@
           "declaration" : {
             "text" : "case a = 3"
           },
+          "deprecated_everywhere" : false,
           "inherited_types" : [],
           "is_override" : false,
           "name_pieces" : [
@@ -1084,6 +1099,7 @@
           "declaration" : {
             "text" : "case b = 4"
           },
+          "deprecated_everywhere" : false,
           "inherited_types" : [],
           "is_override" : false,
           "name_pieces" : [
@@ -1136,6 +1152,7 @@
       "declaration" : {
         "text" : "enum AEnum : Int"
       },
+      "deprecated_everywhere" : false,
       "inherited_types" : [],
       "is_override" : false,
       "name_pieces" : [
@@ -1273,6 +1290,7 @@
       "declaration" : {
         "text" : "struct ASimpleEnum : Equatable, RawRepresentable"
       },
+      "deprecated_everywhere" : false,
       "inherited_types" : [],
       "is_override" : false,
       "name_pieces" : [
@@ -1335,6 +1353,7 @@
       "declaration" : {
         "text" : "typealias Fred = Int32"
       },
+      "deprecated_everywhere" : false,
       "inherited_types" : [],
       "is_override" : false,
       "name_pieces" : [
@@ -1403,6 +1422,7 @@
           "declaration" : {
             "text" : "func protocolMethod()"
           },
+          "deprecated_everywhere" : false,
           "inherited_types" : [],
           "is_override" : false,
           "name_pieces" : [
@@ -1458,6 +1478,7 @@
       "declaration" : {
         "text" : "protocol SomeProtocol"
       },
+      "deprecated_everywhere" : false,
       "inherited_types" : [],
       "is_override" : false,
       "name_pieces" : [
@@ -1532,6 +1553,7 @@
           "declaration" : {
             "text" : "func pop(with weight: String!, secondValue density: Int) -> AutoreleasingUnsafeMutablePointer<ElementType?>!"
           },
+          "deprecated_everywhere" : false,
           "inherited_types" : [],
           "is_override" : false,
           "name_pieces" : [
@@ -1599,6 +1621,7 @@
       "declaration" : {
         "text" : "class Stack<ElementType> : NSObject where ElementType : AnyObject"
       },
+      "deprecated_everywhere" : false,
       "inherited_types" : [],
       "is_override" : false,
       "name_pieces" : [
