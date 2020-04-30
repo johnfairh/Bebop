@@ -159,3 +159,7 @@ Ignoring the second.";
 "err-cfg-podspec-outer" = "The --podspec option can't be set alongside the 'custom_modules' config key or with multi-valued --modules.";
 "err-cfg-podspec-build" = "Both --podspec and some other build-source option are set: choose just one.";
 "err-cfg-podspec-pass" = "The --podspec option can't be set at the 'module pass' level because it generates multiple passes.";
+"err-podspec-modulename" = "Module name mismatch: expected '%1', podspec defines '%2'.";
+"msg-unpack-podspec" = "Unpacking podspec %1...";
+"err-podspec-failed" = "Can't unpack podspec:
+%1";

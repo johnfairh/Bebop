@@ -134,6 +134,10 @@ internal enum L10n {
     case errPathNotExist = "err-path-not-exist"
     /// Path is for a directory, not a regular file: '%1'.
     case errPathNotFile = "err-path-not-file"
+    /// Can't unpack podspec:\n%1
+    case errPodspecFailed = "err-podspec-failed"
+    /// Module name mismatch: expected '%1', podspec defines '%2'.
+    case errPodspecModulename = "err-podspec-modulename"
     /// Module name '%1' repeated in --modules.
     case errRepeatedModule = "err-repeated-module"
     /// Sass compile failed, rc=%1: %2.
@@ -170,6 +174,8 @@ internal enum L10n {
     case msgSearchProgress = "msg-search-progress"
     /// Skipped %1 %2 definitions
     case msgSwiftAcl = "msg-swift-acl"
+    /// Unpacking podspec %1...
+    case msgUnpackPodspec = "msg-unpack-podspec"
     /// Can't open Apple documentation database '%1': %2
     case wrnAppleautoDbo = "wrn-appleauto-dbo"
     /// Can't query Apple documentation database for '%1': %2

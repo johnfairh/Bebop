@@ -13,7 +13,7 @@ import Foundation
 // Tests for podspec import
 // macos only for the meat of it...
 
-private class System {
+private class JobSystem {
     let config: Config
     let gatherOpts: GatherOpts
 
@@ -25,6 +25,21 @@ private class System {
     func run(_ args: [String]) throws -> GatherJob {
         try config.processOptions(cliOpts: args)
         return gatherOpts.jobs.first!
+    }
+}
+
+private class PassSystem{
+    let config: Config
+    let gather: Gather
+
+    init() {
+        config = Config()
+        gather = Gather(config: config)
+    }
+
+    func run(_ args: [String]) throws -> [GatherModulePass] {
+        try config.processOptions(cliOpts: args)
+        return try gather.gather()
     }
 }
 
@@ -42,19 +57,19 @@ class TestGatherPodspec: XCTestCase {
 
     func testCliErrors() throws {
         // no file
-        AssertThrows(try System().run(["--podspec=/Not/Exist"]), .errPathNotExist)
+        AssertThrows(try JobSystem().run(["--podspec=/Not/Exist"]), .errPathNotExist)
 
         // bad combo (module)
-        AssertThrows(try System().run(["--podspec=\(podspecURL.path)", "--modules=M1,M2"]), .errCfgPodspecOuter)
+        AssertThrows(try JobSystem().run(["--podspec=\(podspecURL.path)", "--modules=M1,M2"]), .errCfgPodspecOuter)
 
         // bad combo (build tool)
-        AssertThrows(try System().run(["--podspec=\(podspecURL.path)", "--build-tool=spm"]), .errCfgPodspecBuild)
+        AssertThrows(try JobSystem().run(["--podspec=\(podspecURL.path)", "--build-tool=spm"]), .errCfgPodspecBuild)
     }
 
     private func checkBadYaml(_ yaml: String, args: [String] = [], _ key: L10n.Localizable) throws {
         let tmpURL = FileManager.default.temporaryFileURL()
         try yaml.write(to: tmpURL)
-        AssertThrows(try System().run(args + ["--config=\(tmpURL.path)"]), key)
+        AssertThrows(try JobSystem().run(args + ["--config=\(tmpURL.path)"]), key)
     }
 
     func testYamlErrors() throws {
@@ -78,13 +93,31 @@ class TestGatherPodspec: XCTestCase {
     // MARK: Job generation
 
     func testJobGeneration() throws {
-        let baseJob = try System().run(["--podspec", podspecURL.path])
+        let baseJob = try JobSystem().run(["--podspec", podspecURL.path])
         XCTAssertEqual(baseJob, GatherJob(podspecTitle: "", moduleName: nil, podspecURL: podspecURL, podSources: []))
 
-        let modJob = try System().run(["--podspec", podspecURL.path, "--modules=M1"])
+        let modJob = try JobSystem().run(["--podspec", podspecURL.path, "--modules=M1"])
         XCTAssertEqual(modJob, GatherJob(podspecTitle: "", moduleName: "M1", podspecURL: podspecURL, podSources: []))
 
-        let srcJob = try System().run(["--podspec", podspecURL.path, "--pod-sources=A,B,C"])
+        let srcJob = try JobSystem().run(["--podspec", podspecURL.path, "--pod-sources=A,B,C"])
         XCTAssertEqual(srcJob, GatherJob(podspecTitle: "", moduleName: nil, podspecURL: podspecURL, podSources: ["A", "B", "C"]))
     }
+
+    #if os(macOS)
+    // MARK: Ruby-level failures
+
+    func testModuleMismatch() throws {
+        AssertThrows(try PassSystem().run(["--podspec", podspecURL.path, "--modules=Fred"]), .errPodspecModulename)
+    }
+
+    func testBadPodspec() throws {
+        let badFileURL = FileManager.default.temporaryFileURL()
+        try "Not a podspec".write(to: badFileURL)
+
+        AssertThrows(try PassSystem().run(["--podspec", badFileURL.path]), .errPodspecFailed)
+    }
+
+    // Good-path covered in TestProducts
+
+    #endif
 }

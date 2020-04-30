@@ -1,13 +1,13 @@
 PREFIX ?= /usr/local
-BIN_PATH := $(shell swift build --show-bin-path)
+RELEASE := debug
+BIN_PATH := $(shell swift build --show-bin-path -c ${RELEASE})
 
 .PHONY: build all
 
 all: build install
 
 build:
-	swift build 
-	# swift build -c release
+	swift build -c ${RELEASE}
 
 test:
 	swift test --parallel

@@ -5,9 +5,9 @@ public class PodClass {
     count = 1
   }
 
-  @available(iOS 12, *)
+  @available(macOS, unavailable)
   func onlyForIOS() {}
 
-  @available(macOS 10.13, *)
+  @available(iOS, unavailable)
   func onlyForMacOS() {}
 }

@@ -109,9 +109,7 @@ class TestProducts: XCTestCase {
                          cliArgs: ["--config=\(configURL.path)"],
                          against: "MixedSwiftObjC.docs-summary.json")
     }
-    #endif
 
-    #if os(macOS)
     func testFilesJsonSymbolGraph() throws {
         guard TestSymbolGraph.isMyLaptop else { return }
         TestSymbolGraph.useCustom(); defer { TestSymbolGraph.reset() }
@@ -125,6 +123,15 @@ class TestProducts: XCTestCase {
             ],
             "files-json",
             against: "SpmSwiftModuleSymbolGraph.files.json")
+    }
+
+    func testPodspec() throws {
+        try compare([
+            "--podspec", fixturesURL.appendingPathComponent("Pod/Pod.podspec").path,
+            "--min-acl=private"
+            ],
+            "files-json",
+            against: "Pod.files.json")
     }
     #endif
 

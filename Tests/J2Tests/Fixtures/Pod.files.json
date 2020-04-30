@@ -1,0 +1,414 @@
+[
+  {
+    "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/Pod\/Sources\/Pod\/Pod.swift" : {
+      "key.diagnostic_stage" : "source.diagnostic.stage.swift.parse",
+      "key.j2.module_name" : "Pod",
+      "key.j2.pass_index" : 0,
+      "key.j2.version" : "0.1",
+      "key.length" : 187,
+      "key.offset" : 0,
+      "key.substructure" : [
+        {
+          "key.accessibility" : "source.lang.swift.accessibility.public",
+          "key.annotated_decl" : "<Declaration>public class PodClass<\/Declaration>",
+          "key.attributes" : [
+            {
+              "key.attribute" : "source.decl.attribute.public",
+              "key.length" : 6,
+              "key.offset" : 0
+            }
+          ],
+          "key.bodylength" : 162,
+          "key.bodyoffset" : 23,
+          "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/Pod\/Sources\/Pod\/Pod.swift",
+          "key.fully_annotated_decl" : "<decl.class><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>class<\/syntaxtype.keyword> <decl.name>PodClass<\/decl.name><\/decl.class>",
+          "key.j2.availabilities" : [
+            {
+              "key.j2.availability" : "iOS 8.0+"
+            }
+          ],
+          "key.j2.is_override" : false,
+          "key.j2.swift_declaration" : "public class PodClass",
+          "key.j2.swift_name_pieces" : [
+            {
+              "key.j2.name_piece_is_name" : false,
+              "key.j2.name_piece_text" : "class "
+            },
+            {
+              "key.j2.name_piece_is_name" : true,
+              "key.j2.name_piece_text" : "PodClass"
+            }
+          ],
+          "key.kind" : "source.lang.swift.decl.class",
+          "key.length" : 179,
+          "key.name" : "PodClass",
+          "key.namelength" : 8,
+          "key.nameoffset" : 13,
+          "key.offset" : 7,
+          "key.parsed_declaration" : "public class PodClass",
+          "key.parsed_scope.end" : 13,
+          "key.parsed_scope.start" : 1,
+          "key.runtime_name" : "_TtC4main8PodClass",
+          "key.substructure" : [
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.internal",
+              "key.annotated_decl" : "<Declaration>var count: <Type usr=\"s:Si\">Int<\/Type><\/Declaration>",
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/Pod\/Sources\/Pod\/Pod.swift",
+              "key.fully_annotated_decl" : "<decl.var.instance><syntaxtype.keyword>var<\/syntaxtype.keyword> <decl.name>count<\/decl.name>: <decl.var.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.type><\/decl.var.instance>",
+              "key.j2.availabilities" : [
+                {
+                  "key.j2.availability" : "iOS 8.0+"
+                }
+              ],
+              "key.j2.is_override" : false,
+              "key.j2.swift_declaration" : "var count: Int",
+              "key.j2.swift_name_pieces" : [
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "var "
+                },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "count"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : ": Int"
+                }
+              ],
+              "key.kind" : "source.lang.swift.decl.var.instance",
+              "key.length" : 14,
+              "key.name" : "count",
+              "key.namelength" : 5,
+              "key.nameoffset" : 30,
+              "key.offset" : 26,
+              "key.parsed_declaration" : "var count: Int",
+              "key.parsed_scope.end" : 2,
+              "key.parsed_scope.start" : 2,
+              "key.setter_accessibility" : "source.lang.swift.accessibility.internal",
+              "key.typename" : "Int",
+              "key.typeusr" : "$sSiD",
+              "key.usr" : "s:3Pod0A5ClassC5countSivp"
+            },
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.internal",
+              "key.annotated_decl" : "<Declaration>init()<\/Declaration>",
+              "key.bodylength" : 17,
+              "key.bodyoffset" : 52,
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/Pod\/Sources\/Pod\/Pod.swift",
+              "key.fully_annotated_decl" : "<decl.function.constructor><syntaxtype.keyword>init<\/syntaxtype.keyword>()<\/decl.function.constructor>",
+              "key.j2.availabilities" : [
+                {
+                  "key.j2.availability" : "iOS 8.0+"
+                }
+              ],
+              "key.j2.is_override" : false,
+              "key.j2.swift_declaration" : "init()",
+              "key.j2.swift_name_pieces" : [
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "init"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "()"
+                }
+              ],
+              "key.kind" : "source.lang.swift.decl.function.method.instance",
+              "key.length" : 26,
+              "key.name" : "init()",
+              "key.namelength" : 6,
+              "key.nameoffset" : 44,
+              "key.offset" : 44,
+              "key.parsed_declaration" : "init()",
+              "key.parsed_scope.end" : 6,
+              "key.parsed_scope.start" : 4,
+              "key.typename" : "(PodClass.Type) -> () -> PodClass",
+              "key.typeusr" : "$s3Pod0A5ClassCycD",
+              "key.usr" : "s:3Pod0A5ClassCACycfc"
+            },
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.internal",
+              "key.annotated_decl" : "<Declaration>func onlyForIOS()<\/Declaration>",
+              "key.attributes" : [
+                {
+                  "key.attribute" : "source.decl.attribute.available",
+                  "key.length" : 30,
+                  "key.offset" : 74
+                }
+              ],
+              "key.bodylength" : 0,
+              "key.bodyoffset" : 126,
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/Pod\/Sources\/Pod\/Pod.swift",
+              "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>onlyForIOS<\/decl.name>()<\/decl.function.method.instance>",
+              "key.j2.availabilities" : [
+                {
+                  "key.j2.availability" : "iOS 8.0+"
+                }
+              ],
+              "key.j2.is_override" : false,
+              "key.j2.swift_declaration" : "func onlyForIOS()",
+              "key.j2.swift_deprecation_messages" : {
+                "en" : "macOS - unavailable."
+              },
+              "key.j2.swift_name_pieces" : [
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "func "
+                },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "onlyForIOS"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "()"
+                }
+              ],
+              "key.kind" : "source.lang.swift.decl.function.method.instance",
+              "key.length" : 20,
+              "key.name" : "onlyForIOS()",
+              "key.namelength" : 12,
+              "key.nameoffset" : 112,
+              "key.offset" : 107,
+              "key.parsed_declaration" : "func onlyForIOS()",
+              "key.parsed_scope.end" : 9,
+              "key.parsed_scope.start" : 9,
+              "key.typename" : "(PodClass) -> () -> ()",
+              "key.typeusr" : "$syycD",
+              "key.usr" : "s:3Pod0A5ClassC10onlyForIOSyyF"
+            },
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.internal",
+              "key.attributes" : [
+                {
+                  "key.attribute" : "source.decl.attribute.available",
+                  "key.length" : 28,
+                  "key.offset" : 131
+                }
+              ],
+              "key.bodylength" : 0,
+              "key.bodyoffset" : 183,
+              "key.internal_diagnostic" : "Unavailable in the current compilation context.",
+              "key.kind" : "source.lang.swift.decl.function.method.instance",
+              "key.length" : 22,
+              "key.name" : "onlyForMacOS()",
+              "key.namelength" : 14,
+              "key.nameoffset" : 167,
+              "key.offset" : 162
+            }
+          ],
+          "key.typename" : "PodClass.Type",
+          "key.typeusr" : "$s3Pod0A5ClassCmD",
+          "key.usr" : "s:3Pod0A5ClassC"
+        }
+      ]
+    }
+  },
+  {
+    "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/Pod\/Sources\/Pod\/Pod.swift" : {
+      "key.diagnostic_stage" : "source.diagnostic.stage.swift.parse",
+      "key.j2.module_name" : "Pod",
+      "key.j2.pass_index" : 0,
+      "key.j2.version" : "0.1",
+      "key.length" : 187,
+      "key.offset" : 0,
+      "key.substructure" : [
+        {
+          "key.accessibility" : "source.lang.swift.accessibility.public",
+          "key.annotated_decl" : "<Declaration>public class PodClass<\/Declaration>",
+          "key.attributes" : [
+            {
+              "key.attribute" : "source.decl.attribute.public",
+              "key.length" : 6,
+              "key.offset" : 0
+            }
+          ],
+          "key.bodylength" : 162,
+          "key.bodyoffset" : 23,
+          "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/Pod\/Sources\/Pod\/Pod.swift",
+          "key.fully_annotated_decl" : "<decl.class><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>class<\/syntaxtype.keyword> <decl.name>PodClass<\/decl.name><\/decl.class>",
+          "key.j2.availabilities" : [
+            {
+              "key.j2.availability" : "macOS 10.14+"
+            }
+          ],
+          "key.j2.is_override" : false,
+          "key.j2.swift_declaration" : "public class PodClass",
+          "key.j2.swift_name_pieces" : [
+            {
+              "key.j2.name_piece_is_name" : false,
+              "key.j2.name_piece_text" : "class "
+            },
+            {
+              "key.j2.name_piece_is_name" : true,
+              "key.j2.name_piece_text" : "PodClass"
+            }
+          ],
+          "key.kind" : "source.lang.swift.decl.class",
+          "key.length" : 179,
+          "key.name" : "PodClass",
+          "key.namelength" : 8,
+          "key.nameoffset" : 13,
+          "key.offset" : 7,
+          "key.parsed_declaration" : "public class PodClass",
+          "key.parsed_scope.end" : 13,
+          "key.parsed_scope.start" : 1,
+          "key.runtime_name" : "_TtC4main8PodClass",
+          "key.substructure" : [
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.internal",
+              "key.annotated_decl" : "<Declaration>var count: <Type usr=\"s:Si\">Int<\/Type><\/Declaration>",
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/Pod\/Sources\/Pod\/Pod.swift",
+              "key.fully_annotated_decl" : "<decl.var.instance><syntaxtype.keyword>var<\/syntaxtype.keyword> <decl.name>count<\/decl.name>: <decl.var.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.type><\/decl.var.instance>",
+              "key.j2.availabilities" : [
+                {
+                  "key.j2.availability" : "macOS 10.14+"
+                }
+              ],
+              "key.j2.is_override" : false,
+              "key.j2.swift_declaration" : "var count: Int",
+              "key.j2.swift_name_pieces" : [
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "var "
+                },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "count"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : ": Int"
+                }
+              ],
+              "key.kind" : "source.lang.swift.decl.var.instance",
+              "key.length" : 14,
+              "key.name" : "count",
+              "key.namelength" : 5,
+              "key.nameoffset" : 30,
+              "key.offset" : 26,
+              "key.parsed_declaration" : "var count: Int",
+              "key.parsed_scope.end" : 2,
+              "key.parsed_scope.start" : 2,
+              "key.setter_accessibility" : "source.lang.swift.accessibility.internal",
+              "key.typename" : "Int",
+              "key.typeusr" : "$sSiD",
+              "key.usr" : "s:3Pod0A5ClassC5countSivp"
+            },
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.internal",
+              "key.annotated_decl" : "<Declaration>init()<\/Declaration>",
+              "key.bodylength" : 17,
+              "key.bodyoffset" : 52,
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/Pod\/Sources\/Pod\/Pod.swift",
+              "key.fully_annotated_decl" : "<decl.function.constructor><syntaxtype.keyword>init<\/syntaxtype.keyword>()<\/decl.function.constructor>",
+              "key.j2.availabilities" : [
+                {
+                  "key.j2.availability" : "macOS 10.14+"
+                }
+              ],
+              "key.j2.is_override" : false,
+              "key.j2.swift_declaration" : "init()",
+              "key.j2.swift_name_pieces" : [
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "init"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "()"
+                }
+              ],
+              "key.kind" : "source.lang.swift.decl.function.method.instance",
+              "key.length" : 26,
+              "key.name" : "init()",
+              "key.namelength" : 6,
+              "key.nameoffset" : 44,
+              "key.offset" : 44,
+              "key.parsed_declaration" : "init()",
+              "key.parsed_scope.end" : 6,
+              "key.parsed_scope.start" : 4,
+              "key.typename" : "(PodClass.Type) -> () -> PodClass",
+              "key.typeusr" : "$s3Pod0A5ClassCycD",
+              "key.usr" : "s:3Pod0A5ClassCACycfc"
+            },
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.internal",
+              "key.attributes" : [
+                {
+                  "key.attribute" : "source.decl.attribute.available",
+                  "key.length" : 30,
+                  "key.offset" : 74
+                }
+              ],
+              "key.bodylength" : 0,
+              "key.bodyoffset" : 126,
+              "key.internal_diagnostic" : "Unavailable in the current compilation context.",
+              "key.kind" : "source.lang.swift.decl.function.method.instance",
+              "key.length" : 20,
+              "key.name" : "onlyForIOS()",
+              "key.namelength" : 12,
+              "key.nameoffset" : 112,
+              "key.offset" : 107
+            },
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.internal",
+              "key.annotated_decl" : "<Declaration>func onlyForMacOS()<\/Declaration>",
+              "key.attributes" : [
+                {
+                  "key.attribute" : "source.decl.attribute.available",
+                  "key.length" : 28,
+                  "key.offset" : 131
+                }
+              ],
+              "key.bodylength" : 0,
+              "key.bodyoffset" : 183,
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/Pod\/Sources\/Pod\/Pod.swift",
+              "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>onlyForMacOS<\/decl.name>()<\/decl.function.method.instance>",
+              "key.j2.availabilities" : [
+                {
+                  "key.j2.availability" : "macOS 10.14+"
+                }
+              ],
+              "key.j2.is_override" : false,
+              "key.j2.swift_declaration" : "func onlyForMacOS()",
+              "key.j2.swift_deprecation_messages" : {
+                "en" : "iOS - unavailable."
+              },
+              "key.j2.swift_name_pieces" : [
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "func "
+                },
+                {
+                  "key.j2.name_piece_is_name" : true,
+                  "key.j2.name_piece_text" : "onlyForMacOS"
+                },
+                {
+                  "key.j2.name_piece_is_name" : false,
+                  "key.j2.name_piece_text" : "()"
+                }
+              ],
+              "key.kind" : "source.lang.swift.decl.function.method.instance",
+              "key.length" : 22,
+              "key.name" : "onlyForMacOS()",
+              "key.namelength" : 14,
+              "key.nameoffset" : 167,
+              "key.offset" : 162,
+              "key.parsed_declaration" : "func onlyForMacOS()",
+              "key.parsed_scope.end" : 12,
+              "key.parsed_scope.start" : 12,
+              "key.typename" : "(PodClass) -> () -> ()",
+              "key.typeusr" : "$syycD",
+              "key.usr" : "s:3Pod0A5ClassC12onlyForMacOSyyF"
+            }
+          ],
+          "key.typename" : "PodClass.Type",
+          "key.typeusr" : "$s3Pod0A5ClassCmD",
+          "key.usr" : "s:3Pod0A5ClassC"
+        }
+      ]
+    }
+  }
+]

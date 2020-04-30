@@ -24,7 +24,7 @@ end
 
 params = JSON.parse(File.read(ARGV[0]), symbolize_names: true)
 unless params[:podspec] && params[:tmpdir] && params[:response]
-  $stderr.puts "Missing keys in input json: ${params}"
+  $stderr.puts "Missing keys in input json: #{params}"
   return 2
 end
 
@@ -43,9 +43,7 @@ else
 end
 
 podfile = Pod::Podfile.new do
-  pod_sources.each do |src|
-    source src
-  end
+  pod_sources.each { |src| source src }
 
   install! 'cocoapods',
     integrate_targets: false,
@@ -57,7 +55,6 @@ podfile = Pod::Podfile.new do
     ss.available_platforms.each do |p|
       target("J2-#{ss.name.gsub('/', '__')}-#{p.name}") do
         use_frameworks!
-        puts "#{p.name} #{p.deployment_target}"
         platform p.name, p.deployment_target
         pod ss.name, path: podspec_path.parent
         current_target_definition.swift_version = swift_version || '5'
@@ -74,11 +71,11 @@ Pod::Config.instance.with_changes(installation_root: tmpdir,
 
   targets = installer.pod_targets
     .select { |pt| pt.pod_name == podspec.root.name }
-    .map { |t| [t.label, t.platform.deployment_target.to_s] }
+    .map { |t| [t.label, "#{t.platform.to_s}+"] }
 
   output = {
     module: podspec.module_name,
-    sandbox_root: sandbox.root,
+    root: sandbox.root,
     targets: Hash[targets]
   }
   File.write(response_path, output.to_json)

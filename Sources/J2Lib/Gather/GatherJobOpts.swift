@@ -226,7 +226,7 @@ final class GatherJobOpts: Configurable {
                              availability: availability)
         } else if let podspecURL = podspecOpt.value  {
             // Swift from podspec
-            return GatherJob(podspecTitle: "Podspec  \(moduleName ?? "(default)")\(passStr)",
+            return GatherJob(podspecTitle: "Podspec \(moduleName ?? "(default)")\(passStr)",
                              moduleName: moduleName,
                              podspecURL: podspecURL,
                              podSources: podSourcesOpt.value,

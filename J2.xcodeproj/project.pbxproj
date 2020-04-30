@@ -144,6 +144,7 @@
 		02D064F423EC208200FE11BD /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D064F323EC208200FE11BD /* Group.swift */; };
 		02DAA6B8245A0BF00050D472 /* GatherJobPodspec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DAA6B7245A0BF00050D472 /* GatherJobPodspec.swift */; };
 		02DAA6BA245A104D0050D472 /* TestGatherPodspec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DAA6B9245A104D0050D472 /* TestGatherPodspec.swift */; };
+		02DAA6BC245AC3870050D472 /* podsetup.rb in Resources */ = {isa = PBXBuildFile; fileRef = 02DAA6BB245AC3870050D472 /* podsetup.rb */; };
 		02EC5B7E242FCB2F00A511B2 /* GenMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EC5B7D242FCB2F00A511B2 /* GenMedia.swift */; };
 		02F2B3C4239A7E2A00397BC6 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C24034239A732200518764 /* main.swift */; };
 		02F61DEF2447651500266575 /* GenCodeHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F61DEE2447651500266575 /* GenCodeHost.swift */; };
@@ -375,6 +376,7 @@
 		02D064F323EC208200FE11BD /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		02DAA6B7245A0BF00050D472 /* GatherJobPodspec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherJobPodspec.swift; sourceTree = "<group>"; };
 		02DAA6B9245A104D0050D472 /* TestGatherPodspec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGatherPodspec.swift; sourceTree = "<group>"; };
+		02DAA6BB245AC3870050D472 /* podsetup.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = podsetup.rb; sourceTree = "<group>"; };
 		02EC5B7D242FCB2F00A511B2 /* GenMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenMedia.swift; sourceTree = "<group>"; };
 		02F2B3B4239A7E0C00397BC6 /* J2CLI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = J2CLI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02F2B3D0239A89D700397BC6 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
@@ -502,6 +504,7 @@
 		029A718523DB04F300D66069 /* J2Resources */ = {
 			isa = PBXGroup;
 			children = (
+				02DAA6BB245AC3870050D472 /* podsetup.rb */,
 				021F71C42451BD9800B73472 /* extensions */,
 				02CFFA1C23E20AB400FDE5B9 /* themes */,
 				025727FD23DB50270001F510 /* en.lproj */,
@@ -881,6 +884,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02CFFA1D23E20AB400FDE5B9 /* themes in Resources */,
+				02DAA6BC245AC3870050D472 /* podsetup.rb in Resources */,
 				021F71C62451BDE600B73472 /* extensions in Resources */,
 				02FDC68B23EB2A7300C2F9CD /* Output.strings in Resources */,
 				0257280023DB50270001F510 /* Localizable.strings in Resources */,
