@@ -36,7 +36,7 @@ class TestGatherObjC: XCTestCase {
         let tmpFile = try tmpDir.createFile(name: "test.h")
         try "extern int fred;".write(to: tmpFile)
 
-        let system = JobSystem()
+        let system = System()
         AssertThrows(try system.configure(["--objc-header-file=\(tmpFile.path)"]), .errObjcLinux)
     }
     #else
