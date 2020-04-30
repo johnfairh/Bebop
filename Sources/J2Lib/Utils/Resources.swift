@@ -60,6 +60,10 @@ import Foundation
 extension String {
     /// Helper to grab a localized message and do substitutions %1 .... %n
     static func localized(_ key: L10n.Localizable, _ subs: Any...) -> String {
+        localized(key, subs: subs)
+    }
+
+    static func localized(_ key: L10n.Localizable, subs: [Any]) -> String {
         Resources.shared.string(key: key.rawValue, type: .messages, subs: subs)
     }
 }

@@ -105,7 +105,7 @@ func logInfo(_ message: @autoclosure () -> String) {
 }
 
 func logInfo(_ key: L10n.Localizable, _ args: Any...) {
-    logInfo(.localized(key, args))
+    logInfo(.localized(key, subs: args))
 }
 
 /// Log a warning message
@@ -114,7 +114,7 @@ func logWarning(_ message: @autoclosure () -> String) {
 }
 
 func logWarning(_ key: L10n.Localizable, _ args: Any...) {
-    logWarning(.localized(key, args))
+    logWarning(.localized(key, subs: args))
 }
 
 /// Log an error message
