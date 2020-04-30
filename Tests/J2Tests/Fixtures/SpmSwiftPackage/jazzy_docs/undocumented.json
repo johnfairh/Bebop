@@ -267,8 +267,8 @@
     "kind" : "source.lang.swift.decl.function.constructor",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-      "first_line" : 59,
-      "last_line" : 59,
+      "first_line" : 60,
+      "last_line" : 60,
       "module_name" : "SpmSwiftModule",
       "pass_index" : 0
     },
@@ -278,8 +278,8 @@
     "kind" : "source.lang.swift.decl.function.constructor",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-      "first_line" : 61,
-      "last_line" : 61,
+      "first_line" : 62,
+      "last_line" : 62,
       "module_name" : "SpmSwiftModule",
       "pass_index" : 0
     },
@@ -289,8 +289,8 @@
     "kind" : "source.lang.swift.decl.function.destructor",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-      "first_line" : 63,
-      "last_line" : 63,
+      "first_line" : 64,
+      "last_line" : 64,
       "module_name" : "SpmSwiftModule",
       "pass_index" : 0
     },
@@ -300,8 +300,8 @@
     "kind" : "source.lang.swift.decl.function.method.static",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-      "first_line" : 69,
-      "last_line" : 71,
+      "first_line" : 70,
+      "last_line" : 72,
       "module_name" : "SpmSwiftModule",
       "pass_index" : 0
     },
@@ -311,8 +311,8 @@
     "kind" : "source.lang.swift.decl.function.subscript",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-      "first_line" : 73,
-      "last_line" : 79,
+      "first_line" : 74,
+      "last_line" : 80,
       "module_name" : "SpmSwiftModule",
       "pass_index" : 0
     },
@@ -322,8 +322,8 @@
     "kind" : "source.lang.swift.decl.function.subscript.static",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-      "first_line" : 81,
-      "last_line" : 83,
+      "first_line" : 82,
+      "last_line" : 84,
       "module_name" : "SpmSwiftModule",
       "pass_index" : 0
     },
@@ -333,8 +333,8 @@
     "kind" : "source.lang.swift.decl.function.subscript.class",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-      "first_line" : 85,
-      "last_line" : 87,
+      "first_line" : 86,
+      "last_line" : 88,
       "module_name" : "SpmSwiftModule",
       "pass_index" : 0
     },
@@ -344,8 +344,8 @@
     "kind" : "source.lang.swift.decl.struct",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-      "first_line" : 95,
-      "last_line" : 96,
+      "first_line" : 96,
+      "last_line" : 97,
       "module_name" : "SpmSwiftModule",
       "pass_index" : 0
     },
@@ -355,8 +355,8 @@
     "kind" : "source.lang.swift.decl.var.instance",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-      "first_line" : 105,
-      "last_line" : 105,
+      "first_line" : 106,
+      "last_line" : 106,
       "module_name" : "SpmSwiftModule",
       "pass_index" : 0
     },
@@ -366,8 +366,8 @@
     "kind" : "source.lang.swift.decl.function.method.instance",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-      "first_line" : 112,
-      "last_line" : 114,
+      "first_line" : 113,
+      "last_line" : 115,
       "module_name" : "SpmSwiftModule",
       "pass_index" : 0
     },
@@ -377,8 +377,8 @@
     "kind" : "source.lang.swift.decl.struct",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-      "first_line" : 118,
-      "last_line" : 124,
+      "first_line" : 119,
+      "last_line" : 125,
       "module_name" : "SpmSwiftModule",
       "pass_index" : 0
     },
@@ -388,8 +388,8 @@
     "kind" : "source.lang.swift.decl.var.instance",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-      "first_line" : 119,
-      "last_line" : 119,
+      "first_line" : 120,
+      "last_line" : 120,
       "module_name" : "SpmSwiftModule",
       "pass_index" : 0
     },
@@ -399,8 +399,8 @@
     "kind" : "source.lang.swift.decl.function.constructor",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-      "first_line" : 121,
-      "last_line" : 123,
+      "first_line" : 122,
+      "last_line" : 124,
       "module_name" : "SpmSwiftModule",
       "pass_index" : 0
     },
@@ -410,8 +410,8 @@
     "kind" : "source.lang.swift.decl.var.instance",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-      "first_line" : 129,
-      "last_line" : 129,
+      "first_line" : 130,
+      "last_line" : 130,
       "module_name" : "SpmSwiftModule",
       "pass_index" : 0
     },

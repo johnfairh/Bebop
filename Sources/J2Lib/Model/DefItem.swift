@@ -116,6 +116,15 @@ public class DefItem: Item, CustomStringConvertible {
             self.deprecationNotice = nil
         }
         self.unavailableNotice = objCDeclaration?.unavailability.flatMap(RichText.init)
+        self.declNotes = []
+        self.declNotesNotice = nil
+        // Swift unavailable notes are odd: they only survive to here if the decl _is_
+        // available - eg. it's unavailable on macOS but the pass built for iOS.  This
+        // is really up to the user to resolve with --available, but we preserve anything
+        // they wrote in the attribute message here.
+        if let swiftUnavailable = swiftDeclaration?.unavailability {
+            self.declNotes.insert(.unavailable(swiftUnavailable))
+        }
 
         // Sort out children.
         // - Generic type params need to be pulled into us for reference later; we don't
@@ -131,8 +140,6 @@ public class DefItem: Item, CustomStringConvertible {
         let (genericParams, realChildren) = children.splitPartition { $0.defKind.isGenericParameter }
         self.genericTypeParameters = Set(genericParams.map { $0.name })
         self.extensions = []
-        self.declNotes = []
-        self.declNotesNotice = nil
 
         super.init(name: name, slug: uniquer.unique(name.slugged), children: realChildren)
     }

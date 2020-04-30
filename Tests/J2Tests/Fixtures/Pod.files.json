@@ -148,9 +148,6 @@
               ],
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func onlyForIOS()",
-              "key.j2.swift_deprecation_messages" : {
-                "en" : "macOS - unavailable."
-              },
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,
@@ -373,9 +370,6 @@
               ],
               "key.j2.is_override" : false,
               "key.j2.swift_declaration" : "func onlyForMacOS()",
-              "key.j2.swift_deprecation_messages" : {
-                "en" : "iOS - unavailable."
-              },
               "key.j2.swift_name_pieces" : [
                 {
                   "key.j2.name_piece_is_name" : false,

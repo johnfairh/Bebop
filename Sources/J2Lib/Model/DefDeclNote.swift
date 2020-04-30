@@ -20,6 +20,8 @@ public enum DeclNote: Hashable {
     case imported(String)
     /// A default implementation of a protocol from an imported extension
     case importedDefaultImplementation(String)
+    /// A  note about the declaration being unavailable in some scenarioes
+    case unavailable(Localized<String>)
 
     /// Get the message for the note
     public var localized: Localized<String> {
@@ -36,6 +38,8 @@ public enum DeclNote: Hashable {
             return .localizedOutput(.imported, module)
         case .importedDefaultImplementation(let module):
             return .localizedOutput(.protocolDefaultImported, module)
+        case .unavailable(let msg):
+            return msg
         }
     }
 }
@@ -48,6 +52,7 @@ extension DeclNote: Encodable {
         case conditionalDefaultImplementation
         case imported
         case importedDefaultImplementation
+        case unavailable
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -65,6 +70,8 @@ extension DeclNote: Encodable {
             try container.encode(module, forKey: .imported)
         case .importedDefaultImplementation(let module):
             try container.encode(module, forKey: .importedDefaultImplementation)
+        case .unavailable(let message):
+            try container.encode(message, forKey: .unavailable)
         }
     }
 }
@@ -83,6 +90,7 @@ extension DeclNote: Comparable {
         case .conditionalDefaultImplementationExists: return 3
         case .conditionalDefaultImplementation: return 4
         case .importedDefaultImplementation(_): return 5
+        case .unavailable(_): return 6
         }
     }
 }

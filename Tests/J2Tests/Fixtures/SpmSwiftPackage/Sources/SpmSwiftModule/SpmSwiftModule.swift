@@ -39,6 +39,7 @@ public enum AnEnum {
 ///
 /// See `SpmSwiftModule` -- or `SpmSwiftModule.ABaseClass`.
 @available(iOS 9, macOS 10.12, *)
+@available(tvOS, unavailable, message: "Not available on the big screen.")
 public func functionA(arg1: Int,
                       _ arg2: Int,
                       arg3 argMeaning: Int) {

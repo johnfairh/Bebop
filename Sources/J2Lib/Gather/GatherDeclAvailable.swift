@@ -191,7 +191,7 @@ extension SwiftDeclarationBuilder {
             depText = .localizedOutput(.platUnavailable, platform)
         }
         if let message = message {
-            depText = depText + " \(message)."
+            depText = depText + " \(message)".withPeriod
         }
         if let renamed = renamed {
             depText = depText + .localizedOutput(.renamedTo, renamed)
@@ -237,7 +237,7 @@ extension SwiftDeclarationBuilder {
             text = .localizedOutput(.deprecated)
         }
         if let message = message {
-            text = text + " \(message)."
+            text = text + " \(message)".withPeriod
         }
         if let renamed = renamed {
             text = text + .localizedOutput(.renamedTo, renamed)
@@ -258,5 +258,11 @@ extension SwiftDeclarationBuilder {
                 availability.append("\(platform) \(version)+")
             }
         }
+    }
+}
+
+private extension String {
+    var withPeriod: String {
+        hasSuffix(".") ? self : (self + ".")
     }
 }
