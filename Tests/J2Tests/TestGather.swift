@@ -60,6 +60,12 @@ class TestGather: XCTestCase {
         initResources()
     }
 
+    func passes(_ names: [String]) -> [String:GatherModulePass] {
+        var dict = [String : GatherModulePass]()
+        names.forEach { dict[$0] = GatherModulePass(moduleName: $0, files: []) }
+        return dict
+    }
+
     func testDefault() throws {
         try OptsSystem().test(jobs: [.init(swiftTitle: "")])
     }
@@ -68,7 +74,7 @@ class TestGather: XCTestCase {
         let system = OptsSystem()
         try system.test(["--module", "Test"], jobs: [.init(swiftTitle: "", moduleName: "Test")])
 
-        system.config.test_publishStore.modules = system.gatherOpts.modulesToPublish(names: ["Test"])
+        system.config.test_publishStore.modules = system.gatherOpts.modulesToPublish(from: passes(["Test"]))
         XCTAssertEqual(ModuleGroupPolicy.separate, system.config.published.module("Test").groupPolicy)
     }
 
@@ -184,7 +190,7 @@ class TestGather: XCTestCase {
             .init(swiftTitle: "", moduleName: "M2")
         ])
 
-        system.config.test_publishStore.modules = system.gatherOpts.modulesToPublish(names: ["M1", "M2"])
+        system.config.test_publishStore.modules = system.gatherOpts.modulesToPublish(from: passes(["M1", "M2"]))
         XCTAssertEqual(ModuleGroupPolicy.global, system.config.published.module("M2").groupPolicy)
     }
 
@@ -209,7 +215,7 @@ class TestGather: XCTestCase {
         ])
 
 
-        system.config.test_publishStore.modules = system.gatherOpts.modulesToPublish(names: [])
+        system.config.test_publishStore.modules = system.gatherOpts.modulesToPublish(from: passes(["M1", "M2"]))
         XCTAssertEqual(ModuleGroupPolicy.separate, system.config.published.module("M2").groupPolicy)
     }
 
@@ -237,7 +243,7 @@ class TestGather: XCTestCase {
             .init(swiftTitle: "", moduleName: "M2", buildToolArgs: ["f2"], availability: modifiedAvail),
             .init(swiftTitle: "", moduleName: "M2", buildToolArgs: ["f3"], availability: modifiedAvail)
         ])
-        system.config.test_publishStore.modules = system.gatherOpts.modulesToPublish(names: [])
+        system.config.test_publishStore.modules = system.gatherOpts.modulesToPublish(from: passes(["M1", "M2", "M3"]))
 
         XCTAssertEqual(ModuleGroupPolicy.group(.init(unlocalized: "Cheese")),
                        system.config.published.module("M1").groupPolicy)

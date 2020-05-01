@@ -57,28 +57,28 @@ public final class Gather: Configurable {
         let jobs = opts.jobs
         publishJobFacts(jobs: jobs)
 
-        // Sometimes we discover the module name from running the job, so have
-        // wait until the jobs are done to publish them.
-        var moduleNames = Set<String>()
+        // Sometimes we discover the module name and other info from
+        // running the job, so wait until the jobs are done to publish info.
+        var moduleInfo = [String: GatherModulePass]()
 
-        let passes = try jobs.flatMap { job -> [GatherModulePass] in
+        let allPasses = try jobs.flatMap { job -> [GatherModulePass] in
             if jobs.count > 1 {
                 logInfo(.msgGatherHeading, job.title)
             }
-            let pass = try job.execute()
-            pass.forEach { moduleNames.insert($0.moduleName) }
-            return pass
+            let passes = try job.execute()
+            passes.forEach { moduleInfo[$0.moduleName] = $0 }
+            return passes
         }
 
         // Publish stuff based on the passes resulting from the jobs
-        publish.modules = opts.modulesToPublish(names: moduleNames)
+        publish.modules = opts.modulesToPublish(from: moduleInfo)
 
         // Garnishes
         logDebug("Gather: start doc-comment localization pass.")
-        try localize.walk(passes)
+        try localize.walk(allPasses)
         logDebug("Gather: end doc-comment localization pass.")
 
-        return passes
+        return allPasses
     }
 
     /// Put up things that other components need to know
@@ -88,11 +88,27 @@ public final class Gather: Configurable {
 }
 
 /// Data from one pass of a module.
-public struct GatherModulePass {
+public final class GatherModulePass {
     public let moduleName: String
+    public let version: String?
+    public let codeHostFileURL: String?
     public let passIndex: Int
     public let imported: Bool
     public let files: [(pathname: String, GatherDef)]
+
+    init(moduleName: String,
+         version: String? = nil,
+         codeHostFileURL: String? = nil,
+         passIndex: Int = 0,
+         imported: Bool = false,
+         files: [(String, GatherDef)]) {
+        self.moduleName = moduleName
+        self.version = version
+        self.codeHostFileURL = codeHostFileURL
+        self.passIndex = passIndex
+        self.imported = imported
+        self.files = files
+    }
 }
 
 protocol GatherDefVisitor {

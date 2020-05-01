@@ -78,7 +78,7 @@ extension GatherJob {
                 }
             }
 
-            return GatherModulePass(moduleName: module!.name, passIndex: 0, imported: false, files: filesInfo)
+            return GatherModulePass(moduleName: module!.name, files: filesInfo)
         }
     }
 }

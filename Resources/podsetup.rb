@@ -18,13 +18,13 @@ require 'pathname'
 require 'json'
 
 if ARGV.length != 1
-  $stderr.puts "Expected one arg, got #{ARGV}"
+  warn "Expected one arg, got #{ARGV}"
   return 1
 end
 
 params = JSON.parse(File.read(ARGV[0]), symbolize_names: true)
 unless params[:podspec] && params[:tmpdir] && params[:response]
-  $stderr.puts "Missing keys in input json: #{params}"
+  warn "Missing keys in input json: #{params}"
   return 2
 end
 
@@ -35,19 +35,31 @@ response_path = Pathname.new(params[:response])
 
 podspec = Pod::Specification.from_file(podspec_path)
 
-# slightly less grotty than my jazzy version!
-if podspec.respond_to?('swift_versions')
-  swift_version = podspec.swift_versions.max
-else
-  swift_version = podspec.swift_version
+def github_prefix(podspec)
+  return unless podspec.source[:url] =~ %r{github.com[:/]+(.+)/(.+)}
+
+  org, repo = Regexp.last_match
+  return unless org && repo
+
+  repo.sub!(/\.git$/, '')
+  return unless (rev = podspec.source[:tag] || podspec.source[:commit])
+
+  "https://github.com/#{org}/#{repo}/blob/#{rev}"
 end
+
+# slightly less grotty than my jazzy version!
+swift_version = if podspec.respond_to?('swift_versions')
+                  podspec.swift_versions.max
+                else
+                  podspec.swift_version
+                end
 
 podfile = Pod::Podfile.new do
   pod_sources.each { |src| source src }
 
   install! 'cocoapods',
-    integrate_targets: false,
-    deterministic_uuids: false
+           integrate_targets: false,
+           deterministic_uuids: false
 
   [podspec, *podspec.recursive_subspecs].each do |ss|
     next if ss.test_specification
@@ -70,11 +82,13 @@ Pod::Config.instance.with_changes(installation_root: tmpdir,
   installer.install!
 
   targets = installer.pod_targets
-    .select { |pt| pt.pod_name == podspec.root.name }
-    .map { |t| [t.label, "#{t.platform.to_s}+"] }
+                     .select { |pt| pt.pod_name == podspec.root.name }
+                     .map { |t| [t.label, "#{t.platform}+"] }
 
   output = {
     module: podspec.module_name,
+    version: podspec.version.to_s,
+    github_prefix: github_prefix(podspec),
     root: sandbox.root,
     targets: Hash[targets]
   }

@@ -103,10 +103,7 @@ extension GatherJob {
                           availability: availability)
             }
 
-            return GatherModulePass(moduleName: moduleName,
-                                    passIndex: 0,
-                                    imported: false,
-                                    files: defs.map { ("", $0) })
+            return GatherModulePass(moduleName: moduleName, files: defs.map { ("", $0) })
         }
     }
 }

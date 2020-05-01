@@ -18,8 +18,6 @@ extension GatherJob {
 
         func execute() throws -> GatherModulePass {
             try GatherModulePass(moduleName: moduleName,
-                                 passIndex: 0,
-                                 imported: false,
                                  files: fileURLs.flatMap { try loadFile(url: $0)})
         }
 
@@ -112,10 +110,10 @@ fileprivate struct Progress {
 }
 
 fileprivate extension GatherModulePass {
-    init(_ progress: Progress) {
-        self.moduleName = progress.moduleName
-        self.passIndex = progress.passIndex
-        self.imported = true
-        self.files = progress.files
+    convenience init(_ progress: Progress) {
+        self.init(moduleName: progress.moduleName,
+                  passIndex: progress.passIndex,
+                  imported: true,
+                  files: progress.files)
     }
 }

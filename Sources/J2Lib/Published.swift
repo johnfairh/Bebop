@@ -12,17 +12,20 @@ import Foundation
 
 struct PublishedModule {
     let name: String
+    let version: String?
     let groupPolicy: ModuleGroupPolicy
     let sourceDirectory: URL?
     let codeHostURL: Localized<String>?
     let codeHostFilePrefix: String?
 
     init(name: String,
+         version: String? = nil,
          groupPolicy: ModuleGroupPolicy = .global,
          sourceDirectory: URL? = nil,
          codeHostURL: Localized<String>? = nil,
          codeHostFilePrefix: String? = nil) {
         self.name = name
+        self.version = version
         self.groupPolicy = groupPolicy
         self.sourceDirectory = sourceDirectory
         self.codeHostURL = codeHostURL

@@ -23,7 +23,6 @@ extension GatherJob {
             let tmpDir = try TemporaryDirectory()
             return try withExtendedLifetime(tmpDir) {
                 let rsp = try unpack(tmpDirURL: tmpDir.directoryURL)
-
                 if let moduleName = moduleName,
                     moduleName != rsp.module {
                     throw J2Error(.errPodspecModulename, moduleName, rsp.module)
@@ -32,6 +31,7 @@ extension GatherJob {
                     // sort for json reproducibility
                     .sorted(by: { $0.1 < $1.1 })
                     .map { (targetName, version) in
+                        logDebug("Podspec: spinning off Swift job for target \(targetName)")
                         let swiftJob = Swift(moduleName: rsp.module,
                                              srcDir: URL(fileURLWithPath: rsp.root),
                                              buildTool: .xcodebuild,
@@ -63,13 +63,16 @@ extension GatherJob {
                           response: rspURL.path,
                           sources: podSources)
             try JSON.encode(req).write(to: reqURL)
+            logDebug("Podspec: request: \(req)")
 
             let scriptURL = Resources.shared.bundle.resourceURL!.appendingPathComponent("podsetup.rb")
             let result = Exec.run("/usr/bin/env", "ruby", "--", scriptURL.path, reqURL.path, stderr: .merge)
             guard result.terminationStatus == 0 else {
                 throw J2Error(.errPodspecFailed, result.failureReport)
             }
-            return try JSONDecoder().decode(Rsp.self, from: Data(contentsOf: rspURL))
+            let rsp = try JSONDecoder().decode(Rsp.self, from: Data(contentsOf: rspURL))
+            logDebug("Podspec: respose: \(rsp)")
+            return rsp
         }
 
         struct Req: Encodable {
@@ -81,6 +84,8 @@ extension GatherJob {
 
         struct Rsp: Decodable {
             let module: String
+            let version: String
+            let github_prefix: String?
             let root: String
             let targets: [String : String]
         }

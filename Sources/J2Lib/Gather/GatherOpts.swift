@@ -110,23 +110,26 @@ final class GatherOpts : Configurable {
     /// - if we used --modules then we've just discovered the names, and have a global option
     /// - if we used custom_modules then we can ignore what we've discovered and use the
     ///   configured list and individual module policies.
-    func modulesToPublish(names: Set<String>) -> [PublishedModule] {
+    func modulesToPublish(from passes: [String:GatherModulePass]) -> [PublishedModule] {
         if customModules.isEmpty {
             let groupPolicy = ModuleGroupPolicy(merge: mergeModulesOpt.value)
-            return names.map {
-                PublishedModule(name: $0,
+            return passes.map {
+                PublishedModule(name: $0.key,
                                 groupPolicy: groupPolicy,
                                 sourceDirectory: rootPassOpts.effectiveSrcDir,
                                 codeHostURL: rootPassOpts.codeHostURLOpt.value,
                                 codeHostFilePrefix: rootPassOpts.codeHostFileURLOpt.value)
             }
         }
-        return customModules.map {
-            PublishedModule(name: $0.name,
-                            groupPolicy: $0.groupPolicy,
-                            sourceDirectory: $0.moduleOpts.effectiveSrcDir,
-                            codeHostURL: $0.moduleOpts.codeHostURLOpt.value,
-                            codeHostFilePrefix: $0.moduleOpts.codeHostFileURLOpt.value)
+        return customModules.compactMap { mod in
+            guard let pass = passes[mod.name] else {
+                return nil
+            }
+            return PublishedModule(name: mod.name,
+                                   groupPolicy: mod.groupPolicy,
+                                   sourceDirectory: mod.moduleOpts.effectiveSrcDir,
+                                   codeHostURL: mod.moduleOpts.codeHostURLOpt.value,
+                                   codeHostFilePrefix: mod.moduleOpts.codeHostFileURLOpt.value)
         }
     }
 
