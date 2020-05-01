@@ -30,7 +30,7 @@ extension GatherJob {
                 return try rsp.targets
                     // sort for json reproducibility
                     .sorted(by: { $0.1 < $1.1 })
-                    .map { (targetName, version) in
+                    .map { (targetName, version) -> GatherModulePass in
                         logDebug("Podspec: spinning off Swift job for target \(targetName)")
                         let swiftJob = Swift(moduleName: rsp.module,
                                              srcDir: URL(fileURLWithPath: rsp.root),
@@ -38,6 +38,14 @@ extension GatherJob {
                                              buildToolArgs: ["-target", targetName],
                                              availability: customizeAvailability(version: version))
                         return try swiftJob.execute()
+                    }
+                    .map {
+                        GatherModulePass(moduleName: $0.moduleName,
+                                         version: rsp.version,
+                                         codeHostFileURL: rsp.github_prefix,
+                                         passIndex: $0.passIndex,
+                                         imported: $0.imported,
+                                         files: $0.files)
                     }
             }
         }

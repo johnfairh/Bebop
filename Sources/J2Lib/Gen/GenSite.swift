@@ -96,7 +96,7 @@ public struct GenSite: Configurable {
 
     func checkOptions(publish: PublishStore) throws {
         publish.childItemStyle = childItemStyle
-        publish.moduleVersion = moduleVersionOpt.value
+        publish.configuredModuleVersion = moduleVersionOpt.value
     }
 
     private func processCleanOpt() throws {
@@ -230,7 +230,7 @@ public struct GenSite: Configurable {
         }
         let aModuleName = published.moduleNames.first ?? "Module"
         var flat = aModuleName + " "
-        if let moduleVersion = moduleVersionOpt.value {
+        if let moduleVersion = published.docsVersion {
             flat += "\(moduleVersion) "
         }
         return Localized<String>(unlocalized: flat) + .localizedOutput(.docs)

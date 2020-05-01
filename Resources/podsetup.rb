@@ -36,9 +36,9 @@ response_path = Pathname.new(params[:response])
 podspec = Pod::Specification.from_file(podspec_path)
 
 def github_prefix(podspec)
-  return unless podspec.source[:url] =~ %r{github.com[:/]+(.+)/(.+)}
+  return unless podspec.source[:git] =~ %r{github.com[:/]+(.+)/(.+)}
 
-  org, repo = Regexp.last_match
+  org, repo = Regexp.last_match[1..2]
   return unless org && repo
 
   repo.sub!(/\.git$/, '')

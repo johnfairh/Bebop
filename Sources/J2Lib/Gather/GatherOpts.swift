@@ -116,20 +116,17 @@ final class GatherOpts : Configurable {
             return passes.map {
                 PublishedModule(name: $0.key,
                                 groupPolicy: groupPolicy,
-                                sourceDirectory: rootPassOpts.effectiveSrcDir,
-                                codeHostURL: rootPassOpts.codeHostURLOpt.value,
-                                codeHostFilePrefix: rootPassOpts.codeHostFileURLOpt.value)
+                                pass: $0.value,
+                                opts: rootPassOpts)
             }
         }
         return customModules.compactMap { mod in
-            guard let pass = passes[mod.name] else {
-                return nil
+            passes[mod.name].flatMap {
+                PublishedModule(name: mod.name,
+                                groupPolicy: mod.groupPolicy,
+                                pass: $0,
+                                opts: mod.moduleOpts)
             }
-            return PublishedModule(name: mod.name,
-                                   groupPolicy: mod.groupPolicy,
-                                   sourceDirectory: mod.moduleOpts.effectiveSrcDir,
-                                   codeHostURL: mod.moduleOpts.codeHostURLOpt.value,
-                                   codeHostFilePrefix: mod.moduleOpts.codeHostFileURLOpt.value)
         }
     }
 
@@ -160,6 +157,23 @@ final class GatherOpts : Configurable {
             }
         }
         return [rootPassOpts.makeJob(moduleName: nil)].compactMap { $0 }
+    }
+}
+
+/// Helper to create a published module info entry from the various sources.
+extension PublishedModule {
+    init(name: String,
+         groupPolicy: ModuleGroupPolicy,
+         pass: GatherModulePass,
+         opts: GatherJobOpts) {
+        self.name = name
+        self.version = pass.version
+        self.groupPolicy = groupPolicy
+        self.sourceDirectory = opts.effectiveSrcDir
+        self.codeHostURL = opts.codeHostURLOpt.value
+        // Manual setting overrides any discovered (podspec) URL
+        self.codeHostFilePrefix =
+            opts.codeHostFileURLOpt.value ?? pass.codeHostFileURL
     }
 }
 

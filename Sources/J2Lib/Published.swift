@@ -64,7 +64,7 @@ protocol Published {
     var codeHostFallbackURL: Localized<String>? { get }
 
     /// Overall version number string
-    var moduleVersion: String? { get }
+    var docsVersion: String? { get }
 
     /// MathML rendering required
     var usesMath: Bool { get }
@@ -120,7 +120,21 @@ final class PublishStore: Published {
         }
     }
 
-    var moduleVersion: String?
+    var configuredModuleVersion: String?
+
+    // Fish out a version from somewhere: prioritize the option
+    // over anything calculated (podspec)
+    var docsVersion: String? {
+        if let moduleVersion = configuredModuleVersion {
+            return moduleVersion
+        }
+        for mod in modules {
+            if let version = mod.version {
+                return version
+            }
+        }
+        return nil
+    }
 
     var usesMath: Bool = false
     func setUsesMath() {

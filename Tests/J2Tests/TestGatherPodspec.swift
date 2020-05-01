@@ -117,7 +117,21 @@ class TestGatherPodspec: XCTestCase {
         AssertThrows(try PassSystem().run(["--podspec", badFileURL.path]), .errPodspecFailed)
     }
 
-    // Good-path covered in TestProducts
+    // MARK: Metadata
+
+    func testMetadata() throws {
+        let system = PassSystem()
+        let _ = try system.run(["--podspec", podspecURL.path])
+        XCTAssertEqual("0.1", system.config.published.docsVersion)
+        let module = system.config.published.module("Pod")
+        guard let codeHostFilePrefix = module.codeHostFilePrefix else {
+            XCTFail()
+            return
+        }
+        XCTAssertTrue(codeHostFilePrefix.hasPrefix("https://github.com/johnfairh"))
+    }
+
+    // Good-path (to files-json) covered in TestProducts
 
     #endif
 

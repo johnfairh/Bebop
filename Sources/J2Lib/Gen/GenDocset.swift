@@ -62,7 +62,7 @@ public final class GenDocset: Configurable {
         try createIndex(docsetDirURL: docsetDirURL, items: items)
         createArchive(docsetTopURL: docsetTopURL, docsetName: docsetName)
         if let deploymentURL = deploymentURL,
-            let version = published.moduleVersion {
+            let version = published.docsVersion {
             try createFeedXML(docsetTopURL: docsetTopURL, deploymentURL: deploymentURL, version: version)
         } else {
             logDebug("Docset: skipping feed XML creation, not enough metadata.")
