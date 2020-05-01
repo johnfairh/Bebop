@@ -24,7 +24,8 @@ final class MarkdownFormatter: ItemVisitorProtocol {
     let linkRewriter: FormatLinkRewriter?
 
     /// Context while visiting...
-    private var visitItemNameContext: Item! = nil
+    private var itemContext: Item! = nil
+    private var languageTagContext: String! = nil
 
     /// Indicate whether math expressions seen
     private(set) var hasMath = false
@@ -41,14 +42,14 @@ final class MarkdownFormatter: ItemVisitorProtocol {
     private func format(item: Item) {
         let formatters = RichText.Formatters(inline: { self.formatInline(md: $0, languageTag: $1)},
                                              block: { self.format(md: $0, languageTag: $1) })
-        visitItemNameContext = item
+        itemContext = item
         item.format(formatters: formatters)
 
         if let topic = item.topic {
             topic.format(formatters: formatters)
         }
 
-        visitItemNameContext = nil
+        itemContext = nil
     }
 
     func visit(defItem: DefItem, parents: [Item]) {
@@ -66,9 +67,9 @@ final class MarkdownFormatter: ItemVisitorProtocol {
         format(item: guideItem)
     }
 
-    func addTopicHeading(_ title: String, anchorId: String, languageTag: String) {
-        if let guideItem = visitItemNameContext as? GuideItem {
-            guideItem.addHeading(title, anchorId: anchorId, languageTag: languageTag)
+    func addTopicHeading(_ title: String, anchorId: String) {
+        if let guideItem = itemContext as? GuideItem {
+            guideItem.addHeading(title, anchorId: anchorId, languageTag: languageTagContext)
         }
     }
 
@@ -82,12 +83,14 @@ final class MarkdownFormatter: ItemVisitorProtocol {
             logDebug("Couldn't parse and render markdown '\(md)'.")
             return (md, Html(""))
         }
+        languageTagContext = languageTag
+        defer { languageTagContext = nil }
 
         autolink(doc: doc)
 
         let mdOut = doc.node.renderMarkdown()
 
-        customizeForHtml(doc: doc, languageTag: languageTag)
+        customizeForHtml(doc: doc)
 
         let html = doc.node.renderHtml()
 
@@ -115,9 +118,7 @@ final class MarkdownFormatter: ItemVisitorProtocol {
                 linkRewriter?.rewriteLink(node: node)
 
             case .code:
-                if let autolink =
-                    autolink?.link(for: node.literal!,
-                                   context: visitItemNameContext) {
+                if let autolink = autolink?.link(for: node.literal!, context: itemContext) {
                     let linkNode = CMNode.init(type: .link)
                     try! linkNode.setLinkURL(URL(string: autolink.markdownURL)!)
                     try! linkNode.insertIntoTree(afterNode: node)
@@ -141,13 +142,13 @@ final class MarkdownFormatter: ItemVisitorProtocol {
     ///
     /// All the !s and try!s here are to do with poorly-wrapped cmark interfaces that
     /// are (not) policing node types.
-    func customizeForHtml(doc: CMDocument, languageTag: String) {
+    func customizeForHtml(doc: CMDocument) {
         let iterator = CMIterator(doc: doc)
 
         try! iterator.forEach { node, iter in
             switch node.type {
             case .heading:
-                customizeHeading(heading: node, iterator: iter, languageTag: languageTag)
+                customizeHeading(heading: node, iterator: iter)
 
             case .code:
                 customizeCode(code: node, iterator: iter)
@@ -179,12 +180,12 @@ final class MarkdownFormatter: ItemVisitorProtocol {
     /// Replace headings with more complicated HTML to make the anchors.js stuff work
     /// with the fixed heading.  (Headings are container elements, can have multiple children
     /// if there is eg. linking/italics in the heading.)
-    func customizeHeading(heading: CMNode, iterator: Iterator, languageTag: String) {
+    func customizeHeading(heading: CMNode, iterator: Iterator) {
         let flatTitle = heading.renderPlainText()
         let anchorId = flatTitle.slugged
         let level = heading.headingLevel
         if level < 3 {
-            addTopicHeading(flatTitle, anchorId: anchorId, languageTag: languageTag)
+            addTopicHeading(flatTitle, anchorId: anchorId)
         }
         let replacementNode =
             CMNode(customEnter:
