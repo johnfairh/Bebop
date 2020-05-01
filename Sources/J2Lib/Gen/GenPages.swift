@@ -187,6 +187,7 @@ final class PageVisitor: ItemVisitorProtocol {
                                   breadcrumbs: buildBreadcrumbs(item: guideItem, parents: parents),
                                   isReadme: false,
                                   content: guideItem.content.html.autolinked(guideItem.url),
+                                  topics: buildGuideTopics(guideItem: guideItem),
                                   pagination: buildPagination(item: guideItem),
                                   codeHostURL: published.codeHostFallbackURL))
     }
@@ -197,6 +198,7 @@ final class PageVisitor: ItemVisitorProtocol {
                                   breadcrumbs: [],
                                   isReadme: true,
                                   content: readmeItem.content.html.autolinked(readmeItem.url),
+                                  topics: buildGuideTopics(guideItem: readmeItem),
                                   pagination: buildPagination(item: readmeItem),
                                   codeHostURL: published.codeHostFallbackURL))
     }
@@ -265,6 +267,13 @@ final class PageVisitor: ItemVisitorProtocol {
         }
         endTopic()
         return topics
+    }
+
+    /// A wiser person would be able to use the same type here...
+    func buildGuideTopics(guideItem: GuideItem) -> Localized<[GenData.GuideTopic]> {
+        guideItem.headings.mapValues { headings in
+            headings.map { GenData.GuideTopic(title: $0.title, anchorId: $0.anchorId) }
+        }
     }
 
     /// Pagination links for a page

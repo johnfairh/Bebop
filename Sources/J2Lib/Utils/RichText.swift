@@ -101,8 +101,8 @@ public enum RichText: Encodable, Equatable {
         }
     }
 
-    /// Something that knows how to convert Markdown to HTML
-    typealias Formatter = (Markdown) -> (Markdown, Html)
+    /// Something that knows how to convert Markdown in some localization to HTML
+    typealias Formatter = (Markdown, String) -> (Markdown, Html)
 
     struct Formatters {
         public let inline: Formatter
@@ -114,8 +114,10 @@ public enum RichText: Encodable, Equatable {
         switch self {
         case .formatted(_,_): return
         case .unformatted(let locMd):
-            let formatted = locMd.mapValues { formatter($0) }
-            self = .formatted(formatted.mapValues { $0.0 }, formatted.mapValues { $0.1 })
+            let formatted = locMd.map { ($0.key, formatter($0.value, $0.key)) }
+            let formattedMd = Localized<Markdown>(uniqueKeysWithValues: formatted.map { ($0.0, $0.1.0) })
+            let formattedHtml = Localized<Html>(uniqueKeysWithValues: formatted.map { ($0.0, $0.1.1) })
+            self = .formatted(formattedMd, formattedHtml)
         }
     }
 

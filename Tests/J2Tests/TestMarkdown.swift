@@ -122,10 +122,10 @@ class TestMarkdown: XCTestCase {
     func testBaseFormatting() {
         let formatter = MarkdownFormatter(language: .swift)
         let mdIn = Markdown("text")
-        let (mdOut, html) = formatter.format(md: mdIn)
+        let (mdOut, html) = formatter.format(md: mdIn, languageTag: "en")
         XCTAssertEqual("<p>text</p>", html.html)
         XCTAssertEqual(mdIn, mdOut)
-        let (mdInlineOut, htmlInline) = formatter.formatInline(md: mdIn)
+        let (mdInlineOut, htmlInline) = formatter.formatInline(md: mdIn, languageTag: "en")
         XCTAssertEqual("text", htmlInline.html)
         XCTAssertEqual(mdIn, mdInlineOut)
     }
@@ -133,7 +133,7 @@ class TestMarkdown: XCTestCase {
     func testHeadingFormatting() {
         let formatter = MarkdownFormatter(language: .swift)
         let md = Markdown("# Heading Text")
-        let (_, html) = formatter.format(md: md)
+        let (_, html) = formatter.format(md: md, languageTag: "en")
         XCTAssertEqual(
             #"""
             <h1 class="j2-anchor j2-heading heading" id="heading-text">
@@ -151,7 +151,7 @@ class TestMarkdown: XCTestCase {
                           text
                           ```
                           """)
-        let (_, html) = formatter.format(md: md)
+        let (_, html) = formatter.format(md: md, languageTag: "en")
         XCTAssertTrue(html.html.contains("language-\(out)"))
     }
 
@@ -169,7 +169,7 @@ class TestMarkdown: XCTestCase {
                           - warning: Warning
                           - callout(Custom Callout): Custom
                           """)
-        let (_, html) = formatter.format(md: md)
+        let (_, html) = formatter.format(md: md, languageTag: "en")
         XCTAssertEqual("""
             <div class="j2-callout j2-callout-warning aside aside-warning">
             <div class="j2-callout-title aside-title" role="heading" aria-level="6">warning</div>

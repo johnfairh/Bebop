@@ -104,6 +104,10 @@ public final class GenData: Encodable {
         public let overview: Localized<Html>?
         public let items: [Item]
     }
+    public struct GuideTopic: Encodable {
+        public let title: String
+        public let anchorId: String
+    }
     public struct Breadcrumb: Encodable {
         public let title: Localized<String>
         public let url: URLPieces?
@@ -131,6 +135,7 @@ public final class GenData: Encodable {
         public let breadcrumbs: [[Breadcrumb]]
         public let def: Def?
         public let topics: [Topic]
+        public let guideTopics: Localized<[GuideTopic]>
         public let pagination: Pagination
         public let codeHostURL: Localized<String>?
 
@@ -156,6 +161,7 @@ public final class GenData: Encodable {
             self.breadcrumbs = breadcrumbs
             self.def = definition
             self.topics = topics
+            self.guideTopics = [:]
             self.pagination = pagination
             self.codeHostURL = codeHostURL
         }
@@ -181,6 +187,7 @@ public final class GenData: Encodable {
             self.breadcrumbs = breadcrumbs
             self.def = nil
             self.topics = topics
+            self.guideTopics = [:]
             self.pagination = pagination
             self.codeHostURL = codeHostURL
         }
@@ -191,6 +198,7 @@ public final class GenData: Encodable {
              breadcrumbs: [[Breadcrumb]],
              isReadme: Bool,
              content: Localized<Html>?,
+             topics: Localized<[GuideTopic]>,
              pagination: Pagination,
              codeHostURL: Localized<String>?) {
             self.url = guideURL
@@ -204,6 +212,7 @@ public final class GenData: Encodable {
             self.breadcrumbs = breadcrumbs
             self.def = nil
             self.topics = []
+            self.guideTopics = topics
             self.pagination = pagination
             self.codeHostURL = codeHostURL
         }

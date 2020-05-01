@@ -85,6 +85,7 @@ class TestGen: XCTestCase {
                             title: title, breadcrumbs: [],
                             isReadme: false,
                             content: nil,
+                            topics: [:],
                             pagination: GenData.Pagination(prev: nil, next: nil),
                             codeHostURL: nil)
     }

@@ -13,6 +13,13 @@ public class GuideItem: Item {
     public private(set) var content: RichText
     public let title: Localized<String>
 
+    /// List of headings pulled out from content displayed in the 'topics' menu
+    public struct Heading {
+        public let title: String
+        public let anchorId: String
+    }
+    public private(set) var headings: Localized<[Heading]>
+
     /// Create a new guide item.
     /// - parameter name: The name of the guide as described by the user, case-sensitive, any characters.
     ///                   Used for autolinking.
@@ -22,6 +29,7 @@ public class GuideItem: Item {
     init(name: String, slug: String, title: Localized<String>, content: Localized<Markdown>) {
         self.content = RichText(content)
         self.title = title
+        self.headings = .init()
         super.init(name: name, slug: slug)
     }
 
@@ -41,6 +49,11 @@ public class GuideItem: Item {
 
     override func format(formatters: RichText.Formatters) {
         content.format(formatters.block)
+    }
+
+    func addHeading(_ title: String, anchorId: String, languageTag: String) {
+        let heading = [Heading(title: title, anchorId: anchorId)]
+        headings.reduceKey(languageTag, heading) { $0 + heading }
     }
 }
 

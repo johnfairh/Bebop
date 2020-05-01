@@ -39,8 +39,8 @@ final class MarkdownFormatter: ItemVisitorProtocol {
     /// This both generates HTML versions of everything and also replaces the original markdown
     /// with an auto-linked version for generating markdown output.
     private func format(item: Item) {
-        let formatters = RichText.Formatters(inline: { self.formatInline(md: $0)},
-                                             block: { self.format(md: $0) })
+        let formatters = RichText.Formatters(inline: { self.formatInline(md: $0, languageTag: $1)},
+                                             block: { self.format(md: $0, languageTag: $1) })
         visitItemNameContext = item
         item.format(formatters: formatters)
 
@@ -66,12 +66,18 @@ final class MarkdownFormatter: ItemVisitorProtocol {
         format(item: guideItem)
     }
 
+    func addTopicHeading(_ title: String, anchorId: String, languageTag: String) {
+        if let guideItem = visitItemNameContext as? GuideItem {
+            guideItem.addHeading(title, anchorId: anchorId, languageTag: languageTag)
+        }
+    }
+
     /// 1 - build markdown AST
     /// 2 - autolink pass, walk for `code` nodes and wrap in link
     /// 3 - roundtrip to markdown and replace original
     /// 4 - fixup pass for html rendering
     /// 5 - render that as html
-    func format(md: Markdown) -> (Markdown, Html) {
+    func format(md: Markdown, languageTag: String) -> (Markdown, Html) {
         guard let doc = CMDocument(markdown: md) else {
             logDebug("Couldn't parse and render markdown '\(md)'.")
             return (md, Html(""))
@@ -81,7 +87,7 @@ final class MarkdownFormatter: ItemVisitorProtocol {
 
         let mdOut = doc.node.renderMarkdown()
 
-        customizeForHtml(doc: doc)
+        customizeForHtml(doc: doc, languageTag: languageTag)
 
         let html = doc.node.renderHtml()
 
@@ -91,8 +97,8 @@ final class MarkdownFormatter: ItemVisitorProtocol {
     }
 
     /// Render for some inline html, stripping the outer paragraph element.
-    func formatInline(md: Markdown) -> (Markdown, Html) {
-        let (md, html) = format(md: md)
+    func formatInline(md: Markdown, languageTag: String) -> (Markdown, Html) {
+        let (md, html) = format(md: md, languageTag: languageTag)
         let inlineHtml = html.html.re_sub("^<p>|</p>$", with: "")
         return (md, Html(inlineHtml))
     }
@@ -135,13 +141,13 @@ final class MarkdownFormatter: ItemVisitorProtocol {
     ///
     /// All the !s and try!s here are to do with poorly-wrapped cmark interfaces that
     /// are (not) policing node types.
-    func customizeForHtml(doc: CMDocument) {
+    func customizeForHtml(doc: CMDocument, languageTag: String) {
         let iterator = CMIterator(doc: doc)
 
         try! iterator.forEach { node, iter in
             switch node.type {
             case .heading:
-                customizeHeading(heading: node, iterator: iter)
+                customizeHeading(heading: node, iterator: iter, languageTag: languageTag)
 
             case .code:
                 customizeCode(code: node, iterator: iter)
@@ -173,9 +179,13 @@ final class MarkdownFormatter: ItemVisitorProtocol {
     /// Replace headings with more complicated HTML to make the anchors.js stuff work
     /// with the fixed heading.  (Headings are container elements, can have multiple children
     /// if there is eg. linking/italics in the heading.)
-    func customizeHeading(heading: CMNode, iterator: Iterator) {
-        let anchorId = heading.renderPlainText().slugged
+    func customizeHeading(heading: CMNode, iterator: Iterator, languageTag: String) {
+        let flatTitle = heading.renderPlainText()
+        let anchorId = flatTitle.slugged
         let level = heading.headingLevel
+        if level < 3 {
+            addTopicHeading(flatTitle, anchorId: anchorId, languageTag: languageTag)
+        }
         let replacementNode =
             CMNode(customEnter:
                     #"""

@@ -17,6 +17,7 @@
           }
         ]
       ],
+      "guide_topics" : {},
       "is_guide" : false,
       "pagination" : {
         "next" : {
@@ -354,6 +355,7 @@
           "html" : "public class ABaseClass"
         }
       },
+      "guide_topics" : {},
       "is_guide" : false,
       "pagination" : {
         "next" : {
@@ -743,6 +745,7 @@
           "html" : "public class ADerivedClass&lt;T, Q&gt; : <a href=\"..\/..\/spmswiftmodule\/types\/abaseclass.html?swift\">ABaseClass<\/a> where Q : Sequence"
         }
       },
+      "guide_topics" : {},
       "is_guide" : false,
       "pagination" : {
         "next" : {
@@ -910,6 +913,7 @@
           "html" : "public enum AnEnum"
         }
       },
+      "guide_topics" : {},
       "is_guide" : false,
       "pagination" : {
         "next" : {
@@ -1112,6 +1116,7 @@
           "html" : "public protocol FirstProtocol"
         }
       },
+      "guide_topics" : {},
       "is_guide" : false,
       "pagination" : {
         "next" : {
@@ -1479,6 +1484,7 @@
           "html" : "class GenericBase&lt;T&gt;\n\nextension GenericBase : CustomStringConvertible"
         }
       },
+      "guide_topics" : {},
       "is_guide" : false,
       "pagination" : {
         "next" : {
@@ -1842,6 +1848,7 @@
           "html" : "@propertyWrapper\nstruct Nop"
         }
       },
+      "guide_topics" : {},
       "is_guide" : false,
       "pagination" : {
         "next" : {
@@ -1985,6 +1992,7 @@
           "html" : "struct PropertyWrapperClient"
         }
       },
+      "guide_topics" : {},
       "is_guide" : false,
       "pagination" : {
         "next" : {
@@ -2091,6 +2099,7 @@
           "html" : "public protocol SecondProtocol : <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>"
         }
       },
+      "guide_topics" : {},
       "is_guide" : false,
       "pagination" : {
         "next" : {
@@ -2239,6 +2248,7 @@
           "html" : "public struct SpmSwiftModule"
         }
       },
+      "guide_topics" : {},
       "is_guide" : false,
       "pagination" : {
         "next" : {
@@ -2465,6 +2475,7 @@
           "html" : "public struct Nested1"
         }
       },
+      "guide_topics" : {},
       "is_guide" : false,
       "pagination" : {
         "next" : {
@@ -2619,6 +2630,7 @@
           "html" : "public struct Nested2a"
         }
       },
+      "guide_topics" : {},
       "is_guide" : false,
       "pagination" : {
         "next" : {
@@ -2709,6 +2721,7 @@
           }
         ]
       ],
+      "guide_topics" : {},
       "is_guide" : false,
       "pagination" : {
         "next" : {
@@ -2899,6 +2912,7 @@
           }
         ]
       ],
+      "guide_topics" : {},
       "is_guide" : false,
       "pagination" : {
         "next" : {
@@ -2984,6 +2998,7 @@
           }
         ]
       ],
+      "guide_topics" : {},
       "is_guide" : false,
       "pagination" : {
         "next" : {
@@ -3113,6 +3128,7 @@
           "html" : "extension Collection where Element: <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>\n\nextension Collection where Element == <a href=\"..\/..\/spmswiftmodule\/types\/spmswiftmodule\/nested1.html?swift\">SpmSwiftModule.Nested1<\/a>"
         }
       },
+      "guide_topics" : {},
       "is_guide" : false,
       "pagination" : {
         "next" : {
@@ -3256,6 +3272,7 @@
           "html" : "extension String.Element"
         }
       },
+      "guide_topics" : {},
       "is_guide" : false,
       "pagination" : {
         "prev" : {
@@ -3349,6 +3366,14 @@
         "en" : {
           "html" : "<h1 class=\"j2-anchor j2-heading heading\" id=\"spmswiftmodule\">\n<span data-anchor-id=\"spmswiftmodule\">\nSpmSwiftModule\n<\/span><\/h1>"
         }
+      },
+      "guide_topics" : {
+        "en" : [
+          {
+            "anchor_id" : "spmswiftmodule",
+            "title" : "SpmSwiftModule"
+          }
+        ]
       },
       "is_guide" : true,
       "pagination" : {

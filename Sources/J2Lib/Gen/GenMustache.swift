@@ -429,7 +429,8 @@ extension GenData.Page {
             topicsMenu.append(MH([.title: declaration, .anchorId: ""]))
         }
         return topicsMenu +
-            topics.compactMap { $0.generateMenuItem(language: language, languageTag: languageTag) }
+            topics.compactMap { $0.generateMenuItem(language: language, languageTag: languageTag) } +
+            guideTopics.get(languageTag).map { $0.generateMenuItem() }
     }
 
     /// Get the menu for a particular language, can be absent entirely
@@ -517,6 +518,13 @@ extension GenData.Topic: SoloLanguageProtocol {
 
         return MH([.title: titleText,
                    .anchorId: anchorId.urlFragmentEncoded])
+    }
+}
+
+extension GenData.GuideTopic {
+    /// For a guide heading topic
+    func generateMenuItem() -> MustacheDict {
+        MH([.title: title, .anchorId: anchorId.urlFragmentEncoded])
     }
 }
 

@@ -4836,6 +4836,16 @@
       }
     ],
     "topics" : [],
-    "topics_menus" : []
+    "topics_menus" : [
+      {
+        "language" : "j2-swift",
+        "topics_menu" : [
+          {
+            "anchor_id" : "spmswiftmodule",
+            "title" : "SpmSwiftModule"
+          }
+        ]
+      }
+    ]
   }
 ]

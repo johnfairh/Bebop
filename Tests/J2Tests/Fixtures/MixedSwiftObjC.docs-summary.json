@@ -25,6 +25,7 @@
           }
         ]
       ],
+      "guide_topics" : {},
       "is_guide" : false,
       "pagination" : {
         "next" : {
@@ -315,6 +316,7 @@
           "html" : "public class ExposedSwiftClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
         }
       },
+      "guide_topics" : {},
       "is_guide" : false,
       "pagination" : {
         "next" : {
@@ -573,6 +575,7 @@
           "html" : "public class RenamedExposedSwiftClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
         }
       },
+      "guide_topics" : {},
       "is_guide" : false,
       "pagination" : {
         "next" : {
@@ -774,6 +777,7 @@
           "html" : "class NormalClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
         }
       },
+      "guide_topics" : {},
       "is_guide" : false,
       "pagination" : {
         "next" : {
@@ -947,6 +951,7 @@
           "html" : "class Kitchen : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
         }
       },
+      "guide_topics" : {},
       "is_guide" : false,
       "pagination" : {
         "next" : {
@@ -1110,6 +1115,7 @@
           "html" : "class Cupboard : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
         }
       },
+      "guide_topics" : {},
       "is_guide" : false,
       "pagination" : {
         "next" : {
@@ -1347,6 +1353,7 @@
         },
         "params" : []
       },
+      "guide_topics" : {},
       "is_guide" : false,
       "pagination" : {
         "next" : {
@@ -1439,6 +1446,7 @@
           }
         ]
       ],
+      "guide_topics" : {},
       "is_guide" : false,
       "pagination" : {
         "next" : {
@@ -1556,6 +1564,7 @@
           "html" : "extension <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/string?language=swift\">String<\/a>"
         }
       },
+      "guide_topics" : {},
       "is_guide" : false,
       "pagination" : {
         "prev" : {
@@ -1625,6 +1634,14 @@
         "en" : {
           "html" : "<h1 class=\"j2-anchor j2-heading heading\" id=\"spmobjcmodule\">\n<span data-anchor-id=\"spmobjcmodule\">\nSpmObjCModule\n<\/span><\/h1>"
         }
+      },
+      "guide_topics" : {
+        "en" : [
+          {
+            "anchor_id" : "spmobjcmodule",
+            "title" : "SpmObjCModule"
+          }
+        ]
       },
       "is_guide" : true,
       "pagination" : {
