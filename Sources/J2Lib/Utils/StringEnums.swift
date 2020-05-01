@@ -150,31 +150,29 @@ internal enum L10n {
     case errSktnXcodeDef = "err-sktn-xcode-def"
     /// SourceKitten couldn't find build info from `xcodebuild`.  Check the log above; it was looking for a `swiftc` command that included `-module-name %1`.
     case errSktnXcodeMod = "err-sktn-xcode-mod"
+    /// Documentation complete in %1
+    case msgComplete = "msg-complete"
     /// Using config file '%1'
     case msgConfigFile = "msg-config-file"
-    /// Copying up files...
-    case msgCopyProgress = "msg-copy-progress"
-    /// Copying theme files...
+    /// Copying theme files
     case msgCopyingTheme = "msg-copying-theme"
     /// %1% documentation coverage with %2 documented and %3 undocumented definitions
     case msgCoverage = "msg-coverage"
-    /// Generating %1...
+    /// Generating %1
     case msgDocsetProgress = "msg-docset-progress"
-    /// Gathering info for %1...
+    /// Gathering info for %1
     case msgGatherHeading = "msg-gather-heading"
-    /// Generating documentation...
+    /// Generating documentation
     case msgGeneratingDocs = "msg-generating-docs"
     /// Option aliases for Jazzy compatibility:
     case msgHelpAliases = "msg-help-aliases"
     /// j2: Generate API documentation for Swift or Objective-C code.\n\nUsage: j2 [options]\n\nOptions:
     case msgHelpIntro = "msg-help-intro"
-    /// Rendering theme in classic Jazzy mode...
+    /// Rendering theme in classic Jazzy mode
     case msgJazzyTheme = "msg-jazzy-theme"
-    /// Building search index...
-    case msgSearchProgress = "msg-search-progress"
     /// Skipped %1 %2 definitions
     case msgSwiftAcl = "msg-swift-acl"
-    /// Unpacking podspec %1...
+    /// Unpacking podspec %1
     case msgUnpackPodspec = "msg-unpack-podspec"
     /// Can't open Apple documentation database '%1': %2
     case wrnAppleautoDbo = "wrn-appleauto-dbo"

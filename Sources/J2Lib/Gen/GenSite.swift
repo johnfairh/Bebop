@@ -135,11 +135,11 @@ public struct GenSite: Configurable {
         }
 
         if !hideSearchOpt.value {
-            logInfo(.msgSearchProgress)
+            logDebug("Gen: Building search index...")
             try search.buildIndex(items: items)
         }
 
-        logInfo(.msgCopyProgress)
+        logDebug("Gen: Copying up files...")
 
         try Localizations.shared.allTags.forEach { tag in
             let docRoot = outputURL.appendingPathComponent(tag.languageTagPathComponent)
@@ -181,6 +181,11 @@ public struct GenSite: Configurable {
     /// Passthrough to generate the docset
     public func generateDocset(items: [Item]) throws {
         try docset.generate(outputURL: outputURL, deploymentURL: deploymentURLOpt.value, items: items)
+    }
+
+    /// ♪♫
+    func reportDone() {
+        logInfo(L10n.Localizable.msgComplete, outputURL.asRelativePath(from: FileManager.default.currentDirectory))
     }
 
     /// Factored out page generation.  Internal for tests.

@@ -57,7 +57,7 @@ Options:";
 
 "wrn-cfg-language-missing" = "Language tags missing for '%1': %2.";
 
-"msg-generating-docs" = "Generating documentation...";
+"msg-generating-docs" = "Generating documentation";
 
 "wrn-duplicate-globfile" = "Duplicate filename '%1', ignoring '%2'.";
 "wrn-empty-glob" = "No files matching '*.md' found expanding '%1'.";
@@ -81,7 +81,7 @@ Ignoring the second.";
 "err-modules-overlap" = "Both --module and custom_modules are set: choose just one.";
 "err-missing-module" = "Missing key 'module' in a custom_modules stanza -- you have to set this.";
 "err-repeated-module" = "Module name '%1' repeated in --modules.";
-"msg-gather-heading" = "Gathering info for %1...";
+"msg-gather-heading" = "Gathering info for %1";
 "msg-swift-acl" = "Skipped %1 %2 definitions";
 "msg-coverage" = "%1% documentation coverage with %2 documented and %3 undocumented definitions";
 "err-cfg-regexp" = "Invalid ICU regular expression '%1'.  Original error: '%2'.";
@@ -113,8 +113,6 @@ Ignoring the second.";
 "wrn-j2json-decode" = "Can't decode J2 JSON portion from '%1': %2.";
 "wrn-j2json-future" = "Can't import J2 JSON file '%1', version '%2' is from a later version of the program.";
 "err-cfg-j2json-mutex" = "Both --j2-json-files and other data-source options are set: choose just one.";
-"msg-search-progress" = "Building search index...";
-"msg-copy-progress" = "Copying up files...";
 "wrn-unknown-acl" = "Unrecognized accessibility '%1' for '%2', using 'internal'.";
 "err-cfg-brand-missing-image" = "Config key 'image_name' not set under 'custom_brand'.";
 "err-cfg-brand-bad-image" = "Config key 'custom_brand.image_name' of '%1' did not match any file from --media.";
@@ -141,7 +139,7 @@ Ignoring the second.";
 "err-cfg-chost-missing-fmt" = "One of the custom code-host line format keys is missing: you must supply both or neither of 'single_line_format' and 'multi_line_format'.";
 "wrn-docset-path" = "The --docset-path option is ignored: the docset is created under '<output>/docsets'.";
 "err-cfg-docset-icon" = "Docset icons must be in .png format.  '%1' has the wrong file extension.";
-"msg-docset-progress" = "Generating %1...";
+"msg-docset-progress" = "Generating %1";
 "wrn-docset-tarfile" = "Can't create docset tarfile.
 %1";
 "wrn-sw2objc-header" = "Can't find Objective-C header file for module '%1' at '%2'.";
@@ -150,9 +148,9 @@ Ignoring the second.";
 %1;";
 "wrn-appleauto-dbo" = "Can't open Apple documentation database '%1': %2";
 "wrn-appleauto-dbq" = "Can't query Apple documentation database for '%1': %2";
-"msg-copying-theme" = "Copying theme files...";
+"msg-copying-theme" = "Copying theme files";
 "err-cfg-theme-copy" = "Can't use 'theme' along with any other value in --products.";
-"msg-jazzy-theme" = "Rendering theme in classic Jazzy mode...";
+"msg-jazzy-theme" = "Rendering theme in classic Jazzy mode";
 "err-sass-compile" = "Sass compile failed, rc=%1: %2.";
 "msg-help-aliases" = "Option aliases for Jazzy compatibility:";
 "err-not-implemented" = "Not implemented: %1.";
@@ -160,6 +158,7 @@ Ignoring the second.";
 "err-cfg-podspec-build" = "Both --podspec and some other build-source option are set: choose just one.";
 "err-cfg-podspec-pass" = "The --podspec option can't be set at the 'module pass' level because it generates multiple passes.";
 "err-podspec-modulename" = "Module name mismatch: expected '%1', podspec defines '%2'.";
-"msg-unpack-podspec" = "Unpacking podspec %1...";
+"msg-unpack-podspec" = "Unpacking podspec %1";
 "err-podspec-failed" = "Can't unpack podspec:
 %1";
+"msg-complete" = "Documentation complete in %1";

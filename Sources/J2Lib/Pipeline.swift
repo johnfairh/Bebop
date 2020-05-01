@@ -166,6 +166,7 @@ public final class Pipeline: Configurable {
                 try genSite.generateDocset(items: formattedItems)
             }
             stats.printReport()
+            genSite.reportDone()
         }
 
         if testAndClearProduct(.stats_json) {

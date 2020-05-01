@@ -140,3 +140,22 @@ extension String {
         reduce(0) { $0 + ($1 == "/" ? 1 : 0) }
     }
 }
+
+extension URL {
+    /// This is probably wrong in lots of ways
+    func asRelativePath(from base: URL) -> String {
+        let dstPathElems = path.split(separator: "/")
+        let srcPathElems = base.path.split(separator: "/")
+
+        var commonCount = 0
+        for e in zip(dstPathElems, srcPathElems) {
+            if e.0 != e.1 {
+                break
+            }
+            commonCount += 1
+        }
+
+        return String(repeating: "../", count: srcPathElems.count - commonCount) +
+            dstPathElems.dropFirst(commonCount).joined(separator: "/")
+    }
+}

@@ -23,6 +23,7 @@ final class GenBadge: Configurable {
 
     /// Create the badge for the current coverage localized appropriately
     func write(docRootURL: URL, languageTag: String) throws {
+        logDebug("GenBadge: write")
         try badgeXML.write(to: docRootURL.appendingPathComponent("badge.svg"))
     }
 
