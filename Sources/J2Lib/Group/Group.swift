@@ -145,7 +145,7 @@ extension GroupKind: Comparable {
         case .allItems: return ""
         case .someItems(_, let name),
              .moduleItems(_, let name): return name.get(Localizations.shared.main.tag)
-        case .custom(let title): return title.get(Localizations.shared.main.tag)
+        case .custom(let title, _): return title.get(Localizations.shared.main.tag)
         }
     }
 

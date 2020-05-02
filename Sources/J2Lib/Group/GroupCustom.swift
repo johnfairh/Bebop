@@ -88,6 +88,7 @@ final class GroupCustom: Configurable {
     struct Group: Equatable {
         let name: Localized<String>
         let abstract: Localized<String>?
+        let mixLanguages: Bool
         let topics: [Topic]
 
         struct Topic: Equatable {
@@ -183,7 +184,7 @@ final class GroupCustom: Configurable {
         }
 
         func build(group: Group) -> GroupItem {
-            GroupItem(kind: .custom(group.name),
+            GroupItem(kind: .custom(group.name, group.mixLanguages),
                       abstract: group.abstract,
                       contents: build(topics: group.topics),
                       uniquer: uniquer)
@@ -226,6 +227,7 @@ final class GroupCustom: Configurable {
     private struct GroupParser {
         let nameOpt = LocStringOpt(y: "name")
         let abstractOpt = LocStringOpt(y: "abstract")
+        let mixLanguagesOpt = BoolOpt(y: "mix_languages").def(true)
         let childrenOpt = YamlOpt(y: "children")
         let topicsOpt = YamlOpt(y: "topics")
 
@@ -260,6 +262,7 @@ final class GroupCustom: Configurable {
             Stats.inc(.groupCustomDecoded)
             return Group(name: nameOpt.value!,
                          abstract: abstractOpt.value,
+                         mixLanguages: mixLanguagesOpt.value,
                          topics: topics)
         }
 

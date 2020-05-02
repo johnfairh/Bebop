@@ -202,6 +202,7 @@ class TestGroup: XCTestCase {
                           - G1.C2
                       - name: Group2
                         abstract: Group2Abstract
+                        mix_languages: no
                       - name: Group3
                         children:
                           - name: Group3.SubGroup
@@ -209,17 +210,20 @@ class TestGroup: XCTestCase {
                               - G3.S.C1
                     """
         let groups = try buildCustomGroups(yaml)
-        print(groups)
         XCTAssertEqual(3, groups.count)
         XCTAssertEqual(.init(unlocalized: "Group1"), groups[0].name)
+        XCTAssertTrue(groups[0].mixLanguages)
         XCTAssertEqual(.init(unlocalized: "Group2"), groups[1].name)
+        XCTAssertFalse(groups[1].mixLanguages)
         XCTAssertEqual(.init(unlocalized: "Group3"), groups[2].name)
+        XCTAssertTrue(groups[2].mixLanguages)
         XCTAssertEqual([.init(topic: Topic(), children: [.name("G1.C1"), .name("G1.C2")])], groups[0].topics)
         XCTAssertNil(groups[0].abstract)
         XCTAssertTrue(groups[1].topics.isEmpty)
         XCTAssertNotNil(groups[1].abstract)
         let nestGroup = GroupCustom.Group(name: .init(unlocalized: "Group3.SubGroup"),
                                           abstract: nil,
+                                          mixLanguages: true,
                                           topics: [.init(topic: Topic(), children: [.name("G3.S.C1")])])
         XCTAssertEqual(.init(topic: Topic(), children: [.group(nestGroup)]), groups[2].topics[0])
     }

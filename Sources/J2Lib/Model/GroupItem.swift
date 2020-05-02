@@ -14,8 +14,8 @@ public enum GroupKind: Hashable {
     case moduleItems(ItemKind, Localized<String>)
     /// Some items of a particular kind, with a name to differentiate them
     case someItems(ItemKind, Localized<String>)
-    /// Some collection of items with a name
-    case custom(Localized<String>)
+    /// Some collection of items with a name and a language-mixing policy
+    case custom(Localized<String>, Bool)
 
     /// The kind of the group, if it is known
     public var kind: ItemKind? {
@@ -23,12 +23,19 @@ public enum GroupKind: Hashable {
         case .allItems(let k),
              .moduleItems(let k, _),
              .someItems(let k, _): return k
-        case .custom(_): return nil
+        case .custom(_, _): return nil
         }
     }
 
     public var isCustom: Bool {
         kind == nil
+    }
+
+    public var mixLanguages: Bool {
+        guard case let .custom(_, mix) = self else {
+            return false
+        }
+        return mix
     }
 
     public var includesModuleName: Bool {
@@ -43,7 +50,7 @@ public enum GroupKind: Hashable {
         case .allItems(let k): return k.title(in: language)
         case .moduleItems(let k, let n),
              .someItems(let k, let n): return k.title(in: language, affix: n)
-        case .custom(let t): return t
+        case .custom(let t, _): return t
         }
     }
 }
