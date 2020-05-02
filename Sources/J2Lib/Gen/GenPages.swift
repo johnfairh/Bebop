@@ -287,11 +287,21 @@ final class PageVisitor: ItemVisitorProtocol {
         guard let item = item else {
             return nil
         }
-        let primaryLanguage = (item as? DefItem).flatMap { $0.primaryLanguage } ?? defaultLanguage
+        // Don't generate a link to a page that doesn't exist in
+        // the current language: prefer to give some content & change language.
+        let primaryLanguage, secondaryLanguage: DefLanguage
+        if let defItem = item as? DefItem {
+            primaryLanguage = defItem.primaryLanguage
+            secondaryLanguage = defItem.secondaryLanguage ?? primaryLanguage
+        } else {
+            primaryLanguage = defaultLanguage
+            secondaryLanguage = defaultLanguage
+        }
         return GenData.PaginationLink(url: item.url,
                                       primaryTitle: item.titlePreferring(language: primaryLanguage),
-                                      secondaryTitle: item.titlePreferring(language: primaryLanguage.otherLanguage),
-                                      primaryLanguage: primaryLanguage)
+                                      secondaryTitle: item.titlePreferring(language: secondaryLanguage),
+                                      primaryLanguage: primaryLanguage,
+                                      secondaryLanguage: secondaryLanguage)
     }
 }
 

@@ -117,6 +117,7 @@ public final class GenData: Encodable {
         public let primaryTitle: Localized<String>
         public let secondaryTitle: Localized<String>
         public let primaryLanguage: DefLanguage
+        public let secondaryLanguage: DefLanguage
     }
     public struct Pagination: Encodable {
         public let prev: PaginationLink?

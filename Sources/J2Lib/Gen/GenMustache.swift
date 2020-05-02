@@ -407,8 +407,10 @@ extension GenData.PaginationLink {
         MH([.primaryLanguage: primaryLanguage.cssName,
             .primaryUrl: url.url(fileExtension: fileExt, language: primaryLanguage),
             .primaryTitle: primaryTitle.get(languageTag),
+            // This looks mad but is correct: we _display_ the secondary link in
+            // the 'other' language but it might actually be the _same_ link...
             .secondaryLanguage: primaryLanguage.otherLanguage.cssName,
-            .secondaryUrl: url.url(fileExtension: fileExt, language: primaryLanguage.otherLanguage),
+            .secondaryUrl: url.url(fileExtension: fileExt, language: secondaryLanguage),
             .secondaryTitle: secondaryTitle.get(languageTag)
         ])
     }
