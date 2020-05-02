@@ -208,3 +208,5 @@ Default: Do not use a podspec.";
 "pod-sources" = "List of CocoaPods 'source' URLs to find dependencies.  The default public
 pod source is not automatically added.
 Default: Do not use any private pod sources.";
+"hide-language" = "Declaration language to omit from generated documentation.
+Default: Do not hide either language.";

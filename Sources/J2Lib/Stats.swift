@@ -111,6 +111,10 @@ struct StatsDb {
         case importExcluded
         /// Defs with a guessed ACL (of `internal`)`
         case importGuessedAcl
+        /// Defs abandoned due to --hide-language
+        case importFailureLanguage
+        /// Defs abandoned due to --hide-language and no translation
+        case importFailureLanguageKind
         /// Defs merged as dup definitions
         case mergeDupUsr
         /// Defs with colliding USRs

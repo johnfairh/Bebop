@@ -11,13 +11,23 @@
 // See also `DefItem.init(...)`.
 //
 
-struct MergeImport {
+struct MergeImport: Configurable {
+    let hideLanguageOpt = EnumOpt<DefLanguage>(l: "hide-language")
+    let hideDeclarationsAlias: AliasOpt
+
     init(config: Config) {
+        hideDeclarationsAlias = AliasOpt(realOpt: hideLanguageOpt, l: "hide-declarations")
+        config.register(self)
     }
+
+    static private(set) var hideLanguage: DefLanguage?
 
     /// Flatten and interpret the gather info into `DefItem` trees.
     func importItems(gathered: [GatherModulePass]) -> [DefItem] {
         let uniquer = StringUniquer()
+
+        MergeImport.hideLanguage = hideLanguageOpt.value
+        defer { MergeImport.hideLanguage = nil }
 
         return gathered.map { pass in
             pass.files.map { fileDef -> [DefItem] in

@@ -40,6 +40,8 @@
   "groupsByKind" : 5,
   "importExcluded" : 2,
   "importFailureIncomplete" : 0,
+  "importFailureLanguage" : 0,
+  "importFailureLanguageKind" : 0,
   "importFailureNoRoot" : 0,
   "importFailureNoType" : 0,
   "importFailureNoUsr" : 0,

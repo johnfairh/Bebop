@@ -34,7 +34,7 @@ public class DefItem: Item, CustomStringConvertible {
     /// Unavailable notice
     public private(set) var unavailableNotice: RichText?
     /// Name in the other language
-    public let otherLanguageName: String?
+    public private(set) var otherLanguageName: String?
     /// Names of generic type parameters
     public let genericTypeParameters: Set<String>
     /// Extensions on a base type - carried temporarily here and eventually merged
@@ -63,8 +63,8 @@ public class DefItem: Item, CustomStringConvertible {
             return nil
         }
 
-        guard let name = gatherDef.sourceKittenDict.name,
-            let kind = gatherDef.kind,
+        guard var name = gatherDef.sourceKittenDict.name,
+            var kind = gatherDef.kind,
             ( (kind.isSwift && gatherDef.swiftDeclaration != nil) ||
               (kind.isObjC && gatherDef.objCDeclaration != nil) ) else {
             logWarning(.wrnSktnIncomplete, gatherDef.sourceKittenDict, location)
@@ -77,12 +77,6 @@ public class DefItem: Item, CustomStringConvertible {
             Stats.inc(.importExcluded)
             return nil
         }
-
-        // Populate self
-        self.location = DefLocation(baseLocation: location, dict: gatherDef.sourceKittenDict)
-        self.defKind = kind
-        self.usr = USR(usr)
-        self.documentation = RichDefDocs(gatherDef.translatedDocs )
 
         if kind.isObjC {
             self.objCDeclaration = gatherDef.objCDeclaration
@@ -107,6 +101,40 @@ public class DefItem: Item, CustomStringConvertible {
                 otherLanguageName = nil
             }
         }
+
+        if let hideLanguage = MergeImport.hideLanguage {
+            let secondaryDecl = kind.isSwift ? objCDeclaration?.declaration.text
+                                             : swiftDeclaration?.declaration.text
+            if hideLanguage == (kind.isSwift ? .swift : .objc) {
+                // Have to hide the primary langauge
+                if secondaryDecl == nil {
+                    // ...but there is no secondary.  Abandon the def.
+                    Stats.inc(.importFailureLanguage)
+                    return nil
+                }
+                // Swap secondary in to be the primary
+                name = otherLanguageName!
+                guard let otherKind = kind.otherLanguageKind(otherLanguageDecl: secondaryDecl) else {
+                    // shouldn't get here given we have a decl?
+                    Stats.inc(.importFailureLanguageKind)
+                    return nil
+                }
+                kind = otherKind
+            }
+
+            // Clear out traces of the hidden language
+            otherLanguageName = nil
+            switch hideLanguage {
+            case .swift: swiftDeclaration = nil
+            case .objc: objCDeclaration = nil
+            }
+        }
+
+        // Populate self
+        self.location = DefLocation(baseLocation: location, dict: gatherDef.sourceKittenDict)
+        self.defKind = kind
+        self.usr = USR(usr)
+        self.documentation = RichDefDocs(gatherDef.translatedDocs )
 
         let deprecations = [objCDeclaration?.deprecation,
                             swiftDeclaration?.deprecation].compactMap { $0 }

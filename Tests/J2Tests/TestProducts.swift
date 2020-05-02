@@ -26,11 +26,11 @@ class TestProducts: XCTestCase {
         try compare(["--source-directory", spmTestURL.path] + cliArgs, product, against: against, line: line)
     }
 
-    func compareObjC(product: String, against: String, line: UInt = #line) throws {
+    func compareObjC(product: String, cliArgs: [String] = [], against: String, line: UInt = #line) throws {
         let headerURL = fixturesURL
             .appendingPathComponent("ObjectiveC")
             .appendingPathComponent("Header.h")
-        try compare(["--objc-header-file", headerURL.path], product, against: against, line: line)
+        try compare(["--objc-header-file", headerURL.path] + cliArgs, product, against: against, line: line)
     }
 
     func compare(_ args: [String], _ product: String, against: String, line: UInt = #line) throws {
@@ -101,6 +101,12 @@ class TestProducts: XCTestCase {
         try compareObjC(product: "decls-json", against: "ObjectiveC.decls.json")
     }
 
+    func testDeclsJsonObjCNoObjC() throws {
+        try compareObjC(product: "decls-json",
+                        cliArgs: ["--hide-language=objc"],
+                        against: "ObjectiveC.noobjc.decls.json")
+    }
+
     func testMixedSwiftObjC() throws {
         let configURL = fixturesURL
             .appendingPathComponent("SpmSwiftPackage")
@@ -108,6 +114,16 @@ class TestProducts: XCTestCase {
         try compareSwift(product: "docs-summary-json",
                          cliArgs: ["--config=\(configURL.path)"],
                          against: "MixedSwiftObjC.docs-summary.json")
+    }
+
+    func testMixedSwiftObjCNoSwift() throws {
+        let configURL = fixturesURL
+            .appendingPathComponent("SpmSwiftPackage")
+            .appendingPathComponent("mixed-objc-swift-j2.yaml")
+        try compareSwift(product: "decls-json",
+                         cliArgs: ["--config=\(configURL.path)",
+                                   "--hide-language=swift"],
+                         against: "MixedSwiftObjC.noswift.decls.json")
     }
 
     func testFilesJsonSymbolGraph() throws {
