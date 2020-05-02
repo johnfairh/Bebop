@@ -220,7 +220,7 @@ final class SwiftObjCDeclarationBuilder : ObjCDeclarationBuilder {
     init?(dict: inout SourceKittenDict, kind: DefKind) {
         guard let usr = dict.usr,
             !kind.isSwiftExtension,
-            let objcKind = kind.otherLanguageKind,
+            let objcKind = kind.otherLanguageKind(),
             let info = GatherSwiftToObjC.current?.usrToInfo[usr] else {
             return nil
         }

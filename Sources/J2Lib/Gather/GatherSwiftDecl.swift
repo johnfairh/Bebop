@@ -304,13 +304,7 @@ final class ObjCSwiftDeclarationBuilder : SwiftDeclarationBuilder {
             swiftDict[SwiftDocKey.name.rawValue] = swiftName
         }
         precondition(!kind.isSwift)
-        var swiftKind = kind.otherLanguageKind
-        if let decl = swiftDecl {
-            // Enums are imported as structs without NS_ENUM magic...
-            if decl.hasPrefix("struct") {
-                swiftKind = DefKind.from(kind: SwiftDeclarationKind.struct)
-            }
-        }
+        let swiftKind = kind.otherLanguageKind(otherLanguageDecl: swiftDecl)
         super.init(dict: swiftDict,
                    nameComponents: [],
                    file: nil,

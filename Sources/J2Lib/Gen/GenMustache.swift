@@ -316,7 +316,11 @@ extension Array where Element == GenData.TocEntry {
     }
 
     /// Helper to generate a list of toc entries
-    func generateTocEntries(pageURLPath: String, tocActiveURLPath: String?, language: DefLanguage, languageTag: String, fileExt: String) -> [MustacheDict] {
+    func generateTocEntries(pageURLPath: String,
+                            tocActiveURLPath: String?,
+                            language: DefLanguage,
+                            languageTag: String,
+                            fileExt: String) -> [MustacheDict] {
         map { $0.generateTocEntry(pageURLPath: pageURLPath,
                                   tocActiveURLPath: tocActiveURLPath,
                                   language: language,

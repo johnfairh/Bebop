@@ -159,8 +159,15 @@ public final class DefKind: CustomStringConvertible {
     }
 
     /// Map this kind into the other language.
-    public var otherLanguageKind: DefKind? {
-        kindKey.secondary.flatMap { DefKind.from(key: $0) }
+    /// We may already have a declaration string in the other language that can adjust the kind.
+    public func otherLanguageKind(otherLanguageDecl: String? = nil) -> DefKind? {
+        // objc enums are imported as structs without NS_ENUM magic
+        if isObjC,
+            let swiftDecl = otherLanguageDecl,
+            swiftDecl.hasPrefix("struct") {
+            return DefKind.from(kind: SwiftDeclarationKind.struct)
+        }
+        return kindKey.secondary.flatMap { DefKind.from(key: $0) }
     }
 
     // MARK: Predicates
