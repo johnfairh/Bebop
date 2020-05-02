@@ -33,7 +33,7 @@
         "primary_url" : "types\/abaseclass.html?swift",
         "secondary_language" : "j2-objc",
         "secondary_title" : "ABaseClass",
-        "secondary_url" : "types\/abaseclass.html?objc"
+        "secondary_url" : "types\/abaseclass.html?swift"
       }
     },
     "path_from_root" : "types.html",
@@ -383,7 +383,7 @@
         "primary_url" : "types\/aderivedclass.html?swift",
         "secondary_language" : "j2-objc",
         "secondary_title" : "ADerivedClass",
-        "secondary_url" : "types\/aderivedclass.html?objc"
+        "secondary_url" : "types\/aderivedclass.html?swift"
       },
       "prev" : {
         "primary_language" : "j2-swift",
@@ -391,7 +391,7 @@
         "primary_url" : "types.html?swift",
         "secondary_language" : "j2-objc",
         "secondary_title" : "Types",
-        "secondary_url" : "types.html?objc"
+        "secondary_url" : "types.html?swift"
       }
     },
     "path_from_root" : "types\/abaseclass.html",
@@ -816,7 +816,7 @@
         "primary_url" : "types\/anenum.html?swift",
         "secondary_language" : "j2-objc",
         "secondary_title" : "AnEnum",
-        "secondary_url" : "types\/anenum.html?objc"
+        "secondary_url" : "types\/anenum.html?swift"
       },
       "prev" : {
         "primary_language" : "j2-swift",
@@ -824,7 +824,7 @@
         "primary_url" : "types\/abaseclass.html?swift",
         "secondary_language" : "j2-objc",
         "secondary_title" : "ABaseClass",
-        "secondary_url" : "types\/abaseclass.html?objc"
+        "secondary_url" : "types\/abaseclass.html?swift"
       }
     },
     "path_from_root" : "types\/aderivedclass.html",
@@ -1093,7 +1093,7 @@
         "primary_url" : "types\/firstprotocol1.html?swift",
         "secondary_language" : "j2-objc",
         "secondary_title" : "FirstProtocol",
-        "secondary_url" : "types\/firstprotocol1.html?objc"
+        "secondary_url" : "types\/firstprotocol1.html?swift"
       },
       "prev" : {
         "primary_language" : "j2-swift",
@@ -1101,7 +1101,7 @@
         "primary_url" : "types\/aderivedclass.html?swift",
         "secondary_language" : "j2-objc",
         "secondary_title" : "ADerivedClass",
-        "secondary_url" : "types\/aderivedclass.html?objc"
+        "secondary_url" : "types\/aderivedclass.html?swift"
       }
     },
     "path_from_root" : "types\/anenum.html",
@@ -1386,7 +1386,7 @@
         "primary_url" : "types\/genericbase.html?swift",
         "secondary_language" : "j2-objc",
         "secondary_title" : "GenericBase",
-        "secondary_url" : "types\/genericbase.html?objc"
+        "secondary_url" : "types\/genericbase.html?swift"
       },
       "prev" : {
         "primary_language" : "j2-swift",
@@ -1394,7 +1394,7 @@
         "primary_url" : "types\/anenum.html?swift",
         "secondary_language" : "j2-objc",
         "secondary_title" : "AnEnum",
-        "secondary_url" : "types\/anenum.html?objc"
+        "secondary_url" : "types\/anenum.html?swift"
       }
     },
     "path_from_root" : "types\/firstprotocol1.html",
@@ -1757,7 +1757,7 @@
         "primary_url" : "types\/nop.html?swift",
         "secondary_language" : "j2-objc",
         "secondary_title" : "Nop",
-        "secondary_url" : "types\/nop.html?objc"
+        "secondary_url" : "types\/nop.html?swift"
       },
       "prev" : {
         "primary_language" : "j2-swift",
@@ -1765,7 +1765,7 @@
         "primary_url" : "types\/firstprotocol1.html?swift",
         "secondary_language" : "j2-objc",
         "secondary_title" : "FirstProtocol",
-        "secondary_url" : "types\/firstprotocol1.html?objc"
+        "secondary_url" : "types\/firstprotocol1.html?swift"
       }
     },
     "path_from_root" : "types\/genericbase.html",
@@ -2166,7 +2166,7 @@
         "primary_url" : "types\/propertywrapperclient.html?swift",
         "secondary_language" : "j2-objc",
         "secondary_title" : "PropertyWrapperClient",
-        "secondary_url" : "types\/propertywrapperclient.html?objc"
+        "secondary_url" : "types\/propertywrapperclient.html?swift"
       },
       "prev" : {
         "primary_language" : "j2-swift",
@@ -2174,7 +2174,7 @@
         "primary_url" : "types\/genericbase.html?swift",
         "secondary_language" : "j2-objc",
         "secondary_title" : "GenericBase",
-        "secondary_url" : "types\/genericbase.html?objc"
+        "secondary_url" : "types\/genericbase.html?swift"
       }
     },
     "path_from_root" : "types\/nop.html",
@@ -2429,7 +2429,7 @@
         "primary_url" : "types\/secondprotocol.html?swift",
         "secondary_language" : "j2-objc",
         "secondary_title" : "SecondProtocol",
-        "secondary_url" : "types\/secondprotocol.html?objc"
+        "secondary_url" : "types\/secondprotocol.html?swift"
       },
       "prev" : {
         "primary_language" : "j2-swift",
@@ -2437,7 +2437,7 @@
         "primary_url" : "types\/nop.html?swift",
         "secondary_language" : "j2-objc",
         "secondary_title" : "Nop",
-        "secondary_url" : "types\/nop.html?objc"
+        "secondary_url" : "types\/nop.html?swift"
       }
     },
     "path_from_root" : "types\/propertywrapperclient.html",
@@ -2666,7 +2666,7 @@
         "primary_url" : "types\/spmswiftmodule.html?swift",
         "secondary_language" : "j2-objc",
         "secondary_title" : "SpmSwiftModule",
-        "secondary_url" : "types\/spmswiftmodule.html?objc"
+        "secondary_url" : "types\/spmswiftmodule.html?swift"
       },
       "prev" : {
         "primary_language" : "j2-swift",
@@ -2674,7 +2674,7 @@
         "primary_url" : "types\/propertywrapperclient.html?swift",
         "secondary_language" : "j2-objc",
         "secondary_title" : "PropertyWrapperClient",
-        "secondary_url" : "types\/propertywrapperclient.html?objc"
+        "secondary_url" : "types\/propertywrapperclient.html?swift"
       }
     },
     "path_from_root" : "types\/secondprotocol.html",
@@ -2930,7 +2930,7 @@
         "primary_url" : "types\/spmswiftmodule\/nested1.html?swift",
         "secondary_language" : "j2-objc",
         "secondary_title" : "Nested1",
-        "secondary_url" : "types\/spmswiftmodule\/nested1.html?objc"
+        "secondary_url" : "types\/spmswiftmodule\/nested1.html?swift"
       },
       "prev" : {
         "primary_language" : "j2-swift",
@@ -2938,7 +2938,7 @@
         "primary_url" : "types\/secondprotocol.html?swift",
         "secondary_language" : "j2-objc",
         "secondary_title" : "SecondProtocol",
-        "secondary_url" : "types\/secondprotocol.html?objc"
+        "secondary_url" : "types\/secondprotocol.html?swift"
       }
     },
     "path_from_root" : "types\/spmswiftmodule.html",
@@ -3241,7 +3241,7 @@
         "primary_url" : "functions.html?swift",
         "secondary_language" : "j2-objc",
         "secondary_title" : "Functions",
-        "secondary_url" : "functions.html?objc"
+        "secondary_url" : "functions.html?swift"
       },
       "prev" : {
         "primary_language" : "j2-swift",
@@ -3249,7 +3249,7 @@
         "primary_url" : "types\/spmswiftmodule.html?swift",
         "secondary_language" : "j2-objc",
         "secondary_title" : "SpmSwiftModule",
-        "secondary_url" : "types\/spmswiftmodule.html?objc"
+        "secondary_url" : "types\/spmswiftmodule.html?swift"
       }
     },
     "path_from_root" : "types\/spmswiftmodule\/nested1.html",
@@ -3486,7 +3486,7 @@
         "primary_url" : "operators.html?swift",
         "secondary_language" : "j2-objc",
         "secondary_title" : "Operators",
-        "secondary_url" : "operators.html?objc"
+        "secondary_url" : "operators.html?swift"
       },
       "prev" : {
         "primary_language" : "j2-swift",
@@ -3494,7 +3494,7 @@
         "primary_url" : "types\/spmswiftmodule\/nested1.html?swift",
         "secondary_language" : "j2-objc",
         "secondary_title" : "Nested1",
-        "secondary_url" : "types\/spmswiftmodule\/nested1.html?objc"
+        "secondary_url" : "types\/spmswiftmodule\/nested1.html?swift"
       }
     },
     "path_from_root" : "functions.html",
@@ -3741,8 +3741,8 @@
         "primary_title" : "Extensions",
         "primary_url" : "extensions.html?swift",
         "secondary_language" : "j2-objc",
-        "secondary_title" : "Categories",
-        "secondary_url" : "extensions.html?objc"
+        "secondary_title" : "Extensions",
+        "secondary_url" : "extensions.html?swift"
       },
       "prev" : {
         "primary_language" : "j2-swift",
@@ -3750,7 +3750,7 @@
         "primary_url" : "functions.html?swift",
         "secondary_language" : "j2-objc",
         "secondary_title" : "Functions",
-        "secondary_url" : "functions.html?objc"
+        "secondary_url" : "functions.html?swift"
       }
     },
     "path_from_root" : "operators.html",
@@ -3956,7 +3956,7 @@
         "primary_url" : "extensions\/collection.html?swift",
         "secondary_language" : "j2-objc",
         "secondary_title" : "Collection",
-        "secondary_url" : "extensions\/collection.html?objc"
+        "secondary_url" : "extensions\/collection.html?swift"
       },
       "prev" : {
         "primary_language" : "j2-swift",
@@ -3964,7 +3964,7 @@
         "primary_url" : "operators.html?swift",
         "secondary_language" : "j2-objc",
         "secondary_title" : "Operators",
-        "secondary_url" : "operators.html?objc"
+        "secondary_url" : "operators.html?swift"
       }
     },
     "path_from_root" : "extensions.html",
@@ -4194,15 +4194,15 @@
         "primary_url" : "extensions\/stringelement.html?swift",
         "secondary_language" : "j2-objc",
         "secondary_title" : "String.Element",
-        "secondary_url" : "extensions\/stringelement.html?objc"
+        "secondary_url" : "extensions\/stringelement.html?swift"
       },
       "prev" : {
         "primary_language" : "j2-swift",
         "primary_title" : "Extensions",
         "primary_url" : "extensions.html?swift",
         "secondary_language" : "j2-objc",
-        "secondary_title" : "Categories",
-        "secondary_url" : "extensions.html?objc"
+        "secondary_title" : "Extensions",
+        "secondary_url" : "extensions.html?swift"
       }
     },
     "path_from_root" : "extensions\/collection.html",
@@ -4457,7 +4457,7 @@
         "primary_url" : "extensions\/collection.html?swift",
         "secondary_language" : "j2-objc",
         "secondary_title" : "Collection",
-        "secondary_url" : "extensions\/collection.html?objc"
+        "secondary_url" : "extensions\/collection.html?swift"
       }
     },
     "path_from_root" : "extensions\/stringelement.html",
@@ -4683,7 +4683,7 @@
         "primary_url" : "types.html?swift",
         "secondary_language" : "j2-objc",
         "secondary_title" : "Types",
-        "secondary_url" : "types.html?objc"
+        "secondary_url" : "types.html?swift"
       },
       "prev" : {
         "primary_language" : "j2-swift",
@@ -4691,7 +4691,7 @@
         "primary_url" : "extensions\/stringelement.html?swift",
         "secondary_language" : "j2-objc",
         "secondary_title" : "String.Element",
-        "secondary_url" : "extensions\/stringelement.html?objc"
+        "secondary_url" : "extensions\/stringelement.html?swift"
       }
     },
     "path_from_root" : "index.html",

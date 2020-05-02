@@ -13,6 +13,573 @@
         [
           {
             "title" : {
+              "en" : "Mixed"
+            }
+          }
+        ],
+        [
+          {
+            "title" : {
+              "en" : "Mixed"
+            }
+          }
+        ]
+      ],
+      "guide_topics" : {},
+      "is_guide" : false,
+      "mix_languages" : true,
+      "pagination" : {
+        "next" : {
+          "primary_language" : "objc",
+          "primary_title" : {
+            "en" : "JMLBathroomCupboard"
+          },
+          "secondary_language" : "objc",
+          "secondary_title" : {
+            "en" : "JMLBathroomCupboard"
+          },
+          "url" : {
+            "url_path" : "spmobjcmodule\/types\/jmlbathroomcupboard"
+          }
+        }
+      },
+      "primary_language" : "swift",
+      "primary_title" : {
+        "en" : "Mixed"
+      },
+      "tab_title_prefix" : true,
+      "topics" : [
+        {
+          "anchor_id" : "tpc-classes",
+          "items" : [
+            {
+              "anchor_id" : "jmlbathroomcupboard",
+              "dash_type" : "Class",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Type with a different shape in Swift - parent does not exist<\/p>"
+                  }
+                },
+                "availability" : [],
+                "deprecated_everywhere" : false,
+                "obj_c_declaration" : {
+                  "html" : "@interface JMLBathroomCupboard : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+                },
+                "params" : []
+              },
+              "flat_title" : {
+                "en" : "@interface JMLBathroomCupboard"
+              },
+              "primary_language" : "objc",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">@interface <\/span>JMLBathroomCupboard"
+              },
+              "url" : {
+                "url_path" : "spmobjcmodule\/types\/jmlbathroomcupboard"
+              }
+            },
+            {
+              "anchor_id" : "jmlkitchen",
+              "dash_type" : "Class",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Type with different name in Swift<\/p>"
+                  }
+                },
+                "availability" : [],
+                "deprecated_everywhere" : false,
+                "obj_c_declaration" : {
+                  "html" : "@interface JMLKitchen : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+                },
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "class Kitchen : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
+                }
+              },
+              "flat_title" : {
+                "en" : "@interface JMLKitchen"
+              },
+              "primary_language" : "objc",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">@interface <\/span>JMLKitchen"
+              },
+              "secondary_language" : "swift",
+              "secondary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">class <\/span>Kitchen"
+              },
+              "url" : {
+                "url_path" : "spmobjcmodule\/types\/jmlkitchen"
+              }
+            }
+          ],
+          "menu_title" : {
+            "en" : "Classes"
+          },
+          "title" : {
+            "en" : {
+              "html" : "Classes"
+            }
+          }
+        },
+        {
+          "anchor_id" : "tpc-extensions",
+          "items" : [
+            {
+              "anchor_id" : "string",
+              "dash_type" : "Extension",
+              "def" : {
+                "availability" : [],
+                "deprecated_everywhere" : false,
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "extension <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/string?language=swift\">String<\/a>"
+                }
+              },
+              "flat_title" : {
+                "en" : "extension String"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">extension <\/span>String"
+              },
+              "url" : {
+                "url_path" : "spmswiftmodule4\/extensions\/string"
+              }
+            }
+          ],
+          "menu_title" : {
+            "en" : "Extensions"
+          },
+          "title" : {
+            "en" : {
+              "html" : "Extensions"
+            }
+          }
+        }
+      ],
+      "url" : {
+        "url_path" : "mixed"
+      }
+    },
+    {
+      "breadcrumbs" : [
+        [
+          {
+            "title" : {
+              "en" : "Mixed"
+            },
+            "url" : {
+              "url_path" : "mixed"
+            }
+          },
+          {
+            "title" : {
+              "en" : "SpmObjCModule.JMLBathroomCupboard"
+            }
+          }
+        ],
+        [
+          {
+            "title" : {
+              "en" : "Mixed"
+            },
+            "url" : {
+              "url_path" : "mixed"
+            }
+          },
+          {
+            "title" : {
+              "en" : "SpmObjCModule.JMLBathroomCupboard"
+            }
+          }
+        ]
+      ],
+      "def" : {
+        "abstract" : {
+          "en" : {
+            "html" : "<p>Type with a different shape in Swift - parent does not exist<\/p>"
+          }
+        },
+        "availability" : [],
+        "deprecated_everywhere" : false,
+        "obj_c_declaration" : {
+          "html" : "@interface JMLBathroomCupboard : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+        },
+        "params" : []
+      },
+      "guide_topics" : {},
+      "is_guide" : false,
+      "mix_languages" : false,
+      "pagination" : {
+        "next" : {
+          "primary_language" : "objc",
+          "primary_title" : {
+            "en" : "JMLKitchen"
+          },
+          "secondary_language" : "swift",
+          "secondary_title" : {
+            "en" : "Kitchen"
+          },
+          "url" : {
+            "url_path" : "spmobjcmodule\/types\/jmlkitchen"
+          }
+        },
+        "prev" : {
+          "primary_language" : "swift",
+          "primary_title" : {
+            "en" : "Mixed"
+          },
+          "secondary_language" : "swift",
+          "secondary_title" : {
+            "en" : "Mixed"
+          },
+          "url" : {
+            "url_path" : "mixed"
+          }
+        }
+      },
+      "primary_language" : "objc",
+      "primary_title" : {
+        "en" : "JMLBathroomCupboard"
+      },
+      "tab_title_prefix" : true,
+      "topics" : [
+        {
+          "anchor_id" : "tpc-",
+          "items" : [
+            {
+              "anchor_id" : "jmlbathroomcupboardmethod",
+              "dash_type" : "Method",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>See <a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchencupboard.html?swift#jmlkitchencupboardmethod\" class=\"j2-swift\"><code>Cupboard.jmlKitchenCupboardMethod()<\/code><\/a><a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchencupboard.html?objc#jmlkitchencupboardmethod\" class=\"j2-objc j2-secondary\"><code>-[JMLKitchenCupboard jmlKitchenCupboardMethod]<\/code><\/a><\/p>"
+                  }
+                },
+                "availability" : [],
+                "deprecated_everywhere" : false,
+                "obj_c_declaration" : {
+                  "html" : "- (void)jmlBathroomCupboardMethod"
+                },
+                "params" : []
+              },
+              "flat_title" : {
+                "en" : "- (void)jmlBathroomCupboardMethod"
+              },
+              "primary_language" : "objc",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">- (void)<\/span>jmlBathroomCupboardMethod<span class=\"j2-item-secondary\"><\/span>"
+              }
+            }
+          ],
+          "menu_title" : {
+            "en" : ""
+          },
+          "title" : {
+            "en" : {
+              "html" : ""
+            }
+          }
+        }
+      ],
+      "url" : {
+        "url_path" : "spmobjcmodule\/types\/jmlbathroomcupboard"
+      }
+    },
+    {
+      "breadcrumbs" : [
+        [
+          {
+            "title" : {
+              "en" : "Mixed"
+            },
+            "url" : {
+              "url_path" : "mixed"
+            }
+          },
+          {
+            "title" : {
+              "en" : "SpmObjCModule.JMLKitchen"
+            }
+          }
+        ],
+        [
+          {
+            "title" : {
+              "en" : "Mixed"
+            },
+            "url" : {
+              "url_path" : "mixed"
+            }
+          },
+          {
+            "title" : {
+              "en" : "SpmObjCModule.Kitchen"
+            }
+          }
+        ]
+      ],
+      "def" : {
+        "abstract" : {
+          "en" : {
+            "html" : "<p>Type with different name in Swift<\/p>"
+          }
+        },
+        "availability" : [],
+        "deprecated_everywhere" : false,
+        "obj_c_declaration" : {
+          "html" : "@interface JMLKitchen : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+        },
+        "params" : [],
+        "swift_declaration" : {
+          "html" : "class Kitchen : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
+        }
+      },
+      "guide_topics" : {},
+      "is_guide" : false,
+      "mix_languages" : false,
+      "pagination" : {
+        "next" : {
+          "primary_language" : "swift",
+          "primary_title" : {
+            "en" : "String"
+          },
+          "secondary_language" : "swift",
+          "secondary_title" : {
+            "en" : "String"
+          },
+          "url" : {
+            "url_path" : "spmswiftmodule4\/extensions\/string"
+          }
+        },
+        "prev" : {
+          "primary_language" : "objc",
+          "primary_title" : {
+            "en" : "JMLBathroomCupboard"
+          },
+          "secondary_language" : "objc",
+          "secondary_title" : {
+            "en" : "JMLBathroomCupboard"
+          },
+          "url" : {
+            "url_path" : "spmobjcmodule\/types\/jmlbathroomcupboard"
+          }
+        }
+      },
+      "primary_language" : "objc",
+      "primary_title" : {
+        "en" : "JMLKitchen"
+      },
+      "secondary_title" : {
+        "en" : "Kitchen"
+      },
+      "tab_title_prefix" : true,
+      "topics" : [
+        {
+          "anchor_id" : "tpc-",
+          "items" : [
+            {
+              "anchor_id" : "jmlkitchenmethod",
+              "dash_type" : "Method",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Undocumented<\/p>"
+                  }
+                },
+                "availability" : [],
+                "deprecated_everywhere" : false,
+                "obj_c_declaration" : {
+                  "html" : "- (void)jmlKitchenMethod"
+                },
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "func kitchenMethod()"
+                }
+              },
+              "flat_title" : {
+                "en" : "- (void)jmlKitchenMethod"
+              },
+              "primary_language" : "objc",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">- (void)<\/span>jmlKitchenMethod<span class=\"j2-item-secondary\"><\/span>"
+              },
+              "secondary_language" : "swift",
+              "secondary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>kitchenMethod<span class=\"j2-item-secondary\">()<\/span>"
+              }
+            },
+            {
+              "anchor_id" : "renamed",
+              "dash_type" : "Method",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>renamed class swift method<\/p>"
+                  }
+                },
+                "availability" : [],
+                "deprecated_everywhere" : false,
+                "notes" : {
+                  "en" : {
+                    "html" : "<p>Provided by module <code>SpmSwiftModule4<\/code>.<\/p>"
+                  }
+                },
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "func renamed()"
+                }
+              },
+              "flat_title" : {
+                "en" : "func renamed()"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>renamed<span class=\"j2-item-secondary\">()<\/span>"
+              }
+            }
+          ],
+          "menu_title" : {
+            "en" : ""
+          },
+          "title" : {
+            "en" : {
+              "html" : ""
+            }
+          }
+        }
+      ],
+      "url" : {
+        "url_path" : "spmobjcmodule\/types\/jmlkitchen"
+      }
+    },
+    {
+      "breadcrumbs" : [
+        [
+          {
+            "title" : {
+              "en" : "Mixed"
+            },
+            "url" : {
+              "url_path" : "mixed"
+            }
+          },
+          {
+            "title" : {
+              "en" : "Swift.String (SpmSwiftModule4)"
+            }
+          }
+        ],
+        [
+          {
+            "title" : {
+              "en" : "Mixed"
+            },
+            "url" : {
+              "url_path" : "mixed"
+            }
+          },
+          {
+            "title" : {
+              "en" : "Swift.String (SpmSwiftModule4)"
+            }
+          }
+        ]
+      ],
+      "def" : {
+        "availability" : [],
+        "deprecated_everywhere" : false,
+        "params" : [],
+        "swift_declaration" : {
+          "html" : "extension <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/string?language=swift\">String<\/a>"
+        }
+      },
+      "guide_topics" : {},
+      "is_guide" : false,
+      "mix_languages" : false,
+      "pagination" : {
+        "next" : {
+          "primary_language" : "swift",
+          "primary_title" : {
+            "en" : "Types"
+          },
+          "secondary_language" : "swift",
+          "secondary_title" : {
+            "en" : "Types"
+          },
+          "url" : {
+            "url_path" : "types"
+          }
+        },
+        "prev" : {
+          "primary_language" : "objc",
+          "primary_title" : {
+            "en" : "JMLKitchen"
+          },
+          "secondary_language" : "swift",
+          "secondary_title" : {
+            "en" : "Kitchen"
+          },
+          "url" : {
+            "url_path" : "spmobjcmodule\/types\/jmlkitchen"
+          }
+        }
+      },
+      "primary_language" : "swift",
+      "primary_title" : {
+        "en" : "String"
+      },
+      "tab_title_prefix" : true,
+      "topics" : [
+        {
+          "anchor_id" : "tpc-",
+          "items" : [
+            {
+              "anchor_id" : "externaltypemethod",
+              "dash_type" : "Method",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>From an external type that doesn’t exist in ObjC<\/p>"
+                  }
+                },
+                "availability" : [],
+                "deprecated_everywhere" : false,
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "func externalTypeMethod()"
+                }
+              },
+              "flat_title" : {
+                "en" : "func externalTypeMethod()"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>externalTypeMethod<span class=\"j2-item-secondary\">()<\/span>"
+              }
+            }
+          ],
+          "menu_title" : {
+            "en" : ""
+          },
+          "title" : {
+            "en" : {
+              "html" : ""
+            }
+          }
+        }
+      ],
+      "url" : {
+        "url_path" : "spmswiftmodule4\/extensions\/string"
+      }
+    },
+    {
+      "breadcrumbs" : [
+        [
+          {
+            "title" : {
               "en" : "Types"
             }
           }
@@ -27,17 +594,32 @@
       ],
       "guide_topics" : {},
       "is_guide" : false,
+      "mix_languages" : false,
       "pagination" : {
         "next" : {
-          "primary_language" : "swift",
+          "primary_language" : "objc",
           "primary_title" : {
-            "en" : "ExposedSwiftClass"
+            "en" : "NormalClass"
           },
+          "secondary_language" : "swift",
           "secondary_title" : {
-            "en" : "ExposedSwiftClass"
+            "en" : "NormalClass"
           },
           "url" : {
-            "url_path" : "spmswiftmodule4\/types\/exposedswiftclass"
+            "url_path" : "spmobjcmodule\/types\/normalclass1"
+          }
+        },
+        "prev" : {
+          "primary_language" : "swift",
+          "primary_title" : {
+            "en" : "String"
+          },
+          "secondary_language" : "swift",
+          "secondary_title" : {
+            "en" : "String"
+          },
+          "url" : {
+            "url_path" : "spmswiftmodule4\/extensions\/string"
           }
         }
       },
@@ -50,6 +632,45 @@
         {
           "anchor_id" : "tpc-",
           "items" : [
+            {
+              "anchor_id" : "normalclass1",
+              "dash_type" : "Class",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Un-renamed class to check normal things still work<\/p>"
+                  }
+                },
+                "availability" : [],
+                "deprecated_everywhere" : false,
+                "discussion" : {
+                  "en" : {
+                    "html" : "<p>See <a href=\"spmobjcmodule\/types\/normalclass1.html?objc#objcnormalmethod\" class=\"j2-objc\"><code>-objcNormalMethod<\/code><\/a><a href=\"spmobjcmodule\/types\/normalclass1.html?swift#objcnormalmethod\" class=\"j2-swift j2-secondary\"><code>objcNormalMethod()<\/code><\/a>.<\/p>"
+                  }
+                },
+                "obj_c_declaration" : {
+                  "html" : "@interface NormalClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+                },
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "class NormalClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
+                }
+              },
+              "flat_title" : {
+                "en" : "@interface NormalClass"
+              },
+              "primary_language" : "objc",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">@interface <\/span>NormalClass"
+              },
+              "secondary_language" : "swift",
+              "secondary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">class <\/span>NormalClass"
+              },
+              "url" : {
+                "url_path" : "spmobjcmodule\/types\/normalclass1"
+              }
+            },
             {
               "anchor_id" : "exposedswiftclass",
               "dash_type" : "Class",
@@ -119,79 +740,6 @@
               }
             },
             {
-              "anchor_id" : "normalclass1",
-              "dash_type" : "Class",
-              "def" : {
-                "abstract" : {
-                  "en" : {
-                    "html" : "<p>Un-renamed class to check normal things still work<\/p>"
-                  }
-                },
-                "availability" : [],
-                "deprecated_everywhere" : false,
-                "discussion" : {
-                  "en" : {
-                    "html" : "<p>See <a href=\"spmobjcmodule\/types\/normalclass1.html?objc#objcnormalmethod\" class=\"j2-objc\"><code>-objcNormalMethod<\/code><\/a><a href=\"spmobjcmodule\/types\/normalclass1.html?swift#objcnormalmethod\" class=\"j2-swift j2-secondary\"><code>objcNormalMethod()<\/code><\/a>.<\/p>"
-                  }
-                },
-                "obj_c_declaration" : {
-                  "html" : "@interface NormalClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
-                },
-                "params" : [],
-                "swift_declaration" : {
-                  "html" : "class NormalClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
-                }
-              },
-              "flat_title" : {
-                "en" : "@interface NormalClass"
-              },
-              "primary_language" : "objc",
-              "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">@interface <\/span>NormalClass"
-              },
-              "secondary_language" : "swift",
-              "secondary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">class <\/span>NormalClass"
-              },
-              "url" : {
-                "url_path" : "spmobjcmodule\/types\/normalclass1"
-              }
-            },
-            {
-              "anchor_id" : "jmlkitchen",
-              "dash_type" : "Class",
-              "def" : {
-                "abstract" : {
-                  "en" : {
-                    "html" : "<p>Type with different name in Swift<\/p>"
-                  }
-                },
-                "availability" : [],
-                "deprecated_everywhere" : false,
-                "obj_c_declaration" : {
-                  "html" : "@interface JMLKitchen : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
-                },
-                "params" : [],
-                "swift_declaration" : {
-                  "html" : "class Kitchen : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
-                }
-              },
-              "flat_title" : {
-                "en" : "@interface JMLKitchen"
-              },
-              "primary_language" : "objc",
-              "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">@interface <\/span>JMLKitchen"
-              },
-              "secondary_language" : "swift",
-              "secondary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">class <\/span>Kitchen"
-              },
-              "url" : {
-                "url_path" : "spmobjcmodule\/types\/jmlkitchen"
-              }
-            },
-            {
               "anchor_id" : "jmlkitchencupboard",
               "dash_type" : "Class",
               "def" : {
@@ -224,33 +772,6 @@
               "url" : {
                 "url_path" : "spmobjcmodule\/types\/jmlkitchencupboard"
               }
-            },
-            {
-              "anchor_id" : "jmlbathroomcupboard",
-              "dash_type" : "Class",
-              "def" : {
-                "abstract" : {
-                  "en" : {
-                    "html" : "<p>Type with a different shape in Swift - parent does not exist<\/p>"
-                  }
-                },
-                "availability" : [],
-                "deprecated_everywhere" : false,
-                "obj_c_declaration" : {
-                  "html" : "@interface JMLBathroomCupboard : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
-                },
-                "params" : []
-              },
-              "flat_title" : {
-                "en" : "@interface JMLBathroomCupboard"
-              },
-              "primary_language" : "objc",
-              "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">@interface <\/span>JMLBathroomCupboard"
-              },
-              "url" : {
-                "url_path" : "spmobjcmodule\/types\/jmlbathroomcupboard"
-              }
             }
           ],
           "menu_title" : {
@@ -265,6 +786,188 @@
       ],
       "url" : {
         "url_path" : "types"
+      }
+    },
+    {
+      "breadcrumbs" : [
+        [
+          {
+            "title" : {
+              "en" : "Types"
+            },
+            "url" : {
+              "url_path" : "types"
+            }
+          },
+          {
+            "title" : {
+              "en" : "SpmObjCModule.NormalClass"
+            }
+          }
+        ],
+        [
+          {
+            "title" : {
+              "en" : "Types"
+            },
+            "url" : {
+              "url_path" : "types"
+            }
+          },
+          {
+            "title" : {
+              "en" : "SpmObjCModule.NormalClass"
+            }
+          }
+        ]
+      ],
+      "def" : {
+        "abstract" : {
+          "en" : {
+            "html" : "<p>Un-renamed class to check normal things still work<\/p>"
+          }
+        },
+        "availability" : [],
+        "deprecated_everywhere" : false,
+        "discussion" : {
+          "en" : {
+            "html" : "<p>See <a href=\"..\/..\/spmobjcmodule\/types\/normalclass1.html?objc#objcnormalmethod\" class=\"j2-objc\"><code>-objcNormalMethod<\/code><\/a><a href=\"..\/..\/spmobjcmodule\/types\/normalclass1.html?swift#objcnormalmethod\" class=\"j2-swift j2-secondary\"><code>objcNormalMethod()<\/code><\/a>.<\/p>"
+          }
+        },
+        "obj_c_declaration" : {
+          "html" : "@interface NormalClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+        },
+        "params" : [],
+        "swift_declaration" : {
+          "html" : "class NormalClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
+        }
+      },
+      "guide_topics" : {},
+      "is_guide" : false,
+      "mix_languages" : false,
+      "pagination" : {
+        "next" : {
+          "primary_language" : "swift",
+          "primary_title" : {
+            "en" : "ExposedSwiftClass"
+          },
+          "secondary_language" : "objc",
+          "secondary_title" : {
+            "en" : "ExposedSwiftClass"
+          },
+          "url" : {
+            "url_path" : "spmswiftmodule4\/types\/exposedswiftclass"
+          }
+        },
+        "prev" : {
+          "primary_language" : "swift",
+          "primary_title" : {
+            "en" : "Types"
+          },
+          "secondary_language" : "swift",
+          "secondary_title" : {
+            "en" : "Types"
+          },
+          "url" : {
+            "url_path" : "types"
+          }
+        }
+      },
+      "primary_language" : "objc",
+      "primary_title" : {
+        "en" : "NormalClass"
+      },
+      "secondary_title" : {
+        "en" : "NormalClass"
+      },
+      "tab_title_prefix" : true,
+      "topics" : [
+        {
+          "anchor_id" : "tpc-",
+          "items" : [
+            {
+              "anchor_id" : "objcnormalmethod",
+              "dash_type" : "Method",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>See <a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?objc\" class=\"j2-objc\"><code>JMLKitchen<\/code><\/a><a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?swift\" class=\"j2-swift j2-secondary\"><code>Kitchen<\/code><\/a>.<\/p>"
+                  }
+                },
+                "availability" : [],
+                "deprecated_everywhere" : false,
+                "discussion" : {
+                  "en" : {
+                    "html" : "<p>See <a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?objc#jmlkitchenmethod\" class=\"j2-objc\"><code>-[JMLKitchen jmlKitchenMethod]<\/code><\/a><a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?swift#jmlkitchenmethod\" class=\"j2-swift j2-secondary\"><code>Kitchen.kitchenMethod()<\/code><\/a><\/p>"
+                  }
+                },
+                "obj_c_declaration" : {
+                  "html" : "- (void)objcNormalMethod"
+                },
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "func objcNormalMethod()"
+                }
+              },
+              "flat_title" : {
+                "en" : "- (void)objcNormalMethod"
+              },
+              "primary_language" : "objc",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">- (void)<\/span>objcNormalMethod<span class=\"j2-item-secondary\"><\/span>"
+              },
+              "secondary_language" : "swift",
+              "secondary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>objcNormalMethod<span class=\"j2-item-secondary\">()<\/span>"
+              }
+            },
+            {
+              "anchor_id" : "normal",
+              "dash_type" : "Method",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Normal class swift method<\/p>"
+                  }
+                },
+                "availability" : [],
+                "deprecated_everywhere" : false,
+                "discussion" : {
+                  "en" : {
+                    "html" : "<p>See <a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?swift\" class=\"j2-swift\"><code>Kitchen<\/code><\/a><a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?objc\" class=\"j2-objc j2-secondary\"><code>JMLKitchen<\/code><\/a><\/p>"
+                  }
+                },
+                "notes" : {
+                  "en" : {
+                    "html" : "<p>Provided by module <code>SpmSwiftModule4<\/code>.<\/p>"
+                  }
+                },
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "func normal()"
+                }
+              },
+              "flat_title" : {
+                "en" : "func normal()"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>normal<span class=\"j2-item-secondary\">()<\/span>"
+              }
+            }
+          ],
+          "menu_title" : {
+            "en" : ""
+          },
+          "title" : {
+            "en" : {
+              "html" : ""
+            }
+          }
+        }
+      ],
+      "url" : {
+        "url_path" : "spmobjcmodule\/types\/normalclass1"
       }
     },
     {
@@ -318,12 +1021,14 @@
       },
       "guide_topics" : {},
       "is_guide" : false,
+      "mix_languages" : false,
       "pagination" : {
         "next" : {
           "primary_language" : "swift",
           "primary_title" : {
             "en" : "RenamedExposedSwiftClass"
           },
+          "secondary_language" : "objc",
           "secondary_title" : {
             "en" : "RenamedForObjC"
           },
@@ -332,15 +1037,16 @@
           }
         },
         "prev" : {
-          "primary_language" : "swift",
+          "primary_language" : "objc",
           "primary_title" : {
-            "en" : "Types"
+            "en" : "NormalClass"
           },
+          "secondary_language" : "swift",
           "secondary_title" : {
-            "en" : "Types"
+            "en" : "NormalClass"
           },
           "url" : {
-            "url_path" : "types"
+            "url_path" : "spmobjcmodule\/types\/normalclass1"
           }
         }
       },
@@ -577,17 +1283,19 @@
       },
       "guide_topics" : {},
       "is_guide" : false,
+      "mix_languages" : false,
       "pagination" : {
         "next" : {
           "primary_language" : "objc",
           "primary_title" : {
-            "en" : "NormalClass"
+            "en" : "JMLKitchenCupboard"
           },
+          "secondary_language" : "swift",
           "secondary_title" : {
-            "en" : "NormalClass"
+            "en" : "Cupboard"
           },
           "url" : {
-            "url_path" : "spmobjcmodule\/types\/normalclass1"
+            "url_path" : "spmobjcmodule\/types\/jmlkitchencupboard"
           }
         },
         "prev" : {
@@ -595,6 +1303,7 @@
           "primary_title" : {
             "en" : "ExposedSwiftClass"
           },
+          "secondary_language" : "objc",
           "secondary_title" : {
             "en" : "ExposedSwiftClass"
           },
@@ -736,349 +1445,6 @@
           },
           {
             "title" : {
-              "en" : "SpmObjCModule.NormalClass"
-            }
-          }
-        ],
-        [
-          {
-            "title" : {
-              "en" : "Types"
-            },
-            "url" : {
-              "url_path" : "types"
-            }
-          },
-          {
-            "title" : {
-              "en" : "SpmObjCModule.NormalClass"
-            }
-          }
-        ]
-      ],
-      "def" : {
-        "abstract" : {
-          "en" : {
-            "html" : "<p>Un-renamed class to check normal things still work<\/p>"
-          }
-        },
-        "availability" : [],
-        "deprecated_everywhere" : false,
-        "discussion" : {
-          "en" : {
-            "html" : "<p>See <a href=\"..\/..\/spmobjcmodule\/types\/normalclass1.html?objc#objcnormalmethod\" class=\"j2-objc\"><code>-objcNormalMethod<\/code><\/a><a href=\"..\/..\/spmobjcmodule\/types\/normalclass1.html?swift#objcnormalmethod\" class=\"j2-swift j2-secondary\"><code>objcNormalMethod()<\/code><\/a>.<\/p>"
-          }
-        },
-        "obj_c_declaration" : {
-          "html" : "@interface NormalClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
-        },
-        "params" : [],
-        "swift_declaration" : {
-          "html" : "class NormalClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
-        }
-      },
-      "guide_topics" : {},
-      "is_guide" : false,
-      "pagination" : {
-        "next" : {
-          "primary_language" : "objc",
-          "primary_title" : {
-            "en" : "JMLKitchen"
-          },
-          "secondary_title" : {
-            "en" : "Kitchen"
-          },
-          "url" : {
-            "url_path" : "spmobjcmodule\/types\/jmlkitchen"
-          }
-        },
-        "prev" : {
-          "primary_language" : "swift",
-          "primary_title" : {
-            "en" : "RenamedExposedSwiftClass"
-          },
-          "secondary_title" : {
-            "en" : "RenamedForObjC"
-          },
-          "url" : {
-            "url_path" : "spmswiftmodule4\/types\/renamedexposedswiftclass"
-          }
-        }
-      },
-      "primary_language" : "objc",
-      "primary_title" : {
-        "en" : "NormalClass"
-      },
-      "secondary_title" : {
-        "en" : "NormalClass"
-      },
-      "tab_title_prefix" : true,
-      "topics" : [
-        {
-          "anchor_id" : "tpc-",
-          "items" : [
-            {
-              "anchor_id" : "objcnormalmethod",
-              "dash_type" : "Method",
-              "def" : {
-                "abstract" : {
-                  "en" : {
-                    "html" : "<p>See <a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?objc\" class=\"j2-objc\"><code>JMLKitchen<\/code><\/a><a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?swift\" class=\"j2-swift j2-secondary\"><code>Kitchen<\/code><\/a>.<\/p>"
-                  }
-                },
-                "availability" : [],
-                "deprecated_everywhere" : false,
-                "discussion" : {
-                  "en" : {
-                    "html" : "<p>See <a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?objc#jmlkitchenmethod\" class=\"j2-objc\"><code>-[JMLKitchen jmlKitchenMethod]<\/code><\/a><a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?swift#jmlkitchenmethod\" class=\"j2-swift j2-secondary\"><code>Kitchen.kitchenMethod()<\/code><\/a><\/p>"
-                  }
-                },
-                "obj_c_declaration" : {
-                  "html" : "- (void)objcNormalMethod"
-                },
-                "params" : [],
-                "swift_declaration" : {
-                  "html" : "func objcNormalMethod()"
-                }
-              },
-              "flat_title" : {
-                "en" : "- (void)objcNormalMethod"
-              },
-              "primary_language" : "objc",
-              "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">- (void)<\/span>objcNormalMethod<span class=\"j2-item-secondary\"><\/span>"
-              },
-              "secondary_language" : "swift",
-              "secondary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>objcNormalMethod<span class=\"j2-item-secondary\">()<\/span>"
-              }
-            },
-            {
-              "anchor_id" : "normal",
-              "dash_type" : "Method",
-              "def" : {
-                "abstract" : {
-                  "en" : {
-                    "html" : "<p>Normal class swift method<\/p>"
-                  }
-                },
-                "availability" : [],
-                "deprecated_everywhere" : false,
-                "discussion" : {
-                  "en" : {
-                    "html" : "<p>See <a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?swift\" class=\"j2-swift\"><code>Kitchen<\/code><\/a><a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?objc\" class=\"j2-objc j2-secondary\"><code>JMLKitchen<\/code><\/a><\/p>"
-                  }
-                },
-                "notes" : {
-                  "en" : {
-                    "html" : "<p>Provided by module <code>SpmSwiftModule4<\/code>.<\/p>"
-                  }
-                },
-                "params" : [],
-                "swift_declaration" : {
-                  "html" : "func normal()"
-                }
-              },
-              "flat_title" : {
-                "en" : "func normal()"
-              },
-              "primary_language" : "swift",
-              "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>normal<span class=\"j2-item-secondary\">()<\/span>"
-              }
-            }
-          ],
-          "menu_title" : {
-            "en" : ""
-          },
-          "title" : {
-            "en" : {
-              "html" : ""
-            }
-          }
-        }
-      ],
-      "url" : {
-        "url_path" : "spmobjcmodule\/types\/normalclass1"
-      }
-    },
-    {
-      "breadcrumbs" : [
-        [
-          {
-            "title" : {
-              "en" : "Types"
-            },
-            "url" : {
-              "url_path" : "types"
-            }
-          },
-          {
-            "title" : {
-              "en" : "SpmObjCModule.JMLKitchen"
-            }
-          }
-        ],
-        [
-          {
-            "title" : {
-              "en" : "Types"
-            },
-            "url" : {
-              "url_path" : "types"
-            }
-          },
-          {
-            "title" : {
-              "en" : "SpmObjCModule.Kitchen"
-            }
-          }
-        ]
-      ],
-      "def" : {
-        "abstract" : {
-          "en" : {
-            "html" : "<p>Type with different name in Swift<\/p>"
-          }
-        },
-        "availability" : [],
-        "deprecated_everywhere" : false,
-        "obj_c_declaration" : {
-          "html" : "@interface JMLKitchen : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
-        },
-        "params" : [],
-        "swift_declaration" : {
-          "html" : "class Kitchen : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
-        }
-      },
-      "guide_topics" : {},
-      "is_guide" : false,
-      "pagination" : {
-        "next" : {
-          "primary_language" : "objc",
-          "primary_title" : {
-            "en" : "JMLKitchenCupboard"
-          },
-          "secondary_title" : {
-            "en" : "Cupboard"
-          },
-          "url" : {
-            "url_path" : "spmobjcmodule\/types\/jmlkitchencupboard"
-          }
-        },
-        "prev" : {
-          "primary_language" : "objc",
-          "primary_title" : {
-            "en" : "NormalClass"
-          },
-          "secondary_title" : {
-            "en" : "NormalClass"
-          },
-          "url" : {
-            "url_path" : "spmobjcmodule\/types\/normalclass1"
-          }
-        }
-      },
-      "primary_language" : "objc",
-      "primary_title" : {
-        "en" : "JMLKitchen"
-      },
-      "secondary_title" : {
-        "en" : "Kitchen"
-      },
-      "tab_title_prefix" : true,
-      "topics" : [
-        {
-          "anchor_id" : "tpc-",
-          "items" : [
-            {
-              "anchor_id" : "jmlkitchenmethod",
-              "dash_type" : "Method",
-              "def" : {
-                "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
-                  }
-                },
-                "availability" : [],
-                "deprecated_everywhere" : false,
-                "obj_c_declaration" : {
-                  "html" : "- (void)jmlKitchenMethod"
-                },
-                "params" : [],
-                "swift_declaration" : {
-                  "html" : "func kitchenMethod()"
-                }
-              },
-              "flat_title" : {
-                "en" : "- (void)jmlKitchenMethod"
-              },
-              "primary_language" : "objc",
-              "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">- (void)<\/span>jmlKitchenMethod<span class=\"j2-item-secondary\"><\/span>"
-              },
-              "secondary_language" : "swift",
-              "secondary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>kitchenMethod<span class=\"j2-item-secondary\">()<\/span>"
-              }
-            },
-            {
-              "anchor_id" : "renamed",
-              "dash_type" : "Method",
-              "def" : {
-                "abstract" : {
-                  "en" : {
-                    "html" : "<p>renamed class swift method<\/p>"
-                  }
-                },
-                "availability" : [],
-                "deprecated_everywhere" : false,
-                "notes" : {
-                  "en" : {
-                    "html" : "<p>Provided by module <code>SpmSwiftModule4<\/code>.<\/p>"
-                  }
-                },
-                "params" : [],
-                "swift_declaration" : {
-                  "html" : "func renamed()"
-                }
-              },
-              "flat_title" : {
-                "en" : "func renamed()"
-              },
-              "primary_language" : "swift",
-              "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>renamed<span class=\"j2-item-secondary\">()<\/span>"
-              }
-            }
-          ],
-          "menu_title" : {
-            "en" : ""
-          },
-          "title" : {
-            "en" : {
-              "html" : ""
-            }
-          }
-        }
-      ],
-      "url" : {
-        "url_path" : "spmobjcmodule\/types\/jmlkitchen"
-      }
-    },
-    {
-      "breadcrumbs" : [
-        [
-          {
-            "title" : {
-              "en" : "Types"
-            },
-            "url" : {
-              "url_path" : "types"
-            }
-          },
-          {
-            "title" : {
               "en" : "SpmObjCModule.JMLKitchenCupboard"
             }
           }
@@ -1117,29 +1483,19 @@
       },
       "guide_topics" : {},
       "is_guide" : false,
+      "mix_languages" : false,
       "pagination" : {
-        "next" : {
-          "primary_language" : "objc",
-          "primary_title" : {
-            "en" : "JMLBathroomCupboard"
-          },
-          "secondary_title" : {
-            "en" : "JMLBathroomCupboard"
-          },
-          "url" : {
-            "url_path" : "spmobjcmodule\/types\/jmlbathroomcupboard"
-          }
-        },
         "prev" : {
-          "primary_language" : "objc",
+          "primary_language" : "swift",
           "primary_title" : {
-            "en" : "JMLKitchen"
+            "en" : "RenamedExposedSwiftClass"
           },
+          "secondary_language" : "objc",
           "secondary_title" : {
-            "en" : "Kitchen"
+            "en" : "RenamedForObjC"
           },
           "url" : {
-            "url_path" : "spmobjcmodule\/types\/jmlkitchen"
+            "url_path" : "spmswiftmodule4\/types\/renamedexposedswiftclass"
           }
         }
       },
@@ -1308,327 +1664,6 @@
       }
     },
     {
-      "breadcrumbs" : [
-        [
-          {
-            "title" : {
-              "en" : "Types"
-            },
-            "url" : {
-              "url_path" : "types"
-            }
-          },
-          {
-            "title" : {
-              "en" : "SpmObjCModule.JMLBathroomCupboard"
-            }
-          }
-        ],
-        [
-          {
-            "title" : {
-              "en" : "Types"
-            },
-            "url" : {
-              "url_path" : "types"
-            }
-          },
-          {
-            "title" : {
-              "en" : "SpmObjCModule.JMLBathroomCupboard"
-            }
-          }
-        ]
-      ],
-      "def" : {
-        "abstract" : {
-          "en" : {
-            "html" : "<p>Type with a different shape in Swift - parent does not exist<\/p>"
-          }
-        },
-        "availability" : [],
-        "deprecated_everywhere" : false,
-        "obj_c_declaration" : {
-          "html" : "@interface JMLBathroomCupboard : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
-        },
-        "params" : []
-      },
-      "guide_topics" : {},
-      "is_guide" : false,
-      "pagination" : {
-        "next" : {
-          "primary_language" : "swift",
-          "primary_title" : {
-            "en" : "Extensions"
-          },
-          "secondary_title" : {
-            "en" : "Categories"
-          },
-          "url" : {
-            "url_path" : "extensions"
-          }
-        },
-        "prev" : {
-          "primary_language" : "objc",
-          "primary_title" : {
-            "en" : "JMLKitchenCupboard"
-          },
-          "secondary_title" : {
-            "en" : "Cupboard"
-          },
-          "url" : {
-            "url_path" : "spmobjcmodule\/types\/jmlkitchencupboard"
-          }
-        }
-      },
-      "primary_language" : "objc",
-      "primary_title" : {
-        "en" : "JMLBathroomCupboard"
-      },
-      "tab_title_prefix" : true,
-      "topics" : [
-        {
-          "anchor_id" : "tpc-",
-          "items" : [
-            {
-              "anchor_id" : "jmlbathroomcupboardmethod",
-              "dash_type" : "Method",
-              "def" : {
-                "abstract" : {
-                  "en" : {
-                    "html" : "<p>See <a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchencupboard.html?swift#jmlkitchencupboardmethod\" class=\"j2-swift\"><code>Cupboard.jmlKitchenCupboardMethod()<\/code><\/a><a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchencupboard.html?objc#jmlkitchencupboardmethod\" class=\"j2-objc j2-secondary\"><code>-[JMLKitchenCupboard jmlKitchenCupboardMethod]<\/code><\/a><\/p>"
-                  }
-                },
-                "availability" : [],
-                "deprecated_everywhere" : false,
-                "obj_c_declaration" : {
-                  "html" : "- (void)jmlBathroomCupboardMethod"
-                },
-                "params" : []
-              },
-              "flat_title" : {
-                "en" : "- (void)jmlBathroomCupboardMethod"
-              },
-              "primary_language" : "objc",
-              "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">- (void)<\/span>jmlBathroomCupboardMethod<span class=\"j2-item-secondary\"><\/span>"
-              }
-            }
-          ],
-          "menu_title" : {
-            "en" : ""
-          },
-          "title" : {
-            "en" : {
-              "html" : ""
-            }
-          }
-        }
-      ],
-      "url" : {
-        "url_path" : "spmobjcmodule\/types\/jmlbathroomcupboard"
-      }
-    },
-    {
-      "breadcrumbs" : [
-        [
-          {
-            "title" : {
-              "en" : "Categories"
-            }
-          }
-        ],
-        [
-          {
-            "title" : {
-              "en" : "Extensions"
-            }
-          }
-        ]
-      ],
-      "guide_topics" : {},
-      "is_guide" : false,
-      "pagination" : {
-        "next" : {
-          "primary_language" : "swift",
-          "primary_title" : {
-            "en" : "String"
-          },
-          "secondary_title" : {
-            "en" : "String"
-          },
-          "url" : {
-            "url_path" : "spmswiftmodule4\/extensions\/string"
-          }
-        },
-        "prev" : {
-          "primary_language" : "objc",
-          "primary_title" : {
-            "en" : "JMLBathroomCupboard"
-          },
-          "secondary_title" : {
-            "en" : "JMLBathroomCupboard"
-          },
-          "url" : {
-            "url_path" : "spmobjcmodule\/types\/jmlbathroomcupboard"
-          }
-        }
-      },
-      "primary_language" : "swift",
-      "primary_title" : {
-        "en" : "Extensions"
-      },
-      "secondary_title" : {
-        "en" : "Categories"
-      },
-      "tab_title_prefix" : true,
-      "topics" : [
-        {
-          "anchor_id" : "tpc-",
-          "items" : [
-            {
-              "anchor_id" : "string",
-              "dash_type" : "Extension",
-              "def" : {
-                "availability" : [],
-                "deprecated_everywhere" : false,
-                "params" : [],
-                "swift_declaration" : {
-                  "html" : "extension <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/string?language=swift\">String<\/a>"
-                }
-              },
-              "flat_title" : {
-                "en" : "extension String"
-              },
-              "primary_language" : "swift",
-              "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">extension <\/span>String"
-              },
-              "url" : {
-                "url_path" : "spmswiftmodule4\/extensions\/string"
-              }
-            }
-          ],
-          "menu_title" : {
-            "en" : ""
-          },
-          "title" : {
-            "en" : {
-              "html" : ""
-            }
-          }
-        }
-      ],
-      "url" : {
-        "url_path" : "extensions"
-      }
-    },
-    {
-      "breadcrumbs" : [
-        [
-          {
-            "title" : {
-              "en" : "Categories"
-            },
-            "url" : {
-              "url_path" : "extensions"
-            }
-          },
-          {
-            "title" : {
-              "en" : "Swift.String (SpmSwiftModule4)"
-            }
-          }
-        ],
-        [
-          {
-            "title" : {
-              "en" : "Extensions"
-            },
-            "url" : {
-              "url_path" : "extensions"
-            }
-          },
-          {
-            "title" : {
-              "en" : "Swift.String (SpmSwiftModule4)"
-            }
-          }
-        ]
-      ],
-      "def" : {
-        "availability" : [],
-        "deprecated_everywhere" : false,
-        "params" : [],
-        "swift_declaration" : {
-          "html" : "extension <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/string?language=swift\">String<\/a>"
-        }
-      },
-      "guide_topics" : {},
-      "is_guide" : false,
-      "pagination" : {
-        "prev" : {
-          "primary_language" : "swift",
-          "primary_title" : {
-            "en" : "Extensions"
-          },
-          "secondary_title" : {
-            "en" : "Categories"
-          },
-          "url" : {
-            "url_path" : "extensions"
-          }
-        }
-      },
-      "primary_language" : "swift",
-      "primary_title" : {
-        "en" : "String"
-      },
-      "tab_title_prefix" : true,
-      "topics" : [
-        {
-          "anchor_id" : "tpc-",
-          "items" : [
-            {
-              "anchor_id" : "externaltypemethod",
-              "dash_type" : "Method",
-              "def" : {
-                "abstract" : {
-                  "en" : {
-                    "html" : "<p>From an external type that doesn’t exist in ObjC<\/p>"
-                  }
-                },
-                "availability" : [],
-                "deprecated_everywhere" : false,
-                "params" : [],
-                "swift_declaration" : {
-                  "html" : "func externalTypeMethod()"
-                }
-              },
-              "flat_title" : {
-                "en" : "func externalTypeMethod()"
-              },
-              "primary_language" : "swift",
-              "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>externalTypeMethod<span class=\"j2-item-secondary\">()<\/span>"
-              }
-            }
-          ],
-          "menu_title" : {
-            "en" : ""
-          },
-          "title" : {
-            "en" : {
-              "html" : ""
-            }
-          }
-        }
-      ],
-      "url" : {
-        "url_path" : "spmswiftmodule4\/extensions\/string"
-      }
-    },
-    {
       "breadcrumbs" : [],
       "content" : {
         "en" : {
@@ -1644,29 +1679,32 @@
         ]
       },
       "is_guide" : true,
+      "mix_languages" : false,
       "pagination" : {
         "next" : {
           "primary_language" : "swift",
           "primary_title" : {
-            "en" : "Types"
+            "en" : "Mixed"
           },
+          "secondary_language" : "swift",
           "secondary_title" : {
-            "en" : "Types"
+            "en" : "Mixed"
           },
           "url" : {
-            "url_path" : "types"
+            "url_path" : "mixed"
           }
         },
         "prev" : {
-          "primary_language" : "swift",
+          "primary_language" : "objc",
           "primary_title" : {
-            "en" : "String"
+            "en" : "JMLKitchenCupboard"
           },
+          "secondary_language" : "swift",
           "secondary_title" : {
-            "en" : "String"
+            "en" : "Cupboard"
           },
           "url" : {
-            "url_path" : "spmswiftmodule4\/extensions\/string"
+            "url_path" : "spmobjcmodule\/types\/jmlkitchencupboard"
           }
         }
       },
@@ -1688,15 +1726,6 @@
           {
             "children" : [],
             "title" : {
-              "en" : "ExposedSwiftClass"
-            },
-            "url" : {
-              "url_path" : "spmswiftmodule4\/types\/exposedswiftclass"
-            }
-          },
-          {
-            "children" : [],
-            "title" : {
               "en" : "JMLBathroomCupboard"
             },
             "url" : {
@@ -1710,6 +1739,34 @@
             },
             "url" : {
               "url_path" : "spmobjcmodule\/types\/jmlkitchen"
+            }
+          },
+          {
+            "children" : [],
+            "title" : {
+              "en" : "String"
+            },
+            "url" : {
+              "url_path" : "spmswiftmodule4\/extensions\/string"
+            }
+          }
+        ],
+        "title" : {
+          "en" : "Mixed"
+        },
+        "url" : {
+          "url_path" : "mixed"
+        }
+      },
+      {
+        "children" : [
+          {
+            "children" : [],
+            "title" : {
+              "en" : "ExposedSwiftClass"
+            },
+            "url" : {
+              "url_path" : "spmswiftmodule4\/types\/exposedswiftclass"
             }
           },
           {
@@ -1754,6 +1811,43 @@
           {
             "children" : [],
             "title" : {
+              "en" : "JMLBathroomCupboard"
+            },
+            "url" : {
+              "url_path" : "spmobjcmodule\/types\/jmlbathroomcupboard"
+            }
+          },
+          {
+            "children" : [],
+            "title" : {
+              "en" : "Kitchen"
+            },
+            "url" : {
+              "url_path" : "spmobjcmodule\/types\/jmlkitchen"
+            }
+          },
+          {
+            "children" : [],
+            "title" : {
+              "en" : "String"
+            },
+            "url" : {
+              "url_path" : "spmswiftmodule4\/extensions\/string"
+            }
+          }
+        ],
+        "title" : {
+          "en" : "Mixed"
+        },
+        "url" : {
+          "url_path" : "mixed"
+        }
+      },
+      {
+        "children" : [
+          {
+            "children" : [],
+            "title" : {
               "en" : "Cupboard"
             },
             "url" : {
@@ -1767,15 +1861,6 @@
             },
             "url" : {
               "url_path" : "spmswiftmodule4\/types\/exposedswiftclass"
-            }
-          },
-          {
-            "children" : [],
-            "title" : {
-              "en" : "Kitchen"
-            },
-            "url" : {
-              "url_path" : "spmobjcmodule\/types\/jmlkitchen"
             }
           },
           {
@@ -1802,25 +1887,6 @@
         },
         "url" : {
           "url_path" : "types"
-        }
-      },
-      {
-        "children" : [
-          {
-            "children" : [],
-            "title" : {
-              "en" : "String"
-            },
-            "url" : {
-              "url_path" : "spmswiftmodule4\/extensions\/string"
-            }
-          }
-        ],
-        "title" : {
-          "en" : "Extensions"
-        },
-        "url" : {
-          "url_path" : "extensions"
         }
       }
     ]

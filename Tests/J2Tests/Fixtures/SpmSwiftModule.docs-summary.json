@@ -19,12 +19,14 @@
       ],
       "guide_topics" : {},
       "is_guide" : false,
+      "mix_languages" : false,
       "pagination" : {
         "next" : {
           "primary_language" : "swift",
           "primary_title" : {
             "en" : "ABaseClass"
           },
+          "secondary_language" : "swift",
           "secondary_title" : {
             "en" : "ABaseClass"
           },
@@ -357,12 +359,14 @@
       },
       "guide_topics" : {},
       "is_guide" : false,
+      "mix_languages" : false,
       "pagination" : {
         "next" : {
           "primary_language" : "swift",
           "primary_title" : {
             "en" : "ADerivedClass"
           },
+          "secondary_language" : "swift",
           "secondary_title" : {
             "en" : "ADerivedClass"
           },
@@ -375,6 +379,7 @@
           "primary_title" : {
             "en" : "Types"
           },
+          "secondary_language" : "swift",
           "secondary_title" : {
             "en" : "Types"
           },
@@ -747,12 +752,14 @@
       },
       "guide_topics" : {},
       "is_guide" : false,
+      "mix_languages" : false,
       "pagination" : {
         "next" : {
           "primary_language" : "swift",
           "primary_title" : {
             "en" : "AnEnum"
           },
+          "secondary_language" : "swift",
           "secondary_title" : {
             "en" : "AnEnum"
           },
@@ -765,6 +772,7 @@
           "primary_title" : {
             "en" : "ABaseClass"
           },
+          "secondary_language" : "swift",
           "secondary_title" : {
             "en" : "ABaseClass"
           },
@@ -915,12 +923,14 @@
       },
       "guide_topics" : {},
       "is_guide" : false,
+      "mix_languages" : false,
       "pagination" : {
         "next" : {
           "primary_language" : "swift",
           "primary_title" : {
             "en" : "FirstProtocol"
           },
+          "secondary_language" : "swift",
           "secondary_title" : {
             "en" : "FirstProtocol"
           },
@@ -933,6 +943,7 @@
           "primary_title" : {
             "en" : "ADerivedClass"
           },
+          "secondary_language" : "swift",
           "secondary_title" : {
             "en" : "ADerivedClass"
           },
@@ -1118,12 +1129,14 @@
       },
       "guide_topics" : {},
       "is_guide" : false,
+      "mix_languages" : false,
       "pagination" : {
         "next" : {
           "primary_language" : "swift",
           "primary_title" : {
             "en" : "GenericBase"
           },
+          "secondary_language" : "swift",
           "secondary_title" : {
             "en" : "GenericBase"
           },
@@ -1136,6 +1149,7 @@
           "primary_title" : {
             "en" : "AnEnum"
           },
+          "secondary_language" : "swift",
           "secondary_title" : {
             "en" : "AnEnum"
           },
@@ -1486,12 +1500,14 @@
       },
       "guide_topics" : {},
       "is_guide" : false,
+      "mix_languages" : false,
       "pagination" : {
         "next" : {
           "primary_language" : "swift",
           "primary_title" : {
             "en" : "Nop"
           },
+          "secondary_language" : "swift",
           "secondary_title" : {
             "en" : "Nop"
           },
@@ -1504,6 +1520,7 @@
           "primary_title" : {
             "en" : "FirstProtocol"
           },
+          "secondary_language" : "swift",
           "secondary_title" : {
             "en" : "FirstProtocol"
           },
@@ -1850,12 +1867,14 @@
       },
       "guide_topics" : {},
       "is_guide" : false,
+      "mix_languages" : false,
       "pagination" : {
         "next" : {
           "primary_language" : "swift",
           "primary_title" : {
             "en" : "PropertyWrapperClient"
           },
+          "secondary_language" : "swift",
           "secondary_title" : {
             "en" : "PropertyWrapperClient"
           },
@@ -1868,6 +1887,7 @@
           "primary_title" : {
             "en" : "GenericBase"
           },
+          "secondary_language" : "swift",
           "secondary_title" : {
             "en" : "GenericBase"
           },
@@ -1994,12 +2014,14 @@
       },
       "guide_topics" : {},
       "is_guide" : false,
+      "mix_languages" : false,
       "pagination" : {
         "next" : {
           "primary_language" : "swift",
           "primary_title" : {
             "en" : "SecondProtocol"
           },
+          "secondary_language" : "swift",
           "secondary_title" : {
             "en" : "SecondProtocol"
           },
@@ -2012,6 +2034,7 @@
           "primary_title" : {
             "en" : "Nop"
           },
+          "secondary_language" : "swift",
           "secondary_title" : {
             "en" : "Nop"
           },
@@ -2101,12 +2124,14 @@
       },
       "guide_topics" : {},
       "is_guide" : false,
+      "mix_languages" : false,
       "pagination" : {
         "next" : {
           "primary_language" : "swift",
           "primary_title" : {
             "en" : "SpmSwiftModule"
           },
+          "secondary_language" : "swift",
           "secondary_title" : {
             "en" : "SpmSwiftModule"
           },
@@ -2119,6 +2144,7 @@
           "primary_title" : {
             "en" : "PropertyWrapperClient"
           },
+          "secondary_language" : "swift",
           "secondary_title" : {
             "en" : "PropertyWrapperClient"
           },
@@ -2250,12 +2276,14 @@
       },
       "guide_topics" : {},
       "is_guide" : false,
+      "mix_languages" : false,
       "pagination" : {
         "next" : {
           "primary_language" : "swift",
           "primary_title" : {
             "en" : "Nested1"
           },
+          "secondary_language" : "swift",
           "secondary_title" : {
             "en" : "Nested1"
           },
@@ -2268,6 +2296,7 @@
           "primary_title" : {
             "en" : "SecondProtocol"
           },
+          "secondary_language" : "swift",
           "secondary_title" : {
             "en" : "SecondProtocol"
           },
@@ -2477,12 +2506,14 @@
       },
       "guide_topics" : {},
       "is_guide" : false,
+      "mix_languages" : false,
       "pagination" : {
         "next" : {
           "primary_language" : "swift",
           "primary_title" : {
             "en" : "Nested2a"
           },
+          "secondary_language" : "swift",
           "secondary_title" : {
             "en" : "Nested2a"
           },
@@ -2495,6 +2526,7 @@
           "primary_title" : {
             "en" : "SpmSwiftModule"
           },
+          "secondary_language" : "swift",
           "secondary_title" : {
             "en" : "SpmSwiftModule"
           },
@@ -2632,12 +2664,14 @@
       },
       "guide_topics" : {},
       "is_guide" : false,
+      "mix_languages" : false,
       "pagination" : {
         "next" : {
           "primary_language" : "swift",
           "primary_title" : {
             "en" : "Functions"
           },
+          "secondary_language" : "swift",
           "secondary_title" : {
             "en" : "Functions"
           },
@@ -2650,6 +2684,7 @@
           "primary_title" : {
             "en" : "Nested1"
           },
+          "secondary_language" : "swift",
           "secondary_title" : {
             "en" : "Nested1"
           },
@@ -2723,12 +2758,14 @@
       ],
       "guide_topics" : {},
       "is_guide" : false,
+      "mix_languages" : false,
       "pagination" : {
         "next" : {
           "primary_language" : "swift",
           "primary_title" : {
             "en" : "Operators"
           },
+          "secondary_language" : "swift",
           "secondary_title" : {
             "en" : "Operators"
           },
@@ -2741,6 +2778,7 @@
           "primary_title" : {
             "en" : "Nested2a"
           },
+          "secondary_language" : "swift",
           "secondary_title" : {
             "en" : "Nested2a"
           },
@@ -2914,14 +2952,16 @@
       ],
       "guide_topics" : {},
       "is_guide" : false,
+      "mix_languages" : false,
       "pagination" : {
         "next" : {
           "primary_language" : "swift",
           "primary_title" : {
             "en" : "Extensions"
           },
+          "secondary_language" : "swift",
           "secondary_title" : {
-            "en" : "Categories"
+            "en" : "Extensions"
           },
           "url" : {
             "url_path" : "extensions"
@@ -2932,6 +2972,7 @@
           "primary_title" : {
             "en" : "Functions"
           },
+          "secondary_language" : "swift",
           "secondary_title" : {
             "en" : "Functions"
           },
@@ -3000,12 +3041,14 @@
       ],
       "guide_topics" : {},
       "is_guide" : false,
+      "mix_languages" : false,
       "pagination" : {
         "next" : {
           "primary_language" : "swift",
           "primary_title" : {
             "en" : "Collection"
           },
+          "secondary_language" : "swift",
           "secondary_title" : {
             "en" : "Collection"
           },
@@ -3018,6 +3061,7 @@
           "primary_title" : {
             "en" : "Operators"
           },
+          "secondary_language" : "swift",
           "secondary_title" : {
             "en" : "Operators"
           },
@@ -3130,12 +3174,14 @@
       },
       "guide_topics" : {},
       "is_guide" : false,
+      "mix_languages" : false,
       "pagination" : {
         "next" : {
           "primary_language" : "swift",
           "primary_title" : {
             "en" : "String.Element"
           },
+          "secondary_language" : "swift",
           "secondary_title" : {
             "en" : "String.Element"
           },
@@ -3148,8 +3194,9 @@
           "primary_title" : {
             "en" : "Extensions"
           },
+          "secondary_language" : "swift",
           "secondary_title" : {
-            "en" : "Categories"
+            "en" : "Extensions"
           },
           "url" : {
             "url_path" : "extensions"
@@ -3274,12 +3321,14 @@
       },
       "guide_topics" : {},
       "is_guide" : false,
+      "mix_languages" : false,
       "pagination" : {
         "prev" : {
           "primary_language" : "swift",
           "primary_title" : {
             "en" : "Collection"
           },
+          "secondary_language" : "swift",
           "secondary_title" : {
             "en" : "Collection"
           },
@@ -3376,12 +3425,14 @@
         ]
       },
       "is_guide" : true,
+      "mix_languages" : false,
       "pagination" : {
         "next" : {
           "primary_language" : "swift",
           "primary_title" : {
             "en" : "Types"
           },
+          "secondary_language" : "swift",
           "secondary_title" : {
             "en" : "Types"
           },
@@ -3394,6 +3445,7 @@
           "primary_title" : {
             "en" : "String.Element"
           },
+          "secondary_language" : "swift",
           "secondary_title" : {
             "en" : "String.Element"
           },
