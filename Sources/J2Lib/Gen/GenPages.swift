@@ -65,21 +65,30 @@ public struct GenPages: Configurable {
     // MARK: Table of contents
 
     func generateToc(items: [Item], language: DefLanguage) -> [GenData.TocEntry] {
-        func doGenerate(items: [Item], depth: Int) -> [GenData.TocEntry] {
+        func doGenerate(items: [Item], depth: Int, mixLanguages: Bool) -> [GenData.TocEntry] {
             items.compactMap { item -> GenData.TocEntry? in
                 guard item.showInToc == .yes ||
                     (item.showInToc == .atTopLevel && depth < 2) else {
                     return nil
                 }
-                guard let title = item.title(for: language) else {
+
+                guard let title = mixLanguages ? item.titlePreferring(language: language)
+                                               : item.title(for: language) else {
                     return nil
                 }
-                // Groups themselves are bilingual but don't show if empty
-                if item.kind == .group &&
-                    item.children.allSatisfy({ $0.title(for: language) == nil }) {
-                    return nil
+
+                var mixChildLanguages = false
+                // Groups themselves are bilingual but don't show at all if empty
+                if let groupItem = item as? GroupItem {
+                    mixChildLanguages = groupItem.groupKind.mixLanguages
+                    if !mixChildLanguages &&
+                        item.children.allSatisfy({ $0.title(for: language) == nil }) {
+                        return nil
+                    }
                 }
-                var children = doGenerate(items: item.children, depth: depth + 1)
+                var children = doGenerate(items: item.children,
+                                          depth: depth + 1,
+                                          mixLanguages: mixChildLanguages)
 
                 // Jazzy holdover: if we're in source-order mode (jazzy mode) and
                 // this isn't a custom group, then we have to sort the ToC even though
@@ -94,7 +103,7 @@ public struct GenPages: Configurable {
             }
         }
 
-        return doGenerate(items: items, depth: 0)
+        return doGenerate(items: items, depth: 0, mixLanguages: false)
     }
 }
 
