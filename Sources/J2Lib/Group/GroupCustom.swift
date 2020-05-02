@@ -119,16 +119,16 @@ final class GroupCustom: Configurable {
 
     /// A name-indexed lookup of all the Items used to populate the custom group tree
     final class Index {
-        private var nameMap = [String: Item]()
+        private var nameMap = [String: (Item, Int)]()
         private var moduleNameMap = [String: Item]()
 
         init(items: [Item]) {
-            items.forEach { add(item: $0) }
+            items.enumerated().forEach { add(item: $0.1, sortIndex: $0.0) }
         }
 
         /// Store qualified names of defs too so we can handle ModuleA.Foo and ModuleB.Foo.
-        private func add(item: Item) {
-            nameMap[item.name] = item
+        private func add(item: Item, sortIndex: Int) {
+            nameMap[item.name] = (item, sortIndex)
             if let defItem = item as? DefItem {
                 moduleNameMap[defItem.nameInModule] = item
             }
@@ -137,7 +137,7 @@ final class GroupCustom: Configurable {
         /// Remove items from our caches as they are used - no dups
         func find(name: String) -> Item? {
             // Order important, modules first: A.B defaults to A-is-module
-            guard let item = moduleNameMap[name] ?? nameMap[name] else {
+            guard let item = moduleNameMap[name] ?? nameMap[name]?.0 else {
                 return nil
             }
             nameMap.removeValue(forKey: item.name)
@@ -151,7 +151,7 @@ final class GroupCustom: Configurable {
         func findAll(matching pattern: String) -> [Item] {
             var items = [Item]()
 
-            func search(dict: [String:Item]) {
+            func search<K>(dict: [String:K]) {
                 let matchingKeys = dict.keys.filter { $0.re_isMatch(pattern) }
                 matchingKeys.forEach { key in
                     find(name: key).flatMap { items.append($0) }
@@ -164,9 +164,9 @@ final class GroupCustom: Configurable {
             return items
         }
 
-        /// What's left are processed by the 'group-by-kind' path.
+        /// What's left are processed by the 'group-by-kind' path -- must preserve original sort order!
         var remainingItems: [Item] {
-            Array(nameMap.values)
+            Array(nameMap.values.sorted(by: { $0.1 < $1.1 }).map { $0.0 })
         }
     }
 

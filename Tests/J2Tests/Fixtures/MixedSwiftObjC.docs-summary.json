@@ -597,16 +597,16 @@
       "mix_languages" : false,
       "pagination" : {
         "next" : {
-          "primary_language" : "objc",
+          "primary_language" : "swift",
           "primary_title" : {
-            "en" : "NormalClass"
+            "en" : "ExposedSwiftClass"
           },
-          "secondary_language" : "swift",
+          "secondary_language" : "objc",
           "secondary_title" : {
-            "en" : "NormalClass"
+            "en" : "ExposedSwiftClass"
           },
           "url" : {
-            "url_path" : "spmobjcmodule\/types\/normalclass1"
+            "url_path" : "spmswiftmodule4\/types\/exposedswiftclass"
           }
         },
         "prev" : {
@@ -632,45 +632,6 @@
         {
           "anchor_id" : "tpc-",
           "items" : [
-            {
-              "anchor_id" : "normalclass1",
-              "dash_type" : "Class",
-              "def" : {
-                "abstract" : {
-                  "en" : {
-                    "html" : "<p>Un-renamed class to check normal things still work<\/p>"
-                  }
-                },
-                "availability" : [],
-                "deprecated_everywhere" : false,
-                "discussion" : {
-                  "en" : {
-                    "html" : "<p>See <a href=\"spmobjcmodule\/types\/normalclass1.html?objc#objcnormalmethod\" class=\"j2-objc\"><code>-objcNormalMethod<\/code><\/a><a href=\"spmobjcmodule\/types\/normalclass1.html?swift#objcnormalmethod\" class=\"j2-swift j2-secondary\"><code>objcNormalMethod()<\/code><\/a>.<\/p>"
-                  }
-                },
-                "obj_c_declaration" : {
-                  "html" : "@interface NormalClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
-                },
-                "params" : [],
-                "swift_declaration" : {
-                  "html" : "class NormalClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
-                }
-              },
-              "flat_title" : {
-                "en" : "@interface NormalClass"
-              },
-              "primary_language" : "objc",
-              "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">@interface <\/span>NormalClass"
-              },
-              "secondary_language" : "swift",
-              "secondary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">class <\/span>NormalClass"
-              },
-              "url" : {
-                "url_path" : "spmobjcmodule\/types\/normalclass1"
-              }
-            },
             {
               "anchor_id" : "exposedswiftclass",
               "dash_type" : "Class",
@@ -740,6 +701,45 @@
               }
             },
             {
+              "anchor_id" : "normalclass1",
+              "dash_type" : "Class",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Un-renamed class to check normal things still work<\/p>"
+                  }
+                },
+                "availability" : [],
+                "deprecated_everywhere" : false,
+                "discussion" : {
+                  "en" : {
+                    "html" : "<p>See <a href=\"spmobjcmodule\/types\/normalclass1.html?objc#objcnormalmethod\" class=\"j2-objc\"><code>-objcNormalMethod<\/code><\/a><a href=\"spmobjcmodule\/types\/normalclass1.html?swift#objcnormalmethod\" class=\"j2-swift j2-secondary\"><code>objcNormalMethod()<\/code><\/a>.<\/p>"
+                  }
+                },
+                "obj_c_declaration" : {
+                  "html" : "@interface NormalClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+                },
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "class NormalClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
+                }
+              },
+              "flat_title" : {
+                "en" : "@interface NormalClass"
+              },
+              "primary_language" : "objc",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">@interface <\/span>NormalClass"
+              },
+              "secondary_language" : "swift",
+              "secondary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">class <\/span>NormalClass"
+              },
+              "url" : {
+                "url_path" : "spmobjcmodule\/types\/normalclass1"
+              }
+            },
+            {
               "anchor_id" : "jmlkitchencupboard",
               "dash_type" : "Class",
               "def" : {
@@ -786,188 +786,6 @@
       ],
       "url" : {
         "url_path" : "types"
-      }
-    },
-    {
-      "breadcrumbs" : [
-        [
-          {
-            "title" : {
-              "en" : "Types"
-            },
-            "url" : {
-              "url_path" : "types"
-            }
-          },
-          {
-            "title" : {
-              "en" : "SpmObjCModule.NormalClass"
-            }
-          }
-        ],
-        [
-          {
-            "title" : {
-              "en" : "Types"
-            },
-            "url" : {
-              "url_path" : "types"
-            }
-          },
-          {
-            "title" : {
-              "en" : "SpmObjCModule.NormalClass"
-            }
-          }
-        ]
-      ],
-      "def" : {
-        "abstract" : {
-          "en" : {
-            "html" : "<p>Un-renamed class to check normal things still work<\/p>"
-          }
-        },
-        "availability" : [],
-        "deprecated_everywhere" : false,
-        "discussion" : {
-          "en" : {
-            "html" : "<p>See <a href=\"..\/..\/spmobjcmodule\/types\/normalclass1.html?objc#objcnormalmethod\" class=\"j2-objc\"><code>-objcNormalMethod<\/code><\/a><a href=\"..\/..\/spmobjcmodule\/types\/normalclass1.html?swift#objcnormalmethod\" class=\"j2-swift j2-secondary\"><code>objcNormalMethod()<\/code><\/a>.<\/p>"
-          }
-        },
-        "obj_c_declaration" : {
-          "html" : "@interface NormalClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
-        },
-        "params" : [],
-        "swift_declaration" : {
-          "html" : "class NormalClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
-        }
-      },
-      "guide_topics" : {},
-      "is_guide" : false,
-      "mix_languages" : false,
-      "pagination" : {
-        "next" : {
-          "primary_language" : "swift",
-          "primary_title" : {
-            "en" : "ExposedSwiftClass"
-          },
-          "secondary_language" : "objc",
-          "secondary_title" : {
-            "en" : "ExposedSwiftClass"
-          },
-          "url" : {
-            "url_path" : "spmswiftmodule4\/types\/exposedswiftclass"
-          }
-        },
-        "prev" : {
-          "primary_language" : "swift",
-          "primary_title" : {
-            "en" : "Types"
-          },
-          "secondary_language" : "swift",
-          "secondary_title" : {
-            "en" : "Types"
-          },
-          "url" : {
-            "url_path" : "types"
-          }
-        }
-      },
-      "primary_language" : "objc",
-      "primary_title" : {
-        "en" : "NormalClass"
-      },
-      "secondary_title" : {
-        "en" : "NormalClass"
-      },
-      "tab_title_prefix" : true,
-      "topics" : [
-        {
-          "anchor_id" : "tpc-",
-          "items" : [
-            {
-              "anchor_id" : "objcnormalmethod",
-              "dash_type" : "Method",
-              "def" : {
-                "abstract" : {
-                  "en" : {
-                    "html" : "<p>See <a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?objc\" class=\"j2-objc\"><code>JMLKitchen<\/code><\/a><a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?swift\" class=\"j2-swift j2-secondary\"><code>Kitchen<\/code><\/a>.<\/p>"
-                  }
-                },
-                "availability" : [],
-                "deprecated_everywhere" : false,
-                "discussion" : {
-                  "en" : {
-                    "html" : "<p>See <a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?objc#jmlkitchenmethod\" class=\"j2-objc\"><code>-[JMLKitchen jmlKitchenMethod]<\/code><\/a><a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?swift#jmlkitchenmethod\" class=\"j2-swift j2-secondary\"><code>Kitchen.kitchenMethod()<\/code><\/a><\/p>"
-                  }
-                },
-                "obj_c_declaration" : {
-                  "html" : "- (void)objcNormalMethod"
-                },
-                "params" : [],
-                "swift_declaration" : {
-                  "html" : "func objcNormalMethod()"
-                }
-              },
-              "flat_title" : {
-                "en" : "- (void)objcNormalMethod"
-              },
-              "primary_language" : "objc",
-              "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">- (void)<\/span>objcNormalMethod<span class=\"j2-item-secondary\"><\/span>"
-              },
-              "secondary_language" : "swift",
-              "secondary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>objcNormalMethod<span class=\"j2-item-secondary\">()<\/span>"
-              }
-            },
-            {
-              "anchor_id" : "normal",
-              "dash_type" : "Method",
-              "def" : {
-                "abstract" : {
-                  "en" : {
-                    "html" : "<p>Normal class swift method<\/p>"
-                  }
-                },
-                "availability" : [],
-                "deprecated_everywhere" : false,
-                "discussion" : {
-                  "en" : {
-                    "html" : "<p>See <a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?swift\" class=\"j2-swift\"><code>Kitchen<\/code><\/a><a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?objc\" class=\"j2-objc j2-secondary\"><code>JMLKitchen<\/code><\/a><\/p>"
-                  }
-                },
-                "notes" : {
-                  "en" : {
-                    "html" : "<p>Provided by module <code>SpmSwiftModule4<\/code>.<\/p>"
-                  }
-                },
-                "params" : [],
-                "swift_declaration" : {
-                  "html" : "func normal()"
-                }
-              },
-              "flat_title" : {
-                "en" : "func normal()"
-              },
-              "primary_language" : "swift",
-              "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>normal<span class=\"j2-item-secondary\">()<\/span>"
-              }
-            }
-          ],
-          "menu_title" : {
-            "en" : ""
-          },
-          "title" : {
-            "en" : {
-              "html" : ""
-            }
-          }
-        }
-      ],
-      "url" : {
-        "url_path" : "spmobjcmodule\/types\/normalclass1"
       }
     },
     {
@@ -1037,16 +855,16 @@
           }
         },
         "prev" : {
-          "primary_language" : "objc",
+          "primary_language" : "swift",
           "primary_title" : {
-            "en" : "NormalClass"
+            "en" : "Types"
           },
           "secondary_language" : "swift",
           "secondary_title" : {
-            "en" : "NormalClass"
+            "en" : "Types"
           },
           "url" : {
-            "url_path" : "spmobjcmodule\/types\/normalclass1"
+            "url_path" : "types"
           }
         }
       },
@@ -1288,14 +1106,14 @@
         "next" : {
           "primary_language" : "objc",
           "primary_title" : {
-            "en" : "JMLKitchenCupboard"
+            "en" : "NormalClass"
           },
           "secondary_language" : "swift",
           "secondary_title" : {
-            "en" : "Cupboard"
+            "en" : "NormalClass"
           },
           "url" : {
-            "url_path" : "spmobjcmodule\/types\/jmlkitchencupboard"
+            "url_path" : "spmobjcmodule\/types\/normalclass1"
           }
         },
         "prev" : {
@@ -1445,6 +1263,188 @@
           },
           {
             "title" : {
+              "en" : "SpmObjCModule.NormalClass"
+            }
+          }
+        ],
+        [
+          {
+            "title" : {
+              "en" : "Types"
+            },
+            "url" : {
+              "url_path" : "types"
+            }
+          },
+          {
+            "title" : {
+              "en" : "SpmObjCModule.NormalClass"
+            }
+          }
+        ]
+      ],
+      "def" : {
+        "abstract" : {
+          "en" : {
+            "html" : "<p>Un-renamed class to check normal things still work<\/p>"
+          }
+        },
+        "availability" : [],
+        "deprecated_everywhere" : false,
+        "discussion" : {
+          "en" : {
+            "html" : "<p>See <a href=\"..\/..\/spmobjcmodule\/types\/normalclass1.html?objc#objcnormalmethod\" class=\"j2-objc\"><code>-objcNormalMethod<\/code><\/a><a href=\"..\/..\/spmobjcmodule\/types\/normalclass1.html?swift#objcnormalmethod\" class=\"j2-swift j2-secondary\"><code>objcNormalMethod()<\/code><\/a>.<\/p>"
+          }
+        },
+        "obj_c_declaration" : {
+          "html" : "@interface NormalClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+        },
+        "params" : [],
+        "swift_declaration" : {
+          "html" : "class NormalClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
+        }
+      },
+      "guide_topics" : {},
+      "is_guide" : false,
+      "mix_languages" : false,
+      "pagination" : {
+        "next" : {
+          "primary_language" : "objc",
+          "primary_title" : {
+            "en" : "JMLKitchenCupboard"
+          },
+          "secondary_language" : "swift",
+          "secondary_title" : {
+            "en" : "Cupboard"
+          },
+          "url" : {
+            "url_path" : "spmobjcmodule\/types\/jmlkitchencupboard"
+          }
+        },
+        "prev" : {
+          "primary_language" : "swift",
+          "primary_title" : {
+            "en" : "RenamedExposedSwiftClass"
+          },
+          "secondary_language" : "objc",
+          "secondary_title" : {
+            "en" : "RenamedForObjC"
+          },
+          "url" : {
+            "url_path" : "spmswiftmodule4\/types\/renamedexposedswiftclass"
+          }
+        }
+      },
+      "primary_language" : "objc",
+      "primary_title" : {
+        "en" : "NormalClass"
+      },
+      "secondary_title" : {
+        "en" : "NormalClass"
+      },
+      "tab_title_prefix" : true,
+      "topics" : [
+        {
+          "anchor_id" : "tpc-",
+          "items" : [
+            {
+              "anchor_id" : "objcnormalmethod",
+              "dash_type" : "Method",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>See <a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?objc\" class=\"j2-objc\"><code>JMLKitchen<\/code><\/a><a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?swift\" class=\"j2-swift j2-secondary\"><code>Kitchen<\/code><\/a>.<\/p>"
+                  }
+                },
+                "availability" : [],
+                "deprecated_everywhere" : false,
+                "discussion" : {
+                  "en" : {
+                    "html" : "<p>See <a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?objc#jmlkitchenmethod\" class=\"j2-objc\"><code>-[JMLKitchen jmlKitchenMethod]<\/code><\/a><a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?swift#jmlkitchenmethod\" class=\"j2-swift j2-secondary\"><code>Kitchen.kitchenMethod()<\/code><\/a><\/p>"
+                  }
+                },
+                "obj_c_declaration" : {
+                  "html" : "- (void)objcNormalMethod"
+                },
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "func objcNormalMethod()"
+                }
+              },
+              "flat_title" : {
+                "en" : "- (void)objcNormalMethod"
+              },
+              "primary_language" : "objc",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">- (void)<\/span>objcNormalMethod<span class=\"j2-item-secondary\"><\/span>"
+              },
+              "secondary_language" : "swift",
+              "secondary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>objcNormalMethod<span class=\"j2-item-secondary\">()<\/span>"
+              }
+            },
+            {
+              "anchor_id" : "normal",
+              "dash_type" : "Method",
+              "def" : {
+                "abstract" : {
+                  "en" : {
+                    "html" : "<p>Normal class swift method<\/p>"
+                  }
+                },
+                "availability" : [],
+                "deprecated_everywhere" : false,
+                "discussion" : {
+                  "en" : {
+                    "html" : "<p>See <a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?swift\" class=\"j2-swift\"><code>Kitchen<\/code><\/a><a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?objc\" class=\"j2-objc j2-secondary\"><code>JMLKitchen<\/code><\/a><\/p>"
+                  }
+                },
+                "notes" : {
+                  "en" : {
+                    "html" : "<p>Provided by module <code>SpmSwiftModule4<\/code>.<\/p>"
+                  }
+                },
+                "params" : [],
+                "swift_declaration" : {
+                  "html" : "func normal()"
+                }
+              },
+              "flat_title" : {
+                "en" : "func normal()"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "html" : "<span class=\"j2-item-secondary\">func <\/span>normal<span class=\"j2-item-secondary\">()<\/span>"
+              }
+            }
+          ],
+          "menu_title" : {
+            "en" : ""
+          },
+          "title" : {
+            "en" : {
+              "html" : ""
+            }
+          }
+        }
+      ],
+      "url" : {
+        "url_path" : "spmobjcmodule\/types\/normalclass1"
+      }
+    },
+    {
+      "breadcrumbs" : [
+        [
+          {
+            "title" : {
+              "en" : "Types"
+            },
+            "url" : {
+              "url_path" : "types"
+            }
+          },
+          {
+            "title" : {
               "en" : "SpmObjCModule.JMLKitchenCupboard"
             }
           }
@@ -1486,16 +1486,16 @@
       "mix_languages" : false,
       "pagination" : {
         "prev" : {
-          "primary_language" : "swift",
+          "primary_language" : "objc",
           "primary_title" : {
-            "en" : "RenamedExposedSwiftClass"
+            "en" : "NormalClass"
           },
-          "secondary_language" : "objc",
+          "secondary_language" : "swift",
           "secondary_title" : {
-            "en" : "RenamedForObjC"
+            "en" : "NormalClass"
           },
           "url" : {
-            "url_path" : "spmswiftmodule4\/types\/renamedexposedswiftclass"
+            "url_path" : "spmobjcmodule\/types\/normalclass1"
           }
         }
       },
