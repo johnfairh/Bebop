@@ -50,11 +50,11 @@ body {
 // Language-switching
 //
 
-.j2-swift .j2-objc {
+.j2-swift .j2-objc:not(.j2-always) {
   display: none;
 }
 
-.j2-objc .j2-swift {
+.j2-objc .j2-swift:not(.j2-always) {
   display: none;
 }
 

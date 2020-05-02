@@ -130,6 +130,7 @@ public final class GenData: Encodable {
         public let secondaryTitle: Localized<String>?
         public let tabTitlePrefix: Bool
         public let isGuide: Bool
+        public let mixLanguages: Bool
         public let content: Localized<Html>?
         // goes with meta.languages
         public let breadcrumbs: [[Breadcrumb]]
@@ -157,6 +158,7 @@ public final class GenData: Encodable {
             self.secondaryTitle = secondaryTitle
             self.tabTitlePrefix = true
             self.isGuide = false
+            self.mixLanguages = false
             self.content = nil
             self.breadcrumbs = breadcrumbs
             self.def = definition
@@ -172,6 +174,7 @@ public final class GenData: Encodable {
              primaryLanguage: DefLanguage,
              secondaryTitle: Localized<String>?,
              breadcrumbs: [[Breadcrumb]],
+             mixLanguages: Bool,
              content: Localized<Html>?,
              topics: [Topic],
              pagination: Pagination,
@@ -183,6 +186,7 @@ public final class GenData: Encodable {
             self.secondaryTitle = secondaryTitle
             self.tabTitlePrefix = true
             self.isGuide = false
+            self.mixLanguages = mixLanguages
             self.content = content
             self.breadcrumbs = breadcrumbs
             self.def = nil
@@ -208,6 +212,7 @@ public final class GenData: Encodable {
             self.secondaryTitle = nil
             self.tabTitlePrefix = !isReadme
             self.isGuide = true
+            self.mixLanguages = false
             self.content = content
             self.breadcrumbs = breadcrumbs
             self.def = nil

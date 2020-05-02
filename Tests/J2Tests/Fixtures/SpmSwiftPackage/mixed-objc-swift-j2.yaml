@@ -5,3 +5,14 @@ custom_modules:
   - module: SpmSwiftModule4
   - module: SpmObjCModule
     objc_header_file: Sources/SpmObjCModule/include/SpmObjCModule.h
+
+custom_groups:
+  - name: Mixed
+    topics:
+      - name: Classes
+        children:
+          - JMLBathroomCupboard
+          - JMLKitchen
+      - name: Extensions
+        children:
+         - String

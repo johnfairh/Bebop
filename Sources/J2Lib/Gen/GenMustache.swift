@@ -103,6 +103,7 @@ public enum MustacheKey: String {
     case contentHtml = "content_html"
     case apology = "apology"
     case noApologyLanguage = "no_apology_language"
+    case always = "always"
     // Brand
     case brandImagePath = "brand_image_path"
     case brandAltText = "brand_alt_text"
@@ -220,6 +221,9 @@ extension GenData {
         data[.tabTitlePrefix] = pg.tabTitlePrefix
         data[.pathToRoot] = pg.url.pathToRoot
         data[.hideArticleTitle] = pg.isGuide
+        if pg.mixLanguages {
+            data[.always] = "j2-always"
+        }
         data.maybe(.contentHtml, pg.content?.get(languageTag).html)
         data.maybe(.def, pg.def?.generateDef(languageTag: languageTag, fileExt: fileExt))
 

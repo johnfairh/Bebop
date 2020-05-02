@@ -175,6 +175,7 @@ final class PageVisitor: ItemVisitorProtocol {
                                   primaryLanguage: defaultLanguage,
                                   secondaryTitle: primaryTitle == secondaryTitle ? nil : secondaryTitle,
                                   breadcrumbs: buildBreadcrumbs(item: groupItem, parents: parents),
+                                  mixLanguages: groupItem.groupKind.mixLanguages,
                                   content: groupItem.customAbstract?.html.autolinked(groupItem.url),
                                   topics: buildTopics(item: groupItem),
                                   pagination: buildPagination(item: groupItem),
