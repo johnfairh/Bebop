@@ -1,11 +1,11 @@
 {{#swift_declaration_html}}
-  <div class="j2-swift{{^objc_declaration_html}} {{{always}}}{{/objc_declaration_html}}">
+  <div class="j2-swift{{^objc_declaration_html}}{{#mixed}} j2-always{{/mixed}}{{/objc_declaration_html}}">
     <div class="j2-callout-title" role="heading" aria-level="6">Swift</div>
     <pre><code class="language-swift">{{{.}}}</code></pre>
   </div>
 {{/swift_declaration_html}}
 {{#objc_declaration_html}}
-  <div class="j2-objc{{^swift_declaration_html}} {{{always}}}{{/swift_declaration_html}}">
+  <div class="j2-objc{{^swift_declaration_html}}{{#mixed}} j2-always{{/mixed}}{{/swift_declaration_html}}">
     <div class="j2-callout-title" role="heading" aria-level="6">Objective-C</div>
     <pre><code class="language-objectivec">{{{.}}}</code></pre>
   </div>
