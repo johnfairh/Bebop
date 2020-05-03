@@ -122,12 +122,11 @@ public final class Config {
 
             infoLog = .localized(.msgConfigFile, configFileURL.path)
 
-            let configFile = try String(contentsOf: configFileURL)
             let configFileDirURL = configFileURL.deletingLastPathComponent()
             optsParser.relativePathBase = configFileDirURL
             publishStore.setConfigRelativePathBaseURL(configFileDirURL)
 
-            try optsParser.apply(yaml: configFile)
+            try optsParser.apply(yamlFileURL: configFileURL)
         }
 
         configureLogger(report: true)

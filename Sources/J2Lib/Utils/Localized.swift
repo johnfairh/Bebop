@@ -66,6 +66,7 @@ extension String : NulInitializable, Appendable {}
 extension Markdown: NulInitializable, Appendable { public init() { md = "" } }
 extension Html: NulInitializable, Appendable { public init() { html = "" } }
 extension Array: NulInitializable {}
+extension Dictionary: NulInitializable {}
 
 extension Dictionary where Key == String, Value == String {
     /// Helper to grab a piece of localized output text and do substitutions %1 .... %n

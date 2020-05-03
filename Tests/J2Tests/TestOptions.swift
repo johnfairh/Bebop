@@ -65,7 +65,7 @@ fileprivate final class System {
     }
 
     func apply(_ yaml: String) throws {
-        try optsParser.apply(yaml: yaml)
+        try optsParser.apply(yaml: yaml, from: "")
     }
 
     func applyOptionsError(_ cliOpts: [String], _ key: L10n.Localizable) throws {
@@ -95,7 +95,7 @@ final class SimpleSystem {
             try optsParser.apply(cliOpts: cliOpts)
         }
         if let yaml = yaml {
-            try optsParser.apply(yaml: yaml)
+            try optsParser.apply(yaml: yaml, from: "")
         }
     }
 }

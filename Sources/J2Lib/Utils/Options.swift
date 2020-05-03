@@ -799,13 +799,12 @@ final class OptsParser {
     /// have already been set from the CLI.
     ///
     /// - throws: if the yaml doesn't look exactly as expected or some item validation fails.
-    func apply(yaml: String) throws {
-        guard let yamlNode = try Yams.compose(yaml: yaml) else {
-            throw J2Error(.errCfgNotYaml)
-        }
+    func apply(yaml: String, from filename: String) throws {
+        try apply(mapping: Node.Mapping.compose(from: yaml, originatingFrom: filename))
+    }
 
-        let rootMapping = try yamlNode.checkMapping(context: "(root)")
-        return try apply(mapping: rootMapping)
+    func apply(yamlFileURL: URL) throws {
+        try apply(mapping: Node.Mapping.compose(from: yamlFileURL))
     }
 
     /// Version of `apply(yaml:)` for an existing Yams `Node.Mapping`.
@@ -862,8 +861,25 @@ final class OptsParser {
     }
 }
 
-// MARK: Yaml checking helpers
+// MARK: Yaml helpers
 
+// Loading
+extension Yams.Node.Mapping {
+    static func compose(from url: URL) throws -> Node.Mapping {
+        let yaml = try String(contentsOf: url)
+        return try compose(from: yaml, originatingFrom: url.lastPathComponent)
+    }
+
+    static func compose(from yaml: String, originatingFrom filename: String) throws -> Node.Mapping {
+        guard let yamlNode = try Yams.compose(yaml: yaml) else {
+            throw J2Error(.errCfgNotYaml, filename)
+        }
+
+        return try yamlNode.checkMapping(context: "(root)")
+    }
+}
+
+// Checking
 extension Yams.Node {
     func asDebugString() throws -> String {
         let str = try serialize(node: self).replacingOccurrences(of: "\n", with: #"\n"#)

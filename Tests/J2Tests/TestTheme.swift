@@ -72,8 +72,18 @@ class TestTheme: XCTestCase {
         XCTAssertEqual(".md", theme.fileExtension)
         XCTAssertEqual(["top.scss"], theme.scssFilenames)
         let data = ["name" : "Fred", "type" : "Barney"]
-        let rendered = try theme.renderTemplate(data: data)
-        XCTAssertEqual("Fred\nBarney\n\n", rendered.html)
+        let rendered = try theme.renderTemplate(data: data, languageTag: "en")
+        XCTAssertEqual("Fred\nBarney\nEN\n\n", rendered.html)
+    }
+
+    // Theme localization - key clash
+    func testThemeBadLocalization() throws {
+        let themeURL = fixturesURL.appendingPathComponent("Theme")
+        Localizations.shared = .init(main: .default, others: [Localization(descriptor: "fr:FR:frfrfr")])
+        let theme = try Theme(url: themeURL)
+        XCTAssertEqual(2, theme.localizedStrings.count)
+        let data = ["name" : "Fred"]
+        AssertThrows(try theme.renderTemplate(data: data, languageTag: "fr"), .errThemeKeyClash)
     }
 
     func testThemeYamlSass() throws {

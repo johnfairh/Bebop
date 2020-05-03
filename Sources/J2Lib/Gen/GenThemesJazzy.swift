@@ -218,8 +218,8 @@ final class JazzyTheme: Theme {
         defaultLanguage = language
     }
 
-    override func renderTemplate(data: MustacheDict) throws -> Html {
-        try super.renderTemplate(data: convertPageData(from: data))
+    override func renderTemplate(data: MustacheDict, languageTag: String) throws -> Html {
+        try super.renderTemplate(data: convertPageData(from: data), languageTag: languageTag)
     }
 
     override var extensions: [GenThemes.Extension] {

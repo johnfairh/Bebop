@@ -8,6 +8,7 @@
 
 import Foundation
 import Mustache
+import Yams
 
 /// Hate to use the term but this is the theme manager.  It figures out what builtin themes exist
 /// and figures out what the user means when they use `--theme`.
@@ -105,11 +106,12 @@ class Theme {
         let mustacheRootOpt = StringOpt(y: "mustache_root").def("doc.mustache")
         let fileExtensionOpt = StringOpt(y: "file_extension").def(".html")
         let scssFilenamesOpt = StringListOpt(y: "scss_filenames")
+        let localizedStringsOpt = StringOpt(y: "localized_strings")
 
         func parse(themeYaml: String) throws {
             let optsParser = OptsParser()
             optsParser.addOpts(from: self)
-            try optsParser.apply(yaml: themeYaml)
+            try optsParser.apply(yaml: themeYaml, from: Theme.YAML_FILENAME)
         }
     }
 
@@ -125,6 +127,9 @@ class Theme {
 
     /// List of scss files in assets/css
     let scssFilenames: [String]
+
+    /// Localized strings for templates
+    let localizedStrings: Localized<MustacheDict>
 
     init(url: URL) throws {
         self.url = url
@@ -149,6 +154,19 @@ class Theme {
 
         template = try Template(URL: mustacheRootURL)
 
+        if let stringsFilename = themeParser.localizedStringsOpt.value {
+            logDebug("Theme: loading localized strings from \(stringsFilename)")
+            let localizedURL = Localized<URL>(localizingFile: url.appendingPathComponent(stringsFilename))
+            localizedStrings = try localizedURL.mapValues { yamlURL in
+                let mapping = try Yams.Node.Mapping.compose(from: yamlURL)
+                return Dictionary(uniqueKeysWithValues: try mapping.map { elem in
+                    try (elem.0.checkScalarKey().string, elem.1.checkScalar(context: "key").string)
+                })
+            }
+        } else {
+            localizedStrings = [:]
+        }
+
         logDebug("Theme: \(fileExtension) \(mustacheRootURL.path)")
     }
 
@@ -157,10 +175,13 @@ class Theme {
     }
 
     func setDefaultLanguage(_ language: DefLanguage) {
+        // overridden in jazzy theme generator
     }
 
-    func renderTemplate(data: MustacheDict) throws -> Html {
-        try Html(template.render(data))
+    func renderTemplate(data: MustacheDict, languageTag: String) throws -> Html {
+        try Html(template.render(data.merging(localizedStrings.get(languageTag), uniquingKeysWith: {
+            throw J2Error(.errThemeKeyClash, $0, $1)
+        })))
     }
 
     /// Extensions required by the theme.  Could get from yaml if ever figure out what this means.

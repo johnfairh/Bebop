@@ -13,7 +13,7 @@
 "err-cli-repeated" = "Unexpected repeated option '%1'.";
 "err-cli-missing-arg" = "Missing argument for option '%1'.";
 
-"err-cfg-not-yaml" = "Could not interpret config file as YAML.";
+"err-cfg-not-yaml" = "Could not interpret file contents as YAML: '%1'.";
 "err-cfg-bad-key" = "Unrecognized config key '%1'.";
 "wrn-cfg-ignored" = "Config key '%1' ignored, already set on command-line.";
 "err-cfg-bad-mapping" = "Unexpected config shape, found mapping for key '%1'.";
@@ -162,3 +162,4 @@ Ignoring the second.";
 "err-podspec-failed" = "Can't unpack podspec:
 %1";
 "msg-complete" = "Documentation complete in %1";
+"err-theme-key-clash" = "Theme localized key clash with content keys, values: '%1' '%2'.";

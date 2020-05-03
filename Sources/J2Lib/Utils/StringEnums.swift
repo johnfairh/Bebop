@@ -68,7 +68,7 @@ internal enum L10n {
     case errCfgNotScalar = "err-cfg-not-scalar"
     /// Unexpected YAML '%1' for key '%2', expected sequence.
     case errCfgNotSequence = "err-cfg-not-sequence"
-    /// Could not interpret config file as YAML.
+    /// Could not interpret file contents as YAML: '%1'.
     case errCfgNotYaml = "err-cfg-not-yaml"
     /// Both --podspec and some other build-source option are set: choose just one.
     case errCfgPodspecBuild = "err-cfg-podspec-build"
@@ -150,6 +150,8 @@ internal enum L10n {
     case errSktnXcodeDef = "err-sktn-xcode-def"
     /// SourceKitten couldn't find build info from `xcodebuild`.  Check the log above; it was looking for a `swiftc` command that included `-module-name %1`.
     case errSktnXcodeMod = "err-sktn-xcode-mod"
+    /// Theme localized key clash with content keys, values: '%1' '%2'.
+    case errThemeKeyClash = "err-theme-key-clash"
     /// Documentation complete in %1
     case msgComplete = "msg-complete"
     /// Using config file '%1'

@@ -323,7 +323,7 @@ class TestGen: XCTestCase {
     func testPagination() throws {
         let system = FullSystem()
         let data = try system.makePageData(cliOpts: ["--hide-pagination"])
-        system.gen.generatePages(genData: data, fileExt: ".html") { loc, dict in
+        system.gen.generatePages(genData: data, fileExt: ".html") { loc, dict, tag in
             XCTAssertNil(dict[MustacheKey.pagination.rawValue])
         }
     }

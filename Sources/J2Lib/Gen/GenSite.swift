@@ -126,9 +126,9 @@ public struct GenSite: Configurable {
         theme.setGlobalData(buildGlobalData(genData: genData))
         theme.setDefaultLanguage(genData.meta.defaultLanguage)
 
-        try generatePages(genData: genData, fileExt: theme.fileExtension) { location, data in
+        try generatePages(genData: genData, fileExt: theme.fileExtension) { location, data, languageTag in
             logDebug("Gen: Rendering template for \(data[.primaryPageTitle]!)")
-            let rendered = try theme.renderTemplate(data: data)
+            let rendered = try theme.renderTemplate(data: data, languageTag: languageTag)
             let url = outputURL.appendingPathComponent(location.filePath)
             logDebug("Gen: Creating \(url.path)")
             try rendered.html.write(to: url)
@@ -169,7 +169,7 @@ public struct GenSite: Configurable {
         var siteData = [MustacheDict]()
         let globals = buildGlobalData(genData: genData)
 
-        generatePages(genData: genData, fileExt: ".html" /* ?? */) { _, data in
+        generatePages(genData: genData, fileExt: ".html" /* ?? */) { _, data, _ in
             var data = data
             data.merge(globals, uniquingKeysWith: { a, b in a })
             siteData.append(data)
@@ -191,7 +191,7 @@ public struct GenSite: Configurable {
     /// Factored out page generation.  Internal for tests.
     func generatePages(genData: GenData,
                        fileExt: String,
-                       callback: (MustachePageLocation, MustacheDict) throws -> ()) rethrows {
+                       callback: (MustachePageLocation, MustacheDict, String) throws -> ()) rethrows {
         let docsTitle = buildDocsTitle()
         let breadcrumbsRoot = buildBreadcrumbsRoot()
 
@@ -224,7 +224,7 @@ public struct GenSite: Configurable {
                     Localizations.shared.localization(languageTag: page.languageTag).flag
             }
 
-            try callback(location, mustacheData)
+            try callback(location, mustacheData, page.languageTag)
         }
     }
 
