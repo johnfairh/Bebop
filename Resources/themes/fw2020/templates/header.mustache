@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand navbar-dark j2-titlebar">
-  <a class="sr-only-focusable sr-only font-weight-slightly-bold pr-2" href="#main-content">Skip to main content</a>
-  <a class="nav-item nav-link pl-0 pt-1 pr-2 d-md-none" id="nav-toggle-button" role="button" aria-controls="nav-column" aria-expanded="false" aria-label="Toggle navigation" href="#">
+  <a class="sr-only-focusable sr-only font-weight-slightly-bold pr-2" href="#main-content">{{l_screenreader_skip}}</a>
+  <a class="nav-item nav-link pl-0 pt-1 pr-2 d-md-none" id="nav-toggle-button" role="button" aria-controls="nav-column" aria-expanded="false" aria-label="{{l_nav_toggle_aria_label}}" href="#">
     <span class="navbar-toggler-icon"></span>
   </a>
 
@@ -14,7 +14,7 @@
       {{docs_title}}</a>
     </div>
     {{#doc_coverage}}
-    <span class="navbar-text j2-coverage font-weight-slightly-bold small d-none d-lg-inline-block mr-2">({{doc_coverage}}% documented)</span>
+    <span class="navbar-text j2-coverage font-weight-slightly-bold small d-none d-lg-inline-block mr-2">({{doc_coverage}}{{l_pc_documented}})</span>
     {{/doc_coverage}}
   </div>
 
@@ -22,7 +22,7 @@
 
     {{^disable_search}}
     <form class="form-inline d-none d-md-flex" role="search">
-      <input class="form-control form-control-sm w-100" type="search" placeHolder="Search" aria-label="Search" aria-keyshortcuts="/" data-search-format="span">
+      <input class="form-control form-control-sm w-100" type="search" placeHolder="{{l_search_placeholder}}" aria-label="{{l_search_aria_label}}" aria-keyshortcuts="/" data-search-format="span">
     </form>
     {{/disable_search}}
 
@@ -38,14 +38,14 @@
 
     {{#codehost_github}}
     <a class="nav-item nav-link d-none d-sm-inline" rel="external" href="{{{codehost_url}}}">
-      <svg class="j2-title-svg" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 16 16"><title>Open on GitHub</title><path fill="currentcolor" fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+      <svg class="j2-title-svg" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 16 16"><title>{{l_open_github}}</title><path fill="currentcolor" fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
       </svg>
     </a>
     {{/codehost_github}}
     {{#codehost_gitlab}}
     <a class="nav-item nav-link d-none d-sm-inline" rel="external" href="{{{codehost_url}}}">
       <svg class="j2-title-svg" width="22" height="22" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 338 311">
-        <title>Open on GitLab</title>
+        <title>{{l_open_gitlab}}</title>
         <defs>
           <style>.cls-1{fill:#fc6d26;}.cls-2{fill:#e24329;}.cls-3{fill:#fca326;}</style>
         </defs>
@@ -65,7 +65,7 @@
     {{#codehost_bitbucket}}
     <a class="nav-item nav-link d-none d-sm-inline" rel="external" href="{{{codehost_url}}}">
       <svg class="j2-title-svg" width="22" height="22" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg">
-        <title>Open on BitBucket</title>
+        <title>{{l_open_bitbucket}}</title>
         <defs>
           <linearGradient x1="104.953252%" y1="21.9210174%" x2="46.5685299%" y2="75.2344342%" id="linearGradient-1">
             <stop stop-color="#FFFFFF" stop-opacity="0.4" offset="7%"></stop>
@@ -88,7 +88,7 @@
     {{#docset_url}}
       <a class="nav-item nav-link d-none d-sm-inline" rel="alternate" href="{{{.}}}">
       <svg class="j2-title-svg" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 700 670">
-        <title>Open in Dash</title>
+        <title>{{l_open_dash}}</title>
         <path fill="currentcolor" d="m0 0 132.58 160.54h130.76v0.0312c63.501 0.196 140.87-6.9887 193.12 10.227 26.125 8.6076 43.475 19.899 57.578 40.781 14.103 20.882 26.733 55.737 25.781 118.52-0.8784 57.953-16.7 88.91-38.672 112.89-21.972 23.98-54.208 41.154-90.703 51.953-28.462 8.4219-55.314 10.153-80.547 11.953v-266.25h-160v419.92l71.328 7.8125s103.75 12.802 214.61-20c55.429-16.401 115.46-45.078 163.28-97.266 47.816-52.187 79.327-127.83 80.703-218.59 1.3028-85.935-16.743-156.6-53.125-210.47-36.382-53.871-89.369-86.47-140.16-103.2-50.787-16.733-101.87-18.272-145.08-18.504-43.211-0.2316-78.502 0.0768-97.578 0.0176v2e-3h-131.31z"/>
       </svg>
     </a>
@@ -115,7 +115,7 @@
   <div class="row">
     <div class="col">
       <form class="pb-2">
-        <input class="form-control form-control-sm" type="search" placeHolder="Search" aria-label="Search" aria-keyshortcuts="/" data-search-format="div">
+        <input class="form-control form-control-sm" type="search" placeHolder="Search" aria-label="{{l_search_aria_label}}" aria-keyshortcuts="/" data-search-format="div">
       </form>
     </div>
   </div>

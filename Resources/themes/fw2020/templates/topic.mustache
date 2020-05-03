@@ -49,21 +49,21 @@
               {{< availability}} {{$classes}}mb-n1{{/classes}} {{/availability}}
               {{> def_discussion}}
             </div>
-            <h5>Declaration</h5>
+            <h5>{{l_declaration}}</h5>
             <div class="j2-item-declaration">
               {{> declaration}}
             </div>
             {{> params_returns}}
           {{/def}}
 
-          <nav class="j2-item-nav" aria-label="item details">
+          <nav class="j2-item-nav" aria-label="{{l_item_details_aria_label}}">
             {{#primary_url}}
             <span class="j2-item-nav-item">
             {{#primary_url}}
-              <span class="{{{primary_language}}}{{^secondary_language}}{{#mixed}} j2-always{{/mixed}}{{/secondary_language}}"><a href="{{{path_to_root}}}{{{.}}}">Show members</a></span>
+              <span class="{{{primary_language}}}{{^secondary_language}}{{#mixed}} j2-always{{/mixed}}{{/secondary_language}}"><a href="{{{path_to_root}}}{{{.}}}">{{l_show_members}}</a></span>
             {{/primary_url}}
             {{#secondary_url}}
-              <span class="{{{secondary_language}}} j2-secondary"><a href="{{{path_to_root}}}{{{.}}}">Show members</a></span>
+              <span class="{{{secondary_language}}} j2-secondary"><a href="{{{path_to_root}}}{{{.}}}">{{l_show_members}}</a></span>
             {{/secondary_url}}
             </span>
             {{/primary_url}}

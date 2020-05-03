@@ -1,2 +1,3 @@
 mustache_root: doc.mustache
 file_extension: ".html"
+localized_strings: "strings.yaml"

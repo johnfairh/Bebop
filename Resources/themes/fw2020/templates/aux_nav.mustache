@@ -2,8 +2,8 @@
   <div class="j2-aux-nav-wrapper">
     {{#topics_menus}}
     <div class="{{{language}}}">
-    <h6 class="j2-inline-heading">Topics</h6>
-    <nav aria-label="page">
+    <h6 class="j2-inline-heading">{{l_topics}}</h6>
+    <nav aria-label="{{l_topics_menu_aria_label}}">
       <ul class="j2-aux-group">
         {{#topics_menu}}
         <li><a href="#{{anchor_id}}">{{title}}</a></li>
@@ -13,23 +13,23 @@
     </div>
     {{/topics_menus}}
     {{^hide_actions}}
-    <h6 class="j2-inline-heading">Actions</h6>
+    <h6 class="j2-inline-heading">{{l_actions}}</h6>
     <ul class="j2-aux-group">
       {{^disable_search}}
-      <li><a class="j2-aux-action" id="action-search" href="#" role="button" aria-keyshortcuts="/">Search (/)</a></li>
+      <li><a class="j2-aux-action" id="action-search" href="#" role="button" aria-keyshortcuts="/">{{l_action_search}}</a></li>
       {{/disable_search}}
       {{^hide_article_title}}
       {{^item_collapse_never}}
       <li><a class="j2-aux-action" id="action-collapse" href="#" role="button" aria-keyshortcuts="a">
-        <span id="action-collapse-expand">Open all (a)</span>
-        <span id="action-collapse-collapse" class="d-none">Close all (a)</span>
+          <span id="action-collapse-expand">{{l_action_open}}</span>
+          <span id="action-collapse-collapse" class="d-none">{{l_action_close}}</span>
       </a></li>
       {{/item_collapse_never}}
       {{/hide_article_title}}
       {{#dual_language}}
       <li><a class="j2-aux-action" id="action-language" href="#" role="button" aria-keyshortcuts="l">
-        <span class="j2-swift">Objective-C (l)</span>
-        <span class="j2-objc">Swift (l)</span>
+          <span class="j2-swift">{{l_action_objc}}</span>
+          <span class="j2-objc">{{l_action_swift}}</span>
       </a></li>
       {{/dual_language}}
     </ul>
