@@ -1,5 +1,4 @@
 // swift-tools-version:5.2
-// The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
@@ -9,7 +8,8 @@ let package = Package(
     .macOS("10.15")
   ],
   products: [
-    .executable(name: "j2", targets: ["J2Lib", "J2CLI"])
+    .executable(name: "j2", targets: ["J2CLI"]),
+    .library(name: "J2Lib", targets: ["J2Lib"])
   ],
   dependencies: [
     .package(url: "https://github.com/jpsim/Yams.git", from: "2.0.0"),
