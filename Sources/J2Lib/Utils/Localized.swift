@@ -166,24 +166,35 @@ extension Localized where Key == String, Value == Markdown {
 
 extension Localized where Key == String, Value == URL {
     /// Initialize a full localized hash of URLs for a file, using a localization-specific version
-    /// if available.
+    /// if available, assuming the original URL is for the system main localization.
     init(localizingFile url: URL) {
+        self.init(localizingFile: url, languageTag: Localizations.shared.main.tag)
+    }
+
+    /// Initialize a full localized hash of URLs for a file, using a localization-specific version
+    /// if available, using the original URL for the given language tag.
+    init(localizingFile url: URL, languageTag: String) {
         self.init()
         let locs = Localizations.shared
-        self[locs.main.tag] = url
 
         let filename = url.lastPathComponent
         let directory = url.deletingLastPathComponent()
 
-        locs.others.forEach { otherLoc in
-            let otherURL = directory
-                .appendingPathComponent(otherLoc.tag)
+        locs.all.forEach { loc in
+            guard loc.tag != languageTag else {
+                self[loc.tag] = url
+                return
+            }
+
+            let locURL = directory
+                .appendingPathComponent(loc.tag)
                 .appendingPathComponent(filename)
-            if FileManager.default.fileExists(atPath: otherURL.path) {
-                self[otherLoc.tag] = otherURL
+            if FileManager.default.fileExists(atPath: locURL.path) {
+                self[loc.tag] = locURL
             } else {
-                logDebug("Missing localization '\(otherLoc.tag)' for \(url.path).")
-                self[otherLoc.tag] = url
+                // hmm should this fall back to system.main first?
+                logDebug("Missing localization '\(loc.tag)' for \(url.path), using default \(languageTag).")
+                self[loc.tag] = url
             }
         }
     }

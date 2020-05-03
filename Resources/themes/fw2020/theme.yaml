@@ -1,3 +1,4 @@
-mustache_root: doc.mustache
+mustache_root: "doc.mustache"
 file_extension: ".html"
 localized_strings: "strings.yaml"
+default_language_tag: "en"

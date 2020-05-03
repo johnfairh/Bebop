@@ -3,3 +3,4 @@ file_extension: .md
 scss_filenames:
   top.scss
 localized_strings: strings.yaml
+default_language_tag: en

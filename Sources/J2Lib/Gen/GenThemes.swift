@@ -107,6 +107,11 @@ class Theme {
         let fileExtensionOpt = StringOpt(y: "file_extension").def(".html")
         let scssFilenamesOpt = StringListOpt(y: "scss_filenames")
         let localizedStringsOpt = StringOpt(y: "localized_strings")
+        let defaultLanguageTagOpt = StringOpt(y: "default_language_tag")
+
+        var defaultLanguageTag: String {
+            defaultLanguageTagOpt.value ?? Localizations.shared.main.tag
+        }
 
         func parse(themeYaml: String) throws {
             let optsParser = OptsParser()
@@ -156,7 +161,8 @@ class Theme {
 
         if let stringsFilename = themeParser.localizedStringsOpt.value {
             logDebug("Theme: loading localized strings from \(stringsFilename)")
-            let localizedURL = Localized<URL>(localizingFile: url.appendingPathComponent(stringsFilename))
+            let localizedURL = Localized<URL>(localizingFile: templatesURL.appendingPathComponent(stringsFilename),
+                                              languageTag: themeParser.defaultLanguageTag)
             localizedStrings = try localizedURL.mapValues { yamlURL in
                 let mapping = try Yams.Node.Mapping.compose(from: yamlURL)
                 return Dictionary(uniqueKeysWithValues: try mapping.map { elem in

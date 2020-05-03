@@ -98,8 +98,7 @@ j2: dist
 	mkdir -p dist/j2/templates
 	mkdir -p dist/j2/assets/js
 	mkdir -p dist/j2/assets/css
-	cp -f templates/j2/*mustache dist/j2/templates/
-	cp -f templates/j2/strings.yaml dist/j2/
+	cp -f templates/j2/* dist/j2/templates/
 	cp -f dist/dependencies.min.js dist/fw2020.js dist/j2/assets/js/
 	cp -f dist/fw2020.css dist/j2/assets/css/
 
