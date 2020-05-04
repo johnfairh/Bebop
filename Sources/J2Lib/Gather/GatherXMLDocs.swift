@@ -9,19 +9,17 @@
 import Foundation
 #if canImport(FoundationXML)
 import FoundationXML
-#endif // just...
+#endif // rude comment
 import Maaku
 
 /// Wackiness to turn an XML doc comment into markdown for uniform processing by the rest
 /// of the program.
 ///
-/// Heavily derived from `TMLXMLToMarkdown` by 2017 me -- this is much easier because we
-/// can target the CM AST instead of literal redcarpet-compatible markdown text.
+/// Heavily derived from `TMLXMLToMarkdown` by 2017 me -- this version is much easier because
+/// we can target the CM AST instead of literal redcarpet-compatible markdown text.
 ///
 /// Apple's XML format here is pretty silly, pushing way too much stuff through raw HTML.  We don't
-/// go too far making this work neatly in markdown - in particular this implementation doesn't bother
-/// transforming <img> elements.  Can revisit if Xcode ever fixes quick help to render images -- see
-/// TMLXTM.
+/// go too far making this work neatly in markdown.
 ///
 
 // MARK: XMLDocBuilder
@@ -100,7 +98,7 @@ final class XMLDocBuilder: NSObject, XMLParserDelegate {
     /// Get a load of these names.... words fail.
     private enum Element: String {
         case para              = "Para"
-        case strong            = "strong"
+        case bold              = "bold"
         case emphasis          = "emphasis"
         case codeVoice         = "codeVoice"
         case codeListing       = "CodeListing"
@@ -112,19 +110,56 @@ final class XMLDocBuilder: NSObject, XMLParserDelegate {
         case item              = "Item"
     }
 
-    /// Leftover from redcarpet model but good enough: we push on the way down and pop+execute
-    /// on the way back - client stuff hooks if necessary to emit docs
+    /// We push on the way down and pop+execute on the way back up
     private typealias ElementDoneFn = () -> Void
     private var elementDoneStack = [ElementDoneFn?]()
-
-// ? don't need
-//
-//    /// Stop parsing elements immediately
-//    public func abort() {
-//        xmlParser?.abortParsing()
-//    }
+    private func doOnElementDone(call: @escaping ElementDoneFn) {
+        elementDoneStack.append(call)
+    }
+    private func nopOnElementDone() {
+        elementDoneStack.append(nil)
+    }
+    private func elementDone() {
+        elementDoneStack.removeLast()?()
+    }
 
     private var currentParent: CMNode?
+
+    private func newParentUntilElementDone(_ newParent: CMNode, and: ElementDoneFn? = nil) {
+        let oldCurrentParent = self.currentParent
+        self.currentParent = newParent
+        doOnElementDone {
+            self.currentParent = oldCurrentParent
+            and?()
+        }
+    }
+
+    /// State for accumulating code block content.
+    /// This is a bit ugly because of the way the XML models it.
+    private var codeBlockContent = ""
+    private var codeBlockCurrentLine = ""
+
+    /// State for handling raw HTML nodes
+    private enum RawHTMLState {
+        case idle, inside, startElement(CMNode), endElement
+
+        var isIdle: Bool {
+            if case .idle = self { return true } else { return false }
+        }
+
+        var isStartElement: CMNode? {
+            guard case let .startElement(node) = self else {
+                return nil
+            }
+            return node
+        }
+
+        var isEndElement: Bool {
+            if case .endElement = self { return true } else { return false }
+        }
+    }
+
+    private var rawHTMLState = RawHTMLState.idle
 
     /// Spot interesting elements, do something + schedule more work for when the element ends.
     public func parser(_ parser: XMLParser,
@@ -132,6 +167,9 @@ final class XMLDocBuilder: NSObject, XMLParserDelegate {
                        namespaceURI: String?,
                        qualifiedName qName: String?,
                        attributes attributeDict: [String : String]) {
+
+        let depth = elementDoneStack.count
+        defer { precondition(elementDoneStack.count == depth + 1, "Forgot to push done-stack")}
 
         // 1 - look for structural elements and call out to the client
 
@@ -143,7 +181,7 @@ final class XMLDocBuilder: NSObject, XMLParserDelegate {
                 precondition(currentDocument != nil)
                 currentParent = currentDocument
             }
-            elementDoneStack.append {
+            doOnElementDone {
                 if clientInterested {
                     precondition(self.currentParent != nil)
                     self.currentParent = nil
@@ -157,100 +195,102 @@ final class XMLDocBuilder: NSObject, XMLParserDelegate {
         //     of the document into markdown
 
         guard let currentParent = currentParent else {
-            elementDoneStack.append(nil)
+            nopOnElementDone()
             return
         }
 
         // 3 - build up the markdown tree
 
-        var elementDone: ElementDoneFn? = nil
-
-        func pushCurrentParent(newParent: CMNode) {
-            self.currentParent = newParent
-            elementDone = { self.currentParent = currentParent }
-        }
-
         switch element {
-//        case .emphasis:
-//            output += "*"
-//            elementDone = { self.output += "*" }
-//        case .strong:
-//            output += "**"
-//            elementDone = { self.output += "**" }
-//        case .codeVoice:
-//            output += "`"
-//            elementDone = { self.output += "`" }
-//
-//        case .link:
-//            output += "["
-//            elementDone = {
-//                let href = attributeDict["href"] ?? ""
-//                self.output += "](\(href))" // apple markdown doesn't support a 'title' here...
-//            }
+        case .emphasis:
+            let emphNode = CMNode(type: .emphasis)
+            try! emphNode.insertIntoTree(asLastChildOf: currentParent)
+            newParentUntilElementDone(emphNode)
+
+        case .bold:
+            let strNode = CMNode(type: .strong)
+            try! strNode.insertIntoTree(asLastChildOf: currentParent)
+            newParentUntilElementDone(strNode)
+
+        case .codeVoice:
+            let codeNode = CMNode(type: .code)
+            try! codeNode.insertIntoTree(asLastChildOf: currentParent)
+            newParentUntilElementDone(codeNode)
+
+        case .link:
+            let linkNode = CMNode(type: .link)
+            try! linkNode.setLinkDestination(attributeDict["href"] ?? "")
+            try! linkNode.insertIntoTree(asLastChildOf: currentParent)
+            newParentUntilElementDone(linkNode)
 
         case .para:
             let paraNode = CMNode(type: .paragraph)
             try! paraNode.insertIntoTree(asLastChildOf: currentParent)
-            pushCurrentParent(newParent: paraNode)
+            newParentUntilElementDone(paraNode)
 
-//        case .codeListing:
-//            output += whitespace.newlineAndPrefix() + "```" + (attributeDict["language"] ?? "") + "\n"
-//            inside.insert(.codeListing)
-//            elementDone = {
-//                self.output += self.whitespace.prefix() + "```\n"
-//                self.inside.remove(.codeListing)
-//            }
-//        case .zCodeLineNumbered:
-//            break
-//
-//        case .rawHTML:
-//            // Can be block or inline :(  If block then have to do indent + paragraphing.
-//            if !inside.contains(.para) {
-//                output += whitespace.newlineAndPrefix()
-//                elementDone = {
-//                    if !self.inside.contains(.htmlHeading) {
-//                        self.output += "\n"
-//                    }
-//                    self.inside.remove(.htmlHeading)
-//                }
-//            }
-//
-//        case .listBullet, .listNumber:
-//            // note new bullet type, restore current type after element
-//            let currentList = inside.intersection(.allLists)
-//            inside.remove(.allLists)
-//            inside.insert(element == .listBullet ? .listBullet : .listNumber)
-//
-//            // redcarpet 'hmm', must have blank line iff not currently inside a list
-//            if currentList == .nothing {
-//                output += whitespace.newline()
-//            }
-//            whitespace.indent()
-//            elementDone = {
-//                self.inside.remove(.allLists)
-//                self.inside.insert(currentList)
-//                self.whitespace.outdent()
-//            }
-//
-//        case .item:
-//            output += whitespace.listItemPrefix()
-//            if inside.contains(.listBullet) {
-//                output += "- "
-//            } else {
-//                output += "1. " // thankfully we can cheat here :)
-//            }
-//            // no indent for whatever is next, follows bullet directly
-//            whitespace.skipNext()
-        default:
+        case .codeListing:
+            let codeNode = CMNode(type: .codeBlock)
+            if let language = attributeDict["language"] {
+                try! codeNode.setFencedCodeInfo(language)
+            }
+            try! codeNode.insertIntoTree(asLastChildOf: currentParent)
+            precondition(codeBlockContent.isEmpty)
+            // All the content of the block goes into this node's literal,
+            // but in XML there is an overengineered hierarchy going on that
+            // we collect using parser-global state.
+            newParentUntilElementDone(codeNode) {
+                try! codeNode.setLiteral(self.codeBlockContent)
+                self.codeBlockContent = ""
+            }
+
+        case .zCodeLineNumbered:
+            // The line content is optional and comes in thru CDATA...
+            precondition(codeBlockCurrentLine.isEmpty)
+            doOnElementDone {
+                self.codeBlockContent += self.codeBlockCurrentLine + "\n"
+                self.codeBlockCurrentLine = ""
+            }
             break
-        }
 
-        elementDoneStack.append(elementDone)
+        case .rawHTML:
+            // These elements may be genuinely raw html or, more likely, wrapping
+            // normal things that mysteriously aren't expressed in XML.  So we hold
+            // off creating a node until we get the CDATA for the actual HTML.
+            //
+            // Worse, headings are expressed as pairs of <hX> and </hX> elements.
+            // This messes up the tree mapping so we have to fix this up.
+            precondition(rawHTMLState.isIdle)
+            rawHTMLState = .inside
+            doOnElementDone {
+                precondition(!self.rawHTMLState.isIdle)
+                if let newParentNode = self.rawHTMLState.isStartElement {
+                    self.newParentUntilElementDone(newParentNode)
+                } else if self.rawHTMLState.isEndElement {
+                    self.elementDone()
+                }
+                self.rawHTMLState = .idle
+            }
+
+        case .listBullet, .listNumber:
+            let listNode = CMNode(type: .list)
+            if element == .listNumber {
+                try! listNode.setListType(.ordered)
+                try! listNode.setListStartingNumber(1)
+            }
+            try! listNode.setListTight(true)
+            try! listNode.insertIntoTree(asLastChildOf: currentParent)
+            newParentUntilElementDone(listNode)
+
+        case .item:
+            let itemNode = CMNode(type: .item)
+            try! itemNode.insertIntoTree(asLastChildOf: currentParent)
+            newParentUntilElementDone(itemNode)
+        }
     }
 
     /// End of element - just process whatever was saved when the element opened.
     public func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
-        elementDoneStack.removeLast()?()
+        elementDone()
     }
 
     public func parser(_ parser: XMLParser, foundCharacters string: String) {
@@ -258,78 +298,69 @@ final class XMLDocBuilder: NSObject, XMLParserDelegate {
             // Not turning this part of the doc into markdown
             return
         }
-        let node = CMNode(type: .text)
-        try! node.setLiteral(string)
-        try! node.insertIntoTree(asLastChildOf: currentParent) // XXX need error checking on this
+        if currentParent.type == .code {
+            try! currentParent.setLiteral(string)
+        } else {
+            let node = CMNode(type: .text)
+            try! node.setLiteral(string)
+            try! node.insertIntoTree(asLastChildOf: currentParent) // XXX need error checking on this
+        }
     }
-//
-//    /// CDATA.  Used for html, stuff that looks like html, each line of a code block.
-//    /// Headings and HR in markdown end up as HTML rather than tags.
-//    public func parser(_ parser: XMLParser, foundCDATA CDATABlock: Data) {
-//        guard let cdataString = String(data: CDATABlock, encoding: .utf8) else {
-//            errorHandler?("Can't decode CDATA to UTF8 \(CDATABlock as NSData)")
-//            return
-//        }
-//
-//        if inside.contains(.codeListing) {
-//            output += whitespace.prefix() + cdataString + "\n"
-//        } else if let imageLink = parseImageLink(html: cdataString) {
-//            output += imageLink
-//        } else if cdataString == "<hr/>" {
-//            output += "---"
-//        } else if let heading = parseHeading(html: cdataString) {
-//            output += heading
-//        } else {
-//            output += cdataString
-//        }
-//    }
-//
-//    /// Painful <img> roundtripping.  Relies on SourceKit's attrib ordering.
-//    static let imgTagRegex: NSRegularExpression =
-//        try! NSRegularExpression(pattern: "<img src=\"(.*?)\"(?: title=\"(.*?)\")?(?: alt=\"(.*?)\")?/>")
-//
-//    private func parseImageLink(html: String) -> String? {
-//        guard let matchedStrings = XMLToMarkdown.imgTagRegex.matches(in: html) else {
-//            return nil
-//        }
-//
-//        var imgMarkdown = "!["
-//
-//        if let altText = matchedStrings[3] {
-//            imgMarkdown += altText
-//        }
-//
-//        imgMarkdown += "](\(matchedStrings[1]!)"
-//
-//        if let title = matchedStrings[2] {
-//            imgMarkdown += " \"\(title)\""
-//        }
-//
-//        imgMarkdown += ")"
-//
-//        return imgMarkdown
-//    }
-//
-//    /// Headings
-//    private static let headingTagRegex: NSRegularExpression =
-//        try! NSRegularExpression(pattern: "<(/)?h(\\d)>")
-//
-//    private func parseHeading(html: String) -> String? {
-//        guard let matchedStrings = XMLToMarkdown.headingTagRegex.matches(in: html),
-//              let headingLevelString = matchedStrings[2],
-//              let headingLevel = Int(headingLevelString) else {
-//            return nil
-//        }
-//
-//        // no newline after this html, kind of becomes inline...
-//        inside.insert(.htmlHeading)
-//
-//        if matchedStrings[1] != nil {
-//            return ""
-//        } else {
-//            return String(repeating: "#", count: headingLevel) + " "
-//        }
-//    }
+
+    /// CDATA.  Used for html, doc elements that are 'too complex to express in XML', each line of a code block.
+    public func parser(_ parser: XMLParser, foundCDATA CDATABlock: Data) {
+        guard let currentParent = currentParent else {
+            // Not turning this part of the doc into markdown
+            return
+        }
+
+        guard let cdataString = String(data: CDATABlock, encoding: .utf8) else {
+            logWarning("XML parse error with CDATA: \(CDATABlock)")
+            return
+        }
+
+        if currentParent.type == .codeBlock {
+            precondition(codeBlockCurrentLine.isEmpty)
+            codeBlockCurrentLine = cdataString
+            return
+        }
+
+        guard !rawHTMLState.isIdle else {
+            // CDATA in some random element?
+            let node = CMNode(type: .text)
+            try! node.setLiteral(cdataString)
+            try! node.insertIntoTree(asLastChildOf: currentParent)
+            return
+        }
+
+        if cdataString == "<hr/>" {
+            let hrNode = CMNode(type: .thematicBreak)
+            try! hrNode.insertIntoTree(asLastChildOf: currentParent)
+        } else if cdataString == "<br/>" {
+            let brNode = CMNode(type: .lineBreak)
+            try! brNode.insertIntoTree(asLastChildOf: currentParent)
+        } else if let match = cdataString.re_match(#"^<h(\d)>$"#) {
+            let headingNode = CMNode(type: .heading)
+            try! headingNode.setHeadingLevel(Int32(match[1])!)
+            try! headingNode.insertIntoTree(asLastChildOf: currentParent)
+            rawHTMLState = .startElement(headingNode)
+        } else if cdataString.re_isMatch(#"^</h\d>$"#) {
+            rawHTMLState = .endElement
+        } else if let match = cdataString.re_match(#"<img src="(.*?)"(?: title="(.*?)")?(?: alt="(.*?)")?/>"#) {
+            // side-eye at commonmark this time - link alt text is a child markdown tree rendered as plaintext...
+            let imgNode = CMNode(type: .image)
+            try! imgNode.setLinkDestination(match[1])
+            try! imgNode.setLinkTitle(match[2])
+            let altTextNode = CMNode(type: .text)
+            try! altTextNode.setLiteral(match[3])
+            try! altTextNode.insertIntoTree(asFirstChildOf: imgNode)
+            try! imgNode.insertIntoTree(asLastChildOf: currentParent)
+        } else {
+            let rawHTMLNode = CMNode(type: .htmlBlock) // sure
+            try! rawHTMLNode.setLiteral(cdataString)
+            try! rawHTMLNode.insertIntoTree(asLastChildOf: currentParent)
+        }
+    }
 
     public func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
         logWarning("XML parse error handling inherited doc comment: \(parseError).")
