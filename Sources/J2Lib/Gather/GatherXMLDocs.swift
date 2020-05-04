@@ -31,6 +31,9 @@ import Maaku
 /// it punts to its `StartElement` client who may request some type of action from the builder
 /// on the XML found within the element.
 ///
+/// Error handling: we use try! for CM APIs that we know will work, and try? for those that depend
+/// on a sensible XML structure - if things go wrong we should just get incomplete docs out.
+///
 final class XMLDocBuilder: NSObject, XMLParserDelegate {
     typealias StartElementFn = (String, [String : String]) -> Void
 
@@ -129,8 +132,8 @@ final class XMLDocBuilder: NSObject, XMLParserDelegate {
         let oldCurrentParent = self.currentParent
         self.currentParent = newParent
         doOnElementDone {
-            self.currentParent = oldCurrentParent
             and?()
+            self.currentParent = oldCurrentParent
         }
     }
 
@@ -199,52 +202,57 @@ final class XMLDocBuilder: NSObject, XMLParserDelegate {
             return
         }
 
+        func newParent(type: CMNodeType, tap: ((CMNode) -> Void)? = nil, and: ElementDoneFn? = nil) {
+            let node = CMNode(type: type)
+            tap?(node)
+            try? node.insertIntoTree(asLastChildOf: currentParent)
+            newParentUntilElementDone(node, and: and)
+        }
+
         // 3 - build up the markdown tree
 
         switch element {
-        case .emphasis:
-            let emphNode = CMNode(type: .emphasis)
-            try! emphNode.insertIntoTree(asLastChildOf: currentParent)
-            newParentUntilElementDone(emphNode)
+        // Simple
+        case .emphasis:  newParent(type: .emphasis)
+        case .bold:      newParent(type: .strong)
+        case .codeVoice: newParent(type: .code)
+        case .para:      newParent(type: .paragraph)
+        case .item:      newParent(type: .item)
 
-        case .bold:
-            let strNode = CMNode(type: .strong)
-            try! strNode.insertIntoTree(asLastChildOf: currentParent)
-            newParentUntilElementDone(strNode)
-
-        case .codeVoice:
-            let codeNode = CMNode(type: .code)
-            try! codeNode.insertIntoTree(asLastChildOf: currentParent)
-            newParentUntilElementDone(codeNode)
-
+        // Parameterized
         case .link:
-            let linkNode = CMNode(type: .link)
-            try! linkNode.setLinkDestination(attributeDict["href"] ?? "")
-            try! linkNode.insertIntoTree(asLastChildOf: currentParent)
-            newParentUntilElementDone(linkNode)
+            newParent(type: .link, tap: { node in
+                try! node.setLinkDestination(attributeDict["href"] ?? "")
+            })
 
-        case .para:
-            let paraNode = CMNode(type: .paragraph)
-            try! paraNode.insertIntoTree(asLastChildOf: currentParent)
-            newParentUntilElementDone(paraNode)
+        case .listBullet, .listNumber:
+            newParent(type: .list, tap: { node in
+                if element == .listNumber {
+                    try! node.setListType(.ordered)
+                    try! node.setListStartingNumber(1)
+                }
+                try! node.setListTight(true)
+            })
 
+        // Compound
         case .codeListing:
-            let codeNode = CMNode(type: .codeBlock)
-            if let language = attributeDict["language"] {
-                try! codeNode.setFencedCodeInfo(language)
-            }
-            try! codeNode.insertIntoTree(asLastChildOf: currentParent)
             precondition(codeBlockContent.isEmpty)
-            // All the content of the block goes into this node's literal,
-            // but in XML there is an overengineered hierarchy going on that
-            // we collect using parser-global state.
-            newParentUntilElementDone(codeNode) {
-                try! codeNode.setLiteral(self.codeBlockContent)
+            newParent(type: .codeBlock, tap: { node in
+                if let language = attributeDict["language"] {
+                    try! node.setFencedCodeInfo(language)
+                }
+            }, and: {
+                // All the content of the block goes into this node's literal,
+                // but in XML there is an overengineered hierarchy going on that
+                // we collect using parser-global state.
+                try! self.currentParent?.setLiteral(self.codeBlockContent)
                 self.codeBlockContent = ""
-            }
+            })
 
         case .zCodeLineNumbered:
-            // The line content is optional and comes in thru CDATA...
+            // The line content is optional and comes in thru CDATA.
+            // Again, it's optional: we have to do the accumulate here because
+            // the CDATA won't get called for blank lines.
             precondition(codeBlockCurrentLine.isEmpty)
             doOnElementDone {
                 self.codeBlockContent += self.codeBlockCurrentLine + "\n"
@@ -252,6 +260,7 @@ final class XMLDocBuilder: NSObject, XMLParserDelegate {
             }
             break
 
+        // Complicated
         case .rawHTML:
             // These elements may be genuinely raw html or, more likely, wrapping
             // normal things that mysteriously aren't expressed in XML.  So we hold
@@ -270,21 +279,6 @@ final class XMLDocBuilder: NSObject, XMLParserDelegate {
                 }
                 self.rawHTMLState = .idle
             }
-
-        case .listBullet, .listNumber:
-            let listNode = CMNode(type: .list)
-            if element == .listNumber {
-                try! listNode.setListType(.ordered)
-                try! listNode.setListStartingNumber(1)
-            }
-            try! listNode.setListTight(true)
-            try! listNode.insertIntoTree(asLastChildOf: currentParent)
-            newParentUntilElementDone(listNode)
-
-        case .item:
-            let itemNode = CMNode(type: .item)
-            try! itemNode.insertIntoTree(asLastChildOf: currentParent)
-            newParentUntilElementDone(itemNode)
         }
     }
 
@@ -293,6 +287,7 @@ final class XMLDocBuilder: NSObject, XMLParserDelegate {
         elementDone()
     }
 
+    /// Some text to associate with the current node.
     public func parser(_ parser: XMLParser, foundCharacters string: String) {
         guard let currentParent = currentParent else {
             // Not turning this part of the doc into markdown
@@ -303,19 +298,15 @@ final class XMLDocBuilder: NSObject, XMLParserDelegate {
         } else {
             let node = CMNode(type: .text)
             try! node.setLiteral(string)
-            try! node.insertIntoTree(asLastChildOf: currentParent) // XXX need error checking on this
+            try? node.insertIntoTree(asLastChildOf: currentParent)
         }
     }
 
     /// CDATA.  Used for html, doc elements that are 'too complex to express in XML', each line of a code block.
     public func parser(_ parser: XMLParser, foundCDATA CDATABlock: Data) {
-        guard let currentParent = currentParent else {
+        guard let currentParent = currentParent,
+            let cdataString = String(data: CDATABlock, encoding: .utf8) else {
             // Not turning this part of the doc into markdown
-            return
-        }
-
-        guard let cdataString = String(data: CDATABlock, encoding: .utf8) else {
-            logWarning("XML parse error with CDATA: \(CDATABlock)")
             return
         }
 
@@ -325,41 +316,36 @@ final class XMLDocBuilder: NSObject, XMLParserDelegate {
             return
         }
 
-        guard !rawHTMLState.isIdle else {
-            // CDATA in some random element?
-            let node = CMNode(type: .text)
-            try! node.setLiteral(cdataString)
-            try! node.insertIntoTree(asLastChildOf: currentParent)
-            return
-        }
+        var newNode: CMNode? = nil
 
-        if cdataString == "<hr/>" {
-            let hrNode = CMNode(type: .thematicBreak)
-            try! hrNode.insertIntoTree(asLastChildOf: currentParent)
+        if rawHTMLState.isIdle {
+            // CDATA in some random element?
+            newNode = CMNode(type: .text)
+            try! newNode?.setLiteral(cdataString)
+        } else if cdataString == "<hr/>" {
+            newNode = CMNode(type: .thematicBreak)
         } else if cdataString == "<br/>" {
-            let brNode = CMNode(type: .lineBreak)
-            try! brNode.insertIntoTree(asLastChildOf: currentParent)
+            newNode = CMNode(type: .lineBreak)
         } else if let match = cdataString.re_match(#"^<h(\d)>$"#) {
-            let headingNode = CMNode(type: .heading)
-            try! headingNode.setHeadingLevel(Int32(match[1])!)
-            try! headingNode.insertIntoTree(asLastChildOf: currentParent)
-            rawHTMLState = .startElement(headingNode)
+            newNode = CMNode(type: .heading)
+            try! newNode?.setHeadingLevel(Int32(match[1])!)
+            rawHTMLState = .startElement(newNode!)
         } else if cdataString.re_isMatch(#"^</h\d>$"#) {
             rawHTMLState = .endElement
         } else if let match = cdataString.re_match(#"<img src="(.*?)"(?: title="(.*?)")?(?: alt="(.*?)")?/>"#) {
             // side-eye at commonmark this time - link alt text is a child markdown tree rendered as plaintext...
-            let imgNode = CMNode(type: .image)
-            try! imgNode.setLinkDestination(match[1])
-            try! imgNode.setLinkTitle(match[2])
+            newNode = CMNode(type: .image)
+            try! newNode?.setLinkDestination(match[1])
+            try! newNode?.setLinkTitle(match[2])
             let altTextNode = CMNode(type: .text)
             try! altTextNode.setLiteral(match[3])
-            try! altTextNode.insertIntoTree(asFirstChildOf: imgNode)
-            try! imgNode.insertIntoTree(asLastChildOf: currentParent)
+            try! altTextNode.insertIntoTree(asFirstChildOf: newNode!)
         } else {
-            let rawHTMLNode = CMNode(type: .htmlBlock) // sure
-            try! rawHTMLNode.setLiteral(cdataString)
-            try! rawHTMLNode.insertIntoTree(asLastChildOf: currentParent)
+            newNode = CMNode(type: .htmlBlock) // sure
+            try! newNode?.setLiteral(cdataString)
         }
+
+        try? newNode?.insertIntoTree(asLastChildOf: currentParent)
     }
 
     public func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
