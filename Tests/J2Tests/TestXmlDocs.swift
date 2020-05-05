@@ -11,13 +11,12 @@ import XCTest
 import Maaku
 
 class BuilderClient {
-    var builder: XMLDocBuilder?
+    var builder = XMLDocBuilder()
     var doc: CMNode?
 
     init() {
-        builder = nil
         doc = nil
-        builder = XMLDocBuilder() { [weak self] in
+        builder.setStartElement() { [weak self] in
             self?.startElement(element: $0, attrs: $1)
         }
     }
@@ -25,17 +24,19 @@ class BuilderClient {
     func startElement(element: String, attrs: [String : String]) {
         if element == "Document" {
             XCTAssertNil(doc)
-            builder?.startDocument() { self.doc = $0 }
+            builder.startDocument() { self.doc = $0 }
         }
     }
 
     func parse(xml: String) throws {
-        try builder?.parse(xml: xml)
+        try builder.parse(xml: xml)
     }
 }
 
 
 class TestXMLDocs: XCTestCase {
+
+    // MARK: markdown
 
     func testNotInterested() throws {
         let xml = """
@@ -222,5 +223,39 @@ class TestXMLDocs: XCTestCase {
 
                      <div class="myclass">Boop</div>
                      """#)
+    }
+
+    // MARK: Declaration
+
+    func testDeclaration() throws {
+        let xml = """
+                  <CommentParts>
+                  <Abstract><Para>Text - Abstract</Para></Abstract>
+                  <Parameters>
+                  <Parameter><Name>a</Name><Direction isExplicit=\"0\">in</Direction><Discussion><Para>A closure</Para></Discussion></Parameter>
+                  <Parameter><Name>f</Name><Direction isExplicit=\"0\">in</Direction><Discussion><Para>A closure param</Para></Discussion></Parameter>
+                  </Parameters>
+                  <ResultDiscussion><Para>A number</Para></ResultDiscussion>
+                  <ThrowsDiscussion><Para>Nothing</Para></ThrowsDiscussion>
+                  <Discussion><Para>Text - Discussion</Para>
+                  <Invariant><Para>Jim</Para></Invariant>
+                  </Discussion>
+                  </CommentParts>
+                  """
+        let declParser = XMLDeclarationBuilder()
+        try declParser.parseCommentParts(xml: xml)
+        XCTAssertEqual("Text - Abstract", declParser.abstract?.renderPlainText())
+        XCTAssertEqual(2, declParser.parameters.count)
+        XCTAssertEqual("a", declParser.parameters[0].name.renderPlainText())
+        XCTAssertEqual("A closure", declParser.parameters[0].description.renderPlainText())
+        XCTAssertEqual("f", declParser.parameters[1].name.renderPlainText())
+        XCTAssertEqual("A closure param", declParser.parameters[1].description.renderPlainText())
+        XCTAssertEqual("A number", declParser.returns?.renderPlainText())
+        XCTAssertEqual("Text - Discussion", declParser.discussion?.renderPlainText())
+        XCTAssertEqual(2, declParser.callouts.count)
+        XCTAssertEqual("throws", declParser.callouts[0].title)
+        XCTAssertEqual("0.  Nothing", declParser.callouts[0].content.renderPlainText())
+        XCTAssertEqual("invariant", declParser.callouts[1].title)
+        XCTAssertEqual("0.  Jim", declParser.callouts[1].content.renderPlainText())
     }
 }

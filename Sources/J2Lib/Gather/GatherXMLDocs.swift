@@ -12,7 +12,7 @@ import FoundationXML
 #endif // rude comment
 import Maaku
 
-/// Wackiness to turn an XML doc comment into markdown for uniform processing by the rest
+/// Wackiness to turn an XML doc comment back into markdown for uniform processing by the rest
 /// of the program.
 ///
 /// Heavily derived from `TMLXMLToMarkdown` by 2017 me -- this version is much easier because
@@ -37,46 +37,36 @@ import Maaku
 final class XMLDocBuilder: NSObject, XMLParserDelegate {
     typealias StartElementFn = (String, [String : String]) -> Void
 
-    private var startElement: StartElementFn
+    private var startElement: StartElementFn = { _, _ in }
 
-    init(startElement: @escaping StartElementFn) {
-        self.startElement = startElement
+    func setStartElement(to call: @escaping StartElementFn) {
+        self.startElement = call
     }
 
     // State tracking current client request
-    typealias DocBuiltFn = (CMNode) -> Void
-    private var currentDocBuilt: DocBuiltFn?
-    private var currentDocument: CMNode?
-
-    // Callback interface to client
-    private enum StartElementState {
-        case idle, active, recalled
+    typealias ClientDoneFn = (CMNode) -> Void
+    private struct Client {
+        let root: CMNode
+        let done: ClientDoneFn
+        func complete() {
+            done(root)
+        }
     }
-    private var startElementState = StartElementState.idle
-    private func issueStartElement(_ name: String, attrs: [String : String]) -> Bool {
-        precondition(startElementState == .idle)
-        startElementState = .active
-        defer { startElementState = .idle }
+    private var request: Client?
+    private var startElementActive = false
+    private func issueStartElement(_ name: String, attrs: [String : String]) -> Client? {
+        precondition(!startElementActive)
+        startElementActive = true
+        defer { startElementActive = false; request = nil }
         startElement(name, attrs)
-        return startElementState == .recalled
+        return request
     }
 
     /// Client call from the `StartElement` callback to actually start building a markdown document
-    func startDocument(callback: @escaping DocBuiltFn) {
-        precondition(currentDocument == nil)
-        precondition(currentDocBuilt == nil)
-        precondition(startElementState == .active)
-        startElementState = .recalled
-        currentDocument = CMNode(type: .document)
-        currentDocBuilt = callback
-    }
-
-    private func endDocument() {
-        precondition(currentDocument != nil)
-        precondition(currentDocBuilt != nil)
-        currentDocBuilt!(currentDocument!)
-        currentDocument = nil
-        currentDocBuilt = nil
+    func startDocument(type: CMNodeType = .document, callback: @escaping ClientDoneFn) {
+        precondition(startElementActive)
+        precondition(request == nil)
+        request = Client(root: CMNode(type: type), done: callback)
     }
 
     // Parser interface
@@ -177,19 +167,13 @@ final class XMLDocBuilder: NSObject, XMLParserDelegate {
         // 1 - look for structural elements and call out to the client
 
         guard let element = Element(rawValue: elementName) else {
-            // Not a markdown element, let client handle it
-            let clientInterested = issueStartElement(elementName, attrs: attributeDict)
-            if clientInterested {
-                precondition(currentParent == nil) // overlapping
-                precondition(currentDocument != nil)
-                currentParent = currentDocument
-            }
-            doOnElementDone {
-                if clientInterested {
-                    precondition(self.currentParent != nil)
-                    self.currentParent = nil
-                    self.endDocument()
+            if let client = issueStartElement(elementName, attrs: attributeDict) {
+                // can be nested - just pause the current until this one is done
+                newParentUntilElementDone(client.root) {
+                    client.complete()
                 }
+            } else {
+                nopOnElementDone()
             }
             return
         }
@@ -258,7 +242,6 @@ final class XMLDocBuilder: NSObject, XMLParserDelegate {
                 self.codeBlockContent += self.codeBlockCurrentLine + "\n"
                 self.codeBlockCurrentLine = ""
             }
-            break
 
         // Complicated
         case .rawHTML:
@@ -350,5 +333,102 @@ final class XMLDocBuilder: NSObject, XMLParserDelegate {
 
     public func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
         logWarning("XML parse error handling inherited doc comment: \(parseError).")
+    }
+}
+
+// MARK: XMLDeclarationBuilder
+
+/// This layer 'understands' the XML document-like things that exist in a doc comment.
+/// For whatever reason, callouts can't occur except in the 'discussion' element -- swift
+/// erases the bullet items, usually leaving spurious empty lists that crash Xcode quick help, gj.
+///
+/// LocalizationKey disappears somewhere.  Sadface.  I blame DocComment.cpp.
+///
+/// Not going to support the ClosureParameter nested empire, Xcode will surely never
+/// support it and what it implies.  Easy enough to invoke recursively though.
+final class XMLDeclarationBuilder {
+    private(set) var abstract: CMNode?
+    private(set) var discussion: CMNode?
+    struct Callout {
+        let title: String
+        let content: CMNode
+    }
+    private(set) var callouts = [Callout]()
+    private(set) var returns: CMNode?
+    struct Param {
+        let name: CMNode
+        let description: CMNode
+    }
+    private(set) var parameters = [Param]()
+
+    private let builder = XMLDocBuilder()
+
+    /// Decompose a `CommentParts` XML element.
+    func parseCommentParts(xml: String) throws {
+        var inParam = false
+        var paramName: CMNode?
+
+        func startParam() {
+            inParam = true
+            paramName = nil
+        }
+
+        func endParam(description: CMNode) {
+            precondition(inParam)
+            if let name = paramName {
+                parameters.append(Param(name: name, description: description))
+            }
+            inParam = false
+        }
+
+        func makeCallout(title: String) {
+            builder.startDocument(type: .item) {
+                self.callouts.append(Callout(title: title, content: $0))
+            }
+        }
+
+        builder.setStartElement() { [unowned self] ele, _ in
+            switch ele {
+            case "Abstract":
+                self.builder.startDocument {
+                    self.abstract = $0
+                }
+
+            case "ResultDiscussion":
+                self.builder.startDocument {
+                    self.returns = $0
+                }
+
+            case "Parameter":
+                startParam()
+
+            case "Name":
+                if inParam {
+                    self.builder.startDocument(type: .paragraph) {
+                        paramName = $0
+                    }
+                }
+
+            case "Discussion":
+                self.builder.startDocument {
+                    if inParam {
+                        endParam(description: $0)
+                    } else {
+                        self.discussion = $0
+                    }
+                }
+
+            case "Parameters", "Direction", "CommentParts":
+                // ignore entirely
+                break;
+
+            case "ThrowsDiscussion":
+                makeCallout(title: "throws")
+            default:
+                makeCallout(title: ele.lowercased())
+            }
+        }
+
+        try builder.parse(xml: xml)
     }
 }
