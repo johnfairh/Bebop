@@ -1,16 +1,16 @@
 {
   "autolinkAppleCacheHitHit" : 0,
-  "autolinkAppleCacheHitMiss" : 46,
+  "autolinkAppleCacheHitMiss" : 63,
   "autolinkAppleFailure" : 0,
   "autolinkAppleSuccess" : 0,
   "autolinkLocalGlobalScope" : 14,
-  "autolinkLocalLocalScope" : 31,
+  "autolinkLocalLocalScope" : 38,
   "autolinkLocalNestedScope" : 0,
-  "autolinkNotAutolinked" : 57,
-  "autolinkSelfLink" : 17,
+  "autolinkNotAutolinked" : 99,
+  "autolinkSelfLink" : 24,
   "customAbstractDef" : 0,
   "customAbstractGroup" : 0,
-  "documentedDef" : 36,
+  "documentedDef" : 37,
   "filterFilename" : 0,
   "filterIgnoreInheritedDocs" : 0,
   "filterMinAclExcluded" : 0,
@@ -20,7 +20,7 @@
   "filterSkipUndocumented" : 0,
   "filterSymbolName" : 0,
   "filterUselessExtension" : 0,
-  "formatMarkdown" : 126,
+  "formatMarkdown" : 129,
   "formatMathExpression" : 0,
   "formatRewrittenGuideLinks" : 0,
   "formatRewrittenMediaLinks" : 0,
@@ -50,5 +50,5 @@
   "mergeDemoteDefaultImplementation" : 1,
   "mergeDupUsr" : 0,
   "mergeDupUsrMismatch" : 0,
-  "missingDocumentation" : 38
+  "missingDocumentation" : 37
 }

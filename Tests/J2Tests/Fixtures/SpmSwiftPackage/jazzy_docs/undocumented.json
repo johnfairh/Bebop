@@ -99,17 +99,6 @@
     "symbol" : "doHashable()"
   },
   {
-    "kind" : "source.lang.swift.decl.var.instance",
-    "location" : {
-      "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
-      "first_line" : 33,
-      "last_line" : 35,
-      "module_name" : "SpmSwiftModule",
-      "pass_index" : 0
-    },
-    "symbol" : "description"
-  },
-  {
     "kind" : "source.lang.swift.decl.function.method.instance",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",

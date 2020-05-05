@@ -34,6 +34,8 @@ import Maaku
 /// Error handling: we use try! for CM APIs that we know will work, and try? for those that depend
 /// on a sensible XML structure - if things go wrong we should just get incomplete docs out.
 ///
+/// `internal` for unit test.
+///
 final class XMLDocBuilder: NSObject, XMLParserDelegate {
     typealias StartElementFn = (String, [String : String]) -> Void
 
@@ -346,6 +348,8 @@ final class XMLDocBuilder: NSObject, XMLParserDelegate {
 ///
 /// Not going to support the ClosureParameter nested empire, Xcode will surely never
 /// support it and what it implies.  Easy enough to invoke recursively though.
+///
+/// `internal` for unit test.
 final class XMLDeclarationBuilder {
     private(set) var abstract: CMNode?
     private(set) var discussion: CMNode?
@@ -363,8 +367,18 @@ final class XMLDeclarationBuilder {
 
     private let builder = XMLDocBuilder()
 
+    private func reset() {
+        abstract = nil
+        discussion = nil
+        callouts = []
+        returns = nil
+        parameters = []
+    }
+
     /// Decompose a `CommentParts` XML element.
     func parseCommentParts(xml: String) throws {
+        reset()
+
         var inParam = false
         var paramName: CMNode?
 
@@ -460,16 +474,36 @@ final class XMLDeclarationBuilder {
         return listNode
     }
 
-    var flatDefDocs: FlatDefDocs {
+    func flatDefDocs(source: DefDocSource) -> FlatDefDocs {
         let mds = [discussion?.renderMarkdown().md, calloutsList?.renderMarkdown().md]
         let fullDiscussion = mds.compactMap { $0 }.joined(separator: "\n\n")
         return FlatDefDocs(abstract: abstract?.renderMarkdown(),
-                           discussion: Markdown(fullDiscussion),
+                           discussion: fullDiscussion.isEmpty ? nil : Markdown(fullDiscussion),
                            returns: returns?.renderMarkdown(),
                            parameters: parameters.map {
                                FlatDefDocs.Param(name: $0.name.renderPlainText(),
                                                  description: $0.description.renderMarkdown())
                            },
-                           source: .inherited)
+                           source: source)
+    }
+}
+
+// MARK: API
+
+enum XMLDocComment {
+    /// Try to pull a broken-down declaration doc comment out of sourcekit `full_as_xml`.
+    static func parse(xml: String, source: DefDocSource) -> FlatDefDocs? {
+        guard let parts = xml.re_match("<CommentParts>.*</CommentParts>")?[0] else {
+            return nil
+        }
+        let builder = XMLDeclarationBuilder()
+        do {
+            try builder.parseCommentParts(xml: parts)
+            let docs = builder.flatDefDocs(source: source)
+            return docs.isEmpty ? nil : docs
+        } catch {
+            logWarning("Couldn't make sense of XML doc comment \(xml): \(error)")
+        }
+        return nil
     }
 }

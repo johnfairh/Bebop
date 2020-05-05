@@ -1,5 +1,6 @@
 {
   "extensions\/collection.html?swift" : {
+    "abstract" : "A sequence whose elements can be traversed multiple times, nondestructively, and\naccessed by an indexed subscript.",
     "name" : "Collection"
   },
   "extensions\/collection.html?swift#collectemall" : {
@@ -192,7 +193,7 @@
     "parent_name" : "GenericBase"
   },
   "types\/genericbase.html?swift#description" : {
-    "abstract" : "Undocumented",
+    "abstract" : "A textual representation of this instance.",
     "name" : "description",
     "parent_name" : "GenericBase"
   },

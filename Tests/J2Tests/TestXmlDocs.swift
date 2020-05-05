@@ -259,7 +259,11 @@ class TestXMLDocs: XCTestCase {
         XCTAssertEqual("0.  Jim", declParser.callouts[1].content.renderPlainText())
 
         // Just sniff the combine part
-        let defDocs = declParser.flatDefDocs
+        let defDocs = declParser.flatDefDocs(source: .inherited)
+        guard let discussion = defDocs.discussion else {
+            XCTFail()
+            return
+        }
         XCTAssertEqual("""
                        Text - Discussion
 
@@ -267,6 +271,72 @@ class TestXMLDocs: XCTestCase {
 
                          - invariant: Jim
                        """,
-                       defDocs.discussion?.md)
+                       discussion.md)
+
+        let doc = try CMDocument(text: discussion.md)
+        var calloutCount = 0
+        doc.forEachCallout { _, _, _, _ in
+            calloutCount += 1
+        }
+        XCTAssertEqual(2, calloutCount)
+    }
+
+    func testCalloutFormats() throws {
+        let empty = """
+                    <CommentParts>
+                    <Discussion>
+                    <Note></Note>
+                    </Discussion>
+                    </CommentParts>
+                    """
+        let declParser = XMLDeclarationBuilder()
+        try declParser.parseCommentParts(xml: empty)
+        let callouts1 = declParser.calloutsList!.renderMarkdown()
+        XCTAssertEqual("  - note:", callouts1.md)
+
+        let immediate = """
+                    <CommentParts>
+                    <Discussion>
+                    <Note>
+                    <List-Number>
+                    <Item><Para>Line</Para></Item>
+                    </List-Number>
+                    </Note>
+                    </Discussion>
+                    </CommentParts>
+                    """
+        try declParser.parseCommentParts(xml: immediate)
+        let callouts2 = declParser.calloutsList!.renderMarkdown()
+        XCTAssertEqual("""
+                         - note: \n    \n    1.  Line
+                       """,
+                       callouts2.md)
+
+        let none = """
+                    <CommentParts>
+                    </CommentParts>
+                    """
+        try declParser.parseCommentParts(xml: none)
+        XCTAssertNil(declParser.calloutsList)
+    }
+
+    // MARK: Top level
+    func testWrapperAPI() {
+        let notXml = "fish"
+        XCTAssertNil(XMLDocComment.parse(xml: notXml, source: .inherited))
+
+        let emptyXml = "<CommentParts></CommentParts>"
+        XCTAssertNil(XMLDocComment.parse(xml: emptyXml, source: .inherited))
+
+        let badXml = "<CommentParts><Discussion></CommentParts>"
+        XCTAssertNil(XMLDocComment.parse(xml: badXml, source: .inherited))
+
+        let someXml = "<CommentParts><Abstract><Para>Abstract</Para></Abstract></CommentParts>"
+        guard let docs = XMLDocComment.parse(xml: someXml, source: .inherited) else {
+            XCTFail()
+            return
+        }
+        XCTAssertEqual(docs.source, .inherited)
+        XCTAssertEqual("Abstract", docs.abstract?.md)
     }
 }

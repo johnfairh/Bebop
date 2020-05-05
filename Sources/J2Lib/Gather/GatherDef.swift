@@ -80,9 +80,9 @@ public final class GatherDef {
             previousSiblingDef.canShareDocsWithSibling(offset: sourceKittenDict.offset) {
             self.documentation = previousSiblingDocs
             self.localizationKey = previousSiblingDef.localizationKey
-        } else if kind.isSwift, let _ = sourceKittenDict.fullXMLDocs {
-            self.documentation = nil //FlatDefDocs(abstract: Markdown("xml"), source: .inherited)
-            self.localizationKey = nil
+        } else if kind.isSwift, let xml = sourceKittenDict.fullXMLDocs {
+            self.documentation = XMLDocComment.parse(xml: xml, source: .inherited)
+            self.localizationKey = nil // apple seem to lose this :(
         } else {
             self.documentation = nil
             self.localizationKey = nil

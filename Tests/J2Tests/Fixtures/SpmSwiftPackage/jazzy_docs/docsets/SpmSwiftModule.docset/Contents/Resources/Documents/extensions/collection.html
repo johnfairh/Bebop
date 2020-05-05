@@ -17,7 +17,7 @@
     <a title="Collection  Reference"></a>
     <header>
   <div class="content-wrapper">
-    <p><a href="../index.html">SpmSwiftModule docs</a> (48% documented)</p>
+    <p><a href="../index.html">SpmSwiftModule docs</a> (50% documented)</p>
     
     <p class="header-right"><a href="http://www.bbc.co.uk/"><img src="../img/gh.png"/>View on GitHub</a></p>
     
@@ -164,7 +164,198 @@ extension Collection where Element == <a href="../types/spmswiftmodule/nested1.h
                 </div>
               </div>
             
-            
+            <p>A sequence whose elements can be traversed multiple times, nondestructively, and
+accessed by an indexed subscript.</p><p>Collections are used extensively throughout the standard library. When you use
+arrays, dictionaries, and other collections, you benefit from the operations
+that the <code>Collection</code> protocol declares and implements. In addition to the
+operations that collections inherit from the <code>Sequence</code> protocol, you gain
+access to methods that depend on accessing an element at a specific position in
+a collection.</p>
+<p>For example, if you want to print only the first word in a string, you can
+search for the index of the first space, and then create a substring up to that
+position.</p>
+<pre><code class="language-swift">let text = &quot;Buffalo buffalo buffalo buffalo.&quot;
+if let firstSpace = text.firstIndex(of: &quot; &quot;) {
+    print(text[..&lt;firstSpace])
+}
+// Prints &quot;Buffalo&quot;
+
+</code></pre>
+<p>The <code>firstSpace</code> constant is an index into the <code>text</code> string—the position of the
+first space in the string. You can store indices in variables, and pass them to
+collection algorithms or use them later to access the corresponding element. In
+the example above, <code>firstSpace</code> is used to extract the prefix that contains
+elements up to that index.</p>
+<h1 class="j2-anchor j2-heading heading" id="accessing-individual-elements">
+<span data-anchor-id="accessing-individual-elements">
+Accessing Individual Elements
+</span></h1>
+<p>You can access an element of a collection through its subscript by using any
+valid index except the collection’s <code>endIndex</code> property. This property is a
+“past the end” index that does not correspond with any element of the
+collection.</p>
+<p>Here’s an example of accessing the first character in a string through its
+subscript:</p>
+<pre><code class="language-swift">let firstChar = text[text.startIndex]
+print(firstChar)
+// Prints &quot;B&quot;
+
+</code></pre>
+<p>The <code>Collection</code> protocol declares and provides default implementations for many
+operations that depend on elements being accessible by their subscript. For
+example, you can also access the first character of <code>text</code> using the <code>first</code>
+property, which has the value of the first element of the collection, or <code>nil</code>
+if the collection is empty.</p>
+<pre><code class="language-swift">print(text.first)
+// Prints &quot;Optional(&quot;B&quot;)&quot;
+
+</code></pre>
+<p>You can pass only valid indices to collection operations. You can find a
+complete set of a collection’s valid indices by starting with the collection’s
+<code>startIndex</code> property and finding every successor up to, and including, the
+<code>endIndex</code> property. All other values of the <code>Index</code> type, such as the
+<code>startIndex</code> property of a different collection, are invalid indices for this
+collection.</p>
+<p>Saved indices may become invalid as a result of mutating operations. For more
+information about index invalidation in mutable collections, see the reference
+for the <code>MutableCollection</code> and <code>RangeReplaceableCollection</code> protocols, as well
+as for the specific type you’re using.</p>
+<h1 class="j2-anchor j2-heading heading" id="accessing-slices-of-a-collection">
+<span data-anchor-id="accessing-slices-of-a-collection">
+Accessing Slices of a Collection
+</span></h1>
+<p>You can access a slice of a collection through its ranged subscript or by
+calling methods like <code>prefix(while:)</code> or <code>suffix(_:)</code>. A slice of a collection
+can contain zero or more of the original collection’s elements and shares the
+original collection’s semantics.</p>
+<p>The following example creates a <code>firstWord</code> constant by using the
+<code>prefix(while:)</code> method to get a slice of the <code>text</code> string.</p>
+<pre><code class="language-swift">let firstWord = text.prefix(while: { $0 != &quot; &quot; })
+print(firstWord)
+// Prints &quot;Buffalo&quot;
+
+</code></pre>
+<p>You can retrieve the same slice using the string’s ranged subscript, which takes
+a range expression.</p>
+<pre><code class="language-swift">if let firstSpace = text.firstIndex(of: &quot; &quot;) {
+    print(text[..&lt;firstSpace]
+    // Prints &quot;Buffalo&quot;
+}
+
+</code></pre>
+<p>The retrieved slice of <code>text</code> is equivalent in each of these cases.</p>
+<h2 class="j2-anchor j2-heading heading" id="slices-share-indices">
+<span data-anchor-id="slices-share-indices">
+Slices Share Indices
+</span></h2>
+<p>A collection and its slices share the same indices. An element of a collection
+is located under the same index in a slice as in the base collection, as long as
+neither the collection nor the slice has been mutated since the slice was
+created.</p>
+<p>For example, suppose you have an array holding the number of absences from each
+class during a session.</p>
+<pre><code class="language-swift">var absences = [0, 2, 0, 4, 0, 3, 1, 0]
+
+</code></pre>
+<p>You’re tasked with finding the day with the most absences in the second half of
+the session. To find the index of the day in question, follow these steps:</p>
+<ol>
+<li>Create a slice of the <code>absences</code> array that holds the second half of the
+days.</li>
+<li>Use the <code>max(by:)</code> method to determine the index of the day with the most
+absences.</li>
+<li>Print the result using the index found in step 2 on the original <code>absences</code>
+array.</li>
+</ol>
+<p>Here’s an implementation of those steps:</p>
+<pre><code class="language-swift">let secondHalf = absences.suffix(absences.count / 2)
+if let i = secondHalf.indices.max(by: { secondHalf[$0] &lt; secondHalf[$1] }) {
+    print(&quot;Highest second-half absences: \(absences[i])&quot;)
+}
+// Prints &quot;Highest second-half absences: 3&quot;
+
+</code></pre>
+<h2 class="j2-anchor j2-heading heading" id="slices-inherit-collection-semantics">
+<span data-anchor-id="slices-inherit-collection-semantics">
+Slices Inherit Collection Semantics
+</span></h2>
+<p>A slice inherits the value or reference semantics of its base collection. That
+is, when working with a slice of a mutable collection that has value semantics,
+such as an array, mutating the original collection triggers a copy of that
+collection and does not affect the contents of the slice.</p>
+<p>For example, if you update the last element of the <code>absences</code> array from <code>0</code> to
+<code>2</code>, the <code>secondHalf</code> slice is unchanged.</p>
+<pre><code class="language-swift">absences[7] = 2
+print(absences)
+// Prints &quot;[0, 2, 0, 4, 0, 3, 1, 2]&quot;
+print(secondHalf)
+// Prints &quot;[0, 3, 1, 0]&quot;
+
+</code></pre>
+<h1 class="j2-anchor j2-heading heading" id="traversing-a-collection">
+<span data-anchor-id="traversing-a-collection">
+Traversing a Collection
+</span></h1>
+<p>Although a sequence can be consumed as it is traversed, a collection is
+guaranteed to be <em>multipass</em>: Any element can be repeatedly accessed by saving
+its index. Moreover, a collection’s indices form a finite range of the positions
+of the collection’s elements. The fact that all collections are finite
+guarantees the safety of many sequence operations, such as using the
+<code>contains(_:)</code> method to test whether a collection includes an element.</p>
+<p>Iterating over the elements of a collection by their positions yields the same
+elements in the same order as iterating over that collection using its iterator.
+This example demonstrates that the <code>characters</code> view of a string returns the
+same characters in the same order whether the view’s indices or the view itself
+is being iterated.</p>
+<pre><code class="language-swift">let word = &quot;Swift&quot;
+for character in word {
+    print(character)
+}
+// Prints &quot;S&quot;
+// Prints &quot;w&quot;
+// Prints &quot;i&quot;
+// Prints &quot;f&quot;
+// Prints &quot;t&quot;
+
+for i in word.indices {
+    print(word[i])
+}
+// Prints &quot;S&quot;
+// Prints &quot;w&quot;
+// Prints &quot;i&quot;
+// Prints &quot;f&quot;
+// Prints &quot;t&quot;
+
+</code></pre>
+<h1 class="j2-anchor j2-heading heading" id="conforming-to-the-collection-protocol">
+<span data-anchor-id="conforming-to-the-collection-protocol">
+Conforming to the Collection Protocol
+</span></h1>
+<p>If you create a custom sequence that can provide repeated access to its
+elements, make sure that its type conforms to the <code>Collection</code> protocol in order
+to give a more useful and more efficient interface for sequence and collection
+operations. To add <code>Collection</code> conformance to your type, you must declare at
+least the following requirements:</p>
+<ul>
+<li>The <code>startIndex</code> and <code>endIndex</code> properties</li>
+<li>A subscript that provides at least read-only access to your type’s elements</li>
+<li>The <code>index(after:)</code> method for advancing an index into your collection</li>
+</ul>
+<h1 class="j2-anchor j2-heading heading" id="expected-performance">
+<span data-anchor-id="expected-performance">
+Expected Performance
+</span></h1>
+<p>Types that conform to <code>Collection</code> are expected to provide the <code>startIndex</code> and
+<code>endIndex</code> properties and subscript access to elements as O(1) operations. Types
+that are not able to guarantee this performance must document the departure,
+because many collection operations depend on O(1) subscripting performance for
+their own performance guarantees.</p>
+<p>The performance of some collection operations depends on the type of index that
+the collection provides. For example, a random-access collection, which can
+measure the distance between two indices in O(1) time, can calculate its <code>count</code>
+property in O(1) time. Conversely, because a forward or bidirectional collection
+must traverse the entire collection to count the number of contained elements,
+accessing its <code>count</code> property is an O(<em>n</em>) operation.</p>
           </section>
           
 <section class="section task-group-section">
