@@ -257,5 +257,16 @@ class TestXMLDocs: XCTestCase {
         XCTAssertEqual("0.  Nothing", declParser.callouts[0].content.renderPlainText())
         XCTAssertEqual("invariant", declParser.callouts[1].title)
         XCTAssertEqual("0.  Jim", declParser.callouts[1].content.renderPlainText())
+
+        // Just sniff the combine part
+        let defDocs = declParser.flatDefDocs
+        XCTAssertEqual("""
+                       Text - Discussion
+
+                         - throws: Nothing
+
+                         - invariant: Jim
+                       """,
+                       defDocs.discussion?.md)
     }
 }

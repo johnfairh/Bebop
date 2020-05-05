@@ -431,4 +431,45 @@ final class XMLDeclarationBuilder {
 
         try builder.parse(xml: xml)
     }
+
+    /// Rewind the accumulated callouts into an equivalent markdown list
+    var calloutsList: CMNode? {
+        guard !callouts.isEmpty else {
+            return nil
+        }
+
+        let listNode = CMNode(type: .list)
+        try! listNode.setListType(.unordered)
+        callouts.forEach { callout in
+            let titleNode = CMNode(type: .text)
+            try! titleNode.setLiteral(callout.title + ": ")
+
+            if let child = callout.content.firstChild,
+                child.type == .paragraph {
+                // already text there, just push our title in first
+                try! titleNode.insertIntoTree(asFirstChildOf: child)
+            } else {
+                // Nothing in the callout, or something first that is not para,
+                // so insert a para with the text.
+                let paraNode = CMNode(type: .paragraph)
+                try! titleNode.insertIntoTree(asFirstChildOf: paraNode)
+                try! paraNode.insertIntoTree(asFirstChildOf: callout.content)
+            }
+            try! callout.content.insertIntoTree(asLastChildOf: listNode)
+        }
+        return listNode
+    }
+
+    var flatDefDocs: FlatDefDocs {
+        let mds = [discussion?.renderMarkdown().md, calloutsList?.renderMarkdown().md]
+        let fullDiscussion = mds.compactMap { $0 }.joined(separator: "\n\n")
+        return FlatDefDocs(abstract: abstract?.renderMarkdown(),
+                           discussion: Markdown(fullDiscussion),
+                           returns: returns?.renderMarkdown(),
+                           parameters: parameters.map {
+                               FlatDefDocs.Param(name: $0.name.renderPlainText(),
+                                                 description: $0.description.renderMarkdown())
+                           },
+                           source: .inherited)
+    }
 }
