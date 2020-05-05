@@ -152,6 +152,8 @@ internal enum L10n {
     case errSktnXcodeMod = "err-sktn-xcode-mod"
     /// Theme localized key clash with content keys, values: '%1' '%2'.
     case errThemeKeyClash = "err-theme-key-clash"
+    /// XMLParser failed: '%1', line '%1' column '%2'.
+    case errXmlDocsParse = "err-xml-docs-parse"
     /// Documentation complete in %1
     case msgComplete = "msg-complete"
     /// Using config file '%1'
@@ -268,6 +270,8 @@ internal enum L10n {
     case wrnUnmatchedGrpRegex = "wrn-unmatched-grp-regex"
     /// Confused by different types sharing a USR.\n1: %1\n2: %2\nIgnoring the second.
     case wrnUsrCollision = "wrn-usr-collision"
+    /// Couldn't parse XML doc comment '%1': %2
+    case wrnXmlDocsParse = "wrn-xml-docs-parse"
   }
   internal enum Output : String {
     /// Authors

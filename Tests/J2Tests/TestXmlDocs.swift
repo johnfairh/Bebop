@@ -35,6 +35,9 @@ class BuilderClient {
 
 
 class TestXMLDocs: XCTestCase {
+    override func setUp() {
+        initResources()
+    }
 
     // MARK: markdown
 
@@ -56,7 +59,7 @@ class TestXMLDocs: XCTestCase {
     func testNotXml() throws {
         let xml = "really not xml"
         let client = BuilderClient()
-        AssertThrows(try client.parse(xml: xml), J2Error.self)
+        AssertThrows(try client.parse(xml: xml), .errXmlDocsParse)
     }
 
     func checkDoc(_ xml: String, _ md: String, line: UInt = #line) throws {

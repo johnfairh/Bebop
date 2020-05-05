@@ -248,11 +248,11 @@ extension SourceKittenDict {
 
 private extension String {
     var isInheritDoc: Bool {
-        re_isMatch(#"^\s*:inheritdoc:\s*$"#)
+        re_isMatch(#"^\s*:inheritdocs?:\s*$"#)
     }
 
     var isInheritFullDoc: Bool {
-        re_isMatch(#"^\s*:inheritfulldoc:\s*$"#)
+        re_isMatch(#"^\s*:inheritfulldocs?:\s*$"#)
     }
 
     var isAnyInheritDoc: Bool {

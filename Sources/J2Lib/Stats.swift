@@ -99,6 +99,10 @@ struct StatsDb {
         case gatherLocalizationFailure
         /// ObjC decls matched to Swift decls
         case gatherSwiftToObjC
+        /// XML doc comments parsed
+        case gatherXMLDocCommentsParsed
+        /// XML doc comments failed to parse
+        case gatherXMLDocCommentsFailed
         /// Defs rejected because of a missing root
         case importFailureNoRoot
         /// Defs rejected because of a definite compilation error

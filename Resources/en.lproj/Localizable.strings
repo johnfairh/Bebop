@@ -163,3 +163,5 @@ Ignoring the second.";
 %1";
 "msg-complete" = "Documentation complete in %1";
 "err-theme-key-clash" = "Theme localized key clash with content keys, values: '%1' '%2'.";
+"err-xml-docs-parse" = "XMLParser failed: '%1', line '%1' column '%2'.";
+"wrn-xml-docs-parse" = "Couldn't parse XML doc comment '%1': %2";

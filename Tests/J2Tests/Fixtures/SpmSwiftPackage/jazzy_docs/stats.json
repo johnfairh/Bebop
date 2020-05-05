@@ -32,6 +32,8 @@
   "gatherLocalizationKey" : 0,
   "gatherLocalizationSuccess" : 0,
   "gatherSwiftToObjC" : 0,
+  "gatherXMLDocCommentsFailed" : 0,
+  "gatherXMLDocCommentsParsed" : 6,
   "groupCustomDecoded" : 0,
   "groupCustomDefDecoded" : 0,
   "groupExcludedGuidesByKind" : 0,

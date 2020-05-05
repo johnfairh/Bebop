@@ -270,4 +270,24 @@ class TestMerge: XCTestCase {
         XCTAssertEqual(1, merged.count)
         XCTAssertEqual(merged[0].documentation.abstract, RichText("Ext Docs"))
     }
+
+    func testIgnoreInheritedDocs() throws {
+        let method = SourceKittenDict
+            .mkMethod(name: "method")
+            .with(xmlDocs: "<Method><CommentParts><Abstract><Para>Stuff</Para></Abstract></CommentParts></Method>")
+            .with(overrides: ["SuperMethod"])
+        let passes = SourceKittenDict.mkFile().with(children: [method]).asGatherPasses
+
+        let system = System(true, opts: ["--ignore-inherited-docs"])
+        let filtered = try system.merge.merge(gathered: passes)
+        XCTAssertEqual(1, filtered.count)
+        XCTAssertEqual(DefDocSource.undocumented, filtered[0].documentation.source)
+        XCTAssertEqual(1, Stats.db[.filterIgnoreInheritedDocs])
+
+        // check the flag is actually doing something...
+        let system2 = System(true, opts: [])
+        let filtered2 = try system2.merge.merge(gathered: passes)
+        XCTAssertEqual(1, filtered2.count)
+        XCTAssertEqual(DefDocSource.inherited, filtered2[0].documentation.source)
+    }
 }

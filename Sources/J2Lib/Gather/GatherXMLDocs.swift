@@ -83,7 +83,7 @@ final class XMLDocBuilder: NSObject, XMLParserDelegate {
 
         guard xmlParser.parse() else {
             let errStr = String(describing: xmlParser.parserError)
-            throw J2Error("XMLParser failed: \(errStr), line \(xmlParser.lineNumber) column \(xmlParser.columnNumber)")
+            throw J2Error(.errXmlDocsParse, errStr, xmlParser.lineNumber, xmlParser.columnNumber)
         }
     }
 
@@ -334,7 +334,7 @@ final class XMLDocBuilder: NSObject, XMLParserDelegate {
     }
 
     public func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
-        logWarning("XML parse error handling inherited doc comment: \(parseError).")
+        // don't do anything, will pick it up from entrypoint.
     }
 }
 
@@ -474,6 +474,8 @@ final class XMLDeclarationBuilder {
         return listNode
     }
 
+    /// Bodge everything into the `FlatDefDocs` format.
+    /// 'shortform' is without discussion -- default format for inherited docs.
     func flatDefDocs(source: DefDocSource, shortForm: Bool) -> FlatDefDocs {
         let mds = [discussion?.renderMarkdown().md, calloutsList?.renderMarkdown().md]
         let fullDiscussion = mds.compactMap { $0 }.joined(separator: "\n\n")
@@ -500,9 +502,11 @@ enum XMLDocComment {
         do {
             try builder.parseCommentParts(xml: parts)
             let docs = builder.flatDefDocs(source: source, shortForm: shortForm)
+            Stats.inc(.gatherXMLDocCommentsParsed)
             return docs.isEmpty ? nil : docs
         } catch {
-            logWarning("Couldn't make sense of XML doc comment \(xml): \(error)")
+            logWarning(.wrnXmlDocsParse, xml, error)
+            Stats.inc(.gatherXMLDocCommentsFailed)
         }
         return nil
     }
