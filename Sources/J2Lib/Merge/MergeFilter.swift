@@ -179,14 +179,16 @@ struct MergeFilter: Configurable {
         // Given the option, skip defs without doc-comments
         // that are overriding superclass methods / implementing protocols.
         if skipUndocumentedOverrideOpt.value,
-            item.documentation.source != .docComment,
+            (item.documentation.source != .docComment &&
+             item.documentation.source != .inheritedExplicit),
             let swiftDeclaration = item.swiftDeclaration,
             swiftDeclaration.isOverride {
             Stats.inc(.filterSkipUndocOverride)
             return false
         }
 
-        // Given the option, demote inherited to missing
+        // Given the option, demote inherited to missing.
+        // Don't demote explicitly requested inherited docs via :inherit[full]doc:
         if item.documentation.source == .inherited && ignoreInheritedDocsOpt.value {
             item.documentation = RichDefDocs()
             Stats.inc(.filterIgnoreInheritedDocs)

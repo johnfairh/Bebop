@@ -35,6 +35,7 @@ extension GenericBase : CustomStringConvertible {
   }
 }
 
+/// :inheritfulldoc:
 extension Collection where Element: FirstProtocol {
   func collectEmAll() {}
 }

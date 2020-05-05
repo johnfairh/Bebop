@@ -393,31 +393,7 @@ extension GenericBase : CustomStringConvertible</code></pre>
 
           
           <div class="abstract">
-            <p>A textual representation of this instance.</p><p>Calling this property directly is discouraged. Instead, convert an instance of
-any type to a string by using the <code>String(describing:)</code> initializer. This
-initializer works with any type, and uses the custom <code>description</code> property for
-types that conform to <code>CustomStringConvertible</code>:</p>
-<pre><code class="language-swift">struct Point: CustomStringConvertible {
-    let x: Int, y: Int
-
-    var description: String {
-        return &quot;(\(x), \(y))&quot;
-    }
-}
-
-let p = Point(x: 21, y: 30)
-let s = String(describing: p)
-print(s)
-// Prints &quot;(21, 30)&quot;
-
-</code></pre>
-<p>The conversion of <code>p</code> to a string in the assignment to <code>s</code> uses the <code>Point</code>
-type’s <code>description</code> property.</p>
-<div class="j2-callout j2-callout-note aside aside-note">
-<div class="j2-callout-title aside-title" role="heading" aria-level="6">note</div>
-<p>This documentation comment was inherited from
-<code>CustomStringConvertible</code>.</p>
-</div>
+            <p>A textual representation of this instance.</p>
             
           </div>
           

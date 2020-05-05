@@ -259,7 +259,7 @@ class TestXMLDocs: XCTestCase {
         XCTAssertEqual("0.  Jim", declParser.callouts[1].content.renderPlainText())
 
         // Just sniff the combine part
-        let defDocs = declParser.flatDefDocs(source: .inherited)
+        let defDocs = declParser.flatDefDocs(source: .inherited, shortForm: false)
         guard let discussion = defDocs.discussion else {
             XCTFail()
             return
@@ -279,6 +279,9 @@ class TestXMLDocs: XCTestCase {
             calloutCount += 1
         }
         XCTAssertEqual(2, calloutCount)
+
+        let shortDefDocs = declParser.flatDefDocs(source: .inheritedExplicit, shortForm: true)
+        XCTAssertNil(shortDefDocs.discussion)
     }
 
     func testCalloutFormats() throws {
@@ -323,16 +326,16 @@ class TestXMLDocs: XCTestCase {
     // MARK: Top level
     func testWrapperAPI() {
         let notXml = "fish"
-        XCTAssertNil(XMLDocComment.parse(xml: notXml, source: .inherited))
+        XCTAssertNil(XMLDocComment.parse(xml: notXml, source: .inherited, shortForm: false))
 
         let emptyXml = "<CommentParts></CommentParts>"
-        XCTAssertNil(XMLDocComment.parse(xml: emptyXml, source: .inherited))
+        XCTAssertNil(XMLDocComment.parse(xml: emptyXml, source: .inherited, shortForm: false))
 
         let badXml = "<CommentParts><Discussion></CommentParts>"
-        XCTAssertNil(XMLDocComment.parse(xml: badXml, source: .inherited))
+        XCTAssertNil(XMLDocComment.parse(xml: badXml, source: .inherited, shortForm: false))
 
         let someXml = "<CommentParts><Abstract><Para>Abstract</Para></Abstract></CommentParts>"
-        guard let docs = XMLDocComment.parse(xml: someXml, source: .inherited) else {
+        guard let docs = XMLDocComment.parse(xml: someXml, source: .inherited, shortForm: false) else {
             XCTFail()
             return
         }

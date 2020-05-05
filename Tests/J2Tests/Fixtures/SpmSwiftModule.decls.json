@@ -146,11 +146,6 @@
               "en" : "A textual representation of this instance."
             }
           },
-          "discussion" : {
-            "markdown" : {
-              "en" : "Calling this property directly is discouraged. Instead, convert an instance of\nany type to a string by using the `String(describing:)` initializer. This\ninitializer works with any type, and uses the custom `description` property for\ntypes that conform to `CustomStringConvertible`:\n\n``` swift\nstruct Point: CustomStringConvertible {\n    let x: Int, y: Int\n\n    var description: String {\n        return \"(\\(x), \\(y))\"\n    }\n}\n\nlet p = Point(x: 21, y: 30)\nlet s = String(describing: p)\nprint(s)\n\/\/ Prints \"(21, 30)\"\n\n```\n\nThe conversion of `p` to a string in the assignment to `s` uses the `Point`\ntype’s `description` property.\n\n  - note: This documentation comment was inherited from\n    `CustomStringConvertible`."
-            }
-          },
           "parameters" : [],
           "source" : "inherited"
         },
@@ -787,8 +782,8 @@
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
-          "first_line" : 47,
-          "last_line" : 47,
+          "first_line" : 48,
+          "last_line" : 48,
           "module_name" : "SpmSwiftModule",
           "pass_index" : 0
         },
@@ -850,8 +845,8 @@
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
-          "first_line" : 50,
-          "last_line" : 52,
+          "first_line" : 51,
+          "last_line" : 53,
           "module_name" : "SpmSwiftModule",
           "pass_index" : 0
         },
@@ -2855,8 +2850,8 @@
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
-          "first_line" : 39,
-          "last_line" : 39,
+          "first_line" : 40,
+          "last_line" : 40,
           "module_name" : "SpmSwiftModule",
           "pass_index" : 0
         },
@@ -2913,8 +2908,8 @@
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
-          "first_line" : 43,
-          "last_line" : 43,
+          "first_line" : 44,
+          "last_line" : 44,
           "module_name" : "SpmSwiftModule",
           "pass_index" : 0
         },
@@ -2968,13 +2963,13 @@
         }
       },
       "parameters" : [],
-      "source" : "inherited"
+      "source" : "inheritedExplicit"
     },
     "kind" : "source.lang.swift.decl.extension",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
-      "first_line" : 38,
-      "last_line" : 40,
+      "first_line" : 39,
+      "last_line" : 41,
       "module_name" : "SpmSwiftModule",
       "pass_index" : 0
     },
@@ -3026,8 +3021,8 @@
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
-          "first_line" : 58,
-          "last_line" : 58,
+          "first_line" : 59,
+          "last_line" : 59,
           "module_name" : "SpmSwiftModule",
           "pass_index" : 0
         },
@@ -3070,8 +3065,8 @@
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
-          "first_line" : 60,
-          "last_line" : 60,
+          "first_line" : 61,
+          "last_line" : 61,
           "module_name" : "SpmSwiftModule",
           "pass_index" : 0
         },
@@ -3112,8 +3107,8 @@
     "kind" : "source.lang.swift.decl.extension",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
-      "first_line" : 56,
-      "last_line" : 61,
+      "first_line" : 57,
+      "last_line" : 62,
       "module_name" : "SpmSwiftModule",
       "pass_index" : 0
     },

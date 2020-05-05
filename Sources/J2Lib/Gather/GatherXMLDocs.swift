@@ -474,11 +474,11 @@ final class XMLDeclarationBuilder {
         return listNode
     }
 
-    func flatDefDocs(source: DefDocSource) -> FlatDefDocs {
+    func flatDefDocs(source: DefDocSource, shortForm: Bool) -> FlatDefDocs {
         let mds = [discussion?.renderMarkdown().md, calloutsList?.renderMarkdown().md]
         let fullDiscussion = mds.compactMap { $0 }.joined(separator: "\n\n")
         return FlatDefDocs(abstract: abstract?.renderMarkdown(),
-                           discussion: fullDiscussion.isEmpty ? nil : Markdown(fullDiscussion),
+                           discussion: (shortForm || fullDiscussion.isEmpty) ? nil : Markdown(fullDiscussion),
                            returns: returns?.renderMarkdown(),
                            parameters: parameters.map {
                                FlatDefDocs.Param(name: $0.name.renderPlainText(),
@@ -492,14 +492,14 @@ final class XMLDeclarationBuilder {
 
 enum XMLDocComment {
     /// Try to pull a broken-down declaration doc comment out of sourcekit `full_as_xml`.
-    static func parse(xml: String, source: DefDocSource) -> FlatDefDocs? {
+    static func parse(xml: String, source: DefDocSource, shortForm: Bool) -> FlatDefDocs? {
         guard let parts = xml.re_match("<CommentParts>.*</CommentParts>")?[0] else {
             return nil
         }
         let builder = XMLDeclarationBuilder()
         do {
             try builder.parseCommentParts(xml: parts)
-            let docs = builder.flatDefDocs(source: source)
+            let docs = builder.flatDefDocs(source: source, shortForm: shortForm)
             return docs.isEmpty ? nil : docs
         } catch {
             logWarning("Couldn't make sense of XML doc comment \(xml): \(error)")

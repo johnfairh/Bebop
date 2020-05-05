@@ -1647,11 +1647,6 @@
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
-                "discussion" : {
-                  "en" : {
-                    "html" : "<p>Calling this property directly is discouraged. Instead, convert an instance of\nany type to a string by using the <code>String(describing:)<\/code> initializer. This\ninitializer works with any type, and uses the custom <code>description<\/code> property for\ntypes that conform to <code>CustomStringConvertible<\/code>:<\/p>\n<pre><code class=\"language-swift\">struct Point: CustomStringConvertible {\n    let x: Int, y: Int\n\n    var description: String {\n        return &quot;(\\(x), \\(y))&quot;\n    }\n}\n\nlet p = Point(x: 21, y: 30)\nlet s = String(describing: p)\nprint(s)\n\/\/ Prints &quot;(21, 30)&quot;\n\n<\/code><\/pre>\n<p>The conversion of <code>p<\/code> to a string in the assignment to <code>s<\/code> uses the <code>Point<\/code>\ntype’s <code>description<\/code> property.<\/p>\n<div class=\"j2-callout j2-callout-note aside aside-note\">\n<div class=\"j2-callout-title aside-title\" role=\"heading\" aria-level=\"6\">note<\/div>\n<p>This documentation comment was inherited from\n<code>CustomStringConvertible<\/code>.<\/p>\n<\/div>"
-                  }
-                },
                 "params" : [],
                 "swift_declaration" : {
                   "html" : "var description: String { get }"

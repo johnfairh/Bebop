@@ -65,7 +65,8 @@ public final class GatherDef {
         }
         self.kind = kind
 
-        if let docComment = sourceKittenDict.documentationComment {
+        if let docComment = sourceKittenDict.documentationComment,
+            !docComment.isAnyInheritDoc {
             let docSource: DefDocSource
             if let inherited = sourceKittenDict.inheritedDocs, inherited {
                 docSource = .inherited
@@ -75,13 +76,24 @@ public final class GatherDef {
             let docsBuilder = MarkdownBuilder(markdown: Markdown(docComment), source: docSource)
             self.documentation = docsBuilder.build()
             self.localizationKey = docsBuilder.localizationKey
-        } else if let previousSiblingDef = previousSiblingDef,
-                  let previousSiblingDocs = previousSiblingDef.documentation,
+        } else if sourceKittenDict.documentationComment == nil,
+            let previousSiblingDef = previousSiblingDef,
+            let previousSiblingDocs = previousSiblingDef.documentation,
             previousSiblingDef.canShareDocsWithSibling(offset: sourceKittenDict.offset) {
             self.documentation = previousSiblingDocs
             self.localizationKey = previousSiblingDef.localizationKey
         } else if kind.isSwift, let xml = sourceKittenDict.fullXMLDocs {
-            self.documentation = XMLDocComment.parse(xml: xml, source: .inherited)
+            var source = DefDocSource.inherited
+            var shortForm = true
+            if let docComment = sourceKittenDict.documentationComment {
+                if docComment.isAnyInheritDoc {
+                    source = .inheritedExplicit
+                }
+                shortForm = docComment.isInheritDoc
+            }
+            self.documentation = XMLDocComment.parse(xml: xml,
+                                                     source: source,
+                                                     shortForm: shortForm)
             self.localizationKey = nil // apple seem to lose this :(
         } else {
             self.documentation = nil
@@ -231,5 +243,19 @@ extension SourceKittenDict {
             self[.swiftDeclaration] = "extension \(brokenName.className)"
             self[.swiftName] = brokenName.className
         }
+    }
+}
+
+private extension String {
+    var isInheritDoc: Bool {
+        re_isMatch(#"^\s*:inheritdoc:\s*$"#)
+    }
+
+    var isInheritFullDoc: Bool {
+        re_isMatch(#"^\s*:inheritfulldoc:\s*$"#)
+    }
+
+    var isAnyInheritDoc: Bool {
+        isInheritDoc || isInheritFullDoc
     }
 }
