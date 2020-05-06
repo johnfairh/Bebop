@@ -4,7 +4,7 @@ Copyright 2020 J2 Authors
 Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
 -->
 ![50%](../badge.svg)
-[![Open in Dash](../img/dash.svg)](https%3A%2F%2Fwww%2Egoogle%2Ecom%2F)
+[![Open in Dash](../img/dash.svg)](dash-feed://https%3A%2F%2Fwww%2Egoogle%2Ecom%2F)
 
 
 [SpmSwiftModule](../index.md)
@@ -155,7 +155,7 @@ associatedtype AssocType
 
 
 
- [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Protocols.swift#L10) 
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Protocols.swift#L10)
 </details>
 
 
@@ -202,7 +202,7 @@ func assocFunc() -> AssocType
 
 
 
- [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Protocols.swift#L11) 
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Protocols.swift#L11)
 </details>
 
 
@@ -248,7 +248,7 @@ func e()
 
 
 
- [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Protocols.swift#L18) 
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Protocols.swift#L18)
 </details>
 
 
@@ -308,7 +308,7 @@ The answer
 
 
 
- [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Protocols.swift#L8) 
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Protocols.swift#L8)
 </details>
 
 
@@ -355,7 +355,7 @@ var getOnly: Int { get }
 
 
 
- [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Protocols.swift#L13) 
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Protocols.swift#L13)
 </details>
 
 
@@ -405,7 +405,7 @@ func extHashableMethod()
 
 
 
- [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L48) 
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L48)
 </details>
 
 
@@ -454,7 +454,7 @@ func m(arg: Int) -> String
 
 
 
- [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L51-L53) 
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L51-L53)
 </details>
 
 

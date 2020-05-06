@@ -4,7 +4,7 @@ Copyright 2020 J2 Authors
 Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
 -->
 ![50%](badge.svg)
-[![Open in Dash](img/dash.svg)](https%3A%2F%2Fwww%2Egoogle%2Ecom%2F)
+[![Open in Dash](img/dash.svg)](dash-feed://https%3A%2F%2Fwww%2Egoogle%2Ecom%2F)
 
 
 [SpmSwiftModule](index.md)
@@ -278,9 +278,9 @@ extension Collection where Element == SpmSwiftModule.Nested1
 
 
 
- [](extensions/collection.md?swift) 
+[Show members](extensions/collection.md?swift)
 
- [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L39-L41) 
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L39-L41)
 </details>
 
 
@@ -321,9 +321,9 @@ extension String.Element
 
 
 
- [](extensions/stringelement.md?swift) 
+[Show members](extensions/stringelement.md?swift)
 
- [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L57-L62) 
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L57-L62)
 </details>
 
 

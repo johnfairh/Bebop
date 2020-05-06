@@ -4,7 +4,7 @@ Copyright 2020 J2 Authors
 Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
 -->
 ![50%](../badge.svg)
-[![Open in Dash](../img/dash.svg)](https%3A%2F%2Fwww%2Egoogle%2Ecom%2F)
+[![Open in Dash](../img/dash.svg)](dash-feed://https%3A%2F%2Fwww%2Egoogle%2Ecom%2F)
 
 
 [SpmSwiftModule](../index.md)
@@ -155,7 +155,7 @@ public func generic(param: T) -> T
 
 
 
- [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L114-L116) 
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L114-L116)
 </details>
 
 
@@ -198,7 +198,7 @@ public override func method(param: Int) -> String
 
 
 
- [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L110-L112) 
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L110-L112)
 </details>
 
 
@@ -245,7 +245,7 @@ var t: Q?
 
 
 
- [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L107) 
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L107)
 </details>
 
 

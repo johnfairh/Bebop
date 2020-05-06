@@ -4,7 +4,7 @@ Copyright 2020 J2 Authors
 Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
 -->
 ![50%](../badge.svg)
-[![Open in Dash](../img/dash.svg)](https%3A%2F%2Fwww%2Egoogle%2Ecom%2F)
+[![Open in Dash](../img/dash.svg)](dash-feed://https%3A%2F%2Fwww%2Egoogle%2Ecom%2F)
 
 
 [SpmSwiftModule](../index.md)
@@ -153,9 +153,9 @@ public struct Nested1
 
 
 
- [](../types/spmswiftmodule/nested1.md?swift) 
+[Show members](../types/spmswiftmodule/nested1.md?swift)
 
- [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L8-L14) 
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L8-L14)
 </details>
 
 
@@ -198,7 +198,7 @@ public struct Nested2
 
 
 
- [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L16) 
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L16)
 </details>
 
 
@@ -245,7 +245,7 @@ var a: Int
 
 
 
- [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L19) 
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L19)
 </details>
 
 
@@ -288,7 +288,7 @@ var b: Int
 
 
 
- [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L19) 
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L19)
 </details>
 
 
@@ -331,7 +331,7 @@ public var text: String
 
 
 
- [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L4) 
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L4)
 </details>
 
 

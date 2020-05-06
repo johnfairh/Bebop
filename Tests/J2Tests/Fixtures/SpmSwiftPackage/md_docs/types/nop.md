@@ -4,7 +4,7 @@ Copyright 2020 J2 Authors
 Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
 -->
 ![50%](../badge.svg)
-[![Open in Dash](../img/dash.svg)](https%3A%2F%2Fwww%2Egoogle%2Ecom%2F)
+[![Open in Dash](../img/dash.svg)](dash-feed://https%3A%2F%2Fwww%2Egoogle%2Ecom%2F)
 
 
 [SpmSwiftModule](../index.md)
@@ -156,7 +156,7 @@ init(wrappedValue: String)
 
 
 
- [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L123-L125) 
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L123-L125)
 </details>
 
 
@@ -203,7 +203,7 @@ var wrappedValue: String
 
 
 
- [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L121) 
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L121)
 </details>
 
 

@@ -522,8 +522,13 @@ class TestGen: XCTestCase {
         let system = System()
         try system.configure(cliOpts: ["--deployment-url=https://www.google.com/docs/", "--docset-module-name=Fred"])
         let globalData = system.gen.buildGlobalData(genData: GenData())
+        guard let docsetURL = globalData[.docsetURL] as? String else {
+            XCTFail()
+            return
+        }
+        XCTAssertTrue(docsetURL.hasPrefix("dash-feed://"))
         XCTAssertEqual("https://www.google.com/docs/docsets/Fred.xml",
-                       (globalData[.docsetURL] as? String)?.removingPercentEncoding)
+                       docsetURL.dropFirst("dash-feed://".count).removingPercentEncoding)
     }
 
     // MARK: Theme copy

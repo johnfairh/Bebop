@@ -312,10 +312,11 @@ public struct GenSite: Configurable {
 
         // Put the docset feed at either (a) where they asked for it, or
         //                               (b) figured out relative to deployment URL
-        let docsetFeedURL = docsetFeedURLOpt.value ??
-            (deploymentURLOpt.value.flatMap { docset.feedURLFrom(deploymentURL: $0) })
-
-        dict.maybe(.docsetURL, docsetFeedURL?.absoluteString.addingPercentEncoding(withAllowedCharacters: .alphanumerics))
+        if let docsetFeedURL = docsetFeedURLOpt.value ??
+            (deploymentURLOpt.value.flatMap { docset.feedURLFrom(deploymentURL: $0) }),
+            let encodedFeedURL = docsetFeedURL.absoluteString.addingPercentEncoding(withAllowedCharacters: .alphanumerics) {
+            dict[.docsetURL] = "dash-feed://" + encodedFeedURL
+        }
 
         return dict
     }

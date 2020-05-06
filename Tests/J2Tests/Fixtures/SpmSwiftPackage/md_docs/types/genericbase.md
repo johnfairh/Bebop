@@ -4,7 +4,7 @@ Copyright 2020 J2 Authors
 Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
 -->
 ![50%](../badge.svg)
-[![Open in Dash](../img/dash.svg)](https%3A%2F%2Fwww%2Egoogle%2Ecom%2F)
+[![Open in Dash](../img/dash.svg)](dash-feed://https%3A%2F%2Fwww%2Egoogle%2Ecom%2F)
 
 
 [SpmSwiftModule](../index.md)
@@ -157,7 +157,7 @@ init(type: T)
 
 
 
- [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L3-L5) 
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L3-L5)
 </details>
 
 
@@ -204,7 +204,7 @@ func mutify() -> T
 
 
 
- [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L7-L9) 
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L7-L9)
 </details>
 
 
@@ -251,7 +251,7 @@ var boxed: T
 
 
 
- [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L2) 
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L2)
 </details>
 
 
@@ -294,7 +294,7 @@ var description: String { get }
 
 
 
- [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L33-L35) 
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L33-L35)
 </details>
 
 
@@ -341,7 +341,7 @@ func doCodability()
 
 
 
- [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L16) 
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L16)
 </details>
 
 
@@ -384,7 +384,7 @@ var codableCount: Int { get }
 
 
 
- [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L13-L15) 
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L13-L15)
 </details>
 
 
@@ -431,7 +431,7 @@ func doFirstMagic()
 
 
 
- [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L21) 
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L21)
 </details>
 
 
@@ -474,7 +474,7 @@ func doMoreMagic()
 
 
 
- [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L23) 
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L23)
 </details>
 
 
@@ -521,7 +521,7 @@ func doHashable()
 
 
 
- [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L28) 
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L28)
 </details>
 
 

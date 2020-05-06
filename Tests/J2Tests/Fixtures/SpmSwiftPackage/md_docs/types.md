@@ -4,7 +4,7 @@ Copyright 2020 J2 Authors
 Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
 -->
 ![50%](badge.svg)
-[![Open in Dash](img/dash.svg)](https%3A%2F%2Fwww%2Egoogle%2Ecom%2F)
+[![Open in Dash](img/dash.svg)](dash-feed://https%3A%2F%2Fwww%2Egoogle%2Ecom%2F)
 
 
 [SpmSwiftModule](index.md)
@@ -128,9 +128,9 @@ public class ABaseClass
 
 
 
- [](types/abaseclass.md?swift) 
+[Show members](types/abaseclass.md?swift)
 
- [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L60-L95) 
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L60-L95)
 </details>
 
 
@@ -171,9 +171,9 @@ public class ADerivedClass<T, Q> : ABaseClass where Q : Sequence
 
 
 
- [](types/aderivedclass.md?swift) 
+[Show members](types/aderivedclass.md?swift)
 
- [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L106-L117) 
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L106-L117)
 </details>
 
 
@@ -214,9 +214,9 @@ public enum AnEnum
 
 
 
- [](types/anenum.md?swift) 
+[Show members](types/anenum.md?swift)
 
- [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L24-L33) 
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L24-L33)
 </details>
 
 
@@ -257,9 +257,9 @@ public protocol FirstProtocol
 
 
 
- [](types/firstprotocol1.md?swift) 
+[Show members](types/firstprotocol1.md?swift)
 
- [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Protocols.swift#L2-L14) 
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Protocols.swift#L2-L14)
 </details>
 
 
@@ -302,9 +302,9 @@ extension GenericBase : CustomStringConvertible
 
 
 
- [](types/genericbase.md?swift) 
+[Show members](types/genericbase.md?swift)
 
- [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L1-L10) 
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L1-L10)
 </details>
 
 
@@ -346,9 +346,9 @@ struct Nop
 
 
 
- [](types/nop.md?swift) 
+[Show members](types/nop.md?swift)
 
- [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L120-L126) 
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L120-L126)
 </details>
 
 
@@ -389,9 +389,9 @@ struct PropertyWrapperClient
 
 
 
- [](types/propertywrapperclient.md?swift) 
+[Show members](types/propertywrapperclient.md?swift)
 
- [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L129-L132) 
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L129-L132)
 </details>
 
 
@@ -432,9 +432,9 @@ public protocol SecondProtocol : FirstProtocol
 
 
 
- [](types/secondprotocol.md?swift) 
+[Show members](types/secondprotocol.md?swift)
 
- [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Protocols.swift#L30-L32) 
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Protocols.swift#L30-L32)
 </details>
 
 
@@ -475,9 +475,9 @@ public struct SpmSwiftModule
 
 
 
- [](types/spmswiftmodule.md?swift) 
+[Show members](types/spmswiftmodule.md?swift)
 
- [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L2-L21) 
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L2-L21)
 </details>
 
 
@@ -520,7 +520,7 @@ struct T
 
 
 
- [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L97-L98) 
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L97-L98)
 </details>
 
 
