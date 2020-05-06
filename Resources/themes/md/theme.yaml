@@ -1,0 +1,5 @@
+# Basic pure (almost) markdown theme to demo fields, for eg. github file view.
+mustache_root: "doc.mustache"
+file_extension: ".md"
+localized_strings: "strings.yaml"
+default_language_tag: "en"

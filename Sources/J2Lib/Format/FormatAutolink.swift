@@ -76,6 +76,10 @@ final class FormatAutolink: Configurable {
         Html(html.html.re_sub(AUTOLINK_TOKEN, with: pathToRoot))
     }
 
+    static func fixUpAutolinks(markdown: Markdown, pathToRoot: String) -> Markdown {
+        Markdown(markdown.md.re_sub(AUTOLINK_TOKEN, with: pathToRoot))
+    }
+
     /// Try to match a def from a name, in a particular naming and link context.
     ///
     /// These are different in practice only for topics, which are evaluated inside the namespace of

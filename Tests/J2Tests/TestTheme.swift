@@ -27,7 +27,7 @@ class TestTheme: XCTestCase {
 
     func testThemesDiscovery() throws {
         let system = System()
-        XCTAssertEqual(["fw2020"], system.themes.builtInNames)
+        XCTAssertEqual(["fw2020", "md"], system.themes.builtInNames)
     }
 
     private func checkGoodThemeSelection(opts: [String]) throws {

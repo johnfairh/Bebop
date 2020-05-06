@@ -1,0 +1,11 @@
+{{#tocs.first}}
+{{#toc}}
+{{^.url}}{{{title}}}{{/.url}}{{#.url}}[{{{title}}}]({{^same_page}}{{{path_to_root}}}{{/same_page}}{{{.}}}){{/.url}}
+{{#.children}}
+  * {{^.url}}{{{title}}}{{/.url}}{{#.url}}[{{{title}}}]({{^same_page}}{{{path_to_root}}}{{/same_page}}{{{.}}}){{/.url}}
+{{#.children}}
+    * {{^.url}}{{{title}}}{{/.url}}{{#.url}}[{{{title}}}]({{^same_page}}{{{path_to_root}}}{{/same_page}}{{{.}}}){{/.url}}
+{{/.children}}
+{{/.children}}
+{{/toc}}
+{{/tocs.first}}

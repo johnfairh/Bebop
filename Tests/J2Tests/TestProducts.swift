@@ -220,7 +220,19 @@ class TestProducts: XCTestCase {
         try doTestSiteFiles(args: options, goodDocsURL: docsDirURL)
     }
 
-    func doTestSiteFiles(args: [String], goodDocsURL: URL) throws {
+    // Full markdown tests
+    func testMarkdownNested() throws {
+        let packageDirURL = fixturesURL.appendingPathComponent("SpmSwiftPackage")
+        let docsDirURL = packageDirURL.appendingPathComponent("md_docs")
+
+        let options = [
+            "--source-directory=\(packageDirURL.path)",
+            "--config=\(packageDirURL.appendingPathComponent("markdown-j2.yaml").path)"]
+
+        try doTestSiteFiles(args: options, goodDocsURL: docsDirURL)
+    }
+
+    private func doTestSiteFiles(args: [String], goodDocsURL: URL) throws {
         setenv("J2_STATIC_DATE", strdup("1") /* leak it */, 1)
         setenv("J2_STATIC_VERSION", strdup("1"), 1)
         defer {
@@ -269,7 +281,7 @@ class TestProducts: XCTestCase {
         let enumerator = FileManager.default.enumerator(atPath: url.path)!
         return enumerator.compactMap {
             guard let path = $0 as? String,
-                path.re_isMatch(#"(html|json|svg|plist|xml)$"#),
+                path.re_isMatch(#"(html|json|svg|plist|xml|md)$"#),
                 !path.re_isMatch("undocumented.json$") else {
                     return nil
             }

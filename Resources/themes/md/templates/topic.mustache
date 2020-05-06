@@ -1,0 +1,34 @@
+{{#.title_md}}## {{{.}}}{{/.title_md}}
+{{#.overview_md}}{{{.}}}{{/.overview_md}}
+
+{{#items}}
+{{^any_declaration}}
+[{{{title}}}]({{{path_to_root}}}{{{primary_url}}})
+{{/any_declaration}}
+{{#any_declaration}}
+
+{{^item_nest}}
+[`{{{title}}}`{{#extension_constraint}} {{{.}}}{{/extension_constraint}}]({{{path_to_root}}}{{{primary_url}}})
+{{#.def.abstract_md}}
+* {{{.}}}
+{{/.def.abstract_md}}
+{{/item_nest}}
+
+{{#item_nest}}
+<details{{#item_collapse_open}} open="true"{{/item_collapse_open}}>
+<summary><code>{{{title}}}</code>{{#extension_constraint}} {{{.}}}{{/extension_constraint}}</summary>
+{{#def}}
+{{> availability}}
+{{> def_discussion}}
+#### {{{l_declaration}}}
+{{> declaration}}
+{{> params_returns}}
+{{/def}}
+
+{{#primary_url}}[{{{l_show_members}}}]({{{path_to_root}}}{{{.}}}){{/primary_url}}
+
+{{#def.codehost_url}}[{{{codehost_def_link}}}]({{{.}}}){{/def.codehost_url}}
+</details>
+{{/item_nest}}
+{{/any_declaration}}
+{{/items}}

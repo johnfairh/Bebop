@@ -30,22 +30,22 @@ public final class GenData: Encodable {
 
     public struct Param: Encodable {
         public let name: String
-        public let description: Localized<Html>
+        public let description: RichText
     }
     public struct Def: Encodable {
-        public let deprecation: Localized<Html>?
+        public let deprecation: RichText?
         public let deprecatedEverywhere: Bool
-        public let unavailability: Localized<Html>?
-        public let notes: Localized<Html>?
+        public let unavailability: RichText?
+        public let notes: RichText?
         public let availability: [String]
-        public let abstract: Localized<Html>?
-        public let discussion: Localized<Html>?
-        public let defaultAbstract: Localized<Html>?
-        public let defaultDiscussion: Localized<Html>?
-        public let swiftDeclaration: Html?
-        public let objCDeclaration: Html?
+        public let abstract: RichText?
+        public let discussion: RichText?
+        public let defaultAbstract: RichText?
+        public let defaultDiscussion: RichText?
+        public let swiftDeclaration: RichDeclaration?
+        public let objCDeclaration: RichDeclaration?
         public let params: [Param]
-        public let returns: Localized<Html>?
+        public let returns: RichText?
         public let codeHostURL: String?
     }
     public struct Item: Encodable {
@@ -98,10 +98,10 @@ public final class GenData: Encodable {
         }
     }
     public struct Topic: Encodable {
-        public let title: Localized<Html>
+        public let title: RichText
         public let menuTitle: Localized<String>
         public let anchorId: String
-        public let overview: Localized<Html>?
+        public let overview: RichText?
         public let items: [Item]
     }
     public struct GuideTopic: Encodable {
@@ -132,7 +132,7 @@ public final class GenData: Encodable {
         public let tabTitlePrefix: Bool
         public let isGuide: Bool
         public let mixLanguages: Bool
-        public let content: Localized<Html>?
+        public let content: RichText?
         // goes with meta.languages
         public let breadcrumbs: [[Breadcrumb]]
         public let def: Def?
@@ -176,7 +176,7 @@ public final class GenData: Encodable {
              secondaryTitle: Localized<String>?,
              breadcrumbs: [[Breadcrumb]],
              mixLanguages: Bool,
-             content: Localized<Html>?,
+             content: RichText?,
              topics: [Topic],
              pagination: Pagination,
              codeHostURL: Localized<String>?) {
@@ -202,7 +202,7 @@ public final class GenData: Encodable {
              title: Localized<String>,
              breadcrumbs: [[Breadcrumb]],
              isReadme: Bool,
-             content: Localized<Html>?,
+             content: RichText?,
              topics: Localized<[GuideTopic]>,
              pagination: Pagination,
              codeHostURL: Localized<String>?) {

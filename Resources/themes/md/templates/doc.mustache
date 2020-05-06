@@ -1,0 +1,30 @@
+<!--
+Bebop simple MD theme
+Copyright 2020 J2 Authors
+Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
+-->
+{{> header}}
+{{> breadcrumbs}}
+<details>
+<summary>{{{l_contents}}}</summary>
+{{> nav}}
+</details>
+
+{{^hide_article_title}}# {{{primary_page_title}}}{{/hide_article_title}}
+
+{{#def}}
+{{> declaration}}
+{{> availability}}
+{{> def_discussion}}
+{{> params_returns}}
+{{/def}}
+
+{{#def.codehost_url}}[{{{codehost_def_link}}}]({{{.}}}){{/def.codehost_url}}
+
+{{{content_md}}}
+
+{{#topics}}{{> topic}}{{/topics}}
+
+{{#pagination}}{{> pagination}}{{/pagination}}
+
+{{> footer}}

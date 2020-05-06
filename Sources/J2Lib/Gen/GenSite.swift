@@ -207,6 +207,7 @@ public struct GenSite: Configurable {
             mustacheData[.pathFromRoot] = page.filepath.urlPathEncoded
             mustacheData[.docsTitle] = docsTitle.get(page.languageTag)
             mustacheData[.copyrightHtml] = copyrightText.html.get(page.languageTag).html
+            mustacheData[.copyrightMd] = copyrightText.markdown.get(page.languageTag).md
             mustacheData[.breadcrumbsRoot] = breadcrumbsRoot.get(page.languageTag)
             mustacheData.maybe(.brandImagePath, brand.imagePath?.urlPathEncoded)
             mustacheData.maybe(.brandTitle, brand.title?.get(page.languageTag))

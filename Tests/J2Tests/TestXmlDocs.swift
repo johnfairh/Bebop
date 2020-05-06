@@ -207,8 +207,7 @@ class TestXMLDocs: XCTestCase {
                      </Document>
                      """#,
                      #"""
-                     ![Alt](http://url.com/
-                     "Hover text")![Alt](http://url.com/)![](http://url.com/)![]()
+                     ![Alt](http://url.com/ "Hover text")![Alt](http://url.com/)![](http://url.com/)![]()
                      """#)
     }
 

@@ -101,6 +101,7 @@ public enum MustacheKey: String {
     case toc = "toc"
     case hideArticleTitle = "hide_article_title"
     case contentHtml = "content_html"
+    case contentMd = "content_md"
     case apology = "apology"
     case noApologyLanguage = "no_apology_language"
     case mixed = "mixed"
@@ -121,6 +122,7 @@ public enum MustacheKey: String {
     case docsTitle = "docs_title"
     case breadcrumbsRoot = "breadcrumbs_root"
     case copyrightHtml = "copyright_html"
+    case copyrightMd = "copyright_md"
     // Localizations menu -- only set if there are multiple localizations
     case pageLocalization = "page_localization"
     case localizations = "localizations"
@@ -138,25 +140,38 @@ public enum MustacheKey: String {
     // Definitions
     case def = "def"
     case deprecationHtml = "deprecation_html"
+    case deprecationMd = "deprecation_md"
     case unavailableHtml = "unavailable_html"
+    case unavailableMd = "unavailable_md"
     case notesHtml = "notes_html"
+    case notesMd = "notes_md"
     case discouraged = "discouraged"
     case availability = "availability"
     case abstractHtml = "abstract_html"
+    case abstractMd = "abstract_md"
     case discussionHtml = "discussion_html"
+    case discussionMd = "discussion_md"
     case defaultAbstractHtml = "default_abstract_html"
+    case defaultAbstractMd = "default_abstract_md"
     case defaultDiscussionHtml = "default_discussion_html"
+    case defaultDiscussionMd = "default_discussion_md"
     case swiftDeclarationHtml = "swift_declaration_html"
+    case swiftDeclarationMd = "swift_declaration_md"
     case objCDeclarationHtml = "objc_declaration_html"
+    case objCDeclarationMd = "objc_declaration_md"
     case parameters = "parameters"
     case parameterHtml = "parameter_html"
+    case parameterMd = "parameter_md"
     case returnsHtml = "returns_html"
+    case returnsMd = "returns_md"
 
     // Topics
     case topics = "topics"
     case topicsLanguage = "topics_language"
     case titleHtml = "title_html"
+    case titleMd = "title_md"
     case overviewHtml = "overview_html"
+    case overviewMd = "overview_md"
     case anchorId = "anchor_id"
     case dashName = "dash_name"
 
@@ -224,7 +239,8 @@ extension GenData {
         if pg.mixLanguages {
             data[.mixed] = true
         }
-        data.maybe(.contentHtml, pg.content?.get(languageTag).html)
+        data.maybe(.contentHtml, pg.content?.html.get(languageTag).html)
+        data.maybe(.contentMd, pg.content?.markdown.get(languageTag).md)
         data.maybe(.def, pg.def?.generateDef(languageTag: languageTag, fileExt: fileExt))
 
         data[.breadcrumbsMenus] = generateBreadcrumbs(for: pg, languageTag: languageTag, fileExt: fileExt)
@@ -503,9 +519,11 @@ extension GenData.Topic: SoloLanguageProtocol {
         let dashName = titleText.urlPathEncoded
         var dict = MH([.anchorId: anchorId, .dashName: dashName])
         if !titleText.isEmpty {
-            dict[.titleHtml] = title.get(languageTag).html
+            dict[.titleHtml] = title.html.get(languageTag).html
+            dict[.titleMd] = title.markdown.get(languageTag).md
         }
-        dict.maybe(.overviewHtml, overview?.get(languageTag).html)
+        dict.maybe(.overviewHtml, overview?.html.get(languageTag).html)
+        dict.maybe(.overviewMd, overview?.markdown.get(languageTag).md)
         dict.maybe(.primaryLanguage, soloLanguage?.cssName)
         if items.count > 0 {
             dict[.items] = items.map {
@@ -598,25 +616,37 @@ extension GenData.Def: SoloLanguageProtocol {
     ///   returns_html - optional - returns docs
     func generateDef(languageTag: String, fileExt: String) -> MustacheDict {
         var dict = MustacheDict()
-        dict.maybe(.deprecationHtml, deprecation?.get(languageTag).html)
-        dict.maybe(.unavailableHtml, unavailability?.get(languageTag).html)
-        dict.maybe(.notesHtml, notes?.get(languageTag).html)
+        dict.maybe(.deprecationHtml, deprecation?.html.get(languageTag).html)
+        dict.maybe(.deprecationMd, deprecation?.markdown.get(languageTag).md)
+        dict.maybe(.unavailableHtml, unavailability?.html.get(languageTag).html)
+        dict.maybe(.unavailableMd, unavailability?.markdown.get(languageTag).md)
+        dict.maybe(.notesHtml, notes?.html.get(languageTag).html)
+        dict.maybe(.notesMd, notes?.markdown.get(languageTag).md)
         dict[.discouraged] = deprecatedEverywhere
         if !availability.isEmpty {
             dict[.availability] = availability
         }
-        dict.maybe(.swiftDeclarationHtml, swiftDeclaration?.html)
-        dict.maybe(.objCDeclarationHtml, objCDeclaration?.html)
-        dict.maybe(.abstractHtml, abstract?.get(languageTag).html)
-        dict.maybe(.discussionHtml, discussion?.get(languageTag).html)
-        dict.maybe(.defaultAbstractHtml, defaultAbstract?.get(languageTag).html)
-        dict.maybe(.defaultDiscussionHtml, defaultDiscussion?.get(languageTag).html)
+        dict.maybe(.swiftDeclarationHtml, swiftDeclaration?.html.html)
+        dict.maybe(.swiftDeclarationMd, swiftDeclaration?.text)
+        dict.maybe(.objCDeclarationHtml, objCDeclaration?.html.html)
+        dict.maybe(.objCDeclarationMd, objCDeclaration?.text)
+        dict.maybe(.abstractHtml, abstract?.html.get(languageTag).html)
+        dict.maybe(.abstractMd, abstract?.markdown.get(languageTag).md)
+        dict.maybe(.discussionHtml, discussion?.html.get(languageTag).html)
+        dict.maybe(.discussionMd, discussion?.markdown.get(languageTag).md)
+        dict.maybe(.defaultAbstractHtml, defaultAbstract?.html.get(languageTag).html)
+        dict.maybe(.defaultAbstractMd, defaultAbstract?.markdown.get(languageTag).md)
+        dict.maybe(.defaultDiscussionHtml, defaultDiscussion?.html.get(languageTag).html)
+        dict.maybe(.defaultDiscussionMd, defaultDiscussion?.markdown.get(languageTag).md)
         if !params.isEmpty {
             dict[.parameters] = params.map {
-                MH([.title: $0.name, .parameterHtml: $0.description.get(languageTag).html])
+                MH([.title: $0.name,
+                    .parameterHtml: $0.description.html.get(languageTag).html,
+                    .parameterMd: $0.description.markdown.get(languageTag).md])
             }
         }
-        dict.maybe(.returnsHtml, returns?.get(languageTag).html)
+        dict.maybe(.returnsHtml, returns?.html.get(languageTag).html)
+        dict.maybe(.returnsMd, returns?.markdown.get(languageTag).md)
         dict.maybe(.codehostURL, codeHostURL)
         return dict
     }

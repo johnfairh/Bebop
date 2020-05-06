@@ -54,7 +54,7 @@ extension CMNode {
     /// Render the tree to markdown, standard options and minimal whitespace.
     func renderMarkdown() -> Markdown {
         do {
-            let md = try renderCommonMark(CMDocument.options, width: 80)
+            let md = try renderCommonMark(CMDocument.options, width: 0)
             return Markdown(md.trimmingTrailingCharacters(in: .whitespacesAndNewlines))
         } catch {
             return Markdown("")
@@ -74,7 +74,7 @@ extension CMNode {
     /// Render the tree to plaintext, standard options and minimal whitespace.
     func renderPlainText() -> String {
         do {
-            let text = try renderPlainText(CMDocument.options, width: 80)
+            let text = try renderPlainText(CMDocument.options, width: 0)
             return text.trimmingTrailingCharacters(in: .whitespacesAndNewlines)
         } catch {
             return ""

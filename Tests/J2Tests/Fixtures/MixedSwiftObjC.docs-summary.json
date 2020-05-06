@@ -57,14 +57,20 @@
               "dash_type" : "Class",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Type with a different shape in Swift - parent does not exist<\/p>"
+                  "html" : {
+                    "en" : "<p>Type with a different shape in Swift - parent does not exist<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Type with a different shape in Swift - parent does not exist"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
-                  "html" : "@interface JMLBathroomCupboard : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+                  "html" : {
+                    "html" : "@interface JMLBathroomCupboard : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+                  },
+                  "text" : "@interface JMLBathroomCupboard : NSObject"
                 },
                 "params" : []
               },
@@ -84,18 +90,27 @@
               "dash_type" : "Class",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Type with different name in Swift<\/p>"
+                  "html" : {
+                    "en" : "<p>Type with different name in Swift<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Type with different name in Swift"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
-                  "html" : "@interface JMLKitchen : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+                  "html" : {
+                    "html" : "@interface JMLKitchen : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+                  },
+                  "text" : "@interface JMLKitchen : NSObject"
                 },
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "class Kitchen : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
+                  "html" : {
+                    "html" : "class Kitchen : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
+                  },
+                  "text" : "class Kitchen : NSObject"
                 }
               },
               "flat_title" : {
@@ -118,8 +133,11 @@
             "en" : "Classes"
           },
           "title" : {
-            "en" : {
-              "html" : "Classes"
+            "html" : {
+              "en" : "Classes"
+            },
+            "markdown" : {
+              "en" : "Classes"
             }
           }
         },
@@ -131,15 +149,21 @@
               "dash_type" : "Extension",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>A Unicode string value that is a collection of characters.<\/p>"
+                  "html" : {
+                    "en" : "<p>A Unicode string value that is a collection of characters.<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "A Unicode string value that is a collection of characters."
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "extension <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/string?language=swift\">String<\/a>"
+                  "html" : {
+                    "html" : "extension <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/string?language=swift\">String<\/a>"
+                  },
+                  "text" : "extension String"
                 }
               },
               "flat_title" : {
@@ -158,8 +182,11 @@
             "en" : "Extensions"
           },
           "title" : {
-            "en" : {
-              "html" : "Extensions"
+            "html" : {
+              "en" : "Extensions"
+            },
+            "markdown" : {
+              "en" : "Extensions"
             }
           }
         }
@@ -203,14 +230,20 @@
       ],
       "def" : {
         "abstract" : {
-          "en" : {
-            "html" : "<p>Type with a different shape in Swift - parent does not exist<\/p>"
+          "html" : {
+            "en" : "<p>Type with a different shape in Swift - parent does not exist<\/p>"
+          },
+          "markdown" : {
+            "en" : "Type with a different shape in Swift - parent does not exist"
           }
         },
         "availability" : [],
         "deprecated_everywhere" : false,
         "obj_c_declaration" : {
-          "html" : "@interface JMLBathroomCupboard : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+          "html" : {
+            "html" : "@interface JMLBathroomCupboard : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+          },
+          "text" : "@interface JMLBathroomCupboard : NSObject"
         },
         "params" : []
       },
@@ -259,14 +292,20 @@
               "dash_type" : "Method",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>See <a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchencupboard.html?swift#jmlkitchencupboardmethod\" class=\"j2-swift\"><code>Cupboard.jmlKitchenCupboardMethod()<\/code><\/a><a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchencupboard.html?objc#jmlkitchencupboardmethod\" class=\"j2-objc j2-secondary\"><code>-[JMLKitchenCupboard jmlKitchenCupboardMethod]<\/code><\/a><\/p>"
+                  "html" : {
+                    "en" : "<p>See <a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchencupboard.html?swift#jmlkitchencupboardmethod\" class=\"j2-swift\"><code>Cupboard.jmlKitchenCupboardMethod()<\/code><\/a><a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchencupboard.html?objc#jmlkitchencupboardmethod\" class=\"j2-objc j2-secondary\"><code>-[JMLKitchenCupboard jmlKitchenCupboardMethod]<\/code><\/a><\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "See [`Cupboard.jmlKitchenCupboardMethod()`](..\/..\/spmobjcmodule\/types\/jmlkitchencupboard.md#jmlkitchencupboardmethod)"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
-                  "html" : "- (void)jmlBathroomCupboardMethod"
+                  "html" : {
+                    "html" : "- (void)jmlBathroomCupboardMethod"
+                  },
+                  "text" : "- (void)jmlBathroomCupboardMethod"
                 },
                 "params" : []
               },
@@ -283,8 +322,11 @@
             "en" : ""
           },
           "title" : {
-            "en" : {
-              "html" : ""
+            "html" : {
+              "en" : ""
+            },
+            "markdown" : {
+              "en" : ""
             }
           }
         }
@@ -328,18 +370,27 @@
       ],
       "def" : {
         "abstract" : {
-          "en" : {
-            "html" : "<p>Type with different name in Swift<\/p>"
+          "html" : {
+            "en" : "<p>Type with different name in Swift<\/p>"
+          },
+          "markdown" : {
+            "en" : "Type with different name in Swift"
           }
         },
         "availability" : [],
         "deprecated_everywhere" : false,
         "obj_c_declaration" : {
-          "html" : "@interface JMLKitchen : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+          "html" : {
+            "html" : "@interface JMLKitchen : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+          },
+          "text" : "@interface JMLKitchen : NSObject"
         },
         "params" : [],
         "swift_declaration" : {
-          "html" : "class Kitchen : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
+          "html" : {
+            "html" : "class Kitchen : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
+          },
+          "text" : "class Kitchen : NSObject"
         }
       },
       "guide_topics" : {},
@@ -390,18 +441,27 @@
               "dash_type" : "Method",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
-                  "html" : "- (void)jmlKitchenMethod"
+                  "html" : {
+                    "html" : "- (void)jmlKitchenMethod"
+                  },
+                  "text" : "- (void)jmlKitchenMethod"
                 },
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "func kitchenMethod()"
+                  "html" : {
+                    "html" : "func kitchenMethod()"
+                  },
+                  "text" : "func kitchenMethod()"
                 }
               },
               "flat_title" : {
@@ -421,20 +481,29 @@
               "dash_type" : "Method",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>renamed class swift method<\/p>"
+                  "html" : {
+                    "en" : "<p>renamed class swift method<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "renamed class swift method"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "notes" : {
-                  "en" : {
-                    "html" : "<p>Provided by module <code>SpmSwiftModule4<\/code>.<\/p>"
+                  "html" : {
+                    "en" : "<p>Provided by module <code>SpmSwiftModule4<\/code>.<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Provided by module `SpmSwiftModule4`."
                   }
                 },
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "func renamed()"
+                  "html" : {
+                    "html" : "func renamed()"
+                  },
+                  "text" : "func renamed()"
                 }
               },
               "flat_title" : {
@@ -450,8 +519,11 @@
             "en" : ""
           },
           "title" : {
-            "en" : {
-              "html" : ""
+            "html" : {
+              "en" : ""
+            },
+            "markdown" : {
+              "en" : ""
             }
           }
         }
@@ -495,15 +567,21 @@
       ],
       "def" : {
         "abstract" : {
-          "en" : {
-            "html" : "<p>A Unicode string value that is a collection of characters.<\/p>"
+          "html" : {
+            "en" : "<p>A Unicode string value that is a collection of characters.<\/p>"
+          },
+          "markdown" : {
+            "en" : "A Unicode string value that is a collection of characters."
           }
         },
         "availability" : [],
         "deprecated_everywhere" : false,
         "params" : [],
         "swift_declaration" : {
-          "html" : "extension <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/string?language=swift\">String<\/a>"
+          "html" : {
+            "html" : "extension <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/string?language=swift\">String<\/a>"
+          },
+          "text" : "extension String"
         }
       },
       "guide_topics" : {},
@@ -551,15 +629,21 @@
               "dash_type" : "Method",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>From an external type that doesn’t exist in ObjC<\/p>"
+                  "html" : {
+                    "en" : "<p>From an external type that doesn’t exist in ObjC<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "From an external type that doesn’t exist in ObjC"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "func externalTypeMethod()"
+                  "html" : {
+                    "html" : "func externalTypeMethod()"
+                  },
+                  "text" : "func externalTypeMethod()"
                 }
               },
               "flat_title" : {
@@ -575,8 +659,11 @@
             "en" : ""
           },
           "title" : {
-            "en" : {
-              "html" : ""
+            "html" : {
+              "en" : ""
+            },
+            "markdown" : {
+              "en" : ""
             }
           }
         }
@@ -647,18 +734,27 @@
               "dash_type" : "Class",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
-                  "html" : "@interface ExposedSwiftClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+                  "html" : {
+                    "html" : "@interface ExposedSwiftClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+                  },
+                  "text" : "@interface ExposedSwiftClass : NSObject"
                 },
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public class ExposedSwiftClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
+                  "html" : {
+                    "html" : "public class ExposedSwiftClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
+                  },
+                  "text" : "public class ExposedSwiftClass : NSObject"
                 }
               },
               "flat_title" : {
@@ -681,18 +777,27 @@
               "dash_type" : "Class",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
-                  "html" : "@interface RenamedForObjC : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+                  "html" : {
+                    "html" : "@interface RenamedForObjC : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+                  },
+                  "text" : "@interface RenamedForObjC : NSObject"
                 },
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public class RenamedExposedSwiftClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
+                  "html" : {
+                    "html" : "public class RenamedExposedSwiftClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
+                  },
+                  "text" : "public class RenamedExposedSwiftClass : NSObject"
                 }
               },
               "flat_title" : {
@@ -715,23 +820,35 @@
               "dash_type" : "Class",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Un-renamed class to check normal things still work<\/p>"
+                  "html" : {
+                    "en" : "<p>Un-renamed class to check normal things still work<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Un-renamed class to check normal things still work"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "discussion" : {
-                  "en" : {
-                    "html" : "<p>See <a href=\"spmobjcmodule\/types\/normalclass1.html?objc#objcnormalmethod\" class=\"j2-objc\"><code>-objcNormalMethod<\/code><\/a><a href=\"spmobjcmodule\/types\/normalclass1.html?swift#objcnormalmethod\" class=\"j2-swift j2-secondary\"><code>objcNormalMethod()<\/code><\/a>.<\/p>"
+                  "html" : {
+                    "en" : "<p>See <a href=\"spmobjcmodule\/types\/normalclass1.html?objc#objcnormalmethod\" class=\"j2-objc\"><code>-objcNormalMethod<\/code><\/a><a href=\"spmobjcmodule\/types\/normalclass1.html?swift#objcnormalmethod\" class=\"j2-swift j2-secondary\"><code>objcNormalMethod()<\/code><\/a>.<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "See [`-objcNormalMethod`](spmobjcmodule\/types\/normalclass1.md#objcnormalmethod)."
                   }
                 },
                 "obj_c_declaration" : {
-                  "html" : "@interface NormalClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+                  "html" : {
+                    "html" : "@interface NormalClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+                  },
+                  "text" : "@interface NormalClass : NSObject"
                 },
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "class NormalClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
+                  "html" : {
+                    "html" : "class NormalClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
+                  },
+                  "text" : "class NormalClass : NSObject"
                 }
               },
               "flat_title" : {
@@ -754,18 +871,27 @@
               "dash_type" : "Class",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Type with a different shape in Swift - parent exists<\/p>"
+                  "html" : {
+                    "en" : "<p>Type with a different shape in Swift - parent exists<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Type with a different shape in Swift - parent exists"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
-                  "html" : "@interface JMLKitchenCupboard : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+                  "html" : {
+                    "html" : "@interface JMLKitchenCupboard : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+                  },
+                  "text" : "@interface JMLKitchenCupboard : NSObject"
                 },
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "class Cupboard : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
+                  "html" : {
+                    "html" : "class Cupboard : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
+                  },
+                  "text" : "class Cupboard : NSObject"
                 }
               },
               "flat_title" : {
@@ -788,8 +914,11 @@
             "en" : ""
           },
           "title" : {
-            "en" : {
-              "html" : ""
+            "html" : {
+              "en" : ""
+            },
+            "markdown" : {
+              "en" : ""
             }
           }
         }
@@ -833,18 +962,27 @@
       ],
       "def" : {
         "abstract" : {
-          "en" : {
-            "html" : "<p>Undocumented<\/p>"
+          "html" : {
+            "en" : "<p>Undocumented<\/p>"
+          },
+          "markdown" : {
+            "en" : "Undocumented"
           }
         },
         "availability" : [],
         "deprecated_everywhere" : false,
         "obj_c_declaration" : {
-          "html" : "@interface ExposedSwiftClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+          "html" : {
+            "html" : "@interface ExposedSwiftClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+          },
+          "text" : "@interface ExposedSwiftClass : NSObject"
         },
         "params" : [],
         "swift_declaration" : {
-          "html" : "public class ExposedSwiftClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
+          "html" : {
+            "html" : "public class ExposedSwiftClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
+          },
+          "text" : "public class ExposedSwiftClass : NSObject"
         }
       },
       "guide_topics" : {},
@@ -895,18 +1033,27 @@
               "dash_type" : "Method",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>docs<\/p>"
+                  "html" : {
+                    "en" : "<p>docs<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "docs"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
-                  "html" : "- (<a href=\"https:\/\/developer.apple.com\/documentation\/foundation\/nsstring?language=objc\">NSString<\/a> *_Nonnull)exposedMethodWithA:(<a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsinteger?language=objc\">NSInteger<\/a>)a b:(<a href=\"https:\/\/developer.apple.com\/documentation\/foundation\/nsstring?language=objc\">NSString<\/a> *_Nullable)b"
+                  "html" : {
+                    "html" : "- (<a href=\"https:\/\/developer.apple.com\/documentation\/foundation\/nsstring?language=objc\">NSString<\/a> *_Nonnull)exposedMethodWithA:(<a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsinteger?language=objc\">NSInteger<\/a>)a b:(<a href=\"https:\/\/developer.apple.com\/documentation\/foundation\/nsstring?language=objc\">NSString<\/a> *_Nullable)b"
+                  },
+                  "text" : "- (NSString *_Nonnull)exposedMethodWithA:(NSInteger)a b:(NSString *_Nullable)b"
                 },
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public func exposedMethod(a: <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/int?language=swift\">Int<\/a>, b: <a href=\"..\/..\/spmswiftmodule4\/extensions\/string.html?swift\">String<\/a>?) -&gt; <a href=\"..\/..\/spmswiftmodule4\/extensions\/string.html?swift\">String<\/a>"
+                  "html" : {
+                    "html" : "public func exposedMethod(a: <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/int?language=swift\">Int<\/a>, b: <a href=\"..\/..\/spmswiftmodule4\/extensions\/string.html?swift\">String<\/a>?) -&gt; <a href=\"..\/..\/spmswiftmodule4\/extensions\/string.html?swift\">String<\/a>"
+                  },
+                  "text" : "public func exposedMethod(a: Int, b: String?) -> String"
                 }
               },
               "flat_title" : {
@@ -926,18 +1073,27 @@
               "dash_type" : "Property",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>docs<\/p>"
+                  "html" : {
+                    "en" : "<p>docs<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "docs"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
-                  "html" : "@property (nonatomic) <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsinteger?language=objc\">NSInteger<\/a> exposedProperty"
+                  "html" : {
+                    "html" : "@property (nonatomic) <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsinteger?language=objc\">NSInteger<\/a> exposedProperty"
+                  },
+                  "text" : "@property (nonatomic) NSInteger exposedProperty"
                 },
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public var exposedProperty: <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/int?language=swift\">Int<\/a>"
+                  "html" : {
+                    "html" : "public var exposedProperty: <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/int?language=swift\">Int<\/a>"
+                  },
+                  "text" : "public var exposedProperty: Int"
                 }
               },
               "flat_title" : {
@@ -957,18 +1113,27 @@
               "dash_type" : "Property",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>ref docs<\/p>"
+                  "html" : {
+                    "en" : "<p>ref docs<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "ref docs"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
-                  "html" : "@property (nonatomic, strong) <a href=\"..\/..\/spmswiftmodule4\/types\/exposedswiftclass.html?swift\">ExposedSwiftClass<\/a> *_Nullable exposedRefProperty"
+                  "html" : {
+                    "html" : "@property (nonatomic, strong) <a href=\"..\/..\/spmswiftmodule4\/types\/exposedswiftclass.html?swift\">ExposedSwiftClass<\/a> *_Nullable exposedRefProperty"
+                  },
+                  "text" : "@property (nonatomic, strong) ExposedSwiftClass *_Nullable exposedRefProperty"
                 },
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public var exposedRefProperty: <a href=\"..\/..\/spmswiftmodule4\/types\/exposedswiftclass.html?swift\">ExposedSwiftClass<\/a>?"
+                  "html" : {
+                    "html" : "public var exposedRefProperty: <a href=\"..\/..\/spmswiftmodule4\/types\/exposedswiftclass.html?swift\">ExposedSwiftClass<\/a>?"
+                  },
+                  "text" : "public var exposedRefProperty: ExposedSwiftClass?"
                 }
               },
               "flat_title" : {
@@ -988,18 +1153,27 @@
               "dash_type" : "Constructor",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>inh init docs<\/p>"
+                  "html" : {
+                    "en" : "<p>inh init docs<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "inh init docs"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
-                  "html" : "- (nonnull instancetype)init"
+                  "html" : {
+                    "html" : "- (nonnull instancetype)init"
+                  },
+                  "text" : "- (nonnull instancetype)init"
                 },
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public override init()"
+                  "html" : {
+                    "html" : "public override init()"
+                  },
+                  "text" : "public override init()"
                 }
               },
               "flat_title" : {
@@ -1019,18 +1193,27 @@
               "dash_type" : "Constructor",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>init docs<\/p>"
+                  "html" : {
+                    "en" : "<p>init docs<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "init docs"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
-                  "html" : "- (nonnull instancetype)initWithValue:(<a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsinteger?language=objc\">NSInteger<\/a>)value"
+                  "html" : {
+                    "html" : "- (nonnull instancetype)initWithValue:(<a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsinteger?language=objc\">NSInteger<\/a>)value"
+                  },
+                  "text" : "- (nonnull instancetype)initWithValue:(NSInteger)value"
                 },
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public init(value: <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/int?language=swift\">Int<\/a>)"
+                  "html" : {
+                    "html" : "public init(value: <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/int?language=swift\">Int<\/a>)"
+                  },
+                  "text" : "public init(value: Int)"
                 }
               },
               "flat_title" : {
@@ -1050,8 +1233,11 @@
             "en" : ""
           },
           "title" : {
-            "en" : {
-              "html" : ""
+            "html" : {
+              "en" : ""
+            },
+            "markdown" : {
+              "en" : ""
             }
           }
         }
@@ -1095,18 +1281,27 @@
       ],
       "def" : {
         "abstract" : {
-          "en" : {
-            "html" : "<p>Undocumented<\/p>"
+          "html" : {
+            "en" : "<p>Undocumented<\/p>"
+          },
+          "markdown" : {
+            "en" : "Undocumented"
           }
         },
         "availability" : [],
         "deprecated_everywhere" : false,
         "obj_c_declaration" : {
-          "html" : "@interface RenamedForObjC : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+          "html" : {
+            "html" : "@interface RenamedForObjC : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+          },
+          "text" : "@interface RenamedForObjC : NSObject"
         },
         "params" : [],
         "swift_declaration" : {
-          "html" : "public class RenamedExposedSwiftClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
+          "html" : {
+            "html" : "public class RenamedExposedSwiftClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
+          },
+          "text" : "public class RenamedExposedSwiftClass : NSObject"
         }
       },
       "guide_topics" : {},
@@ -1157,18 +1352,27 @@
               "dash_type" : "Property",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
-                  "html" : "@property (nonatomic) <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsinteger?language=objc\">NSInteger<\/a> property"
+                  "html" : {
+                    "html" : "@property (nonatomic) <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsinteger?language=objc\">NSInteger<\/a> property"
+                  },
+                  "text" : "@property (nonatomic) NSInteger property"
                 },
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public var theProperty: <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/int?language=swift\">Int<\/a>"
+                  "html" : {
+                    "html" : "public var theProperty: <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/int?language=swift\">Int<\/a>"
+                  },
+                  "text" : "public var theProperty: Int"
                 }
               },
               "flat_title" : {
@@ -1188,18 +1392,27 @@
               "dash_type" : "Method",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
-                  "html" : "- (void)action:(<a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsinteger?language=objc\">NSInteger<\/a>)a param:(<a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsinteger?language=objc\">NSInteger<\/a>)parm"
+                  "html" : {
+                    "html" : "- (void)action:(<a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsinteger?language=objc\">NSInteger<\/a>)a param:(<a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsinteger?language=objc\">NSInteger<\/a>)parm"
+                  },
+                  "text" : "- (void)action:(NSInteger)a param:(NSInteger)parm"
                 },
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public func doAction(a: <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/int?language=swift\">Int<\/a>, parm: <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/int?language=swift\">Int<\/a>)"
+                  "html" : {
+                    "html" : "public func doAction(a: <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/int?language=swift\">Int<\/a>, parm: <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/int?language=swift\">Int<\/a>)"
+                  },
+                  "text" : "public func doAction(a: Int, parm: Int)"
                 }
               },
               "flat_title" : {
@@ -1219,18 +1432,27 @@
               "dash_type" : "Constructor",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
-                  "html" : "- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER"
+                  "html" : {
+                    "html" : "- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER"
+                  },
+                  "text" : "- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER"
                 },
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public override init()"
+                  "html" : {
+                    "html" : "public override init()"
+                  },
+                  "text" : "public override init()"
                 }
               },
               "flat_title" : {
@@ -1250,8 +1472,11 @@
             "en" : ""
           },
           "title" : {
-            "en" : {
-              "html" : ""
+            "html" : {
+              "en" : ""
+            },
+            "markdown" : {
+              "en" : ""
             }
           }
         }
@@ -1295,23 +1520,35 @@
       ],
       "def" : {
         "abstract" : {
-          "en" : {
-            "html" : "<p>Un-renamed class to check normal things still work<\/p>"
+          "html" : {
+            "en" : "<p>Un-renamed class to check normal things still work<\/p>"
+          },
+          "markdown" : {
+            "en" : "Un-renamed class to check normal things still work"
           }
         },
         "availability" : [],
         "deprecated_everywhere" : false,
         "discussion" : {
-          "en" : {
-            "html" : "<p>See <a href=\"..\/..\/spmobjcmodule\/types\/normalclass1.html?objc#objcnormalmethod\" class=\"j2-objc\"><code>-objcNormalMethod<\/code><\/a><a href=\"..\/..\/spmobjcmodule\/types\/normalclass1.html?swift#objcnormalmethod\" class=\"j2-swift j2-secondary\"><code>objcNormalMethod()<\/code><\/a>.<\/p>"
+          "html" : {
+            "en" : "<p>See <a href=\"..\/..\/spmobjcmodule\/types\/normalclass1.html?objc#objcnormalmethod\" class=\"j2-objc\"><code>-objcNormalMethod<\/code><\/a><a href=\"..\/..\/spmobjcmodule\/types\/normalclass1.html?swift#objcnormalmethod\" class=\"j2-swift j2-secondary\"><code>objcNormalMethod()<\/code><\/a>.<\/p>"
+          },
+          "markdown" : {
+            "en" : "See [`-objcNormalMethod`](..\/..\/spmobjcmodule\/types\/normalclass1.md#objcnormalmethod)."
           }
         },
         "obj_c_declaration" : {
-          "html" : "@interface NormalClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+          "html" : {
+            "html" : "@interface NormalClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+          },
+          "text" : "@interface NormalClass : NSObject"
         },
         "params" : [],
         "swift_declaration" : {
-          "html" : "class NormalClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
+          "html" : {
+            "html" : "class NormalClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
+          },
+          "text" : "class NormalClass : NSObject"
         }
       },
       "guide_topics" : {},
@@ -1362,23 +1599,35 @@
               "dash_type" : "Method",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>See <a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?objc\" class=\"j2-objc\"><code>JMLKitchen<\/code><\/a><a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?swift\" class=\"j2-swift j2-secondary\"><code>Kitchen<\/code><\/a>.<\/p>"
+                  "html" : {
+                    "en" : "<p>See <a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?objc\" class=\"j2-objc\"><code>JMLKitchen<\/code><\/a><a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?swift\" class=\"j2-swift j2-secondary\"><code>Kitchen<\/code><\/a>.<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "See [`JMLKitchen`](..\/..\/spmobjcmodule\/types\/jmlkitchen.md)."
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "discussion" : {
-                  "en" : {
-                    "html" : "<p>See <a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?objc#jmlkitchenmethod\" class=\"j2-objc\"><code>-[JMLKitchen jmlKitchenMethod]<\/code><\/a><a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?swift#jmlkitchenmethod\" class=\"j2-swift j2-secondary\"><code>Kitchen.kitchenMethod()<\/code><\/a><\/p>"
+                  "html" : {
+                    "en" : "<p>See <a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?objc#jmlkitchenmethod\" class=\"j2-objc\"><code>-[JMLKitchen jmlKitchenMethod]<\/code><\/a><a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?swift#jmlkitchenmethod\" class=\"j2-swift j2-secondary\"><code>Kitchen.kitchenMethod()<\/code><\/a><\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "See [`-[JMLKitchen jmlKitchenMethod]`](..\/..\/spmobjcmodule\/types\/jmlkitchen.md#jmlkitchenmethod)"
                   }
                 },
                 "obj_c_declaration" : {
-                  "html" : "- (void)objcNormalMethod"
+                  "html" : {
+                    "html" : "- (void)objcNormalMethod"
+                  },
+                  "text" : "- (void)objcNormalMethod"
                 },
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "func objcNormalMethod()"
+                  "html" : {
+                    "html" : "func objcNormalMethod()"
+                  },
+                  "text" : "func objcNormalMethod()"
                 }
               },
               "flat_title" : {
@@ -1398,25 +1647,37 @@
               "dash_type" : "Method",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Normal class swift method<\/p>"
+                  "html" : {
+                    "en" : "<p>Normal class swift method<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Normal class swift method"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "discussion" : {
-                  "en" : {
-                    "html" : "<p>See <a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?swift\" class=\"j2-swift\"><code>Kitchen<\/code><\/a><a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?objc\" class=\"j2-objc j2-secondary\"><code>JMLKitchen<\/code><\/a><\/p>"
+                  "html" : {
+                    "en" : "<p>See <a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?swift\" class=\"j2-swift\"><code>Kitchen<\/code><\/a><a href=\"..\/..\/spmobjcmodule\/types\/jmlkitchen.html?objc\" class=\"j2-objc j2-secondary\"><code>JMLKitchen<\/code><\/a><\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "See [`Kitchen`](..\/..\/spmobjcmodule\/types\/jmlkitchen.md)"
                   }
                 },
                 "notes" : {
-                  "en" : {
-                    "html" : "<p>Provided by module <code>SpmSwiftModule4<\/code>.<\/p>"
+                  "html" : {
+                    "en" : "<p>Provided by module <code>SpmSwiftModule4<\/code>.<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Provided by module `SpmSwiftModule4`."
                   }
                 },
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "func normal()"
+                  "html" : {
+                    "html" : "func normal()"
+                  },
+                  "text" : "func normal()"
                 }
               },
               "flat_title" : {
@@ -1432,8 +1693,11 @@
             "en" : ""
           },
           "title" : {
-            "en" : {
-              "html" : ""
+            "html" : {
+              "en" : ""
+            },
+            "markdown" : {
+              "en" : ""
             }
           }
         }
@@ -1477,18 +1741,27 @@
       ],
       "def" : {
         "abstract" : {
-          "en" : {
-            "html" : "<p>Type with a different shape in Swift - parent exists<\/p>"
+          "html" : {
+            "en" : "<p>Type with a different shape in Swift - parent exists<\/p>"
+          },
+          "markdown" : {
+            "en" : "Type with a different shape in Swift - parent exists"
           }
         },
         "availability" : [],
         "deprecated_everywhere" : false,
         "obj_c_declaration" : {
-          "html" : "@interface JMLKitchenCupboard : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+          "html" : {
+            "html" : "@interface JMLKitchenCupboard : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+          },
+          "text" : "@interface JMLKitchenCupboard : NSObject"
         },
         "params" : [],
         "swift_declaration" : {
-          "html" : "class Cupboard : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
+          "html" : {
+            "html" : "class Cupboard : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
+          },
+          "text" : "class Cupboard : NSObject"
         }
       },
       "guide_topics" : {},
@@ -1526,18 +1799,27 @@
               "dash_type" : "Method",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
-                  "html" : "-(void)jmlKitchenCupboardMethod"
+                  "html" : {
+                    "html" : "-(void)jmlKitchenCupboardMethod"
+                  },
+                  "text" : "-(void)jmlKitchenCupboardMethod"
                 },
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "func jmlKitchenCupboardMethod()"
+                  "html" : {
+                    "html" : "func jmlKitchenCupboardMethod()"
+                  },
+                  "text" : "func jmlKitchenCupboardMethod()"
                 }
               },
               "flat_title" : {
@@ -1557,18 +1839,27 @@
               "dash_type" : "Method",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
-                  "html" : "-(void)jmlKitchenCupboardMethod2"
+                  "html" : {
+                    "html" : "-(void)jmlKitchenCupboardMethod2"
+                  },
+                  "text" : "-(void)jmlKitchenCupboardMethod2"
                 },
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "func jmlKitchenCupboardMethod2()"
+                  "html" : {
+                    "html" : "func jmlKitchenCupboardMethod2()"
+                  },
+                  "text" : "func jmlKitchenCupboardMethod2()"
                 }
               },
               "flat_title" : {
@@ -1588,18 +1879,27 @@
               "dash_type" : "Method",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
-                  "html" : "-(void)jmlKitchenCupboardMethod3"
+                  "html" : {
+                    "html" : "-(void)jmlKitchenCupboardMethod3"
+                  },
+                  "text" : "-(void)jmlKitchenCupboardMethod3"
                 },
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "func jmlKitchenCupboardMethod3()"
+                  "html" : {
+                    "html" : "func jmlKitchenCupboardMethod3()"
+                  },
+                  "text" : "func jmlKitchenCupboardMethod3()"
                 }
               },
               "flat_title" : {
@@ -1619,8 +1919,11 @@
             "en" : "ObjC methods"
           },
           "title" : {
-            "en" : {
-              "html" : "ObjC methods"
+            "html" : {
+              "en" : "ObjC methods"
+            },
+            "markdown" : {
+              "en" : "ObjC methods"
             }
           }
         },
@@ -1632,18 +1935,27 @@
               "dash_type" : "Method",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
-                  "html" : "-(void)jmlKitchenCupboardMethod4"
+                  "html" : {
+                    "html" : "-(void)jmlKitchenCupboardMethod4"
+                  },
+                  "text" : "-(void)jmlKitchenCupboardMethod4"
                 },
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "func jmlKitchenCupboardMethod4()"
+                  "html" : {
+                    "html" : "func jmlKitchenCupboardMethod4()"
+                  },
+                  "text" : "func jmlKitchenCupboardMethod4()"
                 }
               },
               "flat_title" : {
@@ -1663,8 +1975,11 @@
             "en" : "ObjC methods part 2"
           },
           "title" : {
-            "en" : {
-              "html" : "ObjC methods part 2"
+            "html" : {
+              "en" : "ObjC methods part 2"
+            },
+            "markdown" : {
+              "en" : "ObjC methods part 2"
             }
           }
         }
@@ -1676,8 +1991,11 @@
     {
       "breadcrumbs" : [],
       "content" : {
-        "en" : {
-          "html" : "<h1 class=\"j2-anchor j2-heading heading\" id=\"spmobjcmodule\">\n<span data-anchor-id=\"spmobjcmodule\">\nSpmObjCModule\n<\/span><\/h1>"
+        "html" : {
+          "en" : "<h1 class=\"j2-anchor j2-heading heading\" id=\"spmobjcmodule\">\n<span data-anchor-id=\"spmobjcmodule\">\nSpmObjCModule\n<\/span><\/h1>"
+        },
+        "markdown" : {
+          "en" : "# SpmObjCModule"
         }
       },
       "guide_topics" : {

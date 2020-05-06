@@ -1,6 +1,6 @@
 {
   "extensions\/collection.html?swift" : {
-    "abstract" : "A sequence whose elements can be traversed multiple times, nondestructively, and\naccessed by an indexed subscript.",
+    "abstract" : "A sequence whose elements can be traversed multiple times, nondestructively, and accessed by an indexed subscript.",
     "name" : "Collection"
   },
   "extensions\/collection.html?swift#collectemall" : {
@@ -255,7 +255,7 @@
     "name" : "SecondProtocol"
   },
   "types\/secondprotocol.html?swift#getonly1" : {
-    "abstract" : "A default implementation for a method of FirstProtocol provided by\nSecondProtocol. From source we mess this up as an extension method. From\nsymbolgraph we mess this up as being part of FirstProtocol.",
+    "abstract" : "A default implementation for a method of FirstProtocol\nprovided by SecondProtocol.\nFrom source we mess this up as an extension method.\nFrom symbolgraph we mess this up as being part of FirstProtocol.",
     "name" : "getOnly",
     "parent_name" : "SecondProtocol"
   },

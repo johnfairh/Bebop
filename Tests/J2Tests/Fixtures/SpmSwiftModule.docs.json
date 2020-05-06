@@ -13,6 +13,7 @@
     "breadcrumbs_root" : "SpmSwiftModule",
     "codehost_def_link" : "Show on GitHub",
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
+    "copyright_md" : "&copy; 9999. All rights reserved. (Last updated: today).",
     "default_language" : "j2-swift",
     "disable_search" : false,
     "doc_coverage" : 50,
@@ -191,8 +192,10 @@
             "dash_type" : "Class",
             "def" : {
               "abstract_html" : "<p>A base class<\/p>",
+              "abstract_md" : "A base class",
               "discouraged" : false,
-              "swift_declaration_html" : "public class ABaseClass"
+              "swift_declaration_html" : "public class ABaseClass",
+              "swift_declaration_md" : "public class ABaseClass"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">class <\/span>ABaseClass",
@@ -206,8 +209,10 @@
             "dash_type" : "Class",
             "def" : {
               "abstract_html" : "<p>A derived class<\/p>",
+              "abstract_md" : "A derived class",
               "discouraged" : false,
-              "swift_declaration_html" : "public class ADerivedClass&lt;T, Q&gt; : <a href=\"types\/abaseclass.html?swift\">ABaseClass<\/a> where Q : Sequence"
+              "swift_declaration_html" : "public class ADerivedClass&lt;T, Q&gt; : <a href=\"types\/abaseclass.html?swift\">ABaseClass<\/a> where Q : Sequence",
+              "swift_declaration_md" : "public class ADerivedClass<T, Q> : ABaseClass where Q : Sequence"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">class <\/span>ADerivedClass",
@@ -221,8 +226,10 @@
             "dash_type" : "enum",
             "def" : {
               "abstract_html" : "<p>An enum<\/p>",
+              "abstract_md" : "An enum",
               "discouraged" : false,
-              "swift_declaration_html" : "public enum AnEnum"
+              "swift_declaration_html" : "public enum AnEnum",
+              "swift_declaration_md" : "public enum AnEnum"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">enum <\/span>AnEnum",
@@ -236,8 +243,10 @@
             "dash_type" : "Protocol",
             "def" : {
               "abstract_html" : "<p>A protocol.<\/p>",
+              "abstract_md" : "A protocol.",
               "discouraged" : false,
-              "swift_declaration_html" : "public protocol FirstProtocol"
+              "swift_declaration_html" : "public protocol FirstProtocol",
+              "swift_declaration_md" : "public protocol FirstProtocol"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">protocol <\/span>FirstProtocol",
@@ -251,8 +260,10 @@
             "dash_type" : "Class",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
               "discouraged" : false,
-              "swift_declaration_html" : "class GenericBase&lt;T&gt;\n\nextension GenericBase : CustomStringConvertible"
+              "swift_declaration_html" : "class GenericBase&lt;T&gt;\n\nextension GenericBase : CustomStringConvertible",
+              "swift_declaration_md" : "class GenericBase<T>\n\nextension GenericBase : CustomStringConvertible"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">class <\/span>GenericBase",
@@ -266,8 +277,10 @@
             "dash_type" : "Struct",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
               "discouraged" : false,
-              "swift_declaration_html" : "@propertyWrapper\nstruct Nop"
+              "swift_declaration_html" : "@propertyWrapper\nstruct Nop",
+              "swift_declaration_md" : "@propertyWrapper\nstruct Nop"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">struct <\/span>Nop",
@@ -281,8 +294,10 @@
             "dash_type" : "Struct",
             "def" : {
               "abstract_html" : "<p>See <a href=\"types\/nop.html?swift\"><code>@Nop<\/code><\/a>.<\/p>",
+              "abstract_md" : "See [`@Nop`](types\/nop.md).",
               "discouraged" : false,
-              "swift_declaration_html" : "struct PropertyWrapperClient"
+              "swift_declaration_html" : "struct PropertyWrapperClient",
+              "swift_declaration_md" : "struct PropertyWrapperClient"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">struct <\/span>PropertyWrapperClient",
@@ -296,8 +311,10 @@
             "dash_type" : "Protocol",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
               "discouraged" : false,
-              "swift_declaration_html" : "public protocol SecondProtocol : <a href=\"types\/firstprotocol1.html?swift\">FirstProtocol<\/a>"
+              "swift_declaration_html" : "public protocol SecondProtocol : <a href=\"types\/firstprotocol1.html?swift\">FirstProtocol<\/a>",
+              "swift_declaration_md" : "public protocol SecondProtocol : FirstProtocol"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">protocol <\/span>SecondProtocol",
@@ -311,8 +328,10 @@
             "dash_type" : "Struct",
             "def" : {
               "abstract_html" : "<p>Main structure<\/p>",
+              "abstract_md" : "Main structure",
               "discouraged" : false,
-              "swift_declaration_html" : "public struct SpmSwiftModule"
+              "swift_declaration_html" : "public struct SpmSwiftModule",
+              "swift_declaration_md" : "public struct SpmSwiftModule"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">struct <\/span>SpmSwiftModule",
@@ -326,8 +345,10 @@
             "dash_type" : "Struct",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
               "discouraged" : false,
-              "swift_declaration_html" : "struct T"
+              "swift_declaration_html" : "struct T",
+              "swift_declaration_md" : "struct T"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">struct <\/span>T",
@@ -358,10 +379,13 @@
     "breadcrumbs_root" : "SpmSwiftModule",
     "codehost_def_link" : "Show on GitHub",
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
+    "copyright_md" : "&copy; 9999. All rights reserved. (Last updated: today).",
     "def" : {
       "abstract_html" : "<p>A base class<\/p>",
+      "abstract_md" : "A base class",
       "discouraged" : false,
-      "swift_declaration_html" : "public class ABaseClass"
+      "swift_declaration_html" : "public class ABaseClass",
+      "swift_declaration_md" : "public class ABaseClass"
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
@@ -548,8 +572,10 @@
             "dash_type" : "Constructor",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
               "discouraged" : false,
-              "swift_declaration_html" : "public init()"
+              "swift_declaration_html" : "public init()",
+              "swift_declaration_md" : "public init()"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "init<span class=\"j2-item-secondary\">()<\/span>",
@@ -562,8 +588,10 @@
             "dash_type" : "Constructor",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
               "discouraged" : false,
-              "swift_declaration_html" : "public convenience init(a: Int)"
+              "swift_declaration_html" : "public convenience init(a: Int)",
+              "swift_declaration_md" : "public convenience init(a: Int)"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "init<span class=\"j2-item-secondary\">(<\/span>a<span class=\"j2-item-secondary\">: Int)<\/span>",
@@ -571,7 +599,8 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Initializers"
+        "title_html" : "Initializers",
+        "title_md" : "Initializers"
       },
       {
         "anchor_id" : "tpc-deinitializer",
@@ -584,8 +613,10 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
               "discouraged" : false,
-              "swift_declaration_html" : "deinit"
+              "swift_declaration_html" : "deinit",
+              "swift_declaration_md" : "deinit"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "deinit",
@@ -593,7 +624,8 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Deinitializer"
+        "title_html" : "Deinitializer",
+        "title_md" : "Deinitializer"
       },
       {
         "anchor_id" : "tpc-methods",
@@ -606,8 +638,10 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>Base class docs for <code>method(param:)<\/code><\/p>",
+              "abstract_md" : "Base class docs for `method(param:)`",
               "discouraged" : false,
-              "swift_declaration_html" : "public func method(param: Int) -&gt; String"
+              "swift_declaration_html" : "public func method(param: Int) -&gt; String",
+              "swift_declaration_md" : "public func method(param: Int) -> String"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>method<span class=\"j2-item-secondary\">(<\/span>param<span class=\"j2-item-secondary\">: Int) -&gt; String<\/span>",
@@ -615,7 +649,8 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Methods"
+        "title_html" : "Methods",
+        "title_md" : "Methods"
       },
       {
         "anchor_id" : "tpc-operators",
@@ -628,8 +663,10 @@
             "dash_type" : "Function",
             "def" : {
               "abstract_html" : "<p>An operator!<\/p>",
+              "abstract_md" : "An operator\\!",
               "discouraged" : false,
-              "swift_declaration_html" : "public static func + (lhs: <a href=\"..\/types\/abaseclass.html?swift\">ABaseClass<\/a>, rhs: <a href=\"..\/types\/abaseclass.html?swift\">ABaseClass<\/a>) -&gt; <a href=\"..\/types\/abaseclass.html?swift\">ABaseClass<\/a>"
+              "swift_declaration_html" : "public static func + (lhs: <a href=\"..\/types\/abaseclass.html?swift\">ABaseClass<\/a>, rhs: <a href=\"..\/types\/abaseclass.html?swift\">ABaseClass<\/a>) -&gt; <a href=\"..\/types\/abaseclass.html?swift\">ABaseClass<\/a>",
+              "swift_declaration_md" : "public static func + (lhs: ABaseClass, rhs: ABaseClass) -> ABaseClass"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">static func <\/span>+<span class=\"j2-item-secondary\">(<\/span>lhs<span class=\"j2-item-secondary\">: ABaseClass, <\/span>rhs<span class=\"j2-item-secondary\">: ABaseClass) -&gt; ABaseClass<\/span>",
@@ -637,7 +674,8 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Operators"
+        "title_html" : "Operators",
+        "title_md" : "Operators"
       },
       {
         "anchor_id" : "tpc-subscripts",
@@ -650,8 +688,10 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
               "discouraged" : false,
-              "swift_declaration_html" : "public subscript(arg: String) -&gt; Int { get set }"
+              "swift_declaration_html" : "public subscript(arg: String) -&gt; Int { get set }",
+              "swift_declaration_md" : "public subscript(arg: String) -> Int { get set }"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "subscript<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: String) -&gt; Int<\/span>",
@@ -659,7 +699,8 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Subscripts"
+        "title_html" : "Subscripts",
+        "title_md" : "Subscripts"
       },
       {
         "anchor_id" : "tpc-static-methods",
@@ -672,8 +713,10 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
               "discouraged" : false,
-              "swift_declaration_html" : "public static func staticMethod() -&gt; Int"
+              "swift_declaration_html" : "public static func staticMethod() -&gt; Int",
+              "swift_declaration_md" : "public static func staticMethod() -> Int"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">static func <\/span>staticMethod<span class=\"j2-item-secondary\">() -&gt; Int<\/span>",
@@ -681,7 +724,8 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Static Methods"
+        "title_html" : "Static Methods",
+        "title_md" : "Static Methods"
       },
       {
         "anchor_id" : "tpc-static-subscripts",
@@ -694,8 +738,10 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
               "discouraged" : false,
-              "swift_declaration_html" : "public static subscript(arg: String) -&gt; Int { get }"
+              "swift_declaration_html" : "public static subscript(arg: String) -&gt; Int { get }",
+              "swift_declaration_md" : "public static subscript(arg: String) -> Int { get }"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">static <\/span>subscript<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: String) -&gt; Int<\/span>",
@@ -703,7 +749,8 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Static Subscripts"
+        "title_html" : "Static Subscripts",
+        "title_md" : "Static Subscripts"
       },
       {
         "anchor_id" : "tpc-class-subscripts",
@@ -716,8 +763,10 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
               "discouraged" : false,
-              "swift_declaration_html" : "public class subscript(arg: Int) -&gt; String { get }"
+              "swift_declaration_html" : "public class subscript(arg: Int) -&gt; String { get }",
+              "swift_declaration_md" : "public class subscript(arg: Int) -> String { get }"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">class <\/span>subscript<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: Int) -&gt; String<\/span>",
@@ -725,7 +774,8 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Class Subscripts"
+        "title_html" : "Class Subscripts",
+        "title_md" : "Class Subscripts"
       }
     ],
     "topics_language" : "j2-swift",
@@ -791,10 +841,13 @@
     "breadcrumbs_root" : "SpmSwiftModule",
     "codehost_def_link" : "Show on GitHub",
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
+    "copyright_md" : "&copy; 9999. All rights reserved. (Last updated: today).",
     "def" : {
       "abstract_html" : "<p>A derived class<\/p>",
+      "abstract_md" : "A derived class",
       "discouraged" : false,
-      "swift_declaration_html" : "public class ADerivedClass&lt;T, Q&gt; : <a href=\"..\/types\/abaseclass.html?swift\">ABaseClass<\/a> where Q : Sequence"
+      "swift_declaration_html" : "public class ADerivedClass&lt;T, Q&gt; : <a href=\"..\/types\/abaseclass.html?swift\">ABaseClass<\/a> where Q : Sequence",
+      "swift_declaration_md" : "public class ADerivedClass<T, Q> : ABaseClass where Q : Sequence"
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
@@ -981,8 +1034,10 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
               "discouraged" : false,
-              "swift_declaration_html" : "public func generic(param: T) -&gt; T"
+              "swift_declaration_html" : "public func generic(param: T) -&gt; T",
+              "swift_declaration_md" : "public func generic(param: T) -> T"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>generic<span class=\"j2-item-secondary\">(<\/span>param<span class=\"j2-item-secondary\">: T) -&gt; T<\/span>",
@@ -995,8 +1050,10 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>See <a href=\"..\/types\/abaseclass.html?swift#methodparam\"><code>ABaseClass.method(...)<\/code><\/a>.<\/p>",
+              "abstract_md" : "See [`ABaseClass.method(...)`](..\/types\/abaseclass.md#methodparam).",
               "discouraged" : false,
-              "swift_declaration_html" : "public override func method(param: Int) -&gt; String"
+              "swift_declaration_html" : "public override func method(param: Int) -&gt; String",
+              "swift_declaration_md" : "public override func method(param: Int) -> String"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>method<span class=\"j2-item-secondary\">(<\/span>param<span class=\"j2-item-secondary\">: Int) -&gt; String<\/span>",
@@ -1004,7 +1061,8 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Methods"
+        "title_html" : "Methods",
+        "title_md" : "Methods"
       },
       {
         "anchor_id" : "tpc-properties",
@@ -1017,8 +1075,10 @@
             "dash_type" : "Property",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
               "discouraged" : false,
-              "swift_declaration_html" : "var t: Q?"
+              "swift_declaration_html" : "var t: Q?",
+              "swift_declaration_md" : "var t: Q?"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">var <\/span>t<span class=\"j2-item-secondary\">: Q?<\/span>",
@@ -1026,7 +1086,8 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Properties"
+        "title_html" : "Properties",
+        "title_md" : "Properties"
       }
     ],
     "topics_language" : "j2-swift",
@@ -1068,10 +1129,13 @@
     "breadcrumbs_root" : "SpmSwiftModule",
     "codehost_def_link" : "Show on GitHub",
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
+    "copyright_md" : "&copy; 9999. All rights reserved. (Last updated: today).",
     "def" : {
       "abstract_html" : "<p>An enum<\/p>",
+      "abstract_md" : "An enum",
       "discouraged" : false,
-      "swift_declaration_html" : "public enum AnEnum"
+      "swift_declaration_html" : "public enum AnEnum",
+      "swift_declaration_md" : "public enum AnEnum"
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
@@ -1258,8 +1322,10 @@
             "dash_type" : "Case",
             "def" : {
               "abstract_html" : "<p>First case<\/p>",
+              "abstract_md" : "First case",
               "discouraged" : false,
-              "swift_declaration_html" : "case first(Int)"
+              "swift_declaration_html" : "case first(Int)",
+              "swift_declaration_md" : "case first(Int)"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">case <\/span>first<span class=\"j2-item-secondary\">(Int)<\/span>",
@@ -1272,8 +1338,10 @@
             "dash_type" : "Case",
             "def" : {
               "abstract_html" : "<p>Second case<\/p>",
+              "abstract_md" : "Second case",
               "discouraged" : false,
-              "swift_declaration_html" : "case second"
+              "swift_declaration_html" : "case second",
+              "swift_declaration_md" : "case second"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">case <\/span>second",
@@ -1286,8 +1354,10 @@
             "dash_type" : "Case",
             "def" : {
               "abstract_html" : "<p>Third &amp; Fourth cases - <a href=\"..\/types\/anenum.html?swift#second\"><code>second<\/code><\/a><\/p>",
+              "abstract_md" : "Third & Fourth cases - [`second`](..\/types\/anenum.md#second)",
               "discouraged" : false,
-              "swift_declaration_html" : "case third"
+              "swift_declaration_html" : "case third",
+              "swift_declaration_md" : "case third"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">case <\/span>third",
@@ -1300,8 +1370,10 @@
             "dash_type" : "Case",
             "def" : {
               "abstract_html" : "<p>Third &amp; Fourth cases - <a href=\"..\/types\/anenum.html?swift#second\"><code>second<\/code><\/a><\/p>",
+              "abstract_md" : "Third & Fourth cases - [`second`](..\/types\/anenum.md#second)",
               "discouraged" : false,
-              "swift_declaration_html" : "case fourth"
+              "swift_declaration_html" : "case fourth",
+              "swift_declaration_md" : "case fourth"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">case <\/span>fourth",
@@ -1314,8 +1386,10 @@
             "dash_type" : "Case",
             "def" : {
               "abstract_html" : "<p>Fifth case<\/p>",
+              "abstract_md" : "Fifth case",
               "discouraged" : false,
-              "swift_declaration_html" : "case fifth(a: String, _: Int)"
+              "swift_declaration_html" : "case fifth(a: String, _: Int)",
+              "swift_declaration_md" : "case fifth(a: String, _: Int)"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">case <\/span>fifth<span class=\"j2-item-secondary\">(<\/span>a<span class=\"j2-item-secondary\">: String, Int)<\/span>",
@@ -1323,7 +1397,8 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Cases"
+        "title_html" : "Cases",
+        "title_md" : "Cases"
       }
     ],
     "topics_language" : "j2-swift",
@@ -1361,10 +1436,13 @@
     "breadcrumbs_root" : "SpmSwiftModule",
     "codehost_def_link" : "Show on GitHub",
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
+    "copyright_md" : "&copy; 9999. All rights reserved. (Last updated: today).",
     "def" : {
       "abstract_html" : "<p>A protocol.<\/p>",
+      "abstract_md" : "A protocol.",
       "discouraged" : false,
-      "swift_declaration_html" : "public protocol FirstProtocol"
+      "swift_declaration_html" : "public protocol FirstProtocol",
+      "swift_declaration_md" : "public protocol FirstProtocol"
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
@@ -1551,8 +1629,10 @@
             "dash_type" : "Type",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
               "discouraged" : false,
-              "swift_declaration_html" : "associatedtype AssocType"
+              "swift_declaration_html" : "associatedtype AssocType",
+              "swift_declaration_md" : "associatedtype AssocType"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">associatedtype <\/span>AssocType",
@@ -1560,7 +1640,8 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Associated Types"
+        "title_html" : "Associated Types",
+        "title_md" : "Associated Types"
       },
       {
         "anchor_id" : "tpc-methods",
@@ -1573,8 +1654,10 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
               "discouraged" : false,
-              "swift_declaration_html" : "func assocFunc() -&gt; <a href=\"..\/types\/firstprotocol1.html?swift#assoctype\">AssocType<\/a>"
+              "swift_declaration_html" : "func assocFunc() -&gt; <a href=\"..\/types\/firstprotocol1.html?swift#assoctype\">AssocType<\/a>",
+              "swift_declaration_md" : "func assocFunc() -> AssocType"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>assocFunc<span class=\"j2-item-secondary\">() -&gt; AssocType<\/span>",
@@ -1587,9 +1670,12 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>A protocol extension method<\/p>",
+              "abstract_md" : "A protocol extension method",
               "discouraged" : false,
               "notes_html" : "<p>From a protocol extension: not a customization point.<\/p>",
-              "swift_declaration_html" : "func e()"
+              "notes_md" : "From a protocol extension: not a customization point.",
+              "swift_declaration_html" : "func e()",
+              "swift_declaration_md" : "func e()"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>e<span class=\"j2-item-secondary\">()<\/span>",
@@ -1602,19 +1688,27 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>Brief note about m<\/p>",
+              "abstract_md" : "Brief note about m",
               "default_abstract_html" : "<p>Return a safe default.<\/p>",
+              "default_abstract_md" : "Return a safe default.",
               "default_discussion_html" : "<p>There’s more: it’s the empty string.<\/p>",
+              "default_discussion_md" : "There’s more: it’s the empty string.",
               "discouraged" : false,
               "discussion_html" : "<p>What m is all about.<\/p>",
+              "discussion_md" : "What m is all about.",
               "notes_html" : "<p>Has a default implementation.<\/p>\n<p>Has a default implementation for some conforming types.<\/p>",
+              "notes_md" : "Has a default implementation.\n\nHas a default implementation for some conforming types.",
               "parameters" : [
                 {
                   "parameter_html" : "<p>The argument<\/p>",
+                  "parameter_md" : "The argument",
                   "title" : "arg"
                 }
               ],
               "returns_html" : "<p>The answer<\/p>",
-              "swift_declaration_html" : "func m(arg: Int) -&gt; String"
+              "returns_md" : "The answer",
+              "swift_declaration_html" : "func m(arg: Int) -&gt; String",
+              "swift_declaration_md" : "func m(arg: Int) -> String"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>m<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: Int) -&gt; String<\/span>",
@@ -1622,7 +1716,8 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Methods"
+        "title_html" : "Methods",
+        "title_md" : "Methods"
       },
       {
         "anchor_id" : "tpc-properties",
@@ -1635,8 +1730,10 @@
             "dash_type" : "Property",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
               "discouraged" : false,
-              "swift_declaration_html" : "var getOnly: Int { get }"
+              "swift_declaration_html" : "var getOnly: Int { get }",
+              "swift_declaration_md" : "var getOnly: Int { get }"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">var <\/span>getOnly<span class=\"j2-item-secondary\">: Int<\/span>",
@@ -1644,7 +1741,8 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Properties"
+        "title_html" : "Properties",
+        "title_md" : "Properties"
       },
       {
         "anchor_id" : "tpc-available-where-assoctype-hashable",
@@ -1657,9 +1755,12 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
               "discouraged" : false,
               "notes_html" : "<p>From a protocol extension: not a customization point.<\/p>",
-              "swift_declaration_html" : "func extHashableMethod()"
+              "notes_md" : "From a protocol extension: not a customization point.",
+              "swift_declaration_html" : "func extHashableMethod()",
+              "swift_declaration_md" : "func extHashableMethod()"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>extHashableMethod<span class=\"j2-item-secondary\">()<\/span>",
@@ -1672,9 +1773,12 @@
             "dash_type" : "Method",
             "def" : {
               "default_abstract_html" : "<p>Special default implementation for m in Hashable case.<\/p>",
+              "default_abstract_md" : "Special default implementation for m in Hashable case.",
               "discouraged" : false,
               "notes_html" : "<p>Default implementation only for types that satisfy the constraints.<\/p>",
-              "swift_declaration_html" : "func m(arg: Int) -&gt; String"
+              "notes_md" : "Default implementation only for types that satisfy the constraints.",
+              "swift_declaration_html" : "func m(arg: Int) -&gt; String",
+              "swift_declaration_md" : "func m(arg: Int) -> String"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>m<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: Int) -&gt; String<\/span>",
@@ -1682,7 +1786,8 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Available where <a href=\"..\/types\/firstprotocol1.html?swift#assoctype\"><code>AssocType<\/code><\/a>: <code>Hashable<\/code>"
+        "title_html" : "Available where <a href=\"..\/types\/firstprotocol1.html?swift#assoctype\"><code>AssocType<\/code><\/a>: <code>Hashable<\/code>",
+        "title_md" : "Available where [`AssocType`](..\/types\/firstprotocol1.md#assoctype): `Hashable`"
       }
     ],
     "topics_language" : "j2-swift",
@@ -1732,10 +1837,13 @@
     "breadcrumbs_root" : "SpmSwiftModule",
     "codehost_def_link" : "Show on GitHub",
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
+    "copyright_md" : "&copy; 9999. All rights reserved. (Last updated: today).",
     "def" : {
       "abstract_html" : "<p>Undocumented<\/p>",
+      "abstract_md" : "Undocumented",
       "discouraged" : false,
-      "swift_declaration_html" : "class GenericBase&lt;T&gt;\n\nextension GenericBase : CustomStringConvertible"
+      "swift_declaration_html" : "class GenericBase&lt;T&gt;\n\nextension GenericBase : CustomStringConvertible",
+      "swift_declaration_md" : "class GenericBase<T>\n\nextension GenericBase : CustomStringConvertible"
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
@@ -1922,8 +2030,10 @@
             "dash_type" : "Constructor",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
               "discouraged" : false,
-              "swift_declaration_html" : "init(type: T)"
+              "swift_declaration_html" : "init(type: T)",
+              "swift_declaration_md" : "init(type: T)"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "init<span class=\"j2-item-secondary\">(<\/span>type<span class=\"j2-item-secondary\">: T)<\/span>",
@@ -1931,7 +2041,8 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Initializers"
+        "title_html" : "Initializers",
+        "title_md" : "Initializers"
       },
       {
         "anchor_id" : "tpc-methods",
@@ -1944,8 +2055,10 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
               "discouraged" : false,
-              "swift_declaration_html" : "func mutify() -&gt; T"
+              "swift_declaration_html" : "func mutify() -&gt; T",
+              "swift_declaration_md" : "func mutify() -> T"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>mutify<span class=\"j2-item-secondary\">() -&gt; T<\/span>",
@@ -1953,7 +2066,8 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Methods"
+        "title_html" : "Methods",
+        "title_md" : "Methods"
       },
       {
         "anchor_id" : "tpc-properties",
@@ -1966,8 +2080,10 @@
             "dash_type" : "Property",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
               "discouraged" : false,
-              "swift_declaration_html" : "var boxed: T"
+              "swift_declaration_html" : "var boxed: T",
+              "swift_declaration_md" : "var boxed: T"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">var <\/span>boxed<span class=\"j2-item-secondary\">: T<\/span>",
@@ -1980,8 +2096,10 @@
             "dash_type" : "Property",
             "def" : {
               "abstract_html" : "<p>A textual representation of this instance.<\/p>",
+              "abstract_md" : "A textual representation of this instance.",
               "discouraged" : false,
-              "swift_declaration_html" : "var description: String { get }"
+              "swift_declaration_html" : "var description: String { get }",
+              "swift_declaration_md" : "var description: String { get }"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">var <\/span>description<span class=\"j2-item-secondary\">: String<\/span>",
@@ -1989,7 +2107,8 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Properties"
+        "title_html" : "Properties",
+        "title_md" : "Properties"
       },
       {
         "anchor_id" : "tpc-available-where-t-codable",
@@ -2002,8 +2121,10 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
               "discouraged" : false,
-              "swift_declaration_html" : "func doCodability()"
+              "swift_declaration_html" : "func doCodability()",
+              "swift_declaration_md" : "func doCodability()"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>doCodability<span class=\"j2-item-secondary\">()<\/span>",
@@ -2016,8 +2137,10 @@
             "dash_type" : "Property",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
               "discouraged" : false,
-              "swift_declaration_html" : "var codableCount: Int { get }"
+              "swift_declaration_html" : "var codableCount: Int { get }",
+              "swift_declaration_md" : "var codableCount: Int { get }"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">var <\/span>codableCount<span class=\"j2-item-secondary\">: Int<\/span>",
@@ -2025,7 +2148,8 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Available where <code>T<\/code>: <code>Codable<\/code>"
+        "title_html" : "Available where <code>T<\/code>: <code>Codable<\/code>",
+        "title_md" : "Available where `T`: `Codable`"
       },
       {
         "anchor_id" : "tpc-available-where-t-equatable-t-firstprotocol",
@@ -2038,8 +2162,10 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
               "discouraged" : false,
-              "swift_declaration_html" : "func doFirstMagic()"
+              "swift_declaration_html" : "func doFirstMagic()",
+              "swift_declaration_md" : "func doFirstMagic()"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>doFirstMagic<span class=\"j2-item-secondary\">()<\/span>",
@@ -2052,8 +2178,10 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
               "discouraged" : false,
-              "swift_declaration_html" : "func doMoreMagic()"
+              "swift_declaration_html" : "func doMoreMagic()",
+              "swift_declaration_md" : "func doMoreMagic()"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>doMoreMagic<span class=\"j2-item-secondary\">()<\/span>",
@@ -2061,7 +2189,8 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Available where <code>T<\/code>: <code>Equatable<\/code>, <code>T<\/code>: <a href=\"..\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>"
+        "title_html" : "Available where <code>T<\/code>: <code>Equatable<\/code>, <code>T<\/code>: <a href=\"..\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>",
+        "title_md" : "Available where `T`: `Equatable`, `T`: [`FirstProtocol`](..\/types\/firstprotocol1.md)"
       },
       {
         "anchor_id" : "tpc-available-where-t-hashable",
@@ -2074,8 +2203,10 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
               "discouraged" : false,
-              "swift_declaration_html" : "func doHashable()"
+              "swift_declaration_html" : "func doHashable()",
+              "swift_declaration_md" : "func doHashable()"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>doHashable<span class=\"j2-item-secondary\">()<\/span>",
@@ -2083,7 +2214,8 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Available where <code>T<\/code>: <code>Hashable<\/code>"
+        "title_html" : "Available where <code>T<\/code>: <code>Hashable<\/code>",
+        "title_md" : "Available where `T`: `Hashable`"
       }
     ],
     "topics_language" : "j2-swift",
@@ -2141,10 +2273,13 @@
     "breadcrumbs_root" : "SpmSwiftModule",
     "codehost_def_link" : "Show on GitHub",
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
+    "copyright_md" : "&copy; 9999. All rights reserved. (Last updated: today).",
     "def" : {
       "abstract_html" : "<p>Undocumented<\/p>",
+      "abstract_md" : "Undocumented",
       "discouraged" : false,
-      "swift_declaration_html" : "@propertyWrapper\nstruct Nop"
+      "swift_declaration_html" : "@propertyWrapper\nstruct Nop",
+      "swift_declaration_md" : "@propertyWrapper\nstruct Nop"
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
@@ -2331,8 +2466,10 @@
             "dash_type" : "Constructor",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
               "discouraged" : false,
-              "swift_declaration_html" : "init(wrappedValue: String)"
+              "swift_declaration_html" : "init(wrappedValue: String)",
+              "swift_declaration_md" : "init(wrappedValue: String)"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "init<span class=\"j2-item-secondary\">(<\/span>wrappedValue<span class=\"j2-item-secondary\">: String)<\/span>",
@@ -2340,7 +2477,8 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Initializers"
+        "title_html" : "Initializers",
+        "title_md" : "Initializers"
       },
       {
         "anchor_id" : "tpc-properties",
@@ -2353,8 +2491,10 @@
             "dash_type" : "Property",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
               "discouraged" : false,
-              "swift_declaration_html" : "var wrappedValue: String"
+              "swift_declaration_html" : "var wrappedValue: String",
+              "swift_declaration_md" : "var wrappedValue: String"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">var <\/span>wrappedValue<span class=\"j2-item-secondary\">: String<\/span>",
@@ -2362,7 +2502,8 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Properties"
+        "title_html" : "Properties",
+        "title_md" : "Properties"
       }
     ],
     "topics_language" : "j2-swift",
@@ -2404,10 +2545,13 @@
     "breadcrumbs_root" : "SpmSwiftModule",
     "codehost_def_link" : "Show on GitHub",
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
+    "copyright_md" : "&copy; 9999. All rights reserved. (Last updated: today).",
     "def" : {
       "abstract_html" : "<p>See <a href=\"..\/types\/nop.html?swift\"><code>@Nop<\/code><\/a>.<\/p>",
+      "abstract_md" : "See [`@Nop`](..\/types\/nop.md).",
       "discouraged" : false,
-      "swift_declaration_html" : "struct PropertyWrapperClient"
+      "swift_declaration_html" : "struct PropertyWrapperClient",
+      "swift_declaration_md" : "struct PropertyWrapperClient"
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
@@ -2594,8 +2738,10 @@
             "dash_type" : "Property",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
               "discouraged" : false,
-              "swift_declaration_html" : "<a href=\"..\/types\/nop.html?swift\">@Nop<\/a>\nvar v: String { get set }"
+              "swift_declaration_html" : "<a href=\"..\/types\/nop.html?swift\">@Nop<\/a>\nvar v: String { get set }",
+              "swift_declaration_md" : "@Nop\nvar v: String { get set }"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">var <\/span>v<span class=\"j2-item-secondary\">: String<\/span>",
@@ -2603,7 +2749,8 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Properties"
+        "title_html" : "Properties",
+        "title_md" : "Properties"
       }
     ],
     "topics_language" : "j2-swift",
@@ -2641,10 +2788,13 @@
     "breadcrumbs_root" : "SpmSwiftModule",
     "codehost_def_link" : "Show on GitHub",
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
+    "copyright_md" : "&copy; 9999. All rights reserved. (Last updated: today).",
     "def" : {
       "abstract_html" : "<p>Undocumented<\/p>",
+      "abstract_md" : "Undocumented",
       "discouraged" : false,
-      "swift_declaration_html" : "public protocol SecondProtocol : <a href=\"..\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>"
+      "swift_declaration_html" : "public protocol SecondProtocol : <a href=\"..\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>",
+      "swift_declaration_md" : "public protocol SecondProtocol : FirstProtocol"
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
@@ -2831,8 +2981,10 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
               "discouraged" : false,
-              "swift_declaration_html" : "func secondProtocolMethod() -&gt; String"
+              "swift_declaration_html" : "func secondProtocolMethod() -&gt; String",
+              "swift_declaration_md" : "func secondProtocolMethod() -> String"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>secondProtocolMethod<span class=\"j2-item-secondary\">() -&gt; String<\/span>",
@@ -2840,7 +2992,8 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Methods"
+        "title_html" : "Methods",
+        "title_md" : "Methods"
       },
       {
         "anchor_id" : "tpc-properties",
@@ -2852,10 +3005,13 @@
             "dash_name" : "var%20getOnly%3A%20Int",
             "dash_type" : "Property",
             "def" : {
-              "abstract_html" : "<p>A default implementation for a method of <a href=\"..\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a> provided by\n<a href=\"..\/types\/secondprotocol.html?swift\"><code>SecondProtocol<\/code><\/a>. From source we mess this up as an extension method. From\nsymbolgraph we mess this up as being part of <a href=\"..\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>.<\/p>",
+              "abstract_html" : "<p>A default implementation for a method of <a href=\"..\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>\nprovided by <a href=\"..\/types\/secondprotocol.html?swift\"><code>SecondProtocol<\/code><\/a>.\nFrom source we mess this up as an extension method.\nFrom symbolgraph we mess this up as being part of <a href=\"..\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>.<\/p>",
+              "abstract_md" : "A default implementation for a method of [`FirstProtocol`](..\/types\/firstprotocol1.md)\nprovided by [`SecondProtocol`](..\/types\/secondprotocol.md).\nFrom source we mess this up as an extension method.\nFrom symbolgraph we mess this up as being part of [`FirstProtocol`](..\/types\/firstprotocol1.md).",
               "discouraged" : false,
               "notes_html" : "<p>From a protocol extension: not a customization point.<\/p>",
-              "swift_declaration_html" : "var getOnly: Int { get }"
+              "notes_md" : "From a protocol extension: not a customization point.",
+              "swift_declaration_html" : "var getOnly: Int { get }",
+              "swift_declaration_md" : "var getOnly: Int { get }"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">var <\/span>getOnly<span class=\"j2-item-secondary\">: Int<\/span>",
@@ -2863,7 +3019,8 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Properties"
+        "title_html" : "Properties",
+        "title_md" : "Properties"
       }
     ],
     "topics_language" : "j2-swift",
@@ -2905,10 +3062,13 @@
     "breadcrumbs_root" : "SpmSwiftModule",
     "codehost_def_link" : "Show on GitHub",
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
+    "copyright_md" : "&copy; 9999. All rights reserved. (Last updated: today).",
     "def" : {
       "abstract_html" : "<p>Main structure<\/p>",
+      "abstract_md" : "Main structure",
       "discouraged" : false,
-      "swift_declaration_html" : "public struct SpmSwiftModule"
+      "swift_declaration_html" : "public struct SpmSwiftModule",
+      "swift_declaration_md" : "public struct SpmSwiftModule"
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
@@ -3096,8 +3256,10 @@
             "dash_type" : "Struct",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
               "discouraged" : false,
-              "swift_declaration_html" : "public struct Nested1"
+              "swift_declaration_html" : "public struct Nested1",
+              "swift_declaration_md" : "public struct Nested1"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">struct <\/span>Nested1",
@@ -3111,8 +3273,10 @@
             "dash_type" : "Struct",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
               "discouraged" : false,
-              "swift_declaration_html" : "public struct Nested2"
+              "swift_declaration_html" : "public struct Nested2",
+              "swift_declaration_md" : "public struct Nested2"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">struct <\/span>Nested2",
@@ -3120,7 +3284,8 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Types"
+        "title_html" : "Types",
+        "title_md" : "Types"
       },
       {
         "anchor_id" : "tpc-properties",
@@ -3133,8 +3298,10 @@
             "dash_type" : "Property",
             "def" : {
               "abstract_html" : "<p>A pair of Ints<\/p>",
+              "abstract_md" : "A pair of Ints",
               "discouraged" : false,
-              "swift_declaration_html" : "var a: Int"
+              "swift_declaration_html" : "var a: Int",
+              "swift_declaration_md" : "var a: Int"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">var <\/span>a<span class=\"j2-item-secondary\">: Int<\/span>",
@@ -3147,8 +3314,10 @@
             "dash_type" : "Property",
             "def" : {
               "abstract_html" : "<p>A pair of Ints<\/p>",
+              "abstract_md" : "A pair of Ints",
               "discouraged" : false,
-              "swift_declaration_html" : "var b: Int"
+              "swift_declaration_html" : "var b: Int",
+              "swift_declaration_md" : "var b: Int"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">var <\/span>b<span class=\"j2-item-secondary\">: Int<\/span>",
@@ -3161,8 +3330,10 @@
             "dash_type" : "Property",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
               "discouraged" : false,
-              "swift_declaration_html" : "public var text: String"
+              "swift_declaration_html" : "public var text: String",
+              "swift_declaration_md" : "public var text: String"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">var <\/span>text<span class=\"j2-item-secondary\">: String<\/span>",
@@ -3170,7 +3341,8 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Properties"
+        "title_html" : "Properties",
+        "title_md" : "Properties"
       }
     ],
     "topics_language" : "j2-swift",
@@ -3216,10 +3388,13 @@
     "breadcrumbs_root" : "SpmSwiftModule",
     "codehost_def_link" : "Show on GitHub",
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
+    "copyright_md" : "&copy; 9999. All rights reserved. (Last updated: today).",
     "def" : {
       "abstract_html" : "<p>Undocumented<\/p>",
+      "abstract_md" : "Undocumented",
       "discouraged" : false,
-      "swift_declaration_html" : "public struct Nested1"
+      "swift_declaration_html" : "public struct Nested1",
+      "swift_declaration_md" : "public struct Nested1"
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
@@ -3408,8 +3583,10 @@
             "dash_type" : "Struct",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
               "discouraged" : false,
-              "swift_declaration_html" : "public struct Nested2a"
+              "swift_declaration_html" : "public struct Nested2a",
+              "swift_declaration_md" : "public struct Nested2a"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">struct <\/span>Nested2a",
@@ -3422,9 +3599,12 @@
             "dash_type" : "Struct",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
               "deprecation_html" : "<p>Deprecated.<\/p>",
+              "deprecation_md" : "Deprecated.",
               "discouraged" : true,
-              "swift_declaration_html" : "public struct Nested2b"
+              "swift_declaration_html" : "public struct Nested2b",
+              "swift_declaration_md" : "public struct Nested2b"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">struct <\/span>Nested2b",
@@ -3432,7 +3612,8 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Types"
+        "title_html" : "Types",
+        "title_md" : "Types"
       }
     ],
     "topics_language" : "j2-swift",
@@ -3466,6 +3647,7 @@
     "breadcrumbs_root" : "SpmSwiftModule",
     "codehost_def_link" : "Show on GitHub",
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
+    "copyright_md" : "&copy; 9999. All rights reserved. (Last updated: today).",
     "default_language" : "j2-swift",
     "disable_search" : false,
     "doc_coverage" : 50,
@@ -3653,16 +3835,21 @@
             "dash_type" : "Global",
             "def" : {
               "abstract_html" : "<p>A deprecated function<\/p>",
+              "abstract_md" : "A deprecated function",
               "deprecation_html" : "<p>iOS - deprecated since 12.0. Deprecated!.<\/p>\n<p>macOS - deprecated since 10.14. Deprecated on <em>macOS<\/em> too.<\/p>\n<p>Deprecated.<\/p>",
+              "deprecation_md" : "iOS - deprecated since 12.0. Deprecated\\!.\n\nmacOS - deprecated since 10.14. Deprecated on *macOS* too.\n\nDeprecated.",
               "discouraged" : true,
               "parameters" : [
                 {
                   "parameter_html" : "<p>The callback<\/p>",
+                  "parameter_md" : "The callback",
                   "title" : "callback"
                 }
               ],
               "returns_html" : "<p>A string<\/p>",
-              "swift_declaration_html" : "public func deprecatedFunction(callback: (_ report: String) -&gt; Int) -&gt; String"
+              "returns_md" : "A string",
+              "swift_declaration_html" : "public func deprecatedFunction(callback: (_ report: String) -&gt; Int) -&gt; String",
+              "swift_declaration_md" : "public func deprecatedFunction(callback: (_ report: String) -> Int) -> String"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>deprecatedFunction<span class=\"j2-item-secondary\">(<\/span>callback<span class=\"j2-item-secondary\">: (_ report: String) -&gt; Int) -&gt; String<\/span>",
@@ -3675,27 +3862,33 @@
             "dash_type" : "Global",
             "def" : {
               "abstract_html" : "<p>See <a href=\"types\/spmswiftmodule.html?swift\"><code>SpmSwiftModule<\/code><\/a> – or <a href=\"types\/abaseclass.html?swift\"><code>SpmSwiftModule.ABaseClass<\/code><\/a>.<\/p>",
+              "abstract_md" : "See [`SpmSwiftModule`](types\/spmswiftmodule.md) – or [`SpmSwiftModule.ABaseClass`](types\/abaseclass.md).",
               "availability" : [
                 "iOS 9+",
                 "macOS 10.12+"
               ],
               "discouraged" : false,
               "notes_html" : "<p>tvOS - unavailable. Not available on the big screen.<\/p>",
+              "notes_md" : "tvOS - unavailable. Not available on the big screen.",
               "parameters" : [
                 {
                   "parameter_html" : "<p>Number one<\/p>",
+                  "parameter_md" : "Number one",
                   "title" : "arg1"
                 },
                 {
                   "parameter_html" : "<p>Second<\/p>",
+                  "parameter_md" : "Second",
                   "title" : "arg2"
                 },
                 {
                   "parameter_html" : "<p>Third<\/p>",
+                  "parameter_md" : "Third",
                   "title" : "arg3"
                 }
               ],
-              "swift_declaration_html" : "public func functionA(arg1: Int,\n                      _ arg2: Int,\n                      arg3 argMeaning: Int)"
+              "swift_declaration_html" : "public func functionA(arg1: Int,\n                      _ arg2: Int,\n                      arg3 argMeaning: Int)",
+              "swift_declaration_md" : "public func functionA(arg1: Int,\n                      _ arg2: Int,\n                      arg3 argMeaning: Int)"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>functionA<span class=\"j2-item-secondary\">(<\/span>arg1<span class=\"j2-item-secondary\">: Int, Int, <\/span>arg3<span class=\"j2-item-secondary\">: Int)<\/span>",
@@ -3722,6 +3915,7 @@
     "breadcrumbs_root" : "SpmSwiftModule",
     "codehost_def_link" : "Show on GitHub",
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
+    "copyright_md" : "&copy; 9999. All rights reserved. (Last updated: today).",
     "default_language" : "j2-swift",
     "disable_search" : false,
     "doc_coverage" : 50,
@@ -3908,8 +4102,10 @@
             "dash_type" : "Function",
             "def" : {
               "abstract_html" : "<p>Unscoped operator<\/p>",
+              "abstract_md" : "Unscoped operator",
               "discouraged" : false,
-              "swift_declaration_html" : "func + (lhs: <a href=\"types.html?swift#t1\">T<\/a>, rhs: <a href=\"types.html?swift#t1\">T<\/a>) -&gt; String"
+              "swift_declaration_html" : "func + (lhs: <a href=\"types.html?swift#t1\">T<\/a>, rhs: <a href=\"types.html?swift#t1\">T<\/a>) -&gt; String",
+              "swift_declaration_md" : "func + (lhs: T, rhs: T) -> String"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">static func <\/span>+<span class=\"j2-item-secondary\">(<\/span>lhs<span class=\"j2-item-secondary\">: T, <\/span>rhs<span class=\"j2-item-secondary\">: T) -&gt; String<\/span>",
@@ -3936,6 +4132,7 @@
     "breadcrumbs_root" : "SpmSwiftModule",
     "codehost_def_link" : "Show on GitHub",
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
+    "copyright_md" : "&copy; 9999. All rights reserved. (Last updated: today).",
     "default_language" : "j2-swift",
     "disable_search" : false,
     "doc_coverage" : 50,
@@ -4122,10 +4319,13 @@
             "dash_name" : "extension%20Collection",
             "dash_type" : "Extension",
             "def" : {
-              "abstract_html" : "<p>A sequence whose elements can be traversed multiple times, nondestructively, and\naccessed by an indexed subscript.<\/p>",
+              "abstract_html" : "<p>A sequence whose elements can be traversed multiple times, nondestructively, and accessed by an indexed subscript.<\/p>",
+              "abstract_md" : "A sequence whose elements can be traversed multiple times, nondestructively, and accessed by an indexed subscript.",
               "discouraged" : false,
-              "discussion_html" : "<p>Collections are used extensively throughout the standard library. When you use\narrays, dictionaries, and other collections, you benefit from the operations\nthat the <code>Collection<\/code> protocol declares and implements. In addition to the\noperations that collections inherit from the <code>Sequence<\/code> protocol, you gain\naccess to methods that depend on accessing an element at a specific position in\na collection.<\/p>\n<p>For example, if you want to print only the first word in a string, you can\nsearch for the index of the first space, and then create a substring up to that\nposition.<\/p>\n<pre><code class=\"language-swift\">let text = &quot;Buffalo buffalo buffalo buffalo.&quot;\nif let firstSpace = text.firstIndex(of: &quot; &quot;) {\n    print(text[..&lt;firstSpace])\n}\n\/\/ Prints &quot;Buffalo&quot;\n\n<\/code><\/pre>\n<p>The <code>firstSpace<\/code> constant is an index into the <code>text<\/code> string—the position of the\nfirst space in the string. You can store indices in variables, and pass them to\ncollection algorithms or use them later to access the corresponding element. In\nthe example above, <code>firstSpace<\/code> is used to extract the prefix that contains\nelements up to that index.<\/p>\n<h1 class=\"j2-anchor j2-heading heading\" id=\"accessing-individual-elements\">\n<span data-anchor-id=\"accessing-individual-elements\">\nAccessing Individual Elements\n<\/span><\/h1>\n<p>You can access an element of a collection through its subscript by using any\nvalid index except the collection’s <code>endIndex<\/code> property. This property is a\n“past the end” index that does not correspond with any element of the\ncollection.<\/p>\n<p>Here’s an example of accessing the first character in a string through its\nsubscript:<\/p>\n<pre><code class=\"language-swift\">let firstChar = text[text.startIndex]\nprint(firstChar)\n\/\/ Prints &quot;B&quot;\n\n<\/code><\/pre>\n<p>The <code>Collection<\/code> protocol declares and provides default implementations for many\noperations that depend on elements being accessible by their subscript. For\nexample, you can also access the first character of <code>text<\/code> using the <code>first<\/code>\nproperty, which has the value of the first element of the collection, or <code>nil<\/code>\nif the collection is empty.<\/p>\n<pre><code class=\"language-swift\">print(text.first)\n\/\/ Prints &quot;Optional(&quot;B&quot;)&quot;\n\n<\/code><\/pre>\n<p>You can pass only valid indices to collection operations. You can find a\ncomplete set of a collection’s valid indices by starting with the collection’s\n<code>startIndex<\/code> property and finding every successor up to, and including, the\n<code>endIndex<\/code> property. All other values of the <code>Index<\/code> type, such as the\n<code>startIndex<\/code> property of a different collection, are invalid indices for this\ncollection.<\/p>\n<p>Saved indices may become invalid as a result of mutating operations. For more\ninformation about index invalidation in mutable collections, see the reference\nfor the <code>MutableCollection<\/code> and <code>RangeReplaceableCollection<\/code> protocols, as well\nas for the specific type you’re using.<\/p>\n<h1 class=\"j2-anchor j2-heading heading\" id=\"accessing-slices-of-a-collection\">\n<span data-anchor-id=\"accessing-slices-of-a-collection\">\nAccessing Slices of a Collection\n<\/span><\/h1>\n<p>You can access a slice of a collection through its ranged subscript or by\ncalling methods like <code>prefix(while:)<\/code> or <code>suffix(_:)<\/code>. A slice of a collection\ncan contain zero or more of the original collection’s elements and shares the\noriginal collection’s semantics.<\/p>\n<p>The following example creates a <code>firstWord<\/code> constant by using the\n<code>prefix(while:)<\/code> method to get a slice of the <code>text<\/code> string.<\/p>\n<pre><code class=\"language-swift\">let firstWord = text.prefix(while: { $0 != &quot; &quot; })\nprint(firstWord)\n\/\/ Prints &quot;Buffalo&quot;\n\n<\/code><\/pre>\n<p>You can retrieve the same slice using the string’s ranged subscript, which takes\na range expression.<\/p>\n<pre><code class=\"language-swift\">if let firstSpace = text.firstIndex(of: &quot; &quot;) {\n    print(text[..&lt;firstSpace]\n    \/\/ Prints &quot;Buffalo&quot;\n}\n\n<\/code><\/pre>\n<p>The retrieved slice of <code>text<\/code> is equivalent in each of these cases.<\/p>\n<h2 class=\"j2-anchor j2-heading heading\" id=\"slices-share-indices\">\n<span data-anchor-id=\"slices-share-indices\">\nSlices Share Indices\n<\/span><\/h2>\n<p>A collection and its slices share the same indices. An element of a collection\nis located under the same index in a slice as in the base collection, as long as\nneither the collection nor the slice has been mutated since the slice was\ncreated.<\/p>\n<p>For example, suppose you have an array holding the number of absences from each\nclass during a session.<\/p>\n<pre><code class=\"language-swift\">var absences = [0, 2, 0, 4, 0, 3, 1, 0]\n\n<\/code><\/pre>\n<p>You’re tasked with finding the day with the most absences in the second half of\nthe session. To find the index of the day in question, follow these steps:<\/p>\n<ol>\n<li>Create a slice of the <code>absences<\/code> array that holds the second half of the\ndays.<\/li>\n<li>Use the <code>max(by:)<\/code> method to determine the index of the day with the most\nabsences.<\/li>\n<li>Print the result using the index found in step 2 on the original <code>absences<\/code>\narray.<\/li>\n<\/ol>\n<p>Here’s an implementation of those steps:<\/p>\n<pre><code class=\"language-swift\">let secondHalf = absences.suffix(absences.count \/ 2)\nif let i = secondHalf.indices.max(by: { secondHalf[$0] &lt; secondHalf[$1] }) {\n    print(&quot;Highest second-half absences: \\(absences[i])&quot;)\n}\n\/\/ Prints &quot;Highest second-half absences: 3&quot;\n\n<\/code><\/pre>\n<h2 class=\"j2-anchor j2-heading heading\" id=\"slices-inherit-collection-semantics\">\n<span data-anchor-id=\"slices-inherit-collection-semantics\">\nSlices Inherit Collection Semantics\n<\/span><\/h2>\n<p>A slice inherits the value or reference semantics of its base collection. That\nis, when working with a slice of a mutable collection that has value semantics,\nsuch as an array, mutating the original collection triggers a copy of that\ncollection and does not affect the contents of the slice.<\/p>\n<p>For example, if you update the last element of the <code>absences<\/code> array from <code>0<\/code> to\n<code>2<\/code>, the <code>secondHalf<\/code> slice is unchanged.<\/p>\n<pre><code class=\"language-swift\">absences[7] = 2\nprint(absences)\n\/\/ Prints &quot;[0, 2, 0, 4, 0, 3, 1, 2]&quot;\nprint(secondHalf)\n\/\/ Prints &quot;[0, 3, 1, 0]&quot;\n\n<\/code><\/pre>\n<h1 class=\"j2-anchor j2-heading heading\" id=\"traversing-a-collection\">\n<span data-anchor-id=\"traversing-a-collection\">\nTraversing a Collection\n<\/span><\/h1>\n<p>Although a sequence can be consumed as it is traversed, a collection is\nguaranteed to be <em>multipass<\/em>: Any element can be repeatedly accessed by saving\nits index. Moreover, a collection’s indices form a finite range of the positions\nof the collection’s elements. The fact that all collections are finite\nguarantees the safety of many sequence operations, such as using the\n<code>contains(_:)<\/code> method to test whether a collection includes an element.<\/p>\n<p>Iterating over the elements of a collection by their positions yields the same\nelements in the same order as iterating over that collection using its iterator.\nThis example demonstrates that the <code>characters<\/code> view of a string returns the\nsame characters in the same order whether the view’s indices or the view itself\nis being iterated.<\/p>\n<pre><code class=\"language-swift\">let word = &quot;Swift&quot;\nfor character in word {\n    print(character)\n}\n\/\/ Prints &quot;S&quot;\n\/\/ Prints &quot;w&quot;\n\/\/ Prints &quot;i&quot;\n\/\/ Prints &quot;f&quot;\n\/\/ Prints &quot;t&quot;\n\nfor i in word.indices {\n    print(word[i])\n}\n\/\/ Prints &quot;S&quot;\n\/\/ Prints &quot;w&quot;\n\/\/ Prints &quot;i&quot;\n\/\/ Prints &quot;f&quot;\n\/\/ Prints &quot;t&quot;\n\n<\/code><\/pre>\n<h1 class=\"j2-anchor j2-heading heading\" id=\"conforming-to-the-collection-protocol\">\n<span data-anchor-id=\"conforming-to-the-collection-protocol\">\nConforming to the Collection Protocol\n<\/span><\/h1>\n<p>If you create a custom sequence that can provide repeated access to its\nelements, make sure that its type conforms to the <code>Collection<\/code> protocol in order\nto give a more useful and more efficient interface for sequence and collection\noperations. To add <code>Collection<\/code> conformance to your type, you must declare at\nleast the following requirements:<\/p>\n<ul>\n<li>The <code>startIndex<\/code> and <code>endIndex<\/code> properties<\/li>\n<li>A subscript that provides at least read-only access to your type’s elements<\/li>\n<li>The <code>index(after:)<\/code> method for advancing an index into your collection<\/li>\n<\/ul>\n<h1 class=\"j2-anchor j2-heading heading\" id=\"expected-performance\">\n<span data-anchor-id=\"expected-performance\">\nExpected Performance\n<\/span><\/h1>\n<p>Types that conform to <code>Collection<\/code> are expected to provide the <code>startIndex<\/code> and\n<code>endIndex<\/code> properties and subscript access to elements as O(1) operations. Types\nthat are not able to guarantee this performance must document the departure,\nbecause many collection operations depend on O(1) subscripting performance for\ntheir own performance guarantees.<\/p>\n<p>The performance of some collection operations depends on the type of index that\nthe collection provides. For example, a random-access collection, which can\nmeasure the distance between two indices in O(1) time, can calculate its <code>count<\/code>\nproperty in O(1) time. Conversely, because a forward or bidirectional collection\nmust traverse the entire collection to count the number of contained elements,\naccessing its <code>count<\/code> property is an O(<em>n<\/em>) operation.<\/p>",
-              "swift_declaration_html" : "extension Collection where Element: <a href=\"types\/firstprotocol1.html?swift\">FirstProtocol<\/a>\n\nextension Collection where Element == <a href=\"types\/spmswiftmodule\/nested1.html?swift\">SpmSwiftModule.Nested1<\/a>"
+              "discussion_html" : "<p>Collections are used extensively throughout the standard library. When you use arrays, dictionaries, and other collections, you benefit from the operations that the <code>Collection<\/code> protocol declares and implements. In addition to the operations that collections inherit from the <code>Sequence<\/code> protocol, you gain access to methods that depend on accessing an element at a specific position in a collection.<\/p>\n<p>For example, if you want to print only the first word in a string, you can search for the index of the first space, and then create a substring up to that position.<\/p>\n<pre><code class=\"language-swift\">let text = &quot;Buffalo buffalo buffalo buffalo.&quot;\nif let firstSpace = text.firstIndex(of: &quot; &quot;) {\n    print(text[..&lt;firstSpace])\n}\n\/\/ Prints &quot;Buffalo&quot;\n\n<\/code><\/pre>\n<p>The <code>firstSpace<\/code> constant is an index into the <code>text<\/code> string—the position of the first space in the string. You can store indices in variables, and pass them to collection algorithms or use them later to access the corresponding element. In the example above, <code>firstSpace<\/code> is used to extract the prefix that contains elements up to that index.<\/p>\n<h1 class=\"j2-anchor j2-heading heading\" id=\"accessing-individual-elements\">\n<span data-anchor-id=\"accessing-individual-elements\">\nAccessing Individual Elements\n<\/span><\/h1>\n<p>You can access an element of a collection through its subscript by using any valid index except the collection’s <code>endIndex<\/code> property. This property is a “past the end” index that does not correspond with any element of the collection.<\/p>\n<p>Here’s an example of accessing the first character in a string through its subscript:<\/p>\n<pre><code class=\"language-swift\">let firstChar = text[text.startIndex]\nprint(firstChar)\n\/\/ Prints &quot;B&quot;\n\n<\/code><\/pre>\n<p>The <code>Collection<\/code> protocol declares and provides default implementations for many operations that depend on elements being accessible by their subscript. For example, you can also access the first character of <code>text<\/code> using the <code>first<\/code> property, which has the value of the first element of the collection, or <code>nil<\/code> if the collection is empty.<\/p>\n<pre><code class=\"language-swift\">print(text.first)\n\/\/ Prints &quot;Optional(&quot;B&quot;)&quot;\n\n<\/code><\/pre>\n<p>You can pass only valid indices to collection operations. You can find a complete set of a collection’s valid indices by starting with the collection’s <code>startIndex<\/code> property and finding every successor up to, and including, the <code>endIndex<\/code> property. All other values of the <code>Index<\/code> type, such as the <code>startIndex<\/code> property of a different collection, are invalid indices for this collection.<\/p>\n<p>Saved indices may become invalid as a result of mutating operations. For more information about index invalidation in mutable collections, see the reference for the <code>MutableCollection<\/code> and <code>RangeReplaceableCollection<\/code> protocols, as well as for the specific type you’re using.<\/p>\n<h1 class=\"j2-anchor j2-heading heading\" id=\"accessing-slices-of-a-collection\">\n<span data-anchor-id=\"accessing-slices-of-a-collection\">\nAccessing Slices of a Collection\n<\/span><\/h1>\n<p>You can access a slice of a collection through its ranged subscript or by calling methods like <code>prefix(while:)<\/code> or <code>suffix(_:)<\/code>. A slice of a collection can contain zero or more of the original collection’s elements and shares the original collection’s semantics.<\/p>\n<p>The following example creates a <code>firstWord<\/code> constant by using the <code>prefix(while:)<\/code> method to get a slice of the <code>text<\/code> string.<\/p>\n<pre><code class=\"language-swift\">let firstWord = text.prefix(while: { $0 != &quot; &quot; })\nprint(firstWord)\n\/\/ Prints &quot;Buffalo&quot;\n\n<\/code><\/pre>\n<p>You can retrieve the same slice using the string’s ranged subscript, which takes a range expression.<\/p>\n<pre><code class=\"language-swift\">if let firstSpace = text.firstIndex(of: &quot; &quot;) {\n    print(text[..&lt;firstSpace]\n    \/\/ Prints &quot;Buffalo&quot;\n}\n\n<\/code><\/pre>\n<p>The retrieved slice of <code>text<\/code> is equivalent in each of these cases.<\/p>\n<h2 class=\"j2-anchor j2-heading heading\" id=\"slices-share-indices\">\n<span data-anchor-id=\"slices-share-indices\">\nSlices Share Indices\n<\/span><\/h2>\n<p>A collection and its slices share the same indices. An element of a collection is located under the same index in a slice as in the base collection, as long as neither the collection nor the slice has been mutated since the slice was created.<\/p>\n<p>For example, suppose you have an array holding the number of absences from each class during a session.<\/p>\n<pre><code class=\"language-swift\">var absences = [0, 2, 0, 4, 0, 3, 1, 0]\n\n<\/code><\/pre>\n<p>You’re tasked with finding the day with the most absences in the second half of the session. To find the index of the day in question, follow these steps:<\/p>\n<ol>\n<li>Create a slice of the <code>absences<\/code> array that holds the second half of the days.<\/li>\n<li>Use the <code>max(by:)<\/code> method to determine the index of the day with the most absences.<\/li>\n<li>Print the result using the index found in step 2 on the original <code>absences<\/code> array.<\/li>\n<\/ol>\n<p>Here’s an implementation of those steps:<\/p>\n<pre><code class=\"language-swift\">let secondHalf = absences.suffix(absences.count \/ 2)\nif let i = secondHalf.indices.max(by: { secondHalf[$0] &lt; secondHalf[$1] }) {\n    print(&quot;Highest second-half absences: \\(absences[i])&quot;)\n}\n\/\/ Prints &quot;Highest second-half absences: 3&quot;\n\n<\/code><\/pre>\n<h2 class=\"j2-anchor j2-heading heading\" id=\"slices-inherit-collection-semantics\">\n<span data-anchor-id=\"slices-inherit-collection-semantics\">\nSlices Inherit Collection Semantics\n<\/span><\/h2>\n<p>A slice inherits the value or reference semantics of its base collection. That is, when working with a slice of a mutable collection that has value semantics, such as an array, mutating the original collection triggers a copy of that collection and does not affect the contents of the slice.<\/p>\n<p>For example, if you update the last element of the <code>absences<\/code> array from <code>0<\/code> to <code>2<\/code>, the <code>secondHalf<\/code> slice is unchanged.<\/p>\n<pre><code class=\"language-swift\">absences[7] = 2\nprint(absences)\n\/\/ Prints &quot;[0, 2, 0, 4, 0, 3, 1, 2]&quot;\nprint(secondHalf)\n\/\/ Prints &quot;[0, 3, 1, 0]&quot;\n\n<\/code><\/pre>\n<h1 class=\"j2-anchor j2-heading heading\" id=\"traversing-a-collection\">\n<span data-anchor-id=\"traversing-a-collection\">\nTraversing a Collection\n<\/span><\/h1>\n<p>Although a sequence can be consumed as it is traversed, a collection is guaranteed to be <em>multipass<\/em>: Any element can be repeatedly accessed by saving its index. Moreover, a collection’s indices form a finite range of the positions of the collection’s elements. The fact that all collections are finite guarantees the safety of many sequence operations, such as using the <code>contains(_:)<\/code> method to test whether a collection includes an element.<\/p>\n<p>Iterating over the elements of a collection by their positions yields the same elements in the same order as iterating over that collection using its iterator. This example demonstrates that the <code>characters<\/code> view of a string returns the same characters in the same order whether the view’s indices or the view itself is being iterated.<\/p>\n<pre><code class=\"language-swift\">let word = &quot;Swift&quot;\nfor character in word {\n    print(character)\n}\n\/\/ Prints &quot;S&quot;\n\/\/ Prints &quot;w&quot;\n\/\/ Prints &quot;i&quot;\n\/\/ Prints &quot;f&quot;\n\/\/ Prints &quot;t&quot;\n\nfor i in word.indices {\n    print(word[i])\n}\n\/\/ Prints &quot;S&quot;\n\/\/ Prints &quot;w&quot;\n\/\/ Prints &quot;i&quot;\n\/\/ Prints &quot;f&quot;\n\/\/ Prints &quot;t&quot;\n\n<\/code><\/pre>\n<h1 class=\"j2-anchor j2-heading heading\" id=\"conforming-to-the-collection-protocol\">\n<span data-anchor-id=\"conforming-to-the-collection-protocol\">\nConforming to the Collection Protocol\n<\/span><\/h1>\n<p>If you create a custom sequence that can provide repeated access to its elements, make sure that its type conforms to the <code>Collection<\/code> protocol in order to give a more useful and more efficient interface for sequence and collection operations. To add <code>Collection<\/code> conformance to your type, you must declare at least the following requirements:<\/p>\n<ul>\n<li>The <code>startIndex<\/code> and <code>endIndex<\/code> properties<\/li>\n<li>A subscript that provides at least read-only access to your type’s elements<\/li>\n<li>The <code>index(after:)<\/code> method for advancing an index into your collection<\/li>\n<\/ul>\n<h1 class=\"j2-anchor j2-heading heading\" id=\"expected-performance\">\n<span data-anchor-id=\"expected-performance\">\nExpected Performance\n<\/span><\/h1>\n<p>Types that conform to <code>Collection<\/code> are expected to provide the <code>startIndex<\/code> and <code>endIndex<\/code> properties and subscript access to elements as O(1) operations. Types that are not able to guarantee this performance must document the departure, because many collection operations depend on O(1) subscripting performance for their own performance guarantees.<\/p>\n<p>The performance of some collection operations depends on the type of index that the collection provides. For example, a random-access collection, which can measure the distance between two indices in O(1) time, can calculate its <code>count<\/code> property in O(1) time. Conversely, because a forward or bidirectional collection must traverse the entire collection to count the number of contained elements, accessing its <code>count<\/code> property is an O(<em>n<\/em>) operation.<\/p>",
+              "discussion_md" : "Collections are used extensively throughout the standard library. When you use arrays, dictionaries, and other collections, you benefit from the operations that the `Collection` protocol declares and implements. In addition to the operations that collections inherit from the `Sequence` protocol, you gain access to methods that depend on accessing an element at a specific position in a collection.\n\nFor example, if you want to print only the first word in a string, you can search for the index of the first space, and then create a substring up to that position.\n\n``` swift\nlet text = \"Buffalo buffalo buffalo buffalo.\"\nif let firstSpace = text.firstIndex(of: \" \") {\n    print(text[..<firstSpace])\n}\n\/\/ Prints \"Buffalo\"\n\n```\n\nThe `firstSpace` constant is an index into the `text` string—the position of the first space in the string. You can store indices in variables, and pass them to collection algorithms or use them later to access the corresponding element. In the example above, `firstSpace` is used to extract the prefix that contains elements up to that index.\n\n# Accessing Individual Elements\n\nYou can access an element of a collection through its subscript by using any valid index except the collection’s `endIndex` property. This property is a “past the end” index that does not correspond with any element of the collection.\n\nHere’s an example of accessing the first character in a string through its subscript:\n\n``` swift\nlet firstChar = text[text.startIndex]\nprint(firstChar)\n\/\/ Prints \"B\"\n\n```\n\nThe `Collection` protocol declares and provides default implementations for many operations that depend on elements being accessible by their subscript. For example, you can also access the first character of `text` using the `first` property, which has the value of the first element of the collection, or `nil` if the collection is empty.\n\n``` swift\nprint(text.first)\n\/\/ Prints \"Optional(\"B\")\"\n\n```\n\nYou can pass only valid indices to collection operations. You can find a complete set of a collection’s valid indices by starting with the collection’s `startIndex` property and finding every successor up to, and including, the `endIndex` property. All other values of the `Index` type, such as the `startIndex` property of a different collection, are invalid indices for this collection.\n\nSaved indices may become invalid as a result of mutating operations. For more information about index invalidation in mutable collections, see the reference for the `MutableCollection` and `RangeReplaceableCollection` protocols, as well as for the specific type you’re using.\n\n# Accessing Slices of a Collection\n\nYou can access a slice of a collection through its ranged subscript or by calling methods like `prefix(while:)` or `suffix(_:)`. A slice of a collection can contain zero or more of the original collection’s elements and shares the original collection’s semantics.\n\nThe following example creates a `firstWord` constant by using the `prefix(while:)` method to get a slice of the `text` string.\n\n``` swift\nlet firstWord = text.prefix(while: { $0 != \" \" })\nprint(firstWord)\n\/\/ Prints \"Buffalo\"\n\n```\n\nYou can retrieve the same slice using the string’s ranged subscript, which takes a range expression.\n\n``` swift\nif let firstSpace = text.firstIndex(of: \" \") {\n    print(text[..<firstSpace]\n    \/\/ Prints \"Buffalo\"\n}\n\n```\n\nThe retrieved slice of `text` is equivalent in each of these cases.\n\n## Slices Share Indices\n\nA collection and its slices share the same indices. An element of a collection is located under the same index in a slice as in the base collection, as long as neither the collection nor the slice has been mutated since the slice was created.\n\nFor example, suppose you have an array holding the number of absences from each class during a session.\n\n``` swift\nvar absences = [0, 2, 0, 4, 0, 3, 1, 0]\n\n```\n\nYou’re tasked with finding the day with the most absences in the second half of the session. To find the index of the day in question, follow these steps:\n\n1.  Create a slice of the `absences` array that holds the second half of the days.\n2.  Use the `max(by:)` method to determine the index of the day with the most absences.\n3.  Print the result using the index found in step 2 on the original `absences` array.\n\nHere’s an implementation of those steps:\n\n``` swift\nlet secondHalf = absences.suffix(absences.count \/ 2)\nif let i = secondHalf.indices.max(by: { secondHalf[$0] < secondHalf[$1] }) {\n    print(\"Highest second-half absences: \\(absences[i])\")\n}\n\/\/ Prints \"Highest second-half absences: 3\"\n\n```\n\n## Slices Inherit Collection Semantics\n\nA slice inherits the value or reference semantics of its base collection. That is, when working with a slice of a mutable collection that has value semantics, such as an array, mutating the original collection triggers a copy of that collection and does not affect the contents of the slice.\n\nFor example, if you update the last element of the `absences` array from `0` to `2`, the `secondHalf` slice is unchanged.\n\n``` swift\nabsences[7] = 2\nprint(absences)\n\/\/ Prints \"[0, 2, 0, 4, 0, 3, 1, 2]\"\nprint(secondHalf)\n\/\/ Prints \"[0, 3, 1, 0]\"\n\n```\n\n# Traversing a Collection\n\nAlthough a sequence can be consumed as it is traversed, a collection is guaranteed to be *multipass*: Any element can be repeatedly accessed by saving its index. Moreover, a collection’s indices form a finite range of the positions of the collection’s elements. The fact that all collections are finite guarantees the safety of many sequence operations, such as using the `contains(_:)` method to test whether a collection includes an element.\n\nIterating over the elements of a collection by their positions yields the same elements in the same order as iterating over that collection using its iterator. This example demonstrates that the `characters` view of a string returns the same characters in the same order whether the view’s indices or the view itself is being iterated.\n\n``` swift\nlet word = \"Swift\"\nfor character in word {\n    print(character)\n}\n\/\/ Prints \"S\"\n\/\/ Prints \"w\"\n\/\/ Prints \"i\"\n\/\/ Prints \"f\"\n\/\/ Prints \"t\"\n\nfor i in word.indices {\n    print(word[i])\n}\n\/\/ Prints \"S\"\n\/\/ Prints \"w\"\n\/\/ Prints \"i\"\n\/\/ Prints \"f\"\n\/\/ Prints \"t\"\n\n```\n\n# Conforming to the Collection Protocol\n\nIf you create a custom sequence that can provide repeated access to its elements, make sure that its type conforms to the `Collection` protocol in order to give a more useful and more efficient interface for sequence and collection operations. To add `Collection` conformance to your type, you must declare at least the following requirements:\n\n  - The `startIndex` and `endIndex` properties\n  - A subscript that provides at least read-only access to your type’s elements\n  - The `index(after:)` method for advancing an index into your collection\n\n# Expected Performance\n\nTypes that conform to `Collection` are expected to provide the `startIndex` and `endIndex` properties and subscript access to elements as O(1) operations. Types that are not able to guarantee this performance must document the departure, because many collection operations depend on O(1) subscripting performance for their own performance guarantees.\n\nThe performance of some collection operations depends on the type of index that the collection provides. For example, a random-access collection, which can measure the distance between two indices in O(1) time, can calculate its `count` property in O(1) time. Conversely, because a forward or bidirectional collection must traverse the entire collection to count the number of contained elements, accessing its `count` property is an O(*n*) operation.",
+              "swift_declaration_html" : "extension Collection where Element: <a href=\"types\/firstprotocol1.html?swift\">FirstProtocol<\/a>\n\nextension Collection where Element == <a href=\"types\/spmswiftmodule\/nested1.html?swift\">SpmSwiftModule.Nested1<\/a>",
+              "swift_declaration_md" : "extension Collection where Element: FirstProtocol\n\nextension Collection where Element == SpmSwiftModule.Nested1"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">extension <\/span>Collection",
@@ -4139,8 +4339,10 @@
             "dash_type" : "Extension",
             "def" : {
               "abstract_html" : "<p>Extension of a nested type from an external module<\/p>",
+              "abstract_md" : "Extension of a nested type from an external module",
               "discouraged" : false,
-              "swift_declaration_html" : "extension String.Element"
+              "swift_declaration_html" : "extension String.Element",
+              "swift_declaration_md" : "extension String.Element"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">extension <\/span>String.Element",
@@ -4172,11 +4374,15 @@
     "breadcrumbs_root" : "SpmSwiftModule",
     "codehost_def_link" : "Show on GitHub",
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
+    "copyright_md" : "&copy; 9999. All rights reserved. (Last updated: today).",
     "def" : {
-      "abstract_html" : "<p>A sequence whose elements can be traversed multiple times, nondestructively, and\naccessed by an indexed subscript.<\/p>",
+      "abstract_html" : "<p>A sequence whose elements can be traversed multiple times, nondestructively, and accessed by an indexed subscript.<\/p>",
+      "abstract_md" : "A sequence whose elements can be traversed multiple times, nondestructively, and accessed by an indexed subscript.",
       "discouraged" : false,
-      "discussion_html" : "<p>Collections are used extensively throughout the standard library. When you use\narrays, dictionaries, and other collections, you benefit from the operations\nthat the <code>Collection<\/code> protocol declares and implements. In addition to the\noperations that collections inherit from the <code>Sequence<\/code> protocol, you gain\naccess to methods that depend on accessing an element at a specific position in\na collection.<\/p>\n<p>For example, if you want to print only the first word in a string, you can\nsearch for the index of the first space, and then create a substring up to that\nposition.<\/p>\n<pre><code class=\"language-swift\">let text = &quot;Buffalo buffalo buffalo buffalo.&quot;\nif let firstSpace = text.firstIndex(of: &quot; &quot;) {\n    print(text[..&lt;firstSpace])\n}\n\/\/ Prints &quot;Buffalo&quot;\n\n<\/code><\/pre>\n<p>The <code>firstSpace<\/code> constant is an index into the <code>text<\/code> string—the position of the\nfirst space in the string. You can store indices in variables, and pass them to\ncollection algorithms or use them later to access the corresponding element. In\nthe example above, <code>firstSpace<\/code> is used to extract the prefix that contains\nelements up to that index.<\/p>\n<h1 class=\"j2-anchor j2-heading heading\" id=\"accessing-individual-elements\">\n<span data-anchor-id=\"accessing-individual-elements\">\nAccessing Individual Elements\n<\/span><\/h1>\n<p>You can access an element of a collection through its subscript by using any\nvalid index except the collection’s <code>endIndex<\/code> property. This property is a\n“past the end” index that does not correspond with any element of the\ncollection.<\/p>\n<p>Here’s an example of accessing the first character in a string through its\nsubscript:<\/p>\n<pre><code class=\"language-swift\">let firstChar = text[text.startIndex]\nprint(firstChar)\n\/\/ Prints &quot;B&quot;\n\n<\/code><\/pre>\n<p>The <code>Collection<\/code> protocol declares and provides default implementations for many\noperations that depend on elements being accessible by their subscript. For\nexample, you can also access the first character of <code>text<\/code> using the <code>first<\/code>\nproperty, which has the value of the first element of the collection, or <code>nil<\/code>\nif the collection is empty.<\/p>\n<pre><code class=\"language-swift\">print(text.first)\n\/\/ Prints &quot;Optional(&quot;B&quot;)&quot;\n\n<\/code><\/pre>\n<p>You can pass only valid indices to collection operations. You can find a\ncomplete set of a collection’s valid indices by starting with the collection’s\n<code>startIndex<\/code> property and finding every successor up to, and including, the\n<code>endIndex<\/code> property. All other values of the <code>Index<\/code> type, such as the\n<code>startIndex<\/code> property of a different collection, are invalid indices for this\ncollection.<\/p>\n<p>Saved indices may become invalid as a result of mutating operations. For more\ninformation about index invalidation in mutable collections, see the reference\nfor the <code>MutableCollection<\/code> and <code>RangeReplaceableCollection<\/code> protocols, as well\nas for the specific type you’re using.<\/p>\n<h1 class=\"j2-anchor j2-heading heading\" id=\"accessing-slices-of-a-collection\">\n<span data-anchor-id=\"accessing-slices-of-a-collection\">\nAccessing Slices of a Collection\n<\/span><\/h1>\n<p>You can access a slice of a collection through its ranged subscript or by\ncalling methods like <code>prefix(while:)<\/code> or <code>suffix(_:)<\/code>. A slice of a collection\ncan contain zero or more of the original collection’s elements and shares the\noriginal collection’s semantics.<\/p>\n<p>The following example creates a <code>firstWord<\/code> constant by using the\n<code>prefix(while:)<\/code> method to get a slice of the <code>text<\/code> string.<\/p>\n<pre><code class=\"language-swift\">let firstWord = text.prefix(while: { $0 != &quot; &quot; })\nprint(firstWord)\n\/\/ Prints &quot;Buffalo&quot;\n\n<\/code><\/pre>\n<p>You can retrieve the same slice using the string’s ranged subscript, which takes\na range expression.<\/p>\n<pre><code class=\"language-swift\">if let firstSpace = text.firstIndex(of: &quot; &quot;) {\n    print(text[..&lt;firstSpace]\n    \/\/ Prints &quot;Buffalo&quot;\n}\n\n<\/code><\/pre>\n<p>The retrieved slice of <code>text<\/code> is equivalent in each of these cases.<\/p>\n<h2 class=\"j2-anchor j2-heading heading\" id=\"slices-share-indices\">\n<span data-anchor-id=\"slices-share-indices\">\nSlices Share Indices\n<\/span><\/h2>\n<p>A collection and its slices share the same indices. An element of a collection\nis located under the same index in a slice as in the base collection, as long as\nneither the collection nor the slice has been mutated since the slice was\ncreated.<\/p>\n<p>For example, suppose you have an array holding the number of absences from each\nclass during a session.<\/p>\n<pre><code class=\"language-swift\">var absences = [0, 2, 0, 4, 0, 3, 1, 0]\n\n<\/code><\/pre>\n<p>You’re tasked with finding the day with the most absences in the second half of\nthe session. To find the index of the day in question, follow these steps:<\/p>\n<ol>\n<li>Create a slice of the <code>absences<\/code> array that holds the second half of the\ndays.<\/li>\n<li>Use the <code>max(by:)<\/code> method to determine the index of the day with the most\nabsences.<\/li>\n<li>Print the result using the index found in step 2 on the original <code>absences<\/code>\narray.<\/li>\n<\/ol>\n<p>Here’s an implementation of those steps:<\/p>\n<pre><code class=\"language-swift\">let secondHalf = absences.suffix(absences.count \/ 2)\nif let i = secondHalf.indices.max(by: { secondHalf[$0] &lt; secondHalf[$1] }) {\n    print(&quot;Highest second-half absences: \\(absences[i])&quot;)\n}\n\/\/ Prints &quot;Highest second-half absences: 3&quot;\n\n<\/code><\/pre>\n<h2 class=\"j2-anchor j2-heading heading\" id=\"slices-inherit-collection-semantics\">\n<span data-anchor-id=\"slices-inherit-collection-semantics\">\nSlices Inherit Collection Semantics\n<\/span><\/h2>\n<p>A slice inherits the value or reference semantics of its base collection. That\nis, when working with a slice of a mutable collection that has value semantics,\nsuch as an array, mutating the original collection triggers a copy of that\ncollection and does not affect the contents of the slice.<\/p>\n<p>For example, if you update the last element of the <code>absences<\/code> array from <code>0<\/code> to\n<code>2<\/code>, the <code>secondHalf<\/code> slice is unchanged.<\/p>\n<pre><code class=\"language-swift\">absences[7] = 2\nprint(absences)\n\/\/ Prints &quot;[0, 2, 0, 4, 0, 3, 1, 2]&quot;\nprint(secondHalf)\n\/\/ Prints &quot;[0, 3, 1, 0]&quot;\n\n<\/code><\/pre>\n<h1 class=\"j2-anchor j2-heading heading\" id=\"traversing-a-collection\">\n<span data-anchor-id=\"traversing-a-collection\">\nTraversing a Collection\n<\/span><\/h1>\n<p>Although a sequence can be consumed as it is traversed, a collection is\nguaranteed to be <em>multipass<\/em>: Any element can be repeatedly accessed by saving\nits index. Moreover, a collection’s indices form a finite range of the positions\nof the collection’s elements. The fact that all collections are finite\nguarantees the safety of many sequence operations, such as using the\n<code>contains(_:)<\/code> method to test whether a collection includes an element.<\/p>\n<p>Iterating over the elements of a collection by their positions yields the same\nelements in the same order as iterating over that collection using its iterator.\nThis example demonstrates that the <code>characters<\/code> view of a string returns the\nsame characters in the same order whether the view’s indices or the view itself\nis being iterated.<\/p>\n<pre><code class=\"language-swift\">let word = &quot;Swift&quot;\nfor character in word {\n    print(character)\n}\n\/\/ Prints &quot;S&quot;\n\/\/ Prints &quot;w&quot;\n\/\/ Prints &quot;i&quot;\n\/\/ Prints &quot;f&quot;\n\/\/ Prints &quot;t&quot;\n\nfor i in word.indices {\n    print(word[i])\n}\n\/\/ Prints &quot;S&quot;\n\/\/ Prints &quot;w&quot;\n\/\/ Prints &quot;i&quot;\n\/\/ Prints &quot;f&quot;\n\/\/ Prints &quot;t&quot;\n\n<\/code><\/pre>\n<h1 class=\"j2-anchor j2-heading heading\" id=\"conforming-to-the-collection-protocol\">\n<span data-anchor-id=\"conforming-to-the-collection-protocol\">\nConforming to the Collection Protocol\n<\/span><\/h1>\n<p>If you create a custom sequence that can provide repeated access to its\nelements, make sure that its type conforms to the <code>Collection<\/code> protocol in order\nto give a more useful and more efficient interface for sequence and collection\noperations. To add <code>Collection<\/code> conformance to your type, you must declare at\nleast the following requirements:<\/p>\n<ul>\n<li>The <code>startIndex<\/code> and <code>endIndex<\/code> properties<\/li>\n<li>A subscript that provides at least read-only access to your type’s elements<\/li>\n<li>The <code>index(after:)<\/code> method for advancing an index into your collection<\/li>\n<\/ul>\n<h1 class=\"j2-anchor j2-heading heading\" id=\"expected-performance\">\n<span data-anchor-id=\"expected-performance\">\nExpected Performance\n<\/span><\/h1>\n<p>Types that conform to <code>Collection<\/code> are expected to provide the <code>startIndex<\/code> and\n<code>endIndex<\/code> properties and subscript access to elements as O(1) operations. Types\nthat are not able to guarantee this performance must document the departure,\nbecause many collection operations depend on O(1) subscripting performance for\ntheir own performance guarantees.<\/p>\n<p>The performance of some collection operations depends on the type of index that\nthe collection provides. For example, a random-access collection, which can\nmeasure the distance between two indices in O(1) time, can calculate its <code>count<\/code>\nproperty in O(1) time. Conversely, because a forward or bidirectional collection\nmust traverse the entire collection to count the number of contained elements,\naccessing its <code>count<\/code> property is an O(<em>n<\/em>) operation.<\/p>",
-      "swift_declaration_html" : "extension Collection where Element: <a href=\"..\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>\n\nextension Collection where Element == <a href=\"..\/types\/spmswiftmodule\/nested1.html?swift\">SpmSwiftModule.Nested1<\/a>"
+      "discussion_html" : "<p>Collections are used extensively throughout the standard library. When you use arrays, dictionaries, and other collections, you benefit from the operations that the <code>Collection<\/code> protocol declares and implements. In addition to the operations that collections inherit from the <code>Sequence<\/code> protocol, you gain access to methods that depend on accessing an element at a specific position in a collection.<\/p>\n<p>For example, if you want to print only the first word in a string, you can search for the index of the first space, and then create a substring up to that position.<\/p>\n<pre><code class=\"language-swift\">let text = &quot;Buffalo buffalo buffalo buffalo.&quot;\nif let firstSpace = text.firstIndex(of: &quot; &quot;) {\n    print(text[..&lt;firstSpace])\n}\n\/\/ Prints &quot;Buffalo&quot;\n\n<\/code><\/pre>\n<p>The <code>firstSpace<\/code> constant is an index into the <code>text<\/code> string—the position of the first space in the string. You can store indices in variables, and pass them to collection algorithms or use them later to access the corresponding element. In the example above, <code>firstSpace<\/code> is used to extract the prefix that contains elements up to that index.<\/p>\n<h1 class=\"j2-anchor j2-heading heading\" id=\"accessing-individual-elements\">\n<span data-anchor-id=\"accessing-individual-elements\">\nAccessing Individual Elements\n<\/span><\/h1>\n<p>You can access an element of a collection through its subscript by using any valid index except the collection’s <code>endIndex<\/code> property. This property is a “past the end” index that does not correspond with any element of the collection.<\/p>\n<p>Here’s an example of accessing the first character in a string through its subscript:<\/p>\n<pre><code class=\"language-swift\">let firstChar = text[text.startIndex]\nprint(firstChar)\n\/\/ Prints &quot;B&quot;\n\n<\/code><\/pre>\n<p>The <code>Collection<\/code> protocol declares and provides default implementations for many operations that depend on elements being accessible by their subscript. For example, you can also access the first character of <code>text<\/code> using the <code>first<\/code> property, which has the value of the first element of the collection, or <code>nil<\/code> if the collection is empty.<\/p>\n<pre><code class=\"language-swift\">print(text.first)\n\/\/ Prints &quot;Optional(&quot;B&quot;)&quot;\n\n<\/code><\/pre>\n<p>You can pass only valid indices to collection operations. You can find a complete set of a collection’s valid indices by starting with the collection’s <code>startIndex<\/code> property and finding every successor up to, and including, the <code>endIndex<\/code> property. All other values of the <code>Index<\/code> type, such as the <code>startIndex<\/code> property of a different collection, are invalid indices for this collection.<\/p>\n<p>Saved indices may become invalid as a result of mutating operations. For more information about index invalidation in mutable collections, see the reference for the <code>MutableCollection<\/code> and <code>RangeReplaceableCollection<\/code> protocols, as well as for the specific type you’re using.<\/p>\n<h1 class=\"j2-anchor j2-heading heading\" id=\"accessing-slices-of-a-collection\">\n<span data-anchor-id=\"accessing-slices-of-a-collection\">\nAccessing Slices of a Collection\n<\/span><\/h1>\n<p>You can access a slice of a collection through its ranged subscript or by calling methods like <code>prefix(while:)<\/code> or <code>suffix(_:)<\/code>. A slice of a collection can contain zero or more of the original collection’s elements and shares the original collection’s semantics.<\/p>\n<p>The following example creates a <code>firstWord<\/code> constant by using the <code>prefix(while:)<\/code> method to get a slice of the <code>text<\/code> string.<\/p>\n<pre><code class=\"language-swift\">let firstWord = text.prefix(while: { $0 != &quot; &quot; })\nprint(firstWord)\n\/\/ Prints &quot;Buffalo&quot;\n\n<\/code><\/pre>\n<p>You can retrieve the same slice using the string’s ranged subscript, which takes a range expression.<\/p>\n<pre><code class=\"language-swift\">if let firstSpace = text.firstIndex(of: &quot; &quot;) {\n    print(text[..&lt;firstSpace]\n    \/\/ Prints &quot;Buffalo&quot;\n}\n\n<\/code><\/pre>\n<p>The retrieved slice of <code>text<\/code> is equivalent in each of these cases.<\/p>\n<h2 class=\"j2-anchor j2-heading heading\" id=\"slices-share-indices\">\n<span data-anchor-id=\"slices-share-indices\">\nSlices Share Indices\n<\/span><\/h2>\n<p>A collection and its slices share the same indices. An element of a collection is located under the same index in a slice as in the base collection, as long as neither the collection nor the slice has been mutated since the slice was created.<\/p>\n<p>For example, suppose you have an array holding the number of absences from each class during a session.<\/p>\n<pre><code class=\"language-swift\">var absences = [0, 2, 0, 4, 0, 3, 1, 0]\n\n<\/code><\/pre>\n<p>You’re tasked with finding the day with the most absences in the second half of the session. To find the index of the day in question, follow these steps:<\/p>\n<ol>\n<li>Create a slice of the <code>absences<\/code> array that holds the second half of the days.<\/li>\n<li>Use the <code>max(by:)<\/code> method to determine the index of the day with the most absences.<\/li>\n<li>Print the result using the index found in step 2 on the original <code>absences<\/code> array.<\/li>\n<\/ol>\n<p>Here’s an implementation of those steps:<\/p>\n<pre><code class=\"language-swift\">let secondHalf = absences.suffix(absences.count \/ 2)\nif let i = secondHalf.indices.max(by: { secondHalf[$0] &lt; secondHalf[$1] }) {\n    print(&quot;Highest second-half absences: \\(absences[i])&quot;)\n}\n\/\/ Prints &quot;Highest second-half absences: 3&quot;\n\n<\/code><\/pre>\n<h2 class=\"j2-anchor j2-heading heading\" id=\"slices-inherit-collection-semantics\">\n<span data-anchor-id=\"slices-inherit-collection-semantics\">\nSlices Inherit Collection Semantics\n<\/span><\/h2>\n<p>A slice inherits the value or reference semantics of its base collection. That is, when working with a slice of a mutable collection that has value semantics, such as an array, mutating the original collection triggers a copy of that collection and does not affect the contents of the slice.<\/p>\n<p>For example, if you update the last element of the <code>absences<\/code> array from <code>0<\/code> to <code>2<\/code>, the <code>secondHalf<\/code> slice is unchanged.<\/p>\n<pre><code class=\"language-swift\">absences[7] = 2\nprint(absences)\n\/\/ Prints &quot;[0, 2, 0, 4, 0, 3, 1, 2]&quot;\nprint(secondHalf)\n\/\/ Prints &quot;[0, 3, 1, 0]&quot;\n\n<\/code><\/pre>\n<h1 class=\"j2-anchor j2-heading heading\" id=\"traversing-a-collection\">\n<span data-anchor-id=\"traversing-a-collection\">\nTraversing a Collection\n<\/span><\/h1>\n<p>Although a sequence can be consumed as it is traversed, a collection is guaranteed to be <em>multipass<\/em>: Any element can be repeatedly accessed by saving its index. Moreover, a collection’s indices form a finite range of the positions of the collection’s elements. The fact that all collections are finite guarantees the safety of many sequence operations, such as using the <code>contains(_:)<\/code> method to test whether a collection includes an element.<\/p>\n<p>Iterating over the elements of a collection by their positions yields the same elements in the same order as iterating over that collection using its iterator. This example demonstrates that the <code>characters<\/code> view of a string returns the same characters in the same order whether the view’s indices or the view itself is being iterated.<\/p>\n<pre><code class=\"language-swift\">let word = &quot;Swift&quot;\nfor character in word {\n    print(character)\n}\n\/\/ Prints &quot;S&quot;\n\/\/ Prints &quot;w&quot;\n\/\/ Prints &quot;i&quot;\n\/\/ Prints &quot;f&quot;\n\/\/ Prints &quot;t&quot;\n\nfor i in word.indices {\n    print(word[i])\n}\n\/\/ Prints &quot;S&quot;\n\/\/ Prints &quot;w&quot;\n\/\/ Prints &quot;i&quot;\n\/\/ Prints &quot;f&quot;\n\/\/ Prints &quot;t&quot;\n\n<\/code><\/pre>\n<h1 class=\"j2-anchor j2-heading heading\" id=\"conforming-to-the-collection-protocol\">\n<span data-anchor-id=\"conforming-to-the-collection-protocol\">\nConforming to the Collection Protocol\n<\/span><\/h1>\n<p>If you create a custom sequence that can provide repeated access to its elements, make sure that its type conforms to the <code>Collection<\/code> protocol in order to give a more useful and more efficient interface for sequence and collection operations. To add <code>Collection<\/code> conformance to your type, you must declare at least the following requirements:<\/p>\n<ul>\n<li>The <code>startIndex<\/code> and <code>endIndex<\/code> properties<\/li>\n<li>A subscript that provides at least read-only access to your type’s elements<\/li>\n<li>The <code>index(after:)<\/code> method for advancing an index into your collection<\/li>\n<\/ul>\n<h1 class=\"j2-anchor j2-heading heading\" id=\"expected-performance\">\n<span data-anchor-id=\"expected-performance\">\nExpected Performance\n<\/span><\/h1>\n<p>Types that conform to <code>Collection<\/code> are expected to provide the <code>startIndex<\/code> and <code>endIndex<\/code> properties and subscript access to elements as O(1) operations. Types that are not able to guarantee this performance must document the departure, because many collection operations depend on O(1) subscripting performance for their own performance guarantees.<\/p>\n<p>The performance of some collection operations depends on the type of index that the collection provides. For example, a random-access collection, which can measure the distance between two indices in O(1) time, can calculate its <code>count<\/code> property in O(1) time. Conversely, because a forward or bidirectional collection must traverse the entire collection to count the number of contained elements, accessing its <code>count<\/code> property is an O(<em>n<\/em>) operation.<\/p>",
+      "discussion_md" : "Collections are used extensively throughout the standard library. When you use arrays, dictionaries, and other collections, you benefit from the operations that the `Collection` protocol declares and implements. In addition to the operations that collections inherit from the `Sequence` protocol, you gain access to methods that depend on accessing an element at a specific position in a collection.\n\nFor example, if you want to print only the first word in a string, you can search for the index of the first space, and then create a substring up to that position.\n\n``` swift\nlet text = \"Buffalo buffalo buffalo buffalo.\"\nif let firstSpace = text.firstIndex(of: \" \") {\n    print(text[..<firstSpace])\n}\n\/\/ Prints \"Buffalo\"\n\n```\n\nThe `firstSpace` constant is an index into the `text` string—the position of the first space in the string. You can store indices in variables, and pass them to collection algorithms or use them later to access the corresponding element. In the example above, `firstSpace` is used to extract the prefix that contains elements up to that index.\n\n# Accessing Individual Elements\n\nYou can access an element of a collection through its subscript by using any valid index except the collection’s `endIndex` property. This property is a “past the end” index that does not correspond with any element of the collection.\n\nHere’s an example of accessing the first character in a string through its subscript:\n\n``` swift\nlet firstChar = text[text.startIndex]\nprint(firstChar)\n\/\/ Prints \"B\"\n\n```\n\nThe `Collection` protocol declares and provides default implementations for many operations that depend on elements being accessible by their subscript. For example, you can also access the first character of `text` using the `first` property, which has the value of the first element of the collection, or `nil` if the collection is empty.\n\n``` swift\nprint(text.first)\n\/\/ Prints \"Optional(\"B\")\"\n\n```\n\nYou can pass only valid indices to collection operations. You can find a complete set of a collection’s valid indices by starting with the collection’s `startIndex` property and finding every successor up to, and including, the `endIndex` property. All other values of the `Index` type, such as the `startIndex` property of a different collection, are invalid indices for this collection.\n\nSaved indices may become invalid as a result of mutating operations. For more information about index invalidation in mutable collections, see the reference for the `MutableCollection` and `RangeReplaceableCollection` protocols, as well as for the specific type you’re using.\n\n# Accessing Slices of a Collection\n\nYou can access a slice of a collection through its ranged subscript or by calling methods like `prefix(while:)` or `suffix(_:)`. A slice of a collection can contain zero or more of the original collection’s elements and shares the original collection’s semantics.\n\nThe following example creates a `firstWord` constant by using the `prefix(while:)` method to get a slice of the `text` string.\n\n``` swift\nlet firstWord = text.prefix(while: { $0 != \" \" })\nprint(firstWord)\n\/\/ Prints \"Buffalo\"\n\n```\n\nYou can retrieve the same slice using the string’s ranged subscript, which takes a range expression.\n\n``` swift\nif let firstSpace = text.firstIndex(of: \" \") {\n    print(text[..<firstSpace]\n    \/\/ Prints \"Buffalo\"\n}\n\n```\n\nThe retrieved slice of `text` is equivalent in each of these cases.\n\n## Slices Share Indices\n\nA collection and its slices share the same indices. An element of a collection is located under the same index in a slice as in the base collection, as long as neither the collection nor the slice has been mutated since the slice was created.\n\nFor example, suppose you have an array holding the number of absences from each class during a session.\n\n``` swift\nvar absences = [0, 2, 0, 4, 0, 3, 1, 0]\n\n```\n\nYou’re tasked with finding the day with the most absences in the second half of the session. To find the index of the day in question, follow these steps:\n\n1.  Create a slice of the `absences` array that holds the second half of the days.\n2.  Use the `max(by:)` method to determine the index of the day with the most absences.\n3.  Print the result using the index found in step 2 on the original `absences` array.\n\nHere’s an implementation of those steps:\n\n``` swift\nlet secondHalf = absences.suffix(absences.count \/ 2)\nif let i = secondHalf.indices.max(by: { secondHalf[$0] < secondHalf[$1] }) {\n    print(\"Highest second-half absences: \\(absences[i])\")\n}\n\/\/ Prints \"Highest second-half absences: 3\"\n\n```\n\n## Slices Inherit Collection Semantics\n\nA slice inherits the value or reference semantics of its base collection. That is, when working with a slice of a mutable collection that has value semantics, such as an array, mutating the original collection triggers a copy of that collection and does not affect the contents of the slice.\n\nFor example, if you update the last element of the `absences` array from `0` to `2`, the `secondHalf` slice is unchanged.\n\n``` swift\nabsences[7] = 2\nprint(absences)\n\/\/ Prints \"[0, 2, 0, 4, 0, 3, 1, 2]\"\nprint(secondHalf)\n\/\/ Prints \"[0, 3, 1, 0]\"\n\n```\n\n# Traversing a Collection\n\nAlthough a sequence can be consumed as it is traversed, a collection is guaranteed to be *multipass*: Any element can be repeatedly accessed by saving its index. Moreover, a collection’s indices form a finite range of the positions of the collection’s elements. The fact that all collections are finite guarantees the safety of many sequence operations, such as using the `contains(_:)` method to test whether a collection includes an element.\n\nIterating over the elements of a collection by their positions yields the same elements in the same order as iterating over that collection using its iterator. This example demonstrates that the `characters` view of a string returns the same characters in the same order whether the view’s indices or the view itself is being iterated.\n\n``` swift\nlet word = \"Swift\"\nfor character in word {\n    print(character)\n}\n\/\/ Prints \"S\"\n\/\/ Prints \"w\"\n\/\/ Prints \"i\"\n\/\/ Prints \"f\"\n\/\/ Prints \"t\"\n\nfor i in word.indices {\n    print(word[i])\n}\n\/\/ Prints \"S\"\n\/\/ Prints \"w\"\n\/\/ Prints \"i\"\n\/\/ Prints \"f\"\n\/\/ Prints \"t\"\n\n```\n\n# Conforming to the Collection Protocol\n\nIf you create a custom sequence that can provide repeated access to its elements, make sure that its type conforms to the `Collection` protocol in order to give a more useful and more efficient interface for sequence and collection operations. To add `Collection` conformance to your type, you must declare at least the following requirements:\n\n  - The `startIndex` and `endIndex` properties\n  - A subscript that provides at least read-only access to your type’s elements\n  - The `index(after:)` method for advancing an index into your collection\n\n# Expected Performance\n\nTypes that conform to `Collection` are expected to provide the `startIndex` and `endIndex` properties and subscript access to elements as O(1) operations. Types that are not able to guarantee this performance must document the departure, because many collection operations depend on O(1) subscripting performance for their own performance guarantees.\n\nThe performance of some collection operations depends on the type of index that the collection provides. For example, a random-access collection, which can measure the distance between two indices in O(1) time, can calculate its `count` property in O(1) time. Conversely, because a forward or bidirectional collection must traverse the entire collection to count the number of contained elements, accessing its `count` property is an O(*n*) operation.",
+      "swift_declaration_html" : "extension Collection where Element: <a href=\"..\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>\n\nextension Collection where Element == <a href=\"..\/types\/spmswiftmodule\/nested1.html?swift\">SpmSwiftModule.Nested1<\/a>",
+      "swift_declaration_md" : "extension Collection where Element: FirstProtocol\n\nextension Collection where Element == SpmSwiftModule.Nested1"
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
@@ -4363,8 +4569,10 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
               "discouraged" : false,
-              "swift_declaration_html" : "func nestEmAll()"
+              "swift_declaration_html" : "func nestEmAll()",
+              "swift_declaration_md" : "func nestEmAll()"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>nestEmAll<span class=\"j2-item-secondary\">()<\/span>",
@@ -4372,7 +4580,8 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Available where <code>Element<\/code> == <a href=\"..\/types\/spmswiftmodule\/nested1.html?swift\"><code>SpmSwiftModule.Nested1<\/code><\/a>"
+        "title_html" : "Available where <code>Element<\/code> == <a href=\"..\/types\/spmswiftmodule\/nested1.html?swift\"><code>SpmSwiftModule.Nested1<\/code><\/a>",
+        "title_md" : "Available where `Element` == [`SpmSwiftModule.Nested1`](..\/types\/spmswiftmodule\/nested1.md)"
       },
       {
         "anchor_id" : "tpc-available-where-element-firstprotocol",
@@ -4385,8 +4594,10 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
               "discouraged" : false,
-              "swift_declaration_html" : "func collectEmAll()"
+              "swift_declaration_html" : "func collectEmAll()",
+              "swift_declaration_md" : "func collectEmAll()"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>collectEmAll<span class=\"j2-item-secondary\">()<\/span>",
@@ -4394,7 +4605,8 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Available where <code>Element<\/code>: <a href=\"..\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>"
+        "title_html" : "Available where <code>Element<\/code>: <a href=\"..\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>",
+        "title_md" : "Available where `Element`: [`FirstProtocol`](..\/types\/firstprotocol1.md)"
       }
     ],
     "topics_language" : "j2-swift",
@@ -4436,10 +4648,13 @@
     "breadcrumbs_root" : "SpmSwiftModule",
     "codehost_def_link" : "Show on GitHub",
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
+    "copyright_md" : "&copy; 9999. All rights reserved. (Last updated: today).",
     "def" : {
       "abstract_html" : "<p>Extension of a nested type from an external module<\/p>",
+      "abstract_md" : "Extension of a nested type from an external module",
       "discouraged" : false,
-      "swift_declaration_html" : "extension String.Element"
+      "swift_declaration_html" : "extension String.Element",
+      "swift_declaration_md" : "extension String.Element"
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
@@ -4618,8 +4833,10 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>documented method<\/p>",
+              "abstract_md" : "documented method",
               "discouraged" : false,
-              "swift_declaration_html" : "func method1()"
+              "swift_declaration_html" : "func method1()",
+              "swift_declaration_md" : "func method1()"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>method1<span class=\"j2-item-secondary\">()<\/span>",
@@ -4632,8 +4849,10 @@
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
               "discouraged" : false,
-              "swift_declaration_html" : "func method2()"
+              "swift_declaration_html" : "func method2()",
+              "swift_declaration_md" : "func method2()"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>method2<span class=\"j2-item-secondary\">()<\/span>",
@@ -4641,7 +4860,8 @@
           }
         ],
         "primary_language" : "j2-swift",
-        "title_html" : "Methods"
+        "title_html" : "Methods",
+        "title_md" : "Methods"
       }
     ],
     "topics_language" : "j2-swift",
@@ -4666,7 +4886,9 @@
     "breadcrumbs_root" : "SpmSwiftModule",
     "codehost_def_link" : "Show on GitHub",
     "content_html" : "<h1 class=\"j2-anchor j2-heading heading\" id=\"spmswiftmodule\">\n<span data-anchor-id=\"spmswiftmodule\">\nSpmSwiftModule\n<\/span><\/h1>",
+    "content_md" : "# SpmSwiftModule",
     "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
+    "copyright_md" : "&copy; 9999. All rights reserved. (Last updated: today).",
     "default_language" : "j2-swift",
     "disable_search" : false,
     "doc_coverage" : 50,

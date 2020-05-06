@@ -75,7 +75,7 @@ class TestMarkdown: XCTestCase {
             return
         }
         XCTAssertEqual(m.localizationKey, "en")
-        XCTAssertEqual(results.returns, Markdown("The answer - On two lines."))
+        XCTAssertEqual(results.returns, Markdown("The answer -\nOn two lines."))
         XCTAssertEqual(results.parameters, [FlatDefDocs.Param(name: "Fred", description: Markdown("Barney"))])
         XCTAssertEqual(results.abstract, Markdown("Abstract line."))
         XCTAssertEqual(results.discussion, Markdown("""

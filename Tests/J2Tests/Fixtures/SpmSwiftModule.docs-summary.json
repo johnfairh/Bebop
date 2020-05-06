@@ -49,15 +49,21 @@
               "dash_type" : "Class",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>A base class<\/p>"
+                  "html" : {
+                    "en" : "<p>A base class<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "A base class"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public class ABaseClass"
+                  "html" : {
+                    "html" : "public class ABaseClass"
+                  },
+                  "text" : "public class ABaseClass"
                 }
               },
               "flat_title" : {
@@ -76,15 +82,21 @@
               "dash_type" : "Class",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>A derived class<\/p>"
+                  "html" : {
+                    "en" : "<p>A derived class<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "A derived class"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public class ADerivedClass&lt;T, Q&gt; : <a href=\"spmswiftmodule\/types\/abaseclass.html?swift\">ABaseClass<\/a> where Q : Sequence"
+                  "html" : {
+                    "html" : "public class ADerivedClass&lt;T, Q&gt; : <a href=\"spmswiftmodule\/types\/abaseclass.html?swift\">ABaseClass<\/a> where Q : Sequence"
+                  },
+                  "text" : "public class ADerivedClass<T, Q> : ABaseClass where Q : Sequence"
                 }
               },
               "flat_title" : {
@@ -103,15 +115,21 @@
               "dash_type" : "enum",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>An enum<\/p>"
+                  "html" : {
+                    "en" : "<p>An enum<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "An enum"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public enum AnEnum"
+                  "html" : {
+                    "html" : "public enum AnEnum"
+                  },
+                  "text" : "public enum AnEnum"
                 }
               },
               "flat_title" : {
@@ -130,15 +148,21 @@
               "dash_type" : "Protocol",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>A protocol.<\/p>"
+                  "html" : {
+                    "en" : "<p>A protocol.<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "A protocol."
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public protocol FirstProtocol"
+                  "html" : {
+                    "html" : "public protocol FirstProtocol"
+                  },
+                  "text" : "public protocol FirstProtocol"
                 }
               },
               "flat_title" : {
@@ -157,15 +181,21 @@
               "dash_type" : "Class",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "class GenericBase&lt;T&gt;\n\nextension GenericBase : CustomStringConvertible"
+                  "html" : {
+                    "html" : "class GenericBase&lt;T&gt;\n\nextension GenericBase : CustomStringConvertible"
+                  },
+                  "text" : "class GenericBase<T>\n\nextension GenericBase : CustomStringConvertible"
                 }
               },
               "flat_title" : {
@@ -184,15 +214,21 @@
               "dash_type" : "Struct",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "@propertyWrapper\nstruct Nop"
+                  "html" : {
+                    "html" : "@propertyWrapper\nstruct Nop"
+                  },
+                  "text" : "@propertyWrapper\nstruct Nop"
                 }
               },
               "flat_title" : {
@@ -211,15 +247,21 @@
               "dash_type" : "Struct",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>See <a href=\"spmswiftmodule\/types\/nop.html?swift\"><code>@Nop<\/code><\/a>.<\/p>"
+                  "html" : {
+                    "en" : "<p>See <a href=\"spmswiftmodule\/types\/nop.html?swift\"><code>@Nop<\/code><\/a>.<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "See [`@Nop`](spmswiftmodule\/types\/nop.md)."
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "struct PropertyWrapperClient"
+                  "html" : {
+                    "html" : "struct PropertyWrapperClient"
+                  },
+                  "text" : "struct PropertyWrapperClient"
                 }
               },
               "flat_title" : {
@@ -238,15 +280,21 @@
               "dash_type" : "Protocol",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public protocol SecondProtocol : <a href=\"spmswiftmodule\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>"
+                  "html" : {
+                    "html" : "public protocol SecondProtocol : <a href=\"spmswiftmodule\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>"
+                  },
+                  "text" : "public protocol SecondProtocol : FirstProtocol"
                 }
               },
               "flat_title" : {
@@ -265,15 +313,21 @@
               "dash_type" : "Struct",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Main structure<\/p>"
+                  "html" : {
+                    "en" : "<p>Main structure<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Main structure"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public struct SpmSwiftModule"
+                  "html" : {
+                    "html" : "public struct SpmSwiftModule"
+                  },
+                  "text" : "public struct SpmSwiftModule"
                 }
               },
               "flat_title" : {
@@ -292,15 +346,21 @@
               "dash_type" : "Struct",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "struct T"
+                  "html" : {
+                    "html" : "struct T"
+                  },
+                  "text" : "struct T"
                 }
               },
               "flat_title" : {
@@ -316,8 +376,11 @@
             "en" : ""
           },
           "title" : {
-            "en" : {
-              "html" : ""
+            "html" : {
+              "en" : ""
+            },
+            "markdown" : {
+              "en" : ""
             }
           }
         }
@@ -346,15 +409,21 @@
       ],
       "def" : {
         "abstract" : {
-          "en" : {
-            "html" : "<p>A base class<\/p>"
+          "html" : {
+            "en" : "<p>A base class<\/p>"
+          },
+          "markdown" : {
+            "en" : "A base class"
           }
         },
         "availability" : [],
         "deprecated_everywhere" : false,
         "params" : [],
         "swift_declaration" : {
-          "html" : "public class ABaseClass"
+          "html" : {
+            "html" : "public class ABaseClass"
+          },
+          "text" : "public class ABaseClass"
         }
       },
       "guide_topics" : {},
@@ -402,15 +471,21 @@
               "dash_type" : "Constructor",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public init()"
+                  "html" : {
+                    "html" : "public init()"
+                  },
+                  "text" : "public init()"
                 }
               },
               "flat_title" : {
@@ -426,15 +501,21 @@
               "dash_type" : "Constructor",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public convenience init(a: Int)"
+                  "html" : {
+                    "html" : "public convenience init(a: Int)"
+                  },
+                  "text" : "public convenience init(a: Int)"
                 }
               },
               "flat_title" : {
@@ -450,8 +531,11 @@
             "en" : "Initializers"
           },
           "title" : {
-            "en" : {
-              "html" : "Initializers"
+            "html" : {
+              "en" : "Initializers"
+            },
+            "markdown" : {
+              "en" : "Initializers"
             }
           }
         },
@@ -463,15 +547,21 @@
               "dash_type" : "Method",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "deinit"
+                  "html" : {
+                    "html" : "deinit"
+                  },
+                  "text" : "deinit"
                 }
               },
               "flat_title" : {
@@ -487,8 +577,11 @@
             "en" : "Deinitializer"
           },
           "title" : {
-            "en" : {
-              "html" : "Deinitializer"
+            "html" : {
+              "en" : "Deinitializer"
+            },
+            "markdown" : {
+              "en" : "Deinitializer"
             }
           }
         },
@@ -500,15 +593,21 @@
               "dash_type" : "Method",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Base class docs for <code>method(param:)<\/code><\/p>"
+                  "html" : {
+                    "en" : "<p>Base class docs for <code>method(param:)<\/code><\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Base class docs for `method(param:)`"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public func method(param: Int) -&gt; String"
+                  "html" : {
+                    "html" : "public func method(param: Int) -&gt; String"
+                  },
+                  "text" : "public func method(param: Int) -> String"
                 }
               },
               "flat_title" : {
@@ -524,8 +623,11 @@
             "en" : "Methods"
           },
           "title" : {
-            "en" : {
-              "html" : "Methods"
+            "html" : {
+              "en" : "Methods"
+            },
+            "markdown" : {
+              "en" : "Methods"
             }
           }
         },
@@ -537,15 +639,21 @@
               "dash_type" : "Function",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>An operator!<\/p>"
+                  "html" : {
+                    "en" : "<p>An operator!<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "An operator\\!"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public static func + (lhs: <a href=\"..\/..\/spmswiftmodule\/types\/abaseclass.html?swift\">ABaseClass<\/a>, rhs: <a href=\"..\/..\/spmswiftmodule\/types\/abaseclass.html?swift\">ABaseClass<\/a>) -&gt; <a href=\"..\/..\/spmswiftmodule\/types\/abaseclass.html?swift\">ABaseClass<\/a>"
+                  "html" : {
+                    "html" : "public static func + (lhs: <a href=\"..\/..\/spmswiftmodule\/types\/abaseclass.html?swift\">ABaseClass<\/a>, rhs: <a href=\"..\/..\/spmswiftmodule\/types\/abaseclass.html?swift\">ABaseClass<\/a>) -&gt; <a href=\"..\/..\/spmswiftmodule\/types\/abaseclass.html?swift\">ABaseClass<\/a>"
+                  },
+                  "text" : "public static func + (lhs: ABaseClass, rhs: ABaseClass) -> ABaseClass"
                 }
               },
               "flat_title" : {
@@ -561,8 +669,11 @@
             "en" : "Operators"
           },
           "title" : {
-            "en" : {
-              "html" : "Operators"
+            "html" : {
+              "en" : "Operators"
+            },
+            "markdown" : {
+              "en" : "Operators"
             }
           }
         },
@@ -574,15 +685,21 @@
               "dash_type" : "Method",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public subscript(arg: String) -&gt; Int { get set }"
+                  "html" : {
+                    "html" : "public subscript(arg: String) -&gt; Int { get set }"
+                  },
+                  "text" : "public subscript(arg: String) -> Int { get set }"
                 }
               },
               "flat_title" : {
@@ -598,8 +715,11 @@
             "en" : "Subscripts"
           },
           "title" : {
-            "en" : {
-              "html" : "Subscripts"
+            "html" : {
+              "en" : "Subscripts"
+            },
+            "markdown" : {
+              "en" : "Subscripts"
             }
           }
         },
@@ -611,15 +731,21 @@
               "dash_type" : "Method",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public static func staticMethod() -&gt; Int"
+                  "html" : {
+                    "html" : "public static func staticMethod() -&gt; Int"
+                  },
+                  "text" : "public static func staticMethod() -> Int"
                 }
               },
               "flat_title" : {
@@ -635,8 +761,11 @@
             "en" : "Static Methods"
           },
           "title" : {
-            "en" : {
-              "html" : "Static Methods"
+            "html" : {
+              "en" : "Static Methods"
+            },
+            "markdown" : {
+              "en" : "Static Methods"
             }
           }
         },
@@ -648,15 +777,21 @@
               "dash_type" : "Method",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public static subscript(arg: String) -&gt; Int { get }"
+                  "html" : {
+                    "html" : "public static subscript(arg: String) -&gt; Int { get }"
+                  },
+                  "text" : "public static subscript(arg: String) -> Int { get }"
                 }
               },
               "flat_title" : {
@@ -672,8 +807,11 @@
             "en" : "Static Subscripts"
           },
           "title" : {
-            "en" : {
-              "html" : "Static Subscripts"
+            "html" : {
+              "en" : "Static Subscripts"
+            },
+            "markdown" : {
+              "en" : "Static Subscripts"
             }
           }
         },
@@ -685,15 +823,21 @@
               "dash_type" : "Method",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public class subscript(arg: Int) -&gt; String { get }"
+                  "html" : {
+                    "html" : "public class subscript(arg: Int) -&gt; String { get }"
+                  },
+                  "text" : "public class subscript(arg: Int) -> String { get }"
                 }
               },
               "flat_title" : {
@@ -709,8 +853,11 @@
             "en" : "Class Subscripts"
           },
           "title" : {
-            "en" : {
-              "html" : "Class Subscripts"
+            "html" : {
+              "en" : "Class Subscripts"
+            },
+            "markdown" : {
+              "en" : "Class Subscripts"
             }
           }
         }
@@ -739,15 +886,21 @@
       ],
       "def" : {
         "abstract" : {
-          "en" : {
-            "html" : "<p>A derived class<\/p>"
+          "html" : {
+            "en" : "<p>A derived class<\/p>"
+          },
+          "markdown" : {
+            "en" : "A derived class"
           }
         },
         "availability" : [],
         "deprecated_everywhere" : false,
         "params" : [],
         "swift_declaration" : {
-          "html" : "public class ADerivedClass&lt;T, Q&gt; : <a href=\"..\/..\/spmswiftmodule\/types\/abaseclass.html?swift\">ABaseClass<\/a> where Q : Sequence"
+          "html" : {
+            "html" : "public class ADerivedClass&lt;T, Q&gt; : <a href=\"..\/..\/spmswiftmodule\/types\/abaseclass.html?swift\">ABaseClass<\/a> where Q : Sequence"
+          },
+          "text" : "public class ADerivedClass<T, Q> : ABaseClass where Q : Sequence"
         }
       },
       "guide_topics" : {},
@@ -795,15 +948,21 @@
               "dash_type" : "Method",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public func generic(param: T) -&gt; T"
+                  "html" : {
+                    "html" : "public func generic(param: T) -&gt; T"
+                  },
+                  "text" : "public func generic(param: T) -> T"
                 }
               },
               "flat_title" : {
@@ -819,15 +978,21 @@
               "dash_type" : "Method",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>See <a href=\"..\/..\/spmswiftmodule\/types\/abaseclass.html?swift#methodparam\"><code>ABaseClass.method(...)<\/code><\/a>.<\/p>"
+                  "html" : {
+                    "en" : "<p>See <a href=\"..\/..\/spmswiftmodule\/types\/abaseclass.html?swift#methodparam\"><code>ABaseClass.method(...)<\/code><\/a>.<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "See [`ABaseClass.method(...)`](..\/..\/spmswiftmodule\/types\/abaseclass.md#methodparam)."
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public override func method(param: Int) -&gt; String"
+                  "html" : {
+                    "html" : "public override func method(param: Int) -&gt; String"
+                  },
+                  "text" : "public override func method(param: Int) -> String"
                 }
               },
               "flat_title" : {
@@ -843,8 +1008,11 @@
             "en" : "Methods"
           },
           "title" : {
-            "en" : {
-              "html" : "Methods"
+            "html" : {
+              "en" : "Methods"
+            },
+            "markdown" : {
+              "en" : "Methods"
             }
           }
         },
@@ -856,15 +1024,21 @@
               "dash_type" : "Property",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "var t: Q?"
+                  "html" : {
+                    "html" : "var t: Q?"
+                  },
+                  "text" : "var t: Q?"
                 }
               },
               "flat_title" : {
@@ -880,8 +1054,11 @@
             "en" : "Properties"
           },
           "title" : {
-            "en" : {
-              "html" : "Properties"
+            "html" : {
+              "en" : "Properties"
+            },
+            "markdown" : {
+              "en" : "Properties"
             }
           }
         }
@@ -910,15 +1087,21 @@
       ],
       "def" : {
         "abstract" : {
-          "en" : {
-            "html" : "<p>An enum<\/p>"
+          "html" : {
+            "en" : "<p>An enum<\/p>"
+          },
+          "markdown" : {
+            "en" : "An enum"
           }
         },
         "availability" : [],
         "deprecated_everywhere" : false,
         "params" : [],
         "swift_declaration" : {
-          "html" : "public enum AnEnum"
+          "html" : {
+            "html" : "public enum AnEnum"
+          },
+          "text" : "public enum AnEnum"
         }
       },
       "guide_topics" : {},
@@ -966,15 +1149,21 @@
               "dash_type" : "Case",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>First case<\/p>"
+                  "html" : {
+                    "en" : "<p>First case<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "First case"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "case first(Int)"
+                  "html" : {
+                    "html" : "case first(Int)"
+                  },
+                  "text" : "case first(Int)"
                 }
               },
               "flat_title" : {
@@ -990,15 +1179,21 @@
               "dash_type" : "Case",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Second case<\/p>"
+                  "html" : {
+                    "en" : "<p>Second case<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Second case"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "case second"
+                  "html" : {
+                    "html" : "case second"
+                  },
+                  "text" : "case second"
                 }
               },
               "flat_title" : {
@@ -1014,15 +1209,21 @@
               "dash_type" : "Case",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Third &amp; Fourth cases - <a href=\"..\/..\/spmswiftmodule\/types\/anenum.html?swift#second\"><code>second<\/code><\/a><\/p>"
+                  "html" : {
+                    "en" : "<p>Third &amp; Fourth cases - <a href=\"..\/..\/spmswiftmodule\/types\/anenum.html?swift#second\"><code>second<\/code><\/a><\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Third & Fourth cases - [`second`](..\/..\/spmswiftmodule\/types\/anenum.md#second)"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "case third"
+                  "html" : {
+                    "html" : "case third"
+                  },
+                  "text" : "case third"
                 }
               },
               "flat_title" : {
@@ -1038,15 +1239,21 @@
               "dash_type" : "Case",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Third &amp; Fourth cases - <a href=\"..\/..\/spmswiftmodule\/types\/anenum.html?swift#second\"><code>second<\/code><\/a><\/p>"
+                  "html" : {
+                    "en" : "<p>Third &amp; Fourth cases - <a href=\"..\/..\/spmswiftmodule\/types\/anenum.html?swift#second\"><code>second<\/code><\/a><\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Third & Fourth cases - [`second`](..\/..\/spmswiftmodule\/types\/anenum.md#second)"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "case fourth"
+                  "html" : {
+                    "html" : "case fourth"
+                  },
+                  "text" : "case fourth"
                 }
               },
               "flat_title" : {
@@ -1062,15 +1269,21 @@
               "dash_type" : "Case",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Fifth case<\/p>"
+                  "html" : {
+                    "en" : "<p>Fifth case<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Fifth case"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "case fifth(a: String, _: Int)"
+                  "html" : {
+                    "html" : "case fifth(a: String, _: Int)"
+                  },
+                  "text" : "case fifth(a: String, _: Int)"
                 }
               },
               "flat_title" : {
@@ -1086,8 +1299,11 @@
             "en" : "Cases"
           },
           "title" : {
-            "en" : {
-              "html" : "Cases"
+            "html" : {
+              "en" : "Cases"
+            },
+            "markdown" : {
+              "en" : "Cases"
             }
           }
         }
@@ -1116,15 +1332,21 @@
       ],
       "def" : {
         "abstract" : {
-          "en" : {
-            "html" : "<p>A protocol.<\/p>"
+          "html" : {
+            "en" : "<p>A protocol.<\/p>"
+          },
+          "markdown" : {
+            "en" : "A protocol."
           }
         },
         "availability" : [],
         "deprecated_everywhere" : false,
         "params" : [],
         "swift_declaration" : {
-          "html" : "public protocol FirstProtocol"
+          "html" : {
+            "html" : "public protocol FirstProtocol"
+          },
+          "text" : "public protocol FirstProtocol"
         }
       },
       "guide_topics" : {},
@@ -1172,15 +1394,21 @@
               "dash_type" : "Type",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "associatedtype AssocType"
+                  "html" : {
+                    "html" : "associatedtype AssocType"
+                  },
+                  "text" : "associatedtype AssocType"
                 }
               },
               "flat_title" : {
@@ -1196,8 +1424,11 @@
             "en" : "Associated Types"
           },
           "title" : {
-            "en" : {
-              "html" : "Associated Types"
+            "html" : {
+              "en" : "Associated Types"
+            },
+            "markdown" : {
+              "en" : "Associated Types"
             }
           }
         },
@@ -1209,15 +1440,21 @@
               "dash_type" : "Method",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "func assocFunc() -&gt; <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift#assoctype\">AssocType<\/a>"
+                  "html" : {
+                    "html" : "func assocFunc() -&gt; <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift#assoctype\">AssocType<\/a>"
+                  },
+                  "text" : "func assocFunc() -> AssocType"
                 }
               },
               "flat_title" : {
@@ -1233,20 +1470,29 @@
               "dash_type" : "Method",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>A protocol extension method<\/p>"
+                  "html" : {
+                    "en" : "<p>A protocol extension method<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "A protocol extension method"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "notes" : {
-                  "en" : {
-                    "html" : "<p>From a protocol extension: not a customization point.<\/p>"
+                  "html" : {
+                    "en" : "<p>From a protocol extension: not a customization point.<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "From a protocol extension: not a customization point."
                   }
                 },
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "func e()"
+                  "html" : {
+                    "html" : "func e()"
+                  },
+                  "text" : "func e()"
                 }
               },
               "flat_title" : {
@@ -1262,49 +1508,73 @@
               "dash_type" : "Method",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Brief note about m<\/p>"
+                  "html" : {
+                    "en" : "<p>Brief note about m<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Brief note about m"
                   }
                 },
                 "availability" : [],
                 "default_abstract" : {
-                  "en" : {
-                    "html" : "<p>Return a safe default.<\/p>"
+                  "html" : {
+                    "en" : "<p>Return a safe default.<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Return a safe default."
                   }
                 },
                 "default_discussion" : {
-                  "en" : {
-                    "html" : "<p>There’s more: it’s the empty string.<\/p>"
+                  "html" : {
+                    "en" : "<p>There’s more: it’s the empty string.<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "There’s more: it’s the empty string."
                   }
                 },
                 "deprecated_everywhere" : false,
                 "discussion" : {
-                  "en" : {
-                    "html" : "<p>What m is all about.<\/p>"
+                  "html" : {
+                    "en" : "<p>What m is all about.<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "What m is all about."
                   }
                 },
                 "notes" : {
-                  "en" : {
-                    "html" : "<p>Has a default implementation.<\/p>\n<p>Has a default implementation for some conforming types.<\/p>"
+                  "html" : {
+                    "en" : "<p>Has a default implementation.<\/p>\n<p>Has a default implementation for some conforming types.<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Has a default implementation.\n\nHas a default implementation for some conforming types."
                   }
                 },
                 "params" : [
                   {
                     "description" : {
-                      "en" : {
-                        "html" : "<p>The argument<\/p>"
+                      "html" : {
+                        "en" : "<p>The argument<\/p>"
+                      },
+                      "markdown" : {
+                        "en" : "The argument"
                       }
                     },
                     "name" : "arg"
                   }
                 ],
                 "returns" : {
-                  "en" : {
-                    "html" : "<p>The answer<\/p>"
+                  "html" : {
+                    "en" : "<p>The answer<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "The answer"
                   }
                 },
                 "swift_declaration" : {
-                  "html" : "func m(arg: Int) -&gt; String"
+                  "html" : {
+                    "html" : "func m(arg: Int) -&gt; String"
+                  },
+                  "text" : "func m(arg: Int) -> String"
                 }
               },
               "flat_title" : {
@@ -1320,20 +1590,29 @@
               "dash_type" : "Method",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>From Module3<\/p>"
+                  "html" : {
+                    "en" : "<p>From Module3<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "From Module3"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "notes" : {
-                  "en" : {
-                    "html" : "<p>Provided by module <code>SpmSwiftModule3<\/code>.<\/p>\n<p>From a protocol extension: not a customization point.<\/p>"
+                  "html" : {
+                    "en" : "<p>Provided by module <code>SpmSwiftModule3<\/code>.<\/p>\n<p>From a protocol extension: not a customization point.<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Provided by module `SpmSwiftModule3`.\n\nFrom a protocol extension: not a customization point."
                   }
                 },
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "func module3func()"
+                  "html" : {
+                    "html" : "func module3func()"
+                  },
+                  "text" : "func module3func()"
                 }
               },
               "flat_title" : {
@@ -1349,8 +1628,11 @@
             "en" : "Methods"
           },
           "title" : {
-            "en" : {
-              "html" : "Methods"
+            "html" : {
+              "en" : "Methods"
+            },
+            "markdown" : {
+              "en" : "Methods"
             }
           }
         },
@@ -1362,15 +1644,21 @@
               "dash_type" : "Property",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "var getOnly: Int { get }"
+                  "html" : {
+                    "html" : "var getOnly: Int { get }"
+                  },
+                  "text" : "var getOnly: Int { get }"
                 }
               },
               "flat_title" : {
@@ -1386,8 +1674,11 @@
             "en" : "Properties"
           },
           "title" : {
-            "en" : {
-              "html" : "Properties"
+            "html" : {
+              "en" : "Properties"
+            },
+            "markdown" : {
+              "en" : "Properties"
             }
           }
         },
@@ -1399,20 +1690,29 @@
               "dash_type" : "Method",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "notes" : {
-                  "en" : {
-                    "html" : "<p>From a protocol extension: not a customization point.<\/p>"
+                  "html" : {
+                    "en" : "<p>From a protocol extension: not a customization point.<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "From a protocol extension: not a customization point."
                   }
                 },
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "func extHashableMethod()"
+                  "html" : {
+                    "html" : "func extHashableMethod()"
+                  },
+                  "text" : "func extHashableMethod()"
                 }
               },
               "flat_title" : {
@@ -1429,19 +1729,28 @@
               "def" : {
                 "availability" : [],
                 "default_abstract" : {
-                  "en" : {
-                    "html" : "<p>Special default implementation for m in Hashable case.<\/p>"
+                  "html" : {
+                    "en" : "<p>Special default implementation for m in Hashable case.<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Special default implementation for m in Hashable case."
                   }
                 },
                 "deprecated_everywhere" : false,
                 "notes" : {
-                  "en" : {
-                    "html" : "<p>Default implementation only for types that satisfy the constraints.<\/p>"
+                  "html" : {
+                    "en" : "<p>Default implementation only for types that satisfy the constraints.<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Default implementation only for types that satisfy the constraints."
                   }
                 },
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "func m(arg: Int) -&gt; String"
+                  "html" : {
+                    "html" : "func m(arg: Int) -&gt; String"
+                  },
+                  "text" : "func m(arg: Int) -> String"
                 }
               },
               "flat_title" : {
@@ -1457,8 +1766,11 @@
             "en" : "…where AssocType: Hashable"
           },
           "title" : {
-            "en" : {
-              "html" : "Available where <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift#assoctype\"><code>AssocType<\/code><\/a>: <code>Hashable<\/code>"
+            "html" : {
+              "en" : "Available where <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift#assoctype\"><code>AssocType<\/code><\/a>: <code>Hashable<\/code>"
+            },
+            "markdown" : {
+              "en" : "Available where [`AssocType`](..\/..\/spmswiftmodule\/types\/firstprotocol1.md#assoctype): `Hashable`"
             }
           }
         }
@@ -1487,15 +1799,21 @@
       ],
       "def" : {
         "abstract" : {
-          "en" : {
-            "html" : "<p>Undocumented<\/p>"
+          "html" : {
+            "en" : "<p>Undocumented<\/p>"
+          },
+          "markdown" : {
+            "en" : "Undocumented"
           }
         },
         "availability" : [],
         "deprecated_everywhere" : false,
         "params" : [],
         "swift_declaration" : {
-          "html" : "class GenericBase&lt;T&gt;\n\nextension GenericBase : CustomStringConvertible"
+          "html" : {
+            "html" : "class GenericBase&lt;T&gt;\n\nextension GenericBase : CustomStringConvertible"
+          },
+          "text" : "class GenericBase<T>\n\nextension GenericBase : CustomStringConvertible"
         }
       },
       "guide_topics" : {},
@@ -1543,15 +1861,21 @@
               "dash_type" : "Constructor",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "init(type: T)"
+                  "html" : {
+                    "html" : "init(type: T)"
+                  },
+                  "text" : "init(type: T)"
                 }
               },
               "flat_title" : {
@@ -1567,8 +1891,11 @@
             "en" : "Initializers"
           },
           "title" : {
-            "en" : {
-              "html" : "Initializers"
+            "html" : {
+              "en" : "Initializers"
+            },
+            "markdown" : {
+              "en" : "Initializers"
             }
           }
         },
@@ -1580,15 +1907,21 @@
               "dash_type" : "Method",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "func mutify() -&gt; T"
+                  "html" : {
+                    "html" : "func mutify() -&gt; T"
+                  },
+                  "text" : "func mutify() -> T"
                 }
               },
               "flat_title" : {
@@ -1604,8 +1937,11 @@
             "en" : "Methods"
           },
           "title" : {
-            "en" : {
-              "html" : "Methods"
+            "html" : {
+              "en" : "Methods"
+            },
+            "markdown" : {
+              "en" : "Methods"
             }
           }
         },
@@ -1617,15 +1953,21 @@
               "dash_type" : "Property",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "var boxed: T"
+                  "html" : {
+                    "html" : "var boxed: T"
+                  },
+                  "text" : "var boxed: T"
                 }
               },
               "flat_title" : {
@@ -1641,15 +1983,21 @@
               "dash_type" : "Property",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>A textual representation of this instance.<\/p>"
+                  "html" : {
+                    "en" : "<p>A textual representation of this instance.<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "A textual representation of this instance."
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "var description: String { get }"
+                  "html" : {
+                    "html" : "var description: String { get }"
+                  },
+                  "text" : "var description: String { get }"
                 }
               },
               "flat_title" : {
@@ -1665,8 +2013,11 @@
             "en" : "Properties"
           },
           "title" : {
-            "en" : {
-              "html" : "Properties"
+            "html" : {
+              "en" : "Properties"
+            },
+            "markdown" : {
+              "en" : "Properties"
             }
           }
         },
@@ -1678,15 +2029,21 @@
               "dash_type" : "Method",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "func doCodability()"
+                  "html" : {
+                    "html" : "func doCodability()"
+                  },
+                  "text" : "func doCodability()"
                 }
               },
               "flat_title" : {
@@ -1702,15 +2059,21 @@
               "dash_type" : "Property",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "var codableCount: Int { get }"
+                  "html" : {
+                    "html" : "var codableCount: Int { get }"
+                  },
+                  "text" : "var codableCount: Int { get }"
                 }
               },
               "flat_title" : {
@@ -1726,8 +2089,11 @@
             "en" : "…where T: Codable"
           },
           "title" : {
-            "en" : {
-              "html" : "Available where <code>T<\/code>: <code>Codable<\/code>"
+            "html" : {
+              "en" : "Available where <code>T<\/code>: <code>Codable<\/code>"
+            },
+            "markdown" : {
+              "en" : "Available where `T`: `Codable`"
             }
           }
         },
@@ -1739,15 +2105,21 @@
               "dash_type" : "Method",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "func doFirstMagic()"
+                  "html" : {
+                    "html" : "func doFirstMagic()"
+                  },
+                  "text" : "func doFirstMagic()"
                 }
               },
               "flat_title" : {
@@ -1763,15 +2135,21 @@
               "dash_type" : "Method",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "func doMoreMagic()"
+                  "html" : {
+                    "html" : "func doMoreMagic()"
+                  },
+                  "text" : "func doMoreMagic()"
                 }
               },
               "flat_title" : {
@@ -1787,8 +2165,11 @@
             "en" : "…where T: Equatable, T: FirstProtocol"
           },
           "title" : {
-            "en" : {
-              "html" : "Available where <code>T<\/code>: <code>Equatable<\/code>, <code>T<\/code>: <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>"
+            "html" : {
+              "en" : "Available where <code>T<\/code>: <code>Equatable<\/code>, <code>T<\/code>: <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>"
+            },
+            "markdown" : {
+              "en" : "Available where `T`: `Equatable`, `T`: [`FirstProtocol`](..\/..\/spmswiftmodule\/types\/firstprotocol1.md)"
             }
           }
         },
@@ -1800,15 +2181,21 @@
               "dash_type" : "Method",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "func doHashable()"
+                  "html" : {
+                    "html" : "func doHashable()"
+                  },
+                  "text" : "func doHashable()"
                 }
               },
               "flat_title" : {
@@ -1824,8 +2211,11 @@
             "en" : "…where T: Hashable"
           },
           "title" : {
-            "en" : {
-              "html" : "Available where <code>T<\/code>: <code>Hashable<\/code>"
+            "html" : {
+              "en" : "Available where <code>T<\/code>: <code>Hashable<\/code>"
+            },
+            "markdown" : {
+              "en" : "Available where `T`: `Hashable`"
             }
           }
         }
@@ -1854,15 +2244,21 @@
       ],
       "def" : {
         "abstract" : {
-          "en" : {
-            "html" : "<p>Undocumented<\/p>"
+          "html" : {
+            "en" : "<p>Undocumented<\/p>"
+          },
+          "markdown" : {
+            "en" : "Undocumented"
           }
         },
         "availability" : [],
         "deprecated_everywhere" : false,
         "params" : [],
         "swift_declaration" : {
-          "html" : "@propertyWrapper\nstruct Nop"
+          "html" : {
+            "html" : "@propertyWrapper\nstruct Nop"
+          },
+          "text" : "@propertyWrapper\nstruct Nop"
         }
       },
       "guide_topics" : {},
@@ -1910,15 +2306,21 @@
               "dash_type" : "Constructor",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "init(wrappedValue: String)"
+                  "html" : {
+                    "html" : "init(wrappedValue: String)"
+                  },
+                  "text" : "init(wrappedValue: String)"
                 }
               },
               "flat_title" : {
@@ -1934,8 +2336,11 @@
             "en" : "Initializers"
           },
           "title" : {
-            "en" : {
-              "html" : "Initializers"
+            "html" : {
+              "en" : "Initializers"
+            },
+            "markdown" : {
+              "en" : "Initializers"
             }
           }
         },
@@ -1947,15 +2352,21 @@
               "dash_type" : "Property",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "var wrappedValue: String"
+                  "html" : {
+                    "html" : "var wrappedValue: String"
+                  },
+                  "text" : "var wrappedValue: String"
                 }
               },
               "flat_title" : {
@@ -1971,8 +2382,11 @@
             "en" : "Properties"
           },
           "title" : {
-            "en" : {
-              "html" : "Properties"
+            "html" : {
+              "en" : "Properties"
+            },
+            "markdown" : {
+              "en" : "Properties"
             }
           }
         }
@@ -2001,15 +2415,21 @@
       ],
       "def" : {
         "abstract" : {
-          "en" : {
-            "html" : "<p>See <a href=\"..\/..\/spmswiftmodule\/types\/nop.html?swift\"><code>@Nop<\/code><\/a>.<\/p>"
+          "html" : {
+            "en" : "<p>See <a href=\"..\/..\/spmswiftmodule\/types\/nop.html?swift\"><code>@Nop<\/code><\/a>.<\/p>"
+          },
+          "markdown" : {
+            "en" : "See [`@Nop`](..\/..\/spmswiftmodule\/types\/nop.md)."
           }
         },
         "availability" : [],
         "deprecated_everywhere" : false,
         "params" : [],
         "swift_declaration" : {
-          "html" : "struct PropertyWrapperClient"
+          "html" : {
+            "html" : "struct PropertyWrapperClient"
+          },
+          "text" : "struct PropertyWrapperClient"
         }
       },
       "guide_topics" : {},
@@ -2057,15 +2477,21 @@
               "dash_type" : "Property",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "<a href=\"..\/..\/spmswiftmodule\/types\/nop.html?swift\">@Nop<\/a>\nvar v: String { get set }"
+                  "html" : {
+                    "html" : "<a href=\"..\/..\/spmswiftmodule\/types\/nop.html?swift\">@Nop<\/a>\nvar v: String { get set }"
+                  },
+                  "text" : "@Nop\nvar v: String { get set }"
                 }
               },
               "flat_title" : {
@@ -2081,8 +2507,11 @@
             "en" : "Properties"
           },
           "title" : {
-            "en" : {
-              "html" : "Properties"
+            "html" : {
+              "en" : "Properties"
+            },
+            "markdown" : {
+              "en" : "Properties"
             }
           }
         }
@@ -2111,15 +2540,21 @@
       ],
       "def" : {
         "abstract" : {
-          "en" : {
-            "html" : "<p>Undocumented<\/p>"
+          "html" : {
+            "en" : "<p>Undocumented<\/p>"
+          },
+          "markdown" : {
+            "en" : "Undocumented"
           }
         },
         "availability" : [],
         "deprecated_everywhere" : false,
         "params" : [],
         "swift_declaration" : {
-          "html" : "public protocol SecondProtocol : <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>"
+          "html" : {
+            "html" : "public protocol SecondProtocol : <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>"
+          },
+          "text" : "public protocol SecondProtocol : FirstProtocol"
         }
       },
       "guide_topics" : {},
@@ -2167,15 +2602,21 @@
               "dash_type" : "Method",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "func secondProtocolMethod() -&gt; String"
+                  "html" : {
+                    "html" : "func secondProtocolMethod() -&gt; String"
+                  },
+                  "text" : "func secondProtocolMethod() -> String"
                 }
               },
               "flat_title" : {
@@ -2191,8 +2632,11 @@
             "en" : "Methods"
           },
           "title" : {
-            "en" : {
-              "html" : "Methods"
+            "html" : {
+              "en" : "Methods"
+            },
+            "markdown" : {
+              "en" : "Methods"
             }
           }
         },
@@ -2204,20 +2648,29 @@
               "dash_type" : "Property",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>A default implementation for a method of <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a> provided by\n<a href=\"..\/..\/spmswiftmodule\/types\/secondprotocol.html?swift\"><code>SecondProtocol<\/code><\/a>. From source we mess this up as an extension method. From\nsymbolgraph we mess this up as being part of <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>.<\/p>"
+                  "html" : {
+                    "en" : "<p>A default implementation for a method of <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>\nprovided by <a href=\"..\/..\/spmswiftmodule\/types\/secondprotocol.html?swift\"><code>SecondProtocol<\/code><\/a>.\nFrom source we mess this up as an extension method.\nFrom symbolgraph we mess this up as being part of <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>.<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "A default implementation for a method of [`FirstProtocol`](..\/..\/spmswiftmodule\/types\/firstprotocol1.md)\nprovided by [`SecondProtocol`](..\/..\/spmswiftmodule\/types\/secondprotocol.md).\nFrom source we mess this up as an extension method.\nFrom symbolgraph we mess this up as being part of [`FirstProtocol`](..\/..\/spmswiftmodule\/types\/firstprotocol1.md)."
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "notes" : {
-                  "en" : {
-                    "html" : "<p>From a protocol extension: not a customization point.<\/p>"
+                  "html" : {
+                    "en" : "<p>From a protocol extension: not a customization point.<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "From a protocol extension: not a customization point."
                   }
                 },
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "var getOnly: Int { get }"
+                  "html" : {
+                    "html" : "var getOnly: Int { get }"
+                  },
+                  "text" : "var getOnly: Int { get }"
                 }
               },
               "flat_title" : {
@@ -2233,8 +2686,11 @@
             "en" : "Properties"
           },
           "title" : {
-            "en" : {
-              "html" : "Properties"
+            "html" : {
+              "en" : "Properties"
+            },
+            "markdown" : {
+              "en" : "Properties"
             }
           }
         }
@@ -2263,15 +2719,21 @@
       ],
       "def" : {
         "abstract" : {
-          "en" : {
-            "html" : "<p>Main structure<\/p>"
+          "html" : {
+            "en" : "<p>Main structure<\/p>"
+          },
+          "markdown" : {
+            "en" : "Main structure"
           }
         },
         "availability" : [],
         "deprecated_everywhere" : false,
         "params" : [],
         "swift_declaration" : {
-          "html" : "public struct SpmSwiftModule"
+          "html" : {
+            "html" : "public struct SpmSwiftModule"
+          },
+          "text" : "public struct SpmSwiftModule"
         }
       },
       "guide_topics" : {},
@@ -2319,15 +2781,21 @@
               "dash_type" : "Struct",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public struct Nested1"
+                  "html" : {
+                    "html" : "public struct Nested1"
+                  },
+                  "text" : "public struct Nested1"
                 }
               },
               "flat_title" : {
@@ -2346,15 +2814,21 @@
               "dash_type" : "Struct",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public struct Nested2"
+                  "html" : {
+                    "html" : "public struct Nested2"
+                  },
+                  "text" : "public struct Nested2"
                 }
               },
               "flat_title" : {
@@ -2370,8 +2844,11 @@
             "en" : "Types"
           },
           "title" : {
-            "en" : {
-              "html" : "Types"
+            "html" : {
+              "en" : "Types"
+            },
+            "markdown" : {
+              "en" : "Types"
             }
           }
         },
@@ -2383,15 +2860,21 @@
               "dash_type" : "Property",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>A pair of Ints<\/p>"
+                  "html" : {
+                    "en" : "<p>A pair of Ints<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "A pair of Ints"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "var a: Int"
+                  "html" : {
+                    "html" : "var a: Int"
+                  },
+                  "text" : "var a: Int"
                 }
               },
               "flat_title" : {
@@ -2407,15 +2890,21 @@
               "dash_type" : "Property",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>A pair of Ints<\/p>"
+                  "html" : {
+                    "en" : "<p>A pair of Ints<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "A pair of Ints"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "var b: Int"
+                  "html" : {
+                    "html" : "var b: Int"
+                  },
+                  "text" : "var b: Int"
                 }
               },
               "flat_title" : {
@@ -2431,15 +2920,21 @@
               "dash_type" : "Property",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public var text: String"
+                  "html" : {
+                    "html" : "public var text: String"
+                  },
+                  "text" : "public var text: String"
                 }
               },
               "flat_title" : {
@@ -2455,8 +2950,11 @@
             "en" : "Properties"
           },
           "title" : {
-            "en" : {
-              "html" : "Properties"
+            "html" : {
+              "en" : "Properties"
+            },
+            "markdown" : {
+              "en" : "Properties"
             }
           }
         }
@@ -2493,15 +2991,21 @@
       ],
       "def" : {
         "abstract" : {
-          "en" : {
-            "html" : "<p>Undocumented<\/p>"
+          "html" : {
+            "en" : "<p>Undocumented<\/p>"
+          },
+          "markdown" : {
+            "en" : "Undocumented"
           }
         },
         "availability" : [],
         "deprecated_everywhere" : false,
         "params" : [],
         "swift_declaration" : {
-          "html" : "public struct Nested1"
+          "html" : {
+            "html" : "public struct Nested1"
+          },
+          "text" : "public struct Nested1"
         }
       },
       "guide_topics" : {},
@@ -2549,15 +3053,21 @@
               "dash_type" : "Struct",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public struct Nested2a"
+                  "html" : {
+                    "html" : "public struct Nested2a"
+                  },
+                  "text" : "public struct Nested2a"
                 }
               },
               "flat_title" : {
@@ -2576,20 +3086,29 @@
               "dash_type" : "Struct",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : true,
                 "deprecation" : {
-                  "en" : {
-                    "html" : "<p>Deprecated.<\/p>"
+                  "html" : {
+                    "en" : "<p>Deprecated.<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Deprecated."
                   }
                 },
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "public struct Nested2b"
+                  "html" : {
+                    "html" : "public struct Nested2b"
+                  },
+                  "text" : "public struct Nested2b"
                 }
               },
               "flat_title" : {
@@ -2605,8 +3124,11 @@
             "en" : "Types"
           },
           "title" : {
-            "en" : {
-              "html" : "Types"
+            "html" : {
+              "en" : "Types"
+            },
+            "markdown" : {
+              "en" : "Types"
             }
           }
         }
@@ -2651,15 +3173,21 @@
       ],
       "def" : {
         "abstract" : {
-          "en" : {
-            "html" : "<p>Undocumented<\/p>"
+          "html" : {
+            "en" : "<p>Undocumented<\/p>"
+          },
+          "markdown" : {
+            "en" : "Undocumented"
           }
         },
         "availability" : [],
         "deprecated_everywhere" : false,
         "params" : [],
         "swift_declaration" : {
-          "html" : "public struct Nested2a"
+          "html" : {
+            "html" : "public struct Nested2a"
+          },
+          "text" : "public struct Nested2a"
         }
       },
       "guide_topics" : {},
@@ -2707,20 +3235,29 @@
               "dash_type" : "Method",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>From Module3<\/p>"
+                  "html" : {
+                    "en" : "<p>From Module3<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "From Module3"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "notes" : {
-                  "en" : {
-                    "html" : "<p>Provided by module <code>SpmSwiftModule3<\/code>.<\/p>"
+                  "html" : {
+                    "en" : "<p>Provided by module <code>SpmSwiftModule3<\/code>.<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Provided by module `SpmSwiftModule3`."
                   }
                 },
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "func module3nestedFunc()"
+                  "html" : {
+                    "html" : "func module3nestedFunc()"
+                  },
+                  "text" : "func module3nestedFunc()"
                 }
               },
               "flat_title" : {
@@ -2736,8 +3273,11 @@
             "en" : "Methods"
           },
           "title" : {
-            "en" : {
-              "html" : "Methods"
+            "html" : {
+              "en" : "Methods"
+            },
+            "markdown" : {
+              "en" : "Methods"
             }
           }
         }
@@ -2801,34 +3341,49 @@
               "dash_type" : "Global",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>A deprecated function<\/p>"
+                  "html" : {
+                    "en" : "<p>A deprecated function<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "A deprecated function"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : true,
                 "deprecation" : {
-                  "en" : {
-                    "html" : "<p>iOS - deprecated since 12.0. Deprecated!.<\/p>\n<p>macOS - deprecated since 10.14. Deprecated on <em>macOS<\/em> too.<\/p>\n<p>Deprecated.<\/p>"
+                  "html" : {
+                    "en" : "<p>iOS - deprecated since 12.0. Deprecated!.<\/p>\n<p>macOS - deprecated since 10.14. Deprecated on <em>macOS<\/em> too.<\/p>\n<p>Deprecated.<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "iOS - deprecated since 12.0. Deprecated\\!.\n\nmacOS - deprecated since 10.14. Deprecated on *macOS* too.\n\nDeprecated."
                   }
                 },
                 "params" : [
                   {
                     "description" : {
-                      "en" : {
-                        "html" : "<p>The callback<\/p>"
+                      "html" : {
+                        "en" : "<p>The callback<\/p>"
+                      },
+                      "markdown" : {
+                        "en" : "The callback"
                       }
                     },
                     "name" : "callback"
                   }
                 ],
                 "returns" : {
-                  "en" : {
-                    "html" : "<p>A string<\/p>"
+                  "html" : {
+                    "en" : "<p>A string<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "A string"
                   }
                 },
                 "swift_declaration" : {
-                  "html" : "public func deprecatedFunction(callback: (_ report: String) -&gt; Int) -&gt; String"
+                  "html" : {
+                    "html" : "public func deprecatedFunction(callback: (_ report: String) -&gt; Int) -&gt; String"
+                  },
+                  "text" : "public func deprecatedFunction(callback: (_ report: String) -> Int) -> String"
                 }
               },
               "flat_title" : {
@@ -2844,8 +3399,11 @@
               "dash_type" : "Global",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>See <a href=\"spmswiftmodule\/types\/spmswiftmodule.html?swift\"><code>SpmSwiftModule<\/code><\/a> – or <a href=\"spmswiftmodule\/types\/abaseclass.html?swift\"><code>SpmSwiftModule.ABaseClass<\/code><\/a>.<\/p>"
+                  "html" : {
+                    "en" : "<p>See <a href=\"spmswiftmodule\/types\/spmswiftmodule.html?swift\"><code>SpmSwiftModule<\/code><\/a> – or <a href=\"spmswiftmodule\/types\/abaseclass.html?swift\"><code>SpmSwiftModule.ABaseClass<\/code><\/a>.<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "See [`SpmSwiftModule`](spmswiftmodule\/types\/spmswiftmodule.md) – or [`SpmSwiftModule.ABaseClass`](spmswiftmodule\/types\/abaseclass.md)."
                   }
                 },
                 "availability" : [
@@ -2854,38 +3412,53 @@
                 ],
                 "deprecated_everywhere" : false,
                 "notes" : {
-                  "en" : {
-                    "html" : "<p>tvOS - unavailable. Not available on the big screen.<\/p>"
+                  "html" : {
+                    "en" : "<p>tvOS - unavailable. Not available on the big screen.<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "tvOS - unavailable. Not available on the big screen."
                   }
                 },
                 "params" : [
                   {
                     "description" : {
-                      "en" : {
-                        "html" : "<p>Number one<\/p>"
+                      "html" : {
+                        "en" : "<p>Number one<\/p>"
+                      },
+                      "markdown" : {
+                        "en" : "Number one"
                       }
                     },
                     "name" : "arg1"
                   },
                   {
                     "description" : {
-                      "en" : {
-                        "html" : "<p>Second<\/p>"
+                      "html" : {
+                        "en" : "<p>Second<\/p>"
+                      },
+                      "markdown" : {
+                        "en" : "Second"
                       }
                     },
                     "name" : "arg2"
                   },
                   {
                     "description" : {
-                      "en" : {
-                        "html" : "<p>Third<\/p>"
+                      "html" : {
+                        "en" : "<p>Third<\/p>"
+                      },
+                      "markdown" : {
+                        "en" : "Third"
                       }
                     },
                     "name" : "arg3"
                   }
                 ],
                 "swift_declaration" : {
-                  "html" : "public func functionA(arg1: Int,\n                      _ arg2: Int,\n                      arg3 argMeaning: Int)"
+                  "html" : {
+                    "html" : "public func functionA(arg1: Int,\n                      _ arg2: Int,\n                      arg3 argMeaning: Int)"
+                  },
+                  "text" : "public func functionA(arg1: Int,\n                      _ arg2: Int,\n                      arg3 argMeaning: Int)"
                 }
               },
               "flat_title" : {
@@ -2901,20 +3474,29 @@
               "dash_type" : "Global",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>English<\/p>"
+                  "html" : {
+                    "en" : "<p>English<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "English"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "discussion" : {
-                  "en" : {
-                    "html" : ""
+                  "html" : {
+                    "en" : ""
+                  },
+                  "markdown" : {
+                    "en" : "  - localizationKey: loc"
                   }
                 },
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "func localizedDocComment()"
+                  "html" : {
+                    "html" : "func localizedDocComment()"
+                  },
+                  "text" : "func localizedDocComment()"
                 }
               },
               "flat_title" : {
@@ -2930,8 +3512,11 @@
             "en" : ""
           },
           "title" : {
-            "en" : {
-              "html" : ""
+            "html" : {
+              "en" : ""
+            },
+            "markdown" : {
+              "en" : ""
             }
           }
         }
@@ -2995,15 +3580,21 @@
               "dash_type" : "Function",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Unscoped operator<\/p>"
+                  "html" : {
+                    "en" : "<p>Unscoped operator<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Unscoped operator"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "func + (lhs: <a href=\"types.html?swift#t1\">T<\/a>, rhs: <a href=\"types.html?swift#t1\">T<\/a>) -&gt; String"
+                  "html" : {
+                    "html" : "func + (lhs: <a href=\"types.html?swift#t1\">T<\/a>, rhs: <a href=\"types.html?swift#t1\">T<\/a>) -&gt; String"
+                  },
+                  "text" : "func + (lhs: T, rhs: T) -> String"
                 }
               },
               "flat_title" : {
@@ -3019,8 +3610,11 @@
             "en" : ""
           },
           "title" : {
-            "en" : {
-              "html" : ""
+            "html" : {
+              "en" : ""
+            },
+            "markdown" : {
+              "en" : ""
             }
           }
         }
@@ -3087,20 +3681,29 @@
               "dash_type" : "Extension",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>A sequence whose elements can be traversed multiple times, nondestructively, and\naccessed by an indexed subscript.<\/p>"
+                  "html" : {
+                    "en" : "<p>A sequence whose elements can be traversed multiple times, nondestructively, and accessed by an indexed subscript.<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "A sequence whose elements can be traversed multiple times, nondestructively, and accessed by an indexed subscript."
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "discussion" : {
-                  "en" : {
-                    "html" : "<p>Collections are used extensively throughout the standard library. When you use\narrays, dictionaries, and other collections, you benefit from the operations\nthat the <code>Collection<\/code> protocol declares and implements. In addition to the\noperations that collections inherit from the <code>Sequence<\/code> protocol, you gain\naccess to methods that depend on accessing an element at a specific position in\na collection.<\/p>\n<p>For example, if you want to print only the first word in a string, you can\nsearch for the index of the first space, and then create a substring up to that\nposition.<\/p>\n<pre><code class=\"language-swift\">let text = &quot;Buffalo buffalo buffalo buffalo.&quot;\nif let firstSpace = text.firstIndex(of: &quot; &quot;) {\n    print(text[..&lt;firstSpace])\n}\n\/\/ Prints &quot;Buffalo&quot;\n\n<\/code><\/pre>\n<p>The <code>firstSpace<\/code> constant is an index into the <code>text<\/code> string—the position of the\nfirst space in the string. You can store indices in variables, and pass them to\ncollection algorithms or use them later to access the corresponding element. In\nthe example above, <code>firstSpace<\/code> is used to extract the prefix that contains\nelements up to that index.<\/p>\n<h1 class=\"j2-anchor j2-heading heading\" id=\"accessing-individual-elements\">\n<span data-anchor-id=\"accessing-individual-elements\">\nAccessing Individual Elements\n<\/span><\/h1>\n<p>You can access an element of a collection through its subscript by using any\nvalid index except the collection’s <code>endIndex<\/code> property. This property is a\n“past the end” index that does not correspond with any element of the\ncollection.<\/p>\n<p>Here’s an example of accessing the first character in a string through its\nsubscript:<\/p>\n<pre><code class=\"language-swift\">let firstChar = text[text.startIndex]\nprint(firstChar)\n\/\/ Prints &quot;B&quot;\n\n<\/code><\/pre>\n<p>The <code>Collection<\/code> protocol declares and provides default implementations for many\noperations that depend on elements being accessible by their subscript. For\nexample, you can also access the first character of <code>text<\/code> using the <code>first<\/code>\nproperty, which has the value of the first element of the collection, or <code>nil<\/code>\nif the collection is empty.<\/p>\n<pre><code class=\"language-swift\">print(text.first)\n\/\/ Prints &quot;Optional(&quot;B&quot;)&quot;\n\n<\/code><\/pre>\n<p>You can pass only valid indices to collection operations. You can find a\ncomplete set of a collection’s valid indices by starting with the collection’s\n<code>startIndex<\/code> property and finding every successor up to, and including, the\n<code>endIndex<\/code> property. All other values of the <code>Index<\/code> type, such as the\n<code>startIndex<\/code> property of a different collection, are invalid indices for this\ncollection.<\/p>\n<p>Saved indices may become invalid as a result of mutating operations. For more\ninformation about index invalidation in mutable collections, see the reference\nfor the <code>MutableCollection<\/code> and <code>RangeReplaceableCollection<\/code> protocols, as well\nas for the specific type you’re using.<\/p>\n<h1 class=\"j2-anchor j2-heading heading\" id=\"accessing-slices-of-a-collection\">\n<span data-anchor-id=\"accessing-slices-of-a-collection\">\nAccessing Slices of a Collection\n<\/span><\/h1>\n<p>You can access a slice of a collection through its ranged subscript or by\ncalling methods like <code>prefix(while:)<\/code> or <code>suffix(_:)<\/code>. A slice of a collection\ncan contain zero or more of the original collection’s elements and shares the\noriginal collection’s semantics.<\/p>\n<p>The following example creates a <code>firstWord<\/code> constant by using the\n<code>prefix(while:)<\/code> method to get a slice of the <code>text<\/code> string.<\/p>\n<pre><code class=\"language-swift\">let firstWord = text.prefix(while: { $0 != &quot; &quot; })\nprint(firstWord)\n\/\/ Prints &quot;Buffalo&quot;\n\n<\/code><\/pre>\n<p>You can retrieve the same slice using the string’s ranged subscript, which takes\na range expression.<\/p>\n<pre><code class=\"language-swift\">if let firstSpace = text.firstIndex(of: &quot; &quot;) {\n    print(text[..&lt;firstSpace]\n    \/\/ Prints &quot;Buffalo&quot;\n}\n\n<\/code><\/pre>\n<p>The retrieved slice of <code>text<\/code> is equivalent in each of these cases.<\/p>\n<h2 class=\"j2-anchor j2-heading heading\" id=\"slices-share-indices\">\n<span data-anchor-id=\"slices-share-indices\">\nSlices Share Indices\n<\/span><\/h2>\n<p>A collection and its slices share the same indices. An element of a collection\nis located under the same index in a slice as in the base collection, as long as\nneither the collection nor the slice has been mutated since the slice was\ncreated.<\/p>\n<p>For example, suppose you have an array holding the number of absences from each\nclass during a session.<\/p>\n<pre><code class=\"language-swift\">var absences = [0, 2, 0, 4, 0, 3, 1, 0]\n\n<\/code><\/pre>\n<p>You’re tasked with finding the day with the most absences in the second half of\nthe session. To find the index of the day in question, follow these steps:<\/p>\n<ol>\n<li>Create a slice of the <code>absences<\/code> array that holds the second half of the\ndays.<\/li>\n<li>Use the <code>max(by:)<\/code> method to determine the index of the day with the most\nabsences.<\/li>\n<li>Print the result using the index found in step 2 on the original <code>absences<\/code>\narray.<\/li>\n<\/ol>\n<p>Here’s an implementation of those steps:<\/p>\n<pre><code class=\"language-swift\">let secondHalf = absences.suffix(absences.count \/ 2)\nif let i = secondHalf.indices.max(by: { secondHalf[$0] &lt; secondHalf[$1] }) {\n    print(&quot;Highest second-half absences: \\(absences[i])&quot;)\n}\n\/\/ Prints &quot;Highest second-half absences: 3&quot;\n\n<\/code><\/pre>\n<h2 class=\"j2-anchor j2-heading heading\" id=\"slices-inherit-collection-semantics\">\n<span data-anchor-id=\"slices-inherit-collection-semantics\">\nSlices Inherit Collection Semantics\n<\/span><\/h2>\n<p>A slice inherits the value or reference semantics of its base collection. That\nis, when working with a slice of a mutable collection that has value semantics,\nsuch as an array, mutating the original collection triggers a copy of that\ncollection and does not affect the contents of the slice.<\/p>\n<p>For example, if you update the last element of the <code>absences<\/code> array from <code>0<\/code> to\n<code>2<\/code>, the <code>secondHalf<\/code> slice is unchanged.<\/p>\n<pre><code class=\"language-swift\">absences[7] = 2\nprint(absences)\n\/\/ Prints &quot;[0, 2, 0, 4, 0, 3, 1, 2]&quot;\nprint(secondHalf)\n\/\/ Prints &quot;[0, 3, 1, 0]&quot;\n\n<\/code><\/pre>\n<h1 class=\"j2-anchor j2-heading heading\" id=\"traversing-a-collection\">\n<span data-anchor-id=\"traversing-a-collection\">\nTraversing a Collection\n<\/span><\/h1>\n<p>Although a sequence can be consumed as it is traversed, a collection is\nguaranteed to be <em>multipass<\/em>: Any element can be repeatedly accessed by saving\nits index. Moreover, a collection’s indices form a finite range of the positions\nof the collection’s elements. The fact that all collections are finite\nguarantees the safety of many sequence operations, such as using the\n<code>contains(_:)<\/code> method to test whether a collection includes an element.<\/p>\n<p>Iterating over the elements of a collection by their positions yields the same\nelements in the same order as iterating over that collection using its iterator.\nThis example demonstrates that the <code>characters<\/code> view of a string returns the\nsame characters in the same order whether the view’s indices or the view itself\nis being iterated.<\/p>\n<pre><code class=\"language-swift\">let word = &quot;Swift&quot;\nfor character in word {\n    print(character)\n}\n\/\/ Prints &quot;S&quot;\n\/\/ Prints &quot;w&quot;\n\/\/ Prints &quot;i&quot;\n\/\/ Prints &quot;f&quot;\n\/\/ Prints &quot;t&quot;\n\nfor i in word.indices {\n    print(word[i])\n}\n\/\/ Prints &quot;S&quot;\n\/\/ Prints &quot;w&quot;\n\/\/ Prints &quot;i&quot;\n\/\/ Prints &quot;f&quot;\n\/\/ Prints &quot;t&quot;\n\n<\/code><\/pre>\n<h1 class=\"j2-anchor j2-heading heading\" id=\"conforming-to-the-collection-protocol\">\n<span data-anchor-id=\"conforming-to-the-collection-protocol\">\nConforming to the Collection Protocol\n<\/span><\/h1>\n<p>If you create a custom sequence that can provide repeated access to its\nelements, make sure that its type conforms to the <code>Collection<\/code> protocol in order\nto give a more useful and more efficient interface for sequence and collection\noperations. To add <code>Collection<\/code> conformance to your type, you must declare at\nleast the following requirements:<\/p>\n<ul>\n<li>The <code>startIndex<\/code> and <code>endIndex<\/code> properties<\/li>\n<li>A subscript that provides at least read-only access to your type’s elements<\/li>\n<li>The <code>index(after:)<\/code> method for advancing an index into your collection<\/li>\n<\/ul>\n<h1 class=\"j2-anchor j2-heading heading\" id=\"expected-performance\">\n<span data-anchor-id=\"expected-performance\">\nExpected Performance\n<\/span><\/h1>\n<p>Types that conform to <code>Collection<\/code> are expected to provide the <code>startIndex<\/code> and\n<code>endIndex<\/code> properties and subscript access to elements as O(1) operations. Types\nthat are not able to guarantee this performance must document the departure,\nbecause many collection operations depend on O(1) subscripting performance for\ntheir own performance guarantees.<\/p>\n<p>The performance of some collection operations depends on the type of index that\nthe collection provides. For example, a random-access collection, which can\nmeasure the distance between two indices in O(1) time, can calculate its <code>count<\/code>\nproperty in O(1) time. Conversely, because a forward or bidirectional collection\nmust traverse the entire collection to count the number of contained elements,\naccessing its <code>count<\/code> property is an O(<em>n<\/em>) operation.<\/p>"
+                  "html" : {
+                    "en" : "<p>Collections are used extensively throughout the standard library. When you use arrays, dictionaries, and other collections, you benefit from the operations that the <code>Collection<\/code> protocol declares and implements. In addition to the operations that collections inherit from the <code>Sequence<\/code> protocol, you gain access to methods that depend on accessing an element at a specific position in a collection.<\/p>\n<p>For example, if you want to print only the first word in a string, you can search for the index of the first space, and then create a substring up to that position.<\/p>\n<pre><code class=\"language-swift\">let text = &quot;Buffalo buffalo buffalo buffalo.&quot;\nif let firstSpace = text.firstIndex(of: &quot; &quot;) {\n    print(text[..&lt;firstSpace])\n}\n\/\/ Prints &quot;Buffalo&quot;\n\n<\/code><\/pre>\n<p>The <code>firstSpace<\/code> constant is an index into the <code>text<\/code> string—the position of the first space in the string. You can store indices in variables, and pass them to collection algorithms or use them later to access the corresponding element. In the example above, <code>firstSpace<\/code> is used to extract the prefix that contains elements up to that index.<\/p>\n<h1 class=\"j2-anchor j2-heading heading\" id=\"accessing-individual-elements\">\n<span data-anchor-id=\"accessing-individual-elements\">\nAccessing Individual Elements\n<\/span><\/h1>\n<p>You can access an element of a collection through its subscript by using any valid index except the collection’s <code>endIndex<\/code> property. This property is a “past the end” index that does not correspond with any element of the collection.<\/p>\n<p>Here’s an example of accessing the first character in a string through its subscript:<\/p>\n<pre><code class=\"language-swift\">let firstChar = text[text.startIndex]\nprint(firstChar)\n\/\/ Prints &quot;B&quot;\n\n<\/code><\/pre>\n<p>The <code>Collection<\/code> protocol declares and provides default implementations for many operations that depend on elements being accessible by their subscript. For example, you can also access the first character of <code>text<\/code> using the <code>first<\/code> property, which has the value of the first element of the collection, or <code>nil<\/code> if the collection is empty.<\/p>\n<pre><code class=\"language-swift\">print(text.first)\n\/\/ Prints &quot;Optional(&quot;B&quot;)&quot;\n\n<\/code><\/pre>\n<p>You can pass only valid indices to collection operations. You can find a complete set of a collection’s valid indices by starting with the collection’s <code>startIndex<\/code> property and finding every successor up to, and including, the <code>endIndex<\/code> property. All other values of the <code>Index<\/code> type, such as the <code>startIndex<\/code> property of a different collection, are invalid indices for this collection.<\/p>\n<p>Saved indices may become invalid as a result of mutating operations. For more information about index invalidation in mutable collections, see the reference for the <code>MutableCollection<\/code> and <code>RangeReplaceableCollection<\/code> protocols, as well as for the specific type you’re using.<\/p>\n<h1 class=\"j2-anchor j2-heading heading\" id=\"accessing-slices-of-a-collection\">\n<span data-anchor-id=\"accessing-slices-of-a-collection\">\nAccessing Slices of a Collection\n<\/span><\/h1>\n<p>You can access a slice of a collection through its ranged subscript or by calling methods like <code>prefix(while:)<\/code> or <code>suffix(_:)<\/code>. A slice of a collection can contain zero or more of the original collection’s elements and shares the original collection’s semantics.<\/p>\n<p>The following example creates a <code>firstWord<\/code> constant by using the <code>prefix(while:)<\/code> method to get a slice of the <code>text<\/code> string.<\/p>\n<pre><code class=\"language-swift\">let firstWord = text.prefix(while: { $0 != &quot; &quot; })\nprint(firstWord)\n\/\/ Prints &quot;Buffalo&quot;\n\n<\/code><\/pre>\n<p>You can retrieve the same slice using the string’s ranged subscript, which takes a range expression.<\/p>\n<pre><code class=\"language-swift\">if let firstSpace = text.firstIndex(of: &quot; &quot;) {\n    print(text[..&lt;firstSpace]\n    \/\/ Prints &quot;Buffalo&quot;\n}\n\n<\/code><\/pre>\n<p>The retrieved slice of <code>text<\/code> is equivalent in each of these cases.<\/p>\n<h2 class=\"j2-anchor j2-heading heading\" id=\"slices-share-indices\">\n<span data-anchor-id=\"slices-share-indices\">\nSlices Share Indices\n<\/span><\/h2>\n<p>A collection and its slices share the same indices. An element of a collection is located under the same index in a slice as in the base collection, as long as neither the collection nor the slice has been mutated since the slice was created.<\/p>\n<p>For example, suppose you have an array holding the number of absences from each class during a session.<\/p>\n<pre><code class=\"language-swift\">var absences = [0, 2, 0, 4, 0, 3, 1, 0]\n\n<\/code><\/pre>\n<p>You’re tasked with finding the day with the most absences in the second half of the session. To find the index of the day in question, follow these steps:<\/p>\n<ol>\n<li>Create a slice of the <code>absences<\/code> array that holds the second half of the days.<\/li>\n<li>Use the <code>max(by:)<\/code> method to determine the index of the day with the most absences.<\/li>\n<li>Print the result using the index found in step 2 on the original <code>absences<\/code> array.<\/li>\n<\/ol>\n<p>Here’s an implementation of those steps:<\/p>\n<pre><code class=\"language-swift\">let secondHalf = absences.suffix(absences.count \/ 2)\nif let i = secondHalf.indices.max(by: { secondHalf[$0] &lt; secondHalf[$1] }) {\n    print(&quot;Highest second-half absences: \\(absences[i])&quot;)\n}\n\/\/ Prints &quot;Highest second-half absences: 3&quot;\n\n<\/code><\/pre>\n<h2 class=\"j2-anchor j2-heading heading\" id=\"slices-inherit-collection-semantics\">\n<span data-anchor-id=\"slices-inherit-collection-semantics\">\nSlices Inherit Collection Semantics\n<\/span><\/h2>\n<p>A slice inherits the value or reference semantics of its base collection. That is, when working with a slice of a mutable collection that has value semantics, such as an array, mutating the original collection triggers a copy of that collection and does not affect the contents of the slice.<\/p>\n<p>For example, if you update the last element of the <code>absences<\/code> array from <code>0<\/code> to <code>2<\/code>, the <code>secondHalf<\/code> slice is unchanged.<\/p>\n<pre><code class=\"language-swift\">absences[7] = 2\nprint(absences)\n\/\/ Prints &quot;[0, 2, 0, 4, 0, 3, 1, 2]&quot;\nprint(secondHalf)\n\/\/ Prints &quot;[0, 3, 1, 0]&quot;\n\n<\/code><\/pre>\n<h1 class=\"j2-anchor j2-heading heading\" id=\"traversing-a-collection\">\n<span data-anchor-id=\"traversing-a-collection\">\nTraversing a Collection\n<\/span><\/h1>\n<p>Although a sequence can be consumed as it is traversed, a collection is guaranteed to be <em>multipass<\/em>: Any element can be repeatedly accessed by saving its index. Moreover, a collection’s indices form a finite range of the positions of the collection’s elements. The fact that all collections are finite guarantees the safety of many sequence operations, such as using the <code>contains(_:)<\/code> method to test whether a collection includes an element.<\/p>\n<p>Iterating over the elements of a collection by their positions yields the same elements in the same order as iterating over that collection using its iterator. This example demonstrates that the <code>characters<\/code> view of a string returns the same characters in the same order whether the view’s indices or the view itself is being iterated.<\/p>\n<pre><code class=\"language-swift\">let word = &quot;Swift&quot;\nfor character in word {\n    print(character)\n}\n\/\/ Prints &quot;S&quot;\n\/\/ Prints &quot;w&quot;\n\/\/ Prints &quot;i&quot;\n\/\/ Prints &quot;f&quot;\n\/\/ Prints &quot;t&quot;\n\nfor i in word.indices {\n    print(word[i])\n}\n\/\/ Prints &quot;S&quot;\n\/\/ Prints &quot;w&quot;\n\/\/ Prints &quot;i&quot;\n\/\/ Prints &quot;f&quot;\n\/\/ Prints &quot;t&quot;\n\n<\/code><\/pre>\n<h1 class=\"j2-anchor j2-heading heading\" id=\"conforming-to-the-collection-protocol\">\n<span data-anchor-id=\"conforming-to-the-collection-protocol\">\nConforming to the Collection Protocol\n<\/span><\/h1>\n<p>If you create a custom sequence that can provide repeated access to its elements, make sure that its type conforms to the <code>Collection<\/code> protocol in order to give a more useful and more efficient interface for sequence and collection operations. To add <code>Collection<\/code> conformance to your type, you must declare at least the following requirements:<\/p>\n<ul>\n<li>The <code>startIndex<\/code> and <code>endIndex<\/code> properties<\/li>\n<li>A subscript that provides at least read-only access to your type’s elements<\/li>\n<li>The <code>index(after:)<\/code> method for advancing an index into your collection<\/li>\n<\/ul>\n<h1 class=\"j2-anchor j2-heading heading\" id=\"expected-performance\">\n<span data-anchor-id=\"expected-performance\">\nExpected Performance\n<\/span><\/h1>\n<p>Types that conform to <code>Collection<\/code> are expected to provide the <code>startIndex<\/code> and <code>endIndex<\/code> properties and subscript access to elements as O(1) operations. Types that are not able to guarantee this performance must document the departure, because many collection operations depend on O(1) subscripting performance for their own performance guarantees.<\/p>\n<p>The performance of some collection operations depends on the type of index that the collection provides. For example, a random-access collection, which can measure the distance between two indices in O(1) time, can calculate its <code>count<\/code> property in O(1) time. Conversely, because a forward or bidirectional collection must traverse the entire collection to count the number of contained elements, accessing its <code>count<\/code> property is an O(<em>n<\/em>) operation.<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Collections are used extensively throughout the standard library. When you use arrays, dictionaries, and other collections, you benefit from the operations that the `Collection` protocol declares and implements. In addition to the operations that collections inherit from the `Sequence` protocol, you gain access to methods that depend on accessing an element at a specific position in a collection.\n\nFor example, if you want to print only the first word in a string, you can search for the index of the first space, and then create a substring up to that position.\n\n``` swift\nlet text = \"Buffalo buffalo buffalo buffalo.\"\nif let firstSpace = text.firstIndex(of: \" \") {\n    print(text[..<firstSpace])\n}\n\/\/ Prints \"Buffalo\"\n\n```\n\nThe `firstSpace` constant is an index into the `text` string—the position of the first space in the string. You can store indices in variables, and pass them to collection algorithms or use them later to access the corresponding element. In the example above, `firstSpace` is used to extract the prefix that contains elements up to that index.\n\n# Accessing Individual Elements\n\nYou can access an element of a collection through its subscript by using any valid index except the collection’s `endIndex` property. This property is a “past the end” index that does not correspond with any element of the collection.\n\nHere’s an example of accessing the first character in a string through its subscript:\n\n``` swift\nlet firstChar = text[text.startIndex]\nprint(firstChar)\n\/\/ Prints \"B\"\n\n```\n\nThe `Collection` protocol declares and provides default implementations for many operations that depend on elements being accessible by their subscript. For example, you can also access the first character of `text` using the `first` property, which has the value of the first element of the collection, or `nil` if the collection is empty.\n\n``` swift\nprint(text.first)\n\/\/ Prints \"Optional(\"B\")\"\n\n```\n\nYou can pass only valid indices to collection operations. You can find a complete set of a collection’s valid indices by starting with the collection’s `startIndex` property and finding every successor up to, and including, the `endIndex` property. All other values of the `Index` type, such as the `startIndex` property of a different collection, are invalid indices for this collection.\n\nSaved indices may become invalid as a result of mutating operations. For more information about index invalidation in mutable collections, see the reference for the `MutableCollection` and `RangeReplaceableCollection` protocols, as well as for the specific type you’re using.\n\n# Accessing Slices of a Collection\n\nYou can access a slice of a collection through its ranged subscript or by calling methods like `prefix(while:)` or `suffix(_:)`. A slice of a collection can contain zero or more of the original collection’s elements and shares the original collection’s semantics.\n\nThe following example creates a `firstWord` constant by using the `prefix(while:)` method to get a slice of the `text` string.\n\n``` swift\nlet firstWord = text.prefix(while: { $0 != \" \" })\nprint(firstWord)\n\/\/ Prints \"Buffalo\"\n\n```\n\nYou can retrieve the same slice using the string’s ranged subscript, which takes a range expression.\n\n``` swift\nif let firstSpace = text.firstIndex(of: \" \") {\n    print(text[..<firstSpace]\n    \/\/ Prints \"Buffalo\"\n}\n\n```\n\nThe retrieved slice of `text` is equivalent in each of these cases.\n\n## Slices Share Indices\n\nA collection and its slices share the same indices. An element of a collection is located under the same index in a slice as in the base collection, as long as neither the collection nor the slice has been mutated since the slice was created.\n\nFor example, suppose you have an array holding the number of absences from each class during a session.\n\n``` swift\nvar absences = [0, 2, 0, 4, 0, 3, 1, 0]\n\n```\n\nYou’re tasked with finding the day with the most absences in the second half of the session. To find the index of the day in question, follow these steps:\n\n1.  Create a slice of the `absences` array that holds the second half of the days.\n2.  Use the `max(by:)` method to determine the index of the day with the most absences.\n3.  Print the result using the index found in step 2 on the original `absences` array.\n\nHere’s an implementation of those steps:\n\n``` swift\nlet secondHalf = absences.suffix(absences.count \/ 2)\nif let i = secondHalf.indices.max(by: { secondHalf[$0] < secondHalf[$1] }) {\n    print(\"Highest second-half absences: \\(absences[i])\")\n}\n\/\/ Prints \"Highest second-half absences: 3\"\n\n```\n\n## Slices Inherit Collection Semantics\n\nA slice inherits the value or reference semantics of its base collection. That is, when working with a slice of a mutable collection that has value semantics, such as an array, mutating the original collection triggers a copy of that collection and does not affect the contents of the slice.\n\nFor example, if you update the last element of the `absences` array from `0` to `2`, the `secondHalf` slice is unchanged.\n\n``` swift\nabsences[7] = 2\nprint(absences)\n\/\/ Prints \"[0, 2, 0, 4, 0, 3, 1, 2]\"\nprint(secondHalf)\n\/\/ Prints \"[0, 3, 1, 0]\"\n\n```\n\n# Traversing a Collection\n\nAlthough a sequence can be consumed as it is traversed, a collection is guaranteed to be *multipass*: Any element can be repeatedly accessed by saving its index. Moreover, a collection’s indices form a finite range of the positions of the collection’s elements. The fact that all collections are finite guarantees the safety of many sequence operations, such as using the `contains(_:)` method to test whether a collection includes an element.\n\nIterating over the elements of a collection by their positions yields the same elements in the same order as iterating over that collection using its iterator. This example demonstrates that the `characters` view of a string returns the same characters in the same order whether the view’s indices or the view itself is being iterated.\n\n``` swift\nlet word = \"Swift\"\nfor character in word {\n    print(character)\n}\n\/\/ Prints \"S\"\n\/\/ Prints \"w\"\n\/\/ Prints \"i\"\n\/\/ Prints \"f\"\n\/\/ Prints \"t\"\n\nfor i in word.indices {\n    print(word[i])\n}\n\/\/ Prints \"S\"\n\/\/ Prints \"w\"\n\/\/ Prints \"i\"\n\/\/ Prints \"f\"\n\/\/ Prints \"t\"\n\n```\n\n# Conforming to the Collection Protocol\n\nIf you create a custom sequence that can provide repeated access to its elements, make sure that its type conforms to the `Collection` protocol in order to give a more useful and more efficient interface for sequence and collection operations. To add `Collection` conformance to your type, you must declare at least the following requirements:\n\n  - The `startIndex` and `endIndex` properties\n  - A subscript that provides at least read-only access to your type’s elements\n  - The `index(after:)` method for advancing an index into your collection\n\n# Expected Performance\n\nTypes that conform to `Collection` are expected to provide the `startIndex` and `endIndex` properties and subscript access to elements as O(1) operations. Types that are not able to guarantee this performance must document the departure, because many collection operations depend on O(1) subscripting performance for their own performance guarantees.\n\nThe performance of some collection operations depends on the type of index that the collection provides. For example, a random-access collection, which can measure the distance between two indices in O(1) time, can calculate its `count` property in O(1) time. Conversely, because a forward or bidirectional collection must traverse the entire collection to count the number of contained elements, accessing its `count` property is an O(*n*) operation."
                   }
                 },
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "extension Collection where Element: <a href=\"spmswiftmodule\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>\n\nextension Collection where Element == <a href=\"spmswiftmodule\/types\/spmswiftmodule\/nested1.html?swift\">SpmSwiftModule.Nested1<\/a>"
+                  "html" : {
+                    "html" : "extension Collection where Element: <a href=\"spmswiftmodule\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>\n\nextension Collection where Element == <a href=\"spmswiftmodule\/types\/spmswiftmodule\/nested1.html?swift\">SpmSwiftModule.Nested1<\/a>"
+                  },
+                  "text" : "extension Collection where Element: FirstProtocol\n\nextension Collection where Element == SpmSwiftModule.Nested1"
                 }
               },
               "flat_title" : {
@@ -3119,15 +3722,21 @@
               "dash_type" : "Extension",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Extension of a nested type from an external module<\/p>"
+                  "html" : {
+                    "en" : "<p>Extension of a nested type from an external module<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Extension of a nested type from an external module"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "extension String.Element"
+                  "html" : {
+                    "html" : "extension String.Element"
+                  },
+                  "text" : "extension String.Element"
                 }
               },
               "flat_title" : {
@@ -3146,8 +3755,11 @@
             "en" : ""
           },
           "title" : {
-            "en" : {
-              "html" : ""
+            "html" : {
+              "en" : ""
+            },
+            "markdown" : {
+              "en" : ""
             }
           }
         }
@@ -3176,20 +3788,29 @@
       ],
       "def" : {
         "abstract" : {
-          "en" : {
-            "html" : "<p>A sequence whose elements can be traversed multiple times, nondestructively, and\naccessed by an indexed subscript.<\/p>"
+          "html" : {
+            "en" : "<p>A sequence whose elements can be traversed multiple times, nondestructively, and accessed by an indexed subscript.<\/p>"
+          },
+          "markdown" : {
+            "en" : "A sequence whose elements can be traversed multiple times, nondestructively, and accessed by an indexed subscript."
           }
         },
         "availability" : [],
         "deprecated_everywhere" : false,
         "discussion" : {
-          "en" : {
-            "html" : "<p>Collections are used extensively throughout the standard library. When you use\narrays, dictionaries, and other collections, you benefit from the operations\nthat the <code>Collection<\/code> protocol declares and implements. In addition to the\noperations that collections inherit from the <code>Sequence<\/code> protocol, you gain\naccess to methods that depend on accessing an element at a specific position in\na collection.<\/p>\n<p>For example, if you want to print only the first word in a string, you can\nsearch for the index of the first space, and then create a substring up to that\nposition.<\/p>\n<pre><code class=\"language-swift\">let text = &quot;Buffalo buffalo buffalo buffalo.&quot;\nif let firstSpace = text.firstIndex(of: &quot; &quot;) {\n    print(text[..&lt;firstSpace])\n}\n\/\/ Prints &quot;Buffalo&quot;\n\n<\/code><\/pre>\n<p>The <code>firstSpace<\/code> constant is an index into the <code>text<\/code> string—the position of the\nfirst space in the string. You can store indices in variables, and pass them to\ncollection algorithms or use them later to access the corresponding element. In\nthe example above, <code>firstSpace<\/code> is used to extract the prefix that contains\nelements up to that index.<\/p>\n<h1 class=\"j2-anchor j2-heading heading\" id=\"accessing-individual-elements\">\n<span data-anchor-id=\"accessing-individual-elements\">\nAccessing Individual Elements\n<\/span><\/h1>\n<p>You can access an element of a collection through its subscript by using any\nvalid index except the collection’s <code>endIndex<\/code> property. This property is a\n“past the end” index that does not correspond with any element of the\ncollection.<\/p>\n<p>Here’s an example of accessing the first character in a string through its\nsubscript:<\/p>\n<pre><code class=\"language-swift\">let firstChar = text[text.startIndex]\nprint(firstChar)\n\/\/ Prints &quot;B&quot;\n\n<\/code><\/pre>\n<p>The <code>Collection<\/code> protocol declares and provides default implementations for many\noperations that depend on elements being accessible by their subscript. For\nexample, you can also access the first character of <code>text<\/code> using the <code>first<\/code>\nproperty, which has the value of the first element of the collection, or <code>nil<\/code>\nif the collection is empty.<\/p>\n<pre><code class=\"language-swift\">print(text.first)\n\/\/ Prints &quot;Optional(&quot;B&quot;)&quot;\n\n<\/code><\/pre>\n<p>You can pass only valid indices to collection operations. You can find a\ncomplete set of a collection’s valid indices by starting with the collection’s\n<code>startIndex<\/code> property and finding every successor up to, and including, the\n<code>endIndex<\/code> property. All other values of the <code>Index<\/code> type, such as the\n<code>startIndex<\/code> property of a different collection, are invalid indices for this\ncollection.<\/p>\n<p>Saved indices may become invalid as a result of mutating operations. For more\ninformation about index invalidation in mutable collections, see the reference\nfor the <code>MutableCollection<\/code> and <code>RangeReplaceableCollection<\/code> protocols, as well\nas for the specific type you’re using.<\/p>\n<h1 class=\"j2-anchor j2-heading heading\" id=\"accessing-slices-of-a-collection\">\n<span data-anchor-id=\"accessing-slices-of-a-collection\">\nAccessing Slices of a Collection\n<\/span><\/h1>\n<p>You can access a slice of a collection through its ranged subscript or by\ncalling methods like <code>prefix(while:)<\/code> or <code>suffix(_:)<\/code>. A slice of a collection\ncan contain zero or more of the original collection’s elements and shares the\noriginal collection’s semantics.<\/p>\n<p>The following example creates a <code>firstWord<\/code> constant by using the\n<code>prefix(while:)<\/code> method to get a slice of the <code>text<\/code> string.<\/p>\n<pre><code class=\"language-swift\">let firstWord = text.prefix(while: { $0 != &quot; &quot; })\nprint(firstWord)\n\/\/ Prints &quot;Buffalo&quot;\n\n<\/code><\/pre>\n<p>You can retrieve the same slice using the string’s ranged subscript, which takes\na range expression.<\/p>\n<pre><code class=\"language-swift\">if let firstSpace = text.firstIndex(of: &quot; &quot;) {\n    print(text[..&lt;firstSpace]\n    \/\/ Prints &quot;Buffalo&quot;\n}\n\n<\/code><\/pre>\n<p>The retrieved slice of <code>text<\/code> is equivalent in each of these cases.<\/p>\n<h2 class=\"j2-anchor j2-heading heading\" id=\"slices-share-indices\">\n<span data-anchor-id=\"slices-share-indices\">\nSlices Share Indices\n<\/span><\/h2>\n<p>A collection and its slices share the same indices. An element of a collection\nis located under the same index in a slice as in the base collection, as long as\nneither the collection nor the slice has been mutated since the slice was\ncreated.<\/p>\n<p>For example, suppose you have an array holding the number of absences from each\nclass during a session.<\/p>\n<pre><code class=\"language-swift\">var absences = [0, 2, 0, 4, 0, 3, 1, 0]\n\n<\/code><\/pre>\n<p>You’re tasked with finding the day with the most absences in the second half of\nthe session. To find the index of the day in question, follow these steps:<\/p>\n<ol>\n<li>Create a slice of the <code>absences<\/code> array that holds the second half of the\ndays.<\/li>\n<li>Use the <code>max(by:)<\/code> method to determine the index of the day with the most\nabsences.<\/li>\n<li>Print the result using the index found in step 2 on the original <code>absences<\/code>\narray.<\/li>\n<\/ol>\n<p>Here’s an implementation of those steps:<\/p>\n<pre><code class=\"language-swift\">let secondHalf = absences.suffix(absences.count \/ 2)\nif let i = secondHalf.indices.max(by: { secondHalf[$0] &lt; secondHalf[$1] }) {\n    print(&quot;Highest second-half absences: \\(absences[i])&quot;)\n}\n\/\/ Prints &quot;Highest second-half absences: 3&quot;\n\n<\/code><\/pre>\n<h2 class=\"j2-anchor j2-heading heading\" id=\"slices-inherit-collection-semantics\">\n<span data-anchor-id=\"slices-inherit-collection-semantics\">\nSlices Inherit Collection Semantics\n<\/span><\/h2>\n<p>A slice inherits the value or reference semantics of its base collection. That\nis, when working with a slice of a mutable collection that has value semantics,\nsuch as an array, mutating the original collection triggers a copy of that\ncollection and does not affect the contents of the slice.<\/p>\n<p>For example, if you update the last element of the <code>absences<\/code> array from <code>0<\/code> to\n<code>2<\/code>, the <code>secondHalf<\/code> slice is unchanged.<\/p>\n<pre><code class=\"language-swift\">absences[7] = 2\nprint(absences)\n\/\/ Prints &quot;[0, 2, 0, 4, 0, 3, 1, 2]&quot;\nprint(secondHalf)\n\/\/ Prints &quot;[0, 3, 1, 0]&quot;\n\n<\/code><\/pre>\n<h1 class=\"j2-anchor j2-heading heading\" id=\"traversing-a-collection\">\n<span data-anchor-id=\"traversing-a-collection\">\nTraversing a Collection\n<\/span><\/h1>\n<p>Although a sequence can be consumed as it is traversed, a collection is\nguaranteed to be <em>multipass<\/em>: Any element can be repeatedly accessed by saving\nits index. Moreover, a collection’s indices form a finite range of the positions\nof the collection’s elements. The fact that all collections are finite\nguarantees the safety of many sequence operations, such as using the\n<code>contains(_:)<\/code> method to test whether a collection includes an element.<\/p>\n<p>Iterating over the elements of a collection by their positions yields the same\nelements in the same order as iterating over that collection using its iterator.\nThis example demonstrates that the <code>characters<\/code> view of a string returns the\nsame characters in the same order whether the view’s indices or the view itself\nis being iterated.<\/p>\n<pre><code class=\"language-swift\">let word = &quot;Swift&quot;\nfor character in word {\n    print(character)\n}\n\/\/ Prints &quot;S&quot;\n\/\/ Prints &quot;w&quot;\n\/\/ Prints &quot;i&quot;\n\/\/ Prints &quot;f&quot;\n\/\/ Prints &quot;t&quot;\n\nfor i in word.indices {\n    print(word[i])\n}\n\/\/ Prints &quot;S&quot;\n\/\/ Prints &quot;w&quot;\n\/\/ Prints &quot;i&quot;\n\/\/ Prints &quot;f&quot;\n\/\/ Prints &quot;t&quot;\n\n<\/code><\/pre>\n<h1 class=\"j2-anchor j2-heading heading\" id=\"conforming-to-the-collection-protocol\">\n<span data-anchor-id=\"conforming-to-the-collection-protocol\">\nConforming to the Collection Protocol\n<\/span><\/h1>\n<p>If you create a custom sequence that can provide repeated access to its\nelements, make sure that its type conforms to the <code>Collection<\/code> protocol in order\nto give a more useful and more efficient interface for sequence and collection\noperations. To add <code>Collection<\/code> conformance to your type, you must declare at\nleast the following requirements:<\/p>\n<ul>\n<li>The <code>startIndex<\/code> and <code>endIndex<\/code> properties<\/li>\n<li>A subscript that provides at least read-only access to your type’s elements<\/li>\n<li>The <code>index(after:)<\/code> method for advancing an index into your collection<\/li>\n<\/ul>\n<h1 class=\"j2-anchor j2-heading heading\" id=\"expected-performance\">\n<span data-anchor-id=\"expected-performance\">\nExpected Performance\n<\/span><\/h1>\n<p>Types that conform to <code>Collection<\/code> are expected to provide the <code>startIndex<\/code> and\n<code>endIndex<\/code> properties and subscript access to elements as O(1) operations. Types\nthat are not able to guarantee this performance must document the departure,\nbecause many collection operations depend on O(1) subscripting performance for\ntheir own performance guarantees.<\/p>\n<p>The performance of some collection operations depends on the type of index that\nthe collection provides. For example, a random-access collection, which can\nmeasure the distance between two indices in O(1) time, can calculate its <code>count<\/code>\nproperty in O(1) time. Conversely, because a forward or bidirectional collection\nmust traverse the entire collection to count the number of contained elements,\naccessing its <code>count<\/code> property is an O(<em>n<\/em>) operation.<\/p>"
+          "html" : {
+            "en" : "<p>Collections are used extensively throughout the standard library. When you use arrays, dictionaries, and other collections, you benefit from the operations that the <code>Collection<\/code> protocol declares and implements. In addition to the operations that collections inherit from the <code>Sequence<\/code> protocol, you gain access to methods that depend on accessing an element at a specific position in a collection.<\/p>\n<p>For example, if you want to print only the first word in a string, you can search for the index of the first space, and then create a substring up to that position.<\/p>\n<pre><code class=\"language-swift\">let text = &quot;Buffalo buffalo buffalo buffalo.&quot;\nif let firstSpace = text.firstIndex(of: &quot; &quot;) {\n    print(text[..&lt;firstSpace])\n}\n\/\/ Prints &quot;Buffalo&quot;\n\n<\/code><\/pre>\n<p>The <code>firstSpace<\/code> constant is an index into the <code>text<\/code> string—the position of the first space in the string. You can store indices in variables, and pass them to collection algorithms or use them later to access the corresponding element. In the example above, <code>firstSpace<\/code> is used to extract the prefix that contains elements up to that index.<\/p>\n<h1 class=\"j2-anchor j2-heading heading\" id=\"accessing-individual-elements\">\n<span data-anchor-id=\"accessing-individual-elements\">\nAccessing Individual Elements\n<\/span><\/h1>\n<p>You can access an element of a collection through its subscript by using any valid index except the collection’s <code>endIndex<\/code> property. This property is a “past the end” index that does not correspond with any element of the collection.<\/p>\n<p>Here’s an example of accessing the first character in a string through its subscript:<\/p>\n<pre><code class=\"language-swift\">let firstChar = text[text.startIndex]\nprint(firstChar)\n\/\/ Prints &quot;B&quot;\n\n<\/code><\/pre>\n<p>The <code>Collection<\/code> protocol declares and provides default implementations for many operations that depend on elements being accessible by their subscript. For example, you can also access the first character of <code>text<\/code> using the <code>first<\/code> property, which has the value of the first element of the collection, or <code>nil<\/code> if the collection is empty.<\/p>\n<pre><code class=\"language-swift\">print(text.first)\n\/\/ Prints &quot;Optional(&quot;B&quot;)&quot;\n\n<\/code><\/pre>\n<p>You can pass only valid indices to collection operations. You can find a complete set of a collection’s valid indices by starting with the collection’s <code>startIndex<\/code> property and finding every successor up to, and including, the <code>endIndex<\/code> property. All other values of the <code>Index<\/code> type, such as the <code>startIndex<\/code> property of a different collection, are invalid indices for this collection.<\/p>\n<p>Saved indices may become invalid as a result of mutating operations. For more information about index invalidation in mutable collections, see the reference for the <code>MutableCollection<\/code> and <code>RangeReplaceableCollection<\/code> protocols, as well as for the specific type you’re using.<\/p>\n<h1 class=\"j2-anchor j2-heading heading\" id=\"accessing-slices-of-a-collection\">\n<span data-anchor-id=\"accessing-slices-of-a-collection\">\nAccessing Slices of a Collection\n<\/span><\/h1>\n<p>You can access a slice of a collection through its ranged subscript or by calling methods like <code>prefix(while:)<\/code> or <code>suffix(_:)<\/code>. A slice of a collection can contain zero or more of the original collection’s elements and shares the original collection’s semantics.<\/p>\n<p>The following example creates a <code>firstWord<\/code> constant by using the <code>prefix(while:)<\/code> method to get a slice of the <code>text<\/code> string.<\/p>\n<pre><code class=\"language-swift\">let firstWord = text.prefix(while: { $0 != &quot; &quot; })\nprint(firstWord)\n\/\/ Prints &quot;Buffalo&quot;\n\n<\/code><\/pre>\n<p>You can retrieve the same slice using the string’s ranged subscript, which takes a range expression.<\/p>\n<pre><code class=\"language-swift\">if let firstSpace = text.firstIndex(of: &quot; &quot;) {\n    print(text[..&lt;firstSpace]\n    \/\/ Prints &quot;Buffalo&quot;\n}\n\n<\/code><\/pre>\n<p>The retrieved slice of <code>text<\/code> is equivalent in each of these cases.<\/p>\n<h2 class=\"j2-anchor j2-heading heading\" id=\"slices-share-indices\">\n<span data-anchor-id=\"slices-share-indices\">\nSlices Share Indices\n<\/span><\/h2>\n<p>A collection and its slices share the same indices. An element of a collection is located under the same index in a slice as in the base collection, as long as neither the collection nor the slice has been mutated since the slice was created.<\/p>\n<p>For example, suppose you have an array holding the number of absences from each class during a session.<\/p>\n<pre><code class=\"language-swift\">var absences = [0, 2, 0, 4, 0, 3, 1, 0]\n\n<\/code><\/pre>\n<p>You’re tasked with finding the day with the most absences in the second half of the session. To find the index of the day in question, follow these steps:<\/p>\n<ol>\n<li>Create a slice of the <code>absences<\/code> array that holds the second half of the days.<\/li>\n<li>Use the <code>max(by:)<\/code> method to determine the index of the day with the most absences.<\/li>\n<li>Print the result using the index found in step 2 on the original <code>absences<\/code> array.<\/li>\n<\/ol>\n<p>Here’s an implementation of those steps:<\/p>\n<pre><code class=\"language-swift\">let secondHalf = absences.suffix(absences.count \/ 2)\nif let i = secondHalf.indices.max(by: { secondHalf[$0] &lt; secondHalf[$1] }) {\n    print(&quot;Highest second-half absences: \\(absences[i])&quot;)\n}\n\/\/ Prints &quot;Highest second-half absences: 3&quot;\n\n<\/code><\/pre>\n<h2 class=\"j2-anchor j2-heading heading\" id=\"slices-inherit-collection-semantics\">\n<span data-anchor-id=\"slices-inherit-collection-semantics\">\nSlices Inherit Collection Semantics\n<\/span><\/h2>\n<p>A slice inherits the value or reference semantics of its base collection. That is, when working with a slice of a mutable collection that has value semantics, such as an array, mutating the original collection triggers a copy of that collection and does not affect the contents of the slice.<\/p>\n<p>For example, if you update the last element of the <code>absences<\/code> array from <code>0<\/code> to <code>2<\/code>, the <code>secondHalf<\/code> slice is unchanged.<\/p>\n<pre><code class=\"language-swift\">absences[7] = 2\nprint(absences)\n\/\/ Prints &quot;[0, 2, 0, 4, 0, 3, 1, 2]&quot;\nprint(secondHalf)\n\/\/ Prints &quot;[0, 3, 1, 0]&quot;\n\n<\/code><\/pre>\n<h1 class=\"j2-anchor j2-heading heading\" id=\"traversing-a-collection\">\n<span data-anchor-id=\"traversing-a-collection\">\nTraversing a Collection\n<\/span><\/h1>\n<p>Although a sequence can be consumed as it is traversed, a collection is guaranteed to be <em>multipass<\/em>: Any element can be repeatedly accessed by saving its index. Moreover, a collection’s indices form a finite range of the positions of the collection’s elements. The fact that all collections are finite guarantees the safety of many sequence operations, such as using the <code>contains(_:)<\/code> method to test whether a collection includes an element.<\/p>\n<p>Iterating over the elements of a collection by their positions yields the same elements in the same order as iterating over that collection using its iterator. This example demonstrates that the <code>characters<\/code> view of a string returns the same characters in the same order whether the view’s indices or the view itself is being iterated.<\/p>\n<pre><code class=\"language-swift\">let word = &quot;Swift&quot;\nfor character in word {\n    print(character)\n}\n\/\/ Prints &quot;S&quot;\n\/\/ Prints &quot;w&quot;\n\/\/ Prints &quot;i&quot;\n\/\/ Prints &quot;f&quot;\n\/\/ Prints &quot;t&quot;\n\nfor i in word.indices {\n    print(word[i])\n}\n\/\/ Prints &quot;S&quot;\n\/\/ Prints &quot;w&quot;\n\/\/ Prints &quot;i&quot;\n\/\/ Prints &quot;f&quot;\n\/\/ Prints &quot;t&quot;\n\n<\/code><\/pre>\n<h1 class=\"j2-anchor j2-heading heading\" id=\"conforming-to-the-collection-protocol\">\n<span data-anchor-id=\"conforming-to-the-collection-protocol\">\nConforming to the Collection Protocol\n<\/span><\/h1>\n<p>If you create a custom sequence that can provide repeated access to its elements, make sure that its type conforms to the <code>Collection<\/code> protocol in order to give a more useful and more efficient interface for sequence and collection operations. To add <code>Collection<\/code> conformance to your type, you must declare at least the following requirements:<\/p>\n<ul>\n<li>The <code>startIndex<\/code> and <code>endIndex<\/code> properties<\/li>\n<li>A subscript that provides at least read-only access to your type’s elements<\/li>\n<li>The <code>index(after:)<\/code> method for advancing an index into your collection<\/li>\n<\/ul>\n<h1 class=\"j2-anchor j2-heading heading\" id=\"expected-performance\">\n<span data-anchor-id=\"expected-performance\">\nExpected Performance\n<\/span><\/h1>\n<p>Types that conform to <code>Collection<\/code> are expected to provide the <code>startIndex<\/code> and <code>endIndex<\/code> properties and subscript access to elements as O(1) operations. Types that are not able to guarantee this performance must document the departure, because many collection operations depend on O(1) subscripting performance for their own performance guarantees.<\/p>\n<p>The performance of some collection operations depends on the type of index that the collection provides. For example, a random-access collection, which can measure the distance between two indices in O(1) time, can calculate its <code>count<\/code> property in O(1) time. Conversely, because a forward or bidirectional collection must traverse the entire collection to count the number of contained elements, accessing its <code>count<\/code> property is an O(<em>n<\/em>) operation.<\/p>"
+          },
+          "markdown" : {
+            "en" : "Collections are used extensively throughout the standard library. When you use arrays, dictionaries, and other collections, you benefit from the operations that the `Collection` protocol declares and implements. In addition to the operations that collections inherit from the `Sequence` protocol, you gain access to methods that depend on accessing an element at a specific position in a collection.\n\nFor example, if you want to print only the first word in a string, you can search for the index of the first space, and then create a substring up to that position.\n\n``` swift\nlet text = \"Buffalo buffalo buffalo buffalo.\"\nif let firstSpace = text.firstIndex(of: \" \") {\n    print(text[..<firstSpace])\n}\n\/\/ Prints \"Buffalo\"\n\n```\n\nThe `firstSpace` constant is an index into the `text` string—the position of the first space in the string. You can store indices in variables, and pass them to collection algorithms or use them later to access the corresponding element. In the example above, `firstSpace` is used to extract the prefix that contains elements up to that index.\n\n# Accessing Individual Elements\n\nYou can access an element of a collection through its subscript by using any valid index except the collection’s `endIndex` property. This property is a “past the end” index that does not correspond with any element of the collection.\n\nHere’s an example of accessing the first character in a string through its subscript:\n\n``` swift\nlet firstChar = text[text.startIndex]\nprint(firstChar)\n\/\/ Prints \"B\"\n\n```\n\nThe `Collection` protocol declares and provides default implementations for many operations that depend on elements being accessible by their subscript. For example, you can also access the first character of `text` using the `first` property, which has the value of the first element of the collection, or `nil` if the collection is empty.\n\n``` swift\nprint(text.first)\n\/\/ Prints \"Optional(\"B\")\"\n\n```\n\nYou can pass only valid indices to collection operations. You can find a complete set of a collection’s valid indices by starting with the collection’s `startIndex` property and finding every successor up to, and including, the `endIndex` property. All other values of the `Index` type, such as the `startIndex` property of a different collection, are invalid indices for this collection.\n\nSaved indices may become invalid as a result of mutating operations. For more information about index invalidation in mutable collections, see the reference for the `MutableCollection` and `RangeReplaceableCollection` protocols, as well as for the specific type you’re using.\n\n# Accessing Slices of a Collection\n\nYou can access a slice of a collection through its ranged subscript or by calling methods like `prefix(while:)` or `suffix(_:)`. A slice of a collection can contain zero or more of the original collection’s elements and shares the original collection’s semantics.\n\nThe following example creates a `firstWord` constant by using the `prefix(while:)` method to get a slice of the `text` string.\n\n``` swift\nlet firstWord = text.prefix(while: { $0 != \" \" })\nprint(firstWord)\n\/\/ Prints \"Buffalo\"\n\n```\n\nYou can retrieve the same slice using the string’s ranged subscript, which takes a range expression.\n\n``` swift\nif let firstSpace = text.firstIndex(of: \" \") {\n    print(text[..<firstSpace]\n    \/\/ Prints \"Buffalo\"\n}\n\n```\n\nThe retrieved slice of `text` is equivalent in each of these cases.\n\n## Slices Share Indices\n\nA collection and its slices share the same indices. An element of a collection is located under the same index in a slice as in the base collection, as long as neither the collection nor the slice has been mutated since the slice was created.\n\nFor example, suppose you have an array holding the number of absences from each class during a session.\n\n``` swift\nvar absences = [0, 2, 0, 4, 0, 3, 1, 0]\n\n```\n\nYou’re tasked with finding the day with the most absences in the second half of the session. To find the index of the day in question, follow these steps:\n\n1.  Create a slice of the `absences` array that holds the second half of the days.\n2.  Use the `max(by:)` method to determine the index of the day with the most absences.\n3.  Print the result using the index found in step 2 on the original `absences` array.\n\nHere’s an implementation of those steps:\n\n``` swift\nlet secondHalf = absences.suffix(absences.count \/ 2)\nif let i = secondHalf.indices.max(by: { secondHalf[$0] < secondHalf[$1] }) {\n    print(\"Highest second-half absences: \\(absences[i])\")\n}\n\/\/ Prints \"Highest second-half absences: 3\"\n\n```\n\n## Slices Inherit Collection Semantics\n\nA slice inherits the value or reference semantics of its base collection. That is, when working with a slice of a mutable collection that has value semantics, such as an array, mutating the original collection triggers a copy of that collection and does not affect the contents of the slice.\n\nFor example, if you update the last element of the `absences` array from `0` to `2`, the `secondHalf` slice is unchanged.\n\n``` swift\nabsences[7] = 2\nprint(absences)\n\/\/ Prints \"[0, 2, 0, 4, 0, 3, 1, 2]\"\nprint(secondHalf)\n\/\/ Prints \"[0, 3, 1, 0]\"\n\n```\n\n# Traversing a Collection\n\nAlthough a sequence can be consumed as it is traversed, a collection is guaranteed to be *multipass*: Any element can be repeatedly accessed by saving its index. Moreover, a collection’s indices form a finite range of the positions of the collection’s elements. The fact that all collections are finite guarantees the safety of many sequence operations, such as using the `contains(_:)` method to test whether a collection includes an element.\n\nIterating over the elements of a collection by their positions yields the same elements in the same order as iterating over that collection using its iterator. This example demonstrates that the `characters` view of a string returns the same characters in the same order whether the view’s indices or the view itself is being iterated.\n\n``` swift\nlet word = \"Swift\"\nfor character in word {\n    print(character)\n}\n\/\/ Prints \"S\"\n\/\/ Prints \"w\"\n\/\/ Prints \"i\"\n\/\/ Prints \"f\"\n\/\/ Prints \"t\"\n\nfor i in word.indices {\n    print(word[i])\n}\n\/\/ Prints \"S\"\n\/\/ Prints \"w\"\n\/\/ Prints \"i\"\n\/\/ Prints \"f\"\n\/\/ Prints \"t\"\n\n```\n\n# Conforming to the Collection Protocol\n\nIf you create a custom sequence that can provide repeated access to its elements, make sure that its type conforms to the `Collection` protocol in order to give a more useful and more efficient interface for sequence and collection operations. To add `Collection` conformance to your type, you must declare at least the following requirements:\n\n  - The `startIndex` and `endIndex` properties\n  - A subscript that provides at least read-only access to your type’s elements\n  - The `index(after:)` method for advancing an index into your collection\n\n# Expected Performance\n\nTypes that conform to `Collection` are expected to provide the `startIndex` and `endIndex` properties and subscript access to elements as O(1) operations. Types that are not able to guarantee this performance must document the departure, because many collection operations depend on O(1) subscripting performance for their own performance guarantees.\n\nThe performance of some collection operations depends on the type of index that the collection provides. For example, a random-access collection, which can measure the distance between two indices in O(1) time, can calculate its `count` property in O(1) time. Conversely, because a forward or bidirectional collection must traverse the entire collection to count the number of contained elements, accessing its `count` property is an O(*n*) operation."
           }
         },
         "params" : [],
         "swift_declaration" : {
-          "html" : "extension Collection where Element: <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>\n\nextension Collection where Element == <a href=\"..\/..\/spmswiftmodule\/types\/spmswiftmodule\/nested1.html?swift\">SpmSwiftModule.Nested1<\/a>"
+          "html" : {
+            "html" : "extension Collection where Element: <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>\n\nextension Collection where Element == <a href=\"..\/..\/spmswiftmodule\/types\/spmswiftmodule\/nested1.html?swift\">SpmSwiftModule.Nested1<\/a>"
+          },
+          "text" : "extension Collection where Element: FirstProtocol\n\nextension Collection where Element == SpmSwiftModule.Nested1"
         }
       },
       "guide_topics" : {},
@@ -3237,15 +3858,21 @@
               "dash_type" : "Method",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "func nestEmAll()"
+                  "html" : {
+                    "html" : "func nestEmAll()"
+                  },
+                  "text" : "func nestEmAll()"
                 }
               },
               "flat_title" : {
@@ -3261,8 +3888,11 @@
             "en" : "…where Element == SpmSwiftModule.Nested1"
           },
           "title" : {
-            "en" : {
-              "html" : "Available where <code>Element<\/code> == <a href=\"..\/..\/spmswiftmodule\/types\/spmswiftmodule\/nested1.html?swift\"><code>SpmSwiftModule.Nested1<\/code><\/a>"
+            "html" : {
+              "en" : "Available where <code>Element<\/code> == <a href=\"..\/..\/spmswiftmodule\/types\/spmswiftmodule\/nested1.html?swift\"><code>SpmSwiftModule.Nested1<\/code><\/a>"
+            },
+            "markdown" : {
+              "en" : "Available where `Element` == [`SpmSwiftModule.Nested1`](..\/..\/spmswiftmodule\/types\/spmswiftmodule\/nested1.md)"
             }
           }
         },
@@ -3274,15 +3904,21 @@
               "dash_type" : "Method",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "func collectEmAll()"
+                  "html" : {
+                    "html" : "func collectEmAll()"
+                  },
+                  "text" : "func collectEmAll()"
                 }
               },
               "flat_title" : {
@@ -3298,8 +3934,11 @@
             "en" : "…where Element: FirstProtocol"
           },
           "title" : {
-            "en" : {
-              "html" : "Available where <code>Element<\/code>: <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>"
+            "html" : {
+              "en" : "Available where <code>Element<\/code>: <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift\"><code>FirstProtocol<\/code><\/a>"
+            },
+            "markdown" : {
+              "en" : "Available where `Element`: [`FirstProtocol`](..\/..\/spmswiftmodule\/types\/firstprotocol1.md)"
             }
           }
         }
@@ -3328,15 +3967,21 @@
       ],
       "def" : {
         "abstract" : {
-          "en" : {
-            "html" : "<p>Extension of a nested type from an external module<\/p>"
+          "html" : {
+            "en" : "<p>Extension of a nested type from an external module<\/p>"
+          },
+          "markdown" : {
+            "en" : "Extension of a nested type from an external module"
           }
         },
         "availability" : [],
         "deprecated_everywhere" : false,
         "params" : [],
         "swift_declaration" : {
-          "html" : "extension String.Element"
+          "html" : {
+            "html" : "extension String.Element"
+          },
+          "text" : "extension String.Element"
         }
       },
       "guide_topics" : {},
@@ -3371,15 +4016,21 @@
               "dash_type" : "Method",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>documented method<\/p>"
+                  "html" : {
+                    "en" : "<p>documented method<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "documented method"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "func method1()"
+                  "html" : {
+                    "html" : "func method1()"
+                  },
+                  "text" : "func method1()"
                 }
               },
               "flat_title" : {
@@ -3395,15 +4046,21 @@
               "dash_type" : "Method",
               "def" : {
                 "abstract" : {
-                  "en" : {
-                    "html" : "<p>Undocumented<\/p>"
+                  "html" : {
+                    "en" : "<p>Undocumented<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Undocumented"
                   }
                 },
                 "availability" : [],
                 "deprecated_everywhere" : false,
                 "params" : [],
                 "swift_declaration" : {
-                  "html" : "func method2()"
+                  "html" : {
+                    "html" : "func method2()"
+                  },
+                  "text" : "func method2()"
                 }
               },
               "flat_title" : {
@@ -3419,8 +4076,11 @@
             "en" : "Methods"
           },
           "title" : {
-            "en" : {
-              "html" : "Methods"
+            "html" : {
+              "en" : "Methods"
+            },
+            "markdown" : {
+              "en" : "Methods"
             }
           }
         }
@@ -3432,8 +4092,11 @@
     {
       "breadcrumbs" : [],
       "content" : {
-        "en" : {
-          "html" : "<h1 class=\"j2-anchor j2-heading heading\" id=\"spmswiftmodule\">\n<span data-anchor-id=\"spmswiftmodule\">\nSpmSwiftModule\n<\/span><\/h1>"
+        "html" : {
+          "en" : "<h1 class=\"j2-anchor j2-heading heading\" id=\"spmswiftmodule\">\n<span data-anchor-id=\"spmswiftmodule\">\nSpmSwiftModule\n<\/span><\/h1>"
+        },
+        "markdown" : {
+          "en" : "# SpmSwiftModule"
         }
       },
       "guide_topics" : {

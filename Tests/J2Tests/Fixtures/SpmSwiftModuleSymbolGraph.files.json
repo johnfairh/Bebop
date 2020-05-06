@@ -1385,7 +1385,7 @@
                   "en" : "A textual representation of this instance."
                 },
                 "key.j2.discussion" : {
-                  "en" : "Calling this property directly is discouraged. Instead, convert an instance of\nany type to a string by using the `String(describing:)` initializer. This\ninitializer works with any type, and uses the custom `description` property for\ntypes that conform to `CustomStringConvertible`:\n\n    struct Point: CustomStringConvertible {\n        let x: Int, y: Int\n    \n        var description: String {\n            return \"(\\(x), \\(y))\"\n        }\n    }\n    \n    let p = Point(x: 21, y: 30)\n    let s = String(describing: p)\n    print(s)\n    \/\/ Prints \"(21, 30)\"\n\nThe conversion of `p` to a string in the assignment to `s` uses the `Point`\ntype’s `description` property."
+                  "en" : "Calling this property directly is discouraged. Instead, convert an\ninstance of any type to a string by using the `String(describing:)`\ninitializer. This initializer works with any type, and uses the custom\n`description` property for types that conform to\n`CustomStringConvertible`:\n\n    struct Point: CustomStringConvertible {\n        let x: Int, y: Int\n    \n        var description: String {\n            return \"(\\(x), \\(y))\"\n        }\n    }\n    \n    let p = Point(x: 21, y: 30)\n    let s = String(describing: p)\n    print(s)\n    \/\/ Prints \"(21, 30)\"\n\nThe conversion of `p` to a string in the assignment to `s` uses the\n`Point` type’s `description` property."
                 },
                 "key.j2.doc_source" : "inherited"
               },
@@ -1593,7 +1593,7 @@
                   "en" : "A textual representation of this instance."
                 },
                 "key.j2.discussion" : {
-                  "en" : "Calling this property directly is discouraged. Instead, convert an instance of\nany type to a string by using the `String(describing:)` initializer. This\ninitializer works with any type, and uses the custom `description` property for\ntypes that conform to `CustomStringConvertible`:\n\n    struct Point: CustomStringConvertible {\n        let x: Int, y: Int\n    \n        var description: String {\n            return \"(\\(x), \\(y))\"\n        }\n    }\n    \n    let p = Point(x: 21, y: 30)\n    let s = String(describing: p)\n    print(s)\n    \/\/ Prints \"(21, 30)\"\n\nThe conversion of `p` to a string in the assignment to `s` uses the `Point`\ntype’s `description` property."
+                  "en" : "Calling this property directly is discouraged. Instead, convert an\ninstance of any type to a string by using the `String(describing:)`\ninitializer. This initializer works with any type, and uses the custom\n`description` property for types that conform to\n`CustomStringConvertible`:\n\n    struct Point: CustomStringConvertible {\n        let x: Int, y: Int\n    \n        var description: String {\n            return \"(\\(x), \\(y))\"\n        }\n    }\n    \n    let p = Point(x: 21, y: 30)\n    let s = String(describing: p)\n    print(s)\n    \/\/ Prints \"(21, 30)\"\n\nThe conversion of `p` to a string in the assignment to `s` uses the\n`Point` type’s `description` property."
                 },
                 "key.j2.doc_source" : "inherited"
               },
