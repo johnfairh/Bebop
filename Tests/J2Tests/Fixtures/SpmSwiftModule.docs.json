@@ -1673,7 +1673,7 @@
               "abstract_md" : "A protocol extension method",
               "discouraged" : false,
               "notes_html" : "<p>From a protocol extension: not a customization point.<\/p>",
-              "notes_md" : "From a protocol extension: not a customization point.",
+              "notes_md" : "  - From a protocol extension: not a customization point.",
               "swift_declaration_html" : "func e()",
               "swift_declaration_md" : "func e()"
             },
@@ -1697,7 +1697,7 @@
               "discussion_html" : "<p>What m is all about.<\/p>",
               "discussion_md" : "What m is all about.",
               "notes_html" : "<p>Has a default implementation.<\/p>\n<p>Has a default implementation for some conforming types.<\/p>",
-              "notes_md" : "Has a default implementation.\n\nHas a default implementation for some conforming types.",
+              "notes_md" : "  - Has a default implementation.\n\n  - Has a default implementation for some conforming types.",
               "parameters" : [
                 {
                   "parameter_html" : "<p>The argument<\/p>",
@@ -1758,7 +1758,7 @@
               "abstract_md" : "Undocumented",
               "discouraged" : false,
               "notes_html" : "<p>From a protocol extension: not a customization point.<\/p>",
-              "notes_md" : "From a protocol extension: not a customization point.",
+              "notes_md" : "  - From a protocol extension: not a customization point.",
               "swift_declaration_html" : "func extHashableMethod()",
               "swift_declaration_md" : "func extHashableMethod()"
             },
@@ -1776,7 +1776,7 @@
               "default_abstract_md" : "Special default implementation for m in Hashable case.",
               "discouraged" : false,
               "notes_html" : "<p>Default implementation only for types that satisfy the constraints.<\/p>",
-              "notes_md" : "Default implementation only for types that satisfy the constraints.",
+              "notes_md" : "  - Default implementation only for types that satisfy the constraints.",
               "swift_declaration_html" : "func m(arg: Int) -&gt; String",
               "swift_declaration_md" : "func m(arg: Int) -> String"
             },
@@ -3009,7 +3009,7 @@
               "abstract_md" : "A default implementation for a method of [`FirstProtocol`](..\/types\/firstprotocol1.md)\nprovided by [`SecondProtocol`](..\/types\/secondprotocol.md).\nFrom source we mess this up as an extension method.\nFrom symbolgraph we mess this up as being part of [`FirstProtocol`](..\/types\/firstprotocol1.md).",
               "discouraged" : false,
               "notes_html" : "<p>From a protocol extension: not a customization point.<\/p>",
-              "notes_md" : "From a protocol extension: not a customization point.",
+              "notes_md" : "  - From a protocol extension: not a customization point.",
               "swift_declaration_html" : "var getOnly: Int { get }",
               "swift_declaration_md" : "var getOnly: Int { get }"
             },
@@ -3601,7 +3601,7 @@
               "abstract_html" : "<p>Undocumented<\/p>",
               "abstract_md" : "Undocumented",
               "deprecation_html" : "<p>Deprecated.<\/p>",
-              "deprecation_md" : "Deprecated.",
+              "deprecation_md" : "  - Deprecated.",
               "discouraged" : true,
               "swift_declaration_html" : "public struct Nested2b",
               "swift_declaration_md" : "public struct Nested2b"
@@ -3837,7 +3837,7 @@
               "abstract_html" : "<p>A deprecated function<\/p>",
               "abstract_md" : "A deprecated function",
               "deprecation_html" : "<p>iOS - deprecated since 12.0. Deprecated!.<\/p>\n<p>macOS - deprecated since 10.14. Deprecated on <em>macOS<\/em> too.<\/p>\n<p>Deprecated.<\/p>",
-              "deprecation_md" : "iOS - deprecated since 12.0. Deprecated\\!.\n\nmacOS - deprecated since 10.14. Deprecated on *macOS* too.\n\nDeprecated.",
+              "deprecation_md" : "  - iOS - deprecated since 12.0. Deprecated\\!.\n\n  - macOS - deprecated since 10.14. Deprecated on *macOS* too.\n\n  - Deprecated.",
               "discouraged" : true,
               "parameters" : [
                 {
@@ -3869,7 +3869,7 @@
               ],
               "discouraged" : false,
               "notes_html" : "<p>tvOS - unavailable. Not available on the big screen.<\/p>",
-              "notes_md" : "tvOS - unavailable. Not available on the big screen.",
+              "notes_md" : "  - tvOS - unavailable. Not available on the big screen.",
               "parameters" : [
                 {
                   "parameter_html" : "<p>Number one<\/p>",

@@ -104,6 +104,31 @@ extension CMNode {
     }
 }
 
+// MARK: Para list helper
+extension CMDocument {
+    /// Take some paragraphs and turn into a bullet list, one bullet per para.
+    /// This is about things like 'declnotes' or 'deprecation notes' and really reveals
+    /// the modelling error - should have explicitly modelled the note elements rather than treating
+    /// them as a blob.
+    static func parasToList(markdown: Markdown) -> Markdown {
+        guard let doc = CMDocument.init(markdown: markdown) else {
+            return markdown
+        }
+        let listNode = CMNode(type: .list)
+        try! listNode.setListType(.unordered)
+        while let node = doc.removeFirstParagraph() {
+            let itemNode = CMNode(type: .item)
+            try! node.insertIntoTree(asFirstChildOf: itemNode)
+            try! itemNode.insertIntoTree(asLastChildOf: listNode)
+        }
+        return listNode.renderMarkdown()
+    }
+
+    static func parasToList(text: Localized<Markdown>) -> Localized<Markdown> {
+        text.mapValues { parasToList(markdown: $0) }
+    }
+}
+
 // MARK: Callout matcher
 
 struct CMCallout {

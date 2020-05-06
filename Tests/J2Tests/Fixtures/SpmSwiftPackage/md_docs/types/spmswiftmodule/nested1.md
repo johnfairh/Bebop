@@ -175,7 +175,7 @@ public struct Nested2a
 
 
 ⚠️  Deprecated
-  * Deprecated.
+  - Deprecated.
 
 
 

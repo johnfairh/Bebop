@@ -181,4 +181,16 @@ class TestMarkdown: XCTestCase {
             </div>
             """, html.html)
     }
+
+    func testParaMunging() throws {
+        let para = Markdown("Text")
+        XCTAssertEqual("  - Text", CMDocument.parasToList(markdown: para).md)
+
+        let paras = Markdown("""
+                             Text
+
+                             Text2
+                             """)
+        XCTAssertEqual("  - Text\n\n  - Text2", CMDocument.parasToList(markdown: paras).md)
+    }
 }

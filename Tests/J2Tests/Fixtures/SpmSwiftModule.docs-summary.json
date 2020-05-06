@@ -1484,7 +1484,7 @@
                     "en" : "<p>From a protocol extension: not a customization point.<\/p>"
                   },
                   "markdown" : {
-                    "en" : "From a protocol extension: not a customization point."
+                    "en" : "  - From a protocol extension: not a customization point."
                   }
                 },
                 "params" : [],
@@ -1546,7 +1546,7 @@
                     "en" : "<p>Has a default implementation.<\/p>\n<p>Has a default implementation for some conforming types.<\/p>"
                   },
                   "markdown" : {
-                    "en" : "Has a default implementation.\n\nHas a default implementation for some conforming types."
+                    "en" : "  - Has a default implementation.\n\n  - Has a default implementation for some conforming types."
                   }
                 },
                 "params" : [
@@ -1604,7 +1604,7 @@
                     "en" : "<p>Provided by module <code>SpmSwiftModule3<\/code>.<\/p>\n<p>From a protocol extension: not a customization point.<\/p>"
                   },
                   "markdown" : {
-                    "en" : "Provided by module `SpmSwiftModule3`.\n\nFrom a protocol extension: not a customization point."
+                    "en" : "  - Provided by module `SpmSwiftModule3`.\n\n  - From a protocol extension: not a customization point."
                   }
                 },
                 "params" : [],
@@ -1704,7 +1704,7 @@
                     "en" : "<p>From a protocol extension: not a customization point.<\/p>"
                   },
                   "markdown" : {
-                    "en" : "From a protocol extension: not a customization point."
+                    "en" : "  - From a protocol extension: not a customization point."
                   }
                 },
                 "params" : [],
@@ -1742,7 +1742,7 @@
                     "en" : "<p>Default implementation only for types that satisfy the constraints.<\/p>"
                   },
                   "markdown" : {
-                    "en" : "Default implementation only for types that satisfy the constraints."
+                    "en" : "  - Default implementation only for types that satisfy the constraints."
                   }
                 },
                 "params" : [],
@@ -2662,7 +2662,7 @@
                     "en" : "<p>From a protocol extension: not a customization point.<\/p>"
                   },
                   "markdown" : {
-                    "en" : "From a protocol extension: not a customization point."
+                    "en" : "  - From a protocol extension: not a customization point."
                   }
                 },
                 "params" : [],
@@ -3100,7 +3100,7 @@
                     "en" : "<p>Deprecated.<\/p>"
                   },
                   "markdown" : {
-                    "en" : "Deprecated."
+                    "en" : "  - Deprecated."
                   }
                 },
                 "params" : [],
@@ -3249,7 +3249,7 @@
                     "en" : "<p>Provided by module <code>SpmSwiftModule3<\/code>.<\/p>"
                   },
                   "markdown" : {
-                    "en" : "Provided by module `SpmSwiftModule3`."
+                    "en" : "  - Provided by module `SpmSwiftModule3`."
                   }
                 },
                 "params" : [],
@@ -3355,7 +3355,7 @@
                     "en" : "<p>iOS - deprecated since 12.0. Deprecated!.<\/p>\n<p>macOS - deprecated since 10.14. Deprecated on <em>macOS<\/em> too.<\/p>\n<p>Deprecated.<\/p>"
                   },
                   "markdown" : {
-                    "en" : "iOS - deprecated since 12.0. Deprecated\\!.\n\nmacOS - deprecated since 10.14. Deprecated on *macOS* too.\n\nDeprecated."
+                    "en" : "  - iOS - deprecated since 12.0. Deprecated\\!.\n\n  - macOS - deprecated since 10.14. Deprecated on *macOS* too.\n\n  - Deprecated."
                   }
                 },
                 "params" : [
@@ -3416,7 +3416,7 @@
                     "en" : "<p>tvOS - unavailable. Not available on the big screen.<\/p>"
                   },
                   "markdown" : {
-                    "en" : "tvOS - unavailable. Not available on the big screen."
+                    "en" : "  - tvOS - unavailable. Not available on the big screen."
                   }
                 },
                 "params" : [

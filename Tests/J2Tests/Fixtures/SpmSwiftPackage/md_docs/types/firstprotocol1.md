@@ -224,7 +224,7 @@ func assocFunc() -> AssocType
 
 
 ℹ️  Note
-  * From a protocol extension: not a customization point.
+  - From a protocol extension: not a customization point.
 
 A protocol extension method
 
@@ -270,9 +270,9 @@ func e()
 
 
 ℹ️  Note
-  * Has a default implementation.
+  - Has a default implementation.
 
-Has a default implementation for some conforming types.
+  - Has a default implementation for some conforming types.
 
 Brief note about m
 
@@ -381,7 +381,7 @@ var getOnly: Int { get }
 
 
 ℹ️  Note
-  * From a protocol extension: not a customization point.
+  - From a protocol extension: not a customization point.
 
 Undocumented
 
@@ -427,7 +427,7 @@ func extHashableMethod()
 
 
 ℹ️  Note
-  * Default implementation only for types that satisfy the constraints.
+  - Default implementation only for types that satisfy the constraints.
 
 
 

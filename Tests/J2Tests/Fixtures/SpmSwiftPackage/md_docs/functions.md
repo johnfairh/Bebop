@@ -107,11 +107,11 @@ Functions
 
 
 ⚠️  Deprecated
-  * iOS - deprecated since 12.0. Deprecated\!.
+  - iOS - deprecated since 12.0. Deprecated\!.
 
-macOS - deprecated since 10.14. Deprecated on *macOS* too.
+  - macOS - deprecated since 10.14. Deprecated on *macOS* too.
 
-Deprecated.
+  - Deprecated.
 
 
 
@@ -172,7 +172,7 @@ A string
 
 
 ℹ️  Note
-  * tvOS - unavailable. Not available on the big screen.
+  - tvOS - unavailable. Not available on the big screen.
 
 See [`SpmSwiftModule`](types/spmswiftmodule.md) – or [`SpmSwiftModule.ABaseClass`](types/abaseclass.md).
 

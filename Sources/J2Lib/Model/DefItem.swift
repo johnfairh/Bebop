@@ -290,9 +290,9 @@ public class DefItem: Item, CustomStringConvertible {
     /// Format the item's associated text data
     override func format(formatters: RichText.Formatters) {
         documentation.format(formatters.block)
-        deprecationNotice?.format(formatters.block)
-        unavailableNotice?.format(formatters.block)
-        declNotesNotice?.format(formatters.block)
+        deprecationNotice?.formatAsParagraphList(formatters.block)
+        unavailableNotice?.formatAsParagraphList(formatters.block)
+        declNotesNotice?.formatAsParagraphList(formatters.block)
     }
 
     /// Format the item's associated declarations

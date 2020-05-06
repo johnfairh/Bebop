@@ -495,7 +495,7 @@
                     "en" : "<p>Provided by module <code>SpmSwiftModule4<\/code>.<\/p>"
                   },
                   "markdown" : {
-                    "en" : "Provided by module `SpmSwiftModule4`."
+                    "en" : "  - Provided by module `SpmSwiftModule4`."
                   }
                 },
                 "params" : [],
@@ -1669,7 +1669,7 @@
                     "en" : "<p>Provided by module <code>SpmSwiftModule4<\/code>.<\/p>"
                   },
                   "markdown" : {
-                    "en" : "Provided by module `SpmSwiftModule4`."
+                    "en" : "  - Provided by module `SpmSwiftModule4`."
                   }
                 },
                 "params" : [],

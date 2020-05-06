@@ -121,6 +121,18 @@ public enum RichText: Encodable, Equatable {
         }
     }
 
+    /// Format the text as a paragraph list - changes the markdown side too
+    mutating func formatAsParagraphList(_ formatter: Formatter) {
+        switch self {
+        case .formatted(_,_): return
+        case .unformatted(_):
+            format(formatter)
+            if case let .formatted(md, html) = self {
+                self = .formatted(CMDocument.parasToList(text: md), html)
+            }
+        }
+    }
+
     // MARK: Encodable
 
     private enum CodingKeys: CodingKey {

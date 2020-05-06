@@ -181,7 +181,7 @@ func secondProtocolMethod() -> String
 
 
 ℹ️  Note
-  * From a protocol extension: not a customization point.
+  - From a protocol extension: not a customization point.
 
 A default implementation for a method of [`FirstProtocol`](../types/firstprotocol1.md)
 provided by [`SecondProtocol`](../types/secondprotocol.md).
