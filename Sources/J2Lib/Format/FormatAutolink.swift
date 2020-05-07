@@ -72,12 +72,8 @@ final class FormatAutolink: Configurable {
     /// page data is being built.  Yuck.
     static let AUTOLINK_TOKEN = UUID().uuidString
 
-    static func fixUpAutolinks(html: Html, pathToRoot: String) -> Html {
-        Html(html.html.re_sub(AUTOLINK_TOKEN, with: pathToRoot))
-    }
-
-    static func fixUpAutolinks(markdown: Markdown, pathToRoot: String) -> Markdown {
-        Markdown(markdown.md.re_sub(AUTOLINK_TOKEN, with: pathToRoot))
+    static func fixUpAutolinks(text: String, pathToRoot: String) -> String {
+        text.re_sub(AUTOLINK_TOKEN, with: pathToRoot)
     }
 
     /// Try to match a def from a name, in a particular naming and link context.

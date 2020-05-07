@@ -8,47 +8,40 @@
 
 import Foundation
 
-/// Strongly-typed wrapper for markdown documents
-public struct Markdown: CustomStringConvertible, Hashable, Encodable {
-    public let md: String
+/// Strongly-typed wrapper for string types
 
-    init(_ md: String) {
-        self.md = md
+public enum StringKind {
+    public enum Html {}
+    public enum Markdown {}
+}
+
+public protocol BoxedStringProtocol {
+    var value: String { get }
+    init(_ value: String)
+}
+
+public struct BoxedString<P>: BoxedStringProtocol, CustomStringConvertible, Hashable, Encodable {
+    public let value: String
+
+    public init(_ value: String) {
+        self.value = value
     }
 
     public var description: String {
-        md
+        value
     }
 
     public static func +(lhs: Self, rhs: Self) -> Self {
-        Markdown(lhs.md + rhs.md)
+        Self(lhs.value + rhs.value)
     }
 
     public static func +(lhs: Self, rhs: String) -> Self {
-        Markdown(lhs.md + rhs)
+        Self(lhs.value + rhs)
     }
 }
 
-/// Strongly-typed wrapper for html
-public struct Html: CustomStringConvertible, Hashable, Encodable {
-    public let html: String
-
-    init(_ html: String) {
-        self.html = html
-    }
-
-    public var description: String {
-        html
-    }
-
-    public static func +(lhs: Self, rhs: Self) -> Self {
-        Html(lhs.html + rhs.html)
-    }
-
-    public static func +(lhs: Self, rhs: String) -> Self {
-        Html(lhs.html + rhs)
-    }
-}
+public typealias Markdown = BoxedString<StringKind.Markdown>
+public typealias Html = BoxedString<StringKind.Html>
 
 import func Mustache.escapeHTML
 extension String {
@@ -144,10 +137,10 @@ public enum RichText: Encodable, Equatable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         switch self {
         case .unformatted(let md):
-            try container.encode(md.mapValues { $0.md }, forKey: .markdown)
+            try container.encode(md.mapValues { $0.value }, forKey: .markdown)
         case .formatted(let md, let html):
-            try container.encode(md.mapValues { $0.md }, forKey: .markdown)
-            try container.encode(html.mapValues { $0.html }, forKey: .html)
+            try container.encode(md.mapValues { $0.value }, forKey: .markdown)
+            try container.encode(html.mapValues { $0.value }, forKey: .html)
         }
     }
 }
@@ -158,7 +151,7 @@ extension RichText {
     public var plainText: Localized<String> {
         markdown.mapValues { md in
             guard let doc = CMDocument(markdown: md) else {
-                return md.md
+                return md.value
             }
             return doc.node.renderPlainText()
         }

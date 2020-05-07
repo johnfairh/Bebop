@@ -66,7 +66,7 @@ class TestXMLDocs: XCTestCase {
         let client = BuilderClient()
         try client.parse(xml: xml)
         XCTAssertNotNil(client.doc)
-        XCTAssertEqual(md, client.doc?.renderMarkdown().md, line: line)
+        XCTAssertEqual(md, client.doc?.renderMarkdown().value, line: line)
     }
 
     // Nowhere near exhaustive testing of this stuff
@@ -273,9 +273,9 @@ class TestXMLDocs: XCTestCase {
 
                          - invariant: Jim
                        """,
-                       discussion.md)
+                       discussion.value)
 
-        let doc = try CMDocument(text: discussion.md)
+        let doc = try CMDocument(text: discussion.value)
         var calloutCount = 0
         doc.forEachCallout { _, _, _, _ in
             calloutCount += 1
@@ -297,7 +297,7 @@ class TestXMLDocs: XCTestCase {
         let declParser = XMLDeclarationBuilder()
         try declParser.parseCommentParts(xml: empty)
         let callouts1 = declParser.calloutsList!.renderMarkdown()
-        XCTAssertEqual("  - note:", callouts1.md)
+        XCTAssertEqual("  - note:", callouts1.value)
 
         let immediate = """
                     <CommentParts>
@@ -315,7 +315,7 @@ class TestXMLDocs: XCTestCase {
         XCTAssertEqual("""
                          - note: \n    \n    1.  Line
                        """,
-                       callouts2.md)
+                       callouts2.value)
 
         let none = """
                     <CommentParts>
@@ -342,6 +342,6 @@ class TestXMLDocs: XCTestCase {
             return
         }
         XCTAssertEqual(docs.source, .inherited)
-        XCTAssertEqual("Abstract", docs.abstract?.md)
+        XCTAssertEqual("Abstract", docs.abstract?.value)
     }
 }

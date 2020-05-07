@@ -131,7 +131,7 @@ public struct GenSite: Configurable {
             let rendered = try theme.renderTemplate(data: data, languageTag: languageTag)
             let url = outputURL.appendingPathComponent(location.filePath)
             logDebug("Gen: Creating \(url.path)")
-            try rendered.html.write(to: url)
+            try rendered.value.write(to: url)
         }
 
         if !hideSearchOpt.value {
@@ -206,8 +206,8 @@ public struct GenSite: Configurable {
             mustacheData[.pathToAssets] = location.reversePath
             mustacheData[.pathFromRoot] = page.filepath.urlPathEncoded
             mustacheData[.docsTitle] = docsTitle.get(page.languageTag)
-            mustacheData[.copyrightHtml] = copyrightText.html.get(page.languageTag).html
-            mustacheData[.copyrightMd] = copyrightText.markdown.get(page.languageTag).md
+            mustacheData[.copyrightHtml] = copyrightText.html.get(page.languageTag).value
+            mustacheData[.copyrightMd] = copyrightText.markdown.get(page.languageTag).value
             mustacheData[.breadcrumbsRoot] = breadcrumbsRoot.get(page.languageTag)
             mustacheData.maybe(.brandImagePath, brand.imagePath?.urlPathEncoded)
             mustacheData.maybe(.brandTitle, brand.title?.get(page.languageTag))

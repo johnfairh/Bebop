@@ -239,8 +239,8 @@ extension GenData {
         if pg.mixLanguages {
             data[.mixed] = true
         }
-        data.maybe(.contentHtml, pg.content?.html.get(languageTag).html)
-        data.maybe(.contentMd, pg.content?.markdown.get(languageTag).md)
+        data.maybe(.contentHtml, pg.content?.html.get(languageTag).value)
+        data.maybe(.contentMd, pg.content?.markdown.get(languageTag).value)
         data.maybe(.def, pg.def?.generateDef(languageTag: languageTag, fileExt: fileExt))
 
         data[.breadcrumbsMenus] = generateBreadcrumbs(for: pg, languageTag: languageTag, fileExt: fileExt)
@@ -519,11 +519,11 @@ extension GenData.Topic: SoloLanguageProtocol {
         let dashName = titleText.urlPathEncoded
         var dict = MH([.anchorId: anchorId, .dashName: dashName])
         if !titleText.isEmpty {
-            dict[.titleHtml] = title.html.get(languageTag).html
-            dict[.titleMd] = title.markdown.get(languageTag).md
+            dict[.titleHtml] = title.html.get(languageTag).value
+            dict[.titleMd] = title.markdown.get(languageTag).value
         }
-        dict.maybe(.overviewHtml, overview?.html.get(languageTag).html)
-        dict.maybe(.overviewMd, overview?.markdown.get(languageTag).md)
+        dict.maybe(.overviewHtml, overview?.html.get(languageTag).value)
+        dict.maybe(.overviewMd, overview?.markdown.get(languageTag).value)
         dict.maybe(.primaryLanguage, soloLanguage?.cssName)
         if items.count > 0 {
             dict[.items] = items.map {
@@ -579,9 +579,9 @@ extension GenData.Item: SoloLanguageProtocol {
                        .anyDeclaration: primaryTitleHtml != nil || secondaryTitleHtml != nil,
                        .primaryLanguage: primaryLanguage.cssName])
 
-        hash.maybe(.primaryTitleHtml, primaryTitleHtml?.html)
+        hash.maybe(.primaryTitleHtml, primaryTitleHtml?.value)
         hash.maybe(.secondaryLanguage, secondaryLanguage?.cssName)
-        hash.maybe(.secondaryTitleHtml, secondaryTitleHtml?.html)
+        hash.maybe(.secondaryTitleHtml, secondaryTitleHtml?.value)
         hash.maybe(.extensionConstraint, extensionConstraint?.get(languageTag))
         hash.maybe(.dashType, dashType)
         hash.maybe(.primaryUrl, url?.url(fileExtension: fileExt, language: primaryLanguage))
@@ -616,37 +616,37 @@ extension GenData.Def: SoloLanguageProtocol {
     ///   returns_html - optional - returns docs
     func generateDef(languageTag: String, fileExt: String) -> MustacheDict {
         var dict = MustacheDict()
-        dict.maybe(.deprecationHtml, deprecation?.html.get(languageTag).html)
-        dict.maybe(.deprecationMd, deprecation?.markdown.get(languageTag).md)
-        dict.maybe(.unavailableHtml, unavailability?.html.get(languageTag).html)
-        dict.maybe(.unavailableMd, unavailability?.markdown.get(languageTag).md)
-        dict.maybe(.notesHtml, notes?.html.get(languageTag).html)
-        dict.maybe(.notesMd, notes?.markdown.get(languageTag).md)
+        dict.maybe(.deprecationHtml, deprecation?.html.get(languageTag).value)
+        dict.maybe(.deprecationMd, deprecation?.markdown.get(languageTag).value)
+        dict.maybe(.unavailableHtml, unavailability?.html.get(languageTag).value)
+        dict.maybe(.unavailableMd, unavailability?.markdown.get(languageTag).value)
+        dict.maybe(.notesHtml, notes?.html.get(languageTag).value)
+        dict.maybe(.notesMd, notes?.markdown.get(languageTag).value)
         dict[.discouraged] = deprecatedEverywhere
         if !availability.isEmpty {
             dict[.availability] = availability
         }
-        dict.maybe(.swiftDeclarationHtml, swiftDeclaration?.html.html)
+        dict.maybe(.swiftDeclarationHtml, swiftDeclaration?.html.value)
         dict.maybe(.swiftDeclarationMd, swiftDeclaration?.text)
-        dict.maybe(.objCDeclarationHtml, objCDeclaration?.html.html)
+        dict.maybe(.objCDeclarationHtml, objCDeclaration?.html.value)
         dict.maybe(.objCDeclarationMd, objCDeclaration?.text)
-        dict.maybe(.abstractHtml, abstract?.html.get(languageTag).html)
-        dict.maybe(.abstractMd, abstract?.markdown.get(languageTag).md)
-        dict.maybe(.discussionHtml, discussion?.html.get(languageTag).html)
-        dict.maybe(.discussionMd, discussion?.markdown.get(languageTag).md)
-        dict.maybe(.defaultAbstractHtml, defaultAbstract?.html.get(languageTag).html)
-        dict.maybe(.defaultAbstractMd, defaultAbstract?.markdown.get(languageTag).md)
-        dict.maybe(.defaultDiscussionHtml, defaultDiscussion?.html.get(languageTag).html)
-        dict.maybe(.defaultDiscussionMd, defaultDiscussion?.markdown.get(languageTag).md)
+        dict.maybe(.abstractHtml, abstract?.html.get(languageTag).value)
+        dict.maybe(.abstractMd, abstract?.markdown.get(languageTag).value)
+        dict.maybe(.discussionHtml, discussion?.html.get(languageTag).value)
+        dict.maybe(.discussionMd, discussion?.markdown.get(languageTag).value)
+        dict.maybe(.defaultAbstractHtml, defaultAbstract?.html.get(languageTag).value)
+        dict.maybe(.defaultAbstractMd, defaultAbstract?.markdown.get(languageTag).value)
+        dict.maybe(.defaultDiscussionHtml, defaultDiscussion?.html.get(languageTag).value)
+        dict.maybe(.defaultDiscussionMd, defaultDiscussion?.markdown.get(languageTag).value)
         if !params.isEmpty {
             dict[.parameters] = params.map {
                 MH([.title: $0.name,
-                    .parameterHtml: $0.description.html.get(languageTag).html,
-                    .parameterMd: $0.description.markdown.get(languageTag).md])
+                    .parameterHtml: $0.description.html.get(languageTag).value,
+                    .parameterMd: $0.description.markdown.get(languageTag).value])
             }
         }
-        dict.maybe(.returnsHtml, returns?.html.get(languageTag).html)
-        dict.maybe(.returnsMd, returns?.markdown.get(languageTag).md)
+        dict.maybe(.returnsHtml, returns?.html.get(languageTag).value)
+        dict.maybe(.returnsMd, returns?.markdown.get(languageTag).value)
         dict.maybe(.codehostURL, codeHostURL)
         return dict
     }

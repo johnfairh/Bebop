@@ -73,7 +73,7 @@ class TestTheme: XCTestCase {
         XCTAssertEqual(["top.scss"], theme.scssFilenames)
         let data = ["name" : "Fred", "type" : "Barney"]
         let rendered = try theme.renderTemplate(data: data, languageTag: "en")
-        XCTAssertEqual("Fred\nBarney\nEN\n\n", rendered.html)
+        XCTAssertEqual("Fred\nBarney\nEN\n\n", rendered.value)
     }
 
     // Theme localization - key clash

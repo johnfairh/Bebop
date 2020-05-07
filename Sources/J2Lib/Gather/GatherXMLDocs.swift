@@ -477,7 +477,7 @@ final class XMLDeclarationBuilder {
     /// Bodge everything into the `FlatDefDocs` format.
     /// 'shortform' is without discussion -- default format for inherited docs.
     func flatDefDocs(source: DefDocSource, shortForm: Bool) -> FlatDefDocs {
-        let mds = [discussion?.renderMarkdown().md, calloutsList?.renderMarkdown().md]
+        let mds = [discussion?.renderMarkdown().value, calloutsList?.renderMarkdown().value]
         let fullDiscussion = mds.compactMap { $0 }.joined(separator: "\n\n")
         return FlatDefDocs(abstract: abstract?.renderMarkdown(),
                            discussion: (shortForm || fullDiscussion.isEmpty) ? nil : Markdown(fullDiscussion),

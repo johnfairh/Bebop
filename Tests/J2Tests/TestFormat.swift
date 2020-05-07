@@ -143,14 +143,14 @@ class TestFormat: XCTestCase {
         try TemporaryDirectory.withNew {
             let system = System()
             let readme = try system.format.createReadme()
-            let md = readme.content.markdown["en"]!.md
+            let md = readme.content.markdown["en"]!.value
             XCTAssertTrue(md.contains("# Module"), md)
         }
 
         try TemporaryDirectory.withNew {
             let system = System(cliArgs: ["--author=Barney"])
             let readme = try system.format.createReadme()
-            let md = readme.content.markdown["en"]!.md
+            let md = readme.content.markdown["en"]!.value
             XCTAssertTrue(md.contains("# Module"))
             XCTAssertTrue(md.contains("### Authors\n\nBarney"))
         }

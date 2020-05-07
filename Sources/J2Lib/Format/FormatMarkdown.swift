@@ -102,7 +102,7 @@ final class MarkdownFormatter: ItemVisitorProtocol {
     /// Render for some inline html, stripping the outer paragraph element.
     func formatInline(md: Markdown, languageTag: String) -> (Markdown, Html) {
         let (md, html) = format(md: md, languageTag: languageTag)
-        let inlineHtml = html.html.re_sub("^<p>|</p>$", with: "")
+        let inlineHtml = html.value.re_sub("^<p>|</p>$", with: "")
         return (md, Html(inlineHtml))
     }
 

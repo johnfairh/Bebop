@@ -63,8 +63,7 @@ public protocol Appendable {
 }
 
 extension String : NulInitializable, Appendable {}
-extension Markdown: NulInitializable, Appendable { public init() { md = "" } }
-extension Html: NulInitializable, Appendable { public init() { html = "" } }
+extension BoxedString: NulInitializable, Appendable { public init() { self.init("") } }
 extension Array: NulInitializable {}
 extension Dictionary: NulInitializable {}
 

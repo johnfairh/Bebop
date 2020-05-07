@@ -87,7 +87,7 @@ public final class Topic: Equatable, Encodable, CustomStringConvertible {
         if let savedRequirements = savedRequirements {
             return savedRequirements.text
         }
-        return title.markdown.first!.value.md
+        return title.markdown.first!.value.value
     }
 
     /// Format the topic's content

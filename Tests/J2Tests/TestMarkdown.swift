@@ -123,10 +123,10 @@ class TestMarkdown: XCTestCase {
         let formatter = MarkdownFormatter(language: .swift)
         let mdIn = Markdown("text")
         let (mdOut, html) = formatter.format(md: mdIn, languageTag: "en")
-        XCTAssertEqual("<p>text</p>", html.html)
+        XCTAssertEqual("<p>text</p>", html.value)
         XCTAssertEqual(mdIn, mdOut)
         let (mdInlineOut, htmlInline) = formatter.formatInline(md: mdIn, languageTag: "en")
-        XCTAssertEqual("text", htmlInline.html)
+        XCTAssertEqual("text", htmlInline.value)
         XCTAssertEqual(mdIn, mdInlineOut)
     }
 
@@ -141,7 +141,7 @@ class TestMarkdown: XCTestCase {
             Heading Text
             </span></h1>
             """#,
-            html.html)
+            html.value)
     }
 
     private func checkLanguage(in: String, out: String, line: UInt = #line) {
@@ -152,7 +152,7 @@ class TestMarkdown: XCTestCase {
                           ```
                           """)
         let (_, html) = formatter.format(md: md, languageTag: "en")
-        XCTAssertTrue(html.html.contains("language-\(out)"))
+        XCTAssertTrue(html.value.contains("language-\(out)"))
     }
 
     func testCodeBlockFormatting() {
@@ -179,18 +179,18 @@ class TestMarkdown: XCTestCase {
             <div class="j2-callout-title aside-title" role="heading" aria-level="6">Custom Callout</div>
             <p>Custom</p>
             </div>
-            """, html.html)
+            """, html.value)
     }
 
     func testParaMunging() throws {
         let para = Markdown("Text")
-        XCTAssertEqual("  - Text", CMDocument.parasToList(markdown: para).md)
+        XCTAssertEqual("  - Text", CMDocument.parasToList(markdown: para).value)
 
         let paras = Markdown("""
                              Text
 
                              Text2
                              """)
-        XCTAssertEqual("  - Text\n\n  - Text2", CMDocument.parasToList(markdown: paras).md)
+        XCTAssertEqual("  - Text\n\n  - Text2", CMDocument.parasToList(markdown: paras).value)
     }
 }

@@ -131,29 +131,15 @@ final class LanguageVisitor: ItemVisitorProtocol {
     }
 }
 
-// TODO: Smoosh all this down when the dust settles
-
-private extension Html {
-    func autolinked(_ pageURL: URLPieces) -> Html {
-        FormatAutolink.fixUpAutolinks(html: self, pathToRoot: pageURL.pathToRoot)
+private extension BoxedStringProtocol {
+    func autolinked(_ url: URLPieces) -> Self {
+        Self(FormatAutolink.fixUpAutolinks(text: value, pathToRoot: url.pathToRoot))
     }
 }
 
-private extension Markdown {
-    func autolinked(_ pageURL: URLPieces) -> Markdown {
-        FormatAutolink.fixUpAutolinks(markdown: self, pathToRoot: pageURL.pathToRoot)
-    }
-}
-
-private extension Localized where Value == Html {
-    func autolinked(_ pageURL: URLPieces) -> Self {
-        mapValues { $0.autolinked(pageURL) }
-    }
-}
-
-private extension Localized where Value == Markdown {
-    func autolinked(_ pageURL: URLPieces) -> Self {
-        mapValues { $0.autolinked(pageURL) }
+private extension Dictionary where Key == String, Value: BoxedStringProtocol {
+    func autolinked(_ url: URLPieces) -> Self {
+        mapValues { $0.autolinked(url) }
     }
 }
 

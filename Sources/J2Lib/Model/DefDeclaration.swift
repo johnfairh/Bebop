@@ -171,12 +171,12 @@ public struct SwiftGenericReqs: Encodable {
 
     /// Rich text version of constrained, 'Available where ....'
     public var richLong: RichText {
-        RichText(.localizedOutput(.availableWhere, markdown.md))
+        RichText(.localizedOutput(.availableWhere, markdown))
     }
 
     /// Truncated rich text version of constraint, '&ldots;where ...'
     public var richShort: RichText {
-        RichText(.localizedOutput(.availableWhereShort, markdown.md))
+        RichText(.localizedOutput(.availableWhereShort, markdown))
     }
 }
 

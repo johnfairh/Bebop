@@ -350,7 +350,7 @@ public class DefItem: Item, CustomStringConvertible {
     func finalizeDeclNotes() {
         var notes = orderedDeclNotes.map { $0.localized }
         if renderAsPage, let constraint = extensionConstraint {
-            notes = [constraint.richLong.markdown.mapValues { $0.md }] + notes
+            notes = [constraint.richLong.markdown.mapValues { $0.value }] + notes
         }
         guard !notes.isEmpty else {
             return

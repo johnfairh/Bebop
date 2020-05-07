@@ -104,9 +104,9 @@ extension SourceKittenDict {
 fileprivate extension LocalizedDefDocs {
     var dictForJSON: SourceKittenDict {
         var dict = SourceKittenDict()
-        dict.maybe(.abstract, abstract?.mapValues { $0.md })
-        dict.maybe(.discussion, discussion?.mapValues { $0.md })
-        dict.maybe(.returns, returns?.mapValues { $0.md })
+        dict.maybe(.abstract, abstract?.mapValues { $0.value })
+        dict.maybe(.discussion, discussion?.mapValues { $0.value })
+        dict.maybe(.returns, returns?.mapValues { $0.value })
         dict.maybe(.parameters, parameters.map { $0.dictForJSON })
         dict.set(.docSource, source.rawValue)
         return dict
@@ -130,7 +130,7 @@ fileprivate extension LocalizedDefDocs {
 fileprivate extension DefDocs.Param where T == Localized<Markdown> {
     var dictForJSON: SourceKittenDict {
         [GatherKey.paramName.rawValue : name,
-         GatherKey.paramDesc.rawValue : description.mapValues { $0.md }]
+         GatherKey.paramDesc.rawValue : description.mapValues { $0.value }]
     }
 
     init?(dict: SourceKittenDict) {

@@ -61,7 +61,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "public class ABaseClass"
+                    "value" : "public class ABaseClass"
                   },
                   "text" : "public class ABaseClass"
                 }
@@ -71,7 +71,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">class <\/span>ABaseClass"
+                "value" : "<span class=\"j2-item-secondary\">class <\/span>ABaseClass"
               },
               "url" : {
                 "url_path" : "spmswiftmodule\/types\/abaseclass"
@@ -94,7 +94,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "public class ADerivedClass&lt;T, Q&gt; : <a href=\"spmswiftmodule\/types\/abaseclass.html?swift\">ABaseClass<\/a> where Q : Sequence"
+                    "value" : "public class ADerivedClass&lt;T, Q&gt; : <a href=\"spmswiftmodule\/types\/abaseclass.html?swift\">ABaseClass<\/a> where Q : Sequence"
                   },
                   "text" : "public class ADerivedClass<T, Q> : ABaseClass where Q : Sequence"
                 }
@@ -104,7 +104,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">class <\/span>ADerivedClass"
+                "value" : "<span class=\"j2-item-secondary\">class <\/span>ADerivedClass"
               },
               "url" : {
                 "url_path" : "spmswiftmodule\/types\/aderivedclass"
@@ -127,7 +127,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "public enum AnEnum"
+                    "value" : "public enum AnEnum"
                   },
                   "text" : "public enum AnEnum"
                 }
@@ -137,7 +137,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">enum <\/span>AnEnum"
+                "value" : "<span class=\"j2-item-secondary\">enum <\/span>AnEnum"
               },
               "url" : {
                 "url_path" : "spmswiftmodule\/types\/anenum"
@@ -160,7 +160,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "public protocol FirstProtocol"
+                    "value" : "public protocol FirstProtocol"
                   },
                   "text" : "public protocol FirstProtocol"
                 }
@@ -170,7 +170,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">protocol <\/span>FirstProtocol"
+                "value" : "<span class=\"j2-item-secondary\">protocol <\/span>FirstProtocol"
               },
               "url" : {
                 "url_path" : "spmswiftmodule\/types\/firstprotocol1"
@@ -193,7 +193,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "class GenericBase&lt;T&gt;\n\nextension GenericBase : CustomStringConvertible"
+                    "value" : "class GenericBase&lt;T&gt;\n\nextension GenericBase : CustomStringConvertible"
                   },
                   "text" : "class GenericBase<T>\n\nextension GenericBase : CustomStringConvertible"
                 }
@@ -203,7 +203,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">class <\/span>GenericBase"
+                "value" : "<span class=\"j2-item-secondary\">class <\/span>GenericBase"
               },
               "url" : {
                 "url_path" : "spmswiftmodule\/types\/genericbase"
@@ -226,7 +226,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "@propertyWrapper\nstruct Nop"
+                    "value" : "@propertyWrapper\nstruct Nop"
                   },
                   "text" : "@propertyWrapper\nstruct Nop"
                 }
@@ -236,7 +236,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">struct <\/span>Nop"
+                "value" : "<span class=\"j2-item-secondary\">struct <\/span>Nop"
               },
               "url" : {
                 "url_path" : "spmswiftmodule\/types\/nop"
@@ -259,7 +259,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "struct PropertyWrapperClient"
+                    "value" : "struct PropertyWrapperClient"
                   },
                   "text" : "struct PropertyWrapperClient"
                 }
@@ -269,7 +269,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">struct <\/span>PropertyWrapperClient"
+                "value" : "<span class=\"j2-item-secondary\">struct <\/span>PropertyWrapperClient"
               },
               "url" : {
                 "url_path" : "spmswiftmodule\/types\/propertywrapperclient"
@@ -292,7 +292,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "public protocol SecondProtocol : <a href=\"spmswiftmodule\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>"
+                    "value" : "public protocol SecondProtocol : <a href=\"spmswiftmodule\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>"
                   },
                   "text" : "public protocol SecondProtocol : FirstProtocol"
                 }
@@ -302,7 +302,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">protocol <\/span>SecondProtocol"
+                "value" : "<span class=\"j2-item-secondary\">protocol <\/span>SecondProtocol"
               },
               "url" : {
                 "url_path" : "spmswiftmodule\/types\/secondprotocol"
@@ -325,7 +325,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "public struct SpmSwiftModule"
+                    "value" : "public struct SpmSwiftModule"
                   },
                   "text" : "public struct SpmSwiftModule"
                 }
@@ -335,7 +335,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">struct <\/span>SpmSwiftModule"
+                "value" : "<span class=\"j2-item-secondary\">struct <\/span>SpmSwiftModule"
               },
               "url" : {
                 "url_path" : "spmswiftmodule\/types\/spmswiftmodule"
@@ -358,7 +358,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "struct T"
+                    "value" : "struct T"
                   },
                   "text" : "struct T"
                 }
@@ -368,7 +368,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">struct <\/span>T"
+                "value" : "<span class=\"j2-item-secondary\">struct <\/span>T"
               }
             }
           ],
@@ -421,7 +421,7 @@
         "params" : [],
         "swift_declaration" : {
           "html" : {
-            "html" : "public class ABaseClass"
+            "value" : "public class ABaseClass"
           },
           "text" : "public class ABaseClass"
         }
@@ -483,7 +483,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "public init()"
+                    "value" : "public init()"
                   },
                   "text" : "public init()"
                 }
@@ -493,7 +493,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "init<span class=\"j2-item-secondary\">()<\/span>"
+                "value" : "init<span class=\"j2-item-secondary\">()<\/span>"
               }
             },
             {
@@ -513,7 +513,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "public convenience init(a: Int)"
+                    "value" : "public convenience init(a: Int)"
                   },
                   "text" : "public convenience init(a: Int)"
                 }
@@ -523,7 +523,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "init<span class=\"j2-item-secondary\">(<\/span>a<span class=\"j2-item-secondary\">: Int)<\/span>"
+                "value" : "init<span class=\"j2-item-secondary\">(<\/span>a<span class=\"j2-item-secondary\">: Int)<\/span>"
               }
             }
           ],
@@ -559,7 +559,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "deinit"
+                    "value" : "deinit"
                   },
                   "text" : "deinit"
                 }
@@ -569,7 +569,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "deinit"
+                "value" : "deinit"
               }
             }
           ],
@@ -605,7 +605,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "public func method(param: Int) -&gt; String"
+                    "value" : "public func method(param: Int) -&gt; String"
                   },
                   "text" : "public func method(param: Int) -> String"
                 }
@@ -615,7 +615,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>method<span class=\"j2-item-secondary\">(<\/span>param<span class=\"j2-item-secondary\">: Int) -&gt; String<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">func <\/span>method<span class=\"j2-item-secondary\">(<\/span>param<span class=\"j2-item-secondary\">: Int) -&gt; String<\/span>"
               }
             }
           ],
@@ -651,7 +651,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "public static func + (lhs: <a href=\"..\/..\/spmswiftmodule\/types\/abaseclass.html?swift\">ABaseClass<\/a>, rhs: <a href=\"..\/..\/spmswiftmodule\/types\/abaseclass.html?swift\">ABaseClass<\/a>) -&gt; <a href=\"..\/..\/spmswiftmodule\/types\/abaseclass.html?swift\">ABaseClass<\/a>"
+                    "value" : "public static func + (lhs: <a href=\"..\/..\/spmswiftmodule\/types\/abaseclass.html?swift\">ABaseClass<\/a>, rhs: <a href=\"..\/..\/spmswiftmodule\/types\/abaseclass.html?swift\">ABaseClass<\/a>) -&gt; <a href=\"..\/..\/spmswiftmodule\/types\/abaseclass.html?swift\">ABaseClass<\/a>"
                   },
                   "text" : "public static func + (lhs: ABaseClass, rhs: ABaseClass) -> ABaseClass"
                 }
@@ -661,7 +661,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">static func <\/span>+<span class=\"j2-item-secondary\">(<\/span>lhs<span class=\"j2-item-secondary\">: ABaseClass, <\/span>rhs<span class=\"j2-item-secondary\">: ABaseClass) -&gt; ABaseClass<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">static func <\/span>+<span class=\"j2-item-secondary\">(<\/span>lhs<span class=\"j2-item-secondary\">: ABaseClass, <\/span>rhs<span class=\"j2-item-secondary\">: ABaseClass) -&gt; ABaseClass<\/span>"
               }
             }
           ],
@@ -697,7 +697,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "public subscript(arg: String) -&gt; Int { get set }"
+                    "value" : "public subscript(arg: String) -&gt; Int { get set }"
                   },
                   "text" : "public subscript(arg: String) -> Int { get set }"
                 }
@@ -707,7 +707,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "subscript<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: String) -&gt; Int<\/span>"
+                "value" : "subscript<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: String) -&gt; Int<\/span>"
               }
             }
           ],
@@ -743,7 +743,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "public static func staticMethod() -&gt; Int"
+                    "value" : "public static func staticMethod() -&gt; Int"
                   },
                   "text" : "public static func staticMethod() -> Int"
                 }
@@ -753,7 +753,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">static func <\/span>staticMethod<span class=\"j2-item-secondary\">() -&gt; Int<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">static func <\/span>staticMethod<span class=\"j2-item-secondary\">() -&gt; Int<\/span>"
               }
             }
           ],
@@ -789,7 +789,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "public static subscript(arg: String) -&gt; Int { get }"
+                    "value" : "public static subscript(arg: String) -&gt; Int { get }"
                   },
                   "text" : "public static subscript(arg: String) -> Int { get }"
                 }
@@ -799,7 +799,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">static <\/span>subscript<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: String) -&gt; Int<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">static <\/span>subscript<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: String) -&gt; Int<\/span>"
               }
             }
           ],
@@ -835,7 +835,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "public class subscript(arg: Int) -&gt; String { get }"
+                    "value" : "public class subscript(arg: Int) -&gt; String { get }"
                   },
                   "text" : "public class subscript(arg: Int) -> String { get }"
                 }
@@ -845,7 +845,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">class <\/span>subscript<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: Int) -&gt; String<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">class <\/span>subscript<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: Int) -&gt; String<\/span>"
               }
             }
           ],
@@ -898,7 +898,7 @@
         "params" : [],
         "swift_declaration" : {
           "html" : {
-            "html" : "public class ADerivedClass&lt;T, Q&gt; : <a href=\"..\/..\/spmswiftmodule\/types\/abaseclass.html?swift\">ABaseClass<\/a> where Q : Sequence"
+            "value" : "public class ADerivedClass&lt;T, Q&gt; : <a href=\"..\/..\/spmswiftmodule\/types\/abaseclass.html?swift\">ABaseClass<\/a> where Q : Sequence"
           },
           "text" : "public class ADerivedClass<T, Q> : ABaseClass where Q : Sequence"
         }
@@ -960,7 +960,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "public func generic(param: T) -&gt; T"
+                    "value" : "public func generic(param: T) -&gt; T"
                   },
                   "text" : "public func generic(param: T) -> T"
                 }
@@ -970,7 +970,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>generic<span class=\"j2-item-secondary\">(<\/span>param<span class=\"j2-item-secondary\">: T) -&gt; T<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">func <\/span>generic<span class=\"j2-item-secondary\">(<\/span>param<span class=\"j2-item-secondary\">: T) -&gt; T<\/span>"
               }
             },
             {
@@ -990,7 +990,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "public override func method(param: Int) -&gt; String"
+                    "value" : "public override func method(param: Int) -&gt; String"
                   },
                   "text" : "public override func method(param: Int) -> String"
                 }
@@ -1000,7 +1000,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>method<span class=\"j2-item-secondary\">(<\/span>param<span class=\"j2-item-secondary\">: Int) -&gt; String<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">func <\/span>method<span class=\"j2-item-secondary\">(<\/span>param<span class=\"j2-item-secondary\">: Int) -&gt; String<\/span>"
               }
             }
           ],
@@ -1036,7 +1036,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "var t: Q?"
+                    "value" : "var t: Q?"
                   },
                   "text" : "var t: Q?"
                 }
@@ -1046,7 +1046,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">var <\/span>t<span class=\"j2-item-secondary\">: Q?<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">var <\/span>t<span class=\"j2-item-secondary\">: Q?<\/span>"
               }
             }
           ],
@@ -1099,7 +1099,7 @@
         "params" : [],
         "swift_declaration" : {
           "html" : {
-            "html" : "public enum AnEnum"
+            "value" : "public enum AnEnum"
           },
           "text" : "public enum AnEnum"
         }
@@ -1161,7 +1161,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "case first(Int)"
+                    "value" : "case first(Int)"
                   },
                   "text" : "case first(Int)"
                 }
@@ -1171,7 +1171,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">case <\/span>first<span class=\"j2-item-secondary\">(Int)<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">case <\/span>first<span class=\"j2-item-secondary\">(Int)<\/span>"
               }
             },
             {
@@ -1191,7 +1191,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "case second"
+                    "value" : "case second"
                   },
                   "text" : "case second"
                 }
@@ -1201,7 +1201,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">case <\/span>second"
+                "value" : "<span class=\"j2-item-secondary\">case <\/span>second"
               }
             },
             {
@@ -1221,7 +1221,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "case third"
+                    "value" : "case third"
                   },
                   "text" : "case third"
                 }
@@ -1231,7 +1231,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">case <\/span>third"
+                "value" : "<span class=\"j2-item-secondary\">case <\/span>third"
               }
             },
             {
@@ -1251,7 +1251,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "case fourth"
+                    "value" : "case fourth"
                   },
                   "text" : "case fourth"
                 }
@@ -1261,7 +1261,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">case <\/span>fourth"
+                "value" : "<span class=\"j2-item-secondary\">case <\/span>fourth"
               }
             },
             {
@@ -1281,7 +1281,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "case fifth(a: String, _: Int)"
+                    "value" : "case fifth(a: String, _: Int)"
                   },
                   "text" : "case fifth(a: String, _: Int)"
                 }
@@ -1291,7 +1291,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">case <\/span>fifth<span class=\"j2-item-secondary\">(<\/span>a<span class=\"j2-item-secondary\">: String, Int)<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">case <\/span>fifth<span class=\"j2-item-secondary\">(<\/span>a<span class=\"j2-item-secondary\">: String, Int)<\/span>"
               }
             }
           ],
@@ -1344,7 +1344,7 @@
         "params" : [],
         "swift_declaration" : {
           "html" : {
-            "html" : "public protocol FirstProtocol"
+            "value" : "public protocol FirstProtocol"
           },
           "text" : "public protocol FirstProtocol"
         }
@@ -1406,7 +1406,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "associatedtype AssocType"
+                    "value" : "associatedtype AssocType"
                   },
                   "text" : "associatedtype AssocType"
                 }
@@ -1416,7 +1416,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">associatedtype <\/span>AssocType"
+                "value" : "<span class=\"j2-item-secondary\">associatedtype <\/span>AssocType"
               }
             }
           ],
@@ -1452,7 +1452,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "func assocFunc() -&gt; <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift#assoctype\">AssocType<\/a>"
+                    "value" : "func assocFunc() -&gt; <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift#assoctype\">AssocType<\/a>"
                   },
                   "text" : "func assocFunc() -> AssocType"
                 }
@@ -1462,7 +1462,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>assocFunc<span class=\"j2-item-secondary\">() -&gt; AssocType<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">func <\/span>assocFunc<span class=\"j2-item-secondary\">() -&gt; AssocType<\/span>"
               }
             },
             {
@@ -1490,7 +1490,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "func e()"
+                    "value" : "func e()"
                   },
                   "text" : "func e()"
                 }
@@ -1500,7 +1500,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>e<span class=\"j2-item-secondary\">()<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">func <\/span>e<span class=\"j2-item-secondary\">()<\/span>"
               }
             },
             {
@@ -1572,7 +1572,7 @@
                 },
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "func m(arg: Int) -&gt; String"
+                    "value" : "func m(arg: Int) -&gt; String"
                   },
                   "text" : "func m(arg: Int) -> String"
                 }
@@ -1582,7 +1582,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>m<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: Int) -&gt; String<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">func <\/span>m<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: Int) -&gt; String<\/span>"
               }
             },
             {
@@ -1610,7 +1610,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "func module3func()"
+                    "value" : "func module3func()"
                   },
                   "text" : "func module3func()"
                 }
@@ -1620,7 +1620,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>module3func<span class=\"j2-item-secondary\">()<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">func <\/span>module3func<span class=\"j2-item-secondary\">()<\/span>"
               }
             }
           ],
@@ -1656,7 +1656,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "var getOnly: Int { get }"
+                    "value" : "var getOnly: Int { get }"
                   },
                   "text" : "var getOnly: Int { get }"
                 }
@@ -1666,7 +1666,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">var <\/span>getOnly<span class=\"j2-item-secondary\">: Int<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">var <\/span>getOnly<span class=\"j2-item-secondary\">: Int<\/span>"
               }
             }
           ],
@@ -1710,7 +1710,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "func extHashableMethod()"
+                    "value" : "func extHashableMethod()"
                   },
                   "text" : "func extHashableMethod()"
                 }
@@ -1720,7 +1720,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>extHashableMethod<span class=\"j2-item-secondary\">()<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">func <\/span>extHashableMethod<span class=\"j2-item-secondary\">()<\/span>"
               }
             },
             {
@@ -1748,7 +1748,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "func m(arg: Int) -&gt; String"
+                    "value" : "func m(arg: Int) -&gt; String"
                   },
                   "text" : "func m(arg: Int) -> String"
                 }
@@ -1758,7 +1758,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>m<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: Int) -&gt; String<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">func <\/span>m<span class=\"j2-item-secondary\">(<\/span>arg<span class=\"j2-item-secondary\">: Int) -&gt; String<\/span>"
               }
             }
           ],
@@ -1811,7 +1811,7 @@
         "params" : [],
         "swift_declaration" : {
           "html" : {
-            "html" : "class GenericBase&lt;T&gt;\n\nextension GenericBase : CustomStringConvertible"
+            "value" : "class GenericBase&lt;T&gt;\n\nextension GenericBase : CustomStringConvertible"
           },
           "text" : "class GenericBase<T>\n\nextension GenericBase : CustomStringConvertible"
         }
@@ -1873,7 +1873,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "init(type: T)"
+                    "value" : "init(type: T)"
                   },
                   "text" : "init(type: T)"
                 }
@@ -1883,7 +1883,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "init<span class=\"j2-item-secondary\">(<\/span>type<span class=\"j2-item-secondary\">: T)<\/span>"
+                "value" : "init<span class=\"j2-item-secondary\">(<\/span>type<span class=\"j2-item-secondary\">: T)<\/span>"
               }
             }
           ],
@@ -1919,7 +1919,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "func mutify() -&gt; T"
+                    "value" : "func mutify() -&gt; T"
                   },
                   "text" : "func mutify() -> T"
                 }
@@ -1929,7 +1929,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>mutify<span class=\"j2-item-secondary\">() -&gt; T<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">func <\/span>mutify<span class=\"j2-item-secondary\">() -&gt; T<\/span>"
               }
             }
           ],
@@ -1965,7 +1965,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "var boxed: T"
+                    "value" : "var boxed: T"
                   },
                   "text" : "var boxed: T"
                 }
@@ -1975,7 +1975,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">var <\/span>boxed<span class=\"j2-item-secondary\">: T<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">var <\/span>boxed<span class=\"j2-item-secondary\">: T<\/span>"
               }
             },
             {
@@ -1995,7 +1995,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "var description: String { get }"
+                    "value" : "var description: String { get }"
                   },
                   "text" : "var description: String { get }"
                 }
@@ -2005,7 +2005,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">var <\/span>description<span class=\"j2-item-secondary\">: String<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">var <\/span>description<span class=\"j2-item-secondary\">: String<\/span>"
               }
             }
           ],
@@ -2041,7 +2041,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "func doCodability()"
+                    "value" : "func doCodability()"
                   },
                   "text" : "func doCodability()"
                 }
@@ -2051,7 +2051,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>doCodability<span class=\"j2-item-secondary\">()<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">func <\/span>doCodability<span class=\"j2-item-secondary\">()<\/span>"
               }
             },
             {
@@ -2071,7 +2071,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "var codableCount: Int { get }"
+                    "value" : "var codableCount: Int { get }"
                   },
                   "text" : "var codableCount: Int { get }"
                 }
@@ -2081,7 +2081,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">var <\/span>codableCount<span class=\"j2-item-secondary\">: Int<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">var <\/span>codableCount<span class=\"j2-item-secondary\">: Int<\/span>"
               }
             }
           ],
@@ -2117,7 +2117,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "func doFirstMagic()"
+                    "value" : "func doFirstMagic()"
                   },
                   "text" : "func doFirstMagic()"
                 }
@@ -2127,7 +2127,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>doFirstMagic<span class=\"j2-item-secondary\">()<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">func <\/span>doFirstMagic<span class=\"j2-item-secondary\">()<\/span>"
               }
             },
             {
@@ -2147,7 +2147,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "func doMoreMagic()"
+                    "value" : "func doMoreMagic()"
                   },
                   "text" : "func doMoreMagic()"
                 }
@@ -2157,7 +2157,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>doMoreMagic<span class=\"j2-item-secondary\">()<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">func <\/span>doMoreMagic<span class=\"j2-item-secondary\">()<\/span>"
               }
             }
           ],
@@ -2193,7 +2193,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "func doHashable()"
+                    "value" : "func doHashable()"
                   },
                   "text" : "func doHashable()"
                 }
@@ -2203,7 +2203,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>doHashable<span class=\"j2-item-secondary\">()<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">func <\/span>doHashable<span class=\"j2-item-secondary\">()<\/span>"
               }
             }
           ],
@@ -2256,7 +2256,7 @@
         "params" : [],
         "swift_declaration" : {
           "html" : {
-            "html" : "@propertyWrapper\nstruct Nop"
+            "value" : "@propertyWrapper\nstruct Nop"
           },
           "text" : "@propertyWrapper\nstruct Nop"
         }
@@ -2318,7 +2318,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "init(wrappedValue: String)"
+                    "value" : "init(wrappedValue: String)"
                   },
                   "text" : "init(wrappedValue: String)"
                 }
@@ -2328,7 +2328,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "init<span class=\"j2-item-secondary\">(<\/span>wrappedValue<span class=\"j2-item-secondary\">: String)<\/span>"
+                "value" : "init<span class=\"j2-item-secondary\">(<\/span>wrappedValue<span class=\"j2-item-secondary\">: String)<\/span>"
               }
             }
           ],
@@ -2364,7 +2364,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "var wrappedValue: String"
+                    "value" : "var wrappedValue: String"
                   },
                   "text" : "var wrappedValue: String"
                 }
@@ -2374,7 +2374,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">var <\/span>wrappedValue<span class=\"j2-item-secondary\">: String<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">var <\/span>wrappedValue<span class=\"j2-item-secondary\">: String<\/span>"
               }
             }
           ],
@@ -2427,7 +2427,7 @@
         "params" : [],
         "swift_declaration" : {
           "html" : {
-            "html" : "struct PropertyWrapperClient"
+            "value" : "struct PropertyWrapperClient"
           },
           "text" : "struct PropertyWrapperClient"
         }
@@ -2489,7 +2489,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "<a href=\"..\/..\/spmswiftmodule\/types\/nop.html?swift\">@Nop<\/a>\nvar v: String { get set }"
+                    "value" : "<a href=\"..\/..\/spmswiftmodule\/types\/nop.html?swift\">@Nop<\/a>\nvar v: String { get set }"
                   },
                   "text" : "@Nop\nvar v: String { get set }"
                 }
@@ -2499,7 +2499,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">var <\/span>v<span class=\"j2-item-secondary\">: String<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">var <\/span>v<span class=\"j2-item-secondary\">: String<\/span>"
               }
             }
           ],
@@ -2552,7 +2552,7 @@
         "params" : [],
         "swift_declaration" : {
           "html" : {
-            "html" : "public protocol SecondProtocol : <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>"
+            "value" : "public protocol SecondProtocol : <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>"
           },
           "text" : "public protocol SecondProtocol : FirstProtocol"
         }
@@ -2614,7 +2614,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "func secondProtocolMethod() -&gt; String"
+                    "value" : "func secondProtocolMethod() -&gt; String"
                   },
                   "text" : "func secondProtocolMethod() -> String"
                 }
@@ -2624,7 +2624,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>secondProtocolMethod<span class=\"j2-item-secondary\">() -&gt; String<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">func <\/span>secondProtocolMethod<span class=\"j2-item-secondary\">() -&gt; String<\/span>"
               }
             }
           ],
@@ -2668,7 +2668,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "var getOnly: Int { get }"
+                    "value" : "var getOnly: Int { get }"
                   },
                   "text" : "var getOnly: Int { get }"
                 }
@@ -2678,7 +2678,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">var <\/span>getOnly<span class=\"j2-item-secondary\">: Int<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">var <\/span>getOnly<span class=\"j2-item-secondary\">: Int<\/span>"
               }
             }
           ],
@@ -2731,7 +2731,7 @@
         "params" : [],
         "swift_declaration" : {
           "html" : {
-            "html" : "public struct SpmSwiftModule"
+            "value" : "public struct SpmSwiftModule"
           },
           "text" : "public struct SpmSwiftModule"
         }
@@ -2793,7 +2793,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "public struct Nested1"
+                    "value" : "public struct Nested1"
                   },
                   "text" : "public struct Nested1"
                 }
@@ -2803,7 +2803,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">struct <\/span>Nested1"
+                "value" : "<span class=\"j2-item-secondary\">struct <\/span>Nested1"
               },
               "url" : {
                 "url_path" : "spmswiftmodule\/types\/spmswiftmodule\/nested1"
@@ -2826,7 +2826,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "public struct Nested2"
+                    "value" : "public struct Nested2"
                   },
                   "text" : "public struct Nested2"
                 }
@@ -2836,7 +2836,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">struct <\/span>Nested2"
+                "value" : "<span class=\"j2-item-secondary\">struct <\/span>Nested2"
               }
             }
           ],
@@ -2872,7 +2872,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "var a: Int"
+                    "value" : "var a: Int"
                   },
                   "text" : "var a: Int"
                 }
@@ -2882,7 +2882,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">var <\/span>a<span class=\"j2-item-secondary\">: Int<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">var <\/span>a<span class=\"j2-item-secondary\">: Int<\/span>"
               }
             },
             {
@@ -2902,7 +2902,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "var b: Int"
+                    "value" : "var b: Int"
                   },
                   "text" : "var b: Int"
                 }
@@ -2912,7 +2912,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">var <\/span>b<span class=\"j2-item-secondary\">: Int<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">var <\/span>b<span class=\"j2-item-secondary\">: Int<\/span>"
               }
             },
             {
@@ -2932,7 +2932,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "public var text: String"
+                    "value" : "public var text: String"
                   },
                   "text" : "public var text: String"
                 }
@@ -2942,7 +2942,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">var <\/span>text<span class=\"j2-item-secondary\">: String<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">var <\/span>text<span class=\"j2-item-secondary\">: String<\/span>"
               }
             }
           ],
@@ -3003,7 +3003,7 @@
         "params" : [],
         "swift_declaration" : {
           "html" : {
-            "html" : "public struct Nested1"
+            "value" : "public struct Nested1"
           },
           "text" : "public struct Nested1"
         }
@@ -3065,7 +3065,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "public struct Nested2a"
+                    "value" : "public struct Nested2a"
                   },
                   "text" : "public struct Nested2a"
                 }
@@ -3075,7 +3075,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">struct <\/span>Nested2a"
+                "value" : "<span class=\"j2-item-secondary\">struct <\/span>Nested2a"
               },
               "url" : {
                 "url_path" : "spmswiftmodule\/types\/spmswiftmodule\/nested1\/nested2a"
@@ -3106,7 +3106,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "public struct Nested2b"
+                    "value" : "public struct Nested2b"
                   },
                   "text" : "public struct Nested2b"
                 }
@@ -3116,7 +3116,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">struct <\/span>Nested2b"
+                "value" : "<span class=\"j2-item-secondary\">struct <\/span>Nested2b"
               }
             }
           ],
@@ -3185,7 +3185,7 @@
         "params" : [],
         "swift_declaration" : {
           "html" : {
-            "html" : "public struct Nested2a"
+            "value" : "public struct Nested2a"
           },
           "text" : "public struct Nested2a"
         }
@@ -3255,7 +3255,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "func module3nestedFunc()"
+                    "value" : "func module3nestedFunc()"
                   },
                   "text" : "func module3nestedFunc()"
                 }
@@ -3265,7 +3265,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>module3nestedFunc<span class=\"j2-item-secondary\">()<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">func <\/span>module3nestedFunc<span class=\"j2-item-secondary\">()<\/span>"
               }
             }
           ],
@@ -3381,7 +3381,7 @@
                 },
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "public func deprecatedFunction(callback: (_ report: String) -&gt; Int) -&gt; String"
+                    "value" : "public func deprecatedFunction(callback: (_ report: String) -&gt; Int) -&gt; String"
                   },
                   "text" : "public func deprecatedFunction(callback: (_ report: String) -> Int) -> String"
                 }
@@ -3391,7 +3391,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>deprecatedFunction<span class=\"j2-item-secondary\">(<\/span>callback<span class=\"j2-item-secondary\">: (_ report: String) -&gt; Int) -&gt; String<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">func <\/span>deprecatedFunction<span class=\"j2-item-secondary\">(<\/span>callback<span class=\"j2-item-secondary\">: (_ report: String) -&gt; Int) -&gt; String<\/span>"
               }
             },
             {
@@ -3456,7 +3456,7 @@
                 ],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "public func functionA(arg1: Int,\n                      _ arg2: Int,\n                      arg3 argMeaning: Int)"
+                    "value" : "public func functionA(arg1: Int,\n                      _ arg2: Int,\n                      arg3 argMeaning: Int)"
                   },
                   "text" : "public func functionA(arg1: Int,\n                      _ arg2: Int,\n                      arg3 argMeaning: Int)"
                 }
@@ -3466,7 +3466,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>functionA<span class=\"j2-item-secondary\">(<\/span>arg1<span class=\"j2-item-secondary\">: Int, Int, <\/span>arg3<span class=\"j2-item-secondary\">: Int)<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">func <\/span>functionA<span class=\"j2-item-secondary\">(<\/span>arg1<span class=\"j2-item-secondary\">: Int, Int, <\/span>arg3<span class=\"j2-item-secondary\">: Int)<\/span>"
               }
             },
             {
@@ -3494,7 +3494,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "func localizedDocComment()"
+                    "value" : "func localizedDocComment()"
                   },
                   "text" : "func localizedDocComment()"
                 }
@@ -3504,7 +3504,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>localizedDocComment<span class=\"j2-item-secondary\">()<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">func <\/span>localizedDocComment<span class=\"j2-item-secondary\">()<\/span>"
               }
             }
           ],
@@ -3592,7 +3592,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "func + (lhs: <a href=\"types.html?swift#t1\">T<\/a>, rhs: <a href=\"types.html?swift#t1\">T<\/a>) -&gt; String"
+                    "value" : "func + (lhs: <a href=\"types.html?swift#t1\">T<\/a>, rhs: <a href=\"types.html?swift#t1\">T<\/a>) -&gt; String"
                   },
                   "text" : "func + (lhs: T, rhs: T) -> String"
                 }
@@ -3602,7 +3602,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">static func <\/span>+<span class=\"j2-item-secondary\">(<\/span>lhs<span class=\"j2-item-secondary\">: T, <\/span>rhs<span class=\"j2-item-secondary\">: T) -&gt; String<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">static func <\/span>+<span class=\"j2-item-secondary\">(<\/span>lhs<span class=\"j2-item-secondary\">: T, <\/span>rhs<span class=\"j2-item-secondary\">: T) -&gt; String<\/span>"
               }
             }
           ],
@@ -3701,7 +3701,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "extension Collection where Element: <a href=\"spmswiftmodule\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>\n\nextension Collection where Element == <a href=\"spmswiftmodule\/types\/spmswiftmodule\/nested1.html?swift\">SpmSwiftModule.Nested1<\/a>"
+                    "value" : "extension Collection where Element: <a href=\"spmswiftmodule\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>\n\nextension Collection where Element == <a href=\"spmswiftmodule\/types\/spmswiftmodule\/nested1.html?swift\">SpmSwiftModule.Nested1<\/a>"
                   },
                   "text" : "extension Collection where Element: FirstProtocol\n\nextension Collection where Element == SpmSwiftModule.Nested1"
                 }
@@ -3711,7 +3711,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">extension <\/span>Collection"
+                "value" : "<span class=\"j2-item-secondary\">extension <\/span>Collection"
               },
               "url" : {
                 "url_path" : "spmswiftmodule\/extensions\/collection"
@@ -3734,7 +3734,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "extension String.Element"
+                    "value" : "extension String.Element"
                   },
                   "text" : "extension String.Element"
                 }
@@ -3744,7 +3744,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">extension <\/span>String.Element"
+                "value" : "<span class=\"j2-item-secondary\">extension <\/span>String.Element"
               },
               "url" : {
                 "url_path" : "spmswiftmodule\/extensions\/stringelement"
@@ -3808,7 +3808,7 @@
         "params" : [],
         "swift_declaration" : {
           "html" : {
-            "html" : "extension Collection where Element: <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>\n\nextension Collection where Element == <a href=\"..\/..\/spmswiftmodule\/types\/spmswiftmodule\/nested1.html?swift\">SpmSwiftModule.Nested1<\/a>"
+            "value" : "extension Collection where Element: <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>\n\nextension Collection where Element == <a href=\"..\/..\/spmswiftmodule\/types\/spmswiftmodule\/nested1.html?swift\">SpmSwiftModule.Nested1<\/a>"
           },
           "text" : "extension Collection where Element: FirstProtocol\n\nextension Collection where Element == SpmSwiftModule.Nested1"
         }
@@ -3870,7 +3870,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "func nestEmAll()"
+                    "value" : "func nestEmAll()"
                   },
                   "text" : "func nestEmAll()"
                 }
@@ -3880,7 +3880,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>nestEmAll<span class=\"j2-item-secondary\">()<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">func <\/span>nestEmAll<span class=\"j2-item-secondary\">()<\/span>"
               }
             }
           ],
@@ -3916,7 +3916,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "func collectEmAll()"
+                    "value" : "func collectEmAll()"
                   },
                   "text" : "func collectEmAll()"
                 }
@@ -3926,7 +3926,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>collectEmAll<span class=\"j2-item-secondary\">()<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">func <\/span>collectEmAll<span class=\"j2-item-secondary\">()<\/span>"
               }
             }
           ],
@@ -3979,7 +3979,7 @@
         "params" : [],
         "swift_declaration" : {
           "html" : {
-            "html" : "extension String.Element"
+            "value" : "extension String.Element"
           },
           "text" : "extension String.Element"
         }
@@ -4028,7 +4028,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "func method1()"
+                    "value" : "func method1()"
                   },
                   "text" : "func method1()"
                 }
@@ -4038,7 +4038,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>method1<span class=\"j2-item-secondary\">()<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">func <\/span>method1<span class=\"j2-item-secondary\">()<\/span>"
               }
             },
             {
@@ -4058,7 +4058,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "func method2()"
+                    "value" : "func method2()"
                   },
                   "text" : "func method2()"
                 }
@@ -4068,7 +4068,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>method2<span class=\"j2-item-secondary\">()<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">func <\/span>method2<span class=\"j2-item-secondary\">()<\/span>"
               }
             }
           ],

@@ -159,7 +159,7 @@ extension RichDefDocs {
     public var isMarkedNoDoc: Bool {
         for rich in [abstract, discussion] {
             if let markdown = rich?.markdown.first?.value,
-                markdown.md.contains(":nodoc:") {
+                markdown.value.contains(":nodoc:") {
                 return true
             }
         }

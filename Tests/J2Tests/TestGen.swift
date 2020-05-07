@@ -199,7 +199,7 @@ class TestGen: XCTestCase {
         langMatches.forEach { kv in
             let html = generated[kv.key]!
             kv.value.forEach { match in
-                XCTAssertTrue(html.html.contains(match), html.html, line: line)
+                XCTAssertTrue(html.value.contains(match), html.value, line: line)
             }
         }
     }

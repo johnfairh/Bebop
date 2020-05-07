@@ -68,7 +68,7 @@
                 "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
                   "html" : {
-                    "html" : "@interface JMLBathroomCupboard : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+                    "value" : "@interface JMLBathroomCupboard : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
                   },
                   "text" : "@interface JMLBathroomCupboard : NSObject"
                 },
@@ -79,7 +79,7 @@
               },
               "primary_language" : "objc",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">@interface <\/span>JMLBathroomCupboard"
+                "value" : "<span class=\"j2-item-secondary\">@interface <\/span>JMLBathroomCupboard"
               },
               "url" : {
                 "url_path" : "spmobjcmodule\/types\/jmlbathroomcupboard"
@@ -101,14 +101,14 @@
                 "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
                   "html" : {
-                    "html" : "@interface JMLKitchen : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+                    "value" : "@interface JMLKitchen : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
                   },
                   "text" : "@interface JMLKitchen : NSObject"
                 },
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "class Kitchen : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
+                    "value" : "class Kitchen : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
                   },
                   "text" : "class Kitchen : NSObject"
                 }
@@ -118,11 +118,11 @@
               },
               "primary_language" : "objc",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">@interface <\/span>JMLKitchen"
+                "value" : "<span class=\"j2-item-secondary\">@interface <\/span>JMLKitchen"
               },
               "secondary_language" : "swift",
               "secondary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">class <\/span>Kitchen"
+                "value" : "<span class=\"j2-item-secondary\">class <\/span>Kitchen"
               },
               "url" : {
                 "url_path" : "spmobjcmodule\/types\/jmlkitchen"
@@ -161,7 +161,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "extension <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/string?language=swift\">String<\/a>"
+                    "value" : "extension <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/string?language=swift\">String<\/a>"
                   },
                   "text" : "extension String"
                 }
@@ -171,7 +171,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">extension <\/span>String"
+                "value" : "<span class=\"j2-item-secondary\">extension <\/span>String"
               },
               "url" : {
                 "url_path" : "spmswiftmodule4\/extensions\/string"
@@ -241,7 +241,7 @@
         "deprecated_everywhere" : false,
         "obj_c_declaration" : {
           "html" : {
-            "html" : "@interface JMLBathroomCupboard : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+            "value" : "@interface JMLBathroomCupboard : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
           },
           "text" : "@interface JMLBathroomCupboard : NSObject"
         },
@@ -303,7 +303,7 @@
                 "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
                   "html" : {
-                    "html" : "- (void)jmlBathroomCupboardMethod"
+                    "value" : "- (void)jmlBathroomCupboardMethod"
                   },
                   "text" : "- (void)jmlBathroomCupboardMethod"
                 },
@@ -314,7 +314,7 @@
               },
               "primary_language" : "objc",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">- (void)<\/span>jmlBathroomCupboardMethod<span class=\"j2-item-secondary\"><\/span>"
+                "value" : "<span class=\"j2-item-secondary\">- (void)<\/span>jmlBathroomCupboardMethod<span class=\"j2-item-secondary\"><\/span>"
               }
             }
           ],
@@ -381,14 +381,14 @@
         "deprecated_everywhere" : false,
         "obj_c_declaration" : {
           "html" : {
-            "html" : "@interface JMLKitchen : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+            "value" : "@interface JMLKitchen : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
           },
           "text" : "@interface JMLKitchen : NSObject"
         },
         "params" : [],
         "swift_declaration" : {
           "html" : {
-            "html" : "class Kitchen : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
+            "value" : "class Kitchen : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
           },
           "text" : "class Kitchen : NSObject"
         }
@@ -452,14 +452,14 @@
                 "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
                   "html" : {
-                    "html" : "- (void)jmlKitchenMethod"
+                    "value" : "- (void)jmlKitchenMethod"
                   },
                   "text" : "- (void)jmlKitchenMethod"
                 },
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "func kitchenMethod()"
+                    "value" : "func kitchenMethod()"
                   },
                   "text" : "func kitchenMethod()"
                 }
@@ -469,11 +469,11 @@
               },
               "primary_language" : "objc",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">- (void)<\/span>jmlKitchenMethod<span class=\"j2-item-secondary\"><\/span>"
+                "value" : "<span class=\"j2-item-secondary\">- (void)<\/span>jmlKitchenMethod<span class=\"j2-item-secondary\"><\/span>"
               },
               "secondary_language" : "swift",
               "secondary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>kitchenMethod<span class=\"j2-item-secondary\">()<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">func <\/span>kitchenMethod<span class=\"j2-item-secondary\">()<\/span>"
               }
             },
             {
@@ -501,7 +501,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "func renamed()"
+                    "value" : "func renamed()"
                   },
                   "text" : "func renamed()"
                 }
@@ -511,7 +511,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>renamed<span class=\"j2-item-secondary\">()<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">func <\/span>renamed<span class=\"j2-item-secondary\">()<\/span>"
               }
             }
           ],
@@ -579,7 +579,7 @@
         "params" : [],
         "swift_declaration" : {
           "html" : {
-            "html" : "extension <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/string?language=swift\">String<\/a>"
+            "value" : "extension <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/string?language=swift\">String<\/a>"
           },
           "text" : "extension String"
         }
@@ -641,7 +641,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "func externalTypeMethod()"
+                    "value" : "func externalTypeMethod()"
                   },
                   "text" : "func externalTypeMethod()"
                 }
@@ -651,7 +651,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>externalTypeMethod<span class=\"j2-item-secondary\">()<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">func <\/span>externalTypeMethod<span class=\"j2-item-secondary\">()<\/span>"
               }
             }
           ],
@@ -745,14 +745,14 @@
                 "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
                   "html" : {
-                    "html" : "@interface ExposedSwiftClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+                    "value" : "@interface ExposedSwiftClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
                   },
                   "text" : "@interface ExposedSwiftClass : NSObject"
                 },
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "public class ExposedSwiftClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
+                    "value" : "public class ExposedSwiftClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
                   },
                   "text" : "public class ExposedSwiftClass : NSObject"
                 }
@@ -762,11 +762,11 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">class <\/span>ExposedSwiftClass"
+                "value" : "<span class=\"j2-item-secondary\">class <\/span>ExposedSwiftClass"
               },
               "secondary_language" : "objc",
               "secondary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">@interface <\/span>ExposedSwiftClass"
+                "value" : "<span class=\"j2-item-secondary\">@interface <\/span>ExposedSwiftClass"
               },
               "url" : {
                 "url_path" : "spmswiftmodule4\/types\/exposedswiftclass"
@@ -788,14 +788,14 @@
                 "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
                   "html" : {
-                    "html" : "@interface RenamedForObjC : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+                    "value" : "@interface RenamedForObjC : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
                   },
                   "text" : "@interface RenamedForObjC : NSObject"
                 },
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "public class RenamedExposedSwiftClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
+                    "value" : "public class RenamedExposedSwiftClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
                   },
                   "text" : "public class RenamedExposedSwiftClass : NSObject"
                 }
@@ -805,11 +805,11 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">class <\/span>RenamedExposedSwiftClass"
+                "value" : "<span class=\"j2-item-secondary\">class <\/span>RenamedExposedSwiftClass"
               },
               "secondary_language" : "objc",
               "secondary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">@interface <\/span>RenamedForObjC"
+                "value" : "<span class=\"j2-item-secondary\">@interface <\/span>RenamedForObjC"
               },
               "url" : {
                 "url_path" : "spmswiftmodule4\/types\/renamedexposedswiftclass"
@@ -839,14 +839,14 @@
                 },
                 "obj_c_declaration" : {
                   "html" : {
-                    "html" : "@interface NormalClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+                    "value" : "@interface NormalClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
                   },
                   "text" : "@interface NormalClass : NSObject"
                 },
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "class NormalClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
+                    "value" : "class NormalClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
                   },
                   "text" : "class NormalClass : NSObject"
                 }
@@ -856,11 +856,11 @@
               },
               "primary_language" : "objc",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">@interface <\/span>NormalClass"
+                "value" : "<span class=\"j2-item-secondary\">@interface <\/span>NormalClass"
               },
               "secondary_language" : "swift",
               "secondary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">class <\/span>NormalClass"
+                "value" : "<span class=\"j2-item-secondary\">class <\/span>NormalClass"
               },
               "url" : {
                 "url_path" : "spmobjcmodule\/types\/normalclass1"
@@ -882,14 +882,14 @@
                 "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
                   "html" : {
-                    "html" : "@interface JMLKitchenCupboard : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+                    "value" : "@interface JMLKitchenCupboard : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
                   },
                   "text" : "@interface JMLKitchenCupboard : NSObject"
                 },
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "class Cupboard : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
+                    "value" : "class Cupboard : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
                   },
                   "text" : "class Cupboard : NSObject"
                 }
@@ -899,11 +899,11 @@
               },
               "primary_language" : "objc",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">@interface <\/span>JMLKitchenCupboard"
+                "value" : "<span class=\"j2-item-secondary\">@interface <\/span>JMLKitchenCupboard"
               },
               "secondary_language" : "swift",
               "secondary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">class <\/span>Cupboard"
+                "value" : "<span class=\"j2-item-secondary\">class <\/span>Cupboard"
               },
               "url" : {
                 "url_path" : "spmobjcmodule\/types\/jmlkitchencupboard"
@@ -973,14 +973,14 @@
         "deprecated_everywhere" : false,
         "obj_c_declaration" : {
           "html" : {
-            "html" : "@interface ExposedSwiftClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+            "value" : "@interface ExposedSwiftClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
           },
           "text" : "@interface ExposedSwiftClass : NSObject"
         },
         "params" : [],
         "swift_declaration" : {
           "html" : {
-            "html" : "public class ExposedSwiftClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
+            "value" : "public class ExposedSwiftClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
           },
           "text" : "public class ExposedSwiftClass : NSObject"
         }
@@ -1044,14 +1044,14 @@
                 "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
                   "html" : {
-                    "html" : "- (<a href=\"https:\/\/developer.apple.com\/documentation\/foundation\/nsstring?language=objc\">NSString<\/a> *_Nonnull)exposedMethodWithA:(<a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsinteger?language=objc\">NSInteger<\/a>)a b:(<a href=\"https:\/\/developer.apple.com\/documentation\/foundation\/nsstring?language=objc\">NSString<\/a> *_Nullable)b"
+                    "value" : "- (<a href=\"https:\/\/developer.apple.com\/documentation\/foundation\/nsstring?language=objc\">NSString<\/a> *_Nonnull)exposedMethodWithA:(<a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsinteger?language=objc\">NSInteger<\/a>)a b:(<a href=\"https:\/\/developer.apple.com\/documentation\/foundation\/nsstring?language=objc\">NSString<\/a> *_Nullable)b"
                   },
                   "text" : "- (NSString *_Nonnull)exposedMethodWithA:(NSInteger)a b:(NSString *_Nullable)b"
                 },
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "public func exposedMethod(a: <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/int?language=swift\">Int<\/a>, b: <a href=\"..\/..\/spmswiftmodule4\/extensions\/string.html?swift\">String<\/a>?) -&gt; <a href=\"..\/..\/spmswiftmodule4\/extensions\/string.html?swift\">String<\/a>"
+                    "value" : "public func exposedMethod(a: <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/int?language=swift\">Int<\/a>, b: <a href=\"..\/..\/spmswiftmodule4\/extensions\/string.html?swift\">String<\/a>?) -&gt; <a href=\"..\/..\/spmswiftmodule4\/extensions\/string.html?swift\">String<\/a>"
                   },
                   "text" : "public func exposedMethod(a: Int, b: String?) -> String"
                 }
@@ -1061,11 +1061,11 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>exposedMethod<span class=\"j2-item-secondary\">(<\/span>a<span class=\"j2-item-secondary\">: Int, <\/span>b<span class=\"j2-item-secondary\">: String?) -&gt; String<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">func <\/span>exposedMethod<span class=\"j2-item-secondary\">(<\/span>a<span class=\"j2-item-secondary\">: Int, <\/span>b<span class=\"j2-item-secondary\">: String?) -&gt; String<\/span>"
               },
               "secondary_language" : "objc",
               "secondary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">- (NSString *)<\/span>exposedMethodWithA<span class=\"j2-item-secondary\">:(NSInteger)a <\/span>b<span class=\"j2-item-secondary\">:(NSString *)b<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">- (NSString *)<\/span>exposedMethodWithA<span class=\"j2-item-secondary\">:(NSInteger)a <\/span>b<span class=\"j2-item-secondary\">:(NSString *)b<\/span>"
               }
             },
             {
@@ -1084,14 +1084,14 @@
                 "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
                   "html" : {
-                    "html" : "@property (nonatomic) <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsinteger?language=objc\">NSInteger<\/a> exposedProperty"
+                    "value" : "@property (nonatomic) <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsinteger?language=objc\">NSInteger<\/a> exposedProperty"
                   },
                   "text" : "@property (nonatomic) NSInteger exposedProperty"
                 },
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "public var exposedProperty: <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/int?language=swift\">Int<\/a>"
+                    "value" : "public var exposedProperty: <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/int?language=swift\">Int<\/a>"
                   },
                   "text" : "public var exposedProperty: Int"
                 }
@@ -1101,11 +1101,11 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">var <\/span>exposedProperty<span class=\"j2-item-secondary\">: Int<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">var <\/span>exposedProperty<span class=\"j2-item-secondary\">: Int<\/span>"
               },
               "secondary_language" : "objc",
               "secondary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">NSInteger <\/span>exposedProperty"
+                "value" : "<span class=\"j2-item-secondary\">NSInteger <\/span>exposedProperty"
               }
             },
             {
@@ -1124,14 +1124,14 @@
                 "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
                   "html" : {
-                    "html" : "@property (nonatomic, strong) <a href=\"..\/..\/spmswiftmodule4\/types\/exposedswiftclass.html?swift\">ExposedSwiftClass<\/a> *_Nullable exposedRefProperty"
+                    "value" : "@property (nonatomic, strong) <a href=\"..\/..\/spmswiftmodule4\/types\/exposedswiftclass.html?swift\">ExposedSwiftClass<\/a> *_Nullable exposedRefProperty"
                   },
                   "text" : "@property (nonatomic, strong) ExposedSwiftClass *_Nullable exposedRefProperty"
                 },
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "public var exposedRefProperty: <a href=\"..\/..\/spmswiftmodule4\/types\/exposedswiftclass.html?swift\">ExposedSwiftClass<\/a>?"
+                    "value" : "public var exposedRefProperty: <a href=\"..\/..\/spmswiftmodule4\/types\/exposedswiftclass.html?swift\">ExposedSwiftClass<\/a>?"
                   },
                   "text" : "public var exposedRefProperty: ExposedSwiftClass?"
                 }
@@ -1141,11 +1141,11 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">var <\/span>exposedRefProperty<span class=\"j2-item-secondary\">: ExposedSwiftClass?<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">var <\/span>exposedRefProperty<span class=\"j2-item-secondary\">: ExposedSwiftClass?<\/span>"
               },
               "secondary_language" : "objc",
               "secondary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">ExposedSwiftClass * <\/span>exposedRefProperty"
+                "value" : "<span class=\"j2-item-secondary\">ExposedSwiftClass * <\/span>exposedRefProperty"
               }
             },
             {
@@ -1164,14 +1164,14 @@
                 "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
                   "html" : {
-                    "html" : "- (nonnull instancetype)init"
+                    "value" : "- (nonnull instancetype)init"
                   },
                   "text" : "- (nonnull instancetype)init"
                 },
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "public override init()"
+                    "value" : "public override init()"
                   },
                   "text" : "public override init()"
                 }
@@ -1181,11 +1181,11 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "init<span class=\"j2-item-secondary\">()<\/span>"
+                "value" : "init<span class=\"j2-item-secondary\">()<\/span>"
               },
               "secondary_language" : "objc",
               "secondary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">- (instancetype)<\/span>init<span class=\"j2-item-secondary\"><\/span>"
+                "value" : "<span class=\"j2-item-secondary\">- (instancetype)<\/span>init<span class=\"j2-item-secondary\"><\/span>"
               }
             },
             {
@@ -1204,14 +1204,14 @@
                 "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
                   "html" : {
-                    "html" : "- (nonnull instancetype)initWithValue:(<a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsinteger?language=objc\">NSInteger<\/a>)value"
+                    "value" : "- (nonnull instancetype)initWithValue:(<a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsinteger?language=objc\">NSInteger<\/a>)value"
                   },
                   "text" : "- (nonnull instancetype)initWithValue:(NSInteger)value"
                 },
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "public init(value: <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/int?language=swift\">Int<\/a>)"
+                    "value" : "public init(value: <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/int?language=swift\">Int<\/a>)"
                   },
                   "text" : "public init(value: Int)"
                 }
@@ -1221,11 +1221,11 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "init<span class=\"j2-item-secondary\">(<\/span>value<span class=\"j2-item-secondary\">: Int)<\/span>"
+                "value" : "init<span class=\"j2-item-secondary\">(<\/span>value<span class=\"j2-item-secondary\">: Int)<\/span>"
               },
               "secondary_language" : "objc",
               "secondary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">- (instancetype)<\/span>initWithValue<span class=\"j2-item-secondary\">:(NSInteger)value<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">- (instancetype)<\/span>initWithValue<span class=\"j2-item-secondary\">:(NSInteger)value<\/span>"
               }
             }
           ],
@@ -1292,14 +1292,14 @@
         "deprecated_everywhere" : false,
         "obj_c_declaration" : {
           "html" : {
-            "html" : "@interface RenamedForObjC : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+            "value" : "@interface RenamedForObjC : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
           },
           "text" : "@interface RenamedForObjC : NSObject"
         },
         "params" : [],
         "swift_declaration" : {
           "html" : {
-            "html" : "public class RenamedExposedSwiftClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
+            "value" : "public class RenamedExposedSwiftClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
           },
           "text" : "public class RenamedExposedSwiftClass : NSObject"
         }
@@ -1363,14 +1363,14 @@
                 "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
                   "html" : {
-                    "html" : "@property (nonatomic) <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsinteger?language=objc\">NSInteger<\/a> property"
+                    "value" : "@property (nonatomic) <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsinteger?language=objc\">NSInteger<\/a> property"
                   },
                   "text" : "@property (nonatomic) NSInteger property"
                 },
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "public var theProperty: <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/int?language=swift\">Int<\/a>"
+                    "value" : "public var theProperty: <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/int?language=swift\">Int<\/a>"
                   },
                   "text" : "public var theProperty: Int"
                 }
@@ -1380,11 +1380,11 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">var <\/span>theProperty<span class=\"j2-item-secondary\">: Int<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">var <\/span>theProperty<span class=\"j2-item-secondary\">: Int<\/span>"
               },
               "secondary_language" : "objc",
               "secondary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">NSInteger <\/span>property"
+                "value" : "<span class=\"j2-item-secondary\">NSInteger <\/span>property"
               }
             },
             {
@@ -1403,14 +1403,14 @@
                 "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
                   "html" : {
-                    "html" : "- (void)action:(<a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsinteger?language=objc\">NSInteger<\/a>)a param:(<a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsinteger?language=objc\">NSInteger<\/a>)parm"
+                    "value" : "- (void)action:(<a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsinteger?language=objc\">NSInteger<\/a>)a param:(<a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsinteger?language=objc\">NSInteger<\/a>)parm"
                   },
                   "text" : "- (void)action:(NSInteger)a param:(NSInteger)parm"
                 },
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "public func doAction(a: <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/int?language=swift\">Int<\/a>, parm: <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/int?language=swift\">Int<\/a>)"
+                    "value" : "public func doAction(a: <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/int?language=swift\">Int<\/a>, parm: <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/int?language=swift\">Int<\/a>)"
                   },
                   "text" : "public func doAction(a: Int, parm: Int)"
                 }
@@ -1420,11 +1420,11 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>doAction<span class=\"j2-item-secondary\">(<\/span>a<span class=\"j2-item-secondary\">: Int, <\/span>parm<span class=\"j2-item-secondary\">: Int)<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">func <\/span>doAction<span class=\"j2-item-secondary\">(<\/span>a<span class=\"j2-item-secondary\">: Int, <\/span>parm<span class=\"j2-item-secondary\">: Int)<\/span>"
               },
               "secondary_language" : "objc",
               "secondary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">- (void)<\/span>action<span class=\"j2-item-secondary\">:(NSInteger)a <\/span>param<span class=\"j2-item-secondary\">:(NSInteger)parm<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">- (void)<\/span>action<span class=\"j2-item-secondary\">:(NSInteger)a <\/span>param<span class=\"j2-item-secondary\">:(NSInteger)parm<\/span>"
               }
             },
             {
@@ -1443,14 +1443,14 @@
                 "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
                   "html" : {
-                    "html" : "- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER"
+                    "value" : "- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER"
                   },
                   "text" : "- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER"
                 },
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "public override init()"
+                    "value" : "public override init()"
                   },
                   "text" : "public override init()"
                 }
@@ -1460,11 +1460,11 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "init<span class=\"j2-item-secondary\">()<\/span>"
+                "value" : "init<span class=\"j2-item-secondary\">()<\/span>"
               },
               "secondary_language" : "objc",
               "secondary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">- (instancetype)<\/span>init<span class=\"j2-item-secondary\"><\/span>"
+                "value" : "<span class=\"j2-item-secondary\">- (instancetype)<\/span>init<span class=\"j2-item-secondary\"><\/span>"
               }
             }
           ],
@@ -1539,14 +1539,14 @@
         },
         "obj_c_declaration" : {
           "html" : {
-            "html" : "@interface NormalClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+            "value" : "@interface NormalClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
           },
           "text" : "@interface NormalClass : NSObject"
         },
         "params" : [],
         "swift_declaration" : {
           "html" : {
-            "html" : "class NormalClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
+            "value" : "class NormalClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
           },
           "text" : "class NormalClass : NSObject"
         }
@@ -1618,14 +1618,14 @@
                 },
                 "obj_c_declaration" : {
                   "html" : {
-                    "html" : "- (void)objcNormalMethod"
+                    "value" : "- (void)objcNormalMethod"
                   },
                   "text" : "- (void)objcNormalMethod"
                 },
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "func objcNormalMethod()"
+                    "value" : "func objcNormalMethod()"
                   },
                   "text" : "func objcNormalMethod()"
                 }
@@ -1635,11 +1635,11 @@
               },
               "primary_language" : "objc",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">- (void)<\/span>objcNormalMethod<span class=\"j2-item-secondary\"><\/span>"
+                "value" : "<span class=\"j2-item-secondary\">- (void)<\/span>objcNormalMethod<span class=\"j2-item-secondary\"><\/span>"
               },
               "secondary_language" : "swift",
               "secondary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>objcNormalMethod<span class=\"j2-item-secondary\">()<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">func <\/span>objcNormalMethod<span class=\"j2-item-secondary\">()<\/span>"
               }
             },
             {
@@ -1675,7 +1675,7 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "func normal()"
+                    "value" : "func normal()"
                   },
                   "text" : "func normal()"
                 }
@@ -1685,7 +1685,7 @@
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>normal<span class=\"j2-item-secondary\">()<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">func <\/span>normal<span class=\"j2-item-secondary\">()<\/span>"
               }
             }
           ],
@@ -1752,14 +1752,14 @@
         "deprecated_everywhere" : false,
         "obj_c_declaration" : {
           "html" : {
-            "html" : "@interface JMLKitchenCupboard : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
+            "value" : "@interface JMLKitchenCupboard : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>"
           },
           "text" : "@interface JMLKitchenCupboard : NSObject"
         },
         "params" : [],
         "swift_declaration" : {
           "html" : {
-            "html" : "class Cupboard : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
+            "value" : "class Cupboard : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>"
           },
           "text" : "class Cupboard : NSObject"
         }
@@ -1810,14 +1810,14 @@
                 "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
                   "html" : {
-                    "html" : "-(void)jmlKitchenCupboardMethod"
+                    "value" : "-(void)jmlKitchenCupboardMethod"
                   },
                   "text" : "-(void)jmlKitchenCupboardMethod"
                 },
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "func jmlKitchenCupboardMethod()"
+                    "value" : "func jmlKitchenCupboardMethod()"
                   },
                   "text" : "func jmlKitchenCupboardMethod()"
                 }
@@ -1827,11 +1827,11 @@
               },
               "primary_language" : "objc",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">-(void)<\/span>jmlKitchenCupboardMethod<span class=\"j2-item-secondary\"><\/span>"
+                "value" : "<span class=\"j2-item-secondary\">-(void)<\/span>jmlKitchenCupboardMethod<span class=\"j2-item-secondary\"><\/span>"
               },
               "secondary_language" : "swift",
               "secondary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>jmlKitchenCupboardMethod<span class=\"j2-item-secondary\">()<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">func <\/span>jmlKitchenCupboardMethod<span class=\"j2-item-secondary\">()<\/span>"
               }
             },
             {
@@ -1850,14 +1850,14 @@
                 "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
                   "html" : {
-                    "html" : "-(void)jmlKitchenCupboardMethod2"
+                    "value" : "-(void)jmlKitchenCupboardMethod2"
                   },
                   "text" : "-(void)jmlKitchenCupboardMethod2"
                 },
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "func jmlKitchenCupboardMethod2()"
+                    "value" : "func jmlKitchenCupboardMethod2()"
                   },
                   "text" : "func jmlKitchenCupboardMethod2()"
                 }
@@ -1867,11 +1867,11 @@
               },
               "primary_language" : "objc",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">-(void)<\/span>jmlKitchenCupboardMethod2<span class=\"j2-item-secondary\"><\/span>"
+                "value" : "<span class=\"j2-item-secondary\">-(void)<\/span>jmlKitchenCupboardMethod2<span class=\"j2-item-secondary\"><\/span>"
               },
               "secondary_language" : "swift",
               "secondary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>jmlKitchenCupboardMethod2<span class=\"j2-item-secondary\">()<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">func <\/span>jmlKitchenCupboardMethod2<span class=\"j2-item-secondary\">()<\/span>"
               }
             },
             {
@@ -1890,14 +1890,14 @@
                 "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
                   "html" : {
-                    "html" : "-(void)jmlKitchenCupboardMethod3"
+                    "value" : "-(void)jmlKitchenCupboardMethod3"
                   },
                   "text" : "-(void)jmlKitchenCupboardMethod3"
                 },
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "func jmlKitchenCupboardMethod3()"
+                    "value" : "func jmlKitchenCupboardMethod3()"
                   },
                   "text" : "func jmlKitchenCupboardMethod3()"
                 }
@@ -1907,11 +1907,11 @@
               },
               "primary_language" : "objc",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">-(void)<\/span>jmlKitchenCupboardMethod3<span class=\"j2-item-secondary\"><\/span>"
+                "value" : "<span class=\"j2-item-secondary\">-(void)<\/span>jmlKitchenCupboardMethod3<span class=\"j2-item-secondary\"><\/span>"
               },
               "secondary_language" : "swift",
               "secondary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>jmlKitchenCupboardMethod3<span class=\"j2-item-secondary\">()<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">func <\/span>jmlKitchenCupboardMethod3<span class=\"j2-item-secondary\">()<\/span>"
               }
             }
           ],
@@ -1946,14 +1946,14 @@
                 "deprecated_everywhere" : false,
                 "obj_c_declaration" : {
                   "html" : {
-                    "html" : "-(void)jmlKitchenCupboardMethod4"
+                    "value" : "-(void)jmlKitchenCupboardMethod4"
                   },
                   "text" : "-(void)jmlKitchenCupboardMethod4"
                 },
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "html" : "func jmlKitchenCupboardMethod4()"
+                    "value" : "func jmlKitchenCupboardMethod4()"
                   },
                   "text" : "func jmlKitchenCupboardMethod4()"
                 }
@@ -1963,11 +1963,11 @@
               },
               "primary_language" : "objc",
               "primary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">-(void)<\/span>jmlKitchenCupboardMethod4<span class=\"j2-item-secondary\"><\/span>"
+                "value" : "<span class=\"j2-item-secondary\">-(void)<\/span>jmlKitchenCupboardMethod4<span class=\"j2-item-secondary\"><\/span>"
               },
               "secondary_language" : "swift",
               "secondary_title_html" : {
-                "html" : "<span class=\"j2-item-secondary\">func <\/span>jmlKitchenCupboardMethod4<span class=\"j2-item-secondary\">()<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">func <\/span>jmlKitchenCupboardMethod4<span class=\"j2-item-secondary\">()<\/span>"
               }
             }
           ],
