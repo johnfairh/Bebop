@@ -1,5 +1,11 @@
+# `make` to build & install to /usr/local
+# `make uninstall` to uninstall from /usr/local
+#
+# `RELEASE=DEBUG make` to build & install debug to /usr/local
+# `PREFIX=/opt make` to build & install release to /opt
+
 PREFIX ?= /usr/local
-RELEASE := debug
+RELEASE ?= release
 BIN_PATH := $(shell swift build --show-bin-path -c ${RELEASE})
 
 .PHONY: build all
