@@ -108,6 +108,12 @@ class TestProducts: XCTestCase {
     }
 
     func testMixedSwiftObjC() throws {
+        setenv("J2_STATIC_DATE", strdup("1") /* leak it */, 1)
+        setenv("J2_STATIC_VERSION", strdup("1"), 1)
+        defer {
+            unsetenv("J2_STATIC_DATE")
+            unsetenv("J2_STATIC_VERSION")
+        }
         let configURL = fixturesURL
             .appendingPathComponent("SpmSwiftPackage")
             .appendingPathComponent("mixed-objc-swift-j2.yaml")

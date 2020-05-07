@@ -20,8 +20,8 @@
     ],
     "breadcrumbs_root" : "Index",
     "codehost_def_link" : "Show on GitHub",
-    "copyright_html" : "<p>© 2020. All rights reserved. (Last updated: 7 May 2020).<\/p>",
-    "copyright_md" : "&copy; 2020. All rights reserved. (Last updated: 7 May 2020).",
+    "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
+    "copyright_md" : "&copy; 9999. All rights reserved. (Last updated: today).",
     "default_language" : "j2-swift",
     "disable_search" : false,
     "doc_coverage" : 62,
@@ -33,7 +33,7 @@
     "item_collapse_never" : false,
     "item_collapse_open" : false,
     "item_nest" : true,
-    "j2lib_version" : "0.1",
+    "j2lib_version" : "X.Y",
     "language_tag" : "en",
     "mixed" : true,
     "pagination" : {
@@ -300,8 +300,8 @@
     ],
     "breadcrumbs_root" : "Index",
     "codehost_def_link" : "Show on GitHub",
-    "copyright_html" : "<p>© 2020. All rights reserved. (Last updated: 7 May 2020).<\/p>",
-    "copyright_md" : "&copy; 2020. All rights reserved. (Last updated: 7 May 2020).",
+    "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
+    "copyright_md" : "&copy; 9999. All rights reserved. (Last updated: today).",
     "def" : {
       "abstract_html" : "<p>Type with a different shape in Swift - parent does not exist<\/p>",
       "abstract_md" : "Type with a different shape in Swift - parent does not exist",
@@ -320,7 +320,7 @@
     "item_collapse_never" : false,
     "item_collapse_open" : false,
     "item_nest" : true,
-    "j2lib_version" : "0.1",
+    "j2lib_version" : "X.Y",
     "language_tag" : "en",
     "pagination" : {
       "next" : {
@@ -536,8 +536,8 @@
     ],
     "breadcrumbs_root" : "Index",
     "codehost_def_link" : "Show on GitHub",
-    "copyright_html" : "<p>© 2020. All rights reserved. (Last updated: 7 May 2020).<\/p>",
-    "copyright_md" : "&copy; 2020. All rights reserved. (Last updated: 7 May 2020).",
+    "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
+    "copyright_md" : "&copy; 9999. All rights reserved. (Last updated: today).",
     "def" : {
       "abstract_html" : "<p>Type with different name in Swift<\/p>",
       "abstract_md" : "Type with different name in Swift",
@@ -558,7 +558,7 @@
     "item_collapse_never" : false,
     "item_collapse_open" : false,
     "item_nest" : true,
-    "j2lib_version" : "0.1",
+    "j2lib_version" : "X.Y",
     "language_tag" : "en",
     "pagination" : {
       "next" : {
@@ -801,8 +801,8 @@
     ],
     "breadcrumbs_root" : "Index",
     "codehost_def_link" : "Show on GitHub",
-    "copyright_html" : "<p>© 2020. All rights reserved. (Last updated: 7 May 2020).<\/p>",
-    "copyright_md" : "&copy; 2020. All rights reserved. (Last updated: 7 May 2020).",
+    "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
+    "copyright_md" : "&copy; 9999. All rights reserved. (Last updated: today).",
     "def" : {
       "abstract_html" : "<p>A Unicode string value that is a collection of characters.<\/p>",
       "abstract_md" : "A Unicode string value that is a collection of characters.",
@@ -821,7 +821,7 @@
     "item_collapse_never" : false,
     "item_collapse_open" : false,
     "item_nest" : true,
-    "j2lib_version" : "0.1",
+    "j2lib_version" : "X.Y",
     "language_tag" : "en",
     "pagination" : {
       "next" : {
@@ -1029,8 +1029,8 @@
     ],
     "breadcrumbs_root" : "Index",
     "codehost_def_link" : "Show on GitHub",
-    "copyright_html" : "<p>© 2020. All rights reserved. (Last updated: 7 May 2020).<\/p>",
-    "copyright_md" : "&copy; 2020. All rights reserved. (Last updated: 7 May 2020).",
+    "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
+    "copyright_md" : "&copy; 9999. All rights reserved. (Last updated: today).",
     "default_language" : "j2-swift",
     "disable_search" : false,
     "doc_coverage" : 62,
@@ -1042,7 +1042,7 @@
     "item_collapse_never" : false,
     "item_collapse_open" : false,
     "item_nest" : true,
-    "j2lib_version" : "0.1",
+    "j2lib_version" : "X.Y",
     "language_tag" : "en",
     "pagination" : {
       "next" : {
@@ -1311,8 +1311,8 @@
     ],
     "breadcrumbs_root" : "Index",
     "codehost_def_link" : "Show on GitHub",
-    "copyright_html" : "<p>© 2020. All rights reserved. (Last updated: 7 May 2020).<\/p>",
-    "copyright_md" : "&copy; 2020. All rights reserved. (Last updated: 7 May 2020).",
+    "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
+    "copyright_md" : "&copy; 9999. All rights reserved. (Last updated: today).",
     "def" : {
       "abstract_html" : "<p>Undocumented<\/p>",
       "abstract_md" : "Undocumented",
@@ -1333,7 +1333,7 @@
     "item_collapse_never" : false,
     "item_collapse_open" : false,
     "item_nest" : true,
-    "j2lib_version" : "0.1",
+    "j2lib_version" : "X.Y",
     "language_tag" : "en",
     "pagination" : {
       "next" : {
@@ -1633,8 +1633,8 @@
     ],
     "breadcrumbs_root" : "Index",
     "codehost_def_link" : "Show on GitHub",
-    "copyright_html" : "<p>© 2020. All rights reserved. (Last updated: 7 May 2020).<\/p>",
-    "copyright_md" : "&copy; 2020. All rights reserved. (Last updated: 7 May 2020).",
+    "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
+    "copyright_md" : "&copy; 9999. All rights reserved. (Last updated: today).",
     "def" : {
       "abstract_html" : "<p>Undocumented<\/p>",
       "abstract_md" : "Undocumented",
@@ -1655,7 +1655,7 @@
     "item_collapse_never" : false,
     "item_collapse_open" : false,
     "item_nest" : true,
-    "j2lib_version" : "0.1",
+    "j2lib_version" : "X.Y",
     "language_tag" : "en",
     "pagination" : {
       "next" : {
@@ -1915,8 +1915,8 @@
     ],
     "breadcrumbs_root" : "Index",
     "codehost_def_link" : "Show on GitHub",
-    "copyright_html" : "<p>© 2020. All rights reserved. (Last updated: 7 May 2020).<\/p>",
-    "copyright_md" : "&copy; 2020. All rights reserved. (Last updated: 7 May 2020).",
+    "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
+    "copyright_md" : "&copy; 9999. All rights reserved. (Last updated: today).",
     "def" : {
       "abstract_html" : "<p>Un-renamed class to check normal things still work<\/p>",
       "abstract_md" : "Un-renamed class to check normal things still work",
@@ -1939,7 +1939,7 @@
     "item_collapse_never" : false,
     "item_collapse_open" : false,
     "item_nest" : true,
-    "j2lib_version" : "0.1",
+    "j2lib_version" : "X.Y",
     "language_tag" : "en",
     "pagination" : {
       "next" : {
@@ -2181,8 +2181,8 @@
     ],
     "breadcrumbs_root" : "Index",
     "codehost_def_link" : "Show on GitHub",
-    "copyright_html" : "<p>© 2020. All rights reserved. (Last updated: 7 May 2020).<\/p>",
-    "copyright_md" : "&copy; 2020. All rights reserved. (Last updated: 7 May 2020).",
+    "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
+    "copyright_md" : "&copy; 9999. All rights reserved. (Last updated: today).",
     "def" : {
       "abstract_html" : "<p>Type with a different shape in Swift - parent exists<\/p>",
       "abstract_md" : "Type with a different shape in Swift - parent exists",
@@ -2203,7 +2203,7 @@
     "item_collapse_never" : false,
     "item_collapse_open" : false,
     "item_nest" : true,
-    "j2lib_version" : "0.1",
+    "j2lib_version" : "X.Y",
     "language_tag" : "en",
     "pagination" : {
       "prev" : {
@@ -2478,8 +2478,8 @@
     "codehost_def_link" : "Show on GitHub",
     "content_html" : "<h1 class=\"j2-anchor j2-heading heading\" id=\"spmobjcmodule\">\n<span data-anchor-id=\"spmobjcmodule\">\nSpmObjCModule\n<\/span><\/h1>",
     "content_md" : "# SpmObjCModule",
-    "copyright_html" : "<p>© 2020. All rights reserved. (Last updated: 7 May 2020).<\/p>",
-    "copyright_md" : "&copy; 2020. All rights reserved. (Last updated: 7 May 2020).",
+    "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
+    "copyright_md" : "&copy; 9999. All rights reserved. (Last updated: today).",
     "default_language" : "j2-swift",
     "disable_search" : false,
     "doc_coverage" : 62,
@@ -2491,7 +2491,7 @@
     "item_collapse_never" : false,
     "item_collapse_open" : false,
     "item_nest" : true,
-    "j2lib_version" : "0.1",
+    "j2lib_version" : "X.Y",
     "language_tag" : "en",
     "pagination" : {
       "next" : {

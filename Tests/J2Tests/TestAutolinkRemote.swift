@@ -50,16 +50,16 @@ class TestAutolinkRemote: XCTestCase {
         AssertThrows(try url2.fetch(), .errUrlFetch)
     }
 
-    func withBadURL(_ url: URL, and: () throws -> Void) rethrows {
+    func withBadURL<T>(_ url: URL, and: () throws -> T) rethrows -> T{
         URL.harness.set(url, .failure(J2Error(.errUrlFetch)))
         defer { URL.harness.reset() }
-        try and()
+        return try and()
     }
 
-    func withGoodURL(_ url: URL, _ string: String, and: () throws -> Void) rethrows {
+    func withGoodURL<T>(_ url: URL, _ string: String, and: () throws -> T) rethrows -> T {
         URL.harness.set(url, .success(string))
         defer { URL.harness.reset() }
-        try and()
+        return try and()
     }
 
     // MARK: config
@@ -105,5 +105,49 @@ class TestAutolinkRemote: XCTestCase {
             XCTAssertEqual(1, system.remote.sources.count)
             XCTAssertEqual(["ModA"], system.remote.sources[0].modules)
         }
+    }
+
+    // MARK: Index
+
+    private func setUpSpmSwiftPackageSystem(fail: Bool = false) throws -> System {
+        let url = URL(string: "https://foo.com/site")!
+        let yaml = """
+                   remote_autolink:
+                      - url: \(url.absoluteString)
+                        modules: SpmSwiftModule
+                   """
+
+        let searchJSONURL = fixturesURL.appendingPathComponent("SpmSwiftPackage/jazzy_docs/search.json")
+        let searchJSON = try String(contentsOf: searchJSONURL)
+
+        let action = { () -> System in
+            let system = try System(yaml: yaml)
+            system.remote.buildIndex()
+            return system
+        }
+
+        let searchURL = url.appendingPathComponent("search.json")
+        if fail {
+            return try withBadURL(searchURL, and: action)
+        } else {
+            return try withGoodURL(searchURL, searchJSON, and: action)
+        }
+    }
+
+    func testBuildIndex() throws {
+        let system = try setUpSpmSwiftPackageSystem()
+
+        guard let moduleIndex = system.remote.indiciesByModule["SpmSwiftModule"] else {
+            XCTFail()
+            return
+        }
+        XCTAssertEqual(15, moduleIndex.topTypes.count)
+    }
+
+    func testFailedIndex() throws {
+        TestLogger.install()
+        let system = try setUpSpmSwiftPackageSystem(fail: true)
+        XCTAssertEqual(1, TestLogger.shared.diagsBuf.count)
+        XCTAssertTrue(system.remote.moduleIndices.isEmpty)
     }
 }
