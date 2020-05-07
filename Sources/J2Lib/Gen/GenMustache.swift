@@ -219,6 +219,17 @@ extension Dictionary where Key == String, Value == Any {
     }
 }
 
+extension MustacheDict {
+    // Unwrap the text types instead of teaching Mustache how to render them
+    // to make the json version look less messy
+    mutating func maybe(_ htmlKey: MustacheKey, _ mdKey: MustacheKey, _ text: RichText?, _ languageTag: String) {
+        if let text = text {
+            self[htmlKey] = text.html.get(languageTag).value
+            self[mdKey] = text.markdown.get(languageTag).value
+        }
+    }
+}
+
 // MARK: Page
 
 extension GenData {
@@ -239,8 +250,7 @@ extension GenData {
         if pg.mixLanguages {
             data[.mixed] = true
         }
-        data.maybe(.contentHtml, pg.content?.html.get(languageTag).value)
-        data.maybe(.contentMd, pg.content?.markdown.get(languageTag).value)
+        data.maybe(.contentHtml, .contentMd, pg.content, languageTag)
         data.maybe(.def, pg.def?.generateDef(languageTag: languageTag, fileExt: fileExt))
 
         data[.breadcrumbsMenus] = generateBreadcrumbs(for: pg, languageTag: languageTag, fileExt: fileExt)
@@ -519,11 +529,9 @@ extension GenData.Topic: SoloLanguageProtocol {
         let dashName = titleText.urlPathEncoded
         var dict = MH([.anchorId: anchorId, .dashName: dashName])
         if !titleText.isEmpty {
-            dict[.titleHtml] = title.html.get(languageTag).value
-            dict[.titleMd] = title.markdown.get(languageTag).value
+            dict.maybe(.titleHtml, .titleMd, title, languageTag)
         }
-        dict.maybe(.overviewHtml, overview?.html.get(languageTag).value)
-        dict.maybe(.overviewMd, overview?.markdown.get(languageTag).value)
+        dict.maybe(.overviewHtml, .overviewMd, overview, languageTag)
         dict.maybe(.primaryLanguage, soloLanguage?.cssName)
         if items.count > 0 {
             dict[.items] = items.map {
@@ -616,12 +624,9 @@ extension GenData.Def: SoloLanguageProtocol {
     ///   returns_html - optional - returns docs
     func generateDef(languageTag: String, fileExt: String) -> MustacheDict {
         var dict = MustacheDict()
-        dict.maybe(.deprecationHtml, deprecation?.html.get(languageTag).value)
-        dict.maybe(.deprecationMd, deprecation?.markdown.get(languageTag).value)
-        dict.maybe(.unavailableHtml, unavailability?.html.get(languageTag).value)
-        dict.maybe(.unavailableMd, unavailability?.markdown.get(languageTag).value)
-        dict.maybe(.notesHtml, notes?.html.get(languageTag).value)
-        dict.maybe(.notesMd, notes?.markdown.get(languageTag).value)
+        dict.maybe(.deprecationHtml, .deprecationMd, deprecation, languageTag)
+        dict.maybe(.unavailableHtml, .unavailableMd, unavailability, languageTag)
+        dict.maybe(.notesHtml, .notesMd, notes, languageTag)
         dict[.discouraged] = deprecatedEverywhere
         if !availability.isEmpty {
             dict[.availability] = availability
@@ -630,23 +635,18 @@ extension GenData.Def: SoloLanguageProtocol {
         dict.maybe(.swiftDeclarationMd, swiftDeclaration?.text)
         dict.maybe(.objCDeclarationHtml, objCDeclaration?.html.value)
         dict.maybe(.objCDeclarationMd, objCDeclaration?.text)
-        dict.maybe(.abstractHtml, abstract?.html.get(languageTag).value)
-        dict.maybe(.abstractMd, abstract?.markdown.get(languageTag).value)
-        dict.maybe(.discussionHtml, discussion?.html.get(languageTag).value)
-        dict.maybe(.discussionMd, discussion?.markdown.get(languageTag).value)
-        dict.maybe(.defaultAbstractHtml, defaultAbstract?.html.get(languageTag).value)
-        dict.maybe(.defaultAbstractMd, defaultAbstract?.markdown.get(languageTag).value)
-        dict.maybe(.defaultDiscussionHtml, defaultDiscussion?.html.get(languageTag).value)
-        dict.maybe(.defaultDiscussionMd, defaultDiscussion?.markdown.get(languageTag).value)
+        dict.maybe(.abstractHtml, .abstractMd, abstract, languageTag)
+        dict.maybe(.discussionHtml, .discussionMd, discussion, languageTag)
+        dict.maybe(.defaultAbstractHtml, .defaultAbstractMd, defaultAbstract, languageTag)
+        dict.maybe(.defaultDiscussionHtml, .defaultDiscussionMd, defaultDiscussion, languageTag)
         if !params.isEmpty {
-            dict[.parameters] = params.map {
-                MH([.title: $0.name,
-                    .parameterHtml: $0.description.html.get(languageTag).value,
-                    .parameterMd: $0.description.markdown.get(languageTag).value])
+            dict[.parameters] = params.map { param -> MustacheDict in
+                var pdict = MH([.title: param.name])
+                pdict.maybe(.parameterHtml, .parameterMd, param.description, languageTag)
+                return pdict
             }
         }
-        dict.maybe(.returnsHtml, returns?.html.get(languageTag).value)
-        dict.maybe(.returnsMd, returns?.markdown.get(languageTag).value)
+        dict.maybe(.returnsHtml, .returnsMd, returns, languageTag)
         dict.maybe(.codehostURL, codeHostURL)
         return dict
     }

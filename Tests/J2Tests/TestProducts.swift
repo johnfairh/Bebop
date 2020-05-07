@@ -111,9 +111,9 @@ class TestProducts: XCTestCase {
         let configURL = fixturesURL
             .appendingPathComponent("SpmSwiftPackage")
             .appendingPathComponent("mixed-objc-swift-j2.yaml")
-        try compareSwift(product: "docs-summary-json",
+        try compareSwift(product: "docs-json",
                          cliArgs: ["--config=\(configURL.path)"],
-                         against: "MixedSwiftObjC.docs-summary.json")
+                         against: "MixedSwiftObjC.docs.json")
     }
 
     func testMixedSwiftObjCNoSwift() throws {
