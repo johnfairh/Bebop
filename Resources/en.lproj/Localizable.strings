@@ -164,7 +164,9 @@ Ignoring the second.";
 "msg-complete" = "Documentation complete in %1";
 "err-theme-key-clash" = "Theme localized key clash with content keys, values: '%1' '%2'.";
 "err-xml-docs-parse" = "XMLParser failed: '%1', line '%1' column '%2'.";
-"wrn-xml-docs-parse" = "Couldn't parse XML doc comment '%1': %2";
-"err-url-fetch" = "Couldn't fetch URL '%1'.
+"wrn-xml-docs-parse" = "Can't parse XML doc comment '%1': %2";
+"err-url-fetch" = "Can't fetch URL '%1'.
 Response: %2
 Error: %3";
+"err-cfg-remote-url" = "Missing mandatory config key 'url' for 'remote_autolink' entry.";
+"err-cfg-remote-modules" = "Can't figure out module names hosted by remote autolink URL '%1': 'module' config key is missing and J2 site metadata fetch failed: '%2'.";

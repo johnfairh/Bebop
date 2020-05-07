@@ -78,6 +78,10 @@ internal enum L10n {
     case errCfgPodspecPass = "err-cfg-podspec-pass"
     /// Invalid ICU regular expression '%1'.  Original error: '%2'.
     case errCfgRegexp = "err-cfg-regexp"
+    /// Can't figure out module names hosted by remote autolink URL '%1': 'module' config key is missing and J2 site metadata fetch failed: '%2'.
+    case errCfgRemoteModules = "err-cfg-remote-modules"
+    /// Missing mandatory config key 'url' for 'remote_autolink' entry.
+    case errCfgRemoteUrl = "err-cfg-remote-url"
     /// Both --sourcekitten-sourcefiles and some Swift or Objective-C flags are set: choose just one.
     case errCfgSknBuildTool = "err-cfg-skn-build-tool"
     /// Both --sourcekitten-sourcefiles and custom_modules are set: choose just one.
@@ -152,7 +156,7 @@ internal enum L10n {
     case errSktnXcodeMod = "err-sktn-xcode-mod"
     /// Theme localized key clash with content keys, values: '%1' '%2'.
     case errThemeKeyClash = "err-theme-key-clash"
-    /// Couldn't fetch URL '%1'.\nResponse: %2\nError: %3
+    /// Can't fetch URL '%1'.\nResponse: %2\nError: %3
     case errUrlFetch = "err-url-fetch"
     /// XMLParser failed: '%1', line '%1' column '%2'.
     case errXmlDocsParse = "err-xml-docs-parse"
@@ -272,7 +276,7 @@ internal enum L10n {
     case wrnUnmatchedGrpRegex = "wrn-unmatched-grp-regex"
     /// Confused by different types sharing a USR.\n1: %1\n2: %2\nIgnoring the second.
     case wrnUsrCollision = "wrn-usr-collision"
-    /// Couldn't parse XML doc comment '%1': %2
+    /// Can't parse XML doc comment '%1': %2
     case wrnXmlDocsParse = "wrn-xml-docs-parse"
   }
   internal enum Output : String {

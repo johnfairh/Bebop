@@ -32,6 +32,7 @@ final class Autolink {
 
 final class FormatAutolink: Configurable {
     let autolinkApple: FormatAutolinkApple
+    let autolinkRemote: FormatAutolinkRemote
 
     // Db for language so that we can tell in which language the user wrote their
     // reference to the def.
@@ -44,6 +45,7 @@ final class FormatAutolink: Configurable {
 
     init(config: Config) {
         autolinkApple = FormatAutolinkApple(config: config)
+        autolinkRemote = FormatAutolinkRemote(config: config)
         config.register(self)
     }
 
@@ -93,7 +95,12 @@ final class FormatAutolink: Configurable {
             return linkTo(defItem: def, language: language, from: name, context: context)
         }
 
-        // Then apple.com docs
+        // Then a configured remote
+        if let remoteLink = autolinkRemote.autolink(hierarchicalName: declName.hierarchical) {
+            return remoteLink
+        }
+
+        // Finally apple.com docs
         if case let language = contextLanguage ?? (context as? DefItem)?.primaryLanguage,
             let appleLink = autolinkApple.autolink(text: declName, language: language) {
             return appleLink
