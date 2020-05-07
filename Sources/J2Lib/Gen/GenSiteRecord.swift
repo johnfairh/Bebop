@@ -17,7 +17,7 @@ struct GenSiteRecord {
 
     struct Data: Codable {
         let version: String
-        let moduleNames: [String]
+        let modules: [String]
     }
 
     static let FILENAME = "site.json"
@@ -25,7 +25,7 @@ struct GenSiteRecord {
     func writeRecord(outputURL: URL) throws {
         logDebug("Writing site.json")
         let data = Data(version: Version.j2libVersion,
-                        moduleNames: published.moduleNames)
+                        modules: published.moduleNames)
         try JSON.encode(data).write(to: outputURL.appendingPathComponent(Self.FILENAME))
     }
 

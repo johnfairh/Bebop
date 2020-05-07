@@ -1,5 +1,5 @@
 {
-  "module_names" : [
+  "modules" : [
     "SpmSwiftModule"
   ],
   "version" : "0.1"

@@ -33,6 +33,10 @@ final class FormatAutolinkRemote: Configurable {
         let moduleOpt = StringListOpt(y: "modules")
 
         func parse(mapping: Yams.Node.Mapping) throws -> Source {
+            let parser = OptsParser()
+            parser.addOpts(from: self)
+            try parser.apply(mapping: mapping)
+
             guard let url = urlOpt.value else {
                 throw J2Error(.errCfgRemoteUrl)
             }
@@ -42,7 +46,7 @@ final class FormatAutolinkRemote: Configurable {
             do {
                 logDebug("Format: Trying for site.json to identify remote site content")
                 let siteRecord = try GenSiteRecord.fetchRecord(from: url)
-                return Source(url: url, modules: siteRecord.moduleNames)
+                return Source(url: url, modules: siteRecord.modules)
             } catch {
                 throw J2Error(.errCfgRemoteModules, url.absoluteString, error)
             }

@@ -16,6 +16,10 @@ import FoundationNetworking
 // I suppose so no foul in explicitly blocking it here.
 extension URL {
     func fetch() throws -> Data {
+        if let data = try Self.harness.check(url: self) {
+            return data
+        }
+
         var outData: Data?
         var outError: Error?
         var outResponse: URLResponse?
@@ -51,4 +55,35 @@ extension URL {
         let errStr = outError.flatMap { String(describing: $0) } ?? "??"
         throw J2Error(.errUrlFetch, self, rspStr, errStr)
     }
+
+    // MARK: Unit test harness
+
+    final class Harness {
+        typealias Result = Swift.Result<String, J2Error>
+        private var rules: [String: Result] = [:]
+
+        func set(_ url: URL, _ result: Result) {
+            rules[url.absoluteString] = result
+        }
+
+        func clear(url: URL) {
+            rules.removeValue(forKey: url.absoluteString)
+        }
+
+        func reset() {
+            rules = [:]
+        }
+
+        func check(url: URL) throws -> Data? {
+            guard let res = rules[url.absoluteString] else {
+                return nil
+            }
+            switch res {
+            case .failure(let error): throw error
+            case .success(let string): return string.data(using: .utf8)!
+            }
+        }
+    }
+
+    static let harness = Harness()
 }
