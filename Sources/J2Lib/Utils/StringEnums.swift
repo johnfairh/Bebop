@@ -152,6 +152,8 @@ internal enum L10n {
     case errSktnXcodeMod = "err-sktn-xcode-mod"
     /// Theme localized key clash with content keys, values: '%1' '%2'.
     case errThemeKeyClash = "err-theme-key-clash"
+    /// Couldn't fetch URL '%1'.\nResponse: %2\nError: %3
+    case errUrlFetch = "err-url-fetch"
     /// XMLParser failed: '%1', line '%1' column '%2'.
     case errXmlDocsParse = "err-xml-docs-parse"
     /// Documentation complete in %1

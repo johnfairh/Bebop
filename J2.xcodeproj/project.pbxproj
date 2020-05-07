@@ -58,6 +58,9 @@
 		0233D54923F6F2ED004DCD89 /* FormatMarkdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D54823F6F2ED004DCD89 /* FormatMarkdown.swift */; };
 		0233D54B23F70CA6004DCD89 /* GenCopyright.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D54A23F70CA6004DCD89 /* GenCopyright.swift */; };
 		0233D54D23F9B255004DCD89 /* TestGatherObjC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233D54C23F9B255004DCD89 /* TestGatherObjC.swift */; };
+		023A28B424641D4B00D87459 /* GenSiteRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023A28B324641D4B00D87459 /* GenSiteRecord.swift */; };
+		023A28B62464205A00D87459 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023A28B52464205A00D87459 /* URL.swift */; };
+		023A28B82464227900D87459 /* TestAutolinkRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023A28B72464227900D87459 /* TestAutolinkRemote.swift */; };
 		0257280023DB50270001F510 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 025727FE23DB50270001F510 /* Localizable.strings */; };
 		0257280723DB50B40001F510 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0257280623DB50B40001F510 /* Resources.swift */; };
 		0257280C23DB540C0001F510 /* J2Resources.bundle in Embed PlugIns */ = {isa = PBXBuildFile; fileRef = 029A718423DB04F300D66069 /* J2Resources.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -303,6 +306,9 @@
 		0233D54823F6F2ED004DCD89 /* FormatMarkdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatMarkdown.swift; sourceTree = "<group>"; };
 		0233D54A23F70CA6004DCD89 /* GenCopyright.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenCopyright.swift; sourceTree = "<group>"; };
 		0233D54C23F9B255004DCD89 /* TestGatherObjC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGatherObjC.swift; sourceTree = "<group>"; };
+		023A28B324641D4B00D87459 /* GenSiteRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenSiteRecord.swift; sourceTree = "<group>"; };
+		023A28B52464205A00D87459 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
+		023A28B72464227900D87459 /* TestAutolinkRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAutolinkRemote.swift; sourceTree = "<group>"; };
 		025727FF23DB50270001F510 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		0257280623DB50B40001F510 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		0257281023DB7E5E0001F510 /* TestPipeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPipeline.swift; sourceTree = "<group>"; };
@@ -468,6 +474,7 @@
 				0233D53823F07E6E004DCD89 /* JSON.swift */,
 				02FDC68E23EB4C1B00C2F9CD /* Lock.swift */,
 				026C5146244E2FF6002D7788 /* StderrHusher.swift */,
+				023A28B52464205A00D87459 /* URL.swift */,
 				02FDC69023EB617200C2F9CD /* StringEnums.swift */,
 			);
 			path = Utils;
@@ -580,6 +587,7 @@
 				0233D53023EF4047004DCD89 /* TestGroup.swift */,
 				0233D53223EF43A7004DCD89 /* TestFormat.swift */,
 				020AC6E82453842200A0E634 /* TestAutolinkApple.swift */,
+				023A28B72464227900D87459 /* TestAutolinkRemote.swift */,
 				02CFFA2423E2244C00FDE5B9 /* TestTheme.swift */,
 				02CFFA2923E30F9E00FDE5B9 /* TestGen.swift */,
 				0257281023DB7E5E0001F510 /* TestPipeline.swift */,
@@ -708,6 +716,7 @@
 				0233D54A23F70CA6004DCD89 /* GenCopyright.swift */,
 				0233D53A23F09E0D004DCD89 /* GenMustache.swift */,
 				02CFFA0823E0C8AC00FDE5B9 /* GenSite.swift */,
+				023A28B324641D4B00D87459 /* GenSiteRecord.swift */,
 				02CFFA0F23E1E9A700FDE5B9 /* GenThemes.swift */,
 				020AC6EA2455EE4F00A0E634 /* GenThemesJazzy.swift */,
 				02EC5B7D242FCB2F00A511B2 /* GenMedia.swift */,
@@ -956,6 +965,7 @@
 				022BE7B42434F33D005146D1 /* GenBadge.swift in Sources */,
 				02F61DEF2447651500266575 /* GenCodeHost.swift in Sources */,
 				022BE7B72435215F005146D1 /* GenBrand.swift in Sources */,
+				023A28B424641D4B00D87459 /* GenSiteRecord.swift in Sources */,
 				022BD9B92431F56400FC34D4 /* GatherJobImport.swift in Sources */,
 				02FDC68D23EB498A00C2F9CD /* DefDeclaration.swift in Sources */,
 				022818C523D33C2B0016B0D5 /* Regex.swift in Sources */,
@@ -1011,6 +1021,7 @@
 				022818B823D1C2E00016B0D5 /* Options.swift in Sources */,
 				0259E18B24111099006435A1 /* GatherJobOpts.swift in Sources */,
 				0257280723DB50B40001F510 /* Resources.swift in Sources */,
+				023A28B62464205A00D87459 /* URL.swift in Sources */,
 				022BE7BB24367F2F005146D1 /* GatherSymbolGraph.swift in Sources */,
 				0233D53B23F09E0D004DCD89 /* GenMustache.swift in Sources */,
 				0233D54923F6F2ED004DCD89 /* FormatMarkdown.swift in Sources */,
@@ -1051,6 +1062,7 @@
 				0259E1982416A693006435A1 /* TestAcl.swift in Sources */,
 				029A717923D9A46300D66069 /* TestLogger.swift in Sources */,
 				022BE7BD24372F58005146D1 /* TestGatherSymGraph.swift in Sources */,
+				023A28B82464227900D87459 /* TestAutolinkRemote.swift in Sources */,
 				020AC6E92453842200A0E634 /* TestAutolinkApple.swift in Sources */,
 				0233D54723F5ED95004DCD89 /* TestProducts.swift in Sources */,
 				02CFFA2A23E30F9E00FDE5B9 /* TestGen.swift in Sources */,

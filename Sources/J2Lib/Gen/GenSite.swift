@@ -72,6 +72,7 @@ public struct GenSite: Configurable {
     let brand: GenBrand
     let codeHost: GenCodeHost
     let docset: GenDocset
+    let record: GenSiteRecord
 
     public init(config: Config) {
         themes = GenThemes(config: config)
@@ -82,6 +83,7 @@ public struct GenSite: Configurable {
         brand = GenBrand(config: config)
         codeHost = GenCodeHost(config: config)
         docset = GenDocset(config: config)
+        record = GenSiteRecord(config: config)
 
         oldHideCoverageOpt = AliasOpt(realOpt: hideCoverageOpt, l: "hide-documentation-coverage")
         oldCustomHeadOpt = AliasOpt(realOpt: customHeadOpt, l: "head")
@@ -162,6 +164,7 @@ public struct GenSite: Configurable {
         try extensions.forEach {
             try themes.installExtension($0, to: outputURL)
         }
+        try record.writeRecord(outputURL: outputURL)
     }
 
     /// JSON instead of the website
