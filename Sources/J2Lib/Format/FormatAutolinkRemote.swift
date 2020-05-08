@@ -74,69 +74,99 @@ final class FormatAutolinkRemote: Configurable {
 
     typealias SearchIndex = [String:SearchValue]
 
-    /// Thing we hold in memory
+    /// Build a tree of search index entries reflecting the name hierarchy
     final class Entry {
         let urlPath: String
         var children: [String: Entry]
-        let parentName: String?
         weak var parent: Entry?
 
-        init(urlPath: String, parentName: String?) {
+        init(urlPath: String, parent: Entry? = nil) {
             self.urlPath = urlPath
-            self.parentName = parentName
             self.children = [:]
-        }
-
-        /// Navigate down the tree, return if run out of name pieces
-        func lookup(namePieces: ArraySlice<String>) -> Entry? {
-            guard let first = namePieces.first else {
-                return self
-            }
-            return children[first]?.lookup(namePieces: namePieces.dropFirst())
+            self.parent = parent
         }
     }
 
-    /// Forest of entries for a particular remote site
+    /// Map from name to url path for a particular remote site - flattened entry tree
     final class ModuleIndex {
-        let topTypes: [String : Entry]
+        let map: [String : String]
         let baseURL: URL
 
         init(baseURL: URL, searchIndex: SearchIndex) {
-            var workingIndex = [String : Entry]()
+            var index = [String : Entry]()
 
-            // Index the entries by name
-            searchIndex.forEach {
-                // overwrite duplicate names here, oh well
-                workingIndex[$0.value.name] =
-                    Entry(urlPath: $0.key, parentName: $0.value.parent_name)
+            // This is horrible because of naming in the search format:
+            // simpler single-pass methods end up with method etc. name collisions.
+
+            // Sort for reproducibility.
+            var sortedIndex = searchIndex.sorted { $0.0 < $1.0 }
+
+            // First pass: stuff without a parent
+            sortedIndex = sortedIndex.filter { (urlPath, searchValue) in
+                if searchValue.parent_name == nil {
+                    index[searchValue.name] = Entry(urlPath: urlPath)
+                    return false
+                }
+                return true
             }
 
-            // Build the parent graph
-            workingIndex.forEach { (entName, ent) in
-                if let parentName = ent.parentName,
-                    let parent = workingIndex[parentName] {
-                    ent.parent = parent
-                    parent.children[entName] = ent
-                    // special case Swift functions
-                    if entName.contains("(") {
-                        parent.children[entName.re_sub(#"\(.*\)"#, with: "(...)")] = ent
+            // Now repeatedly try and parent entries, building up the graph
+            // from the roots.  Approximately.
+            var changes = false
+            while true {
+                sortedIndex = sortedIndex.filter { (urlPath, searchValue) in
+                    guard let parentName = searchValue.parent_name,
+                        let parentEntry = index[parentName] else {
+                            return true // keep for next time
                     }
+                    // overwrite any existing child with the same name
+                    let entry = Entry(urlPath: urlPath, parent: parentEntry)
+                    let entryName = searchValue.name
+                    parentEntry.children[entryName] = entry
+                    // special case Swift functions
+                    if entryName.contains("(") {
+                        parentEntry.children[entryName.re_sub(#"\(.*\)"#, with: "(...)")] = entry
+                    }
+                    // don't overwrite an existing parent name candidate
+                    if index[entryName] == nil {
+                        index[entryName] = entry
+                    }
+                    changes = true
+                    return false
+                }
+                if !changes {
+                    break
+                }
+                changes = false
+            }
+
+            // Now flatten it
+            var nameMap = [String: String]()
+
+            func doEntry(_ entry: Entry, pathPieces: [String]) {
+                nameMap[pathPieces.joined(separator: ".")] = entry.urlPath
+                entry.children.forEach {
+                    doEntry($1, pathPieces: pathPieces + [$0])
                 }
             }
 
-            // Keep only top-level types
-            self.topTypes = workingIndex.filter { $0.1.parent == nil }
+            index.forEach { (entryName, entry) in
+                if entry.parent == nil {
+                    doEntry(entry, pathPieces: [entryName])
+                }
+            }
+
+            self.map = nameMap
             self.baseURL = baseURL
         }
 
-        /// Walk a hierarchical (dot-separated) name down the tree
-        func lookup(pieces: [String]) -> URL? {
-            guard let firstEntry = topTypes[pieces[0]],
-                let finalEntry = firstEntry.lookup(namePieces: pieces.dropFirst()) else {
+        /// Just look up the name and build the full URL
+        func lookup(name: String) -> URL? {
+            guard let urlPath = map[name] else {
                 return nil
             }
 
-            return URLComponents(string: finalEntry.urlPath)?.url(relativeTo: baseURL)
+            return URLComponents(string: urlPath)?.url(relativeTo: baseURL)
         }
     }
 
@@ -175,17 +205,13 @@ final class FormatAutolinkRemote: Configurable {
         if moduleIndices.isEmpty {
             buildIndex()
         }
-        // Split by dots but not (...) syntax
-        let pieces = name
-            .hierarchical
-            .re_split(#"(?<!\.)\.(?!\.)"#)
 
-        logDebug("Format: remote autolink attempt for \(pieces)")
+        logDebug("Format: remote autolink attempt for \(name)")
 
         // First assume the name doesn't start with a module name.
         // Go through each source trying to resolve.
         for mIndex in moduleIndices {
-            if let url = mIndex.lookup(pieces: pieces) {
+            if let url = mIndex.lookup(name: name) {
                 logDebug("Format: resolved to \(url.absoluteString)")
                 Stats.inc(.autolinkRemoteSuccess)
                 return Autolink(url: url, text: name)
@@ -193,11 +219,10 @@ final class FormatAutolinkRemote: Configurable {
         }
 
         // Now try assuming the first name piece is a module name.
-        if let moduleName = pieces.first,
-            let moduleIndex = indiciesByModule[moduleName],
-            case let restPieces = pieces.dropFirst(),
-            !restPieces.isEmpty,
-            let url = moduleIndex.lookup(pieces: Array(restPieces)) {
+        if let matches = name.re_match(#"^(.*?)\.(.*)$"#),
+            let moduleIndex = indiciesByModule[matches[1]],
+            !matches[2].isEmpty,
+            let url = moduleIndex.lookup(name: matches[2]) {
             logDebug("Format: resolved to \(url.absoluteString)")
             Stats.inc(.autolinkRemoteSuccessModule)
             return Autolink(url: url, text: name)

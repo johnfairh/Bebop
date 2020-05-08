@@ -141,7 +141,7 @@ class TestAutolinkRemote: XCTestCase {
             XCTFail()
             return
         }
-        XCTAssertEqual(15, moduleIndex.topTypes.count)
+        XCTAssertEqual(86, moduleIndex.map.count)
     }
 
     func testFailedIndex() throws {
@@ -182,7 +182,7 @@ class TestAutolinkRemote: XCTestCase {
             XCTFail()
             return
         }
-        XCTAssertEqual("https://foo.com/site/types/abaseclass.html?swift#init", link4.markdownURL)
+        XCTAssertEqual(link3.markdownURL, link4.markdownURL)
 
         // failed
         XCTAssertNil(system.link(text: "BadIdentifier"))
