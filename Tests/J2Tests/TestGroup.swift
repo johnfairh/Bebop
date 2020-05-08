@@ -699,6 +699,14 @@ class TestGroup: XCTestCase {
         ])
 
         let grouped = try system.run()
-        XCTAssertEqual(3, grouped.count)
+        XCTAssertEqual(2, grouped.count)
+        let pathGroup = grouped[0] as! GroupItem
+        XCTAssertEqual("ByPath", pathGroup.name)
+        XCTAssertEqual(7, pathGroup.children.count)
+        XCTAssertEqual(["Backend/AWS", "Backend/GCP", "Frontend", "Midend"],
+                       pathGroup.children[0...3].map(\.name))
+        let frontendGroup = pathGroup.children[2] as! GroupItem
+        XCTAssertEqual(["FrontendAdapter", "FrontendManager", "Watch"],
+                       frontendGroup.children.map(\.name))
     }
 }

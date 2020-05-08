@@ -16,6 +16,8 @@ public enum GroupKind: Hashable {
     case someItems(ItemKind, Localized<String>)
     /// Some collection of items with a name and a language-mixing policy
     case custom(Localized<String>, Bool)
+    /// A collection of items with a shared filesystem path
+    case path(String)
 
     /// The kind of the group, if it is known
     public var kind: ItemKind? {
@@ -23,12 +25,16 @@ public enum GroupKind: Hashable {
         case .allItems(let k),
              .moduleItems(let k, _),
              .someItems(let k, _): return k
-        case .custom(_, _): return nil
+        case .custom(_, _),
+             .path(_): return nil
         }
     }
 
     public var isCustom: Bool {
-        kind == nil
+        if case .custom(_, _) = self {
+            return true
+        }
+        return false
     }
 
     public var mixLanguages: Bool {
@@ -51,6 +57,7 @@ public enum GroupKind: Hashable {
         case .moduleItems(let k, let n),
              .someItems(let k, let n): return k.title(in: language, affix: n)
         case .custom(let t, _): return t
+        case .path(let title): return .init(unlocalized: title)
         }
     }
 }
@@ -61,7 +68,7 @@ public final class GroupItem: Item {
     public let groupKind: GroupKind
     public internal(set) var customAbstract: RichText?
 
-    /// Create a new group based on the type of content, eg. 'All guides'.
+    /// Create a new group with a name derived from the kind
     init(kind: GroupKind, abstract: Localized<String>? = nil, contents: [Item], uniquer: StringUniquer) {
         self.groupKind = kind
         self.customAbstract = abstract.flatMap { RichText($0) }
