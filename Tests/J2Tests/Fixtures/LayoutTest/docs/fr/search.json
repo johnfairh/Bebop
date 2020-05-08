@@ -39,5 +39,14 @@
     "abstract" : "Here is a picture",
     "name" : "spot()",
     "parent_name" : "LinkRewrite"
+  },
+  "types\/remoteautolink.html?swift" : {
+    "abstract" : "A class to demonstrate remote autolinking",
+    "name" : "RemoteAutolink"
+  },
+  "types\/remoteautolink\/call.html?swift" : {
+    "abstract" : "Or even RbObjectAccess.call(...).",
+    "name" : "call()",
+    "parent_name" : "RemoteAutolink"
   }
 }

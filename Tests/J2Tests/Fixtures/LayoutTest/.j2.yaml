@@ -46,3 +46,6 @@ docset_module_name: DLayout
 docset_playground_url: https://repl.it/F9J7/1
 deployment_url: https://www.google.com
 module_version: 3.14
+remote_autolink:
+  - modules: RubyGateway
+    url: https://johnfairh.github.io/RubyGateway/

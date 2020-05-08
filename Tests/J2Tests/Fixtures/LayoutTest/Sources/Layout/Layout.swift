@@ -51,3 +51,12 @@ public class Integration {
   /// - returns: The value of `$phi$`.
   public func phi() -> Int { 2 }
 }
+
+/// A class to demonstrate remote autolinking
+///
+/// See `RbBlockRetention` or `RubyGateway.RbGateway` for some weird stuff.
+///
+public class RemoteAutolink {
+  /// Or even `RbObjectAccess.call(...)`.
+  public func call() -> Int { 3 }
+}

@@ -177,6 +177,12 @@ struct StatsDb {
         case autolinkAppleSuccess
         /// Autolink to apple docs failed
         case autolinkAppleFailure
+        /// Autolink to remote by name
+        case autolinkRemoteSuccess
+        /// Autolink to remote by name with a module
+        case autolinkRemoteSuccessModule
+        /// Autolink to remote failed
+        case autolinkRemoteFailure
         /// Custom abstracts applied to defs
         case customAbstractDef
         /// Custom abstracts applied to groups

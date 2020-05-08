@@ -28,6 +28,11 @@ final class Autolink {
     convenience init(url: String, html: String) {
         self.init(markdownURL: url, primaryURL: url, html: html)
     }
+
+    convenience init(url: URL, text: String) {
+        let href = url.absoluteString
+        self.init(markdownURL: href, primaryURL: href, html: #"<a href="\#(href)">\#(text.htmlEscaped)</a>"#)
+    }
 }
 
 final class FormatAutolink: Configurable {
@@ -96,7 +101,7 @@ final class FormatAutolink: Configurable {
         }
 
         // Then a configured remote
-        if let remoteLink = autolinkRemote.autolink(hierarchicalName: declName.hierarchical) {
+        if let remoteLink = autolinkRemote.autolink(name: declName) {
             return remoteLink
         }
 

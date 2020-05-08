@@ -30,7 +30,7 @@ fileprivate struct System {
     }
 
     func link(text: String) -> Autolink? {
-        remote.autolink(hierarchicalName: text)
+        remote.autolink(name: text)
     }
 }
 
@@ -83,7 +83,7 @@ class TestAutolinkRemote: XCTestCase {
                    """
         let system = try System(yaml: yaml)
         XCTAssertEqual(1, system.remote.sources.count)
-        XCTAssertEqual("https://foo.com/site", system.remote.sources[0].url.absoluteString)
+        XCTAssertEqual("https://foo.com/site/", system.remote.sources[0].url.absoluteString)
         XCTAssertEqual(["M1", "M2"], system.remote.sources[0].modules)
     }
 
@@ -149,5 +149,35 @@ class TestAutolinkRemote: XCTestCase {
         let system = try setUpSpmSwiftPackageSystem(fail: true)
         XCTAssertEqual(1, TestLogger.shared.diagsBuf.count)
         XCTAssertTrue(system.remote.moduleIndices.isEmpty)
+    }
+
+    // MARK: Lookup
+
+    func testIndexLookup() throws {
+        let system = try setUpSpmSwiftPackageSystem()
+
+        // simple by name
+        guard let link1 = system.link(text: "ABaseClass") else {
+            XCTFail()
+            return
+        }
+        XCTAssertEqual("https://foo.com/site/types/abaseclass.html?swift", link1.markdownURL)
+
+        // by module
+        guard let link2 = system.link(text: "SpmSwiftModule.ABaseClass") else {
+            XCTFail()
+            return
+        }
+        XCTAssertEqual(link2.markdownURL, link1.markdownURL)
+
+        // simple, nested
+        guard let link3 = system.link(text: "ABaseClass.init(a:)") else {
+            XCTFail()
+            return
+        }
+        XCTAssertEqual("https://foo.com/site/types/abaseclass.html?swift#inita", link3.markdownURL)
+
+        // failed
+        XCTAssertNil(system.link(text: "BadIdentifier"))
     }
 }

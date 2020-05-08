@@ -41,7 +41,7 @@ final class FormatAutolinkRemote: Configurable {
                 throw J2Error(.errCfgRemoteUrl)
             }
             if !moduleOpt.value.isEmpty {
-                return Source(url: url, modules: moduleOpt.value)
+                return Source(url: url.withTrailingSlash, modules: moduleOpt.value)
             }
             do {
                 logDebug("Format: Trying for site.json to identify remote site content")
@@ -64,7 +64,7 @@ final class FormatAutolinkRemote: Configurable {
         }
     }
 
-    // MARK: Build
+    // MARK: Index
 
     /// Search json is a dict of keyed URLs to these structures
     struct SearchValue: Decodable {
@@ -96,6 +96,7 @@ final class FormatAutolinkRemote: Configurable {
         }
     }
 
+    /// Forest of entries for a particular remote site
     final class ModuleIndex {
         let topTypes: [String : Entry]
         let baseURL: URL
@@ -105,6 +106,7 @@ final class FormatAutolinkRemote: Configurable {
 
             // Index the entries by name
             searchIndex.forEach {
+                // overwrite duplicate names here, oh well
                 workingIndex[$0.value.name] =
                     Entry(urlPath: $0.key, parentName: $0.value.parent_name)
             }
@@ -129,7 +131,8 @@ final class FormatAutolinkRemote: Configurable {
                 let finalEntry = firstEntry.lookup(namePieces: pieces.dropFirst()) else {
                 return nil
             }
-            return baseURL.appendingPathComponent(finalEntry.urlPath)
+
+            return URLComponents(string: finalEntry.urlPath)?.url(relativeTo: baseURL)
         }
     }
 
@@ -156,33 +159,60 @@ final class FormatAutolinkRemote: Configurable {
         }
     }
 
-    // MARK: Query
-
-    /// If we have a module just go there, otherwise go through them all
-    func lookup(module: String?, pieces: [String]) -> URL? {
-        if let module = module {
-            guard let moduleIndex = indiciesByModule[module] else {
-                return nil
-            }
-            return moduleIndex.lookup(pieces: pieces)
-        }
-        for mIndex in moduleIndices {
-            if let url = mIndex.lookup(pieces: pieces) {
-                return url
-            }
-        }
-        return nil
-    }
-
     // MARK: API
 
-    func autolink(hierarchicalName name: String) -> Autolink? {
+    /// Build the index on first call, search for the name.
+    /// Pretty sure there's %-encoding needed on these URLs.
+    func autolink(name: String) -> Autolink? {
         guard !sources.isEmpty else {
             return nil
         }
+
         if moduleIndices.isEmpty {
             buildIndex()
         }
+        let pieces = name
+            .hierarchical
+            .split(separator: ".")
+            .map(String.init)
+
+        logDebug("Format: remote autolink attempt for \(pieces)")
+
+        // First assume the name doesn't start with a module name.
+        // Go through each source trying to resolve.
+        for mIndex in moduleIndices {
+            if let url = mIndex.lookup(pieces: pieces) {
+                logDebug("Format: resolved to \(url.absoluteString)")
+                Stats.inc(.autolinkRemoteSuccess)
+                return Autolink(url: url, text: name)
+            }
+        }
+
+        // Now try assuming the first name piece is a module name.
+        if let moduleName = pieces.first,
+            let moduleIndex = indiciesByModule[moduleName],
+            case let restPieces = pieces.dropFirst(),
+            !restPieces.isEmpty,
+            let url = moduleIndex.lookup(pieces: Array(restPieces)) {
+            logDebug("Format: resolved to \(url.absoluteString)")
+            Stats.inc(.autolinkRemoteSuccessModule)
+            return Autolink(url: url, text: name)
+        }
+
+        logDebug("Format: unable to resolve")
+        Stats.inc(.autolinkRemoteFailure)
+
         return nil
+    }
+}
+
+extension URL {
+    /// This makes relative URL calculations come off properly (rfc2396)
+    var withTrailingSlash: URL {
+        let str = absoluteString
+        if absoluteString.hasSuffix("/") {
+            return self
+        }
+        return URL(string: "\(str)/")!
     }
 }
