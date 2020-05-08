@@ -662,4 +662,43 @@ class TestGroup: XCTestCase {
                        """
         checkCustomParseError(badTitle, .errCfgGuideTitleFields)
     }
+
+    // MARK: Group-by-Path
+
+    struct FullerSystem {
+        let config: Config
+        let gather: Gather
+        let merge: Merge
+        let group: Group
+
+        init(_ opts: [String]) throws {
+            config = Config()
+            gather = Gather(config: config)
+            merge = Merge(config: config)
+            group = Group(config: config)
+            try config.processOptions(cliOpts: opts)
+        }
+
+        func run() throws -> [Item] {
+            try group.group(merged: merge.merge(gathered: gather.gather()))
+        }
+    }
+
+    func testGroupByPath() throws {
+        let srcDirURL = fixturesURL.appendingPathComponent("GroupByPath")
+        let guideURL = fixturesURL
+            .appendingPathComponent("LayoutTest")
+            .appendingPathComponent("guides")
+            .appendingPathComponent("Guide.md")
+
+        let system = try FullerSystem([
+            "--min-acl=private",
+            "--source-directory", srcDirURL.path,
+            "--guides", guideURL.path,
+            "--group-style", "path"
+        ])
+
+        let grouped = try system.run()
+        XCTAssertEqual(3, grouped.count)
+    }
 }

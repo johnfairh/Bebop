@@ -27,10 +27,22 @@ enum ModuleGroupPolicy: Hashable {
     }
 }
 
+/// Style of grouping items not covered by custom groups
+enum GroupStyle: String, CaseIterable {
+    // Group items by kind
+    case kind
+    // Group items by their filesystem position
+    case path
+}
+
 /// `Group` arranges `DefItems` into a hierarchy of `Items` suitable for documentation generation
 ///  by injecting guides and creating groups.
 ///
 public struct Group: Configurable {
+    let groupStyleOpt = EnumOpt<GroupStyle>(l: "group-style").def(.kind)
+    var groupStyle: GroupStyle {
+        groupStyleOpt.value!
+    }
     let topicStyleOpt = EnumOpt<TopicStyle>(l: "topic-style").def(.logical)
     var topicStyle: TopicStyle {
         topicStyleOpt.value!
@@ -71,13 +83,22 @@ public struct Group: Configurable {
         let (customGroups, ungrouped) = groupCustom.createGroups(items: allItems, uniquer: uniquer)
         let customPrefix = customGroupPrefixOpt.value.flatMap { customGroups.isEmpty ? nil : $0 }
         let excludeGuides = !customGroups.isEmpty && excludeUnlistedGuidesOpt.value
-        let kindGroups = createKindGroups(items: ungrouped,
-                                          uniquer: uniquer,
-                                          customPrefix: customPrefix,
-                                          excludeGuides: excludeGuides)
+        let otherGroups: [GroupItem]
+        switch groupStyle {
+        case .kind:
+            otherGroups = createKindGroups(items: ungrouped,
+                                           uniquer: uniquer,
+                                           customPrefix: customPrefix,
+                                           excludeGuides: excludeGuides)
+        case .path:
+            otherGroups = createPathGroups(items: ungrouped,
+                                           uniquer: uniquer,
+                                           customPrefix: customPrefix,
+                                           excludeGuides: excludeGuides)
+        }
 
         // All items now assigned to groups
-        let allGroups = customGroups + kindGroups
+        let allGroups = customGroups + otherGroups
 
         // Sort out topics, arrange items inside defs
         let topicVisitor = TopicCreationVisitor(style: topicStyle, customizer: { def in
@@ -93,6 +114,7 @@ public struct Group: Configurable {
     ///
     /// Why is this such a mess!?
     func createKindGroups(items: [Item], uniquer: StringUniquer, customPrefix: Localized<String>?, excludeGuides: Bool) -> [GroupItem] {
+        logDebug("Group: grouping leftovers by kind")
         // Cache kind:def while preserving order
         var kindToDefs = [GroupKind : [Item]]()
         items.forEach { item in
@@ -135,6 +157,13 @@ public struct Group: Configurable {
         }
     }
 
+    /// Create groups from the items using their source filesystem position.
+    /// Fall back to kind groups for stuff without a source location.
+    /// This should maybe be respecting merge-modules etc?  Need to see for real.
+    func createPathGroups(items: [Item], uniquer: StringUniquer, customPrefix: Localized<String>?, excludeGuides: Bool) -> [GroupItem] {
+        logDebug("Group: grouping leftovers by path")
+        return createKindGroups(items: items, uniquer: uniquer, customPrefix: customPrefix, excludeGuides: excludeGuides)
+    }
 }
 
 /// Sort order for groups.  Specific before generic.

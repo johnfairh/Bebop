@@ -1,0 +1,5 @@
+struct FrontendManager {
+}
+
+struct FrontendAdapter {
+}
