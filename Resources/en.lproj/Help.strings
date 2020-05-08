@@ -210,3 +210,4 @@ pod source is not automatically added.
 Default: Do not use any private pod sources.";
 "hide-language" = "Declaration language to omit from generated documentation.
 Default: Do not hide either language.";
+"remote_autolink" = "Automatically link identifiers to other Jazzy or J2 documentation sites.";

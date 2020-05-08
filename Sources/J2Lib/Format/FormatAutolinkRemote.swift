@@ -117,6 +117,10 @@ final class FormatAutolinkRemote: Configurable {
                     let parent = workingIndex[parentName] {
                     ent.parent = parent
                     parent.children[entName] = ent
+                    // special case Swift functions
+                    if entName.contains("(") {
+                        parent.children[entName.re_sub(#"\(.*\)"#, with: "(...)")] = ent
+                    }
                 }
             }
 
@@ -171,10 +175,10 @@ final class FormatAutolinkRemote: Configurable {
         if moduleIndices.isEmpty {
             buildIndex()
         }
+        // Split by dots but not (...) syntax
         let pieces = name
             .hierarchical
-            .split(separator: ".")
-            .map(String.init)
+            .re_split(#"(?<!\.)\.(?!\.)"#)
 
         logDebug("Format: remote autolink attempt for \(pieces)")
 

@@ -177,6 +177,13 @@ class TestAutolinkRemote: XCTestCase {
         }
         XCTAssertEqual("https://foo.com/site/types/abaseclass.html?swift#inita", link3.markdownURL)
 
+        // abbreviated
+        guard let link4 = system.link(text: "ABaseClass.init(...)") else {
+            XCTFail()
+            return
+        }
+        XCTAssertEqual("https://foo.com/site/types/abaseclass.html?swift#init", link4.markdownURL)
+
         // failed
         XCTAssertNil(system.link(text: "BadIdentifier"))
     }
