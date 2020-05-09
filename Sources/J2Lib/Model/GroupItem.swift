@@ -37,6 +37,13 @@ public enum GroupKind: Hashable {
         return false
     }
 
+    public var isPath: Bool {
+        if case .path(_) = self {
+            return true
+        }
+        return false
+    }
+
     public var mixLanguages: Bool {
         guard case let .custom(_, mix) = self else {
             return false

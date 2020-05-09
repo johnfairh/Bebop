@@ -51,7 +51,7 @@
 "tpc-class-methods" = "Class Methods";
 "tpc-class-properties" = "Class Properties";
 "tpc-class-subscripts" = "Class Subscripts";
-"tpc-others" = "Other Members";
+"tpc-others" = "Other Definitions";
 
 /* Title */
 "docs" = "docs";

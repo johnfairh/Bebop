@@ -706,7 +706,7 @@ class TestGroup: XCTestCase {
         XCTAssertEqual(["Backend/AWS", "Backend/GCP", "Frontend", "Midend"],
                        pathGroup.children[0...3].map(\.name))
         let frontendGroup = pathGroup.children[2] as! GroupItem
-        XCTAssertEqual(["FrontendAdapter", "FrontendManager", "Watch"],
+        XCTAssertEqual(["Watch", "FrontendAdapter", "FrontendManager"],
                        frontendGroup.children.map(\.name))
     }
 }

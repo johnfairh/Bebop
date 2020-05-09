@@ -42,7 +42,11 @@ struct TopicCreationVisitor: ItemVisitorProtocol {
         }
         switch style {
         case .logical, .source_order_defs:
-            groupItem.makeLogicalTopics()
+            if groupItem.groupKind.isPath {
+                groupItem.makePathTopics()
+            } else {
+                groupItem.makeLogicalTopics()
+            }
         case .source_order:
             groupItem.makeSourceOrderTopics()
         }
@@ -85,7 +89,7 @@ private extension Item {
 // MARK: Logical-Style Topics
 
 private extension GroupItem {
-    /// Just sort them and erase any leftover topic
+    /// Just sort them and erase any leftover topic - in logical mode we know they're all the same kind
     func makeLogicalTopics() {
         let topic = Topic()
         children.forEach { $0.topic = topic }
@@ -100,30 +104,12 @@ private extension DefItem {
         let normalChildren = defChildren.prefix { !$0.isStartOfConditionalExtension }
         let extChildren = defChildren.suffix(from: normalChildren.count)
 
-        // Bucket normal children by topic
-        var topicsToItems = [DefTopic : [DefItem]]()
-        normalChildren.forEach { child in
-            topicsToItems.reduceKey(child.defTopic, [child], {$0 + [child]})
-        }
-
-        // Now order in topic order and give everything the topic, sorting
+        // Rearrange defs in topic order and give everything the topic, sorting
         // alphabetically within the topic
-        var newChildren = [Item]()
-        DefTopic.allCases.forEach { defTopic in
-            guard var items = topicsToItems[defTopic] else {
-                return
-            }
-            let topic = Topic(defTopic: defTopic)
-            items.forEach { $0.topic = topic }
-            // Frustrating special case: sorting enum elements looks weird :(
-            if defTopic != .enumElement {
-                items.sort { $0.sortableName < $1.sortableName }
-            }
-            newChildren += items
-        }
+        let topicChildren = normalChildren.sortedByDefTopic
 
         // Combine topicized normal children with extensions
-        children = customized + newChildren + extChildren.asLogicalConditionalExtensions
+        children = customized + topicChildren + extChildren.asLogicalConditionalExtensions
     }
 
     /// Spot the markers left by group
@@ -136,7 +122,31 @@ private extension DefItem {
     }
 }
 
-private extension ArraySlice where Element == DefItem {
+private extension Sequence where Element == DefItem {
+    /// Rearrange the defitems first into DefTopic order, then sorted alphabetically
+    /// within each topic.  Also assign the actual Topic markers.
+    var sortedByDefTopic: [Item] {
+        var topicsToItems = [DefTopic : [DefItem]]()
+        forEach { item in
+            topicsToItems.reduceKey(item.defTopic, [item], {$0 + [item]})
+        }
+
+        var newItems = [Item]()
+        DefTopic.allCases.forEach { defTopic in
+            guard var items = topicsToItems[defTopic] else {
+                return
+            }
+            let topic = Topic(defTopic: defTopic)
+            items.forEach { $0.topic = topic }
+            // Frustrating special case: sorting enum elements looks weird :(
+            if defTopic != .enumElement {
+                items.sort { $0.sortableName < $1.sortableName }
+            }
+            newItems += items
+        }
+        return newItems
+    }
+
     /// Clean up topics left over from source-marks.
     /// Arrange the extensions alphabetically sorted by their generic reqs
     /// Sort the extension contents by topic and then by name
@@ -164,5 +174,20 @@ private extension ArraySlice where Element == DefItem {
         }
 
         return sortedChildren.map { $0.1 }
+    }
+}
+
+// MARK: Path-Style Topics
+
+private extension GroupItem {
+    /// In group-style=path mode we have a random assortment of declarations from the same path
+    /// as well as potentially some subgroups for other paths.  Put the subgroups first, without a topic
+    /// heading, followed by the declarations in sorted order.
+    func makePathTopics() {
+        let topic = Topic()
+        let (defChildren, groupChildren) = children.splitPartition { $0 is DefItem }
+        groupChildren.forEach { $0.topic = topic }
+        children = groupChildren.sorted { $0.sortableName < $1.sortableName } +
+            (defChildren as! [DefItem]).sortedByDefTopic
     }
 }
