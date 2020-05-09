@@ -85,7 +85,7 @@ Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
 
 
 ``` swift
-public protocol SecondProtocol : FirstProtocol
+public protocol SecondProtocol: FirstProtocol
 ```
 
 

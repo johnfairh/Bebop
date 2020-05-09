@@ -199,8 +199,8 @@
               "discouraged" : false,
               "objc_declaration_html" : "@interface JMLKitchen : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>",
               "objc_declaration_md" : "@interface JMLKitchen : NSObject",
-              "swift_declaration_html" : "class Kitchen : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>",
-              "swift_declaration_md" : "class Kitchen : NSObject"
+              "swift_declaration_html" : "class Kitchen: <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>",
+              "swift_declaration_md" : "class Kitchen: NSObject"
             },
             "primary_language" : "j2-objc",
             "primary_title_html" : "<span class=\"j2-item-secondary\">@interface <\/span>JMLKitchen",
@@ -544,8 +544,8 @@
       "discouraged" : false,
       "objc_declaration_html" : "@interface JMLKitchen : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>",
       "objc_declaration_md" : "@interface JMLKitchen : NSObject",
-      "swift_declaration_html" : "class Kitchen : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>",
-      "swift_declaration_md" : "class Kitchen : NSObject"
+      "swift_declaration_html" : "class Kitchen: <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>",
+      "swift_declaration_md" : "class Kitchen: NSObject"
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
@@ -1198,8 +1198,8 @@
               "discouraged" : false,
               "objc_declaration_html" : "@interface ExposedSwiftClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>",
               "objc_declaration_md" : "@interface ExposedSwiftClass : NSObject",
-              "swift_declaration_html" : "public class ExposedSwiftClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>",
-              "swift_declaration_md" : "public class ExposedSwiftClass : NSObject"
+              "swift_declaration_html" : "public class ExposedSwiftClass: <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>",
+              "swift_declaration_md" : "public class ExposedSwiftClass: NSObject"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">class <\/span>ExposedSwiftClass",
@@ -1220,8 +1220,8 @@
               "discouraged" : false,
               "objc_declaration_html" : "@interface RenamedForObjC : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>",
               "objc_declaration_md" : "@interface RenamedForObjC : NSObject",
-              "swift_declaration_html" : "public class RenamedExposedSwiftClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>",
-              "swift_declaration_md" : "public class RenamedExposedSwiftClass : NSObject"
+              "swift_declaration_html" : "public class RenamedExposedSwiftClass: <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>",
+              "swift_declaration_md" : "public class RenamedExposedSwiftClass: NSObject"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">class <\/span>RenamedExposedSwiftClass",
@@ -1244,8 +1244,8 @@
               "discussion_md" : "See [`-objcNormalMethod`](spmobjcmodule\/types\/normalclass1.md#objcnormalmethod).",
               "objc_declaration_html" : "@interface NormalClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>",
               "objc_declaration_md" : "@interface NormalClass : NSObject",
-              "swift_declaration_html" : "class NormalClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>",
-              "swift_declaration_md" : "class NormalClass : NSObject"
+              "swift_declaration_html" : "class NormalClass: <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>",
+              "swift_declaration_md" : "class NormalClass: NSObject"
             },
             "primary_language" : "j2-objc",
             "primary_title_html" : "<span class=\"j2-item-secondary\">@interface <\/span>NormalClass",
@@ -1266,8 +1266,8 @@
               "discouraged" : false,
               "objc_declaration_html" : "@interface JMLKitchenCupboard : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>",
               "objc_declaration_md" : "@interface JMLKitchenCupboard : NSObject",
-              "swift_declaration_html" : "class Cupboard : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>",
-              "swift_declaration_md" : "class Cupboard : NSObject"
+              "swift_declaration_html" : "class Cupboard: <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>",
+              "swift_declaration_md" : "class Cupboard: NSObject"
             },
             "primary_language" : "j2-objc",
             "primary_title_html" : "<span class=\"j2-item-secondary\">@interface <\/span>JMLKitchenCupboard",
@@ -1319,8 +1319,8 @@
       "discouraged" : false,
       "objc_declaration_html" : "@interface ExposedSwiftClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>",
       "objc_declaration_md" : "@interface ExposedSwiftClass : NSObject",
-      "swift_declaration_html" : "public class ExposedSwiftClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>",
-      "swift_declaration_md" : "public class ExposedSwiftClass : NSObject"
+      "swift_declaration_html" : "public class ExposedSwiftClass: <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>",
+      "swift_declaration_md" : "public class ExposedSwiftClass: NSObject"
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
@@ -1641,8 +1641,8 @@
       "discouraged" : false,
       "objc_declaration_html" : "@interface RenamedForObjC : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>",
       "objc_declaration_md" : "@interface RenamedForObjC : NSObject",
-      "swift_declaration_html" : "public class RenamedExposedSwiftClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>",
-      "swift_declaration_md" : "public class RenamedExposedSwiftClass : NSObject"
+      "swift_declaration_html" : "public class RenamedExposedSwiftClass: <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>",
+      "swift_declaration_md" : "public class RenamedExposedSwiftClass: NSObject"
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
@@ -1925,8 +1925,8 @@
       "discussion_md" : "See [`-objcNormalMethod`](..\/..\/spmobjcmodule\/types\/normalclass1.md#objcnormalmethod).",
       "objc_declaration_html" : "@interface NormalClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>",
       "objc_declaration_md" : "@interface NormalClass : NSObject",
-      "swift_declaration_html" : "class NormalClass : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>",
-      "swift_declaration_md" : "class NormalClass : NSObject"
+      "swift_declaration_html" : "class NormalClass: <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>",
+      "swift_declaration_md" : "class NormalClass: NSObject"
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
@@ -2189,8 +2189,8 @@
       "discouraged" : false,
       "objc_declaration_html" : "@interface JMLKitchenCupboard : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=objc\">NSObject<\/a>",
       "objc_declaration_md" : "@interface JMLKitchenCupboard : NSObject",
-      "swift_declaration_html" : "class Cupboard : <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>",
-      "swift_declaration_md" : "class Cupboard : NSObject"
+      "swift_declaration_html" : "class Cupboard: <a href=\"https:\/\/developer.apple.com\/documentation\/objectivec\/nsobject?language=swift\">NSObject<\/a>",
+      "swift_declaration_md" : "class Cupboard: NSObject"
     },
     "default_language" : "j2-swift",
     "disable_search" : false,

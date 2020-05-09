@@ -161,7 +161,7 @@ A derived class
 #### Declaration
 
 ``` swift
-public class ADerivedClass<T, Q> : ABaseClass where Q : Sequence
+public class ADerivedClass<T, Q>: ABaseClass where Q: Sequence
 ```
 
 
@@ -292,7 +292,7 @@ Undocumented
 ``` swift
 class GenericBase<T>
 
-extension GenericBase : CustomStringConvertible
+extension GenericBase: CustomStringConvertible
 ```
 
 
@@ -422,7 +422,7 @@ Undocumented
 #### Declaration
 
 ``` swift
-public protocol SecondProtocol : FirstProtocol
+public protocol SecondProtocol: FirstProtocol
 ```
 
 

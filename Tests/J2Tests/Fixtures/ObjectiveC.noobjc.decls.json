@@ -68,7 +68,7 @@
     "swift_declaration" : {
       "availability" : [],
       "declaration" : {
-        "text" : "class IVarTest : NSObject"
+        "text" : "class IVarTest: NSObject"
       },
       "deprecated_everywhere" : false,
       "inherited_types" : [],
@@ -427,7 +427,7 @@
     "swift_declaration" : {
       "availability" : [],
       "declaration" : {
-        "text" : "class PropertyKinds : NSObject"
+        "text" : "class PropertyKinds: NSObject"
       },
       "deprecated_everywhere" : false,
       "inherited_types" : [],
@@ -697,7 +697,7 @@
     "swift_declaration" : {
       "availability" : [],
       "declaration" : {
-        "text" : "enum AEnum : Int"
+        "text" : "enum AEnum: Int"
       },
       "deprecated_everywhere" : false,
       "inherited_types" : [],
@@ -746,7 +746,7 @@
     "swift_declaration" : {
       "availability" : [],
       "declaration" : {
-        "text" : "struct ASimpleEnum : Equatable, RawRepresentable"
+        "text" : "struct ASimpleEnum: Equatable, RawRepresentable"
       },
       "deprecated_everywhere" : false,
       "inherited_types" : [],
@@ -941,7 +941,7 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : {
-            "text" : "func pop(with weight: String!, secondValue density: Int) -> AutoreleasingUnsafeMutablePointer<ElementType?>!"
+            "text" : "func pop(with weight: String!, secondValue density: Int)\n    -> AutoreleasingUnsafeMutablePointer<ElementType?>!"
           },
           "deprecated_everywhere" : false,
           "inherited_types" : [],
@@ -995,7 +995,7 @@
     "swift_declaration" : {
       "availability" : [],
       "declaration" : {
-        "text" : "class Stack<ElementType> : NSObject where ElementType : AnyObject"
+        "text" : "class Stack<ElementType>: NSObject where ElementType: AnyObject"
       },
       "deprecated_everywhere" : false,
       "inherited_types" : [],

@@ -184,9 +184,10 @@ See [`SpmSwiftModule`](types/spmswiftmodule.md) – or [`SpmSwiftModule.ABaseCla
 #### Declaration
 
 ``` swift
-public func functionA(arg1: Int,
-                      _ arg2: Int,
-                      arg3 argMeaning: Int)
+public func functionA(
+    arg1: Int,
+    _ arg2: Int,
+    arg3 argMeaning: Int)
 ```
 
 

@@ -85,7 +85,7 @@ Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
 
 
 ``` swift
-public class ADerivedClass<T, Q> : ABaseClass where Q : Sequence
+public class ADerivedClass<T, Q>: ABaseClass where Q: Sequence
 ```
 
 

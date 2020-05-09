@@ -102,7 +102,7 @@ class SwiftDeclarationBuilder {
             // Not working around SR-2608 (= default) or SR-6321 (type attrs) --- too old
         }
 
-        guard let bestDeclaration = neatParsedDecl ?? compilerDecl else {
+        guard let bestDeclaration = (neatParsedDecl ?? compilerDecl).flatMap({ format(declaration: $0 )}) else {
             let name = dict.name ?? "(unknown)"
             logDebug("Couldn't figure out a declaration for '\(name)'.")
             return nil
@@ -254,6 +254,20 @@ class SwiftDeclarationBuilder {
             attrs += docDecl.swiftAttributes(attrPattern: "available")
         }
         return attrs
+    }
+
+    /// Tidy up the declaration to fit on the screen.
+    /// We could add more tweakables here, eg. drop the ACL & other attributes; ignore source formatting.
+    func format(declaration: String) -> String {
+        if let kind = kind {
+            if kind.isSwiftProperty {
+                return DeclPrinter.formatVar(swift: declaration)
+            }
+            if kind.isSwiftBodiedType {
+                return DeclPrinter.formatStructural(swift: declaration)
+            }
+        }
+        return DeclPrinter.format(swift: declaration)
     }
 }
 

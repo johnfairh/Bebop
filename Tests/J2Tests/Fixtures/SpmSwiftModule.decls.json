@@ -476,7 +476,7 @@
     "swift_declaration" : {
       "availability" : [],
       "declaration" : {
-        "text" : "class GenericBase<T>\n\nextension GenericBase : CustomStringConvertible"
+        "text" : "class GenericBase<T>\n\nextension GenericBase: CustomStringConvertible"
       },
       "deprecated_everywhere" : false,
       "inherited_types" : [],
@@ -1037,7 +1037,7 @@
     "swift_declaration" : {
       "availability" : [],
       "declaration" : {
-        "text" : "public protocol SecondProtocol : FirstProtocol"
+        "text" : "public protocol SecondProtocol: FirstProtocol"
       },
       "deprecated_everywhere" : false,
       "inherited_types" : [
@@ -1756,7 +1756,7 @@
         "macOS 10.12+"
       ],
       "declaration" : {
-        "text" : "public func functionA(arg1: Int,\n                      _ arg2: Int,\n                      arg3 argMeaning: Int)"
+        "text" : "public func functionA(\n    arg1: Int,\n    _ arg2: Int,\n    arg3 argMeaning: Int)"
       },
       "deprecated_everywhere" : false,
       "inherited_types" : [],
@@ -2593,7 +2593,7 @@
     "swift_declaration" : {
       "availability" : [],
       "declaration" : {
-        "text" : "public class ADerivedClass<T, Q> : ABaseClass where Q : Sequence"
+        "text" : "public class ADerivedClass<T, Q>: ABaseClass where Q: Sequence"
       },
       "deprecated_everywhere" : false,
       "inherited_types" : [

@@ -156,7 +156,7 @@
     "swift_declaration" : {
       "availability" : [],
       "declaration" : {
-        "text" : "open class PublicClass\n\nextension PublicClass : PublicProtocol\n\nextension PublicClass: CustomStringConvertible"
+        "text" : "open class PublicClass\n\nextension PublicClass: CustomStringConvertible\n\nextension PublicClass: PublicProtocol"
       },
       "deprecated_everywhere" : false,
       "inherited_types" : [],

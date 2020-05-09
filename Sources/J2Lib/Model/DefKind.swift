@@ -262,6 +262,15 @@ public final class DefKind: CustomStringConvertible {
         ])
     }
 
+    /// Is it a Swift nominal type _with a body_?
+    public var isSwiftBodiedType: Bool {
+        testSwiftKey(keys: [
+            .class,
+            .protocol,
+            .struct,
+            .enum]) || isSwiftExtension
+    }
+
     /// Is this a generic type parameter (The T in `class N<T>`)
     public var isGenericParameter: Bool {
         testSwiftKey(keys: [.genericTypeParam])

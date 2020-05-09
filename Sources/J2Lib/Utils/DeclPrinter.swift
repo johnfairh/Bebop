@@ -74,7 +74,7 @@ enum DeclPrinter {
     /// Format a Swift structural type declaration
     /// Stick in some empty braces to keep SwiftFormat happy
     static func formatStructural(swift: String) -> String {
-        let formatted = shared.format(swift: swift + "{}")
+        let formatted = shared.format(swift: swift + " {}")
         return formatted.re_sub(#"\s+\{\s*\}$"#, with: "")
     }
 }

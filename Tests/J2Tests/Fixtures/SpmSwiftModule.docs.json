@@ -211,8 +211,8 @@
               "abstract_html" : "<p>A derived class<\/p>",
               "abstract_md" : "A derived class",
               "discouraged" : false,
-              "swift_declaration_html" : "public class ADerivedClass&lt;T, Q&gt; : <a href=\"types\/abaseclass.html?swift\">ABaseClass<\/a> where Q : Sequence",
-              "swift_declaration_md" : "public class ADerivedClass<T, Q> : ABaseClass where Q : Sequence"
+              "swift_declaration_html" : "public class ADerivedClass&lt;T, Q&gt;: <a href=\"types\/abaseclass.html?swift\">ABaseClass<\/a> where Q: Sequence",
+              "swift_declaration_md" : "public class ADerivedClass<T, Q>: ABaseClass where Q: Sequence"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">class <\/span>ADerivedClass",
@@ -262,8 +262,8 @@
               "abstract_html" : "<p>Undocumented<\/p>",
               "abstract_md" : "Undocumented",
               "discouraged" : false,
-              "swift_declaration_html" : "class GenericBase&lt;T&gt;\n\nextension GenericBase : CustomStringConvertible",
-              "swift_declaration_md" : "class GenericBase<T>\n\nextension GenericBase : CustomStringConvertible"
+              "swift_declaration_html" : "class GenericBase&lt;T&gt;\n\nextension GenericBase: CustomStringConvertible",
+              "swift_declaration_md" : "class GenericBase<T>\n\nextension GenericBase: CustomStringConvertible"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">class <\/span>GenericBase",
@@ -313,8 +313,8 @@
               "abstract_html" : "<p>Undocumented<\/p>",
               "abstract_md" : "Undocumented",
               "discouraged" : false,
-              "swift_declaration_html" : "public protocol SecondProtocol : <a href=\"types\/firstprotocol1.html?swift\">FirstProtocol<\/a>",
-              "swift_declaration_md" : "public protocol SecondProtocol : FirstProtocol"
+              "swift_declaration_html" : "public protocol SecondProtocol: <a href=\"types\/firstprotocol1.html?swift\">FirstProtocol<\/a>",
+              "swift_declaration_md" : "public protocol SecondProtocol: FirstProtocol"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">protocol <\/span>SecondProtocol",
@@ -846,8 +846,8 @@
       "abstract_html" : "<p>A derived class<\/p>",
       "abstract_md" : "A derived class",
       "discouraged" : false,
-      "swift_declaration_html" : "public class ADerivedClass&lt;T, Q&gt; : <a href=\"..\/types\/abaseclass.html?swift\">ABaseClass<\/a> where Q : Sequence",
-      "swift_declaration_md" : "public class ADerivedClass<T, Q> : ABaseClass where Q : Sequence"
+      "swift_declaration_html" : "public class ADerivedClass&lt;T, Q&gt;: <a href=\"..\/types\/abaseclass.html?swift\">ABaseClass<\/a> where Q: Sequence",
+      "swift_declaration_md" : "public class ADerivedClass<T, Q>: ABaseClass where Q: Sequence"
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
@@ -1842,8 +1842,8 @@
       "abstract_html" : "<p>Undocumented<\/p>",
       "abstract_md" : "Undocumented",
       "discouraged" : false,
-      "swift_declaration_html" : "class GenericBase&lt;T&gt;\n\nextension GenericBase : CustomStringConvertible",
-      "swift_declaration_md" : "class GenericBase<T>\n\nextension GenericBase : CustomStringConvertible"
+      "swift_declaration_html" : "class GenericBase&lt;T&gt;\n\nextension GenericBase: CustomStringConvertible",
+      "swift_declaration_md" : "class GenericBase<T>\n\nextension GenericBase: CustomStringConvertible"
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
@@ -2793,8 +2793,8 @@
       "abstract_html" : "<p>Undocumented<\/p>",
       "abstract_md" : "Undocumented",
       "discouraged" : false,
-      "swift_declaration_html" : "public protocol SecondProtocol : <a href=\"..\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>",
-      "swift_declaration_md" : "public protocol SecondProtocol : FirstProtocol"
+      "swift_declaration_html" : "public protocol SecondProtocol: <a href=\"..\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>",
+      "swift_declaration_md" : "public protocol SecondProtocol: FirstProtocol"
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
@@ -3887,8 +3887,8 @@
                   "title" : "arg3"
                 }
               ],
-              "swift_declaration_html" : "public func functionA(arg1: Int,\n                      _ arg2: Int,\n                      arg3 argMeaning: Int)",
-              "swift_declaration_md" : "public func functionA(arg1: Int,\n                      _ arg2: Int,\n                      arg3 argMeaning: Int)"
+              "swift_declaration_html" : "public func functionA(\n    arg1: Int,\n    _ arg2: Int,\n    arg3 argMeaning: Int)",
+              "swift_declaration_md" : "public func functionA(\n    arg1: Int,\n    _ arg2: Int,\n    arg3 argMeaning: Int)"
             },
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>functionA<span class=\"j2-item-secondary\">(<\/span>arg1<span class=\"j2-item-secondary\">: Int, Int, <\/span>arg3<span class=\"j2-item-secondary\">: Int)<\/span>",

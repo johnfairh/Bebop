@@ -94,9 +94,9 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "value" : "public class ADerivedClass&lt;T, Q&gt; : <a href=\"spmswiftmodule\/types\/abaseclass.html?swift\">ABaseClass<\/a> where Q : Sequence"
+                    "value" : "public class ADerivedClass&lt;T, Q&gt;: <a href=\"spmswiftmodule\/types\/abaseclass.html?swift\">ABaseClass<\/a> where Q: Sequence"
                   },
-                  "text" : "public class ADerivedClass<T, Q> : ABaseClass where Q : Sequence"
+                  "text" : "public class ADerivedClass<T, Q>: ABaseClass where Q: Sequence"
                 }
               },
               "flat_title" : {
@@ -193,9 +193,9 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "value" : "class GenericBase&lt;T&gt;\n\nextension GenericBase : CustomStringConvertible"
+                    "value" : "class GenericBase&lt;T&gt;\n\nextension GenericBase: CustomStringConvertible"
                   },
-                  "text" : "class GenericBase<T>\n\nextension GenericBase : CustomStringConvertible"
+                  "text" : "class GenericBase<T>\n\nextension GenericBase: CustomStringConvertible"
                 }
               },
               "flat_title" : {
@@ -292,9 +292,9 @@
                 "params" : [],
                 "swift_declaration" : {
                   "html" : {
-                    "value" : "public protocol SecondProtocol : <a href=\"spmswiftmodule\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>"
+                    "value" : "public protocol SecondProtocol: <a href=\"spmswiftmodule\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>"
                   },
-                  "text" : "public protocol SecondProtocol : FirstProtocol"
+                  "text" : "public protocol SecondProtocol: FirstProtocol"
                 }
               },
               "flat_title" : {
@@ -898,9 +898,9 @@
         "params" : [],
         "swift_declaration" : {
           "html" : {
-            "value" : "public class ADerivedClass&lt;T, Q&gt; : <a href=\"..\/..\/spmswiftmodule\/types\/abaseclass.html?swift\">ABaseClass<\/a> where Q : Sequence"
+            "value" : "public class ADerivedClass&lt;T, Q&gt;: <a href=\"..\/..\/spmswiftmodule\/types\/abaseclass.html?swift\">ABaseClass<\/a> where Q: Sequence"
           },
-          "text" : "public class ADerivedClass<T, Q> : ABaseClass where Q : Sequence"
+          "text" : "public class ADerivedClass<T, Q>: ABaseClass where Q: Sequence"
         }
       },
       "guide_topics" : {},
@@ -1811,9 +1811,9 @@
         "params" : [],
         "swift_declaration" : {
           "html" : {
-            "value" : "class GenericBase&lt;T&gt;\n\nextension GenericBase : CustomStringConvertible"
+            "value" : "class GenericBase&lt;T&gt;\n\nextension GenericBase: CustomStringConvertible"
           },
-          "text" : "class GenericBase<T>\n\nextension GenericBase : CustomStringConvertible"
+          "text" : "class GenericBase<T>\n\nextension GenericBase: CustomStringConvertible"
         }
       },
       "guide_topics" : {},
@@ -2552,9 +2552,9 @@
         "params" : [],
         "swift_declaration" : {
           "html" : {
-            "value" : "public protocol SecondProtocol : <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>"
+            "value" : "public protocol SecondProtocol: <a href=\"..\/..\/spmswiftmodule\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>"
           },
-          "text" : "public protocol SecondProtocol : FirstProtocol"
+          "text" : "public protocol SecondProtocol: FirstProtocol"
         }
       },
       "guide_topics" : {},
@@ -3456,9 +3456,9 @@
                 ],
                 "swift_declaration" : {
                   "html" : {
-                    "value" : "public func functionA(arg1: Int,\n                      _ arg2: Int,\n                      arg3 argMeaning: Int)"
+                    "value" : "public func functionA(\n    arg1: Int,\n    _ arg2: Int,\n    arg3 argMeaning: Int)"
                   },
-                  "text" : "public func functionA(arg1: Int,\n                      _ arg2: Int,\n                      arg3 argMeaning: Int)"
+                  "text" : "public func functionA(\n    arg1: Int,\n    _ arg2: Int,\n    arg3 argMeaning: Int)"
                 }
               },
               "flat_title" : {

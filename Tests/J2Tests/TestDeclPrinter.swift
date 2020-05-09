@@ -30,6 +30,11 @@ class TestDeclPrinter: XCTestCase {
         let vardecl = "private var a: Int { get set }"
         XCTAssertEqual(vardecl, DeclPrinter.format(swift: vardecl))
         XCTAssertEqual(2, TestLogger.shared.diagsBuf.count)
+
+        // ...unless they're on a subscript
+        let subsdecl = "subscript(index: Int) -> String { get }"
+        XCTAssertEqual(subsdecl, DeclPrinter.format(swift: subsdecl))
+        XCTAssertEqual(2, TestLogger.shared.diagsBuf.count)
     }
 
     // VarDecl fixups

@@ -57,7 +57,7 @@
               "key.j2.name_piece_text" : "IVarTest"
             }
           ],
-          "key.j2.swift_declaration" : "class IVarTest : NSObject",
+          "key.j2.swift_declaration" : "class IVarTest: NSObject",
           "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
@@ -193,7 +193,7 @@
               "key.j2.name_piece_text" : "PropertyKinds"
             }
           ],
-          "key.j2.swift_declaration" : "class PropertyKinds : NSObject",
+          "key.j2.swift_declaration" : "class PropertyKinds: NSObject",
           "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
@@ -873,7 +873,7 @@
               "key.j2.name_piece_text" : "AEnum"
             }
           ],
-          "key.j2.swift_declaration" : "enum AEnum : Int",
+          "key.j2.swift_declaration" : "enum AEnum: Int",
           "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
@@ -1017,7 +1017,7 @@
               "key.j2.name_piece_text" : "ASimpleEnum"
             }
           ],
-          "key.j2.swift_declaration" : "struct ASimpleEnum : Equatable, RawRepresentable",
+          "key.j2.swift_declaration" : "struct ASimpleEnum: Equatable, RawRepresentable",
           "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
@@ -1377,7 +1377,7 @@
               "key.j2.name_piece_text" : "Stack"
             }
           ],
-          "key.j2.swift_declaration" : "class Stack<ElementType> : NSObject where ElementType : AnyObject",
+          "key.j2.swift_declaration" : "class Stack<ElementType>: NSObject where ElementType: AnyObject",
           "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
@@ -1435,7 +1435,7 @@
                   "key.j2.name_piece_text" : ":(NSInteger)density"
                 }
               ],
-              "key.j2.swift_declaration" : "func pop(with weight: String!, secondValue density: Int) -> AutoreleasingUnsafeMutablePointer<ElementType?>!",
+              "key.j2.swift_declaration" : "func pop(with weight: String!, secondValue density: Int)\n    -> AutoreleasingUnsafeMutablePointer<ElementType?>!",
               "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {

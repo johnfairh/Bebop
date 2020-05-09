@@ -87,7 +87,7 @@ Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
 ``` swift
 class GenericBase<T>
 
-extension GenericBase : CustomStringConvertible
+extension GenericBase: CustomStringConvertible
 ```
 
 

@@ -306,7 +306,7 @@
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/J2Tests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
           "key.fully_annotated_decl" : "<decl.class><syntaxtype.keyword>class<\/syntaxtype.keyword> <decl.name>GenericBase<\/decl.name>&lt;<decl.generic_type_param usr=\"s:14SpmSwiftModule11GenericBaseC1Txmfp\"><decl.generic_type_param.name>T<\/decl.generic_type_param.name><\/decl.generic_type_param>&gt;<\/decl.class>",
           "key.j2.is_override" : false,
-          "key.j2.swift_declaration" : "extension GenericBase where T: Equatable,\n                            T: FirstProtocol",
+          "key.j2.swift_declaration" : "extension GenericBase\nwhere\n    T: Equatable,\n    T: FirstProtocol",
           "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
@@ -515,7 +515,7 @@
             }
           ],
           "key.j2.is_override" : false,
-          "key.j2.swift_declaration" : "extension GenericBase : CustomStringConvertible",
+          "key.j2.swift_declaration" : "extension GenericBase: CustomStringConvertible",
           "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
@@ -1825,7 +1825,7 @@
             }
           ],
           "key.j2.is_override" : false,
-          "key.j2.swift_declaration" : "public protocol SecondProtocol : FirstProtocol",
+          "key.j2.swift_declaration" : "public protocol SecondProtocol: FirstProtocol",
           "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
@@ -2830,7 +2830,7 @@
             ]
           },
           "key.j2.is_override" : false,
-          "key.j2.swift_declaration" : "public func functionA(arg1: Int,\n                      _ arg2: Int,\n                      arg3 argMeaning: Int)",
+          "key.j2.swift_declaration" : "public func functionA(\n    arg1: Int,\n    _ arg2: Int,\n    arg3 argMeaning: Int)",
           "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
@@ -3930,7 +3930,7 @@
             }
           ],
           "key.j2.is_override" : false,
-          "key.j2.swift_declaration" : "public class ADerivedClass<T, Q> : ABaseClass where Q : Sequence",
+          "key.j2.swift_declaration" : "public class ADerivedClass<T, Q>: ABaseClass where Q: Sequence",
           "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {

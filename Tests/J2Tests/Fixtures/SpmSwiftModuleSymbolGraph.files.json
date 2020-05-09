@@ -217,7 +217,7 @@
           "key.fully_annotated_decl" : "<swift>protocol SecondProtocol : FirstProtocol<\/swift>",
           "key.inherited_docs" : true,
           "key.j2.is_override" : false,
-          "key.j2.swift_declaration" : "protocol SecondProtocol : FirstProtocol",
+          "key.j2.swift_declaration" : "protocol SecondProtocol: FirstProtocol",
           "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
@@ -415,7 +415,7 @@
               "key.fully_annotated_decl" : "<swift>struct Nested2&lt;T&gt; where T : Equatable<\/swift>",
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
-              "key.j2.swift_declaration" : "struct Nested2<T> where T : Equatable",
+              "key.j2.swift_declaration" : "struct Nested2<T> where T: Equatable",
               "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
@@ -1084,7 +1084,7 @@
             "key.j2.doc_source" : "docComment"
           },
           "key.j2.is_override" : false,
-          "key.j2.swift_declaration" : "class ADerivedClass<T, Q> : ABaseClass where Q : Sequence",
+          "key.j2.swift_declaration" : "class ADerivedClass<T, Q>: ABaseClass where Q: Sequence",
           "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
@@ -1186,7 +1186,7 @@
               "key.fully_annotated_decl" : "<swift>func generic&lt;R&gt;(param: T, my param2: R) -&gt; T where R : Sequence, R.Element : FirstProtocol<\/swift>",
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
-              "key.j2.swift_declaration" : "func generic<R>(param: T, my param2: R) -> T where R : Sequence, R.Element : FirstProtocol",
+              "key.j2.swift_declaration" : "func generic<R>(param: T, my param2: R) -> T\nwhere R: Sequence, R.Element: FirstProtocol",
               "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
@@ -1568,7 +1568,7 @@
           "key.fully_annotated_decl" : "<swift>struct S1 : P1<\/swift>",
           "key.inherited_docs" : true,
           "key.j2.is_override" : false,
-          "key.j2.swift_declaration" : "struct S1 : P1",
+          "key.j2.swift_declaration" : "struct S1: P1",
           "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
@@ -1627,7 +1627,7 @@
           "key.fully_annotated_decl" : "<swift>struct S2&lt;T&gt; : P1 where T : Equatable<\/swift>",
           "key.inherited_docs" : true,
           "key.j2.is_override" : false,
-          "key.j2.swift_declaration" : "struct S2<T> : P1 where T : Equatable",
+          "key.j2.swift_declaration" : "struct S2<T>: P1 where T: Equatable",
           "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
@@ -1754,7 +1754,7 @@
         {
           "key.fully_annotated_decl" : "<swift>extension ADerivedClass where T : Equatable<\/swift>",
           "key.j2.is_override" : false,
-          "key.j2.swift_declaration" : "extension ADerivedClass where T : Equatable",
+          "key.j2.swift_declaration" : "extension ADerivedClass where T: Equatable",
           "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
@@ -1895,7 +1895,7 @@
               "key.fully_annotated_decl" : "<swift>func e&lt;C&gt;(a: C) where C : FirstProtocol<\/swift>",
               "key.inherited_docs" : true,
               "key.j2.is_override" : false,
-              "key.j2.swift_declaration" : "func e<C>(a: C) where C : FirstProtocol",
+              "key.j2.swift_declaration" : "func e<C>(a: C) where C: FirstProtocol",
               "key.j2.swift_deprecated_everywhere" : false,
               "key.j2.swift_name_pieces" : [
                 {
@@ -2026,7 +2026,7 @@
         {
           "key.fully_annotated_decl" : "<swift>extension FirstProtocol where AssocType : Hashable<\/swift>",
           "key.j2.is_override" : false,
-          "key.j2.swift_declaration" : "extension FirstProtocol where AssocType : Hashable",
+          "key.j2.swift_declaration" : "extension FirstProtocol where AssocType: Hashable",
           "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
@@ -2139,7 +2139,7 @@
             }
           ],
           "key.j2.is_override" : false,
-          "key.j2.swift_declaration" : "extension GenericBase : CustomStringConvertible",
+          "key.j2.swift_declaration" : "extension GenericBase: CustomStringConvertible",
           "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
@@ -2160,7 +2160,7 @@
         {
           "key.fully_annotated_decl" : "<swift>extension GenericBase where T : Decodable, T : Encodable<\/swift>",
           "key.j2.is_override" : false,
-          "key.j2.swift_declaration" : "extension GenericBase where T : Decodable, T : Encodable",
+          "key.j2.swift_declaration" : "extension GenericBase where T: Decodable, T: Encodable",
           "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
@@ -2235,7 +2235,7 @@
         {
           "key.fully_annotated_decl" : "<swift>extension GenericBase where T : Equatable, T : FirstProtocol<\/swift>",
           "key.j2.is_override" : false,
-          "key.j2.swift_declaration" : "extension GenericBase where T : Equatable, T : FirstProtocol",
+          "key.j2.swift_declaration" : "extension GenericBase where T: Equatable, T: FirstProtocol",
           "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
@@ -2310,7 +2310,7 @@
         {
           "key.fully_annotated_decl" : "<swift>extension GenericBase where T : Hashable<\/swift>",
           "key.j2.is_override" : false,
-          "key.j2.swift_declaration" : "extension GenericBase where T : Hashable",
+          "key.j2.swift_declaration" : "extension GenericBase where T: Hashable",
           "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
@@ -2369,7 +2369,7 @@
             }
           ],
           "key.j2.is_override" : false,
-          "key.j2.swift_declaration" : "extension S1 : CustomStringConvertible",
+          "key.j2.swift_declaration" : "extension S1: CustomStringConvertible",
           "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
@@ -2400,7 +2400,7 @@
             }
           ],
           "key.j2.is_override" : false,
-          "key.j2.swift_declaration" : "extension S2 : P2 where T : Comparable",
+          "key.j2.swift_declaration" : "extension S2: P2 where T: Comparable",
           "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
@@ -2459,7 +2459,7 @@
             }
           ],
           "key.j2.is_override" : false,
-          "key.j2.swift_declaration" : "extension S2 : Equatable",
+          "key.j2.swift_declaration" : "extension S2: Equatable",
           "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
@@ -2500,7 +2500,7 @@
             }
           ],
           "key.j2.is_override" : false,
-          "key.j2.swift_declaration" : "extension Array : P1 where Element : Comparable",
+          "key.j2.swift_declaration" : "extension Array: P1 where Element: Comparable",
           "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
@@ -2624,7 +2624,7 @@
         {
           "key.fully_annotated_decl" : "<swift>extension Collection where Element : FirstProtocol<\/swift>",
           "key.j2.is_override" : false,
-          "key.j2.swift_declaration" : "extension Collection where Element : FirstProtocol",
+          "key.j2.swift_declaration" : "extension Collection where Element: FirstProtocol",
           "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
@@ -2732,7 +2732,7 @@
             }
           ],
           "key.j2.is_override" : false,
-          "key.j2.swift_declaration" : "extension Dictionary : P2 where Key : Hashable",
+          "key.j2.swift_declaration" : "extension Dictionary: P2 where Key: Hashable",
           "key.j2.swift_deprecated_everywhere" : false,
           "key.j2.swift_name_pieces" : [
             {
