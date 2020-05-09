@@ -95,7 +95,7 @@ class SwiftDeclarationBuilder {
             if (kind?.isSwiftExtension ?? false) ||
                 // Use parsed if compiler is missing (impossible?)
                 compilerDecl == nil ||
-                // Use parsed if it's multi-line _except_ vars where we want the { get} form
+                // Use parsed if it's multi-line _except_ vars where we want the { get } form
                 (parsedDecl.contains("\n") && !(kind?.isSwiftProperty ?? false)) {
                 neatParsedDecl = parse(parsedDecl: parsedDecl)
             }

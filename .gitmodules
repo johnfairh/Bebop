@@ -1,3 +1,7 @@
 [submodule "Syntax/swift-syntax"]
 	path = Syntax/swift-syntax
 	url = git://github.com/apple/swift-syntax.git
+[submodule "Format/swift-format"]
+	path = Format/swift-format
+	url = https://github.com/apple/swift-format.git
+	branch = swift-5.2-branch

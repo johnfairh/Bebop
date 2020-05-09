@@ -89,6 +89,18 @@
 		029A717923D9A46300D66069 /* TestLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029A717823D9A46300D66069 /* TestLogger.swift */; };
 		029A717B23D9B2AC00D66069 /* TestConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029A717A23D9B2AC00D66069 /* TestConfig.swift */; };
 		029A717F23D9F91200D66069 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029A717E23D9F91200D66069 /* FileManager.swift */; };
+		02A0BE6324670F6E00594485 /* SwiftFormatPrettyPrint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02A0BE5D24670F6E00594485 /* SwiftFormatPrettyPrint.framework */; };
+		02A0BE6424670F6E00594485 /* SwiftFormatPrettyPrint.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02A0BE5D24670F6E00594485 /* SwiftFormatPrettyPrint.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		02A0BE6524670F6E00594485 /* SwiftFormatRules.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02A0BE5E24670F6E00594485 /* SwiftFormatRules.framework */; };
+		02A0BE6624670F6E00594485 /* SwiftFormatRules.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02A0BE5E24670F6E00594485 /* SwiftFormatRules.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		02A0BE6724670F6E00594485 /* SwiftFormat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02A0BE5F24670F6E00594485 /* SwiftFormat.framework */; };
+		02A0BE6824670F6E00594485 /* SwiftFormat.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02A0BE5F24670F6E00594485 /* SwiftFormat.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		02A0BE6924670F6E00594485 /* SwiftFormatCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02A0BE6024670F6E00594485 /* SwiftFormatCore.framework */; };
+		02A0BE6A24670F6E00594485 /* SwiftFormatCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02A0BE6024670F6E00594485 /* SwiftFormatCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		02A0BE6B24670F6E00594485 /* SwiftFormatConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02A0BE6124670F6E00594485 /* SwiftFormatConfiguration.framework */; };
+		02A0BE6C24670F6E00594485 /* SwiftFormatConfiguration.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02A0BE6124670F6E00594485 /* SwiftFormatConfiguration.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		02A0BE6D24670F6E00594485 /* SwiftFormatWhitespaceLinter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02A0BE6224670F6E00594485 /* SwiftFormatWhitespaceLinter.framework */; };
+		02A0BE6E24670F6E00594485 /* SwiftFormatWhitespaceLinter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02A0BE6224670F6E00594485 /* SwiftFormatWhitespaceLinter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		02AE7ED624485B5500B4A566 /* Published.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AE7ED524485B5500B4A566 /* Published.swift */; };
 		02C2401C239A6F0700518764 /* J2Lib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C24012239A6F0700518764 /* J2Lib.framework */; };
 		02CFF91723DDFB0100FDE5B9 /* SourceKittenFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02CFF90A23DDF9DF00FDE5B9 /* SourceKittenFramework.framework */; };
@@ -213,9 +225,15 @@
 			dstSubfolderSpec = 10;
 			files = (
 				02CFFA4C23E8461800FDE5B9 /* libcmark_gfm.framework in Embed Frameworks */,
+				02A0BE6824670F6E00594485 /* SwiftFormat.framework in Embed Frameworks */,
+				02A0BE6E24670F6E00594485 /* SwiftFormatWhitespaceLinter.framework in Embed Frameworks */,
+				02A0BE6A24670F6E00594485 /* SwiftFormatCore.framework in Embed Frameworks */,
 				02CFF9692424CD4900320610 /* SortedArray.framework in Embed Frameworks */,
 				02CFFA0E23E1973300FDE5B9 /* Mustache.framework in Embed Frameworks */,
+				02A0BE6624670F6E00594485 /* SwiftFormatRules.framework in Embed Frameworks */,
 				02CFFA4E23E8461A00FDE5B9 /* Maaku.framework in Embed Frameworks */,
+				02A0BE6C24670F6E00594485 /* SwiftFormatConfiguration.framework in Embed Frameworks */,
+				02A0BE6424670F6E00594485 /* SwiftFormatPrettyPrint.framework in Embed Frameworks */,
 				02CFF91D23DDFB0600FDE5B9 /* Yams.framework in Embed Frameworks */,
 				02CFF91B23DDFB0500FDE5B9 /* SWXMLHash.framework in Embed Frameworks */,
 				02CFFA3C23E4B1F100FDE5B9 /* _CSwiftSyntax.framework in Embed Frameworks */,
@@ -339,6 +357,12 @@
 		029A717E23D9F91200D66069 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		029A718423DB04F300D66069 /* J2Resources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = J2Resources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		029A718623DB04F300D66069 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02A0BE5D24670F6E00594485 /* SwiftFormatPrettyPrint.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftFormatPrettyPrint.framework; path = Format/SwiftFormatPrettyPrint.framework; sourceTree = "<group>"; };
+		02A0BE5E24670F6E00594485 /* SwiftFormatRules.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftFormatRules.framework; path = Format/SwiftFormatRules.framework; sourceTree = "<group>"; };
+		02A0BE5F24670F6E00594485 /* SwiftFormat.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftFormat.framework; path = Format/SwiftFormat.framework; sourceTree = "<group>"; };
+		02A0BE6024670F6E00594485 /* SwiftFormatCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftFormatCore.framework; path = Format/SwiftFormatCore.framework; sourceTree = "<group>"; };
+		02A0BE6124670F6E00594485 /* SwiftFormatConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftFormatConfiguration.framework; path = Format/SwiftFormatConfiguration.framework; sourceTree = "<group>"; };
+		02A0BE6224670F6E00594485 /* SwiftFormatWhitespaceLinter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftFormatWhitespaceLinter.framework; path = Format/SwiftFormatWhitespaceLinter.framework; sourceTree = "<group>"; };
 		02AE7ED524485B5500B4A566 /* Published.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Published.swift; sourceTree = "<group>"; };
 		02C24012239A6F0700518764 /* J2Lib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = J2Lib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		02C24016239A6F0700518764 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -422,9 +446,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				02CFFA4B23E8461800FDE5B9 /* libcmark_gfm.framework in Frameworks */,
+				02A0BE6724670F6E00594485 /* SwiftFormat.framework in Frameworks */,
+				02A0BE6D24670F6E00594485 /* SwiftFormatWhitespaceLinter.framework in Frameworks */,
+				02A0BE6924670F6E00594485 /* SwiftFormatCore.framework in Frameworks */,
 				02CFF9682424CD4900320610 /* SortedArray.framework in Frameworks */,
 				02CFFA0D23E1973300FDE5B9 /* Mustache.framework in Frameworks */,
+				02A0BE6524670F6E00594485 /* SwiftFormatRules.framework in Frameworks */,
 				02CFFA4D23E8461A00FDE5B9 /* Maaku.framework in Frameworks */,
+				02A0BE6B24670F6E00594485 /* SwiftFormatConfiguration.framework in Frameworks */,
+				02A0BE6324670F6E00594485 /* SwiftFormatPrettyPrint.framework in Frameworks */,
 				02CFF91C23DDFB0600FDE5B9 /* Yams.framework in Frameworks */,
 				02CFF91723DDFB0100FDE5B9 /* SourceKittenFramework.framework in Frameworks */,
 				02CFFA3B23E4B1F100FDE5B9 /* _CSwiftSyntax.framework in Frameworks */,
@@ -746,6 +776,12 @@
 		02F2B3C7239A804100397BC6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				02A0BE5F24670F6E00594485 /* SwiftFormat.framework */,
+				02A0BE6124670F6E00594485 /* SwiftFormatConfiguration.framework */,
+				02A0BE6024670F6E00594485 /* SwiftFormatCore.framework */,
+				02A0BE5D24670F6E00594485 /* SwiftFormatPrettyPrint.framework */,
+				02A0BE5E24670F6E00594485 /* SwiftFormatRules.framework */,
+				02A0BE6224670F6E00594485 /* SwiftFormatWhitespaceLinter.framework */,
 				020AC6F0245752CA00A0E634 /* libsass.dylib */,
 				02FFA85C244A099800192BF5 /* SQLite.framework */,
 				02CFF9672424CD4900320610 /* SortedArray.framework */,
@@ -1299,6 +1335,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 					"$(PROJECT_DIR)/Syntax",
+					"$(PROJECT_DIR)/Format",
 				);
 				HEADER_SEARCH_PATHS = /usr/local/include;
 				INFOPLIST_FILE = Sources/J2Lib/Info.plist;
@@ -1333,6 +1370,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 					"$(PROJECT_DIR)/Syntax",
+					"$(PROJECT_DIR)/Format",
 				);
 				HEADER_SEARCH_PATHS = /usr/local/include;
 				INFOPLIST_FILE = Sources/J2Lib/Info.plist;

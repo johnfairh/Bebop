@@ -28,7 +28,9 @@ let package = Package(
     .package(url: "https://github.com/ole/SortedArray.git",
              from: "0.7.0"),
     .package(url: "https://github.com/stephencelis/SQLite.swift.git",
-             from: "0.12.0")
+             from: "0.12.0"),
+    .package(url: "https://github.com/apple/swift-format",
+             .exact("0.50200.1"))
   ],
   targets: [
     .target(
@@ -42,7 +44,8 @@ let package = Package(
         "Maaku",
         "SortedArray",
         .product(name: "SQLite", package: "SQLite.swift"),
-        "libsass"
+        "libsass",
+        .product(name: "SwiftFormat", package: "swift-format")
       ]),
     .target(
       name: "J2CLI",

@@ -1,0 +1,11 @@
+Clone the right branch (match swiftsyntax)
+generate-xcodeproj
+build scheme
+copy frameworks from deriveddata:
+
+SwiftFormat
+SwiftFormatConfiguration
+SwiftFormatCore
+SwiftFormatPrettyPrint
+SwiftFormatRules
+SwiftFormatWhitespaceLinter
