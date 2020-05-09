@@ -101,6 +101,8 @@
 		02A0BE6C24670F6E00594485 /* SwiftFormatConfiguration.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02A0BE6124670F6E00594485 /* SwiftFormatConfiguration.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		02A0BE6D24670F6E00594485 /* SwiftFormatWhitespaceLinter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02A0BE6224670F6E00594485 /* SwiftFormatWhitespaceLinter.framework */; };
 		02A0BE6E24670F6E00594485 /* SwiftFormatWhitespaceLinter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02A0BE6224670F6E00594485 /* SwiftFormatWhitespaceLinter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		02A0BE702467116600594485 /* DeclPrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A0BE6F2467116600594485 /* DeclPrinter.swift */; };
+		02A0BE72246717F300594485 /* TestDeclPrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A0BE71246717F300594485 /* TestDeclPrinter.swift */; };
 		02AE7ED624485B5500B4A566 /* Published.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AE7ED524485B5500B4A566 /* Published.swift */; };
 		02C2401C239A6F0700518764 /* J2Lib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C24012239A6F0700518764 /* J2Lib.framework */; };
 		02CFF91723DDFB0100FDE5B9 /* SourceKittenFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02CFF90A23DDF9DF00FDE5B9 /* SourceKittenFramework.framework */; };
@@ -363,6 +365,8 @@
 		02A0BE6024670F6E00594485 /* SwiftFormatCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftFormatCore.framework; path = Format/SwiftFormatCore.framework; sourceTree = "<group>"; };
 		02A0BE6124670F6E00594485 /* SwiftFormatConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftFormatConfiguration.framework; path = Format/SwiftFormatConfiguration.framework; sourceTree = "<group>"; };
 		02A0BE6224670F6E00594485 /* SwiftFormatWhitespaceLinter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftFormatWhitespaceLinter.framework; path = Format/SwiftFormatWhitespaceLinter.framework; sourceTree = "<group>"; };
+		02A0BE6F2467116600594485 /* DeclPrinter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeclPrinter.swift; sourceTree = "<group>"; };
+		02A0BE71246717F300594485 /* TestDeclPrinter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDeclPrinter.swift; sourceTree = "<group>"; };
 		02AE7ED524485B5500B4A566 /* Published.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Published.swift; sourceTree = "<group>"; };
 		02C24012239A6F0700518764 /* J2Lib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = J2Lib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		02C24016239A6F0700518764 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -508,6 +512,7 @@
 				026C5146244E2FF6002D7788 /* StderrHusher.swift */,
 				023A28B52464205A00D87459 /* URL.swift */,
 				02FDC69023EB617200C2F9CD /* StringEnums.swift */,
+				02A0BE6F2467116600594485 /* DeclPrinter.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -635,6 +640,7 @@
 				02CFF9FD23E0A9D100FDE5B9 /* TestResources.swift */,
 				0233D52523EF11F6004DCD89 /* TestIdentifiers.swift */,
 				020AC6EE2457513600A0E634 /* TestSass.swift */,
+				02A0BE71246717F300594485 /* TestDeclPrinter.swift */,
 				022818CD23D4E89D0016B0D5 /* TestHelpers.swift */,
 				02CFF93F23DF0D4300FDE5B9 /* Fixtures */,
 				02C24022239A6F0700518764 /* Info.plist */,
@@ -1009,6 +1015,7 @@
 				02FDC68D23EB498A00C2F9CD /* DefDeclaration.swift in Sources */,
 				022818C523D33C2B0016B0D5 /* Regex.swift in Sources */,
 				0233D53F23F30EDB004DCD89 /* GroupGuides.swift in Sources */,
+				02A0BE702467116600594485 /* DeclPrinter.swift in Sources */,
 				02CFFA0123E0B95F00FDE5B9 /* Merge.swift in Sources */,
 				02CFF92723DE009900FDE5B9 /* GatherOpts.swift in Sources */,
 				02CFFA1023E1E9A700FDE5B9 /* GenThemes.swift in Sources */,
@@ -1095,6 +1102,7 @@
 				022BD9BC2431FAD800FC34D4 /* TestGatherImport.swift in Sources */,
 				0233D53323EF43A7004DCD89 /* TestFormat.swift in Sources */,
 				020AC6EF2457513600A0E634 /* TestSass.swift in Sources */,
+				02A0BE72246717F300594485 /* TestDeclPrinter.swift in Sources */,
 				02FDC67E23E89E8300C2F9CD /* TestMarkdown.swift in Sources */,
 				0233D53123EF4047004DCD89 /* TestGroup.swift in Sources */,
 				0259E1932416444F006435A1 /* TestStats.swift in Sources */,
