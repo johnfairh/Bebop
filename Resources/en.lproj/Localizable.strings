@@ -39,7 +39,7 @@
 
 "msg-config-file" = "Using config file '%1'";
 
-"msg-help-intro" = "j2: Generate API documentation for Swift or Objective-C code.
+"msg-help-intro" = "j2: Generate API documentation for Swift or Objective-C modules.
 
 Usage: j2 [options]
 
@@ -47,8 +47,8 @@ Options:";
 
 "wrn-quiet-debug" = "--quiet and --debug both set, ignoring --quiet.";
 
-"err-sktn-xcode-mod" = "SourceKitten couldn't find build info from `xcodebuild`.  Check the log above; it was looking for a `swiftc` command that included `-module-name %1`.";
-"err-sktn-xcode-def" = "SourceKitten couldn't find build info from `xcodebuild`.  Check the log mentioned above; it was looking for a `swiftc` command that included `-module-name`.";
+"err-sktn-xcode-mod" = "SourceKitten couldn't find build info from `xcodebuild`.  Check the log file mentioned above; it was looking for a `swiftc` command that included `-module-name %1`. You might need to experiment running `xcodebuild` manually to find the set of flags (perhaps a `-scheme` setting?) required to build your module, and then pass through those flags to this program using --build-tool-arguments.";
+"err-sktn-xcode-def" = "SourceKitten couldn't find build info from `xcodebuild`.  Check the log file mentioned above: it was looking for a `swiftc` command that included `-module-name`. You might need to experiment running `xcodebuild` manually to find the set of flags (perhaps a `-scheme` setting?) required to build your module, and then pass through those flags to this program using --build-tool-arguments.";
 "err-sktn-spm" = "SourceKitten couldn't find build info from `swift build`.  Check the log mentioned above.";
 
 "wrn-merge-missing-root" = "Bad file JSON data for '%1' pass %2: missing 'key.diagnostic_stage' key.  Ignoring this file.";
@@ -170,3 +170,4 @@ Response: %2
 Error: %3";
 "err-cfg-remote-url" = "Missing mandatory config key 'url' for 'remote_autolink' entry.";
 "err-cfg-remote-modules" = "Can't figure out module names hosted by remote autolink URL '%1': 'modules' config key is missing and J2 site metadata fetch failed: '%2'.";
+"wrn-remote-search" = "Can't build remote autolink index for '%1': '%2'.";

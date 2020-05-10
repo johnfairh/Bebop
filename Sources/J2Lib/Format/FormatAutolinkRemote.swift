@@ -175,22 +175,22 @@ final class FormatAutolinkRemote: Configurable {
 
     func buildIndex() {
         sources
-            .sorted(by: { $0.url.absoluteString < $1.url.absoluteString })
+            .sorted { $0.url.absoluteString < $1.url.absoluteString }
             .forEach { source in
-            do {
-                let searchURL = source.url.appendingPathComponent("search.json")
-                logDebug("Format: building lookup index from \(searchURL.path)")
-                let searchData = try searchURL.fetch()
-                let searchIndex = try JSONDecoder().decode(SearchIndex.self, from: searchData)
-                let moduleIndex = ModuleIndex(baseURL: source.url, searchIndex: searchIndex)
-                moduleIndices.append(moduleIndex)
-                source.modules.forEach {
-                    indiciesByModule[$0] = moduleIndex
+                do {
+                    let searchURL = source.url.appendingPathComponent("search.json")
+                    logDebug("Format: building lookup index from \(searchURL.path)")
+                    let searchData = try searchURL.fetch()
+                    let searchIndex = try JSONDecoder().decode(SearchIndex.self, from: searchData)
+                    let moduleIndex = ModuleIndex(baseURL: source.url, searchIndex: searchIndex)
+                    moduleIndices.append(moduleIndex)
+                    source.modules.forEach {
+                        indiciesByModule[$0] = moduleIndex
+                    }
+                } catch {
+                    logWarning(.wrnRemoteSearch, source, error)
                 }
-            } catch {
-                logWarning("Failed to build remote autolink index for \(source): \(error).")
             }
-        }
     }
 
     // MARK: API

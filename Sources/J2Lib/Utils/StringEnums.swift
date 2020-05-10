@@ -78,7 +78,7 @@ internal enum L10n {
     case errCfgPodspecPass = "err-cfg-podspec-pass"
     /// Invalid ICU regular expression '%1'.  Original error: '%2'.
     case errCfgRegexp = "err-cfg-regexp"
-    /// Can't figure out module names hosted by remote autolink URL '%1': 'module' config key is missing and J2 site metadata fetch failed: '%2'.
+    /// Can't figure out module names hosted by remote autolink URL '%1': 'modules' config key is missing and J2 site metadata fetch failed: '%2'.
     case errCfgRemoteModules = "err-cfg-remote-modules"
     /// Missing mandatory config key 'url' for 'remote_autolink' entry.
     case errCfgRemoteUrl = "err-cfg-remote-url"
@@ -240,6 +240,8 @@ internal enum L10n {
     case wrnPathNoChdir = "wrn-path-no-chdir"
     /// --quiet and --debug both set, ignoring --quiet.
     case wrnQuietDebug = "wrn-quiet-debug"
+    /// Can't build remote autolink index for '%1': '%2'.
+    case wrnRemoteSearch = "wrn-remote-search"
     /// Can't decode SourceKitten JSON portion from '%1': %2.
     case wrnSknDecode = "wrn-skn-decode"
     /// SourceKitten import mode requested but --modules is not set: using 'Module' for the module name.
@@ -370,7 +372,7 @@ internal enum L10n {
     case tpcMethods = "tpc-methods"
     /// Operators
     case tpcOperators = "tpc-operators"
-    /// Other Members
+    /// Other Definitions
     case tpcOthers = "tpc-others"
     /// Properties
     case tpcProperties = "tpc-properties"
