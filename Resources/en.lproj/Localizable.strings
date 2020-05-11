@@ -1,9 +1,9 @@
 /*
   Localizable.strings
-  J2
+  Bebop
 
-  Copyright 2020 J2 Authors
-  Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
+  Copyright 2020 Bebop Authors
+  Licensed under MIT (https://github.com/johnfairh/Bebop/blob/master/LICENSE)
 
   Error and warning messages.
 */
@@ -39,9 +39,9 @@
 
 "msg-config-file" = "Using config file '%1'";
 
-"msg-help-intro" = "j2: Generate API documentation for Swift or Objective-C modules.
+"msg-help-intro" = "bebop: Generate API documentation for Swift or Objective-C modules.
 
-Usage: j2 [options]
+Usage: bebop [options]
 
 Options:";
 
@@ -110,9 +110,9 @@ Ignoring the second.";
 "err-cfg-skn-build-tool" = "Both --sourcekitten-sourcefiles and some Swift or Objective-C flags are set: choose just one.";
 "err-json-decode" = "Can't decode JSON as Swift type '%1': %2.";
 "wrn-skn-decode" = "Can't decode SourceKitten JSON portion from '%1': %2.";
-"wrn-j2json-decode" = "Can't decode J2 JSON portion from '%1': %2.";
-"wrn-j2json-future" = "Can't import J2 JSON file '%1', version '%2' is from a later version of the program.";
-"err-cfg-j2json-mutex" = "Both --j2-json-files and other data-source options are set: choose just one.";
+"wrn-bebop-json-decode" = "Can't decode Bebop JSON portion from '%1': %2.";
+"wrn-bebop-json-future" = "Can't import Bebop JSON file '%1', version '%2' is from a later version of the program.";
+"err-cfg-bebop-json-mutex" = "Both --bebop-json-files and other data-source options are set: choose just one.";
 "wrn-unknown-acl" = "Unrecognized accessibility '%1' for '%2', using 'internal'.";
 "err-cfg-brand-missing-image" = "Config key 'image_name' not set under 'custom_brand'.";
 "err-cfg-brand-bad-image" = "Config key 'custom_brand.image_name' of '%1' did not match any file from --media.";
@@ -169,5 +169,5 @@ Ignoring the second.";
 Response: %2
 Error: %3";
 "err-cfg-remote-url" = "Missing mandatory config key 'url' for 'remote_autolink' entry.";
-"err-cfg-remote-modules" = "Can't figure out module names hosted by remote autolink URL '%1': 'modules' config key is missing and J2 site metadata fetch failed: '%2'.";
+"err-cfg-remote-modules" = "Can't figure out module names hosted by remote autolink URL '%1': 'modules' config key is missing and Bebop site metadata fetch failed: '%2'.";
 "wrn-remote-search" = "Can't build remote autolink index for '%1': '%2'.";

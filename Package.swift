@@ -3,13 +3,13 @@
 import PackageDescription
 
 let package = Package(
-  name: "J2",
+  name: "Bebop",
   platforms: [
     .macOS("10.15")
   ],
   products: [
-    .executable(name: "j2", targets: ["J2CLI"]),
-    .library(name: "J2Lib", targets: ["J2Lib"])
+    .executable(name: "bebop", targets: ["BebopCLI"]),
+    .library(name: "BebopLib", targets: ["BebopLib"])
   ],
   dependencies: [
     .package(url: "https://github.com/jpsim/Yams.git", from: "2.0.0"),
@@ -34,7 +34,7 @@ let package = Package(
   ],
   targets: [
     .target(
-      name: "J2Lib",
+      name: "BebopLib",
       dependencies: [
         "Yams",
         .product(name: "SourceKittenFramework", package: "SourceKitten"),
@@ -48,11 +48,11 @@ let package = Package(
         .product(name: "SwiftFormat", package: "swift-format")
       ]),
     .target(
-      name: "J2CLI",
-      dependencies: ["J2Lib"]),
+      name: "BebopCLI",
+      dependencies: ["BebopLib"]),
     .testTarget(
-      name: "J2Tests",
-      dependencies: ["J2Lib"],
+      name: "BebopTests",
+      dependencies: ["BebopLib"],
       exclude: ["Fixtures"]),
     .systemLibrary(name: "libsass",
         pkgConfig: "libsass",

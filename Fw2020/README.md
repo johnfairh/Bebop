@@ -1,7 +1,5 @@
 # Fullwidth 2020
-This is a Swift/ObjC docs website theme, designed for J2.  There are static
-test pages and a Swift-only [jazzy](https://github.com/realm/jazzy) theme with
-cut-down features.
+This is a Swift/ObjC docs website theme, designed for Bebop.
 
 Responsive design, auto dark mode, screen-reader friendly, translation-ready,
 Dash mode. Cut-down [demo](https://johnfairh.github.io/RubyGateway/).
@@ -13,16 +11,16 @@ Dash mode. Cut-down [demo](https://johnfairh.github.io/RubyGateway/).
 * [Typeahead](https://github.com/corejavascript/typeahead.js) for typeahead
 * [Lunr](https://lunrjs.com) for search
 * [Prism](https://prismjs.com) for syntax highlighting
+* [KaTeX](https://katex.org) for TeX rendering
 
 ## Building
 Clone the repo, go to this directory, and do `npm install`.
 
-Then `make` will produce some test webpages in `dist`.
+Then `make` will produce some test webpages in `dist`, for css/js.
 
-And `make jazzy` will produce a jazzy theme in `dist/jazzy`.  It somewhat works
-with stock jazzy; use [bebop](https://github.com/johnfairh/jazzy) for best
-results.
+And `make publish` will push everything and templates over to
+the Resources part of Bebop.
 
 ## Developing
 Doing `npm run watch` will auto-rebuild `dist` whenever any of the input scss /
-js / html files change.  The jazzy theme doesn't auto-rebuild.
+js / html files change.

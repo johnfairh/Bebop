@@ -1,7 +1,7 @@
 /*!
- * J2 FW2020 theme
- * Copyright 2019-2020 J2 Authors
- * Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
+ * Bebop FW2020 theme
+ * Copyright 2019-2020 Bebop Authors
+ * Licensed under MIT (https://github.com/johnfairh/Bebop/blob/master/LICENSE)
  */
 
 /* global Prism */

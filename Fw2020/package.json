@@ -1,7 +1,7 @@
 {
   "name": "fw2020",
   "version": "0.0.1",
-  "description": "J2 theme",
+  "description": "Bebop theme",
   "main": "index.js",
   "watch": {
     "css": {

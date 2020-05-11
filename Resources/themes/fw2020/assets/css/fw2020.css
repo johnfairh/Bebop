@@ -1,8 +1,8 @@
 @charset "UTF-8";
 /*!
- * J2 FW2020 theme
- * Copyright 2019-2020 J2 Authors
- * Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
+ * Bebop FW2020 theme
+ * Copyright 2019-2020 Bebop Authors
+ * Licensed under MIT (https://github.com/johnfairh/Bebop/blob/master/LICENSE)
  */
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)
@@ -712,8 +712,8 @@ h6, .h6 {
 }
 
 hr {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
   border: 0;
   border-top: 1px solid var(--navigation-border-color);
 }
@@ -6747,7 +6747,7 @@ a.text-dark:hover, a.text-dark:focus {
   }
 }
 
-/*! J2 theme customization from here to the end of the file */
+/*! Bebop theme customization from here to the end of the file */
 .font-weight-slightly-bold {
   font-weight: var(--font-weight-demi-bold);
 }
@@ -7257,7 +7257,6 @@ h3 code {
 }
 
 .j2-main-item-nav {
-  margin-bottom: -.5rem;
   font-size: .95rem;
 }
 

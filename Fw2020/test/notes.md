@@ -236,6 +236,5 @@ _subject to more screenreader testing_
 * Anchor links (hover link icons) missing
 * Item title links link to themselves, height adjustment remains
 * In Real Dash:
-  * *Validateme*
   * Dark mode switch works OK
   * Page ToC shows items and topics, no show article main decl

@@ -1,6 +1,6 @@
-# J2 FW2020 theme
-# Copyright 2019-2020 J2 Authors
-# Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
+# Bebop FW2020 theme and related stuff
+# Copyright 2019-2020 Bebop Authors
+# Licensed under MIT (https://github.com/johnfairh/Bebop/blob/master/LICENSE)
 
 all: dist
 
@@ -43,9 +43,10 @@ vpath %.html test
 
 # Build css
 
-SCSSFILES=$(addsuffix .scss, main variables fw2020 code-themes colors)
+SCSSFILES=$(addsuffix .scss, main variables fw2020 code-theme-light code-theme-dark colors)
+SCSSPATHS=$(addprefix scss/, ${SCSSFILES})
 
-dist/%.css: ${SCSSFILES}
+dist/%.css: ${SCSSPATHS}
 	npm run css
 
 # Assemble js
@@ -94,16 +95,16 @@ jazzy: dist
 	cp -f dist/fw2020.css dist/jazzy/assets/css/
 	@echo "Jazzy theme dir: ${PWD}/dist/jazzy"
 
-j2: dist
-	mkdir -p dist/j2/templates
-	mkdir -p dist/j2/assets/js
-	mkdir -p dist/j2/assets/css
-	cp -f templates/j2/* dist/j2/templates/
-	cp -f dist/dependencies.min.js dist/fw2020.js dist/j2/assets/js/
-	cp -f dist/fw2020.css dist/j2/assets/css/
+bebop: dist
+	mkdir -p dist/bebop/templates
+	mkdir -p dist/bebop/assets/js
+	mkdir -p dist/bebop/assets/css
+	cp -f templates/bebop/* dist/bebop/templates/
+	cp -f dist/dependencies.min.js dist/fw2020.js dist/bebop/assets/js/
+	cp -f dist/fw2020.css dist/bebop/assets/css/
 
-publish: j2
-	cp -Rf dist/j2/* ../Resources/themes/fw2020/
+publish: bebop
+	cp -Rf dist/bebop/* ../Resources/themes/fw2020/
 
 katex:
 	cp -Rf ${KATEX_CSS_PATHS} ../Resources/extensions/katex/css/

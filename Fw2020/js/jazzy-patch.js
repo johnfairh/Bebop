@@ -1,8 +1,8 @@
 /*!
- * J2 syntax-highlighting patch for jazzy compatibility themes
+ * Syntax-highlighting patch for Bebop's jazzy compatibility mode
  *
- * Copyright 2020 J2 Authors
- * Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
+ * Copyright 2020 Bebop Authors
+ * Licensed under MIT (https://github.com/johnfairh/Bebop/blob/master/LICENSE)
  */
 
 /* global Prism */

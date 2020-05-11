@@ -1,6 +1,0 @@
-/*!
- * J2 FW2020 theme - Jazzy compat patch
- * Copyright 2020 J2 Authors
- * Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
- */.declaration code,.declaration pre{background:inherit}.pr-interpolation{color:#222}.pr-operator,.pr-punctuation{color:inherit}code,pre{background:#fafafa}.language-css>code,.language-sass>code,.language-scss>code{color:#f76d47}.pr-atrule{color:#7c4dff}.pr-attr-name{color:#39adb5}.pr-attr-value{color:#f6a434}.pr-attribute{color:#f6a434}.pr-boolean{color:#7c4dff}.pr-builtin{color:#4d629f}.pr-cdata{color:#39adb5}.pr-char{color:#39adb5}.pr-class{color:#39adb5}.pr-class-name{color:#0b4f79}.pr-comment{color:#267507}.pr-constant{color:#7c4dff}.pr-deleted{color:#e53935}.pr-doctype{color:#aabfc9}.pr-entity{color:#e53935}.pr-function{color:teal}.pr-hexcode{color:#f76d47}.pr-id{font-weight:bolder;color:#7c4dff}.pr-important{font-weight:bolder;color:#7c4dff}.pr-inserted{color:#39adb5}.pr-keyword{color:#9b2393}.pr-number{color:#1c00cf}.pr-prolog{color:#aabfc9}.pr-property{color:#39adb5}.pr-pseudo-class{color:#f6a434}.pr-pseudo-element{color:#f6a434}.pr-regex{color:#6182b8}.pr-selector{color:#e53935}.pr-string{color:#c41a16}.pr-symbol{color:#7c4dff}.pr-tag{color:#643820}.pr-unit{color:#f76d47}.pr-url{color:#e53935}.pr-variable{color:#e53935}
-/*# sourceMappingURL=patch.min.css.map */

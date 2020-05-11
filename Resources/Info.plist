@@ -7,11 +7,11 @@
 	<key>CFBundleExecutable</key>
 	<string></string>
 	<key>CFBundleIdentifier</key>
-	<string>j2.J2Resources</string>
+	<string>bebop.BebopResources</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>J2Resources</string>
+	<string>BebopResources</string>
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
@@ -19,7 +19,7 @@
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2020 J2 Authors, Licensed under MIT https://github.com/johnfairh/J2/blob/master/LICENSE</string>
+	<string>Copyright © 2020 Bebop Authors, Licensed under MIT https://github.com/johnfairh/Bebop/blob/master/LICENSE</string>
 	<key>NSPrincipalClass</key>
 	<string></string>
 </dict>

@@ -3,4 +3,4 @@ strings:
   filter: (Localizable|Output)\.strings
   outputs:
     - templatePath: strings.stencil
-      output: Sources/J2Lib/Utils/StringEnums.swift
+      output: Sources/BebopLib/Utils/StringEnums.swift

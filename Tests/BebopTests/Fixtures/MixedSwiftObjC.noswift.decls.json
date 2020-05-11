@@ -1,0 +1,875 @@
+[
+  {
+    "acl" : "public",
+    "children" : [
+      {
+        "acl" : "public",
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "docs"
+            }
+          },
+          "parameters" : [],
+          "source" : "docComment"
+        },
+        "kind" : "sourcekitten.source.lang.objc.decl.method.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule4\/SwiftToObjC.swift",
+          "first_line" : 8,
+          "last_line" : 10,
+          "module_name" : "SpmSwiftModule4",
+          "pass_index" : 0
+        },
+        "name" : "-exposedMethodWithA:b:",
+        "obj_c_declaration" : {
+          "declaration" : {
+            "text" : "- (NSString *_Nonnull)exposedMethodWithA:(NSInteger)a b:(NSString *_Nullable)b"
+          },
+          "name_pieces" : [
+            {
+              "other" : "- (NSString *)"
+            },
+            {
+              "name" : "exposedMethodWithA"
+            },
+            {
+              "other" : ":(NSInteger)a "
+            },
+            {
+              "name" : "b"
+            },
+            {
+              "other" : ":(NSString *)b"
+            }
+          ]
+        },
+        "obj_c_name" : "-exposedMethodWithA:b:",
+        "usr" : "c:@M@SpmSwiftModule4@objc(cs)ExposedSwiftClass(im)exposedMethodWithA:b:"
+      },
+      {
+        "acl" : "public",
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "docs"
+            }
+          },
+          "parameters" : [],
+          "source" : "docComment"
+        },
+        "kind" : "sourcekitten.source.lang.objc.decl.property",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule4\/SwiftToObjC.swift",
+          "first_line" : 14,
+          "last_line" : 14,
+          "module_name" : "SpmSwiftModule4",
+          "pass_index" : 0
+        },
+        "name" : "exposedProperty",
+        "obj_c_declaration" : {
+          "declaration" : {
+            "text" : "@property (nonatomic) NSInteger exposedProperty"
+          },
+          "name_pieces" : [
+            {
+              "other" : "NSInteger "
+            },
+            {
+              "name" : "exposedProperty"
+            }
+          ]
+        },
+        "obj_c_name" : "exposedProperty",
+        "usr" : "c:@M@SpmSwiftModule4@objc(cs)ExposedSwiftClass(py)exposedProperty"
+      },
+      {
+        "acl" : "public",
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "ref docs"
+            }
+          },
+          "parameters" : [],
+          "source" : "docComment"
+        },
+        "kind" : "sourcekitten.source.lang.objc.decl.property",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule4\/SwiftToObjC.swift",
+          "first_line" : 18,
+          "last_line" : 18,
+          "module_name" : "SpmSwiftModule4",
+          "pass_index" : 0
+        },
+        "name" : "exposedRefProperty",
+        "obj_c_declaration" : {
+          "declaration" : {
+            "text" : "@property (nonatomic, strong) ExposedSwiftClass *_Nullable exposedRefProperty"
+          },
+          "name_pieces" : [
+            {
+              "other" : "ExposedSwiftClass * "
+            },
+            {
+              "name" : "exposedRefProperty"
+            }
+          ]
+        },
+        "obj_c_name" : "exposedRefProperty",
+        "usr" : "c:@M@SpmSwiftModule4@objc(cs)ExposedSwiftClass(py)exposedRefProperty"
+      },
+      {
+        "acl" : "public",
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "inh init docs"
+            }
+          },
+          "parameters" : [],
+          "source" : "docComment"
+        },
+        "kind" : "sourcekitten.source.lang.objc.decl.initializer",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule4\/SwiftToObjC.swift",
+          "first_line" : 22,
+          "last_line" : 25,
+          "module_name" : "SpmSwiftModule4",
+          "pass_index" : 0
+        },
+        "name" : "-init",
+        "obj_c_declaration" : {
+          "declaration" : {
+            "text" : "- (nonnull instancetype)init"
+          },
+          "name_pieces" : [
+            {
+              "other" : "- (instancetype)"
+            },
+            {
+              "name" : "init"
+            },
+            {
+              "other" : ""
+            }
+          ]
+        },
+        "obj_c_name" : "-init",
+        "usr" : "c:@M@SpmSwiftModule4@objc(cs)ExposedSwiftClass(im)init"
+      },
+      {
+        "acl" : "public",
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "init docs"
+            }
+          },
+          "parameters" : [],
+          "source" : "docComment"
+        },
+        "kind" : "sourcekitten.source.lang.objc.decl.initializer",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule4\/SwiftToObjC.swift",
+          "first_line" : 29,
+          "last_line" : 31,
+          "module_name" : "SpmSwiftModule4",
+          "pass_index" : 0
+        },
+        "name" : "-initWithValue:",
+        "obj_c_declaration" : {
+          "declaration" : {
+            "text" : "- (nonnull instancetype)initWithValue:(NSInteger)value"
+          },
+          "name_pieces" : [
+            {
+              "other" : "- (instancetype)"
+            },
+            {
+              "name" : "initWithValue"
+            },
+            {
+              "other" : ":(NSInteger)value"
+            }
+          ]
+        },
+        "obj_c_name" : "-initWithValue:",
+        "usr" : "c:@M@SpmSwiftModule4@objc(cs)ExposedSwiftClass(im)initWithValue:"
+      }
+    ],
+    "documentation" : {
+      "abstract" : {
+        "markdown" : {
+          "en" : "Undocumented"
+        }
+      },
+      "parameters" : [],
+      "source" : "undocumented"
+    },
+    "kind" : "sourcekitten.source.lang.objc.decl.class",
+    "location" : {
+      "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule4\/SwiftToObjC.swift",
+      "first_line" : 4,
+      "last_line" : 32,
+      "module_name" : "SpmSwiftModule4",
+      "pass_index" : 0
+    },
+    "name" : "ExposedSwiftClass",
+    "obj_c_declaration" : {
+      "declaration" : {
+        "text" : "@interface ExposedSwiftClass : NSObject"
+      },
+      "name_pieces" : [
+        {
+          "other" : "@interface "
+        },
+        {
+          "name" : "ExposedSwiftClass"
+        }
+      ]
+    },
+    "obj_c_name" : "ExposedSwiftClass",
+    "usr" : "c:@M@SpmSwiftModule4@objc(cs)ExposedSwiftClass"
+  },
+  {
+    "acl" : "public",
+    "children" : [
+      {
+        "acl" : "public",
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented"
+            }
+          },
+          "parameters" : [],
+          "source" : "undocumented"
+        },
+        "kind" : "sourcekitten.source.lang.objc.decl.property",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule4\/SwiftToObjC.swift",
+          "first_line" : 38,
+          "last_line" : 38,
+          "module_name" : "SpmSwiftModule4",
+          "pass_index" : 0
+        },
+        "name" : "property",
+        "obj_c_declaration" : {
+          "declaration" : {
+            "text" : "@property (nonatomic) NSInteger property"
+          },
+          "name_pieces" : [
+            {
+              "other" : "NSInteger "
+            },
+            {
+              "name" : "property"
+            }
+          ]
+        },
+        "obj_c_name" : "property",
+        "usr" : "c:@M@SpmSwiftModule4@objc(cs)RenamedForObjC(py)property"
+      },
+      {
+        "acl" : "public",
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented"
+            }
+          },
+          "parameters" : [],
+          "source" : "undocumented"
+        },
+        "kind" : "sourcekitten.source.lang.objc.decl.method.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule4\/SwiftToObjC.swift",
+          "first_line" : 41,
+          "last_line" : 42,
+          "module_name" : "SpmSwiftModule4",
+          "pass_index" : 0
+        },
+        "name" : "-action:param:",
+        "obj_c_declaration" : {
+          "declaration" : {
+            "text" : "- (void)action:(NSInteger)a param:(NSInteger)parm"
+          },
+          "name_pieces" : [
+            {
+              "other" : "- (void)"
+            },
+            {
+              "name" : "action"
+            },
+            {
+              "other" : ":(NSInteger)a "
+            },
+            {
+              "name" : "param"
+            },
+            {
+              "other" : ":(NSInteger)parm"
+            }
+          ]
+        },
+        "obj_c_name" : "-action:param:",
+        "usr" : "c:@M@SpmSwiftModule4@objc(cs)RenamedForObjC(im)action:param:"
+      },
+      {
+        "acl" : "public",
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented"
+            }
+          },
+          "parameters" : [],
+          "source" : "undocumented"
+        },
+        "kind" : "sourcekitten.source.lang.objc.decl.initializer",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule4\/SwiftToObjC.swift",
+          "first_line" : 44,
+          "last_line" : 46,
+          "module_name" : "SpmSwiftModule4",
+          "pass_index" : 0
+        },
+        "name" : "-init",
+        "obj_c_declaration" : {
+          "declaration" : {
+            "text" : "- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER"
+          },
+          "name_pieces" : [
+            {
+              "other" : "- (instancetype)"
+            },
+            {
+              "name" : "init"
+            },
+            {
+              "other" : ""
+            }
+          ]
+        },
+        "obj_c_name" : "-init",
+        "usr" : "c:@M@SpmSwiftModule4@objc(cs)RenamedForObjC(im)init"
+      }
+    ],
+    "documentation" : {
+      "abstract" : {
+        "markdown" : {
+          "en" : "Undocumented"
+        }
+      },
+      "parameters" : [],
+      "source" : "undocumented"
+    },
+    "kind" : "sourcekitten.source.lang.objc.decl.class",
+    "location" : {
+      "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule4\/SwiftToObjC.swift",
+      "first_line" : 35,
+      "last_line" : 47,
+      "module_name" : "SpmSwiftModule4",
+      "pass_index" : 0
+    },
+    "name" : "RenamedForObjC",
+    "obj_c_declaration" : {
+      "declaration" : {
+        "text" : "@interface RenamedForObjC : NSObject"
+      },
+      "name_pieces" : [
+        {
+          "other" : "@interface "
+        },
+        {
+          "name" : "RenamedForObjC"
+        }
+      ]
+    },
+    "obj_c_name" : "RenamedForObjC",
+    "usr" : "c:@M@SpmSwiftModule4@objc(cs)RenamedForObjC"
+  },
+  {
+    "acl" : "open",
+    "children" : [
+      {
+        "acl" : "open",
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "See `JMLKitchen`."
+            }
+          },
+          "discussion" : {
+            "markdown" : {
+              "en" : "See `-[JMLKitchen jmlKitchenMethod]`"
+            }
+          },
+          "parameters" : [],
+          "source" : "docComment"
+        },
+        "kind" : "sourcekitten.source.lang.objc.decl.method.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmObjCModule\/include\/SpmObjCModule.h",
+          "first_line" : 12,
+          "last_line" : 12,
+          "module_name" : "SpmObjCModule",
+          "pass_index" : 0
+        },
+        "name" : "-objcNormalMethod",
+        "obj_c_declaration" : {
+          "declaration" : {
+            "text" : "- (void)objcNormalMethod"
+          },
+          "name_pieces" : [
+            {
+              "other" : "- (void)"
+            },
+            {
+              "name" : "objcNormalMethod"
+            },
+            {
+              "other" : ""
+            }
+          ]
+        },
+        "obj_c_name" : "-objcNormalMethod",
+        "usr" : "c:objc(cs)NormalClass(im)objcNormalMethod"
+      }
+    ],
+    "documentation" : {
+      "abstract" : {
+        "markdown" : {
+          "en" : "Un-renamed class to check normal things still work"
+        }
+      },
+      "discussion" : {
+        "markdown" : {
+          "en" : "See `-objcNormalMethod`."
+        }
+      },
+      "parameters" : [],
+      "source" : "docComment"
+    },
+    "kind" : "sourcekitten.source.lang.objc.decl.class",
+    "location" : {
+      "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmObjCModule\/include\/SpmObjCModule.h",
+      "first_line" : 8,
+      "last_line" : 13,
+      "module_name" : "SpmObjCModule",
+      "pass_index" : 0
+    },
+    "name" : "NormalClass",
+    "obj_c_declaration" : {
+      "declaration" : {
+        "text" : "@interface NormalClass : NSObject"
+      },
+      "name_pieces" : [
+        {
+          "other" : "@interface "
+        },
+        {
+          "name" : "NormalClass"
+        }
+      ]
+    },
+    "obj_c_name" : "NormalClass",
+    "usr" : "c:objc(cs)NormalClass"
+  },
+  {
+    "acl" : "open",
+    "children" : [
+      {
+        "acl" : "open",
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented"
+            }
+          },
+          "parameters" : [],
+          "source" : "undocumented"
+        },
+        "kind" : "sourcekitten.source.lang.objc.decl.method.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmObjCModule\/include\/SpmObjCModule.h",
+          "first_line" : 18,
+          "last_line" : 18,
+          "module_name" : "SpmObjCModule",
+          "pass_index" : 0
+        },
+        "name" : "-jmlKitchenMethod",
+        "obj_c_declaration" : {
+          "declaration" : {
+            "text" : "- (void)jmlKitchenMethod"
+          },
+          "name_pieces" : [
+            {
+              "other" : "- (void)"
+            },
+            {
+              "name" : "jmlKitchenMethod"
+            },
+            {
+              "other" : ""
+            }
+          ]
+        },
+        "obj_c_name" : "-jmlKitchenMethod",
+        "usr" : "c:objc(cs)JMLKitchen(im)jmlKitchenMethod"
+      }
+    ],
+    "documentation" : {
+      "abstract" : {
+        "markdown" : {
+          "en" : "Type with different name in Swift"
+        }
+      },
+      "parameters" : [],
+      "source" : "docComment"
+    },
+    "kind" : "sourcekitten.source.lang.objc.decl.class",
+    "location" : {
+      "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmObjCModule\/include\/SpmObjCModule.h",
+      "first_line" : 17,
+      "last_line" : 19,
+      "module_name" : "SpmObjCModule",
+      "pass_index" : 0
+    },
+    "name" : "JMLKitchen",
+    "obj_c_declaration" : {
+      "declaration" : {
+        "text" : "@interface JMLKitchen : NSObject"
+      },
+      "name_pieces" : [
+        {
+          "other" : "@interface "
+        },
+        {
+          "name" : "JMLKitchen"
+        }
+      ]
+    },
+    "obj_c_name" : "JMLKitchen",
+    "usr" : "c:objc(cs)JMLKitchen"
+  },
+  {
+    "acl" : "open",
+    "children" : [
+      {
+        "acl" : "open",
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented"
+            }
+          },
+          "parameters" : [],
+          "source" : "undocumented"
+        },
+        "kind" : "sourcekitten.source.lang.objc.decl.method.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmObjCModule\/include\/SpmObjCModule.h",
+          "first_line" : 25,
+          "last_line" : 25,
+          "module_name" : "SpmObjCModule",
+          "pass_index" : 0
+        },
+        "name" : "-jmlKitchenCupboardMethod",
+        "obj_c_declaration" : {
+          "declaration" : {
+            "text" : "-(void)jmlKitchenCupboardMethod"
+          },
+          "name_pieces" : [
+            {
+              "other" : "-(void)"
+            },
+            {
+              "name" : "jmlKitchenCupboardMethod"
+            },
+            {
+              "other" : ""
+            }
+          ]
+        },
+        "obj_c_name" : "-jmlKitchenCupboardMethod",
+        "topic" : {
+          "kind" : "sourceMark",
+          "title" : {
+            "markdown" : {
+              "en" : "ObjC methods"
+            }
+          }
+        },
+        "usr" : "c:objc(cs)JMLKitchenCupboard(im)jmlKitchenCupboardMethod"
+      },
+      {
+        "acl" : "open",
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented"
+            }
+          },
+          "parameters" : [],
+          "source" : "undocumented"
+        },
+        "kind" : "sourcekitten.source.lang.objc.decl.method.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmObjCModule\/include\/SpmObjCModule.h",
+          "first_line" : 26,
+          "last_line" : 26,
+          "module_name" : "SpmObjCModule",
+          "pass_index" : 0
+        },
+        "name" : "-jmlKitchenCupboardMethod2",
+        "obj_c_declaration" : {
+          "declaration" : {
+            "text" : "-(void)jmlKitchenCupboardMethod2"
+          },
+          "name_pieces" : [
+            {
+              "other" : "-(void)"
+            },
+            {
+              "name" : "jmlKitchenCupboardMethod2"
+            },
+            {
+              "other" : ""
+            }
+          ]
+        },
+        "obj_c_name" : "-jmlKitchenCupboardMethod2",
+        "topic" : {
+          "kind" : "sourceMark",
+          "title" : {
+            "markdown" : {
+              "en" : "ObjC methods"
+            }
+          }
+        },
+        "usr" : "c:objc(cs)JMLKitchenCupboard(im)jmlKitchenCupboardMethod2"
+      },
+      {
+        "acl" : "open",
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented"
+            }
+          },
+          "parameters" : [],
+          "source" : "undocumented"
+        },
+        "kind" : "sourcekitten.source.lang.objc.decl.method.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmObjCModule\/include\/SpmObjCModule.h",
+          "first_line" : 29,
+          "last_line" : 29,
+          "module_name" : "SpmObjCModule",
+          "pass_index" : 0
+        },
+        "name" : "-jmlKitchenCupboardMethod3",
+        "obj_c_declaration" : {
+          "declaration" : {
+            "text" : "-(void)jmlKitchenCupboardMethod3"
+          },
+          "name_pieces" : [
+            {
+              "other" : "-(void)"
+            },
+            {
+              "name" : "jmlKitchenCupboardMethod3"
+            },
+            {
+              "other" : ""
+            }
+          ]
+        },
+        "obj_c_name" : "-jmlKitchenCupboardMethod3",
+        "topic" : {
+          "kind" : "sourceMark",
+          "title" : {
+            "markdown" : {
+              "en" : "ObjC methods"
+            }
+          }
+        },
+        "usr" : "c:objc(cs)JMLKitchenCupboard(im)jmlKitchenCupboardMethod3"
+      },
+      {
+        "acl" : "open",
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented"
+            }
+          },
+          "parameters" : [],
+          "source" : "undocumented"
+        },
+        "kind" : "sourcekitten.source.lang.objc.decl.method.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmObjCModule\/include\/SpmObjCModule.h",
+          "first_line" : 31,
+          "last_line" : 31,
+          "module_name" : "SpmObjCModule",
+          "pass_index" : 0
+        },
+        "name" : "-jmlKitchenCupboardMethod4",
+        "obj_c_declaration" : {
+          "declaration" : {
+            "text" : "-(void)jmlKitchenCupboardMethod4"
+          },
+          "name_pieces" : [
+            {
+              "other" : "-(void)"
+            },
+            {
+              "name" : "jmlKitchenCupboardMethod4"
+            },
+            {
+              "other" : ""
+            }
+          ]
+        },
+        "obj_c_name" : "-jmlKitchenCupboardMethod4",
+        "topic" : {
+          "kind" : "sourceMark",
+          "title" : {
+            "markdown" : {
+              "en" : "ObjC methods part 2"
+            }
+          }
+        },
+        "usr" : "c:objc(cs)JMLKitchenCupboard(im)jmlKitchenCupboardMethod4"
+      }
+    ],
+    "documentation" : {
+      "abstract" : {
+        "markdown" : {
+          "en" : "Type with a different shape in Swift - parent exists"
+        }
+      },
+      "parameters" : [],
+      "source" : "docComment"
+    },
+    "kind" : "sourcekitten.source.lang.objc.decl.class",
+    "location" : {
+      "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmObjCModule\/include\/SpmObjCModule.h",
+      "first_line" : 23,
+      "last_line" : 32,
+      "module_name" : "SpmObjCModule",
+      "pass_index" : 0
+    },
+    "name" : "JMLKitchenCupboard",
+    "obj_c_declaration" : {
+      "declaration" : {
+        "text" : "@interface JMLKitchenCupboard : NSObject"
+      },
+      "name_pieces" : [
+        {
+          "other" : "@interface "
+        },
+        {
+          "name" : "JMLKitchenCupboard"
+        }
+      ]
+    },
+    "obj_c_name" : "JMLKitchenCupboard",
+    "usr" : "c:objc(cs)JMLKitchenCupboard"
+  },
+  {
+    "acl" : "open",
+    "children" : [
+      {
+        "acl" : "open",
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "See `Cupboard.jmlKitchenCupboardMethod()`"
+            }
+          },
+          "parameters" : [],
+          "source" : "docComment"
+        },
+        "kind" : "sourcekitten.source.lang.objc.decl.method.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmObjCModule\/include\/SpmObjCModule.h",
+          "first_line" : 38,
+          "last_line" : 38,
+          "module_name" : "SpmObjCModule",
+          "pass_index" : 0
+        },
+        "name" : "-jmlBathroomCupboardMethod",
+        "obj_c_declaration" : {
+          "declaration" : {
+            "text" : "- (void)jmlBathroomCupboardMethod"
+          },
+          "name_pieces" : [
+            {
+              "other" : "- (void)"
+            },
+            {
+              "name" : "jmlBathroomCupboardMethod"
+            },
+            {
+              "other" : ""
+            }
+          ]
+        },
+        "obj_c_name" : "-jmlBathroomCupboardMethod",
+        "usr" : "c:objc(cs)JMLBathroomCupboard(im)jmlBathroomCupboardMethod"
+      }
+    ],
+    "documentation" : {
+      "abstract" : {
+        "markdown" : {
+          "en" : "Type with a different shape in Swift - parent does not exist"
+        }
+      },
+      "parameters" : [],
+      "source" : "docComment"
+    },
+    "kind" : "sourcekitten.source.lang.objc.decl.class",
+    "location" : {
+      "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmObjCModule\/include\/SpmObjCModule.h",
+      "first_line" : 36,
+      "last_line" : 39,
+      "module_name" : "SpmObjCModule",
+      "pass_index" : 0
+    },
+    "name" : "JMLBathroomCupboard",
+    "obj_c_declaration" : {
+      "declaration" : {
+        "text" : "@interface JMLBathroomCupboard : NSObject"
+      },
+      "name_pieces" : [
+        {
+          "other" : "@interface "
+        },
+        {
+          "name" : "JMLBathroomCupboard"
+        }
+      ]
+    },
+    "obj_c_name" : "JMLBathroomCupboard",
+    "usr" : "c:objc(cs)JMLBathroomCupboard"
+  }
+]

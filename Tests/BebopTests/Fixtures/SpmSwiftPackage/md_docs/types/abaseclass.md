@@ -1,0 +1,548 @@
+<!--
+Bebop simple MD theme
+Copyright 2020 Bebop Authors
+Licensed under MIT (https://github.com/johnfairh/Bebop/blob/master/LICENSE)
+-->
+![50%](../badge.svg)
+[![Open in Dash](../img/dash.svg)](dash-feed://https%3A%2F%2Fwww%2Egoogle%2Ecom%2F)
+
+
+[SpmSwiftModule](../index.md)
+ / [Types](../types.md?swift) / ABaseClass
+
+
+<details>
+<summary>Contents</summary>
+
+
+[Types](../types.md?swift)
+
+  * ABaseClass
+
+
+  * [ADerivedClass](../types/aderivedclass.md?swift)
+
+
+  * [AnEnum](../types/anenum.md?swift)
+
+
+  * [FirstProtocol](../types/firstprotocol1.md?swift)
+
+
+  * [GenericBase](../types/genericbase.md?swift)
+
+
+  * [Nop](../types/nop.md?swift)
+
+
+  * [PropertyWrapperClient](../types/propertywrapperclient.md?swift)
+
+
+  * [SecondProtocol](../types/secondprotocol.md?swift)
+
+
+  * [SpmSwiftModule](../types/spmswiftmodule.md?swift)
+
+    * [Nested1](../types/spmswiftmodule/nested1.md?swift)
+
+    * [Nested2](../types/spmswiftmodule.md?swift#nested2)
+
+
+  * [T](../types.md?swift#t1)
+
+
+
+[Functions](../functions.md?swift)
+
+  * [deprecatedFunction(callback:)](../functions.md?swift#deprecatedfunctioncallback)
+
+
+  * [functionA(arg1:_:arg3:)](../functions.md?swift#functionaarg1_arg3)
+
+
+
+[Operators](../operators.md?swift)
+
+  * [+(T, T)](../operators.md?swift#t-t)
+
+
+
+[Extensions](../extensions.md?swift)
+
+  * [Collection](../extensions/collection.md?swift)
+
+
+  * [String.Element](../extensions/stringelement.md?swift)
+
+
+
+
+
+</details>
+
+# ABaseClass
+
+
+
+``` swift
+public class ABaseClass
+```
+
+
+
+
+
+
+
+
+
+
+A base class
+
+
+
+
+
+
+
+
+
+
+
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L60-L95)
+
+
+
+## Initializers
+
+
+
+
+
+
+
+
+
+<details>
+<summary><code>init()</code></summary>
+
+
+
+
+
+
+
+
+Undocumented
+
+
+
+
+
+
+#### Declaration
+
+``` swift
+public init()
+```
+
+
+
+
+
+
+
+
+
+
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L61)
+</details>
+
+
+
+
+
+
+
+
+
+<details>
+<summary><code>init(a: Int)</code></summary>
+
+
+
+
+
+
+
+
+Undocumented
+
+
+
+
+
+
+#### Declaration
+
+``` swift
+public convenience init(a: Int)
+```
+
+
+
+
+
+
+
+
+
+
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L63)
+</details>
+
+
+
+## Deinitializer
+
+
+
+
+
+
+
+
+
+<details>
+<summary><code>deinit</code></summary>
+
+
+
+
+
+
+
+
+Undocumented
+
+
+
+
+
+
+#### Declaration
+
+``` swift
+deinit
+```
+
+
+
+
+
+
+
+
+
+
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L65)
+</details>
+
+
+
+## Methods
+
+
+
+
+
+
+
+
+
+<details>
+<summary><code>func method(param: Int) -> String</code></summary>
+
+
+
+
+
+
+
+
+Base class docs for `method(param:)`
+
+
+
+
+
+
+#### Declaration
+
+``` swift
+public func method(param: Int) -> String
+```
+
+
+
+
+
+
+
+
+
+
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L67-L69)
+</details>
+
+
+
+## Operators
+
+
+
+
+
+
+
+
+
+<details>
+<summary><code>static func +(lhs: ABaseClass, rhs: ABaseClass) -> ABaseClass</code></summary>
+
+
+
+
+
+
+
+
+An operator\!
+
+
+
+
+
+
+#### Declaration
+
+``` swift
+public static func + (lhs: ABaseClass, rhs: ABaseClass) -> ABaseClass
+```
+
+
+
+
+
+
+
+
+
+
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L92-L94)
+</details>
+
+
+
+## Subscripts
+
+
+
+
+
+
+
+
+
+<details>
+<summary><code>subscript(arg: String) -> Int</code></summary>
+
+
+
+
+
+
+
+
+Undocumented
+
+
+
+
+
+
+#### Declaration
+
+``` swift
+public subscript(arg: String) -> Int { get set }
+```
+
+
+
+
+
+
+
+
+
+
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L75-L81)
+</details>
+
+
+
+## Static Methods
+
+
+
+
+
+
+
+
+
+<details>
+<summary><code>static func staticMethod() -> Int</code></summary>
+
+
+
+
+
+
+
+
+Undocumented
+
+
+
+
+
+
+#### Declaration
+
+``` swift
+public static func staticMethod() -> Int
+```
+
+
+
+
+
+
+
+
+
+
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L71-L73)
+</details>
+
+
+
+## Static Subscripts
+
+
+
+
+
+
+
+
+
+<details>
+<summary><code>static subscript(arg: String) -> Int</code></summary>
+
+
+
+
+
+
+
+
+Undocumented
+
+
+
+
+
+
+#### Declaration
+
+``` swift
+public static subscript(arg: String) -> Int { get }
+```
+
+
+
+
+
+
+
+
+
+
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L83-L85)
+</details>
+
+
+
+## Class Subscripts
+
+
+
+
+
+
+
+
+
+<details>
+<summary><code>class subscript(arg: Int) -> String</code></summary>
+
+
+
+
+
+
+
+
+Undocumented
+
+
+
+
+
+
+#### Declaration
+
+``` swift
+public class subscript(arg: Int) -> String { get }
+```
+
+
+
+
+
+
+
+
+
+
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L87-L89)
+</details>
+
+
+
+
+
+[&laquo; Types](../types.md?swift) | [ADerivedClass &raquo;](../types/aderivedclass.md?swift)
+
+
+-----
+&copy; 9999. All rights reserved. (Last updated: today).
+
+
+Generated by [Bebop vX.Y](https://github.com/johnfairh/Bebop)
+using the md theme, based on technology from
+[jazzy ♪♫](https://github.com/realm/jazzy).
+
+

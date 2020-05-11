@@ -1,4 +1,4 @@
-module J2Libsass
+module BebopLibsass
 {
   umbrella header "libsass.h"
   link "sass"

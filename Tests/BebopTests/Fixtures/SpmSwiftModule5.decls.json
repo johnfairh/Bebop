@@ -1,0 +1,262 @@
+[
+  {
+    "acl" : "open",
+    "children" : [
+      {
+        "acl" : "public",
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Should survive CLI option"
+            }
+          },
+          "parameters" : [],
+          "source" : "docComment"
+        },
+        "kind" : "source.lang.swift.decl.function.method.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule5\/AclBase.swift",
+          "first_line" : 17,
+          "last_line" : 18,
+          "module_name" : "SpmSwiftModule5",
+          "pass_index" : 0
+        },
+        "name" : "not_implementationPublicMethod()",
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : {
+            "text" : "public func not_implementationPublicMethod()"
+          },
+          "deprecated_everywhere" : false,
+          "inherited_types" : [],
+          "is_override" : false,
+          "name_pieces" : [
+            {
+              "other" : "func "
+            },
+            {
+              "name" : "not_implementationPublicMethod"
+            },
+            {
+              "other" : "()"
+            }
+          ]
+        },
+        "swift_name" : "not_implementationPublicMethod()",
+        "usr" : "s:15SpmSwiftModule511PublicClassC018not_implementationD6MethodyyF"
+      },
+      {
+        "acl" : "public",
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Should be included"
+            }
+          },
+          "parameters" : [],
+          "source" : "inherited"
+        },
+        "kind" : "source.lang.swift.decl.function.method.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule5\/AclBase.swift",
+          "first_line" : 44,
+          "last_line" : 45,
+          "module_name" : "SpmSwiftModule5",
+          "pass_index" : 0
+        },
+        "name" : "publicProtocolMethod()",
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : {
+            "text" : "public func publicProtocolMethod()"
+          },
+          "deprecated_everywhere" : false,
+          "inherited_types" : [],
+          "is_override" : true,
+          "name_pieces" : [
+            {
+              "other" : "func "
+            },
+            {
+              "name" : "publicProtocolMethod"
+            },
+            {
+              "other" : "()"
+            }
+          ]
+        },
+        "swift_name" : "publicProtocolMethod()",
+        "usr" : "s:15SpmSwiftModule514PublicProtocolP06publicE6MethodyyF"
+      },
+      {
+        "acl" : "public",
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "A textual representation of this instance."
+            }
+          },
+          "parameters" : [],
+          "source" : "inherited"
+        },
+        "kind" : "source.lang.swift.decl.var.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule5\/AclBase.swift",
+          "first_line" : 55,
+          "last_line" : 55,
+          "module_name" : "SpmSwiftModule5",
+          "pass_index" : 0
+        },
+        "name" : "description",
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : {
+            "text" : "public var description: String { get }"
+          },
+          "deprecated_everywhere" : false,
+          "inherited_types" : [],
+          "is_override" : true,
+          "name_pieces" : [
+            {
+              "other" : "var "
+            },
+            {
+              "name" : "description"
+            },
+            {
+              "other" : ": String"
+            }
+          ]
+        },
+        "swift_name" : "description",
+        "usr" : "s:s23CustomStringConvertibleP11descriptionSSvp"
+      }
+    ],
+    "documentation" : {
+      "abstract" : {
+        "markdown" : {
+          "en" : "Should be included in docs"
+        }
+      },
+      "parameters" : [],
+      "source" : "docComment"
+    },
+    "kind" : "source.lang.swift.decl.class",
+    "location" : {
+      "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule5\/AclBase.swift",
+      "first_line" : 2,
+      "last_line" : 19,
+      "module_name" : "SpmSwiftModule5",
+      "pass_index" : 0
+    },
+    "name" : "PublicClass",
+    "swift_declaration" : {
+      "availability" : [],
+      "declaration" : {
+        "text" : "open class PublicClass\n\nextension PublicClass: CustomStringConvertible\n\nextension PublicClass: PublicProtocol"
+      },
+      "deprecated_everywhere" : false,
+      "inherited_types" : [],
+      "is_override" : false,
+      "name_pieces" : [
+        {
+          "other" : "class "
+        },
+        {
+          "name" : "PublicClass"
+        }
+      ]
+    },
+    "swift_name" : "PublicClass",
+    "usr" : "s:15SpmSwiftModule511PublicClassC"
+  },
+  {
+    "acl" : "public",
+    "children" : [
+      {
+        "acl" : "public",
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Should be included"
+            }
+          },
+          "parameters" : [],
+          "source" : "docComment"
+        },
+        "kind" : "source.lang.swift.decl.function.method.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule5\/AclBase.swift",
+          "first_line" : 34,
+          "last_line" : 34,
+          "module_name" : "SpmSwiftModule5",
+          "pass_index" : 0
+        },
+        "name" : "publicProtocolMethod()",
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : {
+            "text" : "func publicProtocolMethod()"
+          },
+          "deprecated_everywhere" : false,
+          "inherited_types" : [],
+          "is_override" : false,
+          "name_pieces" : [
+            {
+              "other" : "func "
+            },
+            {
+              "name" : "publicProtocolMethod"
+            },
+            {
+              "other" : "()"
+            }
+          ]
+        },
+        "swift_name" : "publicProtocolMethod()",
+        "usr" : "s:15SpmSwiftModule514PublicProtocolP06publicE6MethodyyF"
+      }
+    ],
+    "documentation" : {
+      "abstract" : {
+        "markdown" : {
+          "en" : "Should be included"
+        }
+      },
+      "parameters" : [],
+      "source" : "docComment"
+    },
+    "kind" : "source.lang.swift.decl.protocol",
+    "location" : {
+      "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule5\/AclBase.swift",
+      "first_line" : 32,
+      "last_line" : 35,
+      "module_name" : "SpmSwiftModule5",
+      "pass_index" : 0
+    },
+    "name" : "PublicProtocol",
+    "swift_declaration" : {
+      "availability" : [],
+      "declaration" : {
+        "text" : "public protocol PublicProtocol"
+      },
+      "deprecated_everywhere" : false,
+      "inherited_types" : [],
+      "is_override" : false,
+      "name_pieces" : [
+        {
+          "other" : "protocol "
+        },
+        {
+          "name" : "PublicProtocol"
+        }
+      ]
+    },
+    "swift_name" : "PublicProtocol",
+    "usr" : "s:15SpmSwiftModule514PublicProtocolP"
+  }
+]

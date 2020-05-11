@@ -1,10 +1,10 @@
 #!/usr/bin/env ruby
 
 #  podsetup.rb
-#  J2Lib
+#  Bebop
 #
-#  Copyright 2020 J2 Authors
-#  Licensed under MIT (https://github.com/johnfairh/J2/blob/master/LICENSE)
+#  Copyright 2020 Bebop Authors
+#  Licensed under MIT (https://github.com/johnfairh/Bebop/blob/master/LICENSE)
 #
 #  Wrapper script to unpack a cocoapods build environment so we
 #  can run xcodebuild via sourcekitten over the targets
@@ -65,7 +65,7 @@ podfile = Pod::Podfile.new do
     next if ss.test_specification
 
     ss.available_platforms.each do |p|
-      target("J2-#{ss.name.gsub('/', '__')}-#{p.name}") do
+      target("Bebop-#{ss.name.gsub('/', '__')}-#{p.name}") do
         use_frameworks!
         platform p.name, p.deployment_target
         pod ss.name, path: podspec_path.parent
