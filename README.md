@@ -12,13 +12,13 @@ Bebop: experimental Jazzy with extra bits.  There are bells _and_ whistles.  Som
 * Mostly compatible with Jazzy CLI / config file / themes -- migration aide+
 * Experiment with monolithic project and heavy dependencies
 
-Install:
+Install, approximately:
 * `git clone git@github.com:johnfairh/Bebop.git`
 * `brew install libsass`
     * (or `apt-get install libsqlite3-dev libsass0 libsass-dev`)
 * `make install`
 
 
-[<img src="images/example-separate.png" width="200" title="child-item-style=separate, close to apple.com style">](images/example-separate.png) <img src="images/example-nested.png" width="200" title="trad jazzy nested style"> <img src="images/example-objc.png" width="200" title="objc/swift mode">
+<img src="images/example-separate.png" width="200" title="child-item-style=separate, close to apple.com style"> <img src="images/example-nested.png" width="200" title="trad jazzy nested style"> <img src="images/example-objc.png" width="200" title="objc/swift mode">
 
 <img src="images/example-dash.png" width="200" title="dash docset"> <img src="images/example-dark.png" width="200" title="dark mode"> <img src="images/example-guide.png" width="200" title="guide presentation">

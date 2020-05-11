@@ -7,7 +7,7 @@
 //
 
 public enum Version {
-    public static let bebopLibVersion = "0.1"
+    public static let bebopLibVersion = "1.0"
 
     static func canImport(from: String) -> Bool {
         from <= bebopLibVersion

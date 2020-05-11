@@ -3,7 +3,7 @@
     "" : {
       "key.bb.module_name" : "SpmSwiftModule",
       "key.bb.pass_index" : 0,
-      "key.bb.version" : "0.1",
+      "key.bb.version" : "1.0",
       "key.diagnostic_stage" : "parse",
       "key.substructure" : [
         {
@@ -2484,7 +2484,7 @@
     "" : {
       "key.bb.module_name" : "SpmSwiftModule",
       "key.bb.pass_index" : 0,
-      "key.bb.version" : "0.1",
+      "key.bb.version" : "1.0",
       "key.diagnostic_stage" : "parse",
       "key.substructure" : [
         {

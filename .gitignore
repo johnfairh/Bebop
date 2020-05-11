@@ -26,9 +26,9 @@ node_modules
 .stylelintcache
 dist
 *.profraw
-Tests/J2Tests/Fixtures/SpmSwiftPackage/docs
-Tests/J2Tests/Fixtures/Swift53/docs
-Tests/J2Tests/Fixtures/Swift53/o
-Tests/J2Tests/Fixtures/LayoutTest/docs/docsets/DLayout.tgz
-Tests/J2Tests/Fixtures/SpmSwiftPackage/jazzy_docs/docsets/SpmSwiftModule.tgz
-Tests/J2Tests/Fixtures/Pod/docs
+Tests/BebopTests/Fixtures/SpmSwiftPackage/docs
+Tests/BebopTests/Fixtures/Swift53/docs
+Tests/BebopTests/Fixtures/Swift53/o
+Tests/BebopTests/Fixtures/LayoutTest/docs/docsets/DLayout.tgz
+Tests/BebopTests/Fixtures/SpmSwiftPackage/jazzy_docs/docsets/SpmSwiftModule.tgz
+Tests/BebopTests/Fixtures/Pod/docs
