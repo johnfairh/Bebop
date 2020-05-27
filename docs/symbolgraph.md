@@ -14,8 +14,8 @@ give you at least as good results, usually better.
 * Location - missing for non-public decls
 * DocComments - missing for non-public decls, missing for extensions
 * DocComments - lost from proto req default impls
-* Readonly properties/subscripts broken, no { get / set } even in protocols
-* public private(set) var broken, setter ignored / no { get }
+* ~Readonly properties/subscripts broken, no { get / set } even in protocols~
+* public private(set) var broken, setter ignored / ~no { get }~
 * Typealiases for proto composition not respected (Codable)
 * Crashes horribly if anything slightly wrong with sourceinfo.
   No x-checks between module artefacts.
