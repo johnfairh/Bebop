@@ -1108,7 +1108,7 @@
                 "key.bb.doc_source" : "docComment"
               },
               "key.bb.is_override" : true,
-              "key.bb.swift_declaration" : "func method(param: Int) -> String",
+              "key.bb.swift_declaration" : "override func method(param: Int) -> String",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
                 {
@@ -1136,7 +1136,7 @@
               "key.doc.comment" : "See `ABaseClass.method(...)`.",
               "key.doc.line" : 97,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/Swift53\/SpmSwiftModule.swift",
-              "key.fully_annotated_decl" : "<swift>func method(param: Int) -&gt; String<\/swift>",
+              "key.fully_annotated_decl" : "<swift>override func method(param: Int) -&gt; String<\/swift>",
               "key.inherited_docs" : false,
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.name" : "method(param:)",
@@ -1565,7 +1565,7 @@
         {
           "key.accessibility" : "source.lang.swift.accessibility.internal",
           "key.bb.is_override" : false,
-          "key.bb.swift_declaration" : "struct S1: P1",
+          "key.bb.swift_declaration" : "struct S1",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
             {
@@ -1578,7 +1578,7 @@
             }
           ],
           "key.doc.full_as_xml" : "",
-          "key.fully_annotated_decl" : "<swift>struct S1 : P1<\/swift>",
+          "key.fully_annotated_decl" : "<swift>struct S1<\/swift>",
           "key.inherited_docs" : true,
           "key.kind" : "source.lang.swift.decl.struct",
           "key.name" : "S1",
@@ -1624,7 +1624,7 @@
         {
           "key.accessibility" : "source.lang.swift.accessibility.internal",
           "key.bb.is_override" : false,
-          "key.bb.swift_declaration" : "struct S2<T>: P1 where T: Equatable",
+          "key.bb.swift_declaration" : "struct S2<T> where T: Equatable",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
             {
@@ -1637,7 +1637,7 @@
             }
           ],
           "key.doc.full_as_xml" : "",
-          "key.fully_annotated_decl" : "<swift>struct S2&lt;T&gt; : P1 where T : Equatable<\/swift>",
+          "key.fully_annotated_decl" : "<swift>struct S2&lt;T&gt; where T : Equatable<\/swift>",
           "key.inherited_docs" : true,
           "key.kind" : "source.lang.swift.decl.struct",
           "key.name" : "S2",
@@ -2360,10 +2360,13 @@
           "key.bb.inherited_types" : [
             {
               "key.bb.type_name" : "CustomStringConvertible"
+            },
+            {
+              "key.bb.type_name" : "P1"
             }
           ],
           "key.bb.is_override" : false,
-          "key.bb.swift_declaration" : "extension S1: CustomStringConvertible",
+          "key.bb.swift_declaration" : "extension S1: CustomStringConvertible, P1",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
             {
@@ -2376,10 +2379,13 @@
             }
           ],
           "key.bb.type_module_name" : "SpmSwiftModule",
-          "key.fully_annotated_decl" : "<swift>extension S1 : CustomStringConvertible<\/swift>",
+          "key.fully_annotated_decl" : "<swift>extension S1 : CustomStringConvertible, P1<\/swift>",
           "key.inheritedtypes" : [
             {
               "key.name" : "CustomStringConvertible"
+            },
+            {
+              "key.name" : "P1"
             }
           ],
           "key.kind" : "source.lang.swift.decl.extension",
@@ -2450,10 +2456,13 @@
           "key.bb.inherited_types" : [
             {
               "key.bb.type_name" : "Equatable"
+            },
+            {
+              "key.bb.type_name" : "P1"
             }
           ],
           "key.bb.is_override" : false,
-          "key.bb.swift_declaration" : "extension S2: Equatable",
+          "key.bb.swift_declaration" : "extension S2: Equatable, P1",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
             {
@@ -2466,10 +2475,13 @@
             }
           ],
           "key.bb.type_module_name" : "SpmSwiftModule",
-          "key.fully_annotated_decl" : "<swift>extension S2 : Equatable<\/swift>",
+          "key.fully_annotated_decl" : "<swift>extension S2 : Equatable, P1<\/swift>",
           "key.inheritedtypes" : [
             {
               "key.name" : "Equatable"
+            },
+            {
+              "key.name" : "P1"
             }
           ],
           "key.kind" : "source.lang.swift.decl.extension",

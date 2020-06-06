@@ -254,7 +254,9 @@ extension NetworkSymbolGraph.Symbol.Availability {
     var asSwift: String? {
         var str = "@available("
 
-        if let domain = domain {
+        if isUnconditionallyDeprecated != nil {
+            str += "*, deprecated"
+        } else if let domain = domain {
             str += domain
             [("introduced", \Self.introduced),
              ("deprecated", \Self.deprecated),
@@ -263,8 +265,6 @@ extension NetworkSymbolGraph.Symbol.Availability {
                     str += ", \(name): \(version.asSwift)"
                 }
             }
-        } else if isUnconditionallyDeprecated != nil {
-            str += "*, deprecated"
         } else {
             logWarning(.wrnSsgeAvailability)
             return nil
@@ -374,7 +374,8 @@ extension SymbolGraph {
             // ...and broken in the other direction for subscripts
             fixed = fixed.re_sub(#"(?<=\(|, )(\w+:)"#, with: "_ $1")
         }
-        return fixed
+        // Jun 6: now decl duplicates constraints but has lost inheritances...
+        return fixed.re_sub(" where.*$", with: "")
     }
 }
 
@@ -456,6 +457,7 @@ extension SymbolGraph {
         var isOverride: Bool
         var isProtocolReq: Bool
         var isBad: Bool
+        var superclassName: String?
 
         init(symbol: Symbol) {
             self.symbol = symbol
@@ -463,6 +465,7 @@ extension SymbolGraph {
             self.isOverride = false
             self.isProtocolReq = false
             self.isBad = false
+            self.superclassName = nil
         }
 
         override var constraints: Constraints {
@@ -519,7 +522,8 @@ extension SymbolGraph {
                 "<syntaxtype.attribute.builtin>\($0.htmlEscaped)\n</syntaxtype.attribute.builtin>"
             }
             let newConstraints = symbol.constraints.subtracting(parent?.constraints ?? Constraints())
-            let declaration = symbol.declaration + newConstraints.asWhereClause
+            let inherits = superclassName.flatMap { " : \($0)"} ?? ""
+            let declaration = symbol.declaration + inherits + newConstraints.asWhereClause
             return "<swift>\(availabilityXml.joined())\(declaration.htmlEscaped)</swift>"
         }
 
@@ -751,8 +755,14 @@ extension SymbolGraph {
                                             where: extConstraints)
                 break
 
-            case .inheritsFrom, .defaultImplementationOf:
-                // don't care / do later
+            case .inheritsFrom:
+                // "source : target" where target is a class
+                if let srcNode = resolveSource(rel: rel)  {
+                    srcNode.superclassName = nodes[rel.targetUSR]?.symbol.name ?? rel.targetUSR
+                }
+
+            case .defaultImplementationOf:
+                // do later
                 break
             }
         }
