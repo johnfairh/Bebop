@@ -47,10 +47,6 @@ fileprivate struct NetworkSymbolGraph: Decodable {
         }
         let identifier: Identifier
         let pathComponents: [String]
-        struct Names: Decodable {
-            let title: String
-        }
-        let names: Names
         struct Position: Decodable {
             let line: Int
             let character: Int
@@ -219,7 +215,7 @@ fileprivate struct SymbolGraph: Decodable {
             return Symbol(kind: kind,
                           usr: sym.identifier.precise,
                           pathComponents: sym.pathComponents,
-                          name: sym.names.title,
+                          name: sym.pathComponents.last ?? "??",// 9th Jun: names.title is now oddly qualfified
                           docComment: docComments?.1.joined(separator: "\n"),
                           docCommentHasSourceInfo: docComments?.0 ?? false,
                           declaration: declaration,
