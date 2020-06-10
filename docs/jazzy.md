@@ -65,6 +65,7 @@ the empty string instead of 'Other'.  Put it back using
 * `--skip-documentation`.  Use `--products`.
 * `--keep-property-attributes`.  Omit.
 * `--author_url`.  Use `--author-url`.
+* `--separate-global-declarations`.  See `--child-item-style` for options.
 
 ### Renamed Options
 

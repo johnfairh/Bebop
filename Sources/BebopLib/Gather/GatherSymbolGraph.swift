@@ -368,6 +368,7 @@ extension SymbolGraph {
 
         if fixed.re_isMatch(#"\bsubscript\b"#) {
             // ...and broken in the other direction for subscripts
+            // XXX is this really right?  What is 'broken' here?
             fixed = fixed.re_sub(#"(?<=\(|, )(\w+:)"#, with: "_ $1")
         }
         // Jun 6: now decl duplicates constraints but has lost inheritances...
