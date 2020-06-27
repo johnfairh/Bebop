@@ -122,7 +122,7 @@ fileprivate struct NetworkSymbolGraph: Decodable {
 /// Flattened and more normally-named deserialized symbolgraph - all decoding of json happens here.
 fileprivate struct SymbolGraph: Decodable {
     struct Constraint: Equatable {
-        enum Kind: String {
+        enum Kind: String, CaseIterable {
             case conformance
             case superclass
             case sameType
@@ -182,7 +182,8 @@ fileprivate struct SymbolGraph: Decodable {
 
         // Symbols
         symbols = network.symbols.compactMap { sym in
-            let declaration = Self.fixUpDeclaration(sym.declarationFragments.map { $0.spelling }.joined())
+            let fullDeclaration = sym.declarationFragments.map { $0.spelling }.joined()
+            let declaration = Self.fixUpDeclaration(fullDeclaration)
             guard let kind = Self.mapKind(sym.kind.identifier, declaration: declaration) else {
                 logWarning(.wrnSsgeSymbolKind, sym.kind.identifier)
                 return nil
@@ -199,7 +200,7 @@ fileprivate struct SymbolGraph: Decodable {
             // Apr16: now we can get both!  And there can be repetitions!
             let constraintList = (sym.swiftGenerics?.constraints ?? []) +
                                  (sym.swiftExtension?.constraints ?? [])
-            let constraints = constraintList.compactMap { con -> Constraint? in
+            var constraints = constraintList.compactMap { con -> Constraint? in
                 // Drop implementation Self constraint for protocol members
                 // Apr16: These are supposed to be gone but some remain.
                 if con.lhs == "Self" && con.kind == "conformance" && sym.pathComponents.contains(con.rhs) {
@@ -207,6 +208,13 @@ fileprivate struct SymbolGraph: Decodable {
                 }
                 return Constraint(con)
             }
+            // Jun27: now we sometimes get neither and have to scrape the declaration.
+            if let whereClause = fullDeclaration.re_match(#"where (.*)$"#),
+                case let declConstraints = whereClause[1].re_split(#"\s*,\s*"#),
+                !declConstraints.isEmpty {
+                constraints += declConstraints.compactMap { Constraint(declaration: $0) }
+            }
+
             // distill what the doc comment is, and whether any have range info: use this
             // as a crap hint that it's been inherited.
             let docComments = sym.docComment?.lines.reduce((false, [String]())) { r, l in
@@ -334,6 +342,22 @@ private extension String {
     /// Remove any dot and after
     var firstComponent: String {
         re_sub(#"\..*$"#, with: "")
+    }
+}
+
+// Jun27 - hopefully temporary - some constraints are missing, have to decode them
+extension SymbolGraph.Constraint {
+    /// declaration is 'X:Y'
+    init?(declaration: String) {
+        guard let match = declaration.re_match(#"^(.*?)\s*([:<=]+)\s*(.*)$"#) else {
+            return nil
+        }
+        guard let kindVal = Kind.allCases.first(where: { $0.asSwift == match[2] }) else {
+            return nil
+        }
+        lhs = match[1]
+        kind = kindVal
+        rhs = match[3]
     }
 }
 
