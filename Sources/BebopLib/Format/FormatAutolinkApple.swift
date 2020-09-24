@@ -9,6 +9,8 @@
 import Foundation
 import SQLite
 
+// Xcode 12 - format has changed, see "select * from map where uuid like '%swift/string/%';"
+
 /// Autolinking to reference docs on apple.com.
 ///
 /// Based on jazzy prototype work by github/galli-leo and me of some years ago.
