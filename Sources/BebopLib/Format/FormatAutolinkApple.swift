@@ -9,7 +9,15 @@
 import Foundation
 import SQLite
 
-// Xcode 12 - format has changed, see "select * from map where uuid like '%swift/string/%';"
+// This version is for Xcode12
+// See prior to Oct 2020 for earlier Xcode compat.
+//
+// Xcode 12 changes:
+// 1. topic_id always 0
+// 2. uuid and reference_path swapped meanings!  So:
+//    1. reference_path is the useless USR-derived hashy thing
+//    2. uuid contains the docs path *and* (to make it unique?) a language
+//       prefix that the website doesn't understand.
 
 /// Autolinking to reference docs on apple.com.
 ///
@@ -138,8 +146,7 @@ final class FormatAutolinkApple: Configurable {
             Stats.inc(.autolinkAppleSuccess)
 
             // Try to find the same topic in the other language.
-            let otherRow = try db.query(language: row.language.otherLanguage,
-                                        topicId: row.topicId)
+            let otherRow = try db.query(uuid: row.uuid.otherLanguageUuid)
 
             // Finally generate the autolink content
             let secondaryHtml = otherRow.flatMap { $0.htmlLink(text, isSecondary: true) } ?? ""
@@ -156,22 +163,57 @@ final class FormatAutolinkApple: Configurable {
 final class AppleDocsDb {
     let db: Connection
     let map: Table
-    let topicId: Expression<Int64>
     let sourceLanguage: Expression<Int64>
     let referencePath: Expression<String>
+    let uuid: Expression<String>
 
     init(url: URL) throws {
         db = try Connection(url.path, readonly: true)
         map = Table("map")
-        topicId = Expression("topic_id")
         sourceLanguage = Expression("source_language")
-        referencePath = Expression("reference_path")
+        // Xcode 12 keeps the same schema but flips the content of these fields, wibble....
+        referencePath = Expression("uuid")
+        uuid = Expression("reference_path")
     }
 
-    struct Row {
-        let topicId: Int64
+    /// UUID is like "hsg9xauj73"
+    /// First char is "h"; second is "c" or "s" for the language.
+    /// Rest is apparently derived from the USR - we don't interpret it.
+    struct Uuid: CustomStringConvertible {
         let language: DefLanguage
+        let sha: String
+
+        init(language: DefLanguage, sha: String) {
+            self.language = language
+            self.sha = sha
+        }
+
+        init?(uuid: String) {
+            guard let matches = uuid.re_match("^h(s|c)(.*)$"),
+                  let language = DefLanguage(letter: matches[1]) else {
+                return nil
+            }
+            self.language = language
+            self.sha = matches[2]
+        }
+
+        var description: String {
+            "h\(language.letter)\(sha)"
+        }
+
+        var otherLanguageUuid: Uuid {
+            Uuid(language: language.otherLanguage, sha: sha)
+        }
+    }
+
+    /// A row from the database, slightly massaged
+    struct Row {
+        /// Rows always C or Swift - JS etc don't get here
+        let language: DefLanguage
+        /// Ref path is without the ls/documentation prefix
         let referencePath: String
+        /// The decoded UUID
+        let uuid: Uuid
 
         var urlString: String {
             FormatAutolinkApple.APPLE_DOCS_BASE_URL +
@@ -188,8 +230,8 @@ final class AppleDocsDb {
 
     /// Return the best fitting row for the path and optionally language.
     func query(pathLike path: String, language: DefLanguage?) throws -> Row? {
-        let baseQuery = map.select(topicId, sourceLanguage, referencePath)
-            .filter(referencePath.like(path))
+        let baseQuery = map.select(uuid, sourceLanguage, referencePath)
+            .filter(referencePath.like(RefPath.withPrefix(queryPath: path, language: language)))
 
         let langQuery = language.flatMap {
             baseQuery.filter(sourceLanguage == $0.appleId)
@@ -198,26 +240,26 @@ final class AppleDocsDb {
         return try doQuery(langQuery)
     }
 
-    /// Return the best-fitting row for the language & topic ID.
-    func query(language: DefLanguage, topicId: Int64) throws -> Row? {
-        try doQuery(map.select(self.topicId, sourceLanguage, referencePath)
-            .filter(self.sourceLanguage == language.appleId)
-            .filter(self.topicId == topicId))
+    /// Return the best-fitting row for a UUID
+    func query(uuid: Uuid) throws -> Row? {
+        try doQuery(map.select(self.uuid, sourceLanguage, referencePath)
+                       .filter(self.uuid == uuid.description))
     }
 
     /// Exec a query, adding logic to return the matching row with the shortest ref_path.
     private func doQuery(_ query: Table) throws -> Row? {
-        try db.prepare(query
+        return try db.prepare(query
             .order(self.referencePath.length)
             .filter(self.sourceLanguage < 2)
             .limit(1)
         ).compactMap { dbRow -> Row? in
-            guard let language = DefLanguage(appleId: dbRow[sourceLanguage]) else {
+            guard let language = DefLanguage(appleId: dbRow[sourceLanguage]),
+                  let uuid = Uuid(uuid: dbRow[uuid]) else {
                 return nil
             }
-            return Row(topicId: dbRow[topicId],
-                       language: language,
-                       referencePath: dbRow[referencePath])
+            return Row(language: language,
+                       referencePath: RefPath.withoutPrefix(refPath: dbRow[referencePath]),
+                       uuid: uuid)
         }.first
     }
 
@@ -285,6 +327,16 @@ final class AppleDocsDb {
         func validate(row: Row) -> Bool {
             row.referencePath.components(separatedBy: "/").count <= pieces.count + 1
         }
+
+        /// Add the language-specific Xcode 12 prefix for an SQL 'like' expression query string
+        static func withPrefix(queryPath: String, language: DefLanguage?) -> String {
+            "l\(language?.letter ?? "%")/documentation/\(queryPath)"
+        }
+
+        /// Remove the Xcode 12 prefix from a ref_path returned from the DB
+        static func withoutPrefix(refPath: String) -> String {
+            refPath.re_sub("^l./documentation/", with: "")
+        }
     }
 }
 
@@ -303,6 +355,21 @@ extension DefLanguage {
         switch self {
         case .swift: return 0
         case .objc: return 1
+        }
+    }
+
+    init?(letter: String) {
+        switch letter {
+        case "c": self = .objc
+        case "s": self = .swift
+        default: return nil
+        }
+    }
+
+    var letter: String {
+        switch self {
+        case .swift: return "s"
+        case .objc: return "c"
         }
     }
 }
