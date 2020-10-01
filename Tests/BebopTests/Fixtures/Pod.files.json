@@ -49,7 +49,6 @@
           "key.parsed_declaration" : "public class PodClass",
           "key.parsed_scope.end" : 19,
           "key.parsed_scope.start" : 1,
-          "key.runtime_name" : "_TtC4main8PodClass",
           "key.substructure" : [
             {
               "key.accessibility" : "source.lang.swift.accessibility.internal",
@@ -360,7 +359,6 @@
           "key.parsed_declaration" : "public class PodClass",
           "key.parsed_scope.end" : 19,
           "key.parsed_scope.start" : 1,
-          "key.runtime_name" : "_TtC4main8PodClass",
           "key.substructure" : [
             {
               "key.accessibility" : "source.lang.swift.accessibility.internal",

@@ -1360,7 +1360,6 @@
           "key.parsed_declaration" : "public protocol FirstProtocol",
           "key.parsed_scope.end" : 14,
           "key.parsed_scope.start" : 2,
-          "key.runtime_name" : "_TtP4main13FirstProtocol_",
           "key.substructure" : [
             {
               "key.accessibility" : "source.lang.swift.accessibility.public",
@@ -1846,7 +1845,6 @@
           "key.parsed_declaration" : "public protocol SecondProtocol: FirstProtocol",
           "key.parsed_scope.end" : 32,
           "key.parsed_scope.start" : 30,
-          "key.runtime_name" : "_TtP4main14SecondProtocol_",
           "key.substructure" : [
             {
               "key.accessibility" : "source.lang.swift.accessibility.public",
@@ -2824,14 +2822,14 @@
           "key.bodyoffset" : 981,
           "key.doc.column" : 13,
           "key.doc.comment" : "- parameters:\n   - arg1: Number one\n   - arg2: Second\n   - arg3: Third\n\nSee `SpmSwiftModule` -- or `SpmSwiftModule.ABaseClass`.",
-          "key.doc.declaration" : "@available(iOS 9, OSX 10.12, *)\n@available(tvOS, unavailable, message: \"Not available on the big screen.\")\npublic func functionA(arg1: Int, _ arg2: Int, arg3 argMeaning: Int)",
+          "key.doc.declaration" : "@available(iOS 9, macOS 10.12, *)\n@available(tvOS, unavailable, message: \"Not available on the big screen.\")\npublic func functionA(arg1: Int, _ arg2: Int, arg3 argMeaning: Int)",
           "key.doc.discussion" : [
             {
               "Para" : "See `SpmSwiftModule` – or `SpmSwiftModule.ABaseClass`."
             }
           ],
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"43\" column=\"13\"><Name>functionA(arg1:_:arg3:)<\/Name><USR>s:14SpmSwiftModule9functionA4arg1_4arg3ySi_S2itF<\/USR><Declaration>@available(iOS 9, OSX 10.12, *)\n@available(tvOS, unavailable, message: &quot;Not available on the big screen.&quot;)\npublic func functionA(arg1: Int, _ arg2: Int, arg3 argMeaning: Int)<\/Declaration><CommentParts><Parameters><Parameter><Name>arg1<\/Name><Direction isExplicit=\"0\">in<\/Direction><Discussion><Para>Number one<\/Para><\/Discussion><\/Parameter><Parameter><Name>arg2<\/Name><Direction isExplicit=\"0\">in<\/Direction><Discussion><Para>Second<\/Para><\/Discussion><\/Parameter><Parameter><Name>arg3<\/Name><Direction isExplicit=\"0\">in<\/Direction><Discussion><Para>Third<\/Para><\/Discussion><\/Parameter><\/Parameters><Discussion><Para>See <codeVoice>SpmSwiftModule<\/codeVoice> – or <codeVoice>SpmSwiftModule.ABaseClass<\/codeVoice>.<\/Para><\/Discussion><\/CommentParts><\/Function>",
+          "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"43\" column=\"13\"><Name>functionA(arg1:_:arg3:)<\/Name><USR>s:14SpmSwiftModule9functionA4arg1_4arg3ySi_S2itF<\/USR><Declaration>@available(iOS 9, macOS 10.12, *)\n@available(tvOS, unavailable, message: &quot;Not available on the big screen.&quot;)\npublic func functionA(arg1: Int, _ arg2: Int, arg3 argMeaning: Int)<\/Declaration><CommentParts><Parameters><Parameter><Name>arg1<\/Name><Direction isExplicit=\"0\">in<\/Direction><Discussion><Para>Number one<\/Para><\/Discussion><\/Parameter><Parameter><Name>arg2<\/Name><Direction isExplicit=\"0\">in<\/Direction><Discussion><Para>Second<\/Para><\/Discussion><\/Parameter><Parameter><Name>arg3<\/Name><Direction isExplicit=\"0\">in<\/Direction><Discussion><Para>Third<\/Para><\/Discussion><\/Parameter><\/Parameters><Discussion><Para>See <codeVoice>SpmSwiftModule<\/codeVoice> – or <codeVoice>SpmSwiftModule.ABaseClass<\/codeVoice>.<\/Para><\/Discussion><\/CommentParts><\/Function>",
           "key.doc.line" : 43,
           "key.doc.name" : "functionA(arg1:_:arg3:)",
           "key.doc.parameters" : [
@@ -2952,9 +2950,9 @@
           "key.bodyoffset" : 1316,
           "key.doc.column" : 13,
           "key.doc.comment" : "A deprecated function\n\n- parameter callback: The callback\n- returns: A string",
-          "key.doc.declaration" : "@available(iOS, deprecated: 12.0, message: \"Deprecated!\")\n@available(OSX, deprecated: 10.14, message: \"Deprecated on *macOS* too\")\n@available(*, deprecated)\npublic func deprecatedFunction(callback: (_ report: String) -> Int) -> String",
+          "key.doc.declaration" : "@available(iOS, deprecated: 12.0, message: \"Deprecated!\")\n@available(macOS, deprecated: 10.14, message: \"Deprecated on *macOS* too\")\n@available(*, deprecated)\npublic func deprecatedFunction(callback: (_ report: String) -> Int) -> String",
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"55\" column=\"13\"><Name>deprecatedFunction(callback:)<\/Name><USR>s:14SpmSwiftModule18deprecatedFunction8callbackSSSiSSXE_tF<\/USR><Declaration>@available(iOS, deprecated: 12.0, message: &quot;Deprecated!&quot;)\n@available(OSX, deprecated: 10.14, message: &quot;Deprecated on *macOS* too&quot;)\n@available(*, deprecated)\npublic func deprecatedFunction(callback: (_ report: String) -&gt; Int) -&gt; String<\/Declaration><CommentParts><Abstract><Para>A deprecated function<\/Para><\/Abstract><Parameters><Parameter><Name>callback<\/Name><Direction isExplicit=\"0\">in<\/Direction><Discussion><Para>The callback<\/Para><\/Discussion><\/Parameter><\/Parameters><ResultDiscussion><Para>A string<\/Para><\/ResultDiscussion><\/CommentParts><\/Function>",
+          "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"55\" column=\"13\"><Name>deprecatedFunction(callback:)<\/Name><USR>s:14SpmSwiftModule18deprecatedFunction8callbackSSSiSSXE_tF<\/USR><Declaration>@available(iOS, deprecated: 12.0, message: &quot;Deprecated!&quot;)\n@available(macOS, deprecated: 10.14, message: &quot;Deprecated on *macOS* too&quot;)\n@available(*, deprecated)\npublic func deprecatedFunction(callback: (_ report: String) -&gt; Int) -&gt; String<\/Declaration><CommentParts><Abstract><Para>A deprecated function<\/Para><\/Abstract><Parameters><Parameter><Name>callback<\/Name><Direction isExplicit=\"0\">in<\/Direction><Discussion><Para>The callback<\/Para><\/Discussion><\/Parameter><\/Parameters><ResultDiscussion><Para>A string<\/Para><\/ResultDiscussion><\/CommentParts><\/Function>",
           "key.doc.line" : 55,
           "key.doc.name" : "deprecatedFunction(callback:)",
           "key.doc.parameters" : [
@@ -3042,7 +3040,6 @@
           "key.parsed_declaration" : "public class ABaseClass",
           "key.parsed_scope.end" : 95,
           "key.parsed_scope.start" : 60,
-          "key.runtime_name" : "_TtC4main10ABaseClass",
           "key.substructure" : [
             {
               "key.accessibility" : "source.lang.swift.accessibility.public",
@@ -4385,7 +4382,7 @@
                 }
               ],
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-              "key.fully_annotated_decl" : "<decl.var.instance><syntaxtype.attribute.builtin><syntaxtype.attribute.name>@<\/syntaxtype.attribute.name><ref.struct usr=\"s:14SpmSwiftModule3NopV\">Nop<\/ref.struct><\/syntaxtype.attribute.builtin> <syntaxtype.keyword>var<\/syntaxtype.keyword> <decl.name>v<\/decl.name>: <decl.var.type><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.var.type> { <syntaxtype.keyword>get<\/syntaxtype.keyword> <syntaxtype.keyword>set<\/syntaxtype.keyword> }<\/decl.var.instance>",
+              "key.fully_annotated_decl" : "<decl.var.instance><syntaxtype.attribute.builtin><syntaxtype.attribute.name>@<ref.struct usr=\"s:14SpmSwiftModule3NopV\">Nop<\/ref.struct><\/syntaxtype.attribute.name><\/syntaxtype.attribute.builtin> <syntaxtype.keyword>var<\/syntaxtype.keyword> <decl.name>v<\/decl.name>: <decl.var.type><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.var.type> { <syntaxtype.keyword>get<\/syntaxtype.keyword> <syntaxtype.keyword>set<\/syntaxtype.keyword> }<\/decl.var.instance>",
               "key.kind" : "source.lang.swift.decl.var.instance",
               "key.length" : 13,
               "key.name" : "v",
