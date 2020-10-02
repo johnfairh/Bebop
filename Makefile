@@ -1,4 +1,4 @@
-# `make` to build & install to /usr/local
+# `make install` to build & install to /usr/local
 # `make uninstall` to uninstall from /usr/local
 #
 # `RELEASE=debug make install` to build & install debug to /usr/local
