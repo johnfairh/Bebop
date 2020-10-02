@@ -80,11 +80,14 @@ class TestProducts: XCTestCase {
         return cleanedLines.joined(separator: "\n")
     }
 
+    #if os(macOS)
+    /* TEMP TEMP UNTIL Float16 arrives on macOS Swift 5.3 */
     func testFilesJsonSwift() throws {
         try compareSwift(product: "files-json",
                          cliArgs: ["--no-apple-autolink"],
                          against: "SpmSwiftModule.files.json")
     }
+    #endif
 
     func testDeclsJsonSwift() throws {
         try compareSwift(product: "decls-json",

@@ -1,4 +1,4 @@
-# `make` to build & install to /usr/local
+# `make install` to build & install to /usr/local
 # `make uninstall` to uninstall from /usr/local
 #
 # `RELEASE=debug make install` to build & install debug to /usr/local
@@ -19,7 +19,7 @@ test:
 	swift test --parallel
 
 test_linux:
-	docker run -v `pwd`:`pwd` -w `pwd` --name bebop --rm swift:5.2 /bin/bash -c "apt-get update; apt-get install libsqlite3-dev libsass0 libsass-dev; swift test --parallel --enable-test-discovery"
+	docker run -v `pwd`:`pwd` -w `pwd` --name bebop --rm swift:5.3 /bin/bash -c "apt-get update; apt-get install libsqlite3-dev libsass0 libsass-dev; swift test --parallel --enable-test-discovery"
 
 install: build
 	install ${BIN_PATH}/bebop ${PREFIX}/bin
