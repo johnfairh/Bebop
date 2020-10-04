@@ -45,10 +45,13 @@ extension GatherJob {
             ]
             if buildToolArgs.isEmpty {
                 args += [
-                    "--sdk=\(try sdk.getPath())",
                     "--target=\(target)",
                     "--skip-synthesized-members"
                 ]
+                // SDK can just be omitted on Linux.
+                #if os(macOS)
+                args.append("--sdk=\(try sdk.getPath())")
+                #endif
                 let searchPaths = searchURLs.isEmpty ?
                     [FileManager.default.currentDirectory.path] :
                     searchURLs.map { $0.path }
