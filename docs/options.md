@@ -100,6 +100,8 @@ or a framework without rebuilding the package.
   `.framework`s.
 * `--sdk` set the SDK.  Defaults to macOS.
 * `--build-tool-arguments` to customize the arguments to `swift symbolgraph`.
+  If a pass-through argument is set here such as `--sdk=` then it overrides
+  any _bebop_ `--sdk`.
 
 [More about SymbolGraph support](symbolgraph.md).
 

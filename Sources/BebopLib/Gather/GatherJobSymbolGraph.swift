@@ -14,11 +14,11 @@ import Foundation
 // --module-name=<module>
 // --minimum-access-level=private
 // --output-dir=<tmpdir>
+// --skip-synthesized-members
 //
-// If buildToolArgs.empty:
+// Only if buildToolArgs does _not_ contain them:
 // --sdk=<sdkpath>
 // --target=<target>
-// --skip-synthesized-members
 // -F=<searchPaths ?? pwd>
 // -I=<searchPaths ?? pwd>
 
@@ -41,29 +41,34 @@ extension GatherJob {
             var args = [
                 "--module-name=\(moduleName)",
                 "--minimum-access-level=private",
-                "--output-dir=\(tmpDir.directoryURL.path)"
+                "--output-dir=\(tmpDir.directoryURL.path)",
+                "--skip-synthesized-members"
             ]
-            if buildToolArgs.isEmpty {
-                args += [
-                    "--target=\(target)",
-                    "--skip-synthesized-members"
-                ]
-                // SDK can just be omitted on Linux.
-                #if os(macOS)
-                args.append("--sdk=\(try sdk.getPath())")
-                #endif
-                let searchPaths = searchURLs.isEmpty ?
-                    [FileManager.default.currentDirectory.path] :
-                    searchURLs.map { $0.path }
-                args += searchPaths.flatMap { ["-F=\($0)", "-I=\($0)"] }
-            } else {
-                let joinedArgs = buildToolArgs.joined(separator: " ")
-                try ["--module", "--minimum-access-level", "--output-dir"].forEach { arg in
-                    if joinedArgs.contains(arg) {
-                        throw BBError(.errCfgSsgeArgs, arg)
-                    }
+            let userArgs = buildToolArgs.joined(separator: " ")
+            try ["--module", "--minimum-access-level", "--output-dir"].forEach { arg in
+                if userArgs.contains(arg) {
+                    throw BBError(.errCfgSsgeArgs, arg)
                 }
-                args += buildToolArgs
+            }
+
+            #if os(macOS) // SDK can just be omitted on Linux
+            if !userArgs.re_isMatch("--sdk[ =]") {
+                args.append("--sdk=\(try sdk.getPath())")
+            }
+            #endif
+
+            if !userArgs.re_isMatch("--target[ =]") {
+                args.append("--target=\(target)")
+            }
+            let searchPaths = searchURLs.isEmpty ?
+                [FileManager.default.currentDirectory.path] :
+                searchURLs.map { $0.path }
+
+            if !userArgs.re_isMatch("-F[ =]") {
+                args += searchPaths.map { "-F=\($0)" }
+            }
+            if !userArgs.re_isMatch("-I[ =]") {
+                args += searchPaths.map { "-I=\($0)" }
             }
             logDebug("Calling swift-symbolgraph, args:")
             args.forEach { logDebug("  \($0)") }
