@@ -13,7 +13,7 @@ BIN_PATH := $(shell swift build --show-bin-path -c ${RELEASE})
 all: build 
 
 build:
-	swift build -c ${RELEASE}
+	swift build -c ${RELEASE} --disable-sandbox
 
 test:
 	swift test --parallel
@@ -22,6 +22,7 @@ test_linux:
 	docker run -v `pwd`:`pwd` -w `pwd` --name bebop --rm swift:5.3 /bin/bash -c "apt-get update; apt-get install libsqlite3-dev libsass0 libsass-dev; swift test --parallel --enable-test-discovery"
 
 install: build
+	-mkdir -p ${PREFIX}/share ${PREFIX}/bin
 	install ${BIN_PATH}/bebop ${PREFIX}/bin
 	cp -r Resources/ ${PREFIX}/share/bebop.resources
 
