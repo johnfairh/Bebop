@@ -11,14 +11,24 @@ import XCTest
 
 // Binary-check fixtures for the json & html products files
 
-//private var doFixup = true
-private var doFixup = false
+private var doFixup = true
+//private var doFixup = false
 
 // apple autolink disabled for tests that run on linux...
 
 class TestProducts: XCTestCase {
     override func setUp() {
         initResources()
+    }
+
+    override class func setUp() {
+        setenv("BEBOP_STATIC_DATE", strdup("1") /* leak it */, 1)
+        setenv("BEBOP_STATIC_VERSION", strdup("1"), 1)
+    }
+
+    override class func tearDown() {
+        unsetenv("BEBOP_STATIC_DATE")
+        unsetenv("BEBOP_STATIC_VERSION")
     }
 
     func compareSwift(product: String, cliArgs: [String] = [], against: String, line: UInt = #line) throws {
@@ -111,12 +121,6 @@ class TestProducts: XCTestCase {
     }
 
     func testMixedSwiftObjC() throws {
-        setenv("BEBOP_STATIC_DATE", strdup("1") /* leak it */, 1)
-        setenv("BEBOP_STATIC_VERSION", strdup("1"), 1)
-        defer {
-            unsetenv("BEBOP_STATIC_DATE")
-            unsetenv("BEBOP_STATIC_VERSION")
-        }
         let configURL = fixturesURL
             .appendingPathComponent("SpmSwiftPackage")
             .appendingPathComponent("mixed-objc-swift-bebop.yaml")
@@ -186,12 +190,6 @@ class TestProducts: XCTestCase {
     }
 
     func testSiteGenSwift() throws {
-        setenv("BEBOP_STATIC_DATE", strdup("1") /* leak it */, 1)
-        setenv("BEBOP_STATIC_VERSION", strdup("1"), 1)
-        defer {
-            unsetenv("BEBOP_STATIC_DATE")
-            unsetenv("BEBOP_STATIC_VERSION")
-        }
         try compareSwift(product: "docs-json",
                          cliArgs: ["--min-acl=private", "--no-apple-autolink"],
                          against: "SpmSwiftModule.docs.json")
@@ -242,13 +240,6 @@ class TestProducts: XCTestCase {
     }
 
     private func doTestSiteFiles(args: [String], goodDocsURL: URL) throws {
-        setenv("BEBOP_STATIC_DATE", strdup("1") /* leak it */, 1)
-        setenv("BEBOP_STATIC_VERSION", strdup("1"), 1)
-        defer {
-            unsetenv("BEBOP_STATIC_DATE")
-            unsetenv("BEBOP_STATIC_VERSION")
-        }
-
         let tmpDir = try TemporaryDirectory()
         let newDocsURL  = tmpDir.directoryURL
 

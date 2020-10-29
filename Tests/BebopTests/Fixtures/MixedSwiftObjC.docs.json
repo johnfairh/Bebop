@@ -1,6 +1,6 @@
 [
   {
-    "beboplib_version" : "X.Y",
+    "beboplib_version" : "1.0",
     "breadcrumbs_menus" : [
       {
         "breadcrumbs" : [
@@ -272,7 +272,7 @@
       "no_apology_language" : "j2-objc",
       "title" : "Not available in Swift."
     },
-    "beboplib_version" : "X.Y",
+    "beboplib_version" : "1.0",
     "breadcrumbs_menus" : [
       {
         "breadcrumbs" : [
@@ -508,7 +508,7 @@
     ]
   },
   {
-    "beboplib_version" : "X.Y",
+    "beboplib_version" : "1.0",
     "breadcrumbs_menus" : [
       {
         "breadcrumbs" : [
@@ -773,7 +773,7 @@
       "no_apology_language" : "j2-swift",
       "title" : "Not available in Objective-C."
     },
-    "beboplib_version" : "X.Y",
+    "beboplib_version" : "1.0",
     "breadcrumbs_menus" : [
       {
         "breadcrumbs" : [
@@ -1009,7 +1009,7 @@
     ]
   },
   {
-    "beboplib_version" : "X.Y",
+    "beboplib_version" : "1.0",
     "breadcrumbs_menus" : [
       {
         "breadcrumbs" : [
@@ -1283,7 +1283,7 @@
     "topics_menus" : []
   },
   {
-    "beboplib_version" : "X.Y",
+    "beboplib_version" : "1.0",
     "breadcrumbs_menus" : [
       {
         "breadcrumbs" : [
@@ -1605,7 +1605,7 @@
     ]
   },
   {
-    "beboplib_version" : "X.Y",
+    "beboplib_version" : "1.0",
     "breadcrumbs_menus" : [
       {
         "breadcrumbs" : [
@@ -1887,7 +1887,7 @@
     ]
   },
   {
-    "beboplib_version" : "X.Y",
+    "beboplib_version" : "1.0",
     "breadcrumbs_menus" : [
       {
         "breadcrumbs" : [
@@ -2153,7 +2153,7 @@
     ]
   },
   {
-    "beboplib_version" : "X.Y",
+    "beboplib_version" : "1.0",
     "breadcrumbs_menus" : [
       {
         "breadcrumbs" : [
@@ -2473,7 +2473,7 @@
     ]
   },
   {
-    "beboplib_version" : "X.Y",
+    "beboplib_version" : "1.0",
     "breadcrumbs_menus" : [],
     "breadcrumbs_root" : "Index",
     "codehost_def_link" : "Show on GitHub",

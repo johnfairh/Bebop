@@ -1,6 +1,6 @@
 [
   {
-    "beboplib_version" : "X.Y",
+    "beboplib_version" : "1.0",
     "breadcrumbs_menus" : [
       {
         "breadcrumbs" : [
@@ -362,7 +362,7 @@
     "topics_menus" : []
   },
   {
-    "beboplib_version" : "X.Y",
+    "beboplib_version" : "1.0",
     "breadcrumbs_menus" : [
       {
         "breadcrumbs" : [
@@ -824,7 +824,7 @@
     ]
   },
   {
-    "beboplib_version" : "X.Y",
+    "beboplib_version" : "1.0",
     "breadcrumbs_menus" : [
       {
         "breadcrumbs" : [
@@ -1112,7 +1112,7 @@
     ]
   },
   {
-    "beboplib_version" : "X.Y",
+    "beboplib_version" : "1.0",
     "breadcrumbs_menus" : [
       {
         "breadcrumbs" : [
@@ -1419,7 +1419,7 @@
     ]
   },
   {
-    "beboplib_version" : "X.Y",
+    "beboplib_version" : "1.0",
     "breadcrumbs_menus" : [
       {
         "breadcrumbs" : [
@@ -1820,7 +1820,7 @@
     ]
   },
   {
-    "beboplib_version" : "X.Y",
+    "beboplib_version" : "1.0",
     "breadcrumbs_menus" : [
       {
         "breadcrumbs" : [
@@ -2256,7 +2256,7 @@
     ]
   },
   {
-    "beboplib_version" : "X.Y",
+    "beboplib_version" : "1.0",
     "breadcrumbs_menus" : [
       {
         "breadcrumbs" : [
@@ -2528,7 +2528,7 @@
     ]
   },
   {
-    "beboplib_version" : "X.Y",
+    "beboplib_version" : "1.0",
     "breadcrumbs_menus" : [
       {
         "breadcrumbs" : [
@@ -2771,7 +2771,7 @@
     ]
   },
   {
-    "beboplib_version" : "X.Y",
+    "beboplib_version" : "1.0",
     "breadcrumbs_menus" : [
       {
         "breadcrumbs" : [
@@ -3045,7 +3045,7 @@
     ]
   },
   {
-    "beboplib_version" : "X.Y",
+    "beboplib_version" : "1.0",
     "breadcrumbs_menus" : [
       {
         "breadcrumbs" : [
@@ -3367,7 +3367,7 @@
     ]
   },
   {
-    "beboplib_version" : "X.Y",
+    "beboplib_version" : "1.0",
     "breadcrumbs_menus" : [
       {
         "breadcrumbs" : [
@@ -3634,7 +3634,7 @@
     ]
   },
   {
-    "beboplib_version" : "X.Y",
+    "beboplib_version" : "1.0",
     "breadcrumbs_menus" : [
       {
         "breadcrumbs" : [
@@ -3902,7 +3902,7 @@
     "topics_menus" : []
   },
   {
-    "beboplib_version" : "X.Y",
+    "beboplib_version" : "1.0",
     "breadcrumbs_menus" : [
       {
         "breadcrumbs" : [
@@ -4119,7 +4119,7 @@
     "topics_menus" : []
   },
   {
-    "beboplib_version" : "X.Y",
+    "beboplib_version" : "1.0",
     "breadcrumbs_menus" : [
       {
         "breadcrumbs" : [
@@ -4357,7 +4357,7 @@
     "topics_menus" : []
   },
   {
-    "beboplib_version" : "X.Y",
+    "beboplib_version" : "1.0",
     "breadcrumbs_menus" : [
       {
         "breadcrumbs" : [
@@ -4631,7 +4631,7 @@
     ]
   },
   {
-    "beboplib_version" : "X.Y",
+    "beboplib_version" : "1.0",
     "breadcrumbs_menus" : [
       {
         "breadcrumbs" : [
@@ -4882,7 +4882,7 @@
     ]
   },
   {
-    "beboplib_version" : "X.Y",
+    "beboplib_version" : "1.0",
     "breadcrumbs_menus" : [],
     "breadcrumbs_root" : "SpmSwiftModule",
     "codehost_def_link" : "Show on GitHub",

@@ -260,15 +260,8 @@ public struct GenSite: Configurable {
         let isDualLanguage = genData.meta.languages.count == 2
         let neverCollapse = nestedItemStyle == .always_open || childItemStyle == .separate
 
-        let version: String
-        if ProcessInfo.processInfo.environment["BEBOP_STATIC_VERSION"] != nil {
-            version = "X.Y"
-        } else {
-            version = Version.bebopLibVersion
-        }
-
         var dict = MustacheKey.dict([
-            .bebopLibVersion : version,
+            .bebopLibVersion : Version.bebopLibVersion,
             .hideSearch : hideSearchOpt.value,
             .hideAttribution: hideAttributionOpt.value,
             .hideAvailability: hideAvailabilityOpt.value,
