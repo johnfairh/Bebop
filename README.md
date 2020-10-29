@@ -1,6 +1,7 @@
 ![Test](https://github.com/johnfairh/Bebop/workflows/Test/badge.svg)
 
-Bebop: experimental Jazzy with extra bits.  There are bells _and_ whistles.  Some of them work.
+Bebop: [Jazzy](https://github.com/realm/Jazzy) API docs generation with extra
+bits.  There are bells _and_ whistles.
 * Swift/Objc/Both everywhere
 * Localize everything, doc comments to images
 * Input SPM/Xcodeproj/Podspec/binary .swiftmodule, output html/dash docset/markdown, various flavors of json
@@ -12,12 +13,21 @@ Bebop: experimental Jazzy with extra bits.  There are bells _and_ whistles.  Som
 * Mostly compatible with Jazzy CLI / config file / themes -- migration aide+
 * Experiment with monolithic project and heavy dependencies
 
-Install, approximately:
-* `git clone git@github.com:johnfairh/Bebop.git`
-* `brew install libsass`
-    * (or `apt-get install libsqlite3-dev libsass0 libsass-dev`)
-* `make install`
+### Install
+macOS:
+```shell
+brew install johnfairh/bebop/bebop/
+```
+Builds from source, takes a while.
 
+Linux, approximately:
+```shell
+git clone git@github.com:johnfairh/Bebop.git
+apt-get install libsqlite3-dev libsass0 libsass-dev
+make install
+```
+
+### Examples
 
 <img src="images/example-separate.png" width="200" title="child-item-style=separate, close to apple.com style"> <img src="images/example-nested.png" width="200" title="trad jazzy nested style"> <img src="images/example-objc.png" width="200" title="objc/swift mode">
 
