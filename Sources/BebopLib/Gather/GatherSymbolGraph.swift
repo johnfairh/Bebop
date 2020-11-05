@@ -209,7 +209,7 @@ fileprivate struct SymbolGraph: Decodable {
                 return Constraint(con)
             }
             // Jun27: now we sometimes get neither and have to scrape the declaration.
-            if let whereClause = fullDeclaration.re_match(#"where (.*)$"#),
+            if let whereClause = fullDeclaration.re_match(#" where (.*)$"#),
                 case let declConstraints = whereClause[1].re_split(#"\s*,\s*"#),
                 !declConstraints.isEmpty {
                 constraints += declConstraints.compactMap { Constraint(declaration: $0) }
