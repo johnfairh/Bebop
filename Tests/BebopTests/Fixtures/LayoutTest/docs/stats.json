@@ -27,6 +27,7 @@
   "formatMathExpression" : 6,
   "formatRewrittenGuideLinks" : 2,
   "formatRewrittenMediaLinks" : 6,
+  "formatRewrittenReadmeLinks" : 0,
   "formatUnrewrittenLinks" : 0,
   "gatherDef" : 12,
   "gatherDefImport" : 0,

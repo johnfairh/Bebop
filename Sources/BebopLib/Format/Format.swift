@@ -56,6 +56,8 @@ public final class Format: Configurable {
         return allItems
     }
 
+    static let primaryReadmeName = "README.md"
+
     /// Go discover the readme.
     func createReadme() throws -> ReadmeItem {
         if let readmeURL = readmeOpt.value {
@@ -64,7 +66,7 @@ public final class Format: Configurable {
         }
 
         let srcDirURL = published.someSourceDirectoryURL ?? FileManager.default.currentDirectory
-        for guess in ["README.md", "README.markdown", "README.mdown", "README"] {
+        for guess in [Format.primaryReadmeName, "README.markdown", "README.mdown", "README"] {
             let guessURL = srcDirURL.appendingPathComponent(guess)
             if FileManager.default.fileExists(atPath: guessURL.path) {
                 logDebug("Format: Using found readme '\(guessURL.path)'.")

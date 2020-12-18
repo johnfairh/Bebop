@@ -124,6 +124,12 @@ original markdown document directly.  The steps are:
 Same as for images except general links `[text](url)` - applies to any files
 supplied with `--media` and any guides supplied with `--guides`.
 
+Use 'README.md' as the URL to link to the Readme / top-level index page, for
+example:
+```markdown
+See [the README](README.md) for more details.
+```
+
 ### Image scaling
 
 To set the pixel size of an image use syntax like this:

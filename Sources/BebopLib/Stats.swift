@@ -155,6 +155,8 @@ struct StatsDb {
         case formatRewrittenMediaLinks
         /// Links rewritten to guides
         case formatRewrittenGuideLinks
+        /// Links rewritten to the readme
+        case formatRewrittenReadmeLinks
         /// Links that couldn't be rewritten
         case formatUnrewrittenLinks
         /// Mathematical expressions formatted

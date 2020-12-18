@@ -109,7 +109,7 @@ final class JazzyTheme: Theme {
         // split path for guide/not
         if let isGuide = data[.hideArticleTitle] as? Bool, isGuide {
             if let title = data[.primaryPageTitle] as? String,
-                title == "index",
+                title == ReadmeItem.index,
                 let moduleName = data[.breadcrumbsRoot] {
                 dict["name"] = moduleName
             } else {

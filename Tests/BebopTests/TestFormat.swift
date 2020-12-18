@@ -453,6 +453,8 @@ class TestFormat: XCTestCase {
 
         checkRewrite("Guide.md", "guides/guide.html")
         checkRewrite("http://foo.com/Guide.md", "guides/guide.html")
+        checkRewrite("README.md", "index.html")
+        checkRewrite("http://foo.com/tree/main/README.md", "index.html")
         checkNoRewrite("http://bar.com/Guide.md")
         checkNoRewrite("Fred.md")
     }

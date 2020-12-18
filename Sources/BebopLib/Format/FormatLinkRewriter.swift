@@ -47,6 +47,10 @@ final class FormatLinkRewriter: Configurable {
             logDebug("Format: Rewrote link to guide '\(guideURL)'")
             Stats.inc(.formatRewrittenGuideLinks)
             try! node.setLinkDestination(FormatAutolink.AUTOLINK_TOKEN + guideURL)
+        } else if node.type == .link, basename == Format.primaryReadmeName {
+            logDebug("Format: Rewrote link to readme/index")
+            Stats.inc(.formatRewrittenReadmeLinks)
+            try! node.setLinkDestination(FormatAutolink.AUTOLINK_TOKEN + ReadmeItem.index + ".md")
         } else {
             // Not brave enough to make this a warning: could be legit either way
             logDebug("Format: Couldn't resolve suspicious link \(originalHref), leaving it alone.")

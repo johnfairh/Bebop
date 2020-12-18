@@ -59,7 +59,7 @@ public class GuideItem: Item {
 
 /// Special override for the readme / index.html that has no real name except in the filesystem.
 public final class ReadmeItem : GuideItem {
-    private static let index = "index"
+    static let index = "index"
 
     init(content: Localized<Markdown>) {
         super.init(name: ReadmeItem.index,
