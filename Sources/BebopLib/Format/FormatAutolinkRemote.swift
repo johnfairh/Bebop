@@ -103,6 +103,12 @@ final class FormatAutolinkRemote: Configurable {
 
             // First pass: stuff without a parent
             sortedIndex = sortedIndex.filter { (urlPath, searchValue) in
+                // Don't link to extensions of types instead of the actual types
+                if urlPath.components(separatedBy: "/")
+                    .map(\.localizedLowercase)
+                    .contains("extensions") {
+                    return false
+                }
                 if searchValue.parent_name == nil {
                     index[searchValue.name] = Entry(urlPath: urlPath)
                     return false

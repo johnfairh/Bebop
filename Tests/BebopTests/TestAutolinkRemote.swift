@@ -141,7 +141,7 @@ class TestAutolinkRemote: XCTestCase {
             XCTFail()
             return
         }
-        XCTAssertEqual(86, moduleIndex.map.count)
+        XCTAssertEqual(76, moduleIndex.map.count)
     }
 
     func testFailedIndex() throws {
