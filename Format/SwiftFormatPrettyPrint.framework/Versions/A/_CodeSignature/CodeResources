@@ -6,97 +6,65 @@
 	<dict>
 		<key>Resources/Info.plist</key>
 		<data>
-		o7KeJ1Mp2XHWVrZPfthLaEZjDYc=
+		c0M4C1JsKdtrDvZt9V7vDFbpeoY=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
 		<key>Headers/SwiftFormatPrettyPrint-Swift.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			PXTV2yBWdq/oQEkIx0h5qxQkPpc=
-			</data>
 			<key>hash2</key>
 			<data>
-			w8C2p/iYTNpiOCkS9cAKjft73pOCxHkwknfEoqpqTAs=
+			EouJYlWzIJumAIbPXX19Eh3x/6KzkLj0fmGIgiv9l6E=
 			</data>
 		</dict>
 		<key>Modules/SwiftFormatPrettyPrint.swiftmodule/Project/x86_64-apple-macos.swiftsourceinfo</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			in4UTaFv2gQFxqb783kuR8soEKo=
-			</data>
 			<key>hash2</key>
 			<data>
-			syC0dVA2I8Dr8OPoF0+gRHpR93y5N/AEOmDY3KjrAk8=
+			ehCqSaBVLmhOh2Xf4FQ+QNm3kGRyDFvJ9w5HCx7zEUo=
 			</data>
 		</dict>
 		<key>Modules/SwiftFormatPrettyPrint.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			in4UTaFv2gQFxqb783kuR8soEKo=
-			</data>
 			<key>hash2</key>
 			<data>
-			syC0dVA2I8Dr8OPoF0+gRHpR93y5N/AEOmDY3KjrAk8=
+			ehCqSaBVLmhOh2Xf4FQ+QNm3kGRyDFvJ9w5HCx7zEUo=
 			</data>
 		</dict>
 		<key>Modules/SwiftFormatPrettyPrint.swiftmodule/x86_64-apple-macos.swiftdoc</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			LjZBH+GM09+S5A3dZQ4sD67zDho=
-			</data>
 			<key>hash2</key>
 			<data>
-			gR3mntyNdaFdA0zYPaHf+/f6oA6qTdyXCwbPT7H+FRg=
+			/g5wAC3J0uPhRPzOUQQYvtIlgFflhSSu7ZciR3I0p6g=
 			</data>
 		</dict>
 		<key>Modules/SwiftFormatPrettyPrint.swiftmodule/x86_64-apple-macos.swiftmodule</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ZoOgm6eBPFOXtUYlVCcNHnzkl9M=
-			</data>
 			<key>hash2</key>
 			<data>
-			iWcN+k6KstML199OCxcnBdVhPcrOEtkHcGfI7Wfuk9k=
+			ucnWUCrv84Gqfnb1UZZAga+OBKzqAjQN1YlGpks2N84=
 			</data>
 		</dict>
 		<key>Modules/SwiftFormatPrettyPrint.swiftmodule/x86_64.swiftdoc</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			LjZBH+GM09+S5A3dZQ4sD67zDho=
-			</data>
 			<key>hash2</key>
 			<data>
-			gR3mntyNdaFdA0zYPaHf+/f6oA6qTdyXCwbPT7H+FRg=
+			/g5wAC3J0uPhRPzOUQQYvtIlgFflhSSu7ZciR3I0p6g=
 			</data>
 		</dict>
 		<key>Modules/SwiftFormatPrettyPrint.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ZoOgm6eBPFOXtUYlVCcNHnzkl9M=
-			</data>
 			<key>hash2</key>
 			<data>
-			iWcN+k6KstML199OCxcnBdVhPcrOEtkHcGfI7Wfuk9k=
+			ucnWUCrv84Gqfnb1UZZAga+OBKzqAjQN1YlGpks2N84=
 			</data>
 		</dict>
 		<key>Resources/Info.plist</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			o7KeJ1Mp2XHWVrZPfthLaEZjDYc=
-			</data>
 			<key>hash2</key>
 			<data>
-			D2pCYmAzlKheVUxCqAUY4h+S/VQJwrfCzIInGnQzX6U=
+			lAQmd8Ss16gwIU9mWaAvZzZY252GNqqFBMxsxmjBNsU=
 			</data>
 		</dict>
 	</dict>

@@ -6,97 +6,65 @@
 	<dict>
 		<key>Resources/Info.plist</key>
 		<data>
-		Y7VihPexW9iBC+BPOL522IgCcE8=
+		UUPXiXeL7WQ77f5xUM6alqyNMh8=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
 		<key>Headers/SwiftSyntax-Swift.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			NdA0hAsXgdNZ73YGcbyH8cIeKnE=
-			</data>
 			<key>hash2</key>
 			<data>
-			Zn1UPKz+n6fGafQihCC1P1PlKGbOHezq3Mz/bwHa2jw=
+			FBCgwcg5tb0qIY0lFP8YwuSU+SWRkbR4QUYQG0Xyqtg=
 			</data>
 		</dict>
 		<key>Modules/SwiftSyntax.swiftmodule/Project/x86_64-apple-macos.swiftsourceinfo</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			LTaP/lE75bohDGweFmuq5Kk2+FI=
-			</data>
 			<key>hash2</key>
 			<data>
-			I64cnAto3neLuUvK/tDr/tbk9Gcivyp/hhl684z/R20=
+			59Tk3sYmXowe+ctUDtZuevUjXVMdEftrP3JwqcDL6dk=
 			</data>
 		</dict>
 		<key>Modules/SwiftSyntax.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			LTaP/lE75bohDGweFmuq5Kk2+FI=
-			</data>
 			<key>hash2</key>
 			<data>
-			I64cnAto3neLuUvK/tDr/tbk9Gcivyp/hhl684z/R20=
+			59Tk3sYmXowe+ctUDtZuevUjXVMdEftrP3JwqcDL6dk=
 			</data>
 		</dict>
 		<key>Modules/SwiftSyntax.swiftmodule/x86_64-apple-macos.swiftdoc</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			hE22E7ZcVkAu29fUqlkv7EmzCls=
-			</data>
 			<key>hash2</key>
 			<data>
-			wkOmNajW+7o9CLi4bahU9H+yB+oFiDQbMbe+moB+A4c=
+			1dBvNRpnz/vpu0d71fxundhHSmvJmrAlqLfWyyhkYY4=
 			</data>
 		</dict>
 		<key>Modules/SwiftSyntax.swiftmodule/x86_64-apple-macos.swiftmodule</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Reo5htB++kFFaVLvgwM4WGtCH5g=
-			</data>
 			<key>hash2</key>
 			<data>
-			5q+roF2+OZPb+UtJTYm8kqanw4pPLPUQwufY6r7AdWU=
+			W7g9UOiizFAuw0iIIN3OYSlx7ybRGDCZZCTwsdzfPRI=
 			</data>
 		</dict>
 		<key>Modules/SwiftSyntax.swiftmodule/x86_64.swiftdoc</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			hE22E7ZcVkAu29fUqlkv7EmzCls=
-			</data>
 			<key>hash2</key>
 			<data>
-			wkOmNajW+7o9CLi4bahU9H+yB+oFiDQbMbe+moB+A4c=
+			1dBvNRpnz/vpu0d71fxundhHSmvJmrAlqLfWyyhkYY4=
 			</data>
 		</dict>
 		<key>Modules/SwiftSyntax.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Reo5htB++kFFaVLvgwM4WGtCH5g=
-			</data>
 			<key>hash2</key>
 			<data>
-			5q+roF2+OZPb+UtJTYm8kqanw4pPLPUQwufY6r7AdWU=
+			W7g9UOiizFAuw0iIIN3OYSlx7ybRGDCZZCTwsdzfPRI=
 			</data>
 		</dict>
 		<key>Resources/Info.plist</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Y7VihPexW9iBC+BPOL522IgCcE8=
-			</data>
 			<key>hash2</key>
 			<data>
-			TDfDlNa4/6SfR0GLURhWAIk2fyFWxJxEavmh4J3VR2A=
+			YafyoNPT5VmEVG+XWRSl6+oE8mwqo2Mg08BJBRUUliU=
 			</data>
 		</dict>
 	</dict>

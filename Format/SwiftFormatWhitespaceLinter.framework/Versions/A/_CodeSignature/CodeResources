@@ -6,97 +6,65 @@
 	<dict>
 		<key>Resources/Info.plist</key>
 		<data>
-		gywGh5/xy9GsednAoZ8oavmt7Ok=
+		gcKxl38MqzJpI/Cr6BWzrHyxxRU=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
 		<key>Headers/SwiftFormatWhitespaceLinter-Swift.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Nv0QAtYH+jJIZkRmm8oNSsB004w=
-			</data>
 			<key>hash2</key>
 			<data>
-			0NUk4hl7KYMK1ocjYv+BXQ7IYXhORRvWjCByHEExYWs=
+			Vl0j3bJDV7qgTbD0PTaxvldYuf9TBu9LVUZplJZELM0=
 			</data>
 		</dict>
 		<key>Modules/SwiftFormatWhitespaceLinter.swiftmodule/Project/x86_64-apple-macos.swiftsourceinfo</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			WQ0AkFpXOMkZm8eteOdf4XCl8BM=
-			</data>
 			<key>hash2</key>
 			<data>
-			u05JcFGg3nU4UpC7qStTJl0Zgf4YFoER/YYARa5C2h4=
+			662NzxqiwJpupvEZV5HzDTnL5khqirZzKDye4IVAcGk=
 			</data>
 		</dict>
 		<key>Modules/SwiftFormatWhitespaceLinter.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			WQ0AkFpXOMkZm8eteOdf4XCl8BM=
-			</data>
 			<key>hash2</key>
 			<data>
-			u05JcFGg3nU4UpC7qStTJl0Zgf4YFoER/YYARa5C2h4=
+			662NzxqiwJpupvEZV5HzDTnL5khqirZzKDye4IVAcGk=
 			</data>
 		</dict>
 		<key>Modules/SwiftFormatWhitespaceLinter.swiftmodule/x86_64-apple-macos.swiftdoc</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			bDgYvcr/tnEJEKafHWCXtEEMviQ=
-			</data>
 			<key>hash2</key>
 			<data>
-			AvAZrziFmw8KEfTXaqI+IADObrb8LaNn+GH8gitkKJU=
+			5hPDnUIATUk2t1VAKOKCBTsW5JwFrunuReboU/o70+I=
 			</data>
 		</dict>
 		<key>Modules/SwiftFormatWhitespaceLinter.swiftmodule/x86_64-apple-macos.swiftmodule</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Sz0/euhHtRrl6nO1jahHcPofKA8=
-			</data>
 			<key>hash2</key>
 			<data>
-			26SA9DTYqwnrW/r271UAEc610tOjEUr5av2e1rYbjFk=
+			MvyLFPwA0x2HxSxMRAbhGHJth+nxjNy7ARttUh4kX90=
 			</data>
 		</dict>
 		<key>Modules/SwiftFormatWhitespaceLinter.swiftmodule/x86_64.swiftdoc</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			bDgYvcr/tnEJEKafHWCXtEEMviQ=
-			</data>
 			<key>hash2</key>
 			<data>
-			AvAZrziFmw8KEfTXaqI+IADObrb8LaNn+GH8gitkKJU=
+			5hPDnUIATUk2t1VAKOKCBTsW5JwFrunuReboU/o70+I=
 			</data>
 		</dict>
 		<key>Modules/SwiftFormatWhitespaceLinter.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Sz0/euhHtRrl6nO1jahHcPofKA8=
-			</data>
 			<key>hash2</key>
 			<data>
-			26SA9DTYqwnrW/r271UAEc610tOjEUr5av2e1rYbjFk=
+			MvyLFPwA0x2HxSxMRAbhGHJth+nxjNy7ARttUh4kX90=
 			</data>
 		</dict>
 		<key>Resources/Info.plist</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			gywGh5/xy9GsednAoZ8oavmt7Ok=
-			</data>
 			<key>hash2</key>
 			<data>
-			To/fzFOb+VkPG8hM1OiwZj37o8K3u7Wd+ARHh0MrI2Y=
+			SyXcgq8BI6g3mdzw72dJtsrIk+uMzG+HU8G4CGlb9ng=
 			</data>
 		</dict>
 	</dict>

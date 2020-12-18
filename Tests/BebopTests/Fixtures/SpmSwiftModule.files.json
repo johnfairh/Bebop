@@ -3581,6 +3581,9 @@
                   "key.annotated_decl" : "<RelatedName usr=\"s:s4SIMDPsSF6ScalarRpzrlE1poiyxx_ADtFZ\">+ (_: Self, _: Self.Scalar) -&gt; Self<\/RelatedName>"
                 },
                 {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:s7Float16V1poiyA2B_ABtFZ\">+ (_: Float16, _: Float16) -&gt; Float16<\/RelatedName>"
+                },
+                {
                   "key.annotated_decl" : "<RelatedName usr=\"s:Sf1poiyS2f_SftFZ\">+ (_: Float, _: Float) -&gt; Float<\/RelatedName>"
                 },
                 {
@@ -3803,6 +3806,9 @@
             },
             {
               "key.annotated_decl" : "<RelatedName usr=\"s:s4SIMDPsSF6ScalarRpzrlE1poiyxx_ADtFZ\">+ (_: Self, _: Self.Scalar) -&gt; Self<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:s7Float16V1poiyA2B_ABtFZ\">+ (_: Float16, _: Float16) -&gt; Float16<\/RelatedName>"
             },
             {
               "key.annotated_decl" : "<RelatedName usr=\"s:Sf1poiyS2f_SftFZ\">+ (_: Float, _: Float) -&gt; Float<\/RelatedName>"

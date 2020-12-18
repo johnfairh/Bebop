@@ -6,97 +6,65 @@
 	<dict>
 		<key>Resources/Info.plist</key>
 		<data>
-		SYUR2oCnC3MuKw7uwGhBrMzPY9g=
+		1cEHrgn4N4N9ZSLqtq4fk7t9v+o=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
 		<key>Headers/SwiftFormat-Swift.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			VxByTORSMsywVa2fBVcZqC8VxMI=
-			</data>
 			<key>hash2</key>
 			<data>
-			50gCzR8gvmx8fbSZ1tfYI3WANgqplzWt3IOInRt2qPw=
+			QkZiL97K+HXOdgSdPZOdRylh7GoPi5ItduP0sqiqyEs=
 			</data>
 		</dict>
 		<key>Modules/SwiftFormat.swiftmodule/Project/x86_64-apple-macos.swiftsourceinfo</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			YvgUXQpt9+CUAsN9uEE3sxfj8oU=
-			</data>
 			<key>hash2</key>
 			<data>
-			g5w6mLApkjExxwBiqCULB+Ly3pYxr7MvUE1rIAxursA=
+			dpt7cQgSsAWjz006D/VRNENOGTmwppeg3ycLffBc620=
 			</data>
 		</dict>
 		<key>Modules/SwiftFormat.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			YvgUXQpt9+CUAsN9uEE3sxfj8oU=
-			</data>
 			<key>hash2</key>
 			<data>
-			g5w6mLApkjExxwBiqCULB+Ly3pYxr7MvUE1rIAxursA=
+			dpt7cQgSsAWjz006D/VRNENOGTmwppeg3ycLffBc620=
 			</data>
 		</dict>
 		<key>Modules/SwiftFormat.swiftmodule/x86_64-apple-macos.swiftdoc</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			JY22jcfGgdkuaPd8AZXwkfZ2p7U=
-			</data>
 			<key>hash2</key>
 			<data>
-			Se7ypuSBsf6ow6AOTFXL0jDssY0gCgzez24KkDr1ELE=
+			gP5HL6T+GxXjAmk27yllZvIu2Z4b9Qic1Vb6CyQbg6g=
 			</data>
 		</dict>
 		<key>Modules/SwiftFormat.swiftmodule/x86_64-apple-macos.swiftmodule</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			GB/h6s6qTC4mf02ToNgBqhb5s2s=
-			</data>
 			<key>hash2</key>
 			<data>
-			5vCNRx2IANwpcq+eaoRpFnGYLooI2wC6yGAEZLFmofU=
+			BEHPpjMn7Mxb6mQvHDDispMRzvLncu6TyYLSDTh1njw=
 			</data>
 		</dict>
 		<key>Modules/SwiftFormat.swiftmodule/x86_64.swiftdoc</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			JY22jcfGgdkuaPd8AZXwkfZ2p7U=
-			</data>
 			<key>hash2</key>
 			<data>
-			Se7ypuSBsf6ow6AOTFXL0jDssY0gCgzez24KkDr1ELE=
+			gP5HL6T+GxXjAmk27yllZvIu2Z4b9Qic1Vb6CyQbg6g=
 			</data>
 		</dict>
 		<key>Modules/SwiftFormat.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			GB/h6s6qTC4mf02ToNgBqhb5s2s=
-			</data>
 			<key>hash2</key>
 			<data>
-			5vCNRx2IANwpcq+eaoRpFnGYLooI2wC6yGAEZLFmofU=
+			BEHPpjMn7Mxb6mQvHDDispMRzvLncu6TyYLSDTh1njw=
 			</data>
 		</dict>
 		<key>Resources/Info.plist</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			SYUR2oCnC3MuKw7uwGhBrMzPY9g=
-			</data>
 			<key>hash2</key>
 			<data>
-			FATsqn2L+GcMTxLTRzVuVGHgztfjsp3xxLz5hG3bXnY=
+			M/dwPSGhfUqBSJ0G7NX0x6EUzsqPnPeLqarmy0Jhqq4=
 			</data>
 		</dict>
 	</dict>
