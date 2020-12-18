@@ -84,7 +84,7 @@ public final class GatherDef {
             self.localizationKey = previousSiblingDef.localizationKey
         } else if kind.isSwift, let xml = sourceKittenDict.fullXMLDocs {
             var source = DefDocSource.inherited
-            var shortForm = true
+            var shortForm = true // XXX eek false // XXX temp true
             if let docComment = sourceKittenDict.documentationComment {
                 if docComment.isAnyInheritDoc {
                     source = .inheritedExplicit

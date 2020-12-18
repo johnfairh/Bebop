@@ -396,8 +396,10 @@ final class XMLDeclarationBuilder {
         }
 
         func makeCallout(title: String) {
-            builder.startDocument(type: .item) {
-                self.callouts.append(Callout(title: title, content: $0))
+            builder.startDocument(type: .item) { node in
+                if !node.isInheritedDocCompilerNote {
+                    self.callouts.append(Callout(title: title, content: node))
+                }
             }
         }
 
@@ -509,5 +511,19 @@ enum XMLDocComment {
             Stats.inc(.gatherXMLDocCommentsFailed)
         }
         return nil
+    }
+}
+
+extension CMNode {
+    /// Spot the 'helpful' note the compiler generates in some scenarios
+    var isInheritedDocCompilerNote: Bool {
+        guard let paraChild = firstChild,
+              paraChild.type == .paragraph,
+              let textChild = paraChild.firstChild,
+              textChild.type == .text,
+              let text = textChild.literal else {
+            return false
+        }
+        return text.hasPrefix("This documentation comment was inherited from")
     }
 }
