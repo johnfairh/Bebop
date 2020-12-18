@@ -16,7 +16,6 @@ jobs:
       - name: Run tests
         run: |
           brew install libsass
-          sudo xcode-select -s /Applications/Xcode_12.app/Contents/Developer
           swift test --enable-code-coverage
 
 # Somehow SwiftSyntax is broken if Xcode isn't in /Applications/Xcode.app !

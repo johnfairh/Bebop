@@ -33,6 +33,11 @@ URLs have all changed:
 
 More customization of bits of text on the page, check the help.
 
+### Page content ordering
+
+Defs are ordered by default in a logical style, restore the Jazzy style
+with `--topic-style source-order`.
+
 ### Themes
 
 Bebop has one HTML theme 'fw2020' with all kinds of features.  The program

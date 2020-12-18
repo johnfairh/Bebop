@@ -193,6 +193,13 @@ custom_modules:
   `custom_groups`.
 * `--exclude-unlisted-guides` controls visibility of guides not picked up by
   `custom_groups`.
+* `--topic-style` controls how topics are formed on each page:
+    * `logical` (default) is like the Apple docs, grouping items together by
+      kind (eg. all properties together) and sorting them alphabetically.
+    * `source-order` is like Jazzy, preserving source-code order and using
+      `MARK` comments to generate topic headings.
+    * `source-order-defs` does `source-order` for defs but `logical` for
+      group pages.
 * `custom_defs` controls layout of individual type pages.  See
   [below](#custom-defs).
 * `--apple-autolink` is on by default and enables autolinking of identifers
