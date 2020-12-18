@@ -263,6 +263,9 @@ class TestGatherDecl: XCTestCase {
         let varKind = DefKind.from(kind: SwiftDeclarationKind.varClass)
         let pieces2 = builder.parseToPieces(declaration: "class var fred: String { get }", name: "fred", kind: varKind)
         XCTAssertEqual("class var #fred#: String", pieces2.flat)
+
+        let pieces3 = builder.parseToPieces(declaration: "class var `true`: String { get }", name: "true", kind: varKind)
+        XCTAssertEqual("class var #true#: String", pieces3.flat)
     }
 
     func testNearFunctionPieces() {
