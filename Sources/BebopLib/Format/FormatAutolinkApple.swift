@@ -121,6 +121,10 @@ final class FormatAutolinkApple: Configurable {
             return nil
         }
 
+        guard let initial = text.first, !initial.isLowercase else {
+            return nil
+        }
+
         do {
             // Massage the autolink text into query strings to persuade the db
             let refPath = AppleDocsDb.RefPath(autolinkText: text, language: language)
