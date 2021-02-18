@@ -22,6 +22,11 @@ final class GatherJobOpts: Configurable {
     let availabilityDefaultsOpt = StringListOpt(l: "availability-defaults").help("AVAILABILITY1,AVAILABILITY2,...")
     let ignoreAvailabilityAttrOpt = BoolOpt(l: "ignore-availability-attr")
 
+    let inheritedDocsStyleOpt = EnumOpt<Gather.InheritedDocsStyle>(l: "inherited-docs-style").def(.full)
+    var inheritedDocsStyle: Gather.InheritedDocsStyle { inheritedDocsStyleOpt.value! }
+    let inheritedDocsExtensionStyleOpt = EnumOpt<Gather.InheritedDocsStyle>(l: "inherited-docs-extension-style").def(.brief)
+    var inheritedDocsExtensionStyle: Gather.InheritedDocsStyle { inheritedDocsExtensionStyleOpt.value! }
+
     let sourcekittenJSONFilesOpt = PathListOpt(s: "s", l: "sourcekitten-json-files").help("FILEPATH1,FILEPATH2,...")
     let bebopJSONFilesOpt = PathListOpt(l: "bebop-json-files").help("FILEPATH1,FILEPATH2,...")
 
@@ -81,6 +86,9 @@ final class GatherJobOpts: Configurable {
         // availability: always cascade
         availabilityDefaultsOpt.cascade(from: from.availabilityDefaultsOpt)
         ignoreAvailabilityAttrOpt.cascade(from: from.ignoreAvailabilityAttrOpt)
+        // inheritdocs: always cascade
+        inheritedDocsStyleOpt.cascade(from: from.inheritedDocsStyleOpt)
+        inheritedDocsExtensionStyleOpt.cascade(from: from.inheritedDocsExtensionStyleOpt)
         // objcdirect: don't cascade if buildtool/jsonfiles/podspec [mutually exclusive]
         if !buildToolOpt.configured &&
             !sourcekittenJSONFilesOpt.configured &&
@@ -187,6 +195,8 @@ final class GatherJobOpts: Configurable {
         let availability =
             Gather.Availability(defaults: availabilityDefaultsOpt.value,
                                 ignoreAttr: ignoreAvailabilityAttrOpt.value)
+        let inheritedDocs =
+            Gather.InheritedDocs(base: inheritedDocsStyle, extensions: inheritedDocsExtensionStyle)
 
         let passStr = passIndex.flatMap { " pass \($0)" } ?? ""
 
@@ -292,5 +302,18 @@ extension Gather {
             self.defaults = defaults
             self.ignoreAttr = ignoreAttr
         }
+    }
+
+    /// How to handle inherited docs for a declaration
+    enum InheritedDocsStyle: String, CaseIterable {
+        case none
+        case brief
+        case full
+    }
+
+    /// Collected inherited-docs options
+    struct InheritedDocs {
+        let base: InheritedDocsStyle
+        let extensions: InheritedDocsStyle
     }
 }

@@ -23,7 +23,6 @@ struct MergeFilter: Configurable {
     let skipUndocumentedOpt = BoolOpt(l: "skip-undocumented")
     let undocumentedTextOpt = LocStringOpt(l: "undocumented-text").def("Undocumented").help("UNDOCTEXT")
     let skipUndocumentedOverrideOpt = BoolOpt(l: "skip-undocumented-override")
-    let ignoreInheritedDocsOpt = BoolOpt(l: "ignore-inherited-docs")
     let includeFilesOpt = GlobListOpt(l: "include-source-files").help("FILEPATHGLOB1,FILEPATHGLOB2,...")
     let excludeFilesOpt = GlobListOpt(l: "exclude-source-files").help("FILEPATHGLOB1,FILEPATHGLOB2,...")
     let excludeNamesOpt = StringListOpt(l: "exclude-names").help("NAMEREGEXP1,NAMEREGEXP2,...")
@@ -185,13 +184,6 @@ struct MergeFilter: Configurable {
             swiftDeclaration.isOverride {
             Stats.inc(.filterSkipUndocOverride)
             return false
-        }
-
-        // Given the option, demote inherited to missing.
-        // Don't demote explicitly requested inherited docs via :inherit[full]doc:
-        if item.documentation.source == .inherited && ignoreInheritedDocsOpt.value {
-            item.documentation = RichDefDocs()
-            Stats.inc(.filterIgnoreInheritedDocs)
         }
 
         // Do we have enough docs? Extensions don't need docs, follow extended type.
