@@ -24,7 +24,7 @@ extension GatherJob {
         let includePaths: [URL]
         let sdk: Gather.Sdk
         let buildToolArgs: [String]
-        let availability: Gather.Availability
+        let defOptions: Gather.DefOptions
 
         func execute() throws -> GatherModulePass {
             let clangArgs = try buildClangArgs()
@@ -35,7 +35,7 @@ extension GatherJob {
 
             let filesInfo = try translationUnit.asFiles().compactMap { file -> (String, GatherDef)? in
                 guard let def = GatherDef(sourceKittenDict: file.dict,
-                                          availability: availability) else {
+                                          availability: defOptions.availability) else {
                      return nil
                 }
                 return (file.path, def)

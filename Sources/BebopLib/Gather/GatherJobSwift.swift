@@ -19,7 +19,7 @@ extension GatherJob {
         let srcDir: URL?
         let buildTool: Gather.BuildTool?
         let buildToolArgs: [String]
-        let availability: Gather.Availability
+        let defOptions: Gather.DefOptions
 
         /// Invoke sourcekitten with stderr suppressed to stop spam when --quiet is set
         /// ...but still print out the error messages if thats what they turn out to be.
@@ -71,7 +71,7 @@ extension GatherJob {
                 return module.docs.compactMap { swiftDoc -> (String, GatherDef)? in
                     guard let def = GatherDef(sourceKittenDict: swiftDoc.docsDictionary,
                                               file: swiftDoc.file,
-                                              availability: availability) else {
+                                              availability: defOptions.availability) else {
                         return nil
                     }
                     return (swiftDoc.file.path ?? "(no path)", def)

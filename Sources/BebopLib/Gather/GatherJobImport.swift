@@ -14,7 +14,7 @@ extension GatherJob {
     struct SourceKitten: Equatable {
         let moduleName: String
         let fileURLs: [URL]
-        let availability: Gather.Availability
+        let defOptions: Gather.DefOptions
 
         func execute() throws -> GatherModulePass {
             try GatherModulePass(moduleName: moduleName,
@@ -29,7 +29,7 @@ extension GatherJob {
                 guard let entry = fileDict.first,
                     let topDict = entry.value as? SourceKittenDict,
                     let gatherDef = GatherDef(sourceKittenDict: topDict,
-                                              availability: availability) else {
+                                              availability: defOptions.availability) else {
                         logWarning(.wrnSknDecode, url.path, fileDict)
                         return nil
                 }

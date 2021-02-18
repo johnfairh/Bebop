@@ -90,13 +90,13 @@ enum GatherJob : Equatable {
          srcDir: URL? = nil,
          buildTool: Gather.BuildTool? = nil,
          buildToolArgs: [String] = [],
-         availability: Gather.Availability = Gather.Availability()) {
+         defOptions: Gather.DefOptions = .init()) {
         self = .swift(title: swiftTitle,
                       job: Swift(moduleName: moduleName,
                                  srcDir: srcDir,
                                  buildTool: buildTool,
                                  buildToolArgs: buildToolArgs,
-                                 availability: availability))
+                                 defOptions: defOptions))
     }
 
     #if os(macOS)
@@ -107,14 +107,14 @@ enum GatherJob : Equatable {
          includePaths: [URL] = [],
          sdk: Gather.Sdk,
          buildToolArgs: [String] = [],
-         availability: Gather.Availability = Gather.Availability()) {
+         defOptions: Gather.DefOptions = .init()) {
         self = .objcDirect(title: objcTitle,
                            job: ObjCDirect(moduleName: moduleName,
                                            headerFile: headerFile,
                                            includePaths: includePaths,
                                            sdk: sdk,
                                            buildToolArgs: buildToolArgs,
-                                           availability: availability))
+                                           defOptions: defOptions))
     }
     #endif
 
@@ -122,11 +122,11 @@ enum GatherJob : Equatable {
     init(sknImportTitle: String,
          moduleName: String,
          fileURLs: [URL],
-         availability: Gather.Availability = Gather.Availability()) {
+         defOptions: Gather.DefOptions = .init()) {
         self = .sourcekitten(title: sknImportTitle,
                              job: SourceKitten(moduleName: moduleName,
                                                fileURLs: fileURLs,
-                                               availability: availability))
+                                               defOptions: defOptions))
     }
 
     /// Init helper for gather import
@@ -147,14 +147,14 @@ enum GatherJob : Equatable {
          buildToolArgs: [String],
          sdk: Gather.Sdk,
          target: String,
-         availability: Gather.Availability = Gather.Availability()) {
+         defOptions: Gather.DefOptions = .init()) {
         self = .symbolgraph(title: symbolgraphTitle,
                             job: SymbolGraph(moduleName: moduleName,
                                              searchURLs: searchURLs,
                                              buildToolArgs: buildToolArgs,
                                              sdk: sdk,
                                              target: target,
-                                             availability: availability))
+                                             defOptions: defOptions))
     }
 
     /// Init helper for podspec
@@ -162,11 +162,11 @@ enum GatherJob : Equatable {
          moduleName: String?,
          podspecURL: URL,
          podSources: [String],
-         availability: Gather.Availability = Gather.Availability()) {
+         defOptions: Gather.DefOptions = .init()) {
         self = .podspec(title: podspecTitle,
                         job: Podspec(moduleName: moduleName,
                                      podspecURL: podspecURL,
                                      podSources: podSources,
-                                     availability: availability))
+                                     defOptions: defOptions))
     }
 }
