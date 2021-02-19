@@ -15,7 +15,7 @@
       "key.bb.pass_index" : 0,
       "key.bb.version" : "1.0",
       "key.diagnostic_stage" : "source.diagnostic.stage.swift.parse",
-      "key.length" : 1167,
+      "key.length" : 1146,
       "key.offset" : 0,
       "key.substructure" : [
         {
@@ -543,6 +543,9 @@
                 "key.bb.abstract" : {
                   "en" : "A textual representation of this instance."
                 },
+                "key.bb.discussion" : {
+                  "en" : "Calling this property directly is discouraged. Instead, convert an instance of any type to a string by using the `String(describing:)` initializer. This initializer works with any type, and uses the custom `description` property for types that conform to `CustomStringConvertible`:\n\n``` swift\nstruct Point: CustomStringConvertible {\n    let x: Int, y: Int\n\n    var description: String {\n        return \"(\\(x), \\(y))\"\n    }\n}\n\nlet p = Point(x: 21, y: 30)\nlet s = String(describing: p)\nprint(s)\n\/\/ Prints \"(21, 30)\"\n\n```\n\nThe conversion of `p` to a string in the assignment to `s` uses the `Point` type’s `description` property."
+                },
                 "key.bb.doc_source" : "inherited"
               },
               "key.bb.is_override" : true,
@@ -613,10 +616,7 @@
             "key.bb.abstract" : {
               "en" : "A sequence whose elements can be traversed multiple times, nondestructively, and accessed by an indexed subscript."
             },
-            "key.bb.discussion" : {
-              "en" : "Collections are used extensively throughout the standard library. When you use arrays, dictionaries, and other collections, you benefit from the operations that the `Collection` protocol declares and implements. In addition to the operations that collections inherit from the `Sequence` protocol, you gain access to methods that depend on accessing an element at a specific position in a collection.\n\nFor example, if you want to print only the first word in a string, you can search for the index of the first space, and then create a substring up to that position.\n\n``` swift\nlet text = \"Buffalo buffalo buffalo buffalo.\"\nif let firstSpace = text.firstIndex(of: \" \") {\n    print(text[..<firstSpace])\n}\n\/\/ Prints \"Buffalo\"\n\n```\n\nThe `firstSpace` constant is an index into the `text` string—the position of the first space in the string. You can store indices in variables, and pass them to collection algorithms or use them later to access the corresponding element. In the example above, `firstSpace` is used to extract the prefix that contains elements up to that index.\n\n# Accessing Individual Elements\n\nYou can access an element of a collection through its subscript by using any valid index except the collection’s `endIndex` property. This property is a “past the end” index that does not correspond with any element of the collection.\n\nHere’s an example of accessing the first character in a string through its subscript:\n\n``` swift\nlet firstChar = text[text.startIndex]\nprint(firstChar)\n\/\/ Prints \"B\"\n\n```\n\nThe `Collection` protocol declares and provides default implementations for many operations that depend on elements being accessible by their subscript. For example, you can also access the first character of `text` using the `first` property, which has the value of the first element of the collection, or `nil` if the collection is empty.\n\n``` swift\nprint(text.first)\n\/\/ Prints \"Optional(\"B\")\"\n\n```\n\nYou can pass only valid indices to collection operations. You can find a complete set of a collection’s valid indices by starting with the collection’s `startIndex` property and finding every successor up to, and including, the `endIndex` property. All other values of the `Index` type, such as the `startIndex` property of a different collection, are invalid indices for this collection.\n\nSaved indices may become invalid as a result of mutating operations. For more information about index invalidation in mutable collections, see the reference for the `MutableCollection` and `RangeReplaceableCollection` protocols, as well as for the specific type you’re using.\n\n# Accessing Slices of a Collection\n\nYou can access a slice of a collection through its ranged subscript or by calling methods like `prefix(while:)` or `suffix(_:)`. A slice of a collection can contain zero or more of the original collection’s elements and shares the original collection’s semantics.\n\nThe following example creates a `firstWord` constant by using the `prefix(while:)` method to get a slice of the `text` string.\n\n``` swift\nlet firstWord = text.prefix(while: { $0 != \" \" })\nprint(firstWord)\n\/\/ Prints \"Buffalo\"\n\n```\n\nYou can retrieve the same slice using the string’s ranged subscript, which takes a range expression.\n\n``` swift\nif let firstSpace = text.firstIndex(of: \" \") {\n    print(text[..<firstSpace]\n    \/\/ Prints \"Buffalo\"\n}\n\n```\n\nThe retrieved slice of `text` is equivalent in each of these cases.\n\n## Slices Share Indices\n\nA collection and its slices share the same indices. An element of a collection is located under the same index in a slice as in the base collection, as long as neither the collection nor the slice has been mutated since the slice was created.\n\nFor example, suppose you have an array holding the number of absences from each class during a session.\n\n``` swift\nvar absences = [0, 2, 0, 4, 0, 3, 1, 0]\n\n```\n\nYou’re tasked with finding the day with the most absences in the second half of the session. To find the index of the day in question, follow these steps:\n\n1.  Create a slice of the `absences` array that holds the second half of the days.\n2.  Use the `max(by:)` method to determine the index of the day with the most absences.\n3.  Print the result using the index found in step 2 on the original `absences` array.\n\nHere’s an implementation of those steps:\n\n``` swift\nlet secondHalf = absences.suffix(absences.count \/ 2)\nif let i = secondHalf.indices.max(by: { secondHalf[$0] < secondHalf[$1] }) {\n    print(\"Highest second-half absences: \\(absences[i])\")\n}\n\/\/ Prints \"Highest second-half absences: 3\"\n\n```\n\n## Slices Inherit Collection Semantics\n\nA slice inherits the value or reference semantics of its base collection. That is, when working with a slice of a mutable collection that has value semantics, such as an array, mutating the original collection triggers a copy of that collection and does not affect the contents of the slice.\n\nFor example, if you update the last element of the `absences` array from `0` to `2`, the `secondHalf` slice is unchanged.\n\n``` swift\nabsences[7] = 2\nprint(absences)\n\/\/ Prints \"[0, 2, 0, 4, 0, 3, 1, 2]\"\nprint(secondHalf)\n\/\/ Prints \"[0, 3, 1, 0]\"\n\n```\n\n# Traversing a Collection\n\nAlthough a sequence can be consumed as it is traversed, a collection is guaranteed to be *multipass*: Any element can be repeatedly accessed by saving its index. Moreover, a collection’s indices form a finite range of the positions of the collection’s elements. The fact that all collections are finite guarantees the safety of many sequence operations, such as using the `contains(_:)` method to test whether a collection includes an element.\n\nIterating over the elements of a collection by their positions yields the same elements in the same order as iterating over that collection using its iterator. This example demonstrates that the `characters` view of a string returns the same characters in the same order whether the view’s indices or the view itself is being iterated.\n\n``` swift\nlet word = \"Swift\"\nfor character in word {\n    print(character)\n}\n\/\/ Prints \"S\"\n\/\/ Prints \"w\"\n\/\/ Prints \"i\"\n\/\/ Prints \"f\"\n\/\/ Prints \"t\"\n\nfor i in word.indices {\n    print(word[i])\n}\n\/\/ Prints \"S\"\n\/\/ Prints \"w\"\n\/\/ Prints \"i\"\n\/\/ Prints \"f\"\n\/\/ Prints \"t\"\n\n```\n\n# Conforming to the Collection Protocol\n\nIf you create a custom sequence that can provide repeated access to its elements, make sure that its type conforms to the `Collection` protocol in order to give a more useful and more efficient interface for sequence and collection operations. To add `Collection` conformance to your type, you must declare at least the following requirements:\n\n  - The `startIndex` and `endIndex` properties\n  - A subscript that provides at least read-only access to your type’s elements\n  - The `index(after:)` method for advancing an index into your collection\n\n# Expected Performance\n\nTypes that conform to `Collection` are expected to provide the `startIndex` and `endIndex` properties and subscript access to elements as O(1) operations. Types that are not able to guarantee this performance must document the departure, because many collection operations depend on O(1) subscripting performance for their own performance guarantees.\n\nThe performance of some collection operations depends on the type of index that the collection provides. For example, a random-access collection, which can measure the distance between two indices in O(1) time, can calculate its `count` property in O(1) time. Conversely, because a forward or bidirectional collection must traverse the entire collection to count the number of contained elements, accessing its `count` property is an O(*n*) operation."
-            },
-            "key.bb.doc_source" : "inheritedExplicit"
+            "key.bb.doc_source" : "inherited"
           },
           "key.bb.is_override" : false,
           "key.bb.swift_declaration" : "extension Collection where Element: FirstProtocol",
@@ -633,8 +633,7 @@
           ],
           "key.bb.type_module_name" : "Swift",
           "key.bodylength" : 26,
-          "key.bodyoffset" : 680,
-          "key.doc.comment" : ":inheritfulldoc:",
+          "key.bodyoffset" : 659,
           "key.doc.declaration" : "protocol Collection : Sequence",
           "key.doc.discussion" : [
             {
@@ -743,8 +742,6 @@
           "key.doc.full_as_xml" : "<Class><Name>Collection<\/Name><USR>s:Sl<\/USR><Declaration>protocol Collection : Sequence<\/Declaration><CommentParts><Abstract><Para>A sequence whose elements can be traversed multiple times, nondestructively, and accessed by an indexed subscript.<\/Para><\/Abstract><Discussion><Para>Collections are used extensively throughout the standard library. When you use arrays, dictionaries, and other collections, you benefit from the operations that the <codeVoice>Collection<\/codeVoice> protocol declares and implements. In addition to the operations that collections inherit from the <codeVoice>Sequence<\/codeVoice> protocol, you gain access to methods that depend on accessing an element at a specific position in a collection.<\/Para><Para>For example, if you want to print only the first word in a string, you can search for the index of the first space, and then create a substring up to that position.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[let text = \"Buffalo buffalo buffalo buffalo.\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[if let firstSpace = text.firstIndex(of: \" \") {]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    print(text[..<firstSpace])]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[}]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"Buffalo\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>The <codeVoice>firstSpace<\/codeVoice> constant is an index into the <codeVoice>text<\/codeVoice> string—the position of the first space in the string. You can store indices in variables, and pass them to collection algorithms or use them later to access the corresponding element. In the example above, <codeVoice>firstSpace<\/codeVoice> is used to extract the prefix that contains elements up to that index.<\/Para><rawHTML><![CDATA[<h1>]]><\/rawHTML>Accessing Individual Elements<rawHTML><![CDATA[<\/h1>]]><\/rawHTML><Para>You can access an element of a collection through its subscript by using any valid index except the collection’s <codeVoice>endIndex<\/codeVoice> property. This property is a “past the end” index that does not correspond with any element of the collection.<\/Para><Para>Here’s an example of accessing the first character in a string through its subscript:<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[let firstChar = text[text.startIndex]]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[print(firstChar)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"B\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>The <codeVoice>Collection<\/codeVoice> protocol declares and provides default implementations for many operations that depend on elements being accessible by their subscript. For example, you can also access the first character of <codeVoice>text<\/codeVoice> using the <codeVoice>first<\/codeVoice> property, which has the value of the first element of the collection, or <codeVoice>nil<\/codeVoice> if the collection is empty.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[print(text.first)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"Optional(\"B\")\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>You can pass only valid indices to collection operations. You can find a complete set of a collection’s valid indices by starting with the collection’s <codeVoice>startIndex<\/codeVoice> property and finding every successor up to, and including, the <codeVoice>endIndex<\/codeVoice> property. All other values of the <codeVoice>Index<\/codeVoice> type, such as the <codeVoice>startIndex<\/codeVoice> property of a different collection, are invalid indices for this collection.<\/Para><Para>Saved indices may become invalid as a result of mutating operations. For more information about index invalidation in mutable collections, see the reference for the <codeVoice>MutableCollection<\/codeVoice> and <codeVoice>RangeReplaceableCollection<\/codeVoice> protocols, as well as for the specific type you’re using.<\/Para><rawHTML><![CDATA[<h1>]]><\/rawHTML>Accessing Slices of a Collection<rawHTML><![CDATA[<\/h1>]]><\/rawHTML><Para>You can access a slice of a collection through its ranged subscript or by calling methods like <codeVoice>prefix(while:)<\/codeVoice> or <codeVoice>suffix(_:)<\/codeVoice>. A slice of a collection can contain zero or more of the original collection’s elements and shares the original collection’s semantics.<\/Para><Para>The following example creates a <codeVoice>firstWord<\/codeVoice> constant by using the <codeVoice>prefix(while:)<\/codeVoice> method to get a slice of the <codeVoice>text<\/codeVoice> string.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[let firstWord = text.prefix(while: { $0 != \" \" })]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[print(firstWord)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"Buffalo\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>You can retrieve the same slice using the string’s ranged subscript, which takes a range expression.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[if let firstSpace = text.firstIndex(of: \" \") {]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    print(text[..<firstSpace]]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    \/\/ Prints \"Buffalo\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[}]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>The retrieved slice of <codeVoice>text<\/codeVoice> is equivalent in each of these cases.<\/Para><rawHTML><![CDATA[<h2>]]><\/rawHTML>Slices Share Indices<rawHTML><![CDATA[<\/h2>]]><\/rawHTML><Para>A collection and its slices share the same indices. An element of a collection is located under the same index in a slice as in the base collection, as long as neither the collection nor the slice has been mutated since the slice was created.<\/Para><Para>For example, suppose you have an array holding the number of absences from each class during a session.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[var absences = [0, 2, 0, 4, 0, 3, 1, 0]]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>You’re tasked with finding the day with the most absences in the second half of the session. To find the index of the day in question, follow these steps:<\/Para><List-Number><Item><Para>Create a slice of the <codeVoice>absences<\/codeVoice> array that holds the second half of the days.<\/Para><\/Item><Item><Para>Use the <codeVoice>max(by:)<\/codeVoice> method to determine the index of the day with the most absences.<\/Para><\/Item><Item><Para>Print the result using the index found in step 2 on the original <codeVoice>absences<\/codeVoice> array.<\/Para><\/Item><\/List-Number><Para>Here’s an implementation of those steps:<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[let secondHalf = absences.suffix(absences.count \/ 2)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[if let i = secondHalf.indices.max(by: { secondHalf[$0] < secondHalf[$1] }) {]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    print(\"Highest second-half absences: \\(absences[i])\")]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[}]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"Highest second-half absences: 3\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><rawHTML><![CDATA[<h2>]]><\/rawHTML>Slices Inherit Collection Semantics<rawHTML><![CDATA[<\/h2>]]><\/rawHTML><Para>A slice inherits the value or reference semantics of its base collection. That is, when working with a slice of a mutable collection that has value semantics, such as an array, mutating the original collection triggers a copy of that collection and does not affect the contents of the slice.<\/Para><Para>For example, if you update the last element of the <codeVoice>absences<\/codeVoice> array from <codeVoice>0<\/codeVoice> to <codeVoice>2<\/codeVoice>, the <codeVoice>secondHalf<\/codeVoice> slice is unchanged.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[absences[7] = 2]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[print(absences)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"[0, 2, 0, 4, 0, 3, 1, 2]\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[print(secondHalf)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"[0, 3, 1, 0]\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><rawHTML><![CDATA[<h1>]]><\/rawHTML>Traversing a Collection<rawHTML><![CDATA[<\/h1>]]><\/rawHTML><Para>Although a sequence can be consumed as it is traversed, a collection is guaranteed to be <emphasis>multipass<\/emphasis>: Any element can be repeatedly accessed by saving its index. Moreover, a collection’s indices form a finite range of the positions of the collection’s elements. The fact that all collections are finite guarantees the safety of many sequence operations, such as using the <codeVoice>contains(_:)<\/codeVoice> method to test whether a collection includes an element.<\/Para><Para>Iterating over the elements of a collection by their positions yields the same elements in the same order as iterating over that collection using its iterator. This example demonstrates that the <codeVoice>characters<\/codeVoice> view of a string returns the same characters in the same order whether the view’s indices or the view itself is being iterated.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[let word = \"Swift\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[for character in word {]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    print(character)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[}]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"S\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"w\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"i\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"f\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"t\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[for i in word.indices {]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    print(word[i])]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[}]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"S\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"w\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"i\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"f\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"t\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><rawHTML><![CDATA[<h1>]]><\/rawHTML>Conforming to the Collection Protocol<rawHTML><![CDATA[<\/h1>]]><\/rawHTML><Para>If you create a custom sequence that can provide repeated access to its elements, make sure that its type conforms to the <codeVoice>Collection<\/codeVoice> protocol in order to give a more useful and more efficient interface for sequence and collection operations. To add <codeVoice>Collection<\/codeVoice> conformance to your type, you must declare at least the following requirements:<\/Para><List-Bullet><Item><Para>The <codeVoice>startIndex<\/codeVoice> and <codeVoice>endIndex<\/codeVoice> properties<\/Para><\/Item><Item><Para>A subscript that provides at least read-only access to your type’s elements<\/Para><\/Item><Item><Para>The <codeVoice>index(after:)<\/codeVoice> method for advancing an index into your collection<\/Para><\/Item><\/List-Bullet><rawHTML><![CDATA[<h1>]]><\/rawHTML>Expected Performance<rawHTML><![CDATA[<\/h1>]]><\/rawHTML><Para>Types that conform to <codeVoice>Collection<\/codeVoice> are expected to provide the <codeVoice>startIndex<\/codeVoice> and <codeVoice>endIndex<\/codeVoice> properties and subscript access to elements as O(1) operations. Types that are not able to guarantee this performance must document the departure, because many collection operations depend on O(1) subscripting performance for their own performance guarantees.<\/Para><Para>The performance of some collection operations depends on the type of index that the collection provides. For example, a random-access collection, which can measure the distance between two indices in O(1) time, can calculate its <codeVoice>count<\/codeVoice> property in O(1) time. Conversely, because a forward or bidirectional collection must traverse the entire collection to count the number of contained elements, accessing its <codeVoice>count<\/codeVoice> property is an O(<emphasis>n<\/emphasis>) operation.<\/Para><\/Discussion><\/CommentParts><\/Class>",
           "key.doc.name" : "Collection",
           "key.doc.type" : "Class",
-          "key.doclength" : 21,
-          "key.docoffset" : 608,
           "key.fully_annotated_decl" : "<decl.protocol><syntaxtype.keyword>protocol<\/syntaxtype.keyword> <decl.name>Collection<\/decl.name> : <ref.protocol usr=\"s:ST\">Sequence<\/ref.protocol><\/decl.protocol>",
           "key.groupname" : "Collection",
           "key.is_system" : true,
@@ -753,11 +750,11 @@
           "key.modulename" : "Swift",
           "key.name" : "Collection",
           "key.namelength" : 10,
-          "key.nameoffset" : 639,
-          "key.offset" : 629,
+          "key.nameoffset" : 618,
+          "key.offset" : 608,
           "key.parsed_declaration" : "extension Collection where Element: FirstProtocol",
-          "key.parsed_scope.end" : 41,
-          "key.parsed_scope.start" : 39,
+          "key.parsed_scope.end" : 40,
+          "key.parsed_scope.start" : 38,
           "key.substructure" : [
             {
               "key.annotated_decl" : "<Declaration>func collectEmAll()<\/Declaration>",
@@ -779,7 +776,7 @@
                 }
               ],
               "key.bodylength" : 0,
-              "key.bodyoffset" : 704,
+              "key.bodyoffset" : 683,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>collectEmAll<\/decl.name>()<\/decl.function.method.instance>",
               "key.groupname" : "Collection",
@@ -787,11 +784,11 @@
               "key.length" : 22,
               "key.name" : "collectEmAll()",
               "key.namelength" : 14,
-              "key.nameoffset" : 688,
-              "key.offset" : 683,
+              "key.nameoffset" : 667,
+              "key.offset" : 662,
               "key.parsed_declaration" : "func collectEmAll()",
-              "key.parsed_scope.end" : 40,
-              "key.parsed_scope.start" : 40,
+              "key.parsed_scope.end" : 39,
+              "key.parsed_scope.start" : 39,
               "key.typename" : "<Self where Self : Collection, Self.Element : FirstProtocol> (Self) -> () -> ()",
               "key.typeusr" : "$syycD",
               "key.usr" : "s:Sl14SpmSwiftModuleAA13FirstProtocol7ElementRpzrlE12collectEmAllyyF"
@@ -824,7 +821,7 @@
           ],
           "key.bb.type_module_name" : "Swift",
           "key.bodylength" : 23,
-          "key.bodyoffset" : 771,
+          "key.bodyoffset" : 750,
           "key.doc.declaration" : "protocol Collection : Sequence",
           "key.doc.discussion" : [
             {
@@ -941,11 +938,11 @@
           "key.modulename" : "Swift",
           "key.name" : "Collection",
           "key.namelength" : 10,
-          "key.nameoffset" : 719,
-          "key.offset" : 709,
+          "key.nameoffset" : 698,
+          "key.offset" : 688,
           "key.parsed_declaration" : "extension Collection where Element == SpmSwiftModule.Nested1",
-          "key.parsed_scope.end" : 45,
-          "key.parsed_scope.start" : 43,
+          "key.parsed_scope.end" : 44,
+          "key.parsed_scope.start" : 42,
           "key.substructure" : [
             {
               "key.annotated_decl" : "<Declaration>func nestEmAll()<\/Declaration>",
@@ -967,7 +964,7 @@
                 }
               ],
               "key.bodylength" : 0,
-              "key.bodyoffset" : 792,
+              "key.bodyoffset" : 771,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>nestEmAll<\/decl.name>()<\/decl.function.method.instance>",
               "key.groupname" : "Collection",
@@ -975,11 +972,11 @@
               "key.length" : 19,
               "key.name" : "nestEmAll()",
               "key.namelength" : 11,
-              "key.nameoffset" : 779,
-              "key.offset" : 774,
+              "key.nameoffset" : 758,
+              "key.offset" : 753,
               "key.parsed_declaration" : "func nestEmAll()",
-              "key.parsed_scope.end" : 44,
-              "key.parsed_scope.start" : 44,
+              "key.parsed_scope.end" : 43,
+              "key.parsed_scope.start" : 43,
               "key.typename" : "<Self where Self : Collection, Self.Element == SpmSwiftModule.Nested1> (Self) -> () -> ()",
               "key.typeusr" : "$syycD",
               "key.usr" : "s:Sl14SpmSwiftModuleA2AV7Nested1V7ElementRtzrlE9nestEmAllyyF"
@@ -1011,7 +1008,7 @@
             }
           ],
           "key.bodylength" : 142,
-          "key.bodyoffset" : 848,
+          "key.bodyoffset" : 827,
           "key.doc.column" : 17,
           "key.doc.declaration" : "public protocol FirstProtocol",
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
@@ -1025,11 +1022,11 @@
           "key.length" : 194,
           "key.name" : "FirstProtocol",
           "key.namelength" : 13,
-          "key.nameoffset" : 807,
-          "key.offset" : 797,
+          "key.nameoffset" : 786,
+          "key.offset" : 776,
           "key.parsed_declaration" : "extension FirstProtocol where AssocType: Hashable",
-          "key.parsed_scope.end" : 54,
-          "key.parsed_scope.start" : 47,
+          "key.parsed_scope.end" : 53,
+          "key.parsed_scope.start" : 46,
           "key.substructure" : [
             {
               "key.annotated_decl" : "<Declaration>func extHashableMethod()<\/Declaration>",
@@ -1051,18 +1048,18 @@
                 }
               ],
               "key.bodylength" : 0,
-              "key.bodyoffset" : 877,
+              "key.bodyoffset" : 856,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>extHashableMethod<\/decl.name>()<\/decl.function.method.instance>",
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 27,
               "key.name" : "extHashableMethod()",
               "key.namelength" : 19,
-              "key.nameoffset" : 856,
-              "key.offset" : 851,
+              "key.nameoffset" : 835,
+              "key.offset" : 830,
               "key.parsed_declaration" : "func extHashableMethod()",
-              "key.parsed_scope.end" : 48,
-              "key.parsed_scope.start" : 48,
+              "key.parsed_scope.end" : 47,
+              "key.parsed_scope.start" : 47,
               "key.typename" : "<Self where Self : FirstProtocol, Self.AssocType : Hashable> (Self) -> () -> ()",
               "key.typeusr" : "$syycD",
               "key.usr" : "s:14SpmSwiftModule13FirstProtocolPAASH9AssocTypeRpzrlE17extHashableMethodyyF"
@@ -1101,28 +1098,28 @@
                 }
               ],
               "key.bodylength" : 17,
-              "key.bodyoffset" : 971,
+              "key.bodyoffset" : 950,
               "key.doc.column" : 8,
               "key.doc.comment" : "Special default implementation for m in Hashable case.",
               "key.doc.declaration" : "func m(arg: Int) -> String",
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
-              "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift\" line=\"51\" column=\"8\"><Name>m(arg:)<\/Name><USR>s:14SpmSwiftModule13FirstProtocolPAASH9AssocTypeRpzrlE1m3argSSSi_tF<\/USR><Declaration>func m(arg: Int) -&gt; String<\/Declaration><CommentParts><Abstract><Para>Special default implementation for m in Hashable case.<\/Para><\/Abstract><\/CommentParts><\/Function>",
-              "key.doc.line" : 51,
+              "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift\" line=\"50\" column=\"8\"><Name>m(arg:)<\/Name><USR>s:14SpmSwiftModule13FirstProtocolPAASH9AssocTypeRpzrlE1m3argSSSi_tF<\/USR><Declaration>func m(arg: Int) -&gt; String<\/Declaration><CommentParts><Abstract><Para>Special default implementation for m in Hashable case.<\/Para><\/Abstract><\/CommentParts><\/Function>",
+              "key.doc.line" : 50,
               "key.doc.name" : "m(arg:)",
               "key.doc.type" : "Function",
               "key.doclength" : 59,
-              "key.docoffset" : 882,
+              "key.docoffset" : 861,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>m<\/decl.name>(<decl.var.parameter><decl.var.parameter.argument_label>arg<\/decl.var.parameter.argument_label>: <decl.var.parameter.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.function.returntype><\/decl.function.method.instance>",
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 46,
               "key.name" : "m(arg:)",
               "key.namelength" : 11,
-              "key.nameoffset" : 948,
-              "key.offset" : 943,
+              "key.nameoffset" : 927,
+              "key.offset" : 922,
               "key.parsed_declaration" : "func m(arg: Int) -> String",
-              "key.parsed_scope.end" : 53,
-              "key.parsed_scope.start" : 51,
+              "key.parsed_scope.end" : 52,
+              "key.parsed_scope.start" : 50,
               "key.related_decls" : [
                 {
                   "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule13FirstProtocolP1m3argSSSi_tF\">m(arg: Int) -&gt; String<\/RelatedName>"
@@ -1163,7 +1160,7 @@
           ],
           "key.bb.type_module_name" : "Swift",
           "key.bodylength" : 91,
-          "key.bodyoffset" : 1074,
+          "key.bodyoffset" : 1053,
           "key.doc.comment" : "Extension of a nested type from an external module",
           "key.doc.declaration" : "associatedtype Element where Self.Element == Self.Iterator.Element",
           "key.doc.discussion" : [
@@ -1175,7 +1172,7 @@
           "key.doc.name" : "Element",
           "key.doc.type" : "Other",
           "key.doclength" : 55,
-          "key.docoffset" : 993,
+          "key.docoffset" : 972,
           "key.fully_annotated_decl" : "<decl.typealias><syntaxtype.keyword>typealias<\/syntaxtype.keyword> <decl.name>Element<\/decl.name> = <ref.struct usr=\"s:SJ\">Character<\/ref.struct><\/decl.typealias>",
           "key.groupname" : "String",
           "key.is_system" : true,
@@ -1184,8 +1181,8 @@
           "key.modulename" : "Swift",
           "key.name" : "String.Element",
           "key.namelength" : 14,
-          "key.nameoffset" : 1058,
-          "key.offset" : 1048,
+          "key.nameoffset" : 1037,
+          "key.offset" : 1027,
           "key.overrides" : [
             {
               "key.usr" : "s:SK7ElementQa"
@@ -1198,8 +1195,8 @@
             }
           ],
           "key.parsed_declaration" : "extension String.Element",
-          "key.parsed_scope.end" : 62,
-          "key.parsed_scope.start" : 57,
+          "key.parsed_scope.end" : 61,
+          "key.parsed_scope.start" : 56,
           "key.substructure" : [
             {
               "key.annotated_decl" : "<Declaration>func method1()<\/Declaration>",
@@ -1227,17 +1224,17 @@
                 }
               ],
               "key.bodylength" : 0,
-              "key.bodyoffset" : 1118,
+              "key.bodyoffset" : 1097,
               "key.doc.column" : 8,
               "key.doc.comment" : "documented method",
               "key.doc.declaration" : "func method1()",
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
-              "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift\" line=\"59\" column=\"8\"><Name>method1()<\/Name><USR>s:SJ14SpmSwiftModuleE7method1yyF<\/USR><Declaration>func method1()<\/Declaration><CommentParts><Abstract><Para>documented method<\/Para><\/Abstract><\/CommentParts><\/Function>",
-              "key.doc.line" : 59,
+              "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift\" line=\"58\" column=\"8\"><Name>method1()<\/Name><USR>s:SJ14SpmSwiftModuleE7method1yyF<\/USR><Declaration>func method1()<\/Declaration><CommentParts><Abstract><Para>documented method<\/Para><\/Abstract><\/CommentParts><\/Function>",
+              "key.doc.line" : 58,
               "key.doc.name" : "method1()",
               "key.doc.type" : "Function",
               "key.doclength" : 22,
-              "key.docoffset" : 1078,
+              "key.docoffset" : 1057,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>method1<\/decl.name>()<\/decl.function.method.instance>",
               "key.groupname" : "String",
@@ -1245,11 +1242,11 @@
               "key.length" : 17,
               "key.name" : "method1()",
               "key.namelength" : 9,
-              "key.nameoffset" : 1107,
-              "key.offset" : 1102,
+              "key.nameoffset" : 1086,
+              "key.offset" : 1081,
               "key.parsed_declaration" : "func method1()",
-              "key.parsed_scope.end" : 59,
-              "key.parsed_scope.start" : 59,
+              "key.parsed_scope.end" : 58,
+              "key.parsed_scope.start" : 58,
               "key.typename" : "(Character) -> () -> ()",
               "key.typeusr" : "$syycD",
               "key.usr" : "s:SJ14SpmSwiftModuleE7method1yyF"
@@ -1274,7 +1271,7 @@
                 }
               ],
               "key.bodylength" : 0,
-              "key.bodyoffset" : 1163,
+              "key.bodyoffset" : 1142,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>method2<\/decl.name>()<\/decl.function.method.instance>",
               "key.groupname" : "String",
@@ -1282,11 +1279,11 @@
               "key.length" : 17,
               "key.name" : "method2()",
               "key.namelength" : 9,
-              "key.nameoffset" : 1152,
-              "key.offset" : 1147,
+              "key.nameoffset" : 1131,
+              "key.offset" : 1126,
               "key.parsed_declaration" : "func method2()",
-              "key.parsed_scope.end" : 61,
-              "key.parsed_scope.start" : 61,
+              "key.parsed_scope.end" : 60,
+              "key.parsed_scope.start" : 60,
               "key.typename" : "(Character) -> () -> ()",
               "key.typeusr" : "$syycD",
               "key.usr" : "s:SJ14SpmSwiftModuleE7method2yyF"

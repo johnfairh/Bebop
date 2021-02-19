@@ -282,7 +282,7 @@ class TestXMLDocs: XCTestCase {
         }
         XCTAssertEqual(2, calloutCount)
 
-        let shortDefDocs = declParser.flatDefDocs(source: .inheritedExplicit, shortForm: true)
+        let shortDefDocs = declParser.flatDefDocs(source: .inherited, shortForm: true)
         XCTAssertNil(shortDefDocs.discussion)
     }
 

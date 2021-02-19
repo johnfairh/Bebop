@@ -178,8 +178,7 @@ struct MergeFilter: Configurable {
         // Given the option, skip defs without doc-comments
         // that are overriding superclass methods / implementing protocols.
         if skipUndocumentedOverrideOpt.value,
-            (item.documentation.source != .docComment &&
-             item.documentation.source != .inheritedExplicit),
+            item.documentation.source != .docComment,
             let swiftDeclaration = item.swiftDeclaration,
             swiftDeclaration.isOverride {
             Stats.inc(.filterSkipUndocOverride)

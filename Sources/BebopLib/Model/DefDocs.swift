@@ -12,8 +12,6 @@ public enum DefDocSource: String, Encodable {
     case docComment
     /// Figured out by Swift from some parent protocol or class
     case inherited
-    /// Figured out by Swift from some parent protocol or class and explicitly requested
-    case inheritedExplicit
     /// Made up by this program for an uninitialized container
     case empty
     /// Made up by this program for an undocumented def

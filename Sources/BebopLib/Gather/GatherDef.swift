@@ -65,8 +65,7 @@ public final class GatherDef {
         }
         self.kind = kind
 
-        if let docComment = sourceKittenDict.documentationComment,
-            !docComment.isAnyInheritDoc {
+        if let docComment = sourceKittenDict.documentationComment {
             let docSource: DefDocSource
             if let inherited = sourceKittenDict.inheritedDocs, inherited {
                 docSource = .inherited
@@ -82,20 +81,13 @@ public final class GatherDef {
             previousSiblingDef.canShareDocsWithSibling(offset: sourceKittenDict.offset) {
             self.documentation = previousSiblingDocs
             self.localizationKey = previousSiblingDef.localizationKey
-        } else if kind.isSwift, let xml = sourceKittenDict.fullXMLDocs {
-            var source = DefDocSource.inherited
-            var shortForm = true
-                // should be 'true' for tests etc.
-                // set 'false' for building sass docs as workaround
-            if let docComment = sourceKittenDict.documentationComment {
-                if docComment.isAnyInheritDoc {
-                    source = .inheritedExplicit
-                }
-                shortForm = docComment.isInheritDoc
-            }
+        } else if kind.isSwift,
+            let xml = sourceKittenDict.fullXMLDocs,
+            case let inheritStyle = defOptions.inheritDocsStyle(for: kind),
+            inheritStyle != .none {
             self.documentation = XMLDocComment.parse(xml: xml,
-                                                     source: source,
-                                                     shortForm: shortForm)
+                                                     source: .inherited,
+                                                     shortForm: inheritStyle == .brief)
             self.localizationKey = nil // apple seem to lose this :(
         } else {
             self.documentation = nil
@@ -250,16 +242,8 @@ extension SourceKittenDict {
     }
 }
 
-private extension String {
-    var isInheritDoc: Bool {
-        re_isMatch(#"^\s*:inheritdocs?:\s*$"#)
-    }
-
-    var isInheritFullDoc: Bool {
-        re_isMatch(#"^\s*:inheritfulldocs?:\s*$"#)
-    }
-
-    var isAnyInheritDoc: Bool {
-        isInheritDoc || isInheritFullDoc
+private extension Gather.DefOptions {
+    func inheritDocsStyle(for kind: DefKind) -> Gather.InheritedDocsStyle {
+        kind.isExtension ? inheritedExtensionDocsStyle : inheritedDocsStyle
     }
 }

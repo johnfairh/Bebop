@@ -280,7 +280,7 @@ extension Collection where Element == SpmSwiftModule.Nested1
 
 [Show members](extensions/collection.md?swift)
 
-[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L39-L41)
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L38-L40)
 </details>
 
 
@@ -323,7 +323,7 @@ extension String.Element
 
 [Show members](extensions/stringelement.md?swift)
 
-[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L57-L62)
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L56-L61)
 </details>
 
 

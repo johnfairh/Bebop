@@ -314,15 +314,15 @@ extension Gather {
     /// Collected options that affect def building
     struct DefOptions: Equatable {
         let availability: Availability
-        let inheritedDocs: InheritedDocsStyle
-        let inheritedExtensionDocs: InheritedDocsStyle
+        let inheritedDocsStyle: InheritedDocsStyle
+        let inheritedExtensionDocsStyle: InheritedDocsStyle
 
         init(availability: Availability = .init(),
              inheritedDocs: InheritedDocsStyle = .full,
              inheritedExtensionDocs: InheritedDocsStyle = .brief) {
             self.availability = availability
-            self.inheritedDocs = inheritedDocs
-            self.inheritedExtensionDocs = inheritedExtensionDocs
+            self.inheritedDocsStyle = inheritedDocs
+            self.inheritedExtensionDocsStyle = inheritedExtensionDocs
         }
     }
 }

@@ -219,6 +219,7 @@ class TestProducts: XCTestCase {
             "--min-acl=private",
             "--guides=\(guideURL.path)",
             "--clean",
+            "--inherited-docs-extension-style=full",
             "--deployment-url=http://www.google.com/",
             "--code-host-url=http://www.bbc.co.uk/",
             "--code-host-file-url=http://www.bbc.co.uk/",
@@ -234,6 +235,7 @@ class TestProducts: XCTestCase {
 
         let options = [
             "--source-directory=\(packageDirURL.path)",
+            "--inherited-docs-extension-style=full",
             "--config=\(packageDirURL.appendingPathComponent("markdown-bebop.yaml").path)"]
 
         try doTestSiteFiles(args: options, goodDocsURL: docsDirURL)

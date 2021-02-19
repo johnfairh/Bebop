@@ -104,7 +104,7 @@ extension Gather.DefOptions {
     func with(availabilityDefault: String) -> Gather.DefOptions {
         .init(availability: .init(defaults: [availabilityDefault],
                                   ignoreAttr: availability.ignoreAttr),
-              inheritedDocs: inheritedDocs,
-              inheritedExtensionDocs: inheritedExtensionDocs)
+              inheritedDocs: inheritedDocsStyle,
+              inheritedExtensionDocs: inheritedExtensionDocsStyle)
     }
 }
