@@ -71,7 +71,7 @@ extension GatherJob {
                 return module.docs.compactMap { swiftDoc -> (String, GatherDef)? in
                     guard let def = GatherDef(sourceKittenDict: swiftDoc.docsDictionary,
                                               file: swiftDoc.file,
-                                              availability: defOptions.availability) else {
+                                              defOptions: defOptions) else {
                         return nil
                     }
                     return (swiftDoc.file.path ?? "(no path)", def)

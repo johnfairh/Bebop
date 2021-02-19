@@ -31,7 +31,7 @@ public final class GatherDef {
     init?(sourceKittenDict: SourceKittenDict,
           parentNameComponents: [String] = [],
           file: SourceKittenFramework.File? = nil,
-          availability: Gather.Availability = .init(),
+          defOptions: Gather.DefOptions = .init(),
           previousSiblingDef: GatherDef? = nil) {
         var dict = sourceKittenDict
         let name = sourceKittenDict.name
@@ -42,7 +42,7 @@ public final class GatherDef {
             let def = GatherDef(sourceKittenDict: $0,
                                 parentNameComponents: nameComponents,
                                 file: file,
-                                availability: availability,
+                                defOptions: defOptions,
                                 previousSiblingDef: prevChild)
             prevChild = def
             return def
@@ -114,12 +114,14 @@ public final class GatherDef {
                                         file: file,
                                         kind: kind,
                                         stripObjC: self.objCDeclaration != nil,
-                                        availabilityRules: availability).build()
+                                        availabilityRules: defOptions.availability)
+                .build()
         } else {
             self.swiftDeclaration =
                 ObjCSwiftDeclarationBuilder(objCDict: dict,
                                             kind: kind,
-                                            availability: availability).build()
+                                            availability: defOptions.availability)
+                .build()
             self.objCDeclaration =
                 ObjCDeclarationBuilder(dict: dict, kind: kind).build()
         }

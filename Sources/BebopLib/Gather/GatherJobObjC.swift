@@ -34,8 +34,7 @@ extension GatherJob {
             logDebug(" Found \(translationUnit.declarations.count) top-level declarations.")
 
             let filesInfo = try translationUnit.asFiles().compactMap { file -> (String, GatherDef)? in
-                guard let def = GatherDef(sourceKittenDict: file.dict,
-                                          availability: defOptions.availability) else {
+                guard let def = GatherDef(sourceKittenDict: file.dict, defOptions: defOptions) else {
                      return nil
                 }
                 return (file.path, def)

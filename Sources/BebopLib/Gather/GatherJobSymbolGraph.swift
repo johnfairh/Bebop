@@ -107,8 +107,7 @@ extension GatherJob {
             logDebug("Gathering sourcekitten defs...")
 
             let defs = dicts.compactMap {
-                GatherDef(sourceKittenDict: $0,
-                          availability: defOptions.availability)
+                GatherDef(sourceKittenDict: $0, defOptions: defOptions)
             }
 
             return GatherModulePass(moduleName: moduleName, files: defs.map { ("", $0) })
