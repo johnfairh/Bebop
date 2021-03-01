@@ -109,6 +109,7 @@ Main structure
 
 
 
+
 [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L2-L32)
 
 
@@ -153,6 +154,7 @@ public struct Nested1
 
 
 
+
 [Show members](../types/spmswiftmodule/nested1.md?swift)
 
 [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L8-L14)
@@ -188,6 +190,7 @@ Undocumented
 ``` swift
 public struct Nested2
 ```
+
 
 
 
@@ -246,6 +249,10 @@ public func checkState(name: String) throws -> Int
 
 
 
+#### Throws
+An error from [`AnEnum`](../types/anenum.md) if things are wrong
+
+
 #### Return Value
 A value
 
@@ -301,6 +308,7 @@ var a: Int
 
 
 
+
 [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L19)
 </details>
 
@@ -344,6 +352,7 @@ var b: Int
 
 
 
+
 [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L19)
 </details>
 
@@ -377,6 +386,7 @@ Undocumented
 ``` swift
 public var text: String
 ```
+
 
 
 

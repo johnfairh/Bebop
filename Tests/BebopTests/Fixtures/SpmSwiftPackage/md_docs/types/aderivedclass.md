@@ -109,6 +109,7 @@ A derived class
 
 
 
+
 [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L117-L128)
 
 
@@ -145,6 +146,7 @@ Undocumented
 ``` swift
 public func generic(param: T) -> T
 ```
+
 
 
 
@@ -198,6 +200,7 @@ public override func method(param: Int) -> String
 
 
 
+
 [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L121-L123)
 </details>
 
@@ -235,6 +238,7 @@ Undocumented
 ``` swift
 var t: Q?
 ```
+
 
 
 

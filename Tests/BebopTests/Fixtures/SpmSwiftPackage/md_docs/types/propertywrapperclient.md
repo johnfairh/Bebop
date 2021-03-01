@@ -109,6 +109,7 @@ See [`@Nop`](../types/nop.md).
 
 
 
+
 [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L140-L143)
 
 
@@ -146,6 +147,7 @@ Undocumented
 @Nop
 var v: String { get set }
 ```
+
 
 
 

@@ -278,6 +278,7 @@ extension Collection where Element == SpmSwiftModule.Nested1
 
 
 
+
 [Show members](extensions/collection.md?swift)
 
 [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L38-L40)
@@ -313,6 +314,7 @@ Extension of a nested type from an external module
 ``` swift
 extension String.Element
 ```
+
 
 
 

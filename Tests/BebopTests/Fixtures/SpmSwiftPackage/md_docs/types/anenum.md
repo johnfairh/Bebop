@@ -109,6 +109,7 @@ An enum
 
 
 
+
 [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L35-L44)
 
 
@@ -145,6 +146,7 @@ First case
 ``` swift
 case first(Int)
 ```
+
 
 
 
@@ -198,6 +200,7 @@ case second
 
 
 
+
 [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L39)
 </details>
 
@@ -231,6 +234,7 @@ Third & Fourth cases - [`second`](../types/anenum.md#second)
 ``` swift
 case third
 ```
+
 
 
 
@@ -284,6 +288,7 @@ case fourth
 
 
 
+
 [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L41)
 </details>
 
@@ -317,6 +322,7 @@ Fifth case
 ``` swift
 case fifth(a: String, _: Int)
 ```
+
 
 
 

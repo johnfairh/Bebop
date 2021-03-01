@@ -259,6 +259,7 @@ The performance of some collection operations depends on the type of index that 
 
 
 
+
 [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L38-L40)
 
 
@@ -295,6 +296,7 @@ Undocumented
 ``` swift
 func nestEmAll()
 ```
+
 
 
 
@@ -342,6 +344,7 @@ Undocumented
 ``` swift
 func collectEmAll()
 ```
+
 
 
 

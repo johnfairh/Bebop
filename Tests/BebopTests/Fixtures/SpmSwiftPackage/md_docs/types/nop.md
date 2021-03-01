@@ -110,6 +110,7 @@ Undocumented
 
 
 
+
 [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L131-L137)
 
 
@@ -146,6 +147,7 @@ Undocumented
 ``` swift
 init(wrappedValue: String)
 ```
+
 
 
 
@@ -193,6 +195,7 @@ Undocumented
 ``` swift
 var wrappedValue: String
 ```
+
 
 
 

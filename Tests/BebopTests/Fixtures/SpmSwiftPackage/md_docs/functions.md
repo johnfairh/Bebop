@@ -138,6 +138,7 @@ public func deprecatedFunction(callback: (_ report: String) -> Int) -> String
 
 
 
+
 #### Return Value
 A string
 
@@ -202,6 +203,7 @@ public func functionA(
 
 
 `arg3`: Third
+
 
 
 

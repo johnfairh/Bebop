@@ -109,6 +109,7 @@ A base class
 
 
 
+
 [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L71-L106)
 
 
@@ -155,6 +156,7 @@ public init()
 
 
 
+
 [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L72)
 </details>
 
@@ -188,6 +190,7 @@ Undocumented
 ``` swift
 public convenience init(a: Int)
 ```
+
 
 
 
@@ -245,6 +248,7 @@ deinit
 
 
 
+
 [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L76)
 </details>
 
@@ -282,6 +286,7 @@ Base class docs for `method(param:)`
 ``` swift
 public func method(param: Int) -> String
 ```
+
 
 
 
@@ -339,6 +344,7 @@ public static func + (lhs: ABaseClass, rhs: ABaseClass) -> ABaseClass
 
 
 
+
 [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L103-L105)
 </details>
 
@@ -376,6 +382,7 @@ Undocumented
 ``` swift
 public subscript(arg: String) -> Int { get set }
 ```
+
 
 
 
@@ -433,6 +440,7 @@ public static func staticMethod() -> Int
 
 
 
+
 [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L82-L84)
 </details>
 
@@ -480,6 +488,7 @@ public static subscript(arg: String) -> Int { get }
 
 
 
+
 [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L94-L96)
 </details>
 
@@ -517,6 +526,7 @@ Undocumented
 ``` swift
 public class subscript(arg: Int) -> String { get }
 ```
+
 
 
 

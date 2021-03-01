@@ -111,6 +111,7 @@ Undocumented
 
 
 
+
 [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L1-L10)
 
 
@@ -147,6 +148,7 @@ Undocumented
 ``` swift
 init(type: T)
 ```
+
 
 
 
@@ -204,6 +206,7 @@ func mutify() -> T
 
 
 
+
 [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L7-L9)
 </details>
 
@@ -241,6 +244,7 @@ Undocumented
 ``` swift
 var boxed: T
 ```
+
 
 
 
@@ -312,6 +316,7 @@ var description: String { get }
 
 
 
+
 [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L33-L35)
 </details>
 
@@ -359,6 +364,7 @@ func doCodability()
 
 
 
+
 [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L16)
 </details>
 
@@ -392,6 +398,7 @@ Undocumented
 ``` swift
 var codableCount: Int { get }
 ```
+
 
 
 
@@ -449,6 +456,7 @@ func doFirstMagic()
 
 
 
+
 [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L21)
 </details>
 
@@ -482,6 +490,7 @@ Undocumented
 ``` swift
 func doMoreMagic()
 ```
+
 
 
 
@@ -529,6 +538,7 @@ Undocumented
 ``` swift
 func doHashable()
 ```
+
 
 
 

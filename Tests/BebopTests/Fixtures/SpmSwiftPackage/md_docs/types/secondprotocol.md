@@ -109,6 +109,7 @@ Undocumented
 
 
 
+
 [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Protocols.swift#L30-L32)
 
 
@@ -145,6 +146,7 @@ Undocumented
 ``` swift
 func secondProtocolMethod() -> String
 ```
+
 
 
 
@@ -198,6 +200,7 @@ From symbolgraph we mess this up as being part of [`FirstProtocol`](../types/fir
 ``` swift
 var getOnly: Int { get }
 ```
+
 
 
 

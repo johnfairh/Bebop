@@ -128,6 +128,7 @@ public class ABaseClass
 
 
 
+
 [Show members](types/abaseclass.md?swift)
 
 [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L71-L106)
@@ -163,6 +164,7 @@ A derived class
 ``` swift
 public class ADerivedClass<T, Q>: ABaseClass where Q: Sequence
 ```
+
 
 
 
@@ -214,6 +216,7 @@ public enum AnEnum
 
 
 
+
 [Show members](types/anenum.md?swift)
 
 [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L35-L44)
@@ -249,6 +252,7 @@ A protocol.
 ``` swift
 public protocol FirstProtocol
 ```
+
 
 
 
@@ -302,6 +306,7 @@ extension GenericBase: CustomStringConvertible
 
 
 
+
 [Show members](types/genericbase.md?swift)
 
 [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L1-L10)
@@ -338,6 +343,7 @@ Undocumented
 @propertyWrapper
 struct Nop
 ```
+
 
 
 
@@ -389,6 +395,7 @@ struct PropertyWrapperClient
 
 
 
+
 [Show members](types/propertywrapperclient.md?swift)
 
 [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L140-L143)
@@ -424,6 +431,7 @@ Undocumented
 ``` swift
 public protocol SecondProtocol: FirstProtocol
 ```
+
 
 
 
@@ -475,6 +483,7 @@ public struct SpmSwiftModule
 
 
 
+
 [Show members](types/spmswiftmodule.md?swift)
 
 [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L2-L32)
@@ -510,6 +519,7 @@ Undocumented
 ``` swift
 struct T
 ```
+
 
 
 

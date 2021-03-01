@@ -109,6 +109,7 @@ Extension of a nested type from an external module
 
 
 
+
 [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L56-L61)
 
 
@@ -155,6 +156,7 @@ func method1()
 
 
 
+
 [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L58)
 </details>
 
@@ -188,6 +190,7 @@ Undocumented
 ``` swift
 func method2()
 ```
+
 
 
 
