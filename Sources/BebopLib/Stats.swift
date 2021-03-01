@@ -147,8 +147,6 @@ struct StatsDb {
         case filterSkipUndocumented
         /// Defs excluded because no docs, override, skip-undoc-override
         case filterSkipUndocOverride
-        /// Defs whose inherited docs are ignored
-        case filterIgnoreInheritedDocs
         /// Markdown chunks formatted
         case formatMarkdown
         /// Links rewritten to media

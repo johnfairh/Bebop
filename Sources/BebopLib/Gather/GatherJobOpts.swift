@@ -22,6 +22,11 @@ final class GatherJobOpts: Configurable {
     let availabilityDefaultsOpt = StringListOpt(l: "availability-defaults").help("AVAILABILITY1,AVAILABILITY2,...")
     let ignoreAvailabilityAttrOpt = BoolOpt(l: "ignore-availability-attr")
 
+    let inheritedDocsStyleOpt = EnumOpt<Gather.InheritedDocsStyle>(l: "inherited-docs-style").def(.full)
+    var inheritedDocsStyle: Gather.InheritedDocsStyle { inheritedDocsStyleOpt.value! }
+    let inheritedDocsExtensionStyleOpt = EnumOpt<Gather.InheritedDocsStyle>(l: "inherited-docs-extension-style").def(.brief)
+    var inheritedDocsExtensionStyle: Gather.InheritedDocsStyle { inheritedDocsExtensionStyleOpt.value! }
+
     let sourcekittenJSONFilesOpt = PathListOpt(s: "s", l: "sourcekitten-json-files").help("FILEPATH1,FILEPATH2,...")
     let bebopJSONFilesOpt = PathListOpt(l: "bebop-json-files").help("FILEPATH1,FILEPATH2,...")
 
@@ -81,6 +86,9 @@ final class GatherJobOpts: Configurable {
         // availability: always cascade
         availabilityDefaultsOpt.cascade(from: from.availabilityDefaultsOpt)
         ignoreAvailabilityAttrOpt.cascade(from: from.ignoreAvailabilityAttrOpt)
+        // inheritdocs: always cascade
+        inheritedDocsStyleOpt.cascade(from: from.inheritedDocsStyleOpt)
+        inheritedDocsExtensionStyleOpt.cascade(from: from.inheritedDocsExtensionStyleOpt)
         // objcdirect: don't cascade if buildtool/jsonfiles/podspec [mutually exclusive]
         if !buildToolOpt.configured &&
             !sourcekittenJSONFilesOpt.configured &&
@@ -184,9 +192,11 @@ final class GatherJobOpts: Configurable {
 
     /// Generate a job from the options
     func makeJob(moduleName: String?, passIndex: Int? = nil) -> GatherJob? {
-        let availability =
-            Gather.Availability(defaults: availabilityDefaultsOpt.value,
-                                ignoreAttr: ignoreAvailabilityAttrOpt.value)
+        let defOptions = Gather.DefOptions(availability:
+                                            Gather.Availability(defaults: availabilityDefaultsOpt.value,
+                                                                ignoreAttr: ignoreAvailabilityAttrOpt.value),
+                                           inheritedDocs: inheritedDocsStyle,
+                                           inheritedExtensionDocs: inheritedDocsExtensionStyle)
 
         let passStr = passIndex.flatMap { " pass \($0)" } ?? ""
 
@@ -200,7 +210,7 @@ final class GatherJobOpts: Configurable {
                              includePaths: objcIncludePathsOpt.value,
                              sdk: sdk,
                              buildToolArgs: buildToolArgsOpt.value,
-                             availability: availability)
+                             defOptions: defOptions)
             #else
             return nil
             #endif
@@ -209,7 +219,7 @@ final class GatherJobOpts: Configurable {
             return GatherJob(sknImportTitle: "SourceKitten import module \(moduleName!)\(passStr)",
                              moduleName: moduleName!,
                              fileURLs: sourcekittenJSONFilesOpt.value,
-                             availability: availability)
+                             defOptions: defOptions)
         } else if bebopJSONFilesOpt.configured {
             return GatherJob(importTitle: "JSON import module \(moduleName ?? "(all)")\(passStr)",
                              moduleName: moduleName,
@@ -223,14 +233,14 @@ final class GatherJobOpts: Configurable {
                              buildToolArgs: buildToolArgsOpt.value,
                              sdk: sdk,
                              target: symbolGraphTarget,
-                             availability: availability)
+                             defOptions: defOptions)
         } else if let podspecURL = podspecOpt.value  {
             // Swift from podspec
             return GatherJob(podspecTitle: "Podspec \(moduleName ?? "(default)")\(passStr)",
                              moduleName: moduleName,
                              podspecURL: podspecURL,
                              podSources: podSourcesOpt.value,
-                             availability: availability)
+                             defOptions: defOptions)
         }
 
         // Default: Swift from source
@@ -239,7 +249,7 @@ final class GatherJobOpts: Configurable {
                          srcDir: srcDirOpt.value,
                          buildTool: buildToolOpt.value,
                          buildToolArgs: buildToolArgsOpt.value,
-                         availability: availability)
+                         defOptions: defOptions)
     }
 
     lazy var hostTargetTriple: String = {
@@ -291,6 +301,28 @@ extension Gather {
         init(defaults: [String] = [], ignoreAttr: Bool = false) {
             self.defaults = defaults
             self.ignoreAttr = ignoreAttr
+        }
+    }
+
+    /// How to handle inherited docs for a declaration
+    enum InheritedDocsStyle: String, CaseIterable {
+        case none
+        case brief
+        case full
+    }
+
+    /// Collected options that affect def building
+    struct DefOptions: Equatable {
+        let availability: Availability
+        let inheritedDocsStyle: InheritedDocsStyle
+        let inheritedExtensionDocsStyle: InheritedDocsStyle
+
+        init(availability: Availability = .init(),
+             inheritedDocs: InheritedDocsStyle = .full,
+             inheritedExtensionDocs: InheritedDocsStyle = .brief) {
+            self.availability = availability
+            self.inheritedDocsStyle = inheritedDocs
+            self.inheritedExtensionDocsStyle = inheritedExtensionDocs
         }
     }
 }

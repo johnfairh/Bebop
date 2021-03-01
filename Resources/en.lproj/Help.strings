@@ -129,8 +129,12 @@ Default: Do not exclude any source files.";
 "include-source-files" = "Source files to include into documentation.  Supports wildcards.
 Applied before --exclude-source-files.
 Default: Include all source files.";
-"ignore-inherited-docs" = "If a definition only has documentation that it has inherited then treat
-it as undocumented instead of using the inheritance.";
+"inherited-docs-style" = "How to treat definitions other than extensions without documentation
+that inherit from something with documentation.
+Default: Inherit the documentation in full.";
+"inherited-docs-extension-style" = "How to treat extension definitions without documentation that extend
+a documented type.
+Default: Inherit a brief version of the documentation.";
 "exclude-names" = "Regular expressions of definition names to omit from documentation.
 Default: Include all the definitions.";
 "custom-abstracts" = "Filenames of markdown (.md) documents to augment or replace the content at

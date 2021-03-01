@@ -31,7 +31,7 @@ extension GatherJob {
         let buildToolArgs: [String]
         let sdk: Gather.Sdk
         let target: String
-        let availability: Gather.Availability
+        let defOptions: Gather.DefOptions
 
         /// This layer's job is to manage the CLI args, invoke the program, figure out what it created,
         /// use `GatherSymbolGraph` to convert the data into `SourceKittenDict`s, and then convert
@@ -107,8 +107,7 @@ extension GatherJob {
             logDebug("Gathering sourcekitten defs...")
 
             let defs = dicts.compactMap {
-                GatherDef(sourceKittenDict: $0,
-                          availability: availability)
+                GatherDef(sourceKittenDict: $0, defOptions: defOptions)
             }
 
             return GatherModulePass(moduleName: moduleName, files: defs.map { ("", $0) })

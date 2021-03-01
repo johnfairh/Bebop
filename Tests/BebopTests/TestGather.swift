@@ -236,12 +236,12 @@ class TestGather: XCTestCase {
                         - build_tool_arguments: [f3]
                    """
         let system = OptsSystem()
-        let defaultAvail = Gather.Availability()
-        let modifiedAvail = Gather.Availability(defaults: [], ignoreAttr: true)
+        let defaultDefOpts = Gather.DefOptions()
+        let modifiedDefOpts = Gather.DefOptions(availability: .init(defaults: [], ignoreAttr: true))
         try system.test(yaml, jobs: [
-            .init(swiftTitle: "", moduleName: "M1", buildToolArgs: ["f1"], availability: defaultAvail),
-            .init(swiftTitle: "", moduleName: "M2", buildToolArgs: ["f2"], availability: modifiedAvail),
-            .init(swiftTitle: "", moduleName: "M2", buildToolArgs: ["f3"], availability: modifiedAvail)
+            .init(swiftTitle: "", moduleName: "M1", buildToolArgs: ["f1"], defOptions: defaultDefOpts),
+            .init(swiftTitle: "", moduleName: "M2", buildToolArgs: ["f2"], defOptions: modifiedDefOpts),
+            .init(swiftTitle: "", moduleName: "M2", buildToolArgs: ["f3"], defOptions: modifiedDefOpts)
         ])
         system.config.test_publishStore.modules = system.gatherOpts.modulesToPublish(from: passes(["M1", "M2", "M3"]))
 

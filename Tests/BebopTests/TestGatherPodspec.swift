@@ -143,13 +143,15 @@ class TestGatherPodspec: XCTestCase {
             XCTFail()
             return
         }
-        XCTAssertEqual(Gather.Availability(defaults: ["V"]), podspecJob1.customizeAvailability(version: "V"))
+        XCTAssertEqual(Gather.DefOptions(availability: Gather.Availability(defaults: ["V"])),
+                       podspecJob1.customizeDefOptions(version: "V"))
 
         let job2 = try JobSystem().run(["--podspec", podspecURL.path, "--availability=Always"])
         guard case let .podspec(_, podspecJob2) = job2 else {
             XCTFail()
             return
         }
-        XCTAssertEqual(Gather.Availability(defaults: ["Always"]), podspecJob2.customizeAvailability(version: "V"))
+        XCTAssertEqual(Gather.DefOptions(availability: Gather.Availability(defaults: ["Always"])),
+                       podspecJob2.customizeDefOptions(version: "V"))
     }
 }

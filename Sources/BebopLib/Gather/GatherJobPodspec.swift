@@ -17,7 +17,7 @@ extension GatherJob {
         let moduleName: String?
         let podspecURL: URL
         let podSources: [String]
-        let availability: Gather.Availability
+        let defOptions: Gather.DefOptions
 
         func execute() throws -> [GatherModulePass] {
             let tmpDir = try TemporaryDirectory()
@@ -36,7 +36,7 @@ extension GatherJob {
                                              srcDir: URL(fileURLWithPath: rsp.root),
                                              buildTool: .xcodebuild,
                                              buildToolArgs: ["-target", targetName],
-                                             availability: customizeAvailability(version: version))
+                                             defOptions: customizeDefOptions(version: version))
                         return try swiftJob.execute()
                     }
                     .map {
@@ -52,12 +52,11 @@ extension GatherJob {
 
         /// If we haven't been told to hard-code availability, make something up from the cocoapods info.
         /// `version`is like "iOS 8.0+"
-        func customizeAvailability(version: String) -> Gather.Availability {
-            guard availability.defaults.isEmpty else {
-                return availability
+        func customizeDefOptions(version: String) -> Gather.DefOptions {
+            guard defOptions.availability.defaults.isEmpty else {
+                return defOptions
             }
-            return Gather.Availability(defaults: [version],
-                                       ignoreAttr: availability.ignoreAttr)
+            return defOptions.with(availabilityDefault: version)
         }
 
         /// Invoke the Ruby script to prepare the podspec build environment and tell us about it
@@ -97,5 +96,15 @@ extension GatherJob {
             let root: String
             let targets: [String : String]
         }
+    }
+}
+
+extension Gather.DefOptions {
+    /// A version of these options with modfied default 'availability'
+    func with(availabilityDefault: String) -> Gather.DefOptions {
+        .init(availability: .init(defaults: [availabilityDefault],
+                                  ignoreAttr: availability.ignoreAttr),
+              inheritedDocs: inheritedDocsStyle,
+              inheritedExtensionDocs: inheritedExtensionDocsStyle)
     }
 }

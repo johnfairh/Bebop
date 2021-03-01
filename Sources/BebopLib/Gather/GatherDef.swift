@@ -31,7 +31,7 @@ public final class GatherDef {
     init?(sourceKittenDict: SourceKittenDict,
           parentNameComponents: [String] = [],
           file: SourceKittenFramework.File? = nil,
-          availability: Gather.Availability = .init(),
+          defOptions: Gather.DefOptions = .init(),
           previousSiblingDef: GatherDef? = nil) {
         var dict = sourceKittenDict
         let name = sourceKittenDict.name
@@ -42,7 +42,7 @@ public final class GatherDef {
             let def = GatherDef(sourceKittenDict: $0,
                                 parentNameComponents: nameComponents,
                                 file: file,
-                                availability: availability,
+                                defOptions: defOptions,
                                 previousSiblingDef: prevChild)
             prevChild = def
             return def
@@ -65,8 +65,7 @@ public final class GatherDef {
         }
         self.kind = kind
 
-        if let docComment = sourceKittenDict.documentationComment,
-            !docComment.isAnyInheritDoc {
+        if let docComment = sourceKittenDict.documentationComment {
             let docSource: DefDocSource
             if let inherited = sourceKittenDict.inheritedDocs, inherited {
                 docSource = .inherited
@@ -82,18 +81,13 @@ public final class GatherDef {
             previousSiblingDef.canShareDocsWithSibling(offset: sourceKittenDict.offset) {
             self.documentation = previousSiblingDocs
             self.localizationKey = previousSiblingDef.localizationKey
-        } else if kind.isSwift, let xml = sourceKittenDict.fullXMLDocs {
-            var source = DefDocSource.inherited
-            var shortForm = true // XXX eek false // XXX temp true
-            if let docComment = sourceKittenDict.documentationComment {
-                if docComment.isAnyInheritDoc {
-                    source = .inheritedExplicit
-                }
-                shortForm = docComment.isInheritDoc
-            }
+        } else if kind.isSwift,
+            let xml = sourceKittenDict.fullXMLDocs,
+            case let inheritStyle = defOptions.inheritDocsStyle(for: kind),
+            inheritStyle != .none {
             self.documentation = XMLDocComment.parse(xml: xml,
-                                                     source: source,
-                                                     shortForm: shortForm)
+                                                     source: .inherited,
+                                                     shortForm: inheritStyle == .brief)
             self.localizationKey = nil // apple seem to lose this :(
         } else {
             self.documentation = nil
@@ -112,12 +106,14 @@ public final class GatherDef {
                                         file: file,
                                         kind: kind,
                                         stripObjC: self.objCDeclaration != nil,
-                                        availabilityRules: availability).build()
+                                        availabilityRules: defOptions.availability)
+                .build()
         } else {
             self.swiftDeclaration =
                 ObjCSwiftDeclarationBuilder(objCDict: dict,
                                             kind: kind,
-                                            availability: availability).build()
+                                            availability: defOptions.availability)
+                .build()
             self.objCDeclaration =
                 ObjCDeclarationBuilder(dict: dict, kind: kind).build()
         }
@@ -246,16 +242,8 @@ extension SourceKittenDict {
     }
 }
 
-private extension String {
-    var isInheritDoc: Bool {
-        re_isMatch(#"^\s*:inheritdocs?:\s*$"#)
-    }
-
-    var isInheritFullDoc: Bool {
-        re_isMatch(#"^\s*:inheritfulldocs?:\s*$"#)
-    }
-
-    var isAnyInheritDoc: Bool {
-        isInheritDoc || isInheritFullDoc
+private extension Gather.DefOptions {
+    func inheritDocsStyle(for kind: DefKind) -> Gather.InheritedDocsStyle {
+        kind.isExtension ? inheritedExtensionDocsStyle : inheritedDocsStyle
     }
 }

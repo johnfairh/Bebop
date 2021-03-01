@@ -405,7 +405,7 @@ func extHashableMethod()
 
 
 
-[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L48)
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L47)
 </details>
 
 
@@ -454,7 +454,7 @@ func m(arg: Int) -> String
 
 
 
-[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L51-L53)
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L50-L52)
 </details>
 
 

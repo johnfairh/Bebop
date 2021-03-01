@@ -319,7 +319,7 @@ extension SourceKittenDict {
         let rootDef = GatherDef(sourceKittenDict: self,
                                 parentNameComponents: [],
                                 file: nil,
-                                availability: rules)!
+                                defOptions: .init(availability: rules))!
         func fixDocComment(def: GatherDef) {
             if let flatDocs = def.documentation {
                 def.translatedDocs.set(tag: Localizations.shared.main.tag, docs: flatDocs)
