@@ -109,7 +109,7 @@ Main structure
 
 
 
-[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L2-L21)
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L2-L32)
 
 
 
@@ -199,6 +199,62 @@ public struct Nested2
 
 
 [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L16)
+</details>
+
+
+
+## Methods
+
+
+
+
+
+
+
+
+
+<details>
+<summary><code>func checkState(name: String) -> Int</code></summary>
+
+
+
+
+
+
+
+
+A method with params, throws, returns.
+
+Does some checking.
+
+
+
+
+#### Declaration
+
+``` swift
+public func checkState(name: String) throws -> Int
+```
+
+
+
+
+#### Parameters
+
+`name`: The name
+
+
+
+
+#### Return Value
+A value
+
+
+
+
+
+
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L29-L31)
 </details>
 
 

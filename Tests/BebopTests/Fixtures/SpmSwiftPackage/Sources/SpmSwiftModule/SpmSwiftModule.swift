@@ -18,6 +18,17 @@ public struct SpmSwiftModule {
     /// A pair of Ints
     var a: Int,
         b: Int
+
+    /// A method with params, throws, returns.
+    ///
+    /// Does some checking.
+    ///
+    /// - parameter name: The name
+    /// - returns: A value
+    /// - throws: An error from `AnEnum` if things are wrong
+    public func checkState(name: String) throws -> Int {
+        2
+    }
 }
 
 /// An enum

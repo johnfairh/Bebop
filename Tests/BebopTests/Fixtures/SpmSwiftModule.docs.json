@@ -3290,6 +3290,44 @@
         "title_md" : "Types"
       },
       {
+        "anchor_id" : "tpc-methods",
+        "dash_name" : "Methods",
+        "items" : [
+          {
+            "anchor_id" : "checkstatename",
+            "any_declaration" : true,
+            "dash_name" : "func%20checkState(name%3A%20String)%20-%3E%20Int",
+            "dash_type" : "Method",
+            "def" : {
+              "abstract_html" : "<p>A method with params, throws, returns.<\/p>",
+              "abstract_md" : "A method with params, throws, returns.",
+              "discouraged" : false,
+              "discussion_html" : "<p>Does some checking.<\/p>",
+              "discussion_md" : "Does some checking.",
+              "parameters" : [
+                {
+                  "parameter_html" : "<p>The name<\/p>",
+                  "parameter_md" : "The name",
+                  "title" : "name"
+                }
+              ],
+              "returns_html" : "<p>A value<\/p>",
+              "returns_md" : "A value",
+              "swift_declaration_html" : "public func checkState(name: String) throws -&gt; Int",
+              "swift_declaration_md" : "public func checkState(name: String) throws -> Int",
+              "throws_html" : "<p>An error from <a href=\"..\/types\/anenum.html?swift\"><code>AnEnum<\/code><\/a> if things are wrong<\/p>",
+              "throws_md" : "An error from [`AnEnum`](..\/types\/anenum.md) if things are wrong"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>checkState<span class=\"j2-item-secondary\">(<\/span>name<span class=\"j2-item-secondary\">: String) -&gt; Int<\/span>",
+            "title" : "func checkState(name: String) -> Int"
+          }
+        ],
+        "primary_language" : "j2-swift",
+        "title_html" : "Methods",
+        "title_md" : "Methods"
+      },
+      {
         "anchor_id" : "tpc-properties",
         "dash_name" : "Properties",
         "items" : [
@@ -3359,6 +3397,10 @@
           {
             "anchor_id" : "tpc-types",
             "title" : "Types"
+          },
+          {
+            "anchor_id" : "tpc-methods",
+            "title" : "Methods"
           },
           {
             "anchor_id" : "tpc-properties",

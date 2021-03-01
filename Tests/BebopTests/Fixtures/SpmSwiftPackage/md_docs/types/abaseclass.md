@@ -109,7 +109,7 @@ A base class
 
 
 
-[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L60-L95)
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L71-L106)
 
 
 
@@ -155,7 +155,7 @@ public init()
 
 
 
-[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L61)
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L72)
 </details>
 
 
@@ -198,7 +198,7 @@ public convenience init(a: Int)
 
 
 
-[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L63)
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L74)
 </details>
 
 
@@ -245,7 +245,7 @@ deinit
 
 
 
-[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L65)
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L76)
 </details>
 
 
@@ -292,7 +292,7 @@ public func method(param: Int) -> String
 
 
 
-[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L67-L69)
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L78-L80)
 </details>
 
 
@@ -339,7 +339,7 @@ public static func + (lhs: ABaseClass, rhs: ABaseClass) -> ABaseClass
 
 
 
-[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L92-L94)
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L103-L105)
 </details>
 
 
@@ -386,7 +386,7 @@ public subscript(arg: String) -> Int { get set }
 
 
 
-[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L75-L81)
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L86-L92)
 </details>
 
 
@@ -433,7 +433,7 @@ public static func staticMethod() -> Int
 
 
 
-[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L71-L73)
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L82-L84)
 </details>
 
 
@@ -480,7 +480,7 @@ public static subscript(arg: String) -> Int { get }
 
 
 
-[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L83-L85)
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L94-L96)
 </details>
 
 
@@ -527,7 +527,7 @@ public class subscript(arg: Int) -> String { get }
 
 
 
-[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L87-L89)
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L98-L100)
 </details>
 
 

@@ -164,6 +164,8 @@ public enum MustacheKey: String {
     case parameterMd = "parameter_md"
     case returnsHtml = "returns_html"
     case returnsMd = "returns_md"
+    case throwsHtml = "throws_html"
+    case throwsMd = "throws_md"
 
     // Topics
     case topics = "topics"
@@ -622,6 +624,7 @@ extension GenData.Def: SoloLanguageProtocol {
     ///   default_discussion_html - optional - rest of default implementation abstract
     ///   parameters - optional - array of title / parameter_html
     ///   returns_html - optional - returns docs
+    ///   throws_html - optional - throws docs
     func generateDef(languageTag: String, fileExt: String) -> MustacheDict {
         var dict = MustacheDict()
         dict.maybe(.deprecationHtml, .deprecationMd, deprecation, languageTag)
@@ -646,6 +649,7 @@ extension GenData.Def: SoloLanguageProtocol {
                 return pdict
             }
         }
+        dict.maybe(.throwsHtml, .throwsMd, `throws`, languageTag)
         dict.maybe(.returnsHtml, .returnsMd, returns, languageTag)
         dict.maybe(.codehostURL, codeHostURL)
         return dict

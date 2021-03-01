@@ -278,6 +278,11 @@
     "name" : "b",
     "parent_name" : "SpmSwiftModule"
   },
+  "types\/spmswiftmodule.html?swift#checkstatename" : {
+    "abstract" : "A method with params, throws, returns.",
+    "name" : "checkState(name:)",
+    "parent_name" : "SpmSwiftModule"
+  },
   "types\/spmswiftmodule.html?swift#nested2" : {
     "abstract" : "Undocumented",
     "name" : "Nested2",
