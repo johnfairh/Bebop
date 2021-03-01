@@ -2399,6 +2399,9 @@
                 ],
                 "key.bb.returns" : {
                   "en" : "A value"
+                },
+                "key.bb.throws" : {
+                  "en" : "An error from `AnEnum` if things are wrong"
                 }
               },
               "key.bb.is_override" : false,
