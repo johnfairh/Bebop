@@ -110,7 +110,8 @@ Undocumented
 
 
 
-[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L120-L126)
+
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L131-L137)
 
 
 
@@ -156,7 +157,8 @@ init(wrappedValue: String)
 
 
 
-[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L123-L125)
+
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L134-L136)
 </details>
 
 
@@ -203,7 +205,8 @@ var wrappedValue: String
 
 
 
-[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L121)
+
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L132)
 </details>
 
 

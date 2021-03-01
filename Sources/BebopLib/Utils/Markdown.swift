@@ -146,6 +146,8 @@ struct CMCallout {
 
     var isReturns: Bool { hasTitle("returns") }
 
+    var isThrows: Bool { hasTitle("throws") }
+
     var isLocalizationKey: Bool { hasTitle("localizationkey") }
 
     var isParameters: Bool { hasTitle("parameters") }

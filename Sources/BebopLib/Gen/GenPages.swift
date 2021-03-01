@@ -444,6 +444,7 @@ extension DefItem {
                         GenData.Param(name: docParam.name,
                                       description: docParam.description.autolinked(pageURL))
                     },
+                    throws: documentation.throws?.autolinked(pageURL),
                     returns: documentation.returns?.autolinked(pageURL),
                     codeHostURL: published.codeHostItemURLForLocation(location))
     }

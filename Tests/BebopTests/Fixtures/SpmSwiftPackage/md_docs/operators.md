@@ -130,7 +130,8 @@ func + (lhs: T, rhs: T) -> String
 
 
 
-[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L101-L103)
+
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L112-L114)
 </details>
 
 

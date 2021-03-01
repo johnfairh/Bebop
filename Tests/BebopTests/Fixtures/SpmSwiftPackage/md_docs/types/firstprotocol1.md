@@ -109,6 +109,7 @@ A protocol.
 
 
 
+
 [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Protocols.swift#L2-L14)
 
 
@@ -145,6 +146,7 @@ Undocumented
 ``` swift
 associatedtype AssocType
 ```
+
 
 
 
@@ -202,6 +204,7 @@ func assocFunc() -> AssocType
 
 
 
+
 [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Protocols.swift#L11)
 </details>
 
@@ -238,6 +241,7 @@ A protocol extension method
 ``` swift
 func e()
 ```
+
 
 
 
@@ -300,6 +304,7 @@ func m(arg: Int) -> String
 
 
 
+
 #### Return Value
 The answer
 
@@ -345,6 +350,7 @@ Undocumented
 ``` swift
 var getOnly: Int { get }
 ```
+
 
 
 
@@ -405,6 +411,7 @@ func extHashableMethod()
 
 
 
+
 [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Extensions.swift#L47)
 </details>
 
@@ -444,6 +451,7 @@ Special default implementation for m in Hashable case.
 ``` swift
 func m(arg: Int) -> String
 ```
+
 
 
 

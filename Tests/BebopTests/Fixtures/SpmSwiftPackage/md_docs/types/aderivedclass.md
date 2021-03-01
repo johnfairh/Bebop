@@ -109,7 +109,8 @@ A derived class
 
 
 
-[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L106-L117)
+
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L117-L128)
 
 
 
@@ -155,7 +156,8 @@ public func generic(param: T) -> T
 
 
 
-[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L114-L116)
+
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L125-L127)
 </details>
 
 
@@ -198,7 +200,8 @@ public override func method(param: Int) -> String
 
 
 
-[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L110-L112)
+
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L121-L123)
 </details>
 
 
@@ -245,7 +248,8 @@ var t: Q?
 
 
 
-[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L107)
+
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L118)
 </details>
 
 

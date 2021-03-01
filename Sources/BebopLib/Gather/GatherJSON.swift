@@ -58,6 +58,7 @@ private enum GatherKey: String {
     case documentation = "key.bb.documentation"
     case abstract = "key.bb.abstract"
     case discussion = "key.bb.discussion"
+    case `throws` = "key.bb.throws"
     case returns = "key.bb.returns"
     case parameters = "key.bb.parameters"
     case paramName = "key.bb.param_name"
@@ -106,6 +107,7 @@ fileprivate extension LocalizedDefDocs {
         var dict = SourceKittenDict()
         dict.maybe(.abstract, abstract?.mapValues { $0.value })
         dict.maybe(.discussion, discussion?.mapValues { $0.value })
+        dict.maybe(.throws, `throws`?.mapValues { $0.value })
         dict.maybe(.returns, returns?.mapValues { $0.value })
         dict.maybe(.parameters, parameters.map { $0.dictForJSON })
         dict.set(.docSource, source.rawValue)
@@ -117,6 +119,8 @@ fileprivate extension LocalizedDefDocs {
             (dict.get(.abstract) as? Localized<String>)?.mapValues { Markdown($0) }
         self.discussion =
             (dict.get(.discussion) as? Localized<String>)?.mapValues { Markdown($0) }
+        self.throws =
+            (dict.get(.throws) as? Localized<String>)?.mapValues { Markdown($0) }
         self.returns =
             (dict.get(.returns) as? Localized<String>)?.mapValues { Markdown($0) }
         self.parameters =

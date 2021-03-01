@@ -235,15 +235,9 @@ final class MarkdownFormatter: ItemVisitorProtocol {
                 return
             }
 
-            // Stick in the jazzy classes as well for compatibility
-
             let calloutNode =
-                CMNode(customEnter:
-                    #"""
-                    <div class="j2-callout j2-callout-\#(callout.title.slugged) aside aside-\#(callout.title.slugged)">
-                    <div class="j2-callout-title aside-title" role="heading" aria-level="6">\#(callout.title)</div>
-                    """#,
-                    customExit: "</div>")
+                CMNode(customEnter: Format.calloutIntroHtml(title: callout.title).value,
+                       customExit: Format.calloutOutroHtml.value)
 
             // Position before the entire list, take the listitem's content
             try! calloutNode.insertIntoTree(beforeNode: listNode)
@@ -333,4 +327,19 @@ private extension CMNode {
         try! insertIntoTree(beforeNode: node)
         node.unlink()
     }
+}
+
+// This is factored out to help the jazzy-compatible generation undoing the 'throws'
+// stuff, see GenThemesJazzy.
+extension Format {
+    // Stick in the jazzy classes as well for compatibility
+    static func calloutIntroHtml(title: String) -> Html {
+        let slugged = title.slugged
+        return Html(#"""
+        <div class="j2-callout j2-callout-\#(slugged) aside aside-\#(slugged)">
+        <div class="j2-callout-title aside-title" role="heading" aria-level="6">\#(title)</div>
+        """#)
+    }
+
+    static let calloutOutroHtml = Html("</div>")
 }

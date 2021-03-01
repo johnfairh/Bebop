@@ -109,7 +109,8 @@ See [`@Nop`](../types/nop.md).
 
 
 
-[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L129-L132)
+
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L140-L143)
 
 
 
@@ -156,7 +157,8 @@ var v: String { get set }
 
 
 
-[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L131)
+
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L142)
 </details>
 
 

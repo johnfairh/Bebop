@@ -358,6 +358,7 @@ final class XMLDeclarationBuilder {
         let content: CMNode
     }
     private(set) var callouts = [Callout]()
+    private(set) var `throws`: CMNode?
     private(set) var returns: CMNode?
     struct Param {
         let name: CMNode
@@ -371,6 +372,7 @@ final class XMLDeclarationBuilder {
         abstract = nil
         discussion = nil
         callouts = []
+        `throws` = nil
         returns = nil
         parameters = []
     }
@@ -410,6 +412,11 @@ final class XMLDeclarationBuilder {
                     self.abstract = $0
                 }
 
+            case "ThrowsDiscussion":
+                self.builder.startDocument {
+                    self.throws = $0
+                }
+
             case "ResultDiscussion":
                 self.builder.startDocument {
                     self.returns = $0
@@ -438,8 +445,6 @@ final class XMLDeclarationBuilder {
                 // ignore entirely
                 break;
 
-            case "ThrowsDiscussion":
-                makeCallout(title: "throws")
             default:
                 makeCallout(title: ele.lowercased())
             }
@@ -483,6 +488,7 @@ final class XMLDeclarationBuilder {
         let fullDiscussion = mds.compactMap { $0 }.joined(separator: "\n\n")
         return FlatDefDocs(abstract: abstract?.renderMarkdown(),
                            discussion: (shortForm || fullDiscussion.isEmpty) ? nil : Markdown(fullDiscussion),
+                           throws: `throws`?.renderMarkdown(),
                            returns: returns?.renderMarkdown(),
                            parameters: parameters.map {
                                FlatDefDocs.Param(name: $0.name.renderPlainText(),

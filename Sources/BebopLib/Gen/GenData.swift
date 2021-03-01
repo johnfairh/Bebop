@@ -45,6 +45,7 @@ public final class GenData: Encodable {
         public let swiftDeclaration: RichDeclaration?
         public let objCDeclaration: RichDeclaration?
         public let params: [Param]
+        public let `throws`: RichText?
         public let returns: RichText?
         public let codeHostURL: String?
     }

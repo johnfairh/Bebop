@@ -109,7 +109,8 @@ Main structure
 
 
 
-[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L2-L21)
+
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L2-L32)
 
 
 
@@ -145,6 +146,7 @@ Undocumented
 ``` swift
 public struct Nested1
 ```
+
 
 
 
@@ -198,7 +200,68 @@ public struct Nested2
 
 
 
+
 [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L16)
+</details>
+
+
+
+## Methods
+
+
+
+
+
+
+
+
+
+<details>
+<summary><code>func checkState(name: String) -> Int</code></summary>
+
+
+
+
+
+
+
+
+A method with params, throws, returns.
+
+Does some checking.
+
+
+
+
+#### Declaration
+
+``` swift
+public func checkState(name: String) throws -> Int
+```
+
+
+
+
+#### Parameters
+
+`name`: The name
+
+
+
+
+#### Throws
+An error from [`AnEnum`](../types/anenum.md) if things are wrong
+
+
+#### Return Value
+A value
+
+
+
+
+
+
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L29-L31)
 </details>
 
 
@@ -235,6 +298,7 @@ A pair of Ints
 ``` swift
 var a: Int
 ```
+
 
 
 
@@ -288,6 +352,7 @@ var b: Int
 
 
 
+
 [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L19)
 </details>
 
@@ -321,6 +386,7 @@ Undocumented
 ``` swift
 public var text: String
 ```
+
 
 
 

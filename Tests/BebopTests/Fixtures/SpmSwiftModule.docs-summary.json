@@ -2861,6 +2861,88 @@
           }
         },
         {
+          "anchor_id" : "tpc-methods",
+          "items" : [
+            {
+              "anchor_id" : "checkstatename",
+              "dash_type" : "Method",
+              "def" : {
+                "abstract" : {
+                  "html" : {
+                    "en" : "<p>A method with params, throws, returns.<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "A method with params, throws, returns."
+                  }
+                },
+                "availability" : [],
+                "deprecated_everywhere" : false,
+                "discussion" : {
+                  "html" : {
+                    "en" : "<p>Does some checking.<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "Does some checking."
+                  }
+                },
+                "params" : [
+                  {
+                    "description" : {
+                      "html" : {
+                        "en" : "<p>The name<\/p>"
+                      },
+                      "markdown" : {
+                        "en" : "The name"
+                      }
+                    },
+                    "name" : "name"
+                  }
+                ],
+                "returns" : {
+                  "html" : {
+                    "en" : "<p>A value<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "A value"
+                  }
+                },
+                "swift_declaration" : {
+                  "html" : {
+                    "value" : "public func checkState(name: String) throws -&gt; Int"
+                  },
+                  "text" : "public func checkState(name: String) throws -> Int"
+                },
+                "throws" : {
+                  "html" : {
+                    "en" : "<p>An error from <a href=\"..\/..\/spmswiftmodule\/types\/anenum.html?swift\"><code>AnEnum<\/code><\/a> if things are wrong<\/p>"
+                  },
+                  "markdown" : {
+                    "en" : "An error from [`AnEnum`](..\/..\/spmswiftmodule\/types\/anenum.md) if things are wrong"
+                  }
+                }
+              },
+              "flat_title" : {
+                "en" : "func checkState(name: String) -> Int"
+              },
+              "primary_language" : "swift",
+              "primary_title_html" : {
+                "value" : "<span class=\"j2-item-secondary\">func <\/span>checkState<span class=\"j2-item-secondary\">(<\/span>name<span class=\"j2-item-secondary\">: String) -&gt; Int<\/span>"
+              }
+            }
+          ],
+          "menu_title" : {
+            "en" : "Methods"
+          },
+          "title" : {
+            "html" : {
+              "en" : "Methods"
+            },
+            "markdown" : {
+              "en" : "Methods"
+            }
+          }
+        },
+        {
           "anchor_id" : "tpc-properties",
           "items" : [
             {

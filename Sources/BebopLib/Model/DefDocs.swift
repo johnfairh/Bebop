@@ -24,6 +24,7 @@ public struct DefDocs<T>: Encodable where T: Encodable & Equatable {
     public internal(set) var discussion: T?
     public internal(set) var defaultAbstract: T?
     public internal(set) var defaultDiscussion: T?
+    public internal(set) var `throws`: T?
     public internal(set) var returns: T?
     public struct Param: Encodable, Equatable {
         public let name: String
@@ -37,6 +38,7 @@ public struct DefDocs<T>: Encodable where T: Encodable & Equatable {
          discussion: T? = nil,
          defaultAbstract: T? = nil,
          defaultDiscussion: T? = nil,
+         throws: T? = nil,
          returns: T? = nil,
          parameters: [Param] = [],
          source: DefDocSource = .empty) {
@@ -44,6 +46,7 @@ public struct DefDocs<T>: Encodable where T: Encodable & Equatable {
         self.discussion = discussion
         self.defaultAbstract = defaultAbstract
         self.defaultDiscussion = defaultDiscussion
+        self.throws = `throws`
         self.returns = returns
         self.parameters = parameters
         self.source = source
@@ -60,6 +63,7 @@ public struct DefDocs<T>: Encodable where T: Encodable & Equatable {
             discussion == nil &&
             defaultAbstract == nil &&
             defaultDiscussion == nil &&
+            `throws` == nil &&
             returns == nil &&
             parameters.isEmpty
     }
@@ -101,6 +105,7 @@ extension LocalizedDefDocs {
         s(mdKeyPath: \.discussion, locKeyPath: \.discussion)
         s(mdKeyPath: \.defaultAbstract, locKeyPath: \.defaultAbstract)
         s(mdKeyPath: \.defaultDiscussion, locKeyPath: \.defaultDiscussion)
+        s(mdKeyPath: \.throws, locKeyPath: \.throws)
         s(mdKeyPath: \.returns, locKeyPath: \.returns)
 
         if parameters.isEmpty {
@@ -135,6 +140,7 @@ extension RichDefDocs {
         defaultAbstract = ldocs.defaultAbstract.flatMap { RichText($0) }
         defaultDiscussion = ldocs.defaultDiscussion.flatMap { RichText($0) }
         returns = ldocs.returns.flatMap { RichText($0) }
+        `throws` = ldocs.throws.flatMap { RichText($0) }
         parameters = ldocs.parameters.map {
             Param(name: $0.name, description: RichText($0.description))
         }
@@ -146,6 +152,7 @@ extension RichDefDocs {
         discussion?.format(formatter)
         defaultAbstract?.format(formatter)
         defaultDiscussion?.format(formatter)
+        `throws`?.format(formatter)
         returns?.format(formatter)
         parameters = parameters.map { param in
             var param = param

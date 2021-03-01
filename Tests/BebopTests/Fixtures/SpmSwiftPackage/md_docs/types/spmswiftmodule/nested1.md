@@ -109,6 +109,7 @@ Undocumented
 
 
 
+
 [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L8-L14)
 
 
@@ -155,6 +156,7 @@ public struct Nested2a
 
 
 
+
 [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L9-L10)
 </details>
 
@@ -191,6 +193,7 @@ Undocumented
 ``` swift
 public struct Nested2b
 ```
+
 
 
 
