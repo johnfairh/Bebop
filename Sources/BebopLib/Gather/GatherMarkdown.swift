@@ -18,6 +18,7 @@ final class MarkdownBuilder {
     private let source: DefDocSource
     private var abstract: Markdown?
     private var discussion: Markdown?
+    private var `throws`: Markdown?
     private var returns: Markdown?
     private var parameters: [FlatDefDocs.Param] = []
     private(set) var localizationKey: String?
@@ -46,6 +47,7 @@ final class MarkdownBuilder {
         if doc.node.firstChild != nil {
             discussion = doc.node.renderMarkdown()
         } else if abstract == nil &&
+                  `throws` == nil &&
                   returns == nil &&
                   parameters.count == 0 {
             // preserve 'empty' string to avoid wrong 'undocumented' categorization,
@@ -55,6 +57,7 @@ final class MarkdownBuilder {
 
         return FlatDefDocs(abstract: abstract,
                            discussion: discussion,
+                           throws: `throws`,
                            returns: returns,
                            parameters: parameters,
                            source: source)
@@ -80,6 +83,8 @@ final class MarkdownBuilder {
             }
         } else if callout.isReturns {
             returns = extractCallout(listItem: listItem, text: text, callout: callout)
+        } else if callout.isThrows {
+            `throws` = extractCallout(listItem: listItem, text: text, callout: callout)
         } else if callout.isLocalizationKey {
             localizationKey = callout.body
         }

@@ -241,6 +241,7 @@ class TestXMLDocs: XCTestCase {
                   <ThrowsDiscussion><Para>Nothing</Para></ThrowsDiscussion>
                   <Discussion><Para>Text - Discussion</Para>
                   <Invariant><Para>Jim</Para></Invariant>
+                  <Copyright><Para>Perpetual</Para></Copyright>
                   </Discussion>
                   </CommentParts>
                   """
@@ -254,11 +255,12 @@ class TestXMLDocs: XCTestCase {
         XCTAssertEqual("A closure param", declParser.parameters[1].description.renderPlainText())
         XCTAssertEqual("A number", declParser.returns?.renderPlainText())
         XCTAssertEqual("Text - Discussion", declParser.discussion?.renderPlainText())
+        XCTAssertEqual("Nothing", declParser.throws?.renderPlainText())
         XCTAssertEqual(2, declParser.callouts.count)
-        XCTAssertEqual("throws", declParser.callouts[0].title)
-        XCTAssertEqual("0.  Nothing", declParser.callouts[0].content.renderPlainText())
-        XCTAssertEqual("invariant", declParser.callouts[1].title)
-        XCTAssertEqual("0.  Jim", declParser.callouts[1].content.renderPlainText())
+        XCTAssertEqual("invariant", declParser.callouts[0].title)
+        XCTAssertEqual("0.  Jim", declParser.callouts[0].content.renderPlainText())
+        XCTAssertEqual("copyright", declParser.callouts[1].title)
+        XCTAssertEqual("0.  Perpetual", declParser.callouts[1].content.renderPlainText())
 
         // Just sniff the combine part
         let defDocs = declParser.flatDefDocs(source: .inherited, shortForm: false)
@@ -269,9 +271,9 @@ class TestXMLDocs: XCTestCase {
         XCTAssertEqual("""
                        Text - Discussion
 
-                         - throws: Nothing
-
                          - invariant: Jim
+
+                         - copyright: Perpetual
                        """,
                        discussion.value)
 
