@@ -162,9 +162,17 @@ final class JazzyTheme: Theme {
         guard let defData = data[.def] as? MustacheDict else {
             return dict
         }
-        dict["abstract"] =
+        var abstractDocs =
             (defData[.abstractHtml] as? String ?? "") +
             (defData[.discussionHtml] as? String ?? "")
+
+        if let throwsDocs = defData[.throwsHtml] as? String {
+            abstractDocs +=
+                Format.calloutIntroHtml(title: "Throws").value +
+                throwsDocs +
+                Format.calloutOutroHtml.value
+        }
+        dict["abstract"] = abstractDocs
 
         dict["usage_discouraged"] = defData[.discouraged]
         dict["deprecation_message"] = defData[.deprecationHtml]
