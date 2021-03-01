@@ -1,19 +1,16 @@
 ## Inherited Docs
 
-The default behaviour is 'inherit brief docs'.  If you don't write docs
-for a method (etc) that overrides something, and that something has Swift
-docs available, then the docs from the superclass/protocol are copied in.
+The default behaviour is to inherit docs.  If you don't write docs for a method
+(etc.) that overrides something, and that something has Swift docs available,
+then the docs from the superclass/protocol are copied in.
 
-If you want the full docs (often exhaustingly long in the Swift stdlib)
-then write `:inheritfulldoc:` as the only thing in the doc comment.
+The `--inherited-docs-style` option can be used to disable this or change the
+default of 'full' inheritance to 'brief' -- sometimes useful with the Swift
+Stdlib to avoid pulling in exhaustive documentation comments.
 
-If you don't want inherited docs then set `--ignore-inherited-docs`.  This
-just changes the default: you can opt in to individual inherited docs using
-`:inheritfulldoc:` or `:inheritdoc:` to grab the short form.
-
-Sometimes it's right to just not include overrides at all in docs.  Use
-`--skip-undocumented-override` to entirely omit things that have no doc
-comment (ignoring any potentially inherited docs) and are overrides.
+The inherited docs style is set separately for extensions of types from
+external modules using `--inherited-docs-extension-style` -- the default here is
+to inherit just brief documentation.
 
 Another tool here is `:nodoc:` which is a more selective way of omitting decls
 from documentation.  This makes it clear in the source code that it's

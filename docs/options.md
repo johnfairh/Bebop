@@ -182,8 +182,9 @@ custom_modules:
 * `--exclude-source-files` filename-glob filtering, omit defs from matching
   files.  Applied to the result of `--include-source-files`.
 * `--exclude-names` regexps of doc names to exclude.
-* `--ignore-inherited-docs` never use inherited docs to backfill defs that
-  don't have doc comments of their own.  [More on inherited docs](misc.md).
+* `--inherited-docs-style`, `--inherited-docs-extension-style` change how
+  inherited docs are used to backfill defs that don't have doc comments of
+  their own.  [More on inherited docs](misc.md).
 * `--custom-abstracts` wildcard paths for markdown to prepend to group or
   definition pages.  Localizable.
 * `--custom-abstract-overwrite` replace existing doc comments instead of
