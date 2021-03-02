@@ -2,6 +2,8 @@
 # Copyright 2019-2020 Bebop Authors
 # Licensed under MIT (https://github.com/johnfairh/Bebop/blob/master/LICENSE)
 
+# `ncu -u` to update npm deps to latest (ignoring semver)
+
 all: dist
 
 # Stuff to publish to the theme
