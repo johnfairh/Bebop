@@ -9,6 +9,7 @@
 import XCTest
 import Yams
 @testable import BebopLib
+import Foundation
 
 enum Color: String, CaseIterable {
     case red
@@ -292,6 +293,33 @@ class TestOptions: XCTestCase {
                          color: red
                          """)
         system.verify(Spec(true, true, true, "Fish", true, .red))
+    }
+
+    // Yaml env var interpolation
+    func testYamlEnvVarsValue() throws {
+        let opt = StringOpt(y: "input")
+        let ss = SimpleSystem(opt)
+        let home = String(cString: getenv("HOME"))
+
+        try ss.parse(yaml: "input: ${HOME}")
+        XCTAssertEqual(opt.value, home)
+    }
+
+    func testYamlEnvVarsList() throws {
+        let opt = StringListOpt(y: "inputlist")
+        let ss = SimpleSystem(opt)
+        let home = String(cString: getenv("HOME"))
+        let empty = getenv("MARS")
+        XCTAssertNil(empty)
+
+        try ss.parse(yaml: """
+                     inputlist:
+                       - ${
+                       - ${HOME}
+                       - in${HOME}out
+                       - ${MARS}
+                     """)
+        XCTAssertEqual(opt.value, ["${", home, "in\(home)out", ""])
     }
 
     // Sanity-check that we can read json too...

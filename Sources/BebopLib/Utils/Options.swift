@@ -833,7 +833,7 @@ final class OptsParser {
                 var locStr = Localized<String>()
                 for (k, v) in zip(mapping.keys, mapping.values) {
                     let lang = try k.checkScalarKey().string
-                    let str = try v.checkScalar(context: lang).string
+                    let str = try v.checkScalar(context: lang).decodedString
                     locStr[lang] = str
                 }
                 tracker.opt.set(locstring: locStr)
@@ -845,7 +845,7 @@ final class OptsParser {
                     }
                     tracker.opt.set(bool: yamlBool)
                 } else {
-                    try apply(stringData: [scalar.string], to: tracker.opt)
+                    try apply(stringData: [scalar.decodedString], to: tracker.opt)
                 }
 
             case .sequence(let sequence):
@@ -853,7 +853,7 @@ final class OptsParser {
                     throw BBError(.errCfgMultiSeq, try value.asDebugString(), yamlOptName)
                 }
                 let data = try sequence.map { node -> String in
-                    try node.checkScalar(context: yamlOptName).string
+                    try node.checkScalar(context: yamlOptName).decodedString
                 }
                 try apply(stringData: data, to: tracker.opt)
             }
@@ -916,5 +916,15 @@ extension Yams.Node {
             throw BBError(.errCfgNotSequence, strSelf, context)
         }
         return sequence
+    }
+}
+
+extension Yams.Node.Scalar {
+    /// The string value of the scalar with special variables interpolated
+    var decodedString: String {
+        string.re_sub(#"\$\{.*?\}"#) { varString in
+            let varName = varString.dropFirst(2).dropLast(1)
+            return ProcessInfo.processInfo.environment[String(varName)] ?? ""
+        }
     }
 }

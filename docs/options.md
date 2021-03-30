@@ -31,6 +31,9 @@ the config file you can write `option_name: V1` or a sequence.
 CLI options don't have to be written in full, just enough to make the meaning
 unambiguous.  In config files you need to write out the whole thing.
 
+Options in the config file support environment variable interpolation using
+`${ENV_VAR_NAME}` syntax.
+
 ## Control
 
 `--products` controls what the tool creates.  Lets you skip creation of parts

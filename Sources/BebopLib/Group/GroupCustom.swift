@@ -284,7 +284,7 @@ final class GroupCustom: Configurable {
             }
             let childrenSequence = try childrenYaml.checkSequence(context: "topics.children")
             return try childrenSequence.map { childYaml in
-                if let childScalar = childYaml.scalar, case let string = childScalar.string {
+                if let childScalar = childYaml.scalar, case let string = childScalar.decodedString {
                     guard let matches = string.re_match(#"^/(.*)/$"#) else {
                         return .name(string)
                     }
