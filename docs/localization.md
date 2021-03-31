@@ -16,6 +16,7 @@ Not localized:
 * Inherited doc comments [swift bug probably]
 * Coverage badge
 * Remote doc site autolinks - will always go to the main localization
+* ToC type renaming - somewhat stopgap, intended to be for technical clarity
 
 ## Doc comments
 

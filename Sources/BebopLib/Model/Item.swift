@@ -83,6 +83,9 @@ public class Item: Encodable {
         .no
     }
 
+    /// Does the item have a special name for use in the table of contents?
+    public var tocName: String?
+
     /// Format the item's associated text data
     func format(formatters: RichText.Formatters) {
     }

@@ -72,8 +72,9 @@ public struct GenPages: Configurable {
                     return nil
                 }
 
-                guard let title = mixLanguages ? item.titlePreferring(language: language)
-                                               : item.title(for: language) else {
+                guard let title = item.tocName.flatMap({ Localized<String>(unlocalized: $0) }) ??
+                        (mixLanguages ? item.titlePreferring(language: language)
+                                      : item.title(for: language)) else {
                     return nil
                 }
 

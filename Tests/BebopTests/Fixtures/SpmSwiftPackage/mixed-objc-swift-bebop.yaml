@@ -15,4 +15,4 @@ custom_groups:
           - JMLKitchen
       - name: Extensions
         children:
-         - String
+         - String [Strung]

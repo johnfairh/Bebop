@@ -201,11 +201,16 @@ final class GroupCustom: Configurable {
         func build(item: Group.Item) -> [Item] {
             switch item {
             case .name(let name):
-                guard let theItem = index.find(name: name) else {
-                    logWarning(.wrnCustomGrpMissing, name)
-                    return []
+                if let theItem = index.find(name: name) {
+                    return [theItem]
                 }
-                return [theItem]
+                if let m = name.re_match(#"^(.*) \[(.*)\]$"#),
+                   let theItem = index.find(name: m[1]) {
+                    theItem.tocName = m[2]
+                    return [theItem]
+                }
+                logWarning(.wrnCustomGrpMissing, name)
+                return []
 
             case .pattern(let pattern):
                 let items = index.findAll(matching: pattern)

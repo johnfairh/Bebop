@@ -222,7 +222,7 @@ custom_modules:
 ### Custom Groups
 
 Example showing localized title, optional abstract, optional topic structure,
-regexp children, nested groups:
+regexp children, nested groups, toc-only name:
 ```markdown
 custom_groups:
   - name:
@@ -243,8 +243,8 @@ custom_groups:
     children:
       - name: Short
         children:
-          - Brown
-          - Black
+          - Brown [Short Brown Rods]
+          - Black [Short Black Rods]
       - name: Long
         children:
           - Red

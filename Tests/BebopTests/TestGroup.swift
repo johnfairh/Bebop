@@ -327,6 +327,26 @@ class TestGroup: XCTestCase {
         }
     }
 
+    func testCustomGroupTocName() throws {
+        let class1 = SourceKittenDict.mkClass(name: "Class1")
+        let file = SourceKittenDict.mkFile().with(children: [class1])
+
+        let yaml = """
+                   custom_groups:
+                    - name: Group1
+                      children:
+                        - Class1 [ClassA]
+                   """
+        try withTempConfigFile(yaml: yaml) { url in
+            let system = System(cliArgs: ["--config=\(url.path)"])
+            TestLogger.install()
+            let items = try system.run([file.asGatherDef().asPass(moduleName: "Module", pathName: "")])
+            XCTAssertEqual(1, items.count)
+            XCTAssertEqual("Class1", items[0].children[0].name)
+            XCTAssertEqual("ClassA", items[0].children[0].tocName)
+        }
+    }
+
     // MARK: Unlisted Prefix
 
     func testCustomPrefix() throws {
