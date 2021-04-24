@@ -397,7 +397,9 @@ fileprivate extension DefItem {
         }
 
         let compoundDecl = ([baseSwiftDecl] + extraDecls)
-            .map { $0.text }
+            // strip parent type names from extensions of nested types that appear
+            // inline with their types.
+            .map { $0.text.re_sub(#"(?<=extension )\w+\.(?=\w+)"#, with: "") }
             .joined(separator: "\n\n")
         // hmm availability again...
 
