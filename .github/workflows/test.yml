@@ -2,9 +2,11 @@ name: Test
 
 on:
   push:
+    branches: [main]
     paths-ignore:
       - 'Fw2020/**'
   pull_request:
+    branches: ['*']
 
 jobs:
   macos:
