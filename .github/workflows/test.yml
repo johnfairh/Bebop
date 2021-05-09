@@ -20,33 +20,14 @@ jobs:
       - name: Run tests
         run: |
           brew install libsass
-          swift test --enable-code-coverage
+          make test
 
-# Somehow SwiftSyntax is broken if Xcode isn't in /Applications/Xcode.app !
-# Shame we lose codecov...
-#  xcode:
-#    name: macOS Xcode unit tests and coverage
-#    runs-on: macos-latest
-#    
-#    steps:
-#      - uses: actions/checkout@v1
-#      - name: Xcodebuild
-#        run: |
-#          sudo xcode-select -s /Applications/Xcode_11.4.app/Contents/Developer
-#          carthage bootstrap --no-use-binaries --platform macOS --cache-builds
-#          touch Package.resolved
-#          xcodebuild -scheme J2 build test
-#      - name: Coverage upload
-#        run: bash <(curl -s https://codecov.io/bash) -J 'J2Lib$' -X gcov -X coveragepy -t 35729115-01be-4d17-8b1f-063fa0892b79
-  
-# Linux Swift 5.4 is broken somehow, sourcekit/swift-syntax not working at all
-#
-#  linux:
-#    name: Linux SPM unit tests
-#    runs-on: ubuntu-latest
-#    
-#    steps:
-#      - uses: actions/checkout@v1
-#      - name: Run tests
-#        run: |
-#          docker run -v `pwd`:`pwd` -w `pwd` --name j2 --rm swift:5.3 /bin/bash -c "apt-get update; apt-get install libsqlite3-dev libsass0 libsass-dev; swift test --parallel --enable-test-discovery"
+  linux:
+    name: Linux SPM unit tests
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v1
+      - name: Run tests
+        run: |
+          docker run -v `pwd`:`pwd` -w `pwd` --name j2 --rm swift:5.3 /bin/bash -c "apt-get update; apt-get install libsqlite3-dev libsass0 libsass-dev; make test"

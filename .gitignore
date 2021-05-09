@@ -21,7 +21,6 @@ xcuserdata
 *.ipa
 Carthage
 *.swp
-Package.resolved
 node_modules
 .stylelintcache
 dist

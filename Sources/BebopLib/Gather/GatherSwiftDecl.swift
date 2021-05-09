@@ -299,7 +299,8 @@ private extension SWXMLHash {
             return nil
         }
         guard let rootIndexer = xml.children.first,
-            case let .element(rootElement) = rootIndexer else {
+            case let .element(rootElement) = rootIndexer,
+            !rootElement.innerXML.isEmpty else {
             // SourceKit bug, probably
             logDebug("Malformed SourceKit XML from '\(xmlText)'.")
             return nil

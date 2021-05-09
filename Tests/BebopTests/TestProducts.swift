@@ -14,14 +14,9 @@ import XCTest
 //private var doFixup = true
 private var doFixup = false
 
-// Linux is messed up as of Swift 5.4, no clue what SourceKit is playing at there.
-
 class TestProducts: XCTestCase {
     override func setUpWithError() throws {
         initResources()
-        #if os(Linux)
-        throw XCTSkip()
-        #endif
     }
 
     override class func setUp() {
@@ -94,6 +89,9 @@ class TestProducts: XCTestCase {
     }
 
     func testFilesJsonSwift() throws {
+        #if os(Linux)
+        throw XCTSkip() // Float16 grumble grumble
+        #endif
         try compareSwift(product: "files-json",
                          cliArgs: ["--no-apple-autolink"],
                          against: "SpmSwiftModule.files.json")

@@ -1,4 +1,4 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.4
 
 import PackageDescription
 
@@ -22,7 +22,7 @@ let package = Package(
              .upToNextMinor(from: "5.0.1")),
     .package(name: "SwiftSyntax",
              url: "https://github.com/apple/swift-syntax.git",
-             .exact("0.50300.0")),
+             .exact("0.50400.0")),
     .package(url: "https://github.com/johnfairh/Maaku.git",
              from: "10.9.5"),
     .package(url: "https://github.com/ole/SortedArray.git",
@@ -30,7 +30,7 @@ let package = Package(
     .package(url: "https://github.com/stephencelis/SQLite.swift.git",
              from: "0.12.0"),
     .package(url: "https://github.com/apple/swift-format",
-             .exact("0.50300.0"))
+             .exact("0.50400.0"))
   ],
   targets: [
     .target(
@@ -49,7 +49,7 @@ let package = Package(
       ],
       exclude: ["Info.plist"]
       ),
-    .target(
+    .executableTarget(
       name: "BebopCLI",
       dependencies: ["BebopLib"]),
     .testTarget(
