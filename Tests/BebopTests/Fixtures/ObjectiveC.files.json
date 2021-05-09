@@ -855,7 +855,7 @@
             "key.bb.doc_source" : "docComment"
           },
           "key.bb.is_override" : false,
-          "key.bb.objc_declaration" : "enum AEnum",
+          "key.bb.objc_declaration" : "enum AEnum : NSInteger",
           "key.bb.objc_name_pieces" : [
             {
               "key.bb.name_piece_is_name" : false,
@@ -887,7 +887,7 @@
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/ObjectiveC\/Header.h",
           "key.kind" : "sourcekitten.source.lang.objc.decl.enum",
           "key.name" : "AEnum",
-          "key.parsed_declaration" : "enum AEnum {}",
+          "key.parsed_declaration" : "enum AEnum : NSInteger {}",
           "key.parsed_scope.end" : 55,
           "key.parsed_scope.start" : 50,
           "key.substructure" : [

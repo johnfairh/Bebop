@@ -14,11 +14,14 @@ import XCTest
 //private var doFixup = true
 private var doFixup = false
 
-// apple autolink disabled for tests that run on linux...
+// Linux is messed up as of Swift 5.4, no clue what SourceKit is playing at there.
 
 class TestProducts: XCTestCase {
-    override func setUp() {
+    override func setUpWithError() throws {
         initResources()
+        #if os(Linux)
+        throw XCTSkip()
+        #endif
     }
 
     override class func setUp() {
@@ -90,14 +93,12 @@ class TestProducts: XCTestCase {
         return cleanedLines.joined(separator: "\n")
     }
 
-    #if os(macOS)
-    /* TEMP TEMP UNTIL Float16 arrives on macOS Swift 5.3 */
     func testFilesJsonSwift() throws {
         try compareSwift(product: "files-json",
                          cliArgs: ["--no-apple-autolink"],
                          against: "SpmSwiftModule.files.json")
     }
-    #endif
+
 
     func testDeclsJsonSwift() throws {
         try compareSwift(product: "decls-json",

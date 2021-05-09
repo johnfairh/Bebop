@@ -74,13 +74,15 @@ final class GatherSwiftToObjC {
 
     /// Sketchily translate swift compiler args to clang.  Basically only accept stuff we understand.
     private func translateArgs() -> [String] {
-        var copyNext = false
+        enum CopyNext {
+            case no, ifRaw, yes
+        }
+        var copyNext = CopyNext.no
         var clangArgs = ["-x", "objective-c", "-fmodules"]
         for swiftArg in module.compilerArguments {
-            if copyNext {
-                if swiftArg.starts(with: "-") {
-                    copyNext = false
-                } else {
+            if copyNext != .no {
+                defer { copyNext = .no }
+                if copyNext == .yes || (copyNext == .ifRaw && !swiftArg.starts(with: "-")) {
                     clangArgs.append(swiftArg)
                     continue
                 }
@@ -91,11 +93,14 @@ final class GatherSwiftToObjC {
             switch swiftArg {
             case "-sdk":
                 clangArgs.append("-isysroot")
-                copyNext = true
+                copyNext = .yes
 
             case "-I", "-F", "-target", "-L":
                 clangArgs.append(swiftArg)
-                copyNext = true
+                copyNext = .ifRaw
+
+            case "-Xcc":
+                copyNext = .yes
 
             default:
                 break

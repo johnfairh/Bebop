@@ -218,7 +218,7 @@ struct AliasOpt {
     }
 }
 
-protocol OptHelpers: class {
+protocol OptHelpers: AnyObject {
     associatedtype OptHelperType
     var defaultValue: OptHelperType? { get set }
     var theHelpParam: String? { get set }
