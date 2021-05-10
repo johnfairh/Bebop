@@ -3636,95 +3636,6 @@
               "key.parsed_declaration" : "public static func +(lhs: ABaseClass, rhs: ABaseClass) -> ABaseClass",
               "key.parsed_scope.end" : 105,
               "key.parsed_scope.start" : 103,
-              "key.related_decls" : [
-                {
-                  "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule1poiySSAA1TV_ADtF\">+ (_: T, _: T) -&gt; String<\/RelatedName>"
-                },
-                {
-                  "key.annotated_decl" : "<RelatedName usr=\"s:Sa1poiySayxGAB_ABtFZ\">+ (_: Array&lt;Element&gt;, _: Array&lt;Element&gt;) -&gt; Array&lt;Element&gt;<\/RelatedName>"
-                },
-                {
-                  "key.annotated_decl" : "<RelatedName usr=\"s:SF1poiyxx_xtFZ\">+ (_: Self, _: Self) -&gt; Self<\/RelatedName>"
-                },
-                {
-                  "key.annotated_decl" : "<RelatedName usr=\"s:s18AdditiveArithmeticP1poiyxx_xtFZ\">+ (_: Self, _: Self) -&gt; Self<\/RelatedName>"
-                },
-                {
-                  "key.annotated_decl" : "<RelatedName usr=\"s:s18AdditiveArithmeticPsE1popyxxFZ\">+(_:)<\/RelatedName>"
-                },
-                {
-                  "key.annotated_decl" : "<RelatedName usr=\"s:Sz1poiyxx_xtFZ\">+ (_: Self, _: Self) -&gt; Self<\/RelatedName>"
-                },
-                {
-                  "key.annotated_decl" : "<RelatedName usr=\"s:Sxss8_PointerRzrlE1poiyxx_6StrideQztFZ\">+ (_: Self, _: Self.Stride) -&gt; Self<\/RelatedName>"
-                },
-                {
-                  "key.annotated_decl" : "<RelatedName usr=\"s:Sxss8_PointerRzrlE1poiyx6StrideQz_xtFZ\">+ (_: Self.Stride, _: Self) -&gt; Self<\/RelatedName>"
-                },
-                {
-                  "key.annotated_decl" : "<RelatedName usr=\"s:SmsE1poiyxx_qd__tSTRd__7ElementQyd__ABRtzlFZ\">+ &lt;Other&gt;(_: Self, _: Other) -&gt; Self where Other : Sequence, Self.Element == Other.Element<\/RelatedName>"
-                },
-                {
-                  "key.annotated_decl" : "<RelatedName usr=\"s:SmsE1poiyxqd___xtSTRd__7ElementQyd__ABRtzlFZ\">+ &lt;Other&gt;(_: Other, _: Self) -&gt; Self where Other : Sequence, Self.Element == Other.Element<\/RelatedName>"
-                },
-                {
-                  "key.annotated_decl" : "<RelatedName usr=\"s:SmsE1poiyxx_qd__tSmRd__7ElementQyd__ABRtzlFZ\">+ &lt;Other&gt;(_: Self, _: Other) -&gt; Self where Other : RangeReplaceableCollection, Self.Element == Other.Element<\/RelatedName>"
-                },
-                {
-                  "key.annotated_decl" : "<RelatedName usr=\"s:SS1poiyS2S_SStFZ\">+ (_: String, _: String) -&gt; String<\/RelatedName>"
-                },
-                {
-                  "key.annotated_decl" : "<RelatedName usr=\"s:s4SIMDPsSF6ScalarRpzrlE1poiyxx_xtFZ\">+ (_: Self, _: Self) -&gt; Self<\/RelatedName>"
-                },
-                {
-                  "key.annotated_decl" : "<RelatedName usr=\"s:s4SIMDPsSF6ScalarRpzrlE1poiyxAD_xtFZ\">+ (_: Self.Scalar, _: Self) -&gt; Self<\/RelatedName>"
-                },
-                {
-                  "key.annotated_decl" : "<RelatedName usr=\"s:s4SIMDPsSF6ScalarRpzrlE1poiyxx_ADtFZ\">+ (_: Self, _: Self.Scalar) -&gt; Self<\/RelatedName>"
-                },
-                {
-                  "key.annotated_decl" : "<RelatedName usr=\"s:s7Float16V1poiyA2B_ABtFZ\">+ (_: Float16, _: Float16) -&gt; Float16<\/RelatedName>"
-                },
-                {
-                  "key.annotated_decl" : "<RelatedName usr=\"s:Sf1poiyS2f_SftFZ\">+ (_: Float, _: Float) -&gt; Float<\/RelatedName>"
-                },
-                {
-                  "key.annotated_decl" : "<RelatedName usr=\"s:Sd1poiyS2d_SdtFZ\">+ (_: Double, _: Double) -&gt; Double<\/RelatedName>"
-                },
-                {
-                  "key.annotated_decl" : "<RelatedName usr=\"s:s7Float80V1poiyA2B_ABtFZ\">+ (_: Float80, _: Float80) -&gt; Float80<\/RelatedName>"
-                },
-                {
-                  "key.annotated_decl" : "<RelatedName usr=\"s:s5UInt8V1poiyA2B_ABtFZ\">+ (_: UInt8, _: UInt8) -&gt; UInt8<\/RelatedName>"
-                },
-                {
-                  "key.annotated_decl" : "<RelatedName usr=\"s:s4Int8V1poiyA2B_ABtFZ\">+ (_: Int8, _: Int8) -&gt; Int8<\/RelatedName>"
-                },
-                {
-                  "key.annotated_decl" : "<RelatedName usr=\"s:s6UInt16V1poiyA2B_ABtFZ\">+ (_: UInt16, _: UInt16) -&gt; UInt16<\/RelatedName>"
-                },
-                {
-                  "key.annotated_decl" : "<RelatedName usr=\"s:s5Int16V1poiyA2B_ABtFZ\">+ (_: Int16, _: Int16) -&gt; Int16<\/RelatedName>"
-                },
-                {
-                  "key.annotated_decl" : "<RelatedName usr=\"s:s6UInt32V1poiyA2B_ABtFZ\">+ (_: UInt32, _: UInt32) -&gt; UInt32<\/RelatedName>"
-                },
-                {
-                  "key.annotated_decl" : "<RelatedName usr=\"s:s5Int32V1poiyA2B_ABtFZ\">+ (_: Int32, _: Int32) -&gt; Int32<\/RelatedName>"
-                },
-                {
-                  "key.annotated_decl" : "<RelatedName usr=\"s:s6UInt64V1poiyA2B_ABtFZ\">+ (_: UInt64, _: UInt64) -&gt; UInt64<\/RelatedName>"
-                },
-                {
-                  "key.annotated_decl" : "<RelatedName usr=\"s:s5Int64V1poiyA2B_ABtFZ\">+ (_: Int64, _: Int64) -&gt; Int64<\/RelatedName>"
-                },
-                {
-                  "key.annotated_decl" : "<RelatedName usr=\"s:Su1poiyS2u_SutFZ\">+ (_: UInt, _: UInt) -&gt; UInt<\/RelatedName>"
-                },
-                {
-                  "key.annotated_decl" : "<RelatedName usr=\"s:Si1poiyS2i_SitFZ\">+ (_: Int, _: Int) -&gt; Int<\/RelatedName>"
-                }
-              ],
               "key.substructure" : [
                 {
                   "key.annotated_decl" : "<Declaration>let lhs: <Type usr=\"s:14SpmSwiftModule10ABaseClassC\">ABaseClass<\/Type><\/Declaration>",
@@ -3910,9 +3821,6 @@
               "key.annotated_decl" : "<RelatedName usr=\"s:s4SIMDPsSF6ScalarRpzrlE1poiyxx_ADtFZ\">+ (_: Self, _: Self.Scalar) -&gt; Self<\/RelatedName>"
             },
             {
-              "key.annotated_decl" : "<RelatedName usr=\"s:s7Float16V1poiyA2B_ABtFZ\">+ (_: Float16, _: Float16) -&gt; Float16<\/RelatedName>"
-            },
-            {
               "key.annotated_decl" : "<RelatedName usr=\"s:Sf1poiyS2f_SftFZ\">+ (_: Float, _: Float) -&gt; Float<\/RelatedName>"
             },
             {
@@ -3989,7 +3897,7 @@
         },
         {
           "key.accessibility" : "source.lang.swift.accessibility.public",
-          "key.annotated_decl" : "<Declaration>public class ADerivedClass&lt;T, Q&gt; : <Type usr=\"s:14SpmSwiftModule10ABaseClassC\">ABaseClass<\/Type> where Q : <Type usr=\"s:ST\">Sequence<\/Type><\/Declaration>",
+          "key.annotated_decl" : "<Declaration>public class ADerivedClass&lt;T, Q&gt; : <Type usr=\"s:14SpmSwiftModule10ABaseClassC\">ABaseClass<\/Type> where <Type usr=\"s:14SpmSwiftModule13ADerivedClassC1Qq_mfp\">Q<\/Type> : <Type usr=\"s:ST\">Sequence<\/Type><\/Declaration>",
           "key.attributes" : [
             {
               "key.attribute" : "source.decl.attribute.public",
@@ -4041,7 +3949,7 @@
             }
           ],
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "key.fully_annotated_decl" : "<decl.class><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>class<\/syntaxtype.keyword> <decl.name>ADerivedClass<\/decl.name>&lt;<decl.generic_type_param usr=\"s:14SpmSwiftModule13ADerivedClassC1Txmfp\"><decl.generic_type_param.name>T<\/decl.generic_type_param.name><\/decl.generic_type_param>, <decl.generic_type_param usr=\"s:14SpmSwiftModule13ADerivedClassC1Qq_mfp\"><decl.generic_type_param.name>Q<\/decl.generic_type_param.name><\/decl.generic_type_param>&gt; : <ref.class usr=\"s:14SpmSwiftModule10ABaseClassC\">ABaseClass<\/ref.class> <syntaxtype.keyword>where<\/syntaxtype.keyword> <decl.generic_type_requirement>Q : <ref.protocol usr=\"s:ST\">Sequence<\/ref.protocol><\/decl.generic_type_requirement><\/decl.class>",
+          "key.fully_annotated_decl" : "<decl.class><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>class<\/syntaxtype.keyword> <decl.name>ADerivedClass<\/decl.name>&lt;<decl.generic_type_param usr=\"s:14SpmSwiftModule13ADerivedClassC1Txmfp\"><decl.generic_type_param.name>T<\/decl.generic_type_param.name><\/decl.generic_type_param>, <decl.generic_type_param usr=\"s:14SpmSwiftModule13ADerivedClassC1Qq_mfp\"><decl.generic_type_param.name>Q<\/decl.generic_type_param.name><\/decl.generic_type_param>&gt; : <ref.class usr=\"s:14SpmSwiftModule10ABaseClassC\">ABaseClass<\/ref.class> <syntaxtype.keyword>where<\/syntaxtype.keyword> <decl.generic_type_requirement><ref.generic_type_param usr=\"s:14SpmSwiftModule13ADerivedClassC1Qq_mfp\">Q<\/ref.generic_type_param> : <ref.protocol usr=\"s:ST\">Sequence<\/ref.protocol><\/decl.generic_type_requirement><\/decl.class>",
           "key.inheritedtypes" : [
             {
               "key.name" : "ABaseClass"

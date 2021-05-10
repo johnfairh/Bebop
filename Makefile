@@ -16,10 +16,13 @@ build:
 	swift build -c ${RELEASE} --disable-sandbox
 
 test:
-	swift test --parallel
+	swift test --enable-code-coverage
 
 test_linux:
-	docker run -v `pwd`:`pwd` -w `pwd` --name bebop --rm swift:5.3 /bin/bash -c "apt-get update; apt-get install libsqlite3-dev libsass0 libsass-dev; swift test --parallel --enable-test-discovery"
+	docker run -v `pwd`:`pwd` -w `pwd` --name bebop --rm swift:5.4 /bin/bash -c "apt-get update; apt-get install libsqlite3-dev libsass0 libsass-dev; make test
+
+shell_linux:
+	docker run -it -v `pwd`:`pwd` -w `pwd` --name bebop --rm swift:5.4 /bin/bash
 
 install: build
 	-mkdir -p ${PREFIX}/share ${PREFIX}/bin

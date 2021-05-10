@@ -1135,7 +1135,7 @@
     "name" : "AEnum",
     "obj_c_declaration" : {
       "declaration" : {
-        "text" : "enum AEnum"
+        "text" : "enum AEnum : NSInteger"
       },
       "name_pieces" : [
         {
