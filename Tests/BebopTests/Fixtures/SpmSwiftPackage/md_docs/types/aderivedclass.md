@@ -3,7 +3,7 @@ Bebop simple MD theme
 Copyright 2020 Bebop Authors
 Licensed under MIT (https://github.com/johnfairh/Bebop/blob/master/LICENSE)
 -->
-![50%](../badge.svg)
+![48%](../badge.svg)
 [![Open in Dash](../img/dash.svg)](dash-feed://https%3A%2F%2Fwww%2Egoogle%2Ecom%2F)
 
 
@@ -35,7 +35,19 @@ Licensed under MIT (https://github.com/johnfairh/Bebop/blob/master/LICENSE)
   * [Nop](../types/nop.md?swift)
 
 
+  * [P1](../types.md?swift#p1)
+
+
+  * [P2](../types.md?swift#p2)
+
+
   * [PropertyWrapperClient](../types/propertywrapperclient.md?swift)
+
+
+  * [S1](../types/s1.md?swift)
+
+
+  * [S2](../types/s2.md?swift)
 
 
   * [SecondProtocol](../types/secondprotocol.md?swift)
@@ -48,7 +60,7 @@ Licensed under MIT (https://github.com/johnfairh/Bebop/blob/master/LICENSE)
     * [Nested2](../types/spmswiftmodule.md?swift#nested2)
 
 
-  * [T](../types.md?swift#t1)
+  * [T](../types.md?swift#t2)
 
 
 
@@ -69,10 +81,19 @@ Licensed under MIT (https://github.com/johnfairh/Bebop/blob/master/LICENSE)
 
 [Extensions](../extensions.md?swift)
 
+  * [Array](../extensions/array.md?swift)
+
+
   * [Collection](../extensions/collection.md?swift)
 
 
+  * [Dictionary](../extensions.md?swift#dictionary)
+
+
   * [String.Element](../extensions/stringelement.md?swift)
+
+
+  * [StringProtocol](../extensions/stringprotocol.md?swift)
 
 
 
@@ -110,7 +131,7 @@ A derived class
 
 
 
-[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L117-L128)
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L121-L135)
 
 
 
@@ -125,7 +146,7 @@ A derived class
 
 
 <details>
-<summary><code>func generic(param: T) -> T</code></summary>
+<summary><code>func generic2<R>(param: T, my: R) -> T</code></summary>
 
 
 
@@ -144,7 +165,8 @@ Undocumented
 #### Declaration
 
 ``` swift
-public func generic(param: T) -> T
+public func generic2<R>(param: T, my param2: R) -> T
+where R: Sequence, R.Element: FirstProtocol
 ```
 
 
@@ -157,7 +179,51 @@ public func generic(param: T) -> T
 
 
 
-[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L125-L127)
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L131-L134)
+</details>
+
+
+
+
+
+
+
+
+
+<details>
+<summary><code>func generic(param: T)</code></summary>
+
+
+
+
+
+
+
+
+Undocumented
+
+
+
+
+
+
+#### Declaration
+
+``` swift
+public func generic(param: T) where T: Equatable
+```
+
+
+
+
+
+
+
+
+
+
+
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L129)
 </details>
 
 
@@ -201,7 +267,7 @@ public override func method(param: Int) -> String
 
 
 
-[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L121-L123)
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L125-L127)
 </details>
 
 
@@ -249,7 +315,7 @@ var t: Q?
 
 
 
-[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L118)
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L122)
 </details>
 
 

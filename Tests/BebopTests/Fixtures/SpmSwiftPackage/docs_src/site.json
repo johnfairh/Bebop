@@ -1,0 +1,6 @@
+{
+  "modules" : [
+    "SpmSwiftModule"
+  ],
+  "version" : "1.5.0"
+}

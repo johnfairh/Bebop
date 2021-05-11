@@ -138,21 +138,6 @@ class TestProducts: XCTestCase {
                          against: "MixedSwiftObjC.noswift.decls.json")
     }
 
-    func testFilesJsonSymbolGraph() throws {
-        guard TestSymbolGraph.isMyLaptop else { return }
-        TestSymbolGraph.useCustom(); defer { TestSymbolGraph.reset() }
-
-        let binDirURL = fixturesURL.appendingPathComponent("Swift53")
-
-        try compare([
-            "--symbolgraph-search-paths", binDirURL.path,
-            "--modules=SpmSwiftModule",
-            "--build-tool=swift-symbolgraph"
-            ],
-            "files-json",
-            against: "SpmSwiftModuleSymbolGraph.files.json")
-    }
-
     func testPodspec() throws {
         try compare([
             "--podspec", fixturesURL.appendingPathComponent("Pod/Pod.podspec").path,
@@ -162,6 +147,27 @@ class TestProducts: XCTestCase {
             against: "Pod.files.json")
     }
     #endif
+
+    func testFilesJsonSymbolGraph() throws {
+        let binDirPath = try fixturesURL.appendingPathComponent("SpmSwiftPackage").withCurrentDirectory { () -> String in
+            let buildResult = Exec.run("/usr/bin/env", "swift", "build")
+            XCTAssertEqual(0, buildResult.terminationStatus, buildResult.failureReport)
+            let binPathResult = Exec.run("/usr/bin/env", "swift", "build", "--show-bin-path")
+            guard let binPath = binPathResult.successString else {
+                XCTFail(binPathResult.failureReport)
+                return ""
+            }
+            return binPath
+        }
+
+        try compare([
+            "--symbolgraph-search-paths", binDirPath,
+            "--modules=SpmSwiftModule",
+            "--build-tool=swift-symbolgraph"
+        ],
+        "files-json",
+        against: "SpmSwiftModuleSymbolGraph.files.json")
+    }
 
     func testAclFiltering() throws {
         let rootDir = fixturesURL.appendingPathComponent("SpmSwiftPackage")

@@ -17,7 +17,7 @@
     "copyright_md" : "&copy; 9999. All rights reserved. (Last updated: today).",
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 50,
+    "doc_coverage" : 48,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -81,9 +81,31 @@
                 "url" : "types\/nop.html?swift"
               },
               {
+                "full_url" : "types.html?swift#p1",
+                "same_page" : true,
+                "title" : "P1",
+                "url" : "#p1"
+              },
+              {
+                "full_url" : "types.html?swift#p2",
+                "same_page" : true,
+                "title" : "P2",
+                "url" : "#p2"
+              },
+              {
                 "same_page" : false,
                 "title" : "PropertyWrapperClient",
                 "url" : "types\/propertywrapperclient.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "S1",
+                "url" : "types\/s1.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "S2",
+                "url" : "types\/s2.html?swift"
               },
               {
                 "same_page" : false,
@@ -120,10 +142,10 @@
                 "url" : "types\/spmswiftmodule.html?swift"
               },
               {
-                "full_url" : "types.html?swift#t1",
+                "full_url" : "types.html?swift#t2",
                 "same_page" : true,
                 "title" : "T",
-                "url" : "#t1"
+                "url" : "#t2"
               }
             ],
             "full_url" : "types.html?swift",
@@ -164,13 +186,28 @@
             "children" : [
               {
                 "same_page" : false,
+                "title" : "Array",
+                "url" : "extensions\/array.html?swift"
+              },
+              {
+                "same_page" : false,
                 "title" : "Collection",
                 "url" : "extensions\/collection.html?swift"
               },
               {
                 "same_page" : false,
+                "title" : "Dictionary",
+                "url" : "extensions.html?swift#dictionary"
+              },
+              {
+                "same_page" : false,
                 "title" : "String.Element",
                 "url" : "extensions\/stringelement.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "StringProtocol",
+                "url" : "extensions\/stringprotocol.html?swift"
               }
             ],
             "same_page" : false,
@@ -288,6 +325,38 @@
             "title" : "struct Nop"
           },
           {
+            "anchor_id" : "p1",
+            "any_declaration" : true,
+            "dash_name" : "protocol%20P1",
+            "dash_type" : "Protocol",
+            "def" : {
+              "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
+              "discouraged" : false,
+              "swift_declaration_html" : "protocol P1",
+              "swift_declaration_md" : "protocol P1"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">protocol <\/span>P1",
+            "title" : "protocol P1"
+          },
+          {
+            "anchor_id" : "p2",
+            "any_declaration" : true,
+            "dash_name" : "protocol%20P2",
+            "dash_type" : "Protocol",
+            "def" : {
+              "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
+              "discouraged" : false,
+              "swift_declaration_html" : "protocol P2",
+              "swift_declaration_md" : "protocol P2"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">protocol <\/span>P2",
+            "title" : "protocol P2"
+          },
+          {
             "anchor_id" : "propertywrapperclient",
             "any_declaration" : true,
             "dash_name" : "struct%20PropertyWrapperClient",
@@ -303,6 +372,40 @@
             "primary_title_html" : "<span class=\"j2-item-secondary\">struct <\/span>PropertyWrapperClient",
             "primary_url" : "types\/propertywrapperclient.html?swift",
             "title" : "struct PropertyWrapperClient"
+          },
+          {
+            "anchor_id" : "s1",
+            "any_declaration" : true,
+            "dash_name" : "struct%20S1",
+            "dash_type" : "Struct",
+            "def" : {
+              "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
+              "discouraged" : false,
+              "swift_declaration_html" : "struct S1: <a href=\"types.html?swift#p1\">P1<\/a>\n\nextension S1: CustomStringConvertible",
+              "swift_declaration_md" : "struct S1: P1\n\nextension S1: CustomStringConvertible"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">struct <\/span>S1",
+            "primary_url" : "types\/s1.html?swift",
+            "title" : "struct S1"
+          },
+          {
+            "anchor_id" : "s2",
+            "any_declaration" : true,
+            "dash_name" : "struct%20S2",
+            "dash_type" : "Struct",
+            "def" : {
+              "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
+              "discouraged" : false,
+              "swift_declaration_html" : "struct S2&lt;T&gt;: <a href=\"types.html?swift#p1\">P1<\/a> where T: Equatable\n\nextension S2: Equatable where T: Equatable\n\nextension S2: <a href=\"types.html?swift#p2\">P2<\/a> where T: Comparable",
+              "swift_declaration_md" : "struct S2<T>: P1 where T: Equatable\n\nextension S2: Equatable where T: Equatable\n\nextension S2: P2 where T: Comparable"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">struct <\/span>S2",
+            "primary_url" : "types\/s2.html?swift",
+            "title" : "struct S2"
           },
           {
             "anchor_id" : "secondprotocol",
@@ -339,7 +442,7 @@
             "title" : "struct SpmSwiftModule"
           },
           {
-            "anchor_id" : "t1",
+            "anchor_id" : "t2",
             "any_declaration" : true,
             "dash_name" : "struct%20T",
             "dash_type" : "Struct",
@@ -390,7 +493,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 50,
+    "doc_coverage" : 48,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -464,8 +567,28 @@
               },
               {
                 "same_page" : false,
+                "title" : "P1",
+                "url" : "types.html?swift#p1"
+              },
+              {
+                "same_page" : false,
+                "title" : "P2",
+                "url" : "types.html?swift#p2"
+              },
+              {
+                "same_page" : false,
                 "title" : "PropertyWrapperClient",
                 "url" : "types\/propertywrapperclient.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "S1",
+                "url" : "types\/s1.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "S2",
+                "url" : "types\/s2.html?swift"
               },
               {
                 "same_page" : false,
@@ -504,7 +627,7 @@
               {
                 "same_page" : false,
                 "title" : "T",
-                "url" : "types.html?swift#t1"
+                "url" : "types.html?swift#t2"
               }
             ],
             "same_page" : false,
@@ -544,13 +667,28 @@
             "children" : [
               {
                 "same_page" : false,
+                "title" : "Array",
+                "url" : "extensions\/array.html?swift"
+              },
+              {
+                "same_page" : false,
                 "title" : "Collection",
                 "url" : "extensions\/collection.html?swift"
               },
               {
                 "same_page" : false,
+                "title" : "Dictionary",
+                "url" : "extensions.html?swift#dictionary"
+              },
+              {
+                "same_page" : false,
                 "title" : "String.Element",
                 "url" : "extensions\/stringelement.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "StringProtocol",
+                "url" : "extensions\/stringprotocol.html?swift"
               }
             ],
             "same_page" : false,
@@ -728,6 +866,31 @@
         "title_md" : "Static Methods"
       },
       {
+        "anchor_id" : "tpc-static-properties",
+        "dash_name" : "Static%20Properties",
+        "items" : [
+          {
+            "anchor_id" : "astaticvar",
+            "any_declaration" : true,
+            "dash_name" : "static%20var%20aStaticVar%3A%20Int",
+            "dash_type" : "Variable",
+            "def" : {
+              "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
+              "discouraged" : false,
+              "swift_declaration_html" : "static var aStaticVar: Int { get }",
+              "swift_declaration_md" : "static var aStaticVar: Int { get }"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">static var <\/span>aStaticVar<span class=\"j2-item-secondary\">: Int<\/span>",
+            "title" : "static var aStaticVar: Int"
+          }
+        ],
+        "primary_language" : "j2-swift",
+        "title_html" : "Static Properties",
+        "title_md" : "Static Properties"
+      },
+      {
         "anchor_id" : "tpc-static-subscripts",
         "dash_name" : "Static%20Subscripts",
         "items" : [
@@ -812,6 +975,10 @@
             "title" : "Static Methods"
           },
           {
+            "anchor_id" : "tpc-static-properties",
+            "title" : "Static Properties"
+          },
+          {
             "anchor_id" : "tpc-static-subscripts",
             "title" : "Static Subscripts"
           },
@@ -852,7 +1019,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 50,
+    "doc_coverage" : 48,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -926,8 +1093,28 @@
               },
               {
                 "same_page" : false,
+                "title" : "P1",
+                "url" : "types.html?swift#p1"
+              },
+              {
+                "same_page" : false,
+                "title" : "P2",
+                "url" : "types.html?swift#p2"
+              },
+              {
+                "same_page" : false,
                 "title" : "PropertyWrapperClient",
                 "url" : "types\/propertywrapperclient.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "S1",
+                "url" : "types\/s1.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "S2",
+                "url" : "types\/s2.html?swift"
               },
               {
                 "same_page" : false,
@@ -966,7 +1153,7 @@
               {
                 "same_page" : false,
                 "title" : "T",
-                "url" : "types.html?swift#t1"
+                "url" : "types.html?swift#t2"
               }
             ],
             "same_page" : false,
@@ -1006,13 +1193,28 @@
             "children" : [
               {
                 "same_page" : false,
+                "title" : "Array",
+                "url" : "extensions\/array.html?swift"
+              },
+              {
+                "same_page" : false,
                 "title" : "Collection",
                 "url" : "extensions\/collection.html?swift"
               },
               {
                 "same_page" : false,
+                "title" : "Dictionary",
+                "url" : "extensions.html?swift#dictionary"
+              },
+              {
+                "same_page" : false,
                 "title" : "String.Element",
                 "url" : "extensions\/stringelement.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "StringProtocol",
+                "url" : "extensions\/stringprotocol.html?swift"
               }
             ],
             "same_page" : false,
@@ -1028,20 +1230,36 @@
         "dash_name" : "Methods",
         "items" : [
           {
-            "anchor_id" : "genericparam",
+            "anchor_id" : "generic2parammy",
             "any_declaration" : true,
-            "dash_name" : "func%20generic(param%3A%20T)%20-%3E%20T",
+            "dash_name" : "func%20generic2%3CR%3E(param%3A%20T,%20my%3A%20R)%20-%3E%20T",
             "dash_type" : "Method",
             "def" : {
               "abstract_html" : "<p>Undocumented<\/p>",
               "abstract_md" : "Undocumented",
               "discouraged" : false,
-              "swift_declaration_html" : "public func generic(param: T) -&gt; T",
-              "swift_declaration_md" : "public func generic(param: T) -> T"
+              "swift_declaration_html" : "public func generic2&lt;R&gt;(param: T, my param2: R) -&gt; T\nwhere R: Sequence, R.Element: <a href=\"..\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>",
+              "swift_declaration_md" : "public func generic2<R>(param: T, my param2: R) -> T\nwhere R: Sequence, R.Element: FirstProtocol"
             },
             "primary_language" : "j2-swift",
-            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>generic<span class=\"j2-item-secondary\">(<\/span>param<span class=\"j2-item-secondary\">: T) -&gt; T<\/span>",
-            "title" : "func generic(param: T) -> T"
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>generic2<span class=\"j2-item-secondary\">&lt;R&gt;(<\/span>param<span class=\"j2-item-secondary\">: T, <\/span>my<span class=\"j2-item-secondary\">: R) -&gt; T<\/span>",
+            "title" : "func generic2<R>(param: T, my: R) -> T"
+          },
+          {
+            "anchor_id" : "genericparam",
+            "any_declaration" : true,
+            "dash_name" : "func%20generic(param%3A%20T)",
+            "dash_type" : "Method",
+            "def" : {
+              "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
+              "discouraged" : false,
+              "swift_declaration_html" : "public func generic(param: T) where T: Equatable",
+              "swift_declaration_md" : "public func generic(param: T) where T: Equatable"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>generic<span class=\"j2-item-secondary\">(<\/span>param<span class=\"j2-item-secondary\">: T)<\/span>",
+            "title" : "func generic(param: T)"
           },
           {
             "anchor_id" : "methodparam1",
@@ -1069,7 +1287,7 @@
         "dash_name" : "Properties",
         "items" : [
           {
-            "anchor_id" : "t3",
+            "anchor_id" : "t4",
             "any_declaration" : true,
             "dash_name" : "var%20t%3A%20Q%3F",
             "dash_type" : "Property",
@@ -1140,7 +1358,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 50,
+    "doc_coverage" : 48,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -1214,8 +1432,28 @@
               },
               {
                 "same_page" : false,
+                "title" : "P1",
+                "url" : "types.html?swift#p1"
+              },
+              {
+                "same_page" : false,
+                "title" : "P2",
+                "url" : "types.html?swift#p2"
+              },
+              {
+                "same_page" : false,
                 "title" : "PropertyWrapperClient",
                 "url" : "types\/propertywrapperclient.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "S1",
+                "url" : "types\/s1.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "S2",
+                "url" : "types\/s2.html?swift"
               },
               {
                 "same_page" : false,
@@ -1254,7 +1492,7 @@
               {
                 "same_page" : false,
                 "title" : "T",
-                "url" : "types.html?swift#t1"
+                "url" : "types.html?swift#t2"
               }
             ],
             "same_page" : false,
@@ -1294,13 +1532,28 @@
             "children" : [
               {
                 "same_page" : false,
+                "title" : "Array",
+                "url" : "extensions\/array.html?swift"
+              },
+              {
+                "same_page" : false,
                 "title" : "Collection",
                 "url" : "extensions\/collection.html?swift"
               },
               {
                 "same_page" : false,
+                "title" : "Dictionary",
+                "url" : "extensions.html?swift#dictionary"
+              },
+              {
+                "same_page" : false,
                 "title" : "String.Element",
                 "url" : "extensions\/stringelement.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "StringProtocol",
+                "url" : "extensions\/stringprotocol.html?swift"
               }
             ],
             "same_page" : false,
@@ -1447,7 +1700,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 50,
+    "doc_coverage" : 48,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -1521,8 +1774,28 @@
               },
               {
                 "same_page" : false,
+                "title" : "P1",
+                "url" : "types.html?swift#p1"
+              },
+              {
+                "same_page" : false,
+                "title" : "P2",
+                "url" : "types.html?swift#p2"
+              },
+              {
+                "same_page" : false,
                 "title" : "PropertyWrapperClient",
                 "url" : "types\/propertywrapperclient.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "S1",
+                "url" : "types\/s1.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "S2",
+                "url" : "types\/s2.html?swift"
               },
               {
                 "same_page" : false,
@@ -1561,7 +1834,7 @@
               {
                 "same_page" : false,
                 "title" : "T",
-                "url" : "types.html?swift#t1"
+                "url" : "types.html?swift#t2"
               }
             ],
             "same_page" : false,
@@ -1601,13 +1874,28 @@
             "children" : [
               {
                 "same_page" : false,
+                "title" : "Array",
+                "url" : "extensions\/array.html?swift"
+              },
+              {
+                "same_page" : false,
                 "title" : "Collection",
                 "url" : "extensions\/collection.html?swift"
               },
               {
                 "same_page" : false,
+                "title" : "Dictionary",
+                "url" : "extensions.html?swift#dictionary"
+              },
+              {
+                "same_page" : false,
                 "title" : "String.Element",
                 "url" : "extensions\/stringelement.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "StringProtocol",
+                "url" : "extensions\/stringprotocol.html?swift"
               }
             ],
             "same_page" : false,
@@ -1682,6 +1970,24 @@
             "title" : "func e()"
           },
           {
+            "anchor_id" : "ea",
+            "any_declaration" : true,
+            "dash_name" : "func%20e%3CC%3E(a%3A%20C)",
+            "dash_type" : "Method",
+            "def" : {
+              "abstract_html" : "<p>A generic protocol extension method<\/p>",
+              "abstract_md" : "A generic protocol extension method",
+              "discouraged" : false,
+              "notes_html" : "<p>From a protocol extension: not a customization point.<\/p>",
+              "notes_md" : "  - From a protocol extension: not a customization point.",
+              "swift_declaration_html" : "func e&lt;C&gt;(a: C) where C: <a href=\"..\/types\/firstprotocol1.html?swift\">FirstProtocol<\/a>",
+              "swift_declaration_md" : "func e<C>(a: C) where C: FirstProtocol"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>e<span class=\"j2-item-secondary\">&lt;C&gt;(<\/span>a<span class=\"j2-item-secondary\">: C)<\/span>",
+            "title" : "func e<C>(a: C)"
+          },
+          {
             "anchor_id" : "marg1",
             "any_declaration" : true,
             "dash_name" : "func%20m(arg%3A%20Int)%20-%3E%20String",
@@ -1738,6 +2044,22 @@
             "primary_language" : "j2-swift",
             "primary_title_html" : "<span class=\"j2-item-secondary\">var <\/span>getOnly<span class=\"j2-item-secondary\">: Int<\/span>",
             "title" : "var getOnly: Int"
+          },
+          {
+            "anchor_id" : "setandget",
+            "any_declaration" : true,
+            "dash_name" : "var%20setAndGet%3A%20Int",
+            "dash_type" : "Property",
+            "def" : {
+              "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
+              "discouraged" : false,
+              "swift_declaration_html" : "var setAndGet: Int { get set }",
+              "swift_declaration_md" : "var setAndGet: Int { get set }"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">var <\/span>setAndGet<span class=\"j2-item-secondary\">: Int<\/span>",
+            "title" : "var setAndGet: Int"
           }
         ],
         "primary_language" : "j2-swift",
@@ -1848,7 +2170,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 50,
+    "doc_coverage" : 48,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -1922,8 +2244,28 @@
               },
               {
                 "same_page" : false,
+                "title" : "P1",
+                "url" : "types.html?swift#p1"
+              },
+              {
+                "same_page" : false,
+                "title" : "P2",
+                "url" : "types.html?swift#p2"
+              },
+              {
+                "same_page" : false,
                 "title" : "PropertyWrapperClient",
                 "url" : "types\/propertywrapperclient.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "S1",
+                "url" : "types\/s1.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "S2",
+                "url" : "types\/s2.html?swift"
               },
               {
                 "same_page" : false,
@@ -1962,7 +2304,7 @@
               {
                 "same_page" : false,
                 "title" : "T",
-                "url" : "types.html?swift#t1"
+                "url" : "types.html?swift#t2"
               }
             ],
             "same_page" : false,
@@ -2002,13 +2344,28 @@
             "children" : [
               {
                 "same_page" : false,
+                "title" : "Array",
+                "url" : "extensions\/array.html?swift"
+              },
+              {
+                "same_page" : false,
                 "title" : "Collection",
                 "url" : "extensions\/collection.html?swift"
               },
               {
                 "same_page" : false,
+                "title" : "Dictionary",
+                "url" : "extensions.html?swift#dictionary"
+              },
+              {
+                "same_page" : false,
                 "title" : "String.Element",
                 "url" : "extensions\/stringelement.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "StringProtocol",
+                "url" : "extensions\/stringprotocol.html?swift"
               }
             ],
             "same_page" : false,
@@ -2286,7 +2643,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 50,
+    "doc_coverage" : 48,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -2360,8 +2717,28 @@
               },
               {
                 "same_page" : false,
+                "title" : "P1",
+                "url" : "types.html?swift#p1"
+              },
+              {
+                "same_page" : false,
+                "title" : "P2",
+                "url" : "types.html?swift#p2"
+              },
+              {
+                "same_page" : false,
                 "title" : "PropertyWrapperClient",
                 "url" : "types\/propertywrapperclient.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "S1",
+                "url" : "types\/s1.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "S2",
+                "url" : "types\/s2.html?swift"
               },
               {
                 "same_page" : false,
@@ -2400,7 +2777,7 @@
               {
                 "same_page" : false,
                 "title" : "T",
-                "url" : "types.html?swift#t1"
+                "url" : "types.html?swift#t2"
               }
             ],
             "same_page" : false,
@@ -2440,13 +2817,28 @@
             "children" : [
               {
                 "same_page" : false,
+                "title" : "Array",
+                "url" : "extensions\/array.html?swift"
+              },
+              {
+                "same_page" : false,
                 "title" : "Collection",
                 "url" : "extensions\/collection.html?swift"
               },
               {
                 "same_page" : false,
+                "title" : "Dictionary",
+                "url" : "extensions.html?swift#dictionary"
+              },
+              {
+                "same_page" : false,
                 "title" : "String.Element",
                 "url" : "extensions\/stringelement.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "StringProtocol",
+                "url" : "extensions\/stringprotocol.html?swift"
               }
             ],
             "same_page" : false,
@@ -2558,7 +2950,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 50,
+    "doc_coverage" : 48,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -2571,11 +2963,11 @@
     "pagination" : {
       "next" : {
         "primary_language" : "j2-swift",
-        "primary_title" : "SecondProtocol",
-        "primary_url" : "types\/secondprotocol.html?swift",
+        "primary_title" : "S1",
+        "primary_url" : "types\/s1.html?swift",
         "secondary_language" : "j2-objc",
-        "secondary_title" : "SecondProtocol",
-        "secondary_url" : "types\/secondprotocol.html?swift"
+        "secondary_title" : "S1",
+        "secondary_url" : "types\/s1.html?swift"
       },
       "prev" : {
         "primary_language" : "j2-swift",
@@ -2630,10 +3022,30 @@
                 "url" : "types\/nop.html?swift"
               },
               {
+                "same_page" : false,
+                "title" : "P1",
+                "url" : "types.html?swift#p1"
+              },
+              {
+                "same_page" : false,
+                "title" : "P2",
+                "url" : "types.html?swift#p2"
+              },
+              {
                 "full_url" : "types\/propertywrapperclient.html?swift",
                 "same_page" : true,
                 "title" : "PropertyWrapperClient",
                 "url" : ""
+              },
+              {
+                "same_page" : false,
+                "title" : "S1",
+                "url" : "types\/s1.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "S2",
+                "url" : "types\/s2.html?swift"
               },
               {
                 "same_page" : false,
@@ -2672,7 +3084,7 @@
               {
                 "same_page" : false,
                 "title" : "T",
-                "url" : "types.html?swift#t1"
+                "url" : "types.html?swift#t2"
               }
             ],
             "same_page" : false,
@@ -2712,13 +3124,28 @@
             "children" : [
               {
                 "same_page" : false,
+                "title" : "Array",
+                "url" : "extensions\/array.html?swift"
+              },
+              {
+                "same_page" : false,
                 "title" : "Collection",
                 "url" : "extensions\/collection.html?swift"
               },
               {
                 "same_page" : false,
+                "title" : "Dictionary",
+                "url" : "extensions.html?swift#dictionary"
+              },
+              {
+                "same_page" : false,
                 "title" : "String.Element",
                 "url" : "extensions\/stringelement.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "StringProtocol",
+                "url" : "extensions\/stringprotocol.html?swift"
               }
             ],
             "same_page" : false,
@@ -2782,6 +3209,622 @@
             "url" : "types.html?swift"
           },
           {
+            "title" : "S1"
+          }
+        ],
+        "language" : "j2-swift"
+      }
+    ],
+    "breadcrumbs_root" : "SpmSwiftModule",
+    "codehost_def_link" : "Show on GitHub",
+    "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
+    "copyright_md" : "&copy; 9999. All rights reserved. (Last updated: today).",
+    "def" : {
+      "abstract_html" : "<p>Undocumented<\/p>",
+      "abstract_md" : "Undocumented",
+      "discouraged" : false,
+      "swift_declaration_html" : "struct S1: <a href=\"..\/types.html?swift#p1\">P1<\/a>\n\nextension S1: CustomStringConvertible",
+      "swift_declaration_md" : "struct S1: P1\n\nextension S1: CustomStringConvertible"
+    },
+    "default_language" : "j2-swift",
+    "disable_search" : false,
+    "doc_coverage" : 48,
+    "docs_title" : "SpmSwiftModule docs",
+    "dual_language" : false,
+    "hide_article_title" : false,
+    "hide_attribution" : false,
+    "hide_availability" : false,
+    "item_collapse_never" : false,
+    "item_collapse_open" : false,
+    "item_nest" : true,
+    "language_tag" : "en",
+    "pagination" : {
+      "next" : {
+        "primary_language" : "j2-swift",
+        "primary_title" : "S2",
+        "primary_url" : "types\/s2.html?swift",
+        "secondary_language" : "j2-objc",
+        "secondary_title" : "S2",
+        "secondary_url" : "types\/s2.html?swift"
+      },
+      "prev" : {
+        "primary_language" : "j2-swift",
+        "primary_title" : "PropertyWrapperClient",
+        "primary_url" : "types\/propertywrapperclient.html?swift",
+        "secondary_language" : "j2-objc",
+        "secondary_title" : "PropertyWrapperClient",
+        "secondary_url" : "types\/propertywrapperclient.html?swift"
+      }
+    },
+    "path_from_root" : "types\/s1.html",
+    "path_to_assets" : "..\/",
+    "path_to_root" : "..\/",
+    "primary_page_title" : "S1",
+    "primary_title_language" : "j2-swift",
+    "tab_title_prefix" : true,
+    "tocs" : [
+      {
+        "language" : "j2-swift",
+        "screen_reader_name" : "Swift",
+        "toc" : [
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "ABaseClass",
+                "url" : "types\/abaseclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "ADerivedClass",
+                "url" : "types\/aderivedclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "AnEnum",
+                "url" : "types\/anenum.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "FirstProtocol",
+                "url" : "types\/firstprotocol1.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "GenericBase",
+                "url" : "types\/genericbase.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "Nop",
+                "url" : "types\/nop.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "P1",
+                "url" : "types.html?swift#p1"
+              },
+              {
+                "same_page" : false,
+                "title" : "P2",
+                "url" : "types.html?swift#p2"
+              },
+              {
+                "same_page" : false,
+                "title" : "PropertyWrapperClient",
+                "url" : "types\/propertywrapperclient.html?swift"
+              },
+              {
+                "full_url" : "types\/s1.html?swift",
+                "same_page" : true,
+                "title" : "S1",
+                "url" : ""
+              },
+              {
+                "same_page" : false,
+                "title" : "S2",
+                "url" : "types\/s2.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "SecondProtocol",
+                "url" : "types\/secondprotocol.html?swift"
+              },
+              {
+                "children" : [
+                  {
+                    "children" : [
+                      {
+                        "same_page" : false,
+                        "title" : "Nested2a",
+                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2a"
+                      },
+                      {
+                        "same_page" : false,
+                        "title" : "Nested2b",
+                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2b"
+                      }
+                    ],
+                    "same_page" : false,
+                    "title" : "Nested1",
+                    "url" : "types\/spmswiftmodule\/nested1.html?swift"
+                  },
+                  {
+                    "same_page" : false,
+                    "title" : "Nested2",
+                    "url" : "types\/spmswiftmodule.html?swift#nested2"
+                  }
+                ],
+                "same_page" : false,
+                "title" : "SpmSwiftModule",
+                "url" : "types\/spmswiftmodule.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "T",
+                "url" : "types.html?swift#t2"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Types",
+            "url" : "types.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "deprecatedFunction(callback:)",
+                "url" : "functions.html?swift#deprecatedfunctioncallback"
+              },
+              {
+                "same_page" : false,
+                "title" : "functionA(arg1:_:arg3:)",
+                "url" : "functions.html?swift#functionaarg1_arg3"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Functions",
+            "url" : "functions.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "+(T, T)",
+                "url" : "operators.html?swift#t-t"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Operators",
+            "url" : "operators.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "Array",
+                "url" : "extensions\/array.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "Collection",
+                "url" : "extensions\/collection.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "Dictionary",
+                "url" : "extensions.html?swift#dictionary"
+              },
+              {
+                "same_page" : false,
+                "title" : "String.Element",
+                "url" : "extensions\/stringelement.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "StringProtocol",
+                "url" : "extensions\/stringprotocol.html?swift"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Extensions",
+            "url" : "extensions.html?swift"
+          }
+        ]
+      }
+    ],
+    "topics" : [
+      {
+        "anchor_id" : "tpc-properties",
+        "dash_name" : "Properties",
+        "items" : [
+          {
+            "anchor_id" : "description1",
+            "any_declaration" : true,
+            "dash_name" : "var%20description%3A%20String",
+            "dash_type" : "Property",
+            "def" : {
+              "abstract_html" : "<p>A textual representation of this instance.<\/p>",
+              "abstract_md" : "A textual representation of this instance.",
+              "discouraged" : false,
+              "discussion_html" : "<p>Calling this property directly is discouraged. Instead, convert an instance of any type to a string by using the <code>String(describing:)<\/code> initializer. This initializer works with any type, and uses the custom <code>description<\/code> property for types that conform to <code>CustomStringConvertible<\/code>:<\/p>\n<pre><code class=\"language-swift\">struct Point: CustomStringConvertible {\n    let x: Int, y: Int\n\n    var description: String {\n        return &quot;(\\(x), \\(y))&quot;\n    }\n}\n\nlet p = Point(x: 21, y: 30)\nlet s = String(describing: p)\nprint(s)\n\/\/ Prints &quot;(21, 30)&quot;\n\n<\/code><\/pre>\n<p>The conversion of <code>p<\/code> to a string in the assignment to <code>s<\/code> uses the <code>Point<\/code> type’s <code>description<\/code> property.<\/p>",
+              "discussion_md" : "Calling this property directly is discouraged. Instead, convert an instance of any type to a string by using the `String(describing:)` initializer. This initializer works with any type, and uses the custom `description` property for types that conform to `CustomStringConvertible`:\n\n``` swift\nstruct Point: CustomStringConvertible {\n    let x: Int, y: Int\n\n    var description: String {\n        return \"(\\(x), \\(y))\"\n    }\n}\n\nlet p = Point(x: 21, y: 30)\nlet s = String(describing: p)\nprint(s)\n\/\/ Prints \"(21, 30)\"\n\n```\n\nThe conversion of `p` to a string in the assignment to `s` uses the `Point` type’s `description` property.",
+              "swift_declaration_html" : "var description: String { get }",
+              "swift_declaration_md" : "var description: String { get }"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">var <\/span>description<span class=\"j2-item-secondary\">: String<\/span>",
+            "title" : "var description: String"
+          }
+        ],
+        "primary_language" : "j2-swift",
+        "title_html" : "Properties",
+        "title_md" : "Properties"
+      }
+    ],
+    "topics_language" : "j2-swift",
+    "topics_menus" : [
+      {
+        "language" : "j2-swift",
+        "topics_menu" : [
+          {
+            "anchor_id" : "",
+            "title" : "Declaration"
+          },
+          {
+            "anchor_id" : "tpc-properties",
+            "title" : "Properties"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "beboplib_version" : "1.0",
+    "breadcrumbs_menus" : [
+      {
+        "breadcrumbs" : [
+          {
+            "title" : "Types",
+            "url" : "types.html?swift"
+          },
+          {
+            "title" : "S2"
+          }
+        ],
+        "language" : "j2-swift"
+      }
+    ],
+    "breadcrumbs_root" : "SpmSwiftModule",
+    "codehost_def_link" : "Show on GitHub",
+    "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
+    "copyright_md" : "&copy; 9999. All rights reserved. (Last updated: today).",
+    "def" : {
+      "abstract_html" : "<p>Undocumented<\/p>",
+      "abstract_md" : "Undocumented",
+      "discouraged" : false,
+      "swift_declaration_html" : "struct S2&lt;T&gt;: <a href=\"..\/types.html?swift#p1\">P1<\/a> where T: Equatable\n\nextension S2: Equatable where T: Equatable\n\nextension S2: <a href=\"..\/types.html?swift#p2\">P2<\/a> where T: Comparable",
+      "swift_declaration_md" : "struct S2<T>: P1 where T: Equatable\n\nextension S2: Equatable where T: Equatable\n\nextension S2: P2 where T: Comparable"
+    },
+    "default_language" : "j2-swift",
+    "disable_search" : false,
+    "doc_coverage" : 48,
+    "docs_title" : "SpmSwiftModule docs",
+    "dual_language" : false,
+    "hide_article_title" : false,
+    "hide_attribution" : false,
+    "hide_availability" : false,
+    "item_collapse_never" : false,
+    "item_collapse_open" : false,
+    "item_nest" : true,
+    "language_tag" : "en",
+    "pagination" : {
+      "next" : {
+        "primary_language" : "j2-swift",
+        "primary_title" : "SecondProtocol",
+        "primary_url" : "types\/secondprotocol.html?swift",
+        "secondary_language" : "j2-objc",
+        "secondary_title" : "SecondProtocol",
+        "secondary_url" : "types\/secondprotocol.html?swift"
+      },
+      "prev" : {
+        "primary_language" : "j2-swift",
+        "primary_title" : "S1",
+        "primary_url" : "types\/s1.html?swift",
+        "secondary_language" : "j2-objc",
+        "secondary_title" : "S1",
+        "secondary_url" : "types\/s1.html?swift"
+      }
+    },
+    "path_from_root" : "types\/s2.html",
+    "path_to_assets" : "..\/",
+    "path_to_root" : "..\/",
+    "primary_page_title" : "S2",
+    "primary_title_language" : "j2-swift",
+    "tab_title_prefix" : true,
+    "tocs" : [
+      {
+        "language" : "j2-swift",
+        "screen_reader_name" : "Swift",
+        "toc" : [
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "ABaseClass",
+                "url" : "types\/abaseclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "ADerivedClass",
+                "url" : "types\/aderivedclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "AnEnum",
+                "url" : "types\/anenum.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "FirstProtocol",
+                "url" : "types\/firstprotocol1.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "GenericBase",
+                "url" : "types\/genericbase.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "Nop",
+                "url" : "types\/nop.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "P1",
+                "url" : "types.html?swift#p1"
+              },
+              {
+                "same_page" : false,
+                "title" : "P2",
+                "url" : "types.html?swift#p2"
+              },
+              {
+                "same_page" : false,
+                "title" : "PropertyWrapperClient",
+                "url" : "types\/propertywrapperclient.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "S1",
+                "url" : "types\/s1.html?swift"
+              },
+              {
+                "full_url" : "types\/s2.html?swift",
+                "same_page" : true,
+                "title" : "S2",
+                "url" : ""
+              },
+              {
+                "same_page" : false,
+                "title" : "SecondProtocol",
+                "url" : "types\/secondprotocol.html?swift"
+              },
+              {
+                "children" : [
+                  {
+                    "children" : [
+                      {
+                        "same_page" : false,
+                        "title" : "Nested2a",
+                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2a"
+                      },
+                      {
+                        "same_page" : false,
+                        "title" : "Nested2b",
+                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2b"
+                      }
+                    ],
+                    "same_page" : false,
+                    "title" : "Nested1",
+                    "url" : "types\/spmswiftmodule\/nested1.html?swift"
+                  },
+                  {
+                    "same_page" : false,
+                    "title" : "Nested2",
+                    "url" : "types\/spmswiftmodule.html?swift#nested2"
+                  }
+                ],
+                "same_page" : false,
+                "title" : "SpmSwiftModule",
+                "url" : "types\/spmswiftmodule.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "T",
+                "url" : "types.html?swift#t2"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Types",
+            "url" : "types.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "deprecatedFunction(callback:)",
+                "url" : "functions.html?swift#deprecatedfunctioncallback"
+              },
+              {
+                "same_page" : false,
+                "title" : "functionA(arg1:_:arg3:)",
+                "url" : "functions.html?swift#functionaarg1_arg3"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Functions",
+            "url" : "functions.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "+(T, T)",
+                "url" : "operators.html?swift#t-t"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Operators",
+            "url" : "operators.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "Array",
+                "url" : "extensions\/array.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "Collection",
+                "url" : "extensions\/collection.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "Dictionary",
+                "url" : "extensions.html?swift#dictionary"
+              },
+              {
+                "same_page" : false,
+                "title" : "String.Element",
+                "url" : "extensions\/stringelement.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "StringProtocol",
+                "url" : "extensions\/stringprotocol.html?swift"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Extensions",
+            "url" : "extensions.html?swift"
+          }
+        ]
+      }
+    ],
+    "topics" : [
+      {
+        "anchor_id" : "tpc-methods",
+        "dash_name" : "Methods",
+        "items" : [
+          {
+            "anchor_id" : "equatables2",
+            "any_declaration" : true,
+            "dash_name" : "func%20equatables2()",
+            "dash_type" : "Method",
+            "def" : {
+              "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
+              "discouraged" : false,
+              "swift_declaration_html" : "func equatables2()",
+              "swift_declaration_md" : "func equatables2()"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>equatables2<span class=\"j2-item-secondary\">()<\/span>",
+            "title" : "func equatables2()"
+          }
+        ],
+        "primary_language" : "j2-swift",
+        "title_html" : "Methods",
+        "title_md" : "Methods"
+      },
+      {
+        "anchor_id" : "tpc-available-where-t-comparable",
+        "dash_name" : "%E2%80%A6where%20T%3A%20Comparable",
+        "items" : [
+          {
+            "anchor_id" : "comparables2",
+            "any_declaration" : true,
+            "dash_name" : "func%20comparables2()",
+            "dash_type" : "Method",
+            "def" : {
+              "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
+              "discouraged" : false,
+              "swift_declaration_html" : "func comparables2()",
+              "swift_declaration_md" : "func comparables2()"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>comparables2<span class=\"j2-item-secondary\">()<\/span>",
+            "title" : "func comparables2()"
+          }
+        ],
+        "primary_language" : "j2-swift",
+        "title_html" : "Available where <code>T<\/code>: <code>Comparable<\/code>",
+        "title_md" : "Available where `T`: `Comparable`"
+      },
+      {
+        "anchor_id" : "tpc-available-where-t-equatable",
+        "dash_name" : "%E2%80%A6where%20T%3A%20Equatable",
+        "items" : [
+          {
+            "anchor_id" : "equatables22",
+            "any_declaration" : true,
+            "dash_name" : "func%20equatables22()",
+            "dash_type" : "Method",
+            "def" : {
+              "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
+              "discouraged" : false,
+              "swift_declaration_html" : "func equatables22()",
+              "swift_declaration_md" : "func equatables22()"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>equatables22<span class=\"j2-item-secondary\">()<\/span>",
+            "title" : "func equatables22()"
+          }
+        ],
+        "primary_language" : "j2-swift",
+        "title_html" : "Available where <code>T<\/code>: <code>Equatable<\/code>",
+        "title_md" : "Available where `T`: `Equatable`"
+      }
+    ],
+    "topics_language" : "j2-swift",
+    "topics_menus" : [
+      {
+        "language" : "j2-swift",
+        "topics_menu" : [
+          {
+            "anchor_id" : "",
+            "title" : "Declaration"
+          },
+          {
+            "anchor_id" : "tpc-methods",
+            "title" : "Methods"
+          },
+          {
+            "anchor_id" : "tpc-available-where-t-comparable",
+            "title" : "…where T: Comparable"
+          },
+          {
+            "anchor_id" : "tpc-available-where-t-equatable",
+            "title" : "…where T: Equatable"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "beboplib_version" : "1.0",
+    "breadcrumbs_menus" : [
+      {
+        "breadcrumbs" : [
+          {
+            "title" : "Types",
+            "url" : "types.html?swift"
+          },
+          {
             "title" : "SecondProtocol"
           }
         ],
@@ -2801,7 +3844,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 50,
+    "doc_coverage" : 48,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -2822,11 +3865,11 @@
       },
       "prev" : {
         "primary_language" : "j2-swift",
-        "primary_title" : "PropertyWrapperClient",
-        "primary_url" : "types\/propertywrapperclient.html?swift",
+        "primary_title" : "S2",
+        "primary_url" : "types\/s2.html?swift",
         "secondary_language" : "j2-objc",
-        "secondary_title" : "PropertyWrapperClient",
-        "secondary_url" : "types\/propertywrapperclient.html?swift"
+        "secondary_title" : "S2",
+        "secondary_url" : "types\/s2.html?swift"
       }
     },
     "path_from_root" : "types\/secondprotocol.html",
@@ -2874,8 +3917,28 @@
               },
               {
                 "same_page" : false,
+                "title" : "P1",
+                "url" : "types.html?swift#p1"
+              },
+              {
+                "same_page" : false,
+                "title" : "P2",
+                "url" : "types.html?swift#p2"
+              },
+              {
+                "same_page" : false,
                 "title" : "PropertyWrapperClient",
                 "url" : "types\/propertywrapperclient.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "S1",
+                "url" : "types\/s1.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "S2",
+                "url" : "types\/s2.html?swift"
               },
               {
                 "full_url" : "types\/secondprotocol.html?swift",
@@ -2915,7 +3978,7 @@
               {
                 "same_page" : false,
                 "title" : "T",
-                "url" : "types.html?swift#t1"
+                "url" : "types.html?swift#t2"
               }
             ],
             "same_page" : false,
@@ -2955,13 +4018,28 @@
             "children" : [
               {
                 "same_page" : false,
+                "title" : "Array",
+                "url" : "extensions\/array.html?swift"
+              },
+              {
+                "same_page" : false,
                 "title" : "Collection",
                 "url" : "extensions\/collection.html?swift"
               },
               {
                 "same_page" : false,
+                "title" : "Dictionary",
+                "url" : "extensions.html?swift#dictionary"
+              },
+              {
+                "same_page" : false,
                 "title" : "String.Element",
                 "url" : "extensions\/stringelement.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "StringProtocol",
+                "url" : "extensions\/stringprotocol.html?swift"
               }
             ],
             "same_page" : false,
@@ -3075,7 +4153,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 50,
+    "doc_coverage" : 48,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -3148,8 +4226,28 @@
               },
               {
                 "same_page" : false,
+                "title" : "P1",
+                "url" : "types.html?swift#p1"
+              },
+              {
+                "same_page" : false,
+                "title" : "P2",
+                "url" : "types.html?swift#p2"
+              },
+              {
+                "same_page" : false,
                 "title" : "PropertyWrapperClient",
                 "url" : "types\/propertywrapperclient.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "S1",
+                "url" : "types\/s1.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "S2",
+                "url" : "types\/s2.html?swift"
               },
               {
                 "same_page" : false,
@@ -3190,7 +4288,7 @@
               {
                 "same_page" : false,
                 "title" : "T",
-                "url" : "types.html?swift#t1"
+                "url" : "types.html?swift#t2"
               }
             ],
             "same_page" : false,
@@ -3230,13 +4328,28 @@
             "children" : [
               {
                 "same_page" : false,
+                "title" : "Array",
+                "url" : "extensions\/array.html?swift"
+              },
+              {
+                "same_page" : false,
                 "title" : "Collection",
                 "url" : "extensions\/collection.html?swift"
               },
               {
                 "same_page" : false,
+                "title" : "Dictionary",
+                "url" : "extensions.html?swift#dictionary"
+              },
+              {
+                "same_page" : false,
                 "title" : "String.Element",
                 "url" : "extensions\/stringelement.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "StringProtocol",
+                "url" : "extensions\/stringprotocol.html?swift"
               }
             ],
             "same_page" : false,
@@ -3443,7 +4556,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 50,
+    "doc_coverage" : 48,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -3516,8 +4629,28 @@
               },
               {
                 "same_page" : false,
+                "title" : "P1",
+                "url" : "types.html?swift#p1"
+              },
+              {
+                "same_page" : false,
+                "title" : "P2",
+                "url" : "types.html?swift#p2"
+              },
+              {
+                "same_page" : false,
                 "title" : "PropertyWrapperClient",
                 "url" : "types\/propertywrapperclient.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "S1",
+                "url" : "types\/s1.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "S2",
+                "url" : "types\/s2.html?swift"
               },
               {
                 "same_page" : false,
@@ -3559,7 +4692,7 @@
               {
                 "same_page" : false,
                 "title" : "T",
-                "url" : "types.html?swift#t1"
+                "url" : "types.html?swift#t2"
               }
             ],
             "same_page" : false,
@@ -3599,13 +4732,28 @@
             "children" : [
               {
                 "same_page" : false,
+                "title" : "Array",
+                "url" : "extensions\/array.html?swift"
+              },
+              {
+                "same_page" : false,
                 "title" : "Collection",
                 "url" : "extensions\/collection.html?swift"
               },
               {
                 "same_page" : false,
+                "title" : "Dictionary",
+                "url" : "extensions.html?swift#dictionary"
+              },
+              {
+                "same_page" : false,
                 "title" : "String.Element",
                 "url" : "extensions\/stringelement.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "StringProtocol",
+                "url" : "extensions\/stringprotocol.html?swift"
               }
             ],
             "same_page" : false,
@@ -3695,7 +4843,7 @@
     "copyright_md" : "&copy; 9999. All rights reserved. (Last updated: today).",
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 50,
+    "doc_coverage" : 48,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -3768,8 +4916,28 @@
               },
               {
                 "same_page" : false,
+                "title" : "P1",
+                "url" : "types.html?swift#p1"
+              },
+              {
+                "same_page" : false,
+                "title" : "P2",
+                "url" : "types.html?swift#p2"
+              },
+              {
+                "same_page" : false,
                 "title" : "PropertyWrapperClient",
                 "url" : "types\/propertywrapperclient.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "S1",
+                "url" : "types\/s1.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "S2",
+                "url" : "types\/s2.html?swift"
               },
               {
                 "same_page" : false,
@@ -3808,7 +4976,7 @@
               {
                 "same_page" : false,
                 "title" : "T",
-                "url" : "types.html?swift#t1"
+                "url" : "types.html?swift#t2"
               }
             ],
             "same_page" : false,
@@ -3851,13 +5019,28 @@
             "children" : [
               {
                 "same_page" : false,
+                "title" : "Array",
+                "url" : "extensions\/array.html?swift"
+              },
+              {
+                "same_page" : false,
                 "title" : "Collection",
                 "url" : "extensions\/collection.html?swift"
               },
               {
                 "same_page" : false,
+                "title" : "Dictionary",
+                "url" : "extensions.html?swift#dictionary"
+              },
+              {
+                "same_page" : false,
                 "title" : "String.Element",
                 "url" : "extensions\/stringelement.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "StringProtocol",
+                "url" : "extensions\/stringprotocol.html?swift"
               }
             ],
             "same_page" : false,
@@ -3963,7 +5146,7 @@
     "copyright_md" : "&copy; 9999. All rights reserved. (Last updated: today).",
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 50,
+    "doc_coverage" : 48,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -4036,8 +5219,28 @@
               },
               {
                 "same_page" : false,
+                "title" : "P1",
+                "url" : "types.html?swift#p1"
+              },
+              {
+                "same_page" : false,
+                "title" : "P2",
+                "url" : "types.html?swift#p2"
+              },
+              {
+                "same_page" : false,
                 "title" : "PropertyWrapperClient",
                 "url" : "types\/propertywrapperclient.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "S1",
+                "url" : "types\/s1.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "S2",
+                "url" : "types\/s2.html?swift"
               },
               {
                 "same_page" : false,
@@ -4076,7 +5279,7 @@
               {
                 "same_page" : false,
                 "title" : "T",
-                "url" : "types.html?swift#t1"
+                "url" : "types.html?swift#t2"
               }
             ],
             "same_page" : false,
@@ -4118,13 +5321,28 @@
             "children" : [
               {
                 "same_page" : false,
+                "title" : "Array",
+                "url" : "extensions\/array.html?swift"
+              },
+              {
+                "same_page" : false,
                 "title" : "Collection",
                 "url" : "extensions\/collection.html?swift"
               },
               {
                 "same_page" : false,
+                "title" : "Dictionary",
+                "url" : "extensions.html?swift#dictionary"
+              },
+              {
+                "same_page" : false,
                 "title" : "String.Element",
                 "url" : "extensions\/stringelement.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "StringProtocol",
+                "url" : "extensions\/stringprotocol.html?swift"
               }
             ],
             "same_page" : false,
@@ -4148,7 +5366,7 @@
               "abstract_html" : "<p>Unscoped operator<\/p>",
               "abstract_md" : "Unscoped operator",
               "discouraged" : false,
-              "swift_declaration_html" : "func + (lhs: <a href=\"types.html?swift#t1\">T<\/a>, rhs: <a href=\"types.html?swift#t1\">T<\/a>) -&gt; String",
+              "swift_declaration_html" : "func + (lhs: <a href=\"types.html?swift#t2\">T<\/a>, rhs: <a href=\"types.html?swift#t2\">T<\/a>) -&gt; String",
               "swift_declaration_md" : "func + (lhs: T, rhs: T) -> String"
             },
             "primary_language" : "j2-swift",
@@ -4180,7 +5398,7 @@
     "copyright_md" : "&copy; 9999. All rights reserved. (Last updated: today).",
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 50,
+    "doc_coverage" : 48,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -4193,11 +5411,11 @@
     "pagination" : {
       "next" : {
         "primary_language" : "j2-swift",
-        "primary_title" : "Collection",
-        "primary_url" : "extensions\/collection.html?swift",
+        "primary_title" : "Array",
+        "primary_url" : "extensions\/array.html?swift",
         "secondary_language" : "j2-objc",
-        "secondary_title" : "Collection",
-        "secondary_url" : "extensions\/collection.html?swift"
+        "secondary_title" : "Array",
+        "secondary_url" : "extensions\/array.html?swift"
       },
       "prev" : {
         "primary_language" : "j2-swift",
@@ -4255,8 +5473,28 @@
               },
               {
                 "same_page" : false,
+                "title" : "P1",
+                "url" : "types.html?swift#p1"
+              },
+              {
+                "same_page" : false,
+                "title" : "P2",
+                "url" : "types.html?swift#p2"
+              },
+              {
+                "same_page" : false,
                 "title" : "PropertyWrapperClient",
                 "url" : "types\/propertywrapperclient.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "S1",
+                "url" : "types\/s1.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "S2",
+                "url" : "types\/s2.html?swift"
               },
               {
                 "same_page" : false,
@@ -4295,7 +5533,7 @@
               {
                 "same_page" : false,
                 "title" : "T",
-                "url" : "types.html?swift#t1"
+                "url" : "types.html?swift#t2"
               }
             ],
             "same_page" : false,
@@ -4335,13 +5573,29 @@
             "children" : [
               {
                 "same_page" : false,
+                "title" : "Array",
+                "url" : "extensions\/array.html?swift"
+              },
+              {
+                "same_page" : false,
                 "title" : "Collection",
                 "url" : "extensions\/collection.html?swift"
+              },
+              {
+                "full_url" : "extensions.html?swift#dictionary",
+                "same_page" : true,
+                "title" : "Dictionary",
+                "url" : "#dictionary"
               },
               {
                 "same_page" : false,
                 "title" : "String.Element",
                 "url" : "extensions\/stringelement.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "StringProtocol",
+                "url" : "extensions\/stringprotocol.html?swift"
               }
             ],
             "full_url" : "extensions.html?swift",
@@ -4357,6 +5611,23 @@
         "anchor_id" : "tpc-",
         "dash_name" : "",
         "items" : [
+          {
+            "anchor_id" : "array",
+            "any_declaration" : true,
+            "dash_name" : "extension%20Array",
+            "dash_type" : "Extension",
+            "def" : {
+              "abstract_html" : "<p>An ordered, random-access collection.<\/p>",
+              "abstract_md" : "An ordered, random-access collection.",
+              "discouraged" : false,
+              "swift_declaration_html" : "extension Array: <a href=\"types.html?swift#p1\">P1<\/a> where Element: Comparable",
+              "swift_declaration_md" : "extension Array: P1 where Element: Comparable"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">extension <\/span>Array",
+            "primary_url" : "extensions\/array.html?swift",
+            "title" : "extension Array"
+          },
           {
             "anchor_id" : "collection",
             "any_declaration" : true,
@@ -4375,6 +5646,22 @@
             "title" : "extension Collection"
           },
           {
+            "anchor_id" : "dictionary",
+            "any_declaration" : true,
+            "dash_name" : "extension%20Dictionary",
+            "dash_type" : "Extension",
+            "def" : {
+              "abstract_html" : "<p>A collection whose elements are key-value pairs.<\/p>",
+              "abstract_md" : "A collection whose elements are key-value pairs.",
+              "discouraged" : false,
+              "swift_declaration_html" : "extension Dictionary: <a href=\"types.html?swift#p2\">P2<\/a>",
+              "swift_declaration_md" : "extension Dictionary: P2"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">extension <\/span>Dictionary",
+            "title" : "extension Dictionary"
+          },
+          {
             "anchor_id" : "stringelement",
             "any_declaration" : true,
             "dash_name" : "extension%20String.Element",
@@ -4390,6 +5677,23 @@
             "primary_title_html" : "<span class=\"j2-item-secondary\">extension <\/span>String.Element",
             "primary_url" : "extensions\/stringelement.html?swift",
             "title" : "extension String.Element"
+          },
+          {
+            "anchor_id" : "stringprotocol",
+            "any_declaration" : true,
+            "dash_name" : "extension%20StringProtocol",
+            "dash_type" : "Extension",
+            "def" : {
+              "abstract_html" : "<p>A type that can represent a string as a collection of characters.<\/p>",
+              "abstract_md" : "A type that can represent a string as a collection of characters.",
+              "discouraged" : false,
+              "swift_declaration_html" : "extension StringProtocol",
+              "swift_declaration_md" : "extension StringProtocol"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">extension <\/span>StringProtocol",
+            "primary_url" : "extensions\/stringprotocol.html?swift",
+            "title" : "extension StringProtocol"
           }
         ],
         "primary_language" : "j2-swift"
@@ -4397,6 +5701,284 @@
     ],
     "topics_language" : "j2-swift",
     "topics_menus" : []
+  },
+  {
+    "beboplib_version" : "1.0",
+    "breadcrumbs_menus" : [
+      {
+        "breadcrumbs" : [
+          {
+            "title" : "Extensions",
+            "url" : "extensions.html?swift"
+          },
+          {
+            "title" : "Swift.Array"
+          }
+        ],
+        "language" : "j2-swift"
+      }
+    ],
+    "breadcrumbs_root" : "SpmSwiftModule",
+    "codehost_def_link" : "Show on GitHub",
+    "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
+    "copyright_md" : "&copy; 9999. All rights reserved. (Last updated: today).",
+    "def" : {
+      "abstract_html" : "<p>An ordered, random-access collection.<\/p>",
+      "abstract_md" : "An ordered, random-access collection.",
+      "discouraged" : false,
+      "swift_declaration_html" : "extension Array: <a href=\"..\/types.html?swift#p1\">P1<\/a> where Element: Comparable",
+      "swift_declaration_md" : "extension Array: P1 where Element: Comparable"
+    },
+    "default_language" : "j2-swift",
+    "disable_search" : false,
+    "doc_coverage" : 48,
+    "docs_title" : "SpmSwiftModule docs",
+    "dual_language" : false,
+    "hide_article_title" : false,
+    "hide_attribution" : false,
+    "hide_availability" : false,
+    "item_collapse_never" : false,
+    "item_collapse_open" : false,
+    "item_nest" : true,
+    "language_tag" : "en",
+    "pagination" : {
+      "next" : {
+        "primary_language" : "j2-swift",
+        "primary_title" : "Collection",
+        "primary_url" : "extensions\/collection.html?swift",
+        "secondary_language" : "j2-objc",
+        "secondary_title" : "Collection",
+        "secondary_url" : "extensions\/collection.html?swift"
+      },
+      "prev" : {
+        "primary_language" : "j2-swift",
+        "primary_title" : "Extensions",
+        "primary_url" : "extensions.html?swift",
+        "secondary_language" : "j2-objc",
+        "secondary_title" : "Extensions",
+        "secondary_url" : "extensions.html?swift"
+      }
+    },
+    "path_from_root" : "extensions\/array.html",
+    "path_to_assets" : "..\/",
+    "path_to_root" : "..\/",
+    "primary_page_title" : "Array",
+    "primary_title_language" : "j2-swift",
+    "tab_title_prefix" : true,
+    "tocs" : [
+      {
+        "language" : "j2-swift",
+        "screen_reader_name" : "Swift",
+        "toc" : [
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "ABaseClass",
+                "url" : "types\/abaseclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "ADerivedClass",
+                "url" : "types\/aderivedclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "AnEnum",
+                "url" : "types\/anenum.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "FirstProtocol",
+                "url" : "types\/firstprotocol1.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "GenericBase",
+                "url" : "types\/genericbase.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "Nop",
+                "url" : "types\/nop.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "P1",
+                "url" : "types.html?swift#p1"
+              },
+              {
+                "same_page" : false,
+                "title" : "P2",
+                "url" : "types.html?swift#p2"
+              },
+              {
+                "same_page" : false,
+                "title" : "PropertyWrapperClient",
+                "url" : "types\/propertywrapperclient.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "S1",
+                "url" : "types\/s1.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "S2",
+                "url" : "types\/s2.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "SecondProtocol",
+                "url" : "types\/secondprotocol.html?swift"
+              },
+              {
+                "children" : [
+                  {
+                    "children" : [
+                      {
+                        "same_page" : false,
+                        "title" : "Nested2a",
+                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2a"
+                      },
+                      {
+                        "same_page" : false,
+                        "title" : "Nested2b",
+                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2b"
+                      }
+                    ],
+                    "same_page" : false,
+                    "title" : "Nested1",
+                    "url" : "types\/spmswiftmodule\/nested1.html?swift"
+                  },
+                  {
+                    "same_page" : false,
+                    "title" : "Nested2",
+                    "url" : "types\/spmswiftmodule.html?swift#nested2"
+                  }
+                ],
+                "same_page" : false,
+                "title" : "SpmSwiftModule",
+                "url" : "types\/spmswiftmodule.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "T",
+                "url" : "types.html?swift#t2"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Types",
+            "url" : "types.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "deprecatedFunction(callback:)",
+                "url" : "functions.html?swift#deprecatedfunctioncallback"
+              },
+              {
+                "same_page" : false,
+                "title" : "functionA(arg1:_:arg3:)",
+                "url" : "functions.html?swift#functionaarg1_arg3"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Functions",
+            "url" : "functions.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "+(T, T)",
+                "url" : "operators.html?swift#t-t"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Operators",
+            "url" : "operators.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "full_url" : "extensions\/array.html?swift",
+                "same_page" : true,
+                "title" : "Array",
+                "url" : ""
+              },
+              {
+                "same_page" : false,
+                "title" : "Collection",
+                "url" : "extensions\/collection.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "Dictionary",
+                "url" : "extensions.html?swift#dictionary"
+              },
+              {
+                "same_page" : false,
+                "title" : "String.Element",
+                "url" : "extensions\/stringelement.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "StringProtocol",
+                "url" : "extensions\/stringprotocol.html?swift"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Extensions",
+            "url" : "extensions.html?swift"
+          }
+        ]
+      }
+    ],
+    "topics" : [
+      {
+        "anchor_id" : "tpc-methods",
+        "dash_name" : "Methods",
+        "items" : [
+          {
+            "anchor_id" : "arrayfunc",
+            "any_declaration" : true,
+            "dash_name" : "func%20arrayFunc()",
+            "dash_type" : "Method",
+            "def" : {
+              "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
+              "discouraged" : false,
+              "swift_declaration_html" : "func arrayFunc()",
+              "swift_declaration_md" : "func arrayFunc()"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>arrayFunc<span class=\"j2-item-secondary\">()<\/span>",
+            "title" : "func arrayFunc()"
+          }
+        ],
+        "primary_language" : "j2-swift",
+        "title_html" : "Methods",
+        "title_md" : "Methods"
+      }
+    ],
+    "topics_language" : "j2-swift",
+    "topics_menus" : [
+      {
+        "language" : "j2-swift",
+        "topics_menu" : [
+          {
+            "anchor_id" : "",
+            "title" : "Declaration"
+          },
+          {
+            "anchor_id" : "tpc-methods",
+            "title" : "Methods"
+          }
+        ]
+      }
+    ]
   },
   {
     "beboplib_version" : "1.0",
@@ -4427,7 +6009,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 50,
+    "doc_coverage" : 48,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -4448,11 +6030,11 @@
       },
       "prev" : {
         "primary_language" : "j2-swift",
-        "primary_title" : "Extensions",
-        "primary_url" : "extensions.html?swift",
+        "primary_title" : "Array",
+        "primary_url" : "extensions\/array.html?swift",
         "secondary_language" : "j2-objc",
-        "secondary_title" : "Extensions",
-        "secondary_url" : "extensions.html?swift"
+        "secondary_title" : "Array",
+        "secondary_url" : "extensions\/array.html?swift"
       }
     },
     "path_from_root" : "extensions\/collection.html",
@@ -4500,8 +6082,28 @@
               },
               {
                 "same_page" : false,
+                "title" : "P1",
+                "url" : "types.html?swift#p1"
+              },
+              {
+                "same_page" : false,
+                "title" : "P2",
+                "url" : "types.html?swift#p2"
+              },
+              {
+                "same_page" : false,
                 "title" : "PropertyWrapperClient",
                 "url" : "types\/propertywrapperclient.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "S1",
+                "url" : "types\/s1.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "S2",
+                "url" : "types\/s2.html?swift"
               },
               {
                 "same_page" : false,
@@ -4540,7 +6142,7 @@
               {
                 "same_page" : false,
                 "title" : "T",
-                "url" : "types.html?swift#t1"
+                "url" : "types.html?swift#t2"
               }
             ],
             "same_page" : false,
@@ -4579,6 +6181,11 @@
           {
             "children" : [
               {
+                "same_page" : false,
+                "title" : "Array",
+                "url" : "extensions\/array.html?swift"
+              },
+              {
                 "full_url" : "extensions\/collection.html?swift",
                 "same_page" : true,
                 "title" : "Collection",
@@ -4586,8 +6193,18 @@
               },
               {
                 "same_page" : false,
+                "title" : "Dictionary",
+                "url" : "extensions.html?swift#dictionary"
+              },
+              {
+                "same_page" : false,
                 "title" : "String.Element",
                 "url" : "extensions\/stringelement.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "StringProtocol",
+                "url" : "extensions\/stringprotocol.html?swift"
               }
             ],
             "same_page" : false,
@@ -4699,7 +6316,7 @@
     },
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 50,
+    "doc_coverage" : 48,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : false,
@@ -4710,6 +6327,14 @@
     "item_nest" : true,
     "language_tag" : "en",
     "pagination" : {
+      "next" : {
+        "primary_language" : "j2-swift",
+        "primary_title" : "StringProtocol",
+        "primary_url" : "extensions\/stringprotocol.html?swift",
+        "secondary_language" : "j2-objc",
+        "secondary_title" : "StringProtocol",
+        "secondary_url" : "extensions\/stringprotocol.html?swift"
+      },
       "prev" : {
         "primary_language" : "j2-swift",
         "primary_title" : "Collection",
@@ -4764,8 +6389,28 @@
               },
               {
                 "same_page" : false,
+                "title" : "P1",
+                "url" : "types.html?swift#p1"
+              },
+              {
+                "same_page" : false,
+                "title" : "P2",
+                "url" : "types.html?swift#p2"
+              },
+              {
+                "same_page" : false,
                 "title" : "PropertyWrapperClient",
                 "url" : "types\/propertywrapperclient.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "S1",
+                "url" : "types\/s1.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "S2",
+                "url" : "types\/s2.html?swift"
               },
               {
                 "same_page" : false,
@@ -4804,7 +6449,7 @@
               {
                 "same_page" : false,
                 "title" : "T",
-                "url" : "types.html?swift#t1"
+                "url" : "types.html?swift#t2"
               }
             ],
             "same_page" : false,
@@ -4844,14 +6489,29 @@
             "children" : [
               {
                 "same_page" : false,
+                "title" : "Array",
+                "url" : "extensions\/array.html?swift"
+              },
+              {
+                "same_page" : false,
                 "title" : "Collection",
                 "url" : "extensions\/collection.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "Dictionary",
+                "url" : "extensions.html?swift#dictionary"
               },
               {
                 "full_url" : "extensions\/stringelement.html?swift",
                 "same_page" : true,
                 "title" : "String.Element",
                 "url" : ""
+              },
+              {
+                "same_page" : false,
+                "title" : "StringProtocol",
+                "url" : "extensions\/stringprotocol.html?swift"
               }
             ],
             "same_page" : false,
@@ -4923,6 +6583,292 @@
   },
   {
     "beboplib_version" : "1.0",
+    "breadcrumbs_menus" : [
+      {
+        "breadcrumbs" : [
+          {
+            "title" : "Extensions",
+            "url" : "extensions.html?swift"
+          },
+          {
+            "title" : "Swift.StringProtocol"
+          }
+        ],
+        "language" : "j2-swift"
+      }
+    ],
+    "breadcrumbs_root" : "SpmSwiftModule",
+    "codehost_def_link" : "Show on GitHub",
+    "copyright_html" : "<p>© 9999. All rights reserved. (Last updated: today).<\/p>",
+    "copyright_md" : "&copy; 9999. All rights reserved. (Last updated: today).",
+    "def" : {
+      "abstract_html" : "<p>A type that can represent a string as a collection of characters.<\/p>",
+      "abstract_md" : "A type that can represent a string as a collection of characters.",
+      "discouraged" : false,
+      "swift_declaration_html" : "extension StringProtocol",
+      "swift_declaration_md" : "extension StringProtocol"
+    },
+    "default_language" : "j2-swift",
+    "disable_search" : false,
+    "doc_coverage" : 48,
+    "docs_title" : "SpmSwiftModule docs",
+    "dual_language" : false,
+    "hide_article_title" : false,
+    "hide_attribution" : false,
+    "hide_availability" : false,
+    "item_collapse_never" : false,
+    "item_collapse_open" : false,
+    "item_nest" : true,
+    "language_tag" : "en",
+    "pagination" : {
+      "prev" : {
+        "primary_language" : "j2-swift",
+        "primary_title" : "String.Element",
+        "primary_url" : "extensions\/stringelement.html?swift",
+        "secondary_language" : "j2-objc",
+        "secondary_title" : "String.Element",
+        "secondary_url" : "extensions\/stringelement.html?swift"
+      }
+    },
+    "path_from_root" : "extensions\/stringprotocol.html",
+    "path_to_assets" : "..\/",
+    "path_to_root" : "..\/",
+    "primary_page_title" : "StringProtocol",
+    "primary_title_language" : "j2-swift",
+    "tab_title_prefix" : true,
+    "tocs" : [
+      {
+        "language" : "j2-swift",
+        "screen_reader_name" : "Swift",
+        "toc" : [
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "ABaseClass",
+                "url" : "types\/abaseclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "ADerivedClass",
+                "url" : "types\/aderivedclass.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "AnEnum",
+                "url" : "types\/anenum.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "FirstProtocol",
+                "url" : "types\/firstprotocol1.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "GenericBase",
+                "url" : "types\/genericbase.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "Nop",
+                "url" : "types\/nop.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "P1",
+                "url" : "types.html?swift#p1"
+              },
+              {
+                "same_page" : false,
+                "title" : "P2",
+                "url" : "types.html?swift#p2"
+              },
+              {
+                "same_page" : false,
+                "title" : "PropertyWrapperClient",
+                "url" : "types\/propertywrapperclient.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "S1",
+                "url" : "types\/s1.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "S2",
+                "url" : "types\/s2.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "SecondProtocol",
+                "url" : "types\/secondprotocol.html?swift"
+              },
+              {
+                "children" : [
+                  {
+                    "children" : [
+                      {
+                        "same_page" : false,
+                        "title" : "Nested2a",
+                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2a"
+                      },
+                      {
+                        "same_page" : false,
+                        "title" : "Nested2b",
+                        "url" : "types\/spmswiftmodule\/nested1.html?swift#nested2b"
+                      }
+                    ],
+                    "same_page" : false,
+                    "title" : "Nested1",
+                    "url" : "types\/spmswiftmodule\/nested1.html?swift"
+                  },
+                  {
+                    "same_page" : false,
+                    "title" : "Nested2",
+                    "url" : "types\/spmswiftmodule.html?swift#nested2"
+                  }
+                ],
+                "same_page" : false,
+                "title" : "SpmSwiftModule",
+                "url" : "types\/spmswiftmodule.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "T",
+                "url" : "types.html?swift#t2"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Types",
+            "url" : "types.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "deprecatedFunction(callback:)",
+                "url" : "functions.html?swift#deprecatedfunctioncallback"
+              },
+              {
+                "same_page" : false,
+                "title" : "functionA(arg1:_:arg3:)",
+                "url" : "functions.html?swift#functionaarg1_arg3"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Functions",
+            "url" : "functions.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "+(T, T)",
+                "url" : "operators.html?swift#t-t"
+              }
+            ],
+            "same_page" : false,
+            "title" : "Operators",
+            "url" : "operators.html?swift"
+          },
+          {
+            "children" : [
+              {
+                "same_page" : false,
+                "title" : "Array",
+                "url" : "extensions\/array.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "Collection",
+                "url" : "extensions\/collection.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "Dictionary",
+                "url" : "extensions.html?swift#dictionary"
+              },
+              {
+                "same_page" : false,
+                "title" : "String.Element",
+                "url" : "extensions\/stringelement.html?swift"
+              },
+              {
+                "full_url" : "extensions\/stringprotocol.html?swift",
+                "same_page" : true,
+                "title" : "StringProtocol",
+                "url" : ""
+              }
+            ],
+            "same_page" : false,
+            "title" : "Extensions",
+            "url" : "extensions.html?swift"
+          }
+        ]
+      }
+    ],
+    "topics" : [
+      {
+        "anchor_id" : "tpc-methods",
+        "dash_name" : "Methods",
+        "items" : [
+          {
+            "anchor_id" : "f",
+            "any_declaration" : true,
+            "dash_name" : "func%20f()",
+            "dash_type" : "Method",
+            "def" : {
+              "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
+              "discouraged" : false,
+              "swift_declaration_html" : "func f()",
+              "swift_declaration_md" : "func f()"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>f<span class=\"j2-item-secondary\">()<\/span>",
+            "title" : "func f()"
+          },
+          {
+            "anchor_id" : "hassuffix_",
+            "any_declaration" : true,
+            "dash_name" : "func%20hasSuffix(String)%20-%3E%20Bool",
+            "dash_type" : "Method",
+            "def" : {
+              "abstract_html" : "<p>Undocumented<\/p>",
+              "abstract_md" : "Undocumented",
+              "discouraged" : false,
+              "swift_declaration_html" : "func hasSuffix(_ prefix: String) -&gt; Bool",
+              "swift_declaration_md" : "func hasSuffix(_ prefix: String) -> Bool"
+            },
+            "primary_language" : "j2-swift",
+            "primary_title_html" : "<span class=\"j2-item-secondary\">func <\/span>hasSuffix<span class=\"j2-item-secondary\">(String) -&gt; Bool<\/span>",
+            "title" : "func hasSuffix(String) -> Bool"
+          }
+        ],
+        "primary_language" : "j2-swift",
+        "title_html" : "Methods",
+        "title_md" : "Methods"
+      }
+    ],
+    "topics_language" : "j2-swift",
+    "topics_menus" : [
+      {
+        "language" : "j2-swift",
+        "topics_menu" : [
+          {
+            "anchor_id" : "",
+            "title" : "Declaration"
+          },
+          {
+            "anchor_id" : "tpc-methods",
+            "title" : "Methods"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "beboplib_version" : "1.0",
     "breadcrumbs_menus" : [],
     "breadcrumbs_root" : "SpmSwiftModule",
     "codehost_def_link" : "Show on GitHub",
@@ -4932,7 +6878,7 @@
     "copyright_md" : "&copy; 9999. All rights reserved. (Last updated: today).",
     "default_language" : "j2-swift",
     "disable_search" : false,
-    "doc_coverage" : 50,
+    "doc_coverage" : 48,
     "docs_title" : "SpmSwiftModule docs",
     "dual_language" : false,
     "hide_article_title" : true,
@@ -4953,11 +6899,11 @@
       },
       "prev" : {
         "primary_language" : "j2-swift",
-        "primary_title" : "String.Element",
-        "primary_url" : "extensions\/stringelement.html?swift",
+        "primary_title" : "StringProtocol",
+        "primary_url" : "extensions\/stringprotocol.html?swift",
         "secondary_language" : "j2-objc",
-        "secondary_title" : "String.Element",
-        "secondary_url" : "extensions\/stringelement.html?swift"
+        "secondary_title" : "StringProtocol",
+        "secondary_url" : "extensions\/stringprotocol.html?swift"
       }
     },
     "path_from_root" : "index.html",
@@ -5005,8 +6951,28 @@
               },
               {
                 "same_page" : false,
+                "title" : "P1",
+                "url" : "types.html?swift#p1"
+              },
+              {
+                "same_page" : false,
+                "title" : "P2",
+                "url" : "types.html?swift#p2"
+              },
+              {
+                "same_page" : false,
                 "title" : "PropertyWrapperClient",
                 "url" : "types\/propertywrapperclient.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "S1",
+                "url" : "types\/s1.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "S2",
+                "url" : "types\/s2.html?swift"
               },
               {
                 "same_page" : false,
@@ -5045,7 +7011,7 @@
               {
                 "same_page" : false,
                 "title" : "T",
-                "url" : "types.html?swift#t1"
+                "url" : "types.html?swift#t2"
               }
             ],
             "same_page" : false,
@@ -5085,13 +7051,28 @@
             "children" : [
               {
                 "same_page" : false,
+                "title" : "Array",
+                "url" : "extensions\/array.html?swift"
+              },
+              {
+                "same_page" : false,
                 "title" : "Collection",
                 "url" : "extensions\/collection.html?swift"
               },
               {
                 "same_page" : false,
+                "title" : "Dictionary",
+                "url" : "extensions.html?swift#dictionary"
+              },
+              {
+                "same_page" : false,
                 "title" : "String.Element",
                 "url" : "extensions\/stringelement.html?swift"
+              },
+              {
+                "same_page" : false,
+                "title" : "StringProtocol",
+                "url" : "extensions\/stringprotocol.html?swift"
               }
             ],
             "same_page" : false,

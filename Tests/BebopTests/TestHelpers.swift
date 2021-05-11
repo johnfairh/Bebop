@@ -366,15 +366,8 @@ extension GatherDef {
 }
 
 enum TestSymbolGraph {
-    static let path = "/Users/johnf/project/swift-source/build/jfdev/swift-macosx-x86_64/bin/swift-symbolgraph-extract"
-
-    static var isMyLaptop: Bool {
-        FileManager.default.fileExists(atPath: path)
-    }
-
-    static func useCustom(path: String? = nil) {
-        let tool = path ?? self.path
-        setenv("BEBOP_SWIFT_SYMBOLGRAPH_EXTRACT", strdup(tool), 1)
+    static func useCustom(path: String) {
+        setenv("BEBOP_SWIFT_SYMBOLGRAPH_EXTRACT", strdup(path), 1)
     }
 
     static func reset() {

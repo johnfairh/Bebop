@@ -95,6 +95,7 @@ fileprivate struct NetworkSymbolGraph: Decodable {
             let message: String?
             let renamed: String?
             let isUnconditionallyDeprecated: Bool?
+            let isUnconditionallyUnavailable: Bool?
         }
         let availability: [Availability]?
         struct Location: Decodable {
@@ -258,9 +259,7 @@ extension NetworkSymbolGraph.Symbol.Availability {
     var asSwift: String? {
         var str = "@available("
 
-        if isUnconditionallyDeprecated != nil {
-            str += "*, deprecated"
-        } else if let domain = domain {
+        if let domain = domain {
             str += domain
             [("introduced", \Self.introduced),
              ("deprecated", \Self.deprecated),
@@ -269,6 +268,16 @@ extension NetworkSymbolGraph.Symbol.Availability {
                     str += ", \(name): \(version.asSwift)"
                 }
             }
+            [("deprecated", \Self.isUnconditionallyDeprecated),
+             ("unavailable", \Self.isUnconditionallyUnavailable)].forEach { name, kp in
+                if self[keyPath: kp] != nil {
+                    str += ", \(name)"
+                }
+             }
+        } else if isUnconditionallyDeprecated != nil {
+            str += "*, deprecated"
+        } else if isUnconditionallyUnavailable != nil {
+            str += "*, unavailable"
         } else {
             logWarning(.wrnSsgeAvailability)
             return nil

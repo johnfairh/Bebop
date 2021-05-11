@@ -59,3 +59,9 @@ extension String.Element {
   // undocumented method
   func method2() {}
 }
+
+extension StringProtocol {
+  func f() {}
+  // Default impl that we can't decode from symgraph
+  func hasSuffix(_ prefix: String) -> Bool { false }
+}
