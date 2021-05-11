@@ -3,7 +3,7 @@ Bebop simple MD theme
 Copyright 2020 Bebop Authors
 Licensed under MIT (https://github.com/johnfairh/Bebop/blob/master/LICENSE)
 -->
-![50%](../badge.svg)
+![48%](../badge.svg)
 [![Open in Dash](../img/dash.svg)](dash-feed://https%3A%2F%2Fwww%2Egoogle%2Ecom%2F)
 
 
@@ -35,7 +35,19 @@ Licensed under MIT (https://github.com/johnfairh/Bebop/blob/master/LICENSE)
   * [Nop](../types/nop.md?swift)
 
 
+  * [P1](../types.md?swift#p1)
+
+
+  * [P2](../types.md?swift#p2)
+
+
   * [PropertyWrapperClient](../types/propertywrapperclient.md?swift)
+
+
+  * [S1](../types/s1.md?swift)
+
+
+  * [S2](../types/s2.md?swift)
 
 
   * [SecondProtocol](../types/secondprotocol.md?swift)
@@ -48,7 +60,7 @@ Licensed under MIT (https://github.com/johnfairh/Bebop/blob/master/LICENSE)
     * [Nested2](../types/spmswiftmodule.md?swift#nested2)
 
 
-  * [T](../types.md?swift#t1)
+  * [T](../types.md?swift#t2)
 
 
 
@@ -69,10 +81,19 @@ Licensed under MIT (https://github.com/johnfairh/Bebop/blob/master/LICENSE)
 
 [Extensions](../extensions.md?swift)
 
+  * [Array](../extensions/array.md?swift)
+
+
   * [Collection](../extensions/collection.md?swift)
 
 
+  * [Dictionary](../extensions.md?swift#dictionary)
+
+
   * [String.Element](../extensions/stringelement.md?swift)
+
+
+  * [StringProtocol](../extensions/stringprotocol.md?swift)
 
 
 
@@ -110,7 +131,7 @@ A base class
 
 
 
-[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L71-L106)
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L71-L110)
 
 
 
@@ -345,7 +366,7 @@ public static func + (lhs: ABaseClass, rhs: ABaseClass) -> ABaseClass
 
 
 
-[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L103-L105)
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L107-L109)
 </details>
 
 
@@ -442,6 +463,54 @@ public static func staticMethod() -> Int
 
 
 [Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L82-L84)
+</details>
+
+
+
+## Static Properties
+
+
+
+
+
+
+
+
+
+<details>
+<summary><code>static var aStaticVar: Int</code></summary>
+
+
+
+
+
+
+
+
+Undocumented
+
+
+
+
+
+
+#### Declaration
+
+``` swift
+static var aStaticVar: Int { get }
+```
+
+
+
+
+
+
+
+
+
+
+
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L102-L104)
 </details>
 
 

@@ -3,7 +3,7 @@ Bebop simple MD theme
 Copyright 2020 Bebop Authors
 Licensed under MIT (https://github.com/johnfairh/Bebop/blob/master/LICENSE)
 -->
-![50%](badge.svg)
+![48%](badge.svg)
 [![Open in Dash](img/dash.svg)](dash-feed://https%3A%2F%2Fwww%2Egoogle%2Ecom%2F)
 
 
@@ -35,7 +35,19 @@ Types
   * [Nop](types/nop.md?swift)
 
 
+  * [P1](#p1)
+
+
+  * [P2](#p2)
+
+
   * [PropertyWrapperClient](types/propertywrapperclient.md?swift)
+
+
+  * [S1](types/s1.md?swift)
+
+
+  * [S2](types/s2.md?swift)
 
 
   * [SecondProtocol](types/secondprotocol.md?swift)
@@ -48,7 +60,7 @@ Types
     * [Nested2](types/spmswiftmodule.md?swift#nested2)
 
 
-  * [T](#t1)
+  * [T](#t2)
 
 
 
@@ -69,10 +81,19 @@ Types
 
 [Extensions](extensions.md?swift)
 
+  * [Array](extensions/array.md?swift)
+
+
   * [Collection](extensions/collection.md?swift)
 
 
+  * [Dictionary](extensions.md?swift#dictionary)
+
+
   * [String.Element](extensions/stringelement.md?swift)
+
+
+  * [StringProtocol](extensions/stringprotocol.md?swift)
 
 
 
@@ -131,7 +152,7 @@ public class ABaseClass
 
 [Show members](types/abaseclass.md?swift)
 
-[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L71-L106)
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L71-L110)
 </details>
 
 
@@ -175,7 +196,7 @@ public class ADerivedClass<T, Q>: ABaseClass where Q: Sequence
 
 [Show members](types/aderivedclass.md?swift)
 
-[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L117-L128)
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L121-L135)
 </details>
 
 
@@ -263,7 +284,7 @@ public protocol FirstProtocol
 
 [Show members](types/firstprotocol1.md?swift)
 
-[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Protocols.swift#L2-L14)
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Protocols.swift#L2-L16)
 </details>
 
 
@@ -354,7 +375,95 @@ struct Nop
 
 [Show members](types/nop.md?swift)
 
-[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L131-L137)
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L138-L144)
+</details>
+
+
+
+
+
+
+
+
+
+<details>
+<summary><code>protocol P1</code></summary>
+
+
+
+
+
+
+
+
+Undocumented
+
+
+
+
+
+
+#### Declaration
+
+``` swift
+protocol P1
+```
+
+
+
+
+
+
+
+
+
+
+
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Protocols.swift#L49)
+</details>
+
+
+
+
+
+
+
+
+
+<details>
+<summary><code>protocol P2</code></summary>
+
+
+
+
+
+
+
+
+Undocumented
+
+
+
+
+
+
+#### Declaration
+
+``` swift
+protocol P2
+```
+
+
+
+
+
+
+
+
+
+
+
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Protocols.swift#L50)
 </details>
 
 
@@ -398,7 +507,101 @@ struct PropertyWrapperClient
 
 [Show members](types/propertywrapperclient.md?swift)
 
-[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L140-L143)
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L147-L150)
+</details>
+
+
+
+
+
+
+
+
+
+<details>
+<summary><code>struct S1</code></summary>
+
+
+
+
+
+
+
+
+Undocumented
+
+
+
+
+
+
+#### Declaration
+
+``` swift
+struct S1: P1
+
+extension S1: CustomStringConvertible
+```
+
+
+
+
+
+
+
+
+
+[Show members](types/s1.md?swift)
+
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Protocols.swift#L52)
+</details>
+
+
+
+
+
+
+
+
+
+<details>
+<summary><code>struct S2</code></summary>
+
+
+
+
+
+
+
+
+Undocumented
+
+
+
+
+
+
+#### Declaration
+
+``` swift
+struct S2<T>: P1 where T: Equatable
+
+extension S2: Equatable where T: Equatable
+
+extension S2: P2 where T: Comparable
+```
+
+
+
+
+
+
+
+
+
+[Show members](types/s2.md?swift)
+
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Protocols.swift#L58-L60)
 </details>
 
 
@@ -442,7 +645,7 @@ public protocol SecondProtocol: FirstProtocol
 
 [Show members](types/secondprotocol.md?swift)
 
-[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Protocols.swift#L30-L32)
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/Protocols.swift#L18-L20)
 </details>
 
 
@@ -530,7 +733,7 @@ struct T
 
 
 
-[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L108-L109)
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L112-L113)
 </details>
 
 

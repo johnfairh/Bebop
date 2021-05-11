@@ -15,7 +15,7 @@
       "key.bb.pass_index" : 0,
       "key.bb.version" : "1.0",
       "key.diagnostic_stage" : "source.diagnostic.stage.swift.parse",
-      "key.length" : 1146,
+      "key.length" : 1296,
       "key.offset" : 0,
       "key.substructure" : [
         {
@@ -1292,6 +1292,140 @@
           "key.typename" : "Character.Type",
           "key.typeusr" : "$sSJmD",
           "key.usr" : "s:ST7ElementQa"
+        },
+        {
+          "key.annotated_decl" : "<Declaration>protocol StringProtocol : <Type usr=\"s:SK\">BidirectionalCollection<\/Type>, <Type usr=\"s:SL\">Comparable<\/Type>, <Type usr=\"s:s32ExpressibleByStringInterpolationP\">ExpressibleByStringInterpolation<\/Type>, <Type usr=\"s:SH\">Hashable<\/Type>, <Type usr=\"s:s25LosslessStringConvertibleP\">LosslessStringConvertible<\/Type>, <Type usr=\"s:s16TextOutputStreamP\">TextOutputStream<\/Type>, <Type usr=\"s:s20TextOutputStreamableP\">TextOutputStreamable<\/Type> where <Type usr=\"s:Sy4Selfxmfp\">Self<\/Type>.<Type usr=\"s:ST7ElementQa\">Element<\/Type> == <Type usr=\"s:SJ\">Character<\/Type>, <Type usr=\"s:Sy4Selfxmfp\">Self<\/Type>.<Type usr=\"s:Sl5IndexQa\">Index<\/Type> == <Type usr=\"s:SS\">String<\/Type>.<Type usr=\"s:SS5IndexV\">Index<\/Type>, <Type usr=\"s:Sy4Selfxmfp\">Self<\/Type>.<Type usr=\"s:s32ExpressibleByStringInterpolationP0cD0Qa\">StringInterpolation<\/Type> == <Type usr=\"s:s26DefaultStringInterpolationV\">DefaultStringInterpolation<\/Type>, <Type usr=\"s:Sy4Selfxmfp\">Self<\/Type>.<Type usr=\"s:Sl11SubSequenceQa\">SubSequence<\/Type> : <Type usr=\"s:Sy\">StringProtocol<\/Type><\/Declaration>",
+          "key.bb.documentation" : {
+            "key.bb.abstract" : {
+              "en" : "A type that can represent a string as a collection of characters."
+            },
+            "key.bb.doc_source" : "inherited"
+          },
+          "key.bb.is_override" : false,
+          "key.bb.swift_declaration" : "extension StringProtocol",
+          "key.bb.swift_deprecated_everywhere" : false,
+          "key.bb.swift_name_pieces" : [
+            {
+              "key.bb.name_piece_is_name" : false,
+              "key.bb.name_piece_text" : "extension "
+            },
+            {
+              "key.bb.name_piece_is_name" : true,
+              "key.bb.name_piece_text" : "StringProtocol"
+            }
+          ],
+          "key.bb.type_module_name" : "Swift",
+          "key.bodylength" : 121,
+          "key.bodyoffset" : 1173,
+          "key.doc.declaration" : "protocol StringProtocol : BidirectionalCollection, Comparable, ExpressibleByStringInterpolation, Hashable, LosslessStringConvertible, TextOutputStream, TextOutputStreamable where Self.Element == Character, Self.Index == String.Index, Self.StringInterpolation == DefaultStringInterpolation, Self.SubSequence : StringProtocol",
+          "key.doc.discussion" : [
+            {
+              "Para" : "Do not declare new conformances to `StringProtocol`. Only the `String` and `Substring` types in the standard library are valid conforming types."
+            }
+          ],
+          "key.doc.full_as_xml" : "<Class><Name>StringProtocol<\/Name><USR>s:Sy<\/USR><Declaration>protocol StringProtocol : BidirectionalCollection, Comparable, ExpressibleByStringInterpolation, Hashable, LosslessStringConvertible, TextOutputStream, TextOutputStreamable where Self.Element == Character, Self.Index == String.Index, Self.StringInterpolation == DefaultStringInterpolation, Self.SubSequence : StringProtocol<\/Declaration><CommentParts><Abstract><Para>A type that can represent a string as a collection of characters.<\/Para><\/Abstract><Discussion><Para>Do not declare new conformances to <codeVoice>StringProtocol<\/codeVoice>. Only the <codeVoice>String<\/codeVoice> and <codeVoice>Substring<\/codeVoice> types in the standard library are valid conforming types.<\/Para><\/Discussion><\/CommentParts><\/Class>",
+          "key.doc.name" : "StringProtocol",
+          "key.doc.type" : "Class",
+          "key.fully_annotated_decl" : "<decl.protocol><syntaxtype.keyword>protocol<\/syntaxtype.keyword> <decl.name>StringProtocol<\/decl.name> : <ref.protocol usr=\"s:SK\">BidirectionalCollection<\/ref.protocol>, <ref.protocol usr=\"s:SL\">Comparable<\/ref.protocol>, <ref.protocol usr=\"s:s32ExpressibleByStringInterpolationP\">ExpressibleByStringInterpolation<\/ref.protocol>, <ref.protocol usr=\"s:SH\">Hashable<\/ref.protocol>, <ref.protocol usr=\"s:s25LosslessStringConvertibleP\">LosslessStringConvertible<\/ref.protocol>, <ref.protocol usr=\"s:s16TextOutputStreamP\">TextOutputStream<\/ref.protocol>, <ref.protocol usr=\"s:s20TextOutputStreamableP\">TextOutputStreamable<\/ref.protocol> <syntaxtype.keyword>where<\/syntaxtype.keyword> <decl.generic_type_requirement><ref.generic_type_param usr=\"s:Sy4Selfxmfp\">Self<\/ref.generic_type_param>.<ref.associatedtype usr=\"s:ST7ElementQa\">Element<\/ref.associatedtype> == <ref.struct usr=\"s:SJ\">Character<\/ref.struct><\/decl.generic_type_requirement>, <decl.generic_type_requirement><ref.generic_type_param usr=\"s:Sy4Selfxmfp\">Self<\/ref.generic_type_param>.<ref.associatedtype usr=\"s:Sl5IndexQa\">Index<\/ref.associatedtype> == <ref.struct usr=\"s:SS\">String<\/ref.struct>.<ref.struct usr=\"s:SS5IndexV\">Index<\/ref.struct><\/decl.generic_type_requirement>, <decl.generic_type_requirement><ref.generic_type_param usr=\"s:Sy4Selfxmfp\">Self<\/ref.generic_type_param>.<ref.associatedtype usr=\"s:s32ExpressibleByStringInterpolationP0cD0Qa\">StringInterpolation<\/ref.associatedtype> == <ref.struct usr=\"s:s26DefaultStringInterpolationV\">DefaultStringInterpolation<\/ref.struct><\/decl.generic_type_requirement>, <decl.generic_type_requirement><ref.generic_type_param usr=\"s:Sy4Selfxmfp\">Self<\/ref.generic_type_param>.<ref.associatedtype usr=\"s:Sl11SubSequenceQa\">SubSequence<\/ref.associatedtype> : <ref.protocol usr=\"s:Sy\">StringProtocol<\/ref.protocol><\/decl.generic_type_requirement><\/decl.protocol>",
+          "key.groupname" : "String",
+          "key.is_system" : true,
+          "key.kind" : "source.lang.swift.decl.extension",
+          "key.length" : 148,
+          "key.modulename" : "Swift",
+          "key.name" : "StringProtocol",
+          "key.namelength" : 14,
+          "key.nameoffset" : 1157,
+          "key.offset" : 1147,
+          "key.parsed_declaration" : "extension StringProtocol",
+          "key.parsed_scope.end" : 67,
+          "key.parsed_scope.start" : 63,
+          "key.substructure" : [
+            {
+              "key.annotated_decl" : "<Declaration>func f()<\/Declaration>",
+              "key.bb.is_override" : false,
+              "key.bb.swift_declaration" : "func f()",
+              "key.bb.swift_deprecated_everywhere" : false,
+              "key.bb.swift_name_pieces" : [
+                {
+                  "key.bb.name_piece_is_name" : false,
+                  "key.bb.name_piece_text" : "func "
+                },
+                {
+                  "key.bb.name_piece_is_name" : true,
+                  "key.bb.name_piece_text" : "f"
+                },
+                {
+                  "key.bb.name_piece_is_name" : false,
+                  "key.bb.name_piece_text" : "()"
+                }
+              ],
+              "key.bodylength" : 0,
+              "key.bodyoffset" : 1186,
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
+              "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>f<\/decl.name>()<\/decl.function.method.instance>",
+              "key.groupname" : "String",
+              "key.kind" : "source.lang.swift.decl.function.method.instance",
+              "key.length" : 11,
+              "key.name" : "f()",
+              "key.namelength" : 3,
+              "key.nameoffset" : 1181,
+              "key.offset" : 1176,
+              "key.parsed_declaration" : "func f()",
+              "key.parsed_scope.end" : 64,
+              "key.parsed_scope.start" : 64,
+              "key.typename" : "<Self where Self : StringProtocol> (Self) -> () -> ()",
+              "key.typeusr" : "$syycD",
+              "key.usr" : "s:Sy14SpmSwiftModuleE1fyyF"
+            },
+            {
+              "key.annotated_decl" : "<Declaration>func hasSuffix(_ prefix: <Type usr=\"s:SS\">String<\/Type>) -&gt; <Type usr=\"s:Sb\">Bool<\/Type><\/Declaration>",
+              "key.bb.is_override" : false,
+              "key.bb.swift_declaration" : "func hasSuffix(_ prefix: String) -> Bool",
+              "key.bb.swift_deprecated_everywhere" : false,
+              "key.bb.swift_name_pieces" : [
+                {
+                  "key.bb.name_piece_is_name" : false,
+                  "key.bb.name_piece_text" : "func "
+                },
+                {
+                  "key.bb.name_piece_is_name" : true,
+                  "key.bb.name_piece_text" : "hasSuffix"
+                },
+                {
+                  "key.bb.name_piece_is_name" : false,
+                  "key.bb.name_piece_text" : "(String) -> Bool"
+                }
+              ],
+              "key.bodylength" : 7,
+              "key.bodyoffset" : 1285,
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
+              "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>hasSuffix<\/decl.name>(<decl.var.parameter><decl.var.parameter.argument_label>_<\/decl.var.parameter.argument_label> <decl.var.parameter.name>prefix<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.struct usr=\"s:Sb\">Bool<\/ref.struct><\/decl.function.returntype><\/decl.function.method.instance>",
+              "key.groupname" : "String",
+              "key.kind" : "source.lang.swift.decl.function.method.instance",
+              "key.length" : 50,
+              "key.name" : "hasSuffix(_:)",
+              "key.namelength" : 27,
+              "key.nameoffset" : 1248,
+              "key.offset" : 1243,
+              "key.parsed_declaration" : "func hasSuffix(_ prefix: String) -> Bool",
+              "key.parsed_scope.end" : 66,
+              "key.parsed_scope.start" : 66,
+              "key.related_decls" : [
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:Sy9hasSuffixySbSSF\">hasSuffix(_: String) -&gt; Bool<\/RelatedName>"
+                },
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:SysE9hasSuffixySbqd__SyRd__lF\">hasSuffix&lt;Suffix&gt;(_: Suffix) -&gt; Bool where Suffix : StringProtocol<\/RelatedName>"
+                }
+              ],
+              "key.typename" : "<Self where Self : StringProtocol> (Self) -> (String) -> Bool",
+              "key.typeusr" : "$sySbSScD",
+              "key.usr" : "s:Sy14SpmSwiftModuleE9hasSuffixySbSSF"
+            }
+          ],
+          "key.typename" : "StringProtocol.Protocol",
+          "key.typeusr" : "$sSy_pmD",
+          "key.usr" : "s:Sy"
         }
       ]
     }
@@ -1302,7 +1436,7 @@
       "key.bb.pass_index" : 0,
       "key.bb.version" : "1.0",
       "key.diagnostic_stage" : "source.diagnostic.stage.swift.parse",
-      "key.length" : 892,
+      "key.length" : 1474,
       "key.offset" : 0,
       "key.substructure" : [
         {
@@ -1334,7 +1468,7 @@
               "key.bb.name_piece_text" : "FirstProtocol"
             }
           ],
-          "key.bodylength" : 240,
+          "key.bodylength" : 274,
           "key.bodyoffset" : 47,
           "key.doc.column" : 17,
           "key.doc.comment" : "A protocol.",
@@ -1349,13 +1483,13 @@
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
           "key.fully_annotated_decl" : "<decl.protocol><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>protocol<\/syntaxtype.keyword> <decl.name>FirstProtocol<\/decl.name><\/decl.protocol>",
           "key.kind" : "source.lang.swift.decl.protocol",
-          "key.length" : 265,
+          "key.length" : 299,
           "key.name" : "FirstProtocol",
           "key.namelength" : 13,
           "key.nameoffset" : 32,
           "key.offset" : 23,
           "key.parsed_declaration" : "public protocol FirstProtocol",
-          "key.parsed_scope.end" : 14,
+          "key.parsed_scope.end" : 16,
           "key.parsed_scope.start" : 2,
           "key.substructure" : [
             {
@@ -1561,11 +1695,234 @@
               "key.typename" : "Int",
               "key.typeusr" : "$sSiD",
               "key.usr" : "s:14SpmSwiftModule13FirstProtocolP7getOnlySivp"
+            },
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.public",
+              "key.annotated_decl" : "<Declaration>var setAndGet: <Type usr=\"s:Si\">Int<\/Type> { get set }<\/Declaration>",
+              "key.bb.is_override" : false,
+              "key.bb.swift_declaration" : "var setAndGet: Int { get set }",
+              "key.bb.swift_deprecated_everywhere" : false,
+              "key.bb.swift_name_pieces" : [
+                {
+                  "key.bb.name_piece_is_name" : false,
+                  "key.bb.name_piece_text" : "var "
+                },
+                {
+                  "key.bb.name_piece_is_name" : true,
+                  "key.bb.name_piece_text" : "setAndGet"
+                },
+                {
+                  "key.bb.name_piece_is_name" : false,
+                  "key.bb.name_piece_text" : ": Int"
+                }
+              ],
+              "key.bodylength" : 9,
+              "key.bodyoffset" : 310,
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+              "key.fully_annotated_decl" : "<decl.var.instance><syntaxtype.keyword>var<\/syntaxtype.keyword> <decl.name>setAndGet<\/decl.name>: <decl.var.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.type> { <syntaxtype.keyword>get<\/syntaxtype.keyword> <syntaxtype.keyword>set<\/syntaxtype.keyword> }<\/decl.var.instance>",
+              "key.kind" : "source.lang.swift.decl.var.instance",
+              "key.length" : 30,
+              "key.name" : "setAndGet",
+              "key.namelength" : 9,
+              "key.nameoffset" : 294,
+              "key.offset" : 290,
+              "key.parsed_declaration" : "var setAndGet: Int",
+              "key.parsed_scope.end" : 15,
+              "key.parsed_scope.start" : 15,
+              "key.setter_accessibility" : "source.lang.swift.accessibility.public",
+              "key.typename" : "Int",
+              "key.typeusr" : "$sSiD",
+              "key.usr" : "s:14SpmSwiftModule13FirstProtocolP9setAndGetSivp"
             }
           ],
           "key.typename" : "FirstProtocol.Protocol",
           "key.typeusr" : "$s14SpmSwiftModule13FirstProtocol_pmD",
           "key.usr" : "s:14SpmSwiftModule13FirstProtocolP"
+        },
+        {
+          "key.accessibility" : "source.lang.swift.accessibility.public",
+          "key.annotated_decl" : "<Declaration>public protocol SecondProtocol : <Type usr=\"s:14SpmSwiftModule13FirstProtocolP\">FirstProtocol<\/Type><\/Declaration>",
+          "key.attributes" : [
+            {
+              "key.attribute" : "source.decl.attribute.public",
+              "key.length" : 6,
+              "key.offset" : 324
+            }
+          ],
+          "key.bb.inherited_types" : [
+            {
+              "key.bb.type_name" : "FirstProtocol"
+            }
+          ],
+          "key.bb.is_override" : false,
+          "key.bb.swift_declaration" : "public protocol SecondProtocol: FirstProtocol",
+          "key.bb.swift_deprecated_everywhere" : false,
+          "key.bb.swift_name_pieces" : [
+            {
+              "key.bb.name_piece_is_name" : false,
+              "key.bb.name_piece_text" : "protocol "
+            },
+            {
+              "key.bb.name_piece_is_name" : true,
+              "key.bb.name_piece_text" : "SecondProtocol"
+            }
+          ],
+          "key.bodylength" : 43,
+          "key.bodyoffset" : 371,
+          "key.elements" : [
+            {
+              "key.kind" : "source.lang.swift.structure.elem.typeref",
+              "key.length" : 13,
+              "key.offset" : 356
+            }
+          ],
+          "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+          "key.fully_annotated_decl" : "<decl.protocol><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>protocol<\/syntaxtype.keyword> <decl.name>SecondProtocol<\/decl.name> : <ref.protocol usr=\"s:14SpmSwiftModule13FirstProtocolP\">FirstProtocol<\/ref.protocol><\/decl.protocol>",
+          "key.inheritedtypes" : [
+            {
+              "key.name" : "FirstProtocol"
+            }
+          ],
+          "key.kind" : "source.lang.swift.decl.protocol",
+          "key.length" : 84,
+          "key.name" : "SecondProtocol",
+          "key.namelength" : 14,
+          "key.nameoffset" : 340,
+          "key.offset" : 331,
+          "key.parsed_declaration" : "public protocol SecondProtocol: FirstProtocol",
+          "key.parsed_scope.end" : 20,
+          "key.parsed_scope.start" : 18,
+          "key.substructure" : [
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.public",
+              "key.annotated_decl" : "<Declaration>func secondProtocolMethod() -&gt; <Type usr=\"s:SS\">String<\/Type><\/Declaration>",
+              "key.bb.is_override" : false,
+              "key.bb.swift_declaration" : "func secondProtocolMethod() -> String",
+              "key.bb.swift_deprecated_everywhere" : false,
+              "key.bb.swift_name_pieces" : [
+                {
+                  "key.bb.name_piece_is_name" : false,
+                  "key.bb.name_piece_text" : "func "
+                },
+                {
+                  "key.bb.name_piece_is_name" : true,
+                  "key.bb.name_piece_text" : "secondProtocolMethod"
+                },
+                {
+                  "key.bb.name_piece_is_name" : false,
+                  "key.bb.name_piece_text" : "() -> String"
+                }
+              ],
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+              "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>secondProtocolMethod<\/decl.name>() -&gt; <decl.function.returntype><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.function.returntype><\/decl.function.method.instance>",
+              "key.kind" : "source.lang.swift.decl.function.method.instance",
+              "key.length" : 37,
+              "key.name" : "secondProtocolMethod()",
+              "key.namelength" : 22,
+              "key.nameoffset" : 381,
+              "key.offset" : 376,
+              "key.parsed_declaration" : "func secondProtocolMethod() -> String",
+              "key.parsed_scope.end" : 19,
+              "key.parsed_scope.start" : 19,
+              "key.typename" : "<Self where Self : SecondProtocol> (Self) -> () -> String",
+              "key.typeusr" : "$sSSycD",
+              "key.usr" : "s:14SpmSwiftModule14SecondProtocolP06secondE6MethodSSyF"
+            }
+          ],
+          "key.typename" : "SecondProtocol.Protocol",
+          "key.typeusr" : "$s14SpmSwiftModule14SecondProtocol_pmD",
+          "key.usr" : "s:14SpmSwiftModule14SecondProtocolP"
+        },
+        {
+          "key.annotated_decl" : "<Declaration>public protocol SecondProtocol : <Type usr=\"s:14SpmSwiftModule13FirstProtocolP\">FirstProtocol<\/Type><\/Declaration>",
+          "key.bb.is_override" : false,
+          "key.bb.swift_declaration" : "extension SecondProtocol",
+          "key.bb.swift_deprecated_everywhere" : false,
+          "key.bb.swift_name_pieces" : [
+            {
+              "key.bb.name_piece_is_name" : false,
+              "key.bb.name_piece_text" : "extension "
+            },
+            {
+              "key.bb.name_piece_is_name" : true,
+              "key.bb.name_piece_text" : "SecondProtocol"
+            }
+          ],
+          "key.bodylength" : 256,
+          "key.bodyoffset" : 443,
+          "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+          "key.fully_annotated_decl" : "<decl.protocol><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>protocol<\/syntaxtype.keyword> <decl.name>SecondProtocol<\/decl.name> : <ref.protocol usr=\"s:14SpmSwiftModule13FirstProtocolP\">FirstProtocol<\/ref.protocol><\/decl.protocol>",
+          "key.kind" : "source.lang.swift.decl.extension",
+          "key.length" : 283,
+          "key.name" : "SecondProtocol",
+          "key.namelength" : 14,
+          "key.nameoffset" : 427,
+          "key.offset" : 417,
+          "key.parsed_declaration" : "extension SecondProtocol",
+          "key.parsed_scope.end" : 28,
+          "key.parsed_scope.start" : 22,
+          "key.substructure" : [
+            {
+              "key.annotated_decl" : "<Declaration>var getOnly: <Type usr=\"s:Si\">Int<\/Type> { get }<\/Declaration>",
+              "key.bb.documentation" : {
+                "key.bb.abstract" : {
+                  "en" : "A default implementation for a method of `FirstProtocol`\nprovided by `SecondProtocol`.\nFrom source we mess this up as an extension method.\nFrom symbolgraph we mess this up as being part of `FirstProtocol`."
+                },
+                "key.bb.doc_source" : "docComment"
+              },
+              "key.bb.is_override" : false,
+              "key.bb.swift_declaration" : "var getOnly: Int { get }",
+              "key.bb.swift_deprecated_everywhere" : false,
+              "key.bb.swift_name_pieces" : [
+                {
+                  "key.bb.name_piece_is_name" : false,
+                  "key.bb.name_piece_text" : "var "
+                },
+                {
+                  "key.bb.name_piece_is_name" : true,
+                  "key.bb.name_piece_text" : "getOnly"
+                },
+                {
+                  "key.bb.name_piece_is_name" : false,
+                  "key.bb.name_piece_text" : ": Int"
+                }
+              ],
+              "key.bodylength" : 3,
+              "key.bodyoffset" : 694,
+              "key.doc.column" : 7,
+              "key.doc.comment" : "A default implementation for a method of `FirstProtocol`\nprovided by `SecondProtocol`.\nFrom source we mess this up as an extension method.\nFrom symbolgraph we mess this up as being part of `FirstProtocol`.",
+              "key.doc.declaration" : "var getOnly: Int { get }",
+              "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+              "key.doc.full_as_xml" : "<Other file=\"\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift\" line=\"27\" column=\"7\"><Name>getOnly<\/Name><USR>s:14SpmSwiftModule14SecondProtocolPAAE7getOnlySivp<\/USR><Declaration>var getOnly: Int { get }<\/Declaration><CommentParts><Abstract><Para>A default implementation for a method of <codeVoice>FirstProtocol<\/codeVoice> provided by <codeVoice>SecondProtocol<\/codeVoice>. From source we mess this up as an extension method. From symbolgraph we mess this up as being part of <codeVoice>FirstProtocol<\/codeVoice>.<\/Para><\/Abstract><\/CommentParts><\/Other>",
+              "key.doc.line" : 27,
+              "key.doc.name" : "getOnly",
+              "key.doc.type" : "Other",
+              "key.doclength" : 228,
+              "key.docoffset" : 446,
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+              "key.fully_annotated_decl" : "<decl.var.instance><syntaxtype.keyword>var<\/syntaxtype.keyword> <decl.name>getOnly<\/decl.name>: <decl.var.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.type> { <syntaxtype.keyword>get<\/syntaxtype.keyword> }<\/decl.var.instance>",
+              "key.kind" : "source.lang.swift.decl.var.instance",
+              "key.length" : 22,
+              "key.name" : "getOnly",
+              "key.namelength" : 7,
+              "key.nameoffset" : 680,
+              "key.offset" : 676,
+              "key.parsed_declaration" : "var getOnly: Int",
+              "key.parsed_scope.end" : 27,
+              "key.parsed_scope.start" : 27,
+              "key.related_decls" : [
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule13FirstProtocolP7getOnlySivp\">getOnly<\/RelatedName>"
+                }
+              ],
+              "key.typename" : "Int",
+              "key.typeusr" : "$sSiD",
+              "key.usr" : "s:14SpmSwiftModule14SecondProtocolPAAE7getOnlySivp"
+            }
+          ],
+          "key.typename" : "SecondProtocol.Protocol",
+          "key.typeusr" : "$s14SpmSwiftModule14SecondProtocol_pmD",
+          "key.usr" : "s:14SpmSwiftModule14SecondProtocolP"
         },
         {
           "key.annotated_decl" : "<Declaration>public protocol FirstProtocol<\/Declaration>",
@@ -1589,7 +1946,7 @@
             }
           ],
           "key.bodylength" : 49,
-          "key.bodyoffset" : 315,
+          "key.bodyoffset" : 727,
           "key.doc.column" : 17,
           "key.doc.declaration" : "public protocol FirstProtocol",
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
@@ -1603,11 +1960,11 @@
           "key.length" : 75,
           "key.name" : "FirstProtocol",
           "key.namelength" : 13,
-          "key.nameoffset" : 300,
-          "key.offset" : 290,
+          "key.nameoffset" : 712,
+          "key.offset" : 702,
           "key.parsed_declaration" : "extension FirstProtocol",
-          "key.parsed_scope.end" : 19,
-          "key.parsed_scope.start" : 16,
+          "key.parsed_scope.end" : 33,
+          "key.parsed_scope.start" : 30,
           "key.substructure" : [
             {
               "key.annotated_decl" : "<Declaration>func e()<\/Declaration>",
@@ -1635,28 +1992,33 @@
                 }
               ],
               "key.bodylength" : 0,
-              "key.bodyoffset" : 362,
+              "key.bodyoffset" : 774,
               "key.doc.column" : 8,
               "key.doc.comment" : "A protocol extension method",
               "key.doc.declaration" : "func e()",
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
-              "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift\" line=\"18\" column=\"8\"><Name>e()<\/Name><USR>s:14SpmSwiftModule13FirstProtocolPAAE1eyyF<\/USR><Declaration>func e()<\/Declaration><CommentParts><Abstract><Para>A protocol extension method<\/Para><\/Abstract><\/CommentParts><\/Function>",
-              "key.doc.line" : 18,
+              "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift\" line=\"32\" column=\"8\"><Name>e()<\/Name><USR>s:14SpmSwiftModule13FirstProtocolPAAE1eyyF<\/USR><Declaration>func e()<\/Declaration><CommentParts><Abstract><Para>A protocol extension method<\/Para><\/Abstract><\/CommentParts><\/Function>",
+              "key.doc.line" : 32,
               "key.doc.name" : "e()",
               "key.doc.type" : "Function",
               "key.doclength" : 32,
-              "key.docoffset" : 318,
+              "key.docoffset" : 730,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>e<\/decl.name>()<\/decl.function.method.instance>",
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 11,
               "key.name" : "e()",
               "key.namelength" : 3,
-              "key.nameoffset" : 357,
-              "key.offset" : 352,
+              "key.nameoffset" : 769,
+              "key.offset" : 764,
               "key.parsed_declaration" : "func e()",
-              "key.parsed_scope.end" : 18,
-              "key.parsed_scope.start" : 18,
+              "key.parsed_scope.end" : 32,
+              "key.parsed_scope.start" : 32,
+              "key.related_decls" : [
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule13FirstProtocolPAAE1e1ayqd___tAaBRd__lF\">e(a:)<\/RelatedName>"
+                }
+              ],
               "key.typename" : "<Self where Self : FirstProtocol> (Self) -> () -> ()",
               "key.typeusr" : "$syycD",
               "key.usr" : "s:14SpmSwiftModule13FirstProtocolPAAE1eyyF"
@@ -1687,8 +2049,148 @@
               "key.bb.name_piece_text" : "FirstProtocol"
             }
           ],
+          "key.bodylength" : 87,
+          "key.bodyoffset" : 804,
+          "key.doc.column" : 17,
+          "key.doc.declaration" : "public protocol FirstProtocol",
+          "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+          "key.doc.full_as_xml" : "<Class file=\"\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift\" line=\"2\" column=\"17\"><Name>FirstProtocol<\/Name><USR>s:14SpmSwiftModule13FirstProtocolP<\/USR><Declaration>public protocol FirstProtocol<\/Declaration><CommentParts><Abstract><Para>A protocol.<\/Para><\/Abstract><\/CommentParts><\/Class>",
+          "key.doc.line" : 2,
+          "key.doc.name" : "FirstProtocol",
+          "key.doc.type" : "Class",
+          "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+          "key.fully_annotated_decl" : "<decl.protocol><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>protocol<\/syntaxtype.keyword> <decl.name>FirstProtocol<\/decl.name><\/decl.protocol>",
+          "key.kind" : "source.lang.swift.decl.extension",
+          "key.length" : 113,
+          "key.name" : "FirstProtocol",
+          "key.namelength" : 13,
+          "key.nameoffset" : 789,
+          "key.offset" : 779,
+          "key.parsed_declaration" : "extension FirstProtocol",
+          "key.parsed_scope.end" : 38,
+          "key.parsed_scope.start" : 35,
+          "key.substructure" : [
+            {
+              "key.annotated_decl" : "<Declaration>func e&lt;C&gt;(a: <Type usr=\"s:14SpmSwiftModule13FirstProtocolPAAE1e1ayqd___tAaBRd__lF1CL_qd__mfp\">C<\/Type>) where <Type usr=\"s:14SpmSwiftModule13FirstProtocolPAAE1e1ayqd___tAaBRd__lF1CL_qd__mfp\">C<\/Type> : <Type usr=\"s:14SpmSwiftModule13FirstProtocolP\">FirstProtocol<\/Type><\/Declaration>",
+              "key.bb.documentation" : {
+                "key.bb.abstract" : {
+                  "en" : "A generic protocol extension method"
+                },
+                "key.bb.doc_source" : "docComment"
+              },
+              "key.bb.is_override" : false,
+              "key.bb.swift_declaration" : "func e<C>(a: C) where C: FirstProtocol",
+              "key.bb.swift_deprecated_everywhere" : false,
+              "key.bb.swift_name_pieces" : [
+                {
+                  "key.bb.name_piece_is_name" : false,
+                  "key.bb.name_piece_text" : "func "
+                },
+                {
+                  "key.bb.name_piece_is_name" : true,
+                  "key.bb.name_piece_text" : "e"
+                },
+                {
+                  "key.bb.name_piece_is_name" : false,
+                  "key.bb.name_piece_text" : "<C>("
+                },
+                {
+                  "key.bb.name_piece_is_name" : true,
+                  "key.bb.name_piece_text" : "a"
+                },
+                {
+                  "key.bb.name_piece_is_name" : false,
+                  "key.bb.name_piece_text" : ": C)"
+                }
+              ],
+              "key.bodylength" : 0,
+              "key.bodyoffset" : 889,
+              "key.doc.column" : 8,
+              "key.doc.comment" : "A generic protocol extension method",
+              "key.doc.declaration" : "func e<C>(a: C) where C : SpmSwiftModule.FirstProtocol",
+              "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+              "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift\" line=\"37\" column=\"8\"><Name>e(a:)<\/Name><USR>s:14SpmSwiftModule13FirstProtocolPAAE1e1ayqd___tAaBRd__lF<\/USR><Declaration>func e&lt;C&gt;(a: C) where C : SpmSwiftModule.FirstProtocol<\/Declaration><CommentParts><Abstract><Para>A generic protocol extension method<\/Para><\/Abstract><\/CommentParts><\/Function>",
+              "key.doc.line" : 37,
+              "key.doc.name" : "e(a:)",
+              "key.doc.type" : "Function",
+              "key.doclength" : 40,
+              "key.docoffset" : 807,
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+              "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>e<\/decl.name>&lt;<decl.generic_type_param usr=\"s:14SpmSwiftModule13FirstProtocolPAAE1e1ayqd___tAaBRd__lF1CL_qd__mfp\"><decl.generic_type_param.name>C<\/decl.generic_type_param.name><\/decl.generic_type_param>&gt;(<decl.var.parameter><decl.var.parameter.argument_label>a<\/decl.var.parameter.argument_label>: <decl.var.parameter.type><ref.generic_type_param usr=\"s:14SpmSwiftModule13FirstProtocolPAAE1e1ayqd___tAaBRd__lF1CL_qd__mfp\">C<\/ref.generic_type_param><\/decl.var.parameter.type><\/decl.var.parameter>) <syntaxtype.keyword>where<\/syntaxtype.keyword> <decl.generic_type_requirement><ref.generic_type_param usr=\"s:14SpmSwiftModule13FirstProtocolPAAE1e1ayqd___tAaBRd__lF1CL_qd__mfp\">C<\/ref.generic_type_param> : <ref.protocol usr=\"s:14SpmSwiftModule13FirstProtocolP\">FirstProtocol<\/ref.protocol><\/decl.generic_type_requirement><\/decl.function.method.instance>",
+              "key.kind" : "source.lang.swift.decl.function.method.instance",
+              "key.length" : 41,
+              "key.name" : "e(a:)",
+              "key.namelength" : 10,
+              "key.nameoffset" : 854,
+              "key.offset" : 849,
+              "key.parsed_declaration" : "func e<C>(a: C) where C: FirstProtocol",
+              "key.parsed_scope.end" : 37,
+              "key.parsed_scope.start" : 37,
+              "key.related_decls" : [
+                {
+                  "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule13FirstProtocolPAAE1eyyF\">e()<\/RelatedName>"
+                }
+              ],
+              "key.substructure" : [
+                {
+                  "key.annotated_decl" : "<Declaration>C<\/Declaration>",
+                  "key.bb.is_override" : false,
+                  "key.bb.swift_declaration" : "C",
+                  "key.bb.swift_deprecated_everywhere" : false,
+                  "key.bb.swift_name_pieces" : [
+                    {
+                      "key.bb.name_piece_is_name" : true,
+                      "key.bb.name_piece_text" : "C"
+                    }
+                  ],
+                  "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+                  "key.fully_annotated_decl" : "<decl.generic_type_param><decl.generic_type_param.name>C<\/decl.generic_type_param.name><\/decl.generic_type_param>",
+                  "key.kind" : "source.lang.swift.decl.generic_type_param",
+                  "key.length" : 1,
+                  "key.name" : "C",
+                  "key.namelength" : 1,
+                  "key.nameoffset" : 856,
+                  "key.offset" : 856,
+                  "key.parsed_declaration" : "func e<C",
+                  "key.parsed_scope.end" : 37,
+                  "key.parsed_scope.start" : 37,
+                  "key.typename" : "C.Type",
+                  "key.typeusr" : "$sqd__mD",
+                  "key.usr" : "s:14SpmSwiftModule13FirstProtocolPAAE1e1ayqd___tAaBRd__lF1CL_qd__mfp"
+                }
+              ],
+              "key.typename" : "<Self, C where Self : FirstProtocol, C : FirstProtocol> (Self) -> (C) -> ()",
+              "key.typeusr" : "$s1ayqd___tc14SpmSwiftModule13FirstProtocolRd__luD",
+              "key.usr" : "s:14SpmSwiftModule13FirstProtocolPAAE1e1ayqd___tAaBRd__lF"
+            }
+          ],
+          "key.typename" : "FirstProtocol.Protocol",
+          "key.typeusr" : "$s14SpmSwiftModule13FirstProtocol_pmD",
+          "key.usr" : "s:14SpmSwiftModule13FirstProtocolP"
+        },
+        {
+          "key.annotated_decl" : "<Declaration>public protocol FirstProtocol<\/Declaration>",
+          "key.bb.documentation" : {
+            "key.bb.abstract" : {
+              "en" : "A protocol."
+            },
+            "key.bb.doc_source" : "inherited"
+          },
+          "key.bb.is_override" : false,
+          "key.bb.swift_declaration" : "extension FirstProtocol",
+          "key.bb.swift_deprecated_everywhere" : false,
+          "key.bb.swift_name_pieces" : [
+            {
+              "key.bb.name_piece_is_name" : false,
+              "key.bb.name_piece_text" : "extension "
+            },
+            {
+              "key.bb.name_piece_is_name" : true,
+              "key.bb.name_piece_text" : "FirstProtocol"
+            }
+          ],
           "key.bodylength" : 121,
-          "key.bodyoffset" : 392,
+          "key.bodyoffset" : 919,
           "key.doc.column" : 17,
           "key.doc.declaration" : "public protocol FirstProtocol",
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
@@ -1702,11 +2204,11 @@
           "key.length" : 147,
           "key.name" : "FirstProtocol",
           "key.namelength" : 13,
-          "key.nameoffset" : 377,
-          "key.offset" : 367,
+          "key.nameoffset" : 904,
+          "key.offset" : 894,
           "key.parsed_declaration" : "extension FirstProtocol",
-          "key.parsed_scope.end" : 28,
-          "key.parsed_scope.start" : 21,
+          "key.parsed_scope.end" : 47,
+          "key.parsed_scope.start" : 40,
           "key.substructure" : [
             {
               "key.annotated_decl" : "<Declaration>func m(arg: <Type usr=\"s:Si\">Int<\/Type>) -&gt; <Type usr=\"s:SS\">String<\/Type><\/Declaration>",
@@ -1745,7 +2247,7 @@
                 }
               ],
               "key.bodylength" : 10,
-              "key.bodyoffset" : 501,
+              "key.bodyoffset" : 1028,
               "key.doc.column" : 8,
               "key.doc.comment" : "Return a safe default.\n\nThere's more: it's the empty string.",
               "key.doc.declaration" : "func m(arg: Int) -> String",
@@ -1755,23 +2257,23 @@
                 }
               ],
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
-              "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift\" line=\"25\" column=\"8\"><Name>m(arg:)<\/Name><USR>s:14SpmSwiftModule13FirstProtocolPAAE1m3argSSSi_tF<\/USR><Declaration>func m(arg: Int) -&gt; String<\/Declaration><CommentParts><Abstract><Para>Return a safe default.<\/Para><\/Abstract><Discussion><Para>There’s more: it’s the empty string.<\/Para><\/Discussion><\/CommentParts><\/Function>",
-              "key.doc.line" : 25,
+              "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift\" line=\"44\" column=\"8\"><Name>m(arg:)<\/Name><USR>s:14SpmSwiftModule13FirstProtocolPAAE1m3argSSSi_tF<\/USR><Declaration>func m(arg: Int) -&gt; String<\/Declaration><CommentParts><Abstract><Para>Return a safe default.<\/Para><\/Abstract><Discussion><Para>There’s more: it’s the empty string.<\/Para><\/Discussion><\/CommentParts><\/Function>",
+              "key.doc.line" : 44,
               "key.doc.name" : "m(arg:)",
               "key.doc.type" : "Function",
               "key.doclength" : 76,
-              "key.docoffset" : 395,
+              "key.docoffset" : 922,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>m<\/decl.name>(<decl.var.parameter><decl.var.parameter.argument_label>arg<\/decl.var.parameter.argument_label>: <decl.var.parameter.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.function.returntype><\/decl.function.method.instance>",
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 39,
               "key.name" : "m(arg:)",
               "key.namelength" : 11,
-              "key.nameoffset" : 478,
-              "key.offset" : 473,
+              "key.nameoffset" : 1005,
+              "key.offset" : 1000,
               "key.parsed_declaration" : "func m(arg: Int) -> String",
-              "key.parsed_scope.end" : 27,
-              "key.parsed_scope.start" : 25,
+              "key.parsed_scope.end" : 46,
+              "key.parsed_scope.start" : 44,
               "key.related_decls" : [
                 {
                   "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule13FirstProtocolP1m3argSSSi_tF\">m(arg: Int) -&gt; String<\/RelatedName>"
@@ -1790,22 +2292,10 @@
           "key.usr" : "s:14SpmSwiftModule13FirstProtocolP"
         },
         {
-          "key.accessibility" : "source.lang.swift.accessibility.public",
-          "key.annotated_decl" : "<Declaration>public protocol SecondProtocol : <Type usr=\"s:14SpmSwiftModule13FirstProtocolP\">FirstProtocol<\/Type><\/Declaration>",
-          "key.attributes" : [
-            {
-              "key.attribute" : "source.decl.attribute.public",
-              "key.length" : 6,
-              "key.offset" : 516
-            }
-          ],
-          "key.bb.inherited_types" : [
-            {
-              "key.bb.type_name" : "FirstProtocol"
-            }
-          ],
+          "key.accessibility" : "source.lang.swift.accessibility.internal",
+          "key.annotated_decl" : "<Declaration>protocol P1<\/Declaration>",
           "key.bb.is_override" : false,
-          "key.bb.swift_declaration" : "public protocol SecondProtocol: FirstProtocol",
+          "key.bb.swift_declaration" : "protocol P1",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
             {
@@ -1814,79 +2304,118 @@
             },
             {
               "key.bb.name_piece_is_name" : true,
-              "key.bb.name_piece_text" : "SecondProtocol"
+              "key.bb.name_piece_text" : "P1"
             }
           ],
-          "key.bodylength" : 41,
-          "key.bodyoffset" : 563,
+          "key.bodylength" : 0,
+          "key.bodyoffset" : 1056,
+          "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+          "key.fully_annotated_decl" : "<decl.protocol><syntaxtype.keyword>protocol<\/syntaxtype.keyword> <decl.name>P1<\/decl.name><\/decl.protocol>",
+          "key.kind" : "source.lang.swift.decl.protocol",
+          "key.length" : 14,
+          "key.name" : "P1",
+          "key.namelength" : 2,
+          "key.nameoffset" : 1052,
+          "key.offset" : 1043,
+          "key.parsed_declaration" : "protocol P1",
+          "key.parsed_scope.end" : 49,
+          "key.parsed_scope.start" : 49,
+          "key.typename" : "P1.Protocol",
+          "key.typeusr" : "$s14SpmSwiftModule2P1_pmD",
+          "key.usr" : "s:14SpmSwiftModule2P1P"
+        },
+        {
+          "key.accessibility" : "source.lang.swift.accessibility.internal",
+          "key.annotated_decl" : "<Declaration>protocol P2<\/Declaration>",
+          "key.bb.is_override" : false,
+          "key.bb.swift_declaration" : "protocol P2",
+          "key.bb.swift_deprecated_everywhere" : false,
+          "key.bb.swift_name_pieces" : [
+            {
+              "key.bb.name_piece_is_name" : false,
+              "key.bb.name_piece_text" : "protocol "
+            },
+            {
+              "key.bb.name_piece_is_name" : true,
+              "key.bb.name_piece_text" : "P2"
+            }
+          ],
+          "key.bodylength" : 0,
+          "key.bodyoffset" : 1071,
+          "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+          "key.fully_annotated_decl" : "<decl.protocol><syntaxtype.keyword>protocol<\/syntaxtype.keyword> <decl.name>P2<\/decl.name><\/decl.protocol>",
+          "key.kind" : "source.lang.swift.decl.protocol",
+          "key.length" : 14,
+          "key.name" : "P2",
+          "key.namelength" : 2,
+          "key.nameoffset" : 1067,
+          "key.offset" : 1058,
+          "key.parsed_declaration" : "protocol P2",
+          "key.parsed_scope.end" : 50,
+          "key.parsed_scope.start" : 50,
+          "key.typename" : "P2.Protocol",
+          "key.typeusr" : "$s14SpmSwiftModule2P2_pmD",
+          "key.usr" : "s:14SpmSwiftModule2P2P"
+        },
+        {
+          "key.accessibility" : "source.lang.swift.accessibility.internal",
+          "key.annotated_decl" : "<Declaration>struct S1 : <Type usr=\"s:14SpmSwiftModule2P1P\">P1<\/Type><\/Declaration>",
+          "key.bb.inherited_types" : [
+            {
+              "key.bb.type_name" : "P1"
+            }
+          ],
+          "key.bb.is_override" : false,
+          "key.bb.swift_declaration" : "struct S1: P1",
+          "key.bb.swift_deprecated_everywhere" : false,
+          "key.bb.swift_name_pieces" : [
+            {
+              "key.bb.name_piece_is_name" : false,
+              "key.bb.name_piece_text" : "struct "
+            },
+            {
+              "key.bb.name_piece_is_name" : true,
+              "key.bb.name_piece_text" : "S1"
+            }
+          ],
+          "key.bodylength" : 0,
+          "key.bodyoffset" : 1089,
           "key.elements" : [
             {
               "key.kind" : "source.lang.swift.structure.elem.typeref",
-              "key.length" : 13,
-              "key.offset" : 548
+              "key.length" : 2,
+              "key.offset" : 1085
             }
           ],
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
-          "key.fully_annotated_decl" : "<decl.protocol><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>protocol<\/syntaxtype.keyword> <decl.name>SecondProtocol<\/decl.name> : <ref.protocol usr=\"s:14SpmSwiftModule13FirstProtocolP\">FirstProtocol<\/ref.protocol><\/decl.protocol>",
+          "key.fully_annotated_decl" : "<decl.struct><syntaxtype.keyword>struct<\/syntaxtype.keyword> <decl.name>S1<\/decl.name> : <ref.protocol usr=\"s:14SpmSwiftModule2P1P\">P1<\/ref.protocol><\/decl.struct>",
           "key.inheritedtypes" : [
             {
-              "key.name" : "FirstProtocol"
+              "key.name" : "P1"
             }
           ],
-          "key.kind" : "source.lang.swift.decl.protocol",
-          "key.length" : 82,
-          "key.name" : "SecondProtocol",
-          "key.namelength" : 14,
-          "key.nameoffset" : 532,
-          "key.offset" : 523,
-          "key.parsed_declaration" : "public protocol SecondProtocol: FirstProtocol",
-          "key.parsed_scope.end" : 32,
-          "key.parsed_scope.start" : 30,
-          "key.substructure" : [
-            {
-              "key.accessibility" : "source.lang.swift.accessibility.public",
-              "key.annotated_decl" : "<Declaration>func secondProtocolMethod() -&gt; <Type usr=\"s:SS\">String<\/Type><\/Declaration>",
-              "key.bb.is_override" : false,
-              "key.bb.swift_declaration" : "func secondProtocolMethod() -> String",
-              "key.bb.swift_deprecated_everywhere" : false,
-              "key.bb.swift_name_pieces" : [
-                {
-                  "key.bb.name_piece_is_name" : false,
-                  "key.bb.name_piece_text" : "func "
-                },
-                {
-                  "key.bb.name_piece_is_name" : true,
-                  "key.bb.name_piece_text" : "secondProtocolMethod"
-                },
-                {
-                  "key.bb.name_piece_is_name" : false,
-                  "key.bb.name_piece_text" : "() -> String"
-                }
-              ],
-              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
-              "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>secondProtocolMethod<\/decl.name>() -&gt; <decl.function.returntype><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.function.returntype><\/decl.function.method.instance>",
-              "key.kind" : "source.lang.swift.decl.function.method.instance",
-              "key.length" : 37,
-              "key.name" : "secondProtocolMethod()",
-              "key.namelength" : 22,
-              "key.nameoffset" : 571,
-              "key.offset" : 566,
-              "key.parsed_declaration" : "func secondProtocolMethod() -> String",
-              "key.parsed_scope.end" : 31,
-              "key.parsed_scope.start" : 31,
-              "key.typename" : "<Self where Self : SecondProtocol> (Self) -> () -> String",
-              "key.typeusr" : "$sSSycD",
-              "key.usr" : "s:14SpmSwiftModule14SecondProtocolP06secondE6MethodSSyF"
-            }
-          ],
-          "key.typename" : "SecondProtocol.Protocol",
-          "key.typeusr" : "$s14SpmSwiftModule14SecondProtocol_pmD",
-          "key.usr" : "s:14SpmSwiftModule14SecondProtocolP"
+          "key.kind" : "source.lang.swift.decl.struct",
+          "key.length" : 16,
+          "key.name" : "S1",
+          "key.namelength" : 2,
+          "key.nameoffset" : 1081,
+          "key.offset" : 1074,
+          "key.parsed_declaration" : "struct S1: P1",
+          "key.parsed_scope.end" : 52,
+          "key.parsed_scope.start" : 52,
+          "key.typename" : "S1.Type",
+          "key.typeusr" : "$s14SpmSwiftModule2S1VmD",
+          "key.usr" : "s:14SpmSwiftModule2S1V"
         },
         {
-          "key.annotated_decl" : "<Declaration>public protocol SecondProtocol : <Type usr=\"s:14SpmSwiftModule13FirstProtocolP\">FirstProtocol<\/Type><\/Declaration>",
+          "key.annotated_decl" : "<Declaration>struct S1 : <Type usr=\"s:14SpmSwiftModule2P1P\">P1<\/Type><\/Declaration>",
+          "key.bb.inherited_types" : [
+            {
+              "key.bb.type_name" : "CustomStringConvertible"
+            }
+          ],
           "key.bb.is_override" : false,
-          "key.bb.swift_declaration" : "extension SecondProtocol",
+          "key.bb.swift_declaration" : "extension S1: CustomStringConvertible",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
             {
@@ -1895,33 +2424,48 @@
             },
             {
               "key.bb.name_piece_is_name" : true,
-              "key.bb.name_piece_text" : "SecondProtocol"
+              "key.bb.name_piece_text" : "S1"
             }
           ],
-          "key.bodylength" : 256,
-          "key.bodyoffset" : 633,
+          "key.bodylength" : 34,
+          "key.bodyoffset" : 1131,
+          "key.elements" : [
+            {
+              "key.kind" : "source.lang.swift.structure.elem.typeref",
+              "key.length" : 23,
+              "key.offset" : 1106
+            }
+          ],
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
-          "key.fully_annotated_decl" : "<decl.protocol><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>protocol<\/syntaxtype.keyword> <decl.name>SecondProtocol<\/decl.name> : <ref.protocol usr=\"s:14SpmSwiftModule13FirstProtocolP\">FirstProtocol<\/ref.protocol><\/decl.protocol>",
+          "key.fully_annotated_decl" : "<decl.struct><syntaxtype.keyword>struct<\/syntaxtype.keyword> <decl.name>S1<\/decl.name> : <ref.protocol usr=\"s:14SpmSwiftModule2P1P\">P1<\/ref.protocol><\/decl.struct>",
+          "key.inheritedtypes" : [
+            {
+              "key.name" : "CustomStringConvertible"
+            }
+          ],
           "key.kind" : "source.lang.swift.decl.extension",
-          "key.length" : 283,
-          "key.name" : "SecondProtocol",
-          "key.namelength" : 14,
-          "key.nameoffset" : 617,
-          "key.offset" : 607,
-          "key.parsed_declaration" : "extension SecondProtocol",
-          "key.parsed_scope.end" : 40,
-          "key.parsed_scope.start" : 34,
+          "key.length" : 74,
+          "key.name" : "S1",
+          "key.namelength" : 2,
+          "key.nameoffset" : 1102,
+          "key.offset" : 1092,
+          "key.parsed_declaration" : "extension S1: CustomStringConvertible",
+          "key.parsed_scope.end" : 56,
+          "key.parsed_scope.start" : 54,
           "key.substructure" : [
             {
-              "key.annotated_decl" : "<Declaration>var getOnly: <Type usr=\"s:Si\">Int<\/Type> { get }<\/Declaration>",
+              "key.annotated_decl" : "<Declaration>var description: <Type usr=\"s:SS\">String<\/Type> { get }<\/Declaration>",
               "key.bb.documentation" : {
                 "key.bb.abstract" : {
-                  "en" : "A default implementation for a method of `FirstProtocol`\nprovided by `SecondProtocol`.\nFrom source we mess this up as an extension method.\nFrom symbolgraph we mess this up as being part of `FirstProtocol`."
+                  "en" : "A textual representation of this instance."
                 },
-                "key.bb.doc_source" : "docComment"
+                "key.bb.discussion" : {
+                  "en" : "Calling this property directly is discouraged. Instead, convert an instance of any type to a string by using the `String(describing:)` initializer. This initializer works with any type, and uses the custom `description` property for types that conform to `CustomStringConvertible`:\n\n``` swift\nstruct Point: CustomStringConvertible {\n    let x: Int, y: Int\n\n    var description: String {\n        return \"(\\(x), \\(y))\"\n    }\n}\n\nlet p = Point(x: 21, y: 30)\nlet s = String(describing: p)\nprint(s)\n\/\/ Prints \"(21, 30)\"\n\n```\n\nThe conversion of `p` to a string in the assignment to `s` uses the `Point` type’s `description` property."
+                },
+                "key.bb.doc_source" : "inherited"
               },
-              "key.bb.is_override" : false,
-              "key.bb.swift_declaration" : "var getOnly: Int { get }",
+              "key.bb.is_override" : true,
+              "key.bb.swift_declaration" : "var description: String { get }",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
                 {
@@ -1930,49 +2474,735 @@
                 },
                 {
                   "key.bb.name_piece_is_name" : true,
-                  "key.bb.name_piece_text" : "getOnly"
+                  "key.bb.name_piece_text" : "description"
                 },
                 {
                   "key.bb.name_piece_is_name" : false,
-                  "key.bb.name_piece_text" : ": Int"
+                  "key.bb.name_piece_text" : ": String"
                 }
               ],
-              "key.bodylength" : 3,
-              "key.bodyoffset" : 884,
-              "key.doc.column" : 7,
-              "key.doc.comment" : "A default implementation for a method of `FirstProtocol`\nprovided by `SecondProtocol`.\nFrom source we mess this up as an extension method.\nFrom symbolgraph we mess this up as being part of `FirstProtocol`.",
-              "key.doc.declaration" : "var getOnly: Int { get }",
-              "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
-              "key.doc.full_as_xml" : "<Other file=\"\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift\" line=\"39\" column=\"7\"><Name>getOnly<\/Name><USR>s:14SpmSwiftModule14SecondProtocolPAAE7getOnlySivp<\/USR><Declaration>var getOnly: Int { get }<\/Declaration><CommentParts><Abstract><Para>A default implementation for a method of <codeVoice>FirstProtocol<\/codeVoice> provided by <codeVoice>SecondProtocol<\/codeVoice>. From source we mess this up as an extension method. From symbolgraph we mess this up as being part of <codeVoice>FirstProtocol<\/codeVoice>.<\/Para><\/Abstract><\/CommentParts><\/Other>",
-              "key.doc.line" : 39,
-              "key.doc.name" : "getOnly",
-              "key.doc.type" : "Other",
-              "key.doclength" : 228,
-              "key.docoffset" : 636,
-              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
-              "key.fully_annotated_decl" : "<decl.var.instance><syntaxtype.keyword>var<\/syntaxtype.keyword> <decl.name>getOnly<\/decl.name>: <decl.var.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.type> { <syntaxtype.keyword>get<\/syntaxtype.keyword> }<\/decl.var.instance>",
-              "key.kind" : "source.lang.swift.decl.var.instance",
-              "key.length" : 22,
-              "key.name" : "getOnly",
-              "key.namelength" : 7,
-              "key.nameoffset" : 870,
-              "key.offset" : 866,
-              "key.parsed_declaration" : "var getOnly: Int",
-              "key.parsed_scope.end" : 39,
-              "key.parsed_scope.start" : 39,
-              "key.related_decls" : [
+              "key.bodylength" : 4,
+              "key.bodyoffset" : 1159,
+              "key.doc.declaration" : "var description: String { get }",
+              "key.doc.discussion" : [
                 {
-                  "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule13FirstProtocolP7getOnlySivp\">getOnly<\/RelatedName>"
+                  "Para" : "Calling this property directly is discouraged. Instead, convert an instance of any type to a string by using the `String(describing:)` initializer. This initializer works with any type, and uses the custom `description` property for types that conform to `CustomStringConvertible`:"
+                },
+                {
+                  "CodeListing" : ""
+                },
+                {
+                  "Para" : "The conversion of `p` to a string in the assignment to `s` uses the `Point` type’s `description` property."
+                },
+                {
+                  "Note" : ""
                 }
               ],
-              "key.typename" : "Int",
-              "key.typeusr" : "$sSiD",
-              "key.usr" : "s:14SpmSwiftModule14SecondProtocolPAAE7getOnlySivp"
+              "key.doc.full_as_xml" : "<Other><Name>description<\/Name><USR>s:s23CustomStringConvertibleP11descriptionSSvp<\/USR><Declaration>var description: String { get }<\/Declaration><CommentParts><Abstract><Para>A textual representation of this instance.<\/Para><\/Abstract><Discussion><Para>Calling this property directly is discouraged. Instead, convert an instance of any type to a string by using the <codeVoice>String(describing:)<\/codeVoice> initializer. This initializer works with any type, and uses the custom <codeVoice>description<\/codeVoice> property for types that conform to <codeVoice>CustomStringConvertible<\/codeVoice>:<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[struct Point: CustomStringConvertible {]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    let x: Int, y: Int]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    var description: String {]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[        return \"(\\(x), \\(y))\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    }]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[}]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[let p = Point(x: 21, y: 30)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[let s = String(describing: p)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[print(s)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"(21, 30)\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>The conversion of <codeVoice>p<\/codeVoice> to a string in the assignment to <codeVoice>s<\/codeVoice> uses the <codeVoice>Point<\/codeVoice> type’s <codeVoice>description<\/codeVoice> property.<\/Para><Note><Para>This documentation comment was inherited from <codeVoice>CustomStringConvertible<\/codeVoice>.<\/Para><\/Note><\/Discussion><\/CommentParts><\/Other>",
+              "key.doc.name" : "description",
+              "key.doc.type" : "Other",
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+              "key.fully_annotated_decl" : "<decl.var.instance><syntaxtype.keyword>var<\/syntaxtype.keyword> <decl.name>description<\/decl.name>: <decl.var.type><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.var.type> { <syntaxtype.keyword>get<\/syntaxtype.keyword> }<\/decl.var.instance>",
+              "key.kind" : "source.lang.swift.decl.var.instance",
+              "key.length" : 30,
+              "key.name" : "description",
+              "key.namelength" : 11,
+              "key.nameoffset" : 1138,
+              "key.offset" : 1134,
+              "key.overrides" : [
+                {
+                  "key.usr" : "s:s23CustomStringConvertibleP11descriptionSSvp"
+                }
+              ],
+              "key.parsed_declaration" : "var description: String",
+              "key.parsed_scope.end" : 55,
+              "key.parsed_scope.start" : 55,
+              "key.typename" : "String",
+              "key.typeusr" : "$sSSD",
+              "key.usr" : "s:s23CustomStringConvertibleP11descriptionSSvp"
             }
           ],
-          "key.typename" : "SecondProtocol.Protocol",
-          "key.typeusr" : "$s14SpmSwiftModule14SecondProtocol_pmD",
-          "key.usr" : "s:14SpmSwiftModule14SecondProtocolP"
+          "key.typename" : "S1.Type",
+          "key.typeusr" : "$s14SpmSwiftModule2S1VmD",
+          "key.usr" : "s:14SpmSwiftModule2S1V"
+        },
+        {
+          "key.accessibility" : "source.lang.swift.accessibility.internal",
+          "key.annotated_decl" : "<Declaration>struct S2&lt;T&gt; : <Type usr=\"s:14SpmSwiftModule2P1P\">P1<\/Type> where <Type usr=\"s:14SpmSwiftModule2S2V1Txmfp\">T<\/Type> : <Type usr=\"s:SQ\">Equatable<\/Type><\/Declaration>",
+          "key.bb.inherited_types" : [
+            {
+              "key.bb.type_name" : "P1"
+            }
+          ],
+          "key.bb.is_override" : false,
+          "key.bb.swift_declaration" : "struct S2<T>: P1 where T: Equatable",
+          "key.bb.swift_deprecated_everywhere" : false,
+          "key.bb.swift_name_pieces" : [
+            {
+              "key.bb.name_piece_is_name" : false,
+              "key.bb.name_piece_text" : "struct "
+            },
+            {
+              "key.bb.name_piece_is_name" : true,
+              "key.bb.name_piece_text" : "S2"
+            }
+          ],
+          "key.bodylength" : 25,
+          "key.bodyoffset" : 1205,
+          "key.elements" : [
+            {
+              "key.kind" : "source.lang.swift.structure.elem.typeref",
+              "key.length" : 2,
+              "key.offset" : 1182
+            }
+          ],
+          "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+          "key.fully_annotated_decl" : "<decl.struct><syntaxtype.keyword>struct<\/syntaxtype.keyword> <decl.name>S2<\/decl.name>&lt;<decl.generic_type_param usr=\"s:14SpmSwiftModule2S2V1Txmfp\"><decl.generic_type_param.name>T<\/decl.generic_type_param.name><\/decl.generic_type_param>&gt; : <ref.protocol usr=\"s:14SpmSwiftModule2P1P\">P1<\/ref.protocol> <syntaxtype.keyword>where<\/syntaxtype.keyword> <decl.generic_type_requirement><ref.generic_type_param usr=\"s:14SpmSwiftModule2S2V1Txmfp\">T<\/ref.generic_type_param> : <ref.protocol usr=\"s:SQ\">Equatable<\/ref.protocol><\/decl.generic_type_requirement><\/decl.struct>",
+          "key.inheritedtypes" : [
+            {
+              "key.name" : "P1"
+            }
+          ],
+          "key.kind" : "source.lang.swift.decl.struct",
+          "key.length" : 63,
+          "key.name" : "S2",
+          "key.namelength" : 2,
+          "key.nameoffset" : 1175,
+          "key.offset" : 1168,
+          "key.parsed_declaration" : "struct S2<T>: P1 where T: Equatable",
+          "key.parsed_scope.end" : 60,
+          "key.parsed_scope.start" : 58,
+          "key.substructure" : [
+            {
+              "key.annotated_decl" : "<Declaration>T<\/Declaration>",
+              "key.bb.is_override" : false,
+              "key.bb.swift_declaration" : "T",
+              "key.bb.swift_deprecated_everywhere" : false,
+              "key.bb.swift_name_pieces" : [
+                {
+                  "key.bb.name_piece_is_name" : true,
+                  "key.bb.name_piece_text" : "T"
+                }
+              ],
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+              "key.fully_annotated_decl" : "<decl.generic_type_param><decl.generic_type_param.name>T<\/decl.generic_type_param.name><\/decl.generic_type_param>",
+              "key.kind" : "source.lang.swift.decl.generic_type_param",
+              "key.length" : 1,
+              "key.name" : "T",
+              "key.namelength" : 1,
+              "key.nameoffset" : 1178,
+              "key.offset" : 1178,
+              "key.parsed_declaration" : "struct S2<T",
+              "key.parsed_scope.end" : 58,
+              "key.parsed_scope.start" : 58,
+              "key.typename" : "T.Type",
+              "key.typeusr" : "$sxmD",
+              "key.usr" : "s:14SpmSwiftModule2S2V1Txmfp"
+            },
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.internal",
+              "key.annotated_decl" : "<Declaration>func equatables2()<\/Declaration>",
+              "key.bb.is_override" : false,
+              "key.bb.swift_declaration" : "func equatables2()",
+              "key.bb.swift_deprecated_everywhere" : false,
+              "key.bb.swift_name_pieces" : [
+                {
+                  "key.bb.name_piece_is_name" : false,
+                  "key.bb.name_piece_text" : "func "
+                },
+                {
+                  "key.bb.name_piece_is_name" : true,
+                  "key.bb.name_piece_text" : "equatables2"
+                },
+                {
+                  "key.bb.name_piece_is_name" : false,
+                  "key.bb.name_piece_text" : "()"
+                }
+              ],
+              "key.bodylength" : 0,
+              "key.bodyoffset" : 1228,
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+              "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>equatables2<\/decl.name>()<\/decl.function.method.instance>",
+              "key.kind" : "source.lang.swift.decl.function.method.instance",
+              "key.length" : 21,
+              "key.name" : "equatables2()",
+              "key.namelength" : 13,
+              "key.nameoffset" : 1213,
+              "key.offset" : 1208,
+              "key.parsed_declaration" : "func equatables2()",
+              "key.parsed_scope.end" : 59,
+              "key.parsed_scope.start" : 59,
+              "key.typename" : "<T where T : Equatable> (S2<T>) -> () -> ()",
+              "key.typeusr" : "$syycD",
+              "key.usr" : "s:14SpmSwiftModule2S2V11equatables2yyF"
+            }
+          ],
+          "key.typename" : "S2<T>.Type",
+          "key.typeusr" : "$s14SpmSwiftModule2S2VyxGmD",
+          "key.usr" : "s:14SpmSwiftModule2S2V"
+        },
+        {
+          "key.annotated_decl" : "<Declaration>struct S2&lt;T&gt; : <Type usr=\"s:14SpmSwiftModule2P1P\">P1<\/Type> where <Type usr=\"s:14SpmSwiftModule2S2V1Txmfp\">T<\/Type> : <Type usr=\"s:SQ\">Equatable<\/Type><\/Declaration>",
+          "key.bb.inherited_types" : [
+            {
+              "key.bb.type_name" : "P2"
+            }
+          ],
+          "key.bb.is_override" : false,
+          "key.bb.swift_declaration" : "extension S2: P2 where T: Comparable",
+          "key.bb.swift_deprecated_everywhere" : false,
+          "key.bb.swift_name_pieces" : [
+            {
+              "key.bb.name_piece_is_name" : false,
+              "key.bb.name_piece_text" : "extension "
+            },
+            {
+              "key.bb.name_piece_is_name" : true,
+              "key.bb.name_piece_text" : "S2"
+            }
+          ],
+          "key.bodylength" : 26,
+          "key.bodyoffset" : 1271,
+          "key.elements" : [
+            {
+              "key.kind" : "source.lang.swift.structure.elem.typeref",
+              "key.length" : 2,
+              "key.offset" : 1247
+            }
+          ],
+          "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+          "key.fully_annotated_decl" : "<decl.struct><syntaxtype.keyword>struct<\/syntaxtype.keyword> <decl.name>S2<\/decl.name>&lt;<decl.generic_type_param usr=\"s:14SpmSwiftModule2S2V1Txmfp\"><decl.generic_type_param.name>T<\/decl.generic_type_param.name><\/decl.generic_type_param>&gt; : <ref.protocol usr=\"s:14SpmSwiftModule2P1P\">P1<\/ref.protocol> <syntaxtype.keyword>where<\/syntaxtype.keyword> <decl.generic_type_requirement><ref.generic_type_param usr=\"s:14SpmSwiftModule2S2V1Txmfp\">T<\/ref.generic_type_param> : <ref.protocol usr=\"s:SQ\">Equatable<\/ref.protocol><\/decl.generic_type_requirement><\/decl.struct>",
+          "key.inheritedtypes" : [
+            {
+              "key.name" : "P2"
+            }
+          ],
+          "key.kind" : "source.lang.swift.decl.extension",
+          "key.length" : 65,
+          "key.name" : "S2",
+          "key.namelength" : 2,
+          "key.nameoffset" : 1243,
+          "key.offset" : 1233,
+          "key.parsed_declaration" : "extension S2: P2 where T: Comparable",
+          "key.parsed_scope.end" : 64,
+          "key.parsed_scope.start" : 62,
+          "key.substructure" : [
+            {
+              "key.annotated_decl" : "<Declaration>func comparables2()<\/Declaration>",
+              "key.bb.is_override" : false,
+              "key.bb.swift_declaration" : "func comparables2()",
+              "key.bb.swift_deprecated_everywhere" : false,
+              "key.bb.swift_name_pieces" : [
+                {
+                  "key.bb.name_piece_is_name" : false,
+                  "key.bb.name_piece_text" : "func "
+                },
+                {
+                  "key.bb.name_piece_is_name" : true,
+                  "key.bb.name_piece_text" : "comparables2"
+                },
+                {
+                  "key.bb.name_piece_is_name" : false,
+                  "key.bb.name_piece_text" : "()"
+                }
+              ],
+              "key.bodylength" : 0,
+              "key.bodyoffset" : 1295,
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+              "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>comparables2<\/decl.name>()<\/decl.function.method.instance>",
+              "key.kind" : "source.lang.swift.decl.function.method.instance",
+              "key.length" : 22,
+              "key.name" : "comparables2()",
+              "key.namelength" : 14,
+              "key.nameoffset" : 1279,
+              "key.offset" : 1274,
+              "key.parsed_declaration" : "func comparables2()",
+              "key.parsed_scope.end" : 63,
+              "key.parsed_scope.start" : 63,
+              "key.typename" : "<T where T : Comparable> (S2<T>) -> () -> ()",
+              "key.typeusr" : "$syycD",
+              "key.usr" : "s:14SpmSwiftModule2S2VAASLRzrlE12comparables2yyF"
+            }
+          ],
+          "key.typename" : "S2<T>.Type",
+          "key.typeusr" : "$s14SpmSwiftModule2S2VyxGmD",
+          "key.usr" : "s:14SpmSwiftModule2S2V"
+        },
+        {
+          "key.annotated_decl" : "<Declaration>struct S2&lt;T&gt; : <Type usr=\"s:14SpmSwiftModule2P1P\">P1<\/Type> where <Type usr=\"s:14SpmSwiftModule2S2V1Txmfp\">T<\/Type> : <Type usr=\"s:SQ\">Equatable<\/Type><\/Declaration>",
+          "key.bb.inherited_types" : [
+            {
+              "key.bb.type_name" : "Equatable"
+            }
+          ],
+          "key.bb.is_override" : false,
+          "key.bb.swift_declaration" : "extension S2: Equatable where T: Equatable",
+          "key.bb.swift_deprecated_everywhere" : false,
+          "key.bb.swift_name_pieces" : [
+            {
+              "key.bb.name_piece_is_name" : false,
+              "key.bb.name_piece_text" : "extension "
+            },
+            {
+              "key.bb.name_piece_is_name" : true,
+              "key.bb.name_piece_text" : "S2"
+            }
+          ],
+          "key.bodylength" : 26,
+          "key.bodyoffset" : 1344,
+          "key.elements" : [
+            {
+              "key.kind" : "source.lang.swift.structure.elem.typeref",
+              "key.length" : 9,
+              "key.offset" : 1314
+            }
+          ],
+          "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+          "key.fully_annotated_decl" : "<decl.struct><syntaxtype.keyword>struct<\/syntaxtype.keyword> <decl.name>S2<\/decl.name>&lt;<decl.generic_type_param usr=\"s:14SpmSwiftModule2S2V1Txmfp\"><decl.generic_type_param.name>T<\/decl.generic_type_param.name><\/decl.generic_type_param>&gt; : <ref.protocol usr=\"s:14SpmSwiftModule2P1P\">P1<\/ref.protocol> <syntaxtype.keyword>where<\/syntaxtype.keyword> <decl.generic_type_requirement><ref.generic_type_param usr=\"s:14SpmSwiftModule2S2V1Txmfp\">T<\/ref.generic_type_param> : <ref.protocol usr=\"s:SQ\">Equatable<\/ref.protocol><\/decl.generic_type_requirement><\/decl.struct>",
+          "key.inheritedtypes" : [
+            {
+              "key.name" : "Equatable"
+            }
+          ],
+          "key.kind" : "source.lang.swift.decl.extension",
+          "key.length" : 71,
+          "key.name" : "S2",
+          "key.namelength" : 2,
+          "key.nameoffset" : 1310,
+          "key.offset" : 1300,
+          "key.parsed_declaration" : "extension S2: Equatable where T: Equatable",
+          "key.parsed_scope.end" : 68,
+          "key.parsed_scope.start" : 66,
+          "key.substructure" : [
+            {
+              "key.annotated_decl" : "<Declaration>func equatables22()<\/Declaration>",
+              "key.bb.is_override" : false,
+              "key.bb.swift_declaration" : "func equatables22()",
+              "key.bb.swift_deprecated_everywhere" : false,
+              "key.bb.swift_name_pieces" : [
+                {
+                  "key.bb.name_piece_is_name" : false,
+                  "key.bb.name_piece_text" : "func "
+                },
+                {
+                  "key.bb.name_piece_is_name" : true,
+                  "key.bb.name_piece_text" : "equatables22"
+                },
+                {
+                  "key.bb.name_piece_is_name" : false,
+                  "key.bb.name_piece_text" : "()"
+                }
+              ],
+              "key.bodylength" : 0,
+              "key.bodyoffset" : 1368,
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+              "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>equatables22<\/decl.name>()<\/decl.function.method.instance>",
+              "key.kind" : "source.lang.swift.decl.function.method.instance",
+              "key.length" : 22,
+              "key.name" : "equatables22()",
+              "key.namelength" : 14,
+              "key.nameoffset" : 1352,
+              "key.offset" : 1347,
+              "key.parsed_declaration" : "func equatables22()",
+              "key.parsed_scope.end" : 67,
+              "key.parsed_scope.start" : 67,
+              "key.typename" : "<T where T : Equatable> (S2<T>) -> () -> ()",
+              "key.typeusr" : "$syycD",
+              "key.usr" : "s:14SpmSwiftModule2S2V12equatables22yyF"
+            }
+          ],
+          "key.typename" : "S2<T>.Type",
+          "key.typeusr" : "$s14SpmSwiftModule2S2VyxGmD",
+          "key.usr" : "s:14SpmSwiftModule2S2V"
+        },
+        {
+          "key.annotated_decl" : "<Declaration>@frozen struct Dictionary&lt;Key, Value&gt; where <Type usr=\"s:SD3Keyxmfp\">Key<\/Type> : <Type usr=\"s:SH\">Hashable<\/Type><\/Declaration>",
+          "key.bb.documentation" : {
+            "key.bb.abstract" : {
+              "en" : "A collection whose elements are key-value pairs."
+            },
+            "key.bb.doc_source" : "inherited"
+          },
+          "key.bb.inherited_types" : [
+            {
+              "key.bb.type_name" : "P2"
+            }
+          ],
+          "key.bb.is_override" : false,
+          "key.bb.swift_declaration" : "extension Dictionary: P2",
+          "key.bb.swift_deprecated_everywhere" : false,
+          "key.bb.swift_name_pieces" : [
+            {
+              "key.bb.name_piece_is_name" : false,
+              "key.bb.name_piece_text" : "extension "
+            },
+            {
+              "key.bb.name_piece_is_name" : true,
+              "key.bb.name_piece_text" : "Dictionary"
+            }
+          ],
+          "key.bb.type_module_name" : "Swift",
+          "key.bodylength" : 0,
+          "key.bodyoffset" : 1399,
+          "key.doc.declaration" : "@frozen struct Dictionary<Key, Value> where Key : Hashable",
+          "key.doc.discussion" : [
+            {
+              "Para" : "A dictionary is a type of hash table, providing fast access to the entries it contains. Each entry in the table is identified using its key, which is a hashable type such as a string or number. You use that key to retrieve the corresponding value, which can be any object. In other languages, similar data types are known as hashes or associated arrays."
+            },
+            {
+              "Para" : "Create a new dictionary by using a dictionary literal. A dictionary literal is a comma-separated list of key-value pairs, in which a colon separates each key from its associated value, surrounded by square brackets. You can assign a dictionary literal to a variable or constant or pass it to a function that expects a dictionary."
+            },
+            {
+              "Para" : "Here’s how you would create a dictionary of HTTP response codes and their related messages:"
+            },
+            {
+              "CodeListing" : ""
+            },
+            {
+              "Para" : "The `responseMessages` variable is inferred to have type `[Int: String]`. The `Key` type of the dictionary is `Int`, and the `Value` type of the dictionary is `String`."
+            },
+            {
+              "Para" : "To create a dictionary with no key-value pairs, use an empty dictionary literal (`[:]`)."
+            },
+            {
+              "CodeListing" : ""
+            },
+            {
+              "Para" : "Any type that conforms to the `Hashable` protocol can be used as a dictionary’s `Key` type, including all of Swift’s basic types. You can use your own custom types as dictionary keys by making them conform to the `Hashable` protocol."
+            },
+            {
+              "Para" : "The most common way to access values in a dictionary is to use a key as a subscript. Subscripting with a key takes the following form:"
+            },
+            {
+              "CodeListing" : ""
+            },
+            {
+              "Para" : "Subscripting a dictionary with a key returns an optional value, because a dictionary might not hold a value for the key that you use in the subscript."
+            },
+            {
+              "Para" : "The next example uses key-based subscripting of the `responseMessages` dictionary with two keys that exist in the dictionary and one that does not."
+            },
+            {
+              "CodeListing" : ""
+            },
+            {
+              "Para" : "You can also update, modify, or remove keys and values from a dictionary using the key-based subscript. To add a new key-value pair, assign a value to a key that isn’t yet a part of the dictionary."
+            },
+            {
+              "CodeListing" : ""
+            },
+            {
+              "Para" : "Update an existing value by assigning a new value to a key that already exists in the dictionary. If you assign `nil` to an existing key, the key and its associated value are removed. The following example updates the value for the `404` code to be simply “Not found” and removes the key-value pair for the `500` code entirely."
+            },
+            {
+              "CodeListing" : ""
+            },
+            {
+              "Para" : "In a mutable `Dictionary` instance, you can modify in place a value that you’ve accessed through a keyed subscript. The code sample below declares a dictionary called `interestingNumbers` with string keys and values that are integer arrays, then sorts each array in-place in descending order."
+            },
+            {
+              "CodeListing" : ""
+            },
+            {
+              "Para" : "Every dictionary is an unordered collection of key-value pairs. You can iterate over a dictionary using a `for`-`in` loop, decomposing each key-value pair into the elements of a tuple."
+            },
+            {
+              "CodeListing" : ""
+            },
+            {
+              "Para" : "The order of key-value pairs in a dictionary is stable between mutations but is otherwise unpredictable. If you need an ordered collection of key-value pairs and don’t need the fast key lookup that `Dictionary` provides, see the `KeyValuePairs` type for an alternative."
+            },
+            {
+              "Para" : "You can search a dictionary’s contents for a particular value using the `contains(where:)` or `firstIndex(where:)` methods supplied by default implementation. The following example checks to see if `imagePaths` contains any paths in the `\"\/glyphs\"` directory:"
+            },
+            {
+              "CodeListing" : ""
+            },
+            {
+              "Para" : "Note that in this example, `imagePaths` is subscripted using a dictionary index. Unlike the key-based subscript, the index-based subscript returns the corresponding key-value pair as a non-optional tuple."
+            },
+            {
+              "CodeListing" : ""
+            },
+            {
+              "Para" : "A dictionary’s indices stay valid across additions to the dictionary as long as the dictionary has enough capacity to store the added values without allocating more buffer. When a dictionary outgrows its buffer, existing indices may be invalidated without any notification."
+            },
+            {
+              "Para" : "When you know how many new values you’re adding to a dictionary, use the `init(minimumCapacity:)` initializer to allocate the correct amount of buffer."
+            },
+            {
+              "Para" : "You can bridge between `Dictionary` and `NSDictionary` using the `as` operator. For bridging to be possible, the `Key` and `Value` types of a dictionary must be classes, `@objc` protocols, or types that bridge to Foundation types."
+            },
+            {
+              "Para" : "Bridging from `Dictionary` to `NSDictionary` always takes O(1) time and space. When the dictionary’s `Key` and `Value` types are neither classes nor `@objc` protocols, any required bridging of elements occurs at the first access of each element. For this reason, the first operation that uses the contents of the dictionary may take O()."
+            },
+            {
+              "Para" : "Bridging from `NSDictionary` to `Dictionary` first calls the `copy(with:)` method (`- copyWithZone:` in Objective-C) on the dictionary to get an immutable copy and then performs additional Swift bookkeeping work that takes O(1) time. For instances of `NSDictionary` that are already immutable, `copy(with:)` usually returns the same dictionary in O(1) time; otherwise, the copying performance is unspecified. The instances of `NSDictionary` and `Dictionary` share buffer using the same copy-on-write optimization that is used when two instances of `Dictionary` share buffer."
+            }
+          ],
+          "key.doc.full_as_xml" : "<Class><Name>Dictionary<\/Name><USR>s:SD<\/USR><Declaration>@frozen struct Dictionary&lt;Key, Value&gt; where Key : Hashable<\/Declaration><CommentParts><Abstract><Para>A collection whose elements are key-value pairs.<\/Para><\/Abstract><Discussion><Para>A dictionary is a type of hash table, providing fast access to the entries it contains. Each entry in the table is identified using its key, which is a hashable type such as a string or number. You use that key to retrieve the corresponding value, which can be any object. In other languages, similar data types are known as hashes or associated arrays.<\/Para><Para>Create a new dictionary by using a dictionary literal. A dictionary literal is a comma-separated list of key-value pairs, in which a colon separates each key from its associated value, surrounded by square brackets. You can assign a dictionary literal to a variable or constant or pass it to a function that expects a dictionary.<\/Para><Para>Here’s how you would create a dictionary of HTTP response codes and their related messages:<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[var responseMessages = [200: \"OK\",]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[                        403: \"Access forbidden\",]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[                        404: \"File not found\",]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[                        500: \"Internal server error\"]]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>The <codeVoice>responseMessages<\/codeVoice> variable is inferred to have type <codeVoice>[Int: String]<\/codeVoice>. The <codeVoice>Key<\/codeVoice> type of the dictionary is <codeVoice>Int<\/codeVoice>, and the <codeVoice>Value<\/codeVoice> type of the dictionary is <codeVoice>String<\/codeVoice>.<\/Para><Para>To create a dictionary with no key-value pairs, use an empty dictionary literal (<codeVoice>[:]<\/codeVoice>).<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[var emptyDict: [String: String] = [:]]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>Any type that conforms to the <codeVoice>Hashable<\/codeVoice> protocol can be used as a dictionary’s <codeVoice>Key<\/codeVoice> type, including all of Swift’s basic types. You can use your own custom types as dictionary keys by making them conform to the <codeVoice>Hashable<\/codeVoice> protocol.<\/Para><rawHTML><![CDATA[<h1>]]><\/rawHTML>Getting and Setting Dictionary Values<rawHTML><![CDATA[<\/h1>]]><\/rawHTML><Para>The most common way to access values in a dictionary is to use a key as a subscript. Subscripting with a key takes the following form:<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[print(responseMessages[200])]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"Optional(\"OK\")\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>Subscripting a dictionary with a key returns an optional value, because a dictionary might not hold a value for the key that you use in the subscript.<\/Para><Para>The next example uses key-based subscripting of the <codeVoice>responseMessages<\/codeVoice> dictionary with two keys that exist in the dictionary and one that does not.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[let httpResponseCodes = [200, 403, 301]]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[for code in httpResponseCodes {]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    if let message = responseMessages[code] {]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[        print(\"Response \\(code): \\(message)\")]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    } else {]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[        print(\"Unknown response \\(code)\")]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    }]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[}]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"Response 200: OK\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"Response 403: Access forbidden\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"Unknown response 301\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>You can also update, modify, or remove keys and values from a dictionary using the key-based subscript. To add a new key-value pair, assign a value to a key that isn’t yet a part of the dictionary.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[responseMessages[301] = \"Moved permanently\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[print(responseMessages[301])]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"Optional(\"Moved permanently\")\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>Update an existing value by assigning a new value to a key that already exists in the dictionary. If you assign <codeVoice>nil<\/codeVoice> to an existing key, the key and its associated value are removed. The following example updates the value for the <codeVoice>404<\/codeVoice> code to be simply “Not found” and removes the key-value pair for the <codeVoice>500<\/codeVoice> code entirely.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[responseMessages[404] = \"Not found\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[responseMessages[500] = nil]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[print(responseMessages)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"[301: \"Moved permanently\", 200: \"OK\", 403: \"Access forbidden\", 404: \"Not found\"]\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>In a mutable <codeVoice>Dictionary<\/codeVoice> instance, you can modify in place a value that you’ve accessed through a keyed subscript. The code sample below declares a dictionary called <codeVoice>interestingNumbers<\/codeVoice> with string keys and values that are integer arrays, then sorts each array in-place in descending order.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[var interestingNumbers = [\"primes\": [2, 3, 5, 7, 11, 13, 17],]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[                          \"triangular\": [1, 3, 6, 10, 15, 21, 28],]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[                          \"hexagonal\": [1, 6, 15, 28, 45, 66, 91]]]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[for key in interestingNumbers.keys {]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    interestingNumbers[key]?.sort(by: >)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[}]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[print(interestingNumbers[\"primes\"]!)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"[17, 13, 11, 7, 5, 3, 2]\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><rawHTML><![CDATA[<h1>]]><\/rawHTML>Iterating Over the Contents of a Dictionary<rawHTML><![CDATA[<\/h1>]]><\/rawHTML><Para>Every dictionary is an unordered collection of key-value pairs. You can iterate over a dictionary using a <codeVoice>for<\/codeVoice>-<codeVoice>in<\/codeVoice> loop, decomposing each key-value pair into the elements of a tuple.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[let imagePaths = [\"star\": \"\/glyphs\/star.png\",]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[                  \"portrait\": \"\/images\/content\/portrait.jpg\",]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[                  \"spacer\": \"\/images\/shared\/spacer.gif\"]]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[for (name, path) in imagePaths {]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    print(\"The path to '\\(name)' is '\\(path)'.\")]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[}]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"The path to 'star' is '\/glyphs\/star.png'.\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"The path to 'portrait' is '\/images\/content\/portrait.jpg'.\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"The path to 'spacer' is '\/images\/shared\/spacer.gif'.\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>The order of key-value pairs in a dictionary is stable between mutations but is otherwise unpredictable. If you need an ordered collection of key-value pairs and don’t need the fast key lookup that <codeVoice>Dictionary<\/codeVoice> provides, see the <codeVoice>KeyValuePairs<\/codeVoice> type for an alternative.<\/Para><Para>You can search a dictionary’s contents for a particular value using the <codeVoice>contains(where:)<\/codeVoice> or <codeVoice>firstIndex(where:)<\/codeVoice> methods supplied by default implementation. The following example checks to see if <codeVoice>imagePaths<\/codeVoice> contains any paths in the <codeVoice>&quot;\/glyphs&quot;<\/codeVoice> directory:<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[let glyphIndex = imagePaths.firstIndex(where: { $0.value.hasPrefix(\"\/glyphs\") })]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[if let index = glyphIndex {]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    print(\"The '\\(imagePaths[index].key)' image is a glyph.\")]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[} else {]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    print(\"No glyphs found!\")]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[}]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"The 'star' image is a glyph.\")]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>Note that in this example, <codeVoice>imagePaths<\/codeVoice> is subscripted using a dictionary index. Unlike the key-based subscript, the index-based subscript returns the corresponding key-value pair as a non-optional tuple.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[print(imagePaths[glyphIndex!])]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"(key: \"star\", value: \"\/glyphs\/star.png\")\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>A dictionary’s indices stay valid across additions to the dictionary as long as the dictionary has enough capacity to store the added values without allocating more buffer. When a dictionary outgrows its buffer, existing indices may be invalidated without any notification.<\/Para><Para>When you know how many new values you’re adding to a dictionary, use the <codeVoice>init(minimumCapacity:)<\/codeVoice> initializer to allocate the correct amount of buffer.<\/Para><rawHTML><![CDATA[<h1>]]><\/rawHTML>Bridging Between Dictionary and NSDictionary<rawHTML><![CDATA[<\/h1>]]><\/rawHTML><Para>You can bridge between <codeVoice>Dictionary<\/codeVoice> and <codeVoice>NSDictionary<\/codeVoice> using the <codeVoice>as<\/codeVoice> operator. For bridging to be possible, the <codeVoice>Key<\/codeVoice> and <codeVoice>Value<\/codeVoice> types of a dictionary must be classes, <codeVoice>@objc<\/codeVoice> protocols, or types that bridge to Foundation types.<\/Para><Para>Bridging from <codeVoice>Dictionary<\/codeVoice> to <codeVoice>NSDictionary<\/codeVoice> always takes O(1) time and space. When the dictionary’s <codeVoice>Key<\/codeVoice> and <codeVoice>Value<\/codeVoice> types are neither classes nor <codeVoice>@objc<\/codeVoice> protocols, any required bridging of elements occurs at the first access of each element. For this reason, the first operation that uses the contents of the dictionary may take O(<emphasis>n<\/emphasis>).<\/Para><Para>Bridging from <codeVoice>NSDictionary<\/codeVoice> to <codeVoice>Dictionary<\/codeVoice> first calls the <codeVoice>copy(with:)<\/codeVoice> method (<codeVoice>- copyWithZone:<\/codeVoice> in Objective-C) on the dictionary to get an immutable copy and then performs additional Swift bookkeeping work that takes O(1) time. For instances of <codeVoice>NSDictionary<\/codeVoice> that are already immutable, <codeVoice>copy(with:)<\/codeVoice> usually returns the same dictionary in O(1) time; otherwise, the copying performance is unspecified. The instances of <codeVoice>NSDictionary<\/codeVoice> and <codeVoice>Dictionary<\/codeVoice> share buffer using the same copy-on-write optimization that is used when two instances of <codeVoice>Dictionary<\/codeVoice> share buffer.<\/Para><\/Discussion><\/CommentParts><\/Class>",
+          "key.doc.name" : "Dictionary",
+          "key.doc.type" : "Class",
+          "key.elements" : [
+            {
+              "key.kind" : "source.lang.swift.structure.elem.typeref",
+              "key.length" : 2,
+              "key.offset" : 1395
+            }
+          ],
+          "key.fully_annotated_decl" : "<decl.struct><syntaxtype.attribute.builtin><syntaxtype.attribute.name>@frozen<\/syntaxtype.attribute.name><\/syntaxtype.attribute.builtin> <syntaxtype.keyword>struct<\/syntaxtype.keyword> <decl.name>Dictionary<\/decl.name>&lt;<decl.generic_type_param usr=\"s:SD3Keyxmfp\"><decl.generic_type_param.name>Key<\/decl.generic_type_param.name><\/decl.generic_type_param>, <decl.generic_type_param usr=\"s:SD5Valueq_mfp\"><decl.generic_type_param.name>Value<\/decl.generic_type_param.name><\/decl.generic_type_param>&gt; <syntaxtype.keyword>where<\/syntaxtype.keyword> <decl.generic_type_requirement><ref.generic_type_param usr=\"s:SD3Keyxmfp\">Key<\/ref.generic_type_param> : <ref.protocol usr=\"s:SH\">Hashable<\/ref.protocol><\/decl.generic_type_requirement><\/decl.struct>",
+          "key.groupname" : "Collection\/HashedCollections",
+          "key.inheritedtypes" : [
+            {
+              "key.name" : "P2"
+            }
+          ],
+          "key.is_system" : true,
+          "key.kind" : "source.lang.swift.decl.extension",
+          "key.length" : 27,
+          "key.modulename" : "Swift",
+          "key.name" : "Dictionary",
+          "key.namelength" : 10,
+          "key.nameoffset" : 1383,
+          "key.offset" : 1373,
+          "key.parsed_declaration" : "extension Dictionary: P2",
+          "key.parsed_scope.end" : 70,
+          "key.parsed_scope.start" : 70,
+          "key.typename" : "Dictionary<Key, Value>.Type",
+          "key.typeusr" : "$sSDyxq_GmD",
+          "key.usr" : "s:SD"
+        },
+        {
+          "key.annotated_decl" : "<Declaration>@frozen struct Array&lt;Element&gt; : <Type usr=\"s:s24_DestructorSafeContainerP\">_DestructorSafeContainer<\/Type><\/Declaration>",
+          "key.bb.documentation" : {
+            "key.bb.abstract" : {
+              "en" : "An ordered, random-access collection."
+            },
+            "key.bb.doc_source" : "inherited"
+          },
+          "key.bb.inherited_types" : [
+            {
+              "key.bb.type_name" : "P1"
+            }
+          ],
+          "key.bb.is_override" : false,
+          "key.bb.swift_declaration" : "extension Array: P1 where Element: Comparable",
+          "key.bb.swift_deprecated_everywhere" : false,
+          "key.bb.swift_name_pieces" : [
+            {
+              "key.bb.name_piece_is_name" : false,
+              "key.bb.name_piece_text" : "extension "
+            },
+            {
+              "key.bb.name_piece_is_name" : true,
+              "key.bb.name_piece_text" : "Array"
+            }
+          ],
+          "key.bb.type_module_name" : "Swift",
+          "key.bodylength" : 23,
+          "key.bodyoffset" : 1449,
+          "key.doc.declaration" : "@frozen struct Array<Element> : _DestructorSafeContainer",
+          "key.doc.discussion" : [
+            {
+              "Para" : "Arrays are one of the most commonly used data types in an app. You use arrays to organize your app’s data. Specifically, you use the `Array` type to hold elements of a single type, the array’s `Element` type. An array can store any kind of elements—from integers to strings to classes."
+            },
+            {
+              "Para" : "Swift makes it easy to create arrays in your code using an array literal: simply surround a comma-separated list of values with square brackets. Without any other information, Swift creates an array that includes the specified values, automatically inferring the array’s `Element` type. For example:"
+            },
+            {
+              "CodeListing" : ""
+            },
+            {
+              "Para" : "You can create an empty array by specifying the `Element` type of your array in the declaration. For example:"
+            },
+            {
+              "CodeListing" : ""
+            },
+            {
+              "Para" : "If you need an array that is preinitialized with a fixed number of default values, use the `Array(repeating:count:)` initializer."
+            },
+            {
+              "CodeListing" : ""
+            },
+            {
+              "Para" : "When you need to perform an operation on all of an array’s elements, use a `for`-`in` loop to iterate through the array’s contents."
+            },
+            {
+              "CodeListing" : ""
+            },
+            {
+              "Para" : "Use the `isEmpty` property to check quickly whether an array has any elements, or use the `count` property to find the number of elements in the array."
+            },
+            {
+              "CodeListing" : ""
+            },
+            {
+              "Para" : "Use the `first` and `last` properties for safe access to the value of the array’s first and last elements. If the array is empty, these properties are `nil`."
+            },
+            {
+              "CodeListing" : ""
+            },
+            {
+              "Para" : "You can access individual array elements through a subscript. The first element of a nonempty array is always at index zero. You can subscript an array with any integer from zero up to, but not including, the count of the array. Using a negative number or an index equal to or greater than `count` triggers a runtime error. For example:"
+            },
+            {
+              "CodeListing" : ""
+            },
+            {
+              "Para" : "Suppose you need to store a list of the names of students that are signed up for a class you’re teaching. During the registration period, you need to add and remove names as students add and drop the class."
+            },
+            {
+              "CodeListing" : ""
+            },
+            {
+              "Para" : "To add single elements to the end of an array, use the `append(_:)` method. Add multiple elements at the same time by passing another array or a sequence of any kind to the `append(contentsOf:)` method."
+            },
+            {
+              "CodeListing" : ""
+            },
+            {
+              "Para" : "You can add new elements in the middle of an array by using the `insert(_:at:)` method for single elements and by using `insert(contentsOf:at:)` to insert multiple elements from another collection or array literal. The elements at that index and later indices are shifted back to make room."
+            },
+            {
+              "CodeListing" : ""
+            },
+            {
+              "Para" : "To remove elements from an array, use the `remove(at:)`, `removeSubrange(_:)`, and `removeLast()` methods."
+            },
+            {
+              "CodeListing" : ""
+            },
+            {
+              "Para" : "You can replace an existing element with a new value by assigning the new value to the subscript."
+            },
+            {
+              "CodeListing" : ""
+            },
+            {
+              "Para" : "Every array reserves a specific amount of memory to hold its contents. When you add elements to an array and that array begins to exceed its reserved capacity, the array allocates a larger region of memory and copies its elements into the new storage. The new storage is a multiple of the old storage’s size. This exponential growth strategy means that appending an element happens in constant time, averaging the performance of many append operations. Append operations that trigger reallocation have a performance cost, but they occur less and less often as the array grows larger."
+            },
+            {
+              "Para" : "If you know approximately how many elements you will need to store, use the `reserveCapacity(_:)` method before appending to the array to avoid intermediate reallocations. Use the `capacity` and `count` properties to determine how many more elements the array can store without allocating larger storage."
+            },
+            {
+              "Para" : "For arrays of most `Element` types, this storage is a contiguous block of memory. For arrays with an `Element` type that is a class or `@objc` protocol type, this storage can be a contiguous block of memory or an instance of `NSArray`. Because any arbitrary subclass of `NSArray` can become an `Array`, there are no guarantees about representation or efficiency in this case."
+            },
+            {
+              "Para" : "Each array has an independent value that includes the values of all of its elements. For simple types such as integers and other structures, this means that when you change a value in one array, the value of that element does not change in any copies of the array. For example:"
+            },
+            {
+              "CodeListing" : ""
+            },
+            {
+              "Para" : "If the elements in an array are instances of a class, the semantics are the same, though they might appear different at first. In this case, the values stored in the array are references to objects that live outside the array. If you change a reference to an object in one array, only that array has a reference to the new object. However, if two arrays contain references to the same object, you can observe changes to that object’s properties from both arrays. For example:"
+            },
+            {
+              "CodeListing" : ""
+            },
+            {
+              "Para" : "Arrays, like all variable-size collections in the standard library, use copy-on-write optimization. Multiple copies of an array share the same storage until you modify one of the copies. When that happens, the array being modified replaces its storage with a uniquely owned copy of itself, which is then modified in place. Optimizations are sometimes applied that can reduce the amount of copying."
+            },
+            {
+              "Para" : "This means that if an array is sharing storage with other copies, the first mutating operation on that array incurs the cost of copying the array. An array that is the sole owner of its storage can perform mutating operations in place."
+            },
+            {
+              "Para" : "In the example below, a `numbers` array is created along with two copies that share the same storage. When the original `numbers` array is modified, it makes a unique copy of its storage before making the modification. Further modifications to `numbers` are made in place, while the two copies continue to share the original storage."
+            },
+            {
+              "CodeListing" : ""
+            },
+            {
+              "Para" : "When you need to access APIs that require data in an `NSArray` instance instead of `Array`, use the type-cast operator (`as`) to bridge your instance. For bridging to be possible, the `Element` type of your array must be a class, an `@objc` protocol (a protocol imported from Objective-C or marked with the `@objc` attribute), or a type that bridges to a Foundation type."
+            },
+            {
+              "Para" : "The following example shows how you can bridge an `Array` instance to `NSArray` to use the `write(to:atomically:)` method. In this example, the `colors` array can be bridged to `NSArray` because the `colors` array’s `String` elements bridge to `NSString`. The compiler prevents bridging the `moreColors` array, on the other hand, because its `Element` type is `Optional<String>`, which does  bridge to a Foundation type."
+            },
+            {
+              "CodeListing" : ""
+            },
+            {
+              "Para" : "Bridging from `Array` to `NSArray` takes O(1) time and O(1) space if the array’s elements are already instances of a class or an `@objc` protocol; otherwise, it takes O() time and space."
+            },
+            {
+              "Para" : "When the destination array’s element type is a class or an `@objc` protocol, bridging from `NSArray` to `Array` first calls the `copy(with:)` (`- copyWithZone:` in Objective-C) method on the array to get an immutable copy and then performs additional Swift bookkeeping work that takes O(1) time. For instances of `NSArray` that are already immutable, `copy(with:)` usually returns the same array in O(1) time; otherwise, the copying performance is unspecified. If `copy(with:)` returns the same array, the instances of `NSArray` and `Array` share storage using the same copy-on-write optimization that is used when two instances of `Array` share storage."
+            },
+            {
+              "Para" : "When the destination array’s element type is a nonclass type that bridges to a Foundation type, bridging from `NSArray` to `Array` performs a bridging copy of the elements to contiguous storage in O() time. For example, bridging from `NSArray` to `Array<Int>` performs such a copy. No further bridging is required when accessing elements of the `Array` instance."
+            },
+            {
+              "Note" : ""
+            }
+          ],
+          "key.doc.full_as_xml" : "<Class><Name>Array<\/Name><USR>s:Sa<\/USR><Declaration>@frozen struct Array&lt;Element&gt; : _DestructorSafeContainer<\/Declaration><CommentParts><Abstract><Para>An ordered, random-access collection.<\/Para><\/Abstract><Discussion><Para>Arrays are one of the most commonly used data types in an app. You use arrays to organize your app’s data. Specifically, you use the <codeVoice>Array<\/codeVoice> type to hold elements of a single type, the array’s <codeVoice>Element<\/codeVoice> type. An array can store any kind of elements—from integers to strings to classes.<\/Para><Para>Swift makes it easy to create arrays in your code using an array literal: simply surround a comma-separated list of values with square brackets. Without any other information, Swift creates an array that includes the specified values, automatically inferring the array’s <codeVoice>Element<\/codeVoice> type. For example:<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[\/\/ An array of 'Int' elements]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[let oddNumbers = [1, 3, 5, 7, 9, 11, 13, 15]]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ An array of 'String' elements]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[let streets = [\"Albemarle\", \"Brandywine\", \"Chesapeake\"]]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>You can create an empty array by specifying the <codeVoice>Element<\/codeVoice> type of your array in the declaration. For example:<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[\/\/ Shortened forms are preferred]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[var emptyDoubles: [Double] = []]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ The full type name is also allowed]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[var emptyFloats: Array<Float> = Array()]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>If you need an array that is preinitialized with a fixed number of default values, use the <codeVoice>Array(repeating:count:)<\/codeVoice> initializer.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[var digitCounts = Array(repeating: 0, count: 10)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[print(digitCounts)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><rawHTML><![CDATA[<h1>]]><\/rawHTML>Accessing Array Values<rawHTML><![CDATA[<\/h1>]]><\/rawHTML><Para>When you need to perform an operation on all of an array’s elements, use a <codeVoice>for<\/codeVoice>-<codeVoice>in<\/codeVoice> loop to iterate through the array’s contents.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[for street in streets {]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    print(\"I don't live on \\(street).\")]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[}]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"I don't live on Albemarle.\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"I don't live on Brandywine.\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"I don't live on Chesapeake.\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>Use the <codeVoice>isEmpty<\/codeVoice> property to check quickly whether an array has any elements, or use the <codeVoice>count<\/codeVoice> property to find the number of elements in the array.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[if oddNumbers.isEmpty {]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    print(\"I don't know any odd numbers.\")]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[} else {]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    print(\"I know \\(oddNumbers.count) odd numbers.\")]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[}]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"I know 8 odd numbers.\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>Use the <codeVoice>first<\/codeVoice> and <codeVoice>last<\/codeVoice> properties for safe access to the value of the array’s first and last elements. If the array is empty, these properties are <codeVoice>nil<\/codeVoice>.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[if let firstElement = oddNumbers.first, let lastElement = oddNumbers.last {]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    print(firstElement, lastElement, separator: \", \")]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[}]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"1, 15\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[print(emptyDoubles.first, emptyDoubles.last, separator: \", \")]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"nil, nil\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>You can access individual array elements through a subscript. The first element of a nonempty array is always at index zero. You can subscript an array with any integer from zero up to, but not including, the count of the array. Using a negative number or an index equal to or greater than <codeVoice>count<\/codeVoice> triggers a runtime error. For example:<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[print(oddNumbers[0], oddNumbers[3], separator: \", \")]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"1, 7\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[print(emptyDoubles[0])]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Triggers runtime error: Index out of range]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><rawHTML><![CDATA[<h1>]]><\/rawHTML>Adding and Removing Elements<rawHTML><![CDATA[<\/h1>]]><\/rawHTML><Para>Suppose you need to store a list of the names of students that are signed up for a class you’re teaching. During the registration period, you need to add and remove names as students add and drop the class.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[var students = [\"Ben\", \"Ivy\", \"Jordell\"]]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>To add single elements to the end of an array, use the <codeVoice>append(_:)<\/codeVoice> method. Add multiple elements at the same time by passing another array or a sequence of any kind to the <codeVoice>append(contentsOf:)<\/codeVoice> method.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[students.append(\"Maxime\")]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[students.append(contentsOf: [\"Shakia\", \"William\"])]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ [\"Ben\", \"Ivy\", \"Jordell\", \"Maxime\", \"Shakia\", \"William\"]]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>You can add new elements in the middle of an array by using the <codeVoice>insert(_:at:)<\/codeVoice> method for single elements and by using <codeVoice>insert(contentsOf:at:)<\/codeVoice> to insert multiple elements from another collection or array literal. The elements at that index and later indices are shifted back to make room.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[students.insert(\"Liam\", at: 3)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ [\"Ben\", \"Ivy\", \"Jordell\", \"Liam\", \"Maxime\", \"Shakia\", \"William\"]]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>To remove elements from an array, use the <codeVoice>remove(at:)<\/codeVoice>, <codeVoice>removeSubrange(_:)<\/codeVoice>, and <codeVoice>removeLast()<\/codeVoice> methods.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[\/\/ Ben's family is moving to another state]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[students.remove(at: 0)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ [\"Ivy\", \"Jordell\", \"Liam\", \"Maxime\", \"Shakia\", \"William\"]]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ William is signing up for a different class]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[students.removeLast()]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ [\"Ivy\", \"Jordell\", \"Liam\", \"Maxime\", \"Shakia\"]]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>You can replace an existing element with a new value by assigning the new value to the subscript.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[if let i = students.firstIndex(of: \"Maxime\") {]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    students[i] = \"Max\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[}]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ [\"Ivy\", \"Jordell\", \"Liam\", \"Max\", \"Shakia\"]]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><rawHTML><![CDATA[<h2>]]><\/rawHTML>Growing the Size of an Array<rawHTML><![CDATA[<\/h2>]]><\/rawHTML><Para>Every array reserves a specific amount of memory to hold its contents. When you add elements to an array and that array begins to exceed its reserved capacity, the array allocates a larger region of memory and copies its elements into the new storage. The new storage is a multiple of the old storage’s size. This exponential growth strategy means that appending an element happens in constant time, averaging the performance of many append operations. Append operations that trigger reallocation have a performance cost, but they occur less and less often as the array grows larger.<\/Para><Para>If you know approximately how many elements you will need to store, use the <codeVoice>reserveCapacity(_:)<\/codeVoice> method before appending to the array to avoid intermediate reallocations. Use the <codeVoice>capacity<\/codeVoice> and <codeVoice>count<\/codeVoice> properties to determine how many more elements the array can store without allocating larger storage.<\/Para><Para>For arrays of most <codeVoice>Element<\/codeVoice> types, this storage is a contiguous block of memory. For arrays with an <codeVoice>Element<\/codeVoice> type that is a class or <codeVoice>@objc<\/codeVoice> protocol type, this storage can be a contiguous block of memory or an instance of <codeVoice>NSArray<\/codeVoice>. Because any arbitrary subclass of <codeVoice>NSArray<\/codeVoice> can become an <codeVoice>Array<\/codeVoice>, there are no guarantees about representation or efficiency in this case.<\/Para><rawHTML><![CDATA[<h1>]]><\/rawHTML>Modifying Copies of Arrays<rawHTML><![CDATA[<\/h1>]]><\/rawHTML><Para>Each array has an independent value that includes the values of all of its elements. For simple types such as integers and other structures, this means that when you change a value in one array, the value of that element does not change in any copies of the array. For example:<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[var numbers = [1, 2, 3, 4, 5]]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[var numbersCopy = numbers]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[numbers[0] = 100]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[print(numbers)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"[100, 2, 3, 4, 5]\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[print(numbersCopy)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"[1, 2, 3, 4, 5]\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>If the elements in an array are instances of a class, the semantics are the same, though they might appear different at first. In this case, the values stored in the array are references to objects that live outside the array. If you change a reference to an object in one array, only that array has a reference to the new object. However, if two arrays contain references to the same object, you can observe changes to that object’s properties from both arrays. For example:<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[\/\/ An integer type with reference semantics]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[class IntegerReference {]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    var value = 10]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[}]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[var firstIntegers = [IntegerReference(), IntegerReference()]]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[var secondIntegers = firstIntegers]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Modifications to an instance are visible from either array]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[firstIntegers[0].value = 100]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[print(secondIntegers[0].value)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"100\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Replacements, additions, and removals are still visible]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ only in the modified array]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[firstIntegers[0] = IntegerReference()]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[print(firstIntegers[0].value)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"10\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[print(secondIntegers[0].value)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"100\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>Arrays, like all variable-size collections in the standard library, use copy-on-write optimization. Multiple copies of an array share the same storage until you modify one of the copies. When that happens, the array being modified replaces its storage with a uniquely owned copy of itself, which is then modified in place. Optimizations are sometimes applied that can reduce the amount of copying.<\/Para><Para>This means that if an array is sharing storage with other copies, the first mutating operation on that array incurs the cost of copying the array. An array that is the sole owner of its storage can perform mutating operations in place.<\/Para><Para>In the example below, a <codeVoice>numbers<\/codeVoice> array is created along with two copies that share the same storage. When the original <codeVoice>numbers<\/codeVoice> array is modified, it makes a unique copy of its storage before making the modification. Further modifications to <codeVoice>numbers<\/codeVoice> are made in place, while the two copies continue to share the original storage.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[var numbers = [1, 2, 3, 4, 5]]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[var firstCopy = numbers]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[var secondCopy = numbers]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ The storage for 'numbers' is copied here]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[numbers[0] = 100]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[numbers[1] = 200]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[numbers[2] = 300]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ 'numbers' is [100, 200, 300, 4, 5]]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ 'firstCopy' and 'secondCopy' are [1, 2, 3, 4, 5]]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><rawHTML><![CDATA[<h1>]]><\/rawHTML>Bridging Between Array and NSArray<rawHTML><![CDATA[<\/h1>]]><\/rawHTML><Para>When you need to access APIs that require data in an <codeVoice>NSArray<\/codeVoice> instance instead of <codeVoice>Array<\/codeVoice>, use the type-cast operator (<codeVoice>as<\/codeVoice>) to bridge your instance. For bridging to be possible, the <codeVoice>Element<\/codeVoice> type of your array must be a class, an <codeVoice>@objc<\/codeVoice> protocol (a protocol imported from Objective-C or marked with the <codeVoice>@objc<\/codeVoice> attribute), or a type that bridges to a Foundation type.<\/Para><Para>The following example shows how you can bridge an <codeVoice>Array<\/codeVoice> instance to <codeVoice>NSArray<\/codeVoice> to use the <codeVoice>write(to:atomically:)<\/codeVoice> method. In this example, the <codeVoice>colors<\/codeVoice> array can be bridged to <codeVoice>NSArray<\/codeVoice> because the <codeVoice>colors<\/codeVoice> array’s <codeVoice>String<\/codeVoice> elements bridge to <codeVoice>NSString<\/codeVoice>. The compiler prevents bridging the <codeVoice>moreColors<\/codeVoice> array, on the other hand, because its <codeVoice>Element<\/codeVoice> type is <codeVoice>Optional&lt;String&gt;<\/codeVoice>, which does <emphasis>not<\/emphasis> bridge to a Foundation type.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[let colors = [\"periwinkle\", \"rose\", \"moss\"]]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[let moreColors: [String?] = [\"ochre\", \"pine\"]]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[let url = URL(fileURLWithPath: \"names.plist\")]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[(colors as NSArray).write(to: url, atomically: true)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ true]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[(moreColors as NSArray).write(to: url, atomically: true)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ error: cannot convert value of type '[String?]' to type 'NSArray']]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>Bridging from <codeVoice>Array<\/codeVoice> to <codeVoice>NSArray<\/codeVoice> takes O(1) time and O(1) space if the array’s elements are already instances of a class or an <codeVoice>@objc<\/codeVoice> protocol; otherwise, it takes O(<emphasis>n<\/emphasis>) time and space.<\/Para><Para>When the destination array’s element type is a class or an <codeVoice>@objc<\/codeVoice> protocol, bridging from <codeVoice>NSArray<\/codeVoice> to <codeVoice>Array<\/codeVoice> first calls the <codeVoice>copy(with:)<\/codeVoice> (<codeVoice>- copyWithZone:<\/codeVoice> in Objective-C) method on the array to get an immutable copy and then performs additional Swift bookkeeping work that takes O(1) time. For instances of <codeVoice>NSArray<\/codeVoice> that are already immutable, <codeVoice>copy(with:)<\/codeVoice> usually returns the same array in O(1) time; otherwise, the copying performance is unspecified. If <codeVoice>copy(with:)<\/codeVoice> returns the same array, the instances of <codeVoice>NSArray<\/codeVoice> and <codeVoice>Array<\/codeVoice> share storage using the same copy-on-write optimization that is used when two instances of <codeVoice>Array<\/codeVoice> share storage.<\/Para><Para>When the destination array’s element type is a nonclass type that bridges to a Foundation type, bridging from <codeVoice>NSArray<\/codeVoice> to <codeVoice>Array<\/codeVoice> performs a bridging copy of the elements to contiguous storage in O(<emphasis>n<\/emphasis>) time. For example, bridging from <codeVoice>NSArray<\/codeVoice> to <codeVoice>Array&lt;Int&gt;<\/codeVoice> performs such a copy. No further bridging is required when accessing elements of the <codeVoice>Array<\/codeVoice> instance.<\/Para><Note><Para>The <codeVoice>ContiguousArray<\/codeVoice> and <codeVoice>ArraySlice<\/codeVoice> types are not bridged; instances of those types always have a contiguous block of memory as their storage.<\/Para><\/Note><\/Discussion><\/CommentParts><\/Class>",
+          "key.doc.name" : "Array",
+          "key.doc.type" : "Class",
+          "key.elements" : [
+            {
+              "key.kind" : "source.lang.swift.structure.elem.typeref",
+              "key.length" : 2,
+              "key.offset" : 1419
+            }
+          ],
+          "key.fully_annotated_decl" : "<decl.struct><syntaxtype.attribute.builtin><syntaxtype.attribute.name>@frozen<\/syntaxtype.attribute.name><\/syntaxtype.attribute.builtin> <syntaxtype.keyword>struct<\/syntaxtype.keyword> <decl.name>Array<\/decl.name>&lt;<decl.generic_type_param usr=\"s:Sa7Elementxmfp\"><decl.generic_type_param.name>Element<\/decl.generic_type_param.name><\/decl.generic_type_param>&gt; : <ref.protocol usr=\"s:s24_DestructorSafeContainerP\">_DestructorSafeContainer<\/ref.protocol><\/decl.struct>",
+          "key.groupname" : "Collection\/Array",
+          "key.inheritedtypes" : [
+            {
+              "key.name" : "P1"
+            }
+          ],
+          "key.is_system" : true,
+          "key.kind" : "source.lang.swift.decl.extension",
+          "key.length" : 71,
+          "key.modulename" : "Swift",
+          "key.name" : "Array",
+          "key.namelength" : 5,
+          "key.nameoffset" : 1412,
+          "key.offset" : 1402,
+          "key.parsed_declaration" : "extension Array: P1 where Element: Comparable",
+          "key.parsed_scope.end" : 74,
+          "key.parsed_scope.start" : 72,
+          "key.substructure" : [
+            {
+              "key.annotated_decl" : "<Declaration>func arrayFunc()<\/Declaration>",
+              "key.bb.is_override" : false,
+              "key.bb.swift_declaration" : "func arrayFunc()",
+              "key.bb.swift_deprecated_everywhere" : false,
+              "key.bb.swift_name_pieces" : [
+                {
+                  "key.bb.name_piece_is_name" : false,
+                  "key.bb.name_piece_text" : "func "
+                },
+                {
+                  "key.bb.name_piece_is_name" : true,
+                  "key.bb.name_piece_text" : "arrayFunc"
+                },
+                {
+                  "key.bb.name_piece_is_name" : false,
+                  "key.bb.name_piece_text" : "()"
+                }
+              ],
+              "key.bodylength" : 0,
+              "key.bodyoffset" : 1470,
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+              "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>arrayFunc<\/decl.name>()<\/decl.function.method.instance>",
+              "key.groupname" : "Collection\/Array",
+              "key.kind" : "source.lang.swift.decl.function.method.instance",
+              "key.length" : 19,
+              "key.name" : "arrayFunc()",
+              "key.namelength" : 11,
+              "key.nameoffset" : 1457,
+              "key.offset" : 1452,
+              "key.parsed_declaration" : "func arrayFunc()",
+              "key.parsed_scope.end" : 73,
+              "key.parsed_scope.start" : 73,
+              "key.typename" : "<Element where Element : Comparable> (Array<Element>) -> () -> ()",
+              "key.typeusr" : "$syycD",
+              "key.usr" : "s:Sa14SpmSwiftModuleSLRzlE9arrayFuncyyF"
+            }
+          ],
+          "key.typename" : "Array<Element>.Type",
+          "key.typeusr" : "$sSayxGmD",
+          "key.usr" : "s:Sa"
         }
       ]
     }
@@ -1983,7 +3213,7 @@
       "key.bb.pass_index" : 0,
       "key.bb.version" : "1.0",
       "key.diagnostic_stage" : "source.diagnostic.stage.swift.parse",
-      "key.length" : 2823,
+      "key.length" : 2986,
       "key.offset" : 0,
       "key.substructure" : [
         {
@@ -3119,7 +4349,7 @@
               "key.bb.name_piece_text" : "ABaseClass"
             }
           ],
-          "key.bodylength" : 592,
+          "key.bodylength" : 634,
           "key.bodyoffset" : 1662,
           "key.doc.column" : 14,
           "key.doc.comment" : "A base class",
@@ -3134,13 +4364,13 @@
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
           "key.fully_annotated_decl" : "<decl.class><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>class<\/syntaxtype.keyword> <decl.name>ABaseClass<\/decl.name><\/decl.class>",
           "key.kind" : "source.lang.swift.decl.class",
-          "key.length" : 611,
+          "key.length" : 653,
           "key.name" : "ABaseClass",
           "key.namelength" : 10,
           "key.nameoffset" : 1650,
           "key.offset" : 1644,
           "key.parsed_declaration" : "public class ABaseClass",
-          "key.parsed_scope.end" : 106,
+          "key.parsed_scope.end" : 110,
           "key.parsed_scope.start" : 71,
           "key.substructure" : [
             {
@@ -3565,13 +4795,50 @@
               "key.usr" : "s:14SpmSwiftModule10ABaseClassCySSSicipZ"
             },
             {
+              "key.accessibility" : "source.lang.swift.accessibility.internal",
+              "key.annotated_decl" : "<Declaration>static var aStaticVar: <Type usr=\"s:Si\">Int<\/Type> { get }<\/Declaration>",
+              "key.bb.is_override" : false,
+              "key.bb.swift_declaration" : "static var aStaticVar: Int { get }",
+              "key.bb.swift_deprecated_everywhere" : false,
+              "key.bb.swift_name_pieces" : [
+                {
+                  "key.bb.name_piece_is_name" : false,
+                  "key.bb.name_piece_text" : "static var "
+                },
+                {
+                  "key.bb.name_piece_is_name" : true,
+                  "key.bb.name_piece_text" : "aStaticVar"
+                },
+                {
+                  "key.bb.name_piece_is_name" : false,
+                  "key.bb.name_piece_text" : ": Int"
+                }
+              ],
+              "key.bodylength" : 9,
+              "key.bodyoffset" : 2171,
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+              "key.fully_annotated_decl" : "<decl.var.static><syntaxtype.keyword>static<\/syntaxtype.keyword> <syntaxtype.keyword>var<\/syntaxtype.keyword> <decl.name>aStaticVar<\/decl.name>: <decl.var.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.type> { <syntaxtype.keyword>get<\/syntaxtype.keyword> }<\/decl.var.static>",
+              "key.kind" : "source.lang.swift.decl.var.static",
+              "key.length" : 38,
+              "key.name" : "aStaticVar",
+              "key.namelength" : 10,
+              "key.nameoffset" : 2154,
+              "key.offset" : 2143,
+              "key.parsed_declaration" : "static var aStaticVar: Int",
+              "key.parsed_scope.end" : 104,
+              "key.parsed_scope.start" : 102,
+              "key.typename" : "Int",
+              "key.typeusr" : "$sSiD",
+              "key.usr" : "s:14SpmSwiftModule10ABaseClassC10aStaticVarSivpZ"
+            },
+            {
               "key.accessibility" : "source.lang.swift.accessibility.public",
               "key.annotated_decl" : "<Declaration>public static func + (lhs: <Type usr=\"s:14SpmSwiftModule10ABaseClassC\">ABaseClass<\/Type>, rhs: <Type usr=\"s:14SpmSwiftModule10ABaseClassC\">ABaseClass<\/Type>) -&gt; <Type usr=\"s:14SpmSwiftModule10ABaseClassC\">ABaseClass<\/Type><\/Declaration>",
               "key.attributes" : [
                 {
                   "key.attribute" : "source.decl.attribute.public",
                   "key.length" : 6,
-                  "key.offset" : 2162
+                  "key.offset" : 2204
                 }
               ],
               "key.bb.documentation" : {
@@ -3614,28 +4881,28 @@
                 }
               ],
               "key.bodylength" : 20,
-              "key.bodyoffset" : 2232,
+              "key.bodyoffset" : 2274,
               "key.doc.column" : 22,
               "key.doc.comment" : "An operator!",
               "key.doc.declaration" : "public static func + (lhs: ABaseClass, rhs: ABaseClass) -> ABaseClass",
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-              "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"103\" column=\"22\"><Name>+(_:_:)<\/Name><USR>s:14SpmSwiftModule10ABaseClassC1poiyA2C_ACtFZ<\/USR><Declaration>public static func + (lhs: ABaseClass, rhs: ABaseClass) -&gt; ABaseClass<\/Declaration><CommentParts><Abstract><Para>An operator!<\/Para><\/Abstract><\/CommentParts><\/Function>",
-              "key.doc.line" : 103,
+              "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"107\" column=\"22\"><Name>+(_:_:)<\/Name><USR>s:14SpmSwiftModule10ABaseClassC1poiyA2C_ACtFZ<\/USR><Declaration>public static func + (lhs: ABaseClass, rhs: ABaseClass) -&gt; ABaseClass<\/Declaration><CommentParts><Abstract><Para>An operator!<\/Para><\/Abstract><\/CommentParts><\/Function>",
+              "key.doc.line" : 107,
               "key.doc.name" : "+(_:_:)",
               "key.doc.type" : "Function",
               "key.doclength" : 17,
-              "key.docoffset" : 2143,
+              "key.docoffset" : 2185,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.function.operator.infix><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>static<\/syntaxtype.keyword> <syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>+ <\/decl.name>(<decl.var.parameter><decl.var.parameter.name>lhs<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.class usr=\"s:14SpmSwiftModule10ABaseClassC\">ABaseClass<\/ref.class><\/decl.var.parameter.type><\/decl.var.parameter>, <decl.var.parameter><decl.var.parameter.name>rhs<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.class usr=\"s:14SpmSwiftModule10ABaseClassC\">ABaseClass<\/ref.class><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.class usr=\"s:14SpmSwiftModule10ABaseClassC\">ABaseClass<\/ref.class><\/decl.function.returntype><\/decl.function.operator.infix>",
               "key.kind" : "source.lang.swift.decl.function.method.static",
               "key.length" : 84,
               "key.name" : "+(ABaseClass, ABaseClass)",
               "key.namelength" : 35,
-              "key.nameoffset" : 2181,
-              "key.offset" : 2169,
+              "key.nameoffset" : 2223,
+              "key.offset" : 2211,
               "key.parsed_declaration" : "public static func +(lhs: ABaseClass, rhs: ABaseClass) -> ABaseClass",
-              "key.parsed_scope.end" : 105,
-              "key.parsed_scope.start" : 103,
+              "key.parsed_scope.end" : 109,
+              "key.parsed_scope.start" : 107,
               "key.substructure" : [
                 {
                   "key.annotated_decl" : "<Declaration>let lhs: <Type usr=\"s:14SpmSwiftModule10ABaseClassC\">ABaseClass<\/Type><\/Declaration>",
@@ -3657,11 +4924,11 @@
                   "key.kind" : "source.lang.swift.decl.var.parameter",
                   "key.length" : 3,
                   "key.name" : "lhs",
-                  "key.offset" : 2183,
-                  "key.parent_loc" : 2181,
+                  "key.offset" : 2225,
+                  "key.parent_loc" : 2223,
                   "key.parsed_declaration" : "public static func +(lhs",
-                  "key.parsed_scope.end" : 103,
-                  "key.parsed_scope.start" : 103,
+                  "key.parsed_scope.end" : 107,
+                  "key.parsed_scope.start" : 107,
                   "key.typename" : "ABaseClass",
                   "key.typeusr" : "$s14SpmSwiftModule10ABaseClassCD",
                   "key.usr" : "s:14SpmSwiftModule10ABaseClassC1poiyA2C_ACtFZ3lhsL_ACvp"
@@ -3693,18 +4960,18 @@
             }
           ],
           "key.bodylength" : 1,
-          "key.bodyoffset" : 2267,
+          "key.bodyoffset" : 2309,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
           "key.fully_annotated_decl" : "<decl.struct><syntaxtype.keyword>struct<\/syntaxtype.keyword> <decl.name>T<\/decl.name><\/decl.struct>",
           "key.kind" : "source.lang.swift.decl.struct",
           "key.length" : 12,
           "key.name" : "T",
           "key.namelength" : 1,
-          "key.nameoffset" : 2264,
-          "key.offset" : 2257,
+          "key.nameoffset" : 2306,
+          "key.offset" : 2299,
           "key.parsed_declaration" : "struct T",
-          "key.parsed_scope.end" : 109,
-          "key.parsed_scope.start" : 108,
+          "key.parsed_scope.end" : 113,
+          "key.parsed_scope.start" : 112,
           "key.typename" : "T.Type",
           "key.typeusr" : "$s14SpmSwiftModule1TVmD",
           "key.usr" : "s:14SpmSwiftModule1TV"
@@ -3752,28 +5019,28 @@
             }
           ],
           "key.bodylength" : 6,
-          "key.bodyoffset" : 2327,
+          "key.bodyoffset" : 2369,
           "key.doc.column" : 6,
           "key.doc.comment" : "Unscoped operator",
           "key.doc.declaration" : "func + (lhs: T, rhs: T) -> String",
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"112\" column=\"6\"><Name>+(_:_:)<\/Name><USR>s:14SpmSwiftModule1poiySSAA1TV_ADtF<\/USR><Declaration>func + (lhs: T, rhs: T) -&gt; String<\/Declaration><CommentParts><Abstract><Para>Unscoped operator<\/Para><\/Abstract><\/CommentParts><\/Function>",
-          "key.doc.line" : 112,
+          "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"116\" column=\"6\"><Name>+(_:_:)<\/Name><USR>s:14SpmSwiftModule1poiySSAA1TV_ADtF<\/USR><Declaration>func + (lhs: T, rhs: T) -&gt; String<\/Declaration><CommentParts><Abstract><Para>Unscoped operator<\/Para><\/Abstract><\/CommentParts><\/Function>",
+          "key.doc.line" : 116,
           "key.doc.name" : "+(_:_:)",
           "key.doc.type" : "Function",
           "key.doclength" : 22,
-          "key.docoffset" : 2271,
+          "key.docoffset" : 2313,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
           "key.fully_annotated_decl" : "<decl.function.operator.infix><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>+ <\/decl.name>(<decl.var.parameter><decl.var.parameter.name>lhs<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.struct usr=\"s:14SpmSwiftModule1TV\">T<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>, <decl.var.parameter><decl.var.parameter.name>rhs<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.struct usr=\"s:14SpmSwiftModule1TV\">T<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.function.returntype><\/decl.function.operator.infix>",
           "key.kind" : "source.lang.swift.decl.function.free",
           "key.length" : 41,
           "key.name" : "+(T, T)",
           "key.namelength" : 17,
-          "key.nameoffset" : 2298,
-          "key.offset" : 2293,
+          "key.nameoffset" : 2340,
+          "key.offset" : 2335,
           "key.parsed_declaration" : "func +(lhs: T, rhs: T) -> String",
-          "key.parsed_scope.end" : 114,
-          "key.parsed_scope.start" : 112,
+          "key.parsed_scope.end" : 118,
+          "key.parsed_scope.start" : 116,
           "key.related_decls" : [
             {
               "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule10ABaseClassC1poiyA2C_ACtFZ\">+ (_: ABaseClass, _: ABaseClass) -&gt; ABaseClass<\/RelatedName>"
@@ -3881,11 +5148,11 @@
               "key.kind" : "source.lang.swift.decl.var.parameter",
               "key.length" : 3,
               "key.name" : "lhs",
-              "key.offset" : 2300,
-              "key.parent_loc" : 2298,
+              "key.offset" : 2342,
+              "key.parent_loc" : 2340,
               "key.parsed_declaration" : "func +(lhs",
-              "key.parsed_scope.end" : 112,
-              "key.parsed_scope.start" : 112,
+              "key.parsed_scope.end" : 116,
+              "key.parsed_scope.start" : 116,
               "key.typename" : "T",
               "key.typeusr" : "$s14SpmSwiftModule1TVD",
               "key.usr" : "s:14SpmSwiftModule1poiySSAA1TV_ADtF3lhsL_ADvp"
@@ -3902,7 +5169,7 @@
             {
               "key.attribute" : "source.decl.attribute.public",
               "key.length" : 6,
-              "key.offset" : 2356
+              "key.offset" : 2398
             }
           ],
           "key.bb.documentation" : {
@@ -3929,23 +5196,23 @@
               "key.bb.name_piece_text" : "ADerivedClass"
             }
           ],
-          "key.bodylength" : 189,
-          "key.bodyoffset" : 2412,
+          "key.bodylength" : 310,
+          "key.bodyoffset" : 2454,
           "key.doc.column" : 14,
           "key.doc.comment" : "A derived class",
           "key.doc.declaration" : "public class ADerivedClass<T, Q> : ABaseClass where Q : Sequence",
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "key.doc.full_as_xml" : "<Class file=\"\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"117\" column=\"14\"><Name>ADerivedClass<\/Name><USR>s:14SpmSwiftModule13ADerivedClassC<\/USR><Declaration>public class ADerivedClass&lt;T, Q&gt; : ABaseClass where Q : Sequence<\/Declaration><CommentParts><Abstract><Para>A derived class<\/Para><\/Abstract><\/CommentParts><\/Class>",
-          "key.doc.line" : 117,
+          "key.doc.full_as_xml" : "<Class file=\"\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"121\" column=\"14\"><Name>ADerivedClass<\/Name><USR>s:14SpmSwiftModule13ADerivedClassC<\/USR><Declaration>public class ADerivedClass&lt;T, Q&gt; : ABaseClass where Q : Sequence<\/Declaration><CommentParts><Abstract><Para>A derived class<\/Para><\/Abstract><\/CommentParts><\/Class>",
+          "key.doc.line" : 121,
           "key.doc.name" : "ADerivedClass",
           "key.doc.type" : "Class",
           "key.doclength" : 20,
-          "key.docoffset" : 2336,
+          "key.docoffset" : 2378,
           "key.elements" : [
             {
               "key.kind" : "source.lang.swift.structure.elem.typeref",
               "key.length" : 10,
-              "key.offset" : 2400
+              "key.offset" : 2442
             }
           ],
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -3956,14 +5223,14 @@
             }
           ],
           "key.kind" : "source.lang.swift.decl.class",
-          "key.length" : 239,
+          "key.length" : 360,
           "key.name" : "ADerivedClass",
           "key.namelength" : 13,
-          "key.nameoffset" : 2369,
-          "key.offset" : 2363,
+          "key.nameoffset" : 2411,
+          "key.offset" : 2405,
           "key.parsed_declaration" : "public class ADerivedClass<T, Q: Sequence>: ABaseClass",
-          "key.parsed_scope.end" : 128,
-          "key.parsed_scope.start" : 117,
+          "key.parsed_scope.end" : 135,
+          "key.parsed_scope.start" : 121,
           "key.substructure" : [
             {
               "key.annotated_decl" : "<Declaration>T<\/Declaration>",
@@ -3982,11 +5249,11 @@
               "key.length" : 1,
               "key.name" : "T",
               "key.namelength" : 1,
-              "key.nameoffset" : 2383,
-              "key.offset" : 2383,
+              "key.nameoffset" : 2425,
+              "key.offset" : 2425,
               "key.parsed_declaration" : "public class ADerivedClass<T",
-              "key.parsed_scope.end" : 117,
-              "key.parsed_scope.start" : 117,
+              "key.parsed_scope.end" : 121,
+              "key.parsed_scope.start" : 121,
               "key.typename" : "T.Type",
               "key.typeusr" : "$sxmD",
               "key.usr" : "s:14SpmSwiftModule13ADerivedClassC1Txmfp"
@@ -4011,7 +5278,7 @@
                 {
                   "key.kind" : "source.lang.swift.structure.elem.typeref",
                   "key.length" : 8,
-                  "key.offset" : 2389
+                  "key.offset" : 2431
                 }
               ],
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -4025,11 +5292,11 @@
               "key.length" : 11,
               "key.name" : "Q",
               "key.namelength" : 1,
-              "key.nameoffset" : 2386,
-              "key.offset" : 2386,
+              "key.nameoffset" : 2428,
+              "key.offset" : 2428,
               "key.parsed_declaration" : "public class ADerivedClass<T, Q: Sequence",
-              "key.parsed_scope.end" : 117,
-              "key.parsed_scope.start" : 117,
+              "key.parsed_scope.end" : 121,
+              "key.parsed_scope.start" : 121,
               "key.typename" : "Q.Type",
               "key.typeusr" : "$sq_mD",
               "key.usr" : "s:14SpmSwiftModule13ADerivedClassC1Qq_mfp"
@@ -4060,11 +5327,11 @@
               "key.length" : 15,
               "key.name" : "t",
               "key.namelength" : 1,
-              "key.nameoffset" : 2419,
-              "key.offset" : 2415,
+              "key.nameoffset" : 2461,
+              "key.offset" : 2457,
               "key.parsed_declaration" : "var t: Q? = nil",
-              "key.parsed_scope.end" : 118,
-              "key.parsed_scope.start" : 118,
+              "key.parsed_scope.end" : 122,
+              "key.parsed_scope.start" : 122,
               "key.setter_accessibility" : "source.lang.swift.accessibility.internal",
               "key.typename" : "Q?",
               "key.typeusr" : "$sq_SgD",
@@ -4077,12 +5344,12 @@
                 {
                   "key.attribute" : "source.decl.attribute.override",
                   "key.length" : 8,
-                  "key.offset" : 2477
+                  "key.offset" : 2519
                 },
                 {
                   "key.attribute" : "source.decl.attribute.public",
                   "key.length" : 6,
-                  "key.offset" : 2470
+                  "key.offset" : 2512
                 }
               ],
               "key.bb.documentation" : {
@@ -4117,49 +5384,49 @@
                 }
               ],
               "key.bodylength" : 17,
-              "key.bodyoffset" : 2521,
+              "key.bodyoffset" : 2563,
               "key.doc.column" : 24,
               "key.doc.comment" : "See `ABaseClass.method(...)`.",
               "key.doc.declaration" : "public override func method(param: Int) -> String",
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-              "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"121\" column=\"24\"><Name>method(param:)<\/Name><USR>s:14SpmSwiftModule13ADerivedClassC6method5paramSSSi_tF<\/USR><Declaration>public override func method(param: Int) -&gt; String<\/Declaration><CommentParts><Abstract><Para>See <codeVoice>ABaseClass.method(...)<\/codeVoice>.<\/Para><\/Abstract><\/CommentParts><\/Function>",
-              "key.doc.line" : 121,
+              "key.doc.full_as_xml" : "<Function file=\"\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"125\" column=\"24\"><Name>method(param:)<\/Name><USR>s:14SpmSwiftModule13ADerivedClassC6method5paramSSSi_tF<\/USR><Declaration>public override func method(param: Int) -&gt; String<\/Declaration><CommentParts><Abstract><Para>See <codeVoice>ABaseClass.method(...)<\/codeVoice>.<\/Para><\/Abstract><\/CommentParts><\/Function>",
+              "key.doc.line" : 125,
               "key.doc.name" : "method(param:)",
               "key.doc.type" : "Function",
               "key.doclength" : 34,
-              "key.docoffset" : 2434,
+              "key.docoffset" : 2476,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>override<\/syntaxtype.keyword> <syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>method<\/decl.name>(<decl.var.parameter><decl.var.parameter.argument_label>param<\/decl.var.parameter.argument_label>: <decl.var.parameter.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.function.returntype><\/decl.function.method.instance>",
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 53,
               "key.name" : "method(param:)",
               "key.namelength" : 18,
-              "key.nameoffset" : 2491,
-              "key.offset" : 2486,
+              "key.nameoffset" : 2533,
+              "key.offset" : 2528,
               "key.overrides" : [
                 {
                   "key.usr" : "s:14SpmSwiftModule10ABaseClassC6method5paramSSSi_tF"
                 }
               ],
               "key.parsed_declaration" : "public override func method(param: Int) -> String",
-              "key.parsed_scope.end" : 123,
-              "key.parsed_scope.start" : 121,
+              "key.parsed_scope.end" : 127,
+              "key.parsed_scope.start" : 125,
               "key.typename" : "<T, Q where Q : Sequence> (ADerivedClass<T, Q>) -> (Int) -> String",
               "key.typeusr" : "$s5paramSSSi_tcD",
               "key.usr" : "s:14SpmSwiftModule13ADerivedClassC6method5paramSSSi_tF"
             },
             {
               "key.accessibility" : "source.lang.swift.accessibility.public",
-              "key.annotated_decl" : "<Declaration>public func generic(param: <Type usr=\"s:14SpmSwiftModule13ADerivedClassC1Txmfp\">T<\/Type>) -&gt; <Type usr=\"s:14SpmSwiftModule13ADerivedClassC1Txmfp\">T<\/Type><\/Declaration>",
+              "key.annotated_decl" : "<Declaration>public func generic(param: <Type usr=\"s:14SpmSwiftModule13ADerivedClassC1Txmfp\">T<\/Type>) where <Type usr=\"s:14SpmSwiftModule13ADerivedClassC1Txmfp\">T<\/Type> : <Type usr=\"s:SQ\">Equatable<\/Type><\/Declaration>",
               "key.attributes" : [
                 {
                   "key.attribute" : "source.decl.attribute.public",
                   "key.length" : 6,
-                  "key.offset" : 2543
+                  "key.offset" : 2585
                 }
               ],
               "key.bb.is_override" : false,
-              "key.bb.swift_declaration" : "public func generic(param: T) -> T",
+              "key.bb.swift_declaration" : "public func generic(param: T) where T: Equatable",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
                 {
@@ -4180,25 +5447,113 @@
                 },
                 {
                   "key.bb.name_piece_is_name" : false,
-                  "key.bb.name_piece_text" : ": T) -> T"
+                  "key.bb.name_piece_text" : ": T)"
+                }
+              ],
+              "key.bodylength" : 0,
+              "key.bodyoffset" : 2635,
+              "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+              "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>generic<\/decl.name>(<decl.var.parameter><decl.var.parameter.argument_label>param<\/decl.var.parameter.argument_label>: <decl.var.parameter.type><ref.generic_type_param usr=\"s:14SpmSwiftModule13ADerivedClassC1Txmfp\">T<\/ref.generic_type_param><\/decl.var.parameter.type><\/decl.var.parameter>) <syntaxtype.keyword>where<\/syntaxtype.keyword> <decl.generic_type_requirement><ref.generic_type_param usr=\"s:14SpmSwiftModule13ADerivedClassC1Txmfp\">T<\/ref.generic_type_param> : <ref.protocol usr=\"s:SQ\">Equatable<\/ref.protocol><\/decl.generic_type_requirement><\/decl.function.method.instance>",
+              "key.kind" : "source.lang.swift.decl.function.method.instance",
+              "key.length" : 44,
+              "key.name" : "generic(param:)",
+              "key.namelength" : 17,
+              "key.nameoffset" : 2597,
+              "key.offset" : 2592,
+              "key.parsed_declaration" : "public func generic(param: T) where T: Equatable",
+              "key.parsed_scope.end" : 129,
+              "key.parsed_scope.start" : 129,
+              "key.typename" : "<T, Q where T : Equatable, Q : Sequence> (ADerivedClass<T, Q>) -> (T) -> ()",
+              "key.typeusr" : "$s5paramyx_tcSQRzrluD",
+              "key.usr" : "s:14SpmSwiftModule13ADerivedClassC7generic5paramyx_tSQRzrlF"
+            },
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.public",
+              "key.annotated_decl" : "<Declaration>public func generic2&lt;R&gt;(param: <Type usr=\"s:14SpmSwiftModule13ADerivedClassC1Txmfp\">T<\/Type>, my param2: <Type usr=\"s:14SpmSwiftModule13ADerivedClassC8generic25param2myxx_qd__tSTRd__AA13FirstProtocol7ElementRpd__lF1RL_qd__mfp\">R<\/Type>) -&gt; <Type usr=\"s:14SpmSwiftModule13ADerivedClassC1Txmfp\">T<\/Type> where <Type usr=\"s:14SpmSwiftModule13ADerivedClassC8generic25param2myxx_qd__tSTRd__AA13FirstProtocol7ElementRpd__lF1RL_qd__mfp\">R<\/Type> : <Type usr=\"s:ST\">Sequence<\/Type>, <Type usr=\"s:14SpmSwiftModule13ADerivedClassC8generic25param2myxx_qd__tSTRd__AA13FirstProtocol7ElementRpd__lF1RL_qd__mfp\">R<\/Type>.<Type usr=\"s:ST7ElementQa\">Element<\/Type> : <Type usr=\"s:14SpmSwiftModule13FirstProtocolP\">FirstProtocol<\/Type><\/Declaration>",
+              "key.attributes" : [
+                {
+                  "key.attribute" : "source.decl.attribute.public",
+                  "key.length" : 6,
+                  "key.offset" : 2640
+                }
+              ],
+              "key.bb.is_override" : false,
+              "key.bb.swift_declaration" : "public func generic2<R>(param: T, my param2: R) -> T\nwhere R: Sequence, R.Element: FirstProtocol",
+              "key.bb.swift_deprecated_everywhere" : false,
+              "key.bb.swift_name_pieces" : [
+                {
+                  "key.bb.name_piece_is_name" : false,
+                  "key.bb.name_piece_text" : "func "
+                },
+                {
+                  "key.bb.name_piece_is_name" : true,
+                  "key.bb.name_piece_text" : "generic2"
+                },
+                {
+                  "key.bb.name_piece_is_name" : false,
+                  "key.bb.name_piece_text" : "<R>("
+                },
+                {
+                  "key.bb.name_piece_is_name" : true,
+                  "key.bb.name_piece_text" : "param"
+                },
+                {
+                  "key.bb.name_piece_is_name" : false,
+                  "key.bb.name_piece_text" : ": T, "
+                },
+                {
+                  "key.bb.name_piece_is_name" : true,
+                  "key.bb.name_piece_text" : "my"
+                },
+                {
+                  "key.bb.name_piece_is_name" : false,
+                  "key.bb.name_piece_text" : ": R) -> T"
                 }
               ],
               "key.bodylength" : 20,
-              "key.bodyoffset" : 2579,
+              "key.bodyoffset" : 2742,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-              "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>generic<\/decl.name>(<decl.var.parameter><decl.var.parameter.argument_label>param<\/decl.var.parameter.argument_label>: <decl.var.parameter.type><ref.generic_type_param usr=\"s:14SpmSwiftModule13ADerivedClassC1Txmfp\">T<\/ref.generic_type_param><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.generic_type_param usr=\"s:14SpmSwiftModule13ADerivedClassC1Txmfp\">T<\/ref.generic_type_param><\/decl.function.returntype><\/decl.function.method.instance>",
+              "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>generic2<\/decl.name>&lt;<decl.generic_type_param usr=\"s:14SpmSwiftModule13ADerivedClassC8generic25param2myxx_qd__tSTRd__AA13FirstProtocol7ElementRpd__lF1RL_qd__mfp\"><decl.generic_type_param.name>R<\/decl.generic_type_param.name><\/decl.generic_type_param>&gt;(<decl.var.parameter><decl.var.parameter.argument_label>param<\/decl.var.parameter.argument_label>: <decl.var.parameter.type><ref.generic_type_param usr=\"s:14SpmSwiftModule13ADerivedClassC1Txmfp\">T<\/ref.generic_type_param><\/decl.var.parameter.type><\/decl.var.parameter>, <decl.var.parameter><decl.var.parameter.argument_label>my<\/decl.var.parameter.argument_label> <decl.var.parameter.name>param2<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.generic_type_param usr=\"s:14SpmSwiftModule13ADerivedClassC8generic25param2myxx_qd__tSTRd__AA13FirstProtocol7ElementRpd__lF1RL_qd__mfp\">R<\/ref.generic_type_param><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.generic_type_param usr=\"s:14SpmSwiftModule13ADerivedClassC1Txmfp\">T<\/ref.generic_type_param><\/decl.function.returntype> <syntaxtype.keyword>where<\/syntaxtype.keyword> <decl.generic_type_requirement><ref.generic_type_param usr=\"s:14SpmSwiftModule13ADerivedClassC8generic25param2myxx_qd__tSTRd__AA13FirstProtocol7ElementRpd__lF1RL_qd__mfp\">R<\/ref.generic_type_param> : <ref.protocol usr=\"s:ST\">Sequence<\/ref.protocol><\/decl.generic_type_requirement>, <decl.generic_type_requirement><ref.generic_type_param usr=\"s:14SpmSwiftModule13ADerivedClassC8generic25param2myxx_qd__tSTRd__AA13FirstProtocol7ElementRpd__lF1RL_qd__mfp\">R<\/ref.generic_type_param>.<ref.associatedtype usr=\"s:ST7ElementQa\">Element<\/ref.associatedtype> : <ref.protocol usr=\"s:14SpmSwiftModule13FirstProtocolP\">FirstProtocol<\/ref.protocol><\/decl.generic_type_requirement><\/decl.function.method.instance>",
               "key.kind" : "source.lang.swift.decl.function.method.instance",
-              "key.length" : 50,
-              "key.name" : "generic(param:)",
-              "key.namelength" : 17,
-              "key.nameoffset" : 2555,
-              "key.offset" : 2550,
-              "key.parsed_declaration" : "public func generic(param: T) -> T",
-              "key.parsed_scope.end" : 127,
-              "key.parsed_scope.start" : 125,
-              "key.typename" : "<T, Q where Q : Sequence> (ADerivedClass<T, Q>) -> (T) -> T",
-              "key.typeusr" : "$s5paramxx_tcD",
-              "key.usr" : "s:14SpmSwiftModule13ADerivedClassC7generic5paramxx_tF"
+              "key.length" : 116,
+              "key.name" : "generic2(param:my:)",
+              "key.namelength" : 35,
+              "key.nameoffset" : 2652,
+              "key.offset" : 2647,
+              "key.parsed_declaration" : "public func generic2<R>(param: T, my param2: R) -> T\n  where R: Sequence, R.Element: FirstProtocol",
+              "key.parsed_scope.end" : 134,
+              "key.parsed_scope.start" : 131,
+              "key.substructure" : [
+                {
+                  "key.annotated_decl" : "<Declaration>R<\/Declaration>",
+                  "key.bb.is_override" : false,
+                  "key.bb.swift_declaration" : "R",
+                  "key.bb.swift_deprecated_everywhere" : false,
+                  "key.bb.swift_name_pieces" : [
+                    {
+                      "key.bb.name_piece_is_name" : true,
+                      "key.bb.name_piece_text" : "R"
+                    }
+                  ],
+                  "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+                  "key.fully_annotated_decl" : "<decl.generic_type_param><decl.generic_type_param.name>R<\/decl.generic_type_param.name><\/decl.generic_type_param>",
+                  "key.kind" : "source.lang.swift.decl.generic_type_param",
+                  "key.length" : 1,
+                  "key.name" : "R",
+                  "key.namelength" : 1,
+                  "key.nameoffset" : 2661,
+                  "key.offset" : 2661,
+                  "key.parsed_declaration" : "public func generic2<R",
+                  "key.parsed_scope.end" : 131,
+                  "key.parsed_scope.start" : 131,
+                  "key.typename" : "R.Type",
+                  "key.typeusr" : "$sqd__mD",
+                  "key.usr" : "s:14SpmSwiftModule13ADerivedClassC8generic25param2myxx_qd__tSTRd__AA13FirstProtocol7ElementRpd__lF1RL_qd__mfp"
+                }
+              ],
+              "key.typename" : "<T, Q, R where Q : Sequence, R : Sequence, R.Element : FirstProtocol> (ADerivedClass<T, Q>) -> (T, R) -> T",
+              "key.typeusr" : "$s5param2myxx_qd__tcSTRd__14SpmSwiftModule13FirstProtocol7ElementRpd__luD",
+              "key.usr" : "s:14SpmSwiftModule13ADerivedClassC8generic25param2myxx_qd__tSTRd__AA13FirstProtocol7ElementRpd__lF"
             }
           ],
           "key.typename" : "ADerivedClass<T, Q>.Type",
@@ -4212,7 +5567,7 @@
             {
               "key.attribute" : "source.decl.attribute.propertyWrapper",
               "key.length" : 16,
-              "key.offset" : 2604
+              "key.offset" : 2767
             }
           ],
           "key.bb.is_override" : false,
@@ -4229,18 +5584,18 @@
             }
           ],
           "key.bodylength" : 111,
-          "key.bodyoffset" : 2633,
+          "key.bodyoffset" : 2796,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
           "key.fully_annotated_decl" : "<decl.struct><syntaxtype.attribute.builtin><syntaxtype.attribute.name>@propertyWrapper<\/syntaxtype.attribute.name><\/syntaxtype.attribute.builtin> <syntaxtype.keyword>struct<\/syntaxtype.keyword> <decl.name>Nop<\/decl.name><\/decl.struct>",
           "key.kind" : "source.lang.swift.decl.struct",
           "key.length" : 124,
           "key.name" : "Nop",
           "key.namelength" : 3,
-          "key.nameoffset" : 2628,
-          "key.offset" : 2621,
+          "key.nameoffset" : 2791,
+          "key.offset" : 2784,
           "key.parsed_declaration" : "struct Nop",
-          "key.parsed_scope.end" : 137,
-          "key.parsed_scope.start" : 131,
+          "key.parsed_scope.end" : 144,
+          "key.parsed_scope.start" : 138,
           "key.substructure" : [
             {
               "key.accessibility" : "source.lang.swift.accessibility.internal",
@@ -4268,11 +5623,11 @@
               "key.length" : 24,
               "key.name" : "wrappedValue",
               "key.namelength" : 12,
-              "key.nameoffset" : 2642,
-              "key.offset" : 2638,
+              "key.nameoffset" : 2805,
+              "key.offset" : 2801,
               "key.parsed_declaration" : "var wrappedValue: String",
-              "key.parsed_scope.end" : 132,
-              "key.parsed_scope.start" : 132,
+              "key.parsed_scope.end" : 139,
+              "key.parsed_scope.start" : 139,
               "key.setter_accessibility" : "source.lang.swift.accessibility.internal",
               "key.typename" : "String",
               "key.typeusr" : "$sSSD",
@@ -4303,18 +5658,18 @@
                 }
               ],
               "key.bodylength" : 46,
-              "key.bodyoffset" : 2696,
+              "key.bodyoffset" : 2859,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.function.constructor><syntaxtype.keyword>init<\/syntaxtype.keyword>(<decl.var.parameter><decl.var.parameter.argument_label>wrappedValue<\/decl.var.parameter.argument_label>: <decl.var.parameter.type><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>)<\/decl.function.constructor>",
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 75,
               "key.name" : "init(wrappedValue:)",
               "key.namelength" : 26,
-              "key.nameoffset" : 2668,
-              "key.offset" : 2668,
+              "key.nameoffset" : 2831,
+              "key.offset" : 2831,
               "key.parsed_declaration" : "init(wrappedValue: String)",
-              "key.parsed_scope.end" : 136,
-              "key.parsed_scope.start" : 134,
+              "key.parsed_scope.end" : 143,
+              "key.parsed_scope.start" : 141,
               "key.typename" : "(Nop.Type) -> (String) -> Nop",
               "key.typeusr" : "$s12wrappedValue14SpmSwiftModule3NopVSS_tcD",
               "key.usr" : "s:14SpmSwiftModule3NopV12wrappedValueACSS_tcfc"
@@ -4347,28 +5702,28 @@
             }
           ],
           "key.bodylength" : 28,
-          "key.bodyoffset" : 2793,
+          "key.bodyoffset" : 2956,
           "key.doc.column" : 8,
           "key.doc.comment" : "See `@Nop`.",
           "key.doc.declaration" : "struct PropertyWrapperClient",
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "key.doc.full_as_xml" : "<Class file=\"\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"140\" column=\"8\"><Name>PropertyWrapperClient<\/Name><USR>s:14SpmSwiftModule21PropertyWrapperClientV<\/USR><Declaration>struct PropertyWrapperClient<\/Declaration><CommentParts><Abstract><Para>See <codeVoice>@Nop<\/codeVoice>.<\/Para><\/Abstract><\/CommentParts><\/Class>",
-          "key.doc.line" : 140,
+          "key.doc.full_as_xml" : "<Class file=\"\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift\" line=\"147\" column=\"8\"><Name>PropertyWrapperClient<\/Name><USR>s:14SpmSwiftModule21PropertyWrapperClientV<\/USR><Declaration>struct PropertyWrapperClient<\/Declaration><CommentParts><Abstract><Para>See <codeVoice>@Nop<\/codeVoice>.<\/Para><\/Abstract><\/CommentParts><\/Class>",
+          "key.doc.line" : 147,
           "key.doc.name" : "PropertyWrapperClient",
           "key.doc.type" : "Class",
           "key.doclength" : 16,
-          "key.docoffset" : 2747,
+          "key.docoffset" : 2910,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
           "key.fully_annotated_decl" : "<decl.struct><syntaxtype.keyword>struct<\/syntaxtype.keyword> <decl.name>PropertyWrapperClient<\/decl.name><\/decl.struct>",
           "key.kind" : "source.lang.swift.decl.struct",
           "key.length" : 59,
           "key.name" : "PropertyWrapperClient",
           "key.namelength" : 21,
-          "key.nameoffset" : 2770,
-          "key.offset" : 2763,
+          "key.nameoffset" : 2933,
+          "key.offset" : 2926,
           "key.parsed_declaration" : "struct PropertyWrapperClient",
-          "key.parsed_scope.end" : 143,
-          "key.parsed_scope.start" : 140,
+          "key.parsed_scope.end" : 150,
+          "key.parsed_scope.start" : 147,
           "key.substructure" : [
             {
               "key.accessibility" : "source.lang.swift.accessibility.internal",
@@ -4377,7 +5732,7 @@
                 {
                   "key.attribute" : "source.decl.attribute._custom",
                   "key.length" : 4,
-                  "key.offset" : 2798
+                  "key.offset" : 2961
                 }
               ],
               "key.bb.is_override" : false,
@@ -4403,11 +5758,11 @@
               "key.length" : 13,
               "key.name" : "v",
               "key.namelength" : 1,
-              "key.nameoffset" : 2811,
-              "key.offset" : 2807,
+              "key.nameoffset" : 2974,
+              "key.offset" : 2970,
               "key.parsed_declaration" : "var v: String",
-              "key.parsed_scope.end" : 142,
-              "key.parsed_scope.start" : 142,
+              "key.parsed_scope.end" : 149,
+              "key.parsed_scope.start" : 149,
               "key.setter_accessibility" : "source.lang.swift.accessibility.internal",
               "key.typename" : "String",
               "key.typeusr" : "$sSSD",

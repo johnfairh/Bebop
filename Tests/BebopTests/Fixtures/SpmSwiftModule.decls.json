@@ -718,6 +718,108 @@
         "usr" : "s:14SpmSwiftModule13FirstProtocolP7getOnlySivp"
       },
       {
+        "acl" : "public",
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented"
+            }
+          },
+          "parameters" : [],
+          "source" : "undocumented"
+        },
+        "kind" : "source.lang.swift.decl.var.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+          "first_line" : 15,
+          "last_line" : 15,
+          "module_name" : "SpmSwiftModule",
+          "pass_index" : 0
+        },
+        "name" : "setAndGet",
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : {
+            "text" : "var setAndGet: Int { get set }"
+          },
+          "deprecated_everywhere" : false,
+          "inherited_types" : [],
+          "is_override" : false,
+          "name_pieces" : [
+            {
+              "other" : "var "
+            },
+            {
+              "name" : "setAndGet"
+            },
+            {
+              "other" : ": Int"
+            }
+          ]
+        },
+        "swift_name" : "setAndGet",
+        "usr" : "s:14SpmSwiftModule13FirstProtocolP9setAndGetSivp"
+      },
+      {
+        "acl" : "internal",
+        "children" : [],
+        "decl_notes" : [
+          {
+            "protocol_extension_member" : true
+          }
+        ],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "A generic protocol extension method"
+            }
+          },
+          "parameters" : [],
+          "source" : "docComment"
+        },
+        "generic_type_parameters" : [
+          "C"
+        ],
+        "kind" : "source.lang.swift.decl.function.method.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+          "first_line" : 37,
+          "last_line" : 37,
+          "module_name" : "SpmSwiftModule",
+          "pass_index" : 0
+        },
+        "name" : "e(a:)",
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : {
+            "text" : "func e<C>(a: C) where C: FirstProtocol"
+          },
+          "deprecated_everywhere" : false,
+          "inherited_types" : [],
+          "is_override" : false,
+          "name_pieces" : [
+            {
+              "other" : "func "
+            },
+            {
+              "name" : "e"
+            },
+            {
+              "other" : "<C>("
+            },
+            {
+              "name" : "a"
+            },
+            {
+              "other" : ": C)"
+            }
+          ]
+        },
+        "swift_name" : "e(a:)",
+        "usr" : "s:14SpmSwiftModule13FirstProtocolPAAE1e1ayqd___tAaBRd__lF"
+      },
+      {
         "acl" : "internal",
         "children" : [],
         "decl_notes" : [
@@ -737,8 +839,8 @@
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
-          "first_line" : 18,
-          "last_line" : 18,
+          "first_line" : 32,
+          "last_line" : 32,
           "module_name" : "SpmSwiftModule",
           "pass_index" : 0
         },
@@ -899,7 +1001,7 @@
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
       "first_line" : 2,
-      "last_line" : 14,
+      "last_line" : 16,
       "module_name" : "SpmSwiftModule",
       "pass_index" : 0
     },
@@ -942,8 +1044,8 @@
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
-          "first_line" : 31,
-          "last_line" : 31,
+          "first_line" : 19,
+          "last_line" : 19,
           "module_name" : "SpmSwiftModule",
           "pass_index" : 0
         },
@@ -991,8 +1093,8 @@
         "kind" : "source.lang.swift.decl.var.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
-          "first_line" : 39,
-          "last_line" : 39,
+          "first_line" : 27,
+          "last_line" : 27,
           "module_name" : "SpmSwiftModule",
           "pass_index" : 0
         },
@@ -1033,8 +1135,8 @@
     "kind" : "source.lang.swift.decl.protocol",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
-      "first_line" : 30,
-      "last_line" : 32,
+      "first_line" : 18,
+      "last_line" : 20,
       "module_name" : "SpmSwiftModule",
       "pass_index" : 0
     },
@@ -1060,6 +1162,388 @@
     },
     "swift_name" : "SecondProtocol",
     "usr" : "s:14SpmSwiftModule14SecondProtocolP"
+  },
+  {
+    "acl" : "internal",
+    "children" : [],
+    "documentation" : {
+      "abstract" : {
+        "markdown" : {
+          "en" : "Undocumented"
+        }
+      },
+      "parameters" : [],
+      "source" : "undocumented"
+    },
+    "kind" : "source.lang.swift.decl.protocol",
+    "location" : {
+      "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+      "first_line" : 49,
+      "last_line" : 49,
+      "module_name" : "SpmSwiftModule",
+      "pass_index" : 0
+    },
+    "name" : "P1",
+    "swift_declaration" : {
+      "availability" : [],
+      "declaration" : {
+        "text" : "protocol P1"
+      },
+      "deprecated_everywhere" : false,
+      "inherited_types" : [],
+      "is_override" : false,
+      "name_pieces" : [
+        {
+          "other" : "protocol "
+        },
+        {
+          "name" : "P1"
+        }
+      ]
+    },
+    "swift_name" : "P1",
+    "usr" : "s:14SpmSwiftModule2P1P"
+  },
+  {
+    "acl" : "internal",
+    "children" : [],
+    "documentation" : {
+      "abstract" : {
+        "markdown" : {
+          "en" : "Undocumented"
+        }
+      },
+      "parameters" : [],
+      "source" : "undocumented"
+    },
+    "kind" : "source.lang.swift.decl.protocol",
+    "location" : {
+      "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+      "first_line" : 50,
+      "last_line" : 50,
+      "module_name" : "SpmSwiftModule",
+      "pass_index" : 0
+    },
+    "name" : "P2",
+    "swift_declaration" : {
+      "availability" : [],
+      "declaration" : {
+        "text" : "protocol P2"
+      },
+      "deprecated_everywhere" : false,
+      "inherited_types" : [],
+      "is_override" : false,
+      "name_pieces" : [
+        {
+          "other" : "protocol "
+        },
+        {
+          "name" : "P2"
+        }
+      ]
+    },
+    "swift_name" : "P2",
+    "usr" : "s:14SpmSwiftModule2P2P"
+  },
+  {
+    "acl" : "internal",
+    "children" : [
+      {
+        "acl" : "internal",
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "A textual representation of this instance."
+            }
+          },
+          "discussion" : {
+            "markdown" : {
+              "en" : "Calling this property directly is discouraged. Instead, convert an instance of any type to a string by using the `String(describing:)` initializer. This initializer works with any type, and uses the custom `description` property for types that conform to `CustomStringConvertible`:\n\n``` swift\nstruct Point: CustomStringConvertible {\n    let x: Int, y: Int\n\n    var description: String {\n        return \"(\\(x), \\(y))\"\n    }\n}\n\nlet p = Point(x: 21, y: 30)\nlet s = String(describing: p)\nprint(s)\n\/\/ Prints \"(21, 30)\"\n\n```\n\nThe conversion of `p` to a string in the assignment to `s` uses the `Point` type’s `description` property."
+            }
+          },
+          "parameters" : [],
+          "source" : "inherited"
+        },
+        "kind" : "source.lang.swift.decl.var.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+          "first_line" : 55,
+          "last_line" : 55,
+          "module_name" : "SpmSwiftModule",
+          "pass_index" : 0
+        },
+        "name" : "description",
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : {
+            "text" : "var description: String { get }"
+          },
+          "deprecated_everywhere" : false,
+          "inherited_types" : [],
+          "is_override" : true,
+          "name_pieces" : [
+            {
+              "other" : "var "
+            },
+            {
+              "name" : "description"
+            },
+            {
+              "other" : ": String"
+            }
+          ]
+        },
+        "swift_name" : "description",
+        "usr" : "s:s23CustomStringConvertibleP11descriptionSSvp"
+      }
+    ],
+    "documentation" : {
+      "abstract" : {
+        "markdown" : {
+          "en" : "Undocumented"
+        }
+      },
+      "parameters" : [],
+      "source" : "undocumented"
+    },
+    "kind" : "source.lang.swift.decl.struct",
+    "location" : {
+      "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+      "first_line" : 52,
+      "last_line" : 52,
+      "module_name" : "SpmSwiftModule",
+      "pass_index" : 0
+    },
+    "name" : "S1",
+    "swift_declaration" : {
+      "availability" : [],
+      "declaration" : {
+        "text" : "struct S1: P1\n\nextension S1: CustomStringConvertible"
+      },
+      "deprecated_everywhere" : false,
+      "inherited_types" : [
+        "P1"
+      ],
+      "is_override" : false,
+      "name_pieces" : [
+        {
+          "other" : "struct "
+        },
+        {
+          "name" : "S1"
+        }
+      ]
+    },
+    "swift_name" : "S1",
+    "usr" : "s:14SpmSwiftModule2S1V"
+  },
+  {
+    "acl" : "internal",
+    "children" : [
+      {
+        "acl" : "internal",
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented"
+            }
+          },
+          "parameters" : [],
+          "source" : "undocumented"
+        },
+        "kind" : "source.lang.swift.decl.function.method.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+          "first_line" : 59,
+          "last_line" : 59,
+          "module_name" : "SpmSwiftModule",
+          "pass_index" : 0
+        },
+        "name" : "equatables2()",
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : {
+            "text" : "func equatables2()"
+          },
+          "deprecated_everywhere" : false,
+          "inherited_types" : [],
+          "is_override" : false,
+          "name_pieces" : [
+            {
+              "other" : "func "
+            },
+            {
+              "name" : "equatables2"
+            },
+            {
+              "other" : "()"
+            }
+          ]
+        },
+        "swift_name" : "equatables2()",
+        "usr" : "s:14SpmSwiftModule2S2V11equatables2yyF"
+      },
+      {
+        "acl" : "internal",
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented"
+            }
+          },
+          "parameters" : [],
+          "source" : "undocumented"
+        },
+        "extension_constraint" : "where T: Comparable",
+        "kind" : "source.lang.swift.decl.function.method.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+          "first_line" : 63,
+          "last_line" : 63,
+          "module_name" : "SpmSwiftModule",
+          "pass_index" : 0
+        },
+        "name" : "comparables2()",
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : {
+            "text" : "func comparables2()"
+          },
+          "deprecated_everywhere" : false,
+          "inherited_types" : [],
+          "is_override" : false,
+          "name_pieces" : [
+            {
+              "other" : "func "
+            },
+            {
+              "name" : "comparables2"
+            },
+            {
+              "other" : "()"
+            }
+          ]
+        },
+        "swift_name" : "comparables2()",
+        "topic" : {
+          "_menu_title" : {
+            "markdown" : {
+              "en" : "…where `T`: `Comparable`"
+            }
+          },
+          "kind" : "genericRequirements",
+          "title" : {
+            "markdown" : {
+              "en" : "Available where `T`: `Comparable`"
+            }
+          }
+        },
+        "usr" : "s:14SpmSwiftModule2S2VAASLRzrlE12comparables2yyF"
+      },
+      {
+        "acl" : "internal",
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented"
+            }
+          },
+          "parameters" : [],
+          "source" : "undocumented"
+        },
+        "extension_constraint" : "where T: Equatable",
+        "kind" : "source.lang.swift.decl.function.method.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+          "first_line" : 67,
+          "last_line" : 67,
+          "module_name" : "SpmSwiftModule",
+          "pass_index" : 0
+        },
+        "name" : "equatables22()",
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : {
+            "text" : "func equatables22()"
+          },
+          "deprecated_everywhere" : false,
+          "inherited_types" : [],
+          "is_override" : false,
+          "name_pieces" : [
+            {
+              "other" : "func "
+            },
+            {
+              "name" : "equatables22"
+            },
+            {
+              "other" : "()"
+            }
+          ]
+        },
+        "swift_name" : "equatables22()",
+        "topic" : {
+          "_menu_title" : {
+            "markdown" : {
+              "en" : "…where `T`: `Equatable`"
+            }
+          },
+          "kind" : "genericRequirements",
+          "title" : {
+            "markdown" : {
+              "en" : "Available where `T`: `Equatable`"
+            }
+          }
+        },
+        "usr" : "s:14SpmSwiftModule2S2V12equatables22yyF"
+      }
+    ],
+    "documentation" : {
+      "abstract" : {
+        "markdown" : {
+          "en" : "Undocumented"
+        }
+      },
+      "parameters" : [],
+      "source" : "undocumented"
+    },
+    "generic_type_parameters" : [
+      "T"
+    ],
+    "kind" : "source.lang.swift.decl.struct",
+    "location" : {
+      "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+      "first_line" : 58,
+      "last_line" : 60,
+      "module_name" : "SpmSwiftModule",
+      "pass_index" : 0
+    },
+    "name" : "S2",
+    "swift_declaration" : {
+      "availability" : [],
+      "declaration" : {
+        "text" : "struct S2<T>: P1 where T: Equatable\n\nextension S2: Equatable where T: Equatable\n\nextension S2: P2 where T: Comparable"
+      },
+      "deprecated_everywhere" : false,
+      "inherited_types" : [
+        "P1"
+      ],
+      "is_override" : false,
+      "name_pieces" : [
+        {
+          "other" : "struct "
+        },
+        {
+          "name" : "S2"
+        }
+      ]
+    },
+    "swift_name" : "S2",
+    "usr" : "s:14SpmSwiftModule2S2V"
   },
   {
     "acl" : "public",
@@ -2316,6 +2800,50 @@
         "usr" : "s:14SpmSwiftModule10ABaseClassCySSSicipZ"
       },
       {
+        "acl" : "internal",
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented"
+            }
+          },
+          "parameters" : [],
+          "source" : "undocumented"
+        },
+        "kind" : "source.lang.swift.decl.var.static",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+          "first_line" : 102,
+          "last_line" : 104,
+          "module_name" : "SpmSwiftModule",
+          "pass_index" : 0
+        },
+        "name" : "aStaticVar",
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : {
+            "text" : "static var aStaticVar: Int { get }"
+          },
+          "deprecated_everywhere" : false,
+          "inherited_types" : [],
+          "is_override" : false,
+          "name_pieces" : [
+            {
+              "other" : "static var "
+            },
+            {
+              "name" : "aStaticVar"
+            },
+            {
+              "other" : ": Int"
+            }
+          ]
+        },
+        "swift_name" : "aStaticVar",
+        "usr" : "s:14SpmSwiftModule10ABaseClassC10aStaticVarSivpZ"
+      },
+      {
         "acl" : "public",
         "children" : [],
         "documentation" : {
@@ -2330,8 +2858,8 @@
         "kind" : "source.lang.swift.decl.function.operator",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "first_line" : 103,
-          "last_line" : 105,
+          "first_line" : 107,
+          "last_line" : 109,
           "module_name" : "SpmSwiftModule",
           "pass_index" : 0
         },
@@ -2385,7 +2913,7 @@
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
       "first_line" : 71,
-      "last_line" : 106,
+      "last_line" : 110,
       "module_name" : "SpmSwiftModule",
       "pass_index" : 0
     },
@@ -2425,8 +2953,8 @@
     "kind" : "source.lang.swift.decl.struct",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-      "first_line" : 108,
-      "last_line" : 109,
+      "first_line" : 112,
+      "last_line" : 113,
       "module_name" : "SpmSwiftModule",
       "pass_index" : 0
     },
@@ -2466,8 +2994,8 @@
     "kind" : "source.lang.swift.decl.function.operator",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-      "first_line" : 112,
-      "last_line" : 114,
+      "first_line" : 116,
+      "last_line" : 118,
       "module_name" : "SpmSwiftModule",
       "pass_index" : 0
     },
@@ -2525,8 +3053,8 @@
         "kind" : "source.lang.swift.decl.var.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "first_line" : 118,
-          "last_line" : 118,
+          "first_line" : 122,
+          "last_line" : 122,
           "module_name" : "SpmSwiftModule",
           "pass_index" : 0
         },
@@ -2569,8 +3097,8 @@
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "first_line" : 121,
-          "last_line" : 123,
+          "first_line" : 125,
+          "last_line" : 127,
           "module_name" : "SpmSwiftModule",
           "pass_index" : 0
         },
@@ -2619,8 +3147,8 @@
         "kind" : "source.lang.swift.decl.function.method.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "first_line" : 125,
-          "last_line" : 127,
+          "first_line" : 129,
+          "last_line" : 129,
           "module_name" : "SpmSwiftModule",
           "pass_index" : 0
         },
@@ -2628,7 +3156,7 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : {
-            "text" : "public func generic(param: T) -> T"
+            "text" : "public func generic(param: T) where T: Equatable"
           },
           "deprecated_everywhere" : false,
           "inherited_types" : [],
@@ -2647,12 +3175,71 @@
               "name" : "param"
             },
             {
-              "other" : ": T) -> T"
+              "other" : ": T)"
             }
           ]
         },
         "swift_name" : "generic(param:)",
-        "usr" : "s:14SpmSwiftModule13ADerivedClassC7generic5paramxx_tF"
+        "usr" : "s:14SpmSwiftModule13ADerivedClassC7generic5paramyx_tSQRzrlF"
+      },
+      {
+        "acl" : "public",
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented"
+            }
+          },
+          "parameters" : [],
+          "source" : "undocumented"
+        },
+        "generic_type_parameters" : [
+          "R"
+        ],
+        "kind" : "source.lang.swift.decl.function.method.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
+          "first_line" : 131,
+          "last_line" : 134,
+          "module_name" : "SpmSwiftModule",
+          "pass_index" : 0
+        },
+        "name" : "generic2(param:my:)",
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : {
+            "text" : "public func generic2<R>(param: T, my param2: R) -> T\nwhere R: Sequence, R.Element: FirstProtocol"
+          },
+          "deprecated_everywhere" : false,
+          "inherited_types" : [],
+          "is_override" : false,
+          "name_pieces" : [
+            {
+              "other" : "func "
+            },
+            {
+              "name" : "generic2"
+            },
+            {
+              "other" : "<R>("
+            },
+            {
+              "name" : "param"
+            },
+            {
+              "other" : ": T, "
+            },
+            {
+              "name" : "my"
+            },
+            {
+              "other" : ": R) -> T"
+            }
+          ]
+        },
+        "swift_name" : "generic2(param:my:)",
+        "usr" : "s:14SpmSwiftModule13ADerivedClassC8generic25param2myxx_qd__tSTRd__AA13FirstProtocol7ElementRpd__lF"
       }
     ],
     "documentation" : {
@@ -2671,8 +3258,8 @@
     "kind" : "source.lang.swift.decl.class",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-      "first_line" : 117,
-      "last_line" : 128,
+      "first_line" : 121,
+      "last_line" : 135,
       "module_name" : "SpmSwiftModule",
       "pass_index" : 0
     },
@@ -2717,8 +3304,8 @@
         "kind" : "source.lang.swift.decl.var.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "first_line" : 132,
-          "last_line" : 132,
+          "first_line" : 139,
+          "last_line" : 139,
           "module_name" : "SpmSwiftModule",
           "pass_index" : 0
         },
@@ -2761,8 +3348,8 @@
         "kind" : "source.lang.swift.decl.function.constructor",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "first_line" : 134,
-          "last_line" : 136,
+          "first_line" : 141,
+          "last_line" : 143,
           "module_name" : "SpmSwiftModule",
           "pass_index" : 0
         },
@@ -2806,8 +3393,8 @@
     "kind" : "source.lang.swift.decl.struct",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-      "first_line" : 131,
-      "last_line" : 137,
+      "first_line" : 138,
+      "last_line" : 144,
       "module_name" : "SpmSwiftModule",
       "pass_index" : 0
     },
@@ -2850,8 +3437,8 @@
         "kind" : "source.lang.swift.decl.var.instance",
         "location" : {
           "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "first_line" : 142,
-          "last_line" : 142,
+          "first_line" : 149,
+          "last_line" : 149,
           "module_name" : "SpmSwiftModule",
           "pass_index" : 0
         },
@@ -2892,8 +3479,8 @@
     "kind" : "source.lang.swift.decl.struct",
     "location" : {
       "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-      "first_line" : 140,
-      "last_line" : 143,
+      "first_line" : 147,
+      "last_line" : 150,
       "module_name" : "SpmSwiftModule",
       "pass_index" : 0
     },
@@ -3223,5 +3810,277 @@
       }
     },
     "usr" : "s:ST7ElementQa"
+  },
+  {
+    "acl" : "internal",
+    "children" : [
+      {
+        "acl" : "internal",
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented"
+            }
+          },
+          "parameters" : [],
+          "source" : "undocumented"
+        },
+        "kind" : "source.lang.swift.decl.function.method.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
+          "first_line" : 64,
+          "last_line" : 64,
+          "module_name" : "SpmSwiftModule",
+          "pass_index" : 0
+        },
+        "name" : "f()",
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : {
+            "text" : "func f()"
+          },
+          "deprecated_everywhere" : false,
+          "inherited_types" : [],
+          "is_override" : false,
+          "name_pieces" : [
+            {
+              "other" : "func "
+            },
+            {
+              "name" : "f"
+            },
+            {
+              "other" : "()"
+            }
+          ]
+        },
+        "swift_name" : "f()",
+        "usr" : "s:Sy14SpmSwiftModuleE1fyyF"
+      },
+      {
+        "acl" : "internal",
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented"
+            }
+          },
+          "parameters" : [],
+          "source" : "undocumented"
+        },
+        "kind" : "source.lang.swift.decl.function.method.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
+          "first_line" : 66,
+          "last_line" : 66,
+          "module_name" : "SpmSwiftModule",
+          "pass_index" : 0
+        },
+        "name" : "hasSuffix(_:)",
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : {
+            "text" : "func hasSuffix(_ prefix: String) -> Bool"
+          },
+          "deprecated_everywhere" : false,
+          "inherited_types" : [],
+          "is_override" : false,
+          "name_pieces" : [
+            {
+              "other" : "func "
+            },
+            {
+              "name" : "hasSuffix"
+            },
+            {
+              "other" : "(String) -> Bool"
+            }
+          ]
+        },
+        "swift_name" : "hasSuffix(_:)",
+        "usr" : "s:Sy14SpmSwiftModuleE9hasSuffixySbSSF"
+      }
+    ],
+    "documentation" : {
+      "abstract" : {
+        "markdown" : {
+          "en" : "A type that can represent a string as a collection of characters."
+        }
+      },
+      "parameters" : [],
+      "source" : "inherited"
+    },
+    "kind" : "source.lang.swift.decl.extension",
+    "location" : {
+      "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
+      "first_line" : 63,
+      "last_line" : 67,
+      "module_name" : "SpmSwiftModule",
+      "pass_index" : 0
+    },
+    "name" : "StringProtocol",
+    "swift_declaration" : {
+      "availability" : [],
+      "declaration" : {
+        "text" : "extension StringProtocol"
+      },
+      "deprecated_everywhere" : false,
+      "inherited_types" : [],
+      "is_override" : false,
+      "name_pieces" : [
+        {
+          "other" : "extension "
+        },
+        {
+          "name" : "StringProtocol"
+        }
+      ],
+      "type_module_name" : "Swift"
+    },
+    "swift_name" : "StringProtocol",
+    "topic" : {
+      "kind" : "sourceMark",
+      "title" : {
+        "markdown" : {
+          "en" : "CustomStringConvertible"
+        }
+      }
+    },
+    "usr" : "s:Sy"
+  },
+  {
+    "acl" : "internal",
+    "children" : [],
+    "documentation" : {
+      "abstract" : {
+        "markdown" : {
+          "en" : "A collection whose elements are key-value pairs."
+        }
+      },
+      "parameters" : [],
+      "source" : "inherited"
+    },
+    "kind" : "source.lang.swift.decl.extension",
+    "location" : {
+      "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+      "first_line" : 70,
+      "last_line" : 70,
+      "module_name" : "SpmSwiftModule",
+      "pass_index" : 0
+    },
+    "name" : "Dictionary",
+    "swift_declaration" : {
+      "availability" : [],
+      "declaration" : {
+        "text" : "extension Dictionary: P2"
+      },
+      "deprecated_everywhere" : false,
+      "inherited_types" : [
+        "P2"
+      ],
+      "is_override" : false,
+      "name_pieces" : [
+        {
+          "other" : "extension "
+        },
+        {
+          "name" : "Dictionary"
+        }
+      ],
+      "type_module_name" : "Swift"
+    },
+    "swift_name" : "Dictionary",
+    "usr" : "s:SD"
+  },
+  {
+    "acl" : "internal",
+    "children" : [
+      {
+        "acl" : "internal",
+        "children" : [],
+        "documentation" : {
+          "abstract" : {
+            "markdown" : {
+              "en" : "Undocumented"
+            }
+          },
+          "parameters" : [],
+          "source" : "undocumented"
+        },
+        "kind" : "source.lang.swift.decl.function.method.instance",
+        "location" : {
+          "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+          "first_line" : 73,
+          "last_line" : 73,
+          "module_name" : "SpmSwiftModule",
+          "pass_index" : 0
+        },
+        "name" : "arrayFunc()",
+        "swift_declaration" : {
+          "availability" : [],
+          "declaration" : {
+            "text" : "func arrayFunc()"
+          },
+          "deprecated_everywhere" : false,
+          "inherited_types" : [],
+          "is_override" : false,
+          "name_pieces" : [
+            {
+              "other" : "func "
+            },
+            {
+              "name" : "arrayFunc"
+            },
+            {
+              "other" : "()"
+            }
+          ]
+        },
+        "swift_name" : "arrayFunc()",
+        "usr" : "s:Sa14SpmSwiftModuleSLRzlE9arrayFuncyyF"
+      }
+    ],
+    "documentation" : {
+      "abstract" : {
+        "markdown" : {
+          "en" : "An ordered, random-access collection."
+        }
+      },
+      "parameters" : [],
+      "source" : "inherited"
+    },
+    "kind" : "source.lang.swift.decl.extension",
+    "location" : {
+      "file_pathname" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
+      "first_line" : 72,
+      "last_line" : 74,
+      "module_name" : "SpmSwiftModule",
+      "pass_index" : 0
+    },
+    "name" : "Array",
+    "swift_declaration" : {
+      "availability" : [],
+      "declaration" : {
+        "text" : "extension Array: P1 where Element: Comparable"
+      },
+      "deprecated_everywhere" : false,
+      "inherited_types" : [
+        "P1"
+      ],
+      "is_override" : false,
+      "name_pieces" : [
+        {
+          "other" : "extension "
+        },
+        {
+          "name" : "Array"
+        }
+      ],
+      "type_module_name" : "Swift"
+    },
+    "swift_name" : "Array",
+    "usr" : "s:Sa"
   }
 ]

@@ -14,7 +14,6 @@ give you at least as good results, usually better.
 * Location - missing for non-public decls
 * DocComments - missing for non-public decls, missing for extensions
 * DocComments - lost from proto req default impls
-* ~Readonly properties/subscripts broken, no { get / set } even in protocols~
 * public private(set) var broken, setter ignored / ~no { get }~
 * Typealiases for proto composition not respected (Codable)
 * Crashes horribly if anything slightly wrong with sourceinfo.
@@ -31,3 +30,6 @@ we now get _both at once_ repeating constraints...
 * Weird tramp constraints “extension Dictionary : P” gets Element: Hashable
 * `defaultImplementation` relation pretty broken in Apr16, no `memberOf`
   so cannot understand what type the impl is provided as part of.
+  (maybe worked around by Swift 5.5 mess)
+* Property wrapper attributes are AWOL
+* deinit is missing always

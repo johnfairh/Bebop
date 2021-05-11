@@ -99,6 +99,10 @@ public class ABaseClass {
     return ""
   }
 
+  static var aStaticVar: Int {
+    3
+  }
+
   /// An operator!
   public static func +(lhs: ABaseClass, rhs: ABaseClass) -> ABaseClass {
     ABaseClass()
@@ -122,7 +126,10 @@ public class ADerivedClass<T, Q: Sequence>: ABaseClass {
     return ""
   }
 
-  public func generic(param: T) -> T {
+  public func generic(param: T) where T: Equatable {}
+
+  public func generic2<R>(param: T, my param2: R) -> T
+    where R: Sequence, R.Element: FirstProtocol {
     return param
   }
 }

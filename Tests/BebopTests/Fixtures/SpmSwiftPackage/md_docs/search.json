@@ -1,4 +1,17 @@
 {
+  "extensions.html?swift#dictionary" : {
+    "abstract" : "A collection whose elements are key-value pairs.",
+    "name" : "Dictionary"
+  },
+  "extensions\/array.html?swift" : {
+    "abstract" : "An ordered, random-access collection.",
+    "name" : "Array"
+  },
+  "extensions\/array.html?swift#arrayfunc" : {
+    "abstract" : "Undocumented",
+    "name" : "arrayFunc()",
+    "parent_name" : "Array"
+  },
   "extensions\/collection.html?swift" : {
     "abstract" : "A sequence whose elements can be traversed multiple times, nondestructively, and accessed by an indexed subscript.",
     "name" : "Collection"
@@ -27,6 +40,20 @@
     "name" : "method2()",
     "parent_name" : "String.Element"
   },
+  "extensions\/stringprotocol.html?swift" : {
+    "abstract" : "A type that can represent a string as a collection of characters.",
+    "name" : "StringProtocol"
+  },
+  "extensions\/stringprotocol.html?swift#f" : {
+    "abstract" : "Undocumented",
+    "name" : "f()",
+    "parent_name" : "StringProtocol"
+  },
+  "extensions\/stringprotocol.html?swift#hassuffix_" : {
+    "abstract" : "Undocumented",
+    "name" : "hasSuffix(_:)",
+    "parent_name" : "StringProtocol"
+  },
   "functions.html?swift#deprecatedfunctioncallback" : {
     "abstract" : "A deprecated function",
     "name" : "deprecatedFunction(callback:)"
@@ -39,7 +66,15 @@
     "abstract" : "Unscoped operator",
     "name" : "+(T, T)"
   },
-  "types.html?swift#t1" : {
+  "types.html?swift#p1" : {
+    "abstract" : "Undocumented",
+    "name" : "P1"
+  },
+  "types.html?swift#p2" : {
+    "abstract" : "Undocumented",
+    "name" : "P2"
+  },
+  "types.html?swift#t2" : {
     "abstract" : "Undocumented",
     "name" : "T"
   },
@@ -50,6 +85,11 @@
   "types\/abaseclass.html?swift#abaseclass-abaseclass" : {
     "abstract" : "An operator!",
     "name" : "+(ABaseClass, ABaseClass)",
+    "parent_name" : "ABaseClass"
+  },
+  "types\/abaseclass.html?swift#astaticvar" : {
+    "abstract" : "Undocumented",
+    "name" : "aStaticVar",
     "parent_name" : "ABaseClass"
   },
   "types\/abaseclass.html?swift#deinit" : {
@@ -96,6 +136,11 @@
     "abstract" : "A derived class",
     "name" : "ADerivedClass"
   },
+  "types\/aderivedclass.html?swift#generic2parammy" : {
+    "abstract" : "Undocumented",
+    "name" : "generic2(param:my:)",
+    "parent_name" : "ADerivedClass"
+  },
   "types\/aderivedclass.html?swift#genericparam" : {
     "abstract" : "Undocumented",
     "name" : "generic(param:)",
@@ -106,7 +151,7 @@
     "name" : "method(param:)",
     "parent_name" : "ADerivedClass"
   },
-  "types\/aderivedclass.html?swift#t3" : {
+  "types\/aderivedclass.html?swift#t4" : {
     "abstract" : "Undocumented",
     "name" : "t",
     "parent_name" : "ADerivedClass"
@@ -159,6 +204,11 @@
     "name" : "e()",
     "parent_name" : "FirstProtocol"
   },
+  "types\/firstprotocol1.html?swift#ea" : {
+    "abstract" : "A generic protocol extension method",
+    "name" : "e(a:)",
+    "parent_name" : "FirstProtocol"
+  },
   "types\/firstprotocol1.html?swift#exthashablemethod" : {
     "abstract" : "Undocumented",
     "name" : "extHashableMethod()",
@@ -176,6 +226,11 @@
   "types\/firstprotocol1.html?swift#marg1" : {
     "abstract" : "Brief note about m",
     "name" : "m(arg:)",
+    "parent_name" : "FirstProtocol"
+  },
+  "types\/firstprotocol1.html?swift#setandget" : {
+    "abstract" : "Undocumented",
+    "name" : "setAndGet",
     "parent_name" : "FirstProtocol"
   },
   "types\/genericbase.html?swift" : {
@@ -249,6 +304,34 @@
     "abstract" : "Undocumented",
     "name" : "v",
     "parent_name" : "PropertyWrapperClient"
+  },
+  "types\/s1.html?swift" : {
+    "abstract" : "Undocumented",
+    "name" : "S1"
+  },
+  "types\/s1.html?swift#description1" : {
+    "abstract" : "A textual representation of this instance.",
+    "name" : "description",
+    "parent_name" : "S1"
+  },
+  "types\/s2.html?swift" : {
+    "abstract" : "Undocumented",
+    "name" : "S2"
+  },
+  "types\/s2.html?swift#comparables2" : {
+    "abstract" : "Undocumented",
+    "name" : "comparables2()",
+    "parent_name" : "S2"
+  },
+  "types\/s2.html?swift#equatables2" : {
+    "abstract" : "Undocumented",
+    "name" : "equatables2()",
+    "parent_name" : "S2"
+  },
+  "types\/s2.html?swift#equatables22" : {
+    "abstract" : "Undocumented",
+    "name" : "equatables22()",
+    "parent_name" : "S2"
   },
   "types\/secondprotocol.html?swift" : {
     "abstract" : "Undocumented",

@@ -52,24 +52,17 @@ class TestGatherSymGraph: XCTestCase {
 
     // Actual output stability test in TestProducts
 
-    #if os(macOS) // until we have a real toolchain
-
     func testModuleLocation() throws {
-        guard TestSymbolGraph.isMyLaptop else { return }
-
-        TestSymbolGraph.useCustom(); defer { TestSymbolGraph.reset() }
-
-//        let binDirPath = try fixturesURL.appendingPathComponent("SpmSwiftPackage").withCurrentDirectory { () -> String in
-//            let buildResult = Exec.run("/usr/bin/env", "swift", "build")
-//            XCTAssertEqual(0, buildResult.terminationStatus, buildResult.failureReport)
-//            let binPathResult = Exec.run("/usr/bin/env", "swift", "build", "--show-bin-path")
-//            guard let binPath = binPathResult.successString else {
-//                XCTFail(binPathResult.failureReport)
-//                return ""
-//            }
-//            return binPath
-//        }
-        let binDirPath = fixturesURL.appendingPathComponent("Swift53").path
+        let binDirPath = try fixturesURL.appendingPathComponent("SpmSwiftPackage").withCurrentDirectory { () -> String in
+            let buildResult = Exec.run("/usr/bin/env", "swift", "build")
+            XCTAssertEqual(0, buildResult.terminationStatus, buildResult.failureReport)
+            let binPathResult = Exec.run("/usr/bin/env", "swift", "build", "--show-bin-path")
+            guard let binPath = binPathResult.successString else {
+                XCTFail(binPathResult.failureReport)
+                return ""
+            }
+            return binPath
+        }
 
         let srcDirPasses = try System().run([
             "--build-tool=swift-symbolgraph",
@@ -96,15 +89,10 @@ class TestGatherSymGraph: XCTestCase {
             XCTFail()
         }
     }
-    #endif
 
     // MARK: Tool misbehaviours
 
     func testToolFailures() throws {
-        TestSymbolGraph.useCustom(); defer { TestSymbolGraph.reset() }
-
-        #if os(macOS)
-
         // Straight failure
         AssertThrows(try System().run([
             "--build-tool=swift-symbolgraph",
@@ -112,13 +100,17 @@ class TestGatherSymGraph: XCTestCase {
         ]), .errCfgSsgeExec)
 
         // No main symbols file
-        TestSymbolGraph.useCustom(path: "/usr/bin/true")
+        #if os(macOS)
+        let tru = "/usr/bin/true"
+        #else
+        let tru = "/bin/true"
+        #endif
+        TestSymbolGraph.useCustom(path: tru)
+        defer { TestSymbolGraph.reset() }
         AssertThrows(try System().run([
             "--build-tool=swift-symbolgraph",
             "--modules=NotAModule"
         ]), .errCfgSsgeMainMissing)
-
-        #endif
     }
 
     // MARK: Bad data detection

@@ -3,7 +3,7 @@ Bebop simple MD theme
 Copyright 2020 Bebop Authors
 Licensed under MIT (https://github.com/johnfairh/Bebop/blob/master/LICENSE)
 -->
-![50%](../badge.svg)
+![48%](../badge.svg)
 [![Open in Dash](../img/dash.svg)](dash-feed://https%3A%2F%2Fwww%2Egoogle%2Ecom%2F)
 
 
@@ -35,7 +35,19 @@ Licensed under MIT (https://github.com/johnfairh/Bebop/blob/master/LICENSE)
   * Nop
 
 
+  * [P1](../types.md?swift#p1)
+
+
+  * [P2](../types.md?swift#p2)
+
+
   * [PropertyWrapperClient](../types/propertywrapperclient.md?swift)
+
+
+  * [S1](../types/s1.md?swift)
+
+
+  * [S2](../types/s2.md?swift)
 
 
   * [SecondProtocol](../types/secondprotocol.md?swift)
@@ -48,7 +60,7 @@ Licensed under MIT (https://github.com/johnfairh/Bebop/blob/master/LICENSE)
     * [Nested2](../types/spmswiftmodule.md?swift#nested2)
 
 
-  * [T](../types.md?swift#t1)
+  * [T](../types.md?swift#t2)
 
 
 
@@ -69,10 +81,19 @@ Licensed under MIT (https://github.com/johnfairh/Bebop/blob/master/LICENSE)
 
 [Extensions](../extensions.md?swift)
 
+  * [Array](../extensions/array.md?swift)
+
+
   * [Collection](../extensions/collection.md?swift)
 
 
+  * [Dictionary](../extensions.md?swift#dictionary)
+
+
   * [String.Element](../extensions/stringelement.md?swift)
+
+
+  * [StringProtocol](../extensions/stringprotocol.md?swift)
 
 
 
@@ -111,7 +132,7 @@ Undocumented
 
 
 
-[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L131-L137)
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L138-L144)
 
 
 
@@ -158,7 +179,7 @@ init(wrappedValue: String)
 
 
 
-[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L134-L136)
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L141-L143)
 </details>
 
 
@@ -206,7 +227,7 @@ var wrappedValue: String
 
 
 
-[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L132)
+[Show on GitHub](https://www.bbc.co.uk//Sources/SpmSwiftModule/SpmSwiftModule.swift#L139)
 </details>
 
 
