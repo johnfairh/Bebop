@@ -60,6 +60,8 @@ html docs in the `docsets` subdirectory of the output directory.  See
 by default in the docs directory.
 * `undocumented-json` generates a report about undocumented definitions, by
 default in the docs directory.
+* `unresolved-json` generates a report about unresolved potential autolinks,
+by default in the docs directory.
 * `theme` is different: it can't be set alongside any others, and copies the
 selected theme's raw files into the output directory.  Use this to get a copy
 of the theme to start customizing it.
@@ -291,6 +293,7 @@ custom_defs:
 * `--output PATH` directory in which to put docs.
 * `--output-stats PATH` file to produce stats report.
 * `--output-undocumented PATH` file to produce undocumented defs report.
+* `--output-unresolved PATH` file to produce unresolved links report.
 * `--clean` delete output directory and contents before starting.
 * `--theme name|PATH` theme name or custom path.  Bebop comes with two themes,
   'fw2020' for html and 'md' for markdown.  Themes must contain a `templates`

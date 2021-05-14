@@ -28,13 +28,15 @@ private enum PipelineProduct: String, CaseIterable {
     case undocumented_json
     /// Copy a theme
     case theme
+    /// Produce unresolved autolinks report
+    case unresolved_json
 
     /// Pipeline mode is when the thing behaves fit to go in a shell pipeline -- producing parseable
     /// output only to stdout, everything else to stderr.  Used for the various json-dumping modes.
     var needsPipelineMode: Bool {
         switch self {
         case .files_json, .decls_json, .docs_summary_json, .docs_json: return true
-        case .docs, .docset, .stats_json, .undocumented_json, .theme: return false
+        case .docs, .docset, .stats_json, .undocumented_json, .theme, .unresolved_json: return false
         }
     }
 }
@@ -177,6 +179,11 @@ public final class Pipeline: Configurable {
         if testAndClearProduct(.undocumented_json) {
             logDebug("Pipeline: generating undocumented")
             try stats.createUndocumentedFile(outputURL: genSite.outputURL)
+        }
+
+        if testAndClearProduct(.unresolved_json) {
+            logDebug("Pipeline: generating unresolved")
+            try stats.createUnresolvedFile(outputURL: genSite.outputURL)
         }
     }
 

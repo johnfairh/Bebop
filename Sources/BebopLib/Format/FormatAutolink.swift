@@ -95,22 +95,33 @@ final class FormatAutolink: Configurable {
 
         let declName = name.hasPrefix("@") ? String(name.dropFirst()) : name
 
-        // First priority: a def in this docset
-        if let (def, language) = def(for: declName, context: context) {
-            return linkTo(defItem: def, language: language, from: name, context: context)
-        }
+        let autolink = { () -> Autolink? in
+            // First priority: a def in this docset
+            if let (def, language) = def(for: declName, context: context) {
+                return linkTo(defItem: def, language: language, from: name, context: context)
+            }
 
-        // Then a configured remote
-        if let remoteLink = autolinkRemote.autolink(name: declName) {
-            return remoteLink
-        }
+            // Then a configured remote
+            if let remoteLink = autolinkRemote.autolink(name: declName) {
+                return remoteLink
+            }
 
-        // Finally apple.com docs
-        if case let language = contextLanguage ?? (context as? DefItem)?.primaryLanguage,
-            let appleLink = autolinkApple.autolink(text: declName, language: language) {
-            return appleLink
+            // Finally apple.com docs
+            if case let language = contextLanguage ?? (context as? DefItem)?.primaryLanguage,
+               let appleLink = autolinkApple.autolink(text: declName, language: language) {
+                return appleLink
+            }
+            return nil
+        }()
+        // Record unresolved might-be-links.
+        // Ignore self-links to reduce spam.
+        // Ignore $$ math links.
+        if autolink == nil,
+           declName != context.name,
+           !declName.re_isMatch(#"^\$.*\$$"#) {
+            Stats.addUnresolved(name: declName, context: context.name)
         }
-        return nil
+        return autolink
     }
 
     /// Create the Autolink for a link to one of our defs

@@ -1,0 +1,26 @@
+[
+  {
+    "context" : "call()",
+    "name" : "Int"
+  },
+  {
+    "context" : "phi()",
+    "name" : "Int"
+  },
+  {
+    "context" : "🐗(a:👻:)",
+    "name" : "Int"
+  },
+  {
+    "context" : "🐗(a:👻:)",
+    "name" : "String"
+  },
+  {
+    "context" : "Guide",
+    "name" : "after"
+  },
+  {
+    "context" : "Guide",
+    "name" : "after"
+  }
+]

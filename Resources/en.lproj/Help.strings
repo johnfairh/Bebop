@@ -113,6 +113,9 @@ recipe.";
 of modules and build options.  See online help.";
 "output-stats" = "Filename to produce a statistics report about the generated documentation.
 Default: '(docs directory)/stats.json'";
+"output-unresolved" = "Filename to produce a report about names in docs formatted in backticks
+that couldn't be linked to some other documentation page.
+Default: '(docs directory)/unresolved.json'";
 "output-undocumented" = "Filename to produce a report about symbols that do not have documentation.
 Default: '(docs directory)/undocumented.json'";
 "min-acl" = "Minimum Swift access control level to document.
