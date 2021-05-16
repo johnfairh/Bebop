@@ -186,7 +186,7 @@
             
               <div class="declaration">
                 <div class="language">
-                  <pre><code class="language-swift">extension Array: <a href="../types.html?swift#p1">P1</a> where Element: Comparable</code></pre>
+                  <pre><code class="language-swift">extension <a href="https://developer.apple.com/documentation/swift/array?language=swift">Array</a>: <a href="../types.html?swift#p1">P1</a> where Element: <a href="https://developer.apple.com/documentation/swift/comparable?language=swift">Comparable</a></code></pre>
                 </div>
               </div>
             
@@ -352,7 +352,7 @@ numbers[2] = 300
 Bridging Between Array and NSArray
 </span></h1>
 <p>When you need to access APIs that require data in an <code>NSArray</code> instance instead of <code>Array</code>, use the type-cast operator (<code>as</code>) to bridge your instance. For bridging to be possible, the <code>Element</code> type of your array must be a class, an <code>@objc</code> protocol (a protocol imported from Objective-C or marked with the <code>@objc</code> attribute), or a type that bridges to a Foundation type.</p>
-<p>The following example shows how you can bridge an <code>Array</code> instance to <code>NSArray</code> to use the <code>write(to:atomically:)</code> method. In this example, the <code>colors</code> array can be bridged to <code>NSArray</code> because the <code>colors</code> array’s <code>String</code> elements bridge to <code>NSString</code>. The compiler prevents bridging the <code>moreColors</code> array, on the other hand, because its <code>Element</code> type is <code>&gt;</code>, which does <em>not</em> bridge to a Foundation type.</p>
+<p>The following example shows how you can bridge an <code>Array</code> instance to <code>NSArray</code> to use the <code>write(to:atomically:)</code> method. In this example, the <code>colors</code> array can be bridged to <code>NSArray</code> because the <code>colors</code> array’s <a href="https://developer.apple.com/documentation/swift/string?language=swift" class="j2-swift"><code>String</code></a><a href="https://developer.apple.com/documentation/swift/string?language=objc" class="j2-objc j2-secondary"><code>String</code></a> elements bridge to <code>NSString</code>. The compiler prevents bridging the <code>moreColors</code> array, on the other hand, because its <code>Element</code> type is <code>&gt;</code>, which does <em>not</em> bridge to a Foundation type.</p>
 <pre><code class="language-swift">let colors = [&quot;periwinkle&quot;, &quot;rose&quot;, &quot;moss&quot;]
 let moreColors: [String?] = [&quot;ochre&quot;, &quot;pine&quot;]
 
@@ -369,7 +369,7 @@ let url = URL(fileURLWithPath: &quot;names.plist&quot;)
 <p>When the destination array’s element type is a nonclass type that bridges to a Foundation type, bridging from <code>NSArray</code> to <code>Array</code> performs a bridging copy of the elements to contiguous storage in O(<em>n</em>) time. For example, bridging from <code>NSArray</code> to <code>&gt;</code> performs such a copy. No further bridging is required when accessing elements of the <code>Array</code> instance.</p>
 <div class="j2-callout j2-callout-note aside aside-note">
 <div class="j2-callout-title aside-title" role="heading" aria-level="6">note</div>
-<p>The <code>ContiguousArray</code> and <code>ArraySlice</code> types are not bridged; instances of those types always have a contiguous block of memory as their storage.</p>
+<p>The <code>ContiguousArray</code> and <a href="https://developer.apple.com/documentation/swift/arrayslice?language=swift" class="j2-swift"><code>ArraySlice</code></a><a href="https://developer.apple.com/documentation/swift/arrayslice?language=objc" class="j2-objc j2-secondary"><code>ArraySlice</code></a> types are not bridged; instances of those types always have a contiguous block of memory as their storage.</p>
 </div>
           </section>
           

@@ -227,7 +227,7 @@
               "abstract_html" : "<p>A Unicode string value that is a collection of characters.<\/p>",
               "abstract_md" : "A Unicode string value that is a collection of characters.",
               "discouraged" : false,
-              "swift_declaration_html" : "extension String",
+              "swift_declaration_html" : "extension <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/string?language=swift\">String<\/a>",
               "swift_declaration_md" : "extension String"
             },
             "primary_language" : "j2-swift",
@@ -808,7 +808,7 @@
       "abstract_html" : "<p>A Unicode string value that is a collection of characters.<\/p>",
       "abstract_md" : "A Unicode string value that is a collection of characters.",
       "discouraged" : false,
-      "swift_declaration_html" : "extension String",
+      "swift_declaration_html" : "extension <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/string?language=swift\">String<\/a>",
       "swift_declaration_md" : "extension String"
     },
     "default_language" : "j2-swift",
@@ -1491,7 +1491,7 @@
               "discouraged" : false,
               "objc_declaration_html" : "- (NSString *_Nonnull)exposedMethodWithA:(NSInteger)a b:(NSString *_Nullable)b",
               "objc_declaration_md" : "- (NSString *_Nonnull)exposedMethodWithA:(NSInteger)a b:(NSString *_Nullable)b",
-              "swift_declaration_html" : "public func exposedMethod(a: Int, b: <a href=\"..\/..\/spmswiftmodule4\/extensions\/string.html?swift\">String<\/a>?) -&gt; <a href=\"..\/..\/spmswiftmodule4\/extensions\/string.html?swift\">String<\/a>",
+              "swift_declaration_html" : "public func exposedMethod(a: <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/int?language=swift\">Int<\/a>, b: <a href=\"..\/..\/spmswiftmodule4\/extensions\/string.html?swift\">String<\/a>?) -&gt; <a href=\"..\/..\/spmswiftmodule4\/extensions\/string.html?swift\">String<\/a>",
               "swift_declaration_md" : "public func exposedMethod(a: Int, b: String?) -> String"
             },
             "primary_language" : "j2-swift",
@@ -1511,7 +1511,7 @@
               "discouraged" : false,
               "objc_declaration_html" : "@property (nonatomic) NSInteger exposedProperty",
               "objc_declaration_md" : "@property (nonatomic) NSInteger exposedProperty",
-              "swift_declaration_html" : "public var exposedProperty: Int",
+              "swift_declaration_html" : "public var exposedProperty: <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/int?language=swift\">Int<\/a>",
               "swift_declaration_md" : "public var exposedProperty: Int"
             },
             "primary_language" : "j2-swift",
@@ -1571,7 +1571,7 @@
               "discouraged" : false,
               "objc_declaration_html" : "- (nonnull instancetype)initWithValue:(NSInteger)value",
               "objc_declaration_md" : "- (nonnull instancetype)initWithValue:(NSInteger)value",
-              "swift_declaration_html" : "public init(value: Int)",
+              "swift_declaration_html" : "public init(value: <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/int?language=swift\">Int<\/a>)",
               "swift_declaration_md" : "public init(value: Int)"
             },
             "primary_language" : "j2-swift",
@@ -1813,7 +1813,7 @@
               "discouraged" : false,
               "objc_declaration_html" : "@property (nonatomic) NSInteger property",
               "objc_declaration_md" : "@property (nonatomic) NSInteger property",
-              "swift_declaration_html" : "public var theProperty: Int",
+              "swift_declaration_html" : "public var theProperty: <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/int?language=swift\">Int<\/a>",
               "swift_declaration_md" : "public var theProperty: Int"
             },
             "primary_language" : "j2-swift",
@@ -1833,7 +1833,7 @@
               "discouraged" : false,
               "objc_declaration_html" : "- (void)action:(NSInteger)a param:(NSInteger)parm",
               "objc_declaration_md" : "- (void)action:(NSInteger)a param:(NSInteger)parm",
-              "swift_declaration_html" : "public func doAction(a: Int, parm: Int)",
+              "swift_declaration_html" : "public func doAction(a: <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/int?language=swift\">Int<\/a>, parm: <a href=\"https:\/\/developer.apple.com\/documentation\/swift\/int?language=swift\">Int<\/a>)",
               "swift_declaration_md" : "public func doAction(a: Int, parm: Int)"
             },
             "primary_language" : "j2-swift",

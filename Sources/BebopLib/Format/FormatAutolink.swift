@@ -36,7 +36,7 @@ final class Autolink {
 }
 
 final class FormatAutolink: Configurable {
-    let autolinkApple: FormatAutolinkApple
+    let autolinkApple: FormatAutolinkApple2
     let autolinkRemote: FormatAutolinkRemote
 
     // Db for language so that we can tell in which language the user wrote their
@@ -49,7 +49,7 @@ final class FormatAutolink: Configurable {
     private var nameDBs = [NameDB]()
 
     init(config: Config) {
-        autolinkApple = FormatAutolinkApple(config: config)
+        autolinkApple = FormatAutolinkApple2(config: config)
         autolinkRemote = FormatAutolinkRemote(config: config)
         config.register(self)
     }

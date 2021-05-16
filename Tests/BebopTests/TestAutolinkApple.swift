@@ -26,35 +26,8 @@ fileprivate struct System {
 
 
 class TestAutolinkApple: XCTestCase {
-    // all broken now
     override func setUpWithError() throws {
         initResources()
-        throw XCTSkip()
-    }
-
-    // MARK: Xcode option
-
-    #if os(macOS)
-
-    func testXcodeOptions() throws {
-        let tmpDir = try TemporaryDirectory()
-        let miscDir = try tmpDir.createDirectory()
-        let appDir = try tmpDir.createDirectory(name: "Xcode.app")
-
-        AssertThrows(try System(cliArgs: ["--apple-autolink-xcode-path", miscDir.directoryURL.path]), .errCfgXcodepath)
-
-        let system = try System(cliArgs: ["--apple-autolink-xcode-path", appDir.directoryURL.path])
-        XCTAssertEqual(appDir.directoryURL
-            .appendingPathComponent("Contents")
-            .appendingPathComponent(FormatAutolinkApple.CONTENTS_MAP_DB_PATH).path,
-                       system.format.autolink.autolinkApple.databaseURL?.path)
-
-        let system2 = try System()
-        guard let dbURL = system2.format.autolink.autolinkApple.databaseURL else {
-            XCTFail("Couldn't find default DB URL")
-            return
-        }
-        try dbURL.checkIsFile()
     }
 
     func testGlobalDisable() throws {
@@ -65,34 +38,6 @@ class TestAutolinkApple: XCTestCase {
         }
     }
 
-    func testLanguageMap() {
-        [Int64(0), Int64(1)].forEach { appleId in
-            guard let language = DefLanguage(appleId: appleId) else {
-                XCTFail("Couldn't create language from \(appleId)")
-                return
-            }
-            XCTAssertEqual(appleId, language.appleId)
-        }
-
-        XCTAssertEqual(DefLanguage.swift, DefLanguage(appleId: 0))
-        XCTAssertEqual(DefLanguage.objc, DefLanguage(appleId: 1))
-        XCTAssertNil(DefLanguage(appleId: 2))
-        XCTAssertNil(DefLanguage(appleId: 12))
-    }
-
-    func testBadDb() throws {
-        let tmpDir = try TemporaryDirectory()
-        let appDir = try tmpDir.createDirectory(name: "Xcode.app")
-
-        let system = try System(cliArgs: ["--apple-autolink-xcode-path", appDir.directoryURL.path])
-        TestLogger.install()
-        if let link = system.link(text: "String") {
-            XCTFail("Got answer from imaginary database: \(link)")
-            return
-        }
-        XCTAssertEqual(1, TestLogger.shared.diagsBuf.count)
-    }
-
     func testBasicLookup() throws {
         let system = try System()
 
@@ -101,7 +46,7 @@ class TestAutolinkApple: XCTestCase {
                 XCTFail("Lookup '\(text)' failed")
                 return
             }
-            XCTAssertEqual(FormatAutolinkApple.APPLE_DOCS_BASE_URL +
+            XCTAssertEqual(FormatAutolinkApple2.APPLE_DOCS_BASE_URL +
                            "swift/string?language=swift",
                            link.primaryURL)
         }
@@ -127,59 +72,24 @@ class TestAutolinkApple: XCTestCase {
                        link.primaryURL)
     }
 
-    func testDualLanguageLookup() throws {
+    func testDualLanguageHtml() throws {
         let system = try System()
-        guard let link = system.link(text: "NSPersonNameComponentsFormatter") else {
-            XCTFail("NSPersonNameComponentsFormatter")
+        guard let link = system.link(text: "String") else {
+            XCTFail("String")
             return
         }
-        XCTAssertTrue(link.primaryURL.contains("language=objc"))
+        XCTAssertTrue(link.primaryURL.contains("language=swift"))
         XCTAssertTrue(link.html.re_isMatch(
-            #"\bnspersonnamecomponentsformatter\b.*j2-objc.*\bpersonnamecomponentsformatter\b.*j2-swift j2-secondary"#))
+            #"\bstring\b.*j2-swift.*\bstring\b.*j2-objc j2-secondary"#))
     }
 
     func testLookupFailures() throws {
         let system = try System()
-        if let link = system.link(text: "after") {
-            XCTFail("Accidental link: \(link.primaryURL)")
-            return
+        ["after", "Html"].forEach { badWord in
+            if let link = system.link(text: badWord) {
+                XCTFail("Accidental link from \(badWord): \(link.primaryURL)")
+                return
+            }
         }
     }
-
-    func testCache() throws {
-        let system = try System()
-
-        XCTAssertEqual(0, Stats.db[.autolinkAppleCacheHitHit])
-        XCTAssertEqual(0, Stats.db[.autolinkAppleCacheHitMiss])
-
-        let _ = system.link(text: "String")
-        XCTAssertEqual(0, Stats.db[.autolinkAppleCacheHitHit])
-        let _ = system.link(text: "String")
-        XCTAssertEqual(1, Stats.db[.autolinkAppleCacheHitHit])
-
-        let badName = "NEVEREVERASYMBOLNAME"
-
-        if let badLink = system.link(text: badName) {
-            XCTFail("Resolved badness: \(badLink)")
-            return
-        }
-        XCTAssertEqual(1, Stats.db[.autolinkAppleCacheHitHit])
-        XCTAssertEqual(0, Stats.db[.autolinkAppleCacheHitMiss])
-
-        let _ = system.link(text: badName)
-        XCTAssertEqual(1, Stats.db[.autolinkAppleCacheHitMiss])
-    }
-
-    func testTruncation() throws {
-        let system = try System()
-        let text = "-[NSEntityMigrationPolicy createRelationshipsForDestinationInstance:entityMapping:manager:error:]"
-        guard let link = system.link(text: text) else {
-            XCTFail(text)
-            return
-        }
-        XCTAssertTrue(link.primaryURL.hasSuffix("coredata/nsentitymigrationpolicy/1423783-createrelationshipsfordestinatio?language=objc"))
-    }
-
-    #endif
-
 }
