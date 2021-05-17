@@ -98,11 +98,11 @@ final class FormatAutolinkApple: Configurable {
     func autolink(text: String, language: DefLanguage? = nil) -> Autolink? {
         let key = Key(text: text, language: language)
         if let cachedResult = cacheHits[key] {
-            Stats.inc(.autolinkAppleCacheHitHit)
+            Stats.inc(.autolinkCacheHitHit)
             return cachedResult
         }
         if cacheMisses.contains(key) {
-            Stats.inc(.autolinkAppleCacheHitMiss)
+            Stats.inc(.autolinkCacheHitMiss)
             return nil
         }
         if let newResult = doAutolink(text: text, language: language) {

@@ -186,9 +186,9 @@ struct StatsDb {
         /// Autolink candidate not resolved to local docset
         case autolinkNotAutolinked
         /// Autolink to apple docs resolved from cache
-        case autolinkAppleCacheHitHit
+        case autolinkCacheHitHit
         /// Autolink to apple docs failed from cache
-        case autolinkAppleCacheHitMiss
+        case autolinkCacheHitMiss
         /// Autolink to apple docs worked
         case autolinkAppleSuccess
         /// Autolink to apple docs failed

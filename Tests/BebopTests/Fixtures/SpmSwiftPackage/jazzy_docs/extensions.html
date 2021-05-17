@@ -477,7 +477,7 @@ print(firstChar)
 
 </code></pre>
 <p>You can pass only valid indices to collection operations. You can find a complete set of a collection’s valid indices by starting with the collection’s <code>startIndex</code> property and finding every successor up to, and including, the <code>endIndex</code> property. All other values of the <code>Index</code> type, such as the <code>startIndex</code> property of a different collection, are invalid indices for this collection.</p>
-<p>Saved indices may become invalid as a result of mutating operations. For more information about index invalidation in mutable collections, see the reference for the <code>MutableCollection</code> and <code>RangeReplaceableCollection</code> protocols, as well as for the specific type you’re using.</p>
+<p>Saved indices may become invalid as a result of mutating operations. For more information about index invalidation in mutable collections, see the reference for the <code>MutableCollection</code> and <a href="https://developer.apple.com/documentation/swift/rangereplaceablecollection?language=swift" class="j2-swift"><code>RangeReplaceableCollection</code></a><a href="https://developer.apple.com/documentation/swift/rangereplaceablecollection?language=objc" class="j2-objc j2-secondary"><code>RangeReplaceableCollection</code></a> protocols, as well as for the specific type you’re using.</p>
 <h1 class="j2-anchor j2-heading heading" id="accessing-slices-of-a-collection">
 <span data-anchor-id="accessing-slices-of-a-collection">
 Accessing Slices of a Collection
@@ -710,7 +710,7 @@ for (name, path) in imagePaths {
 // Prints &quot;The path to 'spacer' is '/images/shared/spacer.gif'.&quot;
 
 </code></pre>
-<p>The order of key-value pairs in a dictionary is stable between mutations but is otherwise unpredictable. If you need an ordered collection of key-value pairs and don’t need the fast key lookup that <code>Dictionary</code> provides, see the <code>KeyValuePairs</code> type for an alternative.</p>
+<p>The order of key-value pairs in a dictionary is stable between mutations but is otherwise unpredictable. If you need an ordered collection of key-value pairs and don’t need the fast key lookup that <code>Dictionary</code> provides, see the <a href="https://developer.apple.com/documentation/swift/keyvaluepairs?language=swift" class="j2-swift"><code>KeyValuePairs</code></a><a href="https://developer.apple.com/documentation/swift/keyvaluepairs?language=objc" class="j2-objc j2-secondary"><code>KeyValuePairs</code></a> type for an alternative.</p>
 <p>You can search a dictionary’s contents for a particular value using the <code>contains(where:)</code> or <code>firstIndex(where:)</code> methods supplied by default implementation. The following example checks to see if <code>imagePaths</code> contains any paths in the <code>&quot;</code> directory:</p>
 <pre><code class="language-swift">let glyphIndex = imagePaths.firstIndex(where: { $0.value.hasPrefix(&quot;/glyphs&quot;) })
 if let index = glyphIndex {
