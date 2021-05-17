@@ -185,9 +185,9 @@ struct StatsDb {
         case autolinkSelfLink
         /// Autolink candidate not resolved to local docset
         case autolinkNotAutolinked
-        /// Autolink to apple docs resolved from cache
+        /// Autolink to remote/apple docs resolved from cache
         case autolinkCacheHitHit
-        /// Autolink to apple docs failed from cache
+        /// Autolink to remote/apple docs failed from cache
         case autolinkCacheHitMiss
         /// Autolink to apple docs worked
         case autolinkAppleSuccess
@@ -286,10 +286,10 @@ struct StatsDb {
         }
     }
 
-    private(set) var unresolved = SortedArray<Unresolved>()
+    private(set) var unresolved = [String:Unresolved]()
 
     mutating func addUnresolved(name: String, context: String) {
-        unresolved.insert(.init(name: name, context: context))
+        unresolved[name] = .init(name: name, context: context)
         inc(.autolinkUnresolved)
     }
 
@@ -297,7 +297,7 @@ struct StatsDb {
         guard !unresolved.isEmpty else {
             return nil
         }
-        return try JSON.encode(Array(unresolved)) + "\n"
+        return try JSON.encode(unresolved.values.sorted()) + "\n"
     }
 
     mutating func reset() {

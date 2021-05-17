@@ -363,7 +363,7 @@ class TestFormat: XCTestCase {
             .init(name: "NotAThing", context: filtered[0].name), // fail-test
             .init(name: "SClass", context: "OClass"), // swiftname/objcname self ref
         ]
-        XCTAssertEqual(expectedUnresolved, Array(Stats.db.unresolved))
+        XCTAssertEqual(expectedUnresolved, Array(Stats.db.unresolved.values))
     }
     #endif
 
