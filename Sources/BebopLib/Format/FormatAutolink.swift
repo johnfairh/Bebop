@@ -99,9 +99,8 @@ final class FormatAutolink: Configurable {
 
         let declName = name.hasPrefix("@") ? String(name.dropFirst()) : name
 
-        guard !name.starts(with: "."),            // implicit scope, impossible to resolve
-              !name.re_isMatch(#"^\$.*\$$"#),     // katex math
-              declName != context.name else {     // self-ref in own decl
+        guard !name.starts(with: "."),              // implicit scope, impossible to resolve
+              !name.re_isMatch(#"^\$.*\$$"#) else { // katex math
             return nil
         }
 
@@ -135,7 +134,7 @@ final class FormatAutolink: Configurable {
         }()
 
         // Record unresolved might-be-links.
-        if autolink == nil {
+        if autolink == nil && declName != context.name {
             Stats.addUnresolved(name: declName, context: context.name)
         }
         return autolink
