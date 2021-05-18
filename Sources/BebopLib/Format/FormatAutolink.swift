@@ -36,7 +36,7 @@ final class Autolink {
 }
 
 final class FormatAutolink: Configurable {
-    let autolinkApple: FormatAutolinkApple2
+    let autolinkApple: FormatAutolinkApple
     let autolinkRemote: FormatAutolinkRemote
 
     // ok i'm too dumb to write this as one hash...
@@ -53,7 +53,7 @@ final class FormatAutolink: Configurable {
     private var nameDBs = [NameDB]()
 
     init(config: Config) {
-        autolinkApple = FormatAutolinkApple2(config: config)
+        autolinkApple = FormatAutolinkApple(config: config)
         autolinkRemote = FormatAutolinkRemote(config: config)
         config.register(self)
     }

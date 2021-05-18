@@ -206,9 +206,6 @@ Dash icon in the titlebar of the generated docs.  See documentation!
 Default: Do not link to a Dash docset feed.";
 "apple-autolink" = "Try to resolve code identifiers as links to online Apple documentation.
 Default: Resolve identifiers like this when Xcode is available.";
-"apple-autolink-xcode-path" = "Path to the version of `Xcode.app` to use for resolving links to online
-Apple documentation.
-Default: Use `xcode-select -s` to find Xcode.";
 "podspec" = "Path to a CocoaPods .podspec describing a Swift module to generate
 documentation for.
 Default: Do not use a podspec.";

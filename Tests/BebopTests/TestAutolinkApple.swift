@@ -46,7 +46,7 @@ class TestAutolinkApple: XCTestCase {
                 XCTFail("Lookup '\(text)' failed")
                 return
             }
-            XCTAssertEqual(FormatAutolinkApple2.APPLE_DOCS_BASE_URL +
+            XCTAssertEqual(FormatAutolinkApple.APPLE_DOCS_BASE_URL +
                            "swift/string?language=swift",
                            link.primaryURL)
         }
