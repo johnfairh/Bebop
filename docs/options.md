@@ -208,10 +208,8 @@ custom_modules:
       group pages.
 * `custom_defs` controls layout of individual type pages.  See
   [below](#custom-defs).
-* `--apple-autolink` is on by default and enables autolinking of identifers
-  like `String` or `UIWindow` to the online Apple docs.
-* `--apple-autolink-xcode-path` changes the Xcode to use for looking up
-  identifiers.
+* `--apple-autolink` is on by default and enables best-effort autolinking of
+  identifers like `String` or `UIWindow` to the online Apple docs.
 * `remote_autolink` configure other Jazzy/Bebop doc sites to autolink identifiers.
   Array of such sites, each with keys:
     * `url` URL of the doc root, ie. the directory containing `index.html`.
