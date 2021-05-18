@@ -45,9 +45,9 @@ identifier.  For example:
 
 Bebop always searches the docs being built for matches.
 
-By default, on macOS, it also tries to search the Apple docs for references
-to framework types, generating links to `developer.apple.com`.  Disable this
-with `--no-apple-autolink`.  Use it on Linux with `--apple-autolink-xcode-path`.
+By default, on macOS, it also tries to link identifiers to the Apple docs on
+`developer.apple.com`.  Disable this with `--no-apple-autolink`.  Post Xcode
+12.5 this is best-effort based on a static config file.
 
 Autolink to other Jazzy or Bebop online doc sites with `remote_autolink`.
 

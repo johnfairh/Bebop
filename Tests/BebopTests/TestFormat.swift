@@ -358,6 +358,12 @@ class TestFormat: XCTestCase {
             XCTFail("Did self-link: \(link6)")
             return
         }
+        let expectedUnresolved: [StatsDb.Unresolved] = [
+            .init(name: "Int", context: "-method:param:"), // apple-xref disabled
+            .init(name: "NotAThing", context: filtered[0].name), // fail-test
+            .init(name: "SClass", context: "OClass"), // swiftname/objcname self ref
+        ]
+        XCTAssertEqual(expectedUnresolved, Array(Stats.db.unresolved.values.sorted()))
     }
     #endif
 

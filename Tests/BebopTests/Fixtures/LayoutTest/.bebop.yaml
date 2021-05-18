@@ -41,6 +41,7 @@ products:
   - docset
   - stats-json
   - undocumented-json
+  - unresolved-json
 docset_feed_url: http://kapeli.com/feeds/Swift.xml
 docset_module_name: DLayout
 docset_playground_url: https://repl.it/F9J7/1

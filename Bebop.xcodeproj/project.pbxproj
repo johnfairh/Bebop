@@ -12,7 +12,6 @@
 		020AC6ED2457483A00A0E634 /* Sass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020AC6EC2457483A00A0E634 /* Sass.swift */; };
 		020AC6EF2457513600A0E634 /* TestSass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020AC6EE2457513600A0E634 /* TestSass.swift */; };
 		021F71C62451BDE600B73472 /* extensions in Resources */ = {isa = PBXBuildFile; fileRef = 021F71C42451BD9800B73472 /* extensions */; };
-		021F71C82452FB5700B73472 /* FormatAutolinkApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021F71C72452FB5700B73472 /* FormatAutolinkApple.swift */; };
 		0225D990242D1B75005FF4A2 /* DefLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0225D98F242D1B75005FF4A2 /* DefLocation.swift */; };
 		0225D992242D1BA8005FF4A2 /* DefDeclNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0225D991242D1BA8005FF4A2 /* DefDeclNote.swift */; };
 		0225D994242D1BE8005FF4A2 /* DefLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0225D993242D1BE8005FF4A2 /* DefLanguage.swift */; };
@@ -71,6 +70,8 @@
 		02486F4B2646B11D00B8B50E /* SwiftSyntax in Frameworks */ = {isa = PBXBuildFile; productRef = 02486F4A2646B11D00B8B50E /* SwiftSyntax */; };
 		02486F4E2646B20700B8B50E /* SwiftFormat in Frameworks */ = {isa = PBXBuildFile; productRef = 02486F4D2646B20700B8B50E /* SwiftFormat */; };
 		02486F502646B20700B8B50E /* SwiftFormatConfiguration in Frameworks */ = {isa = PBXBuildFile; productRef = 02486F4F2646B20700B8B50E /* SwiftFormatConfiguration */; };
+		02486F5526517C0800B8B50E /* FormatAutolinkApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02486F5426517C0800B8B50E /* FormatAutolinkApple.swift */; };
+		02486F5726519E8200B8B50E /* apple_doc in Resources */ = {isa = PBXBuildFile; fileRef = 02486F5626519E8200B8B50E /* apple_doc */; };
 		0257280023DB50270001F510 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 025727FE23DB50270001F510 /* Localizable.strings */; };
 		0257280723DB50B40001F510 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0257280623DB50B40001F510 /* Resources.swift */; };
 		0257280C23DB540C0001F510 /* BebopResources.bundle in Embed PlugIns */ = {isa = PBXBuildFile; fileRef = 029A718423DB04F300D66069 /* BebopResources.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -219,7 +220,6 @@
 		020AC6EE2457513600A0E634 /* TestSass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSass.swift; sourceTree = "<group>"; };
 		020AC6F0245752CA00A0E634 /* libsass.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsass.dylib; path = ../../../../usr/local/lib/libsass.dylib; sourceTree = "<group>"; };
 		021F71C42451BD9800B73472 /* extensions */ = {isa = PBXFileReference; lastKnownFileType = folder; path = extensions; sourceTree = "<group>"; };
-		021F71C72452FB5700B73472 /* FormatAutolinkApple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatAutolinkApple.swift; sourceTree = "<group>"; };
 		0225D98F242D1B75005FF4A2 /* DefLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefLocation.swift; sourceTree = "<group>"; };
 		0225D991242D1BA8005FF4A2 /* DefDeclNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefDeclNote.swift; sourceTree = "<group>"; };
 		0225D993242D1BE8005FF4A2 /* DefLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefLanguage.swift; sourceTree = "<group>"; };
@@ -268,6 +268,8 @@
 		023A28B52464205A00D87459 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		023A28B72464227900D87459 /* TestAutolinkRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAutolinkRemote.swift; sourceTree = "<group>"; };
 		023A28B924642ECE00D87459 /* FormatAutolinkRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatAutolinkRemote.swift; sourceTree = "<group>"; };
+		02486F5426517C0800B8B50E /* FormatAutolinkApple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatAutolinkApple.swift; sourceTree = "<group>"; };
+		02486F5626519E8200B8B50E /* apple_doc */ = {isa = PBXFileReference; lastKnownFileType = folder; path = apple_doc; sourceTree = "<group>"; };
 		025727FF23DB50270001F510 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		0257280623DB50B40001F510 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		0257281023DB7E5E0001F510 /* TestPipeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPipeline.swift; sourceTree = "<group>"; };
@@ -436,7 +438,7 @@
 			children = (
 				0233D52823EF1582004DCD89 /* Format.swift */,
 				0259E199241A5902006435A1 /* FormatAutolink.swift */,
-				021F71C72452FB5700B73472 /* FormatAutolinkApple.swift */,
+				02486F5426517C0800B8B50E /* FormatAutolinkApple.swift */,
 				023A28B924642ECE00D87459 /* FormatAutolinkRemote.swift */,
 				0233D52C23EF2997004DCD89 /* FormatURL.swift */,
 				0259E19B241D74CD006435A1 /* FormatAbstracts.swift */,
@@ -460,6 +462,7 @@
 		029A718523DB04F300D66069 /* BebopResources */ = {
 			isa = PBXGroup;
 			children = (
+				02486F5626519E8200B8B50E /* apple_doc */,
 				02DAA6BB245AC3870050D472 /* podsetup.rb */,
 				021F71C42451BD9800B73472 /* extensions */,
 				02CFFA1C23E20AB400FDE5B9 /* themes */,
@@ -855,6 +858,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02486F5726519E8200B8B50E /* apple_doc in Resources */,
 				02CFFA1D23E20AB400FDE5B9 /* themes in Resources */,
 				02DAA6BC245AC3870050D472 /* podsetup.rb in Resources */,
 				021F71C62451BDE600B73472 /* extensions in Resources */,
@@ -910,6 +914,7 @@
 				0259E19A241A5902006435A1 /* FormatAutolink.swift in Sources */,
 				0286DCBD245F27A900A73B28 /* GatherXMLDocs.swift in Sources */,
 				02DAA6B8245A0BF00050D472 /* GatherJobPodspec.swift in Sources */,
+				02486F5526517C0800B8B50E /* FormatAutolinkApple.swift in Sources */,
 				02D00C802406D74700DD93C5 /* GatherSourceKitten.swift in Sources */,
 				0233D53723F07B1A004DCD89 /* GenData.swift in Sources */,
 				022818D123D4F2AE0016B0D5 /* Glob.swift in Sources */,
@@ -941,7 +946,6 @@
 				0233D54523F432A3004DCD89 /* RichText.swift in Sources */,
 				0233D52F23EF2CCD004DCD89 /* ItemKind.swift in Sources */,
 				02FDC68423E9DED600C2F9CD /* DefItem.swift in Sources */,
-				021F71C82452FB5700B73472 /* FormatAutolinkApple.swift in Sources */,
 				02CFF92523DDFFC900FDE5B9 /* GatherDef.swift in Sources */,
 				0233D52D23EF2997004DCD89 /* FormatURL.swift in Sources */,
 				02D00C822407D70800DD93C5 /* FormatDeclaration.swift in Sources */,

@@ -12,6 +12,7 @@ import SortedArray
 public final class Stats: Configurable {
     private let outputStatsOpt = PathOpt(l: "output-stats").help("FILEPATH")
     private let outputUndocOpt = PathOpt(l: "output-undocumented").help("FILEPATH")
+    private let outputUnresolvedOpt = PathOpt(l: "output-unresolved").help("FILEPATH")
 
     private let published: Published
 
@@ -32,6 +33,11 @@ public final class Stats: Configurable {
     /// Shared API to register an undocumented def
     static func addUndocumented(item: DefItem) {
         db.addUndocumented(item: item)
+    }
+
+    /// Shared API to register an unresolved link
+    static func addUnresolved(name: String, context: String) {
+        db.addUnresolved(name: name, context: context)
     }
 
     /// Shared API to get at the coverage value
@@ -63,6 +69,16 @@ public final class Stats: Configurable {
         }
         let url = try chooseURL(docURL: outputURL, opt: outputUndocOpt, basename: "undocumented.json")
         try undocJSON.write(to: url)
+    }
+
+    /// Write out the unresolved report to a file
+    public func createUnresolvedFile(outputURL: URL) throws {
+        guard let unresolvedJSON = try Self.db.buildUnresolvedJSON() else {
+            logDebug("Stats: No unresolved links, not writing unresolved file.")
+            return
+        }
+        let url = try chooseURL(docURL: outputURL, opt: outputUnresolvedOpt, basename: "unresolved.json")
+        try unresolvedJSON.write(to: url)
     }
 
     private func chooseURL(docURL: URL, opt: PathOpt, basename: String) throws -> URL {
@@ -167,12 +183,12 @@ struct StatsDb {
         case autolinkLocalGlobalScope
         /// Autolink candidate resolved to self and ignored
         case autolinkSelfLink
-        /// Autolink candidate not resolved
+        /// Autolink candidate not resolved to local docset
         case autolinkNotAutolinked
-        /// Autolink to apple docs resolved from cache
-        case autolinkAppleCacheHitHit
-        /// Autolink to apple docs failed from cache
-        case autolinkAppleCacheHitMiss
+        /// Autolink to remote/apple docs resolved from cache
+        case autolinkCacheHitHit
+        /// Autolink to remote/apple docs failed from cache
+        case autolinkCacheHitMiss
         /// Autolink to apple docs worked
         case autolinkAppleSuccess
         /// Autolink to apple docs failed
@@ -183,6 +199,8 @@ struct StatsDb {
         case autolinkRemoteSuccessModule
         /// Autolink to remote failed
         case autolinkRemoteFailure
+        /// Autolink failed every which way we tried
+        case autolinkUnresolved
         /// Custom abstracts applied to defs
         case customAbstractDef
         /// Custom abstracts applied to groups
@@ -259,9 +277,33 @@ struct StatsDb {
         return try JSON.encode(Array(undocumented)) + "\n"
     }
 
+    struct Unresolved: Codable, Comparable {
+        let name: String
+        let context: String
+        private var key: String { name + context }
+        static func < (lhs: Unresolved, rhs: Unresolved) -> Bool {
+            lhs.key < rhs.key
+        }
+    }
+
+    private(set) var unresolved = [String:Unresolved]()
+
+    mutating func addUnresolved(name: String, context: String) {
+        unresolved[name] = .init(name: name, context: context)
+        inc(.autolinkUnresolved)
+    }
+
+    func buildUnresolvedJSON() throws -> String? {
+        guard !unresolved.isEmpty else {
+            return nil
+        }
+        return try JSON.encode(unresolved.values.sorted()) + "\n"
+    }
+
     mutating func reset() {
         Counter.allCases.forEach { counters[$0.rawValue] = 0 }
         undocumented.removeAll()
+        unresolved.removeAll()
     }
 }
 

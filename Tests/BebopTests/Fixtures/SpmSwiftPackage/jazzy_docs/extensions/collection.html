@@ -186,13 +186,13 @@
             
               <div class="declaration">
                 <div class="language">
-                  <pre><code class="language-swift">extension Collection where Element: <a href="../types/firstprotocol1.html?swift">FirstProtocol</a>
+                  <pre><code class="language-swift">extension <a href="https://developer.apple.com/documentation/swift/collection?language=swift">Collection</a> where Element: <a href="../types/firstprotocol1.html?swift">FirstProtocol</a>
 
-extension Collection where Element == <a href="../types/spmswiftmodule/nested1.html?swift">SpmSwiftModule.Nested1</a></code></pre>
+extension <a href="https://developer.apple.com/documentation/swift/collection?language=swift">Collection</a> where Element == <a href="../types/spmswiftmodule/nested1.html?swift">SpmSwiftModule.Nested1</a></code></pre>
                 </div>
               </div>
             
-            <p>A sequence whose elements can be traversed multiple times, nondestructively, and accessed by an indexed subscript.</p><p>Collections are used extensively throughout the standard library. When you use arrays, dictionaries, and other collections, you benefit from the operations that the <code>Collection</code> protocol declares and implements. In addition to the operations that collections inherit from the <code>Sequence</code> protocol, you gain access to methods that depend on accessing an element at a specific position in a collection.</p>
+            <p>A sequence whose elements can be traversed multiple times, nondestructively, and accessed by an indexed subscript.</p><p>Collections are used extensively throughout the standard library. When you use arrays, dictionaries, and other collections, you benefit from the operations that the <code>Collection</code> protocol declares and implements. In addition to the operations that collections inherit from the <a href="https://developer.apple.com/documentation/swift/sequence?language=swift" class="j2-swift"><code>Sequence</code></a><a href="https://developer.apple.com/documentation/swift/sequence?language=objc" class="j2-objc j2-secondary"><code>Sequence</code></a> protocol, you gain access to methods that depend on accessing an element at a specific position in a collection.</p>
 <p>For example, if you want to print only the first word in a string, you can search for the index of the first space, and then create a substring up to that position.</p>
 <pre><code class="language-swift">let text = &quot;Buffalo buffalo buffalo buffalo.&quot;
 if let firstSpace = text.firstIndex(of: &quot; &quot;) {
@@ -219,7 +219,7 @@ print(firstChar)
 
 </code></pre>
 <p>You can pass only valid indices to collection operations. You can find a complete set of a collection’s valid indices by starting with the collection’s <code>startIndex</code> property and finding every successor up to, and including, the <code>endIndex</code> property. All other values of the <code>Index</code> type, such as the <code>startIndex</code> property of a different collection, are invalid indices for this collection.</p>
-<p>Saved indices may become invalid as a result of mutating operations. For more information about index invalidation in mutable collections, see the reference for the <code>MutableCollection</code> and <code>RangeReplaceableCollection</code> protocols, as well as for the specific type you’re using.</p>
+<p>Saved indices may become invalid as a result of mutating operations. For more information about index invalidation in mutable collections, see the reference for the <code>MutableCollection</code> and <a href="https://developer.apple.com/documentation/swift/rangereplaceablecollection?language=swift" class="j2-swift"><code>RangeReplaceableCollection</code></a><a href="https://developer.apple.com/documentation/swift/rangereplaceablecollection?language=objc" class="j2-objc j2-secondary"><code>RangeReplaceableCollection</code></a> protocols, as well as for the specific type you’re using.</p>
 <h1 class="j2-anchor j2-heading heading" id="accessing-slices-of-a-collection">
 <span data-anchor-id="accessing-slices-of-a-collection">
 Accessing Slices of a Collection

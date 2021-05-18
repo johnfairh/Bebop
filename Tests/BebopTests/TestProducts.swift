@@ -206,7 +206,6 @@ class TestProducts: XCTestCase {
         let options = [
             "--config=\(layoutRoot.path)/.bebop.yaml",
             "--source-directory=\(layoutRoot.path)",
-            "--no-apple-autolink"
         ]
 
         try doTestSiteFiles(args: options, goodDocsURL: layoutRoot.appendingPathComponent("docs"))
@@ -228,7 +227,7 @@ class TestProducts: XCTestCase {
             "--deployment-url=http://www.google.com/",
             "--code-host-url=http://www.bbc.co.uk/",
             "--code-host-file-url=http://www.bbc.co.uk/",
-            "--no-apple-autolink"]
+        ]
 
         try doTestSiteFiles(args: options, goodDocsURL: docsDirURL)
     }

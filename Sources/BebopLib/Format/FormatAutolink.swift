@@ -39,6 +39,10 @@ final class FormatAutolink: Configurable {
     let autolinkApple: FormatAutolinkApple
     let autolinkRemote: FormatAutolinkRemote
 
+    // ok i'm too dumb to write this as one hash...
+    private(set) var cacheHits = [String:Autolink]()
+    private(set) var cacheMisses = Set(["true", "false", "nil", "NULL"])
+
     // Db for language so that we can tell in which language the user wrote their
     // reference to the def.
     struct NameDB {
@@ -95,22 +99,45 @@ final class FormatAutolink: Configurable {
 
         let declName = name.hasPrefix("@") ? String(name.dropFirst()) : name
 
-        // First priority: a def in this docset
-        if let (def, language) = def(for: declName, context: context) {
-            return linkTo(defItem: def, language: language, from: name, context: context)
+        guard !name.starts(with: "."),              // implicit scope, impossible to resolve
+              !name.re_isMatch(#"^\$.*\$$"#) else { // katex math
+            return nil
         }
 
-        // Then a configured remote
-        if let remoteLink = autolinkRemote.autolink(name: declName) {
-            return remoteLink
-        }
+        let autolink = { () -> Autolink? in
+            // First try a def in this docset, name resolved relative to current context
+            if let (def, language) = def(for: declName, context: context) {
+                return linkTo(defItem: def, language: language, from: name, context: context)
+            }
 
-        // Finally apple.com docs
-        if case let language = contextLanguage ?? (context as? DefItem)?.primaryLanguage,
-            let appleLink = autolinkApple.autolink(text: declName, language: language) {
-            return appleLink
+            // Cache results from now on because not context-sensitive and somewhat
+            // expensive to calculate (module searching).
+            if let cachedResult = cacheHits[declName] {
+                Stats.inc(.autolinkCacheHitHit)
+                return cachedResult
+            }
+            if cacheMisses.contains(declName) {
+                Stats.inc(.autolinkCacheHitMiss)
+                return nil
+            }
+
+            let language = contextLanguage ?? (context as? DefItem)?.primaryLanguage
+
+            // Configured remote docsets before apple.com fallback
+            if let link = autolinkRemote.autolink(name: declName) ??
+                autolinkApple.autolink(text: declName, language: language) {
+                cacheHits[declName] = link
+                return link
+            }
+            cacheMisses.insert(declName)
+            return nil
+        }()
+
+        // Record unresolved might-be-links.
+        if autolink == nil && declName != context.name {
+            Stats.addUnresolved(name: declName, context: context.name)
         }
-        return nil
+        return autolink
     }
 
     /// Create the Autolink for a link to one of our defs

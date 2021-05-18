@@ -60,6 +60,8 @@ html docs in the `docsets` subdirectory of the output directory.  See
 by default in the docs directory.
 * `undocumented-json` generates a report about undocumented definitions, by
 default in the docs directory.
+* `unresolved-json` generates a report about unresolved potential autolinks,
+by default in the docs directory.
 * `theme` is different: it can't be set alongside any others, and copies the
 selected theme's raw files into the output directory.  Use this to get a copy
 of the theme to start customizing it.
@@ -206,10 +208,8 @@ custom_modules:
       group pages.
 * `custom_defs` controls layout of individual type pages.  See
   [below](#custom-defs).
-* `--apple-autolink` is on by default and enables autolinking of identifers
-  like `String` or `UIWindow` to the online Apple docs.
-* `--apple-autolink-xcode-path` changes the Xcode to use for looking up
-  identifiers.
+* `--apple-autolink` is on by default and enables best-effort autolinking of
+  identifers like `String` or `UIWindow` to the online Apple docs.
 * `remote_autolink` configure other Jazzy/Bebop doc sites to autolink identifiers.
   Array of such sites, each with keys:
     * `url` URL of the doc root, ie. the directory containing `index.html`.
@@ -291,6 +291,7 @@ custom_defs:
 * `--output PATH` directory in which to put docs.
 * `--output-stats PATH` file to produce stats report.
 * `--output-undocumented PATH` file to produce undocumented defs report.
+* `--output-unresolved PATH` file to produce unresolved links report.
 * `--clean` delete output directory and contents before starting.
 * `--theme name|PATH` theme name or custom path.  Bebop comes with two themes,
   'fw2020' for html and 'md' for markdown.  Themes must contain a `templates`
