@@ -2,13 +2,13 @@
 //  Version.swift
 //  BebopLib
 //
-//  Copyright 2020 Bebop Authors
+//  Copyright 2020-2021 Bebop Authors
 //  Licensed under MIT (https://github.com/johnfairh/Bebop/blob/master/LICENSE)
 //
 import Foundation
 
 public enum Version {
-    private static let actualBebopLibVersion = "1.5.0"
+    private static let actualBebopLibVersion = "1.6.0"
 
     /// Wrapper for test harness
     public static var bebopLibVersion: String {
