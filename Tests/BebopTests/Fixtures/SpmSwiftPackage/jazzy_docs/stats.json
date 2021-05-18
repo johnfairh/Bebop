@@ -1,6 +1,6 @@
 {
-  "autolinkAppleFailure" : 21,
-  "autolinkAppleSuccess" : 19,
+  "autolinkAppleFailure" : 20,
+  "autolinkAppleSuccess" : 20,
   "autolinkCacheHitHit" : 77,
   "autolinkCacheHitMiss" : 67,
   "autolinkLocalGlobalScope" : 16,
@@ -11,7 +11,7 @@
   "autolinkRemoteSuccess" : 0,
   "autolinkRemoteSuccessModule" : 0,
   "autolinkSelfLink" : 51,
-  "autolinkUnresolved" : 132,
+  "autolinkUnresolved" : 131,
   "customAbstractDef" : 0,
   "customAbstractGroup" : 0,
   "documentedDef" : 47,

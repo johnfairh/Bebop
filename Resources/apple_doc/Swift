@@ -29,7 +29,7 @@ Decodable
 Encodable
 Sequence
 Collection
-KutableCollection
+MutableCollection
 RandomAccessCollection
 RangeReplaceableCollection
 CustomStringConvertible
