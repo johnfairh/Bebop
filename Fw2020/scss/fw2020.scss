@@ -309,8 +309,8 @@ $j2-breadcrumbs-height: 37px;
   margin: auto;
   @include media-breakpoint-up(md) {
     h1:first-child {
-      font-size: $display4-size;
-      font-weight: $display4-weight;
+      font-size: map.get($display-font-sizes, 4);
+      font-weight: $display-font-weight;
       line-height: $display-line-height;
     }
   }
