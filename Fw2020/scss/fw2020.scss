@@ -141,6 +141,7 @@ pre {
   @include j2-titlebar-colors();
 
   .j2-coverage {
+    padding-top: .75rem; // hack hack
     opacity: .6;
   }
 
@@ -208,8 +209,7 @@ $j2-titlebar-height: 56px;
 //
 
 .j2-breadcrumb {
-  padding-top: .5rem;
-  padding-bottom: .5rem;
+  padding: .5rem 1rem;
   margin: 0;
   border-top: $j2-navigation-border;
   border-bottom: $j2-navigation-border;
