@@ -1,35 +1,34 @@
 <div class="navbar navbar-expand navbar-dark j2-titlebar">
-  <a class="sr-only-focusable sr-only font-weight-slightly-bold pr-2" href="#main-content">{{l_screenreader_skip}}</a>
-  <a class="nav-item nav-link pl-0 pt-1 pr-2 d-md-none" id="nav-toggle-button" role="button" aria-controls="nav-column" aria-expanded="false" aria-label="{{l_nav_toggle_aria_label}}" href="#">
+  <div class="container-fluid ps-0 pe-0">
+  <a class="visually-hidden-focusable visually-hidden fw-slightly-bold pe-2" href="#main-content">{{l_screenreader_skip}}</a>
+  <a class="nav-item nav-link ps-0 pt-1 pe-2 d-md-none" id="nav-toggle-button" role="button" aria-controls="nav-column" aria-expanded="false" aria-label="{{l_nav_toggle_aria_label}}" href="#">
     <span class="navbar-toggler-icon"></span>
   </a>
 
-  <div style="align-items-baseline">
-    <div class="navbar-brand mr-1 font-weight-slightly-bold">
-      {{#brand_url}}<a href="{{{.}}}" rel="external">{{/brand_url}}
-      {{^brand_url}}<a href="{{path_to_root}}index.html">{{/brand_url}}
-      {{#brand_image_path}}
-      <img src="{{path_to_root}}{{{.}}}" {{#brand_alt_text}}alt="{{.}}"{{/brand_alt_text}} {{#brand_title}}title="{{.}}"{{/brand_title}} width=30 height=30 class="d-none d-xxs-inline mr-2 mt-n1">
-      {{/brand_image_path}}
-      {{docs_title}}</a>
-    </div>
-    {{#doc_coverage}}
-    <span class="navbar-text j2-coverage font-weight-slightly-bold small d-none d-lg-inline-block mr-2">({{doc_coverage}}{{l_pc_documented}})</span>
-    {{/doc_coverage}}
+  <div class="navbar-brand me-1 fw-slightly-bold">
+    {{#brand_url}}<a href="{{{.}}}" rel="external">{{/brand_url}}
+    {{^brand_url}}<a href="{{path_to_root}}index.html">{{/brand_url}}
+    {{#brand_image_path}}
+    <img src="{{path_to_root}}{{{.}}}" {{#brand_alt_text}}alt="{{.}}"{{/brand_alt_text}} {{#brand_title}}title="{{.}}"{{/brand_title}} width=30 height=30 class="d-none d-xxs-inline me-2 mt-n1">
+    {{/brand_image_path}}
+    {{docs_title}}</a>
   </div>
+  {{#doc_coverage}}
+  <span class="navbar-text j2-coverage fw-slightly-bold small d-none d-lg-inline-block me-2">({{doc_coverage}}{{l_pc_documented}})</span>
+  {{/doc_coverage}}
 
-  <div class="navbar-nav ml-auto justify-content-end flex-fill">
+  <div class="navbar-nav ms-auto justify-content-end flex-fill">
 
     {{^disable_search}}
-    <form class="form-inline d-none d-md-flex" role="search">
+    <form class="d-none d-md-block my-auto pe-1" role="search">
       <input class="form-control form-control-sm w-100" type="search" placeHolder="{{l_search_placeholder}}" aria-label="{{l_search_aria_label}}" aria-keyshortcuts="/" data-search-format="span">
     </form>
     {{/disable_search}}
 
     {{#dual_language}}
     <div class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="language-menu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Swift</a>
-      <div class="dropdown-menu dropdown-menu-right dropdown-menu-md-left" role="menu" aria-labelledby="language-menu">
+      <a class="nav-link dropdown-toggle" href="#" id="language-menu" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Swift</a>
+      <div class="dropdown-menu dropdown-menu-end dropdown-menu-md-start" role="menu" aria-labelledby="language-menu">
         <a class="dropdown-item" href="" id="language-menu-swift" role="menuitem">Swift</a>
         <a class="dropdown-item" href="" id="language-menu-objc" role="menuitem">ObjC</a>
       </div>
@@ -96,8 +95,8 @@
 
     {{#page_localization}}
     <div class="nav-item dropdown d-none d-xxs-block">
-      <a class="nav-link dropdown-toggle j2-trans-dropdown" href="#" id="trans-menu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{page_localization}}</a>
-      <div class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="trans-menu">
+      <a class="nav-link dropdown-toggle j2-trans-dropdown" href="#" id="trans-menu" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{page_localization}}</a>
+      <div class="dropdown-menu dropdown-menu-end" role="menu" aria-labelledby="trans-menu">
         {{#localizations}}
           <a class="dropdown-item j2-translation" href="#" role="menuitem" data-language-tag="{{tag}}" data-language-tag-path="{{tag_path}}"}>{{title}}</a>
         {{/localizations}}
@@ -105,6 +104,7 @@
     </div>
     {{/page_localization}}
 
+  </div>
   </div>
 </div>
 
