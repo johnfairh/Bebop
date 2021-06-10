@@ -107,21 +107,14 @@ pre {
 
 .j2-param-table {
   @extend .table;
+  @extend .table-borderless;
   @extend .table-responsive;
+  @extend .table-sm;
+
   margin-top: -.5rem;
   margin-bottom: .5rem;
 
-  th,
   td {
-    p:last-child {
-      margin-bottom: 0;
-    }
-  }
-
-  td {
-    padding: .5rem .5rem .5rem 0;
-    border-top: none;
-
     &:first-of-type {
       text-align: right;
       word-break: normal;
@@ -129,6 +122,13 @@ pre {
 
     &:last-of-type {
       width: 100%;
+    }
+  }
+
+  th,
+  td {
+    p:last-child {
+      margin-bottom: 0;
     }
   }
 }
