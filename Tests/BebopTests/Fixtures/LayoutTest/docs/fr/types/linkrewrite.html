@@ -23,29 +23,28 @@
 
   <header class="j2-header">
   <div class="navbar navbar-expand navbar-dark j2-titlebar">
-  <a class="sr-only-focusable sr-only font-weight-slightly-bold pr-2" href="#main-content">Skip to main content</a>
-  <a class="nav-item nav-link pl-0 pt-1 pr-2 d-md-none" id="nav-toggle-button" role="button" aria-controls="nav-column" aria-expanded="false" aria-label="Toggle navigation" href="#">
+  <div class="container-fluid ps-0 pe-0">
+  <a class="visually-hidden-focusable visually-hidden fw-slightly-bold pe-2" href="#main-content">Skip to main content</a>
+  <a class="nav-item nav-link ps-0 pt-1 pe-2 d-md-none" id="nav-toggle-button" role="button" aria-controls="nav-column" aria-expanded="false" aria-label="Toggle navigation" href="#">
     <span class="navbar-toggler-icon"></span>
   </a>
 
-  <div style="align-items-baseline">
-    <div class="navbar-brand mr-1 font-weight-slightly-bold">
-      <a href="https://fr.wikipedia.org/wiki/Coccinellidae" rel="external">
-      
-      
-      <img src="../media/bird.jpg" alt="Picture" title="Coccinelle" width=30 height=30 class="d-none d-xxs-inline mr-2 mt-n1">
-      
-      FR Layout Test Docset</a>
-    </div>
+  <div class="navbar-brand me-1 fw-slightly-bold">
+    <a href="https://fr.wikipedia.org/wiki/Coccinellidae" rel="external">
     
-    <span class="navbar-text j2-coverage font-weight-slightly-bold small d-none d-lg-inline-block mr-2">(100% documented)</span>
     
+    <img src="../media/bird.jpg" alt="Picture" title="Coccinelle" width=30 height=30 class="d-none d-xxs-inline me-2 mt-n1">
+    
+    FR Layout Test Docset</a>
   </div>
+  
+  <span class="navbar-text j2-coverage fw-slightly-bold small d-none d-lg-inline-block me-2">(100% documented)</span>
+  
 
-  <div class="navbar-nav ml-auto justify-content-end flex-fill">
+  <div class="navbar-nav ms-auto justify-content-end flex-fill">
 
     
-    <form class="form-inline d-none d-md-flex" role="search">
+    <form class="d-none d-md-block my-auto pe-1" role="search">
       <input class="form-control form-control-sm w-100" type="search" placeHolder="Search" aria-label="Search" aria-keyshortcuts="/" data-search-format="span">
     </form>
     
@@ -72,8 +71,8 @@
 
     
     <div class="nav-item dropdown d-none d-xxs-block">
-      <a class="nav-link dropdown-toggle j2-trans-dropdown" href="#" id="trans-menu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">🇫🇷</a>
-      <div class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="trans-menu">
+      <a class="nav-link dropdown-toggle j2-trans-dropdown" href="#" id="trans-menu" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">🇫🇷</a>
+      <div class="dropdown-menu dropdown-menu-end" role="menu" aria-labelledby="trans-menu">
         
           <a class="dropdown-item j2-translation" href="#" role="menuitem" data-language-tag="en" data-language-tag-path=""}>🇺🇸 English</a>
         
@@ -83,6 +82,7 @@
     </div>
     
 
+  </div>
   </div>
 </div>
 
@@ -283,7 +283,7 @@
 <div class="j2-swift">
 <hr/>
 <section>
-  <h1 class="sr-only">Topics</h1>
+  <h1 class="visually-hidden">Topics</h1>
   
   <section class="j2-swift">
   
@@ -298,7 +298,7 @@
   
     <section id="spot" class="j2-item j2-swift">
     <a name="//apple_ref/cpp/Method/func%20spot()" class="dashAnchor j2-item-dash-anchor" data-item-id="spot"></a>
-    <h4 class="sr-only">func spot()</h4>
+    <h4 class="visually-hidden">func spot()</h4>
     
       <a class="j2-item-title j2-swift" href="../types/linkrewrite/spot.html?swift"><code><span class="j2-item-secondary">func </span>spot<span class="j2-item-secondary">()</span></code>
       </a>
@@ -337,7 +337,7 @@
   
   
   </div>
-  <div id="pagination-next" class="flex-fill text-right">
+  <div id="pagination-next" class="flex-fill text-end">
   
     <a class="j2-swift" href="../types/linkrewrite/spot.html?swift" aria-keyshortcuts="n">
   spot()<span aria-hidden="true"> &raquo;</span>

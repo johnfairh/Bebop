@@ -4,7 +4,7 @@
 
 // This is the main SCSS file for the site included after all of Bootstrap.
 
-.font-weight-slightly-bold {
+.fw-slightly-bold {
   font-weight: $font-weight-demi-bold;
 }
 
@@ -107,21 +107,14 @@ pre {
 
 .j2-param-table {
   @extend .table;
+  @extend .table-borderless;
   @extend .table-responsive;
+  @extend .table-sm;
+
   margin-top: -.5rem;
   margin-bottom: .5rem;
 
-  th,
   td {
-    p:last-child {
-      margin-bottom: 0;
-    }
-  }
-
-  td {
-    padding: .5rem .5rem .5rem 0;
-    border-top: none;
-
     &:first-of-type {
       text-align: right;
       word-break: normal;
@@ -129,6 +122,13 @@ pre {
 
     &:last-of-type {
       width: 100%;
+    }
+  }
+
+  th,
+  td {
+    p:last-child {
+      margin-bottom: 0;
     }
   }
 }
@@ -141,6 +141,7 @@ pre {
   @include j2-titlebar-colors();
 
   .j2-coverage {
+    padding-top: .75rem; // hack hack
     opacity: .6;
   }
 
@@ -208,8 +209,7 @@ $j2-titlebar-height: 56px;
 //
 
 .j2-breadcrumb {
-  padding-top: .5rem;
-  padding-bottom: .5rem;
+  padding: .5rem 1rem;
   margin: 0;
   border-top: $j2-navigation-border;
   border-bottom: $j2-navigation-border;
@@ -222,7 +222,7 @@ $j2-breadcrumbs-height: 37px;
 //
 
 .j2-nav {
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(md) {
     width: 100%;
     border-bottom: $j2-navigation-border;
   }
@@ -289,12 +289,24 @@ $j2-breadcrumbs-height: 37px;
 .j2-article {
   @include j2-article-colors();
 
-  // This width: 0 is flexbox black magic.  Without it,
-  // if the article column has a very wide element (eg.
-  // a `pre` then as the browser shrinks, flexbox prioritizes
-  // the article width over shrinking the `pre` and stacks
-  // the `col` _under_ the left nav `col`.  Which is bad.
+  // This is all a mess, really need to rewrite this
+  // part from scratch.
+  //
+  // Bootstrap 4: if the article column has a very wide element
+  // (eg. a `pre`) then as the browser shrinks, flexbox prioritizes
+  // the article width over clipping the `pre` and stacks the article
+  // `col` _under_ the left nav `col`.  Which is bad.
+  // `width: 0` fixes this.
+  //
+  // Bootstrap 5: the way columns and grid are implemented completely
+  // changed meaning in XL, the topics column takes up max space and
+  // the article column is squashed way down.
+  // `flex\max-width` here hack back the BS4 settings that make it work.
   width: 0;
+  @include media-breakpoint-up(xl) {
+    flex: 0 0 66.6666666666%;
+    max-width: 66.6666666666%;
+  }
   padding-top: 3rem;
 }
 
@@ -309,8 +321,8 @@ $j2-breadcrumbs-height: 37px;
   margin: auto;
   @include media-breakpoint-up(md) {
     h1:first-child {
-      font-size: $display4-size;
-      font-weight: $display4-weight;
+      font-size: map.get($display-font-sizes, 4);
+      font-weight: $display-font-weight;
       line-height: $display-line-height;
     }
   }
@@ -668,7 +680,7 @@ $j2-header-height: add($j2-titlebar-height, $j2-breadcrumbs-height);
   span {
     display: table-cell;
   }
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(md) {
     border-bottom: $j2-navigation-border;
   }
 }
