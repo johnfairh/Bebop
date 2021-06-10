@@ -56,12 +56,17 @@ dist/%.css: ${SCSSPATHS}
 dist/%.js: %.js
 	cp -f $^ $@
 
-#	node_modules/bootstrap/js/dist/dropdown.js \
-#	node_modules/bootstrap/js/dist/collapse.js \
 
 JS_DEPENDENCIES= \
 	node_modules/jquery/dist/jquery.min.js \
-	node_modules/bootstrap/dist/js/bootstrap.min.js \
+	node_modules/bootstrap/js/dist/dom/data.js \
+	node_modules/bootstrap/js/dist/dom/event-handler.js \
+	node_modules/bootstrap/js/dist/dom/manipulator.js \
+	node_modules/bootstrap/js/dist/dom/selector-engine.js \
+	node_modules/bootstrap/js/dist/base-component.js \
+	node_modules/bootstrap/js/dist/dropdown.js \
+	node_modules/bootstrap/js/dist/dropdown.js \
+	node_modules/bootstrap/js/dist/collapse.js \
 	prism/prism.min.js \
 	js/prism-extras.js \
 	node_modules/anchor-js/anchor.min.js \
