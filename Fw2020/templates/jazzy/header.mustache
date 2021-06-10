@@ -1,22 +1,21 @@
 <div class="navbar navbar-expand navbar-dark j2-titlebar">
-  <a class="sr-only-focusable sr-only font-weight-slightly-bold pr-2" href="#main-content">Skip to main content</a>
-  <a class="nav-item nav-link pl-0 pt-1 pr-2 d-md-none" id="nav-toggle-button" role="button" aria-controls="nav-column" aria-expanded="false" aria-label="Toggle navigation" href="#">
+  <div class="container-fluid ps-0 pe-0">
+  <a class="visually-hidden-focusable visually-hidden fw-slightly-bold pe-2" href="#main-content">Skip to main content</a>
+  <a class="nav-item nav-link ps-0 pt-1 pe-2 d-md-none" id="nav-toggle-button" role="button" aria-controls="nav-column" aria-expanded="false" aria-label="Toggle navigation" href="#">
     <span class="navbar-toggler-icon"></span>
   </a>
 
-  <div style="align-items-baseline">
-    <div class="navbar-brand mr-1 font-weight-slightly-bold">
-      <a href="{{path_to_root}}index.html">{{docs_title}}</a>
-    </div>
-    {{#doc_coverage}}
-    <span class="navbar-text j2-coverage font-weight-slightly-bold small d-none d-lg-inline-block mr-2">({{doc_coverage}}% documented)</span>
-    {{/doc_coverage}}
+  <div class="navbar-brand me-1 fw-slightly-bold">
+    <a href="{{path_to_root}}index.html">{{docs_title}}</a>
   </div>
+  {{#doc_coverage}}
+  <span class="navbar-text j2-coverage fw-slightly-bold small d-none d-lg-inline-block mr-2">({{doc_coverage}}% documented)</span>
+  {{/doc_coverage}}
 
-  <div class="navbar-nav ml-auto justify-content-end flex-fill">
+  <div class="navbar-nav ms-auto justify-content-end flex-fill">
 
     {{^disable_search}}
-    <form class="form-inline d-none d-md-flex" role="search">
+    <form class="d-none d-md-block my-auto pe-1" role="search">
       <input class="form-control form-control-sm w-100" type="search" placeHolder="Search" aria-label="Search" aria-keyshortcuts="/" data-search-format="span">
     </form>
     {{/disable_search}}
@@ -36,6 +35,7 @@
       </svg>
     </a>
     {{/dash_url}}
+  </div>
   </div>
 </div>
 
