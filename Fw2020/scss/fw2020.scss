@@ -222,7 +222,7 @@ $j2-breadcrumbs-height: 37px;
 //
 
 .j2-nav {
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(md) {
     width: 100%;
     border-bottom: $j2-navigation-border;
   }
@@ -680,7 +680,7 @@ $j2-header-height: add($j2-titlebar-height, $j2-breadcrumbs-height);
   span {
     display: table-cell;
   }
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(md) {
     border-bottom: $j2-navigation-border;
   }
 }
