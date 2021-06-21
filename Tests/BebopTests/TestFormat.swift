@@ -314,7 +314,8 @@ class TestFormat: XCTestCase {
         let oMethod = SourceKittenDict.mkObjCMethod(name: "-method:param:", swiftName: "method(param:)").with(swiftDeclaration: "func method(param: Int)")
         let oClass = SourceKittenDict.mkObjCClass(name: "OClass", swiftName: "SClass").with(swiftDeclaration: "class SClass")
             .with(children: [oMethod])
-        let swClass = SourceKittenDict.mkClass(name: "SwiftClass")
+        let swMethod = SourceKittenDict.mkMethod(name: "method(arg:)")
+        let swClass = SourceKittenDict.mkClass(name: "SwiftClass").with(children: [swMethod])
         let passes = SourceKittenDict.mkFile().with(children: [oClass, swClass]).asGatherPasses
         let system = System(cliArgs: ["--no-apple-autolink"])
         let filtered = try system.run(passes)
@@ -326,11 +327,23 @@ class TestFormat: XCTestCase {
         }
         XCTAssertEqual(["OClass", "SClass"], getLinkNames(html: link1.html))
 
-        guard let link2 = system.format.autolink.link(for: "@SwiftClass", context: filtered[0]) else {
-            XCTFail("Couldn't resolve SwiftClass")
-            return
+        ["SwiftClass", "@SwiftClass", "<doc:SwiftClass>", "SwiftClass-swift.class"].forEach { linkText in
+            guard let link = system.format.autolink.link(for: linkText, context: filtered[0]) else {
+                XCTFail("Couldn't resolve \(linkText)")
+                return
+            }
+            let prefix = linkText.hasPrefix("@") ? "@" : ""
+            XCTAssertEqual(["\(prefix)SwiftClass"], getLinkNames(html: link.html))
         }
-        XCTAssertEqual(["@SwiftClass"], getLinkNames(html: link2.html))
+
+        ["SwiftClass.method(arg:)", "SwiftClass/method(arg:)"].forEach { linkText in
+            guard let link = system.format.autolink.link(for: linkText, context: filtered[0]) else {
+                XCTFail("Couldn't resolve \(linkText)")
+                return
+            }
+            let expected = linkText.re_sub("^.*/", with: "")
+            XCTAssertEqual([expected], getLinkNames(html: link.html))
+        }
 
         guard let (classDef, _) = system.format.autolink.def(for: "OClass", context: filtered[0]) else {
             XCTFail("Couldn't resolve OClass to def")

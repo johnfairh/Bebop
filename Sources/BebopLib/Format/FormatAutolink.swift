@@ -97,26 +97,35 @@ final class FormatAutolink: Configurable {
             return nil
         }
 
-        let declName = name.hasPrefix("@") ? String(name.dropFirst()) : name
-
         guard !name.starts(with: "."),              // implicit scope, impossible to resolve
               !name.re_isMatch(#"^\$.*\$$"#) else { // katex math
             return nil
         }
 
+        let unmangledName = name
+            .re_sub("^<doc:(.*)>$", with: "$1") // docc markup
+            .re_sub("(?<!^)-.+$", with: "")     // docc trailing '-blah' discriminator
+
+        let nameToSearch = unmangledName
+            .re_sub("^@(.*)$", with: "$1")            // property wrapper
+            .replacingOccurrences(of: "/", with: ".") // docc syntax
+
+        let nameToDisplay = unmangledName
+            .re_sub("^.*/", with: "") // docc syntax
+
         let autolink = { () -> Autolink? in
             // First try a def in this docset, name resolved relative to current context
-            if let (def, language) = def(for: declName, context: context) {
-                return linkTo(defItem: def, language: language, from: name, context: context)
+            if let (def, language) = def(for: nameToSearch, context: context) {
+                return linkTo(defItem: def, language: language, from: nameToDisplay, context: context)
             }
 
             // Cache results from now on because not context-sensitive and somewhat
             // expensive to calculate (module searching).
-            if let cachedResult = cacheHits[declName] {
+            if let cachedResult = cacheHits[nameToSearch] {
                 Stats.inc(.autolinkCacheHitHit)
                 return cachedResult
             }
-            if cacheMisses.contains(declName) {
+            if cacheMisses.contains(nameToSearch) {
                 Stats.inc(.autolinkCacheHitMiss)
                 return nil
             }
@@ -124,18 +133,18 @@ final class FormatAutolink: Configurable {
             let language = contextLanguage ?? (context as? DefItem)?.primaryLanguage
 
             // Configured remote docsets before apple.com fallback
-            if let link = autolinkRemote.autolink(name: declName) ??
-                autolinkApple.autolink(text: declName, language: language) {
-                cacheHits[declName] = link
+            if let link = autolinkRemote.autolink(name: nameToSearch) ??
+                autolinkApple.autolink(text: nameToSearch, language: language) {
+                cacheHits[nameToSearch] = link
                 return link
             }
-            cacheMisses.insert(declName)
+            cacheMisses.insert(nameToSearch)
             return nil
         }()
 
         // Record unresolved might-be-links.
-        if autolink == nil && declName != context.name {
-            Stats.addUnresolved(name: declName, context: context.name)
+        if autolink == nil && nameToSearch != context.name {
+            Stats.addUnresolved(name: name, context: context.name)
         }
         return autolink
     }
