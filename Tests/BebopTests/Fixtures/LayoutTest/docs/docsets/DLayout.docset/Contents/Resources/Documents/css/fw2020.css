@@ -10059,15 +10059,15 @@ pre {
   opacity: 0.6 !important;
 }
 
-.j2-callout {
+.j2-callout, blockquote {
   border-left: 5px solid #17a2b8;
   padding: 0.38rem 0.75rem;
   margin-bottom: 1rem;
 }
-.j2-callout .j2-callout-title {
+.j2-callout .j2-callout-title, blockquote .j2-callout-title {
   color: #17a2b8;
 }
-.j2-callout p:last-child {
+.j2-callout p:last-child, blockquote p:last-child {
   margin-bottom: 0;
 }
 
@@ -10119,6 +10119,13 @@ pre {
 .j2-item-declaration .j2-callout-title,
 .j2-callout-declaration .j2-callout-title {
   display: none;
+}
+
+blockquote {
+  border-left: 5px solid var(--article-secondary-color);
+}
+blockquote .j2-callout-title {
+  color: var(--article-secondary-color);
 }
 
 .j2-item-declaration {

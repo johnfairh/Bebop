@@ -1,6 +1,14 @@
 [
   {
     "context" : "Guide",
+    "name" : ":dl."
+  },
+  {
+    "context" : "Guide",
+    "name" : ":edl."
+  },
+  {
+    "context" : "Guide",
     "name" : "after"
   }
 ]

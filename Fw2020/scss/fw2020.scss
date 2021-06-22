@@ -405,6 +405,11 @@ $j2-breadcrumbs-height: 37px;
   }
 }
 
+blockquote {
+  @extend .j2-callout;
+  @include j2-callout-colors($j2-article-secondary-color);
+}
+
 // For the inline declarations inside items
 .j2-item-declaration {
   padding-left: 0;

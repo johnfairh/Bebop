@@ -159,15 +159,25 @@ struct CMCallout {
             (format == .other && CMCallout.knownCallouts.contains(lowerTitle))
     }
 
-    /// Four slightly different formats wrapped up here:
+    var isDocCCallout: Bool {
+        format == .other && CMCallout.docCCallouts.contains(lowerTitle)
+    }
+
+    var isDescriptionTerm: Bool {
+        format == .descriptionTerm
+    }
+
+    /// Five slightly different formats wrapped up here:
     ///   Callout(XXXX XXXX):YYYY    (Custom callout)
     ///   Parameter XXXX: YYYY         (Swift)
     ///   Parameter: XXXX YYYY         (ObjC)
+    ///   Term XXXX: YYYY                  (DocC-style description term)
     ///   XXXX:YYYYY                         (everything else, covers parameters: nesting)
     enum Format {
         case parameter
         case other
         case custom
+        case descriptionTerm
 
         var regexps: [String] {
             switch self {
@@ -180,12 +190,14 @@ struct CMCallout {
                 ]
             case .other:
                 return [#"\A\s*(\S+)\s*:\s*(.*)\Z"#]
+            case .descriptionTerm:
+                return [#"\A\s*term\s+(\S+):\s*(.*)\Z"#]
             }
         }
     }
 
     init?(string: String) {
-        for format in [Format.custom, Format.parameter, Format.other] { // order dependency here...
+        for format in [Format.custom, Format.parameter, Format.descriptionTerm, Format.other] { // order dependency here...
             for re in format.regexps {
                 if let matches = string.re_match(re, options: [.i, .m]) {
                     title = matches[1]
@@ -202,7 +214,7 @@ struct CMCallout {
 // MARK: CMNode - CMCallout interlock
 
 extension CMNode {
-    /// Try to interpret this node as a callout
+    /// Try to interpret this node as a regular callout
     var asCallout: CMCallout? {
         stringValue.flatMap { CMCallout(string: $0) }
     }
@@ -227,18 +239,64 @@ extension CMNode {
     func forEachCallout(_ call: (_ listItemNode: CMNode, _ textNode: CMNode, CMCallout) -> () ) {
         precondition(type == .list)
         forEach { listItemNode in
-            if listItemNode.type == .item,
-                let paraNode = listItemNode.firstChild,
-                paraNode.type == .paragraph,
-                let textNode = paraNode.firstChild,
-                textNode.type == .text,
-                let callout = textNode.asCallout {
+            listItemNode.ifCallout { paraNode, textNode, callout in
                 call(listItemNode, textNode, callout)
             }
         }
         if firstChild == nil {
             // We deleted every item from the list
             unlink()
+        }
+    }
+
+    /// Vend details of a DocC-style callout.
+    ///
+    /// Only valid on `.blockQuote` markdown nodes.
+    /// Requires BlockQuote -> Para -> Text chain
+    func ifDocCCallout(_ call: (_ textNode: CMNode, CMCallout) -> Void) {
+        precondition(type == .blockQuote)
+        ifCallout { paraNode, textNode, callout in
+            call(textNode, callout)
+        }
+    }
+
+    func ifCallout<T>(_ call: (_ paraNode: CMNode, _ textNode: CMNode, CMCallout) throws -> T) rethrows -> T? {
+        guard let paraNode = firstChild,
+              paraNode.type == .paragraph,
+              let textNode = paraNode.firstChild,
+              textNode.type == .text,
+              let callout = textNode.asCallout else {
+            return nil
+        }
+        return try call(paraNode, textNode, callout)
+    }
+}
+
+// MARK: CMNode description-list interface
+extension CMNode {
+    var isDescriptionList: Bool {
+        guard maybeCalloutList else {
+            return false
+        }
+        var itemCount = 0, termCount = 0
+        forEach { node in
+            itemCount += 1
+            node.ifCallout {
+                if $2.isDescriptionTerm {
+                    termCount += 1
+                }
+            }
+        }
+        return itemCount == termCount
+    }
+
+    func forEachDescription(_ call: (_ listItemNode: CMNode, _ textNode: CMNode, CMCallout) -> Void) {
+        precondition(maybeCalloutList)
+        forEach { listItemNode in
+            listItemNode.ifCallout { paraNode, textNode, callout in
+                precondition(callout.isDescriptionTerm)
+                call(listItemNode, textNode, callout)
+            }
         }
     }
 }
@@ -298,5 +356,15 @@ extension CMCallout {
         "recommendedover",
         "example",
         "see",
+    ])
+
+    /// DocC callouts
+    /// https://developer.apple.com/documentation/xcode/formatting-your-documentation-content#Add-Notes-and-Other-Asides
+    private static let docCCallouts = Set<String>([
+        "experiment",
+        "important",
+        "note",
+        "tip",
+        "warning",
     ])
 }

@@ -157,7 +157,9 @@ final class MarkdownFormatter: ItemVisitorProtocol {
                 customizeCodeBlock(block: node, iterator: iter)
 
             case .list:
-                if node.maybeCalloutList {
+                if node.isDescriptionList {
+                    customizeDescriptionList(listNode: node, iterator: iter)
+                } else if node.maybeCalloutList {
                     customizeCallouts(listNode: node, iterator: iter)
                 }
 
@@ -170,6 +172,9 @@ final class MarkdownFormatter: ItemVisitorProtocol {
 
             case .image:
                 customizeImage(image: node, iterator: iter)
+
+            case .blockQuote:
+                customizeBlockQuote(blockQuote: node, iterator: iter)
 
             default:
                 break
@@ -254,6 +259,25 @@ final class MarkdownFormatter: ItemVisitorProtocol {
         }
     }
 
+    /// Convert a description list hidden inside a regular list into an HTML description list.
+    func customizeDescriptionList(listNode: CMNode, iterator: Iterator) {
+        let descList = CMNode(customEnter: "<dl>", customExit: "</dl>")
+
+        listNode.forEachDescription { listItem, text, callout in
+            let term = CMNode(type: .htmlInline)
+            try! term.setLiteral("<dt>\(callout.title)</dt>")
+            try! term.insertIntoTree(asLastChildOf: descList)
+            let desc = CMNode(customEnter: "<dd>", customExit: "</dd>")
+            text.removeCalloutTitle(callout)
+            desc.moveChildren(from: listItem)
+            try! desc.insertIntoTree(asLastChildOf: descList)
+        }
+
+        try! descList.insertIntoTree(beforeNode: listNode)
+        listNode.unlink()
+        iterator.reset(to: descList, eventType: .enter)
+    }
+
     /// Called for links that refer to defs in our docs.  Replace the markdown link with some html to support
     /// swift/objc switchable name links.
     func customizeAutolink(link: CMNode, autolink: Autolink, iterator: Iterator) {
@@ -315,6 +339,22 @@ final class MarkdownFormatter: ItemVisitorProtocol {
             replace(html: "<span class='math m-inline'>" +
                           inlineMaths[1].htmlEscaped +
                           "</span>")
+        }
+    }
+
+    /// Support for DocC-style callouts.
+    func customizeBlockQuote(blockQuote: CMNode, iterator: Iterator) {
+        blockQuote.ifDocCCallout { text, callout in
+            let calloutNode =
+                CMNode(customEnter: Format.calloutIntroHtml(title: callout.title).value,
+                       customExit: Format.calloutOutroHtml.value)
+
+            try! calloutNode.insertIntoTree(beforeNode: blockQuote)
+            text.removeCalloutTitle(callout) // drop the "- note:" prefix
+            calloutNode.moveChildren(from: blockQuote)
+            blockQuote.unlink()
+            // Restart to cover what's inside the blockquote
+            iterator.reset(to: calloutNode, eventType: .enter)
         }
     }
 }
