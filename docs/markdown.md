@@ -26,6 +26,7 @@ See the [Commonmark spec](https://github.github.com/gfm/) and the
 * [General link rewriting](#general-link-rewriting)
 * [Image scaling](#image-scaling)
 * [Localization](#localization)
+* [Description lists](#description-lists)
 
 ### Definition autolinks
 
@@ -42,6 +43,12 @@ identifier.  For example:
   name at different nesting levels then use the fully qualified name instead.
 * \`[MyClass method1]\` - a link to an Objective-C method.
 * \`-[MyClass method2:param1]\` - a link to another Objective-C method.
+
+Bebop understands Apple's DocC-style links too, for example:
+* \`\`MyClass/method(param1:)\`\` - a link to the documentation for that method
+  that appears as just `method(param1:)` in the rendered page.
+* \`\`<doc:method(_:)-e873>\`\` - a link to a specific overload of `method(_:)`.
+  Bebop can't tell which overload you intend and links to the first one.
 
 Bebop always searches the docs being built for matches.
 
@@ -60,6 +67,11 @@ It supports all the Xcode Quick Help callouts as well as `- example:` and
 `- see:`.  It also supports custom callouts, for example:
 ```markdown
 - callout(Special Notice): Don't touch your face!
+```
+
+Bebop also supports Apple's DocC-format callouts, for example:
+```markdown
+> Experiment: What goes up must come down.
 ```
 
 ### Syntax highlighting
@@ -145,3 +157,12 @@ To set the pixel size of an image and request scaling:
 ### Localization
 
 All markdown content and media an be localized [one way or another](localization.md).
+
+### Description lists
+
+Bebop supports Apple DocC-format description lists, for example:
+```markdown
+- term Term 1: Description 1.
+- term Term 2: Description 2.
+- term Term 3: Description 3.
+```
