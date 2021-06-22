@@ -51,4 +51,10 @@ Finally:
 > shows them as traditional block-quotes for compatibility with GFM
 > and existing docs.
 
+DocC introduces description lists.  Designers everywhere smack their heads.
+- term Term1: I first learnt about these on a mainframe
+- term Term2: Using *Script* and *Bookmaster*
+- term Term3: I still think `:dl.` and `:edl.` before reaching html
+- term warning: I'm sure they were called _definition lists_ though.
+
 ### Nothing `after` this heading

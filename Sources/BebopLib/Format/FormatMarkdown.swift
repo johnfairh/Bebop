@@ -157,7 +157,9 @@ final class MarkdownFormatter: ItemVisitorProtocol {
                 customizeCodeBlock(block: node, iterator: iter)
 
             case .list:
-                if node.maybeCalloutList {
+                if node.isDescriptionList {
+                    customizeDescriptionList(listNode: node, iterator: iter)
+                } else if node.maybeCalloutList {
                     customizeCallouts(listNode: node, iterator: iter)
                 }
 
@@ -255,6 +257,25 @@ final class MarkdownFormatter: ItemVisitorProtocol {
                 iterator.reset(to: calloutNode, eventType: .enter)
             }
         }
+    }
+
+    /// Convert a description list hidden inside a regular list into an HTML description list.
+    func customizeDescriptionList(listNode: CMNode, iterator: Iterator) {
+        let descList = CMNode(customEnter: "<dl>", customExit: "</dl>")
+
+        listNode.forEachDescription { listItem, text, callout in
+            let term = CMNode(type: .htmlInline)
+            try! term.setLiteral("<dt>\(callout.title)</dt>")
+            try! term.insertIntoTree(asLastChildOf: descList)
+            let desc = CMNode(customEnter: "<dd>", customExit: "</dd>")
+            text.removeCalloutTitle(callout)
+            desc.moveChildren(from: listItem)
+            try! desc.insertIntoTree(asLastChildOf: descList)
+        }
+
+        try! descList.insertIntoTree(beforeNode: listNode)
+        listNode.unlink()
+        iterator.reset(to: descList, eventType: .enter)
     }
 
     /// Called for links that refer to defs in our docs.  Replace the markdown link with some html to support
