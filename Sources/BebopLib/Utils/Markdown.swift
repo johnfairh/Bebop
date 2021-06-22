@@ -159,6 +159,10 @@ struct CMCallout {
             (format == .other && CMCallout.knownCallouts.contains(lowerTitle))
     }
 
+    var isDocCCallout: Bool {
+        format == .other && CMCallout.docCCallouts.contains(lowerTitle)
+    }
+
     /// Four slightly different formats wrapped up here:
     ///   Callout(XXXX XXXX):YYYY    (Custom callout)
     ///   Parameter XXXX: YYYY         (Swift)
@@ -202,7 +206,7 @@ struct CMCallout {
 // MARK: CMNode - CMCallout interlock
 
 extension CMNode {
-    /// Try to interpret this node as a callout
+    /// Try to interpret this node as a regular callout
     var asCallout: CMCallout? {
         stringValue.flatMap { CMCallout(string: $0) }
     }
@@ -239,6 +243,22 @@ extension CMNode {
         if firstChild == nil {
             // We deleted every item from the list
             unlink()
+        }
+    }
+
+    /// Vend details of a DocC-style callout.
+    ///
+    /// Only valid on `.blockQuote` markdown nodes.
+    /// Requires BlockQuote -> Para -> Text chain
+    func ifDocCCallout(_ call: (_ textNode: CMNode, CMCallout) -> Void) {
+        precondition(type == .blockQuote)
+        if let paraNode = firstChild,
+           paraNode.type == .paragraph,
+           let textNode = paraNode.firstChild,
+           textNode.type == .text,
+           let callout = textNode.asCallout,
+           callout.isDocCCallout {
+            call(textNode, callout)
         }
     }
 }
@@ -298,5 +318,15 @@ extension CMCallout {
         "recommendedover",
         "example",
         "see",
+    ])
+
+    /// DocC callouts
+    /// https://developer.apple.com/documentation/xcode/formatting-your-documentation-content#Add-Notes-and-Other-Asides
+    private static let docCCallouts = Set<String>([
+        "experiment",
+        "important",
+        "note",
+        "tip",
+        "warning",
     ])
 }

@@ -171,6 +171,9 @@ final class MarkdownFormatter: ItemVisitorProtocol {
             case .image:
                 customizeImage(image: node, iterator: iter)
 
+            case .blockQuote:
+                customizeBlockQuote(blockQuote: node, iterator: iter)
+
             default:
                 break
             }
@@ -315,6 +318,22 @@ final class MarkdownFormatter: ItemVisitorProtocol {
             replace(html: "<span class='math m-inline'>" +
                           inlineMaths[1].htmlEscaped +
                           "</span>")
+        }
+    }
+
+    /// Support for DocC-style callouts.
+    func customizeBlockQuote(blockQuote: CMNode, iterator: Iterator) {
+        blockQuote.ifDocCCallout { text, callout in
+            let calloutNode =
+                CMNode(customEnter: Format.calloutIntroHtml(title: callout.title).value,
+                       customExit: Format.calloutOutroHtml.value)
+
+            try! calloutNode.insertIntoTree(beforeNode: blockQuote)
+            text.removeCalloutTitle(callout) // drop the "- note:" prefix
+            calloutNode.moveChildren(from: blockQuote)
+            blockQuote.unlink()
+            // Restart to cover what's inside the blockquote
+            iterator.reset(to: calloutNode, eventType: .enter)
         }
     }
 }
