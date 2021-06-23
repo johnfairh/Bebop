@@ -328,7 +328,8 @@ const searchControl = {
   },
 
   notFoundTemplate () {
-    const msg = this.jsonFetchFailed ? this.failedMessage
+    const msg = this.jsonFetchFailed
+      ? this.failedMessage
       : (this.searchData ? this.notFoundMessage : this.loadingMessage)
     return this.dropdownHtml(`<i>${msg || 'Not found'}</i>`, '', 'span')
   },

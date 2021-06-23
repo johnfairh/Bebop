@@ -496,7 +496,7 @@ $item-overview-indent: 2rem;
 .j2-item-popopen-wrapper {
   // Middle collapsed thing, adds vertical spacing outside the border.
   .j2-item-popopen {
-    padding-bottom: $spacer / 2;
+    padding-bottom: map.get($spacers, 2);
 
     // Notch on the popopen.  Somewhat egregious, jazzy inheritance.
     // Replace with SVG?
@@ -514,7 +514,7 @@ $item-overview-indent: 2rem;
 
     // Inner collapsed thing, has the border and content within
     .j2-item-popopen-body {
-      padding: ($spacer / 2) $spacer 0 $spacer;
+      padding: map.get($spacers, 2) $spacer 0 $spacer;
       border: $j2-navigation-border;
 
       h1,
