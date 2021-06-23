@@ -44,7 +44,7 @@ class TestGatherSymGraph: XCTestCase {
         AssertThrows(try System().run([
             "--build-tool=swift-symbolgraph",
             "--modules=Foo",
-            "--build-tool-arguments=--minimum-access-level=public"
+            "--build-tool-arguments=-minimum-access-level,public"
         ]), .errCfgSsgeArgs)
     }
 
@@ -145,9 +145,9 @@ class TestGatherSymGraph: XCTestCase {
               "pathComponents": [ "S" ],
               "names": { "title": "S" },
               "declarationFragments": [
-                { "spelling": "struct" },
-                { "spelling": " " },
-                { "spelling": "S" }
+                { "spelling": "struct", "kind": "keyword" },
+                { "spelling": " ", "kind": "whitespace" },
+                { "spelling": "S", "kind": "identifier" }
               ],
               "accessLevel": "\(accessLevel)",
               "availability": [ { "\(availabilityKey)": true } ],
@@ -164,9 +164,9 @@ class TestGatherSymGraph: XCTestCase {
               "pathComponents": [ "S", "f" ],
               "names": { "title": "f()" },
               "declarationFragments": [
-                { "spelling": "func" },
-                { "spelling": " " },
-                { "spelling": "f()" }
+                { "spelling": "func", "kind": "keyword" },
+                { "spelling": " ", "kind": "whitespace" },
+                { "spelling": "f()", "kind": "identifier" }
               ],
               "accessLevel": "internal"
           }],

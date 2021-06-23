@@ -27,6 +27,7 @@ enum SwiftDeclarationKind2: String {
     case functionSubscriptStatic = "source.lang.swift.decl.function.subscript.static"
     case functionSubscriptClass = "source.lang.swift.decl.function.subscript.class"
     case sourceMark = "source.lang.swift.syntaxtype.comment.mark"
+    case actor = "source.lang.swift.decl.actor"
 }
 
 enum ObjCDeclarationKind2: String {

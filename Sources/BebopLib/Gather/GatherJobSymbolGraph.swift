@@ -11,16 +11,16 @@ import Foundation
 // MARK: Import from binary swiftmodule using Swift-SymbolGraph-Extract
 
 // Always Args:
-// --module-name=<module>
-// --minimum-access-level=private
-// --output-dir=<tmpdir>
-// --skip-synthesized-members
+// -module-name <module>
+// -minimum-access-level private
+// -output-dir <tmpdir>
+// -skip-synthesized-members
 //
 // Only if buildToolArgs does _not_ contain them:
-// --sdk=<sdkpath>
-// --target=<target>
-// -F=<searchPaths ?? pwd>
-// -I=<searchPaths ?? pwd>
+// -sdk <sdkpath>
+// -target <target>
+// -F <searchPaths ?? pwd>
+// -I <searchPaths ?? pwd>
 
 extension GatherJob {
     /// Job to run `swift symbolgraph-extract` on some module and massage the created JSON
@@ -39,36 +39,36 @@ extension GatherJob {
         func execute() throws -> GatherModulePass {
             let tmpDir = try TemporaryDirectory()
             var args = [
-                "--module-name=\(moduleName)",
-                "--minimum-access-level=private",
-                "--output-dir=\(tmpDir.directoryURL.path)",
-                "--skip-synthesized-members"
+                "-module-name", moduleName,
+                "-minimum-access-level", "private",
+                "-output-dir", tmpDir.directoryURL.path,
+                "-skip-synthesized-members"
             ]
             let userArgs = buildToolArgs.joined(separator: " ")
-            try ["--module", "--minimum-access-level", "--output-dir"].forEach { arg in
+            try ["-module", "-minimum-access-level", "-output-dir"].forEach { arg in
                 if userArgs.contains(arg) {
                     throw BBError(.errCfgSsgeArgs, arg)
                 }
             }
 
             #if os(macOS) // SDK can just be omitted on Linux
-            if !userArgs.re_isMatch("--sdk[ =]") {
-                args.append("--sdk=\(try sdk.getPath())")
+            if !userArgs.contains("-sdk ") {
+                args += ["-sdk", try sdk.getPath()]
             }
             #endif
 
-            if !userArgs.re_isMatch("--target[ =]") {
-                args.append("--target=\(target)")
+            if !userArgs.re_isMatch("-target ") {
+                args += ["-target", target]
             }
             let searchPaths = searchURLs.isEmpty ?
                 [FileManager.default.currentDirectory.path] :
                 searchURLs.map { $0.path }
 
-            if !userArgs.re_isMatch("-F[ =]") {
-                args += searchPaths.map { "-F=\($0)" }
+            if !userArgs.contains("-F ") {
+                args += searchPaths.flatMap { ["-F", $0] }
             }
-            if !userArgs.re_isMatch("-I[ =]") {
-                args += searchPaths.map { "-I=\($0)" }
+            if !userArgs.contains("-I ") {
+                args += searchPaths.flatMap { ["-I", $0] }
             }
             logDebug("Calling swift-symbolgraph, args:")
             args.forEach { logDebug("  \($0)") }

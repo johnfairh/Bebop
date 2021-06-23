@@ -200,6 +200,10 @@ extension DefKind {
                     return SwiftDeclarationKind2.functionSubscriptClass
                 }
             }
+            if isSwiftClass, let annotatedDecl = dict.fullyAnnotatedDecl,
+               annotatedDecl.contains("<syntaxtype.keyword>actor") {
+                return SwiftDeclarationKind2.actor
+            }
         }
         return nil
     }

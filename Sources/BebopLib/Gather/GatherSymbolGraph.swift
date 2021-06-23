@@ -65,6 +65,7 @@ fileprivate struct NetworkSymbolGraph: Decodable {
         let docComment: DocCommentLines?
         struct DeclFrag: Decodable {
             let spelling: String
+            let kind: String
         }
         struct Generics: Decodable {
             struct Parameter: Decodable {
@@ -183,9 +184,10 @@ fileprivate struct SymbolGraph: Decodable {
 
         // Symbols
         symbols = network.symbols.compactMap { sym in
-            let fullDeclaration = sym.declarationFragments.map { $0.spelling }.joined()
+            let fullDeclaration = sym.declarationFragments.map(\.spelling).joined()
+            let keywords = sym.declarationFragments.filter { $0.kind == "keyword" }.map(\.spelling)
             let declaration = Self.fixUpDeclaration(fullDeclaration)
-            guard let kind = Self.mapKind(sym.kind.identifier, declaration: declaration) else {
+            guard let kind = Self.mapKind(sym.kind.identifier, keywords: Set(keywords)) else {
                 logWarning(.wrnSsgeSymbolKind, sym.kind.identifier)
                 return nil
             }
@@ -239,6 +241,9 @@ fileprivate struct SymbolGraph: Decodable {
         rels = network.relationships.compactMap { rel in
             guard let kind = Rel.Kind(rawValue: rel.kind) else {
                 logWarning(.localized(.wrnSsgeRelKind, rel.kind))
+                return nil
+            }
+            if kind == .conformsTo && rel.targetFallback == "_Concurrency.Actor" {
                 return nil
             }
             let constraints = rel.swiftConstraints?.compactMap(Constraint.init) ?? []
@@ -431,29 +436,35 @@ extension SymbolGraph {
         "swift.var" : .varGlobal,
         "swift.subscript" : .functionSubscript,
         "swift.typealias" : .typealias,
-        "swift.associatedtype" : .associatedtype
+        "swift.associatedtype" : .associatedtype,
     ]
 
     static let kindMap2: [String: SwiftDeclarationKind2] = [
         "swift.type.subscript" : .functionSubscriptClass,
-        "swift.static.subscript" : .functionSubscriptStatic
+        "swift.static.subscript" : .functionSubscriptStatic,
+        "swift.actor" : .actor,
     ]
 
     /// We prefer to differentiate on 'static spelling' - TSPL papers over the distinction.
-    static func fixUpKind(_ kind: String, declaration: String) -> String {
-        guard declaration.re_isMatch(#"\bstatic\b"#) else {
-            return kind
+    ///
+    /// Symgraph doesn't have native actors.
+    static func fixUpKind(_ kind: String, keywords: Set<String>) -> String {
+        if keywords.contains("actor") {
+            return "swift.actor"
         }
-        switch kind {
-        case "swift.type.method": return "swift.static.method"
-        case "swift.type.property": return "swift.static.property"
-        case "swift.type.subscript": return "swift.static.subscript"
-        default: return kind
+        if keywords.contains("static") {
+            switch kind {
+            case "swift.type.method": return "swift.static.method"
+            case "swift.type.property": return "swift.static.property"
+            case "swift.type.subscript": return "swift.static.subscript"
+            default: break;
+            }
         }
+        return kind
     }
 
-    static func mapKind(_ kind: String, declaration: String) -> String? {
-        let fixedKind = fixUpKind(kind, declaration: declaration)
+    static func mapKind(_ kind: String, keywords: Set<String>) -> String? {
+        let fixedKind = fixUpKind(kind, keywords: keywords)
         return kindMap1[fixedKind]?.rawValue ?? kindMap2[fixedKind]?.rawValue
     }
 }
