@@ -143,6 +143,8 @@ public final class GenDocset: Configurable {
                           <string>index.html</string>
                         <key>isJavaScriptEnabled</key>
                           <true/>
+                        <key>DashDocSetDefaultFTSEnabled</key>
+                          <true/>
                         <key>DashDocSetFamily</key>
                           <string>dashtoc</string>
                         \(playgroundKey)

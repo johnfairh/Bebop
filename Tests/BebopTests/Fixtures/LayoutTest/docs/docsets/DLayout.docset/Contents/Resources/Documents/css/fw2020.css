@@ -10408,6 +10408,7 @@ h3 code, .h3 code {
 .dash .j2-nav,
 .dash .j2-aux-nav,
 .dash .j2-footer,
+.dash .j2-pagination,
 .dash .j2-secondary,
 .dash .j2-language-missing {
   display: none !important;
