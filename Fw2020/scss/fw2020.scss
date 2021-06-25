@@ -633,18 +633,22 @@ $j2-header-height: add($j2-titlebar-height, $j2-breadcrumbs-height);
   }
 
   // #-anchor link vpos adjustment
-  :target::before {
-    display: block;
-    height: $j2-header-height;
-    margin-top: -$j2-header-height;
-    pointer-events: none;
-    visibility: hidden;
-    content: "";
+  :target {
+    scroll-margin-top: $j2-header-height;
+  }
+  .footnote-ref a {
+    display: inline-block;
+    scroll-margin-top: $j2-header-height + 8;
   }
 }
 
 .j2-aux-nav-wrapper {
   @include j2-sticky-sidebar();
+}
+
+.footnotes {
+  padding-top: map.get($spacers, 1);
+  border-top: $j2-navigation-border;
 }
 
 //

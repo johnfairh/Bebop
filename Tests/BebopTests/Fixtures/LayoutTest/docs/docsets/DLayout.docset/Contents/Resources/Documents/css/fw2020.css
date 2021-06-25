@@ -10325,13 +10325,13 @@ h3 code, .h3 code {
     overflow-y: auto;
   }
 
-  :target::before {
-    display: block;
-    height: 93px;
-    margin-top: -93px;
-    pointer-events: none;
-    visibility: hidden;
-    content: "";
+  :target {
+    scroll-margin-top: 93px;
+  }
+
+  .footnote-ref a {
+    display: inline-block;
+    scroll-margin-top: 101px;
   }
 }
 .j2-aux-nav-wrapper {
@@ -10340,6 +10340,11 @@ h3 code, .h3 code {
   top: 93px;
   max-height: calc(100vh - 93px);
   overflow-y: auto;
+}
+
+.footnotes {
+  padding-top: 0.25rem;
+  border-top: 1px solid var(--navigation-border-color);
 }
 
 .twitter-typeahead {

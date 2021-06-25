@@ -17,7 +17,7 @@ import Maaku
 // MARK: `CMDocument` helpers
 
 extension CMDocument {
-    static let options: CMDocumentOption = [.unsafe, .smart, .validateUtf8] // ?? .noBreaks
+    static let options: CMDocumentOption = [.unsafe, .smart, .validateUtf8, .footnotes]
     static let extensions = CMExtensionOption.all
 
     /// Create a markdown doc tree from some text

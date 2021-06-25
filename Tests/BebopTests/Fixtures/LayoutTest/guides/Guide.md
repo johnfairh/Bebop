@@ -57,4 +57,18 @@ DocC introduces description lists.  Designers everywhere smack their heads.
 - term Term3: I still think `:dl.` and `:edl.` before reaching html
 - term warning: I'm sure they were called _definition lists_ though.
 
+### Footnotes
+
+Mid-sentence footnote[^1] after[^named] the footnote.
+
+Intervening sentence.
+
+[^1]: Simple _footnote_.
+
+[^named]: More complicated footnote.
+
+    Always the indentation game, where will the backref go?
+
+    One more paragraph.
+
 ### Nothing `after` this heading

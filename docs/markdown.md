@@ -15,6 +15,7 @@ See the [Commonmark spec](https://github.github.com/gfm/) and the
 * [Task lists](https://github.github.com/gfm/#task-list-items-extension-)
 * [Strikethrough](https://github.github.com/gfm/#strikethrough-extension-)
 * [URL autolinks](https://github.github.com/gfm/#autolinks-extension-)
+* [Footnotes](https://www.markdownguide.org/extended-syntax/#footnotes)
 
 ## Bebop extensions
 
