@@ -8,7 +8,7 @@
 import Foundation
 
 public enum Version {
-    private static let actualBebopLibVersion = "1.6.0"
+    private static let actualBebopLibVersion = "1.7.0"
 
     /// Wrapper for test harness
     public static var bebopLibVersion: String {
