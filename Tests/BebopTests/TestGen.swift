@@ -416,9 +416,9 @@ class TestGen: XCTestCase {
         XCTAssertEqual("L100-L105", ghFormatter.format(startLine: 100, endLine: 105))
 
         let bbFormatter = BitBucketLineFormatter()
-        XCTAssertEqual("line-100", bbFormatter.format(startLine: 100, endLine: nil))
-        XCTAssertEqual("line-100", bbFormatter.format(startLine: 100, endLine: 100))
-        XCTAssertEqual("line-100:105", bbFormatter.format(startLine: 100, endLine: 105))
+        XCTAssertEqual("lines-100", bbFormatter.format(startLine: 100, endLine: nil))
+        XCTAssertEqual("lines-100", bbFormatter.format(startLine: 100, endLine: 100))
+        XCTAssertEqual("lines-100:105", bbFormatter.format(startLine: 100, endLine: 105))
     }
 
     // MARK: Docset

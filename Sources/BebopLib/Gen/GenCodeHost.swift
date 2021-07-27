@@ -205,11 +205,11 @@ struct GitHubLineFormatter: LineFormatter {
 
 struct BitBucketLineFormatter: LineFormatter {
     func formatOne(line: Int) -> String {
-        "line-\(line)"
+        "lines-\(line)"
     }
 
     func formatRange(startLine: Int, endLine: Int) -> String {
-        "line-\(startLine):\(endLine)"
+        "lines-\(startLine):\(endLine)"
     }
 }
 
