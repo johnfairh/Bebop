@@ -39,9 +39,11 @@ final class FormatAutolink: Configurable {
     let autolinkApple: FormatAutolinkApple
     let autolinkRemote: FormatAutolinkRemote
 
+    static let commonUnlinked = Set(["true", "false", "nil", "NULL", "null"])
+
     // ok i'm too dumb to write this as one hash...
     private(set) var cacheHits = [String:Autolink]()
-    private(set) var cacheMisses = Set(["true", "false", "nil", "NULL"])
+    private(set) var cacheMisses = FormatAutolink.commonUnlinked
 
     // Db for language so that we can tell in which language the user wrote their
     // reference to the def.
@@ -143,7 +145,9 @@ final class FormatAutolink: Configurable {
         }()
 
         // Record unresolved might-be-links.
-        if autolink == nil && nameToSearch != context.name {
+        if autolink == nil &&
+            nameToSearch != context.name &&
+            !Self.commonUnlinked.contains(nameToSearch) {
             Stats.addUnresolved(name: name, context: context.name)
         }
         return autolink

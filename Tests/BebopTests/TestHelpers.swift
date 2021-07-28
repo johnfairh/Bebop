@@ -202,6 +202,14 @@ extension SourceKittenDict {
 
     // Factories
 
+    static func mkGlobalFunc(name: String) -> Self {
+        SourceKittenDict()
+            .with(kind: .functionFree)
+            .with(name: name)
+            .with(decl: "func \(name)")
+            .with(usr: name)
+    }
+
     static func mkClass(name: String) -> Self {
         SourceKittenDict()
             .with(kind: .class)

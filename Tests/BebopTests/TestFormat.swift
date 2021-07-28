@@ -12,6 +12,7 @@ import Maaku
 
 fileprivate struct System {
     let config: Config
+    let stats: Stats
     let gather: Gather
     let merge: Merge
     let group: Group
@@ -20,6 +21,7 @@ fileprivate struct System {
 
     init(cliArgs: [String] = []) {
         config = Config()
+        stats = Stats(config: config)
         gather = Gather(config: config)
         merge = Merge(config: config)
         group = Group(config: config)
@@ -177,6 +179,31 @@ class TestFormat: XCTestCase {
         let malformed = "+[Class incomplete"
         XCTAssertTrue(malformed.isObjCClassMethodName)
         XCTAssertEqual(malformed, malformed.hierarchical)
+    }
+
+    func testAutolinkNotUnresolved() throws {
+        // module SwModule
+        // func gfunc(arg1: Int, arg2: String) {}
+        let func1 = SourceKittenDict.mkGlobalFunc(name: "gfunc1(arg1:arg2)")
+        let func2 = SourceKittenDict.mkGlobalFunc(name: "gfunc2(arg1:arg2)")
+        let swFile = SourceKittenDict.mkFile().with(children: [func1, func2])
+        let swPass = swFile.asGatherDef().asPass(moduleName: "SwModule")
+
+        let system = System()
+        let filtered = try system.run([swPass])
+        XCTAssertEqual(2, filtered.count)
+        let f1Item = filtered[0].children[0]
+
+        XCTAssertNotNil(system.format.autolink.link(for: "gfunc2(...)", context: f1Item))
+
+        // Check that special words do not get marked as 'unresolved'
+
+        XCTAssertNil(system.format.autolink.link(for: "nool", context: f1Item))
+        XCTAssertEqual(1, Stats.db.unresolved.count)
+        ["nil", "null", "true", "false", "NULL"].forEach { special in
+            XCTAssertNil(system.format.autolink.link(for: special, context: f1Item))
+            XCTAssertEqual(1, Stats.db.unresolved.count)
+        }
     }
 
     func testAutoLinkLookupSwift() throws {
