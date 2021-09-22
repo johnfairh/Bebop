@@ -10308,6 +10308,9 @@ h3 code, .h3 code {
 .j2-footer p {
   margin-bottom: 0.8rem;
 }
+.j2-footer p:first-child {
+  margin-top: 0.5rem;
+}
 
 @media (min-width: 768px) {
   .j2-header {

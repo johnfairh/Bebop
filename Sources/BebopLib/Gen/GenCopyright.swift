@@ -32,7 +32,7 @@ struct GenCopyright: Configurable {
         if let authorName = authorNameOpt.value {
             if let authorURL = authorURLOpt.value {
                 return authorName.mapValues { name in
-                    #" <a href="\#(authorURL)" target="_blank" rel="external">\#(name)</a>"#
+                    #" <a href="\#(authorURL)" target="_blank" rel="external noopener">\#(name)</a>"#
                 }
             }
             return Localized<String>(unlocalized: " ") + authorName
