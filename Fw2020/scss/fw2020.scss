@@ -604,6 +604,10 @@ $item-overview-indent: 2rem;
   border-bottom: $j2-navigation-border;
   p {
     margin-bottom: .8rem;
+
+    &:first-child {
+      margin-top: .5rem;
+    }
   }
 }
 
