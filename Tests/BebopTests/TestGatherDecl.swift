@@ -45,6 +45,11 @@ class TestGatherDecl: XCTestCase {
         XCTAssertEqual("Fred", fullyAnnotatedToString("<syntaxtype.attribute.builtin><syntaxtype.attribute.name>@objc</syntaxtype.attribute.name></syntaxtype.attribute.builtin> <decl.name>Fred</decl.name>"))
     }
 
+    // SPI attribute weirdness
+    func testSPIAttributeXmlStripping() {
+        XCTAssertEqual("Fred", fullyAnnotatedToString("<syntaxtype.attribute.name>@_spi</syntaxtype.attribute.name>(FRED) <decl.name>Fred</decl.name>"))
+    }
+
     // Errors
     func testAnnotatedErrors() {
         TestLogger.install()
