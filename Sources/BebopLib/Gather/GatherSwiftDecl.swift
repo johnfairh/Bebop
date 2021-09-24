@@ -156,7 +156,8 @@ class SwiftDeclarationBuilder {
                                 namePieces: pieces,
                                 typeModuleName: dict.moduleName,
                                 inheritedTypes: inheritedTypes,
-                                isOverride: dict.overrides != nil)
+                                isOverride: dict.overrides != nil,
+                                isSPI: attributes.contains(where: { $0.contains("@_spi") }))
     }
 
     private func repair(annotatedDecl decl: String) -> String {

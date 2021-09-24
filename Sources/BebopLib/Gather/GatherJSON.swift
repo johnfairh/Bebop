@@ -49,6 +49,7 @@ private enum GatherKey: String {
     case swiftInheritedTypes = "key.bb.inherited_types"
     case swiftInheritedTypeName = "key.bb.type_name"
     case swiftIsOverride = "key.bb.is_override"
+    case swiftIsSPI = "key.bb.is_spi"
     /// Name piece breakdown
     case swiftNamePieces = "key.bb.swift_name_pieces"
     case objCNamePieces = "key.bb.objc_name_pieces"
@@ -170,7 +171,7 @@ fileprivate extension SwiftDeclaration {
     func addToJSON(dict: inout SourceKittenDict) {
         dict.set(.swiftDeclaration, declaration.text)
         dict.maybe(.swiftDeprecationMessage, deprecation)
-        dict.set(.swiftDeprecatedEverywhere, deprecatedEverywhere)
+        dict.set(.swiftDeprecatedEverywhere, isDeprecatedEverywhere)
         dict.maybe(.swiftUnavailabilityMessage, unavailability)
         dict.maybe(.availabilities, availability.map {
             [GatherKey.availability.rawValue : $0]
@@ -181,6 +182,7 @@ fileprivate extension SwiftDeclaration {
             [GatherKey.swiftInheritedTypeName.rawValue: $0]
         })
         dict.set(.swiftIsOverride, isOverride)
+        dict.set(.swiftIsSPI, isSPI)
     }
 
     static func fromJSON(dict: inout SourceKittenDict) -> SwiftDeclaration? {
@@ -204,6 +206,7 @@ fileprivate extension SwiftDeclaration {
         if let inheritedDicts = dict.remove(.swiftInheritedTypes) as? [SourceKittenDict] {
             inheritedTypes = inheritedDicts.compactMap { $0[GatherKey.swiftInheritedTypeName.rawValue] as? String }
         }
+        let isSPI = (dict.remove(.swiftIsSPI) as? Bool) ?? false
 
         return SwiftDeclaration(declaration: declarationText,
                                 deprecation: deprecation,
@@ -213,7 +216,8 @@ fileprivate extension SwiftDeclaration {
                                 namePieces: namePieces,
                                 typeModuleName: typeModule,
                                 inheritedTypes: inheritedTypes,
-                                isOverride: isOverride)
+                                isOverride: isOverride,
+                                isSPI: isSPI)
     }
 }
 

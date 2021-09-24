@@ -28,9 +28,10 @@
           "declaration" : {
             "text" : "var propertyName: String! { get set }"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "var "
@@ -70,9 +71,10 @@
       "declaration" : {
         "text" : "class IVarTest: NSObject"
       },
-      "deprecated_everywhere" : false,
       "inherited_types" : [],
+      "is_deprecated_everywhere" : false,
       "is_override" : false,
+      "is_spi" : false,
       "name_pieces" : [
         {
           "other" : "class "
@@ -114,9 +116,10 @@
           "declaration" : {
             "text" : "class var identifier: UUID! { get set }"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "class var "
@@ -158,9 +161,10 @@
           "declaration" : {
             "text" : "var uuid: UUID? { get set }"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "var "
@@ -202,9 +206,10 @@
           "declaration" : {
             "text" : "class func alloc() -> Self!"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "class func "
@@ -246,9 +251,10 @@
           "declaration" : {
             "text" : "init!()"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "name" : "init"
@@ -287,9 +293,10 @@
           "declaration" : {
             "text" : "func method()"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "func "
@@ -331,9 +338,10 @@
           "declaration" : {
             "text" : "func doThing(with first: Int32, named name: String!) -> Int32"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "func "
@@ -387,9 +395,10 @@
           "declaration" : {
             "text" : "class func classMethod()"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "class func "
@@ -429,9 +438,10 @@
       "declaration" : {
         "text" : "class PropertyKinds: NSObject"
       },
-      "deprecated_everywhere" : false,
       "inherited_types" : [],
+      "is_deprecated_everywhere" : false,
       "is_override" : false,
+      "is_spi" : false,
       "name_pieces" : [
         {
           "other" : "class "
@@ -470,9 +480,10 @@
       "declaration" : {
         "text" : "func global_func()"
       },
-      "deprecated_everywhere" : false,
       "inherited_types" : [],
+      "is_deprecated_everywhere" : false,
       "is_override" : false,
+      "is_spi" : false,
       "name_pieces" : [
         {
           "other" : "func "
@@ -525,9 +536,10 @@
           "declaration" : {
             "text" : "var field: Int32"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "var "
@@ -567,9 +579,10 @@
       "declaration" : {
         "text" : "struct AStruct"
       },
-      "deprecated_everywhere" : false,
       "inherited_types" : [],
+      "is_deprecated_everywhere" : false,
       "is_override" : false,
+      "is_spi" : false,
       "name_pieces" : [
         {
           "other" : "struct "
@@ -619,9 +632,10 @@
           "declaration" : {
             "text" : "case a = 3"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "case "
@@ -660,9 +674,10 @@
           "declaration" : {
             "text" : "case b = 4"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "case "
@@ -699,9 +714,10 @@
       "declaration" : {
         "text" : "enum AEnum: Int"
       },
-      "deprecated_everywhere" : false,
       "inherited_types" : [],
+      "is_deprecated_everywhere" : false,
       "is_override" : false,
+      "is_spi" : false,
       "name_pieces" : [
         {
           "other" : "enum "
@@ -748,9 +764,10 @@
       "declaration" : {
         "text" : "struct ASimpleEnum: Equatable, RawRepresentable"
       },
-      "deprecated_everywhere" : false,
       "inherited_types" : [],
+      "is_deprecated_everywhere" : false,
       "is_override" : false,
+      "is_spi" : false,
       "name_pieces" : [
         {
           "other" : "struct "
@@ -797,9 +814,10 @@
       "declaration" : {
         "text" : "typealias Fred = Int32"
       },
-      "deprecated_everywhere" : false,
       "inherited_types" : [],
+      "is_deprecated_everywhere" : false,
       "is_override" : false,
+      "is_spi" : false,
       "name_pieces" : [
         {
           "other" : "typealias "
@@ -849,9 +867,10 @@
           "declaration" : {
             "text" : "func protocolMethod()"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "func "
@@ -891,9 +910,10 @@
       "declaration" : {
         "text" : "protocol SomeProtocol"
       },
-      "deprecated_everywhere" : false,
       "inherited_types" : [],
+      "is_deprecated_everywhere" : false,
       "is_override" : false,
+      "is_spi" : false,
       "name_pieces" : [
         {
           "other" : "protocol "
@@ -943,9 +963,10 @@
           "declaration" : {
             "text" : "func pop(with weight: String!, secondValue density: Int)\n    -> AutoreleasingUnsafeMutablePointer<ElementType?>!"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "func "
@@ -997,9 +1018,10 @@
       "declaration" : {
         "text" : "class Stack<ElementType>: NSObject where ElementType: AnyObject"
       },
-      "deprecated_everywhere" : false,
       "inherited_types" : [],
+      "is_deprecated_everywhere" : false,
       "is_override" : false,
+      "is_spi" : false,
       "name_pieces" : [
         {
           "other" : "class "
@@ -1049,9 +1071,10 @@
           "declaration" : {
             "text" : "func categoryMethod()"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "func "
@@ -1091,9 +1114,10 @@
       "declaration" : {
         "text" : "extension IVarTest"
       },
-      "deprecated_everywhere" : false,
       "inherited_types" : [],
+      "is_deprecated_everywhere" : false,
       "is_override" : false,
+      "is_spi" : false,
       "name_pieces" : [
         {
           "other" : "extension "

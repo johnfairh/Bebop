@@ -110,7 +110,7 @@ public final class SwiftDeclaration: Encodable {
     /// Deprecation messages, or `nil` if not deprecated
     public let deprecation: Localized<String>?
     /// Deprecated everywhere?
-    public let deprecatedEverywhere: Bool
+    public let isDeprecatedEverywhere: Bool
     /// Unavailability messages, or `nil` if not unavailable
     public let unavailability: Localized<String>?
     /// List of availability conditions
@@ -123,6 +123,8 @@ public final class SwiftDeclaration: Encodable {
     public internal(set) var inheritedTypes: [String]
     /// Is this declaration overriding one from a supertype or protocol?
     public let isOverride: Bool
+    /// Is this declaration SPI?
+    public let isSPI: Bool
 
     init(declaration: String = "",
          deprecation: Localized<String>? = nil,
@@ -132,16 +134,18 @@ public final class SwiftDeclaration: Encodable {
          namePieces: [DeclarationPiece] = [],
          typeModuleName: String? = nil,
          inheritedTypes: [String] = [],
-         isOverride: Bool = false) {
+         isOverride: Bool = false,
+         isSPI: Bool = false) {
         self.declaration = RichDeclaration(declaration)
         self.deprecation = deprecation
-        self.deprecatedEverywhere = deprecatedEverywhere
+        self.isDeprecatedEverywhere = deprecatedEverywhere
         self.unavailability = unavailability
         self.availability = availability
         self.namePieces = namePieces
         self.typeModuleName = typeModuleName
         self.inheritedTypes = inheritedTypes
         self.isOverride = isOverride
+        self.isSPI = isSPI
     }
 }
 

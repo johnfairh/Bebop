@@ -61,6 +61,11 @@ public enum DefAcl: String, Comparable, CaseIterable, Encodable {
         .open
     }
 
+    /// SPI filtering rule
+    public var excludeSPI: Bool {
+        self >= .public
+    }
+
     /// List of ACLs included by one
     public static func includedBy(acl: DefAcl) -> [DefAcl] {
         allCases.filter { $0 >= acl }

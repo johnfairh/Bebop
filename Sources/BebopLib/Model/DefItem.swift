@@ -358,9 +358,14 @@ public class DefItem: Item, CustomStringConvertible {
         declNotesNotice = RichText(notes.joined(by: "\n\n"))
     }
 
-    public var deprecatedEverywhere: Bool {
-        (swiftDeclaration?.deprecatedEverywhere ?? false) ||
+    public var isDeprecatedEverywhere: Bool {
+        (swiftDeclaration?.isDeprecatedEverywhere ?? false) ||
             (objCDeclaration?.deprecation != nil)
+    }
+
+    /// Is it marked SPI - not implemented for ObjC
+    public var isSPI: Bool {
+        swiftDeclaration?.isSPI ?? false
     }
 
     /// Is a name bound in the def's generic context?

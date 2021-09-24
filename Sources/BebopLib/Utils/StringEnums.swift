@@ -178,6 +178,8 @@ internal enum L10n {
     case msgHelpIntro = "msg-help-intro"
     /// Rendering theme in classic Jazzy mode
     case msgJazzyTheme = "msg-jazzy-theme"
+    /// Skipped %1 SPI definitions
+    case msgSpiSkipped = "msg-spi-skipped"
     /// Skipped %1 %2 definitions
     case msgSwiftAcl = "msg-swift-acl"
     /// Unpacking podspec %1

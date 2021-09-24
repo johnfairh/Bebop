@@ -149,6 +149,8 @@ struct StatsDb {
         case filterSymbolName
         /// Defs excluded by :nodoc:
         case filterNoDoc
+        /// Defs excluded by @_spi
+        case filterSPI
         /// Defs excluded by min-acl
         case filterMinAclExcluded
         /// Defs included by min-acl
@@ -254,6 +256,10 @@ struct StatsDb {
         let aclSkipped = self[.filterMinAclExcluded]
         if aclSkipped > 0 {
             report.append(.localized(.msgSwiftAcl, aclSkipped, aclExcludedNames))
+        }
+        let spiSkipped = self[.filterSPI]
+        if spiSkipped > 0 {
+            report.append(.localized(.msgSpiSkipped, spiSkipped))
         }
         report.append(.localized(.msgCoverage, coverage, self[.documentedDef], self[.missingDocumentation]))
         return report

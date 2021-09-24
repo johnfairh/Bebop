@@ -33,6 +33,14 @@ class TestAcl: XCTestCase {
         }
     }
 
+    func testSPI() {
+        XCTAssertTrue(DefAcl.open.excludeSPI)
+        XCTAssertTrue(DefAcl.public.excludeSPI)
+        XCTAssertFalse(DefAcl.internal.excludeSPI)
+        XCTAssertFalse(DefAcl.fileprivate.excludeSPI)
+        XCTAssertFalse(DefAcl.private.excludeSPI)
+    }
+
     func testObjC() {
         let objCAcl = DefAcl.forObjC
         DefAcl.allCases.forEach { XCTAssertTrue($0 <= objCAcl) }

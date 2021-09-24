@@ -28,9 +28,10 @@
           "declaration" : {
             "text" : "public func not_implementationPublicMethod()"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "func "
@@ -72,9 +73,10 @@
           "declaration" : {
             "text" : "public func publicProtocolMethod()"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : true,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "func "
@@ -121,9 +123,10 @@
           "declaration" : {
             "text" : "public var description: String { get }"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : true,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "var "
@@ -163,9 +166,10 @@
       "declaration" : {
         "text" : "open class PublicClass\n\nextension PublicClass: CustomStringConvertible\n\nextension PublicClass: PublicProtocol"
       },
-      "deprecated_everywhere" : false,
       "inherited_types" : [],
+      "is_deprecated_everywhere" : false,
       "is_override" : false,
+      "is_spi" : false,
       "name_pieces" : [
         {
           "other" : "class "
@@ -207,9 +211,10 @@
           "declaration" : {
             "text" : "func publicProtocolMethod()"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "func "
@@ -249,9 +254,10 @@
       "declaration" : {
         "text" : "public protocol PublicProtocol"
       },
-      "deprecated_everywhere" : false,
       "inherited_types" : [],
+      "is_deprecated_everywhere" : false,
       "is_override" : false,
+      "is_spi" : false,
       "name_pieces" : [
         {
           "other" : "protocol "

@@ -83,6 +83,7 @@ Ignoring the second.";
 "err-repeated-module" = "Module name '%1' repeated in --modules.";
 "msg-gather-heading" = "Gathering info for %1";
 "msg-swift-acl" = "Skipped %1 %2 definitions";
+"msg-spi-skipped" = "Skipped %1 SPI definitions";
 "msg-coverage" = "%1% documentation coverage with %2 documented and %3 undocumented definitions";
 "err-cfg-regexp" = "Invalid ICU regular expression '%1'.  Original error: '%2'.";
 "wrn-unmatched-abstracts" = "%1 unmatched custom abstracts: '%2'.";

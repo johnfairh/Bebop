@@ -236,6 +236,24 @@ class TestGatherDecl: XCTestCase {
         checkAvail("@available(swift, something: 1, introduced: 2, introduced: 3)", [], [])
     }
 
+    // SPI
+
+    func testSPI() throws {
+        let classKind = DefKind.from(kind: SwiftDeclarationKind.class)
+
+        let attrDicts: [SourceKittenDict] =
+            [["key.attribute" : "source.decl.attribute._spi",
+              "key.length" : Int64(11),
+              "key.offset" : Int64(0)]]
+
+        let dict: SourceKittenDict = ["key.fully_annotated_decl" : "<outer>@_spi(Fred) class Outer</outer>",
+                    "key.parsed_declaration" : "@_spi(Fred) class Outer",
+                    "key.attributes": attrDicts]
+        let builder = SwiftDeclarationBuilder(dict: dict, kind: classKind)
+        let decl = try XCTUnwrap(builder.build())
+        XCTAssertTrue(decl.isSPI)
+    }
+
     // Swift decl-piece-name
 
     private func checkFuncPieces(_ decl: String, _ name: String, _ expect: String, line: UInt = #line) {
