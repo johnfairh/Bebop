@@ -164,6 +164,7 @@ public struct GenSite: Configurable {
         try extensions.forEach {
             try themes.installExtension($0, to: outputURL)
         }
+        try writeNoJekyll()
         try record.writeRecord(outputURL: outputURL)
     }
 
@@ -189,6 +190,11 @@ public struct GenSite: Configurable {
     /// ♪♫
     func reportDone() {
         logInfo(L10n.Localizable.msgComplete, outputURL.asRelativePath(from: FileManager.default.currentDirectory))
+    }
+
+    /// Work around weird intermittent github pages behaviour
+    private func writeNoJekyll() throws {
+        try "".write(to: outputURL.appendingPathComponent(".nojekyll"))
     }
 
     /// Factored out page generation.  Internal for tests.

@@ -32,3 +32,11 @@ install: build
 uninstall:
 	rm -f ${PREFIX}/bin/bebop
 	rm -rf ${PREFIX}/share/bebop.resources
+
+# magic symlinks to workaround weird Xcode bugs
+#
+# Under /Users/johnf/Library/Developer/Xcode/DerivedData/Bebop-aejdbemlzzwgclhebgtaksojykdu/Build/Products/Debug
+# 1. lib_InternalSwiftSyntaxParser.dylib
+# 2. BebopCLI.app/Contents/Frameworks/lib_InternalSwiftSyntaxParser.dylib
+#
+# Both point to /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/lib_InternalSwiftSyntaxParser.dylib
