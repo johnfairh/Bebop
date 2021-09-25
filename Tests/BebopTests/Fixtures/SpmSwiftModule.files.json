@@ -22,6 +22,7 @@
           "key.accessibility" : "source.lang.swift.accessibility.internal",
           "key.annotated_decl" : "<Declaration>class GenericBase&lt;T&gt;<\/Declaration>",
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.swift_declaration" : "class GenericBase<T>",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
@@ -51,6 +52,7 @@
             {
               "key.annotated_decl" : "<Declaration>T<\/Declaration>",
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "T",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -78,6 +80,7 @@
               "key.accessibility" : "source.lang.swift.accessibility.internal",
               "key.annotated_decl" : "<Declaration>var boxed: <Type usr=\"s:14SpmSwiftModule11GenericBaseC1Txmfp\">T<\/Type><\/Declaration>",
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "var boxed: T",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -114,6 +117,7 @@
               "key.accessibility" : "source.lang.swift.accessibility.internal",
               "key.annotated_decl" : "<Declaration>init(type: <Type usr=\"s:14SpmSwiftModule11GenericBaseC1Txmfp\">T<\/Type>)<\/Declaration>",
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "init(type: T)",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -155,6 +159,7 @@
               "key.accessibility" : "source.lang.swift.accessibility.internal",
               "key.annotated_decl" : "<Declaration>func mutify() -&gt; <Type usr=\"s:14SpmSwiftModule11GenericBaseC1Txmfp\">T<\/Type><\/Declaration>",
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "func mutify() -> T",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -196,6 +201,7 @@
         {
           "key.annotated_decl" : "<Declaration>class GenericBase&lt;T&gt;<\/Declaration>",
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.swift_declaration" : "extension GenericBase where T: Codable",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
@@ -225,6 +231,7 @@
             {
               "key.annotated_decl" : "<Declaration>var codableCount: <Type usr=\"s:Si\">Int<\/Type> { get }<\/Declaration>",
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "var codableCount: Int { get }",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -261,6 +268,7 @@
             {
               "key.annotated_decl" : "<Declaration>func doCodability()<\/Declaration>",
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "func doCodability()",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -302,6 +310,7 @@
         {
           "key.annotated_decl" : "<Declaration>class GenericBase&lt;T&gt;<\/Declaration>",
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.swift_declaration" : "extension GenericBase\nwhere\n    T: Equatable,\n    T: FirstProtocol",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
@@ -331,6 +340,7 @@
             {
               "key.annotated_decl" : "<Declaration>func doFirstMagic()<\/Declaration>",
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "func doFirstMagic()",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -367,6 +377,7 @@
             {
               "key.annotated_decl" : "<Declaration>func doMoreMagic()<\/Declaration>",
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "func doMoreMagic()",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -408,6 +419,7 @@
         {
           "key.annotated_decl" : "<Declaration>class GenericBase&lt;T&gt;<\/Declaration>",
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.swift_declaration" : "extension GenericBase where T: Hashable",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
@@ -445,6 +457,7 @@
             {
               "key.annotated_decl" : "<Declaration>func doHashable()<\/Declaration>",
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "func doHashable()",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -499,6 +512,7 @@
             }
           ],
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.swift_declaration" : "extension GenericBase: CustomStringConvertible",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
@@ -549,6 +563,7 @@
                 "key.bb.doc_source" : "inherited"
               },
               "key.bb.is_override" : true,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "var description: String { get }",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -619,6 +634,7 @@
             "key.bb.doc_source" : "inherited"
           },
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.swift_declaration" : "extension Collection where Element: FirstProtocol",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
@@ -759,6 +775,7 @@
             {
               "key.annotated_decl" : "<Declaration>func collectEmAll()<\/Declaration>",
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "func collectEmAll()",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -807,6 +824,7 @@
             "key.bb.doc_source" : "inherited"
           },
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.swift_declaration" : "extension Collection where Element == SpmSwiftModule.Nested1",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
@@ -947,6 +965,7 @@
             {
               "key.annotated_decl" : "<Declaration>func nestEmAll()<\/Declaration>",
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "func nestEmAll()",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -995,6 +1014,7 @@
             "key.bb.doc_source" : "inherited"
           },
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.swift_declaration" : "extension FirstProtocol where AssocType: Hashable",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
@@ -1031,6 +1051,7 @@
             {
               "key.annotated_decl" : "<Declaration>func extHashableMethod()<\/Declaration>",
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "func extHashableMethod()",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -1073,6 +1094,7 @@
                 "key.bb.doc_source" : "docComment"
               },
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "func m(arg: Int) -> String",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -1146,6 +1168,7 @@
             "key.bb.doc_source" : "docComment"
           },
           "key.bb.is_override" : true,
+          "key.bb.is_spi" : false,
           "key.bb.swift_declaration" : "extension String.Element",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
@@ -1207,6 +1230,7 @@
                 "key.bb.doc_source" : "docComment"
               },
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "func method1()",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -1254,6 +1278,7 @@
             {
               "key.annotated_decl" : "<Declaration>func method2()<\/Declaration>",
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "func method2()",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -1302,6 +1327,7 @@
             "key.bb.doc_source" : "inherited"
           },
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.swift_declaration" : "extension StringProtocol",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
@@ -1343,6 +1369,7 @@
             {
               "key.annotated_decl" : "<Declaration>func f()<\/Declaration>",
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "func f()",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -1380,6 +1407,7 @@
             {
               "key.annotated_decl" : "<Declaration>func hasSuffix(_ prefix: <Type usr=\"s:SS\">String<\/Type>) -&gt; <Type usr=\"s:Sb\">Bool<\/Type><\/Declaration>",
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "func hasSuffix(_ prefix: String) -> Bool",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -1456,6 +1484,7 @@
             "key.bb.doc_source" : "docComment"
           },
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.swift_declaration" : "public protocol FirstProtocol",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
@@ -1516,6 +1545,7 @@
                 }
               },
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "func m(arg: Int) -> String",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -1597,6 +1627,7 @@
               "key.accessibility" : "source.lang.swift.accessibility.public",
               "key.annotated_decl" : "<Declaration>associatedtype AssocType<\/Declaration>",
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "associatedtype AssocType",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -1628,6 +1659,7 @@
               "key.accessibility" : "source.lang.swift.accessibility.public",
               "key.annotated_decl" : "<Declaration>func assocFunc() -&gt; <Type usr=\"s:14SpmSwiftModule13FirstProtocolP9AssocTypeQa\">AssocType<\/Type><\/Declaration>",
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "func assocFunc() -> AssocType",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -1663,6 +1695,7 @@
               "key.accessibility" : "source.lang.swift.accessibility.public",
               "key.annotated_decl" : "<Declaration>var getOnly: <Type usr=\"s:Si\">Int<\/Type> { get }<\/Declaration>",
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "var getOnly: Int { get }",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -1700,6 +1733,7 @@
               "key.accessibility" : "source.lang.swift.accessibility.public",
               "key.annotated_decl" : "<Declaration>var setAndGet: <Type usr=\"s:Si\">Int<\/Type> { get set }<\/Declaration>",
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "var setAndGet: Int { get set }",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -1755,6 +1789,7 @@
             }
           ],
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.swift_declaration" : "public protocol SecondProtocol: FirstProtocol",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
@@ -1797,6 +1832,7 @@
               "key.accessibility" : "source.lang.swift.accessibility.public",
               "key.annotated_decl" : "<Declaration>func secondProtocolMethod() -&gt; <Type usr=\"s:SS\">String<\/Type><\/Declaration>",
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "func secondProtocolMethod() -> String",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -1836,6 +1872,7 @@
         {
           "key.annotated_decl" : "<Declaration>public protocol SecondProtocol : <Type usr=\"s:14SpmSwiftModule13FirstProtocolP\">FirstProtocol<\/Type><\/Declaration>",
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.swift_declaration" : "extension SecondProtocol",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
@@ -1871,6 +1908,7 @@
                 "key.bb.doc_source" : "docComment"
               },
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "var getOnly: Int { get }",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -1933,6 +1971,7 @@
             "key.bb.doc_source" : "inherited"
           },
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.swift_declaration" : "extension FirstProtocol",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
@@ -1975,6 +2014,7 @@
                 "key.bb.doc_source" : "docComment"
               },
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "func e()",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -2037,6 +2077,7 @@
             "key.bb.doc_source" : "inherited"
           },
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.swift_declaration" : "extension FirstProtocol",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
@@ -2079,6 +2120,7 @@
                 "key.bb.doc_source" : "docComment"
               },
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "func e<C>(a: C) where C: FirstProtocol",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -2135,6 +2177,7 @@
                 {
                   "key.annotated_decl" : "<Declaration>C<\/Declaration>",
                   "key.bb.is_override" : false,
+                  "key.bb.is_spi" : false,
                   "key.bb.swift_declaration" : "C",
                   "key.bb.swift_deprecated_everywhere" : false,
                   "key.bb.swift_name_pieces" : [
@@ -2177,6 +2220,7 @@
             "key.bb.doc_source" : "inherited"
           },
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.swift_declaration" : "extension FirstProtocol",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
@@ -2222,6 +2266,7 @@
                 "key.bb.doc_source" : "docComment"
               },
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "func m(arg: Int) -> String",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -2295,6 +2340,7 @@
           "key.accessibility" : "source.lang.swift.accessibility.internal",
           "key.annotated_decl" : "<Declaration>protocol P1<\/Declaration>",
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.swift_declaration" : "protocol P1",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
@@ -2328,6 +2374,7 @@
           "key.accessibility" : "source.lang.swift.accessibility.internal",
           "key.annotated_decl" : "<Declaration>protocol P2<\/Declaration>",
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.swift_declaration" : "protocol P2",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
@@ -2366,6 +2413,7 @@
             }
           ],
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.swift_declaration" : "struct S1: P1",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
@@ -2415,6 +2463,7 @@
             }
           ],
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.swift_declaration" : "extension S1: CustomStringConvertible",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
@@ -2465,6 +2514,7 @@
                 "key.bb.doc_source" : "inherited"
               },
               "key.bb.is_override" : true,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "var description: String { get }",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -2535,6 +2585,7 @@
             }
           ],
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.swift_declaration" : "struct S2<T>: P1 where T: Equatable",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
@@ -2576,6 +2627,7 @@
             {
               "key.annotated_decl" : "<Declaration>T<\/Declaration>",
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "T",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -2603,6 +2655,7 @@
               "key.accessibility" : "source.lang.swift.accessibility.internal",
               "key.annotated_decl" : "<Declaration>func equatables2()<\/Declaration>",
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "func equatables2()",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -2649,6 +2702,7 @@
             }
           ],
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.swift_declaration" : "extension S2: P2 where T: Comparable",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
@@ -2690,6 +2744,7 @@
             {
               "key.annotated_decl" : "<Declaration>func comparables2()<\/Declaration>",
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "func comparables2()",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -2736,6 +2791,7 @@
             }
           ],
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.swift_declaration" : "extension S2: Equatable where T: Equatable",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
@@ -2777,6 +2833,7 @@
             {
               "key.annotated_decl" : "<Declaration>func equatables22()<\/Declaration>",
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "func equatables22()",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -2829,6 +2886,7 @@
             }
           ],
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.swift_declaration" : "extension Dictionary: P2",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
@@ -2986,6 +3044,7 @@
             }
           ],
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.swift_declaration" : "extension Array: P1 where Element: Comparable",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
@@ -3165,6 +3224,7 @@
             {
               "key.annotated_decl" : "<Declaration>func arrayFunc()<\/Declaration>",
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "func arrayFunc()",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -3233,6 +3293,7 @@
             "key.bb.doc_source" : "docComment"
           },
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.swift_declaration" : "public struct SpmSwiftModule",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
@@ -3288,6 +3349,7 @@
                 }
               ],
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "public var text: String",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -3339,6 +3401,7 @@
                 }
               ],
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "public struct Nested1",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -3376,6 +3439,7 @@
                     }
                   ],
                   "key.bb.is_override" : false,
+                  "key.bb.is_spi" : false,
                   "key.bb.swift_declaration" : "public struct Nested2a",
                   "key.bb.swift_deprecated_everywhere" : false,
                   "key.bb.swift_name_pieces" : [
@@ -3421,6 +3485,7 @@
                     }
                   ],
                   "key.bb.is_override" : false,
+                  "key.bb.is_spi" : false,
                   "key.bb.swift_declaration" : "public struct Nested2b",
                   "key.bb.swift_deprecated_everywhere" : true,
                   "key.bb.swift_deprecation_messages" : {
@@ -3469,6 +3534,7 @@
                 }
               ],
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "public struct Nested2",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -3508,6 +3574,7 @@
                 "key.bb.doc_source" : "docComment"
               },
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "var a: Int",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -3560,6 +3627,7 @@
                 "key.bb.doc_source" : "docComment"
               },
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "var b: Int",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -3635,6 +3703,7 @@
                 }
               },
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "public func checkState(name: String) throws -> Int",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -3728,6 +3797,7 @@
             "key.bb.doc_source" : "docComment"
           },
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.swift_declaration" : "public enum AnEnum",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
@@ -3781,6 +3851,7 @@
                     "key.bb.doc_source" : "docComment"
                   },
                   "key.bb.is_override" : false,
+                  "key.bb.is_spi" : false,
                   "key.bb.swift_declaration" : "case first(Int)",
                   "key.bb.swift_deprecated_everywhere" : false,
                   "key.bb.swift_name_pieces" : [
@@ -3841,6 +3912,7 @@
                     "key.bb.doc_source" : "docComment"
                   },
                   "key.bb.is_override" : false,
+                  "key.bb.is_spi" : false,
                   "key.bb.swift_declaration" : "case second",
                   "key.bb.swift_deprecated_everywhere" : false,
                   "key.bb.swift_name_pieces" : [
@@ -3897,6 +3969,7 @@
                     "key.bb.doc_source" : "docComment"
                   },
                   "key.bb.is_override" : false,
+                  "key.bb.is_spi" : false,
                   "key.bb.swift_declaration" : "case third",
                   "key.bb.swift_deprecated_everywhere" : false,
                   "key.bb.swift_name_pieces" : [
@@ -3944,6 +4017,7 @@
                     "key.bb.doc_source" : "docComment"
                   },
                   "key.bb.is_override" : false,
+                  "key.bb.is_spi" : false,
                   "key.bb.swift_declaration" : "case fourth",
                   "key.bb.swift_deprecated_everywhere" : false,
                   "key.bb.swift_name_pieces" : [
@@ -3999,6 +4073,7 @@
                     "key.bb.doc_source" : "docComment"
                   },
                   "key.bb.is_override" : false,
+                  "key.bb.is_spi" : false,
                   "key.bb.swift_declaration" : "case fifth(a: String, _: Int)",
                   "key.bb.swift_deprecated_everywhere" : false,
                   "key.bb.swift_name_pieces" : [
@@ -4115,6 +4190,7 @@
             ]
           },
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.swift_declaration" : "public func functionA(\n    arg1: Int,\n    _ arg2: Int,\n    arg3 argMeaning: Int)",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
@@ -4251,6 +4327,7 @@
             }
           },
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.swift_declaration" : "public func deprecatedFunction(callback: (_ report: String) -> Int) -> String",
           "key.bb.swift_deprecated_everywhere" : true,
           "key.bb.swift_deprecation_messages" : {
@@ -4337,6 +4414,7 @@
             "key.bb.doc_source" : "docComment"
           },
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.swift_declaration" : "public class ABaseClass",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
@@ -4384,6 +4462,7 @@
                 }
               ],
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "public init()",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -4434,6 +4513,7 @@
                 }
               ],
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "public convenience init(a: Int)",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -4480,6 +4560,7 @@
               "key.accessibility" : "source.lang.swift.accessibility.public",
               "key.annotated_decl" : "<Declaration>deinit<\/Declaration>",
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "deinit",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -4522,6 +4603,7 @@
                 "key.bb.doc_source" : "docComment"
               },
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "public func method(param: Int) -> String",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -4584,6 +4666,7 @@
                 }
               ],
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "public static func staticMethod() -> Int",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -4628,6 +4711,7 @@
                 }
               ],
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "public subscript(arg: String) -> Int { get set }",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -4685,6 +4769,7 @@
                 }
               ],
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "public static subscript(arg: String) -> Int { get }",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -4745,6 +4830,7 @@
                 }
               ],
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "public class subscript(arg: Int) -> String { get }",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -4798,6 +4884,7 @@
               "key.accessibility" : "source.lang.swift.accessibility.internal",
               "key.annotated_decl" : "<Declaration>static var aStaticVar: <Type usr=\"s:Si\">Int<\/Type> { get }<\/Declaration>",
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "static var aStaticVar: Int { get }",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -4848,6 +4935,7 @@
                 "key.bb.doc_source" : "docComment"
               },
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "public static func + (lhs: ABaseClass, rhs: ABaseClass) -> ABaseClass",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -4907,6 +4995,7 @@
                 {
                   "key.annotated_decl" : "<Declaration>let lhs: <Type usr=\"s:14SpmSwiftModule10ABaseClassC\">ABaseClass<\/Type><\/Declaration>",
                   "key.bb.is_override" : false,
+                  "key.bb.is_spi" : false,
                   "key.bb.swift_declaration" : "let lhs: ABaseClass",
                   "key.bb.swift_deprecated_everywhere" : false,
                   "key.bb.swift_name_pieces" : [
@@ -4947,6 +5036,7 @@
           "key.accessibility" : "source.lang.swift.accessibility.internal",
           "key.annotated_decl" : "<Declaration>struct T<\/Declaration>",
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.swift_declaration" : "struct T",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
@@ -4986,6 +5076,7 @@
             "key.bb.doc_source" : "docComment"
           },
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.swift_declaration" : "func + (lhs: T, rhs: T) -> String",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
@@ -5131,6 +5222,7 @@
             {
               "key.annotated_decl" : "<Declaration>let lhs: <Type usr=\"s:14SpmSwiftModule1TV\">T<\/Type><\/Declaration>",
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "let lhs: T",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -5184,6 +5276,7 @@
             }
           ],
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.swift_declaration" : "public class ADerivedClass<T, Q>: ABaseClass where Q: Sequence",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
@@ -5235,6 +5328,7 @@
             {
               "key.annotated_decl" : "<Declaration>T<\/Declaration>",
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "T",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -5266,6 +5360,7 @@
                 }
               ],
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "Q : Sequence",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -5305,6 +5400,7 @@
               "key.accessibility" : "source.lang.swift.accessibility.internal",
               "key.annotated_decl" : "<Declaration>var t: <Type usr=\"s:14SpmSwiftModule13ADerivedClassC1Qq_mfp\">Q<\/Type>?<\/Declaration>",
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "var t: Q?",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -5359,6 +5455,7 @@
                 "key.bb.doc_source" : "docComment"
               },
               "key.bb.is_override" : true,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "public override func method(param: Int) -> String",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -5426,6 +5523,7 @@
                 }
               ],
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "public func generic(param: T) where T: Equatable",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -5478,6 +5576,7 @@
                 }
               ],
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "public func generic2<R>(param: T, my param2: R) -> T\nwhere R: Sequence, R.Element: FirstProtocol",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -5527,6 +5626,7 @@
                 {
                   "key.annotated_decl" : "<Declaration>R<\/Declaration>",
                   "key.bb.is_override" : false,
+                  "key.bb.is_spi" : false,
                   "key.bb.swift_declaration" : "R",
                   "key.bb.swift_deprecated_everywhere" : false,
                   "key.bb.swift_name_pieces" : [
@@ -5571,6 +5671,7 @@
             }
           ],
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.swift_declaration" : "@propertyWrapper\nstruct Nop",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
@@ -5601,6 +5702,7 @@
               "key.accessibility" : "source.lang.swift.accessibility.internal",
               "key.annotated_decl" : "<Declaration>var wrappedValue: <Type usr=\"s:SS\">String<\/Type><\/Declaration>",
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "var wrappedValue: String",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -5637,6 +5739,7 @@
               "key.accessibility" : "source.lang.swift.accessibility.internal",
               "key.annotated_decl" : "<Declaration>init(wrappedValue: <Type usr=\"s:SS\">String<\/Type>)<\/Declaration>",
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "init(wrappedValue: String)",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -5689,6 +5792,7 @@
             "key.bb.doc_source" : "docComment"
           },
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.swift_declaration" : "struct PropertyWrapperClient",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
@@ -5736,6 +5840,7 @@
                 }
               ],
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "@Nop\nvar v: String { get set }",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [

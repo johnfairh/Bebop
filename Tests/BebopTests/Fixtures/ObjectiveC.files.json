@@ -39,6 +39,7 @@
             "key.bb.doc_source" : "docComment"
           },
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.objc_declaration" : "@interface IVarTest : NSObject",
           "key.bb.objc_name_pieces" : [
             {
@@ -112,6 +113,7 @@
                 "key.bb.doc_source" : "docComment"
               },
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.objc_declaration" : "@property (strong) NSString *propertyName",
               "key.bb.objc_deprecation_messages" : {
                 "en" : "Deprecated. Is deprecated"
@@ -175,6 +177,7 @@
             "key.bb.doc_source" : "docComment"
           },
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.objc_declaration" : "@interface PropertyKinds : NSObject",
           "key.bb.objc_name_pieces" : [
             {
@@ -221,6 +224,7 @@
                 "key.bb.doc_source" : "docComment"
               },
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.objc_declaration" : "@property (class, nonatomic, copy) NSUUID *identifier",
               "key.bb.objc_name_pieces" : [
                 {
@@ -275,6 +279,7 @@
                 "key.bb.doc_source" : "docComment"
               },
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.objc_declaration" : "@property (nonatomic, copy, nullable) NSUUID *uuid",
               "key.bb.objc_name_pieces" : [
                 {
@@ -323,6 +328,7 @@
               "key.always_deprecated" : false,
               "key.always_unavailable" : false,
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.objc_declaration" : "+ (instancetype) alloc",
               "key.bb.objc_name_pieces" : [
                 {
@@ -373,6 +379,7 @@
               "key.always_deprecated" : true,
               "key.always_unavailable" : false,
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.objc_declaration" : "- (id)init",
               "key.bb.objc_deprecation_messages" : {
                 "en" : "Deprecated. "
@@ -428,6 +435,7 @@
                 "key.bb.doc_source" : "docComment"
               },
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.objc_declaration" : "- (void)method",
               "key.bb.objc_name_pieces" : [
                 {
@@ -486,6 +494,7 @@
                 "key.bb.doc_source" : "docComment"
               },
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.objc_declaration" : "- (int)doThingWith:(int)first named:(NSString *)name",
               "key.bb.objc_name_pieces" : [
                 {
@@ -562,6 +571,7 @@
               "key.always_deprecated" : false,
               "key.always_unavailable" : false,
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.objc_declaration" : "+ (void)classMethod",
               "key.bb.objc_name_pieces" : [
                 {
@@ -658,6 +668,7 @@
           "key.always_deprecated" : false,
           "key.always_unavailable" : false,
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.objc_declaration" : "void global_func(void)",
           "key.bb.objc_name_pieces" : [
             {
@@ -714,6 +725,7 @@
             "key.bb.doc_source" : "docComment"
           },
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.objc_declaration" : "struct AStruct",
           "key.bb.objc_name_pieces" : [
             {
@@ -760,6 +772,7 @@
                 "key.bb.doc_source" : "docComment"
               },
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.objc_declaration" : "int field",
               "key.bb.objc_name_pieces" : [
                 {
@@ -855,6 +868,7 @@
             "key.bb.doc_source" : "docComment"
           },
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.objc_declaration" : "enum AEnum : NSInteger",
           "key.bb.objc_name_pieces" : [
             {
@@ -901,6 +915,7 @@
                 "key.bb.doc_source" : "docComment"
               },
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.objc_declaration" : "a = 3",
               "key.bb.objc_name_pieces" : [
                 {
@@ -951,6 +966,7 @@
                 "key.bb.doc_source" : "docComment"
               },
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.objc_declaration" : "b = 4",
               "key.bb.objc_name_pieces" : [
                 {
@@ -1001,6 +1017,7 @@
           "key.always_deprecated" : false,
           "key.always_unavailable" : false,
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.objc_declaration" : "enum ASimpleEnum",
           "key.bb.objc_name_pieces" : [
             {
@@ -1105,6 +1122,7 @@
             "key.bb.doc_source" : "docComment"
           },
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.objc_declaration" : "typedef int Fred",
           "key.bb.objc_name_pieces" : [
             {
@@ -1155,6 +1173,7 @@
             "key.bb.doc_source" : "docComment"
           },
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.objc_declaration" : "@interface IVarTest (ACategory)",
           "key.bb.objc_name_pieces" : [
             {
@@ -1195,6 +1214,7 @@
               "key.always_deprecated" : false,
               "key.always_unavailable" : false,
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.objc_declaration" : "- (void)categoryMethod",
               "key.bb.objc_name_pieces" : [
                 {
@@ -1257,6 +1277,7 @@
             "key.bb.doc_source" : "docComment"
           },
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.objc_declaration" : "@protocol SomeProtocol",
           "key.bb.objc_name_pieces" : [
             {
@@ -1297,6 +1318,7 @@
               "key.always_deprecated" : false,
               "key.always_unavailable" : false,
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.objc_declaration" : "-(void)protocolMethod",
               "key.bb.objc_name_pieces" : [
                 {
@@ -1359,6 +1381,7 @@
             "key.bb.doc_source" : "docComment"
           },
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.objc_declaration" : "@interface Stack<ElementType> : NSObject",
           "key.bb.objc_name_pieces" : [
             {
@@ -1405,6 +1428,7 @@
                 "key.bb.doc_source" : "docComment"
               },
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.objc_declaration" : "- (ElementType *)popWith:(NSString *)weight secondValue:(NSInteger)density",
               "key.bb.objc_name_pieces" : [
                 {

@@ -156,13 +156,19 @@ class SwiftDeclarationBuilder {
                                 namePieces: pieces,
                                 typeModuleName: dict.moduleName,
                                 inheritedTypes: inheritedTypes,
-                                isOverride: dict.overrides != nil)
+                                isOverride: dict.overrides != nil,
+                                isSPI: attributes.contains(where: { $0.contains("@_spi") }))
+    }
+
+    private func repair(annotatedDecl decl: String) -> String {
+        decl.re_sub("<syntaxtype.attribute.name>@_spi</syntaxtype.attribute.name>.*?(?=\\s|<)",
+                    with: "<syntaxtype.attribute.builtin>$0</syntaxtype.attribute.builtin>")
     }
 
     /// Get the compiler declaration out of an 'annotated declaration' xml.
     /// Parse the XML and knock out the declaration attributes.
     func parse(annotatedDecl: String) -> String? {
-        guard let rootElement = SWXMLHash.parseToRootElement(annotatedDecl) else {
+        guard let rootElement = SWXMLHash.parseToRootElement(repair(annotatedDecl: annotatedDecl)) else {
             return nil
         }
 

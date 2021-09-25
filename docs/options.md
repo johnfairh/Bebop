@@ -172,6 +172,8 @@ custom_modules:
 
 ## Content
 * `--min-acl` what ACLs of Swift definition to include in the docs.
+* `--include-spi` forces `@_spi` definitions to be included when `--min-acl`
+  is >= `public`.
 * `--readme` is a markdown file for the index.  Searches for a
  `README.md`-like file by default. Localizable.
 * `--guides` wildcard paths for guides, markdown files to

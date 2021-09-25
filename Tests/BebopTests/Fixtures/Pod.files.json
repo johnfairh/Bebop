@@ -24,6 +24,7 @@
             }
           ],
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.swift_declaration" : "public class PodClass",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
@@ -59,6 +60,7 @@
                 }
               ],
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "var count: Int",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -100,6 +102,7 @@
                 }
               ],
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "init()",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -145,6 +148,7 @@
                 }
               ],
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "func onlyForIOS()",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -213,6 +217,7 @@
                 }
               ],
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "func globallyDeprecated()",
               "key.bb.swift_deprecated_everywhere" : true,
               "key.bb.swift_deprecation_messages" : {
@@ -265,6 +270,7 @@
                 }
               ],
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "func iosDeprecated()",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_deprecation_messages" : {
@@ -334,6 +340,7 @@
             }
           ],
           "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
           "key.bb.swift_declaration" : "public class PodClass",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
@@ -369,6 +376,7 @@
                 }
               ],
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "var count: Int",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -410,6 +418,7 @@
                 }
               ],
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "init()",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -474,6 +483,7 @@
                 }
               ],
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "func onlyForMacOS()",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
@@ -523,6 +533,7 @@
                 }
               ],
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "func globallyDeprecated()",
               "key.bb.swift_deprecated_everywhere" : true,
               "key.bb.swift_deprecation_messages" : {
@@ -575,6 +586,7 @@
                 }
               ],
               "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "func iosDeprecated()",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_deprecation_messages" : {

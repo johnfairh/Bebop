@@ -12,13 +12,15 @@ import SourceKittenFramework
 
 fileprivate struct System {
     let config: Config
+    let stats: Stats
     let merge: Merge
-    init(_ mergeP2: Bool = false, opts: [String] = []) {
+    init(_ mergeP2: Bool = false, minAcl: String = "private", opts: [String] = []) {
         config = Config()
+        stats = Stats(config: config)
         var merge = Merge(config: config)
         merge.enablePhase2 = mergeP2
         self.merge = merge
-        try! config.processOptions(cliOpts: ["--min-acl=private"] + opts)
+        try! config.processOptions(cliOpts: ["--min-acl=\(minAcl)"] + opts)
     }
 }
 
@@ -269,5 +271,31 @@ class TestMerge: XCTestCase {
         let merged = try system.merge.merge(gathered: passes)
         XCTAssertEqual(1, merged.count)
         XCTAssertEqual(merged[0].documentation.abstract, RichText("Ext Docs"))
+    }
+
+    // SPI filter
+    func testSPIFilter() throws {
+        let clazz = SourceKittenDict
+            .mkClass(name: "Clas")
+            .withInlineAttributes()
+            .with(decl: "@_spi(Fred) class Clas")
+            .with(accessibility: .public)
+        let passes = SourceKittenDict
+            .mkFile()
+            .with(children: [clazz])
+            .asGatherPasses
+
+        let systemInclude = System(true, minAcl: "public", opts: ["--include-spi"])
+        let mergedIn = try systemInclude.merge.merge(gathered: passes)
+        XCTAssertEqual(1, mergedIn.count)
+
+        let systemExclude = System(true, minAcl: "public", opts: [])
+        let mergedEx = try systemExclude.merge.merge(gathered: passes)
+        XCTAssertEqual(0, mergedEx.count)
+        XCTAssertEqual(1, Stats.db[.filterSPI])
+
+        let systemFull = System(true, minAcl: "internal", opts: [])
+        let mergedFull = try systemFull.merge.merge(gathered: passes)
+        XCTAssertEqual(1, mergedFull.count)
     }
 }

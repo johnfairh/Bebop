@@ -10,6 +10,8 @@
 ///
 /// Filepath include/excludes
 ///
+/// SPI excludes
+///
 /// ACL filtering and consequences thereof, empty extensions
 ///
 /// :nodoc:
@@ -26,6 +28,7 @@ struct MergeFilter: Configurable {
     let includeFilesOpt = GlobListOpt(l: "include-source-files").help("FILEPATHGLOB1,FILEPATHGLOB2,...")
     let excludeFilesOpt = GlobListOpt(l: "exclude-source-files").help("FILEPATHGLOB1,FILEPATHGLOB2,...")
     let excludeNamesOpt = StringListOpt(l: "exclude-names").help("NAMEREGEXP1,NAMEREGEXP2,...")
+    let includeSPIOpt = BoolOpt(l: "include-spi")
 
     var minAcl: DefAcl { minAclOpt.value! }
     var undocumentedText: Localized<String> { undocumentedTextOpt.value! }
@@ -114,6 +117,12 @@ struct MergeFilter: Configurable {
         // before looking at ACLs and updating those counters.
         guard !item.documentation.isMarkedNoDoc else {
             Stats.inc(.filterNoDoc)
+            return false
+        }
+
+        // Check SPI
+        if !includeSPIOpt.value && minAcl.excludeSPI && item.isSPI {
+            Stats.inc(.filterSPI)
             return false
         }
 

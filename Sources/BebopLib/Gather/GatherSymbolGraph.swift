@@ -99,6 +99,7 @@ fileprivate struct NetworkSymbolGraph: Decodable {
             let isUnconditionallyUnavailable: Bool?
         }
         let availability: [Availability]?
+        let spi: Bool?
         struct Location: Decodable {
             let uri: String
             var file: String {
@@ -145,6 +146,7 @@ fileprivate struct SymbolGraph: Decodable {
         let declaration: String
         let accessLevel: String
         let availability: [String]
+        let spi: Bool
         struct Location: Equatable {
             let filename: String
             let line: Int
@@ -232,6 +234,7 @@ fileprivate struct SymbolGraph: Decodable {
                           declaration: declaration,
                           accessLevel: acl,
                           availability: sym.availability?.compactMap { $0.asSwift } ?? [],
+                          spi: sym.spi ?? false,
                           location: location,
                           genericTypeParameters: Set(sym.swiftGenerics?.parameters?.map { $0.name } ?? []),
                           constraints: Constraints(sorted: constraints.sorted().uniqued()))
@@ -558,14 +561,22 @@ extension SymbolGraph {
                 .filter { $0.typeNames.intersection(newGenericTypeParameters).isEmpty }
         }
 
+        var spiAttributes: [String] {
+            symbol.spi ? ["@_spi(Unknown)"] : []
+        }
+
+        var attributes: [String] {
+            spiAttributes + symbol.availability
+        }
+
         var declarationXml: String {
-            let availabilityXml = symbol.availability.map {
+            let attributesXml = attributes.map {
                 "<syntaxtype.attribute.builtin>\($0.htmlEscaped)\n</syntaxtype.attribute.builtin>"
             }
             let newConstraints = symbol.constraints.subtracting(parent?.constraints ?? Constraints())
             let inherits = superclassName.flatMap { " : \($0)"} ?? ""
             let declaration = symbol.declaration + inherits + newConstraints.asWhereClause
-            return "<swift>\(availabilityXml.joined())\(declaration.htmlEscaped)</swift>"
+            return "<swift>\(attributesXml.joined())\(declaration.htmlEscaped)</swift>"
         }
 
         var asSourceKittenDict: SourceKittenDict {
@@ -575,7 +586,7 @@ extension SymbolGraph {
             dict[.name] = symbol.name
             dict[.accessibility] = symbol.accessLevel
             dict[.fullyAnnotatedDecl] = declarationXml
-            if !symbol.availability.isEmpty {
+            if !attributes.isEmpty {
                 dict[.attributes] = [] // marker for GatherSwiftDecl
             }
             dict[.documentationComment] = symbol.docComment

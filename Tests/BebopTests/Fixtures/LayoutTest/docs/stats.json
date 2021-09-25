@@ -21,6 +21,7 @@
   "filterNoDoc" : 0,
   "filterSkipUndocOverride" : 0,
   "filterSkipUndocumented" : 0,
+  "filterSPI" : 0,
   "filterSymbolName" : 0,
   "filterUselessExtension" : 0,
   "formatMarkdown" : 56,

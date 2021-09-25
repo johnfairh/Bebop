@@ -123,6 +123,10 @@ extension SourceKittenDict {
         with(field: field.rawValue, value: value)
     }
 
+    func with(field: SwiftDocKey2, value: SourceKitRepresentable) -> Self {
+        with(field: field.rawValue, value: value)
+    }
+
     func without(field: SwiftDocKey) -> Self {
         without(field: field.rawValue)
     }
@@ -198,6 +202,11 @@ extension SourceKittenDict {
 
     func with(children: [SourceKittenDict]) -> Self {
         with(field: .substructure, value: children)
+    }
+
+    /// Set to actually look at @attributes in the decl
+    func withInlineAttributes() -> Self {
+        with(field: .attributes, value: [])
     }
 
     // Factories

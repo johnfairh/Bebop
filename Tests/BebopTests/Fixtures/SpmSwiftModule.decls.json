@@ -28,9 +28,10 @@
           "declaration" : {
             "text" : "var boxed: T"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "var "
@@ -72,9 +73,10 @@
           "declaration" : {
             "text" : "init(type: T)"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "name" : "init"
@@ -119,9 +121,10 @@
           "declaration" : {
             "text" : "func mutify() -> T"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "func "
@@ -168,9 +171,10 @@
           "declaration" : {
             "text" : "var description: String { get }"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : true,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "var "
@@ -221,9 +225,10 @@
           "declaration" : {
             "text" : "func doFirstMagic()"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "func "
@@ -279,9 +284,10 @@
           "declaration" : {
             "text" : "func doMoreMagic()"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "func "
@@ -324,9 +330,10 @@
           "declaration" : {
             "text" : "func doHashable()"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "func "
@@ -380,9 +387,10 @@
           "declaration" : {
             "text" : "var codableCount: Int { get }"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "var "
@@ -438,9 +446,10 @@
           "declaration" : {
             "text" : "func doCodability()"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "func "
@@ -483,9 +492,10 @@
       "declaration" : {
         "text" : "class GenericBase<T>\n\nextension GenericBase: CustomStringConvertible"
       },
-      "deprecated_everywhere" : false,
       "inherited_types" : [],
+      "is_deprecated_everywhere" : false,
       "is_override" : false,
+      "is_spi" : false,
       "name_pieces" : [
         {
           "other" : "class "
@@ -564,9 +574,10 @@
           "declaration" : {
             "text" : "func m(arg: Int) -> String"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "func "
@@ -614,9 +625,10 @@
           "declaration" : {
             "text" : "associatedtype AssocType"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "associatedtype "
@@ -655,9 +667,10 @@
           "declaration" : {
             "text" : "func assocFunc() -> AssocType"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "func "
@@ -699,9 +712,10 @@
           "declaration" : {
             "text" : "var getOnly: Int { get }"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "var "
@@ -743,9 +757,10 @@
           "declaration" : {
             "text" : "var setAndGet: Int { get set }"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "var "
@@ -795,9 +810,10 @@
           "declaration" : {
             "text" : "func e<C>(a: C) where C: FirstProtocol"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "func "
@@ -850,9 +866,10 @@
           "declaration" : {
             "text" : "func e()"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "func "
@@ -900,9 +917,10 @@
           "declaration" : {
             "text" : "func extHashableMethod()"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "func "
@@ -963,9 +981,10 @@
           "declaration" : {
             "text" : "func m(arg: Int) -> String"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "func "
@@ -1011,9 +1030,10 @@
       "declaration" : {
         "text" : "public protocol FirstProtocol"
       },
-      "deprecated_everywhere" : false,
       "inherited_types" : [],
+      "is_deprecated_everywhere" : false,
       "is_override" : false,
+      "is_spi" : false,
       "name_pieces" : [
         {
           "other" : "protocol "
@@ -1055,9 +1075,10 @@
           "declaration" : {
             "text" : "func secondProtocolMethod() -> String"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "func "
@@ -1104,9 +1125,10 @@
           "declaration" : {
             "text" : "var getOnly: Int { get }"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "var "
@@ -1146,11 +1168,12 @@
       "declaration" : {
         "text" : "public protocol SecondProtocol: FirstProtocol"
       },
-      "deprecated_everywhere" : false,
       "inherited_types" : [
         "FirstProtocol"
       ],
+      "is_deprecated_everywhere" : false,
       "is_override" : false,
+      "is_spi" : false,
       "name_pieces" : [
         {
           "other" : "protocol "
@@ -1189,9 +1212,10 @@
       "declaration" : {
         "text" : "protocol P1"
       },
-      "deprecated_everywhere" : false,
       "inherited_types" : [],
+      "is_deprecated_everywhere" : false,
       "is_override" : false,
+      "is_spi" : false,
       "name_pieces" : [
         {
           "other" : "protocol "
@@ -1230,9 +1254,10 @@
       "declaration" : {
         "text" : "protocol P2"
       },
-      "deprecated_everywhere" : false,
       "inherited_types" : [],
+      "is_deprecated_everywhere" : false,
       "is_override" : false,
+      "is_spi" : false,
       "name_pieces" : [
         {
           "other" : "protocol "
@@ -1279,9 +1304,10 @@
           "declaration" : {
             "text" : "var description: String { get }"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : true,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "var "
@@ -1321,11 +1347,12 @@
       "declaration" : {
         "text" : "struct S1: P1\n\nextension S1: CustomStringConvertible"
       },
-      "deprecated_everywhere" : false,
       "inherited_types" : [
         "P1"
       ],
+      "is_deprecated_everywhere" : false,
       "is_override" : false,
+      "is_spi" : false,
       "name_pieces" : [
         {
           "other" : "struct "
@@ -1367,9 +1394,10 @@
           "declaration" : {
             "text" : "func equatables2()"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "func "
@@ -1412,9 +1440,10 @@
           "declaration" : {
             "text" : "func comparables2()"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "func "
@@ -1470,9 +1499,10 @@
           "declaration" : {
             "text" : "func equatables22()"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "func "
@@ -1528,11 +1558,12 @@
       "declaration" : {
         "text" : "struct S2<T>: P1 where T: Equatable\n\nextension S2: Equatable where T: Equatable\n\nextension S2: P2 where T: Comparable"
       },
-      "deprecated_everywhere" : false,
       "inherited_types" : [
         "P1"
       ],
+      "is_deprecated_everywhere" : false,
       "is_override" : false,
+      "is_spi" : false,
       "name_pieces" : [
         {
           "other" : "struct "
@@ -1574,9 +1605,10 @@
           "declaration" : {
             "text" : "public var text: String"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "var "
@@ -1629,9 +1661,10 @@
               "declaration" : {
                 "text" : "public struct Nested2a"
               },
-              "deprecated_everywhere" : false,
               "inherited_types" : [],
+              "is_deprecated_everywhere" : false,
               "is_override" : false,
+              "is_spi" : false,
               "name_pieces" : [
                 {
                   "other" : "struct "
@@ -1670,12 +1703,13 @@
               "declaration" : {
                 "text" : "public struct Nested2b"
               },
-              "deprecated_everywhere" : true,
               "deprecation" : {
                 "en" : "Deprecated."
               },
               "inherited_types" : [],
+              "is_deprecated_everywhere" : true,
               "is_override" : false,
+              "is_spi" : false,
               "name_pieces" : [
                 {
                   "other" : "struct "
@@ -1712,9 +1746,10 @@
           "declaration" : {
             "text" : "public struct Nested1"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "struct "
@@ -1761,9 +1796,10 @@
           "declaration" : {
             "text" : "public struct Nested2"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "struct "
@@ -1810,9 +1846,10 @@
           "declaration" : {
             "text" : "var a: Int"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "var "
@@ -1862,9 +1899,10 @@
           "declaration" : {
             "text" : "var b: Int"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "var "
@@ -1938,9 +1976,10 @@
           "declaration" : {
             "text" : "public func checkState(name: String) throws -> Int"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "func "
@@ -1994,9 +2033,10 @@
       "declaration" : {
         "text" : "public struct SpmSwiftModule"
       },
-      "deprecated_everywhere" : false,
       "inherited_types" : [],
+      "is_deprecated_everywhere" : false,
       "is_override" : false,
+      "is_spi" : false,
       "name_pieces" : [
         {
           "other" : "struct "
@@ -2038,9 +2078,10 @@
           "declaration" : {
             "text" : "case first(Int)"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "case "
@@ -2082,9 +2123,10 @@
           "declaration" : {
             "text" : "case second"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "case "
@@ -2123,9 +2165,10 @@
           "declaration" : {
             "text" : "case third"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "case "
@@ -2164,9 +2207,10 @@
           "declaration" : {
             "text" : "case fourth"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "case "
@@ -2205,9 +2249,10 @@
           "declaration" : {
             "text" : "case fifth(a: String, _: Int)"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "case "
@@ -2253,9 +2298,10 @@
       "declaration" : {
         "text" : "public enum AnEnum"
       },
-      "deprecated_everywhere" : false,
       "inherited_types" : [],
+      "is_deprecated_everywhere" : false,
       "is_override" : false,
+      "is_spi" : false,
       "name_pieces" : [
         {
           "other" : "enum "
@@ -2329,9 +2375,10 @@
       "declaration" : {
         "text" : "public func functionA(\n    arg1: Int,\n    _ arg2: Int,\n    arg3 argMeaning: Int)"
       },
-      "deprecated_everywhere" : false,
       "inherited_types" : [],
+      "is_deprecated_everywhere" : false,
       "is_override" : false,
+      "is_spi" : false,
       "name_pieces" : [
         {
           "other" : "func "
@@ -2402,12 +2449,13 @@
       "declaration" : {
         "text" : "public func deprecatedFunction(callback: (_ report: String) -> Int) -> String"
       },
-      "deprecated_everywhere" : true,
       "deprecation" : {
         "en" : "iOS - deprecated since 12.0. Deprecated!.\n\nmacOS - deprecated since 10.14. Deprecated on *macOS* too.\n\nDeprecated."
       },
       "inherited_types" : [],
+      "is_deprecated_everywhere" : true,
       "is_override" : false,
+      "is_spi" : false,
       "name_pieces" : [
         {
           "other" : "func "
@@ -2458,9 +2506,10 @@
           "declaration" : {
             "text" : "public init()"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "name" : "init"
@@ -2499,9 +2548,10 @@
           "declaration" : {
             "text" : "public convenience init(a: Int)"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "name" : "init"
@@ -2546,9 +2596,10 @@
           "declaration" : {
             "text" : "deinit"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "name" : "deinit"
@@ -2584,9 +2635,10 @@
           "declaration" : {
             "text" : "public func method(param: Int) -> String"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "func "
@@ -2634,9 +2686,10 @@
           "declaration" : {
             "text" : "public static func staticMethod() -> Int"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "static func "
@@ -2678,9 +2731,10 @@
           "declaration" : {
             "text" : "public subscript(arg: String) -> Int { get set }"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "name" : "subscript"
@@ -2725,9 +2779,10 @@
           "declaration" : {
             "text" : "public static subscript(arg: String) -> Int { get }"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "static "
@@ -2775,9 +2830,10 @@
           "declaration" : {
             "text" : "public class subscript(arg: Int) -> String { get }"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "class "
@@ -2825,9 +2881,10 @@
           "declaration" : {
             "text" : "static var aStaticVar: Int { get }"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "static var "
@@ -2869,9 +2926,10 @@
           "declaration" : {
             "text" : "public static func + (lhs: ABaseClass, rhs: ABaseClass) -> ABaseClass"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "static func "
@@ -2923,9 +2981,10 @@
       "declaration" : {
         "text" : "public class ABaseClass"
       },
-      "deprecated_everywhere" : false,
       "inherited_types" : [],
+      "is_deprecated_everywhere" : false,
       "is_override" : false,
+      "is_spi" : false,
       "name_pieces" : [
         {
           "other" : "class "
@@ -2964,9 +3023,10 @@
       "declaration" : {
         "text" : "struct T"
       },
-      "deprecated_everywhere" : false,
       "inherited_types" : [],
+      "is_deprecated_everywhere" : false,
       "is_override" : false,
+      "is_spi" : false,
       "name_pieces" : [
         {
           "other" : "struct "
@@ -3005,9 +3065,10 @@
       "declaration" : {
         "text" : "func + (lhs: T, rhs: T) -> String"
       },
-      "deprecated_everywhere" : false,
       "inherited_types" : [],
+      "is_deprecated_everywhere" : false,
       "is_override" : false,
+      "is_spi" : false,
       "name_pieces" : [
         {
           "other" : "static func "
@@ -3064,9 +3125,10 @@
           "declaration" : {
             "text" : "var t: Q?"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "var "
@@ -3108,9 +3170,10 @@
           "declaration" : {
             "text" : "public override func method(param: Int) -> String"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : true,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "func "
@@ -3158,9 +3221,10 @@
           "declaration" : {
             "text" : "public func generic(param: T) where T: Equatable"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "func "
@@ -3211,9 +3275,10 @@
           "declaration" : {
             "text" : "public func generic2<R>(param: T, my param2: R) -> T\nwhere R: Sequence, R.Element: FirstProtocol"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "func "
@@ -3269,11 +3334,12 @@
       "declaration" : {
         "text" : "public class ADerivedClass<T, Q>: ABaseClass where Q: Sequence"
       },
-      "deprecated_everywhere" : false,
       "inherited_types" : [
         "ABaseClass"
       ],
+      "is_deprecated_everywhere" : false,
       "is_override" : false,
+      "is_spi" : false,
       "name_pieces" : [
         {
           "other" : "class "
@@ -3315,9 +3381,10 @@
           "declaration" : {
             "text" : "var wrappedValue: String"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "var "
@@ -3359,9 +3426,10 @@
           "declaration" : {
             "text" : "init(wrappedValue: String)"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "name" : "init"
@@ -3404,9 +3472,10 @@
       "declaration" : {
         "text" : "@propertyWrapper\nstruct Nop"
       },
-      "deprecated_everywhere" : false,
       "inherited_types" : [],
+      "is_deprecated_everywhere" : false,
       "is_override" : false,
+      "is_spi" : false,
       "name_pieces" : [
         {
           "other" : "struct "
@@ -3448,9 +3517,10 @@
           "declaration" : {
             "text" : "@Nop\nvar v: String { get set }"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "var "
@@ -3490,9 +3560,10 @@
       "declaration" : {
         "text" : "struct PropertyWrapperClient"
       },
-      "deprecated_everywhere" : false,
       "inherited_types" : [],
+      "is_deprecated_everywhere" : false,
       "is_override" : false,
+      "is_spi" : false,
       "name_pieces" : [
         {
           "other" : "struct "
@@ -3535,9 +3606,10 @@
           "declaration" : {
             "text" : "func collectEmAll()"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "func "
@@ -3593,9 +3665,10 @@
           "declaration" : {
             "text" : "func nestEmAll()"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "func "
@@ -3648,9 +3721,10 @@
       "declaration" : {
         "text" : "extension Collection where Element: FirstProtocol\n\nextension Collection where Element == SpmSwiftModule.Nested1"
       },
-      "deprecated_everywhere" : false,
       "inherited_types" : [],
+      "is_deprecated_everywhere" : false,
       "is_override" : false,
+      "is_spi" : false,
       "name_pieces" : [
         {
           "other" : "extension "
@@ -3701,9 +3775,10 @@
           "declaration" : {
             "text" : "func method1()"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "func "
@@ -3745,9 +3820,10 @@
           "declaration" : {
             "text" : "func method2()"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "func "
@@ -3787,9 +3863,10 @@
       "declaration" : {
         "text" : "extension String.Element"
       },
-      "deprecated_everywhere" : false,
       "inherited_types" : [],
+      "is_deprecated_everywhere" : false,
       "is_override" : true,
+      "is_spi" : false,
       "name_pieces" : [
         {
           "other" : "extension "
@@ -3840,9 +3917,10 @@
           "declaration" : {
             "text" : "func f()"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "func "
@@ -3884,9 +3962,10 @@
           "declaration" : {
             "text" : "func hasSuffix(_ prefix: String) -> Bool"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "func "
@@ -3926,9 +4005,10 @@
       "declaration" : {
         "text" : "extension StringProtocol"
       },
-      "deprecated_everywhere" : false,
       "inherited_types" : [],
+      "is_deprecated_everywhere" : false,
       "is_override" : false,
+      "is_spi" : false,
       "name_pieces" : [
         {
           "other" : "extension "
@@ -3976,11 +4056,12 @@
       "declaration" : {
         "text" : "extension Dictionary: P2"
       },
-      "deprecated_everywhere" : false,
       "inherited_types" : [
         "P2"
       ],
+      "is_deprecated_everywhere" : false,
       "is_override" : false,
+      "is_spi" : false,
       "name_pieces" : [
         {
           "other" : "extension "
@@ -4023,9 +4104,10 @@
           "declaration" : {
             "text" : "func arrayFunc()"
           },
-          "deprecated_everywhere" : false,
           "inherited_types" : [],
+          "is_deprecated_everywhere" : false,
           "is_override" : false,
+          "is_spi" : false,
           "name_pieces" : [
             {
               "other" : "func "
@@ -4065,11 +4147,12 @@
       "declaration" : {
         "text" : "extension Array: P1 where Element: Comparable"
       },
-      "deprecated_everywhere" : false,
       "inherited_types" : [
         "P1"
       ],
+      "is_deprecated_everywhere" : false,
       "is_override" : false,
+      "is_spi" : false,
       "name_pieces" : [
         {
           "other" : "extension "
