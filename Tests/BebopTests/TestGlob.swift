@@ -36,7 +36,7 @@ class TestGlob: XCTestCase {
             .deletingLastPathComponent()
             .deletingLastPathComponent()
             .deletingLastPathComponent()
-        let packFiles = projectRoot.filesMatching("Pack*")
+        let packFiles = projectRoot.filesMatching("Pack*").filter { !$0.path.contains("Packages") }
 
         let expected = ["Package.resolved", "Package.swift"] // alphabetical order
             .map { projectRoot.path + "/\($0)" }

@@ -1503,7 +1503,7 @@
 			repositoryURL = "https://github.com/apple/swift-syntax.git";
 			requirement = {
 				kind = exactVersion;
-				version = 0.50400.0;
+				version = 0.50500.0;
 			};
 		};
 		02486F4C2646B20700B8B50E /* XCRemoteSwiftPackageReference "swift-format" */ = {
@@ -1511,7 +1511,7 @@
 			repositoryURL = "https://github.com/apple/swift-format";
 			requirement = {
 				kind = exactVersion;
-				version = 0.50400.0;
+				version = 0.50500.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

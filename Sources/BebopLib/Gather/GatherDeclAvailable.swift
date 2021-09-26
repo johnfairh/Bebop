@@ -73,7 +73,13 @@ private class FunctionPiecesVisitor: SyntaxVisitor {
     /// For "a b"
     override func visit(_ node: AvailabilityVersionRestrictionSyntax) -> SyntaxVisitorContinueKind {
         let tok1 = node.platform.withoutTrailingTrivia().description
-        let tok2 = node.version.description.trimmingTrailingCharacters(in: .whitespaces)
+        let tok2: String
+        if let version = node.version {
+            tok2 = version.description.trimmingTrailingCharacters(in: .whitespaces)
+        } else {
+            // erm this is new and weird in Swift 5.5, the version is optional - looks like some weird Apple-internal thing.  Fudge it.
+            tok2 = "??"
+        }
         args.append(.doubleToken(tok1, tok2))
         return .skipChildren
     }
@@ -87,7 +93,6 @@ private extension String {
 }
 
 // An interface to wrap that up
-
 private extension String {
     func parseAvailable() -> [AvailArg] {
         let visitor = FunctionPiecesVisitor()

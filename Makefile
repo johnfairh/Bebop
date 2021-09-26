@@ -19,10 +19,10 @@ test:
 	swift test --enable-code-coverage
 
 test_linux:
-	docker run -v `pwd`:`pwd` -w `pwd` --name bebop --rm swift:5.4 /bin/bash -c "apt-get update; apt-get install libsqlite3-dev libsass0 libsass-dev; make test"
+	docker run -v `pwd`:`pwd` -w `pwd` --name bebop --rm swift:5.5 /bin/bash -c "apt-get update; apt-get install libsqlite3-dev libsass0 libsass-dev; make test"
 
 shell_linux:
-	docker run -it -v `pwd`:`pwd` -w `pwd` --name bebop --rm swift:5.4 /bin/bash
+	docker run -it -v `pwd`:`pwd` -w `pwd` --name bebop --rm swift:5.5 /bin/bash
 
 install: build
 	-mkdir -p ${PREFIX}/share ${PREFIX}/bin
@@ -40,3 +40,14 @@ uninstall:
 # 2. BebopCLI.app/Contents/Frameworks/lib_InternalSwiftSyntaxParser.dylib
 #
 # Both point to /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/lib_InternalSwiftSyntaxParser.dylib
+
+DERIVED_DATA := $(shell xcodebuild -showBuildSettings|grep ' BUILD_DIR = ' | awk '{print $$3}')
+DD_DEBUG := ${DERIVED_DATA}/Debug
+
+SS_DYLIB := lib_InternalSwiftSyntaxParser.dylib
+
+XCODE_DYLIB := /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/${SS_DYLIB}
+
+xcode_symlinks:
+	ln -sf ${XCODE_DYLIB} ${DD_DEBUG}/${SS_DYLIB}
+	ln -sf ${XCODE_DYLIB} ${DD_DEBUG}/BebopCLI.app/Contents/Frameworks/${SS_DYLIB}
