@@ -2,15 +2,6 @@
   "object": {
     "pins": [
       {
-        "package": "Commandant",
-        "repositoryURL": "https://github.com/Carthage/Commandant.git",
-        "state": {
-          "branch": null,
-          "revision": "ab68611013dec67413628ac87c1f29e8427bc8e4",
-          "version": "0.17.0"
-        }
-      },
-      {
         "package": "Mustache",
         "repositoryURL": "https://github.com/johnfairh/GRMustache.swift.git",
         "state": {
@@ -38,24 +29,6 @@
         }
       },
       {
-        "package": "Nimble",
-        "repositoryURL": "https://github.com/Quick/Nimble.git",
-        "state": {
-          "branch": null,
-          "revision": "7a46a5fc86cb917f69e3daf79fcb045283d8f008",
-          "version": "8.1.2"
-        }
-      },
-      {
-        "package": "Quick",
-        "repositoryURL": "https://github.com/Quick/Quick.git",
-        "state": {
-          "branch": null,
-          "revision": "09b3becb37cb2163919a3842a4c5fa6ec7130792",
-          "version": "2.2.1"
-        }
-      },
-      {
         "package": "SortedArray",
         "repositoryURL": "https://github.com/ole/SortedArray.git",
         "state": {
@@ -66,11 +39,11 @@
       },
       {
         "package": "SourceKitten",
-        "repositoryURL": "https://github.com/jpsim/SourceKitten.git",
+        "repositoryURL": "https://github.com/johnfairh/sourcekitten.git",
         "state": {
-          "branch": null,
-          "revision": "c0f960f72fa1e6151695074ffa696e4da6c45ce8",
-          "version": "0.30.1"
+          "branch": "master",
+          "revision": "032b23bf05a46907e545048035717870b338510e",
+          "version": null
         }
       },
       {

@@ -13,8 +13,8 @@ let package = Package(
   ],
   dependencies: [
     .package(url: "https://github.com/jpsim/Yams.git", from: "4.0.0"),
-    .package(url: "https://github.com/jpsim/SourceKitten.git",
-             revision: "eeb2bed8ba9c73a72843b7769dfce96c5dc8bc13"),
+    .package(url: "https://github.com/johnfairh/SourceKitten.git",
+             revision: "032b23bf05a46907e545048035717870b338510e"),
     .package(name: "Mustache",
              url: "https://github.com/johnfairh/GRMustache.swift.git",
              from: "14.0.1"),
@@ -29,7 +29,7 @@ let package = Package(
     .package(url: "https://github.com/ole/SortedArray.git",
              from: "0.7.0"),
     .package(url: "https://github.com/stephencelis/SQLite.swift.git",
-             from: "0.12.0"),
+             .upToNextMinor(from: "0.12.0")),
     .package(url: "https://github.com/apple/swift-format",
              .exact("0.50500.0"))
   ],

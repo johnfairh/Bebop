@@ -274,6 +274,8 @@ class TestGatherDecl: XCTestCase {
                         "func #fff#(#a#: Int)")
         checkFuncPieces("func fff(a: Int) rethrows -> String", "fff",
                         "func #fff#(#a#: Int) -> String")
+        checkFuncPieces("func fff(_ a: Int)", "fff",
+                        "func #fff#(Int)")
     }
 
     func testSimplePieces() {
@@ -311,6 +313,9 @@ class TestGatherDecl: XCTestCase {
 
         let pieces3 = builder.parseToPieces(declaration: "init(a b: Int)", name: "init(b:)", kind: initKind)
         XCTAssertEqual("#init#(#a#: Int)", pieces3.flat)
+
+        let pieces3a = builder.parseToPieces(declaration: "init(_ b: Int)", name: "init(_ b:)", kind: initKind)
+        XCTAssertEqual("#init#(Int)", pieces3a.flat)
 
         let deinitKind = DefKind.from(key: SwiftDeclarationKind.functionMethodInstance.rawValue, dict: [SwiftDocKey.name.rawValue:"deinit"])!
         let pieces4 = builder.parseToPieces(declaration: "deinit", name: "deinit", kind: deinitKind)

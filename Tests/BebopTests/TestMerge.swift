@@ -292,7 +292,7 @@ class TestMerge: XCTestCase {
         let systemExclude = System(true, minAcl: "public", opts: [])
         let mergedEx = try systemExclude.merge.merge(gathered: passes)
         XCTAssertEqual(0, mergedEx.count)
-        XCTAssertEqual(1, Stats.db[.filterSPI])
+        XCTAssertEqual(1, Stats.db[.filterSpi])
 
         let systemFull = System(true, minAcl: "internal", opts: [])
         let mergedFull = try systemFull.merge.merge(gathered: passes)

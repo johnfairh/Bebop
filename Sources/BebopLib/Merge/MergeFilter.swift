@@ -122,7 +122,7 @@ struct MergeFilter: Configurable {
 
         // Check SPI
         if !includeSPIOpt.value && minAcl.excludeSPI && item.isSPI {
-            Stats.inc(.filterSPI)
+            Stats.inc(.filterSpi)
             return false
         }
 
