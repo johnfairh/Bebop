@@ -15,7 +15,6 @@ public typealias SourceKittenDict = [String: Any]
 enum SwiftDocKey2: String {
     case annotatedDecl = "key.annotated_decl"
     case fullyAnnotatedDecl = "key.fully_annotated_decl"
-    case attributes = "key.attributes"
     case moduleName = "key.modulename"
     case accessibility = "key.accessibility"
     case overrides = "key.overrides"

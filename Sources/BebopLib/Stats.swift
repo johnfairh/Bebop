@@ -150,7 +150,7 @@ struct StatsDb {
         /// Defs excluded by :nodoc:
         case filterNoDoc
         /// Defs excluded by @_spi
-        case filterSPI
+        case filterSpi // Can't be `SPI` because then Linux sorts it differently!!
         /// Defs excluded by min-acl
         case filterMinAclExcluded
         /// Defs included by min-acl
@@ -257,7 +257,7 @@ struct StatsDb {
         if aclSkipped > 0 {
             report.append(.localized(.msgSwiftAcl, aclSkipped, aclExcludedNames))
         }
-        let spiSkipped = self[.filterSPI]
+        let spiSkipped = self[.filterSpi]
         if spiSkipped > 0 {
             report.append(.localized(.msgSpiSkipped, spiSkipped))
         }
