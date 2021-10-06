@@ -39,11 +39,11 @@
       },
       {
         "package": "SourceKitten",
-        "repositoryURL": "https://github.com/johnfairh/SourceKitten.git",
+        "repositoryURL": "https://github.com/jpsim/SourceKitten.git",
         "state": {
           "branch": null,
-          "revision": "032b23bf05a46907e545048035717870b338510e",
-          "version": null
+          "revision": "558628392eb31d37cb251cfe626c53eafd330df6",
+          "version": "0.31.1"
         }
       },
       {

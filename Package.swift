@@ -13,8 +13,8 @@ let package = Package(
   ],
   dependencies: [
     .package(url: "https://github.com/jpsim/Yams.git", from: "4.0.0"),
-    .package(url: "https://github.com/johnfairh/SourceKitten.git",
-             revision: "032b23bf05a46907e545048035717870b338510e"),
+    .package(url: "https://github.com/jpsim/SourceKitten.git",
+             from: "0.31.1"),
     .package(name: "Mustache",
              url: "https://github.com/johnfairh/GRMustache.swift.git",
              from: "14.0.1"),
