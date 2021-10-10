@@ -191,25 +191,26 @@ final class FormatAutolink: Configurable {
     /// Search for a def that matches the name in its context.
     /// Return a tuple of the def, if any, and the language in which the user named the def.
     func def(for name: String, context: Item) -> (DefItem, DefLanguage)? {
-        // Relative matches for text in the def hierarchy
+        // First look for a ref to a nested name that assumes part of this item's
+        // prefix.  Eg. "B" -> "A.B" from context "A.C".
         if let defContext = context as? DefItem {
-            // First try in local scope
             for db in nameDBs {
-                let localName = name.inHierarchy(parents: defContext.parentsFromRoot, for: db.language)
-                if let localDef = db.db[localName] {
-                    Stats.inc(.autolinkLocalLocalScope)
-                    return (localDef, db.language)
-                }
+                var contextDefParents = defContext.parentsFromRoot.compactMap { $0 as? DefItem }
 
-                // Try local scope, nested
-                if let nestedDef = db.db["\(defContext.name).\(name)"] {
-                    Stats.inc(.autolinkLocalNestedScope)
-                    return (nestedDef, db.language)
+                while !contextDefParents.isEmpty {
+                    let localName = name.inHierarchy(parents: contextDefParents, for: db.language)
+                    if let localDef = db.db[localName] {
+                        Stats.inc(.autolinkLocalLocalScope)
+                        return (localDef, db.language)
+                    }
+
+                    let _ = contextDefParents.popLast()
                 }
             }
         }
 
-        // Now global (can memoize from hereout)
+        // Second look for a global name.  This is split out from the first part
+        // because of ObjC and its non-obvious method names.
         let hierarchicalName = name.hierarchical
         for db in nameDBs {
             if let globalDef = db.db[hierarchicalName] {
@@ -217,6 +218,19 @@ final class FormatAutolink: Configurable {
                 return (globalDef, db.language)
             }
         }
+
+        // Finally look for a nested name.  Not what Swift typing rules allow, so
+        // must be last: this is an affordance for people who write refs to methods
+        // in docs for a class etc.
+        if let defContext = context as? DefItem {
+            for db in nameDBs {
+                if let nestedDef = db.db["\(defContext.name).\(name)"] {
+                    Stats.inc(.autolinkLocalNestedScope)
+                    return (nestedDef, db.language)
+                }
+            }
+        }
+
         Stats.inc(.autolinkNotAutolinked)
         return nil
     }

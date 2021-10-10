@@ -40,13 +40,7 @@ public class Item: Encodable {
 
     /// Get the list of items that lead to this one, index 0 is the most root, index -1 is our direct parent
     public var parentsFromRoot: [Item] {
-        var parents = [Item]()
-        var item = self
-        while let parent = item.parent {
-            parents.append(parent)
-            item = parent
-        }
-        return parents.reversed()
+        parent.flatMap { $0.parentsFromRoot + [$0] } ?? []
     }
 
     /// Overridden

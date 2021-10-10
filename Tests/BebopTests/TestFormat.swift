@@ -206,6 +206,31 @@ class TestFormat: XCTestCase {
         }
     }
 
+    func testAutoLinkLookupHierarchy() throws {
+        // module SwModule
+        //
+        // class Outer {
+        //   class Inner1 {}
+        //   class Inner2 {
+        //      func method(arg: Inner1) {} // test resolving 'Inner1' from here
+        //   }
+        // }
+        let method = SourceKittenDict.mkMethod(name: "method(arg:)")
+        let inner2 = SourceKittenDict.mkClass(name: "Inner2").with(children: [method])
+        let inner1 = SourceKittenDict.mkClass(name: "Inner1")
+        let outer = SourceKittenDict.mkClass(name: "Outer").with(children: [inner1, inner2])
+        let file = SourceKittenDict.mkFile().with(children: [outer])
+        let pass = file.asGatherDef().asPass(moduleName: "SwModule")
+
+        let system = System()
+        let filtered = try system.run([pass])
+        let methodItem = (filtered[0].children[0] as! DefItem).defChildren[1].defChildren[0]
+        XCTAssertEqual("method(arg:)", methodItem.name)
+
+        let (ref, _) = try XCTUnwrap(system.format.autolink.def(for: "Inner1", context: methodItem))
+        XCTAssertEqual("Inner1", ref.name)
+    }
+
     func testAutoLinkLookupSwift() throws {
         // module SwModule
         //
