@@ -268,8 +268,10 @@ internal enum L10n {
     case wrnUnknownAcl = "wrn-unknown-acl"
     /// %1 unmatched custom abstracts: '%2'.
     case wrnUnmatchedAbstracts = "wrn-unmatched-abstracts"
-    /// Custom group regular expression '/%1/' did not match any items.
-    case wrnUnmatchedGrpRegex = "wrn-unmatched-grp-regex"
+    /// Custom group regular expression 'filepath /%1/' did not match any items.
+    case wrnUnmatchedFilepathGrpRegex = "wrn-unmatched-filepath-grp-regex"
+    /// Custom group regular expression 'name /%1/' did not match any items.
+    case wrnUnmatchedNameGrpRegex = "wrn-unmatched-name-grp-regex"
     /// Confused by different types sharing a USR.\n1: %1\n2: %2\nIgnoring the second.
     case wrnUsrCollision = "wrn-usr-collision"
     /// Can't parse XML doc comment '%1': %2

@@ -264,6 +264,7 @@ public class DefItem: Item, CustomStringConvertible {
     }
 
     /// A module name for the def - usually where it is written but for an extension, the type's module.
+    /// Swift 5.6: The `typeModuleName` will always be set, but for non-extensions will be `location.moduleName`.
     public var typeModuleName: String {
         if let swiftDecl = swiftDeclaration,
             let typeModuleName = swiftDecl.typeModuleName {

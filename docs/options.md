@@ -234,13 +234,14 @@ custom_groups:
     topics:
       - name: Freshwater
         children:
-          - /(Rainbow )?Trout/
+          - name /(Rainbow )?Trout/
           - Perch
       - name: Saltwater
         abstract: Various ocean fish.
         children:
           - Herring
           - Cod
+          - filepath /WeirdFish.swift/
   - name: Rods
     children:
       - name: Short

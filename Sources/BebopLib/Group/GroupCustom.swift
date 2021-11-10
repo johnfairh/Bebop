@@ -99,6 +99,7 @@ final class GroupCustom: Configurable {
         enum Item: Equatable {
             case name(String)
             case pattern(String)
+            case filepattern(String)
             case group(Group)
         }
     }
@@ -120,7 +121,7 @@ final class GroupCustom: Configurable {
     /// A name-indexed lookup of all the Items used to populate the custom group tree
     final class Index {
         private var nameMap = [String: (Item, Int)]()
-        private var moduleNameMap = [String: Item]()
+        private var moduleNameMap = [String: DefItem]()
 
         init(items: [Item]) {
             items.enumerated().forEach { add(item: $0.1, sortIndex: $0.0) }
@@ -130,7 +131,7 @@ final class GroupCustom: Configurable {
         private func add(item: Item, sortIndex: Int) {
             nameMap[item.name] = (item, sortIndex)
             if let defItem = item as? DefItem {
-                moduleNameMap[defItem.nameInModule] = item
+                moduleNameMap[defItem.nameInModule] = defItem
             }
         }
 
@@ -140,11 +141,15 @@ final class GroupCustom: Configurable {
             guard let item = moduleNameMap[name] ?? nameMap[name]?.0 else {
                 return nil
             }
+            remove(item: item)
+            return item
+        }
+
+        func remove(item: Item) {
             nameMap.removeValue(forKey: item.name)
             if let defItem = item as? DefItem {
                 moduleNameMap.removeValue(forKey: defItem.nameInModule)
             }
-            return item
         }
 
         /// Remove all items from our caches that match a regular expression pattern
@@ -162,6 +167,22 @@ final class GroupCustom: Configurable {
             search(dict: nameMap)
 
             return items
+        }
+
+        /// All `DefItem`s from a set of files, preserving original sort order.
+        func findAllDefs(matchingFilePattern: String) -> [DefItem] {
+            let defs = nameMap.values.compactMap { (item, order) -> (DefItem, Int)? in
+                guard let defItem = item as? DefItem,
+                      let pathname = defItem.location.filePathname,
+                      pathname.re_isMatch(matchingFilePattern) else {
+                          return nil
+                      }
+                remove(item: defItem)
+                return (defItem, order)
+            }.sorted(by: { lhs, rhs in lhs.1 < rhs.1 } )
+                .map { $0.0 }
+
+            return Array(defs)
         }
 
         /// What's left are processed by the 'group-by-kind' path -- must preserve original sort order!
@@ -215,10 +236,17 @@ final class GroupCustom: Configurable {
             case .pattern(let pattern):
                 let items = index.findAll(matching: pattern)
                 guard !items.isEmpty else {
-                    logWarning(.wrnUnmatchedGrpRegex, pattern)
+                    logWarning(.wrnUnmatchedNameGrpRegex, pattern)
                     return []
                 }
                 return items.sorted(by: { $0.sortableName < $1.sortableName })
+
+            case .filepattern(let pattern):
+                let items = index.findAllDefs(matchingFilePattern: pattern)
+                if items.isEmpty {
+                    logWarning(.wrnUnmatchedFilepathGrpRegex, pattern)
+                }
+                return items
 
             case .group(let group):
                 return [build(group: group)]
@@ -290,12 +318,19 @@ final class GroupCustom: Configurable {
             let childrenSequence = try childrenYaml.checkSequence(context: "topics.children")
             return try childrenSequence.map { childYaml in
                 if let childScalar = childYaml.scalar, case let string = childScalar.decodedString {
-                    guard let matches = string.re_match(#"^/(.*)/$"#) else {
+                    if let matches = string.re_match(#"^filepath /(.*)/$"#) {
+                        let pattern = matches[1]
+                        try pattern.re_check()
+                        return .filepattern(pattern)
+                    }
+                    else if let matches = string.re_match(#"^(?:name )?/(.*)/$"#) {
+                        let pattern = matches[1]
+                        try pattern.re_check()
+                        return .pattern(pattern)
+                    }
+                    else {
                         return .name(string)
                     }
-                    let pattern = matches[1]
-                    try pattern.re_check()
-                    return .pattern(pattern)
                 }
                 return .group(try GroupParser().group(yaml: childYaml, context: "topics.children[n]"))
             }
@@ -469,7 +504,8 @@ extension GroupCustom.Group.Item: CustomStringConvertible {
         switch self {
         case .name(let str): return str
         case .group(let grp): return grp.description
-        case .pattern(let pat): return "/\(pat)/"
+        case .pattern(let pat): return "name /\(pat)/"
+        case .filepattern(let pat): return "filepath /\(pat)/"
         }
     }
 }

@@ -167,6 +167,10 @@ extension SourceKittenDict {
         with(field: .documentationComment, value: docs)
     }
 
+    func with(filepath: String) -> Self {
+        with(field: .filePath, value: filepath)
+    }
+
     #if os(macOS)
     func with(okind: ObjCDeclarationKind) -> Self {
         with(field: .kind, value: okind.rawValue)
@@ -366,10 +370,11 @@ extension GatherDef {
     }
 
     func asPass(moduleName: String = "module", passIndex: Int = 0, pathName: String = "pathname") -> GatherModulePass {
-        GatherModulePass(moduleName: moduleName,
-                         passIndex: passIndex,
-                         imported: false,
-                         files: [(pathName, self)])
+        let actualPathName = sourceKittenDict.filePath ?? pathName
+        return GatherModulePass(moduleName: moduleName,
+                                passIndex: passIndex,
+                                imported: false,
+                                files: [(actualPathName, self)])
     }
 
     func asPasses(moduleName: String = "module", pathName: String = "pathname") -> [GatherModulePass] {

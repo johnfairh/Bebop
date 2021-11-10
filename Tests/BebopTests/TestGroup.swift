@@ -581,6 +581,34 @@ class TestGroup: XCTestCase {
 
     // MARK: Regexp
 
+    func testFilepathRegexp() throws {
+        let class1 = SourceKittenDict.mkClass(name: "AClass").with(filepath: "Foo.swift")
+        let class2 = SourceKittenDict.mkClass(name: "CClass").with(filepath: "/Root/Dir/Bar.swift")
+        let class3 = SourceKittenDict.mkClass(name: "BClass").with(filepath: "Bar.swift")
+        let file1 = SourceKittenDict.mkFile().with(children: [class1]).with(filepath: "Foo.swift")
+        let file2 = SourceKittenDict.mkFile().with(children: [class2, class3]).with(filepath: "/Root/Dir/Bar.swift")
+
+        let yaml = #"""
+        custom_groups:
+        - name: BarGroup
+          children:
+            - filepath /\bBar.swift/
+        """#
+
+        try withTempConfigFile(yaml: yaml) { url in
+            let system = System(cliArgs: ["--config=\(url.path)"])
+            let items = try system.run(file1.asGatherPasses + file2.asGatherPasses)
+            XCTAssertEqual(2, items.count)
+            XCTAssertEqual("BarGroup", items[0].name)
+            XCTAssertEqual(2, items[0].children.count)
+            XCTAssertEqual("CClass", items[0].children[0].name)
+            XCTAssertEqual("BClass", items[0].children[1].name)
+
+            XCTAssertEqual("Types", items[1].name)
+
+        }
+    }
+
     func testCustomGroupRegexp() throws {
         let class1 = SourceKittenDict.mkClass(name: "BClass")
         let class2 = SourceKittenDict.mkClass(name: "AClass")
@@ -627,7 +655,7 @@ class TestGroup: XCTestCase {
                    custom_groups:
                      - name: RegGroup
                        children:
-                         - /^C.*/
+                         - name /^C.*/
                    """
         try withTempConfigFile(yaml: yaml) { url in
             let system = System(cliArgs: ["--config=\(url.path)"])
