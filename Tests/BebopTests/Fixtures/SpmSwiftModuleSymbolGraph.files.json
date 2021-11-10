@@ -2981,15 +2981,82 @@
         {
           "key.bb.inherited_types" : [
             {
-              "key.bb.type_name" : "CustomStringConvertible"
-            },
-            {
-              "key.bb.type_name" : "P1"
+              "key.bb.type_name" : "Sendable"
             }
           ],
           "key.bb.is_override" : false,
           "key.bb.is_spi" : false,
-          "key.bb.swift_declaration" : "extension S1: CustomStringConvertible, P1",
+          "key.bb.swift_declaration" : "extension Nop: Sendable",
+          "key.bb.swift_deprecated_everywhere" : false,
+          "key.bb.swift_name_pieces" : [
+            {
+              "key.bb.name_piece_is_name" : false,
+              "key.bb.name_piece_text" : "extension "
+            },
+            {
+              "key.bb.name_piece_is_name" : true,
+              "key.bb.name_piece_text" : "Nop"
+            }
+          ],
+          "key.bb.type_module_name" : "SpmSwiftModule",
+          "key.fully_annotated_decl" : "<swift>extension Nop : Sendable<\/swift>",
+          "key.inheritedtypes" : [
+            {
+              "key.name" : "Sendable"
+            }
+          ],
+          "key.kind" : "source.lang.swift.decl.extension",
+          "key.modulename" : "SpmSwiftModule",
+          "key.name" : "Nop",
+          "key.usr" : "s:14SpmSwiftModule3NopV"
+        },
+        {
+          "key.bb.inherited_types" : [
+            {
+              "key.bb.type_name" : "Sendable"
+            }
+          ],
+          "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
+          "key.bb.swift_declaration" : "extension PropertyWrapperClient: Sendable",
+          "key.bb.swift_deprecated_everywhere" : false,
+          "key.bb.swift_name_pieces" : [
+            {
+              "key.bb.name_piece_is_name" : false,
+              "key.bb.name_piece_text" : "extension "
+            },
+            {
+              "key.bb.name_piece_is_name" : true,
+              "key.bb.name_piece_text" : "PropertyWrapperClient"
+            }
+          ],
+          "key.bb.type_module_name" : "SpmSwiftModule",
+          "key.fully_annotated_decl" : "<swift>extension PropertyWrapperClient : Sendable<\/swift>",
+          "key.inheritedtypes" : [
+            {
+              "key.name" : "Sendable"
+            }
+          ],
+          "key.kind" : "source.lang.swift.decl.extension",
+          "key.modulename" : "SpmSwiftModule",
+          "key.name" : "PropertyWrapperClient",
+          "key.usr" : "s:14SpmSwiftModule21PropertyWrapperClientV"
+        },
+        {
+          "key.bb.inherited_types" : [
+            {
+              "key.bb.type_name" : "CustomStringConvertible"
+            },
+            {
+              "key.bb.type_name" : "P1"
+            },
+            {
+              "key.bb.type_name" : "Sendable"
+            }
+          ],
+          "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
+          "key.bb.swift_declaration" : "extension S1: CustomStringConvertible, P1, Sendable",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
             {
@@ -3002,13 +3069,16 @@
             }
           ],
           "key.bb.type_module_name" : "SpmSwiftModule",
-          "key.fully_annotated_decl" : "<swift>extension S1 : CustomStringConvertible, P1<\/swift>",
+          "key.fully_annotated_decl" : "<swift>extension S1 : CustomStringConvertible, P1, Sendable<\/swift>",
           "key.inheritedtypes" : [
             {
               "key.name" : "CustomStringConvertible"
             },
             {
               "key.name" : "P1"
+            },
+            {
+              "key.name" : "Sendable"
             }
           ],
           "key.kind" : "source.lang.swift.decl.extension",
@@ -3105,11 +3175,14 @@
             },
             {
               "key.bb.type_name" : "P1"
+            },
+            {
+              "key.bb.type_name" : "Sendable"
             }
           ],
           "key.bb.is_override" : false,
           "key.bb.is_spi" : false,
-          "key.bb.swift_declaration" : "extension S2: Equatable, P1",
+          "key.bb.swift_declaration" : "extension S2: Equatable, P1, Sendable",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
             {
@@ -3122,19 +3195,54 @@
             }
           ],
           "key.bb.type_module_name" : "SpmSwiftModule",
-          "key.fully_annotated_decl" : "<swift>extension S2 : Equatable, P1<\/swift>",
+          "key.fully_annotated_decl" : "<swift>extension S2 : Equatable, P1, Sendable<\/swift>",
           "key.inheritedtypes" : [
             {
               "key.name" : "Equatable"
             },
             {
               "key.name" : "P1"
+            },
+            {
+              "key.name" : "Sendable"
             }
           ],
           "key.kind" : "source.lang.swift.decl.extension",
           "key.modulename" : "SpmSwiftModule",
           "key.name" : "S2",
           "key.usr" : "s:14SpmSwiftModule2S2V"
+        },
+        {
+          "key.bb.inherited_types" : [
+            {
+              "key.bb.type_name" : "Sendable"
+            }
+          ],
+          "key.bb.is_override" : false,
+          "key.bb.is_spi" : false,
+          "key.bb.swift_declaration" : "extension T: Sendable",
+          "key.bb.swift_deprecated_everywhere" : false,
+          "key.bb.swift_name_pieces" : [
+            {
+              "key.bb.name_piece_is_name" : false,
+              "key.bb.name_piece_text" : "extension "
+            },
+            {
+              "key.bb.name_piece_is_name" : true,
+              "key.bb.name_piece_text" : "T"
+            }
+          ],
+          "key.bb.type_module_name" : "SpmSwiftModule",
+          "key.fully_annotated_decl" : "<swift>extension T : Sendable<\/swift>",
+          "key.inheritedtypes" : [
+            {
+              "key.name" : "Sendable"
+            }
+          ],
+          "key.kind" : "source.lang.swift.decl.extension",
+          "key.modulename" : "SpmSwiftModule",
+          "key.name" : "T",
+          "key.usr" : "s:14SpmSwiftModule1TV"
         }
       ]
     }

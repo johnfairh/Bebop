@@ -149,10 +149,6 @@ class TestProducts: XCTestCase {
     #endif
 
     func testFilesJsonSymbolGraph() throws {
-#if os(Linux)
-        throw XCTSkip() // Sendable grumble grumble
-#endif
-
         let binDirPath = try fixturesURL.appendingPathComponent("SpmSwiftPackage").withCurrentDirectory { () -> String in
             let buildResult = Exec.run("/usr/bin/env", "swift", "build")
             XCTAssertEqual(0, buildResult.terminationStatus, buildResult.failureReport)
