@@ -600,6 +600,29 @@
               "key.kind" : "source.lang.swift.decl.var.instance",
               "key.name" : "description",
               "key.usr" : "s:14SpmSwiftModule2S1V11descriptionSSvp"
+            },
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.internal",
+              "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
+              "key.bb.swift_declaration" : "init()",
+              "key.bb.swift_deprecated_everywhere" : false,
+              "key.bb.swift_name_pieces" : [
+                {
+                  "key.bb.name_piece_is_name" : true,
+                  "key.bb.name_piece_text" : "init"
+                },
+                {
+                  "key.bb.name_piece_is_name" : false,
+                  "key.bb.name_piece_text" : "()"
+                }
+              ],
+              "key.doc.full_as_xml" : "",
+              "key.fully_annotated_decl" : "<swift>init()<\/swift>",
+              "key.inherited_docs" : true,
+              "key.kind" : "source.lang.swift.decl.function.constructor",
+              "key.name" : "init()",
+              "key.usr" : "s:14SpmSwiftModule2S1VACycfc"
             }
           ],
           "key.usr" : "s:14SpmSwiftModule2S1V"
@@ -724,6 +747,47 @@
                 }
               ],
               "key.usr" : "s:14SpmSwiftModule2S2V12equatables22yyF"
+            },
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.internal",
+              "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
+              "key.bb.swift_declaration" : "init()",
+              "key.bb.swift_deprecated_everywhere" : false,
+              "key.bb.swift_name_pieces" : [
+                {
+                  "key.bb.name_piece_is_name" : true,
+                  "key.bb.name_piece_text" : "init"
+                },
+                {
+                  "key.bb.name_piece_is_name" : false,
+                  "key.bb.name_piece_text" : "()"
+                }
+              ],
+              "key.doc.full_as_xml" : "",
+              "key.fully_annotated_decl" : "<swift>init()<\/swift>",
+              "key.inherited_docs" : true,
+              "key.kind" : "source.lang.swift.decl.function.constructor",
+              "key.name" : "init()",
+              "key.substructure" : [
+                {
+                  "key.bb.is_override" : false,
+                  "key.bb.is_spi" : false,
+                  "key.bb.swift_declaration" : "T",
+                  "key.bb.swift_deprecated_everywhere" : false,
+                  "key.bb.swift_name_pieces" : [
+                    {
+                      "key.bb.name_piece_is_name" : true,
+                      "key.bb.name_piece_text" : "T"
+                    }
+                  ],
+                  "key.fully_annotated_decl" : "<g>T<\/g>",
+                  "key.kind" : "source.lang.swift.decl.generic_type_param",
+                  "key.name" : "T",
+                  "key.usr" : "::FABRICATED-GENPARAM::T"
+                }
+              ],
+              "key.usr" : "s:14SpmSwiftModule2S2VACyxGycfc"
             },
             {
               "key.bb.is_override" : false,
@@ -854,6 +918,31 @@
                   "key.inherited_docs" : true,
                   "key.kind" : "source.lang.swift.decl.struct",
                   "key.name" : "Nested2a",
+                  "key.substructure" : [
+                    {
+                      "key.accessibility" : "source.lang.swift.accessibility.internal",
+                      "key.bb.is_override" : false,
+                      "key.bb.is_spi" : false,
+                      "key.bb.swift_declaration" : "init()",
+                      "key.bb.swift_deprecated_everywhere" : false,
+                      "key.bb.swift_name_pieces" : [
+                        {
+                          "key.bb.name_piece_is_name" : true,
+                          "key.bb.name_piece_text" : "init"
+                        },
+                        {
+                          "key.bb.name_piece_is_name" : false,
+                          "key.bb.name_piece_text" : "()"
+                        }
+                      ],
+                      "key.doc.full_as_xml" : "",
+                      "key.fully_annotated_decl" : "<swift>init()<\/swift>",
+                      "key.inherited_docs" : true,
+                      "key.kind" : "source.lang.swift.decl.function.constructor",
+                      "key.name" : "init()",
+                      "key.usr" : "s:14SpmSwiftModuleAAV7Nested1V8Nested2aVAFycfc"
+                    }
+                  ],
                   "key.usr" : "s:14SpmSwiftModuleAAV7Nested1V8Nested2aV"
                 },
                 {
@@ -886,7 +975,61 @@
                   "key.inherited_docs" : true,
                   "key.kind" : "source.lang.swift.decl.struct",
                   "key.name" : "Nested2b",
+                  "key.substructure" : [
+                    {
+                      "key.accessibility" : "source.lang.swift.accessibility.internal",
+                      "key.attributes" : [
+
+                      ],
+                      "key.bb.is_override" : false,
+                      "key.bb.is_spi" : false,
+                      "key.bb.swift_declaration" : "init()",
+                      "key.bb.swift_deprecated_everywhere" : true,
+                      "key.bb.swift_deprecation_messages" : {
+                        "en" : "Deprecated."
+                      },
+                      "key.bb.swift_name_pieces" : [
+                        {
+                          "key.bb.name_piece_is_name" : true,
+                          "key.bb.name_piece_text" : "init"
+                        },
+                        {
+                          "key.bb.name_piece_is_name" : false,
+                          "key.bb.name_piece_text" : "()"
+                        }
+                      ],
+                      "key.doc.full_as_xml" : "",
+                      "key.fully_annotated_decl" : "<swift><syntaxtype.attribute.builtin>@available(*, deprecated)\n<\/syntaxtype.attribute.builtin>init()<\/swift>",
+                      "key.inherited_docs" : true,
+                      "key.kind" : "source.lang.swift.decl.function.constructor",
+                      "key.name" : "init()",
+                      "key.usr" : "s:14SpmSwiftModuleAAV7Nested1V8Nested2bVAFycfc"
+                    }
+                  ],
                   "key.usr" : "s:14SpmSwiftModuleAAV7Nested1V8Nested2bV"
+                },
+                {
+                  "key.accessibility" : "source.lang.swift.accessibility.internal",
+                  "key.bb.is_override" : false,
+                  "key.bb.is_spi" : false,
+                  "key.bb.swift_declaration" : "init()",
+                  "key.bb.swift_deprecated_everywhere" : false,
+                  "key.bb.swift_name_pieces" : [
+                    {
+                      "key.bb.name_piece_is_name" : true,
+                      "key.bb.name_piece_text" : "init"
+                    },
+                    {
+                      "key.bb.name_piece_is_name" : false,
+                      "key.bb.name_piece_text" : "()"
+                    }
+                  ],
+                  "key.doc.full_as_xml" : "",
+                  "key.fully_annotated_decl" : "<swift>init()<\/swift>",
+                  "key.inherited_docs" : true,
+                  "key.kind" : "source.lang.swift.decl.function.constructor",
+                  "key.name" : "init()",
+                  "key.usr" : "s:14SpmSwiftModuleAAV7Nested1VADycfc"
                 }
               ],
               "key.usr" : "s:14SpmSwiftModuleAAV7Nested1V"
@@ -915,6 +1058,31 @@
               "key.inherited_docs" : true,
               "key.kind" : "source.lang.swift.decl.struct",
               "key.name" : "Nested2",
+              "key.substructure" : [
+                {
+                  "key.accessibility" : "source.lang.swift.accessibility.internal",
+                  "key.bb.is_override" : false,
+                  "key.bb.is_spi" : false,
+                  "key.bb.swift_declaration" : "init()",
+                  "key.bb.swift_deprecated_everywhere" : false,
+                  "key.bb.swift_name_pieces" : [
+                    {
+                      "key.bb.name_piece_is_name" : true,
+                      "key.bb.name_piece_text" : "init"
+                    },
+                    {
+                      "key.bb.name_piece_is_name" : false,
+                      "key.bb.name_piece_text" : "()"
+                    }
+                  ],
+                  "key.doc.full_as_xml" : "",
+                  "key.fully_annotated_decl" : "<swift>init()<\/swift>",
+                  "key.inherited_docs" : true,
+                  "key.kind" : "source.lang.swift.decl.function.constructor",
+                  "key.name" : "init()",
+                  "key.usr" : "s:14SpmSwiftModuleAAV7Nested2VADycfc"
+                }
+              ],
               "key.usr" : "s:14SpmSwiftModuleAAV7Nested2V"
             },
             {
@@ -1049,6 +1217,53 @@
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.name" : "checkState(name:)",
               "key.usr" : "s:14SpmSwiftModuleAAV10checkState4nameSiSS_tKF"
+            },
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.internal",
+              "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
+              "key.bb.swift_declaration" : "init(text: String = \"Hello, World!\", a: Int, b: Int)",
+              "key.bb.swift_deprecated_everywhere" : false,
+              "key.bb.swift_name_pieces" : [
+                {
+                  "key.bb.name_piece_is_name" : true,
+                  "key.bb.name_piece_text" : "init"
+                },
+                {
+                  "key.bb.name_piece_is_name" : false,
+                  "key.bb.name_piece_text" : "("
+                },
+                {
+                  "key.bb.name_piece_is_name" : true,
+                  "key.bb.name_piece_text" : "text"
+                },
+                {
+                  "key.bb.name_piece_is_name" : false,
+                  "key.bb.name_piece_text" : ": String, "
+                },
+                {
+                  "key.bb.name_piece_is_name" : true,
+                  "key.bb.name_piece_text" : "a"
+                },
+                {
+                  "key.bb.name_piece_is_name" : false,
+                  "key.bb.name_piece_text" : ": Int, "
+                },
+                {
+                  "key.bb.name_piece_is_name" : true,
+                  "key.bb.name_piece_text" : "b"
+                },
+                {
+                  "key.bb.name_piece_is_name" : false,
+                  "key.bb.name_piece_text" : ": Int)"
+                }
+              ],
+              "key.doc.full_as_xml" : "",
+              "key.fully_annotated_decl" : "<swift>init(text: String = &quot;Hello, World!&quot;, a: Int, b: Int)<\/swift>",
+              "key.inherited_docs" : true,
+              "key.kind" : "source.lang.swift.decl.function.constructor",
+              "key.name" : "init(text:a:b:)",
+              "key.usr" : "s:14SpmSwiftModuleAAV4text1a1bABSS_S2itcfc"
             }
           ],
           "key.usr" : "s:14SpmSwiftModuleAAV"
@@ -1770,6 +1985,31 @@
           "key.inherited_docs" : true,
           "key.kind" : "source.lang.swift.decl.struct",
           "key.name" : "T",
+          "key.substructure" : [
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.internal",
+              "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
+              "key.bb.swift_declaration" : "init()",
+              "key.bb.swift_deprecated_everywhere" : false,
+              "key.bb.swift_name_pieces" : [
+                {
+                  "key.bb.name_piece_is_name" : true,
+                  "key.bb.name_piece_text" : "init"
+                },
+                {
+                  "key.bb.name_piece_is_name" : false,
+                  "key.bb.name_piece_text" : "()"
+                }
+              ],
+              "key.doc.full_as_xml" : "",
+              "key.fully_annotated_decl" : "<swift>init()<\/swift>",
+              "key.inherited_docs" : true,
+              "key.kind" : "source.lang.swift.decl.function.constructor",
+              "key.name" : "init()",
+              "key.usr" : "s:14SpmSwiftModule1TVACycfc"
+            }
+          ],
           "key.usr" : "s:14SpmSwiftModule1TV"
         },
         {
@@ -2063,6 +2303,66 @@
               "key.usr" : "s:14SpmSwiftModule13ADerivedClassC8generic25param2myxx_qd__tSTRd__AA13FirstProtocol7ElementRpd__lF"
             },
             {
+              "key.accessibility" : "source.lang.swift.accessibility.public",
+              "key.bb.is_override" : true,
+              "key.bb.is_spi" : false,
+              "key.bb.swift_declaration" : "override init()",
+              "key.bb.swift_deprecated_everywhere" : false,
+              "key.bb.swift_name_pieces" : [
+                {
+                  "key.bb.name_piece_is_name" : true,
+                  "key.bb.name_piece_text" : "init"
+                },
+                {
+                  "key.bb.name_piece_is_name" : false,
+                  "key.bb.name_piece_text" : "()"
+                }
+              ],
+              "key.doc.full_as_xml" : "",
+              "key.fully_annotated_decl" : "<swift>override init()<\/swift>",
+              "key.inherited_docs" : true,
+              "key.kind" : "source.lang.swift.decl.function.constructor",
+              "key.name" : "init()",
+              "key.overrides" : [
+
+              ],
+              "key.substructure" : [
+                {
+                  "key.bb.is_override" : false,
+                  "key.bb.is_spi" : false,
+                  "key.bb.swift_declaration" : "Q",
+                  "key.bb.swift_deprecated_everywhere" : false,
+                  "key.bb.swift_name_pieces" : [
+                    {
+                      "key.bb.name_piece_is_name" : true,
+                      "key.bb.name_piece_text" : "Q"
+                    }
+                  ],
+                  "key.fully_annotated_decl" : "<g>Q<\/g>",
+                  "key.kind" : "source.lang.swift.decl.generic_type_param",
+                  "key.name" : "Q",
+                  "key.usr" : "::FABRICATED-GENPARAM::Q"
+                },
+                {
+                  "key.bb.is_override" : false,
+                  "key.bb.is_spi" : false,
+                  "key.bb.swift_declaration" : "T",
+                  "key.bb.swift_deprecated_everywhere" : false,
+                  "key.bb.swift_name_pieces" : [
+                    {
+                      "key.bb.name_piece_is_name" : true,
+                      "key.bb.name_piece_text" : "T"
+                    }
+                  ],
+                  "key.fully_annotated_decl" : "<g>T<\/g>",
+                  "key.kind" : "source.lang.swift.decl.generic_type_param",
+                  "key.name" : "T",
+                  "key.usr" : "::FABRICATED-GENPARAM::T"
+                }
+              ],
+              "key.usr" : "s:14SpmSwiftModule13ADerivedClassCACyxq_Gycfc"
+            },
+            {
               "key.bb.is_override" : false,
               "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "Q",
@@ -2249,6 +2549,37 @@
               "key.kind" : "source.lang.swift.decl.var.instance",
               "key.name" : "v",
               "key.usr" : "s:14SpmSwiftModule21PropertyWrapperClientV1vSSvp"
+            },
+            {
+              "key.accessibility" : "source.lang.swift.accessibility.internal",
+              "key.bb.is_override" : false,
+              "key.bb.is_spi" : false,
+              "key.bb.swift_declaration" : "init(v: String)",
+              "key.bb.swift_deprecated_everywhere" : false,
+              "key.bb.swift_name_pieces" : [
+                {
+                  "key.bb.name_piece_is_name" : true,
+                  "key.bb.name_piece_text" : "init"
+                },
+                {
+                  "key.bb.name_piece_is_name" : false,
+                  "key.bb.name_piece_text" : "("
+                },
+                {
+                  "key.bb.name_piece_is_name" : true,
+                  "key.bb.name_piece_text" : "v"
+                },
+                {
+                  "key.bb.name_piece_is_name" : false,
+                  "key.bb.name_piece_text" : ": String)"
+                }
+              ],
+              "key.doc.full_as_xml" : "",
+              "key.fully_annotated_decl" : "<swift>init(v: String)<\/swift>",
+              "key.inherited_docs" : true,
+              "key.kind" : "source.lang.swift.decl.function.constructor",
+              "key.name" : "init(v:)",
+              "key.usr" : "s:14SpmSwiftModule21PropertyWrapperClientV1vACSS_tcfc"
             }
           ],
           "key.usr" : "s:14SpmSwiftModule21PropertyWrapperClientV"

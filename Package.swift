@@ -14,16 +14,16 @@ let package = Package(
   dependencies: [
     .package(url: "https://github.com/jpsim/Yams.git", from: "4.0.0"),
     .package(url: "https://github.com/jpsim/SourceKitten.git",
-             from: "0.31.1"),
+             from: "0.32.0"),
     .package(name: "Mustache",
              url: "https://github.com/johnfairh/GRMustache.swift.git",
              from: "14.0.1"),
     // Duplicate SourceKitten's requirement for general sanity
     .package(url: "https://github.com/drmohundro/SWXMLHash.git",
-             .upToNextMinor(from: "5.0.1")),
+             .upToNextMinor(from: "6.0.0")),
     .package(name: "SwiftSyntax",
              url: "https://github.com/apple/swift-syntax.git",
-             .exact("0.50500.0")),
+             .exact("0.50600.1")),
     .package(url: "https://github.com/johnfairh/Maaku.git",
              from: "10.9.5"),
     .package(url: "https://github.com/ole/SortedArray.git",
@@ -31,7 +31,7 @@ let package = Package(
     .package(url: "https://github.com/stephencelis/SQLite.swift.git",
              .upToNextMinor(from: "0.12.0")),
     .package(url: "https://github.com/apple/swift-format",
-             .exact("0.50500.0"))
+             .exact("0.50600.0"))
   ],
   targets: [
     .target(
@@ -42,6 +42,7 @@ let package = Package(
         "Mustache",
         "SWXMLHash",
         "SwiftSyntax",
+        .product(name: "SwiftSyntaxParser", package: "SwiftSyntax"),
         "Maaku",
         "SortedArray",
         .product(name: "SQLite", package: "SQLite.swift"),

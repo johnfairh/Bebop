@@ -712,7 +712,7 @@
     "swift_declaration" : {
       "availability" : [],
       "declaration" : {
-        "text" : "enum AEnum: Int"
+        "text" : "enum AEnum: Int, @unchecked Sendable"
       },
       "inherited_types" : [],
       "is_deprecated_everywhere" : false,

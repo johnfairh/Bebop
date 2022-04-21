@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftSyntax
+import SwiftSyntaxParser
 
 //
 // This is a horror-show unfortunately -- @available can express so many different

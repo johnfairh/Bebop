@@ -42,7 +42,8 @@
             {
               "other" : "()"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule5"
         },
         "swift_name" : "not_implementationPublicMethod()",
         "usr" : "s:15SpmSwiftModule511PublicClassC018not_implementationD6MethodyyF"
@@ -87,7 +88,8 @@
             {
               "other" : "()"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule5"
         },
         "swift_name" : "publicProtocolMethod()",
         "usr" : "s:15SpmSwiftModule514PublicProtocolP06publicE6MethodyyF"
@@ -137,7 +139,8 @@
             {
               "other" : ": String"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule5"
         },
         "swift_name" : "description",
         "usr" : "s:s23CustomStringConvertibleP11descriptionSSvp"
@@ -177,7 +180,8 @@
         {
           "name" : "PublicClass"
         }
-      ]
+      ],
+      "type_module_name" : "SpmSwiftModule5"
     },
     "swift_name" : "PublicClass",
     "usr" : "s:15SpmSwiftModule511PublicClassC"
@@ -225,7 +229,8 @@
             {
               "other" : "()"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule5"
         },
         "swift_name" : "publicProtocolMethod()",
         "usr" : "s:15SpmSwiftModule514PublicProtocolP06publicE6MethodyyF"
@@ -265,7 +270,8 @@
         {
           "name" : "PublicProtocol"
         }
-      ]
+      ],
+      "type_module_name" : "SpmSwiftModule5"
     },
     "swift_name" : "PublicProtocol",
     "usr" : "s:15SpmSwiftModule514PublicProtocolP"
