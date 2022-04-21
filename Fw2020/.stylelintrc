@@ -2,6 +2,7 @@
   "extends": [
     "stylelint-config-twbs-bootstrap/scss"
   ],
+  "customSyntax": "postcss-less",
   "rules": {
     "property-disallowed-list": [
       "border-radius",

@@ -24,7 +24,7 @@
     }
   },
   "scripts": {
-    "css:lint": "stylelint --config .stylelintrc --syntax scss \"scss/**/*.scss\" --cache --cache-location .stylelintcache/",
+    "css:lint": "stylelint --config .stylelintrc \"scss/**/*.scss\" --cache --cache-location .stylelintcache/",
     "css:prefix": "postcss --config postcss.config.js --replace \"dist/*.css\" \"!dist/*.min.css\"",
     "css:compile": "sass --style expanded --source-map --embed-sources --no-error-css scss/main.scss dist/fw2020.css",
     "css:compile2": "sass --style expanded --source-map --embed-sources --no-error-css scss/patchmain.scss dist/patch.css",
@@ -41,26 +41,28 @@
   "license": "MIT",
   "devDependencies": {
     "anchor-js": "^4.3.1",
-    "autoprefixer": "^10.3.6",
-    "bootstrap": "^5.1.1",
-    "clean-css-cli": "^5.4.1",
+    "autoprefixer": "^10.4.4",
+    "bootstrap": "^5.1.3",
+    "clean-css-cli": "^5.6.0",
     "corejs-typeahead": "^1.3.1",
     "jquery": "^3.6.0",
     "lunr": "^2.3.9",
     "npm-watch": "^0.11.0",
     "popper.js": "^1.16.1",
-    "postcss-cli": "^9.0.1",
-    "sass": "^1.42.1",
-    "standard": "^16.0.4",
-    "stylelint": "^13.13.1",
-    "stylelint-config-recommended-scss": "^4.3.0",
-    "stylelint-config-standard": "^22.0.0",
-    "stylelint-config-twbs-bootstrap": "^2.2.4",
-    "stylelint-order": "^4.1.0",
-    "stylelint-scss": "^3.21.0",
-    "terser": "^5.9.0"
+    "postcss-cli": "^9.1.0",
+    "postcss-less": "^6.0.0",
+    "sass": "^1.50.1",
+    "standard": "^17.0.0",
+    "stylelint": "^14.7.1",
+    "stylelint-config-recommended": "^7.0.0",
+    "stylelint-config-recommended-scss": "^6.0.0",
+    "stylelint-config-standard": "^25.0.0",
+    "stylelint-config-twbs-bootstrap": "^3.0.1",
+    "stylelint-order": "^5.0.0",
+    "stylelint-scss": "^4.2.0",
+    "terser": "^5.12.1"
   },
   "dependencies": {
-    "katex": "^0.13.18"
+    "katex": "^0.15.3"
   }
 }
