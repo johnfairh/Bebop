@@ -58,7 +58,7 @@
     "stylelint-config-twbs-bootstrap": "^2.2.4",
     "stylelint-order": "^4.1.0",
     "stylelint-scss": "^3.21.0",
-    "terser": "^5.9.0"
+    "terser": "^5.14.2"
   },
   "dependencies": {
     "katex": "^0.13.18"
