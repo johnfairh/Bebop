@@ -2303,66 +2303,6 @@
               "key.usr" : "s:14SpmSwiftModule13ADerivedClassC8generic25param2myxx_qd__tSTRd__AA13FirstProtocol7ElementRpd__lF"
             },
             {
-              "key.accessibility" : "source.lang.swift.accessibility.public",
-              "key.bb.is_override" : true,
-              "key.bb.is_spi" : false,
-              "key.bb.swift_declaration" : "override init()",
-              "key.bb.swift_deprecated_everywhere" : false,
-              "key.bb.swift_name_pieces" : [
-                {
-                  "key.bb.name_piece_is_name" : true,
-                  "key.bb.name_piece_text" : "init"
-                },
-                {
-                  "key.bb.name_piece_is_name" : false,
-                  "key.bb.name_piece_text" : "()"
-                }
-              ],
-              "key.doc.full_as_xml" : "",
-              "key.fully_annotated_decl" : "<swift>override init()<\/swift>",
-              "key.inherited_docs" : true,
-              "key.kind" : "source.lang.swift.decl.function.constructor",
-              "key.name" : "init()",
-              "key.overrides" : [
-
-              ],
-              "key.substructure" : [
-                {
-                  "key.bb.is_override" : false,
-                  "key.bb.is_spi" : false,
-                  "key.bb.swift_declaration" : "Q",
-                  "key.bb.swift_deprecated_everywhere" : false,
-                  "key.bb.swift_name_pieces" : [
-                    {
-                      "key.bb.name_piece_is_name" : true,
-                      "key.bb.name_piece_text" : "Q"
-                    }
-                  ],
-                  "key.fully_annotated_decl" : "<g>Q<\/g>",
-                  "key.kind" : "source.lang.swift.decl.generic_type_param",
-                  "key.name" : "Q",
-                  "key.usr" : "::FABRICATED-GENPARAM::Q"
-                },
-                {
-                  "key.bb.is_override" : false,
-                  "key.bb.is_spi" : false,
-                  "key.bb.swift_declaration" : "T",
-                  "key.bb.swift_deprecated_everywhere" : false,
-                  "key.bb.swift_name_pieces" : [
-                    {
-                      "key.bb.name_piece_is_name" : true,
-                      "key.bb.name_piece_text" : "T"
-                    }
-                  ],
-                  "key.fully_annotated_decl" : "<g>T<\/g>",
-                  "key.kind" : "source.lang.swift.decl.generic_type_param",
-                  "key.name" : "T",
-                  "key.usr" : "::FABRICATED-GENPARAM::T"
-                }
-              ],
-              "key.usr" : "s:14SpmSwiftModule13ADerivedClassCACyxq_Gycfc"
-            },
-            {
               "key.bb.is_override" : false,
               "key.bb.is_spi" : false,
               "key.bb.swift_declaration" : "Q",

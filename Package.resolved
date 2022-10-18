@@ -1,133 +1,131 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "CSQLite",
-        "repositoryURL": "https://github.com/stephencelis/CSQLite.git",
-        "state": {
-          "branch": null,
-          "revision": "9106e983d5e3d5149ee35281ec089484b0def018",
-          "version": "0.0.3"
-        }
-      },
-      {
-        "package": "Mustache",
-        "repositoryURL": "https://github.com/johnfairh/GRMustache.swift.git",
-        "state": {
-          "branch": null,
-          "revision": "d4dd2d940079d285d2739c9605c83ea75a1ee719",
-          "version": "14.0.2"
-        }
-      },
-      {
-        "package": "libcmark_gfm",
-        "repositoryURL": "https://github.com/KristopherGBaker/libcmark_gfm.git",
-        "state": {
-          "branch": null,
-          "revision": "9e4a9a58b5ef145b1dc08c57fb0428dd950132e6",
-          "version": "0.29.3"
-        }
-      },
-      {
-        "package": "Maaku",
-        "repositoryURL": "https://github.com/johnfairh/Maaku.git",
-        "state": {
-          "branch": null,
-          "revision": "943f023d00801e58b28245851628aa5fc05b7d99",
-          "version": "10.9.6"
-        }
-      },
-      {
-        "package": "SortedArray",
-        "repositoryURL": "https://github.com/ole/SortedArray.git",
-        "state": {
-          "branch": null,
-          "revision": "a521f750fccb0743ad082b7cb890a62e132c4fbf",
-          "version": "0.7.0"
-        }
-      },
-      {
-        "package": "SourceKitten",
-        "repositoryURL": "https://github.com/jpsim/SourceKitten.git",
-        "state": {
-          "branch": null,
-          "revision": "817dfa6f2e09b0476f3a6c9dbc035991f02f0241",
-          "version": "0.32.0"
-        }
-      },
-      {
-        "package": "SQLite.swift",
-        "repositoryURL": "https://github.com/stephencelis/SQLite.swift.git",
-        "state": {
-          "branch": null,
-          "revision": "0a9893ec030501a3956bee572d6b4fdd3ae158a1",
-          "version": "0.12.2"
-        }
-      },
-      {
-        "package": "swift-argument-parser",
-        "repositoryURL": "https://github.com/apple/swift-argument-parser.git",
-        "state": {
-          "branch": null,
-          "revision": "f3c9084a71ef4376f2fabbdf1d3d90a49f1fabdb",
-          "version": "1.1.2"
-        }
-      },
-      {
-        "package": "swift-format",
-        "repositoryURL": "https://github.com/apple/swift-format",
-        "state": {
-          "branch": null,
-          "revision": "c06258081a3f8703f55ff6e9647b32cf3144e247",
-          "version": "0.50600.0"
-        }
-      },
-      {
-        "package": "SwiftSyntax",
-        "repositoryURL": "https://github.com/apple/swift-syntax.git",
-        "state": {
-          "branch": null,
-          "revision": "0b6c22b97f8e9320bca62e82cdbee601cf37ad3f",
-          "version": "0.50600.1"
-        }
-      },
-      {
-        "package": "swift-system",
-        "repositoryURL": "https://github.com/apple/swift-system.git",
-        "state": {
-          "branch": null,
-          "revision": "836bc4557b74fe6d2660218d56e3ce96aff76574",
-          "version": "1.1.1"
-        }
-      },
-      {
-        "package": "swift-tools-support-core",
-        "repositoryURL": "https://github.com/apple/swift-tools-support-core.git",
-        "state": {
-          "branch": null,
-          "revision": "b7667f3e266af621e5cc9c77e74cacd8e8c00cb4",
-          "version": "0.2.5"
-        }
-      },
-      {
-        "package": "SWXMLHash",
-        "repositoryURL": "https://github.com/drmohundro/SWXMLHash.git",
-        "state": {
-          "branch": null,
-          "revision": "6469881a3f30417c5bb02404ea4b69207f297592",
-          "version": "6.0.0"
-        }
-      },
-      {
-        "package": "Yams",
-        "repositoryURL": "https://github.com/jpsim/Yams.git",
-        "state": {
-          "branch": null,
-          "revision": "9ff1cc9327586db4e0c8f46f064b6a82ec1566fa",
-          "version": "4.0.6"
-        }
+  "pins" : [
+    {
+      "identity" : "csqlite",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/stephencelis/CSQLite.git",
+      "state" : {
+        "revision" : "9106e983d5e3d5149ee35281ec089484b0def018",
+        "version" : "0.0.3"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "grmustache.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/johnfairh/GRMustache.swift.git",
+      "state" : {
+        "revision" : "d4dd2d940079d285d2739c9605c83ea75a1ee719",
+        "version" : "14.0.2"
+      }
+    },
+    {
+      "identity" : "libcmark_gfm",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/KristopherGBaker/libcmark_gfm.git",
+      "state" : {
+        "revision" : "adfab58d571f9e8d1447e7e876ca381d7f0f6cdb",
+        "version" : "0.29.4"
+      }
+    },
+    {
+      "identity" : "maaku",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/johnfairh/Maaku.git",
+      "state" : {
+        "revision" : "943f023d00801e58b28245851628aa5fc05b7d99",
+        "version" : "10.9.6"
+      }
+    },
+    {
+      "identity" : "sortedarray",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ole/SortedArray.git",
+      "state" : {
+        "revision" : "a521f750fccb0743ad082b7cb890a62e132c4fbf",
+        "version" : "0.7.0"
+      }
+    },
+    {
+      "identity" : "sourcekitten",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jpsim/SourceKitten.git",
+      "state" : {
+        "revision" : "b5f9bb749057dd396e93f97956bef64672bc2a04",
+        "version" : "0.33.0"
+      }
+    },
+    {
+      "identity" : "sqlite.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/stephencelis/SQLite.swift.git",
+      "state" : {
+        "revision" : "0a9893ec030501a3956bee572d6b4fdd3ae158a1",
+        "version" : "0.12.2"
+      }
+    },
+    {
+      "identity" : "swift-argument-parser",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-argument-parser.git",
+      "state" : {
+        "revision" : "9f39744e025c7d377987f30b03770805dcb0bcd1",
+        "version" : "1.1.4"
+      }
+    },
+    {
+      "identity" : "swift-format",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-format",
+      "state" : {
+        "revision" : "5f184220d032a019a63df457cdea4b9c8241e911",
+        "version" : "0.50700.1"
+      }
+    },
+    {
+      "identity" : "swift-syntax",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-syntax.git",
+      "state" : {
+        "revision" : "72d3da66b085c2299dd287c2be3b92b5ebd226de",
+        "version" : "0.50700.1"
+      }
+    },
+    {
+      "identity" : "swift-system",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-system.git",
+      "state" : {
+        "revision" : "836bc4557b74fe6d2660218d56e3ce96aff76574",
+        "version" : "1.1.1"
+      }
+    },
+    {
+      "identity" : "swift-tools-support-core",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-tools-support-core.git",
+      "state" : {
+        "revision" : "4f07be3dc201f6e2ee85b6942d0c220a16926811",
+        "version" : "0.2.7"
+      }
+    },
+    {
+      "identity" : "swxmlhash",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/drmohundro/SWXMLHash.git",
+      "state" : {
+        "revision" : "4d0f62f561458cbe1f732171e625f03195151b60",
+        "version" : "7.0.1"
+      }
+    },
+    {
+      "identity" : "yams",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jpsim/Yams.git",
+      "state" : {
+        "revision" : "01835dc202670b5bb90d07f3eae41867e9ed29f6",
+        "version" : "5.0.1"
+      }
+    }
+  ],
+  "version" : 2
 }

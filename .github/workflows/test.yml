@@ -11,9 +11,9 @@ on:
 jobs:
   macos:
     name: macOS SPM unit tests
-    runs-on: macos-11
+    runs-on: macos-12
     env:
-      DEVELOPER_DIR: /Applications/Xcode_13.2.app/Contents/Developer
+      DEVELOPER_DIR: /Applications/Xcode_14.1.app/Contents/Developer
 
     steps:
       - uses: actions/checkout@v1
@@ -22,12 +22,12 @@ jobs:
           brew install libsass
           make test
 
-  linux:
-    name: Linux SPM unit tests
-    runs-on: ubuntu-latest
+          #  linux:
+          #name: Linux SPM unit tests
+          #runs-on: ubuntu-latest
     
-    steps:
-      - uses: actions/checkout@v1
-      - name: Run tests
-        run: |
-          docker run -v `pwd`:`pwd` -w `pwd` --name j2 --rm swift:5.6 /bin/bash -c "apt-get update; apt-get install libsqlite3-dev libsass0 libsass-dev; make test"
+          #steps:
+          #- uses: actions/checkout@v1
+          #- name: Run tests
+          #run: |
+          #docker run -v `pwd`:`pwd` -w `pwd` --name j2 --rm swift:5.6 /bin/bash -c "apt-get update; apt-get install libsqlite3-dev libsass0 libsass-dev; make test"
