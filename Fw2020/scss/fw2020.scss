@@ -71,10 +71,10 @@ body {
 code {
   hyphens: none;
   text-align: left;
-  word-spacing: normal;
   word-wrap: normal;
   tab-size: 4;
   white-space: pre;
+  word-spacing: normal;
 
   .pr-token a {
     color: inherit;

@@ -1,7 +1,5 @@
 {
-  "extends": [
-    "stylelint-config-twbs-bootstrap/scss"
-  ],
+  "extends": "stylelint-config-twbs-bootstrap",
   "customSyntax": "postcss-less",
   "rules": {
     "property-disallowed-list": [
