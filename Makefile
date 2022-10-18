@@ -25,12 +25,14 @@ shell_linux:
 	docker run -it -v `pwd`:`pwd` -w `pwd` --name bebop --rm swift:5.7 /bin/bash
 
 install: build
-	-mkdir -p ${PREFIX}/share ${PREFIX}/bin
+	-mkdir -p ${PREFIX}/share ${PREFIX}/bin ${PREFIX}/lib
 	install ${BIN_PATH}/bebop ${PREFIX}/bin
+	install ${BIN_PATH}/lib_InternalSwiftSyntaxParser.dylib ${PREFIX}/lib
 	cp -r Resources/ ${PREFIX}/share/bebop.resources
 
 uninstall:
 	rm -f ${PREFIX}/bin/bebop
+	rm -f ${PREFIX}/lib/lib_InternalSwiftSyntaxParser.dylib
 	rm -rf ${PREFIX}/share/bebop.resources
 
 # magic symlinks to workaround weird Xcode bugs
