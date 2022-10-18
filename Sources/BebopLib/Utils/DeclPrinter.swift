@@ -16,22 +16,20 @@ import SwiftFormatConfiguration
 ///
 /// namespace.
 enum DeclPrinter {
-    private struct SwiftFormatWrapper: DiagnosticConsumer {
+    private struct SwiftFormatWrapper {
         private let configuration: Configuration
-        private var formatter: SwiftFormatter!
+        private var formatter: SwiftFormatter
 
         init() {
             var config = Configuration()
             config.lineLength = 80
             config.tabWidth = 4
             config.indentation = .spaces(4)
-            self.configuration = config
 
-            let engine = DiagnosticEngine()
-            self.formatter = nil
-            engine.addConsumer(self)
-            formatter = SwiftFormatter(configuration: configuration,
-                                       diagnosticEngine: engine)
+            configuration = config
+            formatter = SwiftFormatter(configuration: configuration) { finding in
+                logDebug("SwiftFormat: \(finding.message)")
+            }
         }
 
         func format(swift: String) -> String {
@@ -43,10 +41,6 @@ enum DeclPrinter {
                 logDebug("SwiftFormat error thrown: \(error) for '\(swift)'")
             }
             return swift
-        }
-
-        func handle(_ diagnostic: Diagnostic) {
-            logDebug("SwiftFormat: \(diagnostic.message.text)")
         }
 
         func finalize() {

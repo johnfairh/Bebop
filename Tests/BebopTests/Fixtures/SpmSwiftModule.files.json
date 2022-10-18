@@ -35,6 +35,7 @@
               "key.bb.name_piece_text" : "GenericBase"
             }
           ],
+          "key.bb.type_module_name" : "SpmSwiftModule",
           "key.bodylength" : 100,
           "key.bodyoffset" : 22,
           "key.column" : 7,
@@ -44,6 +45,7 @@
           "key.kind" : "source.lang.swift.decl.class",
           "key.length" : 123,
           "key.line" : 1,
+          "key.modulename" : "SpmSwiftModule",
           "key.name" : "GenericBase",
           "key.namelength" : 11,
           "key.nameoffset" : 6,
@@ -64,6 +66,7 @@
                   "key.bb.name_piece_text" : "T"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.column" : 19,
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
@@ -71,6 +74,7 @@
               "key.kind" : "source.lang.swift.decl.generic_type_param",
               "key.length" : 1,
               "key.line" : 1,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "T",
               "key.namelength" : 1,
               "key.nameoffset" : 18,
@@ -103,6 +107,7 @@
                   "key.bb.name_piece_text" : ": T"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.column" : 7,
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
@@ -110,6 +115,7 @@
               "key.kind" : "source.lang.swift.decl.var.instance",
               "key.length" : 12,
               "key.line" : 2,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "boxed",
               "key.namelength" : 5,
               "key.nameoffset" : 29,
@@ -147,6 +153,7 @@
                   "key.bb.name_piece_text" : ": T)"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 20,
               "key.bodyoffset" : 55,
               "key.column" : 3,
@@ -156,6 +163,7 @@
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 36,
               "key.line" : 3,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "init(type:)",
               "key.namelength" : 13,
               "key.nameoffset" : 40,
@@ -188,6 +196,7 @@
                   "key.bb.name_piece_text" : "() -> T"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 20,
               "key.bodyoffset" : 100,
               "key.column" : 8,
@@ -197,6 +206,7 @@
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 41,
               "key.line" : 7,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "mutify()",
               "key.namelength" : 8,
               "key.nameoffset" : 85,
@@ -229,6 +239,7 @@
               "key.bb.name_piece_text" : "GenericBase"
             }
           ],
+          "key.bb.type_module_name" : "SpmSwiftModule",
           "key.bodylength" : 70,
           "key.bodyoffset" : 165,
           "key.column" : 7,
@@ -238,6 +249,7 @@
           "key.kind" : "source.lang.swift.decl.extension",
           "key.length" : 111,
           "key.line" : 1,
+          "key.modulename" : "SpmSwiftModule",
           "key.name" : "GenericBase",
           "key.namelength" : 11,
           "key.nameoffset" : 135,
@@ -266,6 +278,7 @@
                   "key.bb.name_piece_text" : ": Int"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 17,
               "key.bodyoffset" : 191,
               "key.column" : 7,
@@ -275,6 +288,7 @@
               "key.kind" : "source.lang.swift.decl.var.instance",
               "key.length" : 41,
               "key.line" : 13,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "codableCount",
               "key.namelength" : 12,
               "key.nameoffset" : 172,
@@ -306,6 +320,7 @@
                   "key.bb.name_piece_text" : "()"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 0,
               "key.bodyoffset" : 233,
               "key.column" : 8,
@@ -315,6 +330,7 @@
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 22,
               "key.line" : 16,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "doCodability()",
               "key.namelength" : 14,
               "key.nameoffset" : 217,
@@ -347,6 +363,7 @@
               "key.bb.name_piece_text" : "GenericBase"
             }
           ],
+          "key.bb.type_module_name" : "SpmSwiftModule",
           "key.bodylength" : 51,
           "key.bodyoffset" : 326,
           "key.column" : 7,
@@ -356,6 +373,7 @@
           "key.kind" : "source.lang.swift.decl.extension",
           "key.length" : 140,
           "key.line" : 1,
+          "key.modulename" : "SpmSwiftModule",
           "key.name" : "GenericBase",
           "key.namelength" : 11,
           "key.nameoffset" : 248,
@@ -384,6 +402,7 @@
                   "key.bb.name_piece_text" : "()"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 0,
               "key.bodyoffset" : 350,
               "key.column" : 8,
@@ -393,6 +412,7 @@
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 22,
               "key.line" : 21,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "doFirstMagic()",
               "key.namelength" : 14,
               "key.nameoffset" : 334,
@@ -424,6 +444,7 @@
                   "key.bb.name_piece_text" : "()"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 0,
               "key.bodyoffset" : 375,
               "key.column" : 8,
@@ -433,6 +454,7 @@
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 21,
               "key.line" : 23,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "doMoreMagic()",
               "key.namelength" : 13,
               "key.nameoffset" : 360,
@@ -465,6 +487,7 @@
               "key.bb.name_piece_text" : "GenericBase"
             }
           ],
+          "key.bb.type_module_name" : "SpmSwiftModule",
           "key.bodylength" : 52,
           "key.bodyoffset" : 421,
           "key.column" : 7,
@@ -474,6 +497,7 @@
           "key.kind" : "source.lang.swift.decl.extension",
           "key.length" : 94,
           "key.line" : 1,
+          "key.modulename" : "SpmSwiftModule",
           "key.name" : "GenericBase",
           "key.namelength" : 11,
           "key.nameoffset" : 390,
@@ -486,8 +510,6 @@
               "key.kind" : "source.lang.swift.syntaxtype.comment.mark",
               "key.length" : 22,
               "key.name" : "MARK: User-custom mark",
-              "key.namelength" : 0,
-              "key.nameoffset" : 0,
               "key.offset" : 427
             },
             {
@@ -510,6 +532,7 @@
                   "key.bb.name_piece_text" : "()"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 0,
               "key.bodyoffset" : 471,
               "key.column" : 8,
@@ -519,6 +542,7 @@
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 20,
               "key.line" : 28,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "doHashable()",
               "key.namelength" : 12,
               "key.nameoffset" : 457,
@@ -539,8 +563,6 @@
           "key.kind" : "source.lang.swift.syntaxtype.comment.mark",
           "key.length" : 29,
           "key.name" : "MARK: CustomStringConvertible",
-          "key.namelength" : 0,
-          "key.nameoffset" : 0,
           "key.offset" : 479
         },
         {
@@ -564,6 +586,7 @@
               "key.bb.name_piece_text" : "GenericBase"
             }
           ],
+          "key.bb.type_module_name" : "SpmSwiftModule",
           "key.bodylength" : 47,
           "key.bodyoffset" : 558,
           "key.column" : 7,
@@ -585,6 +608,7 @@
           "key.kind" : "source.lang.swift.decl.extension",
           "key.length" : 97,
           "key.line" : 1,
+          "key.modulename" : "SpmSwiftModule",
           "key.name" : "GenericBase",
           "key.namelength" : 11,
           "key.nameoffset" : 519,
@@ -622,6 +646,7 @@
                   "key.bb.name_piece_text" : ": String"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 17,
               "key.bodyoffset" : 586,
               "key.column" : 7,
@@ -649,6 +674,7 @@
               "key.kind" : "source.lang.swift.decl.var.instance",
               "key.length" : 43,
               "key.line" : 33,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "description",
               "key.namelength" : 11,
               "key.nameoffset" : 565,
@@ -671,7 +697,7 @@
           "key.usr" : "s:14SpmSwiftModule11GenericBaseC"
         },
         {
-          "key.annotated_decl" : "<Declaration>protocol Collection : <Type usr=\"s:ST\">Sequence<\/Type><\/Declaration>",
+          "key.annotated_decl" : "<Declaration>protocol Collection&lt;<Type usr=\"s:Sl7ElementQa\">Element<\/Type>&gt; : <Type usr=\"s:ST\">Sequence<\/Type><\/Declaration>",
           "key.bb.documentation" : {
             "key.bb.abstract" : {
               "en" : "A sequence whose elements can be traversed multiple times, nondestructively, and accessed by an indexed subscript."
@@ -696,7 +722,7 @@
           "key.bodylength" : 26,
           "key.bodyoffset" : 659,
           "key.decl_lang" : "source.lang.swift",
-          "key.doc.declaration" : "protocol Collection : Sequence",
+          "key.doc.declaration" : "protocol Collection<Element> : Sequence",
           "key.doc.discussion" : [
             {
               "Para" : "Collections are used extensively throughout the standard library. When you use arrays, dictionaries, and other collections, you benefit from the operations that the `Collection` protocol declares and implements. In addition to the operations that collections inherit from the `Sequence` protocol, you gain access to methods that depend on accessing an element at a specific position in a collection."
@@ -801,10 +827,10 @@
               "Para" : "The performance of some collection operations depends on the type of index that the collection provides. For example, a random-access collection, which can measure the distance between two indices in O(1) time, can calculate its `count` property in O(1) time. Conversely, because a forward or bidirectional collection must traverse the entire collection to count the number of contained elements, accessing its `count` property is an O() operation."
             }
           ],
-          "key.doc.full_as_xml" : "<Class><Name>Collection<\/Name><USR>s:Sl<\/USR><Declaration>protocol Collection : Sequence<\/Declaration><CommentParts><Abstract><Para>A sequence whose elements can be traversed multiple times, nondestructively, and accessed by an indexed subscript.<\/Para><\/Abstract><Discussion><Para>Collections are used extensively throughout the standard library. When you use arrays, dictionaries, and other collections, you benefit from the operations that the <codeVoice>Collection<\/codeVoice> protocol declares and implements. In addition to the operations that collections inherit from the <codeVoice>Sequence<\/codeVoice> protocol, you gain access to methods that depend on accessing an element at a specific position in a collection.<\/Para><Para>For example, if you want to print only the first word in a string, you can search for the index of the first space, and then create a substring up to that position.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[let text = \"Buffalo buffalo buffalo buffalo.\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[if let firstSpace = text.firstIndex(of: \" \") {]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    print(text[..<firstSpace])]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[}]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"Buffalo\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>The <codeVoice>firstSpace<\/codeVoice> constant is an index into the <codeVoice>text<\/codeVoice> string—the position of the first space in the string. You can store indices in variables, and pass them to collection algorithms or use them later to access the corresponding element. In the example above, <codeVoice>firstSpace<\/codeVoice> is used to extract the prefix that contains elements up to that index.<\/Para><rawHTML><![CDATA[<h1>]]><\/rawHTML>Accessing Individual Elements<rawHTML><![CDATA[<\/h1>]]><\/rawHTML><Para>You can access an element of a collection through its subscript by using any valid index except the collection’s <codeVoice>endIndex<\/codeVoice> property. This property is a “past the end” index that does not correspond with any element of the collection.<\/Para><Para>Here’s an example of accessing the first character in a string through its subscript:<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[let firstChar = text[text.startIndex]]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[print(firstChar)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"B\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>The <codeVoice>Collection<\/codeVoice> protocol declares and provides default implementations for many operations that depend on elements being accessible by their subscript. For example, you can also access the first character of <codeVoice>text<\/codeVoice> using the <codeVoice>first<\/codeVoice> property, which has the value of the first element of the collection, or <codeVoice>nil<\/codeVoice> if the collection is empty.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[print(text.first)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"Optional(\"B\")\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>You can pass only valid indices to collection operations. You can find a complete set of a collection’s valid indices by starting with the collection’s <codeVoice>startIndex<\/codeVoice> property and finding every successor up to, and including, the <codeVoice>endIndex<\/codeVoice> property. All other values of the <codeVoice>Index<\/codeVoice> type, such as the <codeVoice>startIndex<\/codeVoice> property of a different collection, are invalid indices for this collection.<\/Para><Para>Saved indices may become invalid as a result of mutating operations. For more information about index invalidation in mutable collections, see the reference for the <codeVoice>MutableCollection<\/codeVoice> and <codeVoice>RangeReplaceableCollection<\/codeVoice> protocols, as well as for the specific type you’re using.<\/Para><rawHTML><![CDATA[<h1>]]><\/rawHTML>Accessing Slices of a Collection<rawHTML><![CDATA[<\/h1>]]><\/rawHTML><Para>You can access a slice of a collection through its ranged subscript or by calling methods like <codeVoice>prefix(while:)<\/codeVoice> or <codeVoice>suffix(_:)<\/codeVoice>. A slice of a collection can contain zero or more of the original collection’s elements and shares the original collection’s semantics.<\/Para><Para>The following example creates a <codeVoice>firstWord<\/codeVoice> constant by using the <codeVoice>prefix(while:)<\/codeVoice> method to get a slice of the <codeVoice>text<\/codeVoice> string.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[let firstWord = text.prefix(while: { $0 != \" \" })]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[print(firstWord)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"Buffalo\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>You can retrieve the same slice using the string’s ranged subscript, which takes a range expression.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[if let firstSpace = text.firstIndex(of: \" \") {]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    print(text[..<firstSpace]]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    \/\/ Prints \"Buffalo\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[}]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>The retrieved slice of <codeVoice>text<\/codeVoice> is equivalent in each of these cases.<\/Para><rawHTML><![CDATA[<h2>]]><\/rawHTML>Slices Share Indices<rawHTML><![CDATA[<\/h2>]]><\/rawHTML><Para>A collection and its slices share the same indices. An element of a collection is located under the same index in a slice as in the base collection, as long as neither the collection nor the slice has been mutated since the slice was created.<\/Para><Para>For example, suppose you have an array holding the number of absences from each class during a session.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[var absences = [0, 2, 0, 4, 0, 3, 1, 0]]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>You’re tasked with finding the day with the most absences in the second half of the session. To find the index of the day in question, follow these steps:<\/Para><List-Number><Item><Para>Create a slice of the <codeVoice>absences<\/codeVoice> array that holds the second half of the days.<\/Para><\/Item><Item><Para>Use the <codeVoice>max(by:)<\/codeVoice> method to determine the index of the day with the most absences.<\/Para><\/Item><Item><Para>Print the result using the index found in step 2 on the original <codeVoice>absences<\/codeVoice> array.<\/Para><\/Item><\/List-Number><Para>Here’s an implementation of those steps:<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[let secondHalf = absences.suffix(absences.count \/ 2)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[if let i = secondHalf.indices.max(by: { secondHalf[$0] < secondHalf[$1] }) {]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    print(\"Highest second-half absences: \\(absences[i])\")]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[}]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"Highest second-half absences: 3\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><rawHTML><![CDATA[<h2>]]><\/rawHTML>Slices Inherit Collection Semantics<rawHTML><![CDATA[<\/h2>]]><\/rawHTML><Para>A slice inherits the value or reference semantics of its base collection. That is, when working with a slice of a mutable collection that has value semantics, such as an array, mutating the original collection triggers a copy of that collection and does not affect the contents of the slice.<\/Para><Para>For example, if you update the last element of the <codeVoice>absences<\/codeVoice> array from <codeVoice>0<\/codeVoice> to <codeVoice>2<\/codeVoice>, the <codeVoice>secondHalf<\/codeVoice> slice is unchanged.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[absences[7] = 2]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[print(absences)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"[0, 2, 0, 4, 0, 3, 1, 2]\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[print(secondHalf)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"[0, 3, 1, 0]\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><rawHTML><![CDATA[<h1>]]><\/rawHTML>Traversing a Collection<rawHTML><![CDATA[<\/h1>]]><\/rawHTML><Para>Although a sequence can be consumed as it is traversed, a collection is guaranteed to be <emphasis>multipass<\/emphasis>: Any element can be repeatedly accessed by saving its index. Moreover, a collection’s indices form a finite range of the positions of the collection’s elements. The fact that all collections are finite guarantees the safety of many sequence operations, such as using the <codeVoice>contains(_:)<\/codeVoice> method to test whether a collection includes an element.<\/Para><Para>Iterating over the elements of a collection by their positions yields the same elements in the same order as iterating over that collection using its iterator. This example demonstrates that the <codeVoice>characters<\/codeVoice> view of a string returns the same characters in the same order whether the view’s indices or the view itself is being iterated.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[let word = \"Swift\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[for character in word {]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    print(character)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[}]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"S\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"w\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"i\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"f\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"t\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[for i in word.indices {]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    print(word[i])]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[}]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"S\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"w\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"i\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"f\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"t\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><rawHTML><![CDATA[<h1>]]><\/rawHTML>Conforming to the Collection Protocol<rawHTML><![CDATA[<\/h1>]]><\/rawHTML><Para>If you create a custom sequence that can provide repeated access to its elements, make sure that its type conforms to the <codeVoice>Collection<\/codeVoice> protocol in order to give a more useful and more efficient interface for sequence and collection operations. To add <codeVoice>Collection<\/codeVoice> conformance to your type, you must declare at least the following requirements:<\/Para><List-Bullet><Item><Para>The <codeVoice>startIndex<\/codeVoice> and <codeVoice>endIndex<\/codeVoice> properties<\/Para><\/Item><Item><Para>A subscript that provides at least read-only access to your type’s elements<\/Para><\/Item><Item><Para>The <codeVoice>index(after:)<\/codeVoice> method for advancing an index into your collection<\/Para><\/Item><\/List-Bullet><rawHTML><![CDATA[<h1>]]><\/rawHTML>Expected Performance<rawHTML><![CDATA[<\/h1>]]><\/rawHTML><Para>Types that conform to <codeVoice>Collection<\/codeVoice> are expected to provide the <codeVoice>startIndex<\/codeVoice> and <codeVoice>endIndex<\/codeVoice> properties and subscript access to elements as O(1) operations. Types that are not able to guarantee this performance must document the departure, because many collection operations depend on O(1) subscripting performance for their own performance guarantees.<\/Para><Para>The performance of some collection operations depends on the type of index that the collection provides. For example, a random-access collection, which can measure the distance between two indices in O(1) time, can calculate its <codeVoice>count<\/codeVoice> property in O(1) time. Conversely, because a forward or bidirectional collection must traverse the entire collection to count the number of contained elements, accessing its <codeVoice>count<\/codeVoice> property is an O(<emphasis>n<\/emphasis>) operation.<\/Para><\/Discussion><\/CommentParts><\/Class>",
+          "key.doc.full_as_xml" : "<Class><Name>Collection<\/Name><USR>s:Sl<\/USR><Declaration>protocol Collection&lt;Element&gt; : Sequence<\/Declaration><CommentParts><Abstract><Para>A sequence whose elements can be traversed multiple times, nondestructively, and accessed by an indexed subscript.<\/Para><\/Abstract><Discussion><Para>Collections are used extensively throughout the standard library. When you use arrays, dictionaries, and other collections, you benefit from the operations that the <codeVoice>Collection<\/codeVoice> protocol declares and implements. In addition to the operations that collections inherit from the <codeVoice>Sequence<\/codeVoice> protocol, you gain access to methods that depend on accessing an element at a specific position in a collection.<\/Para><Para>For example, if you want to print only the first word in a string, you can search for the index of the first space, and then create a substring up to that position.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[let text = \"Buffalo buffalo buffalo buffalo.\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[if let firstSpace = text.firstIndex(of: \" \") {]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    print(text[..<firstSpace])]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[}]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"Buffalo\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>The <codeVoice>firstSpace<\/codeVoice> constant is an index into the <codeVoice>text<\/codeVoice> string—the position of the first space in the string. You can store indices in variables, and pass them to collection algorithms or use them later to access the corresponding element. In the example above, <codeVoice>firstSpace<\/codeVoice> is used to extract the prefix that contains elements up to that index.<\/Para><rawHTML><![CDATA[<h1>]]><\/rawHTML>Accessing Individual Elements<rawHTML><![CDATA[<\/h1>]]><\/rawHTML><Para>You can access an element of a collection through its subscript by using any valid index except the collection’s <codeVoice>endIndex<\/codeVoice> property. This property is a “past the end” index that does not correspond with any element of the collection.<\/Para><Para>Here’s an example of accessing the first character in a string through its subscript:<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[let firstChar = text[text.startIndex]]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[print(firstChar)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"B\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>The <codeVoice>Collection<\/codeVoice> protocol declares and provides default implementations for many operations that depend on elements being accessible by their subscript. For example, you can also access the first character of <codeVoice>text<\/codeVoice> using the <codeVoice>first<\/codeVoice> property, which has the value of the first element of the collection, or <codeVoice>nil<\/codeVoice> if the collection is empty.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[print(text.first)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"Optional(\"B\")\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>You can pass only valid indices to collection operations. You can find a complete set of a collection’s valid indices by starting with the collection’s <codeVoice>startIndex<\/codeVoice> property and finding every successor up to, and including, the <codeVoice>endIndex<\/codeVoice> property. All other values of the <codeVoice>Index<\/codeVoice> type, such as the <codeVoice>startIndex<\/codeVoice> property of a different collection, are invalid indices for this collection.<\/Para><Para>Saved indices may become invalid as a result of mutating operations. For more information about index invalidation in mutable collections, see the reference for the <codeVoice>MutableCollection<\/codeVoice> and <codeVoice>RangeReplaceableCollection<\/codeVoice> protocols, as well as for the specific type you’re using.<\/Para><rawHTML><![CDATA[<h1>]]><\/rawHTML>Accessing Slices of a Collection<rawHTML><![CDATA[<\/h1>]]><\/rawHTML><Para>You can access a slice of a collection through its ranged subscript or by calling methods like <codeVoice>prefix(while:)<\/codeVoice> or <codeVoice>suffix(_:)<\/codeVoice>. A slice of a collection can contain zero or more of the original collection’s elements and shares the original collection’s semantics.<\/Para><Para>The following example creates a <codeVoice>firstWord<\/codeVoice> constant by using the <codeVoice>prefix(while:)<\/codeVoice> method to get a slice of the <codeVoice>text<\/codeVoice> string.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[let firstWord = text.prefix(while: { $0 != \" \" })]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[print(firstWord)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"Buffalo\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>You can retrieve the same slice using the string’s ranged subscript, which takes a range expression.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[if let firstSpace = text.firstIndex(of: \" \") {]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    print(text[..<firstSpace]]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    \/\/ Prints \"Buffalo\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[}]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>The retrieved slice of <codeVoice>text<\/codeVoice> is equivalent in each of these cases.<\/Para><rawHTML><![CDATA[<h2>]]><\/rawHTML>Slices Share Indices<rawHTML><![CDATA[<\/h2>]]><\/rawHTML><Para>A collection and its slices share the same indices. An element of a collection is located under the same index in a slice as in the base collection, as long as neither the collection nor the slice has been mutated since the slice was created.<\/Para><Para>For example, suppose you have an array holding the number of absences from each class during a session.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[var absences = [0, 2, 0, 4, 0, 3, 1, 0]]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>You’re tasked with finding the day with the most absences in the second half of the session. To find the index of the day in question, follow these steps:<\/Para><List-Number><Item><Para>Create a slice of the <codeVoice>absences<\/codeVoice> array that holds the second half of the days.<\/Para><\/Item><Item><Para>Use the <codeVoice>max(by:)<\/codeVoice> method to determine the index of the day with the most absences.<\/Para><\/Item><Item><Para>Print the result using the index found in step 2 on the original <codeVoice>absences<\/codeVoice> array.<\/Para><\/Item><\/List-Number><Para>Here’s an implementation of those steps:<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[let secondHalf = absences.suffix(absences.count \/ 2)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[if let i = secondHalf.indices.max(by: { secondHalf[$0] < secondHalf[$1] }) {]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    print(\"Highest second-half absences: \\(absences[i])\")]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[}]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"Highest second-half absences: 3\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><rawHTML><![CDATA[<h2>]]><\/rawHTML>Slices Inherit Collection Semantics<rawHTML><![CDATA[<\/h2>]]><\/rawHTML><Para>A slice inherits the value or reference semantics of its base collection. That is, when working with a slice of a mutable collection that has value semantics, such as an array, mutating the original collection triggers a copy of that collection and does not affect the contents of the slice.<\/Para><Para>For example, if you update the last element of the <codeVoice>absences<\/codeVoice> array from <codeVoice>0<\/codeVoice> to <codeVoice>2<\/codeVoice>, the <codeVoice>secondHalf<\/codeVoice> slice is unchanged.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[absences[7] = 2]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[print(absences)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"[0, 2, 0, 4, 0, 3, 1, 2]\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[print(secondHalf)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"[0, 3, 1, 0]\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><rawHTML><![CDATA[<h1>]]><\/rawHTML>Traversing a Collection<rawHTML><![CDATA[<\/h1>]]><\/rawHTML><Para>Although a sequence can be consumed as it is traversed, a collection is guaranteed to be <emphasis>multipass<\/emphasis>: Any element can be repeatedly accessed by saving its index. Moreover, a collection’s indices form a finite range of the positions of the collection’s elements. The fact that all collections are finite guarantees the safety of many sequence operations, such as using the <codeVoice>contains(_:)<\/codeVoice> method to test whether a collection includes an element.<\/Para><Para>Iterating over the elements of a collection by their positions yields the same elements in the same order as iterating over that collection using its iterator. This example demonstrates that the <codeVoice>characters<\/codeVoice> view of a string returns the same characters in the same order whether the view’s indices or the view itself is being iterated.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[let word = \"Swift\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[for character in word {]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    print(character)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[}]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"S\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"w\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"i\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"f\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"t\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[for i in word.indices {]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    print(word[i])]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[}]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"S\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"w\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"i\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"f\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"t\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><rawHTML><![CDATA[<h1>]]><\/rawHTML>Conforming to the Collection Protocol<rawHTML><![CDATA[<\/h1>]]><\/rawHTML><Para>If you create a custom sequence that can provide repeated access to its elements, make sure that its type conforms to the <codeVoice>Collection<\/codeVoice> protocol in order to give a more useful and more efficient interface for sequence and collection operations. To add <codeVoice>Collection<\/codeVoice> conformance to your type, you must declare at least the following requirements:<\/Para><List-Bullet><Item><Para>The <codeVoice>startIndex<\/codeVoice> and <codeVoice>endIndex<\/codeVoice> properties<\/Para><\/Item><Item><Para>A subscript that provides at least read-only access to your type’s elements<\/Para><\/Item><Item><Para>The <codeVoice>index(after:)<\/codeVoice> method for advancing an index into your collection<\/Para><\/Item><\/List-Bullet><rawHTML><![CDATA[<h1>]]><\/rawHTML>Expected Performance<rawHTML><![CDATA[<\/h1>]]><\/rawHTML><Para>Types that conform to <codeVoice>Collection<\/codeVoice> are expected to provide the <codeVoice>startIndex<\/codeVoice> and <codeVoice>endIndex<\/codeVoice> properties and subscript access to elements as O(1) operations. Types that are not able to guarantee this performance must document the departure, because many collection operations depend on O(1) subscripting performance for their own performance guarantees.<\/Para><Para>The performance of some collection operations depends on the type of index that the collection provides. For example, a random-access collection, which can measure the distance between two indices in O(1) time, can calculate its <codeVoice>count<\/codeVoice> property in O(1) time. Conversely, because a forward or bidirectional collection must traverse the entire collection to count the number of contained elements, accessing its <codeVoice>count<\/codeVoice> property is an O(<emphasis>n<\/emphasis>) operation.<\/Para><\/Discussion><\/CommentParts><\/Class>",
           "key.doc.name" : "Collection",
           "key.doc.type" : "Class",
-          "key.fully_annotated_decl" : "<decl.protocol><syntaxtype.keyword>protocol<\/syntaxtype.keyword> <decl.name>Collection<\/decl.name> : <ref.protocol usr=\"s:ST\">Sequence<\/ref.protocol><\/decl.protocol>",
+          "key.fully_annotated_decl" : "<decl.protocol><syntaxtype.keyword>protocol<\/syntaxtype.keyword> <decl.name>Collection<\/decl.name>&lt;<decl.generic_type_param usr=\"s:Sl7ElementQa\"><ref.associatedtype usr=\"s:Sl7ElementQa\">Element<\/ref.associatedtype><\/decl.generic_type_param>&gt; : <ref.protocol usr=\"s:ST\">Sequence<\/ref.protocol><\/decl.protocol>",
           "key.groupname" : "Collection",
           "key.is_system" : true,
           "key.kind" : "source.lang.swift.decl.extension",
@@ -838,16 +864,17 @@
                   "key.bb.name_piece_text" : "()"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 0,
               "key.bodyoffset" : 683,
               "key.column" : 8,
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>collectEmAll<\/decl.name>()<\/decl.function.method.instance>",
-              "key.groupname" : "Collection",
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 22,
               "key.line" : 39,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "collectEmAll()",
               "key.namelength" : 14,
               "key.nameoffset" : 667,
@@ -865,7 +892,7 @@
           "key.usr" : "s:Sl"
         },
         {
-          "key.annotated_decl" : "<Declaration>protocol Collection : <Type usr=\"s:ST\">Sequence<\/Type><\/Declaration>",
+          "key.annotated_decl" : "<Declaration>protocol Collection&lt;<Type usr=\"s:Sl7ElementQa\">Element<\/Type>&gt; : <Type usr=\"s:ST\">Sequence<\/Type><\/Declaration>",
           "key.bb.documentation" : {
             "key.bb.abstract" : {
               "en" : "A sequence whose elements can be traversed multiple times, nondestructively, and accessed by an indexed subscript."
@@ -890,7 +917,7 @@
           "key.bodylength" : 23,
           "key.bodyoffset" : 750,
           "key.decl_lang" : "source.lang.swift",
-          "key.doc.declaration" : "protocol Collection : Sequence",
+          "key.doc.declaration" : "protocol Collection<Element> : Sequence",
           "key.doc.discussion" : [
             {
               "Para" : "Collections are used extensively throughout the standard library. When you use arrays, dictionaries, and other collections, you benefit from the operations that the `Collection` protocol declares and implements. In addition to the operations that collections inherit from the `Sequence` protocol, you gain access to methods that depend on accessing an element at a specific position in a collection."
@@ -995,10 +1022,10 @@
               "Para" : "The performance of some collection operations depends on the type of index that the collection provides. For example, a random-access collection, which can measure the distance between two indices in O(1) time, can calculate its `count` property in O(1) time. Conversely, because a forward or bidirectional collection must traverse the entire collection to count the number of contained elements, accessing its `count` property is an O() operation."
             }
           ],
-          "key.doc.full_as_xml" : "<Class><Name>Collection<\/Name><USR>s:Sl<\/USR><Declaration>protocol Collection : Sequence<\/Declaration><CommentParts><Abstract><Para>A sequence whose elements can be traversed multiple times, nondestructively, and accessed by an indexed subscript.<\/Para><\/Abstract><Discussion><Para>Collections are used extensively throughout the standard library. When you use arrays, dictionaries, and other collections, you benefit from the operations that the <codeVoice>Collection<\/codeVoice> protocol declares and implements. In addition to the operations that collections inherit from the <codeVoice>Sequence<\/codeVoice> protocol, you gain access to methods that depend on accessing an element at a specific position in a collection.<\/Para><Para>For example, if you want to print only the first word in a string, you can search for the index of the first space, and then create a substring up to that position.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[let text = \"Buffalo buffalo buffalo buffalo.\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[if let firstSpace = text.firstIndex(of: \" \") {]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    print(text[..<firstSpace])]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[}]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"Buffalo\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>The <codeVoice>firstSpace<\/codeVoice> constant is an index into the <codeVoice>text<\/codeVoice> string—the position of the first space in the string. You can store indices in variables, and pass them to collection algorithms or use them later to access the corresponding element. In the example above, <codeVoice>firstSpace<\/codeVoice> is used to extract the prefix that contains elements up to that index.<\/Para><rawHTML><![CDATA[<h1>]]><\/rawHTML>Accessing Individual Elements<rawHTML><![CDATA[<\/h1>]]><\/rawHTML><Para>You can access an element of a collection through its subscript by using any valid index except the collection’s <codeVoice>endIndex<\/codeVoice> property. This property is a “past the end” index that does not correspond with any element of the collection.<\/Para><Para>Here’s an example of accessing the first character in a string through its subscript:<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[let firstChar = text[text.startIndex]]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[print(firstChar)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"B\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>The <codeVoice>Collection<\/codeVoice> protocol declares and provides default implementations for many operations that depend on elements being accessible by their subscript. For example, you can also access the first character of <codeVoice>text<\/codeVoice> using the <codeVoice>first<\/codeVoice> property, which has the value of the first element of the collection, or <codeVoice>nil<\/codeVoice> if the collection is empty.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[print(text.first)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"Optional(\"B\")\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>You can pass only valid indices to collection operations. You can find a complete set of a collection’s valid indices by starting with the collection’s <codeVoice>startIndex<\/codeVoice> property and finding every successor up to, and including, the <codeVoice>endIndex<\/codeVoice> property. All other values of the <codeVoice>Index<\/codeVoice> type, such as the <codeVoice>startIndex<\/codeVoice> property of a different collection, are invalid indices for this collection.<\/Para><Para>Saved indices may become invalid as a result of mutating operations. For more information about index invalidation in mutable collections, see the reference for the <codeVoice>MutableCollection<\/codeVoice> and <codeVoice>RangeReplaceableCollection<\/codeVoice> protocols, as well as for the specific type you’re using.<\/Para><rawHTML><![CDATA[<h1>]]><\/rawHTML>Accessing Slices of a Collection<rawHTML><![CDATA[<\/h1>]]><\/rawHTML><Para>You can access a slice of a collection through its ranged subscript or by calling methods like <codeVoice>prefix(while:)<\/codeVoice> or <codeVoice>suffix(_:)<\/codeVoice>. A slice of a collection can contain zero or more of the original collection’s elements and shares the original collection’s semantics.<\/Para><Para>The following example creates a <codeVoice>firstWord<\/codeVoice> constant by using the <codeVoice>prefix(while:)<\/codeVoice> method to get a slice of the <codeVoice>text<\/codeVoice> string.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[let firstWord = text.prefix(while: { $0 != \" \" })]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[print(firstWord)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"Buffalo\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>You can retrieve the same slice using the string’s ranged subscript, which takes a range expression.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[if let firstSpace = text.firstIndex(of: \" \") {]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    print(text[..<firstSpace]]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    \/\/ Prints \"Buffalo\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[}]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>The retrieved slice of <codeVoice>text<\/codeVoice> is equivalent in each of these cases.<\/Para><rawHTML><![CDATA[<h2>]]><\/rawHTML>Slices Share Indices<rawHTML><![CDATA[<\/h2>]]><\/rawHTML><Para>A collection and its slices share the same indices. An element of a collection is located under the same index in a slice as in the base collection, as long as neither the collection nor the slice has been mutated since the slice was created.<\/Para><Para>For example, suppose you have an array holding the number of absences from each class during a session.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[var absences = [0, 2, 0, 4, 0, 3, 1, 0]]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>You’re tasked with finding the day with the most absences in the second half of the session. To find the index of the day in question, follow these steps:<\/Para><List-Number><Item><Para>Create a slice of the <codeVoice>absences<\/codeVoice> array that holds the second half of the days.<\/Para><\/Item><Item><Para>Use the <codeVoice>max(by:)<\/codeVoice> method to determine the index of the day with the most absences.<\/Para><\/Item><Item><Para>Print the result using the index found in step 2 on the original <codeVoice>absences<\/codeVoice> array.<\/Para><\/Item><\/List-Number><Para>Here’s an implementation of those steps:<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[let secondHalf = absences.suffix(absences.count \/ 2)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[if let i = secondHalf.indices.max(by: { secondHalf[$0] < secondHalf[$1] }) {]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    print(\"Highest second-half absences: \\(absences[i])\")]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[}]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"Highest second-half absences: 3\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><rawHTML><![CDATA[<h2>]]><\/rawHTML>Slices Inherit Collection Semantics<rawHTML><![CDATA[<\/h2>]]><\/rawHTML><Para>A slice inherits the value or reference semantics of its base collection. That is, when working with a slice of a mutable collection that has value semantics, such as an array, mutating the original collection triggers a copy of that collection and does not affect the contents of the slice.<\/Para><Para>For example, if you update the last element of the <codeVoice>absences<\/codeVoice> array from <codeVoice>0<\/codeVoice> to <codeVoice>2<\/codeVoice>, the <codeVoice>secondHalf<\/codeVoice> slice is unchanged.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[absences[7] = 2]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[print(absences)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"[0, 2, 0, 4, 0, 3, 1, 2]\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[print(secondHalf)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"[0, 3, 1, 0]\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><rawHTML><![CDATA[<h1>]]><\/rawHTML>Traversing a Collection<rawHTML><![CDATA[<\/h1>]]><\/rawHTML><Para>Although a sequence can be consumed as it is traversed, a collection is guaranteed to be <emphasis>multipass<\/emphasis>: Any element can be repeatedly accessed by saving its index. Moreover, a collection’s indices form a finite range of the positions of the collection’s elements. The fact that all collections are finite guarantees the safety of many sequence operations, such as using the <codeVoice>contains(_:)<\/codeVoice> method to test whether a collection includes an element.<\/Para><Para>Iterating over the elements of a collection by their positions yields the same elements in the same order as iterating over that collection using its iterator. This example demonstrates that the <codeVoice>characters<\/codeVoice> view of a string returns the same characters in the same order whether the view’s indices or the view itself is being iterated.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[let word = \"Swift\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[for character in word {]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    print(character)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[}]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"S\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"w\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"i\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"f\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"t\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[for i in word.indices {]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    print(word[i])]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[}]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"S\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"w\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"i\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"f\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"t\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><rawHTML><![CDATA[<h1>]]><\/rawHTML>Conforming to the Collection Protocol<rawHTML><![CDATA[<\/h1>]]><\/rawHTML><Para>If you create a custom sequence that can provide repeated access to its elements, make sure that its type conforms to the <codeVoice>Collection<\/codeVoice> protocol in order to give a more useful and more efficient interface for sequence and collection operations. To add <codeVoice>Collection<\/codeVoice> conformance to your type, you must declare at least the following requirements:<\/Para><List-Bullet><Item><Para>The <codeVoice>startIndex<\/codeVoice> and <codeVoice>endIndex<\/codeVoice> properties<\/Para><\/Item><Item><Para>A subscript that provides at least read-only access to your type’s elements<\/Para><\/Item><Item><Para>The <codeVoice>index(after:)<\/codeVoice> method for advancing an index into your collection<\/Para><\/Item><\/List-Bullet><rawHTML><![CDATA[<h1>]]><\/rawHTML>Expected Performance<rawHTML><![CDATA[<\/h1>]]><\/rawHTML><Para>Types that conform to <codeVoice>Collection<\/codeVoice> are expected to provide the <codeVoice>startIndex<\/codeVoice> and <codeVoice>endIndex<\/codeVoice> properties and subscript access to elements as O(1) operations. Types that are not able to guarantee this performance must document the departure, because many collection operations depend on O(1) subscripting performance for their own performance guarantees.<\/Para><Para>The performance of some collection operations depends on the type of index that the collection provides. For example, a random-access collection, which can measure the distance between two indices in O(1) time, can calculate its <codeVoice>count<\/codeVoice> property in O(1) time. Conversely, because a forward or bidirectional collection must traverse the entire collection to count the number of contained elements, accessing its <codeVoice>count<\/codeVoice> property is an O(<emphasis>n<\/emphasis>) operation.<\/Para><\/Discussion><\/CommentParts><\/Class>",
+          "key.doc.full_as_xml" : "<Class><Name>Collection<\/Name><USR>s:Sl<\/USR><Declaration>protocol Collection&lt;Element&gt; : Sequence<\/Declaration><CommentParts><Abstract><Para>A sequence whose elements can be traversed multiple times, nondestructively, and accessed by an indexed subscript.<\/Para><\/Abstract><Discussion><Para>Collections are used extensively throughout the standard library. When you use arrays, dictionaries, and other collections, you benefit from the operations that the <codeVoice>Collection<\/codeVoice> protocol declares and implements. In addition to the operations that collections inherit from the <codeVoice>Sequence<\/codeVoice> protocol, you gain access to methods that depend on accessing an element at a specific position in a collection.<\/Para><Para>For example, if you want to print only the first word in a string, you can search for the index of the first space, and then create a substring up to that position.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[let text = \"Buffalo buffalo buffalo buffalo.\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[if let firstSpace = text.firstIndex(of: \" \") {]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    print(text[..<firstSpace])]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[}]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"Buffalo\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>The <codeVoice>firstSpace<\/codeVoice> constant is an index into the <codeVoice>text<\/codeVoice> string—the position of the first space in the string. You can store indices in variables, and pass them to collection algorithms or use them later to access the corresponding element. In the example above, <codeVoice>firstSpace<\/codeVoice> is used to extract the prefix that contains elements up to that index.<\/Para><rawHTML><![CDATA[<h1>]]><\/rawHTML>Accessing Individual Elements<rawHTML><![CDATA[<\/h1>]]><\/rawHTML><Para>You can access an element of a collection through its subscript by using any valid index except the collection’s <codeVoice>endIndex<\/codeVoice> property. This property is a “past the end” index that does not correspond with any element of the collection.<\/Para><Para>Here’s an example of accessing the first character in a string through its subscript:<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[let firstChar = text[text.startIndex]]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[print(firstChar)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"B\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>The <codeVoice>Collection<\/codeVoice> protocol declares and provides default implementations for many operations that depend on elements being accessible by their subscript. For example, you can also access the first character of <codeVoice>text<\/codeVoice> using the <codeVoice>first<\/codeVoice> property, which has the value of the first element of the collection, or <codeVoice>nil<\/codeVoice> if the collection is empty.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[print(text.first)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"Optional(\"B\")\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>You can pass only valid indices to collection operations. You can find a complete set of a collection’s valid indices by starting with the collection’s <codeVoice>startIndex<\/codeVoice> property and finding every successor up to, and including, the <codeVoice>endIndex<\/codeVoice> property. All other values of the <codeVoice>Index<\/codeVoice> type, such as the <codeVoice>startIndex<\/codeVoice> property of a different collection, are invalid indices for this collection.<\/Para><Para>Saved indices may become invalid as a result of mutating operations. For more information about index invalidation in mutable collections, see the reference for the <codeVoice>MutableCollection<\/codeVoice> and <codeVoice>RangeReplaceableCollection<\/codeVoice> protocols, as well as for the specific type you’re using.<\/Para><rawHTML><![CDATA[<h1>]]><\/rawHTML>Accessing Slices of a Collection<rawHTML><![CDATA[<\/h1>]]><\/rawHTML><Para>You can access a slice of a collection through its ranged subscript or by calling methods like <codeVoice>prefix(while:)<\/codeVoice> or <codeVoice>suffix(_:)<\/codeVoice>. A slice of a collection can contain zero or more of the original collection’s elements and shares the original collection’s semantics.<\/Para><Para>The following example creates a <codeVoice>firstWord<\/codeVoice> constant by using the <codeVoice>prefix(while:)<\/codeVoice> method to get a slice of the <codeVoice>text<\/codeVoice> string.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[let firstWord = text.prefix(while: { $0 != \" \" })]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[print(firstWord)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"Buffalo\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>You can retrieve the same slice using the string’s ranged subscript, which takes a range expression.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[if let firstSpace = text.firstIndex(of: \" \") {]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    print(text[..<firstSpace]]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    \/\/ Prints \"Buffalo\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[}]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>The retrieved slice of <codeVoice>text<\/codeVoice> is equivalent in each of these cases.<\/Para><rawHTML><![CDATA[<h2>]]><\/rawHTML>Slices Share Indices<rawHTML><![CDATA[<\/h2>]]><\/rawHTML><Para>A collection and its slices share the same indices. An element of a collection is located under the same index in a slice as in the base collection, as long as neither the collection nor the slice has been mutated since the slice was created.<\/Para><Para>For example, suppose you have an array holding the number of absences from each class during a session.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[var absences = [0, 2, 0, 4, 0, 3, 1, 0]]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><Para>You’re tasked with finding the day with the most absences in the second half of the session. To find the index of the day in question, follow these steps:<\/Para><List-Number><Item><Para>Create a slice of the <codeVoice>absences<\/codeVoice> array that holds the second half of the days.<\/Para><\/Item><Item><Para>Use the <codeVoice>max(by:)<\/codeVoice> method to determine the index of the day with the most absences.<\/Para><\/Item><Item><Para>Print the result using the index found in step 2 on the original <codeVoice>absences<\/codeVoice> array.<\/Para><\/Item><\/List-Number><Para>Here’s an implementation of those steps:<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[let secondHalf = absences.suffix(absences.count \/ 2)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[if let i = secondHalf.indices.max(by: { secondHalf[$0] < secondHalf[$1] }) {]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    print(\"Highest second-half absences: \\(absences[i])\")]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[}]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"Highest second-half absences: 3\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><rawHTML><![CDATA[<h2>]]><\/rawHTML>Slices Inherit Collection Semantics<rawHTML><![CDATA[<\/h2>]]><\/rawHTML><Para>A slice inherits the value or reference semantics of its base collection. That is, when working with a slice of a mutable collection that has value semantics, such as an array, mutating the original collection triggers a copy of that collection and does not affect the contents of the slice.<\/Para><Para>For example, if you update the last element of the <codeVoice>absences<\/codeVoice> array from <codeVoice>0<\/codeVoice> to <codeVoice>2<\/codeVoice>, the <codeVoice>secondHalf<\/codeVoice> slice is unchanged.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[absences[7] = 2]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[print(absences)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"[0, 2, 0, 4, 0, 3, 1, 2]\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[print(secondHalf)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"[0, 3, 1, 0]\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><rawHTML><![CDATA[<h1>]]><\/rawHTML>Traversing a Collection<rawHTML><![CDATA[<\/h1>]]><\/rawHTML><Para>Although a sequence can be consumed as it is traversed, a collection is guaranteed to be <emphasis>multipass<\/emphasis>: Any element can be repeatedly accessed by saving its index. Moreover, a collection’s indices form a finite range of the positions of the collection’s elements. The fact that all collections are finite guarantees the safety of many sequence operations, such as using the <codeVoice>contains(_:)<\/codeVoice> method to test whether a collection includes an element.<\/Para><Para>Iterating over the elements of a collection by their positions yields the same elements in the same order as iterating over that collection using its iterator. This example demonstrates that the <codeVoice>characters<\/codeVoice> view of a string returns the same characters in the same order whether the view’s indices or the view itself is being iterated.<\/Para><CodeListing language=\"swift\"><zCodeLineNumbered><![CDATA[let word = \"Swift\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[for character in word {]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    print(character)]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[}]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"S\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"w\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"i\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"f\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"t\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[for i in word.indices {]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[    print(word[i])]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[}]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"S\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"w\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"i\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"f\"]]><\/zCodeLineNumbered><zCodeLineNumbered><![CDATA[\/\/ Prints \"t\"]]><\/zCodeLineNumbered><zCodeLineNumbered><\/zCodeLineNumbered><\/CodeListing><rawHTML><![CDATA[<h1>]]><\/rawHTML>Conforming to the Collection Protocol<rawHTML><![CDATA[<\/h1>]]><\/rawHTML><Para>If you create a custom sequence that can provide repeated access to its elements, make sure that its type conforms to the <codeVoice>Collection<\/codeVoice> protocol in order to give a more useful and more efficient interface for sequence and collection operations. To add <codeVoice>Collection<\/codeVoice> conformance to your type, you must declare at least the following requirements:<\/Para><List-Bullet><Item><Para>The <codeVoice>startIndex<\/codeVoice> and <codeVoice>endIndex<\/codeVoice> properties<\/Para><\/Item><Item><Para>A subscript that provides at least read-only access to your type’s elements<\/Para><\/Item><Item><Para>The <codeVoice>index(after:)<\/codeVoice> method for advancing an index into your collection<\/Para><\/Item><\/List-Bullet><rawHTML><![CDATA[<h1>]]><\/rawHTML>Expected Performance<rawHTML><![CDATA[<\/h1>]]><\/rawHTML><Para>Types that conform to <codeVoice>Collection<\/codeVoice> are expected to provide the <codeVoice>startIndex<\/codeVoice> and <codeVoice>endIndex<\/codeVoice> properties and subscript access to elements as O(1) operations. Types that are not able to guarantee this performance must document the departure, because many collection operations depend on O(1) subscripting performance for their own performance guarantees.<\/Para><Para>The performance of some collection operations depends on the type of index that the collection provides. For example, a random-access collection, which can measure the distance between two indices in O(1) time, can calculate its <codeVoice>count<\/codeVoice> property in O(1) time. Conversely, because a forward or bidirectional collection must traverse the entire collection to count the number of contained elements, accessing its <codeVoice>count<\/codeVoice> property is an O(<emphasis>n<\/emphasis>) operation.<\/Para><\/Discussion><\/CommentParts><\/Class>",
           "key.doc.name" : "Collection",
           "key.doc.type" : "Class",
-          "key.fully_annotated_decl" : "<decl.protocol><syntaxtype.keyword>protocol<\/syntaxtype.keyword> <decl.name>Collection<\/decl.name> : <ref.protocol usr=\"s:ST\">Sequence<\/ref.protocol><\/decl.protocol>",
+          "key.fully_annotated_decl" : "<decl.protocol><syntaxtype.keyword>protocol<\/syntaxtype.keyword> <decl.name>Collection<\/decl.name>&lt;<decl.generic_type_param usr=\"s:Sl7ElementQa\"><ref.associatedtype usr=\"s:Sl7ElementQa\">Element<\/ref.associatedtype><\/decl.generic_type_param>&gt; : <ref.protocol usr=\"s:ST\">Sequence<\/ref.protocol><\/decl.protocol>",
           "key.groupname" : "Collection",
           "key.is_system" : true,
           "key.kind" : "source.lang.swift.decl.extension",
@@ -1032,16 +1059,17 @@
                   "key.bb.name_piece_text" : "()"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 0,
               "key.bodyoffset" : 771,
               "key.column" : 8,
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>nestEmAll<\/decl.name>()<\/decl.function.method.instance>",
-              "key.groupname" : "Collection",
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 19,
               "key.line" : 43,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "nestEmAll()",
               "key.namelength" : 11,
               "key.nameoffset" : 758,
@@ -1080,6 +1108,7 @@
               "key.bb.name_piece_text" : "FirstProtocol"
             }
           ],
+          "key.bb.type_module_name" : "SpmSwiftModule",
           "key.bodylength" : 142,
           "key.bodyoffset" : 827,
           "key.column" : 17,
@@ -1096,6 +1125,7 @@
           "key.kind" : "source.lang.swift.decl.extension",
           "key.length" : 194,
           "key.line" : 2,
+          "key.modulename" : "SpmSwiftModule",
           "key.name" : "FirstProtocol",
           "key.namelength" : 13,
           "key.nameoffset" : 786,
@@ -1124,6 +1154,7 @@
                   "key.bb.name_piece_text" : "()"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 0,
               "key.bodyoffset" : 856,
               "key.column" : 8,
@@ -1133,6 +1164,7 @@
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 27,
               "key.line" : 47,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "extHashableMethod()",
               "key.namelength" : 19,
               "key.nameoffset" : 835,
@@ -1178,6 +1210,7 @@
                   "key.bb.name_piece_text" : ": Int) -> String"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 17,
               "key.bodyoffset" : 950,
               "key.column" : 8,
@@ -1197,6 +1230,7 @@
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 46,
               "key.line" : 50,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "m(arg:)",
               "key.namelength" : 11,
               "key.nameoffset" : 927,
@@ -1310,6 +1344,7 @@
                   "key.bb.name_piece_text" : "()"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 0,
               "key.bodyoffset" : 1097,
               "key.column" : 8,
@@ -1326,10 +1361,10 @@
               "key.docoffset" : 1057,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>method1<\/decl.name>()<\/decl.function.method.instance>",
-              "key.groupname" : "String",
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 17,
               "key.line" : 58,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "method1()",
               "key.namelength" : 9,
               "key.nameoffset" : 1086,
@@ -1361,16 +1396,17 @@
                   "key.bb.name_piece_text" : "()"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 0,
               "key.bodyoffset" : 1142,
               "key.column" : 8,
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>method2<\/decl.name>()<\/decl.function.method.instance>",
-              "key.groupname" : "String",
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 17,
               "key.line" : 60,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "method2()",
               "key.namelength" : 9,
               "key.nameoffset" : 1131,
@@ -1456,16 +1492,17 @@
                   "key.bb.name_piece_text" : "()"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 0,
               "key.bodyoffset" : 1186,
               "key.column" : 8,
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>f<\/decl.name>()<\/decl.function.method.instance>",
-              "key.groupname" : "String",
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 11,
               "key.line" : 64,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "f()",
               "key.namelength" : 3,
               "key.nameoffset" : 1181,
@@ -1497,16 +1534,17 @@
                   "key.bb.name_piece_text" : "(String) -> Bool"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 7,
               "key.bodyoffset" : 1285,
               "key.column" : 8,
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>hasSuffix<\/decl.name>(<decl.var.parameter><decl.var.parameter.argument_label>_<\/decl.var.parameter.argument_label> <decl.var.parameter.name>prefix<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.struct usr=\"s:Sb\">Bool<\/ref.struct><\/decl.function.returntype><\/decl.function.method.instance>",
-              "key.groupname" : "String",
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 50,
               "key.line" : 66,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "hasSuffix(_:)",
               "key.namelength" : 27,
               "key.nameoffset" : 1248,
@@ -1573,6 +1611,7 @@
               "key.bb.name_piece_text" : "FirstProtocol"
             }
           ],
+          "key.bb.type_module_name" : "SpmSwiftModule",
           "key.bodylength" : 274,
           "key.bodyoffset" : 47,
           "key.column" : 17,
@@ -1592,6 +1631,7 @@
           "key.kind" : "source.lang.swift.decl.protocol",
           "key.length" : 299,
           "key.line" : 2,
+          "key.modulename" : "SpmSwiftModule",
           "key.name" : "FirstProtocol",
           "key.namelength" : 13,
           "key.nameoffset" : 32,
@@ -1649,6 +1689,7 @@
                   "key.bb.name_piece_text" : ": Int) -> String"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.column" : 8,
               "key.decl_lang" : "source.lang.swift",
               "key.doc.column" : 8,
@@ -1686,6 +1727,7 @@
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 26,
               "key.line" : 8,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "m(arg:)",
               "key.namelength" : 11,
               "key.nameoffset" : 177,
@@ -1722,6 +1764,7 @@
                   "key.bb.name_piece_text" : "AssocType"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.column" : 18,
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
@@ -1729,6 +1772,7 @@
               "key.kind" : "source.lang.swift.decl.associatedtype",
               "key.length" : 24,
               "key.line" : 10,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "AssocType",
               "key.namelength" : 9,
               "key.nameoffset" : 217,
@@ -1737,7 +1781,7 @@
               "key.parsed_scope.end" : 10,
               "key.parsed_scope.start" : 10,
               "key.typename" : "Self.AssocType.Type",
-              "key.typeusr" : "$s9AssocType14SpmSwiftModule13FirstProtocolPQzmD",
+              "key.typeusr" : "$s9AssocTypeQzmD",
               "key.usr" : "s:14SpmSwiftModule13FirstProtocolP9AssocTypeQa"
             },
             {
@@ -1761,6 +1805,7 @@
                   "key.bb.name_piece_text" : "() -> AssocType"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.column" : 8,
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
@@ -1768,6 +1813,7 @@
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 29,
               "key.line" : 11,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "assocFunc()",
               "key.namelength" : 11,
               "key.nameoffset" : 234,
@@ -1800,6 +1846,7 @@
                   "key.bb.name_piece_text" : ": Int"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 5,
               "key.bodyoffset" : 280,
               "key.column" : 7,
@@ -1809,6 +1856,7 @@
               "key.kind" : "source.lang.swift.decl.var.instance",
               "key.length" : 24,
               "key.line" : 13,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "getOnly",
               "key.namelength" : 7,
               "key.nameoffset" : 266,
@@ -1841,6 +1889,7 @@
                   "key.bb.name_piece_text" : ": Int"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 9,
               "key.bodyoffset" : 310,
               "key.column" : 7,
@@ -1850,6 +1899,7 @@
               "key.kind" : "source.lang.swift.decl.var.instance",
               "key.length" : 30,
               "key.line" : 15,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "setAndGet",
               "key.namelength" : 9,
               "key.nameoffset" : 294,
@@ -1896,6 +1946,7 @@
               "key.bb.name_piece_text" : "SecondProtocol"
             }
           ],
+          "key.bb.type_module_name" : "SpmSwiftModule",
           "key.bodylength" : 43,
           "key.bodyoffset" : 371,
           "key.column" : 17,
@@ -1917,6 +1968,7 @@
           "key.kind" : "source.lang.swift.decl.protocol",
           "key.length" : 84,
           "key.line" : 18,
+          "key.modulename" : "SpmSwiftModule",
           "key.name" : "SecondProtocol",
           "key.namelength" : 14,
           "key.nameoffset" : 340,
@@ -1946,6 +1998,7 @@
                   "key.bb.name_piece_text" : "() -> String"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.column" : 10,
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
@@ -1953,6 +2006,7 @@
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 37,
               "key.line" : 19,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "secondProtocolMethod()",
               "key.namelength" : 22,
               "key.nameoffset" : 381,
@@ -1985,6 +2039,7 @@
               "key.bb.name_piece_text" : "SecondProtocol"
             }
           ],
+          "key.bb.type_module_name" : "SpmSwiftModule",
           "key.bodylength" : 256,
           "key.bodyoffset" : 443,
           "key.column" : 17,
@@ -1994,6 +2049,7 @@
           "key.kind" : "source.lang.swift.decl.extension",
           "key.length" : 283,
           "key.line" : 18,
+          "key.modulename" : "SpmSwiftModule",
           "key.name" : "SecondProtocol",
           "key.namelength" : 14,
           "key.nameoffset" : 427,
@@ -2028,6 +2084,7 @@
                   "key.bb.name_piece_text" : ": Int"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 3,
               "key.bodyoffset" : 694,
               "key.column" : 7,
@@ -2047,6 +2104,7 @@
               "key.kind" : "source.lang.swift.decl.var.instance",
               "key.length" : 22,
               "key.line" : 27,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "getOnly",
               "key.namelength" : 7,
               "key.nameoffset" : 680,
@@ -2090,6 +2148,7 @@
               "key.bb.name_piece_text" : "FirstProtocol"
             }
           ],
+          "key.bb.type_module_name" : "SpmSwiftModule",
           "key.bodylength" : 49,
           "key.bodyoffset" : 727,
           "key.column" : 17,
@@ -2106,6 +2165,7 @@
           "key.kind" : "source.lang.swift.decl.extension",
           "key.length" : 75,
           "key.line" : 2,
+          "key.modulename" : "SpmSwiftModule",
           "key.name" : "FirstProtocol",
           "key.namelength" : 13,
           "key.nameoffset" : 712,
@@ -2140,6 +2200,7 @@
                   "key.bb.name_piece_text" : "()"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 0,
               "key.bodyoffset" : 774,
               "key.column" : 8,
@@ -2159,6 +2220,7 @@
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 11,
               "key.line" : 32,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "e()",
               "key.namelength" : 3,
               "key.nameoffset" : 769,
@@ -2202,6 +2264,7 @@
               "key.bb.name_piece_text" : "FirstProtocol"
             }
           ],
+          "key.bb.type_module_name" : "SpmSwiftModule",
           "key.bodylength" : 87,
           "key.bodyoffset" : 804,
           "key.column" : 17,
@@ -2218,6 +2281,7 @@
           "key.kind" : "source.lang.swift.decl.extension",
           "key.length" : 113,
           "key.line" : 2,
+          "key.modulename" : "SpmSwiftModule",
           "key.name" : "FirstProtocol",
           "key.namelength" : 13,
           "key.nameoffset" : 789,
@@ -2260,6 +2324,7 @@
                   "key.bb.name_piece_text" : ": C)"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 0,
               "key.bodyoffset" : 889,
               "key.column" : 8,
@@ -2279,6 +2344,7 @@
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 41,
               "key.line" : 37,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "e(a:)",
               "key.namelength" : 10,
               "key.nameoffset" : 854,
@@ -2304,6 +2370,7 @@
                       "key.bb.name_piece_text" : "C"
                     }
                   ],
+                  "key.bb.type_module_name" : "SpmSwiftModule",
                   "key.column" : 10,
                   "key.decl_lang" : "source.lang.swift",
                   "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
@@ -2311,6 +2378,7 @@
                   "key.kind" : "source.lang.swift.decl.generic_type_param",
                   "key.length" : 1,
                   "key.line" : 37,
+                  "key.modulename" : "SpmSwiftModule",
                   "key.name" : "C",
                   "key.namelength" : 1,
                   "key.nameoffset" : 856,
@@ -2354,6 +2422,7 @@
               "key.bb.name_piece_text" : "FirstProtocol"
             }
           ],
+          "key.bb.type_module_name" : "SpmSwiftModule",
           "key.bodylength" : 121,
           "key.bodyoffset" : 919,
           "key.column" : 17,
@@ -2370,6 +2439,7 @@
           "key.kind" : "source.lang.swift.decl.extension",
           "key.length" : 147,
           "key.line" : 2,
+          "key.modulename" : "SpmSwiftModule",
           "key.name" : "FirstProtocol",
           "key.namelength" : 13,
           "key.nameoffset" : 904,
@@ -2415,6 +2485,7 @@
                   "key.bb.name_piece_text" : ": Int) -> String"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 10,
               "key.bodyoffset" : 1028,
               "key.column" : 8,
@@ -2439,6 +2510,7 @@
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 39,
               "key.line" : 44,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "m(arg:)",
               "key.namelength" : 11,
               "key.nameoffset" : 1005,
@@ -2480,6 +2552,7 @@
               "key.bb.name_piece_text" : "P1"
             }
           ],
+          "key.bb.type_module_name" : "SpmSwiftModule",
           "key.bodylength" : 0,
           "key.bodyoffset" : 1056,
           "key.column" : 10,
@@ -2489,6 +2562,7 @@
           "key.kind" : "source.lang.swift.decl.protocol",
           "key.length" : 14,
           "key.line" : 49,
+          "key.modulename" : "SpmSwiftModule",
           "key.name" : "P1",
           "key.namelength" : 2,
           "key.nameoffset" : 1052,
@@ -2517,6 +2591,7 @@
               "key.bb.name_piece_text" : "P2"
             }
           ],
+          "key.bb.type_module_name" : "SpmSwiftModule",
           "key.bodylength" : 0,
           "key.bodyoffset" : 1071,
           "key.column" : 10,
@@ -2526,6 +2601,7 @@
           "key.kind" : "source.lang.swift.decl.protocol",
           "key.length" : 14,
           "key.line" : 50,
+          "key.modulename" : "SpmSwiftModule",
           "key.name" : "P2",
           "key.namelength" : 2,
           "key.nameoffset" : 1067,
@@ -2559,6 +2635,7 @@
               "key.bb.name_piece_text" : "S1"
             }
           ],
+          "key.bb.type_module_name" : "SpmSwiftModule",
           "key.bodylength" : 0,
           "key.bodyoffset" : 1089,
           "key.column" : 8,
@@ -2580,6 +2657,7 @@
           "key.kind" : "source.lang.swift.decl.struct",
           "key.length" : 16,
           "key.line" : 52,
+          "key.modulename" : "SpmSwiftModule",
           "key.name" : "S1",
           "key.namelength" : 2,
           "key.nameoffset" : 1081,
@@ -2612,6 +2690,7 @@
               "key.bb.name_piece_text" : "S1"
             }
           ],
+          "key.bb.type_module_name" : "SpmSwiftModule",
           "key.bodylength" : 34,
           "key.bodyoffset" : 1131,
           "key.column" : 8,
@@ -2633,6 +2712,7 @@
           "key.kind" : "source.lang.swift.decl.extension",
           "key.length" : 74,
           "key.line" : 52,
+          "key.modulename" : "SpmSwiftModule",
           "key.name" : "S1",
           "key.namelength" : 2,
           "key.nameoffset" : 1102,
@@ -2670,6 +2750,7 @@
                   "key.bb.name_piece_text" : ": String"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 4,
               "key.bodyoffset" : 1159,
               "key.column" : 7,
@@ -2697,6 +2778,7 @@
               "key.kind" : "source.lang.swift.decl.var.instance",
               "key.length" : 30,
               "key.line" : 55,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "description",
               "key.namelength" : 11,
               "key.nameoffset" : 1138,
@@ -2740,6 +2822,7 @@
               "key.bb.name_piece_text" : "S2"
             }
           ],
+          "key.bb.type_module_name" : "SpmSwiftModule",
           "key.bodylength" : 25,
           "key.bodyoffset" : 1205,
           "key.column" : 8,
@@ -2761,6 +2844,7 @@
           "key.kind" : "source.lang.swift.decl.struct",
           "key.length" : 63,
           "key.line" : 58,
+          "key.modulename" : "SpmSwiftModule",
           "key.name" : "S2",
           "key.namelength" : 2,
           "key.nameoffset" : 1175,
@@ -2781,6 +2865,7 @@
                   "key.bb.name_piece_text" : "T"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.column" : 11,
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
@@ -2788,6 +2873,7 @@
               "key.kind" : "source.lang.swift.decl.generic_type_param",
               "key.length" : 1,
               "key.line" : 58,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "T",
               "key.namelength" : 1,
               "key.nameoffset" : 1178,
@@ -2820,6 +2906,7 @@
                   "key.bb.name_piece_text" : "()"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 0,
               "key.bodyoffset" : 1228,
               "key.column" : 8,
@@ -2829,6 +2916,7 @@
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 21,
               "key.line" : 59,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "equatables2()",
               "key.namelength" : 13,
               "key.nameoffset" : 1213,
@@ -2866,6 +2954,7 @@
               "key.bb.name_piece_text" : "S2"
             }
           ],
+          "key.bb.type_module_name" : "SpmSwiftModule",
           "key.bodylength" : 26,
           "key.bodyoffset" : 1271,
           "key.column" : 8,
@@ -2887,6 +2976,7 @@
           "key.kind" : "source.lang.swift.decl.extension",
           "key.length" : 65,
           "key.line" : 58,
+          "key.modulename" : "SpmSwiftModule",
           "key.name" : "S2",
           "key.namelength" : 2,
           "key.nameoffset" : 1243,
@@ -2915,6 +3005,7 @@
                   "key.bb.name_piece_text" : "()"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 0,
               "key.bodyoffset" : 1295,
               "key.column" : 8,
@@ -2924,6 +3015,7 @@
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 22,
               "key.line" : 63,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "comparables2()",
               "key.namelength" : 14,
               "key.nameoffset" : 1279,
@@ -2961,6 +3053,7 @@
               "key.bb.name_piece_text" : "S2"
             }
           ],
+          "key.bb.type_module_name" : "SpmSwiftModule",
           "key.bodylength" : 26,
           "key.bodyoffset" : 1344,
           "key.column" : 8,
@@ -2982,6 +3075,7 @@
           "key.kind" : "source.lang.swift.decl.extension",
           "key.length" : 71,
           "key.line" : 58,
+          "key.modulename" : "SpmSwiftModule",
           "key.name" : "S2",
           "key.namelength" : 2,
           "key.nameoffset" : 1310,
@@ -3010,6 +3104,7 @@
                   "key.bb.name_piece_text" : "()"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 0,
               "key.bodyoffset" : 1368,
               "key.column" : 8,
@@ -3019,6 +3114,7 @@
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 22,
               "key.line" : 67,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "equatables22()",
               "key.namelength" : 14,
               "key.nameoffset" : 1352,
@@ -3406,16 +3502,17 @@
                   "key.bb.name_piece_text" : "()"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 0,
               "key.bodyoffset" : 1470,
               "key.column" : 8,
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>arrayFunc<\/decl.name>()<\/decl.function.method.instance>",
-              "key.groupname" : "Collection\/Array",
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 19,
               "key.line" : 73,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "arrayFunc()",
               "key.namelength" : 11,
               "key.nameoffset" : 1457,
@@ -3474,6 +3571,7 @@
               "key.bb.name_piece_text" : "SpmSwiftModule"
             }
           ],
+          "key.bb.type_module_name" : "SpmSwiftModule",
           "key.bodylength" : 616,
           "key.bodyoffset" : 49,
           "key.column" : 15,
@@ -3493,6 +3591,7 @@
           "key.kind" : "source.lang.swift.decl.struct",
           "key.length" : 640,
           "key.line" : 2,
+          "key.modulename" : "SpmSwiftModule",
           "key.name" : "SpmSwiftModule",
           "key.namelength" : 14,
           "key.nameoffset" : 33,
@@ -3505,8 +3604,6 @@
               "key.kind" : "source.lang.swift.syntaxtype.comment.mark",
               "key.length" : 12,
               "key.name" : "MARK: Fields",
-              "key.namelength" : 0,
-              "key.nameoffset" : 0,
               "key.offset" : 57
             },
             {
@@ -3537,6 +3634,7 @@
                   "key.bb.name_piece_text" : ": String"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.column" : 16,
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -3544,6 +3642,7 @@
               "key.kind" : "source.lang.swift.decl.var.instance",
               "key.length" : 26,
               "key.line" : 4,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "text",
               "key.namelength" : 4,
               "key.nameoffset" : 85,
@@ -3560,8 +3659,6 @@
               "key.kind" : "source.lang.swift.syntaxtype.comment.mark",
               "key.length" : 29,
               "key.name" : "MARK: _Nested_ strúctures ``",
-              "key.namelength" : 0,
-              "key.nameoffset" : 0,
               "key.offset" : 116
             },
             {
@@ -3588,6 +3685,7 @@
                   "key.bb.name_piece_text" : "Nested1"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 116,
               "key.bodyoffset" : 174,
               "key.column" : 19,
@@ -3597,6 +3695,7 @@
               "key.kind" : "source.lang.swift.decl.struct",
               "key.length" : 133,
               "key.line" : 8,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "Nested1",
               "key.namelength" : 7,
               "key.nameoffset" : 165,
@@ -3629,6 +3728,7 @@
                       "key.bb.name_piece_text" : "Nested2a"
                     }
                   ],
+                  "key.bb.type_module_name" : "SpmSwiftModule",
                   "key.bodylength" : 7,
                   "key.bodyoffset" : 206,
                   "key.column" : 21,
@@ -3638,6 +3738,7 @@
                   "key.kind" : "source.lang.swift.decl.struct",
                   "key.length" : 25,
                   "key.line" : 9,
+                  "key.modulename" : "SpmSwiftModule",
                   "key.name" : "Nested2a",
                   "key.namelength" : 8,
                   "key.nameoffset" : 196,
@@ -3681,6 +3782,7 @@
                       "key.bb.name_piece_text" : "Nested2b"
                     }
                   ],
+                  "key.bb.type_module_name" : "SpmSwiftModule",
                   "key.bodylength" : 7,
                   "key.bodyoffset" : 277,
                   "key.column" : 21,
@@ -3690,6 +3792,7 @@
                   "key.kind" : "source.lang.swift.decl.struct",
                   "key.length" : 25,
                   "key.line" : 12,
+                  "key.modulename" : "SpmSwiftModule",
                   "key.name" : "Nested2b",
                   "key.namelength" : 8,
                   "key.nameoffset" : 267,
@@ -3730,6 +3833,7 @@
                   "key.bb.name_piece_text" : "Nested2"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 0,
               "key.bodyoffset" : 320,
               "key.column" : 19,
@@ -3739,6 +3843,7 @@
               "key.kind" : "source.lang.swift.decl.struct",
               "key.length" : 17,
               "key.line" : 16,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "Nested2",
               "key.namelength" : 7,
               "key.nameoffset" : 311,
@@ -3777,6 +3882,7 @@
                   "key.bb.name_piece_text" : ": Int"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.column" : 9,
               "key.decl_lang" : "source.lang.swift",
               "key.doc.column" : 9,
@@ -3794,6 +3900,7 @@
               "key.kind" : "source.lang.swift.decl.var.instance",
               "key.length" : 26,
               "key.line" : 19,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "a",
               "key.namelength" : 1,
               "key.nameoffset" : 354,
@@ -3833,6 +3940,7 @@
                   "key.bb.name_piece_text" : ": Int"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.column" : 9,
               "key.decl_lang" : "source.lang.swift",
               "key.doc.column" : 9,
@@ -3849,6 +3957,7 @@
               "key.kind" : "source.lang.swift.decl.var.instance",
               "key.length" : 26,
               "key.line" : 20,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "b",
               "key.namelength" : 1,
               "key.nameoffset" : 370,
@@ -3920,6 +4029,7 @@
                   "key.bb.name_piece_text" : ": String) -> Int"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 15,
               "key.bodyoffset" : 648,
               "key.column" : 17,
@@ -3959,6 +4069,7 @@
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 61,
               "key.line" : 29,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "checkState(name:)",
               "key.namelength" : 24,
               "key.nameoffset" : 608,
@@ -4005,6 +4116,7 @@
               "key.bb.name_piece_text" : "AnEnum"
             }
           ],
+          "key.bb.type_module_name" : "SpmSwiftModule",
           "key.bodylength" : 193,
           "key.bodyoffset" : 700,
           "key.column" : 13,
@@ -4024,6 +4136,7 @@
           "key.kind" : "source.lang.swift.decl.enum",
           "key.length" : 207,
           "key.line" : 35,
+          "key.modulename" : "SpmSwiftModule",
           "key.name" : "AnEnum",
           "key.namelength" : 6,
           "key.nameoffset" : 692,
@@ -4035,8 +4148,6 @@
             {
               "key.kind" : "source.lang.swift.decl.enumcase",
               "key.length" : 15,
-              "key.namelength" : 0,
-              "key.nameoffset" : 0,
               "key.offset" : 724,
               "key.substructure" : [
                 {
@@ -4066,6 +4177,7 @@
                       "key.bb.name_piece_text" : "(Int)"
                     }
                   ],
+                  "key.bb.type_module_name" : "SpmSwiftModule",
                   "key.column" : 10,
                   "key.decl_lang" : "source.lang.swift",
                   "key.doc.column" : 10,
@@ -4083,6 +4195,7 @@
                   "key.kind" : "source.lang.swift.decl.enumelement",
                   "key.length" : 10,
                   "key.line" : 37,
+                  "key.modulename" : "SpmSwiftModule",
                   "key.name" : "first(_:)",
                   "key.namelength" : 10,
                   "key.nameoffset" : 729,
@@ -4099,8 +4212,6 @@
             {
               "key.kind" : "source.lang.swift.decl.enumcase",
               "key.length" : 11,
-              "key.namelength" : 0,
-              "key.nameoffset" : 0,
               "key.offset" : 764,
               "key.substructure" : [
                 {
@@ -4126,6 +4237,7 @@
                       "key.bb.name_piece_text" : "second"
                     }
                   ],
+                  "key.bb.type_module_name" : "SpmSwiftModule",
                   "key.column" : 10,
                   "key.decl_lang" : "source.lang.swift",
                   "key.doc.column" : 10,
@@ -4143,6 +4255,7 @@
                   "key.kind" : "source.lang.swift.decl.enumelement",
                   "key.length" : 6,
                   "key.line" : 39,
+                  "key.modulename" : "SpmSwiftModule",
                   "key.name" : "second",
                   "key.namelength" : 6,
                   "key.nameoffset" : 769,
@@ -4159,8 +4272,6 @@
             {
               "key.kind" : "source.lang.swift.decl.enumcase",
               "key.length" : 18,
-              "key.namelength" : 0,
-              "key.nameoffset" : 0,
               "key.offset" : 820,
               "key.substructure" : [
                 {
@@ -4186,6 +4297,7 @@
                       "key.bb.name_piece_text" : "third"
                     }
                   ],
+                  "key.bb.type_module_name" : "SpmSwiftModule",
                   "key.column" : 10,
                   "key.decl_lang" : "source.lang.swift",
                   "key.doc.column" : 10,
@@ -4203,6 +4315,7 @@
                   "key.kind" : "source.lang.swift.decl.enumelement",
                   "key.length" : 5,
                   "key.line" : 41,
+                  "key.modulename" : "SpmSwiftModule",
                   "key.name" : "third",
                   "key.namelength" : 5,
                   "key.nameoffset" : 825,
@@ -4237,6 +4350,7 @@
                       "key.bb.name_piece_text" : "fourth"
                     }
                   ],
+                  "key.bb.type_module_name" : "SpmSwiftModule",
                   "key.column" : 17,
                   "key.decl_lang" : "source.lang.swift",
                   "key.doc.column" : 17,
@@ -4253,6 +4367,7 @@
                   "key.kind" : "source.lang.swift.decl.enumelement",
                   "key.length" : 6,
                   "key.line" : 41,
+                  "key.modulename" : "SpmSwiftModule",
                   "key.name" : "fourth",
                   "key.namelength" : 6,
                   "key.nameoffset" : 832,
@@ -4269,8 +4384,6 @@
             {
               "key.kind" : "source.lang.swift.decl.enumcase",
               "key.length" : 30,
-              "key.namelength" : 0,
-              "key.nameoffset" : 0,
               "key.offset" : 862,
               "key.substructure" : [
                 {
@@ -4308,6 +4421,7 @@
                       "key.bb.name_piece_text" : ": String, Int)"
                     }
                   ],
+                  "key.bb.type_module_name" : "SpmSwiftModule",
                   "key.column" : 10,
                   "key.decl_lang" : "source.lang.swift",
                   "key.doc.column" : 10,
@@ -4325,6 +4439,7 @@
                   "key.kind" : "source.lang.swift.decl.enumelement",
                   "key.length" : 25,
                   "key.line" : 43,
+                  "key.modulename" : "SpmSwiftModule",
                   "key.name" : "fifth(a:_:)",
                   "key.namelength" : 25,
                   "key.nameoffset" : 867,
@@ -4439,6 +4554,7 @@
           "key.bb.swift_unavailable_messages" : {
             "en" : "tvOS - unavailable. Not available on the big screen."
           },
+          "key.bb.type_module_name" : "SpmSwiftModule",
           "key.bodylength" : 1,
           "key.bodyoffset" : 1269,
           "key.column" : 13,
@@ -4489,6 +4605,7 @@
           "key.kind" : "source.lang.swift.decl.function.free",
           "key.length" : 108,
           "key.line" : 54,
+          "key.modulename" : "SpmSwiftModule",
           "key.name" : "functionA(arg1:_:arg3:)",
           "key.namelength" : 99,
           "key.nameoffset" : 1168,
@@ -4571,6 +4688,7 @@
               "key.bb.name_piece_text" : ": (_ report: String) -> Int) -> String"
             }
           ],
+          "key.bb.type_module_name" : "SpmSwiftModule",
           "key.bodylength" : 13,
           "key.bodyoffset" : 1604,
           "key.column" : 13,
@@ -4605,6 +4723,7 @@
           "key.kind" : "source.lang.swift.decl.function.free",
           "key.length" : 86,
           "key.line" : 66,
+          "key.modulename" : "SpmSwiftModule",
           "key.name" : "deprecatedFunction(callback:)",
           "key.namelength" : 55,
           "key.nameoffset" : 1537,
@@ -4646,6 +4765,7 @@
               "key.bb.name_piece_text" : "ABaseClass"
             }
           ],
+          "key.bb.type_module_name" : "SpmSwiftModule",
           "key.bodylength" : 634,
           "key.bodyoffset" : 1662,
           "key.column" : 14,
@@ -4665,6 +4785,7 @@
           "key.kind" : "source.lang.swift.decl.class",
           "key.length" : 653,
           "key.line" : 71,
+          "key.modulename" : "SpmSwiftModule",
           "key.name" : "ABaseClass",
           "key.namelength" : 10,
           "key.nameoffset" : 1650,
@@ -4697,6 +4818,7 @@
                   "key.bb.name_piece_text" : "()"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 0,
               "key.bodyoffset" : 1680,
               "key.column" : 10,
@@ -4706,6 +4828,7 @@
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 9,
               "key.line" : 72,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "init()",
               "key.namelength" : 6,
               "key.nameoffset" : 1672,
@@ -4759,6 +4882,7 @@
                   "key.bb.name_piece_text" : ": Int)"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 13,
               "key.bodyoffset" : 1718,
               "key.column" : 22,
@@ -4768,6 +4892,7 @@
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 28,
               "key.line" : 74,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "init(a:)",
               "key.namelength" : 12,
               "key.nameoffset" : 1704,
@@ -4797,6 +4922,7 @@
                   "key.bb.name_piece_text" : "deinit"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 0,
               "key.bodyoffset" : 1744,
               "key.column" : 3,
@@ -4806,6 +4932,7 @@
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 9,
               "key.line" : 76,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "deinit",
               "key.namelength" : 6,
               "key.nameoffset" : 1736,
@@ -4859,6 +4986,7 @@
                   "key.bb.name_piece_text" : ": Int) -> String"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 17,
               "key.bodyoffset" : 1833,
               "key.column" : 15,
@@ -4878,6 +5006,7 @@
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 53,
               "key.line" : 78,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "method(param:)",
               "key.namelength" : 18,
               "key.nameoffset" : 1803,
@@ -4917,6 +5046,7 @@
                   "key.bb.name_piece_text" : "() -> Int"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 16,
               "key.bodyoffset" : 1897,
               "key.column" : 22,
@@ -4926,6 +5056,7 @@
               "key.kind" : "source.lang.swift.decl.function.method.static",
               "key.length" : 52,
               "key.line" : 82,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "staticMethod()",
               "key.namelength" : 14,
               "key.nameoffset" : 1874,
@@ -4969,6 +5100,7 @@
                   "key.bb.name_piece_text" : ": String) -> Int"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 50,
               "key.bodyoffset" : 1956,
               "key.column" : 10,
@@ -4978,6 +5110,7 @@
               "key.kind" : "source.lang.swift.decl.function.subscript",
               "key.length" : 82,
               "key.line" : 86,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "subscript(_:)",
               "key.namelength" : 22,
               "key.nameoffset" : 1925,
@@ -5034,6 +5167,7 @@
                   "key.bb.name_piece_text" : ": String) -> Int"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 16,
               "key.bodyoffset" : 2056,
               "key.column" : 17,
@@ -5043,6 +5177,7 @@
               "key.kind" : "source.lang.swift.decl.function.subscript",
               "key.length" : 48,
               "key.line" : 94,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "subscript(_:)",
               "key.namelength" : 22,
               "key.nameoffset" : 2025,
@@ -5098,6 +5233,7 @@
                   "key.bb.name_piece_text" : ": Int) -> String"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 17,
               "key.bodyoffset" : 2121,
               "key.column" : 16,
@@ -5107,6 +5243,7 @@
               "key.kind" : "source.lang.swift.decl.function.subscript",
               "key.length" : 49,
               "key.line" : 98,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "subscript(_:)",
               "key.namelength" : 19,
               "key.nameoffset" : 2090,
@@ -5147,6 +5284,7 @@
                   "key.bb.name_piece_text" : ": Int"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 9,
               "key.bodyoffset" : 2171,
               "key.column" : 14,
@@ -5156,6 +5294,7 @@
               "key.kind" : "source.lang.swift.decl.var.static",
               "key.length" : 38,
               "key.line" : 102,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "aStaticVar",
               "key.namelength" : 10,
               "key.nameoffset" : 2154,
@@ -5217,6 +5356,7 @@
                   "key.bb.name_piece_text" : ": ABaseClass) -> ABaseClass"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 20,
               "key.bodyoffset" : 2274,
               "key.column" : 22,
@@ -5236,6 +5376,7 @@
               "key.kind" : "source.lang.swift.decl.function.method.static",
               "key.length" : 84,
               "key.line" : 107,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "+(ABaseClass, ABaseClass)",
               "key.namelength" : 35,
               "key.nameoffset" : 2223,
@@ -5260,6 +5401,7 @@
                       "key.bb.name_piece_text" : ": ABaseClass"
                     }
                   ],
+                  "key.bb.type_module_name" : "SpmSwiftModule",
                   "key.column" : 24,
                   "key.decl_lang" : "source.lang.swift",
                   "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -5267,6 +5409,7 @@
                   "key.kind" : "source.lang.swift.decl.var.parameter",
                   "key.length" : 3,
                   "key.line" : 107,
+                  "key.modulename" : "SpmSwiftModule",
                   "key.name" : "lhs",
                   "key.offset" : 2225,
                   "key.parent_loc" : 2223,
@@ -5304,6 +5447,7 @@
               "key.bb.name_piece_text" : "T"
             }
           ],
+          "key.bb.type_module_name" : "SpmSwiftModule",
           "key.bodylength" : 1,
           "key.bodyoffset" : 2309,
           "key.column" : 8,
@@ -5313,6 +5457,7 @@
           "key.kind" : "source.lang.swift.decl.struct",
           "key.length" : 12,
           "key.line" : 112,
+          "key.modulename" : "SpmSwiftModule",
           "key.name" : "T",
           "key.namelength" : 1,
           "key.nameoffset" : 2306,
@@ -5367,6 +5512,7 @@
               "key.bb.name_piece_text" : ": T) -> String"
             }
           ],
+          "key.bb.type_module_name" : "SpmSwiftModule",
           "key.bodylength" : 6,
           "key.bodyoffset" : 2369,
           "key.column" : 6,
@@ -5386,6 +5532,7 @@
           "key.kind" : "source.lang.swift.decl.function.free",
           "key.length" : 41,
           "key.line" : 116,
+          "key.modulename" : "SpmSwiftModule",
           "key.name" : "+(T, T)",
           "key.namelength" : 17,
           "key.nameoffset" : 2340,
@@ -5429,6 +5576,9 @@
             },
             {
               "key.annotated_decl" : "<RelatedName usr=\"s:SS1poiyS2S_SStFZ\">+ (_: String, _: String) -&gt; String<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:s8DurationV1poiyA2B_ABtFZ\">+ (_: Duration, _: Duration) -&gt; Duration<\/RelatedName>"
             },
             {
               "key.annotated_decl" : "<RelatedName usr=\"s:s4SIMDPsSF6ScalarRpzrlE1poiyxx_xtFZ\">+ (_: Self, _: Self) -&gt; Self<\/RelatedName>"
@@ -5477,6 +5627,12 @@
             },
             {
               "key.annotated_decl" : "<RelatedName usr=\"s:Si1poiyS2i_SitFZ\">+ (_: Int, _: Int) -&gt; Int<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:12_Concurrency15ContinuousClockV7InstantV1poiyA2E_s8DurationVtFZ\">+ (_: ContinuousClock.Instant, _: Duration) -&gt; ContinuousClock.Instant<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:12_Concurrency15SuspendingClockV7InstantV1poiyA2E_s8DurationVtFZ\">+ (_: SuspendingClock.Instant, _: Duration) -&gt; SuspendingClock.Instant<\/RelatedName>"
             }
           ],
           "key.substructure" : [
@@ -5496,6 +5652,7 @@
                   "key.bb.name_piece_text" : ": T"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.column" : 8,
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -5503,6 +5660,7 @@
               "key.kind" : "source.lang.swift.decl.var.parameter",
               "key.length" : 3,
               "key.line" : 116,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "lhs",
               "key.offset" : 2342,
               "key.parent_loc" : 2340,
@@ -5553,6 +5711,7 @@
               "key.bb.name_piece_text" : "ADerivedClass"
             }
           ],
+          "key.bb.type_module_name" : "SpmSwiftModule",
           "key.bodylength" : 310,
           "key.bodyoffset" : 2454,
           "key.column" : 14,
@@ -5584,6 +5743,7 @@
           "key.kind" : "source.lang.swift.decl.class",
           "key.length" : 360,
           "key.line" : 121,
+          "key.modulename" : "SpmSwiftModule",
           "key.name" : "ADerivedClass",
           "key.namelength" : 13,
           "key.nameoffset" : 2411,
@@ -5604,6 +5764,7 @@
                   "key.bb.name_piece_text" : "T"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.column" : 28,
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -5611,6 +5772,7 @@
               "key.kind" : "source.lang.swift.decl.generic_type_param",
               "key.length" : 1,
               "key.line" : 121,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "T",
               "key.namelength" : 1,
               "key.nameoffset" : 2425,
@@ -5639,6 +5801,7 @@
                   "key.bb.name_piece_text" : "Q"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.column" : 31,
               "key.decl_lang" : "source.lang.swift",
               "key.elements" : [
@@ -5658,6 +5821,7 @@
               "key.kind" : "source.lang.swift.decl.generic_type_param",
               "key.length" : 11,
               "key.line" : 121,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "Q",
               "key.namelength" : 1,
               "key.nameoffset" : 2428,
@@ -5690,6 +5854,7 @@
                   "key.bb.name_piece_text" : ": Q?"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.column" : 7,
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -5697,6 +5862,7 @@
               "key.kind" : "source.lang.swift.decl.var.instance",
               "key.length" : 15,
               "key.line" : 122,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "t",
               "key.namelength" : 1,
               "key.nameoffset" : 2461,
@@ -5756,6 +5922,7 @@
                   "key.bb.name_piece_text" : ": Int) -> String"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 17,
               "key.bodyoffset" : 2563,
               "key.column" : 24,
@@ -5775,6 +5942,7 @@
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 53,
               "key.line" : 125,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "method(param:)",
               "key.namelength" : 18,
               "key.nameoffset" : 2533,
@@ -5827,6 +5995,7 @@
                   "key.bb.name_piece_text" : ": T)"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 0,
               "key.bodyoffset" : 2635,
               "key.column" : 15,
@@ -5836,6 +6005,7 @@
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 44,
               "key.line" : 129,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "generic(param:)",
               "key.namelength" : 17,
               "key.nameoffset" : 2597,
@@ -5891,6 +6061,7 @@
                   "key.bb.name_piece_text" : ": R) -> T"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 20,
               "key.bodyoffset" : 2742,
               "key.column" : 15,
@@ -5900,6 +6071,7 @@
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 116,
               "key.line" : 131,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "generic2(param:my:)",
               "key.namelength" : 35,
               "key.nameoffset" : 2652,
@@ -5920,6 +6092,7 @@
                       "key.bb.name_piece_text" : "R"
                     }
                   ],
+                  "key.bb.type_module_name" : "SpmSwiftModule",
                   "key.column" : 24,
                   "key.decl_lang" : "source.lang.swift",
                   "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -5927,6 +6100,7 @@
                   "key.kind" : "source.lang.swift.decl.generic_type_param",
                   "key.length" : 1,
                   "key.line" : 131,
+                  "key.modulename" : "SpmSwiftModule",
                   "key.name" : "R",
                   "key.namelength" : 1,
                   "key.nameoffset" : 2661,
@@ -5972,6 +6146,7 @@
               "key.bb.name_piece_text" : "Nop"
             }
           ],
+          "key.bb.type_module_name" : "SpmSwiftModule",
           "key.bodylength" : 111,
           "key.bodyoffset" : 2796,
           "key.column" : 8,
@@ -5981,6 +6156,7 @@
           "key.kind" : "source.lang.swift.decl.struct",
           "key.length" : 124,
           "key.line" : 138,
+          "key.modulename" : "SpmSwiftModule",
           "key.name" : "Nop",
           "key.namelength" : 3,
           "key.nameoffset" : 2791,
@@ -6010,6 +6186,7 @@
                   "key.bb.name_piece_text" : ": String"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.column" : 9,
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -6017,6 +6194,7 @@
               "key.kind" : "source.lang.swift.decl.var.instance",
               "key.length" : 24,
               "key.line" : 139,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "wrappedValue",
               "key.namelength" : 12,
               "key.nameoffset" : 2805,
@@ -6054,6 +6232,7 @@
                   "key.bb.name_piece_text" : ": String)"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.bodylength" : 46,
               "key.bodyoffset" : 2859,
               "key.column" : 5,
@@ -6063,6 +6242,7 @@
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 75,
               "key.line" : 141,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "init(wrappedValue:)",
               "key.namelength" : 26,
               "key.nameoffset" : 2831,
@@ -6102,6 +6282,7 @@
               "key.bb.name_piece_text" : "PropertyWrapperClient"
             }
           ],
+          "key.bb.type_module_name" : "SpmSwiftModule",
           "key.bodylength" : 28,
           "key.bodyoffset" : 2956,
           "key.column" : 8,
@@ -6121,6 +6302,7 @@
           "key.kind" : "source.lang.swift.decl.struct",
           "key.length" : 59,
           "key.line" : 147,
+          "key.modulename" : "SpmSwiftModule",
           "key.name" : "PropertyWrapperClient",
           "key.namelength" : 21,
           "key.nameoffset" : 2933,
@@ -6157,6 +6339,7 @@
                   "key.bb.name_piece_text" : ": String"
                 }
               ],
+              "key.bb.type_module_name" : "SpmSwiftModule",
               "key.column" : 9,
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -6164,6 +6347,7 @@
               "key.kind" : "source.lang.swift.decl.var.instance",
               "key.length" : 13,
               "key.line" : 149,
+              "key.modulename" : "SpmSwiftModule",
               "key.name" : "v",
               "key.namelength" : 1,
               "key.nameoffset" : 2974,

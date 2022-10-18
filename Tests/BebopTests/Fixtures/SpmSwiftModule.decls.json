@@ -42,7 +42,8 @@
             {
               "other" : ": T"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "boxed",
         "usr" : "s:14SpmSwiftModule11GenericBaseC5boxedxvp"
@@ -90,7 +91,8 @@
             {
               "other" : ": T)"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "init(type:)",
         "usr" : "s:14SpmSwiftModule11GenericBaseC4typeACyxGx_tcfc"
@@ -135,7 +137,8 @@
             {
               "other" : "() -> T"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "mutify()",
         "usr" : "s:14SpmSwiftModule11GenericBaseC6mutifyxyF"
@@ -185,7 +188,8 @@
             {
               "other" : ": String"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "description",
         "topic" : {
@@ -239,7 +243,8 @@
             {
               "other" : "()"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "doFirstMagic()",
         "topic" : {
@@ -298,7 +303,8 @@
             {
               "other" : "()"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "doMoreMagic()",
         "usr" : "s:14SpmSwiftModule11GenericBaseCA2A13FirstProtocolRzSQRzlE11doMoreMagicyyF"
@@ -344,7 +350,8 @@
             {
               "other" : "()"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "doHashable()",
         "topic" : {
@@ -401,7 +408,8 @@
             {
               "other" : ": Int"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "codableCount",
         "topic" : {
@@ -460,7 +468,8 @@
             {
               "other" : "()"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "doCodability()",
         "usr" : "s:14SpmSwiftModule11GenericBaseCAASeRzSERzlE12doCodabilityyyF"
@@ -503,7 +512,8 @@
         {
           "name" : "GenericBase"
         }
-      ]
+      ],
+      "type_module_name" : "SpmSwiftModule"
     },
     "swift_name" : "GenericBase",
     "usr" : "s:14SpmSwiftModule11GenericBaseC"
@@ -594,7 +604,8 @@
             {
               "other" : ": Int) -> String"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "m(arg:)",
         "usr" : "s:14SpmSwiftModule13FirstProtocolP1m3argSSSi_tF"
@@ -636,7 +647,8 @@
             {
               "name" : "AssocType"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "AssocType",
         "usr" : "s:14SpmSwiftModule13FirstProtocolP9AssocTypeQa"
@@ -681,7 +693,8 @@
             {
               "other" : "() -> AssocType"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "assocFunc()",
         "usr" : "s:14SpmSwiftModule13FirstProtocolP9assocFunc9AssocTypeQzyF"
@@ -726,7 +739,8 @@
             {
               "other" : ": Int"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "getOnly",
         "usr" : "s:14SpmSwiftModule13FirstProtocolP7getOnlySivp"
@@ -771,7 +785,8 @@
             {
               "other" : ": Int"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "setAndGet",
         "usr" : "s:14SpmSwiftModule13FirstProtocolP9setAndGetSivp"
@@ -830,7 +845,8 @@
             {
               "other" : ": C)"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "e(a:)",
         "usr" : "s:14SpmSwiftModule13FirstProtocolPAAE1e1ayqd___tAaBRd__lF"
@@ -880,7 +896,8 @@
             {
               "other" : "()"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "e()",
         "usr" : "s:14SpmSwiftModule13FirstProtocolPAAE1eyyF"
@@ -931,7 +948,8 @@
             {
               "other" : "()"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "extHashableMethod()",
         "topic" : {
@@ -1001,7 +1019,8 @@
             {
               "other" : ": Int) -> String"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "m(arg:)",
         "usr" : "s:14SpmSwiftModule13FirstProtocolPAASH9AssocTypeRpzrlE1m3argSSSi_tF"
@@ -1041,7 +1060,8 @@
         {
           "name" : "FirstProtocol"
         }
-      ]
+      ],
+      "type_module_name" : "SpmSwiftModule"
     },
     "swift_name" : "FirstProtocol",
     "usr" : "s:14SpmSwiftModule13FirstProtocolP"
@@ -1089,7 +1109,8 @@
             {
               "other" : "() -> String"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "secondProtocolMethod()",
         "usr" : "s:14SpmSwiftModule14SecondProtocolP06secondE6MethodSSyF"
@@ -1139,7 +1160,8 @@
             {
               "other" : ": Int"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "getOnly",
         "usr" : "s:14SpmSwiftModule14SecondProtocolPAAE7getOnlySivp"
@@ -1181,7 +1203,8 @@
         {
           "name" : "SecondProtocol"
         }
-      ]
+      ],
+      "type_module_name" : "SpmSwiftModule"
     },
     "swift_name" : "SecondProtocol",
     "usr" : "s:14SpmSwiftModule14SecondProtocolP"
@@ -1223,7 +1246,8 @@
         {
           "name" : "P1"
         }
-      ]
+      ],
+      "type_module_name" : "SpmSwiftModule"
     },
     "swift_name" : "P1",
     "usr" : "s:14SpmSwiftModule2P1P"
@@ -1265,7 +1289,8 @@
         {
           "name" : "P2"
         }
-      ]
+      ],
+      "type_module_name" : "SpmSwiftModule"
     },
     "swift_name" : "P2",
     "usr" : "s:14SpmSwiftModule2P2P"
@@ -1318,7 +1343,8 @@
             {
               "other" : ": String"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "description",
         "usr" : "s:s23CustomStringConvertibleP11descriptionSSvp"
@@ -1360,7 +1386,8 @@
         {
           "name" : "S1"
         }
-      ]
+      ],
+      "type_module_name" : "SpmSwiftModule"
     },
     "swift_name" : "S1",
     "usr" : "s:14SpmSwiftModule2S1V"
@@ -1408,7 +1435,8 @@
             {
               "other" : "()"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "equatables2()",
         "usr" : "s:14SpmSwiftModule2S2V11equatables2yyF"
@@ -1454,7 +1482,8 @@
             {
               "other" : "()"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "comparables2()",
         "topic" : {
@@ -1513,7 +1542,8 @@
             {
               "other" : "()"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "equatables22()",
         "topic" : {
@@ -1571,7 +1601,8 @@
         {
           "name" : "S2"
         }
-      ]
+      ],
+      "type_module_name" : "SpmSwiftModule"
     },
     "swift_name" : "S2",
     "usr" : "s:14SpmSwiftModule2S2V"
@@ -1619,7 +1650,8 @@
             {
               "other" : ": String"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "text",
         "topic" : {
@@ -1672,7 +1704,8 @@
                 {
                   "name" : "Nested2a"
                 }
-              ]
+              ],
+              "type_module_name" : "SpmSwiftModule"
             },
             "swift_name" : "Nested2a",
             "usr" : "s:14SpmSwiftModuleAAV7Nested1V8Nested2aV"
@@ -1717,7 +1750,8 @@
                 {
                   "name" : "Nested2b"
                 }
-              ]
+              ],
+              "type_module_name" : "SpmSwiftModule"
             },
             "swift_name" : "Nested2b",
             "usr" : "s:14SpmSwiftModuleAAV7Nested1V8Nested2bV"
@@ -1757,7 +1791,8 @@
             {
               "name" : "Nested1"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "Nested1",
         "topic" : {
@@ -1807,7 +1842,8 @@
             {
               "name" : "Nested2"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "Nested2",
         "topic" : {
@@ -1860,7 +1896,8 @@
             {
               "other" : ": Int"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "a",
         "topic" : {
@@ -1913,7 +1950,8 @@
             {
               "other" : ": Int"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "b",
         "topic" : {
@@ -1996,7 +2034,8 @@
             {
               "other" : ": String) -> Int"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "checkState(name:)",
         "topic" : {
@@ -2044,7 +2083,8 @@
         {
           "name" : "SpmSwiftModule"
         }
-      ]
+      ],
+      "type_module_name" : "SpmSwiftModule"
     },
     "swift_name" : "SpmSwiftModule",
     "usr" : "s:14SpmSwiftModuleAAV"
@@ -2092,7 +2132,8 @@
             {
               "other" : "(Int)"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "first(_:)",
         "usr" : "s:14SpmSwiftModule6AnEnumO5firstyACSicACmF"
@@ -2134,7 +2175,8 @@
             {
               "name" : "second"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "second",
         "usr" : "s:14SpmSwiftModule6AnEnumO6secondyA2CmF"
@@ -2176,7 +2218,8 @@
             {
               "name" : "third"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "third",
         "usr" : "s:14SpmSwiftModule6AnEnumO5thirdyA2CmF"
@@ -2218,7 +2261,8 @@
             {
               "name" : "fourth"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "fourth",
         "usr" : "s:14SpmSwiftModule6AnEnumO6fourthyA2CmF"
@@ -2269,7 +2313,8 @@
             {
               "other" : ": String, Int)"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "fifth(a:_:)",
         "usr" : "s:14SpmSwiftModule6AnEnumO5fifthyACSS_SitcACmF"
@@ -2309,7 +2354,8 @@
         {
           "name" : "AnEnum"
         }
-      ]
+      ],
+      "type_module_name" : "SpmSwiftModule"
     },
     "swift_name" : "AnEnum",
     "usr" : "s:14SpmSwiftModule6AnEnumO"
@@ -2402,6 +2448,7 @@
           "other" : ": Int)"
         }
       ],
+      "type_module_name" : "SpmSwiftModule",
       "unavailability" : {
         "en" : "tvOS - unavailable. Not available on the big screen."
       }
@@ -2472,7 +2519,8 @@
         {
           "other" : ": (_ report: String) -> Int) -> String"
         }
-      ]
+      ],
+      "type_module_name" : "SpmSwiftModule"
     },
     "swift_name" : "deprecatedFunction(callback:)",
     "usr" : "s:14SpmSwiftModule18deprecatedFunction8callbackSSSiSSXE_tF"
@@ -2517,7 +2565,8 @@
             {
               "other" : "()"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "init()",
         "usr" : "s:14SpmSwiftModule10ABaseClassCACycfc"
@@ -2565,7 +2614,8 @@
             {
               "other" : ": Int)"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "init(a:)",
         "usr" : "s:14SpmSwiftModule10ABaseClassC1aACSi_tcfc"
@@ -2604,7 +2654,8 @@
             {
               "name" : "deinit"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "deinit",
         "usr" : "s:14SpmSwiftModule10ABaseClassCfd"
@@ -2655,7 +2706,8 @@
             {
               "other" : ": Int) -> String"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "method(param:)",
         "usr" : "s:14SpmSwiftModule10ABaseClassC6method5paramSSSi_tF"
@@ -2700,7 +2752,8 @@
             {
               "other" : "() -> Int"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "staticMethod()",
         "usr" : "s:14SpmSwiftModule10ABaseClassC12staticMethodSiyFZ"
@@ -2748,7 +2801,8 @@
             {
               "other" : ": String) -> Int"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "subscript(_:)",
         "usr" : "s:14SpmSwiftModule10ABaseClassCySiSScip"
@@ -2799,7 +2853,8 @@
             {
               "other" : ": String) -> Int"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "subscript(_:)",
         "usr" : "s:14SpmSwiftModule10ABaseClassCySiSScipZ"
@@ -2850,7 +2905,8 @@
             {
               "other" : ": Int) -> String"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "subscript(_:)",
         "usr" : "s:14SpmSwiftModule10ABaseClassCySSSicipZ"
@@ -2895,7 +2951,8 @@
             {
               "other" : ": Int"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "aStaticVar",
         "usr" : "s:14SpmSwiftModule10ABaseClassC10aStaticVarSivpZ"
@@ -2952,7 +3009,8 @@
             {
               "other" : ": ABaseClass) -> ABaseClass"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "+(ABaseClass, ABaseClass)",
         "usr" : "s:14SpmSwiftModule10ABaseClassC1poiyA2C_ACtFZ"
@@ -2992,7 +3050,8 @@
         {
           "name" : "ABaseClass"
         }
-      ]
+      ],
+      "type_module_name" : "SpmSwiftModule"
     },
     "swift_name" : "ABaseClass",
     "usr" : "s:14SpmSwiftModule10ABaseClassC"
@@ -3034,7 +3093,8 @@
         {
           "name" : "T"
         }
-      ]
+      ],
+      "type_module_name" : "SpmSwiftModule"
     },
     "swift_name" : "T",
     "usr" : "s:14SpmSwiftModule1TV"
@@ -3091,7 +3151,8 @@
         {
           "other" : ": T) -> String"
         }
-      ]
+      ],
+      "type_module_name" : "SpmSwiftModule"
     },
     "swift_name" : "+(T, T)",
     "usr" : "s:14SpmSwiftModule1poiySSAA1TV_ADtF"
@@ -3139,7 +3200,8 @@
             {
               "other" : ": Q?"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "t",
         "usr" : "s:14SpmSwiftModule13ADerivedClassC1tq_Sgvp"
@@ -3190,7 +3252,8 @@
             {
               "other" : ": Int) -> String"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "method(param:)",
         "usr" : "s:14SpmSwiftModule13ADerivedClassC6method5paramSSSi_tF"
@@ -3241,7 +3304,8 @@
             {
               "other" : ": T)"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "generic(param:)",
         "usr" : "s:14SpmSwiftModule13ADerivedClassC7generic5paramyx_tSQRzrlF"
@@ -3301,7 +3365,8 @@
             {
               "other" : ": R) -> T"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "generic2(param:my:)",
         "usr" : "s:14SpmSwiftModule13ADerivedClassC8generic25param2myxx_qd__tSTRd__AA13FirstProtocol7ElementRpd__lF"
@@ -3347,7 +3412,8 @@
         {
           "name" : "ADerivedClass"
         }
-      ]
+      ],
+      "type_module_name" : "SpmSwiftModule"
     },
     "swift_name" : "ADerivedClass",
     "usr" : "s:14SpmSwiftModule13ADerivedClassC"
@@ -3395,7 +3461,8 @@
             {
               "other" : ": String"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "wrappedValue",
         "usr" : "s:14SpmSwiftModule3NopV12wrappedValueSSvp"
@@ -3443,7 +3510,8 @@
             {
               "other" : ": String)"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "init(wrappedValue:)",
         "usr" : "s:14SpmSwiftModule3NopV12wrappedValueACSS_tcfc"
@@ -3483,7 +3551,8 @@
         {
           "name" : "Nop"
         }
-      ]
+      ],
+      "type_module_name" : "SpmSwiftModule"
     },
     "swift_name" : "Nop",
     "usr" : "s:14SpmSwiftModule3NopV"
@@ -3531,7 +3600,8 @@
             {
               "other" : ": String"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "v",
         "usr" : "s:14SpmSwiftModule21PropertyWrapperClientV1vSSvp"
@@ -3571,7 +3641,8 @@
         {
           "name" : "PropertyWrapperClient"
         }
-      ]
+      ],
+      "type_module_name" : "SpmSwiftModule"
     },
     "swift_name" : "PropertyWrapperClient",
     "usr" : "s:14SpmSwiftModule21PropertyWrapperClientV"
@@ -3620,7 +3691,8 @@
             {
               "other" : "()"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "collectEmAll()",
         "topic" : {
@@ -3679,7 +3751,8 @@
             {
               "other" : "()"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "nestEmAll()",
         "topic" : {
@@ -3789,7 +3862,8 @@
             {
               "other" : "()"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "method1()",
         "usr" : "s:SJ14SpmSwiftModuleE7method1yyF"
@@ -3834,7 +3908,8 @@
             {
               "other" : "()"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "method2()",
         "usr" : "s:SJ14SpmSwiftModuleE7method2yyF"
@@ -3931,7 +4006,8 @@
             {
               "other" : "()"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "f()",
         "usr" : "s:Sy14SpmSwiftModuleE1fyyF"
@@ -3976,7 +4052,8 @@
             {
               "other" : "(String) -> Bool"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "hasSuffix(_:)",
         "usr" : "s:Sy14SpmSwiftModuleE9hasSuffixySbSSF"
@@ -4118,7 +4195,8 @@
             {
               "other" : "()"
             }
-          ]
+          ],
+          "type_module_name" : "SpmSwiftModule"
         },
         "swift_name" : "arrayFunc()",
         "usr" : "s:Sa14SpmSwiftModuleSLRzlE9arrayFuncyyF"

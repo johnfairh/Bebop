@@ -880,7 +880,7 @@
               "key.bb.name_piece_text" : "AEnum"
             }
           ],
-          "key.bb.swift_declaration" : "enum AEnum: Int",
+          "key.bb.swift_declaration" : "enum AEnum: Int, @unchecked Sendable",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
             {
@@ -1008,7 +1008,7 @@
               "key.usr" : "c:@E@AEnum@b"
             }
           ],
-          "key.swift_declaration" : "enum AEnum : Int",
+          "key.swift_declaration" : "enum AEnum : Int, @unchecked Sendable",
           "key.swift_name" : "AEnum",
           "key.unavailable_message" : "",
           "key.usr" : "c:@E@AEnum"

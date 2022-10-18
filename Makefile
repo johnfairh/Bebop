@@ -19,18 +19,20 @@ test:
 	swift test --enable-code-coverage
 
 test_linux:
-	docker run -v `pwd`:`pwd` -w `pwd` --name bebop --rm swift:5.5 /bin/bash -c "apt-get update; apt-get install libsqlite3-dev libsass0 libsass-dev; make test"
+	docker run -v `pwd`:`pwd` -w `pwd` --name bebop --rm swift:5.7 /bin/bash -c "apt-get update; apt-get install make libsqlite3-dev libsass1 libsass-dev; make test"
 
 shell_linux:
-	docker run -it -v `pwd`:`pwd` -w `pwd` --name bebop --rm swift:5.5 /bin/bash
+	docker run -it -v `pwd`:`pwd` -w `pwd` --name bebop --rm swift:5.7 /bin/bash
 
 install: build
-	-mkdir -p ${PREFIX}/share ${PREFIX}/bin
+	-mkdir -p ${PREFIX}/share ${PREFIX}/bin ${PREFIX}/lib
 	install ${BIN_PATH}/bebop ${PREFIX}/bin
+	install ${BIN_PATH}/lib_InternalSwiftSyntaxParser.dylib ${PREFIX}/lib
 	cp -r Resources/ ${PREFIX}/share/bebop.resources
 
 uninstall:
 	rm -f ${PREFIX}/bin/bebop
+	rm -f ${PREFIX}/lib/lib_InternalSwiftSyntaxParser.dylib
 	rm -rf ${PREFIX}/share/bebop.resources
 
 # magic symlinks to workaround weird Xcode bugs

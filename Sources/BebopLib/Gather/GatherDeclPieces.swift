@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftSyntax
+import SwiftSyntaxParser
 
 /// Declaration pieces.
 ///

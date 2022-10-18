@@ -71,10 +71,10 @@ body {
 code {
   hyphens: none;
   text-align: left;
-  word-spacing: normal;
   word-wrap: normal;
   tab-size: 4;
   white-space: pre;
+  word-spacing: normal;
 
   .pr-token a {
     color: inherit;
@@ -727,8 +727,11 @@ $j2-header-height: add($j2-titlebar-height, $j2-breadcrumbs-height);
   .j2-aux-nav,
   .j2-footer,
   .j2-pagination,
-  .j2-secondary, // don't show alternatives
-  .j2-language-missing { // don't show apologies
+  .j2-secondary,
+  .j2-language-missing {
+    // don't show alternatives (j2-secondary)
+    // don't show apologies (j2-language-missing)
+    // (don't move this comment, postcss gets confused)
     display: none !important;
   }
 

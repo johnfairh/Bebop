@@ -37,6 +37,7 @@
               "key.bb.name_piece_text" : "PodClass"
             }
           ],
+          "key.bb.type_module_name" : "Pod",
           "key.bodylength" : 356,
           "key.bodyoffset" : 23,
           "key.column" : 14,
@@ -46,6 +47,7 @@
           "key.kind" : "source.lang.swift.decl.class",
           "key.length" : 373,
           "key.line" : 1,
+          "key.modulename" : "Pod",
           "key.name" : "PodClass",
           "key.namelength" : 8,
           "key.nameoffset" : 13,
@@ -80,6 +82,7 @@
                   "key.bb.name_piece_text" : ": Int"
                 }
               ],
+              "key.bb.type_module_name" : "Pod",
               "key.column" : 7,
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/Pod\/Sources\/Pod\/Pod.swift",
@@ -87,6 +90,7 @@
               "key.kind" : "source.lang.swift.decl.var.instance",
               "key.length" : 14,
               "key.line" : 2,
+              "key.modulename" : "Pod",
               "key.name" : "count",
               "key.namelength" : 5,
               "key.nameoffset" : 30,
@@ -121,6 +125,7 @@
                   "key.bb.name_piece_text" : "()"
                 }
               ],
+              "key.bb.type_module_name" : "Pod",
               "key.bodylength" : 17,
               "key.bodyoffset" : 52,
               "key.column" : 3,
@@ -130,6 +135,7 @@
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 26,
               "key.line" : 4,
+              "key.modulename" : "Pod",
               "key.name" : "init()",
               "key.namelength" : 6,
               "key.nameoffset" : 44,
@@ -174,6 +180,7 @@
                   "key.bb.name_piece_text" : "()"
                 }
               ],
+              "key.bb.type_module_name" : "Pod",
               "key.bodylength" : 0,
               "key.bodyoffset" : 126,
               "key.column" : 8,
@@ -183,6 +190,7 @@
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 20,
               "key.line" : 9,
+              "key.modulename" : "Pod",
               "key.name" : "onlyForIOS()",
               "key.namelength" : 12,
               "key.nameoffset" : 112,
@@ -249,6 +257,7 @@
                   "key.bb.name_piece_text" : "()"
                 }
               ],
+              "key.bb.type_module_name" : "Pod",
               "key.bodylength" : 0,
               "key.bodyoffset" : 285,
               "key.column" : 8,
@@ -258,6 +267,7 @@
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 28,
               "key.line" : 15,
+              "key.modulename" : "Pod",
               "key.name" : "globallyDeprecated()",
               "key.namelength" : 20,
               "key.nameoffset" : 263,
@@ -305,6 +315,7 @@
                   "key.bb.name_piece_text" : "()"
                 }
               ],
+              "key.bb.type_module_name" : "Pod",
               "key.bodylength" : 0,
               "key.bodyoffset" : 377,
               "key.column" : 8,
@@ -314,6 +325,7 @@
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 23,
               "key.line" : 18,
+              "key.modulename" : "Pod",
               "key.name" : "iosDeprecated()",
               "key.namelength" : 15,
               "key.nameoffset" : 360,
@@ -371,6 +383,7 @@
               "key.bb.name_piece_text" : "PodClass"
             }
           ],
+          "key.bb.type_module_name" : "Pod",
           "key.bodylength" : 356,
           "key.bodyoffset" : 23,
           "key.column" : 14,
@@ -380,6 +393,7 @@
           "key.kind" : "source.lang.swift.decl.class",
           "key.length" : 373,
           "key.line" : 1,
+          "key.modulename" : "Pod",
           "key.name" : "PodClass",
           "key.namelength" : 8,
           "key.nameoffset" : 13,
@@ -414,6 +428,7 @@
                   "key.bb.name_piece_text" : ": Int"
                 }
               ],
+              "key.bb.type_module_name" : "Pod",
               "key.column" : 7,
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/Pod\/Sources\/Pod\/Pod.swift",
@@ -421,6 +436,7 @@
               "key.kind" : "source.lang.swift.decl.var.instance",
               "key.length" : 14,
               "key.line" : 2,
+              "key.modulename" : "Pod",
               "key.name" : "count",
               "key.namelength" : 5,
               "key.nameoffset" : 30,
@@ -455,6 +471,7 @@
                   "key.bb.name_piece_text" : "()"
                 }
               ],
+              "key.bb.type_module_name" : "Pod",
               "key.bodylength" : 17,
               "key.bodyoffset" : 52,
               "key.column" : 3,
@@ -464,6 +481,7 @@
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 26,
               "key.line" : 4,
+              "key.modulename" : "Pod",
               "key.name" : "init()",
               "key.namelength" : 6,
               "key.nameoffset" : 44,
@@ -527,6 +545,7 @@
                   "key.bb.name_piece_text" : "()"
                 }
               ],
+              "key.bb.type_module_name" : "Pod",
               "key.bodylength" : 0,
               "key.bodyoffset" : 183,
               "key.column" : 8,
@@ -536,6 +555,7 @@
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 22,
               "key.line" : 12,
+              "key.modulename" : "Pod",
               "key.name" : "onlyForMacOS()",
               "key.namelength" : 14,
               "key.nameoffset" : 167,
@@ -583,6 +603,7 @@
                   "key.bb.name_piece_text" : "()"
                 }
               ],
+              "key.bb.type_module_name" : "Pod",
               "key.bodylength" : 0,
               "key.bodyoffset" : 285,
               "key.column" : 8,
@@ -592,6 +613,7 @@
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 28,
               "key.line" : 15,
+              "key.modulename" : "Pod",
               "key.name" : "globallyDeprecated()",
               "key.namelength" : 20,
               "key.nameoffset" : 263,
@@ -639,6 +661,7 @@
                   "key.bb.name_piece_text" : "()"
                 }
               ],
+              "key.bb.type_module_name" : "Pod",
               "key.bodylength" : 0,
               "key.bodyoffset" : 377,
               "key.column" : 8,
@@ -648,6 +671,7 @@
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 23,
               "key.line" : 18,
+              "key.modulename" : "Pod",
               "key.name" : "iosDeprecated()",
               "key.namelength" : 15,
               "key.nameoffset" : 360,

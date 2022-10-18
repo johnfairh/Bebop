@@ -168,7 +168,7 @@ class SwiftDeclarationBuilder {
     /// Get the compiler declaration out of an 'annotated declaration' xml.
     /// Parse the XML and knock out the declaration attributes.
     func parse(annotatedDecl: String) -> String? {
-        guard let rootElement = SWXMLHash.parseToRootElement(repair(annotatedDecl: annotatedDecl)) else {
+        guard let rootElement = XMLHash.parseToRootElement(repair(annotatedDecl: annotatedDecl)) else {
             return nil
         }
 
@@ -252,7 +252,7 @@ class SwiftDeclarationBuilder {
     /// attributes go where if at all.
     func parseAttributes(annotatedDecl: String, docDecl: String?) -> [String] {
         var attrs = [String]()
-        if let rootElement = SWXMLHash.parseToRootElement(annotatedDecl) {
+        if let rootElement = XMLHash.parseToRootElement(annotatedDecl) {
             let flatDecl = rootElement.recursiveText
             attrs += flatDecl.swiftAttributes(attrPattern: #"\w+"#)
         }
@@ -295,10 +295,10 @@ private extension String {
     }
 }
 
-private extension SWXMLHash {
+private extension XMLHash {
     /// Wrap up the initial parse steps and get down to the useful part of an XML parse.
     static func parseToRootElement(_ xmlText: String) -> XMLElement? {
-        let xml = SWXMLHash.parse(xmlText)
+        let xml = XMLHash.parse(xmlText)
         if case let .parsingError(error) = xml {
             // SourceKit bug
             logDebug("Couldn't parse SourceKit XML.  Error: '\(error)', xml: '\(xmlText)'.")
