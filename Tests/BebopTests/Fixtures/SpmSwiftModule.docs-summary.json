@@ -1489,11 +1489,11 @@
                 }
               },
               "flat_title" : {
-                "en" : "case fifth(a: String, Int)"
+                "en" : "case fifth(a: String, _: Int)"
               },
               "primary_language" : "swift",
               "primary_title_html" : {
-                "value" : "<span class=\"j2-item-secondary\">case <\/span>fifth<span class=\"j2-item-secondary\">(<\/span>a<span class=\"j2-item-secondary\">: String, Int)<\/span>"
+                "value" : "<span class=\"j2-item-secondary\">case <\/span>fifth<span class=\"j2-item-secondary\">(a: String, _: Int)<\/span>"
               }
             }
           ],

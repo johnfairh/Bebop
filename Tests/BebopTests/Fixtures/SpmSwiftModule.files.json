@@ -4410,15 +4410,7 @@
                     },
                     {
                       "key.bb.name_piece_is_name" : false,
-                      "key.bb.name_piece_text" : "("
-                    },
-                    {
-                      "key.bb.name_piece_is_name" : true,
-                      "key.bb.name_piece_text" : "a"
-                    },
-                    {
-                      "key.bb.name_piece_is_name" : false,
-                      "key.bb.name_piece_text" : ": String, Int)"
+                      "key.bb.name_piece_text" : "(a: String, _: Int)"
                     }
                   ],
                   "key.bb.type_module_name" : "SpmSwiftModule",

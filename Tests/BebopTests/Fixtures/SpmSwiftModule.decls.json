@@ -2305,13 +2305,7 @@
               "name" : "fifth"
             },
             {
-              "other" : "("
-            },
-            {
-              "name" : "a"
-            },
-            {
-              "other" : ": String, Int)"
+              "other" : "(a: String, _: Int)"
             }
           ],
           "type_module_name" : "SpmSwiftModule"
