@@ -27,7 +27,6 @@ shell_linux:
 install: build
 	-mkdir -p ${PREFIX}/share ${PREFIX}/bin ${PREFIX}/lib
 	install ${BIN_PATH}/bebop ${PREFIX}/bin
-	install ${BIN_PATH}/lib_InternalSwiftSyntaxParser.dylib ${PREFIX}/lib
 	cp -r Resources/ ${PREFIX}/share/bebop.resources
 
 uninstall:
