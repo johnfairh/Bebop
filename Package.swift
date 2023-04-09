@@ -1,4 +1,4 @@
-// swift-tools-version:5.7
+// swift-tools-version:5.8
 
 import PackageDescription
 
@@ -21,7 +21,7 @@ let package = Package(
     .package(url: "https://github.com/drmohundro/SWXMLHash.git",
              .upToNextMinor(from: "7.0.0")),
     .package(url: "https://github.com/apple/swift-syntax.git",
-             exact: "0.50700.1"),
+             exact: "508.0.0"),
     .package(url: "https://github.com/johnfairh/Maaku.git",
              from: "10.9.5"),
     .package(url: "https://github.com/ole/SortedArray.git",
@@ -29,7 +29,7 @@ let package = Package(
     .package(url: "https://github.com/stephencelis/SQLite.swift.git",
              .upToNextMinor(from: "0.12.0")),
     .package(url: "https://github.com/apple/swift-format",
-             exact: "0.50700.1")
+             exact: "508.0.0")
   ],
   targets: [
     .target(

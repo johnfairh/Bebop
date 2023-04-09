@@ -103,6 +103,7 @@ private class FunctionPiecesVisitor: SyntaxVisitor {
         }
         seenName = false
         current = ""
+        super.init(viewMode: .sourceAccurate)
     }
 
     /// A non-name token - accumulate
