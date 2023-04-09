@@ -1454,15 +1454,7 @@
                 },
                 {
                   "key.bb.name_piece_is_name" : false,
-                  "key.bb.name_piece_text" : "("
-                },
-                {
-                  "key.bb.name_piece_is_name" : true,
-                  "key.bb.name_piece_text" : "a"
-                },
-                {
-                  "key.bb.name_piece_is_name" : false,
-                  "key.bb.name_piece_text" : ": String, Int)"
+                  "key.bb.name_piece_text" : "(a: String, _ arg: Int)"
                 }
               ],
               "key.doc.column" : 9,
@@ -2464,7 +2456,7 @@
               "key.accessibility" : "source.lang.swift.accessibility.internal",
               "key.bb.is_override" : false,
               "key.bb.is_spi" : false,
-              "key.bb.swift_declaration" : "var v: String { get set }",
+              "key.bb.swift_declaration" : "@Nop var v: String { get set }",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
                 {
@@ -2484,7 +2476,7 @@
               "key.doc.full_as_xml" : "",
               "key.doc.line" : 148,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-              "key.fully_annotated_decl" : "<swift>var v: String { get set }<\/swift>",
+              "key.fully_annotated_decl" : "<swift>@Nop var v: String { get set }<\/swift>",
               "key.inherited_docs" : true,
               "key.kind" : "source.lang.swift.decl.var.instance",
               "key.name" : "v",

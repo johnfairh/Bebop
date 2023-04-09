@@ -233,7 +233,7 @@ class TestGatherDecl: XCTestCase {
         checkAvail(#"@available(*, renamed: "NU\""#, [], [])
         checkAvail("@available(*, introduced: 123", [], [])
         checkAvail("@available(", [], [])
-        checkAvail("@available(swift, something: 1, introduced: 2, introduced: 3)", [], [])
+        checkAvail("@available(swift, something: 1, intrduced: 2, intrduced: 3)", [], [])
     }
 
     // SPI

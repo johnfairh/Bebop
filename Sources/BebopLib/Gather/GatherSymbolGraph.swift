@@ -588,7 +588,7 @@ extension SymbolGraph {
             dict[.accessibility] = symbol.accessLevel
             dict[.fullyAnnotatedDecl] = declarationXml
             if !attributes.isEmpty {
-                dict[.attributes] = [] // marker for GatherSwiftDecl
+                dict[.attributes] = [Any]() // marker for GatherSwiftDecl
             }
             dict[.documentationComment] = symbol.docComment
             dict[.fullXMLDocs] = symbol.docComment == nil ? "" : nil
@@ -597,7 +597,7 @@ extension SymbolGraph {
             dict[.docLine] = symbol.location.flatMap { Int64($0.line) }
             dict[.docColumn] = symbol.location.flatMap { Int64($0.character) }
             if isOverride {
-                dict[.overrides] = [] // marker for GatherSwiftDecl
+                dict[.overrides] = [Any]() // marker for GatherSwiftDecl
             }
             var childDicts = [SourceKittenDict]()
             if !children.isEmpty {

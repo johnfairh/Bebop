@@ -26,15 +26,15 @@ class TestDeclPrinter: XCTestCase {
         XCTAssertEqual(funcdecl, DeclPrinter.format(swift: funcdecl))
         XCTAssertEqual(1, TestLogger.shared.diagsBuf.count)
 
-        // Doesn't understand accessor annotations
+        // **does - swift 5.8** understand accessor annotations
         let vardecl = "private var a: Int { get set }"
         XCTAssertEqual(vardecl, DeclPrinter.format(swift: vardecl))
-        XCTAssertEqual(2, TestLogger.shared.diagsBuf.count)
+        XCTAssertEqual(1, TestLogger.shared.diagsBuf.count)
 
         // ...including subscripts
         let subsdecl = "subscript(index: Int) -> String { get set }"
         XCTAssertEqual(subsdecl, DeclPrinter.format(swift: subsdecl))
-        XCTAssertEqual(3, TestLogger.shared.diagsBuf.count)
+        XCTAssertEqual(1, TestLogger.shared.diagsBuf.count)
     }
 
     // VarDecl fixups

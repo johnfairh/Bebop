@@ -96,7 +96,7 @@ private extension String {
 // An interface to wrap that up
 private extension String {
     func parseAvailable() -> [AvailArg] {
-        let visitor = FunctionPiecesVisitor()
+        let visitor = FunctionPiecesVisitor(viewMode: .sourceAccurate)
         guard let syntax = try? SyntaxParser.parse(source: self) else {
             return []
         }

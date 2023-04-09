@@ -58,11 +58,9 @@ enum DeclPrinter {
 
     /// Format a Swift variable declaration
     /// Hide the { get set } thing from SwiftFormat
+    /// Swift 5.8 -- not needed any more?
     static func formatVar(swift: String) -> String {
-        guard let matches = swift.re_match(#"^(.*?)( \{.*?\})?$"#) else {
-            return swift
-        }
-        return shared.format(swift: matches[1]) + matches[2]
+        return shared.format(swift: swift)
     }
 
     /// Format a Swift structural type declaration

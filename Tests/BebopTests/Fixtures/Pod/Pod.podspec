@@ -12,8 +12,8 @@ A demonstration cocoapod part of J2 test fixtures.
   s.author           = { 'John Fairhurst' => 'johnfairh@gmail.com' }
   s.source           = { :git => 'https://github.com/johnfairh/j2.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '8.0'
-  s.macos.deployment_target = '10.14'
+  s.ios.deployment_target = '11.0'
+  s.macos.deployment_target = '12.0'
 
   s.source_files = 'Sources/Pod/*swift'
   s.swift_version = '5'

@@ -322,7 +322,7 @@ case fourth
 
 
 <details>
-<summary><code>case fifth(a: String, Int)</code></summary>
+<summary><code>case fifth(a: String, _: Int)</code></summary>
 
 
 

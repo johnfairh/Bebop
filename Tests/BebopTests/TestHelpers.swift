@@ -210,7 +210,7 @@ extension SourceKittenDict {
 
     /// Set to actually look at @attributes in the decl
     func withInlineAttributes() -> Self {
-        with(field: .attributes, value: [])
+        with(field: .attributes, value: [Any]())
     }
 
     // Factories
