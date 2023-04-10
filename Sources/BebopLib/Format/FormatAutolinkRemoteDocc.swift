@@ -50,7 +50,7 @@ final class FormatAutolinkRemoteDocc: Configurable {
         }
 
         struct Languages: Decodable {
-            let swift: Node?
+            let swift: [Node]?
         }
 
         let interfaceLanguages: Languages

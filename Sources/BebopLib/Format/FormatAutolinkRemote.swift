@@ -27,7 +27,7 @@ final class FormatAutolinkRemote: Configurable {
     // MARK: Config
 
     struct Source {
-        enum Kind {
+        enum Kind: Equatable {
             /// Jazzy-style docs have a search.json that can't be relied on to have module info,
             /// so the modules must be set on the CLI or read from a (Bebop) json file
             case jazzy(modules: [String])

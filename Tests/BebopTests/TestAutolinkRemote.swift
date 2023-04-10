@@ -62,6 +62,17 @@ class TestAutolinkRemote: XCTestCase {
         return try and()
     }
 
+    func withURLs<T>(_ goodURLs: [(URL, String)], badURLs: [URL] = [], and: () throws -> T) rethrows -> T {
+        goodURLs.forEach {
+            URL.harness.set($0.0, .success($0.1))
+        }
+        badURLs.forEach {
+            URL.harness.set($0, .failure(BBError(.errUrlFetch)))
+        }
+        defer { URL.harness.reset() }
+        return try and()
+    }
+
     // MARK: config
 
     func testConfigErrors() throws {
@@ -84,7 +95,7 @@ class TestAutolinkRemote: XCTestCase {
         let system = try System(yaml: yaml)
         XCTAssertEqual(1, system.remote.sources.count)
         XCTAssertEqual("https://foo.com/site/", system.remote.sources[0].url.absoluteString)
-        XCTAssertEqual(["M1", "M2"], system.remote.sources[0].modules)
+        XCTAssertEqual(.jazzy(modules: ["M1", "M2"]), system.remote.sources[0].kind)
     }
 
     func createSiteJSON(modules: [String]) throws -> String {
@@ -103,8 +114,41 @@ class TestAutolinkRemote: XCTestCase {
                         createSiteJSON(modules: ["ModA"])) {
             let system = try System(yaml: yaml)
             XCTAssertEqual(1, system.remote.sources.count)
-            XCTAssertEqual(["ModA"], system.remote.sources[0].modules)
+            XCTAssertEqual(.jazzy(modules: ["ModA"]), system.remote.sources[0].kind)
         }
+    }
+
+    // MARK: Docc Index
+
+    private func setUpDoccSystem(failAvail: Bool = false, failIndex: Bool = false) throws -> System {
+        let url = URL(string: "https://foo.com/site")!
+        let yaml = """
+                   remote_autolink:
+                      - url: \(url.absoluteString)
+                   """
+
+        let availFile = ""
+        let indexJSONURL = fixturesURL.appendingPathComponent("DoccIndex.json")
+        let indexJSON = try String(contentsOf: indexJSONURL)
+
+        let action = {
+            let system = try System(yaml: yaml)
+            system.remote.buildIndex()
+            return system
+        }
+
+        let availURL = url.appendingPathComponent("index/availability.index") // XXX DRY these
+        let indexURL = url.appendingPathComponent("index/index.json") // XXX
+        let badURLs = [url.appendingPathComponent("site.json")] +
+                           (failAvail ? [availURL] : []) +
+                           (failIndex ? [indexURL] : [])
+
+        return try withURLs([(availURL, availFile), (indexURL, indexJSON)], badURLs: badURLs, and: action)
+    }
+
+    func testDoccIndex() throws {
+        let system = try setUpDoccSystem()
+        print(system.remote.remoteDocc.modules.count)
     }
 
     // MARK: Index
