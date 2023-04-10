@@ -32,20 +32,25 @@ final class FormatAutolinkRemoteDocc: Configurable {
                 "symbol", "module"
             ]
 
-            /// ignore stuff without a path and weird 'types' that
-            /// don't correspond to code things.
+            /// ignore stuff with weird 'types' that don't correspond to code things.
             var isLinkTarget: Bool {
-                path != nil && type.map { !Self.badTypes.contains($0) } ?? false
+                type.map { !Self.badTypes.contains($0) } ?? false
             }
 
-            var pathInfo: (module: String, symbol: String, suffix: String) {
-                ("", "", "")
+            /// Extract parts of the symbol path
+            var linkPathInfo: (module: String, symbol: String, suffix: String)? {
+                guard let path,
+                      isLinkTarget,
+                      let match = path.re_match(#"^/documentation/(\S+?)/(\S+?)(?:-(\S+))?$"#) else {
+                    return nil
+                }
+                return (module: match[1], symbol: match[2], suffix: match[3])
             }
 
             /// pre-order
             func forEach(_ iter: (Node) -> Void) {
                 iter(self)
-                children.map { $0.forEach { iter($0) } }
+                children.map { $0.forEach { $0.forEach(iter) } }
             }
         }
 
@@ -54,6 +59,10 @@ final class FormatAutolinkRemoteDocc: Configurable {
         }
 
         let interfaceLanguages: Languages
+
+        func forEach(_ iter: (Node) -> Void) {
+            interfaceLanguages.swift.map { $0.forEach { $0.forEach(iter) } }
+        }
 
         init(url: URL) throws {
             let data = try url.appendingPathComponent("index/index.json").fetch()
@@ -65,6 +74,10 @@ final class FormatAutolinkRemoteDocc: Configurable {
     /// that are recognized into a per-module bucket.
     ///
     /// The module name itself is important because of the ambiguity in the written link.
+    ///
+    /// Docc 'solves' the ambiguous symbol name problem using a hash suffix or a type cookie.  We've lost this
+    /// by the time we get down here - should rework autolink from the top to preserver them really.  Can offer
+    /// better behaviour than Apple by linking to something if the suffix is missing.
     struct Module {
         /// module name, lower case
         let name: String
@@ -72,8 +85,23 @@ final class FormatAutolinkRemoteDocc: Configurable {
         let baseURL: URL
         /// symbols in docc-format (/ not ., lower-case) that can be used directly as URLs
         var simpleSymbols: Set<String>
-        /// keys are docc-format, values are extension required to make it a URL eg "1xom4" or "swift.type.property" -- the hyphen is not included
-        var extendedSymbols: [String : String] // keys symbols in docc-form
+        /// keys are docc-format, values are suffix  required to make it a URL eg "1xom4" or "swift.type.property" -- the hyphen is not included
+        var suffixedSymbols: [String : String]
+
+        init(name: String, siteURL: URL) {
+            self.name = name
+            self.baseURL = siteURL.appendingPathComponent("documentation/\(name)")
+            self.simpleSymbols = []
+            self.suffixedSymbols = [:]
+        }
+
+        mutating func add(symbol: String, suffix: String) {
+            if suffix.isEmpty {
+                simpleSymbols.insert(symbol)
+            } else {
+                suffixedSymbols[symbol] = suffix
+            }
+        }
     }
 
     /// Index is module name, lower case
@@ -82,7 +110,13 @@ final class FormatAutolinkRemoteDocc: Configurable {
     /// Pull down the index JSON and augment our lookups.  Too late to throw if anything is wrong, just wrn.
     func buildIndex(url: URL) {
         do {
-            let json = try RenderIndexJSON(url: url)
+            try RenderIndexJSON(url: url).forEach { node in
+                guard let parts = node.linkPathInfo else {
+                    return
+                }
+                modules[parts.module, default: Module(name: parts.module, siteURL: url)]
+                    .add(symbol: parts.symbol, suffix: parts.suffix)
+            }
         } catch {
             logWarning("Couldn't decode Docc RenderIndex JSON from \(url.absoluteString): \(error)") // XXX
         }

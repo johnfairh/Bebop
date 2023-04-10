@@ -148,7 +148,10 @@ class TestAutolinkRemote: XCTestCase {
 
     func testDoccIndex() throws {
         let system = try setUpDoccSystem()
-        print(system.remote.remoteDocc.modules.count)
+        XCTAssertEqual(1, system.remote.remoteDocc.modules.count)
+        let module = try XCTUnwrap(system.remote.remoteDocc.modules["sourcemapper"])
+        XCTAssertEqual(50, module.simpleSymbols.count)
+        XCTAssertEqual(2, module.suffixedSymbols.count)
     }
 
     // MARK: Index
