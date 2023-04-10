@@ -13,7 +13,11 @@ import Yams
 ///
 /// Attempt to support traditional jazzy and bebop as well via the search.json -- not perfect but
 /// should be close enough.
+///
+/// Attempt to support DocC too by slurping its index JSON.
 final class FormatAutolinkRemote: Configurable {
+    let remoteDocc = FormatAutolinkRemoteDocc()
+
     let remoteAutolinkOpt = YamlOpt(y: "remote_autolink")
 
     init(config: Config) {
@@ -23,8 +27,15 @@ final class FormatAutolinkRemote: Configurable {
     // MARK: Config
 
     struct Source {
+        enum Kind {
+            /// Jazzy-style docs have a search.json that can't be relied on to have module info,
+            /// so the modules must be set on the CLI or read from a (Bebop) json file
+            case jazzy(modules: [String])
+            /// Docc docs have an index that contains module info
+            case docc
+        }
         let url: URL
-        let modules: [String]
+        let kind: Kind
     }
     var sources = [Source]()
 
@@ -40,15 +51,22 @@ final class FormatAutolinkRemote: Configurable {
             guard let url = urlOpt.value else {
                 throw BBError(.errCfgRemoteUrl)
             }
-            if !moduleOpt.value.isEmpty {
-                return Source(url: url.withTrailingSlash, modules: moduleOpt.value)
+            guard moduleOpt.value.isEmpty else {
+                return Source(url: url.withTrailingSlash, kind: .jazzy(modules: moduleOpt.value))
             }
+            var jError: Error?
             do {
                 logDebug("Format: Trying for site.json to identify remote site content")
                 let siteRecord = try GenSiteRecord.fetchRecord(from: url)
-                return Source(url: url, modules: siteRecord.modules)
+                return Source(url: url, kind: .jazzy(modules: siteRecord.modules))
             } catch {
-                throw BBError(.errCfgRemoteModules, url.absoluteString, error)
+                jError = error
+            }
+            do {
+                try FormatAutolinkRemoteDocc.checkDoccWebsite(url: url)
+                return Source(url: url, kind: .docc)
+            } catch {
+                throw BBError(.errCfgRemoteModules, url.absoluteString, jError!, error)
             }
         }
     }
@@ -176,6 +194,7 @@ final class FormatAutolinkRemote: Configurable {
         }
     }
 
+    var indexed = false
     var moduleIndices = [ModuleIndex]()
     var indiciesByModule = [String: ModuleIndex]()
 
@@ -183,18 +202,23 @@ final class FormatAutolinkRemote: Configurable {
         sources
             .sorted { $0.url.absoluteString < $1.url.absoluteString }
             .forEach { source in
-                do {
-                    let searchURL = source.url.appendingPathComponent("search.json")
-                    logDebug("Format: building lookup index from \(searchURL.path)")
-                    let searchData = try searchURL.fetch()
-                    let searchIndex = try JSONDecoder().decode(SearchIndex.self, from: searchData)
-                    let moduleIndex = ModuleIndex(baseURL: source.url, searchIndex: searchIndex)
-                    moduleIndices.append(moduleIndex)
-                    source.modules.forEach {
-                        indiciesByModule[$0] = moduleIndex
+                switch source.kind {
+                case .jazzy(modules: let modules):
+                    do {
+                        let searchURL = source.url.appendingPathComponent("search.json")
+                        logDebug("Format: building jazzy lookup index from \(searchURL.path)")
+                        let searchData = try searchURL.fetch()
+                        let searchIndex = try JSONDecoder().decode(SearchIndex.self, from: searchData)
+                        let moduleIndex = ModuleIndex(baseURL: source.url, searchIndex: searchIndex)
+                        moduleIndices.append(moduleIndex)
+                        modules.forEach {
+                            indiciesByModule[$0] = moduleIndex
+                        }
+                    } catch {
+                        logWarning(.wrnRemoteSearch, source, error)
                     }
-                } catch {
-                    logWarning(.wrnRemoteSearch, source, error)
+                case .docc:
+                    remoteDocc.buildIndex(url: source.url)
                 }
             }
     }
@@ -208,7 +232,8 @@ final class FormatAutolinkRemote: Configurable {
             return nil
         }
 
-        if moduleIndices.isEmpty {
+        if !indexed {
+            indexed = true
             buildIndex()
         }
 
