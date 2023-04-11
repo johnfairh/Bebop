@@ -90,6 +90,7 @@
 		026C5147244E2FF6002D7788 /* StderrHusher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026C5146244E2FF6002D7788 /* StderrHusher.swift */; };
 		026C514924506BA0002D7788 /* GatherSwiftToObjC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026C514824506BA0002D7788 /* GatherSwiftToObjC.swift */; };
 		0273D23D29E182CB00D026ED /* SwiftSyntaxParser in Frameworks */ = {isa = PBXBuildFile; productRef = 0273D23C29E182CB00D026ED /* SwiftSyntaxParser */; };
+		02808B7429E5733000B0086A /* FormatAutolinkRemoteJazzy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02808B7329E5733000B0086A /* FormatAutolinkRemoteJazzy.swift */; };
 		028321D723FB1F4F00B2C555 /* GatherObjCDecl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028321D623FB1F4F00B2C555 /* GatherObjCDecl.swift */; };
 		028321F92403F40200B2C555 /* Exec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028321F82403F40200B2C555 /* Exec.swift */; };
 		0286DCBD245F27A900A73B28 /* GatherXMLDocs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0286DCBC245F27A900A73B28 /* GatherXMLDocs.swift */; };
@@ -288,6 +289,7 @@
 		0259E19B241D74CD006435A1 /* FormatAbstracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatAbstracts.swift; sourceTree = "<group>"; };
 		026C5146244E2FF6002D7788 /* StderrHusher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StderrHusher.swift; sourceTree = "<group>"; };
 		026C514824506BA0002D7788 /* GatherSwiftToObjC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherSwiftToObjC.swift; sourceTree = "<group>"; };
+		02808B7329E5733000B0086A /* FormatAutolinkRemoteJazzy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatAutolinkRemoteJazzy.swift; sourceTree = "<group>"; };
 		028321D623FB1F4F00B2C555 /* GatherObjCDecl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherObjCDecl.swift; sourceTree = "<group>"; };
 		028321F82403F40200B2C555 /* Exec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exec.swift; sourceTree = "<group>"; };
 		0286DCBC245F27A900A73B28 /* GatherXMLDocs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherXMLDocs.swift; sourceTree = "<group>"; };
@@ -445,6 +447,7 @@
 				02486F5426517C0800B8B50E /* FormatAutolinkApple.swift */,
 				023A28B924642ECE00D87459 /* FormatAutolinkRemote.swift */,
 				023DCA7929E40CB700DB0BDA /* FormatAutolinkRemoteDocc.swift */,
+				02808B7329E5733000B0086A /* FormatAutolinkRemoteJazzy.swift */,
 				0233D52C23EF2997004DCD89 /* FormatURL.swift */,
 				0259E19B241D74CD006435A1 /* FormatAbstracts.swift */,
 				02D00C812407D70800DD93C5 /* FormatDeclaration.swift */,
@@ -956,6 +959,7 @@
 				02CFF92523DDFFC900FDE5B9 /* GatherDef.swift in Sources */,
 				0233D52D23EF2997004DCD89 /* FormatURL.swift in Sources */,
 				02D00C822407D70800DD93C5 /* FormatDeclaration.swift in Sources */,
+				02808B7429E5733000B0086A /* FormatAutolinkRemoteJazzy.swift in Sources */,
 				02D00C862407EEC100DD93C5 /* MergeImport.swift in Sources */,
 				02D00C88240940B600DD93C5 /* MergeDefinitions.swift in Sources */,
 				0233D51D23EED547004DCD89 /* GroupItem.swift in Sources */,

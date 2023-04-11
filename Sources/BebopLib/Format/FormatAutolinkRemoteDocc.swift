@@ -11,7 +11,7 @@ import Foundation
 /// Utils to enable smart-ish linking to Docc websites.
 /// Only for Swift right now.
 ///
-final class FormatAutolinkRemoteDocc: Configurable {
+final class FormatAutolinkRemoteDocc: RemoteAutolinkerProtocol {
     /// See if a URL looks like a Docc website.  Simplest way is to check for the "availability index" which
     /// is a small binary plist (!?)
     static func checkDoccWebsite(url: URL) throws {
@@ -65,6 +65,7 @@ final class FormatAutolinkRemoteDocc: Configurable {
         }
 
         init(url: URL) throws {
+            logDebug("Format: building docc lookup index from \(url.absoluteString)")
             let data = try url.appendingPathComponent("index/index.json").fetch()
             self = try JSONDecoder().decode(Self.self, from: data)
         }
@@ -102,6 +103,20 @@ final class FormatAutolinkRemoteDocc: Configurable {
                 suffixedSymbols[symbol] = suffix
             }
         }
+
+        /// `name` is in bebop format as the user wrote it
+        func lookup(name: String) -> URL? {
+            let doccName = name.asDoccName
+            let path: String
+            if simpleSymbols.contains(doccName) {
+                path = doccName
+            } else if let suffix = suffixedSymbols[doccName] {
+                path = "\(doccName)-\(suffix)"
+            } else {
+                return nil
+            }
+            return baseURL.appendingPathComponent(path)
+        }
     }
 
     /// Index is module name, lower case
@@ -109,6 +124,7 @@ final class FormatAutolinkRemoteDocc: Configurable {
 
     /// Pull down the index JSON and augment our lookups.  Too late to throw if anything is wrong, just wrn.
     func buildIndex(url: URL) {
+        precondition(modules.isEmpty)
         do {
             try RenderIndexJSON(url: url).forEach { node in
                 guard let parts = node.linkPathInfo else {
@@ -120,5 +136,30 @@ final class FormatAutolinkRemoteDocc: Configurable {
         } catch {
             logWarning("Couldn't decode Docc RenderIndex JSON from \(url.absoluteString): \(error)") // XXX
         }
+    }
+
+    /// `name` is an identifier in J2 format, ie. with dots, and we don't know what module it's in
+    func lookup(name: String) -> URL? {
+        for module in modules.values {
+            if let url = module.lookup(name: name) {
+                return url
+            }
+        }
+        return nil
+    }
+
+    /// `name` is an identifier in J2 format, ie. with dots, and cased however the user wrote it
+    /// `module` is cased however the user wrote it
+    func lookup(name: String, in moduleName: String) -> URL? {
+        guard let module = modules[moduleName.lowercased()] else {
+            return nil
+        }
+        return module.lookup(name: name)
+    }
+}
+
+private extension String {
+    var asDoccName: String {
+        replacingOccurrences(of: ".", with: "/").lowercased()
     }
 }

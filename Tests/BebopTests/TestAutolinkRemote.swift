@@ -62,7 +62,7 @@ class TestAutolinkRemote: XCTestCase {
         return try and()
     }
 
-    func withURLs<T>(_ goodURLs: [(URL, String)], badURLs: [URL] = [], and: () throws -> T) rethrows -> T {
+    func withURLs<T>(_ goodURLs: [(URL, String)] = [], badURLs: [URL] = [], and: () throws -> T) rethrows -> T {
         goodURLs.forEach {
             URL.harness.set($0.0, .success($0.1))
         }
@@ -80,7 +80,9 @@ class TestAutolinkRemote: XCTestCase {
         AssertThrows(try System(yaml: missingURL), .errCfgRemoteUrl)
 
         let badURL = URL(string: "https://foo.com/bar")!
-        try withBadURL(badURL.appendingPathComponent("site.json")) {
+        let badURLs = [badURL.appendingPathComponent("site.json"),
+                       badURL.appendingPathComponent("index/availability.index")]
+        try withURLs(badURLs: badURLs) {
             let badURLYaml = "remote_autolink:\n  - url: \(badURL.absoluteString)\n"
             AssertThrows(try System(yaml: badURLYaml), .errCfgRemoteModules)
         }
@@ -154,6 +156,13 @@ class TestAutolinkRemote: XCTestCase {
         XCTAssertEqual(2, module.suffixedSymbols.count)
     }
 
+    func testDoccLookup() throws {
+        let system = try setUpDoccSystem()
+
+        let link1 = try XCTUnwrap(system.link(text: "SourceMap"))
+        XCTAssertEqual("https://foo.com/site/documentation/sourcemapper/sourcemap", link1.markdownURL)
+    }
+
     // MARK: Index
 
     private func setUpSpmSwiftPackageSystem(fail: Bool = false) throws -> System {
@@ -184,7 +193,7 @@ class TestAutolinkRemote: XCTestCase {
     func testBuildIndex() throws {
         let system = try setUpSpmSwiftPackageSystem()
 
-        guard let moduleIndex = system.remote.indiciesByModule["SpmSwiftModule"] else {
+        guard let moduleIndex = system.remote.remoteJazzy.indiciesByModule["SpmSwiftModule"] else {
             XCTFail()
             return
         }
@@ -195,7 +204,7 @@ class TestAutolinkRemote: XCTestCase {
         TestLogger.install()
         let system = try setUpSpmSwiftPackageSystem(fail: true)
         XCTAssertEqual(1, TestLogger.shared.diagsBuf.count)
-        XCTAssertTrue(system.remote.moduleIndices.isEmpty)
+        XCTAssertTrue(system.remote.remoteJazzy.moduleIndices.isEmpty)
     }
 
     // MARK: Lookup
