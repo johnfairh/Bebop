@@ -57,7 +57,7 @@ By default, on macOS, it also tries to link identifiers to the Apple docs on
 `developer.apple.com`.  Disable this with `--no-apple-autolink`.  Post Xcode
 12.5 this is best-effort based on a static config file.
 
-Autolink to other Jazzy or Bebop online doc sites with `remote_autolink`.
+Autolink to other Jazzy/Bebop or Docc online doc sites with `remote_autolink`.
 
 ### Callouts
 

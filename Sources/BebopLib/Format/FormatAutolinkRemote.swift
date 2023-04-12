@@ -13,7 +13,12 @@ import Yams
 ///
 /// Attempt to support traditional jazzy and bebop as well via the search.json -- not perfect but
 /// should be close enough.
+///
+/// Attempt to support DocC too by slurping its index JSON.
 final class FormatAutolinkRemote: Configurable {
+    let remoteJazzy = FormatAutolinkRemoteJazzy()
+    let remoteDocc = FormatAutolinkRemoteDocc()
+
     let remoteAutolinkOpt = YamlOpt(y: "remote_autolink")
 
     init(config: Config) {
@@ -23,8 +28,15 @@ final class FormatAutolinkRemote: Configurable {
     // MARK: Config
 
     struct Source {
+        enum Kind: Equatable {
+            /// Jazzy-style docs have a search.json that can't be relied on to have module info,
+            /// so the modules must be set on the CLI or read from a (Bebop) json file
+            case jazzy(modules: [String])
+            /// Docc docs have an index that contains module info
+            case docc
+        }
         let url: URL
-        let modules: [String]
+        let kind: Kind
     }
     var sources = [Source]()
 
@@ -40,15 +52,22 @@ final class FormatAutolinkRemote: Configurable {
             guard let url = urlOpt.value else {
                 throw BBError(.errCfgRemoteUrl)
             }
-            if !moduleOpt.value.isEmpty {
-                return Source(url: url.withTrailingSlash, modules: moduleOpt.value)
+            guard moduleOpt.value.isEmpty else {
+                return Source(url: url.withTrailingSlash, kind: .jazzy(modules: moduleOpt.value))
             }
+            var jError: Error?
             do {
                 logDebug("Format: Trying for site.json to identify remote site content")
                 let siteRecord = try GenSiteRecord.fetchRecord(from: url)
-                return Source(url: url, modules: siteRecord.modules)
+                return Source(url: url, kind: .jazzy(modules: siteRecord.modules))
             } catch {
-                throw BBError(.errCfgRemoteModules, url.absoluteString, error)
+                jError = error
+            }
+            do {
+                try FormatAutolinkRemoteDocc.checkDoccWebsite(url: url)
+                return Source(url: url, kind: .docc)
+            } catch {
+                throw BBError(.errCfgRemoteModules, url.absoluteString, jError!, error)
             }
         }
     }
@@ -66,135 +85,21 @@ final class FormatAutolinkRemote: Configurable {
 
     // MARK: Index
 
-    /// Search json is a dict of keyed URLs to these structures
-    struct SearchValue: Decodable {
-        let name: String
-        let parent_name: String?
-    }
-
-    typealias SearchIndex = [String:SearchValue]
-
-    /// Build a tree of search index entries reflecting the name hierarchy
-    final class Entry {
-        let urlPath: String
-        var children: [String: Entry]
-        weak var parent: Entry?
-
-        init(urlPath: String, parent: Entry? = nil) {
-            self.urlPath = urlPath
-            self.children = [:]
-            self.parent = parent
-        }
-    }
-
-    /// Map from name to url path for a particular remote site - flattened entry tree
-    final class ModuleIndex {
-        let map: [String : String]
-        let baseURL: URL
-
-        init(baseURL: URL, searchIndex: SearchIndex) {
-            var index = [String : Entry]()
-
-            // This is horrible because of naming in the search format:
-            // simpler single-pass methods end up with method etc. name collisions.
-
-            // Sort for reproducibility.
-            var sortedIndex = searchIndex.sorted { $0.0 < $1.0 }
-
-            // First pass: stuff without a parent
-            sortedIndex = sortedIndex.filter { (urlPath, searchValue) in
-                // Don't link to extensions of types instead of the actual types
-                if urlPath.components(separatedBy: "/")
-                    .map(\.localizedLowercase)
-                    .contains("extensions") {
-                    return false
-                }
-                if searchValue.parent_name == nil {
-                    index[searchValue.name] = Entry(urlPath: urlPath)
-                    return false
-                }
-                return true
-            }
-
-            // Now repeatedly try and parent entries, building up the graph
-            // from the roots.  Approximately.
-            var changes = false
-            while true {
-                sortedIndex = sortedIndex.filter { (urlPath, searchValue) in
-                    guard let parentName = searchValue.parent_name,
-                        let parentEntry = index[parentName] else {
-                            return true // keep for next time
-                    }
-                    // overwrite any existing child with the same name
-                    let entry = Entry(urlPath: urlPath, parent: parentEntry)
-                    let entryName = searchValue.name
-                    parentEntry.children[entryName] = entry
-                    // special case Swift functions
-                    if entryName.contains("(") {
-                        parentEntry.children[entryName.re_sub(#"\(.*\)"#, with: "(...)")] = entry
-                    }
-                    // don't overwrite an existing parent name candidate
-                    if index[entryName] == nil {
-                        index[entryName] = entry
-                    }
-                    changes = true
-                    return false
-                }
-                if !changes {
-                    break
-                }
-                changes = false
-            }
-
-            // Now flatten it
-            var nameMap = [String: String]()
-
-            func doEntry(_ entry: Entry, pathPieces: [String]) {
-                nameMap[pathPieces.joined(separator: ".")] = entry.urlPath
-                entry.children.forEach {
-                    doEntry($1, pathPieces: pathPieces + [$0])
-                }
-            }
-
-            index.forEach { (entryName, entry) in
-                if entry.parent == nil {
-                    doEntry(entry, pathPieces: [entryName])
-                }
-            }
-
-            self.map = nameMap
-            self.baseURL = baseURL
-        }
-
-        /// Just look up the name and build the full URL
-        func lookup(name: String) -> URL? {
-            guard let urlPath = map[name] else {
-                return nil
-            }
-
-            return URLComponents(string: urlPath)?.url(relativeTo: baseURL)
-        }
-    }
-
-    var moduleIndices = [ModuleIndex]()
-    var indiciesByModule = [String: ModuleIndex]()
+    private var indexed = false
 
     func buildIndex() {
+        guard !indexed else {
+            return
+        }
+        indexed = true
         sources
             .sorted { $0.url.absoluteString < $1.url.absoluteString }
             .forEach { source in
-                do {
-                    let searchURL = source.url.appendingPathComponent("search.json")
-                    logDebug("Format: building lookup index from \(searchURL.path)")
-                    let searchData = try searchURL.fetch()
-                    let searchIndex = try JSONDecoder().decode(SearchIndex.self, from: searchData)
-                    let moduleIndex = ModuleIndex(baseURL: source.url, searchIndex: searchIndex)
-                    moduleIndices.append(moduleIndex)
-                    source.modules.forEach {
-                        indiciesByModule[$0] = moduleIndex
-                    }
-                } catch {
-                    logWarning(.wrnRemoteSearch, source, error)
+                switch source.kind {
+                case .jazzy(modules: let modules):
+                    remoteJazzy.buildIndex(url: source.url, modules: modules)
+                case .docc:
+                    remoteDocc.buildIndex(url: source.url)
                 }
             }
     }
@@ -202,33 +107,28 @@ final class FormatAutolinkRemote: Configurable {
     // MARK: API
 
     /// Build the index on first call, search for the name.
-    /// Pretty sure there's %-encoding needed on these URLs.
     func autolink(name: String) -> Autolink? {
         guard !sources.isEmpty else {
             return nil
         }
 
-        if moduleIndices.isEmpty {
-            buildIndex()
-        }
+        buildIndex()
 
         logDebug("Format: remote autolink attempt for \(name)")
 
+        let remotes: [any RemoteAutolinkerProtocol] = [remoteJazzy, remoteDocc]
+
         // First assume the name doesn't start with a module name.
-        // Go through each source trying to resolve.
-        for mIndex in moduleIndices {
-            if let url = mIndex.lookup(name: name) {
-                logDebug("Format: resolved to \(url.absoluteString)")
-                Stats.inc(.autolinkRemoteSuccess)
-                return Autolink(url: url, text: name)
-            }
+        if let url = remotes.lookup(name: name) {
+            logDebug("Format: resolved to \(url.absoluteString)")
+            Stats.inc(.autolinkRemoteSuccess)
+            return Autolink(url: url, text: name)
         }
 
         // Now try assuming the first name piece is a module name.
         if let matches = name.re_match(#"^(.*?)\.(.*)$"#),
-            let moduleIndex = indiciesByModule[matches[1]],
-            !matches[2].isEmpty,
-            let url = moduleIndex.lookup(name: matches[2]) {
+           !matches[2].isEmpty,
+           let url = remotes.lookup(name: matches[2], in: matches[1]) {
             logDebug("Format: resolved to \(url.absoluteString)")
             Stats.inc(.autolinkRemoteSuccessModule)
             return Autolink(url: url, text: name)
@@ -249,5 +149,32 @@ extension URL {
             return self
         }
         return URL(string: "\(str)/")!
+    }
+}
+
+// MARK: Stuff to abstract over jazzy/docc/??? for lookup
+
+protocol RemoteAutolinkerProtocol {
+    func lookup(name: String) -> URL?
+    func lookup(name: String, in: String) -> URL?
+}
+
+extension Array: RemoteAutolinkerProtocol where Element == any RemoteAutolinkerProtocol {
+    private func iter(with: (Element) -> URL?) -> URL? {
+        for e in self {
+            if let url = with(e) {
+                return url
+            }
+        }
+        return nil
+
+    }
+
+    func lookup(name: String) -> URL? {
+        iter { $0.lookup(name: name) }
+    }
+
+    func lookup(name: String, in module: String) -> URL? {
+        iter { $0.lookup(name: name, in: module) }
     }
 }
