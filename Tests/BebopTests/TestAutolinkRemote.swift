@@ -156,14 +156,38 @@ class TestAutolinkRemote: XCTestCase {
         XCTAssertEqual(2, module.suffixedSymbols.count)
     }
 
+    func testDoccBadIndex() throws {
+        let system = try setUpDoccSystem(failIndex: true)
+        XCTAssertEqual(0, system.remote.remoteDocc.modules.count)
+    }
+
     func testDoccLookup() throws {
         let system = try setUpDoccSystem()
 
-        let link1 = try XCTUnwrap(system.link(text: "SourceMap"))
-        XCTAssertEqual("https://foo.com/site/documentation/sourcemapper/sourcemap", link1.markdownURL)
+        let tests: [(String, String)] = [
+            ("SourceMap", "sourcemapper/sourcemap"),
+            ("SourceMapper.SourceMap", "sourcemapper/sourcemap"),
+            ("SourceMap.Source", "sourcemapper/sourcemap/source"),
+            ("SourceMapError.invalidFormat(_:)", "sourcemapper/sourcemaperror/invalidformat(_:)"),
+            ("SourceMap.VERSION", "sourcemapper/sourcemap/version-swift.type.property"),
+            // not sure if this next is deterministic, overload resolution
+            ("SourceMap.Segment.init(columns:sourcepos:)", "sourcemapper/sourcemap/segment/init(columns:sourcepos:)-5ols0")
+        ]
+
+        try tests.forEach { (text, path) in
+            let link = try XCTUnwrap(system.link(text: text))
+            XCTAssertEqual("https://foo.com/site/documentation/\(path)", link.markdownURL)
+        }
     }
 
-    // MARK: Index
+    func testDoccBadLookup() throws {
+        let system = try setUpDoccSystem()
+
+        XCTAssertNil(system.link(text: "Fred"))
+        XCTAssertNil(system.link(text: "Fred.Barney"))
+    }
+
+    // MARK: Jazzy Index
 
     private func setUpSpmSwiftPackageSystem(fail: Bool = false) throws -> System {
         let url = URL(string: "https://foo.com/site")!
@@ -207,7 +231,7 @@ class TestAutolinkRemote: XCTestCase {
         XCTAssertTrue(system.remote.remoteJazzy.moduleIndices.isEmpty)
     }
 
-    // MARK: Lookup
+    // MARK: Jazzy Lookup
 
     func testIndexLookup() throws {
         let system = try setUpSpmSwiftPackageSystem()
