@@ -212,11 +212,12 @@ custom_modules:
   [below](#custom-defs).
 * `--apple-autolink` is on by default and enables best-effort autolinking of
   identifers like `String` or `UIWindow` to the online Apple docs.
-* `remote_autolink` configure other Jazzy/Bebop doc sites to autolink identifiers.
-  Array of such sites, each with keys:
+* `remote_autolink` configure other Jazzy/Bebop/Docc doc sites to autolink
+  identifiers.  Array of such sites, each with keys:
     * `url` URL of the doc root, ie. the directory containing `index.html`.
     * `modules` list of modules covered by the remote site.  Mandatory for
-      remote Jazzy docs, optional for remote Bebop docs.
+      remote Jazzy docs, optional for remote Bebop docs, don't use with
+      remote Docc docs.
 * `group-style` controls how things are grouped outside of custom groups.
   Default is by kind (types together) can set `path` to generate mixed
   groups corresponding to filesystem directory structure.

@@ -9,7 +9,7 @@ bits.  There are bells _and_ whistles.
 * Commonmark + extensions + custom extensions, KaTeX
 * Apple/Jazzy/Hybrid/Custom layout 
 * Flexible web theme, keybinds, more navigation
-* Integrate with other docsets, online/inline Apple docs, github/gitlab/bitbucket/custom
+* Integrate with other docsets, Docc sites, online/inline Apple docs, github/gitlab/bitbucket/custom
 * Mostly compatible with Jazzy CLI / config file / themes -- migration aide+
 * Experiment with monolithic project and heavy dependencies
 
