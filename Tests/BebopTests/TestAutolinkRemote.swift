@@ -142,9 +142,9 @@ class TestAutolinkRemote: XCTestCase {
             return system
         }
 
-        let availURL = url.appendingPathComponent("index/availability.index") // XXX DRY these
-        let indexURL = url.appendingPathComponent("index/index.json") // XXX
-        let badURLs = [url.appendingPathComponent("site.json")] +
+        let availURL = url.appendingPathComponent(FormatAutolinkRemoteDocc.SNIFF_FILE_PATH)
+        let indexURL = url.appendingPathComponent(FormatAutolinkRemoteDocc.RenderIndexJSON.INDEX_JSON_PATH)
+        let badURLs = [url.appendingPathComponent(GenSiteRecord.FILENAME)] +
                            (failAvail ? [availURL] : []) +
                            (failIndex ? [indexURL] : [])
 

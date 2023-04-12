@@ -168,3 +168,4 @@ Error: %3";
 "err-cfg-remote-url" = "Missing mandatory config key 'url' for 'remote_autolink' entry.";
 "err-cfg-remote-modules" = "Can't figure out module names hosted by remote autolink URL '%1': 'modules' config key is missing and Bebop site metadata fetch failed: '%2' and DocC site metadata fetch failed: '%3'.";
 "wrn-remote-search" = "Can't build remote autolink index for '%1': '%2'.";
+"wrn-docc-index-fail" = "Can't decode Docc RenderIndex JSON from '%1': '%2'.";

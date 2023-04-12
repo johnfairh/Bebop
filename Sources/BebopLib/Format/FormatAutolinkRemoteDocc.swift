@@ -17,10 +17,12 @@ final class FormatAutolinkRemoteDocc: RemoteAutolinkerProtocol {
     static func checkDoccWebsite(url: URL) throws {
         logDebug("Format: sniffing \(url.absoluteString) for Docc")
 // ok this dratted file doesn't always exist, can't find anything quick; just say it's fine I guess.
-//        let availabilityIndex = try url.appendingPathComponent("index/availability.index").fetch()
+//        let availabilityIndex = try url.appendingPathComponent(Self.SNIFF_PATH).fetch()
 //        logDebug("Format: fetched availability index OK, \(availabilityIndex.count) bytes, probably DocC")
         logDebug("Format: ..actually don't know what to sniff, assume it's Docc for now")
     }
+
+    static let SNIFF_FILE_PATH = "index/availability.index"
 
     /// Wire-format structs for decoding the index.json
     struct RenderIndexJSON: Decodable {
@@ -68,9 +70,11 @@ final class FormatAutolinkRemoteDocc: RemoteAutolinkerProtocol {
 
         init(url: URL) throws {
             logDebug("Format: building docc lookup index from \(url.absoluteString)")
-            let data = try url.appendingPathComponent("index/index.json").fetch()
+            let data = try url.appendingPathComponent(Self.INDEX_JSON_PATH).fetch()
             self = try JSONDecoder().decode(Self.self, from: data)
         }
+
+        static let INDEX_JSON_PATH = "index/index.json"
     }
 
     /// Because the DocC nodes come in with full paths we don't bother treeifying this, just chuck all the symbols
@@ -136,7 +140,7 @@ final class FormatAutolinkRemoteDocc: RemoteAutolinkerProtocol {
                     .add(symbol: parts.symbol, suffix: parts.suffix)
             }
         } catch {
-            logWarning("Couldn't decode Docc RenderIndex JSON from \(url.absoluteString): \(error)") // XXX
+            logWarning(.wrnDoccIndexFail, url.absoluteString, error)
         }
     }
 

@@ -78,7 +78,7 @@ internal enum L10n {
     case errCfgPodspecPass = "err-cfg-podspec-pass"
     /// Invalid ICU regular expression '%1'.  Original error: '%2'.
     case errCfgRegexp = "err-cfg-regexp"
-    /// Can't figure out module names hosted by remote autolink URL '%1': 'modules' config key is missing and Bebop site metadata fetch failed: '%2'.
+    /// Can't figure out module names hosted by remote autolink URL '%1': 'modules' config key is missing and Bebop site metadata fetch failed: '%2' and DocC site metadata fetch failed: '%3'.
     case errCfgRemoteModules = "err-cfg-remote-modules"
     /// Missing mandatory config key 'url' for 'remote_autolink' entry.
     case errCfgRemoteUrl = "err-cfg-remote-url"
@@ -200,6 +200,8 @@ internal enum L10n {
     case wrnCustomDefMissing = "wrn-custom-def-missing"
     /// Can't resolve item name '%1' inside 'custom_groups', ignoring.
     case wrnCustomGrpMissing = "wrn-custom-grp-missing"
+    /// Can't decode Docc RenderIndex JSON from '%1': '%2'.
+    case wrnDoccIndexFail = "wrn-docc-index-fail"
     /// The --docset-path option is ignored: the docset is created under '<output>/docsets'.
     case wrnDocsetPath = "wrn-docset-path"
     /// Can't create docset tarfile.\n%1
