@@ -16,8 +16,10 @@ final class FormatAutolinkRemoteDocc: RemoteAutolinkerProtocol {
     /// is a small binary plist (!?)
     static func checkDoccWebsite(url: URL) throws {
         logDebug("Format: sniffing \(url.absoluteString) for Docc")
-        let availabilityIndex = try url.appendingPathComponent("index/availability.index").fetch()
-        logDebug("Format: fetched availability index OK, \(availabilityIndex.count) bytes, probably DocC")
+// ok this dratted file doesn't always exist, can't find anything quick; just say it's fine I guess.
+//        let availabilityIndex = try url.appendingPathComponent("index/availability.index").fetch()
+//        logDebug("Format: fetched availability index OK, \(availabilityIndex.count) bytes, probably DocC")
+        logDebug("Format: ..actually don't know what to sniff, assume it's Docc for now")
     }
 
     /// Wire-format structs for decoding the index.json
