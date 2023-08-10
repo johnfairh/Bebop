@@ -264,6 +264,8 @@ internal enum L10n {
     case wrnSsgeSymbolKind = "wrn-ssge-symbol-kind"
     /// Can't figure out host target triple, using default '%1'
     case wrnSsgeTriple = "wrn-ssge-triple"
+    /// Module '%1' has Swift-C++ enabled. Not generating C/ObjC/C++ versions of Swift declarations.
+    case wrnSw2objcCxx = "wrn-sw2objc-cxx"
     /// Can't find Objective-C header file for module '%1' at '%2'.
     case wrnSw2objcHeader = "wrn-sw2objc-header"
     /// Unrecognized accessibility '%1' for '%2', using 'internal'.

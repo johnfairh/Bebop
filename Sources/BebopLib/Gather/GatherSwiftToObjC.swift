@@ -37,6 +37,13 @@ final class GatherSwiftToObjC {
             return nil
         }
 
+        // Turn this off for C++ mode because the interface header is fantastically enormous and takes
+        // literal 10s of GBs to process with SourceKit/LibClang for a mid-size project.
+        guard module.compilerArguments.firstIndex(where: { $0.hasPrefix("-std=c++") }) == nil else {
+            logWarning(.wrnSw2objcCxx, module.name)
+            return nil
+        }
+
         objcHeaderPath = module.compilerArguments[pathIndex]
 
         guard FileManager.default.fileExists(atPath: objcHeaderPath) else {

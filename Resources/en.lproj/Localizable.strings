@@ -145,6 +145,7 @@ Ignoring the second.";
 "wrn-docset-tarfile" = "Can't create docset tarfile.
 %1";
 "wrn-sw2objc-header" = "Can't find Objective-C header file for module '%1' at '%2'.";
+"wrn-sw2objc-cxx" = "Module '%1' has Swift-C++ enabled. Not generating C/ObjC/C++ versions of Swift declarations.";
 "msg-copying-theme" = "Copying theme files";
 "err-cfg-theme-copy" = "Can't use 'theme' along with any other value in --products.";
 "msg-jazzy-theme" = "Rendering theme in classic Jazzy mode";
