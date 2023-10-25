@@ -8,7 +8,7 @@
 
 import Foundation
 import SwiftSyntax
-import SwiftSyntaxParser
+import SwiftParser
 
 //
 // This is a horror-show unfortunately -- @available can express so many different
@@ -37,6 +37,13 @@ private enum AvailArg {
     case keyword(AvailKeyword, String?)
 }
 
+extension TokenSyntax {
+    /// I just don't have time to figure out what has happened to this
+    func withoutTrailingTrivia() -> TokenSyntax {
+        TokenSyntax(tokenKind, leadingTrivia: leadingTrivia, trailingTrivia: Trivia(), presence: presence)
+    }
+}
+
 // Now a SwiftSyntax visitor to lex the actual text and produce `AvailArgs`
 
 private class FunctionPiecesVisitor: SyntaxVisitor {
@@ -45,7 +52,8 @@ private class FunctionPiecesVisitor: SyntaxVisitor {
     /// Messy SwiftSyntax here --- this is for ALL types of arg, we need to spot the ones where there is just one token
     /// underneath and figure out what it is.
     override func visit(_ node: AvailabilityArgumentSyntax) -> SyntaxVisitorContinueKind {
-        if node.entry.isToken, let tok = node.entry.firstToken {
+        switch node.argument {
+        case .token(let tok):
             if tok.text == "*" {
                 args.append(.star)
             } else if let kw = AvailKeyword(rawValue: tok.text) {
@@ -55,6 +63,8 @@ private class FunctionPiecesVisitor: SyntaxVisitor {
                 args.append(.token(tok.text))
             }
             return .skipChildren
+        default:
+            break
         }
         return .visitChildren
     }
@@ -72,7 +82,7 @@ private class FunctionPiecesVisitor: SyntaxVisitor {
     }
 
     /// For "a b"
-    override func visit(_ node: AvailabilityVersionRestrictionSyntax) -> SyntaxVisitorContinueKind {
+    override func visit(_ node: PlatformVersionSyntax) -> SyntaxVisitorContinueKind {
         let tok1 = node.platform.withoutTrailingTrivia().description
         let tok2: String
         if let version = node.version {
@@ -97,9 +107,7 @@ private extension String {
 private extension String {
     func parseAvailable() -> [AvailArg] {
         let visitor = FunctionPiecesVisitor(viewMode: .sourceAccurate)
-        guard let syntax = try? SyntaxParser.parse(source: self) else {
-            return []
-        }
+        let syntax = Parser.parse(source: self)
         visitor.walk(syntax)
         return visitor.args
     }

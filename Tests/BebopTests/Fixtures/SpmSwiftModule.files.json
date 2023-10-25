@@ -53,6 +53,7 @@
           "key.parsed_declaration" : "class GenericBase<T>",
           "key.parsed_scope.end" : 10,
           "key.parsed_scope.start" : 1,
+          "key.reusingastcontext" : false,
           "key.substructure" : [
             {
               "key.annotated_decl" : "<Declaration>T<\/Declaration>",
@@ -82,6 +83,7 @@
               "key.parsed_declaration" : "class GenericBase<T",
               "key.parsed_scope.end" : 1,
               "key.parsed_scope.start" : 1,
+              "key.reusingastcontext" : false,
               "key.typename" : "T.Type",
               "key.typeusr" : "$sxmD",
               "key.usr" : "s:14SpmSwiftModule11GenericBaseC1Txmfp"
@@ -123,6 +125,7 @@
               "key.parsed_declaration" : "var boxed: T",
               "key.parsed_scope.end" : 2,
               "key.parsed_scope.start" : 2,
+              "key.reusingastcontext" : false,
               "key.setter_accessibility" : "source.lang.swift.accessibility.internal",
               "key.typename" : "T",
               "key.typeusr" : "$sxD",
@@ -171,6 +174,7 @@
               "key.parsed_declaration" : "init(type: T)",
               "key.parsed_scope.end" : 5,
               "key.parsed_scope.start" : 3,
+              "key.reusingastcontext" : false,
               "key.typename" : "<T> (GenericBase<T>.Type) -> (T) -> GenericBase<T>",
               "key.typeusr" : "$s4type14SpmSwiftModule11GenericBaseCyxGx_tcD",
               "key.usr" : "s:14SpmSwiftModule11GenericBaseC4typeACyxGx_tcfc"
@@ -214,6 +218,7 @@
               "key.parsed_declaration" : "func mutify() -> T",
               "key.parsed_scope.end" : 9,
               "key.parsed_scope.start" : 7,
+              "key.reusingastcontext" : false,
               "key.typename" : "<T> (GenericBase<T>) -> () -> T",
               "key.typeusr" : "$sxycD",
               "key.usr" : "s:14SpmSwiftModule11GenericBaseC6mutifyxyF"
@@ -257,6 +262,7 @@
           "key.parsed_declaration" : "extension GenericBase where T: Codable",
           "key.parsed_scope.end" : 17,
           "key.parsed_scope.start" : 12,
+          "key.reusingastcontext" : false,
           "key.substructure" : [
             {
               "key.annotated_decl" : "<Declaration>var codableCount: <Type usr=\"s:Si\">Int<\/Type> { get }<\/Declaration>",
@@ -296,6 +302,7 @@
               "key.parsed_declaration" : "var codableCount: Int",
               "key.parsed_scope.end" : 15,
               "key.parsed_scope.start" : 13,
+              "key.reusingastcontext" : false,
               "key.typename" : "Int",
               "key.typeusr" : "$sSiD",
               "key.usr" : "s:14SpmSwiftModule11GenericBaseCAASeRzSERzlE12codableCountSivp"
@@ -338,6 +345,7 @@
               "key.parsed_declaration" : "func doCodability()",
               "key.parsed_scope.end" : 16,
               "key.parsed_scope.start" : 16,
+              "key.reusingastcontext" : false,
               "key.typename" : "<T where T : Decodable, T : Encodable> (GenericBase<T>) -> () -> ()",
               "key.typeusr" : "$syycD",
               "key.usr" : "s:14SpmSwiftModule11GenericBaseCAASeRzSERzlE12doCodabilityyyF"
@@ -381,6 +389,7 @@
           "key.parsed_declaration" : "extension GenericBase where T: Equatable,\n                            T: FirstProtocol",
           "key.parsed_scope.end" : 24,
           "key.parsed_scope.start" : 19,
+          "key.reusingastcontext" : false,
           "key.substructure" : [
             {
               "key.annotated_decl" : "<Declaration>func doFirstMagic()<\/Declaration>",
@@ -420,6 +429,7 @@
               "key.parsed_declaration" : "func doFirstMagic()",
               "key.parsed_scope.end" : 21,
               "key.parsed_scope.start" : 21,
+              "key.reusingastcontext" : false,
               "key.typename" : "<T where T : FirstProtocol, T : Equatable> (GenericBase<T>) -> () -> ()",
               "key.typeusr" : "$syycD",
               "key.usr" : "s:14SpmSwiftModule11GenericBaseCA2A13FirstProtocolRzSQRzlE02doF5MagicyyF"
@@ -462,6 +472,7 @@
               "key.parsed_declaration" : "func doMoreMagic()",
               "key.parsed_scope.end" : 23,
               "key.parsed_scope.start" : 23,
+              "key.reusingastcontext" : false,
               "key.typename" : "<T where T : FirstProtocol, T : Equatable> (GenericBase<T>) -> () -> ()",
               "key.typeusr" : "$syycD",
               "key.usr" : "s:14SpmSwiftModule11GenericBaseCA2A13FirstProtocolRzSQRzlE11doMoreMagicyyF"
@@ -505,6 +516,7 @@
           "key.parsed_declaration" : "extension GenericBase where T: Hashable",
           "key.parsed_scope.end" : 29,
           "key.parsed_scope.start" : 26,
+          "key.reusingastcontext" : false,
           "key.substructure" : [
             {
               "key.kind" : "source.lang.swift.syntaxtype.comment.mark",
@@ -550,6 +562,7 @@
               "key.parsed_declaration" : "func doHashable()",
               "key.parsed_scope.end" : 28,
               "key.parsed_scope.start" : 28,
+              "key.reusingastcontext" : false,
               "key.typename" : "<T where T : Hashable> (GenericBase<T>) -> () -> ()",
               "key.typeusr" : "$syycD",
               "key.usr" : "s:14SpmSwiftModule11GenericBaseCAASHRzlE10doHashableyyF"
@@ -616,6 +629,7 @@
           "key.parsed_declaration" : "extension GenericBase : CustomStringConvertible",
           "key.parsed_scope.end" : 36,
           "key.parsed_scope.start" : 32,
+          "key.reusingastcontext" : false,
           "key.substructure" : [
             {
               "key.annotated_decl" : "<Declaration>var description: <Type usr=\"s:SS\">String<\/Type> { get }<\/Declaration>",
@@ -687,6 +701,7 @@
               "key.parsed_declaration" : "var description: String",
               "key.parsed_scope.end" : 35,
               "key.parsed_scope.start" : 33,
+              "key.reusingastcontext" : false,
               "key.typename" : "String",
               "key.typeusr" : "$sSSD",
               "key.usr" : "s:s23CustomStringConvertibleP11descriptionSSvp"
@@ -843,6 +858,7 @@
           "key.parsed_declaration" : "extension Collection where Element: FirstProtocol",
           "key.parsed_scope.end" : 40,
           "key.parsed_scope.start" : 38,
+          "key.reusingastcontext" : false,
           "key.substructure" : [
             {
               "key.annotated_decl" : "<Declaration>func collectEmAll()<\/Declaration>",
@@ -882,6 +898,7 @@
               "key.parsed_declaration" : "func collectEmAll()",
               "key.parsed_scope.end" : 39,
               "key.parsed_scope.start" : 39,
+              "key.reusingastcontext" : false,
               "key.typename" : "<Self where Self : Collection, Self.Element : FirstProtocol> (Self) -> () -> ()",
               "key.typeusr" : "$syycD",
               "key.usr" : "s:Sl14SpmSwiftModuleAA13FirstProtocol7ElementRpzrlE12collectEmAllyyF"
@@ -1038,6 +1055,7 @@
           "key.parsed_declaration" : "extension Collection where Element == SpmSwiftModule.Nested1",
           "key.parsed_scope.end" : 44,
           "key.parsed_scope.start" : 42,
+          "key.reusingastcontext" : false,
           "key.substructure" : [
             {
               "key.annotated_decl" : "<Declaration>func nestEmAll()<\/Declaration>",
@@ -1077,6 +1095,7 @@
               "key.parsed_declaration" : "func nestEmAll()",
               "key.parsed_scope.end" : 43,
               "key.parsed_scope.start" : 43,
+              "key.reusingastcontext" : false,
               "key.typename" : "<Self where Self : Collection, Self.Element == SpmSwiftModule.Nested1> (Self) -> () -> ()",
               "key.typeusr" : "$syycD",
               "key.usr" : "s:Sl14SpmSwiftModuleA2AV7Nested1V7ElementRtzrlE9nestEmAllyyF"
@@ -1133,6 +1152,7 @@
           "key.parsed_declaration" : "extension FirstProtocol where AssocType: Hashable",
           "key.parsed_scope.end" : 53,
           "key.parsed_scope.start" : 46,
+          "key.reusingastcontext" : false,
           "key.substructure" : [
             {
               "key.annotated_decl" : "<Declaration>func extHashableMethod()<\/Declaration>",
@@ -1172,6 +1192,7 @@
               "key.parsed_declaration" : "func extHashableMethod()",
               "key.parsed_scope.end" : 47,
               "key.parsed_scope.start" : 47,
+              "key.reusingastcontext" : false,
               "key.typename" : "<Self where Self : FirstProtocol, Self.AssocType : Hashable> (Self) -> () -> ()",
               "key.typeusr" : "$syycD",
               "key.usr" : "s:14SpmSwiftModule13FirstProtocolPAASH9AssocTypeRpzrlE17extHashableMethodyyF"
@@ -1246,6 +1267,7 @@
                   "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule13FirstProtocolPAAE1m3argSSSi_tF\">m(arg: Int) -&gt; String<\/RelatedName>"
                 }
               ],
+              "key.reusingastcontext" : false,
               "key.typename" : "<Self where Self : FirstProtocol, Self.AssocType : Hashable> (Self) -> (Int) -> String",
               "key.typeusr" : "$s3argSSSi_tcD",
               "key.usr" : "s:14SpmSwiftModule13FirstProtocolPAASH9AssocTypeRpzrlE1m3argSSSi_tF"
@@ -1317,6 +1339,7 @@
           "key.parsed_declaration" : "extension String.Element",
           "key.parsed_scope.end" : 61,
           "key.parsed_scope.start" : 56,
+          "key.reusingastcontext" : false,
           "key.substructure" : [
             {
               "key.annotated_decl" : "<Declaration>func method1()<\/Declaration>",
@@ -1372,6 +1395,7 @@
               "key.parsed_declaration" : "func method1()",
               "key.parsed_scope.end" : 58,
               "key.parsed_scope.start" : 58,
+              "key.reusingastcontext" : false,
               "key.typename" : "(Character) -> () -> ()",
               "key.typeusr" : "$syycD",
               "key.usr" : "s:SJ14SpmSwiftModuleE7method1yyF"
@@ -1414,6 +1438,7 @@
               "key.parsed_declaration" : "func method2()",
               "key.parsed_scope.end" : 60,
               "key.parsed_scope.start" : 60,
+              "key.reusingastcontext" : false,
               "key.typename" : "(Character) -> () -> ()",
               "key.typeusr" : "$syycD",
               "key.usr" : "s:SJ14SpmSwiftModuleE7method2yyF"
@@ -1471,6 +1496,7 @@
           "key.parsed_declaration" : "extension StringProtocol",
           "key.parsed_scope.end" : 67,
           "key.parsed_scope.start" : 63,
+          "key.reusingastcontext" : false,
           "key.substructure" : [
             {
               "key.annotated_decl" : "<Declaration>func f()<\/Declaration>",
@@ -1510,6 +1536,7 @@
               "key.parsed_declaration" : "func f()",
               "key.parsed_scope.end" : 64,
               "key.parsed_scope.start" : 64,
+              "key.reusingastcontext" : false,
               "key.typename" : "<Self where Self : StringProtocol> (Self) -> () -> ()",
               "key.typeusr" : "$syycD",
               "key.usr" : "s:Sy14SpmSwiftModuleE1fyyF"
@@ -1560,6 +1587,7 @@
                   "key.annotated_decl" : "<RelatedName usr=\"s:SysE9hasSuffixySbqd__SyRd__lF\">hasSuffix&lt;Suffix&gt;(_: Suffix) -&gt; Bool where Suffix : StringProtocol<\/RelatedName>"
                 }
               ],
+              "key.reusingastcontext" : false,
               "key.typename" : "<Self where Self : StringProtocol> (Self) -> (String) -> Bool",
               "key.typeusr" : "$sySbSScD",
               "key.usr" : "s:Sy14SpmSwiftModuleE9hasSuffixySbSSF"
@@ -1639,6 +1667,7 @@
           "key.parsed_declaration" : "public protocol FirstProtocol",
           "key.parsed_scope.end" : 16,
           "key.parsed_scope.start" : 2,
+          "key.reusingastcontext" : false,
           "key.substructure" : [
             {
               "key.accessibility" : "source.lang.swift.accessibility.public",
@@ -1743,6 +1772,7 @@
                   "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule13FirstProtocolPAAE1m3argSSSi_tF\">m(arg: Int) -&gt; String<\/RelatedName>"
                 }
               ],
+              "key.reusingastcontext" : false,
               "key.typename" : "<Self where Self : FirstProtocol> (Self) -> (Int) -> String",
               "key.typeusr" : "$s3argSSSi_tcD",
               "key.usr" : "s:14SpmSwiftModule13FirstProtocolP1m3argSSSi_tF"
@@ -1780,6 +1810,7 @@
               "key.parsed_declaration" : "associatedtype AssocType",
               "key.parsed_scope.end" : 10,
               "key.parsed_scope.start" : 10,
+              "key.reusingastcontext" : false,
               "key.typename" : "Self.AssocType.Type",
               "key.typeusr" : "$s9AssocTypeQzmD",
               "key.usr" : "s:14SpmSwiftModule13FirstProtocolP9AssocTypeQa"
@@ -1821,6 +1852,7 @@
               "key.parsed_declaration" : "func assocFunc() -> AssocType",
               "key.parsed_scope.end" : 11,
               "key.parsed_scope.start" : 11,
+              "key.reusingastcontext" : false,
               "key.typename" : "<Self where Self : FirstProtocol> (Self) -> () -> Self.AssocType",
               "key.typeusr" : "$s9AssocTypeQzycD",
               "key.usr" : "s:14SpmSwiftModule13FirstProtocolP9assocFunc9AssocTypeQzyF"
@@ -1864,6 +1896,7 @@
               "key.parsed_declaration" : "var getOnly: Int",
               "key.parsed_scope.end" : 13,
               "key.parsed_scope.start" : 13,
+              "key.reusingastcontext" : false,
               "key.typename" : "Int",
               "key.typeusr" : "$sSiD",
               "key.usr" : "s:14SpmSwiftModule13FirstProtocolP7getOnlySivp"
@@ -1907,6 +1940,7 @@
               "key.parsed_declaration" : "var setAndGet: Int",
               "key.parsed_scope.end" : 15,
               "key.parsed_scope.start" : 15,
+              "key.reusingastcontext" : false,
               "key.setter_accessibility" : "source.lang.swift.accessibility.public",
               "key.typename" : "Int",
               "key.typeusr" : "$sSiD",
@@ -1976,6 +2010,7 @@
           "key.parsed_declaration" : "public protocol SecondProtocol: FirstProtocol",
           "key.parsed_scope.end" : 20,
           "key.parsed_scope.start" : 18,
+          "key.reusingastcontext" : false,
           "key.substructure" : [
             {
               "key.accessibility" : "source.lang.swift.accessibility.public",
@@ -2014,6 +2049,7 @@
               "key.parsed_declaration" : "func secondProtocolMethod() -> String",
               "key.parsed_scope.end" : 19,
               "key.parsed_scope.start" : 19,
+              "key.reusingastcontext" : false,
               "key.typename" : "<Self where Self : SecondProtocol> (Self) -> () -> String",
               "key.typeusr" : "$sSSycD",
               "key.usr" : "s:14SpmSwiftModule14SecondProtocolP06secondE6MethodSSyF"
@@ -2057,6 +2093,7 @@
           "key.parsed_declaration" : "extension SecondProtocol",
           "key.parsed_scope.end" : 28,
           "key.parsed_scope.start" : 22,
+          "key.reusingastcontext" : false,
           "key.substructure" : [
             {
               "key.annotated_decl" : "<Declaration>var getOnly: <Type usr=\"s:Si\">Int<\/Type> { get }<\/Declaration>",
@@ -2117,6 +2154,7 @@
                   "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule13FirstProtocolP7getOnlySivp\">getOnly<\/RelatedName>"
                 }
               ],
+              "key.reusingastcontext" : false,
               "key.typename" : "Int",
               "key.typeusr" : "$sSiD",
               "key.usr" : "s:14SpmSwiftModule14SecondProtocolPAAE7getOnlySivp"
@@ -2173,6 +2211,7 @@
           "key.parsed_declaration" : "extension FirstProtocol",
           "key.parsed_scope.end" : 33,
           "key.parsed_scope.start" : 30,
+          "key.reusingastcontext" : false,
           "key.substructure" : [
             {
               "key.annotated_decl" : "<Declaration>func e()<\/Declaration>",
@@ -2233,6 +2272,7 @@
                   "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule13FirstProtocolPAAE1e1ayqd___tAaBRd__lF\">e(a:)<\/RelatedName>"
                 }
               ],
+              "key.reusingastcontext" : false,
               "key.typename" : "<Self where Self : FirstProtocol> (Self) -> () -> ()",
               "key.typeusr" : "$syycD",
               "key.usr" : "s:14SpmSwiftModule13FirstProtocolPAAE1eyyF"
@@ -2289,6 +2329,7 @@
           "key.parsed_declaration" : "extension FirstProtocol",
           "key.parsed_scope.end" : 38,
           "key.parsed_scope.start" : 35,
+          "key.reusingastcontext" : false,
           "key.substructure" : [
             {
               "key.annotated_decl" : "<Declaration>func e&lt;C&gt;(a: <Type usr=\"s:14SpmSwiftModule13FirstProtocolPAAE1e1ayqd___tAaBRd__lF1CL_qd__mfp\">C<\/Type>) where <Type usr=\"s:14SpmSwiftModule13FirstProtocolPAAE1e1ayqd___tAaBRd__lF1CL_qd__mfp\">C<\/Type> : <Type usr=\"s:14SpmSwiftModule13FirstProtocolP\">FirstProtocol<\/Type><\/Declaration>",
@@ -2357,6 +2398,7 @@
                   "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule13FirstProtocolPAAE1eyyF\">e()<\/RelatedName>"
                 }
               ],
+              "key.reusingastcontext" : false,
               "key.substructure" : [
                 {
                   "key.annotated_decl" : "<Declaration>C<\/Declaration>",
@@ -2386,6 +2428,7 @@
                   "key.parsed_declaration" : "func e<C",
                   "key.parsed_scope.end" : 37,
                   "key.parsed_scope.start" : 37,
+                  "key.reusingastcontext" : false,
                   "key.typename" : "C.Type",
                   "key.typeusr" : "$sqd__mD",
                   "key.usr" : "s:14SpmSwiftModule13FirstProtocolPAAE1e1ayqd___tAaBRd__lF1CL_qd__mfp"
@@ -2447,6 +2490,7 @@
           "key.parsed_declaration" : "extension FirstProtocol",
           "key.parsed_scope.end" : 47,
           "key.parsed_scope.start" : 40,
+          "key.reusingastcontext" : false,
           "key.substructure" : [
             {
               "key.annotated_decl" : "<Declaration>func m(arg: <Type usr=\"s:Si\">Int<\/Type>) -&gt; <Type usr=\"s:SS\">String<\/Type><\/Declaration>",
@@ -2526,6 +2570,7 @@
                   "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule13FirstProtocolPAASH9AssocTypeRpzrlE1m3argSSSi_tF\">m(arg: Int) -&gt; String<\/RelatedName>"
                 }
               ],
+              "key.reusingastcontext" : false,
               "key.typename" : "<Self where Self : FirstProtocol> (Self) -> (Int) -> String",
               "key.typeusr" : "$s3argSSSi_tcD",
               "key.usr" : "s:14SpmSwiftModule13FirstProtocolPAAE1m3argSSSi_tF"
@@ -2570,6 +2615,7 @@
           "key.parsed_declaration" : "protocol P1",
           "key.parsed_scope.end" : 49,
           "key.parsed_scope.start" : 49,
+          "key.reusingastcontext" : false,
           "key.typename" : "P1.Protocol",
           "key.typeusr" : "$s14SpmSwiftModule2P1_pmD",
           "key.usr" : "s:14SpmSwiftModule2P1P"
@@ -2609,6 +2655,7 @@
           "key.parsed_declaration" : "protocol P2",
           "key.parsed_scope.end" : 50,
           "key.parsed_scope.start" : 50,
+          "key.reusingastcontext" : false,
           "key.typename" : "P2.Protocol",
           "key.typeusr" : "$s14SpmSwiftModule2P2_pmD",
           "key.usr" : "s:14SpmSwiftModule2P2P"
@@ -2665,6 +2712,7 @@
           "key.parsed_declaration" : "struct S1: P1",
           "key.parsed_scope.end" : 52,
           "key.parsed_scope.start" : 52,
+          "key.reusingastcontext" : false,
           "key.typename" : "S1.Type",
           "key.typeusr" : "$s14SpmSwiftModule2S1VmD",
           "key.usr" : "s:14SpmSwiftModule2S1V"
@@ -2720,6 +2768,7 @@
           "key.parsed_declaration" : "extension S1: CustomStringConvertible",
           "key.parsed_scope.end" : 56,
           "key.parsed_scope.start" : 54,
+          "key.reusingastcontext" : false,
           "key.substructure" : [
             {
               "key.annotated_decl" : "<Declaration>var description: <Type usr=\"s:SS\">String<\/Type> { get }<\/Declaration>",
@@ -2791,6 +2840,7 @@
               "key.parsed_declaration" : "var description: String",
               "key.parsed_scope.end" : 55,
               "key.parsed_scope.start" : 55,
+              "key.reusingastcontext" : false,
               "key.typename" : "String",
               "key.typeusr" : "$sSSD",
               "key.usr" : "s:s23CustomStringConvertibleP11descriptionSSvp"
@@ -2852,6 +2902,7 @@
           "key.parsed_declaration" : "struct S2<T>: P1 where T: Equatable",
           "key.parsed_scope.end" : 60,
           "key.parsed_scope.start" : 58,
+          "key.reusingastcontext" : false,
           "key.substructure" : [
             {
               "key.annotated_decl" : "<Declaration>T<\/Declaration>",
@@ -2881,6 +2932,7 @@
               "key.parsed_declaration" : "struct S2<T",
               "key.parsed_scope.end" : 58,
               "key.parsed_scope.start" : 58,
+              "key.reusingastcontext" : false,
               "key.typename" : "T.Type",
               "key.typeusr" : "$sxmD",
               "key.usr" : "s:14SpmSwiftModule2S2V1Txmfp"
@@ -2924,6 +2976,7 @@
               "key.parsed_declaration" : "func equatables2()",
               "key.parsed_scope.end" : 59,
               "key.parsed_scope.start" : 59,
+              "key.reusingastcontext" : false,
               "key.typename" : "<T where T : Equatable> (S2<T>) -> () -> ()",
               "key.typeusr" : "$syycD",
               "key.usr" : "s:14SpmSwiftModule2S2V11equatables2yyF"
@@ -2984,6 +3037,7 @@
           "key.parsed_declaration" : "extension S2: P2 where T: Comparable",
           "key.parsed_scope.end" : 64,
           "key.parsed_scope.start" : 62,
+          "key.reusingastcontext" : false,
           "key.substructure" : [
             {
               "key.annotated_decl" : "<Declaration>func comparables2()<\/Declaration>",
@@ -3023,6 +3077,7 @@
               "key.parsed_declaration" : "func comparables2()",
               "key.parsed_scope.end" : 63,
               "key.parsed_scope.start" : 63,
+              "key.reusingastcontext" : false,
               "key.typename" : "<T where T : Comparable> (S2<T>) -> () -> ()",
               "key.typeusr" : "$syycD",
               "key.usr" : "s:14SpmSwiftModule2S2VAASLRzrlE12comparables2yyF"
@@ -3083,6 +3138,7 @@
           "key.parsed_declaration" : "extension S2: Equatable where T: Equatable",
           "key.parsed_scope.end" : 68,
           "key.parsed_scope.start" : 66,
+          "key.reusingastcontext" : false,
           "key.substructure" : [
             {
               "key.annotated_decl" : "<Declaration>func equatables22()<\/Declaration>",
@@ -3122,6 +3178,7 @@
               "key.parsed_declaration" : "func equatables22()",
               "key.parsed_scope.end" : 67,
               "key.parsed_scope.start" : 67,
+              "key.reusingastcontext" : false,
               "key.typename" : "<T where T : Equatable> (S2<T>) -> () -> ()",
               "key.typeusr" : "$syycD",
               "key.usr" : "s:14SpmSwiftModule2S2V12equatables22yyF"
@@ -3286,6 +3343,7 @@
           "key.parsed_declaration" : "extension Dictionary: P2",
           "key.parsed_scope.end" : 70,
           "key.parsed_scope.start" : 70,
+          "key.reusingastcontext" : false,
           "key.typename" : "Dictionary<Key, Value>.Type",
           "key.typeusr" : "$sSDyxq_GmD",
           "key.usr" : "s:SD"
@@ -3481,6 +3539,7 @@
           "key.parsed_declaration" : "extension Array: P1 where Element: Comparable",
           "key.parsed_scope.end" : 74,
           "key.parsed_scope.start" : 72,
+          "key.reusingastcontext" : false,
           "key.substructure" : [
             {
               "key.annotated_decl" : "<Declaration>func arrayFunc()<\/Declaration>",
@@ -3520,6 +3579,7 @@
               "key.parsed_declaration" : "func arrayFunc()",
               "key.parsed_scope.end" : 73,
               "key.parsed_scope.start" : 73,
+              "key.reusingastcontext" : false,
               "key.typename" : "<Element where Element : Comparable> (Array<Element>) -> () -> ()",
               "key.typeusr" : "$syycD",
               "key.usr" : "s:Sa14SpmSwiftModuleSLRzlE9arrayFuncyyF"
@@ -3599,6 +3659,7 @@
           "key.parsed_declaration" : "public struct SpmSwiftModule",
           "key.parsed_scope.end" : 32,
           "key.parsed_scope.start" : 2,
+          "key.reusingastcontext" : false,
           "key.substructure" : [
             {
               "key.kind" : "source.lang.swift.syntaxtype.comment.mark",
@@ -3650,6 +3711,7 @@
               "key.parsed_declaration" : "public var text = \"Hello, World!\"",
               "key.parsed_scope.end" : 4,
               "key.parsed_scope.start" : 4,
+              "key.reusingastcontext" : false,
               "key.setter_accessibility" : "source.lang.swift.accessibility.public",
               "key.typename" : "String",
               "key.typeusr" : "$sSSD",
@@ -3703,6 +3765,7 @@
               "key.parsed_declaration" : "public struct Nested1",
               "key.parsed_scope.end" : 14,
               "key.parsed_scope.start" : 8,
+              "key.reusingastcontext" : false,
               "key.substructure" : [
                 {
                   "key.accessibility" : "source.lang.swift.accessibility.public",
@@ -3746,6 +3809,7 @@
                   "key.parsed_declaration" : "public struct Nested2a",
                   "key.parsed_scope.end" : 10,
                   "key.parsed_scope.start" : 9,
+                  "key.reusingastcontext" : false,
                   "key.typename" : "SpmSwiftModule.Nested1.Nested2a.Type",
                   "key.typeusr" : "$s14SpmSwiftModuleAAV7Nested1V8Nested2aVmD",
                   "key.usr" : "s:14SpmSwiftModuleAAV7Nested1V8Nested2aV"
@@ -3800,6 +3864,7 @@
                   "key.parsed_declaration" : "public struct Nested2b",
                   "key.parsed_scope.end" : 13,
                   "key.parsed_scope.start" : 12,
+                  "key.reusingastcontext" : false,
                   "key.typename" : "SpmSwiftModule.Nested1.Nested2b.Type",
                   "key.typeusr" : "$s14SpmSwiftModuleAAV7Nested1V8Nested2bVmD",
                   "key.usr" : "s:14SpmSwiftModuleAAV7Nested1V8Nested2bV"
@@ -3851,6 +3916,7 @@
               "key.parsed_declaration" : "public struct Nested2",
               "key.parsed_scope.end" : 16,
               "key.parsed_scope.start" : 16,
+              "key.reusingastcontext" : false,
               "key.typename" : "SpmSwiftModule.Nested2.Type",
               "key.typeusr" : "$s14SpmSwiftModuleAAV7Nested2VmD",
               "key.usr" : "s:14SpmSwiftModuleAAV7Nested2V"
@@ -3908,6 +3974,7 @@
               "key.parsed_declaration" : "var a: Int,\n    b: Int",
               "key.parsed_scope.end" : 19,
               "key.parsed_scope.start" : 19,
+              "key.reusingastcontext" : false,
               "key.setter_accessibility" : "source.lang.swift.accessibility.internal",
               "key.typename" : "Int",
               "key.typeusr" : "$sSiD",
@@ -3965,6 +4032,7 @@
               "key.parsed_declaration" : "var a: Int,\n    b: Int",
               "key.parsed_scope.end" : 19,
               "key.parsed_scope.start" : 19,
+              "key.reusingastcontext" : false,
               "key.setter_accessibility" : "source.lang.swift.accessibility.internal",
               "key.typename" : "Int",
               "key.typeusr" : "$sSiD",
@@ -4077,6 +4145,7 @@
               "key.parsed_declaration" : "public func checkState(name: String) throws -> Int",
               "key.parsed_scope.end" : 31,
               "key.parsed_scope.start" : 29,
+              "key.reusingastcontext" : false,
               "key.typename" : "(SpmSwiftModule) -> (String) throws -> Int",
               "key.typeusr" : "$s4nameSiSS_tKcD",
               "key.usr" : "s:14SpmSwiftModuleAAV10checkState4nameSiSS_tKF"
@@ -4144,6 +4213,7 @@
           "key.parsed_declaration" : "public enum AnEnum",
           "key.parsed_scope.end" : 44,
           "key.parsed_scope.start" : 35,
+          "key.reusingastcontext" : false,
           "key.substructure" : [
             {
               "key.kind" : "source.lang.swift.decl.enumcase",
@@ -4203,6 +4273,7 @@
                   "key.parsed_declaration" : "case first(Int)",
                   "key.parsed_scope.end" : 37,
                   "key.parsed_scope.start" : 37,
+                  "key.reusingastcontext" : false,
                   "key.typename" : "(AnEnum.Type) -> (Int) -> AnEnum",
                   "key.typeusr" : "$sy14SpmSwiftModule6AnEnumOSicACmcD",
                   "key.usr" : "s:14SpmSwiftModule6AnEnumO5firstyACSicACmF"
@@ -4263,6 +4334,7 @@
                   "key.parsed_declaration" : "case second",
                   "key.parsed_scope.end" : 39,
                   "key.parsed_scope.start" : 39,
+                  "key.reusingastcontext" : false,
                   "key.typename" : "(AnEnum.Type) -> AnEnum",
                   "key.typeusr" : "$sy14SpmSwiftModule6AnEnumOACmcD",
                   "key.usr" : "s:14SpmSwiftModule6AnEnumO6secondyA2CmF"
@@ -4323,6 +4395,7 @@
                   "key.parsed_declaration" : "case third",
                   "key.parsed_scope.end" : 41,
                   "key.parsed_scope.start" : 41,
+                  "key.reusingastcontext" : false,
                   "key.typename" : "(AnEnum.Type) -> AnEnum",
                   "key.typeusr" : "$sy14SpmSwiftModule6AnEnumOACmcD",
                   "key.usr" : "s:14SpmSwiftModule6AnEnumO5thirdyA2CmF"
@@ -4375,6 +4448,7 @@
                   "key.parsed_declaration" : "case third, fourth",
                   "key.parsed_scope.end" : 41,
                   "key.parsed_scope.start" : 41,
+                  "key.reusingastcontext" : false,
                   "key.typename" : "(AnEnum.Type) -> AnEnum",
                   "key.typeusr" : "$sy14SpmSwiftModule6AnEnumOACmcD",
                   "key.usr" : "s:14SpmSwiftModule6AnEnumO6fourthyA2CmF"
@@ -4439,6 +4513,7 @@
                   "key.parsed_declaration" : "case fifth(a: String,_ b: Int)",
                   "key.parsed_scope.end" : 43,
                   "key.parsed_scope.start" : 43,
+                  "key.reusingastcontext" : false,
                   "key.typename" : "(AnEnum.Type) -> (String, Int) -> AnEnum",
                   "key.typeusr" : "$sy14SpmSwiftModule6AnEnumOSS_SitcACmcD",
                   "key.usr" : "s:14SpmSwiftModule6AnEnumO5fifthyACSS_SitcACmF"
@@ -4605,6 +4680,7 @@
           "key.parsed_declaration" : "public func functionA(arg1: Int,\n                      _ arg2: Int,\n                      arg3 argMeaning: Int)",
           "key.parsed_scope.end" : 57,
           "key.parsed_scope.start" : 54,
+          "key.reusingastcontext" : false,
           "key.typename" : "(Int, Int, Int) -> ()",
           "key.typeusr" : "$s4arg1_4arg3ySi_S2itcD",
           "key.usr" : "s:14SpmSwiftModule9functionA4arg1_4arg3ySi_S2itF"
@@ -4723,6 +4799,7 @@
           "key.parsed_declaration" : "public func deprecatedFunction(callback: (_ report: String) -> Int) -> String",
           "key.parsed_scope.end" : 68,
           "key.parsed_scope.start" : 66,
+          "key.reusingastcontext" : false,
           "key.typename" : "((String) -> Int) -> String",
           "key.typeusr" : "$s8callbackSSSiSSXE_tcD",
           "key.usr" : "s:14SpmSwiftModule18deprecatedFunction8callbackSSSiSSXE_tF"
@@ -4785,6 +4862,7 @@
           "key.parsed_declaration" : "public class ABaseClass",
           "key.parsed_scope.end" : 110,
           "key.parsed_scope.start" : 71,
+          "key.reusingastcontext" : false,
           "key.substructure" : [
             {
               "key.accessibility" : "source.lang.swift.accessibility.public",
@@ -4833,6 +4911,7 @@
                   "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule10ABaseClassC1aACSi_tcfc\">init(a:)<\/RelatedName>"
                 }
               ],
+              "key.reusingastcontext" : false,
               "key.typename" : "(ABaseClass.Type) -> () -> ABaseClass",
               "key.typeusr" : "$s14SpmSwiftModule10ABaseClassCycD",
               "key.usr" : "s:14SpmSwiftModule10ABaseClassCACycfc"
@@ -4897,6 +4976,7 @@
                   "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule10ABaseClassCACycfc\">init()<\/RelatedName>"
                 }
               ],
+              "key.reusingastcontext" : false,
               "key.typename" : "(ABaseClass.Type) -> (Int) -> ABaseClass",
               "key.typeusr" : "$s1a14SpmSwiftModule10ABaseClassCSi_tcD",
               "key.usr" : "s:14SpmSwiftModule10ABaseClassC1aACSi_tcfc"
@@ -4932,6 +5012,7 @@
               "key.parsed_declaration" : "deinit",
               "key.parsed_scope.end" : 76,
               "key.parsed_scope.start" : 76,
+              "key.reusingastcontext" : false,
               "key.typename" : "(ABaseClass) -> () -> ()",
               "key.typeusr" : "$syycD",
               "key.usr" : "s:14SpmSwiftModule10ABaseClassCfd"
@@ -5006,6 +5087,7 @@
               "key.parsed_declaration" : "public func method(param: Int) -> String",
               "key.parsed_scope.end" : 80,
               "key.parsed_scope.start" : 78,
+              "key.reusingastcontext" : false,
               "key.typename" : "(ABaseClass) -> (Int) -> String",
               "key.typeusr" : "$s5paramSSSi_tcD",
               "key.usr" : "s:14SpmSwiftModule10ABaseClassC6method5paramSSSi_tF"
@@ -5056,6 +5138,7 @@
               "key.parsed_declaration" : "public static func staticMethod() -> Int",
               "key.parsed_scope.end" : 84,
               "key.parsed_scope.start" : 82,
+              "key.reusingastcontext" : false,
               "key.typename" : "(ABaseClass.Type) -> () -> Int",
               "key.typeusr" : "$sSiycD",
               "key.usr" : "s:14SpmSwiftModule10ABaseClassC12staticMethodSiyFZ"
@@ -5118,6 +5201,7 @@
                   "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule10ABaseClassCySSSicipZ\">subscript(_:)<\/RelatedName>"
                 }
               ],
+              "key.reusingastcontext" : false,
               "key.setter_accessibility" : "source.lang.swift.accessibility.public",
               "key.typename" : "(String) -> Int",
               "key.typeusr" : "$sySiSScD",
@@ -5185,6 +5269,7 @@
                   "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule10ABaseClassCySSSicipZ\">subscript(_:)<\/RelatedName>"
                 }
               ],
+              "key.reusingastcontext" : false,
               "key.typename" : "(String) -> Int",
               "key.typeusr" : "$sySiSScD",
               "key.usr" : "s:14SpmSwiftModule10ABaseClassCySiSScipZ"
@@ -5251,6 +5336,7 @@
                   "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule10ABaseClassCySiSScipZ\">subscript(_:)<\/RelatedName>"
                 }
               ],
+              "key.reusingastcontext" : false,
               "key.typename" : "(Int) -> String",
               "key.typeusr" : "$sySSSicD",
               "key.usr" : "s:14SpmSwiftModule10ABaseClassCySSSicipZ"
@@ -5294,6 +5380,7 @@
               "key.parsed_declaration" : "static var aStaticVar: Int",
               "key.parsed_scope.end" : 104,
               "key.parsed_scope.start" : 102,
+              "key.reusingastcontext" : false,
               "key.typename" : "Int",
               "key.typeusr" : "$sSiD",
               "key.usr" : "s:14SpmSwiftModule10ABaseClassC10aStaticVarSivpZ"
@@ -5376,6 +5463,7 @@
               "key.parsed_declaration" : "public static func +(lhs: ABaseClass, rhs: ABaseClass) -> ABaseClass",
               "key.parsed_scope.end" : 109,
               "key.parsed_scope.start" : 107,
+              "key.reusingastcontext" : false,
               "key.substructure" : [
                 {
                   "key.annotated_decl" : "<Declaration>let lhs: <Type usr=\"s:14SpmSwiftModule10ABaseClassC\">ABaseClass<\/Type><\/Declaration>",
@@ -5408,6 +5496,7 @@
                   "key.parsed_declaration" : "public static func +(lhs",
                   "key.parsed_scope.end" : 107,
                   "key.parsed_scope.start" : 107,
+                  "key.reusingastcontext" : false,
                   "key.typename" : "ABaseClass",
                   "key.typeusr" : "$s14SpmSwiftModule10ABaseClassCD",
                   "key.usr" : "s:14SpmSwiftModule10ABaseClassC1poiyA2C_ACtFZ3lhsL_ACvp"
@@ -5457,6 +5546,7 @@
           "key.parsed_declaration" : "struct T",
           "key.parsed_scope.end" : 113,
           "key.parsed_scope.start" : 112,
+          "key.reusingastcontext" : false,
           "key.typename" : "T.Type",
           "key.typeusr" : "$s14SpmSwiftModule1TVmD",
           "key.usr" : "s:14SpmSwiftModule1TV"
@@ -5627,6 +5717,7 @@
               "key.annotated_decl" : "<RelatedName usr=\"s:12_Concurrency15SuspendingClockV7InstantV1poiyA2E_s8DurationVtFZ\">+ (_: SuspendingClock.Instant, _: Duration) -&gt; SuspendingClock.Instant<\/RelatedName>"
             }
           ],
+          "key.reusingastcontext" : false,
           "key.substructure" : [
             {
               "key.annotated_decl" : "<Declaration>let lhs: <Type usr=\"s:14SpmSwiftModule1TV\">T<\/Type><\/Declaration>",
@@ -5659,6 +5750,7 @@
               "key.parsed_declaration" : "func +(lhs",
               "key.parsed_scope.end" : 116,
               "key.parsed_scope.start" : 116,
+              "key.reusingastcontext" : false,
               "key.typename" : "T",
               "key.typeusr" : "$s14SpmSwiftModule1TVD",
               "key.usr" : "s:14SpmSwiftModule1poiySSAA1TV_ADtF3lhsL_ADvp"
@@ -5743,6 +5835,7 @@
           "key.parsed_declaration" : "public class ADerivedClass<T, Q: Sequence>: ABaseClass",
           "key.parsed_scope.end" : 135,
           "key.parsed_scope.start" : 121,
+          "key.reusingastcontext" : false,
           "key.substructure" : [
             {
               "key.annotated_decl" : "<Declaration>T<\/Declaration>",
@@ -5772,6 +5865,7 @@
               "key.parsed_declaration" : "public class ADerivedClass<T",
               "key.parsed_scope.end" : 121,
               "key.parsed_scope.start" : 121,
+              "key.reusingastcontext" : false,
               "key.typename" : "T.Type",
               "key.typeusr" : "$sxmD",
               "key.usr" : "s:14SpmSwiftModule13ADerivedClassC1Txmfp"
@@ -5821,6 +5915,7 @@
               "key.parsed_declaration" : "public class ADerivedClass<T, Q: Sequence",
               "key.parsed_scope.end" : 121,
               "key.parsed_scope.start" : 121,
+              "key.reusingastcontext" : false,
               "key.typename" : "Q.Type",
               "key.typeusr" : "$sq_mD",
               "key.usr" : "s:14SpmSwiftModule13ADerivedClassC1Qq_mfp"
@@ -5862,6 +5957,7 @@
               "key.parsed_declaration" : "var t: Q? = nil",
               "key.parsed_scope.end" : 122,
               "key.parsed_scope.start" : 122,
+              "key.reusingastcontext" : false,
               "key.setter_accessibility" : "source.lang.swift.accessibility.internal",
               "key.typename" : "Q?",
               "key.typeusr" : "$sq_SgD",
@@ -5947,6 +6043,7 @@
               "key.parsed_declaration" : "public override func method(param: Int) -> String",
               "key.parsed_scope.end" : 127,
               "key.parsed_scope.start" : 125,
+              "key.reusingastcontext" : false,
               "key.typename" : "<T, Q where Q : Sequence> (ADerivedClass<T, Q>) -> (Int) -> String",
               "key.typeusr" : "$s5paramSSSi_tcD",
               "key.usr" : "s:14SpmSwiftModule13ADerivedClassC6method5paramSSSi_tF"
@@ -6005,6 +6102,7 @@
               "key.parsed_declaration" : "public func generic(param: T) where T: Equatable",
               "key.parsed_scope.end" : 129,
               "key.parsed_scope.start" : 129,
+              "key.reusingastcontext" : false,
               "key.typename" : "<T, Q where T : Equatable, Q : Sequence> (ADerivedClass<T, Q>) -> (T) -> ()",
               "key.typeusr" : "$s5paramyx_tcSQRzrluD",
               "key.usr" : "s:14SpmSwiftModule13ADerivedClassC7generic5paramyx_tSQRzrlF"
@@ -6071,6 +6169,7 @@
               "key.parsed_declaration" : "public func generic2<R>(param: T, my param2: R) -> T\n  where R: Sequence, R.Element: FirstProtocol",
               "key.parsed_scope.end" : 134,
               "key.parsed_scope.start" : 131,
+              "key.reusingastcontext" : false,
               "key.substructure" : [
                 {
                   "key.annotated_decl" : "<Declaration>R<\/Declaration>",
@@ -6100,6 +6199,7 @@
                   "key.parsed_declaration" : "public func generic2<R",
                   "key.parsed_scope.end" : 131,
                   "key.parsed_scope.start" : 131,
+                  "key.reusingastcontext" : false,
                   "key.typename" : "R.Type",
                   "key.typeusr" : "$sqd__mD",
                   "key.usr" : "s:14SpmSwiftModule13ADerivedClassC8generic25param2myxx_qd__tSTRd__AA13FirstProtocol7ElementRpd__lF1RL_qd__mfp"
@@ -6156,6 +6256,7 @@
           "key.parsed_declaration" : "struct Nop",
           "key.parsed_scope.end" : 144,
           "key.parsed_scope.start" : 138,
+          "key.reusingastcontext" : false,
           "key.substructure" : [
             {
               "key.accessibility" : "source.lang.swift.accessibility.internal",
@@ -6194,6 +6295,7 @@
               "key.parsed_declaration" : "var wrappedValue: String",
               "key.parsed_scope.end" : 139,
               "key.parsed_scope.start" : 139,
+              "key.reusingastcontext" : false,
               "key.setter_accessibility" : "source.lang.swift.accessibility.internal",
               "key.typename" : "String",
               "key.typeusr" : "$sSSD",
@@ -6242,6 +6344,7 @@
               "key.parsed_declaration" : "init(wrappedValue: String)",
               "key.parsed_scope.end" : 143,
               "key.parsed_scope.start" : 141,
+              "key.reusingastcontext" : false,
               "key.typename" : "(Nop.Type) -> (String) -> Nop",
               "key.typeusr" : "$s12wrappedValue14SpmSwiftModule3NopVSS_tcD",
               "key.usr" : "s:14SpmSwiftModule3NopV12wrappedValueACSS_tcfc"
@@ -6302,6 +6405,7 @@
           "key.parsed_declaration" : "struct PropertyWrapperClient",
           "key.parsed_scope.end" : 150,
           "key.parsed_scope.start" : 147,
+          "key.reusingastcontext" : false,
           "key.substructure" : [
             {
               "key.accessibility" : "source.lang.swift.accessibility.internal",
@@ -6347,6 +6451,7 @@
               "key.parsed_declaration" : "var v: String",
               "key.parsed_scope.end" : 149,
               "key.parsed_scope.start" : 149,
+              "key.reusingastcontext" : false,
               "key.setter_accessibility" : "source.lang.swift.accessibility.internal",
               "key.typename" : "String",
               "key.typeusr" : "$sSSD",

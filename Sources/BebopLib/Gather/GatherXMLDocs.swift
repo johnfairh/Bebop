@@ -355,6 +355,8 @@ final class XMLDeclarationBuilder {
     private(set) var discussion: CMNode?
     struct Callout {
         let title: String
+        // Careful of this field - it's a LIST_ITEM node without a parent.
+        // If you try to print it or something then CMark will segfault.
         let content: CMNode
     }
     private(set) var callouts = [Callout]()

@@ -441,12 +441,12 @@ extension SymbolGraph {
         "swift.subscript" : .functionSubscript,
         "swift.typealias" : .typealias,
         "swift.associatedtype" : .associatedtype,
+        "swift.actor" : .actor,
     ]
 
     static let kindMap2: [String: SwiftDeclarationKind2] = [
         "swift.type.subscript" : .functionSubscriptClass,
         "swift.static.subscript" : .functionSubscriptStatic,
-        "swift.actor" : .actor,
     ]
 
     /// We prefer to differentiate on 'static spelling' - TSPL papers over the distinction.

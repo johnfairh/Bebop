@@ -114,7 +114,7 @@
               },
               "key.bb.is_override" : false,
               "key.bb.is_spi" : false,
-              "key.bb.objc_declaration" : "@property (strong) NSString *propertyName",
+              "key.bb.objc_declaration" : "@property (strong, nonnull) NSString *propertyName",
               "key.bb.objc_deprecation_messages" : {
                 "en" : "Deprecated. Is deprecated"
               },
@@ -128,7 +128,7 @@
                   "key.bb.name_piece_text" : "propertyName"
                 }
               ],
-              "key.bb.swift_declaration" : "var propertyName: String! { get set }",
+              "key.bb.swift_declaration" : "var propertyName: String { get set }",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
                 {
@@ -141,11 +141,11 @@
                 },
                 {
                   "key.bb.name_piece_is_name" : false,
-                  "key.bb.name_piece_text" : ": String!"
+                  "key.bb.name_piece_text" : ": String"
                 }
               ],
               "key.deprecation_message" : "Is deprecated",
-              "key.doc.column" : 30,
+              "key.doc.column" : 39,
               "key.doc.comment" : "Documented property",
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/ObjectiveC\/Header.h",
               "key.doc.full_as_xml" : "",
@@ -153,10 +153,10 @@
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/ObjectiveC\/Header.h",
               "key.kind" : "sourcekitten.source.lang.objc.decl.property",
               "key.name" : "propertyName",
-              "key.parsed_declaration" : "@property (atomic, strong, readwrite) NSString *propertyName;",
+              "key.parsed_declaration" : "@property (atomic, strong, readwrite, nonnull) NSString *propertyName;",
               "key.parsed_scope.end" : 9,
               "key.parsed_scope.start" : 9,
-              "key.swift_declaration" : "var propertyName: String! { get set }",
+              "key.swift_declaration" : "var propertyName: String { get set }",
               "key.swift_name" : "propertyName",
               "key.unavailable_message" : "",
               "key.usr" : "c:objc(cs)IVarTest(py)propertyName"
@@ -225,7 +225,7 @@
               },
               "key.bb.is_override" : false,
               "key.bb.is_spi" : false,
-              "key.bb.objc_declaration" : "@property (class, nonatomic, copy) NSUUID *identifier",
+              "key.bb.objc_declaration" : "@property (class, nonatomic, copy, nonnull) NSUUID *identifier",
               "key.bb.objc_name_pieces" : [
                 {
                   "key.bb.name_piece_is_name" : false,
@@ -236,7 +236,7 @@
                   "key.bb.name_piece_text" : "identifier"
                 }
               ],
-              "key.bb.swift_declaration" : "class var identifier: UUID! { get set }",
+              "key.bb.swift_declaration" : "class var identifier: UUID { get set }",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
                 {
@@ -249,11 +249,11 @@
                 },
                 {
                   "key.bb.name_piece_is_name" : false,
-                  "key.bb.name_piece_text" : ": UUID!"
+                  "key.bb.name_piece_text" : ": UUID"
                 }
               ],
               "key.deprecation_message" : "",
-              "key.doc.column" : 44,
+              "key.doc.column" : 53,
               "key.doc.comment" : "doc",
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/ObjectiveC\/Header.h",
               "key.doc.full_as_xml" : "",
@@ -261,10 +261,10 @@
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/ObjectiveC\/Header.h",
               "key.kind" : "sourcekitten.source.lang.objc.decl.property",
               "key.name" : "identifier",
-              "key.parsed_declaration" : "@property (class, nonatomic, copy, readwrite) NSUUID *identifier;",
+              "key.parsed_declaration" : "@property (class, nonatomic, copy, readwrite, nonnull) NSUUID *identifier;",
               "key.parsed_scope.end" : 17,
               "key.parsed_scope.start" : 17,
-              "key.swift_declaration" : "class var identifier: UUID! { get set }",
+              "key.swift_declaration" : "class var identifier: UUID { get set }",
               "key.swift_name" : "identifier",
               "key.unavailable_message" : "",
               "key.usr" : "c:objc(cs)PropertyKinds(cpy)identifier"
@@ -329,11 +329,11 @@
               "key.always_unavailable" : false,
               "key.bb.is_override" : false,
               "key.bb.is_spi" : false,
-              "key.bb.objc_declaration" : "+ (instancetype) alloc",
+              "key.bb.objc_declaration" : "+ (_Nonnull instancetype) alloc",
               "key.bb.objc_name_pieces" : [
                 {
                   "key.bb.name_piece_is_name" : false,
-                  "key.bb.name_piece_text" : "+ (instancetype) "
+                  "key.bb.name_piece_text" : "+ ( instancetype) "
                 },
                 {
                   "key.bb.name_piece_is_name" : true,
@@ -344,7 +344,7 @@
                   "key.bb.name_piece_text" : ""
                 }
               ],
-              "key.bb.swift_declaration" : "class func alloc() -> Self!",
+              "key.bb.swift_declaration" : "class func alloc() -> Self",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
                 {
@@ -357,20 +357,20 @@
                 },
                 {
                   "key.bb.name_piece_is_name" : false,
-                  "key.bb.name_piece_text" : "() -> Self!"
+                  "key.bb.name_piece_text" : "() -> Self"
                 }
               ],
               "key.deprecation_message" : "",
-              "key.doc.column" : 18,
+              "key.doc.column" : 27,
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/ObjectiveC\/Header.h",
               "key.doc.line" : 22,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/ObjectiveC\/Header.h",
               "key.kind" : "sourcekitten.source.lang.objc.decl.method.class",
               "key.name" : "+alloc",
-              "key.parsed_declaration" : "+ (instancetype) alloc;",
+              "key.parsed_declaration" : "+ (_Nonnull instancetype) alloc;",
               "key.parsed_scope.end" : 22,
               "key.parsed_scope.start" : 22,
-              "key.swift_declaration" : "class func alloc() -> Self!",
+              "key.swift_declaration" : "class func alloc() -> Self",
               "key.swift_name" : "alloc()",
               "key.unavailable_message" : "",
               "key.usr" : "c:objc(cs)PropertyKinds(cm)alloc"
@@ -380,14 +380,14 @@
               "key.always_unavailable" : false,
               "key.bb.is_override" : false,
               "key.bb.is_spi" : false,
-              "key.bb.objc_declaration" : "- (id)init",
+              "key.bb.objc_declaration" : "- (_Nonnull id)init",
               "key.bb.objc_deprecation_messages" : {
                 "en" : "Deprecated. "
               },
               "key.bb.objc_name_pieces" : [
                 {
                   "key.bb.name_piece_is_name" : false,
-                  "key.bb.name_piece_text" : "- (id)"
+                  "key.bb.name_piece_text" : "- ( id)"
                 },
                 {
                   "key.bb.name_piece_is_name" : true,
@@ -398,7 +398,7 @@
                   "key.bb.name_piece_text" : ""
                 }
               ],
-              "key.bb.swift_declaration" : "init!()",
+              "key.bb.swift_declaration" : "init()",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
                 {
@@ -407,20 +407,20 @@
                 },
                 {
                   "key.bb.name_piece_is_name" : false,
-                  "key.bb.name_piece_text" : "!()"
+                  "key.bb.name_piece_text" : "()"
                 }
               ],
               "key.deprecation_message" : "",
-              "key.doc.column" : 7,
+              "key.doc.column" : 16,
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/ObjectiveC\/Header.h",
               "key.doc.line" : 23,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/ObjectiveC\/Header.h",
               "key.kind" : "sourcekitten.source.lang.objc.decl.method.instance",
               "key.name" : "-init",
-              "key.parsed_declaration" : "- (id)init __deprecated;",
+              "key.parsed_declaration" : "- (_Nonnull id)init __deprecated;",
               "key.parsed_scope.end" : 23,
               "key.parsed_scope.start" : 23,
-              "key.swift_declaration" : "init!()",
+              "key.swift_declaration" : "init()",
               "key.swift_name" : "init()",
               "key.unavailable_message" : "",
               "key.usr" : "c:objc(cs)PropertyKinds(im)init"
@@ -495,7 +495,7 @@
               },
               "key.bb.is_override" : false,
               "key.bb.is_spi" : false,
-              "key.bb.objc_declaration" : "- (int)doThingWith:(int)first named:(NSString *)name",
+              "key.bb.objc_declaration" : "- (int)doThingWith:(int)first named:(NSString *_Nonnull)name",
               "key.bb.objc_name_pieces" : [
                 {
                   "key.bb.name_piece_is_name" : false,
@@ -518,7 +518,7 @@
                   "key.bb.name_piece_text" : ":(NSString *)name"
                 }
               ],
-              "key.bb.swift_declaration" : "func doThing(with first: Int32, named name: String!) -> Int32",
+              "key.bb.swift_declaration" : "func doThing(with first: Int32, named name: String) -> Int32",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
                 {
@@ -547,7 +547,7 @@
                 },
                 {
                   "key.bb.name_piece_is_name" : false,
-                  "key.bb.name_piece_text" : ": String!) -> Int32"
+                  "key.bb.name_piece_text" : ": String) -> Int32"
                 }
               ],
               "key.deprecation_message" : "",
@@ -559,10 +559,10 @@
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/ObjectiveC\/Header.h",
               "key.kind" : "sourcekitten.source.lang.objc.decl.method.instance",
               "key.name" : "-doThingWith:named:",
-              "key.parsed_declaration" : "- (int)doThingWith:(int)first named:(NSString *)name;",
+              "key.parsed_declaration" : "- (int)doThingWith:(int)first named:(NSString *_Nonnull)name;",
               "key.parsed_scope.end" : 29,
               "key.parsed_scope.start" : 29,
-              "key.swift_declaration" : "func doThing(with first: Int32, named name: String!) -> Int32",
+              "key.swift_declaration" : "func doThing(with first: Int32, named name: String) -> Int32",
               "key.swift_name" : "doThing(with:named:)",
               "key.unavailable_message" : "",
               "key.usr" : "c:objc(cs)PropertyKinds(im)doThingWith:named:"
@@ -927,7 +927,7 @@
                   "key.bb.name_piece_text" : "a"
                 }
               ],
-              "key.bb.swift_declaration" : "case a = 3",
+              "key.bb.swift_declaration" : "case a= 3",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
                 {
@@ -978,7 +978,7 @@
                   "key.bb.name_piece_text" : "b"
                 }
               ],
-              "key.bb.swift_declaration" : "case b = 4",
+              "key.bb.swift_declaration" : "case b= 4",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
                 {
@@ -1429,7 +1429,7 @@
               },
               "key.bb.is_override" : false,
               "key.bb.is_spi" : false,
-              "key.bb.objc_declaration" : "- (ElementType *)popWith:(NSString *)weight secondValue:(NSInteger)density",
+              "key.bb.objc_declaration" : "- (ElementType _Nullable *_Nullable)popWith:(NSString *_Nonnull)weight\n                                secondValue:(NSInteger)density",
               "key.bb.objc_name_pieces" : [
                 {
                   "key.bb.name_piece_is_name" : false,
@@ -1452,7 +1452,7 @@
                   "key.bb.name_piece_text" : ":(NSInteger)density"
                 }
               ],
-              "key.bb.swift_declaration" : "func pop(with weight: String!, secondValue density: Int)\n    -> AutoreleasingUnsafeMutablePointer<ElementType?>!",
+              "key.bb.swift_declaration" : "func pop(with weight: String, secondValue density: Int)\n    -> AutoreleasingUnsafeMutablePointer<ElementType?>?",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
                 {
@@ -1473,7 +1473,7 @@
                 },
                 {
                   "key.bb.name_piece_is_name" : false,
-                  "key.bb.name_piece_text" : ": String!, "
+                  "key.bb.name_piece_text" : ": String, "
                 },
                 {
                   "key.bb.name_piece_is_name" : true,
@@ -1481,11 +1481,11 @@
                 },
                 {
                   "key.bb.name_piece_is_name" : false,
-                  "key.bb.name_piece_text" : ": Int) -> AutoreleasingUnsafeMutablePointer<ElementType?>!"
+                  "key.bb.name_piece_text" : ": Int) -> AutoreleasingUnsafeMutablePointer<ElementType?>?"
                 }
               ],
               "key.deprecation_message" : "",
-              "key.doc.column" : 18,
+              "key.doc.column" : 38,
               "key.doc.comment" : "Method with lightweight generic type param",
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/ObjectiveC\/Header.h",
               "key.doc.full_as_xml" : "",
@@ -1493,10 +1493,10 @@
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/ObjectiveC\/Header.h",
               "key.kind" : "sourcekitten.source.lang.objc.decl.method.instance",
               "key.name" : "-popWith:secondValue:",
-              "key.parsed_declaration" : "- (ElementType *)popWith:(NSString *)weight secondValue:(NSInteger)density;",
+              "key.parsed_declaration" : "- (ElementType _Nullable *_Nullable)popWith:(NSString *_Nonnull)weight\n                                secondValue:(NSInteger)density;",
               "key.parsed_scope.end" : 83,
               "key.parsed_scope.start" : 83,
-              "key.swift_declaration" : "func pop(with weight: String!, secondValue density: Int) -> AutoreleasingUnsafeMutablePointer<ElementType?>!",
+              "key.swift_declaration" : "func pop(with weight: String, secondValue density: Int) -> AutoreleasingUnsafeMutablePointer<ElementType?>?",
               "key.swift_name" : "pop(with:secondValue:)",
               "key.unavailable_message" : "",
               "key.usr" : "c:objc(cs)Stack(im)popWith:secondValue:"

@@ -6,7 +6,7 @@
 }
 
 /** Documented property */
-@property (strong) NSString *propertyName __deprecated_msg("Is deprecated");
+@property (strong, nonnull) NSString *propertyName __deprecated_msg("Is deprecated");
 
 @end
 
@@ -14,19 +14,19 @@
 @interface PropertyKinds: NSObject
 
 /** doc */
-@property (class, nonatomic, copy) NSUUID *identifier;
+@property (class, nonatomic, copy, nonnull) NSUUID *identifier;
 
 /** Nullability */
 @property (nonatomic, copy, nullable) NSUUID *uuid;
 
-+ (instancetype) alloc;
-- (id)init __deprecated;
++ (_Nonnull instancetype) alloc;
+- (_Nonnull id)init __deprecated;
 
 /** No params */
 - (void)method;
 
 /** params */
-- (int) doThingWith:(int) first named:(NSString *) name;
+- (int) doThingWith:(int) first named:(NSString * _Nonnull) name;
 
 + (void)classMethod;
 
@@ -80,6 +80,6 @@ typedef int Fred;
 @interface Stack<ElementType> : NSObject
 
 /** Method with lightweight generic type param */
-- (ElementType *)popWith:(NSString *)weight secondValue:(NSInteger)density;
+- (_Nullable ElementType * _Nullable)popWith:(NSString * _Nonnull)weight secondValue:(NSInteger)density;
 
 @end

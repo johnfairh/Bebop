@@ -26,7 +26,7 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : {
-            "text" : "var propertyName: String! { get set }"
+            "text" : "var propertyName: String { get set }"
           },
           "inherited_types" : [],
           "is_deprecated_everywhere" : false,
@@ -40,7 +40,7 @@
               "name" : "propertyName"
             },
             {
-              "other" : ": String!"
+              "other" : ": String"
             }
           ]
         },
@@ -114,7 +114,7 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : {
-            "text" : "class var identifier: UUID! { get set }"
+            "text" : "class var identifier: UUID { get set }"
           },
           "inherited_types" : [],
           "is_deprecated_everywhere" : false,
@@ -128,7 +128,7 @@
               "name" : "identifier"
             },
             {
-              "other" : ": UUID!"
+              "other" : ": UUID"
             }
           ]
         },
@@ -204,7 +204,7 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : {
-            "text" : "class func alloc() -> Self!"
+            "text" : "class func alloc() -> Self"
           },
           "inherited_types" : [],
           "is_deprecated_everywhere" : false,
@@ -218,7 +218,7 @@
               "name" : "alloc"
             },
             {
-              "other" : "() -> Self!"
+              "other" : "() -> Self"
             }
           ]
         },
@@ -249,7 +249,7 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : {
-            "text" : "init!()"
+            "text" : "init()"
           },
           "inherited_types" : [],
           "is_deprecated_everywhere" : false,
@@ -260,7 +260,7 @@
               "name" : "init"
             },
             {
-              "other" : "!()"
+              "other" : "()"
             }
           ]
         },
@@ -336,7 +336,7 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : {
-            "text" : "func doThing(with first: Int32, named name: String!) -> Int32"
+            "text" : "func doThing(with first: Int32, named name: String) -> Int32"
           },
           "inherited_types" : [],
           "is_deprecated_everywhere" : false,
@@ -362,7 +362,7 @@
               "name" : "named"
             },
             {
-              "other" : ": String!) -> Int32"
+              "other" : ": String) -> Int32"
             }
           ]
         },
@@ -630,7 +630,7 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : {
-            "text" : "case a = 3"
+            "text" : "case a= 3"
           },
           "inherited_types" : [],
           "is_deprecated_everywhere" : false,
@@ -672,7 +672,7 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : {
-            "text" : "case b = 4"
+            "text" : "case b= 4"
           },
           "inherited_types" : [],
           "is_deprecated_everywhere" : false,
@@ -961,7 +961,7 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : {
-            "text" : "func pop(with weight: String!, secondValue density: Int)\n    -> AutoreleasingUnsafeMutablePointer<ElementType?>!"
+            "text" : "func pop(with weight: String, secondValue density: Int)\n    -> AutoreleasingUnsafeMutablePointer<ElementType?>?"
           },
           "inherited_types" : [],
           "is_deprecated_everywhere" : false,
@@ -981,13 +981,13 @@
               "name" : "with"
             },
             {
-              "other" : ": String!, "
+              "other" : ": String, "
             },
             {
               "name" : "secondValue"
             },
             {
-              "other" : ": Int) -> AutoreleasingUnsafeMutablePointer<ElementType?>!"
+              "other" : ": Int) -> AutoreleasingUnsafeMutablePointer<ElementType?>?"
             }
           ]
         },

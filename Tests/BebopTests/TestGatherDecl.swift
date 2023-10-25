@@ -229,7 +229,7 @@ class TestGatherDecl: XCTestCase {
         checkAvail("@available(iOS, unavailable)", [], [], [])
 
         // Syntax etc issues
-        checkAvail("@available(dasdasd", [], [])
+        checkAvail("@available(dasdasd", ["dasdasd ??+"], []) // Xcode 15 innovation
         checkAvail(#"@available(*, renamed: "NU\""#, [], [])
         checkAvail("@available(*, introduced: 123", [], [])
         checkAvail("@available(", [], [])

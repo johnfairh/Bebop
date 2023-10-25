@@ -55,6 +55,7 @@
           "key.parsed_declaration" : "public class PodClass",
           "key.parsed_scope.end" : 19,
           "key.parsed_scope.start" : 1,
+          "key.reusingastcontext" : false,
           "key.substructure" : [
             {
               "key.accessibility" : "source.lang.swift.accessibility.internal",
@@ -98,6 +99,7 @@
               "key.parsed_declaration" : "var count: Int",
               "key.parsed_scope.end" : 2,
               "key.parsed_scope.start" : 2,
+              "key.reusingastcontext" : false,
               "key.setter_accessibility" : "source.lang.swift.accessibility.internal",
               "key.typename" : "Int",
               "key.typeusr" : "$sSiD",
@@ -143,6 +145,7 @@
               "key.parsed_declaration" : "init()",
               "key.parsed_scope.end" : 6,
               "key.parsed_scope.start" : 4,
+              "key.reusingastcontext" : false,
               "key.typename" : "(PodClass.Type) -> () -> PodClass",
               "key.typeusr" : "$s3Pod0A5ClassCycD",
               "key.usr" : "s:3Pod0A5ClassCACycfc"
@@ -198,6 +201,7 @@
               "key.parsed_declaration" : "func onlyForIOS()",
               "key.parsed_scope.end" : 9,
               "key.parsed_scope.start" : 9,
+              "key.reusingastcontext" : false,
               "key.typename" : "(PodClass) -> () -> ()",
               "key.typeusr" : "$syycD",
               "key.usr" : "s:3Pod0A5ClassC10onlyForIOSyyF"
@@ -275,6 +279,7 @@
               "key.parsed_declaration" : "func globallyDeprecated()",
               "key.parsed_scope.end" : 15,
               "key.parsed_scope.start" : 15,
+              "key.reusingastcontext" : false,
               "key.typename" : "(PodClass) -> () -> ()",
               "key.typeusr" : "$syycD",
               "key.usr" : "s:3Pod0A5ClassC18globallyDeprecatedyyF"
@@ -333,6 +338,7 @@
               "key.parsed_declaration" : "func iosDeprecated()",
               "key.parsed_scope.end" : 18,
               "key.parsed_scope.start" : 18,
+              "key.reusingastcontext" : false,
               "key.typename" : "(PodClass) -> () -> ()",
               "key.typeusr" : "$syycD",
               "key.usr" : "s:3Pod0A5ClassC13iosDeprecatedyyF"
@@ -401,6 +407,7 @@
           "key.parsed_declaration" : "public class PodClass",
           "key.parsed_scope.end" : 19,
           "key.parsed_scope.start" : 1,
+          "key.reusingastcontext" : false,
           "key.substructure" : [
             {
               "key.accessibility" : "source.lang.swift.accessibility.internal",
@@ -444,6 +451,7 @@
               "key.parsed_declaration" : "var count: Int",
               "key.parsed_scope.end" : 2,
               "key.parsed_scope.start" : 2,
+              "key.reusingastcontext" : false,
               "key.setter_accessibility" : "source.lang.swift.accessibility.internal",
               "key.typename" : "Int",
               "key.typeusr" : "$sSiD",
@@ -489,6 +497,7 @@
               "key.parsed_declaration" : "init()",
               "key.parsed_scope.end" : 6,
               "key.parsed_scope.start" : 4,
+              "key.reusingastcontext" : false,
               "key.typename" : "(PodClass.Type) -> () -> PodClass",
               "key.typeusr" : "$s3Pod0A5ClassCycD",
               "key.usr" : "s:3Pod0A5ClassCACycfc"
@@ -563,6 +572,7 @@
               "key.parsed_declaration" : "func onlyForMacOS()",
               "key.parsed_scope.end" : 12,
               "key.parsed_scope.start" : 12,
+              "key.reusingastcontext" : false,
               "key.typename" : "(PodClass) -> () -> ()",
               "key.typeusr" : "$syycD",
               "key.usr" : "s:3Pod0A5ClassC12onlyForMacOSyyF"
@@ -621,6 +631,7 @@
               "key.parsed_declaration" : "func globallyDeprecated()",
               "key.parsed_scope.end" : 15,
               "key.parsed_scope.start" : 15,
+              "key.reusingastcontext" : false,
               "key.typename" : "(PodClass) -> () -> ()",
               "key.typeusr" : "$syycD",
               "key.usr" : "s:3Pod0A5ClassC18globallyDeprecatedyyF"
@@ -679,6 +690,7 @@
               "key.parsed_declaration" : "func iosDeprecated()",
               "key.parsed_scope.end" : 18,
               "key.parsed_scope.start" : 18,
+              "key.reusingastcontext" : false,
               "key.typename" : "(PodClass) -> () -> ()",
               "key.typeusr" : "$syycD",
               "key.usr" : "s:3Pod0A5ClassC13iosDeprecatedyyF"

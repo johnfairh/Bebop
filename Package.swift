@@ -21,15 +21,15 @@ let package = Package(
     .package(url: "https://github.com/drmohundro/SWXMLHash.git",
              .upToNextMinor(from: "7.0.0")),
     .package(url: "https://github.com/apple/swift-syntax.git",
-             exact: "508.0.0"),
+             exact: "509.0.0"),
     .package(url: "https://github.com/johnfairh/Maaku.git",
-             from: "10.9.5"),
+             branch: "master"),
     .package(url: "https://github.com/ole/SortedArray.git",
              from: "0.7.0"),
     .package(url: "https://github.com/stephencelis/SQLite.swift.git",
              .upToNextMinor(from: "0.12.0")),
     .package(url: "https://github.com/apple/swift-format",
-             exact: "508.0.0")
+             exact: "509.0.0")
   ],
   targets: [
     .target(
@@ -40,7 +40,6 @@ let package = Package(
         .product(name: "Mustache", package: "GRMustache.swift"),
         "SWXMLHash",
         .product(name: "SwiftSyntax", package: "swift-syntax"),
-        .product(name: "SwiftSyntaxParser", package: "swift-syntax"),
         "Maaku",
         "SortedArray",
         .product(name: "SQLite", package: "SQLite.swift"),

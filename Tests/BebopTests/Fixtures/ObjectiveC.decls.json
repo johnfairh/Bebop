@@ -62,7 +62,7 @@
         "name" : "propertyName",
         "obj_c_declaration" : {
           "declaration" : {
-            "text" : "@property (strong) NSString *propertyName"
+            "text" : "@property (strong, nonnull) NSString *propertyName"
           },
           "deprecation" : {
             "en" : "Deprecated. Is deprecated"
@@ -80,7 +80,7 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : {
-            "text" : "var propertyName: String! { get set }"
+            "text" : "var propertyName: String { get set }"
           },
           "inherited_types" : [],
           "is_deprecated_everywhere" : false,
@@ -94,7 +94,7 @@
               "name" : "propertyName"
             },
             {
-              "other" : ": String!"
+              "other" : ": String"
             }
           ]
         },
@@ -251,7 +251,7 @@
         "name" : "identifier",
         "obj_c_declaration" : {
           "declaration" : {
-            "text" : "@property (class, nonatomic, copy) NSUUID *identifier"
+            "text" : "@property (class, nonatomic, copy, nonnull) NSUUID *identifier"
           },
           "name_pieces" : [
             {
@@ -266,7 +266,7 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : {
-            "text" : "class var identifier: UUID! { get set }"
+            "text" : "class var identifier: UUID { get set }"
           },
           "inherited_types" : [],
           "is_deprecated_everywhere" : false,
@@ -280,7 +280,7 @@
               "name" : "identifier"
             },
             {
-              "other" : ": UUID!"
+              "other" : ": UUID"
             }
           ]
         },
@@ -369,11 +369,11 @@
         "name" : "+alloc",
         "obj_c_declaration" : {
           "declaration" : {
-            "text" : "+ (instancetype) alloc"
+            "text" : "+ (_Nonnull instancetype) alloc"
           },
           "name_pieces" : [
             {
-              "other" : "+ (instancetype) "
+              "other" : "+ ( instancetype) "
             },
             {
               "name" : "alloc"
@@ -387,7 +387,7 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : {
-            "text" : "class func alloc() -> Self!"
+            "text" : "class func alloc() -> Self"
           },
           "inherited_types" : [],
           "is_deprecated_everywhere" : false,
@@ -401,7 +401,7 @@
               "name" : "alloc"
             },
             {
-              "other" : "() -> Self!"
+              "other" : "() -> Self"
             }
           ]
         },
@@ -431,14 +431,14 @@
         "name" : "-init",
         "obj_c_declaration" : {
           "declaration" : {
-            "text" : "- (id)init"
+            "text" : "- (_Nonnull id)init"
           },
           "deprecation" : {
             "en" : "Deprecated. "
           },
           "name_pieces" : [
             {
-              "other" : "- (id)"
+              "other" : "- ( id)"
             },
             {
               "name" : "init"
@@ -452,7 +452,7 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : {
-            "text" : "init!()"
+            "text" : "init()"
           },
           "inherited_types" : [],
           "is_deprecated_everywhere" : false,
@@ -463,7 +463,7 @@
               "name" : "init"
             },
             {
-              "other" : "!()"
+              "other" : "()"
             }
           ]
         },
@@ -555,7 +555,7 @@
         "name" : "-doThingWith:named:",
         "obj_c_declaration" : {
           "declaration" : {
-            "text" : "- (int)doThingWith:(int)first named:(NSString *)name"
+            "text" : "- (int)doThingWith:(int)first named:(NSString *_Nonnull)name"
           },
           "name_pieces" : [
             {
@@ -579,7 +579,7 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : {
-            "text" : "func doThing(with first: Int32, named name: String!) -> Int32"
+            "text" : "func doThing(with first: Int32, named name: String) -> Int32"
           },
           "inherited_types" : [],
           "is_deprecated_everywhere" : false,
@@ -605,7 +605,7 @@
               "name" : "named"
             },
             {
-              "other" : ": String!) -> Int32"
+              "other" : ": String) -> Int32"
             }
           ]
         },
@@ -1056,7 +1056,7 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : {
-            "text" : "case a = 3"
+            "text" : "case a= 3"
           },
           "inherited_types" : [],
           "is_deprecated_everywhere" : false,
@@ -1112,7 +1112,7 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : {
-            "text" : "case b = 4"
+            "text" : "case b= 4"
           },
           "inherited_types" : [],
           "is_deprecated_everywhere" : false,
@@ -1548,7 +1548,7 @@
         "name" : "-popWith:secondValue:",
         "obj_c_declaration" : {
           "declaration" : {
-            "text" : "- (ElementType *)popWith:(NSString *)weight secondValue:(NSInteger)density"
+            "text" : "- (ElementType _Nullable *_Nullable)popWith:(NSString *_Nonnull)weight\n                                secondValue:(NSInteger)density"
           },
           "name_pieces" : [
             {
@@ -1572,7 +1572,7 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : {
-            "text" : "func pop(with weight: String!, secondValue density: Int)\n    -> AutoreleasingUnsafeMutablePointer<ElementType?>!"
+            "text" : "func pop(with weight: String, secondValue density: Int)\n    -> AutoreleasingUnsafeMutablePointer<ElementType?>?"
           },
           "inherited_types" : [],
           "is_deprecated_everywhere" : false,
@@ -1592,13 +1592,13 @@
               "name" : "with"
             },
             {
-              "other" : ": String!, "
+              "other" : ": String, "
             },
             {
               "name" : "secondValue"
             },
             {
-              "other" : ": Int) -> AutoreleasingUnsafeMutablePointer<ElementType?>!"
+              "other" : ": Int) -> AutoreleasingUnsafeMutablePointer<ElementType?>?"
             }
           ]
         },
