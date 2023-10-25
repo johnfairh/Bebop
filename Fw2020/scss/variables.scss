@@ -14,7 +14,9 @@ $font-weight-demi-bold: var(--font-weight-demi-bold);
 
 // General customizations
 $breadcrumb-border-radius: 0;
-$link-hover-color: inherit;
+// XXX broken in BS 5.3 ("'inherit' is not a color")
+// XXX $link-hover-color: inherit;
+// XXX might get fixed in future
 $link-hover-decoration: none;
 $input-border-width: 0;
 $code-font-size: 95%;
@@ -23,3 +25,4 @@ $hr-margin-y: .5rem;
 $enable-negative-margins: true;
 $link-decoration: none;
 $small-font-size: 80%;
+$enable-dark-mode: false;
