@@ -36,6 +36,12 @@ enum DeclPrinter {
             do {
                 var formatted = ""
                 try formatter.format(source: swift, assumingFileURL: nil, to: &formatted)
+                // swift-format workarounds
+                //
+                if swift.hasPrefix("case ") {
+                    // bizarre space-removal after enum case initialization
+                    formatted = formatted.re_sub(#"(?<=\S)= "#, with: " = ")
+                }
                 return formatted.trimmingTrailingCharacters(in: .whitespacesAndNewlines)
             } catch {
                 logDebug("SwiftFormat error thrown: \(error) for '\(swift)'")
@@ -54,13 +60,6 @@ enum DeclPrinter {
     /// Go directly to SwiftFormat - has murky requirements about the content.
     static func format(swift: String) -> String {
         shared.format(swift: swift)
-    }
-
-    /// Format a Swift variable declaration
-    /// Hide the { get set } thing from SwiftFormat
-    /// Swift 5.8 -- not needed any more?
-    static func formatVar(swift: String) -> String {
-        return shared.format(swift: swift)
     }
 
     /// Format a Swift structural type declaration

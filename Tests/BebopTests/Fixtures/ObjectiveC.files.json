@@ -927,7 +927,7 @@
                   "key.bb.name_piece_text" : "a"
                 }
               ],
-              "key.bb.swift_declaration" : "case a= 3",
+              "key.bb.swift_declaration" : "case a = 3",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
                 {
@@ -978,7 +978,7 @@
                   "key.bb.name_piece_text" : "b"
                 }
               ],
-              "key.bb.swift_declaration" : "case b= 4",
+              "key.bb.swift_declaration" : "case b = 4",
               "key.bb.swift_deprecated_everywhere" : false,
               "key.bb.swift_name_pieces" : [
                 {

@@ -80,6 +80,16 @@ class TestGatherDecl: XCTestCase {
                        """, b.parse(parsedDecl: str4))
     }
 
+    // A weird swift-formatism in Swift 5.9
+    func testSwitchCase() throws {
+        let eleKind = DefKind.from(kind: SwiftDeclarationKind.enumelement)
+        let dict = ["key.fully_annotated_decl" : "<outer>case a = 2</outer>",
+                    "key.parsed_declaration" : "case a = 2"]
+        let builder = SwiftDeclarationBuilder(dict: dict, kind: eleKind)
+        let decl = try XCTUnwrap(builder.build())
+        XCTAssertEqual("case a = 2", decl.declaration.text)
+    }
+
     // Parse preference
     func testParsePreference() {
         let classKind = DefKind.from(kind: SwiftDeclarationKind.class)

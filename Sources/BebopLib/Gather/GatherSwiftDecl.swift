@@ -266,9 +266,6 @@ class SwiftDeclarationBuilder {
     /// We could add more tweakables here, eg. drop the ACL & other attributes; ignore source formatting.
     func format(declaration: String) -> String {
         if let kind = kind {
-            if kind.isSwiftProperty || kind.isSwiftSubscript {
-                return DeclPrinter.formatVar(swift: declaration)
-            }
             if kind.isSwiftBodiedType {
                 return DeclPrinter.formatStructural(swift: declaration)
             }

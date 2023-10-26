@@ -47,11 +47,11 @@ class TestDeclPrinter: XCTestCase {
         TestLogger.shared.logger.activeLevels = Logger.allLevels
 
         let vardecl = "private var a: Int { get set }"
-        XCTAssertEqual(vardecl, DeclPrinter.formatVar(swift: vardecl))
+        XCTAssertEqual(vardecl, DeclPrinter.format(swift: vardecl))
         XCTAssertEqual(0, TestLogger.shared.diagsBuf.count)
 
         let vardecl2 = "override public private(set) var a: Int { get }"
-        XCTAssertEqual(vardecl2, DeclPrinter.formatVar(swift: vardecl2))
+        XCTAssertEqual(vardecl2, DeclPrinter.format(swift: vardecl2))
         XCTAssertEqual(0, TestLogger.shared.diagsBuf.count)
     }
 

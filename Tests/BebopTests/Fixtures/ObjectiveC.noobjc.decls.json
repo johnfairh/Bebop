@@ -630,7 +630,7 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : {
-            "text" : "case a= 3"
+            "text" : "case a = 3"
           },
           "inherited_types" : [],
           "is_deprecated_everywhere" : false,
@@ -672,7 +672,7 @@
         "swift_declaration" : {
           "availability" : [],
           "declaration" : {
-            "text" : "case b= 4"
+            "text" : "case b = 4"
           },
           "inherited_types" : [],
           "is_deprecated_everywhere" : false,
