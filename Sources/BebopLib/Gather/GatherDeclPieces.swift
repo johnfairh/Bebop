@@ -8,7 +8,7 @@
 
 import Foundation
 import SwiftSyntax
-import SwiftSyntaxParser
+import SwiftParser
 
 /// Declaration pieces.
 ///
@@ -71,9 +71,7 @@ extension SwiftDeclarationBuilder {
 
     private func parseToPieces(cleanDecl: String, kind: DefKind) -> [DeclarationPiece] {
         // Build the parse tree
-        guard let syntax = try? SyntaxParser.parse(source: cleanDecl) else {
-            return [.other(cleanDecl)]
-        }
+        let syntax = Parser.parse(source: cleanDecl)
         // Pick out and sort the tokens we want
         let visitor = FunctionPiecesVisitor(prefix: kind.declPrefix,
                                             includeFirstToken: kind.isSwiftSubscript)
@@ -145,14 +143,14 @@ private class FunctionPiecesVisitor: SyntaxVisitor {
 
     /// A parameter - don't descend, figure out what parts we want and feed them directly
     override func visit(_ node: FunctionParameterSyntax) -> SyntaxVisitorContinueKind {
-        if let firstName = node.firstName {
-            if firstName.text != "_" {
-                addName(firstName.description)
-                addOther(node.colon?.description)
-            }
+        let firstName = node.firstName
+        if firstName.text != "_" {
+            addName(firstName.description)
+            addOther(node.colon.description)
         }
+
         // drop type attributes (@escaping etc)
-        addOther(node.type?.description.re_sub("@\\w+ ", with: ""), trim: true) // skipping default args
+        addOther(node.type.description.re_sub("@\\w+ ", with: ""), trim: true) // skipping default args
         addOther(node.ellipsis?.description)
         addOther(node.trailingComma?.description)
         return .skipChildren

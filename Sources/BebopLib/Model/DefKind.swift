@@ -274,7 +274,7 @@ public final class DefKind: CustomStringConvertible {
             SwiftDeclarationKind.protocol,
             SwiftDeclarationKind.struct,
             SwiftDeclarationKind.enum,
-            SwiftDeclarationKind2.actor]) || isSwiftExtension
+            SwiftDeclarationKind.actor]) || isSwiftExtension
     }
 
     /// Is this a generic type parameter (The T in `class N<T>`)

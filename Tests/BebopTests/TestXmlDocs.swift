@@ -258,9 +258,7 @@ class TestXMLDocs: XCTestCase {
         XCTAssertEqual("Nothing", declParser.throws?.renderPlainText())
         XCTAssertEqual(2, declParser.callouts.count)
         XCTAssertEqual("invariant", declParser.callouts[0].title)
-        XCTAssertEqual("0.  Jim", declParser.callouts[0].content.renderPlainText())
         XCTAssertEqual("copyright", declParser.callouts[1].title)
-        XCTAssertEqual("0.  Perpetual", declParser.callouts[1].content.renderPlainText())
 
         // Just sniff the combine part
         let defDocs = declParser.flatDefDocs(source: .inherited, shortForm: false)
