@@ -63,6 +63,6 @@
     "terser": "^5.22.0"
   },
   "dependencies": {
-    "katex": "^0.16.9"
+    "katex": "^0.16.10"
   }
 }
