@@ -199,7 +199,7 @@ class TestAutolinkRemote: XCTestCase {
         let system = try System(yaml: yaml)
         system.remote.buildIndex()
 
-        XCTAssertGreaterThanOrEqual(9, system.remote.remoteDocc.modules.count)
+        XCTAssertLessThanOrEqual(9, system.remote.remoteDocc.modules.count)
     }
 
     // MARK: Jazzy Index

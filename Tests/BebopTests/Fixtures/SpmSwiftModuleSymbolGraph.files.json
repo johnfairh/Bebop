@@ -1550,7 +1550,7 @@
           "key.doc.comment" : "- parameters:\n   - arg1: Number one\n   - arg2: Second\n   - arg3: Third\n\nSee `SpmSwiftModule` -- or `SpmSwiftModule.ABaseClass`.",
           "key.doc.line" : 53,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "key.fully_annotated_decl" : "<swift><syntaxtype.attribute.builtin>@available(macOS, introduced: 10.12)\n<\/syntaxtype.attribute.builtin><syntaxtype.attribute.builtin>@available(iOS, introduced: 9)\n<\/syntaxtype.attribute.builtin><syntaxtype.attribute.builtin>@available(tvOS, unavailable, message: &quot;Not available on the big screen.&quot;)\n<\/syntaxtype.attribute.builtin>func functionA(arg1: Int, _ arg2: Int, arg3 argMeaning: Int)<\/swift>",
+          "key.fully_annotated_decl" : "<swift><syntaxtype.attribute.builtin>@available(macOS, introduced: 10.12)\n<\/syntaxtype.attribute.builtin><syntaxtype.attribute.builtin>@available(tvOS, unavailable, message: &quot;Not available on the big screen.&quot;)\n<\/syntaxtype.attribute.builtin><syntaxtype.attribute.builtin>@available(iOS, introduced: 9)\n<\/syntaxtype.attribute.builtin>func functionA(arg1: Int, _ arg2: Int, arg3 argMeaning: Int)<\/swift>",
           "key.inherited_docs" : false,
           "key.kind" : "source.lang.swift.decl.function.free",
           "key.name" : "functionA(arg1:_:arg3:)",
@@ -1583,7 +1583,7 @@
           "key.bb.swift_declaration" : "func deprecatedFunction(callback: (String) -> Int) -> String",
           "key.bb.swift_deprecated_everywhere" : true,
           "key.bb.swift_deprecation_messages" : {
-            "en" : "macOS - deprecated since 10.14. Deprecated on *macOS* too.\n\nDeprecated.\n\niOS - deprecated since 12.0. Deprecated!."
+            "en" : "Deprecated.\n\nmacOS - deprecated since 10.14. Deprecated on *macOS* too.\n\niOS - deprecated since 12.0. Deprecated!."
           },
           "key.bb.swift_name_pieces" : [
             {
@@ -1611,7 +1611,7 @@
           "key.doc.comment" : "A deprecated function\n\n- parameter callback: The callback\n- returns: A string",
           "key.doc.line" : 65,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "key.fully_annotated_decl" : "<swift><syntaxtype.attribute.builtin>@available(macOS, deprecated: 10.14, message: &quot;Deprecated on *macOS* too&quot;)\n<\/syntaxtype.attribute.builtin><syntaxtype.attribute.builtin>@available(*, deprecated)\n<\/syntaxtype.attribute.builtin><syntaxtype.attribute.builtin>@available(iOS, deprecated: 12.0, message: &quot;Deprecated!&quot;)\n<\/syntaxtype.attribute.builtin>func deprecatedFunction(callback: (String) -&gt; Int) -&gt; String<\/swift>",
+          "key.fully_annotated_decl" : "<swift><syntaxtype.attribute.builtin>@available(*, deprecated)\n<\/syntaxtype.attribute.builtin><syntaxtype.attribute.builtin>@available(macOS, deprecated: 10.14, message: &quot;Deprecated on *macOS* too&quot;)\n<\/syntaxtype.attribute.builtin><syntaxtype.attribute.builtin>@available(iOS, deprecated: 12.0, message: &quot;Deprecated!&quot;)\n<\/syntaxtype.attribute.builtin>func deprecatedFunction(callback: (String) -&gt; Int) -&gt; String<\/swift>",
           "key.inherited_docs" : false,
           "key.kind" : "source.lang.swift.decl.function.free",
           "key.name" : "deprecatedFunction(callback:)",

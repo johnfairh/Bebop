@@ -73,7 +73,9 @@ extension GatherJob {
             logDebug("Podspec: request: \(req)")
 
             let scriptURL = Resources.shared.bundle.resourceURL!.appendingPathComponent("podsetup.rb")
-            let result = Exec.run("/usr/bin/env", "ruby", "--", scriptURL.path, reqURL.path, stderr: .merge)
+            let result = Exec.run("/usr/bin/env", "ruby",
+                                  "-E", "UTF-8", /* Xcode 15.3 xctest erases LANG... */
+                                  "--", scriptURL.path, reqURL.path, stderr: .merge)
             guard result.terminationStatus == 0 else {
                 throw BBError(.errPodspecFailed, result.failureReport)
             }

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		02015F43270DAE3200928DB1 /* SourceKittenFramework in Frameworks */ = {isa = PBXBuildFile; productRef = 02015F42270DAE3200928DB1 /* SourceKittenFramework */; };
 		020AC6E92453842200A0E634 /* TestAutolinkApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020AC6E82453842200A0E634 /* TestAutolinkApple.swift */; };
 		020AC6EB2455EE4F00A0E634 /* GenThemesJazzy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020AC6EA2455EE4F00A0E634 /* GenThemesJazzy.swift */; };
 		020AC6ED2457483A00A0E634 /* Sass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020AC6EC2457483A00A0E634 /* Sass.swift */; };
@@ -104,6 +103,7 @@
 		02A0BE702467116600594485 /* DeclPrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A0BE6F2467116600594485 /* DeclPrinter.swift */; };
 		02A0BE72246717F300594485 /* TestDeclPrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A0BE71246717F300594485 /* TestDeclPrinter.swift */; };
 		02AE7ED624485B5500B4A566 /* Published.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AE7ED524485B5500B4A566 /* Published.swift */; };
+		02B6109C2BBEB18600D5650F /* SourceKittenFramework in Frameworks */ = {isa = PBXBuildFile; productRef = 02B6109B2BBEB18600D5650F /* SourceKittenFramework */; };
 		02C2401C239A6F0700518764 /* BebopLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C24012239A6F0700518764 /* BebopLib.framework */; };
 		02CFF91E23DDFB7200FDE5B9 /* BebopLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C24012239A6F0700518764 /* BebopLib.framework */; };
 		02CFF91F23DDFB7200FDE5B9 /* BebopLib.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02C24012239A6F0700518764 /* BebopLib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -380,7 +380,7 @@
 				02486F482646B0AF00B8B50E /* SQLite in Frameworks */,
 				02486F452646B07000B8B50E /* SortedArray in Frameworks */,
 				02486F4B2646B11D00B8B50E /* SwiftSyntax in Frameworks */,
-				02015F43270DAE3200928DB1 /* SourceKittenFramework in Frameworks */,
+				02B6109C2BBEB18600D5650F /* SourceKittenFramework in Frameworks */,
 				02486F3F2646AFF200B8B50E /* Mustache in Frameworks */,
 				02486F4E2646B20700B8B50E /* SwiftFormat in Frameworks */,
 				02486F422646B04400B8B50E /* Maaku in Frameworks */,
@@ -758,7 +758,7 @@
 				02486F4A2646B11D00B8B50E /* SwiftSyntax */,
 				02486F4D2646B20700B8B50E /* SwiftFormat */,
 				02486F4F2646B20700B8B50E /* SwiftFormatConfiguration */,
-				02015F42270DAE3200928DB1 /* SourceKittenFramework */,
+				02B6109B2BBEB18600D5650F /* SourceKittenFramework */,
 			);
 			productName = BebopLib;
 			productReference = 02C24012239A6F0700518764 /* BebopLib.framework */;
@@ -810,7 +810,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1120;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1530;
 				ORGANIZATIONNAME = "Too Many Ladybirds";
 				TargetAttributes = {
 					029A718323DB04F300D66069 = {
@@ -846,7 +846,7 @@
 				02486F462646B0AF00B8B50E /* XCRemoteSwiftPackageReference "SQLite.swift" */,
 				02486F492646B11D00B8B50E /* XCRemoteSwiftPackageReference "swift-syntax" */,
 				02486F4C2646B20700B8B50E /* XCRemoteSwiftPackageReference "swift-format" */,
-				02015F41270DAE3200928DB1 /* XCRemoteSwiftPackageReference "SourceKitten" */,
+				02B6109A2BBEB18600D5650F /* XCRemoteSwiftPackageReference "sourcekitten" */,
 			);
 			productRefGroup = 02C24013239A6F0700518764 /* Products */;
 			projectDirPath = "";
@@ -1111,7 +1111,7 @@
 				DEAD_CODE_STRIPPING = YES;
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				PRODUCT_BUNDLE_IDENTIFIER = bebop.BebopResources;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1128,7 +1128,7 @@
 				DEAD_CODE_STRIPPING = YES;
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				PRODUCT_BUNDLE_IDENTIFIER = bebop.BebopResources;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1190,7 +1190,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1250,7 +1250,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -1284,6 +1284,7 @@
 					"@loader_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "/usr/local/Cellar/libsass/**";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				PRODUCT_BUNDLE_IDENTIFIER = bebop.BebopLib;
@@ -1318,6 +1319,7 @@
 					"@loader_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "/usr/local/Cellar/libsass/**";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				PRODUCT_BUNDLE_IDENTIFIER = bebop.BebopLib;
@@ -1343,7 +1345,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				PRODUCT_BUNDLE_IDENTIFIER = bebop.BebopTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1365,7 +1367,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				PRODUCT_BUNDLE_IDENTIFIER = bebop.BebopTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1388,7 +1390,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				PRODUCT_BUNDLE_IDENTIFIER = bebop.BebopCLI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1411,7 +1413,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				PRODUCT_BUNDLE_IDENTIFIER = bebop.BebopCLI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1469,14 +1471,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		02015F41270DAE3200928DB1 /* XCRemoteSwiftPackageReference "SourceKitten" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/jpsim/SourceKitten";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.33.0;
-			};
-		};
 		02486F342646AF2300B8B50E /* XCRemoteSwiftPackageReference "Yams" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jpsim/Yams.git";
@@ -1530,7 +1524,7 @@
 			repositoryURL = "https://github.com/apple/swift-syntax.git";
 			requirement = {
 				kind = exactVersion;
-				version = 509.0.0;
+				version = 510.0.1;
 			};
 		};
 		02486F4C2646B20700B8B50E /* XCRemoteSwiftPackageReference "swift-format" */ = {
@@ -1538,17 +1532,20 @@
 			repositoryURL = "https://github.com/apple/swift-format";
 			requirement = {
 				kind = exactVersion;
-				version = 509.0.0;
+				version = 510.1.0;
+			};
+		};
+		02B6109A2BBEB18600D5650F /* XCRemoteSwiftPackageReference "sourcekitten" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/johnfairh/sourcekitten.git";
+			requirement = {
+				branch = "jf-swift-510";
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		02015F42270DAE3200928DB1 /* SourceKittenFramework */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 02015F41270DAE3200928DB1 /* XCRemoteSwiftPackageReference "SourceKitten" */;
-			productName = SourceKittenFramework;
-		};
 		02486F352646AF2300B8B50E /* Yams */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 02486F342646AF2300B8B50E /* XCRemoteSwiftPackageReference "Yams" */;
@@ -1593,6 +1590,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 02486F4C2646B20700B8B50E /* XCRemoteSwiftPackageReference "swift-format" */;
 			productName = SwiftFormatConfiguration;
+		};
+		02B6109B2BBEB18600D5650F /* SourceKittenFramework */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 02B6109A2BBEB18600D5650F /* XCRemoteSwiftPackageReference "sourcekitten" */;
+			productName = SourceKittenFramework;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

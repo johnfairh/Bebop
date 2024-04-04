@@ -904,7 +904,7 @@
               "key.usr" : "s:Sl14SpmSwiftModuleAA13FirstProtocol7ElementRpzrlE12collectEmAllyyF"
             }
           ],
-          "key.typename" : "Collection.Protocol",
+          "key.typename" : "Collection.Type",
           "key.typeusr" : "$sSl_pmD",
           "key.usr" : "s:Sl"
         },
@@ -1101,7 +1101,7 @@
               "key.usr" : "s:Sl14SpmSwiftModuleA2AV7Nested1V7ElementRtzrlE9nestEmAllyyF"
             }
           ],
-          "key.typename" : "Collection.Protocol",
+          "key.typename" : "Collection.Type",
           "key.typeusr" : "$sSl_pmD",
           "key.usr" : "s:Sl"
         },
@@ -1273,7 +1273,7 @@
               "key.usr" : "s:14SpmSwiftModule13FirstProtocolPAASH9AssocTypeRpzrlE1m3argSSSi_tF"
             }
           ],
-          "key.typename" : "FirstProtocol.Protocol",
+          "key.typename" : "FirstProtocol.Type",
           "key.typeusr" : "$s14SpmSwiftModule13FirstProtocol_pmD",
           "key.usr" : "s:14SpmSwiftModule13FirstProtocolP"
         },
@@ -1593,7 +1593,7 @@
               "key.usr" : "s:Sy14SpmSwiftModuleE9hasSuffixySbSSF"
             }
           ],
-          "key.typename" : "StringProtocol.Protocol",
+          "key.typename" : "StringProtocol.Type",
           "key.typeusr" : "$sSy_pmD",
           "key.usr" : "s:Sy"
         }
@@ -1947,7 +1947,7 @@
               "key.usr" : "s:14SpmSwiftModule13FirstProtocolP9setAndGetSivp"
             }
           ],
-          "key.typename" : "FirstProtocol.Protocol",
+          "key.typename" : "FirstProtocol.Type",
           "key.typeusr" : "$s14SpmSwiftModule13FirstProtocol_pmD",
           "key.usr" : "s:14SpmSwiftModule13FirstProtocolP"
         },
@@ -2055,7 +2055,7 @@
               "key.usr" : "s:14SpmSwiftModule14SecondProtocolP06secondE6MethodSSyF"
             }
           ],
-          "key.typename" : "SecondProtocol.Protocol",
+          "key.typename" : "SecondProtocol.Type",
           "key.typeusr" : "$s14SpmSwiftModule14SecondProtocol_pmD",
           "key.usr" : "s:14SpmSwiftModule14SecondProtocolP"
         },
@@ -2160,7 +2160,7 @@
               "key.usr" : "s:14SpmSwiftModule14SecondProtocolPAAE7getOnlySivp"
             }
           ],
-          "key.typename" : "SecondProtocol.Protocol",
+          "key.typename" : "SecondProtocol.Type",
           "key.typeusr" : "$s14SpmSwiftModule14SecondProtocol_pmD",
           "key.usr" : "s:14SpmSwiftModule14SecondProtocolP"
         },
@@ -2278,7 +2278,7 @@
               "key.usr" : "s:14SpmSwiftModule13FirstProtocolPAAE1eyyF"
             }
           ],
-          "key.typename" : "FirstProtocol.Protocol",
+          "key.typename" : "FirstProtocol.Type",
           "key.typeusr" : "$s14SpmSwiftModule13FirstProtocol_pmD",
           "key.usr" : "s:14SpmSwiftModule13FirstProtocolP"
         },
@@ -2439,7 +2439,7 @@
               "key.usr" : "s:14SpmSwiftModule13FirstProtocolPAAE1e1ayqd___tAaBRd__lF"
             }
           ],
-          "key.typename" : "FirstProtocol.Protocol",
+          "key.typename" : "FirstProtocol.Type",
           "key.typeusr" : "$s14SpmSwiftModule13FirstProtocol_pmD",
           "key.usr" : "s:14SpmSwiftModule13FirstProtocolP"
         },
@@ -2576,7 +2576,7 @@
               "key.usr" : "s:14SpmSwiftModule13FirstProtocolPAAE1m3argSSSi_tF"
             }
           ],
-          "key.typename" : "FirstProtocol.Protocol",
+          "key.typename" : "FirstProtocol.Type",
           "key.typeusr" : "$s14SpmSwiftModule13FirstProtocol_pmD",
           "key.usr" : "s:14SpmSwiftModule13FirstProtocolP"
         },
@@ -2616,7 +2616,7 @@
           "key.parsed_scope.end" : 49,
           "key.parsed_scope.start" : 49,
           "key.reusingastcontext" : false,
-          "key.typename" : "P1.Protocol",
+          "key.typename" : "P1.Type",
           "key.typeusr" : "$s14SpmSwiftModule2P1_pmD",
           "key.usr" : "s:14SpmSwiftModule2P1P"
         },
@@ -2656,7 +2656,7 @@
           "key.parsed_scope.end" : 50,
           "key.parsed_scope.start" : 50,
           "key.reusingastcontext" : false,
-          "key.typename" : "P2.Protocol",
+          "key.typename" : "P2.Type",
           "key.typeusr" : "$s14SpmSwiftModule2P2_pmD",
           "key.usr" : "s:14SpmSwiftModule2P2P"
         },
@@ -3189,7 +3189,7 @@
           "key.usr" : "s:14SpmSwiftModule2S2V"
         },
         {
-          "key.annotated_decl" : "<Declaration>@frozen struct Dictionary&lt;Key, Value&gt; where <Type usr=\"s:SD3Keyxmfp\">Key<\/Type> : <Type usr=\"s:SH\">Hashable<\/Type><\/Declaration>",
+          "key.annotated_decl" : "<Declaration>@frozen @_eagerMove struct Dictionary&lt;Key, Value&gt; where <Type usr=\"s:SD3Keyxmfp\">Key<\/Type> : <Type usr=\"s:SH\">Hashable<\/Type><\/Declaration>",
           "key.bb.documentation" : {
             "key.bb.abstract" : {
               "en" : "A collection whose elements are key-value pairs."
@@ -3325,7 +3325,7 @@
               "key.offset" : 1395
             }
           ],
-          "key.fully_annotated_decl" : "<decl.struct><syntaxtype.attribute.builtin><syntaxtype.attribute.name>@frozen<\/syntaxtype.attribute.name><\/syntaxtype.attribute.builtin> <syntaxtype.keyword>struct<\/syntaxtype.keyword> <decl.name>Dictionary<\/decl.name>&lt;<decl.generic_type_param usr=\"s:SD3Keyxmfp\"><decl.generic_type_param.name>Key<\/decl.generic_type_param.name><\/decl.generic_type_param>, <decl.generic_type_param usr=\"s:SD5Valueq_mfp\"><decl.generic_type_param.name>Value<\/decl.generic_type_param.name><\/decl.generic_type_param>&gt; <syntaxtype.keyword>where<\/syntaxtype.keyword> <decl.generic_type_requirement><ref.generic_type_param usr=\"s:SD3Keyxmfp\">Key<\/ref.generic_type_param> : <ref.protocol usr=\"s:SH\">Hashable<\/ref.protocol><\/decl.generic_type_requirement><\/decl.struct>",
+          "key.fully_annotated_decl" : "<decl.struct><syntaxtype.attribute.builtin><syntaxtype.attribute.name>@frozen<\/syntaxtype.attribute.name><\/syntaxtype.attribute.builtin> <syntaxtype.attribute.builtin><syntaxtype.attribute.name>@_eagerMove<\/syntaxtype.attribute.name><\/syntaxtype.attribute.builtin> <syntaxtype.keyword>struct<\/syntaxtype.keyword> <decl.name>Dictionary<\/decl.name>&lt;<decl.generic_type_param usr=\"s:SD3Keyxmfp\"><decl.generic_type_param.name>Key<\/decl.generic_type_param.name><\/decl.generic_type_param>, <decl.generic_type_param usr=\"s:SD5Valueq_mfp\"><decl.generic_type_param.name>Value<\/decl.generic_type_param.name><\/decl.generic_type_param>&gt; <syntaxtype.keyword>where<\/syntaxtype.keyword> <decl.generic_type_requirement><ref.generic_type_param usr=\"s:SD3Keyxmfp\">Key<\/ref.generic_type_param> : <ref.protocol usr=\"s:SH\">Hashable<\/ref.protocol><\/decl.generic_type_requirement><\/decl.struct>",
           "key.groupname" : "Collection\/HashedCollections",
           "key.inheritedtypes" : [
             {
@@ -3349,7 +3349,7 @@
           "key.usr" : "s:SD"
         },
         {
-          "key.annotated_decl" : "<Declaration>@frozen struct Array&lt;Element&gt; : <Type usr=\"s:s24_DestructorSafeContainerP\">_DestructorSafeContainer<\/Type><\/Declaration>",
+          "key.annotated_decl" : "<Declaration>@frozen @_eagerMove struct Array&lt;Element&gt; : <Type usr=\"s:s24_DestructorSafeContainerP\">_DestructorSafeContainer<\/Type><\/Declaration>",
           "key.bb.documentation" : {
             "key.bb.abstract" : {
               "en" : "An ordered, random-access collection."
@@ -3521,7 +3521,7 @@
               "key.offset" : 1419
             }
           ],
-          "key.fully_annotated_decl" : "<decl.struct><syntaxtype.attribute.builtin><syntaxtype.attribute.name>@frozen<\/syntaxtype.attribute.name><\/syntaxtype.attribute.builtin> <syntaxtype.keyword>struct<\/syntaxtype.keyword> <decl.name>Array<\/decl.name>&lt;<decl.generic_type_param usr=\"s:Sa7Elementxmfp\"><decl.generic_type_param.name>Element<\/decl.generic_type_param.name><\/decl.generic_type_param>&gt; : <ref.protocol usr=\"s:s24_DestructorSafeContainerP\">_DestructorSafeContainer<\/ref.protocol><\/decl.struct>",
+          "key.fully_annotated_decl" : "<decl.struct><syntaxtype.attribute.builtin><syntaxtype.attribute.name>@frozen<\/syntaxtype.attribute.name><\/syntaxtype.attribute.builtin> <syntaxtype.attribute.builtin><syntaxtype.attribute.name>@_eagerMove<\/syntaxtype.attribute.name><\/syntaxtype.attribute.builtin> <syntaxtype.keyword>struct<\/syntaxtype.keyword> <decl.name>Array<\/decl.name>&lt;<decl.generic_type_param usr=\"s:Sa7Elementxmfp\"><decl.generic_type_param.name>Element<\/decl.generic_type_param.name><\/decl.generic_type_param>&gt; : <ref.protocol usr=\"s:s24_DestructorSafeContainerP\">_DestructorSafeContainer<\/ref.protocol><\/decl.struct>",
           "key.groupname" : "Collection\/Array",
           "key.inheritedtypes" : [
             {
