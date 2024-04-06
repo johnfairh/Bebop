@@ -133,9 +133,9 @@ public final class Resources {
         return output
     }
 
-    private(set) static var shared: Resources!
+    private(set) static nonisolated(unsafe) var shared: Resources!
 
-    private static var supportedLanguages: [String] = []
+    private static nonisolated(unsafe) var supportedLanguages: [String] = []
 
     // MARK: Main bundle location
 
@@ -143,7 +143,7 @@ public final class Resources {
     /// error messages about problems with the options) which means that we keep debug messages
     /// recording our tortuous initialization for later playback.
     ///
-    private static var debugLog = [String]()
+    private static nonisolated(unsafe) var debugLog = [String]()
     
     private static func log(_ msg: String) {
         debugLog.append(msg)

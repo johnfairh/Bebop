@@ -11,6 +11,17 @@ import Foundation
 import FoundationNetworking
 #endif
 
+private final class State: @unchecked Sendable {
+    var data: Data?
+    var error: Error?
+    var response: URLResponse?
+    var completed: Bool
+
+    init() {
+        completed = false
+    }
+}
+
 // Didn't expect to have to write anything like this, not thought at all
 // about what queue we're running on throughout -- blocks all over the place
 // I suppose so no foul in explicitly blocking it here.
@@ -20,19 +31,16 @@ extension URL {
             return data
         }
 
-        var outData: Data?
-        var outError: Error?
-        var outResponse: URLResponse?
-
-        var completed = false
+        let state = State()
         let cv = NSCondition()
 
         let task = URLSession.shared.dataTask(with: self) { data, response, error in
-            outData = data
-            outResponse = response
-            outError = error
+            state.data = data
+            state.response = response
+            state.error = error
+
             cv.lock()
-            completed = true
+            state.completed = true
             cv.signal()
             cv.unlock()
         }
@@ -41,18 +49,18 @@ extension URL {
         task.resume()
 
         cv.lock()
-        while !completed {
+        while !state.completed {
             cv.wait()
         }
         cv.unlock()
 
-        if let data = outData,
-            let response = outResponse as? HTTPURLResponse,
+        if let data = state.data,
+           let response = state.response as? HTTPURLResponse,
             response.statusCode == 200 {
             return data
         }
-        let rspStr = outResponse?.description ?? "??"
-        let errStr = outError.flatMap { String(describing: $0) } ?? "??"
+        let rspStr = state.response?.description ?? "??"
+        let errStr = state.error.flatMap { String(describing: $0) } ?? "??"
         throw BBError(.errUrlFetch, self, rspStr, errStr)
     }
 
@@ -85,5 +93,5 @@ extension URL {
         }
     }
 
-    static let harness = Harness()
+    static nonisolated(unsafe) let harness = Harness()
 }

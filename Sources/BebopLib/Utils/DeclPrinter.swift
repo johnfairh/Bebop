@@ -16,9 +16,9 @@ import SwiftFormatConfiguration
 ///
 /// namespace.
 enum DeclPrinter {
-    private struct SwiftFormatWrapper {
+    private struct SwiftFormatWrapper: @unchecked Sendable {
         private let configuration: Configuration
-        private var formatter: SwiftFormatter
+        private let formatter: SwiftFormatter
 
         init() {
             var config = Configuration()

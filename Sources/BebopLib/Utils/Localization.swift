@@ -7,14 +7,14 @@
 //
 
 /// Describe a localization of the eventual docs being generated.
-public struct Localization: CustomStringConvertible, Hashable, Encodable, Comparable {
+public struct Localization: CustomStringConvertible, Hashable, Encodable, Comparable, Sendable {
     /// The language tag.  Used to identify localized doc comment strings files and templates,
     /// contribute to the URL in the generated site.
-    public var tag: String
+    public let tag: String
     /// A flag or similarly-sized thing to appear in the UI
-    public var flag: String
+    public let flag: String
     /// The name of the localization to appear in a menu in the UI
-    public var label: String
+    public let label: String
 
     public var description: String {
         "\(tag):\(flag):\(label)"
@@ -94,5 +94,5 @@ public struct Localizations {
 
     /// The current active localization settings.  This is needed in all kinds of leaf places and passing it around
     /// and through often as so much tramp data is really ugly.
-    public internal(set) static var shared = Localizations()
+    public internal(set) nonisolated(unsafe) static var shared = Localizations()
 }

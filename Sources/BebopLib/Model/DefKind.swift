@@ -15,7 +15,7 @@ import SourceKittenFramework
 //
 
 /// The type of a definition
-public final class DefKind: CustomStringConvertible {
+public final class DefKind: CustomStringConvertible, Sendable {
     /// The underlying key
     private let kindKey: Key
     /// The sourcekit[ten] key for the definition type

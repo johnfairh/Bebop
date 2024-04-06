@@ -1,13 +1,13 @@
 {
-  "originHash" : "306ef3b1b511b3efa6b3597b404a42bf241f92fa17aba733083ab92ccb8bdccf",
+  "originHash" : "d371d499283223c8c587748c4f3aa7766ddc2b832e387c1c73099f16d7d5f5fa",
   "pins" : [
     {
       "identity" : "grmustache.swift",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/johnfairh/GRMustache.swift.git",
       "state" : {
-        "revision" : "d4dd2d940079d285d2739c9605c83ea75a1ee719",
-        "version" : "14.0.2"
+        "revision" : "e5174d3c310a3ae67770bbd2fc9545b329a5fecb",
+        "version" : "14.0.3"
       }
     },
     {
@@ -16,7 +16,7 @@
       "location" : "https://github.com/johnfairh/Maaku.git",
       "state" : {
         "branch" : "master",
-        "revision" : "78c3d9eeda473a7e59683030b362c37660435b21"
+        "revision" : "d1119351b24d037683b17fc65df072e97b154eaa"
       }
     },
     {
@@ -34,7 +34,7 @@
       "location" : "https://github.com/johnfairh/sourcekitten.git",
       "state" : {
         "branch" : "jf-swift-510",
-        "revision" : "7f75b26a220338eed83d2b962dcc6907ff79e8a0"
+        "revision" : "11ad0fae2753876a5044ba635c9a21b4342c7b96"
       }
     },
     {

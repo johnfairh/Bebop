@@ -20,7 +20,7 @@ struct MergeImport: Configurable {
         config.register(self)
     }
 
-    static private(set) var hideLanguage: DefLanguage?
+    static private(set) nonisolated(unsafe) var hideLanguage: DefLanguage?
 
     /// Flatten and interpret the gather info into `DefItem` trees.
     func importItems(gathered: [GatherModulePass]) -> [DefItem] {

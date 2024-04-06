@@ -120,7 +120,7 @@ final class GatherSwiftToObjC {
     // This is so GatherDef can pick up any active translation session
     // from a deeply nested place without having to carry it around.
 
-    static private(set) var current: GatherSwiftToObjC?
+    static private(set) nonisolated(unsafe) var current: GatherSwiftToObjC?
 
     static func session<T>(module: Module, run: () throws -> T) rethrows -> T {
         precondition(current == nil)
