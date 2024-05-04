@@ -1,5 +1,5 @@
 {
-  "originHash" : "50b7c702c9f58c5c855df49609f612075fea1219a97d343f43df127bc8ee4614",
+  "originHash" : "26e55ac2b701c345f22630d33c6155ce59042ceb732746a00438fcc3c4fe2126",
   "pins" : [
     {
       "identity" : "grmustache.swift",
@@ -31,10 +31,10 @@
     {
       "identity" : "sourcekitten",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/johnfairh/SourceKitten.git",
+      "location" : "https://github.com/jpsim/SourceKitten.git",
       "state" : {
-        "branch" : "jf-swift-510",
-        "revision" : "11ad0fae2753876a5044ba635c9a21b4342c7b96"
+        "branch" : "main",
+        "revision" : "d6abc1f2565b77daed8180871c81bc0be5a49753"
       }
     },
     {
@@ -105,8 +105,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/jpsim/Yams.git",
       "state" : {
-        "revision" : "8a835d918245ca22f36663dd3862138805d7f707",
-        "version" : "5.1.0"
+        "revision" : "9234124cff5e22e178988c18d8b95a8ae8007f76",
+        "version" : "5.1.2"
       }
     }
   ],

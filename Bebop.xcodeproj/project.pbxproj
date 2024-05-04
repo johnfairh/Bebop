@@ -11,6 +11,7 @@
 		020AC6EB2455EE4F00A0E634 /* GenThemesJazzy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020AC6EA2455EE4F00A0E634 /* GenThemesJazzy.swift */; };
 		020AC6ED2457483A00A0E634 /* Sass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020AC6EC2457483A00A0E634 /* Sass.swift */; };
 		020AC6EF2457513600A0E634 /* TestSass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020AC6EE2457513600A0E634 /* TestSass.swift */; };
+		021D5CCE2BE6574E00AC6757 /* SourceKittenFramework in Frameworks */ = {isa = PBXBuildFile; productRef = 021D5CCD2BE6574E00AC6757 /* SourceKittenFramework */; };
 		021F71C62451BDE600B73472 /* extensions in Resources */ = {isa = PBXBuildFile; fileRef = 021F71C42451BD9800B73472 /* extensions */; };
 		0225D990242D1B75005FF4A2 /* DefLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0225D98F242D1B75005FF4A2 /* DefLocation.swift */; };
 		0225D992242D1BA8005FF4A2 /* DefDeclNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0225D991242D1BA8005FF4A2 /* DefDeclNote.swift */; };
@@ -103,7 +104,6 @@
 		02A0BE702467116600594485 /* DeclPrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A0BE6F2467116600594485 /* DeclPrinter.swift */; };
 		02A0BE72246717F300594485 /* TestDeclPrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A0BE71246717F300594485 /* TestDeclPrinter.swift */; };
 		02AE7ED624485B5500B4A566 /* Published.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AE7ED524485B5500B4A566 /* Published.swift */; };
-		02B6109C2BBEB18600D5650F /* SourceKittenFramework in Frameworks */ = {isa = PBXBuildFile; productRef = 02B6109B2BBEB18600D5650F /* SourceKittenFramework */; };
 		02C2401C239A6F0700518764 /* BebopLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C24012239A6F0700518764 /* BebopLib.framework */; };
 		02CFF91E23DDFB7200FDE5B9 /* BebopLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C24012239A6F0700518764 /* BebopLib.framework */; };
 		02CFF91F23DDFB7200FDE5B9 /* BebopLib.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02C24012239A6F0700518764 /* BebopLib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -380,7 +380,7 @@
 				02486F482646B0AF00B8B50E /* SQLite in Frameworks */,
 				02486F452646B07000B8B50E /* SortedArray in Frameworks */,
 				02486F4B2646B11D00B8B50E /* SwiftSyntax in Frameworks */,
-				02B6109C2BBEB18600D5650F /* SourceKittenFramework in Frameworks */,
+				021D5CCE2BE6574E00AC6757 /* SourceKittenFramework in Frameworks */,
 				02486F3F2646AFF200B8B50E /* Mustache in Frameworks */,
 				02486F4E2646B20700B8B50E /* SwiftFormat in Frameworks */,
 				02486F422646B04400B8B50E /* Maaku in Frameworks */,
@@ -758,7 +758,7 @@
 				02486F4A2646B11D00B8B50E /* SwiftSyntax */,
 				02486F4D2646B20700B8B50E /* SwiftFormat */,
 				02486F4F2646B20700B8B50E /* SwiftFormatConfiguration */,
-				02B6109B2BBEB18600D5650F /* SourceKittenFramework */,
+				021D5CCD2BE6574E00AC6757 /* SourceKittenFramework */,
 			);
 			productName = BebopLib;
 			productReference = 02C24012239A6F0700518764 /* BebopLib.framework */;
@@ -846,7 +846,7 @@
 				02486F462646B0AF00B8B50E /* XCRemoteSwiftPackageReference "SQLite.swift" */,
 				02486F492646B11D00B8B50E /* XCRemoteSwiftPackageReference "swift-syntax" */,
 				02486F4C2646B20700B8B50E /* XCRemoteSwiftPackageReference "swift-format" */,
-				02B6109A2BBEB18600D5650F /* XCRemoteSwiftPackageReference "sourcekitten" */,
+				021D5CCC2BE6574E00AC6757 /* XCRemoteSwiftPackageReference "SourceKitten" */,
 			);
 			productRefGroup = 02C24013239A6F0700518764 /* Products */;
 			projectDirPath = "";
@@ -1473,6 +1473,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		021D5CCC2BE6574E00AC6757 /* XCRemoteSwiftPackageReference "SourceKitten" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jpsim/SourceKitten.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		02486F342646AF2300B8B50E /* XCRemoteSwiftPackageReference "Yams" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jpsim/Yams.git";
@@ -1537,17 +1545,14 @@
 				version = 510.1.0;
 			};
 		};
-		02B6109A2BBEB18600D5650F /* XCRemoteSwiftPackageReference "sourcekitten" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/johnfairh/sourcekitten.git";
-			requirement = {
-				branch = "jf-swift-510";
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		021D5CCD2BE6574E00AC6757 /* SourceKittenFramework */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 021D5CCC2BE6574E00AC6757 /* XCRemoteSwiftPackageReference "SourceKitten" */;
+			productName = SourceKittenFramework;
+		};
 		02486F352646AF2300B8B50E /* Yams */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 02486F342646AF2300B8B50E /* XCRemoteSwiftPackageReference "Yams" */;
@@ -1592,11 +1597,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 02486F4C2646B20700B8B50E /* XCRemoteSwiftPackageReference "swift-format" */;
 			productName = SwiftFormatConfiguration;
-		};
-		02B6109B2BBEB18600D5650F /* SourceKittenFramework */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 02B6109A2BBEB18600D5650F /* XCRemoteSwiftPackageReference "sourcekitten" */;
-			productName = SourceKittenFramework;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -12,18 +12,18 @@ let package = Package(
     .library(name: "BebopLib", targets: ["BebopLib"])
   ],
   dependencies: [
-    .package(url: "https://github.com/jpsim/Yams.git", from: "5.0.0"),
+    .package(url: "https://github.com/jpsim/Yams.git", from: "5.0.5"),
     /*
     .package(url: "https://github.com/jpsim/SourceKitten.git",
              from: "0.33.0"),
     */
-    .package(url: "https://github.com/johnfairh/SourceKitten.git",
-             branch: "jf-swift-510"),
+    .package(url: "https://github.com/jpsim/SourceKitten.git",
+             branch: "main"),
     .package(url: "https://github.com/johnfairh/GRMustache.swift.git",
              from: "14.0.1"),
     // Duplicate SourceKitten's requirement for general sanity
     .package(url: "https://github.com/drmohundro/SWXMLHash.git",
-             .upToNextMinor(from: "7.0.0")),
+             .upToNextMinor(from: "7.0.2")),
     .package(url: "https://github.com/apple/swift-syntax.git",
              exact: "510.0.1"),
     .package(url: "https://github.com/johnfairh/Maaku.git",
