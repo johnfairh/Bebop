@@ -23,7 +23,7 @@ public final class Stats: Configurable {
     }
 
     /// exposed just for testing really
-    private(set) static var db = StatsDb()
+    private(set) static nonisolated(unsafe) var db = StatsDb()
 
     /// Shared API to increment a counter
     static func inc(_ counter: StatsDb.Counter) {

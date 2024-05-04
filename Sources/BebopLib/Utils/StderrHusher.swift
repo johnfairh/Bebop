@@ -45,5 +45,5 @@ class StderrHusher {
         return (try? String(contentsOf: tmpFile)) ?? ""
     }
 
-    static var shared = StderrHusher()
+    static nonisolated(unsafe) var shared = StderrHusher()
 }

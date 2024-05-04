@@ -43,7 +43,7 @@ private struct RegexCache {
     }
 }
 
-private var cache = RegexCache()
+private nonisolated(unsafe) var cache = RegexCache()
 
 extension String {
     /// Split using a regular expression.

@@ -7,7 +7,7 @@
 //
 
 /// Most-top level categorization of definitions
-public enum ItemKind: String, CaseIterable {
+public enum ItemKind: String, CaseIterable, Sendable {
     case guide
     case type
     case variable

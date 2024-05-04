@@ -19,13 +19,13 @@ require 'json'
 
 if ARGV.length != 1
   warn "Expected one arg, got #{ARGV}"
-  return 1
+  exit(1)
 end
 
 params = JSON.parse(File.read(ARGV[0]), symbolize_names: true)
 unless params[:podspec] && params[:tmpdir] && params[:response]
   warn "Missing keys in input json: #{params}"
-  return 2
+  exit(2)
 end
 
 podspec_path = Pathname.new(params[:podspec])
@@ -95,4 +95,4 @@ Pod::Config.instance.with_changes(installation_root: tmpdir,
   File.write(response_path, output.to_json)
 end
 
-return 0
+exit(0)

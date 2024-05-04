@@ -7,7 +7,7 @@
 //
 
 /// Swift definition access control level
-public enum DefAcl: String, Comparable, CaseIterable, Encodable {
+public enum DefAcl: String, Comparable, CaseIterable, Encodable, Sendable {
     case `private`
     case `fileprivate`
     case `internal`

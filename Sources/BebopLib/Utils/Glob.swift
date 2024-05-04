@@ -21,13 +21,13 @@ import Darwin
 /// These are implemented using libc primitives.
 enum Glob {
     /// A boxed string to make code a little more obvious
-    struct Pattern: ExpressibleByStringLiteral, Equatable, CustomStringConvertible {
+    struct Pattern: ExpressibleByStringLiteral, Equatable, CustomStringConvertible, Sendable {
         public let value: String
         public init(_ pattern: String) { self.init(stringLiteral: pattern) }
         public init(stringLiteral value: String) { self.value = value }
         var description: String { value }
 
-        static var all = Self("*")
+        static let all = Self("*")
     }
 
     /// Return the list of files that match a pattern.

@@ -11,8 +11,8 @@ import XCTest
 
 // Binary-check fixtures for the json & html products files
 
-//private var doFixup = true
-private var doFixup = false
+//private let doFixup = true
+private let doFixup = false
 
 class TestProducts: XCTestCase {
     override func setUpWithError() throws {
@@ -50,6 +50,7 @@ class TestProducts: XCTestCase {
         let fixtureJSONURL = fixturesURL.appendingPathComponent(against)
 
         var actualJson = TestLogger.shared.outputBuf[0] + "\n"
+        let originalActualJson = actualJson
 
         if doFixup {
             try actualJson.write(to: fixtureJSONURL)
@@ -60,7 +61,20 @@ class TestProducts: XCTestCase {
             actualJson = cleanUpJson(file: actualJson)
             expectedJson = cleanUpJson(file: expectedJson)
         }
-        XCTAssertEqual(expectedJson, actualJson, line: line)
+        if expectedJson != actualJson {
+            XCTFail("Fixture JSON/whatever mismatch", line: line)
+            print(originalActualJson)
+        }
+    }
+
+    func SKIP_testCleanup() throws {
+        let against = "SpmSwiftModule.files.json"
+        let fixtureJSONURL = fixturesURL.appendingPathComponent(against)
+        var expected = try String(contentsOf: fixtureJSONURL)
+        expected = cleanUpJson(file: expected)
+        let cleanup = "SpmSwiftModule.files.clean.json"
+        let cleanedJSONURL = fixturesURL.appendingPathComponent(cleanup)
+        try expected.write(to: cleanedJSONURL)
     }
 
     /// Helper to clean up the files json to eliminate host/platform differencs.
@@ -77,6 +91,10 @@ class TestProducts: XCTestCase {
                 line.contains(#""key.doc.file""#) ||
                 line.contains(#""file_pathname""#) {
                 // filesystem
+                return nil
+            }
+            if line.contains("<RelatedName") {
+                // linux vs. mac-arm vs. mac-intel
                 return nil
             }
             if line.hasPrefix(#"    ""#) {

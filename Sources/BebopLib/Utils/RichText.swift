@@ -20,7 +20,7 @@ public protocol BoxedStringProtocol {
     init(_ value: String)
 }
 
-public struct BoxedString<P>: BoxedStringProtocol, CustomStringConvertible, Hashable, Encodable {
+public struct BoxedString<P>: BoxedStringProtocol, CustomStringConvertible, Hashable, Encodable, Sendable {
     public let value: String
 
     public init(_ value: String) {

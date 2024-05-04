@@ -74,7 +74,7 @@ final class TestLogger {
         }
     }
 
-    static var shared = TestLogger()
+    static nonisolated(unsafe) var shared = TestLogger()
 
     static func install() {
         let testLogger = TestLogger()

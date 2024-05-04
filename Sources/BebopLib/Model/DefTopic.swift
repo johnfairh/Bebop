@@ -8,7 +8,7 @@
 
 /// The topics that definitions are automatically split into within a type.
 /// The order of the enum matches the order on the page.
-public enum DefTopic: Int, CaseIterable, Comparable {
+public enum DefTopic: Int, CaseIterable, Comparable, Sendable {
     case associatedType
     case type
     case initializer

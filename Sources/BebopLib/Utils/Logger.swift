@@ -11,7 +11,7 @@
 /// Should switch to swift-log when we let Xcode manage the Package.swift.
 public final class Logger {
     /// Categories of log messages
-    public enum Level {
+    public enum Level: Sendable {
         /// Messages about the internal running of the program that may be of interest when debugging
         /// or analyzing timings.  Not necessarily intended for end-users.
         case debug
@@ -91,7 +91,7 @@ public final class Logger {
 
 // For ease, avoiding injecting an instance everywhere, will try module-internal globals.
 extension Logger {
-    static var shared = Logger()
+    nonisolated(unsafe) static var shared = Logger()
 }
 
 /// Log a debug-level message
@@ -140,6 +140,6 @@ fileprivate struct StdStream: TextOutputStream {
         fh.write(string.data(using: .utf8)!)
     }
 
-    static var stdout = StdStream(fh: .standardOutput)
-    static var stderr = StdStream(fh: .standardError)
+    static nonisolated(unsafe) var stdout = StdStream(fh: .standardOutput)
+    static nonisolated(unsafe) var stderr = StdStream(fh: .standardError)
 }
