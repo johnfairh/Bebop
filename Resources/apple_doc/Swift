@@ -55,3 +55,4 @@ String.init(repeating:count:)|string/2427723-init
 Int.init(exactly:)|int/2804478-init
 withExtendedLifetime(_:_:)|1539391-withextendedlifetime
 Sendable
+SerialExecutor

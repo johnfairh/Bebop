@@ -10,3 +10,5 @@ NSString.CompareOptions.numeric|nsstring/compareoptions/1415530-numeric
 NSArray
 NSUUID
 NSInteger
+QualityOfService
+Thread
