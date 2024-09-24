@@ -159,7 +159,7 @@ extension Localized where Key == String, Value == Markdown {
     /// if available.
     init(localizingFile url: URL) throws {
         self = try Localized<URL>(localizingFile: url)
-            .mapValues { Markdown(try String(contentsOf: $0)) }
+            .mapValues { Markdown(try String(contentsOf: $0, encoding: .utf8)) }
     }
 }
 

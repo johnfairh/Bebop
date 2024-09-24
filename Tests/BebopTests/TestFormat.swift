@@ -123,9 +123,9 @@ class TestFormat: XCTestCase {
                 try "RR".write(to: readmeURL)
                 let system = System()
                 if offs % 2 == 0 {
-                    FileManager.default.changeCurrentDirectoryPath(tmpdir.directoryURL.path)
+                    _ = FileManager.default.changeCurrentDirectoryPath(tmpdir.directoryURL.path)
                 } else {
-                    FileManager.default.changeCurrentDirectoryPath("/")
+                    _ = FileManager.default.changeCurrentDirectoryPath("/")
                     system.config.test_publishStore.modules = [
                         PublishedModule(name: "Module",
                                         groupPolicy: .global,

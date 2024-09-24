@@ -34,7 +34,7 @@ final class FormatAutolinkApple: Configurable {
         /// One field in the row: url is the downcased & slash-for-dot version of the type name
         /// N fields in the row: url is the last field, other fields are type/identifier names
         init?(url: URL) {
-            guard let raw = try? String(contentsOf: url) else {
+            guard let raw = try? String(contentsOf: url, encoding: .utf8) else {
                 logWarning("Something wrong with apple_doc module \(url.path)")
                 return nil
             }

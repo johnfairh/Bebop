@@ -6,11 +6,11 @@
 //  Licensed under MIT (https://github.com/johnfairh/Bebop/blob/master/LICENSE)
 //
 
-import Foundation
+@preconcurrency import Foundation
 #if canImport(Darwin)
 import Darwin
 #elseif canImport(Posix)
-import Posix
+@preconcurrency import Posix
 #endif
 
 // <3 sourcekitten but sometimes we want it to stop talking...
@@ -42,7 +42,7 @@ class StderrHusher {
         stderr = fdopen(STDERR_FILENO, "a")
         hushed = false
         defer { try? FileManager.default.removeItem(at: tmpFile) }
-        return (try? String(contentsOf: tmpFile)) ?? ""
+        return (try? String(contentsOf: tmpFile, encoding: .utf8)) ?? ""
     }
 
     static nonisolated(unsafe) var shared = StderrHusher()

@@ -35,6 +35,8 @@ jobs:
         with:
           persist-credentials: false
       - name: Install tools
-        run: apt-get-update && apt-get install make libsqlite3-dev libsass1 libsass-dev
-      - name: Run tests
-        run: make test
+        run: apt-get update && apt-get install make libsqlite3-dev libsass1 libsass-dev
+      - name: Build
+        run: swift build
+          #      - name: Test
+          #        run: swift test

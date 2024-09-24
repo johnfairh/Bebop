@@ -52,7 +52,7 @@ extension URL {
     public func withCurrentDirectory<T>(code: () throws -> T) throws -> T {
         try checkIsDirectory()
         return try FileManager.preservingCurrentDirectory {
-            FileManager.default.changeCurrentDirectoryPath(path)
+            _ = FileManager.default.changeCurrentDirectoryPath(path)
             return try code()
         }
     }

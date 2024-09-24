@@ -66,7 +66,7 @@ class TestSass: XCTestCase {
             try sass.write(to: sassURL)
             try Sass.renderInPlace(scssFileURL: sassURL)
             let cssURL = tmpDir.directoryURL.appendingPathComponent("sass.css")
-            let css = try String(contentsOf: cssURL)
+            let css = try String(contentsOf: cssURL, encoding: .utf8)
             XCTAssertEqual("div {\n  color: red; }\n", css, sassFilename)
         }
     }

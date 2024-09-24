@@ -134,7 +134,7 @@ class TestAutolinkRemote: XCTestCase {
 
         let availFile = ""
         let indexJSONURL = fixturesURL.appendingPathComponent("DoccIndex.json")
-        let indexJSON = try String(contentsOf: indexJSONURL)
+        let indexJSON = try String(contentsOf: indexJSONURL, encoding: .utf8)
 
         let action = {
             let system = try System(yaml: yaml)
@@ -213,7 +213,7 @@ class TestAutolinkRemote: XCTestCase {
                    """
 
         let searchJSONURL = fixturesURL.appendingPathComponent("SpmSwiftPackage/jazzy_docs/search.json")
-        let searchJSON = try String(contentsOf: searchJSONURL)
+        let searchJSON = try String(contentsOf: searchJSONURL, encoding: .utf8)
 
         let action = { () -> System in
             let system = try System(yaml: yaml)

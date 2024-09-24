@@ -96,7 +96,7 @@ class TestTheme: XCTestCase {
         XCTAssertTrue(FileManager.default.fileExists(atPath: cssFileURL.path))
         let scssFiles = dstCssDirURL.filesMatching("*.scss")
         XCTAssertTrue(scssFiles.isEmpty)
-        let css = try String(contentsOf: cssFileURL)
+        let css = try String(contentsOf: cssFileURL, encoding: .utf8)
         XCTAssertEqual(".j2-article p {\n  color: blue; }\n", css)
     }
 

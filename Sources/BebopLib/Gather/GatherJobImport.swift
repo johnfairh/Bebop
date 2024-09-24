@@ -23,7 +23,7 @@ extension GatherJob {
 
         func loadFile(url: URL) throws -> [(pathname: String, GatherDef)] {
             logDebug("Gather: Deserializing sourcekitten JSON \(url.path)")
-            let json = try String(contentsOf: url)
+            let json = try String(contentsOf: url, encoding: .utf8)
             let data = try JSON.decode(json, Array<SourceKittenDict>.self)
             return data.compactMap { fileDict -> (String, GatherDef)? in
                 guard let entry = fileDict.first,
@@ -61,7 +61,7 @@ extension GatherJob {
 
         func loadFile(url: URL) throws -> [GatherModulePass] {
             logDebug("Gather: Deserializing gather JSON \(url.path)")
-            let json = try String(contentsOf: url)
+            let json = try String(contentsOf: url, encoding: .utf8)
             let data = try JSON.decode(json, Array<SourceKittenDict>.self)
 
             var passes = [GatherModulePass]()

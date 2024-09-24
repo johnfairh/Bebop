@@ -147,7 +147,7 @@ class Theme {
         // May have a yaml - must be valid if exists
         let themeParser = Parser()
         let themeYamlURL = url.appendingPathComponent(Self.YAML_FILENAME)
-        if let themeYaml = try? String(contentsOf: themeYamlURL) {
+        if let themeYaml = try? String(contentsOf: themeYamlURL, encoding: .utf8) {
             try themeParser.parse(themeYaml: themeYaml)
         }
 

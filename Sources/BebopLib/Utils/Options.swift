@@ -866,7 +866,7 @@ final class OptsParser {
 // Loading
 extension Yams.Node.Mapping {
     static func compose(from url: URL) throws -> Node.Mapping {
-        let yaml = try String(contentsOf: url)
+        let yaml = try String(contentsOf: url, encoding: .utf8)
         return try compose(from: yaml, originatingFrom: url.lastPathComponent)
     }
 

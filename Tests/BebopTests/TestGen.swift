@@ -494,7 +494,7 @@ class TestGen: XCTestCase {
             "--docset-icon-2x", icon2URL.path
         ]) { url in
             func check(_ url: URL, _ expected: String) throws {
-                let actual = try String(contentsOf: url)
+                let actual = try String(contentsOf: url, encoding: .utf8)
                 XCTAssertEqual(expected, actual)
             }
             try check(url.appendingPathComponent("docsets/SpmSwiftModule2.docset/icon.png"), "icon1")
@@ -510,7 +510,7 @@ class TestGen: XCTestCase {
             "--module-version", version
         ]) { url in
             let xmlURL = url.appendingPathComponent("docsets/SpmSwiftModule2.xml")
-            let xml = try String(contentsOf: xmlURL)
+            let xml = try String(contentsOf: xmlURL, encoding: .utf8)
             let parser = XMLParser(data: xml.data(using: .utf8)!)
             XCTAssertTrue(parser.parse())
             XCTAssertTrue(xml.contains("<version>\(version)</version>"))
