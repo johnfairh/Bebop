@@ -39,7 +39,7 @@ private let doc3 = Markdown("")
 class TestMarkdown: XCTestCase {
     // Basic callout detection
     private func checkCallout(_ str: String, _ title: String, _ body: String, _ format: CMCallout.Format,
-                              file: StaticString = #file, line: UInt = #line) {
+                              file: StaticString = #filePath, line: UInt = #line) {
         guard let callout = CMCallout(string: str) else {
             XCTFail("No callout", file: file, line: line)
             return
@@ -49,7 +49,7 @@ class TestMarkdown: XCTestCase {
         XCTAssertEqual(format, callout.format, file: file, line: line)
     }
 
-    private func checkNoCallout(_ str: String, file: StaticString = #file, line: UInt = #line) {
+    private func checkNoCallout(_ str: String, file: StaticString = #filePath, line: UInt = #line) {
         if let callout = CMCallout(string: str) {
             XCTFail("Callout: \(callout)", file: file, line: line)
         }

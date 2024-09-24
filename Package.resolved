@@ -2,6 +2,15 @@
   "originHash" : "122a226a2b2f99b3f4f9e541b2d53803699dc4d2853244218f5821b27bc76df1",
   "pins" : [
     {
+      "identity" : "csqlite",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/stephencelis/CSQLite.git",
+      "state" : {
+        "revision" : "9106e983d5e3d5149ee35281ec089484b0def018",
+        "version" : "0.0.3"
+      }
+    },
+    {
       "identity" : "grmustache.swift",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/johnfairh/GRMustache.swift.git",

@@ -82,7 +82,7 @@ class TestFormat: XCTestCase {
             .with(children: [class1])
     }
 
-    private func checkURL(_ item: Item, _ asPage: Bool, _ urlPath: String, file: StaticString = #file, line: UInt = #line) {
+    private func checkURL(_ item: Item, _ asPage: Bool, _ urlPath: String, file: StaticString = #filePath, line: UInt = #line) {
         XCTAssertEqual(asPage, item.renderAsPage, file: file, line: line)
         XCTAssertEqual(urlPath, item.url.url(fileExtension: ".html"), file: file, line: line)
     }
