@@ -420,7 +420,7 @@ extension SymbolGraph {
 
 // MARK: Declaration Kinds
 
-extension SwiftDeclarationKind : @unchecked Sendable {}
+extension SwiftDeclarationKind : @retroactive @unchecked Sendable {}
 
 extension SymbolGraph {
     static let kindMap1: [String : SwiftDeclarationKind] = [

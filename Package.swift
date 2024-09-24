@@ -1,4 +1,4 @@
-// swift-tools-version:5.10
+// swift-tools-version:6.0
 
 import PackageDescription
 
@@ -13,27 +13,23 @@ let package = Package(
   ],
   dependencies: [
     .package(url: "https://github.com/jpsim/Yams.git", from: "5.0.5"),
-    /*
     .package(url: "https://github.com/jpsim/SourceKitten.git",
              from: "0.33.0"),
-    */
-    .package(url: "https://github.com/jpsim/SourceKitten.git",
-             branch: "main"),
     .package(url: "https://github.com/johnfairh/GRMustache.swift.git",
              from: "14.0.1"),
     // Duplicate SourceKitten's requirement for general sanity
     .package(url: "https://github.com/drmohundro/SWXMLHash.git",
              .upToNextMinor(from: "7.0.2")),
-    .package(url: "https://github.com/apple/swift-syntax.git",
-             exact: "510.0.1"),
+    .package(url: "https://github.com/swiftlang/swift-syntax.git",
+             exact: "600.0.0"),
     .package(url: "https://github.com/johnfairh/Maaku.git",
              branch: "master"),
     .package(url: "https://github.com/ole/SortedArray.git",
              from: "0.7.0"),
     .package(url: "https://github.com/stephencelis/SQLite.swift.git",
              .upToNextMinor(from: "0.12.0")),
-    .package(url: "https://github.com/apple/swift-format",
-             exact: "510.1.0")
+    .package(url: "https://github.com/swiftlang/swift-format",
+             exact: "600.0.0")
   ],
   targets: [
     .target(

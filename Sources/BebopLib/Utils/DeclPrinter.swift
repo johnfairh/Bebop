@@ -9,7 +9,6 @@
 import Foundation
 import SwiftFormat
 import SwiftSyntax // DiagnosticEngine!
-import SwiftFormatConfiguration
 
 /// Feels awfully luxurious to pull SwiftFormat in just for this, but doing even an OK job
 /// manually line-breaking declarations is more work than I want to do.
@@ -35,7 +34,7 @@ enum DeclPrinter {
         func format(swift: String) -> String {
             do {
                 var formatted = ""
-                try formatter.format(source: swift, assumingFileURL: nil, to: &formatted)
+                try formatter.format(source: swift, assumingFileURL: nil, selection: .infinite, to: &formatted)
                 // swift-format workarounds
                 //
                 if swift.hasPrefix("case ") {

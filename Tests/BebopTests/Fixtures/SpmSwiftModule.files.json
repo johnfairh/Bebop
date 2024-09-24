@@ -72,6 +72,7 @@
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
               "key.fully_annotated_decl" : "<decl.generic_type_param><decl.generic_type_param.name>T<\/decl.generic_type_param.name><\/decl.generic_type_param>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.generic_type_param",
               "key.length" : 1,
               "key.line" : 1,
@@ -83,6 +84,11 @@
               "key.parsed_declaration" : "class GenericBase<T",
               "key.parsed_scope.end" : 1,
               "key.parsed_scope.start" : 1,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:14SpmSwiftModule11GenericBaseC"
+                }
+              ],
               "key.reusingastcontext" : false,
               "key.typename" : "T.Type",
               "key.typeusr" : "$sxmD",
@@ -114,6 +120,7 @@
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
               "key.fully_annotated_decl" : "<decl.var.instance><syntaxtype.keyword>var<\/syntaxtype.keyword> <decl.name>boxed<\/decl.name>: <decl.var.type><ref.generic_type_param usr=\"s:14SpmSwiftModule11GenericBaseC1Txmfp\">T<\/ref.generic_type_param><\/decl.var.type><\/decl.var.instance>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.var.instance",
               "key.length" : 12,
               "key.line" : 2,
@@ -125,6 +132,11 @@
               "key.parsed_declaration" : "var boxed: T",
               "key.parsed_scope.end" : 2,
               "key.parsed_scope.start" : 2,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:14SpmSwiftModule11GenericBaseC"
+                }
+              ],
               "key.reusingastcontext" : false,
               "key.setter_accessibility" : "source.lang.swift.accessibility.internal",
               "key.typename" : "T",
@@ -163,6 +175,7 @@
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
               "key.fully_annotated_decl" : "<decl.function.constructor><syntaxtype.keyword>init<\/syntaxtype.keyword>(<decl.var.parameter><decl.var.parameter.argument_label>type<\/decl.var.parameter.argument_label>: <decl.var.parameter.type><ref.generic_type_param usr=\"s:14SpmSwiftModule11GenericBaseC1Txmfp\">T<\/ref.generic_type_param><\/decl.var.parameter.type><\/decl.var.parameter>)<\/decl.function.constructor>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 36,
               "key.line" : 3,
@@ -174,6 +187,11 @@
               "key.parsed_declaration" : "init(type: T)",
               "key.parsed_scope.end" : 5,
               "key.parsed_scope.start" : 3,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:14SpmSwiftModule11GenericBaseC"
+                }
+              ],
               "key.reusingastcontext" : false,
               "key.typename" : "<T> (GenericBase<T>.Type) -> (T) -> GenericBase<T>",
               "key.typeusr" : "$s4type14SpmSwiftModule11GenericBaseCyxGx_tcD",
@@ -207,6 +225,7 @@
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>mutify<\/decl.name>() -&gt; <decl.function.returntype><ref.generic_type_param usr=\"s:14SpmSwiftModule11GenericBaseC1Txmfp\">T<\/ref.generic_type_param><\/decl.function.returntype><\/decl.function.method.instance>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 41,
               "key.line" : 7,
@@ -218,6 +237,11 @@
               "key.parsed_declaration" : "func mutify() -> T",
               "key.parsed_scope.end" : 9,
               "key.parsed_scope.start" : 7,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:14SpmSwiftModule11GenericBaseC"
+                }
+              ],
               "key.reusingastcontext" : false,
               "key.typename" : "<T> (GenericBase<T>) -> () -> T",
               "key.typeusr" : "$sxycD",
@@ -291,6 +315,7 @@
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
               "key.fully_annotated_decl" : "<decl.var.instance><syntaxtype.keyword>var<\/syntaxtype.keyword> <decl.name>codableCount<\/decl.name>: <decl.var.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.type> { <syntaxtype.keyword>get<\/syntaxtype.keyword> }<\/decl.var.instance>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.var.instance",
               "key.length" : 41,
               "key.line" : 13,
@@ -302,6 +327,11 @@
               "key.parsed_declaration" : "var codableCount: Int",
               "key.parsed_scope.end" : 15,
               "key.parsed_scope.start" : 13,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:14SpmSwiftModule11GenericBaseC"
+                }
+              ],
               "key.reusingastcontext" : false,
               "key.typename" : "Int",
               "key.typeusr" : "$sSiD",
@@ -334,6 +364,7 @@
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>doCodability<\/decl.name>()<\/decl.function.method.instance>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 22,
               "key.line" : 16,
@@ -345,6 +376,11 @@
               "key.parsed_declaration" : "func doCodability()",
               "key.parsed_scope.end" : 16,
               "key.parsed_scope.start" : 16,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:14SpmSwiftModule11GenericBaseC"
+                }
+              ],
               "key.reusingastcontext" : false,
               "key.typename" : "<T where T : Decodable, T : Encodable> (GenericBase<T>) -> () -> ()",
               "key.typeusr" : "$syycD",
@@ -418,6 +454,7 @@
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>doFirstMagic<\/decl.name>()<\/decl.function.method.instance>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 22,
               "key.line" : 21,
@@ -429,6 +466,11 @@
               "key.parsed_declaration" : "func doFirstMagic()",
               "key.parsed_scope.end" : 21,
               "key.parsed_scope.start" : 21,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:14SpmSwiftModule11GenericBaseC"
+                }
+              ],
               "key.reusingastcontext" : false,
               "key.typename" : "<T where T : FirstProtocol, T : Equatable> (GenericBase<T>) -> () -> ()",
               "key.typeusr" : "$syycD",
@@ -461,6 +503,7 @@
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>doMoreMagic<\/decl.name>()<\/decl.function.method.instance>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 21,
               "key.line" : 23,
@@ -472,6 +515,11 @@
               "key.parsed_declaration" : "func doMoreMagic()",
               "key.parsed_scope.end" : 23,
               "key.parsed_scope.start" : 23,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:14SpmSwiftModule11GenericBaseC"
+                }
+              ],
               "key.reusingastcontext" : false,
               "key.typename" : "<T where T : FirstProtocol, T : Equatable> (GenericBase<T>) -> () -> ()",
               "key.typeusr" : "$syycD",
@@ -551,6 +599,7 @@
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>doHashable<\/decl.name>()<\/decl.function.method.instance>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 20,
               "key.line" : 28,
@@ -562,6 +611,11 @@
               "key.parsed_declaration" : "func doHashable()",
               "key.parsed_scope.end" : 28,
               "key.parsed_scope.start" : 28,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:14SpmSwiftModule11GenericBaseC"
+                }
+              ],
               "key.reusingastcontext" : false,
               "key.typename" : "<T where T : Hashable> (GenericBase<T>) -> () -> ()",
               "key.typeusr" : "$syycD",
@@ -665,6 +719,7 @@
               "key.bodyoffset" : 586,
               "key.column" : 7,
               "key.decl_lang" : "source.lang.swift",
+              "key.doc_comment" : "A textual representation of this instance.\n\nCalling this property directly is discouraged. Instead, convert an\ninstance of any type to a string by using the `String(describing:)`\ninitializer. This initializer works with any type, and uses the custom\n`description` property for types that conform to\n`CustomStringConvertible`:\n\n    struct Point: CustomStringConvertible {\n        let x: Int, y: Int\n\n        var description: String {\n            return \"(\\(x), \\(y))\"\n        }\n    }\n\n    let p = Point(x: 21, y: 30)\n    let s = String(describing: p)\n    print(s)\n    \/\/ Prints \"(21, 30)\"\n\nThe conversion of `p` to a string in the assignment to `s` uses the\n`Point` type's `description` property.",
               "key.doc.declaration" : "var description: String { get }",
               "key.doc.discussion" : [
                 {
@@ -685,6 +740,7 @@
               "key.doc.type" : "Other",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
               "key.fully_annotated_decl" : "<decl.var.instance><syntaxtype.keyword>var<\/syntaxtype.keyword> <decl.name>description<\/decl.name>: <decl.var.type><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.var.type> { <syntaxtype.keyword>get<\/syntaxtype.keyword> }<\/decl.var.instance>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.var.instance",
               "key.length" : 43,
               "key.line" : 33,
@@ -701,6 +757,11 @@
               "key.parsed_declaration" : "var description: String",
               "key.parsed_scope.end" : 35,
               "key.parsed_scope.start" : 33,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:14SpmSwiftModule11GenericBaseC"
+                }
+              ],
               "key.reusingastcontext" : false,
               "key.typename" : "String",
               "key.typeusr" : "$sSSD",
@@ -737,6 +798,7 @@
           "key.bodylength" : 26,
           "key.bodyoffset" : 659,
           "key.decl_lang" : "source.lang.swift",
+          "key.doc_comment" : "A sequence whose elements can be traversed multiple times,\nnondestructively, and accessed by an indexed subscript.\n\nCollections are used extensively throughout the standard library. When you\nuse arrays, dictionaries, and other collections, you benefit from the\noperations that the `Collection` protocol declares and implements. In\naddition to the operations that collections inherit from the `Sequence`\nprotocol, you gain access to methods that depend on accessing an element\nat a specific position in a collection.\n\nFor example, if you want to print only the first word in a string, you can\nsearch for the index of the first space, and then create a substring up to\nthat position.\n\n    let text = \"Buffalo buffalo buffalo buffalo.\"\n    if let firstSpace = text.firstIndex(of: \" \") {\n        print(text[..<firstSpace])\n    }\n    \/\/ Prints \"Buffalo\"\n\nThe `firstSpace` constant is an index into the `text` string---the position\nof the first space in the string. You can store indices in variables, and\npass them to collection algorithms or use them later to access the\ncorresponding element. In the example above, `firstSpace` is used to\nextract the prefix that contains elements up to that index.\n\nAccessing Individual Elements\n=============================\n\nYou can access an element of a collection through its subscript by using\nany valid index except the collection's `endIndex` property. This property\nis a \"past the end\" index that does not correspond with any element of the\ncollection.\n\nHere's an example of accessing the first character in a string through its\nsubscript:\n\n    let firstChar = text[text.startIndex]\n    print(firstChar)\n    \/\/ Prints \"B\"\n\nThe `Collection` protocol declares and provides default implementations for\nmany operations that depend on elements being accessible by their\nsubscript. For example, you can also access the first character of `text`\nusing the `first` property, which has the value of the first element of\nthe collection, or `nil` if the collection is empty.\n\n    print(text.first)\n    \/\/ Prints \"Optional(\"B\")\"\n\nYou can pass only valid indices to collection operations. You can find a\ncomplete set of a collection's valid indices by starting with the\ncollection's `startIndex` property and finding every successor up to, and\nincluding, the `endIndex` property. All other values of the `Index` type,\nsuch as the `startIndex` property of a different collection, are invalid\nindices for this collection.\n\nSaved indices may become invalid as a result of mutating operations. For\nmore information about index invalidation in mutable collections, see the\nreference for the `MutableCollection` and `RangeReplaceableCollection`\nprotocols, as well as for the specific type you're using.\n\nAccessing Slices of a Collection\n================================\n\nYou can access a slice of a collection through its ranged subscript or by\ncalling methods like `prefix(while:)` or `suffix(_:)`. A slice of a\ncollection can contain zero or more of the original collection's elements\nand shares the original collection's semantics.\n\nThe following example creates a `firstWord` constant by using the\n`prefix(while:)` method to get a slice of the `text` string.\n\n    let firstWord = text.prefix(while: { $0 != \" \" })\n    print(firstWord)\n    \/\/ Prints \"Buffalo\"\n\nYou can retrieve the same slice using the string's ranged subscript, which\ntakes a range expression.\n\n    if let firstSpace = text.firstIndex(of: \" \") {\n        print(text[..<firstSpace]\n        \/\/ Prints \"Buffalo\"\n    }\n\nThe retrieved slice of `text` is equivalent in each of these cases.\n\nSlices Share Indices\n--------------------\n\nA collection and its slices share the same indices. An element of a\ncollection is located under the same index in a slice as in the base\ncollection, as long as neither the collection nor the slice has been\nmutated since the slice was created.\n\nFor example, suppose you have an array holding the number of absences from\neach class during a session.\n\n    var absences = [0, 2, 0, 4, 0, 3, 1, 0]\n\nYou're tasked with finding the day with the most absences in the second\nhalf of the session. To find the index of the day in question, follow\nthese steps:\n\n1) Create a slice of the `absences` array that holds the second half of the\n   days.\n2) Use the `max(by:)` method to determine the index of the day with the\n   most absences.\n3) Print the result using the index found in step 2 on the original\n   `absences` array.\n\nHere's an implementation of those steps:\n\n    let secondHalf = absences.suffix(absences.count \/ 2)\n    if let i = secondHalf.indices.max(by: { secondHalf[$0] < secondHalf[$1] }) {\n        print(\"Highest second-half absences: \\(absences[i])\")\n    }\n    \/\/ Prints \"Highest second-half absences: 3\"\n\nSlices Inherit Collection Semantics\n-----------------------------------\n\nA slice inherits the value or reference semantics of its base collection.\nThat is, when working with a slice of a mutable collection that has value\nsemantics, such as an array, mutating the original collection triggers a\ncopy of that collection and does not affect the contents of the slice.\n\nFor example, if you update the last element of the `absences` array from\n`0` to `2`, the `secondHalf` slice is unchanged.\n\n    absences[7] = 2\n    print(absences)\n    \/\/ Prints \"[0, 2, 0, 4, 0, 3, 1, 2]\"\n    print(secondHalf)\n    \/\/ Prints \"[0, 3, 1, 0]\"\n\nTraversing a Collection\n=======================\n\nAlthough a sequence can be consumed as it is traversed, a collection is\nguaranteed to be *multipass*: Any element can be repeatedly accessed by\nsaving its index. Moreover, a collection's indices form a finite range of\nthe positions of the collection's elements. The fact that all collections\nare finite guarantees the safety of many sequence operations, such as\nusing the `contains(_:)` method to test whether a collection includes an\nelement.\n\nIterating over the elements of a collection by their positions yields the\nsame elements in the same order as iterating over that collection using\nits iterator. This example demonstrates that the `characters` view of a\nstring returns the same characters in the same order whether the view's\nindices or the view itself is being iterated.\n\n    let word = \"Swift\"\n    for character in word {\n        print(character)\n    }\n    \/\/ Prints \"S\"\n    \/\/ Prints \"w\"\n    \/\/ Prints \"i\"\n    \/\/ Prints \"f\"\n    \/\/ Prints \"t\"\n\n    for i in word.indices {\n        print(word[i])\n    }\n    \/\/ Prints \"S\"\n    \/\/ Prints \"w\"\n    \/\/ Prints \"i\"\n    \/\/ Prints \"f\"\n    \/\/ Prints \"t\"\n\nConforming to the Collection Protocol\n=====================================\n\nIf you create a custom sequence that can provide repeated access to its\nelements, make sure that its type conforms to the `Collection` protocol in\norder to give a more useful and more efficient interface for sequence and\ncollection operations. To add `Collection` conformance to your type, you\nmust declare at least the following requirements:\n\n- The `startIndex` and `endIndex` properties\n- A subscript that provides at least read-only access to your type's\n  elements\n- The `index(after:)` method for advancing an index into your collection\n\nExpected Performance\n====================\n\nTypes that conform to `Collection` are expected to provide the `startIndex`\nand `endIndex` properties and subscript access to elements as O(1)\noperations. Types that are not able to guarantee this performance must\ndocument the departure, because many collection operations depend on O(1)\nsubscripting performance for their own performance guarantees.\n\nThe performance of some collection operations depends on the type of index\nthat the collection provides. For example, a random-access collection,\nwhich can measure the distance between two indices in O(1) time, can\ncalculate its `count` property in O(1) time. Conversely, because a forward\nor bidirectional collection must traverse the entire collection to count\nthe number of contained elements, accessing its `count` property is an\nO(*n*) operation.",
           "key.doc.declaration" : "protocol Collection<Element> : Sequence",
           "key.doc.discussion" : [
             {
@@ -887,6 +949,7 @@
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>collectEmAll<\/decl.name>()<\/decl.function.method.instance>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 22,
               "key.line" : 39,
@@ -898,6 +961,11 @@
               "key.parsed_declaration" : "func collectEmAll()",
               "key.parsed_scope.end" : 39,
               "key.parsed_scope.start" : 39,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:Sl"
+                }
+              ],
               "key.reusingastcontext" : false,
               "key.typename" : "<Self where Self : Collection, Self.Element : FirstProtocol> (Self) -> () -> ()",
               "key.typeusr" : "$syycD",
@@ -934,6 +1002,7 @@
           "key.bodylength" : 23,
           "key.bodyoffset" : 750,
           "key.decl_lang" : "source.lang.swift",
+          "key.doc_comment" : "A sequence whose elements can be traversed multiple times,\nnondestructively, and accessed by an indexed subscript.\n\nCollections are used extensively throughout the standard library. When you\nuse arrays, dictionaries, and other collections, you benefit from the\noperations that the `Collection` protocol declares and implements. In\naddition to the operations that collections inherit from the `Sequence`\nprotocol, you gain access to methods that depend on accessing an element\nat a specific position in a collection.\n\nFor example, if you want to print only the first word in a string, you can\nsearch for the index of the first space, and then create a substring up to\nthat position.\n\n    let text = \"Buffalo buffalo buffalo buffalo.\"\n    if let firstSpace = text.firstIndex(of: \" \") {\n        print(text[..<firstSpace])\n    }\n    \/\/ Prints \"Buffalo\"\n\nThe `firstSpace` constant is an index into the `text` string---the position\nof the first space in the string. You can store indices in variables, and\npass them to collection algorithms or use them later to access the\ncorresponding element. In the example above, `firstSpace` is used to\nextract the prefix that contains elements up to that index.\n\nAccessing Individual Elements\n=============================\n\nYou can access an element of a collection through its subscript by using\nany valid index except the collection's `endIndex` property. This property\nis a \"past the end\" index that does not correspond with any element of the\ncollection.\n\nHere's an example of accessing the first character in a string through its\nsubscript:\n\n    let firstChar = text[text.startIndex]\n    print(firstChar)\n    \/\/ Prints \"B\"\n\nThe `Collection` protocol declares and provides default implementations for\nmany operations that depend on elements being accessible by their\nsubscript. For example, you can also access the first character of `text`\nusing the `first` property, which has the value of the first element of\nthe collection, or `nil` if the collection is empty.\n\n    print(text.first)\n    \/\/ Prints \"Optional(\"B\")\"\n\nYou can pass only valid indices to collection operations. You can find a\ncomplete set of a collection's valid indices by starting with the\ncollection's `startIndex` property and finding every successor up to, and\nincluding, the `endIndex` property. All other values of the `Index` type,\nsuch as the `startIndex` property of a different collection, are invalid\nindices for this collection.\n\nSaved indices may become invalid as a result of mutating operations. For\nmore information about index invalidation in mutable collections, see the\nreference for the `MutableCollection` and `RangeReplaceableCollection`\nprotocols, as well as for the specific type you're using.\n\nAccessing Slices of a Collection\n================================\n\nYou can access a slice of a collection through its ranged subscript or by\ncalling methods like `prefix(while:)` or `suffix(_:)`. A slice of a\ncollection can contain zero or more of the original collection's elements\nand shares the original collection's semantics.\n\nThe following example creates a `firstWord` constant by using the\n`prefix(while:)` method to get a slice of the `text` string.\n\n    let firstWord = text.prefix(while: { $0 != \" \" })\n    print(firstWord)\n    \/\/ Prints \"Buffalo\"\n\nYou can retrieve the same slice using the string's ranged subscript, which\ntakes a range expression.\n\n    if let firstSpace = text.firstIndex(of: \" \") {\n        print(text[..<firstSpace]\n        \/\/ Prints \"Buffalo\"\n    }\n\nThe retrieved slice of `text` is equivalent in each of these cases.\n\nSlices Share Indices\n--------------------\n\nA collection and its slices share the same indices. An element of a\ncollection is located under the same index in a slice as in the base\ncollection, as long as neither the collection nor the slice has been\nmutated since the slice was created.\n\nFor example, suppose you have an array holding the number of absences from\neach class during a session.\n\n    var absences = [0, 2, 0, 4, 0, 3, 1, 0]\n\nYou're tasked with finding the day with the most absences in the second\nhalf of the session. To find the index of the day in question, follow\nthese steps:\n\n1) Create a slice of the `absences` array that holds the second half of the\n   days.\n2) Use the `max(by:)` method to determine the index of the day with the\n   most absences.\n3) Print the result using the index found in step 2 on the original\n   `absences` array.\n\nHere's an implementation of those steps:\n\n    let secondHalf = absences.suffix(absences.count \/ 2)\n    if let i = secondHalf.indices.max(by: { secondHalf[$0] < secondHalf[$1] }) {\n        print(\"Highest second-half absences: \\(absences[i])\")\n    }\n    \/\/ Prints \"Highest second-half absences: 3\"\n\nSlices Inherit Collection Semantics\n-----------------------------------\n\nA slice inherits the value or reference semantics of its base collection.\nThat is, when working with a slice of a mutable collection that has value\nsemantics, such as an array, mutating the original collection triggers a\ncopy of that collection and does not affect the contents of the slice.\n\nFor example, if you update the last element of the `absences` array from\n`0` to `2`, the `secondHalf` slice is unchanged.\n\n    absences[7] = 2\n    print(absences)\n    \/\/ Prints \"[0, 2, 0, 4, 0, 3, 1, 2]\"\n    print(secondHalf)\n    \/\/ Prints \"[0, 3, 1, 0]\"\n\nTraversing a Collection\n=======================\n\nAlthough a sequence can be consumed as it is traversed, a collection is\nguaranteed to be *multipass*: Any element can be repeatedly accessed by\nsaving its index. Moreover, a collection's indices form a finite range of\nthe positions of the collection's elements. The fact that all collections\nare finite guarantees the safety of many sequence operations, such as\nusing the `contains(_:)` method to test whether a collection includes an\nelement.\n\nIterating over the elements of a collection by their positions yields the\nsame elements in the same order as iterating over that collection using\nits iterator. This example demonstrates that the `characters` view of a\nstring returns the same characters in the same order whether the view's\nindices or the view itself is being iterated.\n\n    let word = \"Swift\"\n    for character in word {\n        print(character)\n    }\n    \/\/ Prints \"S\"\n    \/\/ Prints \"w\"\n    \/\/ Prints \"i\"\n    \/\/ Prints \"f\"\n    \/\/ Prints \"t\"\n\n    for i in word.indices {\n        print(word[i])\n    }\n    \/\/ Prints \"S\"\n    \/\/ Prints \"w\"\n    \/\/ Prints \"i\"\n    \/\/ Prints \"f\"\n    \/\/ Prints \"t\"\n\nConforming to the Collection Protocol\n=====================================\n\nIf you create a custom sequence that can provide repeated access to its\nelements, make sure that its type conforms to the `Collection` protocol in\norder to give a more useful and more efficient interface for sequence and\ncollection operations. To add `Collection` conformance to your type, you\nmust declare at least the following requirements:\n\n- The `startIndex` and `endIndex` properties\n- A subscript that provides at least read-only access to your type's\n  elements\n- The `index(after:)` method for advancing an index into your collection\n\nExpected Performance\n====================\n\nTypes that conform to `Collection` are expected to provide the `startIndex`\nand `endIndex` properties and subscript access to elements as O(1)\noperations. Types that are not able to guarantee this performance must\ndocument the departure, because many collection operations depend on O(1)\nsubscripting performance for their own performance guarantees.\n\nThe performance of some collection operations depends on the type of index\nthat the collection provides. For example, a random-access collection,\nwhich can measure the distance between two indices in O(1) time, can\ncalculate its `count` property in O(1) time. Conversely, because a forward\nor bidirectional collection must traverse the entire collection to count\nthe number of contained elements, accessing its `count` property is an\nO(*n*) operation.",
           "key.doc.declaration" : "protocol Collection<Element> : Sequence",
           "key.doc.discussion" : [
             {
@@ -1084,6 +1153,7 @@
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>nestEmAll<\/decl.name>()<\/decl.function.method.instance>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 19,
               "key.line" : 43,
@@ -1095,6 +1165,11 @@
               "key.parsed_declaration" : "func nestEmAll()",
               "key.parsed_scope.end" : 43,
               "key.parsed_scope.start" : 43,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:Sl"
+                }
+              ],
               "key.reusingastcontext" : false,
               "key.typename" : "<Self where Self : Collection, Self.Element == SpmSwiftModule.Nested1> (Self) -> () -> ()",
               "key.typeusr" : "$syycD",
@@ -1132,6 +1207,7 @@
           "key.bodyoffset" : 827,
           "key.column" : 17,
           "key.decl_lang" : "source.lang.swift",
+          "key.doc_comment" : "A protocol.",
           "key.doc.column" : 17,
           "key.doc.declaration" : "public protocol FirstProtocol",
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
@@ -1181,6 +1257,7 @@
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>extHashableMethod<\/decl.name>()<\/decl.function.method.instance>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 27,
               "key.line" : 47,
@@ -1192,6 +1269,11 @@
               "key.parsed_declaration" : "func extHashableMethod()",
               "key.parsed_scope.end" : 47,
               "key.parsed_scope.start" : 47,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:14SpmSwiftModule13FirstProtocolP"
+                }
+              ],
               "key.reusingastcontext" : false,
               "key.typename" : "<Self where Self : FirstProtocol, Self.AssocType : Hashable> (Self) -> () -> ()",
               "key.typeusr" : "$syycD",
@@ -1236,6 +1318,7 @@
               "key.bodyoffset" : 950,
               "key.column" : 8,
               "key.decl_lang" : "source.lang.swift",
+              "key.doc_comment" : "Special default implementation for m in Hashable case.",
               "key.doc.column" : 8,
               "key.doc.comment" : "Special default implementation for m in Hashable case.",
               "key.doc.declaration" : "func m(arg: Int) -> String",
@@ -1248,6 +1331,7 @@
               "key.docoffset" : 861,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>m<\/decl.name>(<decl.var.parameter><decl.var.parameter.argument_label>arg<\/decl.var.parameter.argument_label>: <decl.var.parameter.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.function.returntype><\/decl.function.method.instance>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 46,
               "key.line" : 50,
@@ -1259,6 +1343,11 @@
               "key.parsed_declaration" : "func m(arg: Int) -> String",
               "key.parsed_scope.end" : 52,
               "key.parsed_scope.start" : 50,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:14SpmSwiftModule13FirstProtocolP"
+                }
+              ],
               "key.related_decls" : [
                 {
                   "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule13FirstProtocolP1m3argSSSi_tF\">m(arg: Int) -&gt; String<\/RelatedName>"
@@ -1303,6 +1392,7 @@
           "key.bodylength" : 91,
           "key.bodyoffset" : 1053,
           "key.decl_lang" : "source.lang.swift",
+          "key.doc_comment" : "A type representing the sequence's elements.",
           "key.doc.comment" : "Extension of a nested type from an external module",
           "key.doc.declaration" : "associatedtype Element where Self.Element == Self.Iterator.Element",
           "key.doc.discussion" : [
@@ -1372,6 +1462,7 @@
               "key.bodyoffset" : 1097,
               "key.column" : 8,
               "key.decl_lang" : "source.lang.swift",
+              "key.doc_comment" : "documented method",
               "key.doc.column" : 8,
               "key.doc.comment" : "documented method",
               "key.doc.declaration" : "func method1()",
@@ -1474,6 +1565,7 @@
           "key.bodylength" : 121,
           "key.bodyoffset" : 1173,
           "key.decl_lang" : "source.lang.swift",
+          "key.doc_comment" : "A type that can represent a string as a collection of characters.\n\nDo not declare new conformances to `StringProtocol`. Only the `String` and\n`Substring` types in the standard library are valid conforming types.",
           "key.doc.declaration" : "protocol StringProtocol : BidirectionalCollection, Comparable, ExpressibleByStringInterpolation, Hashable, LosslessStringConvertible, TextOutputStream, TextOutputStreamable where Self.Element == Character, Self.Index == String.Index, Self.StringInterpolation == DefaultStringInterpolation, Self.SubSequence : StringProtocol",
           "key.doc.discussion" : [
             {
@@ -1525,6 +1617,7 @@
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>f<\/decl.name>()<\/decl.function.method.instance>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 11,
               "key.line" : 64,
@@ -1536,6 +1629,11 @@
               "key.parsed_declaration" : "func f()",
               "key.parsed_scope.end" : 64,
               "key.parsed_scope.start" : 64,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:Sy"
+                }
+              ],
               "key.reusingastcontext" : false,
               "key.typename" : "<Self where Self : StringProtocol> (Self) -> () -> ()",
               "key.typeusr" : "$syycD",
@@ -1568,6 +1666,7 @@
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Extensions.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>hasSuffix<\/decl.name>(<decl.var.parameter><decl.var.parameter.argument_label>_<\/decl.var.parameter.argument_label> <decl.var.parameter.name>prefix<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.struct usr=\"s:Sb\">Bool<\/ref.struct><\/decl.function.returntype><\/decl.function.method.instance>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 50,
               "key.line" : 66,
@@ -1579,6 +1678,11 @@
               "key.parsed_declaration" : "func hasSuffix(_ prefix: String) -> Bool",
               "key.parsed_scope.end" : 66,
               "key.parsed_scope.start" : 66,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:Sy"
+                }
+              ],
               "key.related_decls" : [
                 {
                   "key.annotated_decl" : "<RelatedName usr=\"s:Sy9hasSuffixySbSSF\">hasSuffix(_: String) -&gt; Bool<\/RelatedName>"
@@ -1644,6 +1748,7 @@
           "key.bodyoffset" : 47,
           "key.column" : 17,
           "key.decl_lang" : "source.lang.swift",
+          "key.doc_comment" : "A protocol.",
           "key.doc.column" : 17,
           "key.doc.comment" : "A protocol.",
           "key.doc.declaration" : "public protocol FirstProtocol",
@@ -1721,6 +1826,7 @@
               "key.bb.type_module_name" : "SpmSwiftModule",
               "key.column" : 8,
               "key.decl_lang" : "source.lang.swift",
+              "key.doc_comment" : "Brief note about m\n\nWhat m is all about.\n- parameter arg: The argument\n- returns: The answer",
               "key.doc.column" : 8,
               "key.doc.comment" : "Brief note about m\n\nWhat m is all about.\n- parameter arg: The argument\n- returns: The answer",
               "key.doc.declaration" : "func m(arg: Int) -> String",
@@ -1753,6 +1859,7 @@
               "key.docoffset" : 50,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>m<\/decl.name>(<decl.var.parameter><decl.var.parameter.argument_label>arg<\/decl.var.parameter.argument_label>: <decl.var.parameter.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.function.returntype><\/decl.function.method.instance>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 26,
               "key.line" : 8,
@@ -1764,6 +1871,11 @@
               "key.parsed_declaration" : "func m(arg: Int) -> String",
               "key.parsed_scope.end" : 8,
               "key.parsed_scope.start" : 8,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:14SpmSwiftModule13FirstProtocolP"
+                }
+              ],
               "key.related_decls" : [
                 {
                   "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule13FirstProtocolPAASH9AssocTypeRpzrlE1m3argSSSi_tF\">m(arg: Int) -&gt; String<\/RelatedName>"
@@ -1799,6 +1911,7 @@
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
               "key.fully_annotated_decl" : "<decl.associatedtype><syntaxtype.keyword>associatedtype<\/syntaxtype.keyword> <decl.name>AssocType<\/decl.name><\/decl.associatedtype>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.associatedtype",
               "key.length" : 24,
               "key.line" : 10,
@@ -1810,6 +1923,11 @@
               "key.parsed_declaration" : "associatedtype AssocType",
               "key.parsed_scope.end" : 10,
               "key.parsed_scope.start" : 10,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:14SpmSwiftModule13FirstProtocolP"
+                }
+              ],
               "key.reusingastcontext" : false,
               "key.typename" : "Self.AssocType.Type",
               "key.typeusr" : "$s9AssocTypeQzmD",
@@ -1841,6 +1959,7 @@
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>assocFunc<\/decl.name>() -&gt; <decl.function.returntype><ref.associatedtype usr=\"s:14SpmSwiftModule13FirstProtocolP9AssocTypeQa\">AssocType<\/ref.associatedtype><\/decl.function.returntype><\/decl.function.method.instance>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 29,
               "key.line" : 11,
@@ -1852,6 +1971,11 @@
               "key.parsed_declaration" : "func assocFunc() -> AssocType",
               "key.parsed_scope.end" : 11,
               "key.parsed_scope.start" : 11,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:14SpmSwiftModule13FirstProtocolP"
+                }
+              ],
               "key.reusingastcontext" : false,
               "key.typename" : "<Self where Self : FirstProtocol> (Self) -> () -> Self.AssocType",
               "key.typeusr" : "$s9AssocTypeQzycD",
@@ -1885,6 +2009,7 @@
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
               "key.fully_annotated_decl" : "<decl.var.instance><syntaxtype.keyword>var<\/syntaxtype.keyword> <decl.name>getOnly<\/decl.name>: <decl.var.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.type> { <syntaxtype.keyword>get<\/syntaxtype.keyword> }<\/decl.var.instance>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.var.instance",
               "key.length" : 24,
               "key.line" : 13,
@@ -1896,6 +2021,11 @@
               "key.parsed_declaration" : "var getOnly: Int",
               "key.parsed_scope.end" : 13,
               "key.parsed_scope.start" : 13,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:14SpmSwiftModule13FirstProtocolP"
+                }
+              ],
               "key.reusingastcontext" : false,
               "key.typename" : "Int",
               "key.typeusr" : "$sSiD",
@@ -1929,6 +2059,7 @@
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
               "key.fully_annotated_decl" : "<decl.var.instance><syntaxtype.keyword>var<\/syntaxtype.keyword> <decl.name>setAndGet<\/decl.name>: <decl.var.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.type> { <syntaxtype.keyword>get<\/syntaxtype.keyword> <syntaxtype.keyword>set<\/syntaxtype.keyword> }<\/decl.var.instance>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.var.instance",
               "key.length" : 30,
               "key.line" : 15,
@@ -1940,6 +2071,11 @@
               "key.parsed_declaration" : "var setAndGet: Int",
               "key.parsed_scope.end" : 15,
               "key.parsed_scope.start" : 15,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:14SpmSwiftModule13FirstProtocolP"
+                }
+              ],
               "key.reusingastcontext" : false,
               "key.setter_accessibility" : "source.lang.swift.accessibility.public",
               "key.typename" : "Int",
@@ -2038,6 +2174,7 @@
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>secondProtocolMethod<\/decl.name>() -&gt; <decl.function.returntype><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.function.returntype><\/decl.function.method.instance>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 37,
               "key.line" : 19,
@@ -2049,6 +2186,11 @@
               "key.parsed_declaration" : "func secondProtocolMethod() -> String",
               "key.parsed_scope.end" : 19,
               "key.parsed_scope.start" : 19,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:14SpmSwiftModule14SecondProtocolP"
+                }
+              ],
               "key.reusingastcontext" : false,
               "key.typename" : "<Self where Self : SecondProtocol> (Self) -> () -> String",
               "key.typeusr" : "$sSSycD",
@@ -2126,6 +2268,7 @@
               "key.bodyoffset" : 694,
               "key.column" : 7,
               "key.decl_lang" : "source.lang.swift",
+              "key.doc_comment" : "A default implementation for a method of `FirstProtocol`\nprovided by `SecondProtocol`.\nFrom source we mess this up as an extension method.\nFrom symbolgraph we mess this up as being part of `FirstProtocol`.",
               "key.doc.column" : 7,
               "key.doc.comment" : "A default implementation for a method of `FirstProtocol`\nprovided by `SecondProtocol`.\nFrom source we mess this up as an extension method.\nFrom symbolgraph we mess this up as being part of `FirstProtocol`.",
               "key.doc.declaration" : "var getOnly: Int { get }",
@@ -2138,6 +2281,7 @@
               "key.docoffset" : 446,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
               "key.fully_annotated_decl" : "<decl.var.instance><syntaxtype.keyword>var<\/syntaxtype.keyword> <decl.name>getOnly<\/decl.name>: <decl.var.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.type> { <syntaxtype.keyword>get<\/syntaxtype.keyword> }<\/decl.var.instance>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.var.instance",
               "key.length" : 22,
               "key.line" : 27,
@@ -2149,6 +2293,11 @@
               "key.parsed_declaration" : "var getOnly: Int",
               "key.parsed_scope.end" : 27,
               "key.parsed_scope.start" : 27,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:14SpmSwiftModule14SecondProtocolP"
+                }
+              ],
               "key.related_decls" : [
                 {
                   "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule13FirstProtocolP7getOnlySivp\">getOnly<\/RelatedName>"
@@ -2191,6 +2340,7 @@
           "key.bodyoffset" : 727,
           "key.column" : 17,
           "key.decl_lang" : "source.lang.swift",
+          "key.doc_comment" : "A protocol.",
           "key.doc.column" : 17,
           "key.doc.declaration" : "public protocol FirstProtocol",
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
@@ -2244,6 +2394,7 @@
               "key.bodyoffset" : 774,
               "key.column" : 8,
               "key.decl_lang" : "source.lang.swift",
+              "key.doc_comment" : "A protocol extension method",
               "key.doc.column" : 8,
               "key.doc.comment" : "A protocol extension method",
               "key.doc.declaration" : "func e()",
@@ -2256,6 +2407,7 @@
               "key.docoffset" : 730,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>e<\/decl.name>()<\/decl.function.method.instance>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 11,
               "key.line" : 32,
@@ -2267,6 +2419,11 @@
               "key.parsed_declaration" : "func e()",
               "key.parsed_scope.end" : 32,
               "key.parsed_scope.start" : 32,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:14SpmSwiftModule13FirstProtocolP"
+                }
+              ],
               "key.related_decls" : [
                 {
                   "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule13FirstProtocolPAAE1e1ayqd___tAaBRd__lF\">e(a:)<\/RelatedName>"
@@ -2309,6 +2466,7 @@
           "key.bodyoffset" : 804,
           "key.column" : 17,
           "key.decl_lang" : "source.lang.swift",
+          "key.doc_comment" : "A protocol.",
           "key.doc.column" : 17,
           "key.doc.declaration" : "public protocol FirstProtocol",
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
@@ -2370,6 +2528,7 @@
               "key.bodyoffset" : 889,
               "key.column" : 8,
               "key.decl_lang" : "source.lang.swift",
+              "key.doc_comment" : "A generic protocol extension method",
               "key.doc.column" : 8,
               "key.doc.comment" : "A generic protocol extension method",
               "key.doc.declaration" : "func e<C>(a: C) where C : SpmSwiftModule.FirstProtocol",
@@ -2382,6 +2541,7 @@
               "key.docoffset" : 807,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>e<\/decl.name>&lt;<decl.generic_type_param usr=\"s:14SpmSwiftModule13FirstProtocolPAAE1e1ayqd___tAaBRd__lF1CL_qd__mfp\"><decl.generic_type_param.name>C<\/decl.generic_type_param.name><\/decl.generic_type_param>&gt;(<decl.var.parameter><decl.var.parameter.argument_label>a<\/decl.var.parameter.argument_label>: <decl.var.parameter.type><ref.generic_type_param usr=\"s:14SpmSwiftModule13FirstProtocolPAAE1e1ayqd___tAaBRd__lF1CL_qd__mfp\">C<\/ref.generic_type_param><\/decl.var.parameter.type><\/decl.var.parameter>) <syntaxtype.keyword>where<\/syntaxtype.keyword> <decl.generic_type_requirement><ref.generic_type_param usr=\"s:14SpmSwiftModule13FirstProtocolPAAE1e1ayqd___tAaBRd__lF1CL_qd__mfp\">C<\/ref.generic_type_param> : <ref.protocol usr=\"s:14SpmSwiftModule13FirstProtocolP\">FirstProtocol<\/ref.protocol><\/decl.generic_type_requirement><\/decl.function.method.instance>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 41,
               "key.line" : 37,
@@ -2393,6 +2553,11 @@
               "key.parsed_declaration" : "func e<C>(a: C) where C: FirstProtocol",
               "key.parsed_scope.end" : 37,
               "key.parsed_scope.start" : 37,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:14SpmSwiftModule13FirstProtocolP"
+                }
+              ],
               "key.related_decls" : [
                 {
                   "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule13FirstProtocolPAAE1eyyF\">e()<\/RelatedName>"
@@ -2470,6 +2635,7 @@
           "key.bodyoffset" : 919,
           "key.column" : 17,
           "key.decl_lang" : "source.lang.swift",
+          "key.doc_comment" : "A protocol.",
           "key.doc.column" : 17,
           "key.doc.declaration" : "public protocol FirstProtocol",
           "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
@@ -2534,6 +2700,7 @@
               "key.bodyoffset" : 1028,
               "key.column" : 8,
               "key.decl_lang" : "source.lang.swift",
+              "key.doc_comment" : "Return a safe default.\n\nThere's more: it's the empty string.",
               "key.doc.column" : 8,
               "key.doc.comment" : "Return a safe default.\n\nThere's more: it's the empty string.",
               "key.doc.declaration" : "func m(arg: Int) -> String",
@@ -2551,6 +2718,7 @@
               "key.docoffset" : 922,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/Protocols.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>m<\/decl.name>(<decl.var.parameter><decl.var.parameter.argument_label>arg<\/decl.var.parameter.argument_label>: <decl.var.parameter.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.function.returntype><\/decl.function.method.instance>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 39,
               "key.line" : 44,
@@ -2562,6 +2730,11 @@
               "key.parsed_declaration" : "func m(arg: Int) -> String",
               "key.parsed_scope.end" : 46,
               "key.parsed_scope.start" : 44,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:14SpmSwiftModule13FirstProtocolP"
+                }
+              ],
               "key.related_decls" : [
                 {
                   "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule13FirstProtocolP1m3argSSSi_tF\">m(arg: Int) -&gt; String<\/RelatedName>"
@@ -2804,6 +2977,7 @@
               "key.bodyoffset" : 1159,
               "key.column" : 7,
               "key.decl_lang" : "source.lang.swift",
+              "key.doc_comment" : "A textual representation of this instance.\n\nCalling this property directly is discouraged. Instead, convert an\ninstance of any type to a string by using the `String(describing:)`\ninitializer. This initializer works with any type, and uses the custom\n`description` property for types that conform to\n`CustomStringConvertible`:\n\n    struct Point: CustomStringConvertible {\n        let x: Int, y: Int\n\n        var description: String {\n            return \"(\\(x), \\(y))\"\n        }\n    }\n\n    let p = Point(x: 21, y: 30)\n    let s = String(describing: p)\n    print(s)\n    \/\/ Prints \"(21, 30)\"\n\nThe conversion of `p` to a string in the assignment to `s` uses the\n`Point` type's `description` property.",
               "key.doc.declaration" : "var description: String { get }",
               "key.doc.discussion" : [
                 {
@@ -3219,6 +3393,7 @@
           "key.bodylength" : 0,
           "key.bodyoffset" : 1399,
           "key.decl_lang" : "source.lang.swift",
+          "key.doc_comment" : "A collection whose elements are key-value pairs.\n\nA dictionary is a type of hash table, providing fast access to the entries\nit contains. Each entry in the table is identified using its key, which is\na hashable type such as a string or number. You use that key to retrieve\nthe corresponding value, which can be any object. In other languages,\nsimilar data types are known as hashes or associated arrays.\n\nCreate a new dictionary by using a dictionary literal. A dictionary literal\nis a comma-separated list of key-value pairs, in which a colon separates\neach key from its associated value, surrounded by square brackets. You can\nassign a dictionary literal to a variable or constant or pass it to a\nfunction that expects a dictionary.\n\nHere's how you would create a dictionary of HTTP response codes and their\nrelated messages:\n\n    var responseMessages = [200: \"OK\",\n                            403: \"Access forbidden\",\n                            404: \"File not found\",\n                            500: \"Internal server error\"]\n\nThe `responseMessages` variable is inferred to have type `[Int: String]`.\nThe `Key` type of the dictionary is `Int`, and the `Value` type of the\ndictionary is `String`.\n\nTo create a dictionary with no key-value pairs, use an empty dictionary\nliteral (`[:]`).\n\n    var emptyDict: [String: String] = [:]\n\nAny type that conforms to the `Hashable` protocol can be used as a\ndictionary's `Key` type, including all of Swift's basic types. You can use\nyour own custom types as dictionary keys by making them conform to the\n`Hashable` protocol.\n\nGetting and Setting Dictionary Values\n=====================================\n\nThe most common way to access values in a dictionary is to use a key as a\nsubscript. Subscripting with a key takes the following form:\n\n    print(responseMessages[200])\n    \/\/ Prints \"Optional(\"OK\")\"\n\nSubscripting a dictionary with a key returns an optional value, because a\ndictionary might not hold a value for the key that you use in the\nsubscript.\n\nThe next example uses key-based subscripting of the `responseMessages`\ndictionary with two keys that exist in the dictionary and one that does\nnot.\n\n    let httpResponseCodes = [200, 403, 301]\n    for code in httpResponseCodes {\n        if let message = responseMessages[code] {\n            print(\"Response \\(code): \\(message)\")\n        } else {\n            print(\"Unknown response \\(code)\")\n        }\n    }\n    \/\/ Prints \"Response 200: OK\"\n    \/\/ Prints \"Response 403: Access forbidden\"\n    \/\/ Prints \"Unknown response 301\"\n\nYou can also update, modify, or remove keys and values from a dictionary\nusing the key-based subscript. To add a new key-value pair, assign a value\nto a key that isn't yet a part of the dictionary.\n\n    responseMessages[301] = \"Moved permanently\"\n    print(responseMessages[301])\n    \/\/ Prints \"Optional(\"Moved permanently\")\"\n\nUpdate an existing value by assigning a new value to a key that already\nexists in the dictionary. If you assign `nil` to an existing key, the key\nand its associated value are removed. The following example updates the\nvalue for the `404` code to be simply \"Not found\" and removes the\nkey-value pair for the `500` code entirely.\n\n    responseMessages[404] = \"Not found\"\n    responseMessages[500] = nil\n    print(responseMessages)\n    \/\/ Prints \"[301: \"Moved permanently\", 200: \"OK\", 403: \"Access forbidden\", 404: \"Not found\"]\"\n\nIn a mutable `Dictionary` instance, you can modify in place a value that\nyou've accessed through a keyed subscript. The code sample below declares a\ndictionary called `interestingNumbers` with string keys and values that\nare integer arrays, then sorts each array in-place in descending order.\n\n    var interestingNumbers = [\"primes\": [2, 3, 5, 7, 11, 13, 17],\n                              \"triangular\": [1, 3, 6, 10, 15, 21, 28],\n                              \"hexagonal\": [1, 6, 15, 28, 45, 66, 91]]\n    for key in interestingNumbers.keys {\n        interestingNumbers[key]?.sort(by: >)\n    }\n\n    print(interestingNumbers[\"primes\"]!)\n    \/\/ Prints \"[17, 13, 11, 7, 5, 3, 2]\"\n\nIterating Over the Contents of a Dictionary\n===========================================\n\nEvery dictionary is an unordered collection of key-value pairs. You can\niterate over a dictionary using a `for`-`in` loop, decomposing each\nkey-value pair into the elements of a tuple.\n\n    let imagePaths = [\"star\": \"\/glyphs\/star.png\",\n                      \"portrait\": \"\/images\/content\/portrait.jpg\",\n                      \"spacer\": \"\/images\/shared\/spacer.gif\"]\n\n    for (name, path) in imagePaths {\n        print(\"The path to '\\(name)' is '\\(path)'.\")\n    }\n    \/\/ Prints \"The path to 'star' is '\/glyphs\/star.png'.\"\n    \/\/ Prints \"The path to 'portrait' is '\/images\/content\/portrait.jpg'.\"\n    \/\/ Prints \"The path to 'spacer' is '\/images\/shared\/spacer.gif'.\"\n\nThe order of key-value pairs in a dictionary is stable between mutations\nbut is otherwise unpredictable. If you need an ordered collection of\nkey-value pairs and don't need the fast key lookup that `Dictionary`\nprovides, see the `KeyValuePairs` type for an alternative.\n\nYou can search a dictionary's contents for a particular value using the\n`contains(where:)` or `firstIndex(where:)` methods supplied by default\nimplementation. The following example checks to see if `imagePaths` contains\nany paths in the `\"\/glyphs\"` directory:\n\n    let glyphIndex = imagePaths.firstIndex(where: { $0.value.hasPrefix(\"\/glyphs\") })\n    if let index = glyphIndex {\n        print(\"The '\\(imagePaths[index].key)' image is a glyph.\")\n    } else {\n        print(\"No glyphs found!\")\n    }\n    \/\/ Prints \"The 'star' image is a glyph.\")\n\nNote that in this example, `imagePaths` is subscripted using a dictionary\nindex. Unlike the key-based subscript, the index-based subscript returns\nthe corresponding key-value pair as a non-optional tuple.\n\n    print(imagePaths[glyphIndex!])\n    \/\/ Prints \"(key: \"star\", value: \"\/glyphs\/star.png\")\"\n\nA dictionary's indices stay valid across additions to the dictionary as\nlong as the dictionary has enough capacity to store the added values\nwithout allocating more buffer. When a dictionary outgrows its buffer,\nexisting indices may be invalidated without any notification.\n\nWhen you know how many new values you're adding to a dictionary, use the\n`init(minimumCapacity:)` initializer to allocate the correct amount of\nbuffer.\n\nBridging Between Dictionary and NSDictionary\n============================================\n\nYou can bridge between `Dictionary` and `NSDictionary` using the `as`\noperator. For bridging to be possible, the `Key` and `Value` types of a\ndictionary must be classes, `@objc` protocols, or types that bridge to\nFoundation types.\n\nBridging from `Dictionary` to `NSDictionary` always takes O(1) time and\nspace. When the dictionary's `Key` and `Value` types are neither classes\nnor `@objc` protocols, any required bridging of elements occurs at the\nfirst access of each element. For this reason, the first operation that\nuses the contents of the dictionary may take O(*n*).\n\nBridging from `NSDictionary` to `Dictionary` first calls the `copy(with:)`\nmethod (`- copyWithZone:` in Objective-C) on the dictionary to get an\nimmutable copy and then performs additional Swift bookkeeping work that\ntakes O(1) time. For instances of `NSDictionary` that are already\nimmutable, `copy(with:)` usually returns the same dictionary in O(1) time;\notherwise, the copying performance is unspecified. The instances of\n`NSDictionary` and `Dictionary` share buffer using the same copy-on-write\noptimization that is used when two instances of `Dictionary` share\nbuffer.",
           "key.doc.declaration" : "@frozen struct Dictionary<Key, Value> where Key : Hashable",
           "key.doc.discussion" : [
             {
@@ -3379,6 +3554,7 @@
           "key.bodylength" : 23,
           "key.bodyoffset" : 1449,
           "key.decl_lang" : "source.lang.swift",
+          "key.doc_comment" : "An ordered, random-access collection.\n\nArrays are one of the most commonly used data types in an app. You use\narrays to organize your app's data. Specifically, you use the `Array` type\nto hold elements of a single type, the array's `Element` type. An array\ncan store any kind of elements---from integers to strings to classes.\n\nSwift makes it easy to create arrays in your code using an array literal:\nsimply surround a comma-separated list of values with square brackets.\nWithout any other information, Swift creates an array that includes the\nspecified values, automatically inferring the array's `Element` type. For\nexample:\n\n    \/\/ An array of 'Int' elements\n    let oddNumbers = [1, 3, 5, 7, 9, 11, 13, 15]\n\n    \/\/ An array of 'String' elements\n    let streets = [\"Albemarle\", \"Brandywine\", \"Chesapeake\"]\n\nYou can create an empty array by specifying the `Element` type of your\narray in the declaration. For example:\n\n    \/\/ Shortened forms are preferred\n    var emptyDoubles: [Double] = []\n\n    \/\/ The full type name is also allowed\n    var emptyFloats: Array<Float> = Array()\n\nIf you need an array that is preinitialized with a fixed number of default\nvalues, use the `Array(repeating:count:)` initializer.\n\n    var digitCounts = Array(repeating: 0, count: 10)\n    print(digitCounts)\n    \/\/ Prints \"[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]\"\n\nAccessing Array Values\n======================\n\nWhen you need to perform an operation on all of an array's elements, use a\n`for`-`in` loop to iterate through the array's contents.\n\n    for street in streets {\n        print(\"I don't live on \\(street).\")\n    }\n    \/\/ Prints \"I don't live on Albemarle.\"\n    \/\/ Prints \"I don't live on Brandywine.\"\n    \/\/ Prints \"I don't live on Chesapeake.\"\n\nUse the `isEmpty` property to check quickly whether an array has any\nelements, or use the `count` property to find the number of elements in\nthe array.\n\n    if oddNumbers.isEmpty {\n        print(\"I don't know any odd numbers.\")\n    } else {\n        print(\"I know \\(oddNumbers.count) odd numbers.\")\n    }\n    \/\/ Prints \"I know 8 odd numbers.\"\n\nUse the `first` and `last` properties for safe access to the value of the\narray's first and last elements. If the array is empty, these properties\nare `nil`.\n\n    if let firstElement = oddNumbers.first, let lastElement = oddNumbers.last {\n        print(firstElement, lastElement, separator: \", \")\n    }\n    \/\/ Prints \"1, 15\"\n\n    print(emptyDoubles.first, emptyDoubles.last, separator: \", \")\n    \/\/ Prints \"nil, nil\"\n\nYou can access individual array elements through a subscript. The first\nelement of a nonempty array is always at index zero. You can subscript an\narray with any integer from zero up to, but not including, the count of\nthe array. Using a negative number or an index equal to or greater than\n`count` triggers a runtime error. For example:\n\n    print(oddNumbers[0], oddNumbers[3], separator: \", \")\n    \/\/ Prints \"1, 7\"\n\n    print(emptyDoubles[0])\n    \/\/ Triggers runtime error: Index out of range\n\nAdding and Removing Elements\n============================\n\nSuppose you need to store a list of the names of students that are signed\nup for a class you're teaching. During the registration period, you need\nto add and remove names as students add and drop the class.\n\n    var students = [\"Ben\", \"Ivy\", \"Jordell\"]\n\nTo add single elements to the end of an array, use the `append(_:)` method.\nAdd multiple elements at the same time by passing another array or a\nsequence of any kind to the `append(contentsOf:)` method.\n\n    students.append(\"Maxime\")\n    students.append(contentsOf: [\"Shakia\", \"William\"])\n    \/\/ [\"Ben\", \"Ivy\", \"Jordell\", \"Maxime\", \"Shakia\", \"William\"]\n\nYou can add new elements in the middle of an array by using the\n`insert(_:at:)` method for single elements and by using\n`insert(contentsOf:at:)` to insert multiple elements from another\ncollection or array literal. The elements at that index and later indices\nare shifted back to make room.\n\n    students.insert(\"Liam\", at: 3)\n    \/\/ [\"Ben\", \"Ivy\", \"Jordell\", \"Liam\", \"Maxime\", \"Shakia\", \"William\"]\n\nTo remove elements from an array, use the `remove(at:)`,\n`removeSubrange(_:)`, and `removeLast()` methods.\n\n    \/\/ Ben's family is moving to another state\n    students.remove(at: 0)\n    \/\/ [\"Ivy\", \"Jordell\", \"Liam\", \"Maxime\", \"Shakia\", \"William\"]\n\n    \/\/ William is signing up for a different class\n    students.removeLast()\n    \/\/ [\"Ivy\", \"Jordell\", \"Liam\", \"Maxime\", \"Shakia\"]\n\nYou can replace an existing element with a new value by assigning the new\nvalue to the subscript.\n\n    if let i = students.firstIndex(of: \"Maxime\") {\n        students[i] = \"Max\"\n    }\n    \/\/ [\"Ivy\", \"Jordell\", \"Liam\", \"Max\", \"Shakia\"]\n\nGrowing the Size of an Array\n----------------------------\n\nEvery array reserves a specific amount of memory to hold its contents. When\nyou add elements to an array and that array begins to exceed its reserved\ncapacity, the array allocates a larger region of memory and copies its\nelements into the new storage. The new storage is a multiple of the old\nstorage's size. This exponential growth strategy means that appending an\nelement happens in constant time, averaging the performance of many append\noperations. Append operations that trigger reallocation have a performance\ncost, but they occur less and less often as the array grows larger.\n\nIf you know approximately how many elements you will need to store, use the\n`reserveCapacity(_:)` method before appending to the array to avoid\nintermediate reallocations. Use the `capacity` and `count` properties to\ndetermine how many more elements the array can store without allocating\nlarger storage.\n\nFor arrays of most `Element` types, this storage is a contiguous block of\nmemory. For arrays with an `Element` type that is a class or `@objc`\nprotocol type, this storage can be a contiguous block of memory or an\ninstance of `NSArray`. Because any arbitrary subclass of `NSArray` can\nbecome an `Array`, there are no guarantees about representation or\nefficiency in this case.\n\nModifying Copies of Arrays\n==========================\n\nEach array has an independent value that includes the values of all of its\nelements. For simple types such as integers and other structures, this\nmeans that when you change a value in one array, the value of that element\ndoes not change in any copies of the array. For example:\n\n    var numbers = [1, 2, 3, 4, 5]\n    var numbersCopy = numbers\n    numbers[0] = 100\n    print(numbers)\n    \/\/ Prints \"[100, 2, 3, 4, 5]\"\n    print(numbersCopy)\n    \/\/ Prints \"[1, 2, 3, 4, 5]\"\n\nIf the elements in an array are instances of a class, the semantics are the\nsame, though they might appear different at first. In this case, the\nvalues stored in the array are references to objects that live outside the\narray. If you change a reference to an object in one array, only that\narray has a reference to the new object. However, if two arrays contain\nreferences to the same object, you can observe changes to that object's\nproperties from both arrays. For example:\n\n    \/\/ An integer type with reference semantics\n    class IntegerReference {\n        var value = 10\n    }\n    var firstIntegers = [IntegerReference(), IntegerReference()]\n    var secondIntegers = firstIntegers\n\n    \/\/ Modifications to an instance are visible from either array\n    firstIntegers[0].value = 100\n    print(secondIntegers[0].value)\n    \/\/ Prints \"100\"\n\n    \/\/ Replacements, additions, and removals are still visible\n    \/\/ only in the modified array\n    firstIntegers[0] = IntegerReference()\n    print(firstIntegers[0].value)\n    \/\/ Prints \"10\"\n    print(secondIntegers[0].value)\n    \/\/ Prints \"100\"\n\nArrays, like all variable-size collections in the standard library, use\ncopy-on-write optimization. Multiple copies of an array share the same\nstorage until you modify one of the copies. When that happens, the array\nbeing modified replaces its storage with a uniquely owned copy of itself,\nwhich is then modified in place. Optimizations are sometimes applied that\ncan reduce the amount of copying.\n\nThis means that if an array is sharing storage with other copies, the first\nmutating operation on that array incurs the cost of copying the array. An\narray that is the sole owner of its storage can perform mutating\noperations in place.\n\nIn the example below, a `numbers` array is created along with two copies\nthat share the same storage. When the original `numbers` array is\nmodified, it makes a unique copy of its storage before making the\nmodification. Further modifications to `numbers` are made in place, while\nthe two copies continue to share the original storage.\n\n    var numbers = [1, 2, 3, 4, 5]\n    var firstCopy = numbers\n    var secondCopy = numbers\n\n    \/\/ The storage for 'numbers' is copied here\n    numbers[0] = 100\n    numbers[1] = 200\n    numbers[2] = 300\n    \/\/ 'numbers' is [100, 200, 300, 4, 5]\n    \/\/ 'firstCopy' and 'secondCopy' are [1, 2, 3, 4, 5]\n\nBridging Between Array and NSArray\n==================================\n\nWhen you need to access APIs that require data in an `NSArray` instance\ninstead of `Array`, use the type-cast operator (`as`) to bridge your\ninstance. For bridging to be possible, the `Element` type of your array\nmust be a class, an `@objc` protocol (a protocol imported from Objective-C\nor marked with the `@objc` attribute), or a type that bridges to a\nFoundation type.\n\nThe following example shows how you can bridge an `Array` instance to\n`NSArray` to use the `write(to:atomically:)` method. In this example, the\n`colors` array can be bridged to `NSArray` because the `colors` array's\n`String` elements bridge to `NSString`. The compiler prevents bridging the\n`moreColors` array, on the other hand, because its `Element` type is\n`Optional<String>`, which does *not* bridge to a Foundation type.\n\n    let colors = [\"periwinkle\", \"rose\", \"moss\"]\n    let moreColors: [String?] = [\"ochre\", \"pine\"]\n\n    let url = URL(fileURLWithPath: \"names.plist\")\n    (colors as NSArray).write(to: url, atomically: true)\n    \/\/ true\n\n    (moreColors as NSArray).write(to: url, atomically: true)\n    \/\/ error: cannot convert value of type '[String?]' to type 'NSArray'\n\nBridging from `Array` to `NSArray` takes O(1) time and O(1) space if the\narray's elements are already instances of a class or an `@objc` protocol;\notherwise, it takes O(*n*) time and space.\n\nWhen the destination array's element type is a class or an `@objc`\nprotocol, bridging from `NSArray` to `Array` first calls the `copy(with:)`\n(`- copyWithZone:` in Objective-C) method on the array to get an immutable\ncopy and then performs additional Swift bookkeeping work that takes O(1)\ntime. For instances of `NSArray` that are already immutable, `copy(with:)`\nusually returns the same array in O(1) time; otherwise, the copying\nperformance is unspecified. If `copy(with:)` returns the same array, the\ninstances of `NSArray` and `Array` share storage using the same\ncopy-on-write optimization that is used when two instances of `Array`\nshare storage.\n\nWhen the destination array's element type is a nonclass type that bridges\nto a Foundation type, bridging from `NSArray` to `Array` performs a\nbridging copy of the elements to contiguous storage in O(*n*) time. For\nexample, bridging from `NSArray` to `Array<Int>` performs such a copy. No\nfurther bridging is required when accessing elements of the `Array`\ninstance.\n\n- Note: The `ContiguousArray` and `ArraySlice` types are not bridged;\n  instances of those types always have a contiguous block of memory as\n  their storage.",
           "key.doc.declaration" : "@frozen struct Array<Element> : _DestructorSafeContainer",
           "key.doc.discussion" : [
             {
@@ -3636,6 +3812,7 @@
           "key.bodyoffset" : 49,
           "key.column" : 15,
           "key.decl_lang" : "source.lang.swift",
+          "key.doc_comment" : "Main structure",
           "key.doc.column" : 15,
           "key.doc.comment" : "Main structure",
           "key.doc.declaration" : "public struct SpmSwiftModule",
@@ -3951,6 +4128,7 @@
               "key.bb.type_module_name" : "SpmSwiftModule",
               "key.column" : 9,
               "key.decl_lang" : "source.lang.swift",
+              "key.doc_comment" : "A pair of Ints",
               "key.doc.column" : 9,
               "key.doc.comment" : "A pair of Ints",
               "key.doc.declaration" : "var a: Int",
@@ -4010,6 +4188,7 @@
               "key.bb.type_module_name" : "SpmSwiftModule",
               "key.column" : 9,
               "key.decl_lang" : "source.lang.swift",
+              "key.doc_comment" : "A pair of Ints",
               "key.doc.column" : 9,
               "key.doc.declaration" : "var b: Int",
               "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -4102,6 +4281,7 @@
               "key.bodyoffset" : 648,
               "key.column" : 17,
               "key.decl_lang" : "source.lang.swift",
+              "key.doc_comment" : "A method with params, throws, returns.\n\nDoes some checking.\n\n- parameter name: The name\n- returns: A value\n- throws: An error from `AnEnum` if things are wrong",
               "key.doc.column" : 17,
               "key.doc.comment" : "A method with params, throws, returns.\n\nDoes some checking.\n\n- parameter name: The name\n- returns: A value\n- throws: An error from `AnEnum` if things are wrong",
               "key.doc.declaration" : "public func checkState(name: String) throws -> Int",
@@ -4190,6 +4370,7 @@
           "key.bodyoffset" : 700,
           "key.column" : 13,
           "key.decl_lang" : "source.lang.swift",
+          "key.doc_comment" : "An enum",
           "key.doc.column" : 13,
           "key.doc.comment" : "An enum",
           "key.doc.declaration" : "public enum AnEnum",
@@ -4250,6 +4431,7 @@
                   "key.bb.type_module_name" : "SpmSwiftModule",
                   "key.column" : 10,
                   "key.decl_lang" : "source.lang.swift",
+                  "key.doc_comment" : "First case",
                   "key.doc.column" : 10,
                   "key.doc.comment" : "First case",
                   "key.doc.declaration" : "",
@@ -4311,6 +4493,7 @@
                   "key.bb.type_module_name" : "SpmSwiftModule",
                   "key.column" : 10,
                   "key.decl_lang" : "source.lang.swift",
+                  "key.doc_comment" : "Second case",
                   "key.doc.column" : 10,
                   "key.doc.comment" : "Second case",
                   "key.doc.declaration" : "",
@@ -4372,6 +4555,7 @@
                   "key.bb.type_module_name" : "SpmSwiftModule",
                   "key.column" : 10,
                   "key.decl_lang" : "source.lang.swift",
+                  "key.doc_comment" : "Third & Fourth cases - `second`",
                   "key.doc.column" : 10,
                   "key.doc.comment" : "Third & Fourth cases - `second`",
                   "key.doc.declaration" : "",
@@ -4426,6 +4610,7 @@
                   "key.bb.type_module_name" : "SpmSwiftModule",
                   "key.column" : 17,
                   "key.decl_lang" : "source.lang.swift",
+                  "key.doc_comment" : "Third & Fourth cases - `second`",
                   "key.doc.column" : 17,
                   "key.doc.declaration" : "",
                   "key.doc.file" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
@@ -4490,6 +4675,7 @@
                   "key.bb.type_module_name" : "SpmSwiftModule",
                   "key.column" : 10,
                   "key.decl_lang" : "source.lang.swift",
+                  "key.doc_comment" : "Fifth case",
                   "key.doc.column" : 10,
                   "key.doc.comment" : "Fifth case",
                   "key.doc.declaration" : "",
@@ -4626,6 +4812,7 @@
           "key.bodyoffset" : 1269,
           "key.column" : 13,
           "key.decl_lang" : "source.lang.swift",
+          "key.doc_comment" : "- parameters:\n   - arg1: Number one\n   - arg2: Second\n   - arg3: Third\n\nSee `SpmSwiftModule` -- or `SpmSwiftModule.ABaseClass`.",
           "key.doc.column" : 13,
           "key.doc.comment" : "- parameters:\n   - arg1: Number one\n   - arg2: Second\n   - arg3: Third\n\nSee `SpmSwiftModule` -- or `SpmSwiftModule.ABaseClass`.",
           "key.doc.declaration" : "@available(iOS 9, macOS 10.12, *)\n@available(tvOS, unavailable, message: \"Not available on the big screen.\")\npublic func functionA(arg1: Int, _ arg2: Int, arg3 argMeaning: Int)",
@@ -4761,6 +4948,7 @@
           "key.bodyoffset" : 1604,
           "key.column" : 13,
           "key.decl_lang" : "source.lang.swift",
+          "key.doc_comment" : "A deprecated function\n\n- parameter callback: The callback\n- returns: A string",
           "key.doc.column" : 13,
           "key.doc.comment" : "A deprecated function\n\n- parameter callback: The callback\n- returns: A string",
           "key.doc.declaration" : "@available(iOS, deprecated: 12.0, message: \"Deprecated!\")\n@available(macOS, deprecated: 10.14, message: \"Deprecated on *macOS* too\")\n@available(*, deprecated)\npublic func deprecatedFunction(callback: (_ report: String) -> Int) -> String",
@@ -4839,6 +5027,7 @@
           "key.bodyoffset" : 1662,
           "key.column" : 14,
           "key.decl_lang" : "source.lang.swift",
+          "key.doc_comment" : "A base class",
           "key.doc.column" : 14,
           "key.doc.comment" : "A base class",
           "key.doc.declaration" : "public class ABaseClass",
@@ -4895,6 +5084,7 @@
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.function.constructor><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>init<\/syntaxtype.keyword>()<\/decl.function.constructor>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 9,
               "key.line" : 72,
@@ -4906,6 +5096,11 @@
               "key.parsed_declaration" : "public init()",
               "key.parsed_scope.end" : 72,
               "key.parsed_scope.start" : 72,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:14SpmSwiftModule10ABaseClassC"
+                }
+              ],
               "key.related_decls" : [
                 {
                   "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule10ABaseClassC1aACSi_tcfc\">init(a:)<\/RelatedName>"
@@ -4960,6 +5155,7 @@
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.function.constructor><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>convenience<\/syntaxtype.keyword> <syntaxtype.keyword>init<\/syntaxtype.keyword>(<decl.var.parameter><decl.var.parameter.argument_label>a<\/decl.var.parameter.argument_label>: <decl.var.parameter.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>)<\/decl.function.constructor>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 28,
               "key.line" : 74,
@@ -4971,6 +5167,11 @@
               "key.parsed_declaration" : "public convenience init(a: Int)",
               "key.parsed_scope.end" : 74,
               "key.parsed_scope.start" : 74,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:14SpmSwiftModule10ABaseClassC"
+                }
+              ],
               "key.related_decls" : [
                 {
                   "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule10ABaseClassCACycfc\">init()<\/RelatedName>"
@@ -5001,6 +5202,7 @@
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.function.destructor><syntaxtype.keyword>deinit<\/syntaxtype.keyword><\/decl.function.destructor>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 9,
               "key.line" : 76,
@@ -5012,6 +5214,11 @@
               "key.parsed_declaration" : "deinit",
               "key.parsed_scope.end" : 76,
               "key.parsed_scope.start" : 76,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:14SpmSwiftModule10ABaseClassC"
+                }
+              ],
               "key.reusingastcontext" : false,
               "key.typename" : "(ABaseClass) -> () -> ()",
               "key.typeusr" : "$syycD",
@@ -5064,6 +5271,7 @@
               "key.bodyoffset" : 1833,
               "key.column" : 15,
               "key.decl_lang" : "source.lang.swift",
+              "key.doc_comment" : "Base class docs for `method(param:)`",
               "key.doc.column" : 15,
               "key.doc.comment" : "Base class docs for `method(param:)`",
               "key.doc.declaration" : "public func method(param: Int) -> String",
@@ -5076,6 +5284,7 @@
               "key.docoffset" : 1748,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>method<\/decl.name>(<decl.var.parameter><decl.var.parameter.argument_label>param<\/decl.var.parameter.argument_label>: <decl.var.parameter.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.function.returntype><\/decl.function.method.instance>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 53,
               "key.line" : 78,
@@ -5087,6 +5296,11 @@
               "key.parsed_declaration" : "public func method(param: Int) -> String",
               "key.parsed_scope.end" : 80,
               "key.parsed_scope.start" : 78,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:14SpmSwiftModule10ABaseClassC"
+                }
+              ],
               "key.reusingastcontext" : false,
               "key.typename" : "(ABaseClass) -> (Int) -> String",
               "key.typeusr" : "$s5paramSSSi_tcD",
@@ -5182,6 +5396,7 @@
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.function.subscript><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>subscript<\/syntaxtype.keyword>(<decl.var.parameter><decl.var.parameter.name>arg<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.function.returntype> { <syntaxtype.keyword>get<\/syntaxtype.keyword> <syntaxtype.keyword>set<\/syntaxtype.keyword> }<\/decl.function.subscript>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.function.subscript",
               "key.length" : 82,
               "key.line" : 86,
@@ -5193,6 +5408,11 @@
               "key.parsed_declaration" : "public subscript(arg: String) -> Int",
               "key.parsed_scope.end" : 92,
               "key.parsed_scope.start" : 86,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:14SpmSwiftModule10ABaseClassC"
+                }
+              ],
               "key.related_decls" : [
                 {
                   "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule10ABaseClassCySiSScipZ\">subscript(_:)<\/RelatedName>"
@@ -5251,13 +5471,13 @@
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.function.subscript><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>static<\/syntaxtype.keyword> <syntaxtype.keyword>subscript<\/syntaxtype.keyword>(<decl.var.parameter><decl.var.parameter.name>arg<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.function.returntype> { <syntaxtype.keyword>get<\/syntaxtype.keyword> }<\/decl.function.subscript>",
               "key.kind" : "source.lang.swift.decl.function.subscript",
-              "key.length" : 48,
+              "key.length" : 55,
               "key.line" : 94,
               "key.modulename" : "SpmSwiftModule",
               "key.name" : "subscript(_:)",
               "key.namelength" : 22,
               "key.nameoffset" : 2025,
-              "key.offset" : 2025,
+              "key.offset" : 2018,
               "key.parsed_declaration" : "public static subscript(arg: String) -> Int",
               "key.parsed_scope.end" : 96,
               "key.parsed_scope.start" : 94,
@@ -5317,17 +5537,23 @@
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.function.subscript><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>class<\/syntaxtype.keyword> <syntaxtype.keyword>subscript<\/syntaxtype.keyword>(<decl.var.parameter><decl.var.parameter.name>arg<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.function.returntype> { <syntaxtype.keyword>get<\/syntaxtype.keyword> }<\/decl.function.subscript>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.function.subscript",
-              "key.length" : 49,
+              "key.length" : 55,
               "key.line" : 98,
               "key.modulename" : "SpmSwiftModule",
               "key.name" : "subscript(_:)",
               "key.namelength" : 19,
               "key.nameoffset" : 2090,
-              "key.offset" : 2090,
+              "key.offset" : 2084,
               "key.parsed_declaration" : "public class subscript(arg: Int) -> String",
               "key.parsed_scope.end" : 100,
               "key.parsed_scope.start" : 98,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:14SpmSwiftModule10ABaseClassC"
+                }
+              ],
               "key.related_decls" : [
                 {
                   "key.annotated_decl" : "<RelatedName usr=\"s:14SpmSwiftModule10ABaseClassCySiSScip\">subscript(_:)<\/RelatedName>"
@@ -5440,6 +5666,7 @@
               "key.bodyoffset" : 2274,
               "key.column" : 22,
               "key.decl_lang" : "source.lang.swift",
+              "key.doc_comment" : "An operator!",
               "key.doc.column" : 22,
               "key.doc.comment" : "An operator!",
               "key.doc.declaration" : "public static func + (lhs: ABaseClass, rhs: ABaseClass) -> ABaseClass",
@@ -5599,6 +5826,7 @@
           "key.bodyoffset" : 2369,
           "key.column" : 6,
           "key.decl_lang" : "source.lang.swift",
+          "key.doc_comment" : "Unscoped operator",
           "key.doc.column" : 6,
           "key.doc.comment" : "Unscoped operator",
           "key.doc.declaration" : "func + (lhs: T, rhs: T) -> String",
@@ -5661,6 +5889,12 @@
             },
             {
               "key.annotated_decl" : "<RelatedName usr=\"s:s8DurationV1poiyA2B_ABtFZ\">+ (_: Duration, _: Duration) -&gt; Duration<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:s6Int128V1poiyA2B_ABtFZ\">+ (_: Int128, _: Int128) -&gt; Int128<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:s7UInt128V1poiyA2B_ABtFZ\">+ (_: UInt128, _: UInt128) -&gt; UInt128<\/RelatedName>"
             },
             {
               "key.annotated_decl" : "<RelatedName usr=\"s:s4SIMDPsSF6ScalarRpzrlE1poiyxx_xtFZ\">+ (_: Self, _: Self) -&gt; Self<\/RelatedName>"
@@ -5800,6 +6034,7 @@
           "key.bodyoffset" : 2454,
           "key.column" : 14,
           "key.decl_lang" : "source.lang.swift",
+          "key.doc_comment" : "A derived class",
           "key.doc.column" : 14,
           "key.doc.comment" : "A derived class",
           "key.doc.declaration" : "public class ADerivedClass<T, Q> : ABaseClass where Q : Sequence",
@@ -5854,6 +6089,7 @@
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.generic_type_param><decl.generic_type_param.name>T<\/decl.generic_type_param.name><\/decl.generic_type_param>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.generic_type_param",
               "key.length" : 1,
               "key.line" : 121,
@@ -5865,6 +6101,11 @@
               "key.parsed_declaration" : "public class ADerivedClass<T",
               "key.parsed_scope.end" : 121,
               "key.parsed_scope.start" : 121,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:14SpmSwiftModule13ADerivedClassC"
+                }
+              ],
               "key.reusingastcontext" : false,
               "key.typename" : "T.Type",
               "key.typeusr" : "$sxmD",
@@ -5904,6 +6145,7 @@
                   "key.name" : "Sequence"
                 }
               ],
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.generic_type_param",
               "key.length" : 11,
               "key.line" : 121,
@@ -5915,6 +6157,11 @@
               "key.parsed_declaration" : "public class ADerivedClass<T, Q: Sequence",
               "key.parsed_scope.end" : 121,
               "key.parsed_scope.start" : 121,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:14SpmSwiftModule13ADerivedClassC"
+                }
+              ],
               "key.reusingastcontext" : false,
               "key.typename" : "Q.Type",
               "key.typeusr" : "$sq_mD",
@@ -5946,6 +6193,7 @@
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.var.instance><syntaxtype.keyword>var<\/syntaxtype.keyword> <decl.name>t<\/decl.name>: <decl.var.type><ref.generic_type_param usr=\"s:14SpmSwiftModule13ADerivedClassC1Qq_mfp\">Q<\/ref.generic_type_param>?<\/decl.var.type><\/decl.var.instance>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.var.instance",
               "key.length" : 15,
               "key.line" : 122,
@@ -5957,6 +6205,11 @@
               "key.parsed_declaration" : "var t: Q? = nil",
               "key.parsed_scope.end" : 122,
               "key.parsed_scope.start" : 122,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:14SpmSwiftModule13ADerivedClassC"
+                }
+              ],
               "key.reusingastcontext" : false,
               "key.setter_accessibility" : "source.lang.swift.accessibility.internal",
               "key.typename" : "Q?",
@@ -6015,6 +6268,7 @@
               "key.bodyoffset" : 2563,
               "key.column" : 24,
               "key.decl_lang" : "source.lang.swift",
+              "key.doc_comment" : "See `ABaseClass.method(...)`.",
               "key.doc.column" : 24,
               "key.doc.comment" : "See `ABaseClass.method(...)`.",
               "key.doc.declaration" : "public override func method(param: Int) -> String",
@@ -6027,6 +6281,7 @@
               "key.docoffset" : 2476,
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>override<\/syntaxtype.keyword> <syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>method<\/decl.name>(<decl.var.parameter><decl.var.parameter.argument_label>param<\/decl.var.parameter.argument_label>: <decl.var.parameter.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.struct usr=\"s:SS\">String<\/ref.struct><\/decl.function.returntype><\/decl.function.method.instance>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 53,
               "key.line" : 125,
@@ -6043,6 +6298,11 @@
               "key.parsed_declaration" : "public override func method(param: Int) -> String",
               "key.parsed_scope.end" : 127,
               "key.parsed_scope.start" : 125,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:14SpmSwiftModule13ADerivedClassC"
+                }
+              ],
               "key.reusingastcontext" : false,
               "key.typename" : "<T, Q where Q : Sequence> (ADerivedClass<T, Q>) -> (Int) -> String",
               "key.typeusr" : "$s5paramSSSi_tcD",
@@ -6091,6 +6351,7 @@
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>generic<\/decl.name>(<decl.var.parameter><decl.var.parameter.argument_label>param<\/decl.var.parameter.argument_label>: <decl.var.parameter.type><ref.generic_type_param usr=\"s:14SpmSwiftModule13ADerivedClassC1Txmfp\">T<\/ref.generic_type_param><\/decl.var.parameter.type><\/decl.var.parameter>) <syntaxtype.keyword>where<\/syntaxtype.keyword> <decl.generic_type_requirement><ref.generic_type_param usr=\"s:14SpmSwiftModule13ADerivedClassC1Txmfp\">T<\/ref.generic_type_param> : <ref.protocol usr=\"s:SQ\">Equatable<\/ref.protocol><\/decl.generic_type_requirement><\/decl.function.method.instance>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 44,
               "key.line" : 129,
@@ -6102,6 +6363,11 @@
               "key.parsed_declaration" : "public func generic(param: T) where T: Equatable",
               "key.parsed_scope.end" : 129,
               "key.parsed_scope.start" : 129,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:14SpmSwiftModule13ADerivedClassC"
+                }
+              ],
               "key.reusingastcontext" : false,
               "key.typename" : "<T, Q where T : Equatable, Q : Sequence> (ADerivedClass<T, Q>) -> (T) -> ()",
               "key.typeusr" : "$s5paramyx_tcSQRzrluD",
@@ -6158,6 +6424,7 @@
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>public<\/syntaxtype.keyword> <syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>generic2<\/decl.name>&lt;<decl.generic_type_param usr=\"s:14SpmSwiftModule13ADerivedClassC8generic25param2myxx_qd__tSTRd__AA13FirstProtocol7ElementRpd__lF1RL_qd__mfp\"><decl.generic_type_param.name>R<\/decl.generic_type_param.name><\/decl.generic_type_param>&gt;(<decl.var.parameter><decl.var.parameter.argument_label>param<\/decl.var.parameter.argument_label>: <decl.var.parameter.type><ref.generic_type_param usr=\"s:14SpmSwiftModule13ADerivedClassC1Txmfp\">T<\/ref.generic_type_param><\/decl.var.parameter.type><\/decl.var.parameter>, <decl.var.parameter><decl.var.parameter.argument_label>my<\/decl.var.parameter.argument_label> <decl.var.parameter.name>param2<\/decl.var.parameter.name>: <decl.var.parameter.type><ref.generic_type_param usr=\"s:14SpmSwiftModule13ADerivedClassC8generic25param2myxx_qd__tSTRd__AA13FirstProtocol7ElementRpd__lF1RL_qd__mfp\">R<\/ref.generic_type_param><\/decl.var.parameter.type><\/decl.var.parameter>) -&gt; <decl.function.returntype><ref.generic_type_param usr=\"s:14SpmSwiftModule13ADerivedClassC1Txmfp\">T<\/ref.generic_type_param><\/decl.function.returntype> <syntaxtype.keyword>where<\/syntaxtype.keyword> <decl.generic_type_requirement><ref.generic_type_param usr=\"s:14SpmSwiftModule13ADerivedClassC8generic25param2myxx_qd__tSTRd__AA13FirstProtocol7ElementRpd__lF1RL_qd__mfp\">R<\/ref.generic_type_param> : <ref.protocol usr=\"s:ST\">Sequence<\/ref.protocol><\/decl.generic_type_requirement>, <decl.generic_type_requirement><ref.generic_type_param usr=\"s:14SpmSwiftModule13ADerivedClassC8generic25param2myxx_qd__tSTRd__AA13FirstProtocol7ElementRpd__lF1RL_qd__mfp\">R<\/ref.generic_type_param>.<ref.associatedtype usr=\"s:ST7ElementQa\">Element<\/ref.associatedtype> : <ref.protocol usr=\"s:14SpmSwiftModule13FirstProtocolP\">FirstProtocol<\/ref.protocol><\/decl.generic_type_requirement><\/decl.function.method.instance>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 116,
               "key.line" : 131,
@@ -6169,6 +6436,11 @@
               "key.parsed_declaration" : "public func generic2<R>(param: T, my param2: R) -> T\n  where R: Sequence, R.Element: FirstProtocol",
               "key.parsed_scope.end" : 134,
               "key.parsed_scope.start" : 131,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:14SpmSwiftModule13ADerivedClassC"
+                }
+              ],
               "key.reusingastcontext" : false,
               "key.substructure" : [
                 {
@@ -6382,6 +6654,7 @@
           "key.bodyoffset" : 2956,
           "key.column" : 8,
           "key.decl_lang" : "source.lang.swift",
+          "key.doc_comment" : "See `@Nop`.",
           "key.doc.column" : 8,
           "key.doc.comment" : "See `@Nop`.",
           "key.doc.declaration" : "struct PropertyWrapperClient",

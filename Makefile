@@ -19,10 +19,10 @@ test:
 	swift test --enable-code-coverage
 
 test_linux:
-	docker run -v `pwd`:`pwd` -w `pwd` --name bebop --rm swift:5.10 /bin/bash -c "apt-get update; apt-get install make libsqlite3-dev libsass1 libsass-dev; make test"
+	docker run -v `pwd`:`pwd` -w `pwd` --name bebop --rm swift:6.0 /bin/bash -c "apt-get update; apt-get install make libsqlite3-dev libsass1 libsass-dev; make test"
 
 shell_linux:
-	docker run -it -v `pwd`:`pwd` -w `pwd` --name bebop --rm swift:5.10 /bin/bash
+	docker run -it -v `pwd`:`pwd` -w `pwd` --name bebop --rm swift:6.0 /bin/bash
 
 install: build
 	-mkdir -p ${PREFIX}/share ${PREFIX}/bin ${PREFIX}/lib

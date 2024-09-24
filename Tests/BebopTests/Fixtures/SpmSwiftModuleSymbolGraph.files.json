@@ -1550,7 +1550,7 @@
           "key.doc.comment" : "- parameters:\n   - arg1: Number one\n   - arg2: Second\n   - arg3: Third\n\nSee `SpmSwiftModule` -- or `SpmSwiftModule.ABaseClass`.",
           "key.doc.line" : 53,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "key.fully_annotated_decl" : "<swift><syntaxtype.attribute.builtin>@available(macOS, introduced: 10.12)\n<\/syntaxtype.attribute.builtin><syntaxtype.attribute.builtin>@available(tvOS, unavailable, message: &quot;Not available on the big screen.&quot;)\n<\/syntaxtype.attribute.builtin><syntaxtype.attribute.builtin>@available(iOS, introduced: 9)\n<\/syntaxtype.attribute.builtin>func functionA(arg1: Int, _ arg2: Int, arg3 argMeaning: Int)<\/swift>",
+          "key.fully_annotated_decl" : "<swift><syntaxtype.attribute.builtin>@available(macOS, introduced: 10.12)\n<\/syntaxtype.attribute.builtin><syntaxtype.attribute.builtin>@available(iOS, introduced: 9)\n<\/syntaxtype.attribute.builtin><syntaxtype.attribute.builtin>@available(tvOS, unavailable, message: &quot;Not available on the big screen.&quot;)\n<\/syntaxtype.attribute.builtin>func functionA(arg1: Int, _ arg2: Int, arg3 argMeaning: Int)<\/swift>",
           "key.inherited_docs" : false,
           "key.kind" : "source.lang.swift.decl.function.free",
           "key.name" : "functionA(arg1:_:arg3:)",
@@ -1583,7 +1583,7 @@
           "key.bb.swift_declaration" : "func deprecatedFunction(callback: (String) -> Int) -> String",
           "key.bb.swift_deprecated_everywhere" : true,
           "key.bb.swift_deprecation_messages" : {
-            "en" : "Deprecated.\n\nmacOS - deprecated since 10.14. Deprecated on *macOS* too.\n\niOS - deprecated since 12.0. Deprecated!."
+            "en" : "macOS - deprecated since 10.14. Deprecated on *macOS* too.\n\niOS - deprecated since 12.0. Deprecated!.\n\nDeprecated."
           },
           "key.bb.swift_name_pieces" : [
             {
@@ -1611,7 +1611,7 @@
           "key.doc.comment" : "A deprecated function\n\n- parameter callback: The callback\n- returns: A string",
           "key.doc.line" : 65,
           "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/SpmSwiftPackage\/Sources\/SpmSwiftModule\/SpmSwiftModule.swift",
-          "key.fully_annotated_decl" : "<swift><syntaxtype.attribute.builtin>@available(*, deprecated)\n<\/syntaxtype.attribute.builtin><syntaxtype.attribute.builtin>@available(macOS, deprecated: 10.14, message: &quot;Deprecated on *macOS* too&quot;)\n<\/syntaxtype.attribute.builtin><syntaxtype.attribute.builtin>@available(iOS, deprecated: 12.0, message: &quot;Deprecated!&quot;)\n<\/syntaxtype.attribute.builtin>func deprecatedFunction(callback: (String) -&gt; Int) -&gt; String<\/swift>",
+          "key.fully_annotated_decl" : "<swift><syntaxtype.attribute.builtin>@available(macOS, deprecated: 10.14, message: &quot;Deprecated on *macOS* too&quot;)\n<\/syntaxtype.attribute.builtin><syntaxtype.attribute.builtin>@available(iOS, deprecated: 12.0, message: &quot;Deprecated!&quot;)\n<\/syntaxtype.attribute.builtin><syntaxtype.attribute.builtin>@available(*, deprecated)\n<\/syntaxtype.attribute.builtin>func deprecatedFunction(callback: (String) -&gt; Int) -&gt; String<\/swift>",
           "key.inherited_docs" : false,
           "key.kind" : "source.lang.swift.decl.function.free",
           "key.name" : "deprecatedFunction(callback:)",
@@ -2918,12 +2918,18 @@
         {
           "key.bb.inherited_types" : [
             {
+              "key.bb.type_name" : "Copyable"
+            },
+            {
               "key.bb.type_name" : "CustomStringConvertible"
+            },
+            {
+              "key.bb.type_name" : "Escapable"
             }
           ],
           "key.bb.is_override" : false,
           "key.bb.is_spi" : false,
-          "key.bb.swift_declaration" : "extension GenericBase: CustomStringConvertible",
+          "key.bb.swift_declaration" : "extension GenericBase: Copyable, CustomStringConvertible, Escapable\nwhere T: Copyable, T: Escapable",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
             {
@@ -2936,10 +2942,16 @@
             }
           ],
           "key.bb.type_module_name" : "SpmSwiftModule",
-          "key.fully_annotated_decl" : "<swift>extension GenericBase : CustomStringConvertible<\/swift>",
+          "key.fully_annotated_decl" : "<swift>extension GenericBase : Copyable, CustomStringConvertible, Escapable where T : Copyable, T : Escapable<\/swift>",
           "key.inheritedtypes" : [
             {
+              "key.name" : "Copyable"
+            },
+            {
               "key.name" : "CustomStringConvertible"
+            },
+            {
+              "key.name" : "Escapable"
             }
           ],
           "key.kind" : "source.lang.swift.decl.extension",
@@ -3308,7 +3320,16 @@
         {
           "key.bb.inherited_types" : [
             {
+              "key.bb.type_name" : "BitwiseCopyable"
+            },
+            {
+              "key.bb.type_name" : "Copyable"
+            },
+            {
               "key.bb.type_name" : "CustomStringConvertible"
+            },
+            {
+              "key.bb.type_name" : "Escapable"
             },
             {
               "key.bb.type_name" : "P1"
@@ -3319,7 +3340,7 @@
           ],
           "key.bb.is_override" : false,
           "key.bb.is_spi" : false,
-          "key.bb.swift_declaration" : "extension S1: CustomStringConvertible, P1, Sendable",
+          "key.bb.swift_declaration" : "extension S1: BitwiseCopyable, Copyable, CustomStringConvertible, Escapable, P1,\n    Sendable",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
             {
@@ -3332,10 +3353,19 @@
             }
           ],
           "key.bb.type_module_name" : "SpmSwiftModule",
-          "key.fully_annotated_decl" : "<swift>extension S1 : CustomStringConvertible, P1, Sendable<\/swift>",
+          "key.fully_annotated_decl" : "<swift>extension S1 : BitwiseCopyable, Copyable, CustomStringConvertible, Escapable, P1, Sendable<\/swift>",
           "key.inheritedtypes" : [
             {
+              "key.name" : "BitwiseCopyable"
+            },
+            {
+              "key.name" : "Copyable"
+            },
+            {
               "key.name" : "CustomStringConvertible"
+            },
+            {
+              "key.name" : "Escapable"
             },
             {
               "key.name" : "P1"
@@ -3352,12 +3382,18 @@
         {
           "key.bb.inherited_types" : [
             {
+              "key.bb.type_name" : "Copyable"
+            },
+            {
+              "key.bb.type_name" : "Escapable"
+            },
+            {
               "key.bb.type_name" : "P2"
             }
           ],
           "key.bb.is_override" : false,
           "key.bb.is_spi" : false,
-          "key.bb.swift_declaration" : "extension S2: P2 where T: Comparable",
+          "key.bb.swift_declaration" : "extension S2: Copyable, Escapable, P2 where T: Comparable",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
             {
@@ -3370,8 +3406,14 @@
             }
           ],
           "key.bb.type_module_name" : "SpmSwiftModule",
-          "key.fully_annotated_decl" : "<swift>extension S2 : P2 where T : Comparable<\/swift>",
+          "key.fully_annotated_decl" : "<swift>extension S2 : Copyable, Escapable, P2 where T : Comparable<\/swift>",
           "key.inheritedtypes" : [
+            {
+              "key.name" : "Copyable"
+            },
+            {
+              "key.name" : "Escapable"
+            },
             {
               "key.name" : "P2"
             }
@@ -3434,7 +3476,16 @@
         {
           "key.bb.inherited_types" : [
             {
+              "key.bb.type_name" : "BitwiseCopyable"
+            },
+            {
+              "key.bb.type_name" : "Copyable"
+            },
+            {
               "key.bb.type_name" : "Equatable"
+            },
+            {
+              "key.bb.type_name" : "Escapable"
             },
             {
               "key.bb.type_name" : "P1"
@@ -3445,7 +3496,7 @@
           ],
           "key.bb.is_override" : false,
           "key.bb.is_spi" : false,
-          "key.bb.swift_declaration" : "extension S2: Equatable, P1, Sendable",
+          "key.bb.swift_declaration" : "extension S2: BitwiseCopyable, Copyable, Equatable, Escapable, P1, Sendable",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
             {
@@ -3458,10 +3509,19 @@
             }
           ],
           "key.bb.type_module_name" : "SpmSwiftModule",
-          "key.fully_annotated_decl" : "<swift>extension S2 : Equatable, P1, Sendable<\/swift>",
+          "key.fully_annotated_decl" : "<swift>extension S2 : BitwiseCopyable, Copyable, Equatable, Escapable, P1, Sendable<\/swift>",
           "key.inheritedtypes" : [
             {
+              "key.name" : "BitwiseCopyable"
+            },
+            {
+              "key.name" : "Copyable"
+            },
+            {
               "key.name" : "Equatable"
+            },
+            {
+              "key.name" : "Escapable"
             },
             {
               "key.name" : "P1"
@@ -3478,12 +3538,15 @@
         {
           "key.bb.inherited_types" : [
             {
+              "key.bb.type_name" : "BitwiseCopyable"
+            },
+            {
               "key.bb.type_name" : "Sendable"
             }
           ],
           "key.bb.is_override" : false,
           "key.bb.is_spi" : false,
-          "key.bb.swift_declaration" : "extension T: Sendable",
+          "key.bb.swift_declaration" : "extension T: BitwiseCopyable, Sendable",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
             {
@@ -3496,8 +3559,11 @@
             }
           ],
           "key.bb.type_module_name" : "SpmSwiftModule",
-          "key.fully_annotated_decl" : "<swift>extension T : Sendable<\/swift>",
+          "key.fully_annotated_decl" : "<swift>extension T : BitwiseCopyable, Sendable<\/swift>",
           "key.inheritedtypes" : [
+            {
+              "key.name" : "BitwiseCopyable"
+            },
             {
               "key.name" : "Sendable"
             }
@@ -3520,12 +3586,18 @@
         {
           "key.bb.inherited_types" : [
             {
+              "key.bb.type_name" : "Copyable"
+            },
+            {
+              "key.bb.type_name" : "Escapable"
+            },
+            {
               "key.bb.type_name" : "P1"
             }
           ],
           "key.bb.is_override" : false,
           "key.bb.is_spi" : false,
-          "key.bb.swift_declaration" : "extension Array: P1 where Element: Comparable",
+          "key.bb.swift_declaration" : "extension Array: Copyable, Escapable, P1 where Element: Comparable",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
             {
@@ -3538,8 +3610,14 @@
             }
           ],
           "key.bb.type_module_name" : "Swift",
-          "key.fully_annotated_decl" : "<swift>extension Array : P1 where Element : Comparable<\/swift>",
+          "key.fully_annotated_decl" : "<swift>extension Array : Copyable, Escapable, P1 where Element : Comparable<\/swift>",
           "key.inheritedtypes" : [
+            {
+              "key.name" : "Copyable"
+            },
+            {
+              "key.name" : "Escapable"
+            },
             {
               "key.name" : "P1"
             }
@@ -3800,12 +3878,18 @@
         {
           "key.bb.inherited_types" : [
             {
+              "key.bb.type_name" : "Copyable"
+            },
+            {
+              "key.bb.type_name" : "Escapable"
+            },
+            {
               "key.bb.type_name" : "P2"
             }
           ],
           "key.bb.is_override" : false,
           "key.bb.is_spi" : false,
-          "key.bb.swift_declaration" : "extension Dictionary: P2 where Key: Hashable",
+          "key.bb.swift_declaration" : "extension Dictionary: Copyable, Escapable, P2\nwhere Key: Hashable, Value: Copyable, Value: Escapable",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
             {
@@ -3818,8 +3902,14 @@
             }
           ],
           "key.bb.type_module_name" : "Swift",
-          "key.fully_annotated_decl" : "<swift>extension Dictionary : P2 where Key : Hashable<\/swift>",
+          "key.fully_annotated_decl" : "<swift>extension Dictionary : Copyable, Escapable, P2 where Key : Hashable, Value : Copyable, Value : Escapable<\/swift>",
           "key.inheritedtypes" : [
+            {
+              "key.name" : "Copyable"
+            },
+            {
+              "key.name" : "Escapable"
+            },
             {
               "key.name" : "P2"
             }

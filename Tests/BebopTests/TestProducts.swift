@@ -175,7 +175,7 @@ class TestProducts: XCTestCase {
                 XCTFail(binPathResult.failureReport)
                 return ""
             }
-            return binPath
+            return binPath + "/Modules"
         }
 
         try compare([

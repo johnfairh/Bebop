@@ -56,3 +56,5 @@ Int.init(exactly:)|int/2804478-init
 withExtendedLifetime(_:_:)|1539391-withextendedlifetime
 Sendable
 SerialExecutor
+Task
+TaskGroup
