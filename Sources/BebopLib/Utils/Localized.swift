@@ -97,7 +97,7 @@ extension Dictionary: Appendable where Key == String, Value: Appendable & NulIni
     }
 }
 
-extension Localized: Comparable where Key == String, Value: Comparable & NulInitializable {
+extension Localized: @retroactive Comparable where Key == String, Value: Comparable & NulInitializable {
     public static func < (lhs: Self, rhs: Self) -> Bool {
         let defaultTag = Localizations.shared.main.tag
         return lhs.get(defaultTag) < rhs.get(defaultTag)
@@ -159,7 +159,7 @@ extension Localized where Key == String, Value == Markdown {
     /// if available.
     init(localizingFile url: URL) throws {
         self = try Localized<URL>(localizingFile: url)
-            .mapValues { Markdown(try String(contentsOf: $0)) }
+            .mapValues { Markdown(try String(contentsOf: $0, encoding: .utf8)) }
     }
 }
 

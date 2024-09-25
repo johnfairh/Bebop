@@ -236,8 +236,8 @@ struct DocsetVisitor: ItemVisitorProtocol {
 
 struct DocsetDb {
     let db: Connection
-    let id: Expression<Int64>
-    let name, type, path: Expression<String>
+    let id: SQLite.Expression<Int64>
+    let name, type, path: SQLite.Expression<String>
     let table: Table
 
     init(filepath: String) throws {

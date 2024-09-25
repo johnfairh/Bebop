@@ -195,7 +195,7 @@ class TestGatherDecl: XCTestCase {
 
     // Available empire.  or at least a satrapie.
     private func checkAvail(_ available: String, _ expectAvail: [String], _ expectDeprecations: [String], _ expectUnavail: [String] = [],
-                            file: StaticString = #file, line: UInt = #line) {
+                            file: StaticString = #filePath, line: UInt = #line) {
         let builder = SwiftDeclarationBuilder(dict: [:])
         builder.parse(availables: [available])
         XCTAssertEqual(expectAvail, builder.availability, file: file, line: line)
@@ -341,7 +341,7 @@ class TestGatherDecl: XCTestCase {
 
     // Localization
 
-    private func checkCommentLocalizations(_ cliArgs: [String], _ expect: [String], file: StaticString = #file, line: UInt = #line) throws {
+    private func checkCommentLocalizations(_ cliArgs: [String], _ expect: [String], file: StaticString = #filePath, line: UInt = #line) throws {
         TestLogger.install()
         let pipeline = Pipeline()
         let args = ["--products", "files-json", "--module", "SpmSwiftModule2"] + cliArgs

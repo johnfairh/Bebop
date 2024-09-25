@@ -32,7 +32,7 @@ class TestIdentifiers: XCTestCase {
 
     // Sanity check that the built-in escapes work properly
 
-    private func checkURLescaping(_ from: String, via: String, file: StaticString = #file, line: UInt = #line) {
+    private func checkURLescaping(_ from: String, via: String, file: StaticString = #filePath, line: UInt = #line) {
         let escaped = from.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)
         XCTAssertEqual(via, escaped)
         let unescaped = escaped?.removingPercentEncoding

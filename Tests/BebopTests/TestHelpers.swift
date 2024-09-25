@@ -18,7 +18,7 @@ import SourceKittenFramework
 public func AssertThrows<Err, Ret>(_ expression: @autoclosure () throws -> Ret,
                                    _ expectedError: Err.Type,
                                    _ message: String = "",
-                                   file: StaticString = #file,
+                                   file: StaticString = #filePath,
                                    line: UInt = #line) {
     XCTAssertThrowsError(try expression(), message, file: file, line: line, { actualError in
         guard let bbError = actualError as? Err else {
@@ -34,7 +34,7 @@ public func AssertThrows<Err, Ret>(_ expression: @autoclosure () throws -> Ret,
 public func AssertThrows<Ret>(_ expression: @autoclosure () throws -> Ret,
                               _ expectedError: L10n.Localizable,
                               _ message: String = "",
-                              file: StaticString = #file,
+                              file: StaticString = #filePath,
                               line: UInt = #line) {
     XCTAssertThrowsError(try expression(), message, file: file, line: line, { actualError in
         guard let bbError = actualError as? BBError else {
@@ -92,7 +92,7 @@ extension XCTestCase {
     /// where the built pieces are scattered.
     func prepareResourceBundle() {
         #if SWIFT_PACKAGE
-        let bundlePath = URL(fileURLWithPath: #file)
+        let bundlePath = URL(fileURLWithPath: #filePath)
             .deletingLastPathComponent()
             .deletingLastPathComponent()
             .deletingLastPathComponent()
@@ -109,7 +109,7 @@ extension XCTestCase {
     }
 
     var fixturesURL: URL {
-        URL(fileURLWithPath: #file)
+        URL(fileURLWithPath: #filePath)
             .deletingLastPathComponent()
             .appendingPathComponent("Fixtures")
     }

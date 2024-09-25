@@ -204,11 +204,11 @@ class TestOptions: XCTestCase {
     func testPathValidations() throws {
         let opt = PathOpt(s: "p", l: "ppp")
         let ss = SimpleSystem(opt)
-        try ss.parse(["-p", "\(#file)"])
+        try ss.parse(["-p", "\(#filePath)"])
         try opt.checkIsFile()
         AssertThrows(try opt.checkIsDirectory(), .errPathNotDir)
 
-        let directory = URL(fileURLWithPath: #file).deletingLastPathComponent()
+        let directory = URL(fileURLWithPath: #filePath).deletingLastPathComponent()
         try ss.parse(["-p", "\(directory.path)"])
         try opt.checkIsDirectory()
         AssertThrows(try opt.checkIsFile(), .errPathNotFile)
@@ -229,7 +229,7 @@ class TestOptions: XCTestCase {
     func testPathListValidations() throws {
         let opt = PathListOpt(s: "p", l: "ppp")
         let ss = SimpleSystem(opt)
-        try ss.parse(["-p", "\(#file)", "-p", "\(#file)"])
+        try ss.parse(["-p", "\(#filePath)", "-p", "\(#filePath)"])
         try opt.checkAreFiles()
         AssertThrows(try opt.checkAreDirectories(), .errPathNotDir)
     }

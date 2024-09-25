@@ -32,7 +32,7 @@ class TestGlob: XCTestCase {
     }
 
     func testFilesGlob() {
-        let projectRoot = URL(fileURLWithPath: #file)
+        let projectRoot = URL(fileURLWithPath: #filePath)
             .deletingLastPathComponent()
             .deletingLastPathComponent()
             .deletingLastPathComponent()

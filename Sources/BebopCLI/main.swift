@@ -13,7 +13,7 @@ extension CommandLine {
   public static func arguments() -> [String] {
     UnsafeBufferPointer(start: unsafeArgv, count: Int(argc)).lazy
       .compactMap { $0 }
-      .compactMap { String(validatingUTF8: $0) }
+      .compactMap { String(validatingCString: $0) }
   }
 }
 

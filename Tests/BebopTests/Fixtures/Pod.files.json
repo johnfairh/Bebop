@@ -88,6 +88,7 @@
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/Pod\/Sources\/Pod\/Pod.swift",
               "key.fully_annotated_decl" : "<decl.var.instance><syntaxtype.keyword>var<\/syntaxtype.keyword> <decl.name>count<\/decl.name>: <decl.var.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.type><\/decl.var.instance>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.var.instance",
               "key.length" : 14,
               "key.line" : 2,
@@ -99,6 +100,11 @@
               "key.parsed_declaration" : "var count: Int",
               "key.parsed_scope.end" : 2,
               "key.parsed_scope.start" : 2,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:3Pod0A5ClassC"
+                }
+              ],
               "key.reusingastcontext" : false,
               "key.setter_accessibility" : "source.lang.swift.accessibility.internal",
               "key.typename" : "Int",
@@ -134,6 +140,7 @@
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/Pod\/Sources\/Pod\/Pod.swift",
               "key.fully_annotated_decl" : "<decl.function.constructor><syntaxtype.keyword>init<\/syntaxtype.keyword>()<\/decl.function.constructor>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 26,
               "key.line" : 4,
@@ -145,6 +152,11 @@
               "key.parsed_declaration" : "init()",
               "key.parsed_scope.end" : 6,
               "key.parsed_scope.start" : 4,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:3Pod0A5ClassC"
+                }
+              ],
               "key.reusingastcontext" : false,
               "key.typename" : "(PodClass.Type) -> () -> PodClass",
               "key.typeusr" : "$s3Pod0A5ClassCycD",
@@ -190,6 +202,7 @@
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/Pod\/Sources\/Pod\/Pod.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>onlyForIOS<\/decl.name>()<\/decl.function.method.instance>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 20,
               "key.line" : 9,
@@ -201,6 +214,11 @@
               "key.parsed_declaration" : "func onlyForIOS()",
               "key.parsed_scope.end" : 9,
               "key.parsed_scope.start" : 9,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:3Pod0A5ClassC"
+                }
+              ],
               "key.reusingastcontext" : false,
               "key.typename" : "(PodClass) -> () -> ()",
               "key.typeusr" : "$syycD",
@@ -268,6 +286,7 @@
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/Pod\/Sources\/Pod\/Pod.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>globallyDeprecated<\/decl.name>()<\/decl.function.method.instance>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 28,
               "key.line" : 15,
@@ -279,6 +298,11 @@
               "key.parsed_declaration" : "func globallyDeprecated()",
               "key.parsed_scope.end" : 15,
               "key.parsed_scope.start" : 15,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:3Pod0A5ClassC"
+                }
+              ],
               "key.reusingastcontext" : false,
               "key.typename" : "(PodClass) -> () -> ()",
               "key.typeusr" : "$syycD",
@@ -327,6 +351,7 @@
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/Pod\/Sources\/Pod\/Pod.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>iosDeprecated<\/decl.name>()<\/decl.function.method.instance>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 23,
               "key.line" : 18,
@@ -338,6 +363,11 @@
               "key.parsed_declaration" : "func iosDeprecated()",
               "key.parsed_scope.end" : 18,
               "key.parsed_scope.start" : 18,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:3Pod0A5ClassC"
+                }
+              ],
               "key.reusingastcontext" : false,
               "key.typename" : "(PodClass) -> () -> ()",
               "key.typeusr" : "$syycD",
@@ -440,6 +470,7 @@
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/Pod\/Sources\/Pod\/Pod.swift",
               "key.fully_annotated_decl" : "<decl.var.instance><syntaxtype.keyword>var<\/syntaxtype.keyword> <decl.name>count<\/decl.name>: <decl.var.type><ref.struct usr=\"s:Si\">Int<\/ref.struct><\/decl.var.type><\/decl.var.instance>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.var.instance",
               "key.length" : 14,
               "key.line" : 2,
@@ -451,6 +482,11 @@
               "key.parsed_declaration" : "var count: Int",
               "key.parsed_scope.end" : 2,
               "key.parsed_scope.start" : 2,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:3Pod0A5ClassC"
+                }
+              ],
               "key.reusingastcontext" : false,
               "key.setter_accessibility" : "source.lang.swift.accessibility.internal",
               "key.typename" : "Int",
@@ -486,6 +522,7 @@
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/Pod\/Sources\/Pod\/Pod.swift",
               "key.fully_annotated_decl" : "<decl.function.constructor><syntaxtype.keyword>init<\/syntaxtype.keyword>()<\/decl.function.constructor>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 26,
               "key.line" : 4,
@@ -497,6 +534,11 @@
               "key.parsed_declaration" : "init()",
               "key.parsed_scope.end" : 6,
               "key.parsed_scope.start" : 4,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:3Pod0A5ClassC"
+                }
+              ],
               "key.reusingastcontext" : false,
               "key.typename" : "(PodClass.Type) -> () -> PodClass",
               "key.typeusr" : "$s3Pod0A5ClassCycD",
@@ -561,6 +603,7 @@
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/Pod\/Sources\/Pod\/Pod.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>onlyForMacOS<\/decl.name>()<\/decl.function.method.instance>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 22,
               "key.line" : 12,
@@ -572,6 +615,11 @@
               "key.parsed_declaration" : "func onlyForMacOS()",
               "key.parsed_scope.end" : 12,
               "key.parsed_scope.start" : 12,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:3Pod0A5ClassC"
+                }
+              ],
               "key.reusingastcontext" : false,
               "key.typename" : "(PodClass) -> () -> ()",
               "key.typeusr" : "$syycD",
@@ -620,6 +668,7 @@
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/Pod\/Sources\/Pod\/Pod.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>globallyDeprecated<\/decl.name>()<\/decl.function.method.instance>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 28,
               "key.line" : 15,
@@ -631,6 +680,11 @@
               "key.parsed_declaration" : "func globallyDeprecated()",
               "key.parsed_scope.end" : 15,
               "key.parsed_scope.start" : 15,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:3Pod0A5ClassC"
+                }
+              ],
               "key.reusingastcontext" : false,
               "key.typename" : "(PodClass) -> () -> ()",
               "key.typeusr" : "$syycD",
@@ -679,6 +733,7 @@
               "key.decl_lang" : "source.lang.swift",
               "key.filepath" : "\/Users\/johnf\/project\/J2\/Tests\/BebopTests\/Fixtures\/Pod\/Sources\/Pod\/Pod.swift",
               "key.fully_annotated_decl" : "<decl.function.method.instance><syntaxtype.keyword>func<\/syntaxtype.keyword> <decl.name>iosDeprecated<\/decl.name>()<\/decl.function.method.instance>",
+              "key.is_dynamic" : true,
               "key.kind" : "source.lang.swift.decl.function.method.instance",
               "key.length" : 23,
               "key.line" : 18,
@@ -690,6 +745,11 @@
               "key.parsed_declaration" : "func iosDeprecated()",
               "key.parsed_scope.end" : 18,
               "key.parsed_scope.start" : 18,
+              "key.receivers" : [
+                {
+                  "key.usr" : "s:3Pod0A5ClassC"
+                }
+              ],
               "key.reusingastcontext" : false,
               "key.typename" : "(PodClass) -> () -> ()",
               "key.typeusr" : "$syycD",

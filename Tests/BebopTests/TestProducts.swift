@@ -56,7 +56,7 @@ class TestProducts: XCTestCase {
             try actualJson.write(to: fixtureJSONURL)
         }
 
-        var expectedJson = try String(contentsOf: fixtureJSONURL)
+        var expectedJson = try String(contentsOf: fixtureJSONURL, encoding: .utf8)
         if product == "files-json" || product == "decls-json" {
             actualJson = cleanUpJson(file: actualJson)
             expectedJson = cleanUpJson(file: expectedJson)
@@ -70,7 +70,7 @@ class TestProducts: XCTestCase {
     func SKIP_testCleanup() throws {
         let against = "SpmSwiftModule.files.json"
         let fixtureJSONURL = fixturesURL.appendingPathComponent(against)
-        var expected = try String(contentsOf: fixtureJSONURL)
+        var expected = try String(contentsOf: fixtureJSONURL, encoding: .utf8)
         expected = cleanUpJson(file: expected)
         let cleanup = "SpmSwiftModule.files.clean.json"
         let cleanedJSONURL = fixturesURL.appendingPathComponent(cleanup)
@@ -175,7 +175,7 @@ class TestProducts: XCTestCase {
                 XCTFail(binPathResult.failureReport)
                 return ""
             }
-            return binPath
+            return binPath + "/Modules"
         }
 
         try compare([
@@ -292,8 +292,8 @@ class TestProducts: XCTestCase {
         try newFiles.forEach { path in
             let goodFileURL = goodDocsURL.appendingPathComponent(path)
             let newFileURL = newDocsURL.appendingPathComponent(path)
-            let goodVersion = try String(contentsOf: goodFileURL)
-            let newVersion = try String(contentsOf: newFileURL)
+            let goodVersion = try String(contentsOf: goodFileURL, encoding: .utf8)
+            let newVersion = try String(contentsOf: newFileURL, encoding: .utf8)
             if goodVersion != newVersion {
                 XCTFail("Mismatch on \(path).")
                 print("diff \(goodFileURL.path) \(newFileURL.path)")
