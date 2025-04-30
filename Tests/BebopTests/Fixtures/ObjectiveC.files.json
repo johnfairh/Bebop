@@ -1029,7 +1029,7 @@
               "key.bb.name_piece_text" : "ASimpleEnum"
             }
           ],
-          "key.bb.swift_declaration" : "struct ASimpleEnum: Equatable, RawRepresentable",
+          "key.bb.swift_declaration" : "struct ASimpleEnum: Hashable, Equatable, RawRepresentable",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
             {
@@ -1107,7 +1107,7 @@
               "key.usr" : "c:@E@ASimpleEnum@y"
             }
           ],
-          "key.swift_declaration" : "struct ASimpleEnum : Equatable, RawRepresentable",
+          "key.swift_declaration" : "struct ASimpleEnum : Hashable, Equatable, RawRepresentable",
           "key.swift_name" : "ASimpleEnum",
           "key.unavailable_message" : "",
           "key.usr" : "c:@E@ASimpleEnum"

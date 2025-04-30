@@ -826,6 +826,9 @@ final class OptsParser {
 
             // Coerce value into Opt required type
             switch value {
+            case .alias:
+                preconditionFailure("Unexpected 'alias' node") // what is this ...
+
             case .mapping(let mapping):
                 guard tracker.opt.type == .locstring else {
                     throw BBError(.errCfgBadMapping, yamlOptName)

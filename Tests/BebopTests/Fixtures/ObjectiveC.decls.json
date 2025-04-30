@@ -1305,7 +1305,7 @@
     "swift_declaration" : {
       "availability" : [],
       "declaration" : {
-        "text" : "struct ASimpleEnum: Equatable, RawRepresentable"
+        "text" : "struct ASimpleEnum: Hashable, Equatable, RawRepresentable"
       },
       "inherited_types" : [],
       "is_deprecated_everywhere" : false,

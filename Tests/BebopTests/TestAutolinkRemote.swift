@@ -191,15 +191,18 @@ class TestAutolinkRemote: XCTestCase {
     }
 
     func testDoccNio() throws {
-        let url = URL(string: "https://swiftpackageindex.com/apple/swift-nio/main")!
-        let yaml = """
-                   remote_autolink:
-                      - url: \(url.absoluteString)
-                   """
-        let system = try System(yaml: yaml)
-        system.remote.buildIndex()
-
-        XCTAssertLessThanOrEqual(9, system.remote.remoteDocc.modules.count)
+        // Doesn't work on Linux/CI any more and intermittent on macOS (Swift 6.1, April 2025)
+        throw XCTSkip()
+//
+//        let url = URL(string: "https://swiftpackageindex.com/apple/swift-nio/main")!
+//        let yaml = """
+//                   remote_autolink:
+//                      - url: \(url.absoluteString)
+//                   """
+//        let system = try System(yaml: yaml)
+//        system.remote.buildIndex()
+//
+//        XCTAssertLessThanOrEqual(9, system.remote.remoteDocc.modules.count)
     }
 
     // MARK: Jazzy Index
