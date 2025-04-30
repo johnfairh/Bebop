@@ -491,7 +491,7 @@ print(firstWord)
 </code></pre>
 <p>You can retrieve the same slice using the string’s ranged subscript, which takes a range expression.</p>
 <pre><code class="language-swift">if let firstSpace = text.firstIndex(of: &quot; &quot;) {
-    print(text[..&lt;firstSpace]
+    print(text[..&lt;firstSpace])
     // Prints &quot;Buffalo&quot;
 }
 
@@ -718,7 +718,7 @@ if let index = glyphIndex {
 } else {
     print(&quot;No glyphs found!&quot;)
 }
-// Prints &quot;The 'star' image is a glyph.&quot;)
+// Prints &quot;The 'star' image is a glyph.&quot;
 
 </code></pre>
 <p>Note that in this example, <code>imagePaths</code> is subscripted using a dictionary index. Unlike the key-based subscript, the index-based subscript returns the corresponding key-value pair as a non-optional tuple.</p>

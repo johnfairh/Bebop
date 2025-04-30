@@ -457,7 +457,7 @@ You can retrieve the same slice using the string’s ranged subscript, which tak
 
 ``` swift
 if let firstSpace = text.firstIndex(of: " ") {
-    print(text[..<firstSpace]
+    print(text[..<firstSpace])
     // Prints "Buffalo"
 }
 
@@ -711,7 +711,7 @@ if let index = glyphIndex {
 } else {
     print("No glyphs found!")
 }
-// Prints "The 'star' image is a glyph.")
+// Prints "The 'star' image is a glyph."
 
 ```
 
