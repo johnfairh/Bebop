@@ -30,37 +30,28 @@ extension URL {
         if let data = try Self.harness.check(url: self) {
             return data
         }
-
         let state = State()
-        let cv = NSCondition()
 
-        let task = URLSession.shared.dataTask(with: self) { data, response, error in
-            state.data = data
-            state.response = response
-            state.error = error
-
-            cv.lock()
-            state.completed = true
-            cv.signal()
-            cv.unlock()
+        let semaphore = DispatchSemaphore(value: 0)
+        Task {
+            do {
+                let answer = try await URLSession.shared.data(from: self)
+                state.data = answer.0
+                state.response = answer.1
+            } catch {
+                state.error = error
+            }
+            semaphore.signal()
         }
-
-        logDebug("Trying to fetch URL \(self)...")
-        task.resume()
-
-        cv.lock()
-        while !state.completed {
-            cv.wait()
-        }
-        cv.unlock()
+        semaphore.wait()
 
         if let data = state.data,
            let response = state.response as? HTTPURLResponse,
             response.statusCode == 200 {
             return data
         }
-        let rspStr = state.response?.description ?? "??"
         let errStr = state.error.flatMap { String(describing: $0) } ?? "??"
+        let rspStr = state.response?.description ?? "??"
         throw BBError(.errUrlFetch, self, rspStr, errStr)
     }
 
