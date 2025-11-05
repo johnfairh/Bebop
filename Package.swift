@@ -1,4 +1,4 @@
-// swift-tools-version:6.1
+// swift-tools-version:6.2
 
 import PackageDescription
 
@@ -12,7 +12,7 @@ let package = Package(
     .library(name: "BebopLib", targets: ["BebopLib"])
   ],
   dependencies: [
-    .package(url: "https://github.com/jpsim/Yams.git", from: "5.0.5"),
+    .package(url: "https://github.com/jpsim/Yams.git", from: "6.0.0"),
     .package(url: "https://github.com/jpsim/SourceKitten.git",
              from: "0.33.0"),
     .package(url: "https://github.com/johnfairh/GRMustache.swift.git",
@@ -21,7 +21,7 @@ let package = Package(
     .package(url: "https://github.com/drmohundro/SWXMLHash.git",
              .upToNextMinor(from: "7.0.2")),
     .package(url: "https://github.com/swiftlang/swift-syntax.git",
-             exact: "601.0.1"),
+             exact: "602.0.0"),
     .package(url: "https://github.com/johnfairh/Maaku.git",
              branch: "master"),
     .package(url: "https://github.com/ole/SortedArray.git",
@@ -29,7 +29,7 @@ let package = Package(
     .package(url: "https://github.com/stephencelis/SQLite.swift.git",
              .upToNextMinor(from: "0.12.0")),
     .package(url: "https://github.com/swiftlang/swift-format",
-             exact: "601.0.0")
+             exact: "602.0.0")
   ],
   targets: [
     .target(
