@@ -12,7 +12,7 @@ let package = Package(
     .library(name: "BebopLib", targets: ["BebopLib"])
   ],
   dependencies: [
-    .package(url: "https://github.com/jpsim/Yams.git", from: "5.0.5"),
+    .package(url: "https://github.com/jpsim/Yams.git", from: "6.0.0"),
     .package(url: "https://github.com/jpsim/SourceKitten.git",
              from: "0.33.0"),
     .package(url: "https://github.com/johnfairh/GRMustache.swift.git",
