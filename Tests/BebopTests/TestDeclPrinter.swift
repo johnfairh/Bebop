@@ -90,8 +90,8 @@ class TestDeclPrinter: XCTestCase {
         let longFunc = "open override func loadPersistentStores(completionHandler block: @escaping (NSPersistentStoreDescription, Error?) -> ())"
         let expected2 = """
                         open override func loadPersistentStores(
-                            completionHandler block: @escaping (NSPersistentStoreDescription, Error?) ->
-                                Void)
+                            completionHandler block:
+                                @escaping (NSPersistentStoreDescription, Error?) -> Void)
                         """
         XCTAssertEqual(expected2, DeclPrinter.format(swift: longFunc))
     }

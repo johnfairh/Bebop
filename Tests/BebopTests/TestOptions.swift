@@ -327,7 +327,7 @@ class TestOptions: XCTestCase {
         let system = System()
         try system.apply("""
                          {
-                           "aaa": "true",
+                           "aaa": true,
                            "bbb": [ "Fish" ],
                            "color": "red"
                          }

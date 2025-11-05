@@ -3257,11 +3257,14 @@
           "key.bb.inherited_types" : [
             {
               "key.bb.type_name" : "Sendable"
+            },
+            {
+              "key.bb.type_name" : "SendableMetatype"
             }
           ],
           "key.bb.is_override" : false,
           "key.bb.is_spi" : false,
-          "key.bb.swift_declaration" : "extension Nop: Sendable",
+          "key.bb.swift_declaration" : "extension Nop: Sendable, SendableMetatype",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
             {
@@ -3274,10 +3277,13 @@
             }
           ],
           "key.bb.type_module_name" : "SpmSwiftModule",
-          "key.fully_annotated_decl" : "<swift>extension Nop : Sendable<\/swift>",
+          "key.fully_annotated_decl" : "<swift>extension Nop : Sendable, SendableMetatype<\/swift>",
           "key.inheritedtypes" : [
             {
               "key.name" : "Sendable"
+            },
+            {
+              "key.name" : "SendableMetatype"
             }
           ],
           "key.kind" : "source.lang.swift.decl.extension",
@@ -3289,11 +3295,14 @@
           "key.bb.inherited_types" : [
             {
               "key.bb.type_name" : "Sendable"
+            },
+            {
+              "key.bb.type_name" : "SendableMetatype"
             }
           ],
           "key.bb.is_override" : false,
           "key.bb.is_spi" : false,
-          "key.bb.swift_declaration" : "extension PropertyWrapperClient: Sendable",
+          "key.bb.swift_declaration" : "extension PropertyWrapperClient: Sendable, SendableMetatype",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
             {
@@ -3306,10 +3315,13 @@
             }
           ],
           "key.bb.type_module_name" : "SpmSwiftModule",
-          "key.fully_annotated_decl" : "<swift>extension PropertyWrapperClient : Sendable<\/swift>",
+          "key.fully_annotated_decl" : "<swift>extension PropertyWrapperClient : Sendable, SendableMetatype<\/swift>",
           "key.inheritedtypes" : [
             {
               "key.name" : "Sendable"
+            },
+            {
+              "key.name" : "SendableMetatype"
             }
           ],
           "key.kind" : "source.lang.swift.decl.extension",
@@ -3336,11 +3348,14 @@
             },
             {
               "key.bb.type_name" : "Sendable"
+            },
+            {
+              "key.bb.type_name" : "SendableMetatype"
             }
           ],
           "key.bb.is_override" : false,
           "key.bb.is_spi" : false,
-          "key.bb.swift_declaration" : "extension S1: BitwiseCopyable, Copyable, CustomStringConvertible, Escapable, P1,\n    Sendable",
+          "key.bb.swift_declaration" : "extension S1: BitwiseCopyable, Copyable, CustomStringConvertible, Escapable, P1,\n    Sendable, SendableMetatype",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
             {
@@ -3353,7 +3368,7 @@
             }
           ],
           "key.bb.type_module_name" : "SpmSwiftModule",
-          "key.fully_annotated_decl" : "<swift>extension S1 : BitwiseCopyable, Copyable, CustomStringConvertible, Escapable, P1, Sendable<\/swift>",
+          "key.fully_annotated_decl" : "<swift>extension S1 : BitwiseCopyable, Copyable, CustomStringConvertible, Escapable, P1, Sendable, SendableMetatype<\/swift>",
           "key.inheritedtypes" : [
             {
               "key.name" : "BitwiseCopyable"
@@ -3372,6 +3387,9 @@
             },
             {
               "key.name" : "Sendable"
+            },
+            {
+              "key.name" : "SendableMetatype"
             }
           ],
           "key.kind" : "source.lang.swift.decl.extension",
@@ -3492,11 +3510,14 @@
             },
             {
               "key.bb.type_name" : "Sendable"
+            },
+            {
+              "key.bb.type_name" : "SendableMetatype"
             }
           ],
           "key.bb.is_override" : false,
           "key.bb.is_spi" : false,
-          "key.bb.swift_declaration" : "extension S2: BitwiseCopyable, Copyable, Equatable, Escapable, P1, Sendable",
+          "key.bb.swift_declaration" : "extension S2: BitwiseCopyable, Copyable, Equatable, Escapable, P1, Sendable,\n    SendableMetatype",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
             {
@@ -3509,7 +3530,7 @@
             }
           ],
           "key.bb.type_module_name" : "SpmSwiftModule",
-          "key.fully_annotated_decl" : "<swift>extension S2 : BitwiseCopyable, Copyable, Equatable, Escapable, P1, Sendable<\/swift>",
+          "key.fully_annotated_decl" : "<swift>extension S2 : BitwiseCopyable, Copyable, Equatable, Escapable, P1, Sendable, SendableMetatype<\/swift>",
           "key.inheritedtypes" : [
             {
               "key.name" : "BitwiseCopyable"
@@ -3528,6 +3549,9 @@
             },
             {
               "key.name" : "Sendable"
+            },
+            {
+              "key.name" : "SendableMetatype"
             }
           ],
           "key.kind" : "source.lang.swift.decl.extension",
@@ -3542,11 +3566,14 @@
             },
             {
               "key.bb.type_name" : "Sendable"
+            },
+            {
+              "key.bb.type_name" : "SendableMetatype"
             }
           ],
           "key.bb.is_override" : false,
           "key.bb.is_spi" : false,
-          "key.bb.swift_declaration" : "extension T: BitwiseCopyable, Sendable",
+          "key.bb.swift_declaration" : "extension T: BitwiseCopyable, Sendable, SendableMetatype",
           "key.bb.swift_deprecated_everywhere" : false,
           "key.bb.swift_name_pieces" : [
             {
@@ -3559,13 +3586,16 @@
             }
           ],
           "key.bb.type_module_name" : "SpmSwiftModule",
-          "key.fully_annotated_decl" : "<swift>extension T : BitwiseCopyable, Sendable<\/swift>",
+          "key.fully_annotated_decl" : "<swift>extension T : BitwiseCopyable, Sendable, SendableMetatype<\/swift>",
           "key.inheritedtypes" : [
             {
               "key.name" : "BitwiseCopyable"
             },
             {
               "key.name" : "Sendable"
+            },
+            {
+              "key.name" : "SendableMetatype"
             }
           ],
           "key.kind" : "source.lang.swift.decl.extension",
