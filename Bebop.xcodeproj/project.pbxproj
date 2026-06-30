@@ -1474,10 +1474,10 @@
 /* Begin XCRemoteSwiftPackageReference section */
 		021D5CCC2BE6574E00AC6757 /* XCRemoteSwiftPackageReference "SourceKitten" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/jpsim/SourceKitten.git";
+			repositoryURL = "https://github.com/johnfairh/SourceKitten.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.33.0;
+				branch = "jf-swift64-2";
+				kind = branch;
 			};
 		};
 		02486F342646AF2300B8B50E /* XCRemoteSwiftPackageReference "Yams" */ = {
@@ -1532,16 +1532,16 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/swiftlang/swift-syntax.git";
 			requirement = {
-				kind = exactVersion;
-				version = 602.0.0;
+				kind = revision;
+				revision = b90056de69eed23b3fb39ab69cf1780071dfb664;
 			};
 		};
 		02486F4C2646B20700B8B50E /* XCRemoteSwiftPackageReference "swift-format" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/swiftlang/swift-format";
 			requirement = {
-				kind = exactVersion;
-				version = 602.0.0;
+				kind = revision;
+				revision = 528953ec00f24506e3e662603477ebbd62409274;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

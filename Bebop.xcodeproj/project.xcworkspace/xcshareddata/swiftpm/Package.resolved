@@ -1,5 +1,5 @@
 {
-  "originHash" : "3ae1ba3f23b2371f285075590cf57cedcf01c9b89b7c004f213471ff3d2946af",
+  "originHash" : "042d626de4d6b01f5c72ec063613aaf814a5d96f1abd5eba39b84fe28718f702",
   "pins" : [
     {
       "identity" : "grmustache.swift",
@@ -31,10 +31,10 @@
     {
       "identity" : "sourcekitten",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/jpsim/SourceKitten.git",
+      "location" : "https://github.com/johnfairh/SourceKitten.git",
       "state" : {
-        "revision" : "731ffe6a35344a19bab00cdca1c952d5b4fee4d8",
-        "version" : "0.37.2"
+        "branch" : "jf-swift64-2",
+        "revision" : "9fabd351e82415395909520581004e73e57b9b0f"
       }
     },
     {
@@ -51,8 +51,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-argument-parser.git",
       "state" : {
-        "revision" : "cdd0ef3755280949551dc26dee5de9ddeda89f54",
-        "version" : "1.6.2"
+        "revision" : "6a52f3251125d74daf04fcbd5e6f08a75d074382",
+        "version" : "1.8.2"
       }
     },
     {
@@ -61,7 +61,7 @@
       "location" : "https://github.com/swiftlang/swift-cmark.git",
       "state" : {
         "branch" : "gfm",
-        "revision" : "924936d0427cb25a61169739a7660230bffa6ea6"
+        "revision" : "0101bf2c6ff6a218f93150f340fe5ccf76d9f3aa"
       }
     },
     {
@@ -69,17 +69,16 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/swiftlang/swift-format",
       "state" : {
-        "revision" : "62eaad2822b865407b8cde56c36386c00800f7ec",
-        "version" : "602.0.0"
+        "revision" : "528953ec00f24506e3e662603477ebbd62409274"
       }
     },
     {
       "identity" : "swift-markdown",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/apple/swift-markdown.git",
+      "location" : "https://github.com/swiftlang/swift-markdown.git",
       "state" : {
-        "revision" : "7d9a5ce307528578dfa777d505496bd5f544ad94",
-        "version" : "0.7.3"
+        "revision" : "3c6f9523da3a1ec2fd829673e472d95b8097a3b8",
+        "version" : "0.8.0"
       }
     },
     {
@@ -87,8 +86,7 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/swiftlang/swift-syntax.git",
       "state" : {
-        "revision" : "4799286537280063c85a32f09884cfbca301b1a1",
-        "version" : "602.0.0"
+        "revision" : "b90056de69eed23b3fb39ab69cf1780071dfb664"
       }
     },
     {
@@ -105,8 +103,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/jpsim/Yams.git",
       "state" : {
-        "revision" : "51b5127c7fb6ffac106ad6d199aaa33c5024895f",
-        "version" : "6.2.0"
+        "revision" : "a27b21e0c81c5bf42049b897a62aaf387e80f279",
+        "version" : "6.2.2"
       }
     }
   ],
