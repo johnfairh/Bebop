@@ -29,7 +29,10 @@ let package = Package(
     .package(url: "https://github.com/stephencelis/SQLite.swift.git",
              .upToNextMinor(from: "0.12.0")),
     .package(url: "https://github.com/swiftlang/swift-format",
-             exact: "604.0.0-prerelease-2025-12-17")
+             exact: "604.0.0-prerelease-2025-12-17"),
+    .package(url: "https://github.com/swiftlang/swift-subprocess.git",
+             .upToNextMinor(from: "0.5.0"))
+    )
   ],
   targets: [
     .target(
@@ -44,7 +47,8 @@ let package = Package(
         "SortedArray",
         .product(name: "SQLite", package: "SQLite.swift"),
         "libsass",
-        .product(name: "SwiftFormat", package: "swift-format")
+        .product(name: "SwiftFormat", package: "swift-format"),
+        .product(name: "Subprocess", package: "swift-subprocess")
       ],
       exclude: ["Info.plist"]
       ),

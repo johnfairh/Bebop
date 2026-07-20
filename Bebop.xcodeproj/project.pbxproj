@@ -11,6 +11,7 @@
 		020AC6EB2455EE4F00A0E634 /* GenThemesJazzy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020AC6EA2455EE4F00A0E634 /* GenThemesJazzy.swift */; };
 		020AC6ED2457483A00A0E634 /* Sass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020AC6EC2457483A00A0E634 /* Sass.swift */; };
 		020AC6EF2457513600A0E634 /* TestSass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020AC6EE2457513600A0E634 /* TestSass.swift */; };
+		0212ED33300E03D600C97BA3 /* Subprocess in Frameworks */ = {isa = PBXBuildFile; productRef = 0212ED32300E03D600C97BA3 /* Subprocess */; };
 		021D5CCE2BE6574E00AC6757 /* SourceKittenFramework in Frameworks */ = {isa = PBXBuildFile; productRef = 021D5CCD2BE6574E00AC6757 /* SourceKittenFramework */; };
 		021F71C62451BDE600B73472 /* extensions in Resources */ = {isa = PBXBuildFile; fileRef = 021F71C42451BD9800B73472 /* extensions */; };
 		0225D990242D1B75005FF4A2 /* DefLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0225D98F242D1B75005FF4A2 /* DefLocation.swift */; };
@@ -377,6 +378,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02486F482646B0AF00B8B50E /* SQLite in Frameworks */,
+				0212ED33300E03D600C97BA3 /* Subprocess in Frameworks */,
 				02486F452646B07000B8B50E /* SortedArray in Frameworks */,
 				02486F4B2646B11D00B8B50E /* SwiftSyntax in Frameworks */,
 				021D5CCE2BE6574E00AC6757 /* SourceKittenFramework in Frameworks */,
@@ -756,6 +758,7 @@
 				02486F4A2646B11D00B8B50E /* SwiftSyntax */,
 				02486F4D2646B20700B8B50E /* SwiftFormat */,
 				021D5CCD2BE6574E00AC6757 /* SourceKittenFramework */,
+				0212ED32300E03D600C97BA3 /* Subprocess */,
 			);
 			productName = BebopLib;
 			productReference = 02C24012239A6F0700518764 /* BebopLib.framework */;
@@ -844,6 +847,7 @@
 				02486F492646B11D00B8B50E /* XCRemoteSwiftPackageReference "swift-syntax" */,
 				02486F4C2646B20700B8B50E /* XCRemoteSwiftPackageReference "swift-format" */,
 				021D5CCC2BE6574E00AC6757 /* XCRemoteSwiftPackageReference "SourceKitten" */,
+				0212ED31300E03D600C97BA3 /* XCRemoteSwiftPackageReference "swift-subprocess" */,
 			);
 			productRefGroup = 02C24013239A6F0700518764 /* Products */;
 			projectDirPath = "";
@@ -1472,6 +1476,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		0212ED31300E03D600C97BA3 /* XCRemoteSwiftPackageReference "swift-subprocess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/swiftlang/swift-subprocess.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.0;
+			};
+		};
 		021D5CCC2BE6574E00AC6757 /* XCRemoteSwiftPackageReference "SourceKitten" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/johnfairh/SourceKitten.git";
@@ -1547,6 +1559,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0212ED32300E03D600C97BA3 /* Subprocess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0212ED31300E03D600C97BA3 /* XCRemoteSwiftPackageReference "swift-subprocess" */;
+			productName = Subprocess;
+		};
 		021D5CCD2BE6574E00AC6757 /* SourceKittenFramework */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 021D5CCC2BE6574E00AC6757 /* XCRemoteSwiftPackageReference "SourceKitten" */;
