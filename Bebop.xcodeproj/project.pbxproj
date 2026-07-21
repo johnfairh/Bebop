@@ -1488,7 +1488,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/johnfairh/SourceKitten.git";
 			requirement = {
-				branch = "jf-swift64-2";
+				branch = "jf-swift64-msgpack";
 				kind = branch;
 			};
 		};

@@ -14,7 +14,7 @@ let package = Package(
   dependencies: [
     .package(url: "https://github.com/jpsim/Yams.git", from: "6.0.0"),
     .package(url: "https://github.com/johnfairh/SourceKitten.git",
-             branch: "jf-swift64-2"),
+             branch: "jf-swift64-msgpack"),
     .package(url: "https://github.com/johnfairh/GRMustache.swift.git",
              from: "14.0.1"),
     // Duplicate SourceKitten's requirement for general sanity
@@ -32,7 +32,6 @@ let package = Package(
              exact: "604.0.0-prerelease-2025-12-17"),
     .package(url: "https://github.com/swiftlang/swift-subprocess.git",
              .upToNextMinor(from: "0.5.0"))
-    )
   ],
   targets: [
     .target(

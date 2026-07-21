@@ -1,5 +1,5 @@
 {
-  "originHash" : "5eccf5aa9d1c3c61ff9a99d27b4fbc045fdbba626851eed32a3142c848695c98",
+  "originHash" : "b9c15059a4639db609385c34a9c90732b4458a9c84dc03ff7405823e627f61ef",
   "pins" : [
     {
       "identity" : "grmustache.swift",
@@ -33,8 +33,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/johnfairh/SourceKitten.git",
       "state" : {
-        "branch" : "jf-swift64-2",
-        "revision" : "9fabd351e82415395909520581004e73e57b9b0f"
+        "branch" : "jf-swift64-msgpack",
+        "revision" : "16eba595110075b23a845d4de04bf154a24bb3da"
       }
     },
     {
