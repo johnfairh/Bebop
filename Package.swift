@@ -1,11 +1,11 @@
-// swift-tools-version:6.2
+// swift-tools-version:6.4
 
 import PackageDescription
 
 let package = Package(
   name: "Bebop",
   platforms: [
-    .macOS("15.0")
+    .macOS("27.0")
   ],
   products: [
     .executable(name: "bebop", targets: ["BebopCLI"]),
@@ -13,15 +13,15 @@ let package = Package(
   ],
   dependencies: [
     .package(url: "https://github.com/jpsim/Yams.git", from: "6.0.0"),
-    .package(url: "https://github.com/jpsim/SourceKitten.git",
-             from: "0.33.0"),
+    .package(url: "https://github.com/johnfairh/SourceKitten.git",
+             branch: "jf-swift64-msgpack"),
     .package(url: "https://github.com/johnfairh/GRMustache.swift.git",
              from: "14.0.1"),
     // Duplicate SourceKitten's requirement for general sanity
     .package(url: "https://github.com/drmohundro/SWXMLHash.git",
              .upToNextMinor(from: "7.0.2")),
     .package(url: "https://github.com/swiftlang/swift-syntax.git",
-             exact: "602.0.0"),
+             exact: "604.0.0-prerelease-2026-06-05"),
     .package(url: "https://github.com/johnfairh/Maaku.git",
              branch: "master"),
     .package(url: "https://github.com/ole/SortedArray.git",
@@ -29,7 +29,9 @@ let package = Package(
     .package(url: "https://github.com/stephencelis/SQLite.swift.git",
              .upToNextMinor(from: "0.12.0")),
     .package(url: "https://github.com/swiftlang/swift-format",
-             exact: "602.0.0")
+             exact: "604.0.0-prerelease-2025-12-17"),
+    .package(url: "https://github.com/swiftlang/swift-subprocess.git",
+             .upToNextMinor(from: "0.5.0"))
   ],
   targets: [
     .target(
@@ -44,7 +46,8 @@ let package = Package(
         "SortedArray",
         .product(name: "SQLite", package: "SQLite.swift"),
         "libsass",
-        .product(name: "SwiftFormat", package: "swift-format")
+        .product(name: "SwiftFormat", package: "swift-format"),
+        .product(name: "Subprocess", package: "swift-subprocess")
       ],
       exclude: ["Info.plist"]
       ),

@@ -111,14 +111,14 @@ class TestProducts: XCTestCase {
         throw XCTSkip() // Float16 grumble grumble
         #endif
         try compareSwift(product: "files-json",
-                         cliArgs: ["--no-apple-autolink"],
+                         cliArgs: ["--no-apple-autolink", "--modules", "SpmSwiftModule"],
                          against: "SpmSwiftModule.files.json")
     }
 
 
     func testDeclsJsonSwift() throws {
         try compareSwift(product: "decls-json",
-                         cliArgs: ["--min-acl=private", "--no-apple-autolink"],
+                         cliArgs: ["--min-acl=private", "--no-apple-autolink", "--modules", "SpmSwiftModule"],
                          against: "SpmSwiftModule.decls.json")
     }
 
@@ -175,7 +175,7 @@ class TestProducts: XCTestCase {
                 XCTFail(binPathResult.failureReport)
                 return ""
             }
-            return binPath + "/Modules"
+            return binPath
         }
 
         try compare([
@@ -214,7 +214,8 @@ class TestProducts: XCTestCase {
 
     func testSiteGenSwift() throws {
         try compareSwift(product: "docs-json",
-                         cliArgs: ["--min-acl=private", "--no-apple-autolink"],
+                         cliArgs: ["--min-acl=private", "--no-apple-autolink",
+                                  "--modules", "SpmSwiftModule"],
                          against: "SpmSwiftModule.docs.json")
     }
 

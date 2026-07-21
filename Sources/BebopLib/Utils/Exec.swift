@@ -9,6 +9,8 @@
 
 import Foundation
 
+import Subprocess
+
 /// Namespace for utilities to execute a child process.
 enum Exec {
     /// How to handle stderr output from the child process.
@@ -29,14 +31,9 @@ enum Exec {
         let arguments: [String]
         /// The process's exit status.
         let terminationStatus: Int32
-        /// The data from stdout and optionally stderr.
-        let data: Data
-        /// The `data` reinterpreted as a string with whitespace trimmed; `nil` for the empty string.
-        var string: String? {
-            let encoded = String(data: data, encoding: .utf8) ?? ""
-            let trimmed = encoded.trimmingCharacters(in: .whitespacesAndNewlines)
-            return trimmed.isEmpty ? nil : trimmed
-        }
+        /// The data from stdout and optionally stderr with whitespace trimmed.
+        /// `nil` for the empty string
+        let string: String?
         /// The `data` reinterpreted as a string but intercepted to `nil` if the command actually failed
         var successString: String? {
             guard terminationStatus == 0 else {
@@ -72,7 +69,14 @@ enum Exec {
                     _ arguments: String...,
                     currentDirectory: String = FileManager.default.currentDirectoryPath,
                     stderr: Stderr = .inherit) -> Results {
-        return run(command, arguments, currentDirectory: currentDirectory, stderr: stderr)
+        switch stderr {
+        case .discard:
+            runSubprocess(command, arguments, currentDirectory: currentDirectory, stderr: .discarded)
+        case .inherit:
+            runSubprocess(command, arguments, currentDirectory: currentDirectory, stderr: .currentStandardError)
+        case .merge:
+            runSubprocess(command, arguments, currentDirectory: currentDirectory, stderr: .combinedWithOutput)
+        }
     }
 
     /**
@@ -89,50 +93,61 @@ enum Exec {
                      _ arguments: [String] = [],
                      currentDirectory: String = FileManager.default.currentDirectoryPath,
                      stderr: Stderr = .inherit) -> Results {
-        let process = Process()
-        process.arguments = arguments
-
-        let pipe = Pipe()
-        process.standardOutput = pipe
-
-        switch stderr {
-        case .discard:
-            // FileHandle.nullDevice does not work here, as it consists of an invalid file descriptor,
-            // causing process.launch() to abort with an EBADF.
-            process.standardError = FileHandle(forWritingAtPath: "/dev/null")!
-        case .merge:
-            process.standardError = pipe
-        case .inherit:
-            break
-        }
-
-        do {
-#if canImport(Darwin)
-            if #available(macOS 10.13, *) {
-                process.executableURL = URL(fileURLWithPath: command)
-                process.currentDirectoryURL = URL(fileURLWithPath: currentDirectory)
-                try process.run()
-            } else {
-                process.launchPath = command
-                process.currentDirectoryPath = currentDirectory
-                process.launch()
-            }
-#elseif compiler(>=5)
-            process.executableURL = URL(fileURLWithPath: command)
-            process.currentDirectoryURL = URL(fileURLWithPath: currentDirectory)
-            try process.run()
-#else
-            process.launchPath = command
-            process.currentDirectoryPath = currentDirectory
-            process.launch()
-#endif
-        } catch {
-            return Results(command: command, arguments: arguments, terminationStatus: -1, data: Data())
-        }
-
-        let file = pipe.fileHandleForReading
-        let data = file.readDataToEndOfFile()
-        process.waitUntilExit()
-        return Results(command: command, arguments: arguments, terminationStatus: process.terminationStatus, data: data)
+         switch stderr {
+         case .discard:
+             runSubprocess(command, arguments, currentDirectory: currentDirectory, stderr: .discarded)
+         case .inherit:
+             runSubprocess(command, arguments, currentDirectory: currentDirectory, stderr: .currentStandardError)
+         case .merge:
+             runSubprocess(command, arguments, currentDirectory: currentDirectory, stderr: .combinedWithOutput)
+         }
     }
+
+    private final class AState: @unchecked Sendable {
+        var results: Results?
+        init() {
+            results = nil
+        }
+    }
+
+    private static func runSubprocess<StdErr: Subprocess.ErrorOutputProtocol>(
+        _ command: String,
+        _ arguments: [String] = [],
+        currentDirectory: String = FileManager.default.currentDirectoryPath,
+        stderr: StdErr = .currentStandardError) -> Results {
+
+        let state = AState()
+        let semaphore = DispatchSemaphore(value: 0)
+
+        Task {
+            do {
+                let result = try await Subprocess.run(
+                    .path(.init(command)),
+                    arguments: .init(arguments),
+                    workingDirectory: .init(currentDirectory),
+                    output: .string(limit: 1000000), /* what the fuck */
+                    error: stderr
+                )
+
+                switch result.terminationStatus {
+                case .exited(let terminationStatus):
+                    let strResult = result.standardOutput.map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+                    state.results = Results(command: command,
+                                            arguments: arguments,
+                                            terminationStatus: terminationStatus,
+                                            string: strResult.flatMap { $0.isEmpty ? nil : $0 })
+                case .signaled(let signal):
+                    logError("Dodgy subprocess exited-on-signal: \(command) \(signal)")
+                    state.results = Results(command: command, arguments: arguments, terminationStatus: -2, string: nil)
+                }
+            } catch {
+                logError("Dodgy Subprocess error: \(command) \(error)")
+                state.results = Results(command: command, arguments: arguments, terminationStatus: -1, string: nil)
+            }
+            semaphore.signal()
+        }
+        semaphore.wait()
+
+        return state.results!
+   }
 }

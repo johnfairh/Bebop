@@ -5897,22 +5897,13 @@
               "key.annotated_decl" : "<RelatedName usr=\"s:s7UInt128V1poiyA2B_ABtFZ\">+ (_: UInt128, _: UInt128) -&gt; UInt128<\/RelatedName>"
             },
             {
-              "key.annotated_decl" : "<RelatedName usr=\"s:s4SIMDPsSF6ScalarRpzrlE1poiyxx_xtFZ\">+ (_: Self, _: Self) -&gt; Self<\/RelatedName>"
-            },
-            {
-              "key.annotated_decl" : "<RelatedName usr=\"s:s4SIMDPsSF6ScalarRpzrlE1poiyxAD_xtFZ\">+ (_: Self.Scalar, _: Self) -&gt; Self<\/RelatedName>"
-            },
-            {
-              "key.annotated_decl" : "<RelatedName usr=\"s:s4SIMDPsSF6ScalarRpzrlE1poiyxx_ADtFZ\">+ (_: Self, _: Self.Scalar) -&gt; Self<\/RelatedName>"
+              "key.annotated_decl" : "<RelatedName usr=\"s:s7Float16V1poiyA2B_ABtFZ\">+ (_: Float16, _: Float16) -&gt; Float16<\/RelatedName>"
             },
             {
               "key.annotated_decl" : "<RelatedName usr=\"s:Sf1poiyS2f_SftFZ\">+ (_: Float, _: Float) -&gt; Float<\/RelatedName>"
             },
             {
               "key.annotated_decl" : "<RelatedName usr=\"s:Sd1poiyS2d_SdtFZ\">+ (_: Double, _: Double) -&gt; Double<\/RelatedName>"
-            },
-            {
-              "key.annotated_decl" : "<RelatedName usr=\"s:s7Float80V1poiyA2B_ABtFZ\">+ (_: Float80, _: Float80) -&gt; Float80<\/RelatedName>"
             },
             {
               "key.annotated_decl" : "<RelatedName usr=\"s:s5UInt8V1poiyA2B_ABtFZ\">+ (_: UInt8, _: UInt8) -&gt; UInt8<\/RelatedName>"
@@ -5943,6 +5934,15 @@
             },
             {
               "key.annotated_decl" : "<RelatedName usr=\"s:Si1poiyS2i_SitFZ\">+ (_: Int, _: Int) -&gt; Int<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:s4SIMDPsSF6ScalarRpzrlE1poiyxx_xtFZ\">+ (_: Self, _: Self) -&gt; Self<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:s4SIMDPsSF6ScalarRpzrlE1poiyxAD_xtFZ\">+ (_: Self.Scalar, _: Self) -&gt; Self<\/RelatedName>"
+            },
+            {
+              "key.annotated_decl" : "<RelatedName usr=\"s:s4SIMDPsSF6ScalarRpzrlE1poiyxx_ADtFZ\">+ (_: Self, _: Self.Scalar) -&gt; Self<\/RelatedName>"
             },
             {
               "key.annotated_decl" : "<RelatedName usr=\"s:12_Concurrency15ContinuousClockV7InstantV1poiyA2E_s8DurationVtFZ\">+ (_: ContinuousClock.Instant, _: Duration) -&gt; ContinuousClock.Instant<\/RelatedName>"
