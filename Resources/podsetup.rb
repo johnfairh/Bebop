@@ -17,6 +17,34 @@ require 'cocoapods'
 require 'pathname'
 require 'json'
 
+
+# CocoaPods vs. JSON workarounds
+#
+# Time to delete the podspec path, end of an era
+
+module JSON
+  class << self
+    # Store a reference to the original json gem's parse method
+    alias real_parse parse
+    alias real_generate generate
+
+    def parse(source, **opts)
+      opts = opts.dup
+      opts.delete(:quirks_mode)
+      real_parse(source, **opts)
+    end
+
+    def generate(source, **opts)
+      opts = opts.dup
+      opts.delete(:quirks_mode)
+      real_generate(source, **opts)
+    end
+  end
+end
+
+#
+# End workarounds
+
 if ARGV.length != 1
   warn "Expected one arg, got #{ARGV}"
   exit(1)

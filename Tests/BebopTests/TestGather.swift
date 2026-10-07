@@ -101,7 +101,7 @@ class TestGather: XCTestCase {
     func testSpmSwift() throws {
         let swiftTestURL = fixturesURL.appendingPathComponent("SpmSwiftPackage")
         let system = System()
-        try system.config.processOptions(cliOpts: ["--source-directory", swiftTestURL.path])
+        try system.config.processOptions(cliOpts: ["--source-directory", swiftTestURL.path, "--module", "SpmSwiftModule"])
         let gatherModules = try system.gather.gather()
         let json = gatherModules.json
 

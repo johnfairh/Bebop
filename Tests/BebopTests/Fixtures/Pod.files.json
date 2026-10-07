@@ -20,7 +20,7 @@
           ],
           "key.bb.availabilities" : [
             {
-              "key.bb.availability" : "iOS 11.0+"
+              "key.bb.availability" : "iOS 15.0+"
             }
           ],
           "key.bb.is_override" : false,
@@ -62,7 +62,7 @@
               "key.annotated_decl" : "<Declaration>var count: <Type usr=\"s:Si\">Int<\/Type><\/Declaration>",
               "key.bb.availabilities" : [
                 {
-                  "key.bb.availability" : "iOS 11.0+"
+                  "key.bb.availability" : "iOS 15.0+"
                 }
               ],
               "key.bb.is_override" : false,
@@ -116,7 +116,7 @@
               "key.annotated_decl" : "<Declaration>init()<\/Declaration>",
               "key.bb.availabilities" : [
                 {
-                  "key.bb.availability" : "iOS 11.0+"
+                  "key.bb.availability" : "iOS 15.0+"
                 }
               ],
               "key.bb.is_override" : false,
@@ -174,7 +174,7 @@
               ],
               "key.bb.availabilities" : [
                 {
-                  "key.bb.availability" : "iOS 11.0+"
+                  "key.bb.availability" : "iOS 15.0+"
                 }
               ],
               "key.bb.is_override" : false,
@@ -255,7 +255,7 @@
               ],
               "key.bb.availabilities" : [
                 {
-                  "key.bb.availability" : "iOS 11.0+"
+                  "key.bb.availability" : "iOS 15.0+"
                 }
               ],
               "key.bb.is_override" : false,
@@ -320,7 +320,7 @@
               ],
               "key.bb.availabilities" : [
                 {
-                  "key.bb.availability" : "iOS 11.0+"
+                  "key.bb.availability" : "iOS 15.0+"
                 }
               ],
               "key.bb.is_override" : false,
@@ -402,7 +402,7 @@
           ],
           "key.bb.availabilities" : [
             {
-              "key.bb.availability" : "macOS 12.0+"
+              "key.bb.availability" : "macOS 27.0+"
             }
           ],
           "key.bb.is_override" : false,
@@ -444,7 +444,7 @@
               "key.annotated_decl" : "<Declaration>var count: <Type usr=\"s:Si\">Int<\/Type><\/Declaration>",
               "key.bb.availabilities" : [
                 {
-                  "key.bb.availability" : "macOS 12.0+"
+                  "key.bb.availability" : "macOS 27.0+"
                 }
               ],
               "key.bb.is_override" : false,
@@ -498,7 +498,7 @@
               "key.annotated_decl" : "<Declaration>init()<\/Declaration>",
               "key.bb.availabilities" : [
                 {
-                  "key.bb.availability" : "macOS 12.0+"
+                  "key.bb.availability" : "macOS 27.0+"
                 }
               ],
               "key.bb.is_override" : false,
@@ -575,7 +575,7 @@
               ],
               "key.bb.availabilities" : [
                 {
-                  "key.bb.availability" : "macOS 12.0+"
+                  "key.bb.availability" : "macOS 27.0+"
                 }
               ],
               "key.bb.is_override" : false,
@@ -637,7 +637,7 @@
               ],
               "key.bb.availabilities" : [
                 {
-                  "key.bb.availability" : "macOS 12.0+"
+                  "key.bb.availability" : "macOS 27.0+"
                 }
               ],
               "key.bb.is_override" : false,
@@ -702,7 +702,7 @@
               ],
               "key.bb.availabilities" : [
                 {
-                  "key.bb.availability" : "macOS 12.0+"
+                  "key.bb.availability" : "macOS 27.0+"
                 }
               ],
               "key.bb.is_override" : false,

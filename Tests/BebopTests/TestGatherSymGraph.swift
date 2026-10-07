@@ -61,7 +61,7 @@ class TestGatherSymGraph: XCTestCase {
                 XCTFail(binPathResult.failureReport)
                 return ""
             }
-            return binPath + "/Modules"
+            return binPath
         }
 
         let srcDirPasses = try System().run([
