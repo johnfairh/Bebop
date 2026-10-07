@@ -2,6 +2,15 @@
   "originHash" : "57234272eea5818cab5c65108519c2e49d62d8aa2ba915a8b4a57b2e2e244492",
   "pins" : [
     {
+      "identity" : "csqlite",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/stephencelis/CSQLite.git",
+      "state" : {
+        "revision" : "9106e983d5e3d5149ee35281ec089484b0def018",
+        "version" : "0.0.3"
+      }
+    },
+    {
       "identity" : "grmustache.swift",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/johnfairh/GRMustache.swift.git",
@@ -34,7 +43,7 @@
       "location" : "https://github.com/johnfairh/SourceKitten.git",
       "state" : {
         "branch" : "jf-swift64-msgpack",
-        "revision" : "16eba595110075b23a845d4de04bf154a24bb3da"
+        "revision" : "c063fd4511cb3c729ca63bce5f02d92b76f6454e"
       }
     },
     {
@@ -61,7 +70,7 @@
       "location" : "https://github.com/swiftlang/swift-cmark.git",
       "state" : {
         "branch" : "gfm",
-        "revision" : "0101bf2c6ff6a218f93150f340fe5ccf76d9f3aa"
+        "revision" : "0c8947bbd58c491c54aae114aca40621cddc8357"
       }
     },
     {
@@ -78,8 +87,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/swiftlang/swift-markdown.git",
       "state" : {
-        "revision" : "3c6f9523da3a1ec2fd829673e472d95b8097a3b8",
-        "version" : "0.8.0"
+        "revision" : "25cb61d3482054b09ae76ca4f281b1bfe7fe5a43",
+        "version" : "0.9.0"
       }
     },
     {
@@ -105,8 +114,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-system",
       "state" : {
-        "revision" : "50688cacbd41d547e9eb9f7a213542340b7c442b",
-        "version" : "1.7.5"
+        "revision" : "869129b7bf4ecc57b97d0193ad29690ca2134750",
+        "version" : "1.8.1"
       }
     },
     {

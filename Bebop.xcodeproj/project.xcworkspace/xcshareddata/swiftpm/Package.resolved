@@ -34,7 +34,7 @@
       "location" : "https://github.com/johnfairh/SourceKitten.git",
       "state" : {
         "branch" : "jf-swift64-msgpack",
-        "revision" : "16eba595110075b23a845d4de04bf154a24bb3da"
+        "revision" : "c063fd4511cb3c729ca63bce5f02d92b76f6454e"
       }
     },
     {
@@ -61,7 +61,7 @@
       "location" : "https://github.com/swiftlang/swift-cmark.git",
       "state" : {
         "branch" : "gfm",
-        "revision" : "0101bf2c6ff6a218f93150f340fe5ccf76d9f3aa"
+        "revision" : "0c8947bbd58c491c54aae114aca40621cddc8357"
       }
     },
     {
@@ -103,8 +103,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-system",
       "state" : {
-        "revision" : "b5544ba79a70a0cb3563e75bf26dc198d6b40ed3",
-        "version" : "1.7.4"
+        "revision" : "869129b7bf4ecc57b97d0193ad29690ca2134750",
+        "version" : "1.8.1"
       }
     },
     {
